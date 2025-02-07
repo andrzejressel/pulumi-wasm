@@ -49,34 +49,34 @@
 /// $ pulumi import aws:cloudwatch/logDataProtectionPolicy:LogDataProtectionPolicy example my-log-group
 /// ```
 pub mod log_data_protection_policy {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct LogDataProtectionPolicyArgs {
         /// The name of the log group under which the log stream is to be created.
         #[builder(into)]
-        pub log_group_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub log_group_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Specifies the data protection policy in JSON. Read more at [Data protection policy syntax](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/mask-sensitive-log-data-start.html#mask-sensitive-log-data-policysyntax).
         #[builder(into)]
-        pub policy_document: pulumi_wasm_rust::InputOrOutput<String>,
+        pub policy_document: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct LogDataProtectionPolicyResult {
         /// The name of the log group under which the log stream is to be created.
-        pub log_group_name: pulumi_wasm_rust::Output<String>,
+        pub log_group_name: pulumi_gestalt_rust::Output<String>,
         /// Specifies the data protection policy in JSON. Read more at [Data protection policy syntax](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/mask-sensitive-log-data-start.html#mask-sensitive-log-data-policysyntax).
-        pub policy_document: pulumi_wasm_rust::Output<String>,
+        pub policy_document: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: LogDataProtectionPolicyArgs,
     ) -> LogDataProtectionPolicyResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let log_group_name_binding = args.log_group_name.get_output(context).get_inner();
         let policy_document_binding = args
@@ -101,10 +101,10 @@ pub mod log_data_protection_policy {
         };
         let o = register_interface::register(context.get_inner(), &request);
         LogDataProtectionPolicyResult {
-            log_group_name: pulumi_wasm_rust::__private::into_domain(
+            log_group_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("logGroupName"),
             ),
-            policy_document: pulumi_wasm_rust::__private::into_domain(
+            policy_document: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("policyDocument"),
             ),
         }

@@ -1,35 +1,35 @@
 pub mod get_voices {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct GetVoicesArgs {
         /// Engine used by Amazon Polly when processing input text for speech synthesis. Valid values are `standard`, `neural`, and `long-form`.
         #[builder(into, default)]
-        pub engine: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub engine: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Whether to return any bilingual voices that use the specified language as an additional language.
         #[builder(into, default)]
-        pub include_additional_language_codes: pulumi_wasm_rust::InputOrOutput<
+        pub include_additional_language_codes: pulumi_gestalt_rust::InputOrOutput<
             Option<bool>,
         >,
         /// Language identification tag for filtering the list of voices returned. If not specified, all available voices are returned.
         #[builder(into, default)]
-        pub language_code: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub language_code: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// List of voices with their properties. See `voices` Attribute Reference below.
         #[builder(into, default)]
-        pub voices: pulumi_wasm_rust::InputOrOutput<
+        pub voices: pulumi_gestalt_rust::InputOrOutput<
             Option<Vec<super::super::super::types::polly::GetVoicesVoice>>,
         >,
     }
     #[allow(dead_code)]
     pub struct GetVoicesResult {
-        pub engine: pulumi_wasm_rust::Output<Option<String>>,
+        pub engine: pulumi_gestalt_rust::Output<Option<String>>,
         /// Amazon Polly assigned voice ID.
-        pub id: pulumi_wasm_rust::Output<String>,
-        pub include_additional_language_codes: pulumi_wasm_rust::Output<Option<bool>>,
+        pub id: pulumi_gestalt_rust::Output<String>,
+        pub include_additional_language_codes: pulumi_gestalt_rust::Output<Option<bool>>,
         /// Language code of the voice.
-        pub language_code: pulumi_wasm_rust::Output<Option<String>>,
+        pub language_code: pulumi_gestalt_rust::Output<Option<String>>,
         /// List of voices with their properties. See `voices` Attribute Reference below.
-        pub voices: pulumi_wasm_rust::Output<
+        pub voices: pulumi_gestalt_rust::Output<
             Option<Vec<super::super::super::types::polly::GetVoicesVoice>>,
         >,
     }
@@ -38,10 +38,10 @@ pub mod get_voices {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         args: GetVoicesArgs,
     ) -> GetVoicesResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let engine_binding = args.engine.get_output(context).get_inner();
         let include_additional_language_codes_binding = args
@@ -74,15 +74,19 @@ pub mod get_voices {
         };
         let o = register_interface::invoke(context.get_inner(), &request);
         GetVoicesResult {
-            engine: pulumi_wasm_rust::__private::into_domain(o.extract_field("engine")),
-            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
-            include_additional_language_codes: pulumi_wasm_rust::__private::into_domain(
+            engine: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("engine"),
+            ),
+            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
+            include_additional_language_codes: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("includeAdditionalLanguageCodes"),
             ),
-            language_code: pulumi_wasm_rust::__private::into_domain(
+            language_code: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("languageCode"),
             ),
-            voices: pulumi_wasm_rust::__private::into_domain(o.extract_field("voices")),
+            voices: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("voices"),
+            ),
         }
     }
 }

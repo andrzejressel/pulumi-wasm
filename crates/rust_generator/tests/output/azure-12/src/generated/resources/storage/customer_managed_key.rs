@@ -110,64 +110,66 @@
 /// ```
 ///
 pub mod customer_managed_key {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct CustomerManagedKeyArgs {
         /// The Client ID of the multi-tenant application to be used in conjunction with the user-assigned identity for cross-tenant customer-managed-keys server-side encryption on the storage account.
         #[builder(into, default)]
-        pub federated_identity_client_id: pulumi_wasm_rust::InputOrOutput<
+        pub federated_identity_client_id: pulumi_gestalt_rust::InputOrOutput<
             Option<String>,
         >,
         /// The name of Key Vault Key.
         #[builder(into)]
-        pub key_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub key_name: pulumi_gestalt_rust::InputOrOutput<String>,
         #[builder(into, default)]
-        pub key_vault_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub key_vault_id: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// URI pointing at the Key Vault. Required when using `federated_identity_client_id`. Exactly one of `managed_hsm_key_id`, `key_vault_id`, or `key_vault_uri` must be specified.
         #[builder(into, default)]
-        pub key_vault_uri: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub key_vault_uri: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The version of Key Vault Key. Remove or omit this argument to enable Automatic Key Rotation.
         #[builder(into, default)]
-        pub key_version: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub key_version: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Key ID of a key in a managed HSM.  Exactly one of `managed_hsm_key_id`, `key_vault_id`, or `key_vault_uri` must be specified.
         #[builder(into, default)]
-        pub managed_hsm_key_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub managed_hsm_key_id: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The ID of the Storage Account. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub storage_account_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub storage_account_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The ID of a user assigned identity.
         #[builder(into, default)]
-        pub user_assigned_identity_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub user_assigned_identity_id: pulumi_gestalt_rust::InputOrOutput<
+            Option<String>,
+        >,
     }
     #[allow(dead_code)]
     pub struct CustomerManagedKeyResult {
         /// The Client ID of the multi-tenant application to be used in conjunction with the user-assigned identity for cross-tenant customer-managed-keys server-side encryption on the storage account.
-        pub federated_identity_client_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub federated_identity_client_id: pulumi_gestalt_rust::Output<Option<String>>,
         /// The name of Key Vault Key.
-        pub key_name: pulumi_wasm_rust::Output<String>,
-        pub key_vault_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub key_name: pulumi_gestalt_rust::Output<String>,
+        pub key_vault_id: pulumi_gestalt_rust::Output<Option<String>>,
         /// URI pointing at the Key Vault. Required when using `federated_identity_client_id`. Exactly one of `managed_hsm_key_id`, `key_vault_id`, or `key_vault_uri` must be specified.
-        pub key_vault_uri: pulumi_wasm_rust::Output<String>,
+        pub key_vault_uri: pulumi_gestalt_rust::Output<String>,
         /// The version of Key Vault Key. Remove or omit this argument to enable Automatic Key Rotation.
-        pub key_version: pulumi_wasm_rust::Output<Option<String>>,
+        pub key_version: pulumi_gestalt_rust::Output<Option<String>>,
         /// Key ID of a key in a managed HSM.  Exactly one of `managed_hsm_key_id`, `key_vault_id`, or `key_vault_uri` must be specified.
-        pub managed_hsm_key_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub managed_hsm_key_id: pulumi_gestalt_rust::Output<Option<String>>,
         /// The ID of the Storage Account. Changing this forces a new resource to be created.
-        pub storage_account_id: pulumi_wasm_rust::Output<String>,
+        pub storage_account_id: pulumi_gestalt_rust::Output<String>,
         /// The ID of a user assigned identity.
-        pub user_assigned_identity_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub user_assigned_identity_id: pulumi_gestalt_rust::Output<Option<String>>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: CustomerManagedKeyArgs,
     ) -> CustomerManagedKeyResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let federated_identity_client_id_binding = args
             .federated_identity_client_id
@@ -230,28 +232,28 @@ pub mod customer_managed_key {
         };
         let o = register_interface::register(context.get_inner(), &request);
         CustomerManagedKeyResult {
-            federated_identity_client_id: pulumi_wasm_rust::__private::into_domain(
+            federated_identity_client_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("federatedIdentityClientId"),
             ),
-            key_name: pulumi_wasm_rust::__private::into_domain(
+            key_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("keyName"),
             ),
-            key_vault_id: pulumi_wasm_rust::__private::into_domain(
+            key_vault_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("keyVaultId"),
             ),
-            key_vault_uri: pulumi_wasm_rust::__private::into_domain(
+            key_vault_uri: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("keyVaultUri"),
             ),
-            key_version: pulumi_wasm_rust::__private::into_domain(
+            key_version: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("keyVersion"),
             ),
-            managed_hsm_key_id: pulumi_wasm_rust::__private::into_domain(
+            managed_hsm_key_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("managedHsmKeyId"),
             ),
-            storage_account_id: pulumi_wasm_rust::__private::into_domain(
+            storage_account_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("storageAccountId"),
             ),
-            user_assigned_identity_id: pulumi_wasm_rust::__private::into_domain(
+            user_assigned_identity_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("userAssignedIdentityId"),
             ),
         }

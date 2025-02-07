@@ -106,23 +106,23 @@
 /// ```
 ///
 pub mod cluster {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ClusterArgs {
         /// A capacity configuration of a Kafka cluster.
         /// Structure is documented below.
         #[builder(into)]
-        pub capacity_config: pulumi_wasm_rust::InputOrOutput<
+        pub capacity_config: pulumi_gestalt_rust::InputOrOutput<
             super::super::types::managedkafka::ClusterCapacityConfig,
         >,
         /// The ID to use for the cluster, which will become the final component of the cluster's name. The ID must be 1-63 characters long, and match the regular expression `a-z?` to comply with RFC 1035. This value is structured like: `my-cluster-id`.
         #[builder(into)]
-        pub cluster_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub cluster_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Configuration properties for a Kafka cluster deployed to Google Cloud Platform.
         /// Structure is documented below.
         #[builder(into)]
-        pub gcp_config: pulumi_wasm_rust::InputOrOutput<
+        pub gcp_config: pulumi_gestalt_rust::InputOrOutput<
             super::super::types::managedkafka::ClusterGcpConfig,
         >,
         /// List of label KEY=VALUE pairs to add. Keys must start with a lowercase character and contain only hyphens (-),
@@ -130,17 +130,17 @@ pub mod cluster {
         /// characters, and numbers. **Note**: This field is non-authoritative, and will only manage the labels present in your
         /// configuration. Please refer to the field 'effective_labels' for all of the labels present on the resource.
         #[builder(into, default)]
-        pub labels: pulumi_wasm_rust::InputOrOutput<
+        pub labels: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// ID of the location of the Kafka resource. See https://cloud.google.com/managed-kafka/docs/locations for a list of supported locations.
         #[builder(into)]
-        pub location: pulumi_wasm_rust::InputOrOutput<String>,
+        pub location: pulumi_gestalt_rust::InputOrOutput<String>,
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub project: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Defines rebalancing behavior of a Kafka cluster.
         #[builder(into, default)]
-        pub rebalance_config: pulumi_wasm_rust::InputOrOutput<
+        pub rebalance_config: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::managedkafka::ClusterRebalanceConfig>,
         >,
     }
@@ -148,58 +148,58 @@ pub mod cluster {
     pub struct ClusterResult {
         /// A capacity configuration of a Kafka cluster.
         /// Structure is documented below.
-        pub capacity_config: pulumi_wasm_rust::Output<
+        pub capacity_config: pulumi_gestalt_rust::Output<
             super::super::types::managedkafka::ClusterCapacityConfig,
         >,
         /// The ID to use for the cluster, which will become the final component of the cluster's name. The ID must be 1-63 characters long, and match the regular expression `a-z?` to comply with RFC 1035. This value is structured like: `my-cluster-id`.
-        pub cluster_id: pulumi_wasm_rust::Output<String>,
+        pub cluster_id: pulumi_gestalt_rust::Output<String>,
         /// The time when the cluster was created.
-        pub create_time: pulumi_wasm_rust::Output<String>,
+        pub create_time: pulumi_gestalt_rust::Output<String>,
         /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Pulumi, other clients and services.
-        pub effective_labels: pulumi_wasm_rust::Output<
+        pub effective_labels: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
         /// Configuration properties for a Kafka cluster deployed to Google Cloud Platform.
         /// Structure is documented below.
-        pub gcp_config: pulumi_wasm_rust::Output<
+        pub gcp_config: pulumi_gestalt_rust::Output<
             super::super::types::managedkafka::ClusterGcpConfig,
         >,
         /// List of label KEY=VALUE pairs to add. Keys must start with a lowercase character and contain only hyphens (-),
         /// underscores ( ), lowercase characters, and numbers. Values must contain only hyphens (-), underscores ( ), lowercase
         /// characters, and numbers. **Note**: This field is non-authoritative, and will only manage the labels present in your
         /// configuration. Please refer to the field 'effective_labels' for all of the labels present on the resource.
-        pub labels: pulumi_wasm_rust::Output<
+        pub labels: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// ID of the location of the Kafka resource. See https://cloud.google.com/managed-kafka/docs/locations for a list of supported locations.
-        pub location: pulumi_wasm_rust::Output<String>,
+        pub location: pulumi_gestalt_rust::Output<String>,
         /// The name of the cluster. Structured like: `projects/PROJECT_ID/locations/LOCATION/clusters/CLUSTER_ID`.
-        pub name: pulumi_wasm_rust::Output<String>,
-        pub project: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
+        pub project: pulumi_gestalt_rust::Output<String>,
         /// The combination of labels configured directly on the resource
         /// and default labels configured on the provider.
-        pub pulumi_labels: pulumi_wasm_rust::Output<
+        pub pulumi_labels: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
         /// Defines rebalancing behavior of a Kafka cluster.
-        pub rebalance_config: pulumi_wasm_rust::Output<
+        pub rebalance_config: pulumi_gestalt_rust::Output<
             Option<super::super::types::managedkafka::ClusterRebalanceConfig>,
         >,
         /// The current state of the cluster. Possible values: `STATE_UNSPECIFIED`, `CREATING`, `ACTIVE`, `DELETING`.
-        pub state: pulumi_wasm_rust::Output<String>,
+        pub state: pulumi_gestalt_rust::Output<String>,
         /// The time when the cluster was last updated.
-        pub update_time: pulumi_wasm_rust::Output<String>,
+        pub update_time: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: ClusterArgs,
     ) -> ClusterResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let capacity_config_binding = args
             .capacity_config
@@ -251,37 +251,39 @@ pub mod cluster {
         };
         let o = register_interface::register(context.get_inner(), &request);
         ClusterResult {
-            capacity_config: pulumi_wasm_rust::__private::into_domain(
+            capacity_config: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("capacityConfig"),
             ),
-            cluster_id: pulumi_wasm_rust::__private::into_domain(
+            cluster_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("clusterId"),
             ),
-            create_time: pulumi_wasm_rust::__private::into_domain(
+            create_time: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("createTime"),
             ),
-            effective_labels: pulumi_wasm_rust::__private::into_domain(
+            effective_labels: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("effectiveLabels"),
             ),
-            gcp_config: pulumi_wasm_rust::__private::into_domain(
+            gcp_config: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("gcpConfig"),
             ),
-            labels: pulumi_wasm_rust::__private::into_domain(o.extract_field("labels")),
-            location: pulumi_wasm_rust::__private::into_domain(
+            labels: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("labels"),
+            ),
+            location: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("location"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            project: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            project: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("project"),
             ),
-            pulumi_labels: pulumi_wasm_rust::__private::into_domain(
+            pulumi_labels: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("pulumiLabels"),
             ),
-            rebalance_config: pulumi_wasm_rust::__private::into_domain(
+            rebalance_config: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("rebalanceConfig"),
             ),
-            state: pulumi_wasm_rust::__private::into_domain(o.extract_field("state")),
-            update_time: pulumi_wasm_rust::__private::into_domain(
+            state: pulumi_gestalt_rust::__private::into_domain(o.extract_field("state")),
+            update_time: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("updateTime"),
             ),
         }

@@ -7,8 +7,8 @@
 /// ### Basic usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = subscription_pricing::create(
@@ -48,52 +48,52 @@
 /// ```
 ///
 pub mod subscription_pricing {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct SubscriptionPricingArgs {
         /// One or more `extension` blocks as defined below.
         #[builder(into, default)]
-        pub extensions: pulumi_wasm_rust::InputOrOutput<
+        pub extensions: pulumi_gestalt_rust::InputOrOutput<
             Option<
                 Vec<super::super::types::securitycenter::SubscriptionPricingExtension>,
             >,
         >,
         /// The resource type this setting affects. Possible values are `Api`, `AppServices`, `ContainerRegistry`, `KeyVaults`, `KubernetesService`, `SqlServers`, `SqlServerVirtualMachines`, `StorageAccounts`, `VirtualMachines`, `Arm`, `Dns`, `OpenSourceRelationalDatabases`, `Containers`, `CosmosDbs` and `CloudPosture`. Defaults to `VirtualMachines`
         #[builder(into, default)]
-        pub resource_type: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub resource_type: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Resource type pricing subplan. Contact your MSFT representative for possible values.
         #[builder(into, default)]
-        pub subplan: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub subplan: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The pricing tier to use. Possible values are `Free` and `Standard`.
         #[builder(into)]
-        pub tier: pulumi_wasm_rust::InputOrOutput<String>,
+        pub tier: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct SubscriptionPricingResult {
         /// One or more `extension` blocks as defined below.
-        pub extensions: pulumi_wasm_rust::Output<
+        pub extensions: pulumi_gestalt_rust::Output<
             Option<
                 Vec<super::super::types::securitycenter::SubscriptionPricingExtension>,
             >,
         >,
         /// The resource type this setting affects. Possible values are `Api`, `AppServices`, `ContainerRegistry`, `KeyVaults`, `KubernetesService`, `SqlServers`, `SqlServerVirtualMachines`, `StorageAccounts`, `VirtualMachines`, `Arm`, `Dns`, `OpenSourceRelationalDatabases`, `Containers`, `CosmosDbs` and `CloudPosture`. Defaults to `VirtualMachines`
-        pub resource_type: pulumi_wasm_rust::Output<Option<String>>,
+        pub resource_type: pulumi_gestalt_rust::Output<Option<String>>,
         /// Resource type pricing subplan. Contact your MSFT representative for possible values.
-        pub subplan: pulumi_wasm_rust::Output<Option<String>>,
+        pub subplan: pulumi_gestalt_rust::Output<Option<String>>,
         /// The pricing tier to use. Possible values are `Free` and `Standard`.
-        pub tier: pulumi_wasm_rust::Output<String>,
+        pub tier: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: SubscriptionPricingArgs,
     ) -> SubscriptionPricingResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let extensions_binding = args.extensions.get_output(context).get_inner();
         let resource_type_binding = args.resource_type.get_output(context).get_inner();
@@ -124,16 +124,16 @@ pub mod subscription_pricing {
         };
         let o = register_interface::register(context.get_inner(), &request);
         SubscriptionPricingResult {
-            extensions: pulumi_wasm_rust::__private::into_domain(
+            extensions: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("extensions"),
             ),
-            resource_type: pulumi_wasm_rust::__private::into_domain(
+            resource_type: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("resourceType"),
             ),
-            subplan: pulumi_wasm_rust::__private::into_domain(
+            subplan: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("subplan"),
             ),
-            tier: pulumi_wasm_rust::__private::into_domain(o.extract_field("tier")),
+            tier: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tier")),
         }
     }
 }

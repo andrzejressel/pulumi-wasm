@@ -9,8 +9,8 @@
 /// ### With `private` ACL
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = bucket_v_2::create(
@@ -41,8 +41,8 @@
 /// should be done with caution, as all bucket objects become publicly exposed.
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = bucket_v_2::create(
@@ -156,48 +156,48 @@
 /// $ pulumi import aws:s3/bucketAclV2:BucketAclV2 example bucket-name,123456789012,private
 /// ```
 pub mod bucket_acl_v_2 {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct BucketAclV2Args {
         /// Configuration block that sets the ACL permissions for an object per grantee. See below.
         #[builder(into, default)]
-        pub access_control_policy: pulumi_wasm_rust::InputOrOutput<
+        pub access_control_policy: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::s3::BucketAclV2AccessControlPolicy>,
         >,
         /// Specifies the Canned ACL to apply to the bucket. Valid values: `private`, `public-read`, `public-read-write`, `aws-exec-read`, `authenticated-read`, `bucket-owner-read`, `bucket-owner-full-control`, `log-delivery-write`. Full details are available on the [AWS documentation](https://docs.aws.amazon.com/AmazonS3/latest/userguide/acl-overview.html#canned-acl).
         #[builder(into, default)]
-        pub acl: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub acl: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Bucket to which to apply the ACL.
         #[builder(into)]
-        pub bucket: pulumi_wasm_rust::InputOrOutput<String>,
+        pub bucket: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Account ID of the expected bucket owner.
         #[builder(into, default)]
-        pub expected_bucket_owner: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub expected_bucket_owner: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct BucketAclV2Result {
         /// Configuration block that sets the ACL permissions for an object per grantee. See below.
-        pub access_control_policy: pulumi_wasm_rust::Output<
+        pub access_control_policy: pulumi_gestalt_rust::Output<
             super::super::types::s3::BucketAclV2AccessControlPolicy,
         >,
         /// Specifies the Canned ACL to apply to the bucket. Valid values: `private`, `public-read`, `public-read-write`, `aws-exec-read`, `authenticated-read`, `bucket-owner-read`, `bucket-owner-full-control`, `log-delivery-write`. Full details are available on the [AWS documentation](https://docs.aws.amazon.com/AmazonS3/latest/userguide/acl-overview.html#canned-acl).
-        pub acl: pulumi_wasm_rust::Output<Option<String>>,
+        pub acl: pulumi_gestalt_rust::Output<Option<String>>,
         /// Bucket to which to apply the ACL.
-        pub bucket: pulumi_wasm_rust::Output<String>,
+        pub bucket: pulumi_gestalt_rust::Output<String>,
         /// Account ID of the expected bucket owner.
-        pub expected_bucket_owner: pulumi_wasm_rust::Output<Option<String>>,
+        pub expected_bucket_owner: pulumi_gestalt_rust::Output<Option<String>>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: BucketAclV2Args,
     ) -> BucketAclV2Result {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let access_control_policy_binding = args
             .access_control_policy
@@ -234,12 +234,14 @@ pub mod bucket_acl_v_2 {
         };
         let o = register_interface::register(context.get_inner(), &request);
         BucketAclV2Result {
-            access_control_policy: pulumi_wasm_rust::__private::into_domain(
+            access_control_policy: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("accessControlPolicy"),
             ),
-            acl: pulumi_wasm_rust::__private::into_domain(o.extract_field("acl")),
-            bucket: pulumi_wasm_rust::__private::into_domain(o.extract_field("bucket")),
-            expected_bucket_owner: pulumi_wasm_rust::__private::into_domain(
+            acl: pulumi_gestalt_rust::__private::into_domain(o.extract_field("acl")),
+            bucket: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("bucket"),
+            ),
+            expected_bucket_owner: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("expectedBucketOwner"),
             ),
         }

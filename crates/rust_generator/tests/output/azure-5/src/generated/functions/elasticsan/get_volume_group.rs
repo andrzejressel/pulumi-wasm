@@ -1,47 +1,47 @@
 pub mod get_volume_group {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct GetVolumeGroupArgs {
         /// The Elastic SAN ID within which the Elastic SAN Volume Group exists.
         #[builder(into)]
-        pub elastic_san_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub elastic_san_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The name of the Elastic SAN Volume Group.
         #[builder(into)]
-        pub name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct GetVolumeGroupResult {
-        pub elastic_san_id: pulumi_wasm_rust::Output<String>,
+        pub elastic_san_id: pulumi_gestalt_rust::Output<String>,
         /// The type of the key used to encrypt the data of the disk.
-        pub encryption_type: pulumi_wasm_rust::Output<String>,
+        pub encryption_type: pulumi_gestalt_rust::Output<String>,
         /// An `encryption` block as defined below.
-        pub encryptions: pulumi_wasm_rust::Output<
+        pub encryptions: pulumi_gestalt_rust::Output<
             Vec<super::super::super::types::elasticsan::GetVolumeGroupEncryption>,
         >,
         /// The provider-assigned unique ID for this managed resource.
-        pub id: pulumi_wasm_rust::Output<String>,
+        pub id: pulumi_gestalt_rust::Output<String>,
         /// An `identity` block as defined below.
-        pub identities: pulumi_wasm_rust::Output<
+        pub identities: pulumi_gestalt_rust::Output<
             Vec<super::super::super::types::elasticsan::GetVolumeGroupIdentity>,
         >,
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// One or more `network_rule` blocks as defined below.
-        pub network_rules: pulumi_wasm_rust::Output<
+        pub network_rules: pulumi_gestalt_rust::Output<
             Vec<super::super::super::types::elasticsan::GetVolumeGroupNetworkRule>,
         >,
         /// The type of the storage target.
-        pub protocol_type: pulumi_wasm_rust::Output<String>,
+        pub protocol_type: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         args: GetVolumeGroupArgs,
     ) -> GetVolumeGroupResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let elastic_san_id_binding = args.elastic_san_id.get_output(context).get_inner();
         let name_binding = args.name.get_output(context).get_inner();
@@ -61,24 +61,24 @@ pub mod get_volume_group {
         };
         let o = register_interface::invoke(context.get_inner(), &request);
         GetVolumeGroupResult {
-            elastic_san_id: pulumi_wasm_rust::__private::into_domain(
+            elastic_san_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("elasticSanId"),
             ),
-            encryption_type: pulumi_wasm_rust::__private::into_domain(
+            encryption_type: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("encryptionType"),
             ),
-            encryptions: pulumi_wasm_rust::__private::into_domain(
+            encryptions: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("encryptions"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
-            identities: pulumi_wasm_rust::__private::into_domain(
+            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
+            identities: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("identities"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            network_rules: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            network_rules: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("networkRules"),
             ),
-            protocol_type: pulumi_wasm_rust::__private::into_domain(
+            protocol_type: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("protocolType"),
             ),
         }

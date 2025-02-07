@@ -190,50 +190,50 @@
 /// $ pulumi import aws:dlm/lifecyclePolicy:LifecyclePolicy example policy-abcdef12345678901
 /// ```
 pub mod lifecycle_policy {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct LifecyclePolicyArgs {
         /// A description for the DLM lifecycle policy.
         #[builder(into)]
-        pub description: pulumi_wasm_rust::InputOrOutput<String>,
+        pub description: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The ARN of an IAM role that is able to be assumed by the DLM service.
         #[builder(into)]
-        pub execution_role_arn: pulumi_wasm_rust::InputOrOutput<String>,
+        pub execution_role_arn: pulumi_gestalt_rust::InputOrOutput<String>,
         /// See the `policy_details` configuration block. Max of 1.
         #[builder(into)]
-        pub policy_details: pulumi_wasm_rust::InputOrOutput<
+        pub policy_details: pulumi_gestalt_rust::InputOrOutput<
             super::super::types::dlm::LifecyclePolicyPolicyDetails,
         >,
         /// Whether the lifecycle policy should be enabled or disabled. `ENABLED` or `DISABLED` are valid values. Defaults to `ENABLED`.
         #[builder(into, default)]
-        pub state: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub state: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
     #[allow(dead_code)]
     pub struct LifecyclePolicyResult {
         /// Amazon Resource Name (ARN) of the DLM Lifecycle Policy.
-        pub arn: pulumi_wasm_rust::Output<String>,
+        pub arn: pulumi_gestalt_rust::Output<String>,
         /// A description for the DLM lifecycle policy.
-        pub description: pulumi_wasm_rust::Output<String>,
+        pub description: pulumi_gestalt_rust::Output<String>,
         /// The ARN of an IAM role that is able to be assumed by the DLM service.
-        pub execution_role_arn: pulumi_wasm_rust::Output<String>,
+        pub execution_role_arn: pulumi_gestalt_rust::Output<String>,
         /// See the `policy_details` configuration block. Max of 1.
-        pub policy_details: pulumi_wasm_rust::Output<
+        pub policy_details: pulumi_gestalt_rust::Output<
             super::super::types::dlm::LifecyclePolicyPolicyDetails,
         >,
         /// Whether the lifecycle policy should be enabled or disabled. `ENABLED` or `DISABLED` are valid values. Defaults to `ENABLED`.
-        pub state: pulumi_wasm_rust::Output<Option<String>>,
+        pub state: pulumi_gestalt_rust::Output<Option<String>>,
         /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        pub tags_all: pulumi_wasm_rust::Output<
+        pub tags_all: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
     }
@@ -242,11 +242,11 @@ pub mod lifecycle_policy {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: LifecyclePolicyArgs,
     ) -> LifecyclePolicyResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let description_binding = args.description.get_output(context).get_inner();
         let execution_role_arn_binding = args
@@ -285,19 +285,19 @@ pub mod lifecycle_policy {
         };
         let o = register_interface::register(context.get_inner(), &request);
         LifecyclePolicyResult {
-            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
-            description: pulumi_wasm_rust::__private::into_domain(
+            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
+            description: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("description"),
             ),
-            execution_role_arn: pulumi_wasm_rust::__private::into_domain(
+            execution_role_arn: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("executionRoleArn"),
             ),
-            policy_details: pulumi_wasm_rust::__private::into_domain(
+            policy_details: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("policyDetails"),
             ),
-            state: pulumi_wasm_rust::__private::into_domain(o.extract_field("state")),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_wasm_rust::__private::into_domain(
+            state: pulumi_gestalt_rust::__private::into_domain(o.extract_field("state")),
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            tags_all: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("tagsAll"),
             ),
         }

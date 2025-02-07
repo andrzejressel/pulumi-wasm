@@ -5,8 +5,8 @@
 /// ## Example Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = resource_group::create(
@@ -77,49 +77,51 @@
 /// ```
 ///
 pub mod sync_cloud_endpoint {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct SyncCloudEndpointArgs {
         /// The Storage Share name to be synchronized in this Storage Sync Cloud Endpoint. Changing this forces a new Storage Sync Cloud Endpoint to be created.
         #[builder(into)]
-        pub file_share_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub file_share_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The name which should be used for this Storage Sync Cloud Endpoint. Changing this forces a new Storage Sync Cloud Endpoint to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The ID of the Storage Account where the Storage Share exists. Changing this forces a new Storage Sync Cloud Endpoint to be created.
         #[builder(into)]
-        pub storage_account_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub storage_account_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The Tenant ID of the Storage Account where the Storage Share exists. Changing this forces a new Storage Sync Cloud Endpoint to be created. Defaults to the current tenant id.
         #[builder(into, default)]
-        pub storage_account_tenant_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub storage_account_tenant_id: pulumi_gestalt_rust::InputOrOutput<
+            Option<String>,
+        >,
         /// The ID of the Storage Sync Group where this Cloud Endpoint should be created. Changing this forces a new Storage Sync Cloud Endpoint to be created.
         #[builder(into)]
-        pub storage_sync_group_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub storage_sync_group_id: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct SyncCloudEndpointResult {
         /// The Storage Share name to be synchronized in this Storage Sync Cloud Endpoint. Changing this forces a new Storage Sync Cloud Endpoint to be created.
-        pub file_share_name: pulumi_wasm_rust::Output<String>,
+        pub file_share_name: pulumi_gestalt_rust::Output<String>,
         /// The name which should be used for this Storage Sync Cloud Endpoint. Changing this forces a new Storage Sync Cloud Endpoint to be created.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// The ID of the Storage Account where the Storage Share exists. Changing this forces a new Storage Sync Cloud Endpoint to be created.
-        pub storage_account_id: pulumi_wasm_rust::Output<String>,
+        pub storage_account_id: pulumi_gestalt_rust::Output<String>,
         /// The Tenant ID of the Storage Account where the Storage Share exists. Changing this forces a new Storage Sync Cloud Endpoint to be created. Defaults to the current tenant id.
-        pub storage_account_tenant_id: pulumi_wasm_rust::Output<String>,
+        pub storage_account_tenant_id: pulumi_gestalt_rust::Output<String>,
         /// The ID of the Storage Sync Group where this Cloud Endpoint should be created. Changing this forces a new Storage Sync Cloud Endpoint to be created.
-        pub storage_sync_group_id: pulumi_wasm_rust::Output<String>,
+        pub storage_sync_group_id: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: SyncCloudEndpointArgs,
     ) -> SyncCloudEndpointResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let file_share_name_binding = args
             .file_share_name
@@ -167,17 +169,17 @@ pub mod sync_cloud_endpoint {
         };
         let o = register_interface::register(context.get_inner(), &request);
         SyncCloudEndpointResult {
-            file_share_name: pulumi_wasm_rust::__private::into_domain(
+            file_share_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("fileShareName"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            storage_account_id: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            storage_account_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("storageAccountId"),
             ),
-            storage_account_tenant_id: pulumi_wasm_rust::__private::into_domain(
+            storage_account_tenant_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("storageAccountTenantId"),
             ),
-            storage_sync_group_id: pulumi_wasm_rust::__private::into_domain(
+            storage_sync_group_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("storageSyncGroupId"),
             ),
         }

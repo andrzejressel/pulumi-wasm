@@ -23,38 +23,38 @@
 /// $ pulumi import aws:apprunner/connection:Connection example example
 /// ```
 pub mod connection {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ConnectionArgs {
         /// Name of the connection.
         #[builder(into)]
-        pub connection_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub connection_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Source repository provider. Valid values: `GITHUB`.
         #[builder(into)]
-        pub provider_type: pulumi_wasm_rust::InputOrOutput<String>,
+        pub provider_type: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
     #[allow(dead_code)]
     pub struct ConnectionResult {
         /// ARN of the connection.
-        pub arn: pulumi_wasm_rust::Output<String>,
+        pub arn: pulumi_gestalt_rust::Output<String>,
         /// Name of the connection.
-        pub connection_name: pulumi_wasm_rust::Output<String>,
+        pub connection_name: pulumi_gestalt_rust::Output<String>,
         /// Source repository provider. Valid values: `GITHUB`.
-        pub provider_type: pulumi_wasm_rust::Output<String>,
+        pub provider_type: pulumi_gestalt_rust::Output<String>,
         /// Current state of the App Runner connection. When the state is `AVAILABLE`, you can use the connection to create an `aws.apprunner.Service` resource.
-        pub status: pulumi_wasm_rust::Output<String>,
+        pub status: pulumi_gestalt_rust::Output<String>,
         /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        pub tags_all: pulumi_wasm_rust::Output<
+        pub tags_all: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
     }
@@ -63,11 +63,11 @@ pub mod connection {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: ConnectionArgs,
     ) -> ConnectionResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let connection_name_binding = args
             .connection_name
@@ -96,16 +96,18 @@ pub mod connection {
         };
         let o = register_interface::register(context.get_inner(), &request);
         ConnectionResult {
-            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
-            connection_name: pulumi_wasm_rust::__private::into_domain(
+            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
+            connection_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("connectionName"),
             ),
-            provider_type: pulumi_wasm_rust::__private::into_domain(
+            provider_type: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("providerType"),
             ),
-            status: pulumi_wasm_rust::__private::into_domain(o.extract_field("status")),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_wasm_rust::__private::into_domain(
+            status: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("status"),
+            ),
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            tags_all: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("tagsAll"),
             ),
         }

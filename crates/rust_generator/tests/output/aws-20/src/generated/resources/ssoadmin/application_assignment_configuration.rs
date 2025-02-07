@@ -10,8 +10,8 @@
 /// ### Basic Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = application_assignment_configuration::create(
@@ -32,34 +32,34 @@
 /// $ pulumi import aws:ssoadmin/applicationAssignmentConfiguration:ApplicationAssignmentConfiguration example arn:aws:sso::123456789012:application/id-12345678
 /// ```
 pub mod application_assignment_configuration {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ApplicationAssignmentConfigurationArgs {
         /// ARN of the application.
         #[builder(into)]
-        pub application_arn: pulumi_wasm_rust::InputOrOutput<String>,
+        pub application_arn: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Indicates whether users must have an explicit assignment to access the application. If `false`, all users have access to the application.
         #[builder(into)]
-        pub assignment_required: pulumi_wasm_rust::InputOrOutput<bool>,
+        pub assignment_required: pulumi_gestalt_rust::InputOrOutput<bool>,
     }
     #[allow(dead_code)]
     pub struct ApplicationAssignmentConfigurationResult {
         /// ARN of the application.
-        pub application_arn: pulumi_wasm_rust::Output<String>,
+        pub application_arn: pulumi_gestalt_rust::Output<String>,
         /// Indicates whether users must have an explicit assignment to access the application. If `false`, all users have access to the application.
-        pub assignment_required: pulumi_wasm_rust::Output<bool>,
+        pub assignment_required: pulumi_gestalt_rust::Output<bool>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: ApplicationAssignmentConfigurationArgs,
     ) -> ApplicationAssignmentConfigurationResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let application_arn_binding = args
             .application_arn
@@ -87,10 +87,10 @@ pub mod application_assignment_configuration {
         };
         let o = register_interface::register(context.get_inner(), &request);
         ApplicationAssignmentConfigurationResult {
-            application_arn: pulumi_wasm_rust::__private::into_domain(
+            application_arn: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("applicationArn"),
             ),
-            assignment_required: pulumi_wasm_rust::__private::into_domain(
+            assignment_required: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("assignmentRequired"),
             ),
         }

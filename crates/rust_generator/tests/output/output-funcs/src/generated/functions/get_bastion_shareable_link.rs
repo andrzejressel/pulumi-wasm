@@ -1,34 +1,34 @@
 pub mod get_bastion_shareable_link {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct GetBastionShareableLinkArgs {
         /// The name of the Bastion Host.
         #[builder(into)]
-        pub bastion_host_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub bastion_host_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The name of the resource group.
         #[builder(into)]
-        pub resource_group_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub resource_group_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// List of VM references.
         #[builder(into, default)]
-        pub vms: pulumi_wasm_rust::InputOrOutput<
+        pub vms: pulumi_gestalt_rust::InputOrOutput<
             Option<Vec<super::super::types::BastionShareableLink>>,
         >,
     }
     #[allow(dead_code)]
     pub struct GetBastionShareableLinkResult {
         /// The URL to get the next set of results.
-        pub next_link: pulumi_wasm_rust::Output<Option<String>>,
+        pub next_link: pulumi_gestalt_rust::Output<Option<String>>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         args: GetBastionShareableLinkArgs,
     ) -> GetBastionShareableLinkResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let bastion_host_name_binding = args
             .bastion_host_name
@@ -59,7 +59,7 @@ pub mod get_bastion_shareable_link {
         };
         let o = register_interface::invoke(context.get_inner(), &request);
         GetBastionShareableLinkResult {
-            next_link: pulumi_wasm_rust::__private::into_domain(
+            next_link: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("nextLink"),
             ),
         }

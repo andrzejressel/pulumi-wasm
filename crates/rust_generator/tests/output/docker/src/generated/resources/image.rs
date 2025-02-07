@@ -137,41 +137,41 @@
 ///             registryId: ${ecr-repository.registryId}
 /// ```
 pub mod image {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ImageArgs {
         /// The Docker build context
         #[builder(into, default)]
-        pub build: pulumi_wasm_rust::InputOrOutput<Option<super::types::DockerBuild>>,
+        pub build: pulumi_gestalt_rust::InputOrOutput<Option<super::types::DockerBuild>>,
         /// A flag to build an image on preview
         #[builder(into, default)]
-        pub build_on_preview: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub build_on_preview: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// The image name, of the format repository[:tag], e.g. `docker.io/username/demo-image:v1`.
         /// This reference is not unique to each build and push.For the unique manifest SHA of a pushed docker image, or the local image ID, please use `repoDigest`.
         #[builder(into)]
-        pub image_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub image_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The registry to push the image to
         #[builder(into, default)]
-        pub registry: pulumi_wasm_rust::InputOrOutput<Option<super::types::Registry>>,
+        pub registry: pulumi_gestalt_rust::InputOrOutput<Option<super::types::Registry>>,
         /// A flag to skip a registry push.
         #[builder(into, default)]
-        pub skip_push: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub skip_push: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
     }
     #[allow(dead_code)]
     pub struct ImageResult {
         /// The fully qualified image name that was pushed to the registry.
-        pub base_image_name: pulumi_wasm_rust::Output<String>,
+        pub base_image_name: pulumi_gestalt_rust::Output<String>,
         /// The path to the build context to use.
-        pub context: pulumi_wasm_rust::Output<String>,
+        pub context: pulumi_gestalt_rust::Output<String>,
         /// The location of the Dockerfile relative to the docker build context.
-        pub dockerfile: pulumi_wasm_rust::Output<String>,
+        pub dockerfile: pulumi_gestalt_rust::Output<String>,
         /// The fully qualified image name
-        pub image_name: pulumi_wasm_rust::Output<String>,
+        pub image_name: pulumi_gestalt_rust::Output<String>,
         /// The image's architecture and OS
-        pub platform: pulumi_wasm_rust::Output<Option<String>>,
+        pub platform: pulumi_gestalt_rust::Output<Option<String>>,
         /// The name of the registry server hosting the image.
-        pub registry_server: pulumi_wasm_rust::Output<String>,
+        pub registry_server: pulumi_gestalt_rust::Output<String>,
         /// **For pushed images:**
         /// The manifest digest of an image pushed to a registry, of the format repository@<algorithm>:<hash>, e.g. `username/demo-image@sha256:a6ae6dd8d39c5bb02320e41abf00cd4cb35905fec540e37d306c878be8d38bd3`.
         /// This reference is unique per image build and push.
@@ -179,18 +179,18 @@ pub mod image {
         /// Use when passing a reference to a pushed image to container management resources.
         ///
         /// **Local-only images**For local images, this field is the image ID of the built local image, of the format <algorithm>:<hash>, e.g `sha256:826a130323165bb0ccb0374ae774f885c067a951b51a6ee133577f4e5dbc4119`
-        pub repo_digest: pulumi_wasm_rust::Output<String>,
+        pub repo_digest: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: ImageArgs,
     ) -> ImageResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let build_binding = args.build.get_output(context).get_inner();
         let build_on_preview_binding = args
@@ -229,25 +229,25 @@ pub mod image {
         };
         let o = register_interface::register(context.get_inner(), &request);
         ImageResult {
-            base_image_name: pulumi_wasm_rust::__private::into_domain(
+            base_image_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("baseImageName"),
             ),
-            context: pulumi_wasm_rust::__private::into_domain(
+            context: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("context"),
             ),
-            dockerfile: pulumi_wasm_rust::__private::into_domain(
+            dockerfile: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("dockerfile"),
             ),
-            image_name: pulumi_wasm_rust::__private::into_domain(
+            image_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("imageName"),
             ),
-            platform: pulumi_wasm_rust::__private::into_domain(
+            platform: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("platform"),
             ),
-            registry_server: pulumi_wasm_rust::__private::into_domain(
+            registry_server: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("registryServer"),
             ),
-            repo_digest: pulumi_wasm_rust::__private::into_domain(
+            repo_digest: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("repoDigest"),
             ),
         }

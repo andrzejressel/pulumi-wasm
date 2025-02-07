@@ -26,7 +26,7 @@
 /// ```
 ///
 pub mod env_keystore {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct EnvKeystoreArgs {
@@ -36,34 +36,34 @@ pub mod env_keystore {
         ///
         /// - - -
         #[builder(into)]
-        pub env_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub env_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The name of the newly created keystore.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct EnvKeystoreResult {
         /// Aliases in this keystore.
-        pub aliases: pulumi_wasm_rust::Output<Vec<String>>,
+        pub aliases: pulumi_gestalt_rust::Output<Vec<String>>,
         /// The Apigee environment group associated with the Apigee environment,
         /// in the format `organizations/{{org_name}}/environments/{{env_name}}`.
         ///
         ///
         /// - - -
-        pub env_id: pulumi_wasm_rust::Output<String>,
+        pub env_id: pulumi_gestalt_rust::Output<String>,
         /// The name of the newly created keystore.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: EnvKeystoreArgs,
     ) -> EnvKeystoreResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let env_id_binding = args.env_id.get_output(context).get_inner();
         let name_binding = args.name.get_output(context).get_inner();
@@ -84,11 +84,13 @@ pub mod env_keystore {
         };
         let o = register_interface::register(context.get_inner(), &request);
         EnvKeystoreResult {
-            aliases: pulumi_wasm_rust::__private::into_domain(
+            aliases: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("aliases"),
             ),
-            env_id: pulumi_wasm_rust::__private::into_domain(o.extract_field("envId")),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
+            env_id: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("envId"),
+            ),
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
         }
     }
 }

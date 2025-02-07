@@ -1,39 +1,39 @@
 pub mod get_environment_blueprint {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct GetEnvironmentBlueprintArgs {
         /// ID of the domain.
         #[builder(into)]
-        pub domain_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub domain_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Whether the blueprint is managed by Amazon DataZone.
         #[builder(into)]
-        pub managed: pulumi_wasm_rust::InputOrOutput<bool>,
+        pub managed: pulumi_gestalt_rust::InputOrOutput<bool>,
         /// Name of the blueprint.
         #[builder(into)]
-        pub name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct GetEnvironmentBlueprintResult {
         /// Provider of the blueprint
-        pub blueprint_provider: pulumi_wasm_rust::Output<String>,
+        pub blueprint_provider: pulumi_gestalt_rust::Output<String>,
         /// Description of the blueprint
-        pub description: pulumi_wasm_rust::Output<String>,
-        pub domain_id: pulumi_wasm_rust::Output<String>,
+        pub description: pulumi_gestalt_rust::Output<String>,
+        pub domain_id: pulumi_gestalt_rust::Output<String>,
         /// ID of the environment blueprint
-        pub id: pulumi_wasm_rust::Output<String>,
-        pub managed: pulumi_wasm_rust::Output<bool>,
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub id: pulumi_gestalt_rust::Output<String>,
+        pub managed: pulumi_gestalt_rust::Output<bool>,
+        pub name: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         args: GetEnvironmentBlueprintArgs,
     ) -> GetEnvironmentBlueprintResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let domain_id_binding = args.domain_id.get_output(context).get_inner();
         let managed_binding = args.managed.get_output(context).get_inner();
@@ -58,20 +58,20 @@ pub mod get_environment_blueprint {
         };
         let o = register_interface::invoke(context.get_inner(), &request);
         GetEnvironmentBlueprintResult {
-            blueprint_provider: pulumi_wasm_rust::__private::into_domain(
+            blueprint_provider: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("blueprintProvider"),
             ),
-            description: pulumi_wasm_rust::__private::into_domain(
+            description: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("description"),
             ),
-            domain_id: pulumi_wasm_rust::__private::into_domain(
+            domain_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("domainId"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
-            managed: pulumi_wasm_rust::__private::into_domain(
+            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
+            managed: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("managed"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
         }
     }
 }

@@ -3,8 +3,8 @@
 /// ## Example Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let member = invitation_accepter::create(
@@ -32,29 +32,29 @@
 /// $ pulumi import aws:detective/invitationAccepter:InvitationAccepter example arn:aws:detective:us-east-1:123456789101:graph:231684d34gh74g4bae1dbc7bd807d02d
 /// ```
 pub mod invitation_accepter {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct InvitationAccepterArgs {
         /// ARN of the behavior graph that the member account is accepting the invitation for.
         #[builder(into)]
-        pub graph_arn: pulumi_wasm_rust::InputOrOutput<String>,
+        pub graph_arn: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct InvitationAccepterResult {
         /// ARN of the behavior graph that the member account is accepting the invitation for.
-        pub graph_arn: pulumi_wasm_rust::Output<String>,
+        pub graph_arn: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: InvitationAccepterArgs,
     ) -> InvitationAccepterResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let graph_arn_binding = args.graph_arn.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
@@ -70,7 +70,7 @@ pub mod invitation_accepter {
         };
         let o = register_interface::register(context.get_inner(), &request);
         InvitationAccepterResult {
-            graph_arn: pulumi_wasm_rust::__private::into_domain(
+            graph_arn: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("graphArn"),
             ),
         }

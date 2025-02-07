@@ -68,70 +68,70 @@
 /// ```
 ///
 pub mod sql_pool_workload_group {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct SqlPoolWorkloadGroupArgs {
         /// The workload group importance level. Defaults to `normal`.
         #[builder(into, default)]
-        pub importance: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub importance: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The workload group cap percentage resource.
         #[builder(into)]
-        pub max_resource_percent: pulumi_wasm_rust::InputOrOutput<i32>,
+        pub max_resource_percent: pulumi_gestalt_rust::InputOrOutput<i32>,
         /// The workload group request maximum grant percentage. Defaults to `3`.
         #[builder(into, default)]
-        pub max_resource_percent_per_request: pulumi_wasm_rust::InputOrOutput<
+        pub max_resource_percent_per_request: pulumi_gestalt_rust::InputOrOutput<
             Option<f64>,
         >,
         /// The workload group minimum percentage resource.
         #[builder(into)]
-        pub min_resource_percent: pulumi_wasm_rust::InputOrOutput<i32>,
+        pub min_resource_percent: pulumi_gestalt_rust::InputOrOutput<i32>,
         /// The workload group request minimum grant percentage.
         #[builder(into, default)]
-        pub min_resource_percent_per_request: pulumi_wasm_rust::InputOrOutput<
+        pub min_resource_percent_per_request: pulumi_gestalt_rust::InputOrOutput<
             Option<f64>,
         >,
         /// The name which should be used for this Synapse SQL Pool Workload Group. Changing this forces a new Synapse SQL Pool Workload Group to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The workload group query execution timeout.
         #[builder(into, default)]
-        pub query_execution_timeout_in_seconds: pulumi_wasm_rust::InputOrOutput<
+        pub query_execution_timeout_in_seconds: pulumi_gestalt_rust::InputOrOutput<
             Option<i32>,
         >,
         /// The ID of the Synapse SQL Pool. Changing this forces a new Synapse SQL Pool Workload Group to be created.
         #[builder(into)]
-        pub sql_pool_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub sql_pool_id: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct SqlPoolWorkloadGroupResult {
         /// The workload group importance level. Defaults to `normal`.
-        pub importance: pulumi_wasm_rust::Output<Option<String>>,
+        pub importance: pulumi_gestalt_rust::Output<Option<String>>,
         /// The workload group cap percentage resource.
-        pub max_resource_percent: pulumi_wasm_rust::Output<i32>,
+        pub max_resource_percent: pulumi_gestalt_rust::Output<i32>,
         /// The workload group request maximum grant percentage. Defaults to `3`.
-        pub max_resource_percent_per_request: pulumi_wasm_rust::Output<Option<f64>>,
+        pub max_resource_percent_per_request: pulumi_gestalt_rust::Output<Option<f64>>,
         /// The workload group minimum percentage resource.
-        pub min_resource_percent: pulumi_wasm_rust::Output<i32>,
+        pub min_resource_percent: pulumi_gestalt_rust::Output<i32>,
         /// The workload group request minimum grant percentage.
-        pub min_resource_percent_per_request: pulumi_wasm_rust::Output<Option<f64>>,
+        pub min_resource_percent_per_request: pulumi_gestalt_rust::Output<Option<f64>>,
         /// The name which should be used for this Synapse SQL Pool Workload Group. Changing this forces a new Synapse SQL Pool Workload Group to be created.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// The workload group query execution timeout.
-        pub query_execution_timeout_in_seconds: pulumi_wasm_rust::Output<Option<i32>>,
+        pub query_execution_timeout_in_seconds: pulumi_gestalt_rust::Output<Option<i32>>,
         /// The ID of the Synapse SQL Pool. Changing this forces a new Synapse SQL Pool Workload Group to be created.
-        pub sql_pool_id: pulumi_wasm_rust::Output<String>,
+        pub sql_pool_id: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: SqlPoolWorkloadGroupArgs,
     ) -> SqlPoolWorkloadGroupResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let importance_binding = args.importance.get_output(context).get_inner();
         let max_resource_percent_binding = args
@@ -197,26 +197,26 @@ pub mod sql_pool_workload_group {
         };
         let o = register_interface::register(context.get_inner(), &request);
         SqlPoolWorkloadGroupResult {
-            importance: pulumi_wasm_rust::__private::into_domain(
+            importance: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("importance"),
             ),
-            max_resource_percent: pulumi_wasm_rust::__private::into_domain(
+            max_resource_percent: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("maxResourcePercent"),
             ),
-            max_resource_percent_per_request: pulumi_wasm_rust::__private::into_domain(
+            max_resource_percent_per_request: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("maxResourcePercentPerRequest"),
             ),
-            min_resource_percent: pulumi_wasm_rust::__private::into_domain(
+            min_resource_percent: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("minResourcePercent"),
             ),
-            min_resource_percent_per_request: pulumi_wasm_rust::__private::into_domain(
+            min_resource_percent_per_request: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("minResourcePercentPerRequest"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            query_execution_timeout_in_seconds: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            query_execution_timeout_in_seconds: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("queryExecutionTimeoutInSeconds"),
             ),
-            sql_pool_id: pulumi_wasm_rust::__private::into_domain(
+            sql_pool_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("sqlPoolId"),
             ),
         }

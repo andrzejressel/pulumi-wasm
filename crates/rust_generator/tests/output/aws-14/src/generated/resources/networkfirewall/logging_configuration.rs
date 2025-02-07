@@ -59,25 +59,25 @@
 /// $ pulumi import aws:networkfirewall/loggingConfiguration:LoggingConfiguration example arn:aws:network-firewall:us-west-1:123456789012:firewall/example
 /// ```
 pub mod logging_configuration {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct LoggingConfigurationArgs {
         /// The Amazon Resource Name (ARN) of the Network Firewall firewall.
         #[builder(into)]
-        pub firewall_arn: pulumi_wasm_rust::InputOrOutput<String>,
+        pub firewall_arn: pulumi_gestalt_rust::InputOrOutput<String>,
         /// A configuration block describing how AWS Network Firewall performs logging for a firewall. See Logging Configuration below for details.
         #[builder(into)]
-        pub logging_configuration: pulumi_wasm_rust::InputOrOutput<
+        pub logging_configuration: pulumi_gestalt_rust::InputOrOutput<
             super::super::types::networkfirewall::LoggingConfigurationLoggingConfiguration,
         >,
     }
     #[allow(dead_code)]
     pub struct LoggingConfigurationResult {
         /// The Amazon Resource Name (ARN) of the Network Firewall firewall.
-        pub firewall_arn: pulumi_wasm_rust::Output<String>,
+        pub firewall_arn: pulumi_gestalt_rust::Output<String>,
         /// A configuration block describing how AWS Network Firewall performs logging for a firewall. See Logging Configuration below for details.
-        pub logging_configuration: pulumi_wasm_rust::Output<
+        pub logging_configuration: pulumi_gestalt_rust::Output<
             super::super::types::networkfirewall::LoggingConfigurationLoggingConfiguration,
         >,
     }
@@ -86,11 +86,11 @@ pub mod logging_configuration {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: LoggingConfigurationArgs,
     ) -> LoggingConfigurationResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let firewall_arn_binding = args.firewall_arn.get_output(context).get_inner();
         let logging_configuration_binding = args
@@ -115,10 +115,10 @@ pub mod logging_configuration {
         };
         let o = register_interface::register(context.get_inner(), &request);
         LoggingConfigurationResult {
-            firewall_arn: pulumi_wasm_rust::__private::into_domain(
+            firewall_arn: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("firewallArn"),
             ),
-            logging_configuration: pulumi_wasm_rust::__private::into_domain(
+            logging_configuration: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("loggingConfiguration"),
             ),
         }

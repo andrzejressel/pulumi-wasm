@@ -22,8 +22,8 @@
 /// you provide the definition for the resource as follows
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let foo = service::create(
@@ -60,72 +60,74 @@
 /// ```
 ///
 pub mod service {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ServiceArgs {
         /// Configuration for the authentication for pulling the images of the service
         #[builder(into, default)]
-        pub auth: pulumi_wasm_rust::InputOrOutput<Option<super::types::ServiceAuth>>,
+        pub auth: pulumi_gestalt_rust::InputOrOutput<Option<super::types::ServiceAuth>>,
         /// A configuration to ensure that a service converges aka reaches the desired that of all task up and running
         #[builder(into, default)]
-        pub converge_config: pulumi_wasm_rust::InputOrOutput<
+        pub converge_config: pulumi_gestalt_rust::InputOrOutput<
             Option<super::types::ServiceConvergeConfig>,
         >,
         /// Properties that can be configured to access and load balance a service
         #[builder(into, default)]
-        pub endpoint_spec: pulumi_wasm_rust::InputOrOutput<
+        pub endpoint_spec: pulumi_gestalt_rust::InputOrOutput<
             Option<super::types::ServiceEndpointSpec>,
         >,
         /// User-defined key/value metadata
         #[builder(into, default)]
-        pub labels: pulumi_wasm_rust::InputOrOutput<
+        pub labels: pulumi_gestalt_rust::InputOrOutput<
             Option<Vec<super::types::ServiceLabel>>,
         >,
         /// Scheduling mode for the service
         #[builder(into, default)]
-        pub mode: pulumi_wasm_rust::InputOrOutput<Option<super::types::ServiceMode>>,
+        pub mode: pulumi_gestalt_rust::InputOrOutput<Option<super::types::ServiceMode>>,
         /// Name of the service
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Specification for the rollback strategy of the service
         #[builder(into, default)]
-        pub rollback_config: pulumi_wasm_rust::InputOrOutput<
+        pub rollback_config: pulumi_gestalt_rust::InputOrOutput<
             Option<super::types::ServiceRollbackConfig>,
         >,
         /// User modifiable task configuration
         #[builder(into)]
-        pub task_spec: pulumi_wasm_rust::InputOrOutput<super::types::ServiceTaskSpec>,
+        pub task_spec: pulumi_gestalt_rust::InputOrOutput<super::types::ServiceTaskSpec>,
         /// Specification for the update strategy of the service
         #[builder(into, default)]
-        pub update_config: pulumi_wasm_rust::InputOrOutput<
+        pub update_config: pulumi_gestalt_rust::InputOrOutput<
             Option<super::types::ServiceUpdateConfig>,
         >,
     }
     #[allow(dead_code)]
     pub struct ServiceResult {
         /// Configuration for the authentication for pulling the images of the service
-        pub auth: pulumi_wasm_rust::Output<Option<super::types::ServiceAuth>>,
+        pub auth: pulumi_gestalt_rust::Output<Option<super::types::ServiceAuth>>,
         /// A configuration to ensure that a service converges aka reaches the desired that of all task up and running
-        pub converge_config: pulumi_wasm_rust::Output<
+        pub converge_config: pulumi_gestalt_rust::Output<
             Option<super::types::ServiceConvergeConfig>,
         >,
         /// Properties that can be configured to access and load balance a service
-        pub endpoint_spec: pulumi_wasm_rust::Output<super::types::ServiceEndpointSpec>,
+        pub endpoint_spec: pulumi_gestalt_rust::Output<
+            super::types::ServiceEndpointSpec,
+        >,
         /// User-defined key/value metadata
-        pub labels: pulumi_wasm_rust::Output<Vec<super::types::ServiceLabel>>,
+        pub labels: pulumi_gestalt_rust::Output<Vec<super::types::ServiceLabel>>,
         /// Scheduling mode for the service
-        pub mode: pulumi_wasm_rust::Output<super::types::ServiceMode>,
+        pub mode: pulumi_gestalt_rust::Output<super::types::ServiceMode>,
         /// Name of the service
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// Specification for the rollback strategy of the service
-        pub rollback_config: pulumi_wasm_rust::Output<
+        pub rollback_config: pulumi_gestalt_rust::Output<
             Option<super::types::ServiceRollbackConfig>,
         >,
         /// User modifiable task configuration
-        pub task_spec: pulumi_wasm_rust::Output<super::types::ServiceTaskSpec>,
+        pub task_spec: pulumi_gestalt_rust::Output<super::types::ServiceTaskSpec>,
         /// Specification for the update strategy of the service
-        pub update_config: pulumi_wasm_rust::Output<
+        pub update_config: pulumi_gestalt_rust::Output<
             Option<super::types::ServiceUpdateConfig>,
         >,
     }
@@ -134,11 +136,11 @@ pub mod service {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: ServiceArgs,
     ) -> ServiceResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let auth_binding = args.auth.get_output(context).get_inner();
         let converge_config_binding = args
@@ -200,23 +202,25 @@ pub mod service {
         };
         let o = register_interface::register(context.get_inner(), &request);
         ServiceResult {
-            auth: pulumi_wasm_rust::__private::into_domain(o.extract_field("auth")),
-            converge_config: pulumi_wasm_rust::__private::into_domain(
+            auth: pulumi_gestalt_rust::__private::into_domain(o.extract_field("auth")),
+            converge_config: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("convergeConfig"),
             ),
-            endpoint_spec: pulumi_wasm_rust::__private::into_domain(
+            endpoint_spec: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("endpointSpec"),
             ),
-            labels: pulumi_wasm_rust::__private::into_domain(o.extract_field("labels")),
-            mode: pulumi_wasm_rust::__private::into_domain(o.extract_field("mode")),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            rollback_config: pulumi_wasm_rust::__private::into_domain(
+            labels: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("labels"),
+            ),
+            mode: pulumi_gestalt_rust::__private::into_domain(o.extract_field("mode")),
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            rollback_config: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("rollbackConfig"),
             ),
-            task_spec: pulumi_wasm_rust::__private::into_domain(
+            task_spec: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("taskSpec"),
             ),
-            update_config: pulumi_wasm_rust::__private::into_domain(
+            update_config: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("updateConfig"),
             ),
         }

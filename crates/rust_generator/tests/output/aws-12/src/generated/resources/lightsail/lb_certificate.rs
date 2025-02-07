@@ -29,54 +29,54 @@
 /// $ pulumi import aws:lightsail/lbCertificate:LbCertificate test example-load-balancer,example-load-balancer-certificate
 /// ```
 pub mod lb_certificate {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct LbCertificateArgs {
         /// The domain name (e.g., example.com) for your SSL/TLS certificate.
         #[builder(into, default)]
-        pub domain_name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub domain_name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The load balancer name where you want to create the SSL/TLS certificate.
         #[builder(into)]
-        pub lb_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub lb_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The SSL/TLS certificate name.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Set of domains that should be SANs in the issued certificate. `domain_name` attribute is automatically added as a Subject Alternative Name.
         #[builder(into, default)]
-        pub subject_alternative_names: pulumi_wasm_rust::InputOrOutput<
+        pub subject_alternative_names: pulumi_gestalt_rust::InputOrOutput<
             Option<Vec<String>>,
         >,
     }
     #[allow(dead_code)]
     pub struct LbCertificateResult {
         /// The ARN of the lightsail certificate.
-        pub arn: pulumi_wasm_rust::Output<String>,
+        pub arn: pulumi_gestalt_rust::Output<String>,
         /// The timestamp when the instance was created.
-        pub created_at: pulumi_wasm_rust::Output<String>,
+        pub created_at: pulumi_gestalt_rust::Output<String>,
         /// The domain name (e.g., example.com) for your SSL/TLS certificate.
-        pub domain_name: pulumi_wasm_rust::Output<String>,
-        pub domain_validation_records: pulumi_wasm_rust::Output<
+        pub domain_name: pulumi_gestalt_rust::Output<String>,
+        pub domain_validation_records: pulumi_gestalt_rust::Output<
             Vec<super::super::types::lightsail::LbCertificateDomainValidationRecord>,
         >,
         /// The load balancer name where you want to create the SSL/TLS certificate.
-        pub lb_name: pulumi_wasm_rust::Output<String>,
+        pub lb_name: pulumi_gestalt_rust::Output<String>,
         /// The SSL/TLS certificate name.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// Set of domains that should be SANs in the issued certificate. `domain_name` attribute is automatically added as a Subject Alternative Name.
-        pub subject_alternative_names: pulumi_wasm_rust::Output<Vec<String>>,
-        pub support_code: pulumi_wasm_rust::Output<String>,
+        pub subject_alternative_names: pulumi_gestalt_rust::Output<Vec<String>>,
+        pub support_code: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: LbCertificateArgs,
     ) -> LbCertificateResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let domain_name_binding = args.domain_name.get_output(context).get_inner();
         let lb_name_binding = args.lb_name.get_output(context).get_inner();
@@ -110,22 +110,24 @@ pub mod lb_certificate {
         };
         let o = register_interface::register(context.get_inner(), &request);
         LbCertificateResult {
-            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
-            created_at: pulumi_wasm_rust::__private::into_domain(
+            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
+            created_at: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("createdAt"),
             ),
-            domain_name: pulumi_wasm_rust::__private::into_domain(
+            domain_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("domainName"),
             ),
-            domain_validation_records: pulumi_wasm_rust::__private::into_domain(
+            domain_validation_records: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("domainValidationRecords"),
             ),
-            lb_name: pulumi_wasm_rust::__private::into_domain(o.extract_field("lbName")),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            subject_alternative_names: pulumi_wasm_rust::__private::into_domain(
+            lb_name: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("lbName"),
+            ),
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            subject_alternative_names: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("subjectAlternativeNames"),
             ),
-            support_code: pulumi_wasm_rust::__private::into_domain(
+            support_code: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("supportCode"),
             ),
         }

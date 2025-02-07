@@ -3,8 +3,8 @@
 /// ## Example Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = custom_action_type::create(
@@ -38,16 +38,16 @@
 /// $ pulumi import aws:codepipeline/customActionType:CustomActionType example Build:pulumi:1
 /// ```
 pub mod custom_action_type {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct CustomActionTypeArgs {
         /// The category of the custom action. Valid values: `Source`, `Build`, `Deploy`, `Test`, `Invoke`, `Approval`
         #[builder(into)]
-        pub category: pulumi_wasm_rust::InputOrOutput<String>,
+        pub category: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The configuration properties for the custom action. Max 10 items.
         #[builder(into, default)]
-        pub configuration_properties: pulumi_wasm_rust::InputOrOutput<
+        pub configuration_properties: pulumi_gestalt_rust::InputOrOutput<
             Option<
                 Vec<
                     super::super::types::codepipeline::CustomActionTypeConfigurationProperty,
@@ -55,71 +55,71 @@ pub mod custom_action_type {
             >,
         >,
         #[builder(into)]
-        pub input_artifact_details: pulumi_wasm_rust::InputOrOutput<
+        pub input_artifact_details: pulumi_gestalt_rust::InputOrOutput<
             super::super::types::codepipeline::CustomActionTypeInputArtifactDetails,
         >,
         #[builder(into)]
-        pub output_artifact_details: pulumi_wasm_rust::InputOrOutput<
+        pub output_artifact_details: pulumi_gestalt_rust::InputOrOutput<
             super::super::types::codepipeline::CustomActionTypeOutputArtifactDetails,
         >,
         #[builder(into)]
-        pub provider_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub provider_name: pulumi_gestalt_rust::InputOrOutput<String>,
         #[builder(into, default)]
-        pub settings: pulumi_wasm_rust::InputOrOutput<
+        pub settings: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::codepipeline::CustomActionTypeSettings>,
         >,
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         #[builder(into)]
-        pub version: pulumi_wasm_rust::InputOrOutput<String>,
+        pub version: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct CustomActionTypeResult {
         /// The action ARN.
-        pub arn: pulumi_wasm_rust::Output<String>,
+        pub arn: pulumi_gestalt_rust::Output<String>,
         /// The category of the custom action. Valid values: `Source`, `Build`, `Deploy`, `Test`, `Invoke`, `Approval`
-        pub category: pulumi_wasm_rust::Output<String>,
+        pub category: pulumi_gestalt_rust::Output<String>,
         /// The configuration properties for the custom action. Max 10 items.
-        pub configuration_properties: pulumi_wasm_rust::Output<
+        pub configuration_properties: pulumi_gestalt_rust::Output<
             Option<
                 Vec<
                     super::super::types::codepipeline::CustomActionTypeConfigurationProperty,
                 >,
             >,
         >,
-        pub input_artifact_details: pulumi_wasm_rust::Output<
+        pub input_artifact_details: pulumi_gestalt_rust::Output<
             super::super::types::codepipeline::CustomActionTypeInputArtifactDetails,
         >,
-        pub output_artifact_details: pulumi_wasm_rust::Output<
+        pub output_artifact_details: pulumi_gestalt_rust::Output<
             super::super::types::codepipeline::CustomActionTypeOutputArtifactDetails,
         >,
         /// The creator of the action being called.
-        pub owner: pulumi_wasm_rust::Output<String>,
-        pub provider_name: pulumi_wasm_rust::Output<String>,
-        pub settings: pulumi_wasm_rust::Output<
+        pub owner: pulumi_gestalt_rust::Output<String>,
+        pub provider_name: pulumi_gestalt_rust::Output<String>,
+        pub settings: pulumi_gestalt_rust::Output<
             Option<super::super::types::codepipeline::CustomActionTypeSettings>,
         >,
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        pub tags_all: pulumi_wasm_rust::Output<
+        pub tags_all: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
-        pub version: pulumi_wasm_rust::Output<String>,
+        pub version: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: CustomActionTypeArgs,
     ) -> CustomActionTypeResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let category_binding = args.category.get_output(context).get_inner();
         let configuration_properties_binding = args
@@ -179,31 +179,33 @@ pub mod custom_action_type {
         };
         let o = register_interface::register(context.get_inner(), &request);
         CustomActionTypeResult {
-            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
-            category: pulumi_wasm_rust::__private::into_domain(
+            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
+            category: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("category"),
             ),
-            configuration_properties: pulumi_wasm_rust::__private::into_domain(
+            configuration_properties: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("configurationProperties"),
             ),
-            input_artifact_details: pulumi_wasm_rust::__private::into_domain(
+            input_artifact_details: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("inputArtifactDetails"),
             ),
-            output_artifact_details: pulumi_wasm_rust::__private::into_domain(
+            output_artifact_details: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("outputArtifactDetails"),
             ),
-            owner: pulumi_wasm_rust::__private::into_domain(o.extract_field("owner")),
-            provider_name: pulumi_wasm_rust::__private::into_domain(
+            owner: pulumi_gestalt_rust::__private::into_domain(o.extract_field("owner")),
+            provider_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("providerName"),
             ),
-            settings: pulumi_wasm_rust::__private::into_domain(
+            settings: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("settings"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_wasm_rust::__private::into_domain(
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            tags_all: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("tagsAll"),
             ),
-            version: pulumi_wasm_rust::__private::into_domain(o.extract_field("version")),
+            version: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("version"),
+            ),
         }
     }
 }

@@ -143,27 +143,29 @@
 /// ```
 ///
 pub mod database {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct DatabaseArgs {
         /// Time in minutes after which database is automatically paused. A value of `-1` means that automatic pause is disabled. This property is only settable for Serverless databases.
         #[builder(into, default)]
-        pub auto_pause_delay_in_minutes: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
+        pub auto_pause_delay_in_minutes: pulumi_gestalt_rust::InputOrOutput<Option<i32>>,
         /// Specifies the collation of the database. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub collation: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub collation: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The create mode of the database. Possible values are `Copy`, `Default`, `OnlineSecondary`, `PointInTimeRestore`, `Recovery`, `Restore`, `RestoreExternalBackup`, `RestoreExternalBackupSecondary`, `RestoreLongTermRetentionBackup` and `Secondary`. Mutually exclusive with `import`. Changing this forces a new resource to be created. Defaults to `Default`.
         #[builder(into, default)]
-        pub create_mode: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub create_mode: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The ID of the source database from which to create the new database. This should only be used for databases with `create_mode` values that use another database as reference. Changing this forces a new resource to be created.
         ///
         /// > **NOTE:** When configuring a secondary database, please be aware of the constraints for the `sku_name` property, as noted below, for both the primary and secondary databases. The `sku_name` of the secondary database may be inadvertently changed to match that of the primary when an incompatible combination of SKUs is detected by the provider.
         #[builder(into, default)]
-        pub creation_source_database_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub creation_source_database_id: pulumi_gestalt_rust::InputOrOutput<
+            Option<String>,
+        >,
         /// Specifies the ID of the elastic pool containing this database.
         #[builder(into, default)]
-        pub elastic_pool_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub elastic_pool_id: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Specifies the type of enclave to be used by the elastic pool. When `enclave_type` is not specified (e.g., the default) enclaves are not enabled on the database. <!-- TODO: Uncomment in 4.0: Once enabled (e.g., by specifying `Default` or `VBS`) removing the `enclave_type` field from the configuration file will force the creation of a new resource.-> Possible values are `Default` or `VBS`.
         ///
         /// > **NOTE:** `enclave_type` is currently not supported for DW (e.g, DataWarehouse) and DC-series SKUs.
@@ -172,147 +174,149 @@ pub mod database {
         ///
         /// > **NOTE:** The default value for the `enclave_type` field is unset not `Default`.
         #[builder(into, default)]
-        pub enclave_type: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub enclave_type: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// A boolean that specifies if the Geo Backup Policy is enabled. Defaults to `true`.
         ///
         /// > **NOTE:** `geo_backup_enabled` is only applicable for DataWarehouse SKUs (DW*). This setting is ignored for all other SKUs.
         #[builder(into, default)]
-        pub geo_backup_enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub geo_backup_enabled: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// An `identity` block as defined below.
         #[builder(into, default)]
-        pub identity: pulumi_wasm_rust::InputOrOutput<
+        pub identity: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::mssql::DatabaseIdentity>,
         >,
         /// A `import` block as documented below. Mutually exclusive with `create_mode`.
         #[builder(into, default)]
-        pub import: pulumi_wasm_rust::InputOrOutput<
+        pub import: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::mssql::DatabaseImport>,
         >,
         /// A boolean that specifies if this is a ledger database. Defaults to `false`. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub ledger_enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub ledger_enabled: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// Specifies the license type applied to this database. Possible values are `LicenseIncluded` and `BasePrice`.
         #[builder(into, default)]
-        pub license_type: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub license_type: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// A `long_term_retention_policy` block as defined below.
         #[builder(into, default)]
-        pub long_term_retention_policy: pulumi_wasm_rust::InputOrOutput<
+        pub long_term_retention_policy: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::mssql::DatabaseLongTermRetentionPolicy>,
         >,
         /// The name of the Public Maintenance Configuration window to apply to the database. Valid values include `SQL_Default`, `SQL_EastUS_DB_1`, `SQL_EastUS2_DB_1`, `SQL_SoutheastAsia_DB_1`, `SQL_AustraliaEast_DB_1`, `SQL_NorthEurope_DB_1`, `SQL_SouthCentralUS_DB_1`, `SQL_WestUS2_DB_1`, `SQL_UKSouth_DB_1`, `SQL_WestEurope_DB_1`, `SQL_EastUS_DB_2`, `SQL_EastUS2_DB_2`, `SQL_WestUS2_DB_2`, `SQL_SoutheastAsia_DB_2`, `SQL_AustraliaEast_DB_2`, `SQL_NorthEurope_DB_2`, `SQL_SouthCentralUS_DB_2`, `SQL_UKSouth_DB_2`, `SQL_WestEurope_DB_2`, `SQL_AustraliaSoutheast_DB_1`, `SQL_BrazilSouth_DB_1`, `SQL_CanadaCentral_DB_1`, `SQL_CanadaEast_DB_1`, `SQL_CentralUS_DB_1`, `SQL_EastAsia_DB_1`, `SQL_FranceCentral_DB_1`, `SQL_GermanyWestCentral_DB_1`, `SQL_CentralIndia_DB_1`, `SQL_SouthIndia_DB_1`, `SQL_JapanEast_DB_1`, `SQL_JapanWest_DB_1`, `SQL_NorthCentralUS_DB_1`, `SQL_UKWest_DB_1`, `SQL_WestUS_DB_1`, `SQL_AustraliaSoutheast_DB_2`, `SQL_BrazilSouth_DB_2`, `SQL_CanadaCentral_DB_2`, `SQL_CanadaEast_DB_2`, `SQL_CentralUS_DB_2`, `SQL_EastAsia_DB_2`, `SQL_FranceCentral_DB_2`, `SQL_GermanyWestCentral_DB_2`, `SQL_CentralIndia_DB_2`, `SQL_SouthIndia_DB_2`, `SQL_JapanEast_DB_2`, `SQL_JapanWest_DB_2`, `SQL_NorthCentralUS_DB_2`, `SQL_UKWest_DB_2`, `SQL_WestUS_DB_2`, `SQL_WestCentralUS_DB_1`, `SQL_FranceSouth_DB_1`, `SQL_WestCentralUS_DB_2`, `SQL_FranceSouth_DB_2`, `SQL_SwitzerlandNorth_DB_1`, `SQL_SwitzerlandNorth_DB_2`, `SQL_BrazilSoutheast_DB_1`, `SQL_UAENorth_DB_1`, `SQL_BrazilSoutheast_DB_2`, `SQL_UAENorth_DB_2`. Defaults to `SQL_Default`.
         ///
         /// > **NOTE:** `maintenance_configuration_name` is only applicable if `elastic_pool_id` is not set.
         #[builder(into, default)]
-        pub maintenance_configuration_name: pulumi_wasm_rust::InputOrOutput<
+        pub maintenance_configuration_name: pulumi_gestalt_rust::InputOrOutput<
             Option<String>,
         >,
         /// The max size of the database in gigabytes.
         ///
         /// > **NOTE:** This value should not be configured when the `create_mode` is `Secondary` or `OnlineSecondary`, as the sizing of the primary is then used as per [Azure documentation](https://docs.microsoft.com/azure/azure-sql/database/single-database-scale#geo-replicated-database).
         #[builder(into, default)]
-        pub max_size_gb: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
+        pub max_size_gb: pulumi_gestalt_rust::InputOrOutput<Option<i32>>,
         /// Minimal capacity that database will always have allocated, if not paused. This property is only settable for Serverless databases.
         #[builder(into, default)]
-        pub min_capacity: pulumi_wasm_rust::InputOrOutput<Option<f64>>,
+        pub min_capacity: pulumi_gestalt_rust::InputOrOutput<Option<f64>>,
         /// The name of the MS SQL Database. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The number of readonly secondary replicas associated with the database to which readonly application intent connections may be routed. This property is only settable for Hyperscale edition databases.
         #[builder(into, default)]
-        pub read_replica_count: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
+        pub read_replica_count: pulumi_gestalt_rust::InputOrOutput<Option<i32>>,
         /// If enabled, connections that have application intent set to readonly in their connection string may be routed to a readonly secondary replica. This property is only settable for Premium and Business Critical databases.
         #[builder(into, default)]
-        pub read_scale: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub read_scale: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// The ID of the database to be recovered. This property is only applicable when the `create_mode` is `Recovery`.
         #[builder(into, default)]
-        pub recover_database_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub recover_database_id: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The ID of the Recovery Services Recovery Point Id to be restored. This property is only applicable when the `create_mode` is `Recovery`.
         #[builder(into, default)]
-        pub recovery_point_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub recovery_point_id: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The ID of the database to be restored. This property is only applicable when the `create_mode` is `Restore`.
         #[builder(into, default)]
-        pub restore_dropped_database_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub restore_dropped_database_id: pulumi_gestalt_rust::InputOrOutput<
+            Option<String>,
+        >,
         /// The ID of the long term retention backup to be restored. This property is only applicable when the `create_mode` is `RestoreLongTermRetentionBackup`.
         #[builder(into, default)]
-        pub restore_long_term_retention_backup_id: pulumi_wasm_rust::InputOrOutput<
+        pub restore_long_term_retention_backup_id: pulumi_gestalt_rust::InputOrOutput<
             Option<String>,
         >,
         /// Specifies the point in time (ISO8601 format) of the source database that will be restored to create the new database. This property is only settable for `create_mode`= `PointInTimeRestore` databases.
         #[builder(into, default)]
-        pub restore_point_in_time: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub restore_point_in_time: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Specifies the name of the sample schema to apply when creating this database. Possible value is `AdventureWorksLT`.
         #[builder(into, default)]
-        pub sample_name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub sample_name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// How do you want your replica to be made? Valid values include `Geo` and `Named`. Defaults to `Geo`. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub secondary_type: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub secondary_type: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The id of the MS SQL Server on which to create the database. Changing this forces a new resource to be created.
         ///
         /// > **NOTE:** This setting is still required for "Serverless" SKUs
         #[builder(into)]
-        pub server_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub server_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// A `short_term_retention_policy` block as defined below.
         #[builder(into, default)]
-        pub short_term_retention_policy: pulumi_wasm_rust::InputOrOutput<
+        pub short_term_retention_policy: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::mssql::DatabaseShortTermRetentionPolicy>,
         >,
         /// Specifies the name of the SKU used by the database. For example, `GP_S_Gen5_2`,`HS_Gen4_1`,`BC_Gen5_2`, `ElasticPool`, `Basic`,`S0`, `P2` ,`DW100c`, `DS100`. Changing this from the HyperScale service tier to another service tier will create a new resource.
         ///
         /// > **NOTE:** The default `sku_name` value may differ between Azure locations depending on local availability of Gen4/Gen5 capacity. When databases are replicated using the `creation_source_database_id` property, the source (primary) database cannot have a higher SKU service tier than any secondary databases. When changing the `sku_name` of a database having one or more secondary databases, this resource will first update any secondary databases as necessary. In such cases it's recommended to use the same `sku_name` in your configuration for all related databases, as not doing so may cause an unresolvable diff during subsequent plans.
         #[builder(into, default)]
-        pub sku_name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub sku_name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Specifies the storage account type used to store backups for this database. Possible values are `Geo`, `GeoZone`, `Local` and `Zone`. Defaults to `Geo`.
         #[builder(into, default)]
-        pub storage_account_type: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub storage_account_type: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// A mapping of tags to assign to the resource.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Threat detection policy configuration. The `threat_detection_policy` block supports fields documented below.
         #[builder(into, default)]
-        pub threat_detection_policy: pulumi_wasm_rust::InputOrOutput<
+        pub threat_detection_policy: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::mssql::DatabaseThreatDetectionPolicy>,
         >,
         /// If set to true, Transparent Data Encryption will be enabled on the database. Defaults to `true`.
         ///
         /// > **NOTE:** `transparent_data_encryption_enabled` can only be set to `false` on DW (e.g, DataWarehouse) server SKUs.
         #[builder(into, default)]
-        pub transparent_data_encryption_enabled: pulumi_wasm_rust::InputOrOutput<
+        pub transparent_data_encryption_enabled: pulumi_gestalt_rust::InputOrOutput<
             Option<bool>,
         >,
         /// Boolean flag to specify whether TDE automatically rotates the encryption Key to latest version or not. Possible values are `true` or `false`. Defaults to `false`.
         ///
         /// > **NOTE:** When the `sku_name` is `DW100c`, the `transparent_data_encryption_key_automatic_rotation_enabled` and the `transparent_data_encryption_key_vault_key_id` properties should not be specified, as database-level CMK is not supported for Data Warehouse SKUs.
         #[builder(into, default)]
-        pub transparent_data_encryption_key_automatic_rotation_enabled: pulumi_wasm_rust::InputOrOutput<
+        pub transparent_data_encryption_key_automatic_rotation_enabled: pulumi_gestalt_rust::InputOrOutput<
             Option<bool>,
         >,
         /// The fully versioned `Key Vault` `Key` URL (e.g. `'https://<YourVaultName>.vault.azure.net/keys/<YourKeyName>/<YourKeyVersion>`) to be used as the `Customer Managed Key`(CMK/BYOK) for the `Transparent Data Encryption`(TDE) layer.
         ///
         /// > **NOTE:** To successfully deploy a `Microsoft SQL Database` in CMK/BYOK TDE the `Key Vault` must have `Soft-delete` and `purge protection` enabled to protect from data loss due to accidental key and/or key vault deletion. The `Key Vault` and the `Microsoft SQL Server` `User Managed Identity Instance` must belong to the same `Azure Active Directory` `tenant`.
         #[builder(into, default)]
-        pub transparent_data_encryption_key_vault_key_id: pulumi_wasm_rust::InputOrOutput<
+        pub transparent_data_encryption_key_vault_key_id: pulumi_gestalt_rust::InputOrOutput<
             Option<String>,
         >,
         /// Whether or not this database is zone redundant, which means the replicas of this database will be spread across multiple availability zones. This property is only settable for Premium and Business Critical databases.
         #[builder(into, default)]
-        pub zone_redundant: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub zone_redundant: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
     }
     #[allow(dead_code)]
     pub struct DatabaseResult {
         /// Time in minutes after which database is automatically paused. A value of `-1` means that automatic pause is disabled. This property is only settable for Serverless databases.
-        pub auto_pause_delay_in_minutes: pulumi_wasm_rust::Output<i32>,
+        pub auto_pause_delay_in_minutes: pulumi_gestalt_rust::Output<i32>,
         /// Specifies the collation of the database. Changing this forces a new resource to be created.
-        pub collation: pulumi_wasm_rust::Output<String>,
+        pub collation: pulumi_gestalt_rust::Output<String>,
         /// The create mode of the database. Possible values are `Copy`, `Default`, `OnlineSecondary`, `PointInTimeRestore`, `Recovery`, `Restore`, `RestoreExternalBackup`, `RestoreExternalBackupSecondary`, `RestoreLongTermRetentionBackup` and `Secondary`. Mutually exclusive with `import`. Changing this forces a new resource to be created. Defaults to `Default`.
-        pub create_mode: pulumi_wasm_rust::Output<Option<String>>,
+        pub create_mode: pulumi_gestalt_rust::Output<Option<String>>,
         /// The ID of the source database from which to create the new database. This should only be used for databases with `create_mode` values that use another database as reference. Changing this forces a new resource to be created.
         ///
         /// > **NOTE:** When configuring a secondary database, please be aware of the constraints for the `sku_name` property, as noted below, for both the primary and secondary databases. The `sku_name` of the secondary database may be inadvertently changed to match that of the primary when an incompatible combination of SKUs is detected by the provider.
-        pub creation_source_database_id: pulumi_wasm_rust::Output<String>,
+        pub creation_source_database_id: pulumi_gestalt_rust::Output<String>,
         /// Specifies the ID of the elastic pool containing this database.
-        pub elastic_pool_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub elastic_pool_id: pulumi_gestalt_rust::Output<Option<String>>,
         /// Specifies the type of enclave to be used by the elastic pool. When `enclave_type` is not specified (e.g., the default) enclaves are not enabled on the database. <!-- TODO: Uncomment in 4.0: Once enabled (e.g., by specifying `Default` or `VBS`) removing the `enclave_type` field from the configuration file will force the creation of a new resource.-> Possible values are `Default` or `VBS`.
         ///
         /// > **NOTE:** `enclave_type` is currently not supported for DW (e.g, DataWarehouse) and DC-series SKUs.
@@ -320,110 +324,112 @@ pub mod database {
         /// > **NOTE:** Geo Replicated and Failover databases must have the same `enclave_type`.
         ///
         /// > **NOTE:** The default value for the `enclave_type` field is unset not `Default`.
-        pub enclave_type: pulumi_wasm_rust::Output<String>,
+        pub enclave_type: pulumi_gestalt_rust::Output<String>,
         /// A boolean that specifies if the Geo Backup Policy is enabled. Defaults to `true`.
         ///
         /// > **NOTE:** `geo_backup_enabled` is only applicable for DataWarehouse SKUs (DW*). This setting is ignored for all other SKUs.
-        pub geo_backup_enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub geo_backup_enabled: pulumi_gestalt_rust::Output<Option<bool>>,
         /// An `identity` block as defined below.
-        pub identity: pulumi_wasm_rust::Output<
+        pub identity: pulumi_gestalt_rust::Output<
             Option<super::super::types::mssql::DatabaseIdentity>,
         >,
         /// A `import` block as documented below. Mutually exclusive with `create_mode`.
-        pub import: pulumi_wasm_rust::Output<
+        pub import: pulumi_gestalt_rust::Output<
             Option<super::super::types::mssql::DatabaseImport>,
         >,
         /// A boolean that specifies if this is a ledger database. Defaults to `false`. Changing this forces a new resource to be created.
-        pub ledger_enabled: pulumi_wasm_rust::Output<bool>,
+        pub ledger_enabled: pulumi_gestalt_rust::Output<bool>,
         /// Specifies the license type applied to this database. Possible values are `LicenseIncluded` and `BasePrice`.
-        pub license_type: pulumi_wasm_rust::Output<String>,
+        pub license_type: pulumi_gestalt_rust::Output<String>,
         /// A `long_term_retention_policy` block as defined below.
-        pub long_term_retention_policy: pulumi_wasm_rust::Output<
+        pub long_term_retention_policy: pulumi_gestalt_rust::Output<
             super::super::types::mssql::DatabaseLongTermRetentionPolicy,
         >,
         /// The name of the Public Maintenance Configuration window to apply to the database. Valid values include `SQL_Default`, `SQL_EastUS_DB_1`, `SQL_EastUS2_DB_1`, `SQL_SoutheastAsia_DB_1`, `SQL_AustraliaEast_DB_1`, `SQL_NorthEurope_DB_1`, `SQL_SouthCentralUS_DB_1`, `SQL_WestUS2_DB_1`, `SQL_UKSouth_DB_1`, `SQL_WestEurope_DB_1`, `SQL_EastUS_DB_2`, `SQL_EastUS2_DB_2`, `SQL_WestUS2_DB_2`, `SQL_SoutheastAsia_DB_2`, `SQL_AustraliaEast_DB_2`, `SQL_NorthEurope_DB_2`, `SQL_SouthCentralUS_DB_2`, `SQL_UKSouth_DB_2`, `SQL_WestEurope_DB_2`, `SQL_AustraliaSoutheast_DB_1`, `SQL_BrazilSouth_DB_1`, `SQL_CanadaCentral_DB_1`, `SQL_CanadaEast_DB_1`, `SQL_CentralUS_DB_1`, `SQL_EastAsia_DB_1`, `SQL_FranceCentral_DB_1`, `SQL_GermanyWestCentral_DB_1`, `SQL_CentralIndia_DB_1`, `SQL_SouthIndia_DB_1`, `SQL_JapanEast_DB_1`, `SQL_JapanWest_DB_1`, `SQL_NorthCentralUS_DB_1`, `SQL_UKWest_DB_1`, `SQL_WestUS_DB_1`, `SQL_AustraliaSoutheast_DB_2`, `SQL_BrazilSouth_DB_2`, `SQL_CanadaCentral_DB_2`, `SQL_CanadaEast_DB_2`, `SQL_CentralUS_DB_2`, `SQL_EastAsia_DB_2`, `SQL_FranceCentral_DB_2`, `SQL_GermanyWestCentral_DB_2`, `SQL_CentralIndia_DB_2`, `SQL_SouthIndia_DB_2`, `SQL_JapanEast_DB_2`, `SQL_JapanWest_DB_2`, `SQL_NorthCentralUS_DB_2`, `SQL_UKWest_DB_2`, `SQL_WestUS_DB_2`, `SQL_WestCentralUS_DB_1`, `SQL_FranceSouth_DB_1`, `SQL_WestCentralUS_DB_2`, `SQL_FranceSouth_DB_2`, `SQL_SwitzerlandNorth_DB_1`, `SQL_SwitzerlandNorth_DB_2`, `SQL_BrazilSoutheast_DB_1`, `SQL_UAENorth_DB_1`, `SQL_BrazilSoutheast_DB_2`, `SQL_UAENorth_DB_2`. Defaults to `SQL_Default`.
         ///
         /// > **NOTE:** `maintenance_configuration_name` is only applicable if `elastic_pool_id` is not set.
-        pub maintenance_configuration_name: pulumi_wasm_rust::Output<String>,
+        pub maintenance_configuration_name: pulumi_gestalt_rust::Output<String>,
         /// The max size of the database in gigabytes.
         ///
         /// > **NOTE:** This value should not be configured when the `create_mode` is `Secondary` or `OnlineSecondary`, as the sizing of the primary is then used as per [Azure documentation](https://docs.microsoft.com/azure/azure-sql/database/single-database-scale#geo-replicated-database).
-        pub max_size_gb: pulumi_wasm_rust::Output<i32>,
+        pub max_size_gb: pulumi_gestalt_rust::Output<i32>,
         /// Minimal capacity that database will always have allocated, if not paused. This property is only settable for Serverless databases.
-        pub min_capacity: pulumi_wasm_rust::Output<f64>,
+        pub min_capacity: pulumi_gestalt_rust::Output<f64>,
         /// The name of the MS SQL Database. Changing this forces a new resource to be created.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// The number of readonly secondary replicas associated with the database to which readonly application intent connections may be routed. This property is only settable for Hyperscale edition databases.
-        pub read_replica_count: pulumi_wasm_rust::Output<i32>,
+        pub read_replica_count: pulumi_gestalt_rust::Output<i32>,
         /// If enabled, connections that have application intent set to readonly in their connection string may be routed to a readonly secondary replica. This property is only settable for Premium and Business Critical databases.
-        pub read_scale: pulumi_wasm_rust::Output<bool>,
+        pub read_scale: pulumi_gestalt_rust::Output<bool>,
         /// The ID of the database to be recovered. This property is only applicable when the `create_mode` is `Recovery`.
-        pub recover_database_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub recover_database_id: pulumi_gestalt_rust::Output<Option<String>>,
         /// The ID of the Recovery Services Recovery Point Id to be restored. This property is only applicable when the `create_mode` is `Recovery`.
-        pub recovery_point_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub recovery_point_id: pulumi_gestalt_rust::Output<Option<String>>,
         /// The ID of the database to be restored. This property is only applicable when the `create_mode` is `Restore`.
-        pub restore_dropped_database_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub restore_dropped_database_id: pulumi_gestalt_rust::Output<Option<String>>,
         /// The ID of the long term retention backup to be restored. This property is only applicable when the `create_mode` is `RestoreLongTermRetentionBackup`.
-        pub restore_long_term_retention_backup_id: pulumi_wasm_rust::Output<
+        pub restore_long_term_retention_backup_id: pulumi_gestalt_rust::Output<
             Option<String>,
         >,
         /// Specifies the point in time (ISO8601 format) of the source database that will be restored to create the new database. This property is only settable for `create_mode`= `PointInTimeRestore` databases.
-        pub restore_point_in_time: pulumi_wasm_rust::Output<String>,
+        pub restore_point_in_time: pulumi_gestalt_rust::Output<String>,
         /// Specifies the name of the sample schema to apply when creating this database. Possible value is `AdventureWorksLT`.
-        pub sample_name: pulumi_wasm_rust::Output<String>,
+        pub sample_name: pulumi_gestalt_rust::Output<String>,
         /// How do you want your replica to be made? Valid values include `Geo` and `Named`. Defaults to `Geo`. Changing this forces a new resource to be created.
-        pub secondary_type: pulumi_wasm_rust::Output<String>,
+        pub secondary_type: pulumi_gestalt_rust::Output<String>,
         /// The id of the MS SQL Server on which to create the database. Changing this forces a new resource to be created.
         ///
         /// > **NOTE:** This setting is still required for "Serverless" SKUs
-        pub server_id: pulumi_wasm_rust::Output<String>,
+        pub server_id: pulumi_gestalt_rust::Output<String>,
         /// A `short_term_retention_policy` block as defined below.
-        pub short_term_retention_policy: pulumi_wasm_rust::Output<
+        pub short_term_retention_policy: pulumi_gestalt_rust::Output<
             super::super::types::mssql::DatabaseShortTermRetentionPolicy,
         >,
         /// Specifies the name of the SKU used by the database. For example, `GP_S_Gen5_2`,`HS_Gen4_1`,`BC_Gen5_2`, `ElasticPool`, `Basic`,`S0`, `P2` ,`DW100c`, `DS100`. Changing this from the HyperScale service tier to another service tier will create a new resource.
         ///
         /// > **NOTE:** The default `sku_name` value may differ between Azure locations depending on local availability of Gen4/Gen5 capacity. When databases are replicated using the `creation_source_database_id` property, the source (primary) database cannot have a higher SKU service tier than any secondary databases. When changing the `sku_name` of a database having one or more secondary databases, this resource will first update any secondary databases as necessary. In such cases it's recommended to use the same `sku_name` in your configuration for all related databases, as not doing so may cause an unresolvable diff during subsequent plans.
-        pub sku_name: pulumi_wasm_rust::Output<String>,
+        pub sku_name: pulumi_gestalt_rust::Output<String>,
         /// Specifies the storage account type used to store backups for this database. Possible values are `Geo`, `GeoZone`, `Local` and `Zone`. Defaults to `Geo`.
-        pub storage_account_type: pulumi_wasm_rust::Output<Option<String>>,
+        pub storage_account_type: pulumi_gestalt_rust::Output<Option<String>>,
         /// A mapping of tags to assign to the resource.
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Threat detection policy configuration. The `threat_detection_policy` block supports fields documented below.
-        pub threat_detection_policy: pulumi_wasm_rust::Output<
+        pub threat_detection_policy: pulumi_gestalt_rust::Output<
             super::super::types::mssql::DatabaseThreatDetectionPolicy,
         >,
         /// If set to true, Transparent Data Encryption will be enabled on the database. Defaults to `true`.
         ///
         /// > **NOTE:** `transparent_data_encryption_enabled` can only be set to `false` on DW (e.g, DataWarehouse) server SKUs.
-        pub transparent_data_encryption_enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub transparent_data_encryption_enabled: pulumi_gestalt_rust::Output<
+            Option<bool>,
+        >,
         /// Boolean flag to specify whether TDE automatically rotates the encryption Key to latest version or not. Possible values are `true` or `false`. Defaults to `false`.
         ///
         /// > **NOTE:** When the `sku_name` is `DW100c`, the `transparent_data_encryption_key_automatic_rotation_enabled` and the `transparent_data_encryption_key_vault_key_id` properties should not be specified, as database-level CMK is not supported for Data Warehouse SKUs.
-        pub transparent_data_encryption_key_automatic_rotation_enabled: pulumi_wasm_rust::Output<
+        pub transparent_data_encryption_key_automatic_rotation_enabled: pulumi_gestalt_rust::Output<
             Option<bool>,
         >,
         /// The fully versioned `Key Vault` `Key` URL (e.g. `'https://<YourVaultName>.vault.azure.net/keys/<YourKeyName>/<YourKeyVersion>`) to be used as the `Customer Managed Key`(CMK/BYOK) for the `Transparent Data Encryption`(TDE) layer.
         ///
         /// > **NOTE:** To successfully deploy a `Microsoft SQL Database` in CMK/BYOK TDE the `Key Vault` must have `Soft-delete` and `purge protection` enabled to protect from data loss due to accidental key and/or key vault deletion. The `Key Vault` and the `Microsoft SQL Server` `User Managed Identity Instance` must belong to the same `Azure Active Directory` `tenant`.
-        pub transparent_data_encryption_key_vault_key_id: pulumi_wasm_rust::Output<
+        pub transparent_data_encryption_key_vault_key_id: pulumi_gestalt_rust::Output<
             Option<String>,
         >,
         /// Whether or not this database is zone redundant, which means the replicas of this database will be spread across multiple availability zones. This property is only settable for Premium and Business Critical databases.
-        pub zone_redundant: pulumi_wasm_rust::Output<bool>,
+        pub zone_redundant: pulumi_gestalt_rust::Output<bool>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: DatabaseArgs,
     ) -> DatabaseResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let auto_pause_delay_in_minutes_binding = args
             .auto_pause_delay_in_minutes
@@ -663,103 +669,105 @@ pub mod database {
         };
         let o = register_interface::register(context.get_inner(), &request);
         DatabaseResult {
-            auto_pause_delay_in_minutes: pulumi_wasm_rust::__private::into_domain(
+            auto_pause_delay_in_minutes: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("autoPauseDelayInMinutes"),
             ),
-            collation: pulumi_wasm_rust::__private::into_domain(
+            collation: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("collation"),
             ),
-            create_mode: pulumi_wasm_rust::__private::into_domain(
+            create_mode: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("createMode"),
             ),
-            creation_source_database_id: pulumi_wasm_rust::__private::into_domain(
+            creation_source_database_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("creationSourceDatabaseId"),
             ),
-            elastic_pool_id: pulumi_wasm_rust::__private::into_domain(
+            elastic_pool_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("elasticPoolId"),
             ),
-            enclave_type: pulumi_wasm_rust::__private::into_domain(
+            enclave_type: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("enclaveType"),
             ),
-            geo_backup_enabled: pulumi_wasm_rust::__private::into_domain(
+            geo_backup_enabled: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("geoBackupEnabled"),
             ),
-            identity: pulumi_wasm_rust::__private::into_domain(
+            identity: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("identity"),
             ),
-            import: pulumi_wasm_rust::__private::into_domain(o.extract_field("import")),
-            ledger_enabled: pulumi_wasm_rust::__private::into_domain(
+            import: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("import"),
+            ),
+            ledger_enabled: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("ledgerEnabled"),
             ),
-            license_type: pulumi_wasm_rust::__private::into_domain(
+            license_type: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("licenseType"),
             ),
-            long_term_retention_policy: pulumi_wasm_rust::__private::into_domain(
+            long_term_retention_policy: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("longTermRetentionPolicy"),
             ),
-            maintenance_configuration_name: pulumi_wasm_rust::__private::into_domain(
+            maintenance_configuration_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("maintenanceConfigurationName"),
             ),
-            max_size_gb: pulumi_wasm_rust::__private::into_domain(
+            max_size_gb: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("maxSizeGb"),
             ),
-            min_capacity: pulumi_wasm_rust::__private::into_domain(
+            min_capacity: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("minCapacity"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            read_replica_count: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            read_replica_count: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("readReplicaCount"),
             ),
-            read_scale: pulumi_wasm_rust::__private::into_domain(
+            read_scale: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("readScale"),
             ),
-            recover_database_id: pulumi_wasm_rust::__private::into_domain(
+            recover_database_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("recoverDatabaseId"),
             ),
-            recovery_point_id: pulumi_wasm_rust::__private::into_domain(
+            recovery_point_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("recoveryPointId"),
             ),
-            restore_dropped_database_id: pulumi_wasm_rust::__private::into_domain(
+            restore_dropped_database_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("restoreDroppedDatabaseId"),
             ),
-            restore_long_term_retention_backup_id: pulumi_wasm_rust::__private::into_domain(
+            restore_long_term_retention_backup_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("restoreLongTermRetentionBackupId"),
             ),
-            restore_point_in_time: pulumi_wasm_rust::__private::into_domain(
+            restore_point_in_time: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("restorePointInTime"),
             ),
-            sample_name: pulumi_wasm_rust::__private::into_domain(
+            sample_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("sampleName"),
             ),
-            secondary_type: pulumi_wasm_rust::__private::into_domain(
+            secondary_type: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("secondaryType"),
             ),
-            server_id: pulumi_wasm_rust::__private::into_domain(
+            server_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("serverId"),
             ),
-            short_term_retention_policy: pulumi_wasm_rust::__private::into_domain(
+            short_term_retention_policy: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("shortTermRetentionPolicy"),
             ),
-            sku_name: pulumi_wasm_rust::__private::into_domain(
+            sku_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("skuName"),
             ),
-            storage_account_type: pulumi_wasm_rust::__private::into_domain(
+            storage_account_type: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("storageAccountType"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
-            threat_detection_policy: pulumi_wasm_rust::__private::into_domain(
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            threat_detection_policy: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("threatDetectionPolicy"),
             ),
-            transparent_data_encryption_enabled: pulumi_wasm_rust::__private::into_domain(
+            transparent_data_encryption_enabled: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("transparentDataEncryptionEnabled"),
             ),
-            transparent_data_encryption_key_automatic_rotation_enabled: pulumi_wasm_rust::__private::into_domain(
+            transparent_data_encryption_key_automatic_rotation_enabled: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("transparentDataEncryptionKeyAutomaticRotationEnabled"),
             ),
-            transparent_data_encryption_key_vault_key_id: pulumi_wasm_rust::__private::into_domain(
+            transparent_data_encryption_key_vault_key_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("transparentDataEncryptionKeyVaultKeyId"),
             ),
-            zone_redundant: pulumi_wasm_rust::__private::into_domain(
+            zone_redundant: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("zoneRedundant"),
             ),
         }

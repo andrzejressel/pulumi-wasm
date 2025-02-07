@@ -68,46 +68,46 @@
 /// ```
 ///
 pub mod client_tls_policy {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ClientTlsPolicyArgs {
         /// Defines a mechanism to provision client identity (public and private keys) for peer to peer authentication. The presence of this dictates mTLS.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub client_certificate: pulumi_wasm_rust::InputOrOutput<
+        pub client_certificate: pulumi_gestalt_rust::InputOrOutput<
             Option<
                 super::super::types::networksecurity::ClientTlsPolicyClientCertificate,
             >,
         >,
         /// A free-text description of the resource. Max length 1024 characters.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub description: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Set of label tags associated with the ClientTlsPolicy resource.
         /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
         /// Please refer to the field `effective_labels` for all of the labels present on the resource.
         #[builder(into, default)]
-        pub labels: pulumi_wasm_rust::InputOrOutput<
+        pub labels: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// The location of the client tls policy.
         /// The default value is `global`.
         #[builder(into, default)]
-        pub location: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub location: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Name of the ClientTlsPolicy resource.
         ///
         ///
         /// - - -
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub project: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Defines the mechanism to obtain the Certificate Authority certificate to validate the server certificate. If empty, client does not validate the server certificate.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub server_validation_cas: pulumi_wasm_rust::InputOrOutput<
+        pub server_validation_cas: pulumi_gestalt_rust::InputOrOutput<
             Option<
                 Vec<
                     super::super::types::networksecurity::ClientTlsPolicyServerValidationCa,
@@ -116,50 +116,50 @@ pub mod client_tls_policy {
         >,
         /// Server Name Indication string to present to the server during TLS handshake. E.g: "secure.example.com".
         #[builder(into, default)]
-        pub sni: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub sni: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct ClientTlsPolicyResult {
         /// Defines a mechanism to provision client identity (public and private keys) for peer to peer authentication. The presence of this dictates mTLS.
         /// Structure is documented below.
-        pub client_certificate: pulumi_wasm_rust::Output<
+        pub client_certificate: pulumi_gestalt_rust::Output<
             Option<
                 super::super::types::networksecurity::ClientTlsPolicyClientCertificate,
             >,
         >,
         /// Time the ClientTlsPolicy was created in UTC.
-        pub create_time: pulumi_wasm_rust::Output<String>,
+        pub create_time: pulumi_gestalt_rust::Output<String>,
         /// A free-text description of the resource. Max length 1024 characters.
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_gestalt_rust::Output<Option<String>>,
         /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Pulumi, other clients and services.
-        pub effective_labels: pulumi_wasm_rust::Output<
+        pub effective_labels: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
         /// Set of label tags associated with the ClientTlsPolicy resource.
         /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
         /// Please refer to the field `effective_labels` for all of the labels present on the resource.
-        pub labels: pulumi_wasm_rust::Output<
+        pub labels: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// The location of the client tls policy.
         /// The default value is `global`.
-        pub location: pulumi_wasm_rust::Output<Option<String>>,
+        pub location: pulumi_gestalt_rust::Output<Option<String>>,
         /// Name of the ClientTlsPolicy resource.
         ///
         ///
         /// - - -
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
-        pub project: pulumi_wasm_rust::Output<String>,
+        pub project: pulumi_gestalt_rust::Output<String>,
         /// The combination of labels configured directly on the resource
         /// and default labels configured on the provider.
-        pub pulumi_labels: pulumi_wasm_rust::Output<
+        pub pulumi_labels: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
         /// Defines the mechanism to obtain the Certificate Authority certificate to validate the server certificate. If empty, client does not validate the server certificate.
         /// Structure is documented below.
-        pub server_validation_cas: pulumi_wasm_rust::Output<
+        pub server_validation_cas: pulumi_gestalt_rust::Output<
             Option<
                 Vec<
                     super::super::types::networksecurity::ClientTlsPolicyServerValidationCa,
@@ -167,20 +167,20 @@ pub mod client_tls_policy {
             >,
         >,
         /// Server Name Indication string to present to the server during TLS handshake. E.g: "secure.example.com".
-        pub sni: pulumi_wasm_rust::Output<Option<String>>,
+        pub sni: pulumi_gestalt_rust::Output<Option<String>>,
         /// Time the ClientTlsPolicy was updated in UTC.
-        pub update_time: pulumi_wasm_rust::Output<String>,
+        pub update_time: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: ClientTlsPolicyArgs,
     ) -> ClientTlsPolicyResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let client_certificate_binding = args
             .client_certificate
@@ -237,34 +237,36 @@ pub mod client_tls_policy {
         };
         let o = register_interface::register(context.get_inner(), &request);
         ClientTlsPolicyResult {
-            client_certificate: pulumi_wasm_rust::__private::into_domain(
+            client_certificate: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("clientCertificate"),
             ),
-            create_time: pulumi_wasm_rust::__private::into_domain(
+            create_time: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("createTime"),
             ),
-            description: pulumi_wasm_rust::__private::into_domain(
+            description: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("description"),
             ),
-            effective_labels: pulumi_wasm_rust::__private::into_domain(
+            effective_labels: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("effectiveLabels"),
             ),
-            labels: pulumi_wasm_rust::__private::into_domain(o.extract_field("labels")),
-            location: pulumi_wasm_rust::__private::into_domain(
+            labels: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("labels"),
+            ),
+            location: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("location"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            project: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            project: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("project"),
             ),
-            pulumi_labels: pulumi_wasm_rust::__private::into_domain(
+            pulumi_labels: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("pulumiLabels"),
             ),
-            server_validation_cas: pulumi_wasm_rust::__private::into_domain(
+            server_validation_cas: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("serverValidationCas"),
             ),
-            sni: pulumi_wasm_rust::__private::into_domain(o.extract_field("sni")),
-            update_time: pulumi_wasm_rust::__private::into_domain(
+            sni: pulumi_gestalt_rust::__private::into_domain(o.extract_field("sni")),
+            update_time: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("updateTime"),
             ),
         }

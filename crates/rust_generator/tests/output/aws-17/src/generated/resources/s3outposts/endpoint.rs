@@ -3,8 +3,8 @@
 /// ## Example Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = endpoint::create(
@@ -26,59 +26,59 @@
 /// $ pulumi import aws:s3outposts/endpoint:Endpoint example arn:aws:s3-outposts:us-east-1:123456789012:outpost/op-12345678/endpoint/0123456789abcdef,sg-12345678,subnet-12345678
 /// ```
 pub mod endpoint {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct EndpointArgs {
         /// Type of access for the network connectivity. Valid values are `Private` or `CustomerOwnedIp`.
         #[builder(into, default)]
-        pub access_type: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub access_type: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The ID of a Customer Owned IP Pool. For more on customer owned IP addresses see the [User Guide](https://docs.aws.amazon.com/outposts/latest/userguide/local-rack.html#local-gateway-subnet).
         #[builder(into, default)]
-        pub customer_owned_ipv4_pool: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub customer_owned_ipv4_pool: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Identifier of the Outpost to contain this endpoint.
         #[builder(into)]
-        pub outpost_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub outpost_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Identifier of the EC2 Security Group.
         #[builder(into)]
-        pub security_group_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub security_group_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Identifier of the EC2 Subnet.
         #[builder(into)]
-        pub subnet_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub subnet_id: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct EndpointResult {
         /// Type of access for the network connectivity. Valid values are `Private` or `CustomerOwnedIp`.
-        pub access_type: pulumi_wasm_rust::Output<String>,
+        pub access_type: pulumi_gestalt_rust::Output<String>,
         /// Amazon Resource Name (ARN) of the endpoint.
-        pub arn: pulumi_wasm_rust::Output<String>,
+        pub arn: pulumi_gestalt_rust::Output<String>,
         /// VPC CIDR block of the endpoint.
-        pub cidr_block: pulumi_wasm_rust::Output<String>,
+        pub cidr_block: pulumi_gestalt_rust::Output<String>,
         /// UTC creation time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
-        pub creation_time: pulumi_wasm_rust::Output<String>,
+        pub creation_time: pulumi_gestalt_rust::Output<String>,
         /// The ID of a Customer Owned IP Pool. For more on customer owned IP addresses see the [User Guide](https://docs.aws.amazon.com/outposts/latest/userguide/local-rack.html#local-gateway-subnet).
-        pub customer_owned_ipv4_pool: pulumi_wasm_rust::Output<Option<String>>,
+        pub customer_owned_ipv4_pool: pulumi_gestalt_rust::Output<Option<String>>,
         /// Set of nested attributes for associated Elastic Network Interfaces (ENIs).
-        pub network_interfaces: pulumi_wasm_rust::Output<
+        pub network_interfaces: pulumi_gestalt_rust::Output<
             Vec<super::super::types::s3outposts::EndpointNetworkInterface>,
         >,
         /// Identifier of the Outpost to contain this endpoint.
-        pub outpost_id: pulumi_wasm_rust::Output<String>,
+        pub outpost_id: pulumi_gestalt_rust::Output<String>,
         /// Identifier of the EC2 Security Group.
-        pub security_group_id: pulumi_wasm_rust::Output<String>,
+        pub security_group_id: pulumi_gestalt_rust::Output<String>,
         /// Identifier of the EC2 Subnet.
-        pub subnet_id: pulumi_wasm_rust::Output<String>,
+        pub subnet_id: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: EndpointArgs,
     ) -> EndpointResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let access_type_binding = args.access_type.get_output(context).get_inner();
         let customer_owned_ipv4_pool_binding = args
@@ -120,29 +120,29 @@ pub mod endpoint {
         };
         let o = register_interface::register(context.get_inner(), &request);
         EndpointResult {
-            access_type: pulumi_wasm_rust::__private::into_domain(
+            access_type: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("accessType"),
             ),
-            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
-            cidr_block: pulumi_wasm_rust::__private::into_domain(
+            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
+            cidr_block: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("cidrBlock"),
             ),
-            creation_time: pulumi_wasm_rust::__private::into_domain(
+            creation_time: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("creationTime"),
             ),
-            customer_owned_ipv4_pool: pulumi_wasm_rust::__private::into_domain(
+            customer_owned_ipv4_pool: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("customerOwnedIpv4Pool"),
             ),
-            network_interfaces: pulumi_wasm_rust::__private::into_domain(
+            network_interfaces: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("networkInterfaces"),
             ),
-            outpost_id: pulumi_wasm_rust::__private::into_domain(
+            outpost_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("outpostId"),
             ),
-            security_group_id: pulumi_wasm_rust::__private::into_domain(
+            security_group_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("securityGroupId"),
             ),
-            subnet_id: pulumi_wasm_rust::__private::into_domain(
+            subnet_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("subnetId"),
             ),
         }

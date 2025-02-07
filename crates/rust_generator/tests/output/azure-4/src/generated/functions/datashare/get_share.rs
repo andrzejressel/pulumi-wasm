@@ -1,42 +1,42 @@
 pub mod get_share {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct GetShareArgs {
         /// The ID of the Data Share account in which the Data Share is created.
         #[builder(into)]
-        pub account_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub account_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The name of this Data Share.
         #[builder(into)]
-        pub name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct GetShareResult {
-        pub account_id: pulumi_wasm_rust::Output<String>,
+        pub account_id: pulumi_gestalt_rust::Output<String>,
         /// The description of the Data Share.
-        pub description: pulumi_wasm_rust::Output<String>,
+        pub description: pulumi_gestalt_rust::Output<String>,
         /// The provider-assigned unique ID for this managed resource.
-        pub id: pulumi_wasm_rust::Output<String>,
+        pub id: pulumi_gestalt_rust::Output<String>,
         /// The kind of the Data Share.
-        pub kind: pulumi_wasm_rust::Output<String>,
+        pub kind: pulumi_gestalt_rust::Output<String>,
         /// The name of the snapshot schedule.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// A `snapshot_schedule` block as defined below.
-        pub snapshot_schedules: pulumi_wasm_rust::Output<
+        pub snapshot_schedules: pulumi_gestalt_rust::Output<
             Vec<super::super::super::types::datashare::GetShareSnapshotSchedule>,
         >,
         /// The terms of the Data Share.
-        pub terms: pulumi_wasm_rust::Output<String>,
+        pub terms: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         args: GetShareArgs,
     ) -> GetShareResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let account_id_binding = args.account_id.get_output(context).get_inner();
         let name_binding = args.name.get_output(context).get_inner();
@@ -56,19 +56,19 @@ pub mod get_share {
         };
         let o = register_interface::invoke(context.get_inner(), &request);
         GetShareResult {
-            account_id: pulumi_wasm_rust::__private::into_domain(
+            account_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("accountId"),
             ),
-            description: pulumi_wasm_rust::__private::into_domain(
+            description: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("description"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
-            kind: pulumi_wasm_rust::__private::into_domain(o.extract_field("kind")),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            snapshot_schedules: pulumi_wasm_rust::__private::into_domain(
+            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
+            kind: pulumi_gestalt_rust::__private::into_domain(o.extract_field("kind")),
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            snapshot_schedules: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("snapshotSchedules"),
             ),
-            terms: pulumi_wasm_rust::__private::into_domain(o.extract_field("terms")),
+            terms: pulumi_gestalt_rust::__private::into_domain(o.extract_field("terms")),
         }
     }
 }

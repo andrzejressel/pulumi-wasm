@@ -3,8 +3,8 @@
 /// ## Example Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = zero_trust_gateway_policy::create(
@@ -35,84 +35,84 @@
 /// ```
 ///
 pub mod zero_trust_gateway_policy {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ZeroTrustGatewayPolicyArgs {
         /// The account identifier to target for the resource.
         #[builder(into)]
-        pub account_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub account_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The action executed by matched teams rule. Available values: `allow`, `block`, `safesearch`, `ytrestricted`, `on`, `off`, `scan`, `noscan`, `isolate`, `noisolate`, `override`, `l4_override`, `egress`, `audit_ssh`, `resolve`.
         #[builder(into)]
-        pub action: pulumi_wasm_rust::InputOrOutput<String>,
+        pub action: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The description of the teams rule.
         #[builder(into)]
-        pub description: pulumi_wasm_rust::InputOrOutput<String>,
+        pub description: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The wirefilter expression to be used for device_posture check matching.
         #[builder(into, default)]
-        pub device_posture: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub device_posture: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Indicator of rule enablement.
         #[builder(into, default)]
-        pub enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub enabled: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// The protocol or layer to evaluate the traffic and identity expressions.
         #[builder(into, default)]
-        pub filters: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
+        pub filters: pulumi_gestalt_rust::InputOrOutput<Option<Vec<String>>>,
         /// The wirefilter expression to be used for identity matching.
         #[builder(into, default)]
-        pub identity: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub identity: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The name of the teams rule.
         #[builder(into)]
-        pub name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The evaluation precedence of the teams rule.
         #[builder(into)]
-        pub precedence: pulumi_wasm_rust::InputOrOutput<i32>,
+        pub precedence: pulumi_gestalt_rust::InputOrOutput<i32>,
         /// Additional rule settings.
         #[builder(into, default)]
-        pub rule_settings: pulumi_wasm_rust::InputOrOutput<
+        pub rule_settings: pulumi_gestalt_rust::InputOrOutput<
             Option<super::types::ZeroTrustGatewayPolicyRuleSettings>,
         >,
         /// The wirefilter expression to be used for traffic matching.
         #[builder(into, default)]
-        pub traffic: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub traffic: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct ZeroTrustGatewayPolicyResult {
         /// The account identifier to target for the resource.
-        pub account_id: pulumi_wasm_rust::Output<String>,
+        pub account_id: pulumi_gestalt_rust::Output<String>,
         /// The action executed by matched teams rule. Available values: `allow`, `block`, `safesearch`, `ytrestricted`, `on`, `off`, `scan`, `noscan`, `isolate`, `noisolate`, `override`, `l4_override`, `egress`, `audit_ssh`, `resolve`.
-        pub action: pulumi_wasm_rust::Output<String>,
+        pub action: pulumi_gestalt_rust::Output<String>,
         /// The description of the teams rule.
-        pub description: pulumi_wasm_rust::Output<String>,
+        pub description: pulumi_gestalt_rust::Output<String>,
         /// The wirefilter expression to be used for device_posture check matching.
-        pub device_posture: pulumi_wasm_rust::Output<String>,
+        pub device_posture: pulumi_gestalt_rust::Output<String>,
         /// Indicator of rule enablement.
-        pub enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub enabled: pulumi_gestalt_rust::Output<Option<bool>>,
         /// The protocol or layer to evaluate the traffic and identity expressions.
-        pub filters: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub filters: pulumi_gestalt_rust::Output<Option<Vec<String>>>,
         /// The wirefilter expression to be used for identity matching.
-        pub identity: pulumi_wasm_rust::Output<String>,
+        pub identity: pulumi_gestalt_rust::Output<String>,
         /// The name of the teams rule.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// The evaluation precedence of the teams rule.
-        pub precedence: pulumi_wasm_rust::Output<i32>,
+        pub precedence: pulumi_gestalt_rust::Output<i32>,
         /// Additional rule settings.
-        pub rule_settings: pulumi_wasm_rust::Output<
+        pub rule_settings: pulumi_gestalt_rust::Output<
             super::types::ZeroTrustGatewayPolicyRuleSettings,
         >,
         /// The wirefilter expression to be used for traffic matching.
-        pub traffic: pulumi_wasm_rust::Output<String>,
-        pub version: pulumi_wasm_rust::Output<i32>,
+        pub traffic: pulumi_gestalt_rust::Output<String>,
+        pub version: pulumi_gestalt_rust::Output<i32>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: ZeroTrustGatewayPolicyArgs,
     ) -> ZeroTrustGatewayPolicyResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let account_id_binding = args.account_id.get_output(context).get_inner();
         let action_binding = args.action.get_output(context).get_inner();
@@ -179,36 +179,40 @@ pub mod zero_trust_gateway_policy {
         };
         let o = register_interface::register(context.get_inner(), &request);
         ZeroTrustGatewayPolicyResult {
-            account_id: pulumi_wasm_rust::__private::into_domain(
+            account_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("accountId"),
             ),
-            action: pulumi_wasm_rust::__private::into_domain(o.extract_field("action")),
-            description: pulumi_wasm_rust::__private::into_domain(
+            action: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("action"),
+            ),
+            description: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("description"),
             ),
-            device_posture: pulumi_wasm_rust::__private::into_domain(
+            device_posture: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("devicePosture"),
             ),
-            enabled: pulumi_wasm_rust::__private::into_domain(
+            enabled: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("enabled"),
             ),
-            filters: pulumi_wasm_rust::__private::into_domain(
+            filters: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("filters"),
             ),
-            identity: pulumi_wasm_rust::__private::into_domain(
+            identity: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("identity"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            precedence: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            precedence: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("precedence"),
             ),
-            rule_settings: pulumi_wasm_rust::__private::into_domain(
+            rule_settings: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("ruleSettings"),
             ),
-            traffic: pulumi_wasm_rust::__private::into_domain(
+            traffic: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("traffic"),
             ),
-            version: pulumi_wasm_rust::__private::into_domain(o.extract_field("version")),
+            version: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("version"),
+            ),
         }
     }
 }

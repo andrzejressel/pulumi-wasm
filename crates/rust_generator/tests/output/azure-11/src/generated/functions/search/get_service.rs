@@ -1,56 +1,56 @@
 pub mod get_service {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct GetServiceArgs {
         /// The Name of the Search Service.
         #[builder(into)]
-        pub name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The name of the Resource Group where the Search Service exists.
         #[builder(into)]
-        pub resource_group_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub resource_group_name: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct GetServiceResult {
         /// Describes whether the search service is compliant or not with respect to having non-customer encrypted resources. If a service has more than one non-customer encrypted resource and `Enforcement` is `enabled` then the service will be marked as `NonCompliant`. If all the resources are customer encrypted, then the service will be marked as `Compliant`.
-        pub customer_managed_key_encryption_compliance_status: pulumi_wasm_rust::Output<
+        pub customer_managed_key_encryption_compliance_status: pulumi_gestalt_rust::Output<
             String,
         >,
         /// The provider-assigned unique ID for this managed resource.
-        pub id: pulumi_wasm_rust::Output<String>,
+        pub id: pulumi_gestalt_rust::Output<String>,
         /// An `identity` block as defined below.
-        pub identities: pulumi_wasm_rust::Output<
+        pub identities: pulumi_gestalt_rust::Output<
             Vec<super::super::super::types::search::GetServiceIdentity>,
         >,
         /// The name of this Query Key.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// The number of partitions which have been created.
-        pub partition_count: pulumi_wasm_rust::Output<i32>,
+        pub partition_count: pulumi_gestalt_rust::Output<i32>,
         /// The Primary Key used for Search Service Administration.
-        pub primary_key: pulumi_wasm_rust::Output<String>,
+        pub primary_key: pulumi_gestalt_rust::Output<String>,
         /// Whether or not public network access is enabled for this resource.
-        pub public_network_access_enabled: pulumi_wasm_rust::Output<bool>,
+        pub public_network_access_enabled: pulumi_gestalt_rust::Output<bool>,
         /// A `query_keys` block as defined below.
-        pub query_keys: pulumi_wasm_rust::Output<
+        pub query_keys: pulumi_gestalt_rust::Output<
             Vec<super::super::super::types::search::GetServiceQueryKey>,
         >,
         /// The number of replica's which have been created.
-        pub replica_count: pulumi_wasm_rust::Output<i32>,
-        pub resource_group_name: pulumi_wasm_rust::Output<String>,
+        pub replica_count: pulumi_gestalt_rust::Output<i32>,
+        pub resource_group_name: pulumi_gestalt_rust::Output<String>,
         /// The Secondary Key used for Search Service Administration.
-        pub secondary_key: pulumi_wasm_rust::Output<String>,
+        pub secondary_key: pulumi_gestalt_rust::Output<String>,
         /// A mapping of tags assigned to the resource.
-        pub tags: pulumi_wasm_rust::Output<std::collections::HashMap<String, String>>,
+        pub tags: pulumi_gestalt_rust::Output<std::collections::HashMap<String, String>>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         args: GetServiceArgs,
     ) -> GetServiceResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let name_binding = args.name.get_output(context).get_inner();
         let resource_group_name_binding = args
@@ -73,36 +73,36 @@ pub mod get_service {
         };
         let o = register_interface::invoke(context.get_inner(), &request);
         GetServiceResult {
-            customer_managed_key_encryption_compliance_status: pulumi_wasm_rust::__private::into_domain(
+            customer_managed_key_encryption_compliance_status: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("customerManagedKeyEncryptionComplianceStatus"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
-            identities: pulumi_wasm_rust::__private::into_domain(
+            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
+            identities: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("identities"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            partition_count: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            partition_count: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("partitionCount"),
             ),
-            primary_key: pulumi_wasm_rust::__private::into_domain(
+            primary_key: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("primaryKey"),
             ),
-            public_network_access_enabled: pulumi_wasm_rust::__private::into_domain(
+            public_network_access_enabled: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("publicNetworkAccessEnabled"),
             ),
-            query_keys: pulumi_wasm_rust::__private::into_domain(
+            query_keys: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("queryKeys"),
             ),
-            replica_count: pulumi_wasm_rust::__private::into_domain(
+            replica_count: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("replicaCount"),
             ),
-            resource_group_name: pulumi_wasm_rust::__private::into_domain(
+            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("resourceGroupName"),
             ),
-            secondary_key: pulumi_wasm_rust::__private::into_domain(
+            secondary_key: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("secondaryKey"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
         }
     }
 }

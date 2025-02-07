@@ -27,7 +27,7 @@ pub fn add_export<T>(name: &str, output: &Output<T>) {
 /// ```rust,no_run
 /// use std::error::Error;
 /// fn main() -> Result<(), Box<dyn Error>> {
-///     pulumi_wasm_build::generate("random", "4.15.0")?;
+///     pulumi_gestalt_build::generate("random", "4.15.0")?;
 ///     Ok(())
 /// }
 /// ```
@@ -46,7 +46,7 @@ macro_rules! include_provider {
 /// Generate boilerplate for Wasm entrypoint
 ///
 /// ```rust,no_run
-/// use pulumi_wasm_rust::*;
+/// use pulumi_gestalt_rust::*;
 /// use anyhow::Result;
 ///
 /// pulumi_main!();
@@ -58,11 +58,11 @@ macro_rules! include_provider {
 #[macro_export]
 macro_rules! pulumi_main {
     () => {
-        #[export_name = "component:pulumi-wasm-external/pulumi-main@0.0.0-STABLE-DEV#main"]
+        #[export_name = "component:pulumi-gestalt-external/pulumi-main@0.0.0-STABLE-DEV#main"]
         unsafe extern "C" fn __exported(arg: i32) {
             let mapped = arg as u8;
 
-            pulumi_wasm_rust::__private::runner::run(mapped, |engine| pulumi_main(&engine))
+            pulumi_gestalt_rust::__private::runner::run(mapped, |engine| pulumi_main(&engine))
                 .unwrap();
         }
     };

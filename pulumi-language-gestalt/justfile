@@ -4,16 +4,16 @@ set windows-shell := ["pwsh.exe", "-c"]
 
 [windows]
 build:
-    pulumi plugin rm language wasm -y
+    pulumi plugin rm language gestalt -y
     go build
-    pulumi plugin install language wasm 1.0 --file ./pulumi-language-wasm.exe
+    pulumi plugin install language gestalt 1.0 --file ./pulumi-language-gestalt.exe
 
 [linux]
 [macos]
 build:
-    pulumi plugin rm language wasm -y
+    pulumi plugin rm language gestalt -y
     go build
-    pulumi plugin install language wasm 1.0 --file ./pulumi-language-wasm
+    pulumi plugin install language gestalt 1.0 --file ./pulumi-language-gestalt
 
 fmt:
     go fmt .
@@ -23,13 +23,13 @@ build-language-plugin $GOOS $GOARCH:
 
 package-language-plugin GOOS GOARCH VERSION:
 	just build-language-plugin {{GOOS}} {{GOARCH}}
-	tar czvf pulumi-language-wasm-v{{VERSION}}-{{GOOS}}-{{GOARCH}}.tar.gz pulumi-language-wasm
-	rm pulumi-language-wasm
+	tar czvf pulumi-language-gestalt-v{{VERSION}}-{{GOOS}}-{{GOARCH}}.tar.gz pulumi-language-gestalt
+	rm pulumi-language-gestalt
 
 package-language-plugin-windows GOOS GOARCH VERSION:
 	just build-language-plugin {{GOOS}} {{GOARCH}}
-	tar czvf pulumi-language-wasm-v{{VERSION}}-{{GOOS}}-{{GOARCH}}.tar.gz pulumi-language-wasm.exe
-	rm pulumi-language-wasm.exe
+	tar czvf pulumi-language-gestalt-v{{VERSION}}-{{GOOS}}-{{GOARCH}}.tar.gz pulumi-language-gestalt.exe
+	rm pulumi-language-gestalt.exe
 
 package-language-plugin-all VERSION:
 	just package-language-plugin darwin arm64 {{VERSION}}

@@ -13,13 +13,13 @@
 /// $ pulumi import aws:ses/domainDkim:DomainDkim example example.com
 /// ```
 pub mod domain_dkim {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct DomainDkimArgs {
         /// Verified domain name to generate DKIM tokens for.
         #[builder(into)]
-        pub domain: pulumi_wasm_rust::InputOrOutput<String>,
+        pub domain: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct DomainDkimResult {
@@ -29,20 +29,20 @@ pub mod domain_dkim {
         /// when the domain is hosted in Route 53 and managed by this provider.
         /// Find out more about verifying domains in Amazon SES
         /// in the [AWS SES docs](http://docs.aws.amazon.com/ses/latest/DeveloperGuide/easy-dkim-dns-records.html).
-        pub dkim_tokens: pulumi_wasm_rust::Output<Vec<String>>,
+        pub dkim_tokens: pulumi_gestalt_rust::Output<Vec<String>>,
         /// Verified domain name to generate DKIM tokens for.
-        pub domain: pulumi_wasm_rust::Output<String>,
+        pub domain: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: DomainDkimArgs,
     ) -> DomainDkimResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let domain_binding = args.domain.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
@@ -58,10 +58,12 @@ pub mod domain_dkim {
         };
         let o = register_interface::register(context.get_inner(), &request);
         DomainDkimResult {
-            dkim_tokens: pulumi_wasm_rust::__private::into_domain(
+            dkim_tokens: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("dkimTokens"),
             ),
-            domain: pulumi_wasm_rust::__private::into_domain(o.extract_field("domain")),
+            domain: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("domain"),
+            ),
         }
     }
 }

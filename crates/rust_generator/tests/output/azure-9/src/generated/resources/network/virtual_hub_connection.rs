@@ -3,8 +3,8 @@
 /// ## Example Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = resource_group::create(
@@ -61,53 +61,53 @@
 /// ```
 ///
 pub mod virtual_hub_connection {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct VirtualHubConnectionArgs {
         /// Should Internet Security be enabled to secure internet traffic? Defaults to `false`.
         #[builder(into, default)]
-        pub internet_security_enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub internet_security_enabled: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// The Name which should be used for this Connection, which must be unique within the Virtual Hub. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The ID of the Virtual Network which the Virtual Hub should be connected to. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub remote_virtual_network_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub remote_virtual_network_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// A `routing` block as defined below.
         #[builder(into, default)]
-        pub routing: pulumi_wasm_rust::InputOrOutput<
+        pub routing: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::network::VirtualHubConnectionRouting>,
         >,
         /// The ID of the Virtual Hub within which this connection should be created. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub virtual_hub_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub virtual_hub_id: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct VirtualHubConnectionResult {
         /// Should Internet Security be enabled to secure internet traffic? Defaults to `false`.
-        pub internet_security_enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub internet_security_enabled: pulumi_gestalt_rust::Output<Option<bool>>,
         /// The Name which should be used for this Connection, which must be unique within the Virtual Hub. Changing this forces a new resource to be created.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// The ID of the Virtual Network which the Virtual Hub should be connected to. Changing this forces a new resource to be created.
-        pub remote_virtual_network_id: pulumi_wasm_rust::Output<String>,
+        pub remote_virtual_network_id: pulumi_gestalt_rust::Output<String>,
         /// A `routing` block as defined below.
-        pub routing: pulumi_wasm_rust::Output<
+        pub routing: pulumi_gestalt_rust::Output<
             super::super::types::network::VirtualHubConnectionRouting,
         >,
         /// The ID of the Virtual Hub within which this connection should be created. Changing this forces a new resource to be created.
-        pub virtual_hub_id: pulumi_wasm_rust::Output<String>,
+        pub virtual_hub_id: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: VirtualHubConnectionArgs,
     ) -> VirtualHubConnectionResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let internet_security_enabled_binding = args
             .internet_security_enabled
@@ -149,17 +149,17 @@ pub mod virtual_hub_connection {
         };
         let o = register_interface::register(context.get_inner(), &request);
         VirtualHubConnectionResult {
-            internet_security_enabled: pulumi_wasm_rust::__private::into_domain(
+            internet_security_enabled: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("internetSecurityEnabled"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            remote_virtual_network_id: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            remote_virtual_network_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("remoteVirtualNetworkId"),
             ),
-            routing: pulumi_wasm_rust::__private::into_domain(
+            routing: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("routing"),
             ),
-            virtual_hub_id: pulumi_wasm_rust::__private::into_domain(
+            virtual_hub_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("virtualHubId"),
             ),
         }

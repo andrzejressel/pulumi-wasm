@@ -84,65 +84,65 @@
 /// $ pulumi import aws:datazone/glossaryTerm:GlossaryTerm example domain-id,glossary-term-id,glossary-id
 /// ```
 pub mod glossary_term {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct GlossaryTermArgs {
         /// Identifier of domain.
         #[builder(into, default)]
-        pub domain_identifier: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub domain_identifier: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Identifier of glossary.
         #[builder(into)]
-        pub glossary_identifier: pulumi_wasm_rust::InputOrOutput<String>,
+        pub glossary_identifier: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Long description of entry.
         #[builder(into, default)]
-        pub long_description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub long_description: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Name of glossary term.
         ///
         /// The following arguments are optional:
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Short description of entry.
         #[builder(into, default)]
-        pub short_description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub short_description: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// If glossary term is ENABLED or DISABLED.
         #[builder(into, default)]
-        pub status: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub status: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Object classifying the term relations through the following attributes:
         #[builder(into, default)]
-        pub term_relations: pulumi_wasm_rust::InputOrOutput<
+        pub term_relations: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::datazone::GlossaryTermTermRelations>,
         >,
         #[builder(into, default)]
-        pub timeouts: pulumi_wasm_rust::InputOrOutput<
+        pub timeouts: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::datazone::GlossaryTermTimeouts>,
         >,
     }
     #[allow(dead_code)]
     pub struct GlossaryTermResult {
         /// Time of glossary term creation.
-        pub created_at: pulumi_wasm_rust::Output<String>,
+        pub created_at: pulumi_gestalt_rust::Output<String>,
         /// Creator of glossary term.
-        pub created_by: pulumi_wasm_rust::Output<String>,
+        pub created_by: pulumi_gestalt_rust::Output<String>,
         /// Identifier of domain.
-        pub domain_identifier: pulumi_wasm_rust::Output<Option<String>>,
+        pub domain_identifier: pulumi_gestalt_rust::Output<Option<String>>,
         /// Identifier of glossary.
-        pub glossary_identifier: pulumi_wasm_rust::Output<String>,
+        pub glossary_identifier: pulumi_gestalt_rust::Output<String>,
         /// Long description of entry.
-        pub long_description: pulumi_wasm_rust::Output<Option<String>>,
+        pub long_description: pulumi_gestalt_rust::Output<Option<String>>,
         /// Name of glossary term.
         ///
         /// The following arguments are optional:
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// Short description of entry.
-        pub short_description: pulumi_wasm_rust::Output<Option<String>>,
+        pub short_description: pulumi_gestalt_rust::Output<Option<String>>,
         /// If glossary term is ENABLED or DISABLED.
-        pub status: pulumi_wasm_rust::Output<Option<String>>,
+        pub status: pulumi_gestalt_rust::Output<Option<String>>,
         /// Object classifying the term relations through the following attributes:
-        pub term_relations: pulumi_wasm_rust::Output<
+        pub term_relations: pulumi_gestalt_rust::Output<
             Option<super::super::types::datazone::GlossaryTermTermRelations>,
         >,
-        pub timeouts: pulumi_wasm_rust::Output<
+        pub timeouts: pulumi_gestalt_rust::Output<
             Option<super::super::types::datazone::GlossaryTermTimeouts>,
         >,
     }
@@ -151,11 +151,11 @@ pub mod glossary_term {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: GlossaryTermArgs,
     ) -> GlossaryTermResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let domain_identifier_binding = args
             .domain_identifier
@@ -218,30 +218,32 @@ pub mod glossary_term {
         };
         let o = register_interface::register(context.get_inner(), &request);
         GlossaryTermResult {
-            created_at: pulumi_wasm_rust::__private::into_domain(
+            created_at: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("createdAt"),
             ),
-            created_by: pulumi_wasm_rust::__private::into_domain(
+            created_by: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("createdBy"),
             ),
-            domain_identifier: pulumi_wasm_rust::__private::into_domain(
+            domain_identifier: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("domainIdentifier"),
             ),
-            glossary_identifier: pulumi_wasm_rust::__private::into_domain(
+            glossary_identifier: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("glossaryIdentifier"),
             ),
-            long_description: pulumi_wasm_rust::__private::into_domain(
+            long_description: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("longDescription"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            short_description: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            short_description: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("shortDescription"),
             ),
-            status: pulumi_wasm_rust::__private::into_domain(o.extract_field("status")),
-            term_relations: pulumi_wasm_rust::__private::into_domain(
+            status: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("status"),
+            ),
+            term_relations: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("termRelations"),
             ),
-            timeouts: pulumi_wasm_rust::__private::into_domain(
+            timeouts: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("timeouts"),
             ),
         }

@@ -3,8 +3,8 @@
 /// ## Example Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = resource_group::create(
@@ -97,110 +97,112 @@
 /// ```
 ///
 pub mod diagnostic {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct DiagnosticArgs {
         /// Always log errors. Send telemetry if there is an erroneous condition, regardless of sampling settings.
         #[builder(into, default)]
-        pub always_log_errors: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub always_log_errors: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// The id of the target API Management Logger where the API Management Diagnostic should be saved.
         #[builder(into)]
-        pub api_management_logger_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub api_management_logger_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The Name of the API Management Service where this Diagnostic should be created. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub api_management_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub api_management_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// A `backend_request` block as defined below.
         #[builder(into, default)]
-        pub backend_request: pulumi_wasm_rust::InputOrOutput<
+        pub backend_request: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::apimanagement::DiagnosticBackendRequest>,
         >,
         /// A `backend_response` block as defined below.
         #[builder(into, default)]
-        pub backend_response: pulumi_wasm_rust::InputOrOutput<
+        pub backend_response: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::apimanagement::DiagnosticBackendResponse>,
         >,
         /// A `frontend_request` block as defined below.
         #[builder(into, default)]
-        pub frontend_request: pulumi_wasm_rust::InputOrOutput<
+        pub frontend_request: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::apimanagement::DiagnosticFrontendRequest>,
         >,
         /// A `frontend_response` block as defined below.
         #[builder(into, default)]
-        pub frontend_response: pulumi_wasm_rust::InputOrOutput<
+        pub frontend_response: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::apimanagement::DiagnosticFrontendResponse>,
         >,
         /// The HTTP Correlation Protocol to use. Possible values are `None`, `Legacy` or `W3C`.
         #[builder(into, default)]
-        pub http_correlation_protocol: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub http_correlation_protocol: pulumi_gestalt_rust::InputOrOutput<
+            Option<String>,
+        >,
         /// The diagnostic identifier for the API Management Service. At this time the supported values are `applicationinsights` and `azuremonitor`. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub identifier: pulumi_wasm_rust::InputOrOutput<String>,
+        pub identifier: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Log client IP address.
         #[builder(into, default)]
-        pub log_client_ip: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub log_client_ip: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// The format of the Operation Name for Application Insights telemetries. Possible values are `Name`, and `Url`.
         #[builder(into, default)]
-        pub operation_name_format: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub operation_name_format: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The Name of the Resource Group where the API Management Service exists. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub resource_group_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub resource_group_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Sampling (%). For high traffic APIs, please read this [documentation](https://docs.microsoft.com/azure/api-management/api-management-howto-app-insights#performance-implications-and-log-sampling) to understand performance implications and log sampling. Valid values are between `0.0` and `100.0`.
         #[builder(into, default)]
-        pub sampling_percentage: pulumi_wasm_rust::InputOrOutput<Option<f64>>,
+        pub sampling_percentage: pulumi_gestalt_rust::InputOrOutput<Option<f64>>,
         /// Logging verbosity. Possible values are `verbose`, `information` or `error`.
         #[builder(into, default)]
-        pub verbosity: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub verbosity: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct DiagnosticResult {
         /// Always log errors. Send telemetry if there is an erroneous condition, regardless of sampling settings.
-        pub always_log_errors: pulumi_wasm_rust::Output<bool>,
+        pub always_log_errors: pulumi_gestalt_rust::Output<bool>,
         /// The id of the target API Management Logger where the API Management Diagnostic should be saved.
-        pub api_management_logger_id: pulumi_wasm_rust::Output<String>,
+        pub api_management_logger_id: pulumi_gestalt_rust::Output<String>,
         /// The Name of the API Management Service where this Diagnostic should be created. Changing this forces a new resource to be created.
-        pub api_management_name: pulumi_wasm_rust::Output<String>,
+        pub api_management_name: pulumi_gestalt_rust::Output<String>,
         /// A `backend_request` block as defined below.
-        pub backend_request: pulumi_wasm_rust::Output<
+        pub backend_request: pulumi_gestalt_rust::Output<
             super::super::types::apimanagement::DiagnosticBackendRequest,
         >,
         /// A `backend_response` block as defined below.
-        pub backend_response: pulumi_wasm_rust::Output<
+        pub backend_response: pulumi_gestalt_rust::Output<
             super::super::types::apimanagement::DiagnosticBackendResponse,
         >,
         /// A `frontend_request` block as defined below.
-        pub frontend_request: pulumi_wasm_rust::Output<
+        pub frontend_request: pulumi_gestalt_rust::Output<
             super::super::types::apimanagement::DiagnosticFrontendRequest,
         >,
         /// A `frontend_response` block as defined below.
-        pub frontend_response: pulumi_wasm_rust::Output<
+        pub frontend_response: pulumi_gestalt_rust::Output<
             super::super::types::apimanagement::DiagnosticFrontendResponse,
         >,
         /// The HTTP Correlation Protocol to use. Possible values are `None`, `Legacy` or `W3C`.
-        pub http_correlation_protocol: pulumi_wasm_rust::Output<String>,
+        pub http_correlation_protocol: pulumi_gestalt_rust::Output<String>,
         /// The diagnostic identifier for the API Management Service. At this time the supported values are `applicationinsights` and `azuremonitor`. Changing this forces a new resource to be created.
-        pub identifier: pulumi_wasm_rust::Output<String>,
+        pub identifier: pulumi_gestalt_rust::Output<String>,
         /// Log client IP address.
-        pub log_client_ip: pulumi_wasm_rust::Output<bool>,
+        pub log_client_ip: pulumi_gestalt_rust::Output<bool>,
         /// The format of the Operation Name for Application Insights telemetries. Possible values are `Name`, and `Url`.
-        pub operation_name_format: pulumi_wasm_rust::Output<Option<String>>,
+        pub operation_name_format: pulumi_gestalt_rust::Output<Option<String>>,
         /// The Name of the Resource Group where the API Management Service exists. Changing this forces a new resource to be created.
-        pub resource_group_name: pulumi_wasm_rust::Output<String>,
+        pub resource_group_name: pulumi_gestalt_rust::Output<String>,
         /// Sampling (%). For high traffic APIs, please read this [documentation](https://docs.microsoft.com/azure/api-management/api-management-howto-app-insights#performance-implications-and-log-sampling) to understand performance implications and log sampling. Valid values are between `0.0` and `100.0`.
-        pub sampling_percentage: pulumi_wasm_rust::Output<f64>,
+        pub sampling_percentage: pulumi_gestalt_rust::Output<f64>,
         /// Logging verbosity. Possible values are `verbose`, `information` or `error`.
-        pub verbosity: pulumi_wasm_rust::Output<String>,
+        pub verbosity: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: DiagnosticArgs,
     ) -> DiagnosticResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let always_log_errors_binding = args
             .always_log_errors
@@ -314,46 +316,46 @@ pub mod diagnostic {
         };
         let o = register_interface::register(context.get_inner(), &request);
         DiagnosticResult {
-            always_log_errors: pulumi_wasm_rust::__private::into_domain(
+            always_log_errors: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("alwaysLogErrors"),
             ),
-            api_management_logger_id: pulumi_wasm_rust::__private::into_domain(
+            api_management_logger_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("apiManagementLoggerId"),
             ),
-            api_management_name: pulumi_wasm_rust::__private::into_domain(
+            api_management_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("apiManagementName"),
             ),
-            backend_request: pulumi_wasm_rust::__private::into_domain(
+            backend_request: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("backendRequest"),
             ),
-            backend_response: pulumi_wasm_rust::__private::into_domain(
+            backend_response: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("backendResponse"),
             ),
-            frontend_request: pulumi_wasm_rust::__private::into_domain(
+            frontend_request: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("frontendRequest"),
             ),
-            frontend_response: pulumi_wasm_rust::__private::into_domain(
+            frontend_response: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("frontendResponse"),
             ),
-            http_correlation_protocol: pulumi_wasm_rust::__private::into_domain(
+            http_correlation_protocol: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("httpCorrelationProtocol"),
             ),
-            identifier: pulumi_wasm_rust::__private::into_domain(
+            identifier: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("identifier"),
             ),
-            log_client_ip: pulumi_wasm_rust::__private::into_domain(
+            log_client_ip: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("logClientIp"),
             ),
-            operation_name_format: pulumi_wasm_rust::__private::into_domain(
+            operation_name_format: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("operationNameFormat"),
             ),
-            resource_group_name: pulumi_wasm_rust::__private::into_domain(
+            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("resourceGroupName"),
             ),
-            sampling_percentage: pulumi_wasm_rust::__private::into_domain(
+            sampling_percentage: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("samplingPercentage"),
             ),
-            verbosity: pulumi_wasm_rust::__private::into_domain(
+            verbosity: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("verbosity"),
             ),
         }

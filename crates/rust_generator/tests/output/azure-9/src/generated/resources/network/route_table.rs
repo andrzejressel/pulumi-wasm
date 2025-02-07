@@ -36,55 +36,57 @@
 /// ```
 ///
 pub mod route_table {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct RouteTableArgs {
         /// Boolean flag which controls propagation of routes learned by BGP on that route table. Defaults to `true`.
         #[builder(into, default)]
-        pub bgp_route_propagation_enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub bgp_route_propagation_enabled: pulumi_gestalt_rust::InputOrOutput<
+            Option<bool>,
+        >,
         /// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub location: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub location: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The name of the route.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The name of the resource group in which to create the route table. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub resource_group_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub resource_group_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// A list of objects representing routes. Each object accepts the arguments documented below.
         ///
         /// > **NOTE** Since `route` can be configured both inline and via the separate `azure.network.Route` resource, we have to explicitly set it to empty slice (`[]`) to remove it.
         #[builder(into, default)]
-        pub routes: pulumi_wasm_rust::InputOrOutput<
+        pub routes: pulumi_gestalt_rust::InputOrOutput<
             Option<Vec<super::super::types::network::RouteTableRoute>>,
         >,
         /// A mapping of tags to assign to the resource.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
     #[allow(dead_code)]
     pub struct RouteTableResult {
         /// Boolean flag which controls propagation of routes learned by BGP on that route table. Defaults to `true`.
-        pub bgp_route_propagation_enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub bgp_route_propagation_enabled: pulumi_gestalt_rust::Output<Option<bool>>,
         /// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
-        pub location: pulumi_wasm_rust::Output<String>,
+        pub location: pulumi_gestalt_rust::Output<String>,
         /// The name of the route.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// The name of the resource group in which to create the route table. Changing this forces a new resource to be created.
-        pub resource_group_name: pulumi_wasm_rust::Output<String>,
+        pub resource_group_name: pulumi_gestalt_rust::Output<String>,
         /// A list of objects representing routes. Each object accepts the arguments documented below.
         ///
         /// > **NOTE** Since `route` can be configured both inline and via the separate `azure.network.Route` resource, we have to explicitly set it to empty slice (`[]`) to remove it.
-        pub routes: pulumi_wasm_rust::Output<
+        pub routes: pulumi_gestalt_rust::Output<
             Vec<super::super::types::network::RouteTableRoute>,
         >,
         /// The collection of Subnets associated with this route table.
-        pub subnets: pulumi_wasm_rust::Output<Vec<String>>,
+        pub subnets: pulumi_gestalt_rust::Output<Vec<String>>,
         /// A mapping of tags to assign to the resource.
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
@@ -93,11 +95,11 @@ pub mod route_table {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: RouteTableArgs,
     ) -> RouteTableResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let bgp_route_propagation_enabled_binding = args
             .bgp_route_propagation_enabled
@@ -144,21 +146,23 @@ pub mod route_table {
         };
         let o = register_interface::register(context.get_inner(), &request);
         RouteTableResult {
-            bgp_route_propagation_enabled: pulumi_wasm_rust::__private::into_domain(
+            bgp_route_propagation_enabled: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("bgpRoutePropagationEnabled"),
             ),
-            location: pulumi_wasm_rust::__private::into_domain(
+            location: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("location"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            resource_group_name: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("resourceGroupName"),
             ),
-            routes: pulumi_wasm_rust::__private::into_domain(o.extract_field("routes")),
-            subnets: pulumi_wasm_rust::__private::into_domain(
+            routes: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("routes"),
+            ),
+            subnets: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("subnets"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
         }
     }
 }

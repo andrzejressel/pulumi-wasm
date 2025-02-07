@@ -73,13 +73,13 @@
 /// $ pulumi import aws:bedrockmodel/invocationLoggingConfiguration:InvocationLoggingConfiguration my_config us-east-1
 /// ```
 pub mod invocation_logging_configuration {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct InvocationLoggingConfigurationArgs {
         /// The logging configuration values to set.
         #[builder(into, default)]
-        pub logging_config: pulumi_wasm_rust::InputOrOutput<
+        pub logging_config: pulumi_gestalt_rust::InputOrOutput<
             Option<
                 super::super::types::bedrockmodel::InvocationLoggingConfigurationLoggingConfig,
             >,
@@ -88,7 +88,7 @@ pub mod invocation_logging_configuration {
     #[allow(dead_code)]
     pub struct InvocationLoggingConfigurationResult {
         /// The logging configuration values to set.
-        pub logging_config: pulumi_wasm_rust::Output<
+        pub logging_config: pulumi_gestalt_rust::Output<
             Option<
                 super::super::types::bedrockmodel::InvocationLoggingConfigurationLoggingConfig,
             >,
@@ -99,11 +99,11 @@ pub mod invocation_logging_configuration {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: InvocationLoggingConfigurationArgs,
     ) -> InvocationLoggingConfigurationResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let logging_config_binding = args.logging_config.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
@@ -120,7 +120,7 @@ pub mod invocation_logging_configuration {
         };
         let o = register_interface::register(context.get_inner(), &request);
         InvocationLoggingConfigurationResult {
-            logging_config: pulumi_wasm_rust::__private::into_domain(
+            logging_config: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("loggingConfig"),
             ),
         }

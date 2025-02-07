@@ -63,38 +63,38 @@
 /// $ pulumi import aws:shield/proactiveEngagement:ProactiveEngagement example 123456789012
 /// ```
 pub mod proactive_engagement {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ProactiveEngagementArgs {
         /// One or more emergency contacts. You must provide at least one phone number in the emergency contact list. See `emergency_contacts`.
         #[builder(into, default)]
-        pub emergency_contacts: pulumi_wasm_rust::InputOrOutput<
+        pub emergency_contacts: pulumi_gestalt_rust::InputOrOutput<
             Option<Vec<super::super::types::shield::ProactiveEngagementEmergencyContact>>,
         >,
         /// Boolean value indicating if Proactive Engagement should be enabled or not.
         #[builder(into)]
-        pub enabled: pulumi_wasm_rust::InputOrOutput<bool>,
+        pub enabled: pulumi_gestalt_rust::InputOrOutput<bool>,
     }
     #[allow(dead_code)]
     pub struct ProactiveEngagementResult {
         /// One or more emergency contacts. You must provide at least one phone number in the emergency contact list. See `emergency_contacts`.
-        pub emergency_contacts: pulumi_wasm_rust::Output<
+        pub emergency_contacts: pulumi_gestalt_rust::Output<
             Option<Vec<super::super::types::shield::ProactiveEngagementEmergencyContact>>,
         >,
         /// Boolean value indicating if Proactive Engagement should be enabled or not.
-        pub enabled: pulumi_wasm_rust::Output<bool>,
+        pub enabled: pulumi_gestalt_rust::Output<bool>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: ProactiveEngagementArgs,
     ) -> ProactiveEngagementResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let emergency_contacts_binding = args
             .emergency_contacts
@@ -118,10 +118,12 @@ pub mod proactive_engagement {
         };
         let o = register_interface::register(context.get_inner(), &request);
         ProactiveEngagementResult {
-            emergency_contacts: pulumi_wasm_rust::__private::into_domain(
+            emergency_contacts: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("emergencyContacts"),
             ),
-            enabled: pulumi_wasm_rust::__private::into_domain(o.extract_field("enabled")),
+            enabled: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("enabled"),
+            ),
         }
     }
 }

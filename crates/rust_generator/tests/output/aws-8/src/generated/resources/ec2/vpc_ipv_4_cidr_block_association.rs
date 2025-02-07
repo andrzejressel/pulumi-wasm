@@ -6,8 +6,8 @@
 /// ## Example Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let main = vpc::create(
@@ -32,44 +32,44 @@
 /// $ pulumi import aws:ec2/vpcIpv4CidrBlockAssociation:VpcIpv4CidrBlockAssociation example vpc-cidr-assoc-xxxxxxxx
 /// ```
 pub mod vpc_ipv_4_cidr_block_association {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct VpcIpv4CidrBlockAssociationArgs {
         /// The IPv4 CIDR block for the VPC. CIDR can be explicitly set or it can be derived from IPAM using `ipv4_netmask_length`.
         #[builder(into, default)]
-        pub cidr_block: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub cidr_block: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The ID of an IPv4 IPAM pool you want to use for allocating this VPC's CIDR. IPAM is a VPC feature that you can use to automate your IP address management workflows including assigning, tracking, troubleshooting, and auditing IP addresses across AWS Regions and accounts. Using IPAM you can monitor IP address usage throughout your AWS Organization.
         #[builder(into, default)]
-        pub ipv4_ipam_pool_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub ipv4_ipam_pool_id: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The netmask length of the IPv4 CIDR you want to allocate to this VPC. Requires specifying a `ipv4_ipam_pool_id`.
         #[builder(into, default)]
-        pub ipv4_netmask_length: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
+        pub ipv4_netmask_length: pulumi_gestalt_rust::InputOrOutput<Option<i32>>,
         /// The ID of the VPC to make the association with.
         #[builder(into)]
-        pub vpc_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub vpc_id: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct VpcIpv4CidrBlockAssociationResult {
         /// The IPv4 CIDR block for the VPC. CIDR can be explicitly set or it can be derived from IPAM using `ipv4_netmask_length`.
-        pub cidr_block: pulumi_wasm_rust::Output<String>,
+        pub cidr_block: pulumi_gestalt_rust::Output<String>,
         /// The ID of an IPv4 IPAM pool you want to use for allocating this VPC's CIDR. IPAM is a VPC feature that you can use to automate your IP address management workflows including assigning, tracking, troubleshooting, and auditing IP addresses across AWS Regions and accounts. Using IPAM you can monitor IP address usage throughout your AWS Organization.
-        pub ipv4_ipam_pool_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub ipv4_ipam_pool_id: pulumi_gestalt_rust::Output<Option<String>>,
         /// The netmask length of the IPv4 CIDR you want to allocate to this VPC. Requires specifying a `ipv4_ipam_pool_id`.
-        pub ipv4_netmask_length: pulumi_wasm_rust::Output<Option<i32>>,
+        pub ipv4_netmask_length: pulumi_gestalt_rust::Output<Option<i32>>,
         /// The ID of the VPC to make the association with.
-        pub vpc_id: pulumi_wasm_rust::Output<String>,
+        pub vpc_id: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: VpcIpv4CidrBlockAssociationArgs,
     ) -> VpcIpv4CidrBlockAssociationResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let cidr_block_binding = args.cidr_block.get_output(context).get_inner();
         let ipv4_ipam_pool_id_binding = args
@@ -107,16 +107,16 @@ pub mod vpc_ipv_4_cidr_block_association {
         };
         let o = register_interface::register(context.get_inner(), &request);
         VpcIpv4CidrBlockAssociationResult {
-            cidr_block: pulumi_wasm_rust::__private::into_domain(
+            cidr_block: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("cidrBlock"),
             ),
-            ipv4_ipam_pool_id: pulumi_wasm_rust::__private::into_domain(
+            ipv4_ipam_pool_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("ipv4IpamPoolId"),
             ),
-            ipv4_netmask_length: pulumi_wasm_rust::__private::into_domain(
+            ipv4_netmask_length: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("ipv4NetmaskLength"),
             ),
-            vpc_id: pulumi_wasm_rust::__private::into_domain(o.extract_field("vpcId")),
+            vpc_id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("vpcId")),
         }
     }
 }

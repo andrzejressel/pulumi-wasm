@@ -3,8 +3,8 @@
 /// ## Example Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let test = network_interface_attachment::create(
@@ -26,43 +26,43 @@
 /// $ pulumi import aws:ec2/networkInterfaceAttachment:NetworkInterfaceAttachment secondary_nic eni-attach-0a33842b4ec347c4c
 /// ```
 pub mod network_interface_attachment {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct NetworkInterfaceAttachmentArgs {
         /// Network interface index (int).
         #[builder(into)]
-        pub device_index: pulumi_wasm_rust::InputOrOutput<i32>,
+        pub device_index: pulumi_gestalt_rust::InputOrOutput<i32>,
         /// Instance ID to attach.
         #[builder(into)]
-        pub instance_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub instance_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// ENI ID to attach.
         #[builder(into)]
-        pub network_interface_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub network_interface_id: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct NetworkInterfaceAttachmentResult {
         /// The ENI Attachment ID.
-        pub attachment_id: pulumi_wasm_rust::Output<String>,
+        pub attachment_id: pulumi_gestalt_rust::Output<String>,
         /// Network interface index (int).
-        pub device_index: pulumi_wasm_rust::Output<i32>,
+        pub device_index: pulumi_gestalt_rust::Output<i32>,
         /// Instance ID to attach.
-        pub instance_id: pulumi_wasm_rust::Output<String>,
+        pub instance_id: pulumi_gestalt_rust::Output<String>,
         /// ENI ID to attach.
-        pub network_interface_id: pulumi_wasm_rust::Output<String>,
+        pub network_interface_id: pulumi_gestalt_rust::Output<String>,
         /// The status of the Network Interface Attachment.
-        pub status: pulumi_wasm_rust::Output<String>,
+        pub status: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: NetworkInterfaceAttachmentArgs,
     ) -> NetworkInterfaceAttachmentResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let device_index_binding = args.device_index.get_output(context).get_inner();
         let instance_id_binding = args.instance_id.get_output(context).get_inner();
@@ -92,19 +92,21 @@ pub mod network_interface_attachment {
         };
         let o = register_interface::register(context.get_inner(), &request);
         NetworkInterfaceAttachmentResult {
-            attachment_id: pulumi_wasm_rust::__private::into_domain(
+            attachment_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("attachmentId"),
             ),
-            device_index: pulumi_wasm_rust::__private::into_domain(
+            device_index: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("deviceIndex"),
             ),
-            instance_id: pulumi_wasm_rust::__private::into_domain(
+            instance_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("instanceId"),
             ),
-            network_interface_id: pulumi_wasm_rust::__private::into_domain(
+            network_interface_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("networkInterfaceId"),
             ),
-            status: pulumi_wasm_rust::__private::into_domain(o.extract_field("status")),
+            status: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("status"),
+            ),
         }
     }
 }

@@ -60,87 +60,87 @@
 /// ```
 ///
 pub mod flux_configuration {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct FluxConfigurationArgs {
         /// An `blob_storage` block as defined below.
         #[builder(into, default)]
-        pub blob_storage: pulumi_wasm_rust::InputOrOutput<
+        pub blob_storage: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::arckubernetes::FluxConfigurationBlobStorage>,
         >,
         /// A `bucket` block as defined below.
         #[builder(into, default)]
-        pub bucket: pulumi_wasm_rust::InputOrOutput<
+        pub bucket: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::arckubernetes::FluxConfigurationBucket>,
         >,
         /// Specifies the Cluster ID. Changing this forces a new Arc Kubernetes Cluster Extension to be created.
         #[builder(into)]
-        pub cluster_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub cluster_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Whether the configuration will keep its reconciliation of its kustomizations and sources with the repository. Defaults to `true`.
         #[builder(into, default)]
-        pub continuous_reconciliation_enabled: pulumi_wasm_rust::InputOrOutput<
+        pub continuous_reconciliation_enabled: pulumi_gestalt_rust::InputOrOutput<
             Option<bool>,
         >,
         /// A `git_repository` block as defined below.
         #[builder(into, default)]
-        pub git_repository: pulumi_wasm_rust::InputOrOutput<
+        pub git_repository: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::arckubernetes::FluxConfigurationGitRepository>,
         >,
         /// A `kustomizations` block as defined below.
         #[builder(into)]
-        pub kustomizations: pulumi_wasm_rust::InputOrOutput<
+        pub kustomizations: pulumi_gestalt_rust::InputOrOutput<
             Vec<super::super::types::arckubernetes::FluxConfigurationKustomization>,
         >,
         /// Specifies the name which should be used for this Arc Kubernetes Flux Configuration. Changing this forces a new Arc Kubernetes Flux Configuration to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Specifies the namespace to which this configuration is installed to. Changing this forces a new Arc Kubernetes Flux Configuration to be created.
         #[builder(into)]
-        pub namespace: pulumi_wasm_rust::InputOrOutput<String>,
+        pub namespace: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Specifies the scope at which the operator will be installed. Possible values are `cluster` and `namespace`. Defaults to `namespace`. Changing this forces a new Arc Kubernetes Flux Configuration to be created.
         #[builder(into, default)]
-        pub scope: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub scope: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct FluxConfigurationResult {
         /// An `blob_storage` block as defined below.
-        pub blob_storage: pulumi_wasm_rust::Output<
+        pub blob_storage: pulumi_gestalt_rust::Output<
             Option<super::super::types::arckubernetes::FluxConfigurationBlobStorage>,
         >,
         /// A `bucket` block as defined below.
-        pub bucket: pulumi_wasm_rust::Output<
+        pub bucket: pulumi_gestalt_rust::Output<
             Option<super::super::types::arckubernetes::FluxConfigurationBucket>,
         >,
         /// Specifies the Cluster ID. Changing this forces a new Arc Kubernetes Cluster Extension to be created.
-        pub cluster_id: pulumi_wasm_rust::Output<String>,
+        pub cluster_id: pulumi_gestalt_rust::Output<String>,
         /// Whether the configuration will keep its reconciliation of its kustomizations and sources with the repository. Defaults to `true`.
-        pub continuous_reconciliation_enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub continuous_reconciliation_enabled: pulumi_gestalt_rust::Output<Option<bool>>,
         /// A `git_repository` block as defined below.
-        pub git_repository: pulumi_wasm_rust::Output<
+        pub git_repository: pulumi_gestalt_rust::Output<
             Option<super::super::types::arckubernetes::FluxConfigurationGitRepository>,
         >,
         /// A `kustomizations` block as defined below.
-        pub kustomizations: pulumi_wasm_rust::Output<
+        pub kustomizations: pulumi_gestalt_rust::Output<
             Vec<super::super::types::arckubernetes::FluxConfigurationKustomization>,
         >,
         /// Specifies the name which should be used for this Arc Kubernetes Flux Configuration. Changing this forces a new Arc Kubernetes Flux Configuration to be created.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// Specifies the namespace to which this configuration is installed to. Changing this forces a new Arc Kubernetes Flux Configuration to be created.
-        pub namespace: pulumi_wasm_rust::Output<String>,
+        pub namespace: pulumi_gestalt_rust::Output<String>,
         /// Specifies the scope at which the operator will be installed. Possible values are `cluster` and `namespace`. Defaults to `namespace`. Changing this forces a new Arc Kubernetes Flux Configuration to be created.
-        pub scope: pulumi_wasm_rust::Output<Option<String>>,
+        pub scope: pulumi_gestalt_rust::Output<Option<String>>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: FluxConfigurationArgs,
     ) -> FluxConfigurationResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let blob_storage_binding = args.blob_storage.get_output(context).get_inner();
         let bucket_binding = args.bucket.get_output(context).get_inner();
@@ -199,27 +199,29 @@ pub mod flux_configuration {
         };
         let o = register_interface::register(context.get_inner(), &request);
         FluxConfigurationResult {
-            blob_storage: pulumi_wasm_rust::__private::into_domain(
+            blob_storage: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("blobStorage"),
             ),
-            bucket: pulumi_wasm_rust::__private::into_domain(o.extract_field("bucket")),
-            cluster_id: pulumi_wasm_rust::__private::into_domain(
+            bucket: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("bucket"),
+            ),
+            cluster_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("clusterId"),
             ),
-            continuous_reconciliation_enabled: pulumi_wasm_rust::__private::into_domain(
+            continuous_reconciliation_enabled: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("continuousReconciliationEnabled"),
             ),
-            git_repository: pulumi_wasm_rust::__private::into_domain(
+            git_repository: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("gitRepository"),
             ),
-            kustomizations: pulumi_wasm_rust::__private::into_domain(
+            kustomizations: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("kustomizations"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            namespace: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            namespace: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("namespace"),
             ),
-            scope: pulumi_wasm_rust::__private::into_domain(o.extract_field("scope")),
+            scope: pulumi_gestalt_rust::__private::into_domain(o.extract_field("scope")),
         }
     }
 }

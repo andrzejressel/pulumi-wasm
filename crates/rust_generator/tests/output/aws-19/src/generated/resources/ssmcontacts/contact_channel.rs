@@ -5,8 +5,8 @@
 /// ### Basic Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = contact_channel::create(
@@ -30,8 +30,8 @@
 /// ### Usage with SSM Contact
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = contact_channel::create(
@@ -62,52 +62,52 @@
 /// $ pulumi import aws:ssmcontacts/contactChannel:ContactChannel example arn:aws:ssm-contacts:us-west-2:123456789012:contact-channel/example
 /// ```
 pub mod contact_channel {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ContactChannelArgs {
         /// Amazon Resource Name (ARN) of the AWS SSM Contact that the contact channel belongs to.
         #[builder(into)]
-        pub contact_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub contact_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Block that contains contact engagement details. See details below.
         #[builder(into)]
-        pub delivery_address: pulumi_wasm_rust::InputOrOutput<
+        pub delivery_address: pulumi_gestalt_rust::InputOrOutput<
             super::super::types::ssmcontacts::ContactChannelDeliveryAddress,
         >,
         /// Name of the contact channel. Must be between 1 and 255 characters, and may contain alphanumerics, underscores (`_`), hyphens (`-`), periods (`.`), and spaces.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Type of the contact channel. One of `SMS`, `VOICE` or `EMAIL`.
         #[builder(into)]
-        pub type_: pulumi_wasm_rust::InputOrOutput<String>,
+        pub type_: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct ContactChannelResult {
         /// Whether the contact channel is activated. The contact channel must be activated to use it to engage the contact. One of `ACTIVATED` or `NOT_ACTIVATED`.
-        pub activation_status: pulumi_wasm_rust::Output<String>,
+        pub activation_status: pulumi_gestalt_rust::Output<String>,
         /// Amazon Resource Name (ARN) of the contact channel.
-        pub arn: pulumi_wasm_rust::Output<String>,
+        pub arn: pulumi_gestalt_rust::Output<String>,
         /// Amazon Resource Name (ARN) of the AWS SSM Contact that the contact channel belongs to.
-        pub contact_id: pulumi_wasm_rust::Output<String>,
+        pub contact_id: pulumi_gestalt_rust::Output<String>,
         /// Block that contains contact engagement details. See details below.
-        pub delivery_address: pulumi_wasm_rust::Output<
+        pub delivery_address: pulumi_gestalt_rust::Output<
             super::super::types::ssmcontacts::ContactChannelDeliveryAddress,
         >,
         /// Name of the contact channel. Must be between 1 and 255 characters, and may contain alphanumerics, underscores (`_`), hyphens (`-`), periods (`.`), and spaces.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// Type of the contact channel. One of `SMS`, `VOICE` or `EMAIL`.
-        pub type_: pulumi_wasm_rust::Output<String>,
+        pub type_: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: ContactChannelArgs,
     ) -> ContactChannelResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let contact_id_binding = args.contact_id.get_output(context).get_inner();
         let delivery_address_binding = args
@@ -141,18 +141,18 @@ pub mod contact_channel {
         };
         let o = register_interface::register(context.get_inner(), &request);
         ContactChannelResult {
-            activation_status: pulumi_wasm_rust::__private::into_domain(
+            activation_status: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("activationStatus"),
             ),
-            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
-            contact_id: pulumi_wasm_rust::__private::into_domain(
+            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
+            contact_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("contactId"),
             ),
-            delivery_address: pulumi_wasm_rust::__private::into_domain(
+            delivery_address: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("deliveryAddress"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            type_: pulumi_wasm_rust::__private::into_domain(o.extract_field("type")),
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            type_: pulumi_gestalt_rust::__private::into_domain(o.extract_field("type")),
         }
     }
 }

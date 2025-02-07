@@ -43,7 +43,7 @@
 /// ```
 ///
 pub mod linked_service_azure_blob_storage {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct LinkedServiceAzureBlobStorageArgs {
@@ -51,124 +51,126 @@ pub mod linked_service_azure_blob_storage {
         ///
         /// The following supported arguments are specific to Azure Blob Storage Linked Service:
         #[builder(into, default)]
-        pub additional_properties: pulumi_wasm_rust::InputOrOutput<
+        pub additional_properties: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// List of tags that can be used for describing the Data Factory Linked Service.
         #[builder(into, default)]
-        pub annotations: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
+        pub annotations: pulumi_gestalt_rust::InputOrOutput<Option<Vec<String>>>,
         /// The connection string. Conflicts with `connection_string_insecure`, `sas_uri` and `service_endpoint`.
         #[builder(into, default)]
-        pub connection_string: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub connection_string: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The connection string sent insecurely. Conflicts with `connection_string`, `sas_uri` and `service_endpoint`.
         ///
         /// > **Note:** `connection_string` uses the Azure [SecureString](https://learn.microsoft.com/en-us/dotnet/api/microsoft.azure.management.datafactory.models.securestring) to encrypt the contents within the REST payload sent to Azure whilst the `connection_string_insecure` is sent as a regular string. Both properties are still sent using SSL/HTTPS. At this time the portal will not decrypt Secure Strings so the `connection_string` property in the portal will show as `******` whilst `connection_string_insecure` will be viewable in the portal.
         #[builder(into, default)]
-        pub connection_string_insecure: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub connection_string_insecure: pulumi_gestalt_rust::InputOrOutput<
+            Option<String>,
+        >,
         /// The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
         #[builder(into)]
-        pub data_factory_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub data_factory_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The description for the Data Factory Linked Service.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub description: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The integration runtime reference to associate with the Data Factory Linked Service.
         #[builder(into, default)]
-        pub integration_runtime_name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub integration_runtime_name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// A `key_vault_sas_token` block as defined below. Use this argument to store SAS Token in an existing Key Vault. It needs an existing Key Vault Data Factory Linked Service. A `sas_uri` is required.
         #[builder(into, default)]
-        pub key_vault_sas_token: pulumi_wasm_rust::InputOrOutput<
+        pub key_vault_sas_token: pulumi_gestalt_rust::InputOrOutput<
             Option<
                 super::super::types::datafactory::LinkedServiceAzureBlobStorageKeyVaultSasToken,
             >,
         >,
         /// Specifies the name of the Data Factory Linked Service. Changing this forces a new resource to be created. Must be unique within a data factory. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// A map of parameters to associate with the Data Factory Linked Service.
         #[builder(into, default)]
-        pub parameters: pulumi_wasm_rust::InputOrOutput<
+        pub parameters: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// The SAS URI. Conflicts with `connection_string_insecure`, `connection_string` and `service_endpoint`.
         #[builder(into, default)]
-        pub sas_uri: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub sas_uri: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         #[builder(into, default)]
-        pub service_endpoint: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub service_endpoint: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         #[builder(into, default)]
-        pub service_principal_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub service_principal_id: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         #[builder(into, default)]
-        pub service_principal_key: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub service_principal_key: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         #[builder(into, default)]
-        pub service_principal_linked_key_vault_key: pulumi_wasm_rust::InputOrOutput<
+        pub service_principal_linked_key_vault_key: pulumi_gestalt_rust::InputOrOutput<
             Option<
                 super::super::types::datafactory::LinkedServiceAzureBlobStorageServicePrincipalLinkedKeyVaultKey,
             >,
         >,
         #[builder(into, default)]
-        pub storage_kind: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub storage_kind: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         #[builder(into, default)]
-        pub tenant_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub tenant_id: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         #[builder(into, default)]
-        pub use_managed_identity: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub use_managed_identity: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
     }
     #[allow(dead_code)]
     pub struct LinkedServiceAzureBlobStorageResult {
         /// A map of additional properties to associate with the Data Factory Linked Service.
         ///
         /// The following supported arguments are specific to Azure Blob Storage Linked Service:
-        pub additional_properties: pulumi_wasm_rust::Output<
+        pub additional_properties: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// List of tags that can be used for describing the Data Factory Linked Service.
-        pub annotations: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub annotations: pulumi_gestalt_rust::Output<Option<Vec<String>>>,
         /// The connection string. Conflicts with `connection_string_insecure`, `sas_uri` and `service_endpoint`.
-        pub connection_string: pulumi_wasm_rust::Output<Option<String>>,
+        pub connection_string: pulumi_gestalt_rust::Output<Option<String>>,
         /// The connection string sent insecurely. Conflicts with `connection_string`, `sas_uri` and `service_endpoint`.
         ///
         /// > **Note:** `connection_string` uses the Azure [SecureString](https://learn.microsoft.com/en-us/dotnet/api/microsoft.azure.management.datafactory.models.securestring) to encrypt the contents within the REST payload sent to Azure whilst the `connection_string_insecure` is sent as a regular string. Both properties are still sent using SSL/HTTPS. At this time the portal will not decrypt Secure Strings so the `connection_string` property in the portal will show as `******` whilst `connection_string_insecure` will be viewable in the portal.
-        pub connection_string_insecure: pulumi_wasm_rust::Output<Option<String>>,
+        pub connection_string_insecure: pulumi_gestalt_rust::Output<Option<String>>,
         /// The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
-        pub data_factory_id: pulumi_wasm_rust::Output<String>,
+        pub data_factory_id: pulumi_gestalt_rust::Output<String>,
         /// The description for the Data Factory Linked Service.
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_gestalt_rust::Output<Option<String>>,
         /// The integration runtime reference to associate with the Data Factory Linked Service.
-        pub integration_runtime_name: pulumi_wasm_rust::Output<Option<String>>,
+        pub integration_runtime_name: pulumi_gestalt_rust::Output<Option<String>>,
         /// A `key_vault_sas_token` block as defined below. Use this argument to store SAS Token in an existing Key Vault. It needs an existing Key Vault Data Factory Linked Service. A `sas_uri` is required.
-        pub key_vault_sas_token: pulumi_wasm_rust::Output<
+        pub key_vault_sas_token: pulumi_gestalt_rust::Output<
             Option<
                 super::super::types::datafactory::LinkedServiceAzureBlobStorageKeyVaultSasToken,
             >,
         >,
         /// Specifies the name of the Data Factory Linked Service. Changing this forces a new resource to be created. Must be unique within a data factory. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// A map of parameters to associate with the Data Factory Linked Service.
-        pub parameters: pulumi_wasm_rust::Output<
+        pub parameters: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// The SAS URI. Conflicts with `connection_string_insecure`, `connection_string` and `service_endpoint`.
-        pub sas_uri: pulumi_wasm_rust::Output<Option<String>>,
-        pub service_endpoint: pulumi_wasm_rust::Output<Option<String>>,
-        pub service_principal_id: pulumi_wasm_rust::Output<Option<String>>,
-        pub service_principal_key: pulumi_wasm_rust::Output<Option<String>>,
-        pub service_principal_linked_key_vault_key: pulumi_wasm_rust::Output<
+        pub sas_uri: pulumi_gestalt_rust::Output<Option<String>>,
+        pub service_endpoint: pulumi_gestalt_rust::Output<Option<String>>,
+        pub service_principal_id: pulumi_gestalt_rust::Output<Option<String>>,
+        pub service_principal_key: pulumi_gestalt_rust::Output<Option<String>>,
+        pub service_principal_linked_key_vault_key: pulumi_gestalt_rust::Output<
             Option<
                 super::super::types::datafactory::LinkedServiceAzureBlobStorageServicePrincipalLinkedKeyVaultKey,
             >,
         >,
-        pub storage_kind: pulumi_wasm_rust::Output<Option<String>>,
-        pub tenant_id: pulumi_wasm_rust::Output<Option<String>>,
-        pub use_managed_identity: pulumi_wasm_rust::Output<Option<bool>>,
+        pub storage_kind: pulumi_gestalt_rust::Output<Option<String>>,
+        pub tenant_id: pulumi_gestalt_rust::Output<Option<String>>,
+        pub use_managed_identity: pulumi_gestalt_rust::Output<Option<bool>>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: LinkedServiceAzureBlobStorageArgs,
     ) -> LinkedServiceAzureBlobStorageResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let additional_properties_binding = args
             .additional_properties
@@ -303,54 +305,56 @@ pub mod linked_service_azure_blob_storage {
         };
         let o = register_interface::register(context.get_inner(), &request);
         LinkedServiceAzureBlobStorageResult {
-            additional_properties: pulumi_wasm_rust::__private::into_domain(
+            additional_properties: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("additionalProperties"),
             ),
-            annotations: pulumi_wasm_rust::__private::into_domain(
+            annotations: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("annotations"),
             ),
-            connection_string: pulumi_wasm_rust::__private::into_domain(
+            connection_string: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("connectionString"),
             ),
-            connection_string_insecure: pulumi_wasm_rust::__private::into_domain(
+            connection_string_insecure: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("connectionStringInsecure"),
             ),
-            data_factory_id: pulumi_wasm_rust::__private::into_domain(
+            data_factory_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("dataFactoryId"),
             ),
-            description: pulumi_wasm_rust::__private::into_domain(
+            description: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("description"),
             ),
-            integration_runtime_name: pulumi_wasm_rust::__private::into_domain(
+            integration_runtime_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("integrationRuntimeName"),
             ),
-            key_vault_sas_token: pulumi_wasm_rust::__private::into_domain(
+            key_vault_sas_token: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("keyVaultSasToken"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            parameters: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            parameters: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("parameters"),
             ),
-            sas_uri: pulumi_wasm_rust::__private::into_domain(o.extract_field("sasUri")),
-            service_endpoint: pulumi_wasm_rust::__private::into_domain(
+            sas_uri: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("sasUri"),
+            ),
+            service_endpoint: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("serviceEndpoint"),
             ),
-            service_principal_id: pulumi_wasm_rust::__private::into_domain(
+            service_principal_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("servicePrincipalId"),
             ),
-            service_principal_key: pulumi_wasm_rust::__private::into_domain(
+            service_principal_key: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("servicePrincipalKey"),
             ),
-            service_principal_linked_key_vault_key: pulumi_wasm_rust::__private::into_domain(
+            service_principal_linked_key_vault_key: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("servicePrincipalLinkedKeyVaultKey"),
             ),
-            storage_kind: pulumi_wasm_rust::__private::into_domain(
+            storage_kind: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("storageKind"),
             ),
-            tenant_id: pulumi_wasm_rust::__private::into_domain(
+            tenant_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("tenantId"),
             ),
-            use_managed_identity: pulumi_wasm_rust::__private::into_domain(
+            use_managed_identity: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("useManagedIdentity"),
             ),
         }

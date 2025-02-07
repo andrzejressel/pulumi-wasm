@@ -70,112 +70,112 @@
 /// ```
 ///
 pub mod mongo_cluster {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct MongoClusterArgs {
         /// The Password associated with the `administrator_username` for the MongoDB Cluster.
         #[builder(into, default)]
-        pub administrator_password: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub administrator_password: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The administrator username of the MongoDB Cluster. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub administrator_username: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub administrator_username: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The compute tier to assign to the MongoDB Cluster. Possible values are `Free`, `M25`, `M30`, `M40`, `M50`, `M60` and `M80`.
         #[builder(into, default)]
-        pub compute_tier: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub compute_tier: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The creation mode for the MongoDB Cluster. Possibles values are `Default` and `GeoReplica`. Defaults to `Default`. Changing this forces a new resource to be created.
         ///
         /// > **Note** The creation mode `GeoReplica` is currently in preview. It is only available when `preview_features` is set.
         #[builder(into, default)]
-        pub create_mode: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub create_mode: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The high availability mode for the MongoDB Cluster. Possibles values are `Disabled` and `ZoneRedundantPreferred`.
         #[builder(into, default)]
-        pub high_availability_mode: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub high_availability_mode: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The supported Azure location where the MongoDB Cluster exists. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub location: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub location: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The name which should be used for the MongoDB Cluster. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The preview features that can be enabled on the MongoDB Cluster. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub preview_features: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
+        pub preview_features: pulumi_gestalt_rust::InputOrOutput<Option<Vec<String>>>,
         /// The Public Network Access setting for the MongoDB Cluster. Possibles values are `Disabled` and `Enabled`. Defaults to `Enabled`.
         #[builder(into, default)]
-        pub public_network_access: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub public_network_access: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The name of the resource group in which to create the MongoDB Cluster. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub resource_group_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub resource_group_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The Number of shards to provision on the MongoDB Cluster. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub shard_count: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
+        pub shard_count: pulumi_gestalt_rust::InputOrOutput<Option<i32>>,
         /// The location of the source MongoDB Cluster. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub source_location: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub source_location: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The ID of the replication source MongoDB Cluster. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub source_server_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub source_server_id: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The size of the data disk space for the MongoDB Cluster.
         #[builder(into, default)]
-        pub storage_size_in_gb: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
+        pub storage_size_in_gb: pulumi_gestalt_rust::InputOrOutput<Option<i32>>,
         /// A mapping of tags to assign to the MongoDB Cluster.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// The version for the MongoDB Cluster. Possibles values are `5.0`, `6.0` and `7.0`.
         #[builder(into, default)]
-        pub version: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub version: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct MongoClusterResult {
         /// The Password associated with the `administrator_username` for the MongoDB Cluster.
-        pub administrator_password: pulumi_wasm_rust::Output<Option<String>>,
+        pub administrator_password: pulumi_gestalt_rust::Output<Option<String>>,
         /// The administrator username of the MongoDB Cluster. Changing this forces a new resource to be created.
-        pub administrator_username: pulumi_wasm_rust::Output<Option<String>>,
+        pub administrator_username: pulumi_gestalt_rust::Output<Option<String>>,
         /// The compute tier to assign to the MongoDB Cluster. Possible values are `Free`, `M25`, `M30`, `M40`, `M50`, `M60` and `M80`.
-        pub compute_tier: pulumi_wasm_rust::Output<Option<String>>,
+        pub compute_tier: pulumi_gestalt_rust::Output<Option<String>>,
         /// The creation mode for the MongoDB Cluster. Possibles values are `Default` and `GeoReplica`. Defaults to `Default`. Changing this forces a new resource to be created.
         ///
         /// > **Note** The creation mode `GeoReplica` is currently in preview. It is only available when `preview_features` is set.
-        pub create_mode: pulumi_wasm_rust::Output<Option<String>>,
+        pub create_mode: pulumi_gestalt_rust::Output<Option<String>>,
         /// The high availability mode for the MongoDB Cluster. Possibles values are `Disabled` and `ZoneRedundantPreferred`.
-        pub high_availability_mode: pulumi_wasm_rust::Output<Option<String>>,
+        pub high_availability_mode: pulumi_gestalt_rust::Output<Option<String>>,
         /// The supported Azure location where the MongoDB Cluster exists. Changing this forces a new resource to be created.
-        pub location: pulumi_wasm_rust::Output<String>,
+        pub location: pulumi_gestalt_rust::Output<String>,
         /// The name which should be used for the MongoDB Cluster. Changing this forces a new resource to be created.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// The preview features that can be enabled on the MongoDB Cluster. Changing this forces a new resource to be created.
-        pub preview_features: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub preview_features: pulumi_gestalt_rust::Output<Option<Vec<String>>>,
         /// The Public Network Access setting for the MongoDB Cluster. Possibles values are `Disabled` and `Enabled`. Defaults to `Enabled`.
-        pub public_network_access: pulumi_wasm_rust::Output<Option<String>>,
+        pub public_network_access: pulumi_gestalt_rust::Output<Option<String>>,
         /// The name of the resource group in which to create the MongoDB Cluster. Changing this forces a new resource to be created.
-        pub resource_group_name: pulumi_wasm_rust::Output<String>,
+        pub resource_group_name: pulumi_gestalt_rust::Output<String>,
         /// The Number of shards to provision on the MongoDB Cluster. Changing this forces a new resource to be created.
-        pub shard_count: pulumi_wasm_rust::Output<Option<i32>>,
+        pub shard_count: pulumi_gestalt_rust::Output<Option<i32>>,
         /// The location of the source MongoDB Cluster. Changing this forces a new resource to be created.
-        pub source_location: pulumi_wasm_rust::Output<Option<String>>,
+        pub source_location: pulumi_gestalt_rust::Output<Option<String>>,
         /// The ID of the replication source MongoDB Cluster. Changing this forces a new resource to be created.
-        pub source_server_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub source_server_id: pulumi_gestalt_rust::Output<Option<String>>,
         /// The size of the data disk space for the MongoDB Cluster.
-        pub storage_size_in_gb: pulumi_wasm_rust::Output<Option<i32>>,
+        pub storage_size_in_gb: pulumi_gestalt_rust::Output<Option<i32>>,
         /// A mapping of tags to assign to the MongoDB Cluster.
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// The version for the MongoDB Cluster. Possibles values are `5.0`, `6.0` and `7.0`.
-        pub version: pulumi_wasm_rust::Output<Option<String>>,
+        pub version: pulumi_gestalt_rust::Output<Option<String>>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: MongoClusterArgs,
     ) -> MongoClusterResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let administrator_password_binding = args
             .administrator_password
@@ -293,48 +293,50 @@ pub mod mongo_cluster {
         };
         let o = register_interface::register(context.get_inner(), &request);
         MongoClusterResult {
-            administrator_password: pulumi_wasm_rust::__private::into_domain(
+            administrator_password: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("administratorPassword"),
             ),
-            administrator_username: pulumi_wasm_rust::__private::into_domain(
+            administrator_username: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("administratorUsername"),
             ),
-            compute_tier: pulumi_wasm_rust::__private::into_domain(
+            compute_tier: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("computeTier"),
             ),
-            create_mode: pulumi_wasm_rust::__private::into_domain(
+            create_mode: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("createMode"),
             ),
-            high_availability_mode: pulumi_wasm_rust::__private::into_domain(
+            high_availability_mode: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("highAvailabilityMode"),
             ),
-            location: pulumi_wasm_rust::__private::into_domain(
+            location: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("location"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            preview_features: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            preview_features: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("previewFeatures"),
             ),
-            public_network_access: pulumi_wasm_rust::__private::into_domain(
+            public_network_access: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("publicNetworkAccess"),
             ),
-            resource_group_name: pulumi_wasm_rust::__private::into_domain(
+            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("resourceGroupName"),
             ),
-            shard_count: pulumi_wasm_rust::__private::into_domain(
+            shard_count: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("shardCount"),
             ),
-            source_location: pulumi_wasm_rust::__private::into_domain(
+            source_location: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("sourceLocation"),
             ),
-            source_server_id: pulumi_wasm_rust::__private::into_domain(
+            source_server_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("sourceServerId"),
             ),
-            storage_size_in_gb: pulumi_wasm_rust::__private::into_domain(
+            storage_size_in_gb: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("storageSizeInGb"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
-            version: pulumi_wasm_rust::__private::into_domain(o.extract_field("version")),
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            version: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("version"),
+            ),
         }
     }
 }

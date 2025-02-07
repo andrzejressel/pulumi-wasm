@@ -37,64 +37,66 @@
 /// ```
 ///
 pub mod output_powerbi {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct OutputPowerbiArgs {
         /// The name of the Power BI dataset.
         #[builder(into)]
-        pub dataset: pulumi_wasm_rust::InputOrOutput<String>,
+        pub dataset: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The ID of the Power BI group, this must be a valid UUID.
         #[builder(into)]
-        pub group_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub group_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The name of the Power BI group. Use this property to help remember which specific Power BI group id was used.
         #[builder(into)]
-        pub group_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub group_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The name of the Stream Output. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The ID of the Stream Analytics Job. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub stream_analytics_job_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub stream_analytics_job_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The name of the Power BI table under the specified dataset.
         #[builder(into)]
-        pub table: pulumi_wasm_rust::InputOrOutput<String>,
+        pub table: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The user display name of the user that was used to obtain the refresh token.
         #[builder(into, default)]
-        pub token_user_display_name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub token_user_display_name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The user principal name (UPN) of the user that was used to obtain the refresh token.
         #[builder(into, default)]
-        pub token_user_principal_name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub token_user_principal_name: pulumi_gestalt_rust::InputOrOutput<
+            Option<String>,
+        >,
     }
     #[allow(dead_code)]
     pub struct OutputPowerbiResult {
         /// The name of the Power BI dataset.
-        pub dataset: pulumi_wasm_rust::Output<String>,
+        pub dataset: pulumi_gestalt_rust::Output<String>,
         /// The ID of the Power BI group, this must be a valid UUID.
-        pub group_id: pulumi_wasm_rust::Output<String>,
+        pub group_id: pulumi_gestalt_rust::Output<String>,
         /// The name of the Power BI group. Use this property to help remember which specific Power BI group id was used.
-        pub group_name: pulumi_wasm_rust::Output<String>,
+        pub group_name: pulumi_gestalt_rust::Output<String>,
         /// The name of the Stream Output. Changing this forces a new resource to be created.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// The ID of the Stream Analytics Job. Changing this forces a new resource to be created.
-        pub stream_analytics_job_id: pulumi_wasm_rust::Output<String>,
+        pub stream_analytics_job_id: pulumi_gestalt_rust::Output<String>,
         /// The name of the Power BI table under the specified dataset.
-        pub table: pulumi_wasm_rust::Output<String>,
+        pub table: pulumi_gestalt_rust::Output<String>,
         /// The user display name of the user that was used to obtain the refresh token.
-        pub token_user_display_name: pulumi_wasm_rust::Output<Option<String>>,
+        pub token_user_display_name: pulumi_gestalt_rust::Output<Option<String>>,
         /// The user principal name (UPN) of the user that was used to obtain the refresh token.
-        pub token_user_principal_name: pulumi_wasm_rust::Output<Option<String>>,
+        pub token_user_principal_name: pulumi_gestalt_rust::Output<Option<String>>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: OutputPowerbiArgs,
     ) -> OutputPowerbiResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let dataset_binding = args.dataset.get_output(context).get_inner();
         let group_id_binding = args.group_id.get_output(context).get_inner();
@@ -154,24 +156,24 @@ pub mod output_powerbi {
         };
         let o = register_interface::register(context.get_inner(), &request);
         OutputPowerbiResult {
-            dataset: pulumi_wasm_rust::__private::into_domain(
+            dataset: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("dataset"),
             ),
-            group_id: pulumi_wasm_rust::__private::into_domain(
+            group_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("groupId"),
             ),
-            group_name: pulumi_wasm_rust::__private::into_domain(
+            group_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("groupName"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            stream_analytics_job_id: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            stream_analytics_job_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("streamAnalyticsJobId"),
             ),
-            table: pulumi_wasm_rust::__private::into_domain(o.extract_field("table")),
-            token_user_display_name: pulumi_wasm_rust::__private::into_domain(
+            table: pulumi_gestalt_rust::__private::into_domain(o.extract_field("table")),
+            token_user_display_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("tokenUserDisplayName"),
             ),
-            token_user_principal_name: pulumi_wasm_rust::__private::into_domain(
+            token_user_principal_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("tokenUserPrincipalName"),
             ),
         }

@@ -5,8 +5,8 @@
 /// ### System rule
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let sys = resolver_rule::create(
@@ -61,64 +61,64 @@
 /// $ pulumi import aws:route53/resolverRule:ResolverRule sys rslvr-rr-0123456789abcdef0
 /// ```
 pub mod resolver_rule {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ResolverRuleArgs {
         /// DNS queries for this domain name are forwarded to the IP addresses that are specified using `target_ip`.
         #[builder(into)]
-        pub domain_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub domain_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Friendly name that lets you easily find a rule in the Resolver dashboard in the Route 53 console.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// ID of the outbound resolver endpoint that you want to use to route DNS queries to the IP addresses that you specify using `target_ip`.
         /// This argument should only be specified for `FORWARD` type rules.
         #[builder(into, default)]
-        pub resolver_endpoint_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub resolver_endpoint_id: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Rule type. Valid values are `FORWARD`, `SYSTEM` and `RECURSIVE`.
         #[builder(into)]
-        pub rule_type: pulumi_wasm_rust::InputOrOutput<String>,
+        pub rule_type: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Configuration block(s) indicating the IPs that you want Resolver to forward DNS queries to (documented below).
         /// This argument should only be specified for `FORWARD` type rules.
         #[builder(into, default)]
-        pub target_ips: pulumi_wasm_rust::InputOrOutput<
+        pub target_ips: pulumi_gestalt_rust::InputOrOutput<
             Option<Vec<super::super::types::route53::ResolverRuleTargetIp>>,
         >,
     }
     #[allow(dead_code)]
     pub struct ResolverRuleResult {
         /// ARN (Amazon Resource Name) for the resolver rule.
-        pub arn: pulumi_wasm_rust::Output<String>,
+        pub arn: pulumi_gestalt_rust::Output<String>,
         /// DNS queries for this domain name are forwarded to the IP addresses that are specified using `target_ip`.
-        pub domain_name: pulumi_wasm_rust::Output<String>,
+        pub domain_name: pulumi_gestalt_rust::Output<String>,
         /// Friendly name that lets you easily find a rule in the Resolver dashboard in the Route 53 console.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// When a rule is shared with another AWS account, the account ID of the account that the rule is shared with.
-        pub owner_id: pulumi_wasm_rust::Output<String>,
+        pub owner_id: pulumi_gestalt_rust::Output<String>,
         /// ID of the outbound resolver endpoint that you want to use to route DNS queries to the IP addresses that you specify using `target_ip`.
         /// This argument should only be specified for `FORWARD` type rules.
-        pub resolver_endpoint_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub resolver_endpoint_id: pulumi_gestalt_rust::Output<Option<String>>,
         /// Rule type. Valid values are `FORWARD`, `SYSTEM` and `RECURSIVE`.
-        pub rule_type: pulumi_wasm_rust::Output<String>,
+        pub rule_type: pulumi_gestalt_rust::Output<String>,
         /// Whether the rules is shared and, if so, whether the current account is sharing the rule with another account, or another account is sharing the rule with the current account.
         /// Values are `NOT_SHARED`, `SHARED_BY_ME` or `SHARED_WITH_ME`
-        pub share_status: pulumi_wasm_rust::Output<String>,
+        pub share_status: pulumi_gestalt_rust::Output<String>,
         /// Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        pub tags_all: pulumi_wasm_rust::Output<
+        pub tags_all: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
         /// Configuration block(s) indicating the IPs that you want Resolver to forward DNS queries to (documented below).
         /// This argument should only be specified for `FORWARD` type rules.
-        pub target_ips: pulumi_wasm_rust::Output<
+        pub target_ips: pulumi_gestalt_rust::Output<
             Option<Vec<super::super::types::route53::ResolverRuleTargetIp>>,
         >,
     }
@@ -127,11 +127,11 @@ pub mod resolver_rule {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: ResolverRuleArgs,
     ) -> ResolverRuleResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let domain_name_binding = args.domain_name.get_output(context).get_inner();
         let name_binding = args.name.get_output(context).get_inner();
@@ -175,28 +175,28 @@ pub mod resolver_rule {
         };
         let o = register_interface::register(context.get_inner(), &request);
         ResolverRuleResult {
-            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
-            domain_name: pulumi_wasm_rust::__private::into_domain(
+            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
+            domain_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("domainName"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            owner_id: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            owner_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("ownerId"),
             ),
-            resolver_endpoint_id: pulumi_wasm_rust::__private::into_domain(
+            resolver_endpoint_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("resolverEndpointId"),
             ),
-            rule_type: pulumi_wasm_rust::__private::into_domain(
+            rule_type: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("ruleType"),
             ),
-            share_status: pulumi_wasm_rust::__private::into_domain(
+            share_status: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("shareStatus"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_wasm_rust::__private::into_domain(
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            tags_all: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("tagsAll"),
             ),
-            target_ips: pulumi_wasm_rust::__private::into_domain(
+            target_ips: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("targetIps"),
             ),
         }

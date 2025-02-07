@@ -4,8 +4,8 @@
 /// ## Example Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = domain::create(
@@ -27,145 +27,145 @@
 /// $ pulumi import aws:customerprofiles/profile:Profile example domain-name/5f2f473dfbe841eb8d05cfc2a4c926df
 /// ```
 pub mod profile {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ProfileArgs {
         /// A unique account number that you have given to the customer.
         #[builder(into, default)]
-        pub account_number: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub account_number: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Any additional information relevant to the customer’s profile.
         #[builder(into, default)]
-        pub additional_information: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub additional_information: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// A block that specifies a generic address associated with the customer that is not mailing, shipping, or billing. Documented below.
         #[builder(into, default)]
-        pub address: pulumi_wasm_rust::InputOrOutput<
+        pub address: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::customerprofiles::ProfileAddress>,
         >,
         /// A key value pair of attributes of a customer profile.
         #[builder(into, default)]
-        pub attributes: pulumi_wasm_rust::InputOrOutput<
+        pub attributes: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// A block that specifies the customer’s billing address. Documented below.
         #[builder(into, default)]
-        pub billing_address: pulumi_wasm_rust::InputOrOutput<
+        pub billing_address: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::customerprofiles::ProfileBillingAddress>,
         >,
         /// The customer’s birth date.
         #[builder(into, default)]
-        pub birth_date: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub birth_date: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The customer’s business email address.
         #[builder(into, default)]
-        pub business_email_address: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub business_email_address: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The name of the customer’s business.
         #[builder(into, default)]
-        pub business_name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub business_name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The customer’s business phone number.
         #[builder(into, default)]
-        pub business_phone_number: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub business_phone_number: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The name of your Customer Profile domain. It must be unique for your AWS account.
         ///
         /// The following arguments are optional:
         #[builder(into)]
-        pub domain_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub domain_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The customer’s email address, which has not been specified as a personal or business address.
         #[builder(into, default)]
-        pub email_address: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub email_address: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The customer’s first name.
         #[builder(into, default)]
-        pub first_name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub first_name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The gender with which the customer identifies.
         #[builder(into, default)]
-        pub gender_string: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub gender_string: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The customer’s home phone number.
         #[builder(into, default)]
-        pub home_phone_number: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub home_phone_number: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The customer’s last name.
         #[builder(into, default)]
-        pub last_name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub last_name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// A block that specifies the customer’s mailing address. Documented below.
         #[builder(into, default)]
-        pub mailing_address: pulumi_wasm_rust::InputOrOutput<
+        pub mailing_address: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::customerprofiles::ProfileMailingAddress>,
         >,
         /// The customer’s middle name.
         #[builder(into, default)]
-        pub middle_name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub middle_name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The customer’s mobile phone number.
         #[builder(into, default)]
-        pub mobile_phone_number: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub mobile_phone_number: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The type of profile used to describe the customer.
         #[builder(into, default)]
-        pub party_type_string: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub party_type_string: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The customer’s personal email address.
         #[builder(into, default)]
-        pub personal_email_address: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub personal_email_address: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The customer’s phone number, which has not been specified as a mobile, home, or business number.
         #[builder(into, default)]
-        pub phone_number: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub phone_number: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// A block that specifies the customer’s shipping address. Documented below.
         #[builder(into, default)]
-        pub shipping_address: pulumi_wasm_rust::InputOrOutput<
+        pub shipping_address: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::customerprofiles::ProfileShippingAddress>,
         >,
     }
     #[allow(dead_code)]
     pub struct ProfileResult {
         /// A unique account number that you have given to the customer.
-        pub account_number: pulumi_wasm_rust::Output<Option<String>>,
+        pub account_number: pulumi_gestalt_rust::Output<Option<String>>,
         /// Any additional information relevant to the customer’s profile.
-        pub additional_information: pulumi_wasm_rust::Output<Option<String>>,
+        pub additional_information: pulumi_gestalt_rust::Output<Option<String>>,
         /// A block that specifies a generic address associated with the customer that is not mailing, shipping, or billing. Documented below.
-        pub address: pulumi_wasm_rust::Output<
+        pub address: pulumi_gestalt_rust::Output<
             Option<super::super::types::customerprofiles::ProfileAddress>,
         >,
         /// A key value pair of attributes of a customer profile.
-        pub attributes: pulumi_wasm_rust::Output<
+        pub attributes: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// A block that specifies the customer’s billing address. Documented below.
-        pub billing_address: pulumi_wasm_rust::Output<
+        pub billing_address: pulumi_gestalt_rust::Output<
             Option<super::super::types::customerprofiles::ProfileBillingAddress>,
         >,
         /// The customer’s birth date.
-        pub birth_date: pulumi_wasm_rust::Output<Option<String>>,
+        pub birth_date: pulumi_gestalt_rust::Output<Option<String>>,
         /// The customer’s business email address.
-        pub business_email_address: pulumi_wasm_rust::Output<Option<String>>,
+        pub business_email_address: pulumi_gestalt_rust::Output<Option<String>>,
         /// The name of the customer’s business.
-        pub business_name: pulumi_wasm_rust::Output<Option<String>>,
+        pub business_name: pulumi_gestalt_rust::Output<Option<String>>,
         /// The customer’s business phone number.
-        pub business_phone_number: pulumi_wasm_rust::Output<Option<String>>,
+        pub business_phone_number: pulumi_gestalt_rust::Output<Option<String>>,
         /// The name of your Customer Profile domain. It must be unique for your AWS account.
         ///
         /// The following arguments are optional:
-        pub domain_name: pulumi_wasm_rust::Output<String>,
+        pub domain_name: pulumi_gestalt_rust::Output<String>,
         /// The customer’s email address, which has not been specified as a personal or business address.
-        pub email_address: pulumi_wasm_rust::Output<Option<String>>,
+        pub email_address: pulumi_gestalt_rust::Output<Option<String>>,
         /// The customer’s first name.
-        pub first_name: pulumi_wasm_rust::Output<Option<String>>,
+        pub first_name: pulumi_gestalt_rust::Output<Option<String>>,
         /// The gender with which the customer identifies.
-        pub gender_string: pulumi_wasm_rust::Output<Option<String>>,
+        pub gender_string: pulumi_gestalt_rust::Output<Option<String>>,
         /// The customer’s home phone number.
-        pub home_phone_number: pulumi_wasm_rust::Output<Option<String>>,
+        pub home_phone_number: pulumi_gestalt_rust::Output<Option<String>>,
         /// The customer’s last name.
-        pub last_name: pulumi_wasm_rust::Output<Option<String>>,
+        pub last_name: pulumi_gestalt_rust::Output<Option<String>>,
         /// A block that specifies the customer’s mailing address. Documented below.
-        pub mailing_address: pulumi_wasm_rust::Output<
+        pub mailing_address: pulumi_gestalt_rust::Output<
             Option<super::super::types::customerprofiles::ProfileMailingAddress>,
         >,
         /// The customer’s middle name.
-        pub middle_name: pulumi_wasm_rust::Output<Option<String>>,
+        pub middle_name: pulumi_gestalt_rust::Output<Option<String>>,
         /// The customer’s mobile phone number.
-        pub mobile_phone_number: pulumi_wasm_rust::Output<Option<String>>,
+        pub mobile_phone_number: pulumi_gestalt_rust::Output<Option<String>>,
         /// The type of profile used to describe the customer.
-        pub party_type_string: pulumi_wasm_rust::Output<Option<String>>,
+        pub party_type_string: pulumi_gestalt_rust::Output<Option<String>>,
         /// The customer’s personal email address.
-        pub personal_email_address: pulumi_wasm_rust::Output<Option<String>>,
+        pub personal_email_address: pulumi_gestalt_rust::Output<Option<String>>,
         /// The customer’s phone number, which has not been specified as a mobile, home, or business number.
-        pub phone_number: pulumi_wasm_rust::Output<Option<String>>,
+        pub phone_number: pulumi_gestalt_rust::Output<Option<String>>,
         /// A block that specifies the customer’s shipping address. Documented below.
-        pub shipping_address: pulumi_wasm_rust::Output<
+        pub shipping_address: pulumi_gestalt_rust::Output<
             Option<super::super::types::customerprofiles::ProfileShippingAddress>,
         >,
     }
@@ -174,11 +174,11 @@ pub mod profile {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: ProfileArgs,
     ) -> ProfileResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let account_number_binding = args.account_number.get_output(context).get_inner();
         let additional_information_binding = args
@@ -329,70 +329,70 @@ pub mod profile {
         };
         let o = register_interface::register(context.get_inner(), &request);
         ProfileResult {
-            account_number: pulumi_wasm_rust::__private::into_domain(
+            account_number: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("accountNumber"),
             ),
-            additional_information: pulumi_wasm_rust::__private::into_domain(
+            additional_information: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("additionalInformation"),
             ),
-            address: pulumi_wasm_rust::__private::into_domain(
+            address: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("address"),
             ),
-            attributes: pulumi_wasm_rust::__private::into_domain(
+            attributes: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("attributes"),
             ),
-            billing_address: pulumi_wasm_rust::__private::into_domain(
+            billing_address: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("billingAddress"),
             ),
-            birth_date: pulumi_wasm_rust::__private::into_domain(
+            birth_date: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("birthDate"),
             ),
-            business_email_address: pulumi_wasm_rust::__private::into_domain(
+            business_email_address: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("businessEmailAddress"),
             ),
-            business_name: pulumi_wasm_rust::__private::into_domain(
+            business_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("businessName"),
             ),
-            business_phone_number: pulumi_wasm_rust::__private::into_domain(
+            business_phone_number: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("businessPhoneNumber"),
             ),
-            domain_name: pulumi_wasm_rust::__private::into_domain(
+            domain_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("domainName"),
             ),
-            email_address: pulumi_wasm_rust::__private::into_domain(
+            email_address: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("emailAddress"),
             ),
-            first_name: pulumi_wasm_rust::__private::into_domain(
+            first_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("firstName"),
             ),
-            gender_string: pulumi_wasm_rust::__private::into_domain(
+            gender_string: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("genderString"),
             ),
-            home_phone_number: pulumi_wasm_rust::__private::into_domain(
+            home_phone_number: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("homePhoneNumber"),
             ),
-            last_name: pulumi_wasm_rust::__private::into_domain(
+            last_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("lastName"),
             ),
-            mailing_address: pulumi_wasm_rust::__private::into_domain(
+            mailing_address: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("mailingAddress"),
             ),
-            middle_name: pulumi_wasm_rust::__private::into_domain(
+            middle_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("middleName"),
             ),
-            mobile_phone_number: pulumi_wasm_rust::__private::into_domain(
+            mobile_phone_number: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("mobilePhoneNumber"),
             ),
-            party_type_string: pulumi_wasm_rust::__private::into_domain(
+            party_type_string: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("partyTypeString"),
             ),
-            personal_email_address: pulumi_wasm_rust::__private::into_domain(
+            personal_email_address: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("personalEmailAddress"),
             ),
-            phone_number: pulumi_wasm_rust::__private::into_domain(
+            phone_number: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("phoneNumber"),
             ),
-            shipping_address: pulumi_wasm_rust::__private::into_domain(
+            shipping_address: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("shippingAddress"),
             ),
         }

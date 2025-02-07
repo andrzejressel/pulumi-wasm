@@ -5,8 +5,8 @@
 /// ## Example Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = zero_trust_gateway_proxy_endpoint::create(
@@ -27,41 +27,41 @@
 /// ```
 ///
 pub mod zero_trust_gateway_proxy_endpoint {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ZeroTrustGatewayProxyEndpointArgs {
         /// The account identifier to target for the resource.
         #[builder(into)]
-        pub account_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub account_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The networks CIDRs that will be allowed to initiate proxy connections.
         #[builder(into)]
-        pub ips: pulumi_wasm_rust::InputOrOutput<Vec<String>>,
+        pub ips: pulumi_gestalt_rust::InputOrOutput<Vec<String>>,
         /// Name of the teams proxy endpoint.
         #[builder(into)]
-        pub name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct ZeroTrustGatewayProxyEndpointResult {
         /// The account identifier to target for the resource.
-        pub account_id: pulumi_wasm_rust::Output<String>,
+        pub account_id: pulumi_gestalt_rust::Output<String>,
         /// The networks CIDRs that will be allowed to initiate proxy connections.
-        pub ips: pulumi_wasm_rust::Output<Vec<String>>,
+        pub ips: pulumi_gestalt_rust::Output<Vec<String>>,
         /// Name of the teams proxy endpoint.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// The FQDN that proxy clients should be pointed at.
-        pub subdomain: pulumi_wasm_rust::Output<String>,
+        pub subdomain: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: ZeroTrustGatewayProxyEndpointArgs,
     ) -> ZeroTrustGatewayProxyEndpointResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let account_id_binding = args.account_id.get_output(context).get_inner();
         let ips_binding = args.ips.get_output(context).get_inner();
@@ -88,12 +88,12 @@ pub mod zero_trust_gateway_proxy_endpoint {
         };
         let o = register_interface::register(context.get_inner(), &request);
         ZeroTrustGatewayProxyEndpointResult {
-            account_id: pulumi_wasm_rust::__private::into_domain(
+            account_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("accountId"),
             ),
-            ips: pulumi_wasm_rust::__private::into_domain(o.extract_field("ips")),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            subdomain: pulumi_wasm_rust::__private::into_domain(
+            ips: pulumi_gestalt_rust::__private::into_domain(o.extract_field("ips")),
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            subdomain: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("subdomain"),
             ),
         }

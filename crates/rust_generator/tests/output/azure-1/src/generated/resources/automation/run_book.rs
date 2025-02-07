@@ -42,105 +42,105 @@
 /// ```
 ///
 pub mod run_book {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct RunBookArgs {
         /// The name of the automation account in which the Runbook is created. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub automation_account_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub automation_account_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The desired content of the runbook.
         ///
         /// > **NOTE** The Azure API requires a `publish_content_link` to be supplied even when specifying your own `content`.
         #[builder(into, default)]
-        pub content: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub content: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// A description for this credential.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub description: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// A `draft` block as defined below.
         #[builder(into, default)]
-        pub draft: pulumi_wasm_rust::InputOrOutput<
+        pub draft: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::automation::RunBookDraft>,
         >,
         /// One or more `job_schedule` block as defined below.
         ///
         /// > **NOTE** AzureRM provides a stand-alone azure.automation.JobSchedule and this inlined `job_schedule` property to manage the job schedules. At this time you should choose one of them to manage the job schedule resources.
         #[builder(into, default)]
-        pub job_schedules: pulumi_wasm_rust::InputOrOutput<
+        pub job_schedules: pulumi_gestalt_rust::InputOrOutput<
             Option<Vec<super::super::types::automation::RunBookJobSchedule>>,
         >,
         /// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub location: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub location: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Specifies the activity-level tracing options of the runbook, available only for Graphical runbooks. Possible values are `0` for None, `9` for Basic, and `15` for Detailed. Must turn on Verbose logging in order to see the tracing.
         #[builder(into, default)]
-        pub log_activity_trace_level: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
+        pub log_activity_trace_level: pulumi_gestalt_rust::InputOrOutput<Option<i32>>,
         /// Progress log option.
         #[builder(into)]
-        pub log_progress: pulumi_wasm_rust::InputOrOutput<bool>,
+        pub log_progress: pulumi_gestalt_rust::InputOrOutput<bool>,
         /// Verbose log option.
         #[builder(into)]
-        pub log_verbose: pulumi_wasm_rust::InputOrOutput<bool>,
+        pub log_verbose: pulumi_gestalt_rust::InputOrOutput<bool>,
         /// Specifies the name of the Runbook. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// One `publish_content_link` block as defined below.
         #[builder(into, default)]
-        pub publish_content_link: pulumi_wasm_rust::InputOrOutput<
+        pub publish_content_link: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::automation::RunBookPublishContentLink>,
         >,
         /// The name of the resource group in which the Runbook is created. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub resource_group_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub resource_group_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The type of the runbook - can be either `Graph`, `GraphPowerShell`, `GraphPowerShellWorkflow`, `PowerShellWorkflow`, `PowerShell`, `PowerShell72`, `Python3`, `Python2` or `Script`. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub runbook_type: pulumi_wasm_rust::InputOrOutput<String>,
+        pub runbook_type: pulumi_gestalt_rust::InputOrOutput<String>,
         /// A mapping of tags to assign to the resource.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
     #[allow(dead_code)]
     pub struct RunBookResult {
         /// The name of the automation account in which the Runbook is created. Changing this forces a new resource to be created.
-        pub automation_account_name: pulumi_wasm_rust::Output<String>,
+        pub automation_account_name: pulumi_gestalt_rust::Output<String>,
         /// The desired content of the runbook.
         ///
         /// > **NOTE** The Azure API requires a `publish_content_link` to be supplied even when specifying your own `content`.
-        pub content: pulumi_wasm_rust::Output<String>,
+        pub content: pulumi_gestalt_rust::Output<String>,
         /// A description for this credential.
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_gestalt_rust::Output<Option<String>>,
         /// A `draft` block as defined below.
-        pub draft: pulumi_wasm_rust::Output<
+        pub draft: pulumi_gestalt_rust::Output<
             Option<super::super::types::automation::RunBookDraft>,
         >,
         /// One or more `job_schedule` block as defined below.
         ///
         /// > **NOTE** AzureRM provides a stand-alone azure.automation.JobSchedule and this inlined `job_schedule` property to manage the job schedules. At this time you should choose one of them to manage the job schedule resources.
-        pub job_schedules: pulumi_wasm_rust::Output<
+        pub job_schedules: pulumi_gestalt_rust::Output<
             Vec<super::super::types::automation::RunBookJobSchedule>,
         >,
         /// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
-        pub location: pulumi_wasm_rust::Output<String>,
+        pub location: pulumi_gestalt_rust::Output<String>,
         /// Specifies the activity-level tracing options of the runbook, available only for Graphical runbooks. Possible values are `0` for None, `9` for Basic, and `15` for Detailed. Must turn on Verbose logging in order to see the tracing.
-        pub log_activity_trace_level: pulumi_wasm_rust::Output<Option<i32>>,
+        pub log_activity_trace_level: pulumi_gestalt_rust::Output<Option<i32>>,
         /// Progress log option.
-        pub log_progress: pulumi_wasm_rust::Output<bool>,
+        pub log_progress: pulumi_gestalt_rust::Output<bool>,
         /// Verbose log option.
-        pub log_verbose: pulumi_wasm_rust::Output<bool>,
+        pub log_verbose: pulumi_gestalt_rust::Output<bool>,
         /// Specifies the name of the Runbook. Changing this forces a new resource to be created.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// One `publish_content_link` block as defined below.
-        pub publish_content_link: pulumi_wasm_rust::Output<
+        pub publish_content_link: pulumi_gestalt_rust::Output<
             Option<super::super::types::automation::RunBookPublishContentLink>,
         >,
         /// The name of the resource group in which the Runbook is created. Changing this forces a new resource to be created.
-        pub resource_group_name: pulumi_wasm_rust::Output<String>,
+        pub resource_group_name: pulumi_gestalt_rust::Output<String>,
         /// The type of the runbook - can be either `Graph`, `GraphPowerShell`, `GraphPowerShellWorkflow`, `PowerShellWorkflow`, `PowerShell`, `PowerShell72`, `Python3`, `Python2` or `Script`. Changing this forces a new resource to be created.
-        pub runbook_type: pulumi_wasm_rust::Output<String>,
+        pub runbook_type: pulumi_gestalt_rust::Output<String>,
         /// A mapping of tags to assign to the resource.
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
@@ -149,11 +149,11 @@ pub mod run_book {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: RunBookArgs,
     ) -> RunBookResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let automation_account_name_binding = args
             .automation_account_name
@@ -246,42 +246,42 @@ pub mod run_book {
         };
         let o = register_interface::register(context.get_inner(), &request);
         RunBookResult {
-            automation_account_name: pulumi_wasm_rust::__private::into_domain(
+            automation_account_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("automationAccountName"),
             ),
-            content: pulumi_wasm_rust::__private::into_domain(
+            content: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("content"),
             ),
-            description: pulumi_wasm_rust::__private::into_domain(
+            description: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("description"),
             ),
-            draft: pulumi_wasm_rust::__private::into_domain(o.extract_field("draft")),
-            job_schedules: pulumi_wasm_rust::__private::into_domain(
+            draft: pulumi_gestalt_rust::__private::into_domain(o.extract_field("draft")),
+            job_schedules: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("jobSchedules"),
             ),
-            location: pulumi_wasm_rust::__private::into_domain(
+            location: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("location"),
             ),
-            log_activity_trace_level: pulumi_wasm_rust::__private::into_domain(
+            log_activity_trace_level: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("logActivityTraceLevel"),
             ),
-            log_progress: pulumi_wasm_rust::__private::into_domain(
+            log_progress: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("logProgress"),
             ),
-            log_verbose: pulumi_wasm_rust::__private::into_domain(
+            log_verbose: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("logVerbose"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            publish_content_link: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            publish_content_link: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("publishContentLink"),
             ),
-            resource_group_name: pulumi_wasm_rust::__private::into_domain(
+            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("resourceGroupName"),
             ),
-            runbook_type: pulumi_wasm_rust::__private::into_domain(
+            runbook_type: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("runbookType"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
         }
     }
 }

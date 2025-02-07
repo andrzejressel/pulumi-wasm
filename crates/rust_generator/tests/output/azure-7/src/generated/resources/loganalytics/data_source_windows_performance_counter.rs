@@ -3,8 +3,8 @@
 /// ## Example Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = resource_group::create(
@@ -47,59 +47,59 @@
 /// ```
 ///
 pub mod data_source_windows_performance_counter {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct DataSourceWindowsPerformanceCounterArgs {
         /// The friendly name of the performance counter.
         #[builder(into)]
-        pub counter_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub counter_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The name of the virtual machine instance to which the Windows Performance Counter DataSource be applied. Specify a `*` will apply to all instances.
         #[builder(into)]
-        pub instance_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub instance_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The time of sample interval in seconds. Supports values between 10 and 2147483647.
         #[builder(into)]
-        pub interval_seconds: pulumi_wasm_rust::InputOrOutput<i32>,
+        pub interval_seconds: pulumi_gestalt_rust::InputOrOutput<i32>,
         /// The Name which should be used for this Log Analytics Windows Performance Counter DataSource. Changing this forces a new Log Analytics Windows Performance Counter DataSource to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The object name of the Log Analytics Windows Performance Counter DataSource.
         #[builder(into)]
-        pub object_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub object_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The name of the Resource Group where the Log Analytics Windows Performance Counter DataSource should exist. Changing this forces a new Log Analytics Windows Performance Counter DataSource to be created.
         #[builder(into)]
-        pub resource_group_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub resource_group_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The name of the Log Analytics Workspace where the Log Analytics Windows Performance Counter DataSource should exist. Changing this forces a new Log Analytics Windows Performance Counter DataSource to be created.
         #[builder(into)]
-        pub workspace_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub workspace_name: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct DataSourceWindowsPerformanceCounterResult {
         /// The friendly name of the performance counter.
-        pub counter_name: pulumi_wasm_rust::Output<String>,
+        pub counter_name: pulumi_gestalt_rust::Output<String>,
         /// The name of the virtual machine instance to which the Windows Performance Counter DataSource be applied. Specify a `*` will apply to all instances.
-        pub instance_name: pulumi_wasm_rust::Output<String>,
+        pub instance_name: pulumi_gestalt_rust::Output<String>,
         /// The time of sample interval in seconds. Supports values between 10 and 2147483647.
-        pub interval_seconds: pulumi_wasm_rust::Output<i32>,
+        pub interval_seconds: pulumi_gestalt_rust::Output<i32>,
         /// The Name which should be used for this Log Analytics Windows Performance Counter DataSource. Changing this forces a new Log Analytics Windows Performance Counter DataSource to be created.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// The object name of the Log Analytics Windows Performance Counter DataSource.
-        pub object_name: pulumi_wasm_rust::Output<String>,
+        pub object_name: pulumi_gestalt_rust::Output<String>,
         /// The name of the Resource Group where the Log Analytics Windows Performance Counter DataSource should exist. Changing this forces a new Log Analytics Windows Performance Counter DataSource to be created.
-        pub resource_group_name: pulumi_wasm_rust::Output<String>,
+        pub resource_group_name: pulumi_gestalt_rust::Output<String>,
         /// The name of the Log Analytics Workspace where the Log Analytics Windows Performance Counter DataSource should exist. Changing this forces a new Log Analytics Windows Performance Counter DataSource to be created.
-        pub workspace_name: pulumi_wasm_rust::Output<String>,
+        pub workspace_name: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: DataSourceWindowsPerformanceCounterArgs,
     ) -> DataSourceWindowsPerformanceCounterResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let counter_name_binding = args.counter_name.get_output(context).get_inner();
         let instance_name_binding = args.instance_name.get_output(context).get_inner();
@@ -152,23 +152,23 @@ pub mod data_source_windows_performance_counter {
         };
         let o = register_interface::register(context.get_inner(), &request);
         DataSourceWindowsPerformanceCounterResult {
-            counter_name: pulumi_wasm_rust::__private::into_domain(
+            counter_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("counterName"),
             ),
-            instance_name: pulumi_wasm_rust::__private::into_domain(
+            instance_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("instanceName"),
             ),
-            interval_seconds: pulumi_wasm_rust::__private::into_domain(
+            interval_seconds: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("intervalSeconds"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            object_name: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            object_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("objectName"),
             ),
-            resource_group_name: pulumi_wasm_rust::__private::into_domain(
+            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("resourceGroupName"),
             ),
-            workspace_name: pulumi_wasm_rust::__private::into_domain(
+            workspace_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("workspaceName"),
             ),
         }

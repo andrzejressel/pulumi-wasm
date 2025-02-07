@@ -77,47 +77,47 @@
 /// $ pulumi import aws:transcribe/languageModel:LanguageModel example example-name
 /// ```
 pub mod language_model {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct LanguageModelArgs {
         /// Name of reference base model.
         #[builder(into)]
-        pub base_model_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub base_model_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The input data config for the LanguageModel. See Input Data Config for more details.
         #[builder(into)]
-        pub input_data_config: pulumi_wasm_rust::InputOrOutput<
+        pub input_data_config: pulumi_gestalt_rust::InputOrOutput<
             super::super::types::transcribe::LanguageModelInputDataConfig,
         >,
         /// The language code you selected for your language model. Refer to the [supported languages](https://docs.aws.amazon.com/transcribe/latest/dg/supported-languages.html) page for accepted codes.
         #[builder(into)]
-        pub language_code: pulumi_wasm_rust::InputOrOutput<String>,
+        pub language_code: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The model name.
         #[builder(into)]
-        pub model_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub model_name: pulumi_gestalt_rust::InputOrOutput<String>,
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
     #[allow(dead_code)]
     pub struct LanguageModelResult {
         /// ARN of the LanguageModel.
-        pub arn: pulumi_wasm_rust::Output<String>,
+        pub arn: pulumi_gestalt_rust::Output<String>,
         /// Name of reference base model.
-        pub base_model_name: pulumi_wasm_rust::Output<String>,
+        pub base_model_name: pulumi_gestalt_rust::Output<String>,
         /// The input data config for the LanguageModel. See Input Data Config for more details.
-        pub input_data_config: pulumi_wasm_rust::Output<
+        pub input_data_config: pulumi_gestalt_rust::Output<
             super::super::types::transcribe::LanguageModelInputDataConfig,
         >,
         /// The language code you selected for your language model. Refer to the [supported languages](https://docs.aws.amazon.com/transcribe/latest/dg/supported-languages.html) page for accepted codes.
-        pub language_code: pulumi_wasm_rust::Output<String>,
+        pub language_code: pulumi_gestalt_rust::Output<String>,
         /// The model name.
-        pub model_name: pulumi_wasm_rust::Output<String>,
-        pub tags: pulumi_wasm_rust::Output<
+        pub model_name: pulumi_gestalt_rust::Output<String>,
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
-        pub tags_all: pulumi_wasm_rust::Output<
+        pub tags_all: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
     }
@@ -126,11 +126,11 @@ pub mod language_model {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: LanguageModelArgs,
     ) -> LanguageModelResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let base_model_name_binding = args
             .base_model_name
@@ -172,21 +172,21 @@ pub mod language_model {
         };
         let o = register_interface::register(context.get_inner(), &request);
         LanguageModelResult {
-            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
-            base_model_name: pulumi_wasm_rust::__private::into_domain(
+            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
+            base_model_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("baseModelName"),
             ),
-            input_data_config: pulumi_wasm_rust::__private::into_domain(
+            input_data_config: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("inputDataConfig"),
             ),
-            language_code: pulumi_wasm_rust::__private::into_domain(
+            language_code: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("languageCode"),
             ),
-            model_name: pulumi_wasm_rust::__private::into_domain(
+            model_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("modelName"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_wasm_rust::__private::into_domain(
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            tags_all: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("tagsAll"),
             ),
         }

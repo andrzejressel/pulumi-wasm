@@ -8,8 +8,8 @@
 ///
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let instance = instance::create(
@@ -25,8 +25,8 @@
 ///
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let instance = instance::create(
@@ -196,39 +196,39 @@
 /// ```
 ///
 pub mod instance {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct InstanceArgs {
         /// Desired state of the Workbench Instance. Set this field to `ACTIVE` to start the Instance, and `STOPPED` to stop the Instance.
         #[builder(into, default)]
-        pub desired_state: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub desired_state: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Optional. If true, the workbench instance will not register with the proxy.
         #[builder(into, default)]
-        pub disable_proxy_access: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub disable_proxy_access: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// The definition of how to configure a VM instance outside of Resources and Identity.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub gce_setup: pulumi_wasm_rust::InputOrOutput<
+        pub gce_setup: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::workbench::InstanceGceSetup>,
         >,
         /// Required. User-defined unique ID of this instance.
         #[builder(into, default)]
-        pub instance_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub instance_id: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// 'Optional. Input only. The owner of this instance after creation. Format:
         /// `alias@example.com` Currently supports one owner only. If not specified, all of
         /// the service account users of your VM instance''s service account can use the instance.
         /// If specified, sets the access mode to `Single user`. For more details, see
         /// https://cloud.google.com/vertex-ai/docs/workbench/instances/manage-access-jupyterlab'
         #[builder(into, default)]
-        pub instance_owners: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
+        pub instance_owners: pulumi_gestalt_rust::InputOrOutput<Option<Vec<String>>>,
         /// Optional. Labels to apply to this instance. These can be later modified
         /// by the UpdateInstance method.
         ///
         /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
         /// Please refer to the field `effective_labels` for all of the labels present on the resource.
         #[builder(into, default)]
-        pub labels: pulumi_wasm_rust::InputOrOutput<
+        pub labels: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Part of `parent`. See documentation of `projectsId`.
@@ -236,85 +236,85 @@ pub mod instance {
         ///
         /// - - -
         #[builder(into)]
-        pub location: pulumi_wasm_rust::InputOrOutput<String>,
+        pub location: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The name of this workbench instance. Format: `projects/{project_id}/locations/{location}/instances/{instance_id}`
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub project: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct InstanceResult {
         /// An RFC3339 timestamp in UTC time. This in the format of yyyy-MM-ddTHH:mm:ss.SSSZ.
         /// The milliseconds portion (".SSS") is optional.
-        pub create_time: pulumi_wasm_rust::Output<String>,
+        pub create_time: pulumi_gestalt_rust::Output<String>,
         /// Output only. Email address of entity that sent original CreateInstance request.
-        pub creator: pulumi_wasm_rust::Output<String>,
+        pub creator: pulumi_gestalt_rust::Output<String>,
         /// Desired state of the Workbench Instance. Set this field to `ACTIVE` to start the Instance, and `STOPPED` to stop the Instance.
-        pub desired_state: pulumi_wasm_rust::Output<Option<String>>,
+        pub desired_state: pulumi_gestalt_rust::Output<Option<String>>,
         /// Optional. If true, the workbench instance will not register with the proxy.
-        pub disable_proxy_access: pulumi_wasm_rust::Output<Option<bool>>,
+        pub disable_proxy_access: pulumi_gestalt_rust::Output<Option<bool>>,
         /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Pulumi, other clients and services.
-        pub effective_labels: pulumi_wasm_rust::Output<
+        pub effective_labels: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
         /// The definition of how to configure a VM instance outside of Resources and Identity.
         /// Structure is documented below.
-        pub gce_setup: pulumi_wasm_rust::Output<
+        pub gce_setup: pulumi_gestalt_rust::Output<
             super::super::types::workbench::InstanceGceSetup,
         >,
         /// 'Output only. Additional information about instance health. Example:
         /// healthInfo": { "docker_proxy_agent_status": "1", "docker_status": "1", "jupyterlab_api_status":
         /// "-1", "jupyterlab_status": "-1", "updated": "2020-10-18 09:40:03.573409" }'
-        pub health_infos: pulumi_wasm_rust::Output<
+        pub health_infos: pulumi_gestalt_rust::Output<
             Vec<super::super::types::workbench::InstanceHealthInfo>,
         >,
         /// Output only. Instance health_state.
-        pub health_state: pulumi_wasm_rust::Output<String>,
+        pub health_state: pulumi_gestalt_rust::Output<String>,
         /// Required. User-defined unique ID of this instance.
-        pub instance_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub instance_id: pulumi_gestalt_rust::Output<Option<String>>,
         /// 'Optional. Input only. The owner of this instance after creation. Format:
         /// `alias@example.com` Currently supports one owner only. If not specified, all of
         /// the service account users of your VM instance''s service account can use the instance.
         /// If specified, sets the access mode to `Single user`. For more details, see
         /// https://cloud.google.com/vertex-ai/docs/workbench/instances/manage-access-jupyterlab'
-        pub instance_owners: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub instance_owners: pulumi_gestalt_rust::Output<Option<Vec<String>>>,
         /// Optional. Labels to apply to this instance. These can be later modified
         /// by the UpdateInstance method.
         ///
         /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
         /// Please refer to the field `effective_labels` for all of the labels present on the resource.
-        pub labels: pulumi_wasm_rust::Output<
+        pub labels: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Part of `parent`. See documentation of `projectsId`.
         ///
         ///
         /// - - -
-        pub location: pulumi_wasm_rust::Output<String>,
+        pub location: pulumi_gestalt_rust::Output<String>,
         /// The name of this workbench instance. Format: `projects/{project_id}/locations/{location}/instances/{instance_id}`
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
-        pub project: pulumi_wasm_rust::Output<String>,
+        pub project: pulumi_gestalt_rust::Output<String>,
         /// Output only. The proxy endpoint that is used to access the Jupyter notebook.
-        pub proxy_uri: pulumi_wasm_rust::Output<String>,
+        pub proxy_uri: pulumi_gestalt_rust::Output<String>,
         /// The combination of labels configured directly on the resource
         /// and default labels configured on the provider.
-        pub pulumi_labels: pulumi_wasm_rust::Output<
+        pub pulumi_labels: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
         /// (Output)
         /// Output only. The state of this instance upgrade history entry.
-        pub state: pulumi_wasm_rust::Output<String>,
+        pub state: pulumi_gestalt_rust::Output<String>,
         /// An RFC3339 timestamp in UTC time. This in the format of yyyy-MM-ddTHH:mm:ss.SSSZ.
         /// The milliseconds portion (".SSS") is optional.
-        pub update_time: pulumi_wasm_rust::Output<String>,
+        pub update_time: pulumi_gestalt_rust::Output<String>,
         /// Output only. The upgrade history of this instance.
         /// Structure is documented below.
-        pub upgrade_histories: pulumi_wasm_rust::Output<
+        pub upgrade_histories: pulumi_gestalt_rust::Output<
             Vec<super::super::types::workbench::InstanceUpgradeHistory>,
         >,
     }
@@ -323,11 +323,11 @@ pub mod instance {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: InstanceArgs,
     ) -> InstanceResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let desired_state_binding = args.desired_state.get_output(context).get_inner();
         let disable_proxy_access_binding = args
@@ -389,55 +389,57 @@ pub mod instance {
         };
         let o = register_interface::register(context.get_inner(), &request);
         InstanceResult {
-            create_time: pulumi_wasm_rust::__private::into_domain(
+            create_time: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("createTime"),
             ),
-            creator: pulumi_wasm_rust::__private::into_domain(
+            creator: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("creator"),
             ),
-            desired_state: pulumi_wasm_rust::__private::into_domain(
+            desired_state: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("desiredState"),
             ),
-            disable_proxy_access: pulumi_wasm_rust::__private::into_domain(
+            disable_proxy_access: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("disableProxyAccess"),
             ),
-            effective_labels: pulumi_wasm_rust::__private::into_domain(
+            effective_labels: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("effectiveLabels"),
             ),
-            gce_setup: pulumi_wasm_rust::__private::into_domain(
+            gce_setup: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("gceSetup"),
             ),
-            health_infos: pulumi_wasm_rust::__private::into_domain(
+            health_infos: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("healthInfos"),
             ),
-            health_state: pulumi_wasm_rust::__private::into_domain(
+            health_state: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("healthState"),
             ),
-            instance_id: pulumi_wasm_rust::__private::into_domain(
+            instance_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("instanceId"),
             ),
-            instance_owners: pulumi_wasm_rust::__private::into_domain(
+            instance_owners: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("instanceOwners"),
             ),
-            labels: pulumi_wasm_rust::__private::into_domain(o.extract_field("labels")),
-            location: pulumi_wasm_rust::__private::into_domain(
+            labels: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("labels"),
+            ),
+            location: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("location"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            project: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            project: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("project"),
             ),
-            proxy_uri: pulumi_wasm_rust::__private::into_domain(
+            proxy_uri: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("proxyUri"),
             ),
-            pulumi_labels: pulumi_wasm_rust::__private::into_domain(
+            pulumi_labels: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("pulumiLabels"),
             ),
-            state: pulumi_wasm_rust::__private::into_domain(o.extract_field("state")),
-            update_time: pulumi_wasm_rust::__private::into_domain(
+            state: pulumi_gestalt_rust::__private::into_domain(o.extract_field("state")),
+            update_time: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("updateTime"),
             ),
-            upgrade_histories: pulumi_wasm_rust::__private::into_domain(
+            upgrade_histories: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("upgradeHistories"),
             ),
         }

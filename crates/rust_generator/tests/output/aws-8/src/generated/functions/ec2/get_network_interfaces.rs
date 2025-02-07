@@ -1,5 +1,5 @@
 pub mod get_network_interfaces {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct GetNetworkInterfacesArgs {
@@ -8,36 +8,36 @@ pub mod get_network_interfaces {
         /// More complex filters can be expressed using one or more `filter` sub-blocks,
         /// which take the following arguments:
         #[builder(into, default)]
-        pub filters: pulumi_wasm_rust::InputOrOutput<
+        pub filters: pulumi_gestalt_rust::InputOrOutput<
             Option<Vec<super::super::super::types::ec2::GetNetworkInterfacesFilter>>,
         >,
         /// Map of tags, each pair of which must exactly match
         /// a pair on the desired network interfaces.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
     #[allow(dead_code)]
     pub struct GetNetworkInterfacesResult {
-        pub filters: pulumi_wasm_rust::Output<
+        pub filters: pulumi_gestalt_rust::Output<
             Option<Vec<super::super::super::types::ec2::GetNetworkInterfacesFilter>>,
         >,
         /// The provider-assigned unique ID for this managed resource.
-        pub id: pulumi_wasm_rust::Output<String>,
+        pub id: pulumi_gestalt_rust::Output<String>,
         /// List of all the network interface ids found.
-        pub ids: pulumi_wasm_rust::Output<Vec<String>>,
-        pub tags: pulumi_wasm_rust::Output<std::collections::HashMap<String, String>>,
+        pub ids: pulumi_gestalt_rust::Output<Vec<String>>,
+        pub tags: pulumi_gestalt_rust::Output<std::collections::HashMap<String, String>>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         args: GetNetworkInterfacesArgs,
     ) -> GetNetworkInterfacesResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let filters_binding = args.filters.get_output(context).get_inner();
         let tags_binding = args.tags.get_output(context).get_inner();
@@ -57,12 +57,12 @@ pub mod get_network_interfaces {
         };
         let o = register_interface::invoke(context.get_inner(), &request);
         GetNetworkInterfacesResult {
-            filters: pulumi_wasm_rust::__private::into_domain(
+            filters: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("filters"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
-            ids: pulumi_wasm_rust::__private::into_domain(o.extract_field("ids")),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
+            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
+            ids: pulumi_gestalt_rust::__private::into_domain(o.extract_field("ids")),
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
         }
     }
 }

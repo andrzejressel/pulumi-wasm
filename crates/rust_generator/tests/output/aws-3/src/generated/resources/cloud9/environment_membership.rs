@@ -3,8 +3,8 @@
 /// ## Example Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let test = environment_ec_2::create(
@@ -37,41 +37,41 @@
 /// $ pulumi import aws:cloud9/environmentMembership:EnvironmentMembership test environment-id#user-arn
 /// ```
 pub mod environment_membership {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct EnvironmentMembershipArgs {
         /// The ID of the environment that contains the environment member you want to add.
         #[builder(into)]
-        pub environment_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub environment_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The type of environment member permissions you want to associate with this environment member. Allowed values are `read-only` and `read-write` .
         #[builder(into)]
-        pub permissions: pulumi_wasm_rust::InputOrOutput<String>,
+        pub permissions: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The Amazon Resource Name (ARN) of the environment member you want to add.
         #[builder(into)]
-        pub user_arn: pulumi_wasm_rust::InputOrOutput<String>,
+        pub user_arn: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct EnvironmentMembershipResult {
         /// The ID of the environment that contains the environment member you want to add.
-        pub environment_id: pulumi_wasm_rust::Output<String>,
+        pub environment_id: pulumi_gestalt_rust::Output<String>,
         /// The type of environment member permissions you want to associate with this environment member. Allowed values are `read-only` and `read-write` .
-        pub permissions: pulumi_wasm_rust::Output<String>,
+        pub permissions: pulumi_gestalt_rust::Output<String>,
         /// The Amazon Resource Name (ARN) of the environment member you want to add.
-        pub user_arn: pulumi_wasm_rust::Output<String>,
+        pub user_arn: pulumi_gestalt_rust::Output<String>,
         /// The user ID in AWS Identity and Access Management (AWS IAM) of the environment member.
-        pub user_id: pulumi_wasm_rust::Output<String>,
+        pub user_id: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: EnvironmentMembershipArgs,
     ) -> EnvironmentMembershipResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let environment_id_binding = args.environment_id.get_output(context).get_inner();
         let permissions_binding = args.permissions.get_output(context).get_inner();
@@ -97,16 +97,18 @@ pub mod environment_membership {
         };
         let o = register_interface::register(context.get_inner(), &request);
         EnvironmentMembershipResult {
-            environment_id: pulumi_wasm_rust::__private::into_domain(
+            environment_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("environmentId"),
             ),
-            permissions: pulumi_wasm_rust::__private::into_domain(
+            permissions: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("permissions"),
             ),
-            user_arn: pulumi_wasm_rust::__private::into_domain(
+            user_arn: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("userArn"),
             ),
-            user_id: pulumi_wasm_rust::__private::into_domain(o.extract_field("userId")),
+            user_id: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("userId"),
+            ),
         }
     }
 }

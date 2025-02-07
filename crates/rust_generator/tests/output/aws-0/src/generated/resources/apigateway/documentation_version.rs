@@ -36,39 +36,39 @@
 /// $ pulumi import aws:apigateway/documentationVersion:DocumentationVersion example 5i4e1ko720/example-version
 /// ```
 pub mod documentation_version {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct DocumentationVersionArgs {
         /// Description of the API documentation version.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub description: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// ID of the associated Rest API
         #[builder(into)]
-        pub rest_api_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub rest_api_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Version identifier of the API documentation snapshot.
         #[builder(into)]
-        pub version: pulumi_wasm_rust::InputOrOutput<String>,
+        pub version: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct DocumentationVersionResult {
         /// Description of the API documentation version.
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_gestalt_rust::Output<Option<String>>,
         /// ID of the associated Rest API
-        pub rest_api_id: pulumi_wasm_rust::Output<String>,
+        pub rest_api_id: pulumi_gestalt_rust::Output<String>,
         /// Version identifier of the API documentation snapshot.
-        pub version: pulumi_wasm_rust::Output<String>,
+        pub version: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: DocumentationVersionArgs,
     ) -> DocumentationVersionResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let description_binding = args.description.get_output(context).get_inner();
         let rest_api_id_binding = args.rest_api_id.get_output(context).get_inner();
@@ -94,13 +94,15 @@ pub mod documentation_version {
         };
         let o = register_interface::register(context.get_inner(), &request);
         DocumentationVersionResult {
-            description: pulumi_wasm_rust::__private::into_domain(
+            description: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("description"),
             ),
-            rest_api_id: pulumi_wasm_rust::__private::into_domain(
+            rest_api_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("restApiId"),
             ),
-            version: pulumi_wasm_rust::__private::into_domain(o.extract_field("version")),
+            version: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("version"),
+            ),
         }
     }
 }

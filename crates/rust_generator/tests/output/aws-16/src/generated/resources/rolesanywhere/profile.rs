@@ -38,61 +38,63 @@
 /// $ pulumi import aws:rolesanywhere/profile:Profile example db138a85-8925-4f9f-a409-08231233cacf
 /// ```
 pub mod profile {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ProfileArgs {
         /// The number of seconds the vended session credentials are valid for. Defaults to 3600.
         #[builder(into, default)]
-        pub duration_seconds: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
+        pub duration_seconds: pulumi_gestalt_rust::InputOrOutput<Option<i32>>,
         /// Whether or not the Profile is enabled.
         #[builder(into, default)]
-        pub enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub enabled: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// A list of managed policy ARNs that apply to the vended session credentials.
         #[builder(into, default)]
-        pub managed_policy_arns: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
+        pub managed_policy_arns: pulumi_gestalt_rust::InputOrOutput<Option<Vec<String>>>,
         /// The name of the Profile.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Specifies whether instance properties are required in [CreateSession](https://docs.aws.amazon.com/rolesanywhere/latest/APIReference/API_CreateSession.html) requests with this profile.
         #[builder(into, default)]
-        pub require_instance_properties: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub require_instance_properties: pulumi_gestalt_rust::InputOrOutput<
+            Option<bool>,
+        >,
         /// A list of IAM roles that this profile can assume
         #[builder(into, default)]
-        pub role_arns: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
+        pub role_arns: pulumi_gestalt_rust::InputOrOutput<Option<Vec<String>>>,
         /// A session policy that applies to the trust boundary of the vended session credentials.
         #[builder(into, default)]
-        pub session_policy: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub session_policy: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
     #[allow(dead_code)]
     pub struct ProfileResult {
         /// Amazon Resource Name (ARN) of the Profile
-        pub arn: pulumi_wasm_rust::Output<String>,
+        pub arn: pulumi_gestalt_rust::Output<String>,
         /// The number of seconds the vended session credentials are valid for. Defaults to 3600.
-        pub duration_seconds: pulumi_wasm_rust::Output<i32>,
+        pub duration_seconds: pulumi_gestalt_rust::Output<i32>,
         /// Whether or not the Profile is enabled.
-        pub enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub enabled: pulumi_gestalt_rust::Output<Option<bool>>,
         /// A list of managed policy ARNs that apply to the vended session credentials.
-        pub managed_policy_arns: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub managed_policy_arns: pulumi_gestalt_rust::Output<Option<Vec<String>>>,
         /// The name of the Profile.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// Specifies whether instance properties are required in [CreateSession](https://docs.aws.amazon.com/rolesanywhere/latest/APIReference/API_CreateSession.html) requests with this profile.
-        pub require_instance_properties: pulumi_wasm_rust::Output<Option<bool>>,
+        pub require_instance_properties: pulumi_gestalt_rust::Output<Option<bool>>,
         /// A list of IAM roles that this profile can assume
-        pub role_arns: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub role_arns: pulumi_gestalt_rust::Output<Option<Vec<String>>>,
         /// A session policy that applies to the trust boundary of the vended session credentials.
-        pub session_policy: pulumi_wasm_rust::Output<Option<String>>,
+        pub session_policy: pulumi_gestalt_rust::Output<Option<String>>,
         /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        pub tags_all: pulumi_wasm_rust::Output<
+        pub tags_all: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
     }
@@ -101,11 +103,11 @@ pub mod profile {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: ProfileArgs,
     ) -> ProfileResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let duration_seconds_binding = args
             .duration_seconds
@@ -165,28 +167,28 @@ pub mod profile {
         };
         let o = register_interface::register(context.get_inner(), &request);
         ProfileResult {
-            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
-            duration_seconds: pulumi_wasm_rust::__private::into_domain(
+            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
+            duration_seconds: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("durationSeconds"),
             ),
-            enabled: pulumi_wasm_rust::__private::into_domain(
+            enabled: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("enabled"),
             ),
-            managed_policy_arns: pulumi_wasm_rust::__private::into_domain(
+            managed_policy_arns: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("managedPolicyArns"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            require_instance_properties: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            require_instance_properties: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("requireInstanceProperties"),
             ),
-            role_arns: pulumi_wasm_rust::__private::into_domain(
+            role_arns: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("roleArns"),
             ),
-            session_policy: pulumi_wasm_rust::__private::into_domain(
+            session_policy: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("sessionPolicy"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_wasm_rust::__private::into_domain(
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            tags_all: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("tagsAll"),
             ),
         }

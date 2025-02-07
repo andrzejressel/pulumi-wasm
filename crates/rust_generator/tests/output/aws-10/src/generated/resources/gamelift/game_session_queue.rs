@@ -3,8 +3,8 @@
 /// ## Example Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let test = game_session_queue::create(
@@ -36,77 +36,77 @@
 /// $ pulumi import aws:gamelift/gameSessionQueue:GameSessionQueue example example
 /// ```
 pub mod game_session_queue {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct GameSessionQueueArgs {
         /// Information to be added to all events that are related to this game session queue.
         #[builder(into, default)]
-        pub custom_event_data: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub custom_event_data: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// List of fleet/alias ARNs used by session queue for placing game sessions.
         #[builder(into, default)]
-        pub destinations: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
+        pub destinations: pulumi_gestalt_rust::InputOrOutput<Option<Vec<String>>>,
         /// Name of the session queue.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// An SNS topic ARN that is set up to receive game session placement notifications.
         #[builder(into, default)]
-        pub notification_target: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub notification_target: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// One or more policies used to choose fleet based on player latency. See below.
         #[builder(into, default)]
-        pub player_latency_policies: pulumi_wasm_rust::InputOrOutput<
+        pub player_latency_policies: pulumi_gestalt_rust::InputOrOutput<
             Option<
                 Vec<super::super::types::gamelift::GameSessionQueuePlayerLatencyPolicy>,
             >,
         >,
         /// Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Maximum time a game session request can remain in the queue.
         #[builder(into, default)]
-        pub timeout_in_seconds: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
+        pub timeout_in_seconds: pulumi_gestalt_rust::InputOrOutput<Option<i32>>,
     }
     #[allow(dead_code)]
     pub struct GameSessionQueueResult {
         /// Game Session Queue ARN.
-        pub arn: pulumi_wasm_rust::Output<String>,
+        pub arn: pulumi_gestalt_rust::Output<String>,
         /// Information to be added to all events that are related to this game session queue.
-        pub custom_event_data: pulumi_wasm_rust::Output<Option<String>>,
+        pub custom_event_data: pulumi_gestalt_rust::Output<Option<String>>,
         /// List of fleet/alias ARNs used by session queue for placing game sessions.
-        pub destinations: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub destinations: pulumi_gestalt_rust::Output<Option<Vec<String>>>,
         /// Name of the session queue.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// An SNS topic ARN that is set up to receive game session placement notifications.
-        pub notification_target: pulumi_wasm_rust::Output<Option<String>>,
+        pub notification_target: pulumi_gestalt_rust::Output<Option<String>>,
         /// One or more policies used to choose fleet based on player latency. See below.
-        pub player_latency_policies: pulumi_wasm_rust::Output<
+        pub player_latency_policies: pulumi_gestalt_rust::Output<
             Option<
                 Vec<super::super::types::gamelift::GameSessionQueuePlayerLatencyPolicy>,
             >,
         >,
         /// Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        pub tags_all: pulumi_wasm_rust::Output<
+        pub tags_all: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
         /// Maximum time a game session request can remain in the queue.
-        pub timeout_in_seconds: pulumi_wasm_rust::Output<Option<i32>>,
+        pub timeout_in_seconds: pulumi_gestalt_rust::Output<Option<i32>>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: GameSessionQueueArgs,
     ) -> GameSessionQueueResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let custom_event_data_binding = args
             .custom_event_data
@@ -164,25 +164,25 @@ pub mod game_session_queue {
         };
         let o = register_interface::register(context.get_inner(), &request);
         GameSessionQueueResult {
-            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
-            custom_event_data: pulumi_wasm_rust::__private::into_domain(
+            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
+            custom_event_data: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("customEventData"),
             ),
-            destinations: pulumi_wasm_rust::__private::into_domain(
+            destinations: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("destinations"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            notification_target: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            notification_target: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("notificationTarget"),
             ),
-            player_latency_policies: pulumi_wasm_rust::__private::into_domain(
+            player_latency_policies: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("playerLatencyPolicies"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_wasm_rust::__private::into_domain(
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            tags_all: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("tagsAll"),
             ),
-            timeout_in_seconds: pulumi_wasm_rust::__private::into_domain(
+            timeout_in_seconds: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("timeoutInSeconds"),
             ),
         }

@@ -5,8 +5,8 @@
 /// ### Basic Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = preferences::create(
@@ -19,8 +19,8 @@
 /// ### Usage with all the arguments
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = preferences::create(
@@ -41,36 +41,36 @@
 /// $ pulumi import aws:costoptimizationhub/preferences:Preferences example 111222333444
 /// ```
 pub mod preferences {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct PreferencesArgs {
         /// Customize whether the member accounts can see the "After Discounts" savings estimates. Valid values are `All` and `None`. Default value is `All`.
         #[builder(into, default)]
-        pub member_account_discount_visibility: pulumi_wasm_rust::InputOrOutput<
+        pub member_account_discount_visibility: pulumi_gestalt_rust::InputOrOutput<
             Option<String>,
         >,
         /// Customize how estimated monthly savings are calculated. Valid values are `BeforeDiscounts` and `AfterDiscounts`. Default value is `BeforeDiscounts`.
         #[builder(into, default)]
-        pub savings_estimation_mode: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub savings_estimation_mode: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct PreferencesResult {
         /// Customize whether the member accounts can see the "After Discounts" savings estimates. Valid values are `All` and `None`. Default value is `All`.
-        pub member_account_discount_visibility: pulumi_wasm_rust::Output<String>,
+        pub member_account_discount_visibility: pulumi_gestalt_rust::Output<String>,
         /// Customize how estimated monthly savings are calculated. Valid values are `BeforeDiscounts` and `AfterDiscounts`. Default value is `BeforeDiscounts`.
-        pub savings_estimation_mode: pulumi_wasm_rust::Output<String>,
+        pub savings_estimation_mode: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: PreferencesArgs,
     ) -> PreferencesResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let member_account_discount_visibility_binding = args
             .member_account_discount_visibility
@@ -97,10 +97,10 @@ pub mod preferences {
         };
         let o = register_interface::register(context.get_inner(), &request);
         PreferencesResult {
-            member_account_discount_visibility: pulumi_wasm_rust::__private::into_domain(
+            member_account_discount_visibility: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("memberAccountDiscountVisibility"),
             ),
-            savings_estimation_mode: pulumi_wasm_rust::__private::into_domain(
+            savings_estimation_mode: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("savingsEstimationMode"),
             ),
         }

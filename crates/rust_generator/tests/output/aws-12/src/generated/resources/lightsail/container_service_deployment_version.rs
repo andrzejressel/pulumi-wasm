@@ -42,61 +42,61 @@
 /// $ pulumi import aws:lightsail/containerServiceDeploymentVersion:ContainerServiceDeploymentVersion example container-service-1/1
 /// ```
 pub mod container_service_deployment_version {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ContainerServiceDeploymentVersionArgs {
         /// A set of configuration blocks that describe the settings of the containers that will be launched on the container service. Maximum of 53. Detailed below.
         #[builder(into)]
-        pub containers: pulumi_wasm_rust::InputOrOutput<
+        pub containers: pulumi_gestalt_rust::InputOrOutput<
             Vec<
                 super::super::types::lightsail::ContainerServiceDeploymentVersionContainer,
             >,
         >,
         /// A configuration block that describes the settings of the public endpoint for the container service. Detailed below.
         #[builder(into, default)]
-        pub public_endpoint: pulumi_wasm_rust::InputOrOutput<
+        pub public_endpoint: pulumi_gestalt_rust::InputOrOutput<
             Option<
                 super::super::types::lightsail::ContainerServiceDeploymentVersionPublicEndpoint,
             >,
         >,
         /// The name for the container service.
         #[builder(into)]
-        pub service_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub service_name: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct ContainerServiceDeploymentVersionResult {
         /// A set of configuration blocks that describe the settings of the containers that will be launched on the container service. Maximum of 53. Detailed below.
-        pub containers: pulumi_wasm_rust::Output<
+        pub containers: pulumi_gestalt_rust::Output<
             Vec<
                 super::super::types::lightsail::ContainerServiceDeploymentVersionContainer,
             >,
         >,
         /// The timestamp when the deployment was created.
-        pub created_at: pulumi_wasm_rust::Output<String>,
+        pub created_at: pulumi_gestalt_rust::Output<String>,
         /// A configuration block that describes the settings of the public endpoint for the container service. Detailed below.
-        pub public_endpoint: pulumi_wasm_rust::Output<
+        pub public_endpoint: pulumi_gestalt_rust::Output<
             Option<
                 super::super::types::lightsail::ContainerServiceDeploymentVersionPublicEndpoint,
             >,
         >,
         /// The name for the container service.
-        pub service_name: pulumi_wasm_rust::Output<String>,
+        pub service_name: pulumi_gestalt_rust::Output<String>,
         /// The current state of the container service.
-        pub state: pulumi_wasm_rust::Output<String>,
+        pub state: pulumi_gestalt_rust::Output<String>,
         /// The version number of the deployment.
-        pub version: pulumi_wasm_rust::Output<i32>,
+        pub version: pulumi_gestalt_rust::Output<i32>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: ContainerServiceDeploymentVersionArgs,
     ) -> ContainerServiceDeploymentVersionResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let containers_binding = args.containers.get_output(context).get_inner();
         let public_endpoint_binding = args
@@ -126,20 +126,22 @@ pub mod container_service_deployment_version {
         };
         let o = register_interface::register(context.get_inner(), &request);
         ContainerServiceDeploymentVersionResult {
-            containers: pulumi_wasm_rust::__private::into_domain(
+            containers: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("containers"),
             ),
-            created_at: pulumi_wasm_rust::__private::into_domain(
+            created_at: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("createdAt"),
             ),
-            public_endpoint: pulumi_wasm_rust::__private::into_domain(
+            public_endpoint: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("publicEndpoint"),
             ),
-            service_name: pulumi_wasm_rust::__private::into_domain(
+            service_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("serviceName"),
             ),
-            state: pulumi_wasm_rust::__private::into_domain(o.extract_field("state")),
-            version: pulumi_wasm_rust::__private::into_domain(o.extract_field("version")),
+            state: pulumi_gestalt_rust::__private::into_domain(o.extract_field("state")),
+            version: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("version"),
+            ),
         }
     }
 }

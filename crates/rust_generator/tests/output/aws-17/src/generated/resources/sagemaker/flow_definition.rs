@@ -5,8 +5,8 @@
 /// ### Basic Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = flow_definition::create(
@@ -37,8 +37,8 @@
 /// ### Public Workteam Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = flow_definition::create(
@@ -81,8 +81,8 @@
 /// ### Human Loop Activation Config Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = flow_definition::create(
@@ -136,76 +136,76 @@
 /// $ pulumi import aws:sagemaker/flowDefinition:FlowDefinition example example
 /// ```
 pub mod flow_definition {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct FlowDefinitionArgs {
         /// The name of your flow definition.
         #[builder(into)]
-        pub flow_definition_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub flow_definition_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// An object containing information about the events that trigger a human workflow. See Human Loop Activation Config details below.
         #[builder(into, default)]
-        pub human_loop_activation_config: pulumi_wasm_rust::InputOrOutput<
+        pub human_loop_activation_config: pulumi_gestalt_rust::InputOrOutput<
             Option<
                 super::super::types::sagemaker::FlowDefinitionHumanLoopActivationConfig,
             >,
         >,
         /// An object containing information about the tasks the human reviewers will perform. See Human Loop Config details below.
         #[builder(into)]
-        pub human_loop_config: pulumi_wasm_rust::InputOrOutput<
+        pub human_loop_config: pulumi_gestalt_rust::InputOrOutput<
             super::super::types::sagemaker::FlowDefinitionHumanLoopConfig,
         >,
         /// Container for configuring the source of human task requests. Use to specify if Amazon Rekognition or Amazon Textract is used as an integration source. See Human Loop Request Source details below.
         #[builder(into, default)]
-        pub human_loop_request_source: pulumi_wasm_rust::InputOrOutput<
+        pub human_loop_request_source: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::sagemaker::FlowDefinitionHumanLoopRequestSource>,
         >,
         /// An object containing information about where the human review results will be uploaded. See Output Config details below.
         #[builder(into)]
-        pub output_config: pulumi_wasm_rust::InputOrOutput<
+        pub output_config: pulumi_gestalt_rust::InputOrOutput<
             super::super::types::sagemaker::FlowDefinitionOutputConfig,
         >,
         /// The Amazon Resource Name (ARN) of the role needed to call other services on your behalf.
         #[builder(into)]
-        pub role_arn: pulumi_wasm_rust::InputOrOutput<String>,
+        pub role_arn: pulumi_gestalt_rust::InputOrOutput<String>,
         /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
     #[allow(dead_code)]
     pub struct FlowDefinitionResult {
         /// The Amazon Resource Name (ARN) assigned by AWS to this Flow Definition.
-        pub arn: pulumi_wasm_rust::Output<String>,
+        pub arn: pulumi_gestalt_rust::Output<String>,
         /// The name of your flow definition.
-        pub flow_definition_name: pulumi_wasm_rust::Output<String>,
+        pub flow_definition_name: pulumi_gestalt_rust::Output<String>,
         /// An object containing information about the events that trigger a human workflow. See Human Loop Activation Config details below.
-        pub human_loop_activation_config: pulumi_wasm_rust::Output<
+        pub human_loop_activation_config: pulumi_gestalt_rust::Output<
             Option<
                 super::super::types::sagemaker::FlowDefinitionHumanLoopActivationConfig,
             >,
         >,
         /// An object containing information about the tasks the human reviewers will perform. See Human Loop Config details below.
-        pub human_loop_config: pulumi_wasm_rust::Output<
+        pub human_loop_config: pulumi_gestalt_rust::Output<
             super::super::types::sagemaker::FlowDefinitionHumanLoopConfig,
         >,
         /// Container for configuring the source of human task requests. Use to specify if Amazon Rekognition or Amazon Textract is used as an integration source. See Human Loop Request Source details below.
-        pub human_loop_request_source: pulumi_wasm_rust::Output<
+        pub human_loop_request_source: pulumi_gestalt_rust::Output<
             Option<super::super::types::sagemaker::FlowDefinitionHumanLoopRequestSource>,
         >,
         /// An object containing information about where the human review results will be uploaded. See Output Config details below.
-        pub output_config: pulumi_wasm_rust::Output<
+        pub output_config: pulumi_gestalt_rust::Output<
             super::super::types::sagemaker::FlowDefinitionOutputConfig,
         >,
         /// The Amazon Resource Name (ARN) of the role needed to call other services on your behalf.
-        pub role_arn: pulumi_wasm_rust::Output<String>,
+        pub role_arn: pulumi_gestalt_rust::Output<String>,
         /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        pub tags_all: pulumi_wasm_rust::Output<
+        pub tags_all: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
     }
@@ -214,11 +214,11 @@ pub mod flow_definition {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: FlowDefinitionArgs,
     ) -> FlowDefinitionResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let flow_definition_name_binding = args
             .flow_definition_name
@@ -276,27 +276,27 @@ pub mod flow_definition {
         };
         let o = register_interface::register(context.get_inner(), &request);
         FlowDefinitionResult {
-            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
-            flow_definition_name: pulumi_wasm_rust::__private::into_domain(
+            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
+            flow_definition_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("flowDefinitionName"),
             ),
-            human_loop_activation_config: pulumi_wasm_rust::__private::into_domain(
+            human_loop_activation_config: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("humanLoopActivationConfig"),
             ),
-            human_loop_config: pulumi_wasm_rust::__private::into_domain(
+            human_loop_config: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("humanLoopConfig"),
             ),
-            human_loop_request_source: pulumi_wasm_rust::__private::into_domain(
+            human_loop_request_source: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("humanLoopRequestSource"),
             ),
-            output_config: pulumi_wasm_rust::__private::into_domain(
+            output_config: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("outputConfig"),
             ),
-            role_arn: pulumi_wasm_rust::__private::into_domain(
+            role_arn: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("roleArn"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_wasm_rust::__private::into_domain(
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            tags_all: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("tagsAll"),
             ),
         }

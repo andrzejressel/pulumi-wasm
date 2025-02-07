@@ -11,8 +11,8 @@
 ///
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let ap = app_profile::create(
@@ -47,8 +47,8 @@
 ///
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let ap = app_profile::create(
@@ -84,8 +84,8 @@
 ///
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let ap = app_profile::create(
@@ -121,8 +121,8 @@
 ///
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let ap = app_profile::create(
@@ -185,7 +185,7 @@
 /// ```
 ///
 pub mod app_profile {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct AppProfileArgs {
@@ -194,54 +194,56 @@ pub mod app_profile {
         ///
         /// - - -
         #[builder(into)]
-        pub app_profile_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub app_profile_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Specifies that this app profile is intended for read-only usage via the Data Boost feature.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub data_boost_isolation_read_only: pulumi_wasm_rust::InputOrOutput<
+        pub data_boost_isolation_read_only: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::bigquery::AppProfileDataBoostIsolationReadOnly>,
         >,
         /// Long form description of the use case for this app profile.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub description: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// If true, ignore safety checks when deleting/updating the app profile.
         #[builder(into, default)]
-        pub ignore_warnings: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub ignore_warnings: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// The name of the instance to create the app profile within.
         #[builder(into, default)]
-        pub instance: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub instance: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The set of clusters to route to. The order is ignored; clusters will be tried in order of distance. If left empty, all
         /// clusters are eligible.
         #[builder(into, default)]
-        pub multi_cluster_routing_cluster_ids: pulumi_wasm_rust::InputOrOutput<
+        pub multi_cluster_routing_cluster_ids: pulumi_gestalt_rust::InputOrOutput<
             Option<Vec<String>>,
         >,
         /// If true, read/write requests are routed to the nearest cluster in the instance, and will fail over to the nearest cluster that is available
         /// in the event of transient errors or delays. Clusters in a region are considered equidistant. Choosing this option sacrifices read-your-writes
         /// consistency to improve availability.
         #[builder(into, default)]
-        pub multi_cluster_routing_use_any: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub multi_cluster_routing_use_any: pulumi_gestalt_rust::InputOrOutput<
+            Option<bool>,
+        >,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub project: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Must be used with multi-cluster routing. If true, then this app profile will use row affinity sticky routing. With row
         /// affinity, Bigtable will route single row key requests based on the row key, rather than randomly. Instead, each row key
         /// will be assigned to a cluster by Cloud Bigtable, and will stick to that cluster. Choosing this option improves
         /// read-your-writes consistency for most requests under most circumstances, without sacrificing availability. Consistency
         /// is not guaranteed, as requests may still fail over between clusters in the event of errors or latency.
         #[builder(into, default)]
-        pub row_affinity: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub row_affinity: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// Use a single-cluster routing policy.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub single_cluster_routing: pulumi_wasm_rust::InputOrOutput<
+        pub single_cluster_routing: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::bigquery::AppProfileSingleClusterRouting>,
         >,
         /// The standard options used for isolating this app profile's traffic from other use cases.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub standard_isolation: pulumi_wasm_rust::InputOrOutput<
+        pub standard_isolation: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::bigquery::AppProfileStandardIsolation>,
         >,
     }
@@ -251,46 +253,46 @@ pub mod app_profile {
         ///
         ///
         /// - - -
-        pub app_profile_id: pulumi_wasm_rust::Output<String>,
+        pub app_profile_id: pulumi_gestalt_rust::Output<String>,
         /// Specifies that this app profile is intended for read-only usage via the Data Boost feature.
         /// Structure is documented below.
-        pub data_boost_isolation_read_only: pulumi_wasm_rust::Output<
+        pub data_boost_isolation_read_only: pulumi_gestalt_rust::Output<
             Option<super::super::types::bigquery::AppProfileDataBoostIsolationReadOnly>,
         >,
         /// Long form description of the use case for this app profile.
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_gestalt_rust::Output<Option<String>>,
         /// If true, ignore safety checks when deleting/updating the app profile.
-        pub ignore_warnings: pulumi_wasm_rust::Output<Option<bool>>,
+        pub ignore_warnings: pulumi_gestalt_rust::Output<Option<bool>>,
         /// The name of the instance to create the app profile within.
-        pub instance: pulumi_wasm_rust::Output<Option<String>>,
+        pub instance: pulumi_gestalt_rust::Output<Option<String>>,
         /// The set of clusters to route to. The order is ignored; clusters will be tried in order of distance. If left empty, all
         /// clusters are eligible.
-        pub multi_cluster_routing_cluster_ids: pulumi_wasm_rust::Output<
+        pub multi_cluster_routing_cluster_ids: pulumi_gestalt_rust::Output<
             Option<Vec<String>>,
         >,
         /// If true, read/write requests are routed to the nearest cluster in the instance, and will fail over to the nearest cluster that is available
         /// in the event of transient errors or delays. Clusters in a region are considered equidistant. Choosing this option sacrifices read-your-writes
         /// consistency to improve availability.
-        pub multi_cluster_routing_use_any: pulumi_wasm_rust::Output<Option<bool>>,
+        pub multi_cluster_routing_use_any: pulumi_gestalt_rust::Output<Option<bool>>,
         /// The unique name of the requested app profile. Values are of the form `projects/<project>/instances/<instance>/appProfiles/<appProfileId>`.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
-        pub project: pulumi_wasm_rust::Output<String>,
+        pub project: pulumi_gestalt_rust::Output<String>,
         /// Must be used with multi-cluster routing. If true, then this app profile will use row affinity sticky routing. With row
         /// affinity, Bigtable will route single row key requests based on the row key, rather than randomly. Instead, each row key
         /// will be assigned to a cluster by Cloud Bigtable, and will stick to that cluster. Choosing this option improves
         /// read-your-writes consistency for most requests under most circumstances, without sacrificing availability. Consistency
         /// is not guaranteed, as requests may still fail over between clusters in the event of errors or latency.
-        pub row_affinity: pulumi_wasm_rust::Output<Option<bool>>,
+        pub row_affinity: pulumi_gestalt_rust::Output<Option<bool>>,
         /// Use a single-cluster routing policy.
         /// Structure is documented below.
-        pub single_cluster_routing: pulumi_wasm_rust::Output<
+        pub single_cluster_routing: pulumi_gestalt_rust::Output<
             Option<super::super::types::bigquery::AppProfileSingleClusterRouting>,
         >,
         /// The standard options used for isolating this app profile's traffic from other use cases.
         /// Structure is documented below.
-        pub standard_isolation: pulumi_wasm_rust::Output<
+        pub standard_isolation: pulumi_gestalt_rust::Output<
             super::super::types::bigquery::AppProfileStandardIsolation,
         >,
     }
@@ -299,11 +301,11 @@ pub mod app_profile {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: AppProfileArgs,
     ) -> AppProfileResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let app_profile_id_binding = args.app_profile_id.get_output(context).get_inner();
         let data_boost_isolation_read_only_binding = args
@@ -387,38 +389,38 @@ pub mod app_profile {
         };
         let o = register_interface::register(context.get_inner(), &request);
         AppProfileResult {
-            app_profile_id: pulumi_wasm_rust::__private::into_domain(
+            app_profile_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("appProfileId"),
             ),
-            data_boost_isolation_read_only: pulumi_wasm_rust::__private::into_domain(
+            data_boost_isolation_read_only: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("dataBoostIsolationReadOnly"),
             ),
-            description: pulumi_wasm_rust::__private::into_domain(
+            description: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("description"),
             ),
-            ignore_warnings: pulumi_wasm_rust::__private::into_domain(
+            ignore_warnings: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("ignoreWarnings"),
             ),
-            instance: pulumi_wasm_rust::__private::into_domain(
+            instance: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("instance"),
             ),
-            multi_cluster_routing_cluster_ids: pulumi_wasm_rust::__private::into_domain(
+            multi_cluster_routing_cluster_ids: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("multiClusterRoutingClusterIds"),
             ),
-            multi_cluster_routing_use_any: pulumi_wasm_rust::__private::into_domain(
+            multi_cluster_routing_use_any: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("multiClusterRoutingUseAny"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            project: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            project: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("project"),
             ),
-            row_affinity: pulumi_wasm_rust::__private::into_domain(
+            row_affinity: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("rowAffinity"),
             ),
-            single_cluster_routing: pulumi_wasm_rust::__private::into_domain(
+            single_cluster_routing: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("singleClusterRouting"),
             ),
-            standard_isolation: pulumi_wasm_rust::__private::into_domain(
+            standard_isolation: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("standardIsolation"),
             ),
         }

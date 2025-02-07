@@ -32,85 +32,87 @@
 /// ```
 ///
 pub mod image {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ImageArgs {
         /// One or more `data_disk` blocks as defined below.
         #[builder(into, default)]
-        pub data_disks: pulumi_wasm_rust::InputOrOutput<
+        pub data_disks: pulumi_gestalt_rust::InputOrOutput<
             Option<Vec<super::super::types::compute::ImageDataDisk>>,
         >,
         /// The HyperVGenerationType of the VirtualMachine created from the image as `V1`, `V2`. Defaults to `V1`. Changing this forces a new resource to be created.
         ///
         /// > **Note:** `zone_resilient` can only be set to `true` if the image is stored in a region that supports availability zones.
         #[builder(into, default)]
-        pub hyper_v_generation: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub hyper_v_generation: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Specified the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub location: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub location: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Specifies the name of the image. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// One or more `os_disk` blocks as defined below. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub os_disk: pulumi_wasm_rust::InputOrOutput<
+        pub os_disk: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::compute::ImageOsDisk>,
         >,
         /// The name of the resource group in which to create the image. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub resource_group_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub resource_group_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The Virtual Machine ID from which to create the image.
         #[builder(into, default)]
-        pub source_virtual_machine_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub source_virtual_machine_id: pulumi_gestalt_rust::InputOrOutput<
+            Option<String>,
+        >,
         /// A mapping of tags to assign to the resource.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Is zone resiliency enabled? Defaults to `false`. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub zone_resilient: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub zone_resilient: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
     }
     #[allow(dead_code)]
     pub struct ImageResult {
         /// One or more `data_disk` blocks as defined below.
-        pub data_disks: pulumi_wasm_rust::Output<
+        pub data_disks: pulumi_gestalt_rust::Output<
             Option<Vec<super::super::types::compute::ImageDataDisk>>,
         >,
         /// The HyperVGenerationType of the VirtualMachine created from the image as `V1`, `V2`. Defaults to `V1`. Changing this forces a new resource to be created.
         ///
         /// > **Note:** `zone_resilient` can only be set to `true` if the image is stored in a region that supports availability zones.
-        pub hyper_v_generation: pulumi_wasm_rust::Output<Option<String>>,
+        pub hyper_v_generation: pulumi_gestalt_rust::Output<Option<String>>,
         /// Specified the supported Azure location where the resource exists. Changing this forces a new resource to be created.
-        pub location: pulumi_wasm_rust::Output<String>,
+        pub location: pulumi_gestalt_rust::Output<String>,
         /// Specifies the name of the image. Changing this forces a new resource to be created.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// One or more `os_disk` blocks as defined below. Changing this forces a new resource to be created.
-        pub os_disk: pulumi_wasm_rust::Output<
+        pub os_disk: pulumi_gestalt_rust::Output<
             Option<super::super::types::compute::ImageOsDisk>,
         >,
         /// The name of the resource group in which to create the image. Changing this forces a new resource to be created.
-        pub resource_group_name: pulumi_wasm_rust::Output<String>,
+        pub resource_group_name: pulumi_gestalt_rust::Output<String>,
         /// The Virtual Machine ID from which to create the image.
-        pub source_virtual_machine_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub source_virtual_machine_id: pulumi_gestalt_rust::Output<Option<String>>,
         /// A mapping of tags to assign to the resource.
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Is zone resiliency enabled? Defaults to `false`. Changing this forces a new resource to be created.
-        pub zone_resilient: pulumi_wasm_rust::Output<Option<bool>>,
+        pub zone_resilient: pulumi_gestalt_rust::Output<Option<bool>>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: ImageArgs,
     ) -> ImageResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let data_disks_binding = args.data_disks.get_output(context).get_inner();
         let hyper_v_generation_binding = args
@@ -175,25 +177,27 @@ pub mod image {
         };
         let o = register_interface::register(context.get_inner(), &request);
         ImageResult {
-            data_disks: pulumi_wasm_rust::__private::into_domain(
+            data_disks: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("dataDisks"),
             ),
-            hyper_v_generation: pulumi_wasm_rust::__private::into_domain(
+            hyper_v_generation: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("hyperVGeneration"),
             ),
-            location: pulumi_wasm_rust::__private::into_domain(
+            location: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("location"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            os_disk: pulumi_wasm_rust::__private::into_domain(o.extract_field("osDisk")),
-            resource_group_name: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            os_disk: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("osDisk"),
+            ),
+            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("resourceGroupName"),
             ),
-            source_virtual_machine_id: pulumi_wasm_rust::__private::into_domain(
+            source_virtual_machine_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("sourceVirtualMachineId"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
-            zone_resilient: pulumi_wasm_rust::__private::into_domain(
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            zone_resilient: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("zoneResilient"),
             ),
         }

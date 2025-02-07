@@ -44,117 +44,123 @@
 /// ```
 ///
 pub mod subscription {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct SubscriptionArgs {
         /// The idle interval after which the topic is automatically deleted as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). The minimum duration is `5` minutes or `PT5M`. Defaults to `P10675199DT2H48M5.4775807S`.
         #[builder(into, default)]
-        pub auto_delete_on_idle: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub auto_delete_on_idle: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Boolean flag which controls whether the Subscription supports batched operations.
         #[builder(into, default)]
-        pub batched_operations_enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub batched_operations_enabled: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// A `client_scoped_subscription` block as defined below.
         #[builder(into, default)]
-        pub client_scoped_subscription: pulumi_wasm_rust::InputOrOutput<
+        pub client_scoped_subscription: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::servicebus::SubscriptionClientScopedSubscription>,
         >,
         /// whether the subscription is scoped to a client id. Defaults to `false`.
         ///
         /// > **NOTE:** Client Scoped Subscription can only be used for JMS subscription (Java Message Service).
         #[builder(into, default)]
-        pub client_scoped_subscription_enabled: pulumi_wasm_rust::InputOrOutput<
+        pub client_scoped_subscription_enabled: pulumi_gestalt_rust::InputOrOutput<
             Option<bool>,
         >,
         /// Boolean flag which controls whether the Subscription has dead letter support on filter evaluation exceptions. Defaults to `true`.
         #[builder(into, default)]
-        pub dead_lettering_on_filter_evaluation_error: pulumi_wasm_rust::InputOrOutput<
+        pub dead_lettering_on_filter_evaluation_error: pulumi_gestalt_rust::InputOrOutput<
             Option<bool>,
         >,
         /// Boolean flag which controls whether the Subscription has dead letter support when a message expires.
         #[builder(into, default)]
-        pub dead_lettering_on_message_expiration: pulumi_wasm_rust::InputOrOutput<
+        pub dead_lettering_on_message_expiration: pulumi_gestalt_rust::InputOrOutput<
             Option<bool>,
         >,
         /// The Default message timespan to live as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). This is the duration after which the message expires, starting from when the message is sent to Service Bus. This is the value used when TimeToLive is not set on a message itself. Defaults to `P10675199DT2H48M5.4775807S`.
         #[builder(into, default)]
-        pub default_message_ttl: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub default_message_ttl: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The name of a Queue or Topic to automatically forward Dead Letter messages to.
         #[builder(into, default)]
-        pub forward_dead_lettered_messages_to: pulumi_wasm_rust::InputOrOutput<
+        pub forward_dead_lettered_messages_to: pulumi_gestalt_rust::InputOrOutput<
             Option<String>,
         >,
         /// The name of a Queue or Topic to automatically forward messages to.
         #[builder(into, default)]
-        pub forward_to: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub forward_to: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The lock duration for the subscription as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). The default value is `1` minute or `P0DT0H1M0S` . The maximum value is `5` minutes or `P0DT0H5M0S` . Defaults to `PT1M`.
         #[builder(into, default)]
-        pub lock_duration: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub lock_duration: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The maximum number of deliveries.
         #[builder(into)]
-        pub max_delivery_count: pulumi_wasm_rust::InputOrOutput<i32>,
+        pub max_delivery_count: pulumi_gestalt_rust::InputOrOutput<i32>,
         /// Specifies the name of the ServiceBus Subscription resource. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Boolean flag which controls whether this Subscription supports the concept of a session. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub requires_session: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub requires_session: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// The status of the Subscription. Possible values are `Active`,`ReceiveDisabled`, or `Disabled`. Defaults to `Active`.
         #[builder(into, default)]
-        pub status: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub status: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The ID of the ServiceBus Topic to create this Subscription in. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub topic_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub topic_id: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct SubscriptionResult {
         /// The idle interval after which the topic is automatically deleted as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). The minimum duration is `5` minutes or `PT5M`. Defaults to `P10675199DT2H48M5.4775807S`.
-        pub auto_delete_on_idle: pulumi_wasm_rust::Output<Option<String>>,
+        pub auto_delete_on_idle: pulumi_gestalt_rust::Output<Option<String>>,
         /// Boolean flag which controls whether the Subscription supports batched operations.
-        pub batched_operations_enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub batched_operations_enabled: pulumi_gestalt_rust::Output<Option<bool>>,
         /// A `client_scoped_subscription` block as defined below.
-        pub client_scoped_subscription: pulumi_wasm_rust::Output<
+        pub client_scoped_subscription: pulumi_gestalt_rust::Output<
             Option<super::super::types::servicebus::SubscriptionClientScopedSubscription>,
         >,
         /// whether the subscription is scoped to a client id. Defaults to `false`.
         ///
         /// > **NOTE:** Client Scoped Subscription can only be used for JMS subscription (Java Message Service).
-        pub client_scoped_subscription_enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub client_scoped_subscription_enabled: pulumi_gestalt_rust::Output<
+            Option<bool>,
+        >,
         /// Boolean flag which controls whether the Subscription has dead letter support on filter evaluation exceptions. Defaults to `true`.
-        pub dead_lettering_on_filter_evaluation_error: pulumi_wasm_rust::Output<
+        pub dead_lettering_on_filter_evaluation_error: pulumi_gestalt_rust::Output<
             Option<bool>,
         >,
         /// Boolean flag which controls whether the Subscription has dead letter support when a message expires.
-        pub dead_lettering_on_message_expiration: pulumi_wasm_rust::Output<Option<bool>>,
+        pub dead_lettering_on_message_expiration: pulumi_gestalt_rust::Output<
+            Option<bool>,
+        >,
         /// The Default message timespan to live as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). This is the duration after which the message expires, starting from when the message is sent to Service Bus. This is the value used when TimeToLive is not set on a message itself. Defaults to `P10675199DT2H48M5.4775807S`.
-        pub default_message_ttl: pulumi_wasm_rust::Output<Option<String>>,
+        pub default_message_ttl: pulumi_gestalt_rust::Output<Option<String>>,
         /// The name of a Queue or Topic to automatically forward Dead Letter messages to.
-        pub forward_dead_lettered_messages_to: pulumi_wasm_rust::Output<Option<String>>,
+        pub forward_dead_lettered_messages_to: pulumi_gestalt_rust::Output<
+            Option<String>,
+        >,
         /// The name of a Queue or Topic to automatically forward messages to.
-        pub forward_to: pulumi_wasm_rust::Output<Option<String>>,
+        pub forward_to: pulumi_gestalt_rust::Output<Option<String>>,
         /// The lock duration for the subscription as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). The default value is `1` minute or `P0DT0H1M0S` . The maximum value is `5` minutes or `P0DT0H5M0S` . Defaults to `PT1M`.
-        pub lock_duration: pulumi_wasm_rust::Output<Option<String>>,
+        pub lock_duration: pulumi_gestalt_rust::Output<Option<String>>,
         /// The maximum number of deliveries.
-        pub max_delivery_count: pulumi_wasm_rust::Output<i32>,
+        pub max_delivery_count: pulumi_gestalt_rust::Output<i32>,
         /// Specifies the name of the ServiceBus Subscription resource. Changing this forces a new resource to be created.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// Boolean flag which controls whether this Subscription supports the concept of a session. Changing this forces a new resource to be created.
-        pub requires_session: pulumi_wasm_rust::Output<Option<bool>>,
+        pub requires_session: pulumi_gestalt_rust::Output<Option<bool>>,
         /// The status of the Subscription. Possible values are `Active`,`ReceiveDisabled`, or `Disabled`. Defaults to `Active`.
-        pub status: pulumi_wasm_rust::Output<Option<String>>,
+        pub status: pulumi_gestalt_rust::Output<Option<String>>,
         /// The ID of the ServiceBus Topic to create this Subscription in. Changing this forces a new resource to be created.
-        pub topic_id: pulumi_wasm_rust::Output<String>,
+        pub topic_id: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: SubscriptionArgs,
     ) -> SubscriptionResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let auto_delete_on_idle_binding = args
             .auto_delete_on_idle
@@ -270,45 +276,47 @@ pub mod subscription {
         };
         let o = register_interface::register(context.get_inner(), &request);
         SubscriptionResult {
-            auto_delete_on_idle: pulumi_wasm_rust::__private::into_domain(
+            auto_delete_on_idle: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("autoDeleteOnIdle"),
             ),
-            batched_operations_enabled: pulumi_wasm_rust::__private::into_domain(
+            batched_operations_enabled: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("batchedOperationsEnabled"),
             ),
-            client_scoped_subscription: pulumi_wasm_rust::__private::into_domain(
+            client_scoped_subscription: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("clientScopedSubscription"),
             ),
-            client_scoped_subscription_enabled: pulumi_wasm_rust::__private::into_domain(
+            client_scoped_subscription_enabled: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("clientScopedSubscriptionEnabled"),
             ),
-            dead_lettering_on_filter_evaluation_error: pulumi_wasm_rust::__private::into_domain(
+            dead_lettering_on_filter_evaluation_error: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("deadLetteringOnFilterEvaluationError"),
             ),
-            dead_lettering_on_message_expiration: pulumi_wasm_rust::__private::into_domain(
+            dead_lettering_on_message_expiration: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("deadLetteringOnMessageExpiration"),
             ),
-            default_message_ttl: pulumi_wasm_rust::__private::into_domain(
+            default_message_ttl: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("defaultMessageTtl"),
             ),
-            forward_dead_lettered_messages_to: pulumi_wasm_rust::__private::into_domain(
+            forward_dead_lettered_messages_to: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("forwardDeadLetteredMessagesTo"),
             ),
-            forward_to: pulumi_wasm_rust::__private::into_domain(
+            forward_to: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("forwardTo"),
             ),
-            lock_duration: pulumi_wasm_rust::__private::into_domain(
+            lock_duration: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("lockDuration"),
             ),
-            max_delivery_count: pulumi_wasm_rust::__private::into_domain(
+            max_delivery_count: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("maxDeliveryCount"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            requires_session: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            requires_session: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("requiresSession"),
             ),
-            status: pulumi_wasm_rust::__private::into_domain(o.extract_field("status")),
-            topic_id: pulumi_wasm_rust::__private::into_domain(
+            status: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("status"),
+            ),
+            topic_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("topicId"),
             ),
         }

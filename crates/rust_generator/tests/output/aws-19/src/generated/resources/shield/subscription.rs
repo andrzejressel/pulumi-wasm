@@ -9,8 +9,8 @@
 /// ### Basic Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = subscription::create(
@@ -28,34 +28,34 @@
 /// $ pulumi import aws:shield/subscription:Subscription example 123456789012
 /// ```
 pub mod subscription {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct SubscriptionArgs {
         /// Toggle for automated renewal of the subscription. Valid values are `ENABLED` or `DISABLED`. Default is `ENABLED`.
         #[builder(into, default)]
-        pub auto_renew: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub auto_renew: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Skip attempting to disable automated renewal upon destruction. If set to `true`, the `auto_renew` value will be left as-is and the resource will simply be removed from state.
         #[builder(into, default)]
-        pub skip_destroy: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub skip_destroy: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
     }
     #[allow(dead_code)]
     pub struct SubscriptionResult {
         /// Toggle for automated renewal of the subscription. Valid values are `ENABLED` or `DISABLED`. Default is `ENABLED`.
-        pub auto_renew: pulumi_wasm_rust::Output<String>,
+        pub auto_renew: pulumi_gestalt_rust::Output<String>,
         /// Skip attempting to disable automated renewal upon destruction. If set to `true`, the `auto_renew` value will be left as-is and the resource will simply be removed from state.
-        pub skip_destroy: pulumi_wasm_rust::Output<Option<bool>>,
+        pub skip_destroy: pulumi_gestalt_rust::Output<Option<bool>>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: SubscriptionArgs,
     ) -> SubscriptionResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let auto_renew_binding = args.auto_renew.get_output(context).get_inner();
         let skip_destroy_binding = args.skip_destroy.get_output(context).get_inner();
@@ -76,10 +76,10 @@ pub mod subscription {
         };
         let o = register_interface::register(context.get_inner(), &request);
         SubscriptionResult {
-            auto_renew: pulumi_wasm_rust::__private::into_domain(
+            auto_renew: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("autoRenew"),
             ),
-            skip_destroy: pulumi_wasm_rust::__private::into_domain(
+            skip_destroy: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("skipDestroy"),
             ),
         }

@@ -7,8 +7,8 @@
 /// ### Basic
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = certificate_authority::create(
@@ -34,8 +34,8 @@
 /// ### Short-lived certificate
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = certificate_authority::create(
@@ -120,102 +120,102 @@
 /// $ pulumi import aws:acmpca/certificateAuthority:CertificateAuthority example arn:aws:acm-pca:us-east-1:123456789012:certificate-authority/12345678-1234-1234-1234-123456789012
 /// ```
 pub mod certificate_authority {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct CertificateAuthorityArgs {
         /// Nested argument containing algorithms and certificate subject information. Defined below.
         #[builder(into)]
-        pub certificate_authority_configuration: pulumi_wasm_rust::InputOrOutput<
+        pub certificate_authority_configuration: pulumi_gestalt_rust::InputOrOutput<
             super::super::types::acmpca::CertificateAuthorityCertificateAuthorityConfiguration,
         >,
         /// Whether the certificate authority is enabled or disabled. Defaults to `true`. Can only be disabled if the CA is in an `ACTIVE` state.
         #[builder(into, default)]
-        pub enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub enabled: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// Cryptographic key management compliance standard used for handling CA keys. Defaults to `FIPS_140_2_LEVEL_3_OR_HIGHER`. Valid values: `FIPS_140_2_LEVEL_3_OR_HIGHER` and `FIPS_140_2_LEVEL_2_OR_HIGHER`. Supported standard for each region can be found in the [Storage and security compliance of AWS Private CA private keys Documentation](https://docs.aws.amazon.com/privateca/latest/userguide/data-protection.html#private-keys).
         #[builder(into, default)]
-        pub key_storage_security_standard: pulumi_wasm_rust::InputOrOutput<
+        pub key_storage_security_standard: pulumi_gestalt_rust::InputOrOutput<
             Option<String>,
         >,
         /// Number of days to make a CA restorable after it has been deleted, must be between 7 to 30 days, with default to 30 days.
         #[builder(into, default)]
-        pub permanent_deletion_time_in_days: pulumi_wasm_rust::InputOrOutput<
+        pub permanent_deletion_time_in_days: pulumi_gestalt_rust::InputOrOutput<
             Option<i32>,
         >,
         /// Nested argument containing revocation configuration. Defined below.
         #[builder(into, default)]
-        pub revocation_configuration: pulumi_wasm_rust::InputOrOutput<
+        pub revocation_configuration: pulumi_gestalt_rust::InputOrOutput<
             Option<
                 super::super::types::acmpca::CertificateAuthorityRevocationConfiguration,
             >,
         >,
         /// Key-value map of user-defined tags that are attached to the certificate authority. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Type of the certificate authority. Defaults to `SUBORDINATE`. Valid values: `ROOT` and `SUBORDINATE`.
         #[builder(into, default)]
-        pub type_: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub type_: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Specifies whether the CA issues general-purpose certificates that typically require a revocation mechanism, or short-lived certificates that may optionally omit revocation because they expire quickly. Short-lived certificate validity is limited to seven days. Defaults to `GENERAL_PURPOSE`. Valid values: `GENERAL_PURPOSE` and `SHORT_LIVED_CERTIFICATE`.
         #[builder(into, default)]
-        pub usage_mode: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub usage_mode: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct CertificateAuthorityResult {
         /// ARN of the certificate authority.
-        pub arn: pulumi_wasm_rust::Output<String>,
+        pub arn: pulumi_gestalt_rust::Output<String>,
         /// Base64-encoded certificate authority (CA) certificate. Only available after the certificate authority certificate has been imported.
-        pub certificate: pulumi_wasm_rust::Output<String>,
+        pub certificate: pulumi_gestalt_rust::Output<String>,
         /// Nested argument containing algorithms and certificate subject information. Defined below.
-        pub certificate_authority_configuration: pulumi_wasm_rust::Output<
+        pub certificate_authority_configuration: pulumi_gestalt_rust::Output<
             super::super::types::acmpca::CertificateAuthorityCertificateAuthorityConfiguration,
         >,
         /// Base64-encoded certificate chain that includes any intermediate certificates and chains up to root on-premises certificate that you used to sign your private CA certificate. The chain does not include your private CA certificate. Only available after the certificate authority certificate has been imported.
-        pub certificate_chain: pulumi_wasm_rust::Output<String>,
+        pub certificate_chain: pulumi_gestalt_rust::Output<String>,
         /// The base64 PEM-encoded certificate signing request (CSR) for your private CA certificate.
-        pub certificate_signing_request: pulumi_wasm_rust::Output<String>,
+        pub certificate_signing_request: pulumi_gestalt_rust::Output<String>,
         /// Whether the certificate authority is enabled or disabled. Defaults to `true`. Can only be disabled if the CA is in an `ACTIVE` state.
-        pub enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub enabled: pulumi_gestalt_rust::Output<Option<bool>>,
         /// Cryptographic key management compliance standard used for handling CA keys. Defaults to `FIPS_140_2_LEVEL_3_OR_HIGHER`. Valid values: `FIPS_140_2_LEVEL_3_OR_HIGHER` and `FIPS_140_2_LEVEL_2_OR_HIGHER`. Supported standard for each region can be found in the [Storage and security compliance of AWS Private CA private keys Documentation](https://docs.aws.amazon.com/privateca/latest/userguide/data-protection.html#private-keys).
-        pub key_storage_security_standard: pulumi_wasm_rust::Output<String>,
+        pub key_storage_security_standard: pulumi_gestalt_rust::Output<String>,
         /// Date and time after which the certificate authority is not valid. Only available after the certificate authority certificate has been imported.
-        pub not_after: pulumi_wasm_rust::Output<String>,
+        pub not_after: pulumi_gestalt_rust::Output<String>,
         /// Date and time before which the certificate authority is not valid. Only available after the certificate authority certificate has been imported.
-        pub not_before: pulumi_wasm_rust::Output<String>,
+        pub not_before: pulumi_gestalt_rust::Output<String>,
         /// Number of days to make a CA restorable after it has been deleted, must be between 7 to 30 days, with default to 30 days.
-        pub permanent_deletion_time_in_days: pulumi_wasm_rust::Output<Option<i32>>,
+        pub permanent_deletion_time_in_days: pulumi_gestalt_rust::Output<Option<i32>>,
         /// Nested argument containing revocation configuration. Defined below.
-        pub revocation_configuration: pulumi_wasm_rust::Output<
+        pub revocation_configuration: pulumi_gestalt_rust::Output<
             Option<
                 super::super::types::acmpca::CertificateAuthorityRevocationConfiguration,
             >,
         >,
         /// Serial number of the certificate authority. Only available after the certificate authority certificate has been imported.
-        pub serial: pulumi_wasm_rust::Output<String>,
+        pub serial: pulumi_gestalt_rust::Output<String>,
         /// Key-value map of user-defined tags that are attached to the certificate authority. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        pub tags_all: pulumi_wasm_rust::Output<
+        pub tags_all: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
         /// Type of the certificate authority. Defaults to `SUBORDINATE`. Valid values: `ROOT` and `SUBORDINATE`.
-        pub type_: pulumi_wasm_rust::Output<Option<String>>,
+        pub type_: pulumi_gestalt_rust::Output<Option<String>>,
         /// Specifies whether the CA issues general-purpose certificates that typically require a revocation mechanism, or short-lived certificates that may optionally omit revocation because they expire quickly. Short-lived certificate validity is limited to seven days. Defaults to `GENERAL_PURPOSE`. Valid values: `GENERAL_PURPOSE` and `SHORT_LIVED_CERTIFICATE`.
-        pub usage_mode: pulumi_wasm_rust::Output<String>,
+        pub usage_mode: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: CertificateAuthorityArgs,
     ) -> CertificateAuthorityResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let certificate_authority_configuration_binding = args
             .certificate_authority_configuration
@@ -278,44 +278,46 @@ pub mod certificate_authority {
         };
         let o = register_interface::register(context.get_inner(), &request);
         CertificateAuthorityResult {
-            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
-            certificate: pulumi_wasm_rust::__private::into_domain(
+            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
+            certificate: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("certificate"),
             ),
-            certificate_authority_configuration: pulumi_wasm_rust::__private::into_domain(
+            certificate_authority_configuration: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("certificateAuthorityConfiguration"),
             ),
-            certificate_chain: pulumi_wasm_rust::__private::into_domain(
+            certificate_chain: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("certificateChain"),
             ),
-            certificate_signing_request: pulumi_wasm_rust::__private::into_domain(
+            certificate_signing_request: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("certificateSigningRequest"),
             ),
-            enabled: pulumi_wasm_rust::__private::into_domain(
+            enabled: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("enabled"),
             ),
-            key_storage_security_standard: pulumi_wasm_rust::__private::into_domain(
+            key_storage_security_standard: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("keyStorageSecurityStandard"),
             ),
-            not_after: pulumi_wasm_rust::__private::into_domain(
+            not_after: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("notAfter"),
             ),
-            not_before: pulumi_wasm_rust::__private::into_domain(
+            not_before: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("notBefore"),
             ),
-            permanent_deletion_time_in_days: pulumi_wasm_rust::__private::into_domain(
+            permanent_deletion_time_in_days: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("permanentDeletionTimeInDays"),
             ),
-            revocation_configuration: pulumi_wasm_rust::__private::into_domain(
+            revocation_configuration: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("revocationConfiguration"),
             ),
-            serial: pulumi_wasm_rust::__private::into_domain(o.extract_field("serial")),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_wasm_rust::__private::into_domain(
+            serial: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("serial"),
+            ),
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            tags_all: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("tagsAll"),
             ),
-            type_: pulumi_wasm_rust::__private::into_domain(o.extract_field("type")),
-            usage_mode: pulumi_wasm_rust::__private::into_domain(
+            type_: pulumi_gestalt_rust::__private::into_domain(o.extract_field("type")),
+            usage_mode: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("usageMode"),
             ),
         }

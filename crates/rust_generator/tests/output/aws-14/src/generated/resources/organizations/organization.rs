@@ -7,8 +7,8 @@
 /// ## Example Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let org = organization::create(
@@ -31,50 +31,54 @@
 /// $ pulumi import aws:organizations/organization:Organization my_org o-1234567
 /// ```
 pub mod organization {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct OrganizationArgs {
         /// List of AWS service principal names for which you want to enable integration with your organization. This is typically in the form of a URL, such as service-abbreviation.amazonaws.com. Organization must have `feature_set` set to `ALL`. Some services do not support enablement via this endpoint, see [warning in aws docs](https://docs.aws.amazon.com/organizations/latest/APIReference/API_EnableAWSServiceAccess.html).
         #[builder(into, default)]
-        pub aws_service_access_principals: pulumi_wasm_rust::InputOrOutput<
+        pub aws_service_access_principals: pulumi_gestalt_rust::InputOrOutput<
             Option<Vec<String>>,
         >,
         /// List of Organizations policy types to enable in the Organization Root. Organization must have `feature_set` set to `ALL`. For additional information about valid policy types (e.g., `AISERVICES_OPT_OUT_POLICY`, `BACKUP_POLICY`, `RESOURCE_CONTROL_POLICY`, `SERVICE_CONTROL_POLICY`, and `TAG_POLICY`), see the [AWS Organizations API Reference](https://docs.aws.amazon.com/organizations/latest/APIReference/API_EnablePolicyType.html).
         #[builder(into, default)]
-        pub enabled_policy_types: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
+        pub enabled_policy_types: pulumi_gestalt_rust::InputOrOutput<
+            Option<Vec<String>>,
+        >,
         /// Specify "ALL" (default) or "CONSOLIDATED_BILLING".
         #[builder(into, default)]
-        pub feature_set: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub feature_set: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct OrganizationResult {
         /// List of organization accounts including the master account. For a list excluding the master account, see the `non_master_accounts` attribute. All elements have these attributes:
-        pub accounts: pulumi_wasm_rust::Output<
+        pub accounts: pulumi_gestalt_rust::Output<
             Vec<super::super::types::organizations::OrganizationAccount>,
         >,
         /// ARN of the root
-        pub arn: pulumi_wasm_rust::Output<String>,
+        pub arn: pulumi_gestalt_rust::Output<String>,
         /// List of AWS service principal names for which you want to enable integration with your organization. This is typically in the form of a URL, such as service-abbreviation.amazonaws.com. Organization must have `feature_set` set to `ALL`. Some services do not support enablement via this endpoint, see [warning in aws docs](https://docs.aws.amazon.com/organizations/latest/APIReference/API_EnableAWSServiceAccess.html).
-        pub aws_service_access_principals: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub aws_service_access_principals: pulumi_gestalt_rust::Output<
+            Option<Vec<String>>,
+        >,
         /// List of Organizations policy types to enable in the Organization Root. Organization must have `feature_set` set to `ALL`. For additional information about valid policy types (e.g., `AISERVICES_OPT_OUT_POLICY`, `BACKUP_POLICY`, `RESOURCE_CONTROL_POLICY`, `SERVICE_CONTROL_POLICY`, and `TAG_POLICY`), see the [AWS Organizations API Reference](https://docs.aws.amazon.com/organizations/latest/APIReference/API_EnablePolicyType.html).
-        pub enabled_policy_types: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub enabled_policy_types: pulumi_gestalt_rust::Output<Option<Vec<String>>>,
         /// Specify "ALL" (default) or "CONSOLIDATED_BILLING".
-        pub feature_set: pulumi_wasm_rust::Output<Option<String>>,
+        pub feature_set: pulumi_gestalt_rust::Output<Option<String>>,
         /// ARN of the master account
-        pub master_account_arn: pulumi_wasm_rust::Output<String>,
+        pub master_account_arn: pulumi_gestalt_rust::Output<String>,
         /// Email address of the master account
-        pub master_account_email: pulumi_wasm_rust::Output<String>,
+        pub master_account_email: pulumi_gestalt_rust::Output<String>,
         /// Identifier of the master account
-        pub master_account_id: pulumi_wasm_rust::Output<String>,
+        pub master_account_id: pulumi_gestalt_rust::Output<String>,
         /// Name of the master account
-        pub master_account_name: pulumi_wasm_rust::Output<String>,
+        pub master_account_name: pulumi_gestalt_rust::Output<String>,
         /// List of organization accounts excluding the master account. For a list including the master account, see the `accounts` attribute. All elements have these attributes:
-        pub non_master_accounts: pulumi_wasm_rust::Output<
+        pub non_master_accounts: pulumi_gestalt_rust::Output<
             Vec<super::super::types::organizations::OrganizationNonMasterAccount>,
         >,
         /// List of organization roots. All elements have these attributes:
-        pub roots: pulumi_wasm_rust::Output<
+        pub roots: pulumi_gestalt_rust::Output<
             Vec<super::super::types::organizations::OrganizationRoot>,
         >,
     }
@@ -83,11 +87,11 @@ pub mod organization {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: OrganizationArgs,
     ) -> OrganizationResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let aws_service_access_principals_binding = args
             .aws_service_access_principals
@@ -119,35 +123,35 @@ pub mod organization {
         };
         let o = register_interface::register(context.get_inner(), &request);
         OrganizationResult {
-            accounts: pulumi_wasm_rust::__private::into_domain(
+            accounts: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("accounts"),
             ),
-            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
-            aws_service_access_principals: pulumi_wasm_rust::__private::into_domain(
+            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
+            aws_service_access_principals: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("awsServiceAccessPrincipals"),
             ),
-            enabled_policy_types: pulumi_wasm_rust::__private::into_domain(
+            enabled_policy_types: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("enabledPolicyTypes"),
             ),
-            feature_set: pulumi_wasm_rust::__private::into_domain(
+            feature_set: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("featureSet"),
             ),
-            master_account_arn: pulumi_wasm_rust::__private::into_domain(
+            master_account_arn: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("masterAccountArn"),
             ),
-            master_account_email: pulumi_wasm_rust::__private::into_domain(
+            master_account_email: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("masterAccountEmail"),
             ),
-            master_account_id: pulumi_wasm_rust::__private::into_domain(
+            master_account_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("masterAccountId"),
             ),
-            master_account_name: pulumi_wasm_rust::__private::into_domain(
+            master_account_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("masterAccountName"),
             ),
-            non_master_accounts: pulumi_wasm_rust::__private::into_domain(
+            non_master_accounts: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("nonMasterAccounts"),
             ),
-            roots: pulumi_wasm_rust::__private::into_domain(o.extract_field("roots")),
+            roots: pulumi_gestalt_rust::__private::into_domain(o.extract_field("roots")),
         }
     }
 }

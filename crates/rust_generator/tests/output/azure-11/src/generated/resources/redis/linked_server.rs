@@ -63,53 +63,53 @@
 /// ```
 ///
 pub mod linked_server {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct LinkedServerArgs {
         /// The ID of the linked Redis cache. Changing this forces a new Redis to be created.
         #[builder(into)]
-        pub linked_redis_cache_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub linked_redis_cache_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The location of the linked Redis cache. Changing this forces a new Redis to be created.
         #[builder(into)]
-        pub linked_redis_cache_location: pulumi_wasm_rust::InputOrOutput<String>,
+        pub linked_redis_cache_location: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The name of the Resource Group where the Redis caches exists. Changing this forces a new Redis to be created.
         #[builder(into)]
-        pub resource_group_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub resource_group_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The role of the linked Redis cache (eg "Secondary"). Changing this forces a new Redis to be created. Possible values are `Primary` and `Secondary`.
         #[builder(into)]
-        pub server_role: pulumi_wasm_rust::InputOrOutput<String>,
+        pub server_role: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The name of Redis cache to link with. Changing this forces a new Redis to be created. (eg The primary role)
         #[builder(into)]
-        pub target_redis_cache_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub target_redis_cache_name: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct LinkedServerResult {
         /// The geo-replicated primary hostname for this linked server.
-        pub geo_replicated_primary_host_name: pulumi_wasm_rust::Output<String>,
+        pub geo_replicated_primary_host_name: pulumi_gestalt_rust::Output<String>,
         /// The ID of the linked Redis cache. Changing this forces a new Redis to be created.
-        pub linked_redis_cache_id: pulumi_wasm_rust::Output<String>,
+        pub linked_redis_cache_id: pulumi_gestalt_rust::Output<String>,
         /// The location of the linked Redis cache. Changing this forces a new Redis to be created.
-        pub linked_redis_cache_location: pulumi_wasm_rust::Output<String>,
+        pub linked_redis_cache_location: pulumi_gestalt_rust::Output<String>,
         /// The name of the linked server.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// The name of the Resource Group where the Redis caches exists. Changing this forces a new Redis to be created.
-        pub resource_group_name: pulumi_wasm_rust::Output<String>,
+        pub resource_group_name: pulumi_gestalt_rust::Output<String>,
         /// The role of the linked Redis cache (eg "Secondary"). Changing this forces a new Redis to be created. Possible values are `Primary` and `Secondary`.
-        pub server_role: pulumi_wasm_rust::Output<String>,
+        pub server_role: pulumi_gestalt_rust::Output<String>,
         /// The name of Redis cache to link with. Changing this forces a new Redis to be created. (eg The primary role)
-        pub target_redis_cache_name: pulumi_wasm_rust::Output<String>,
+        pub target_redis_cache_name: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: LinkedServerArgs,
     ) -> LinkedServerResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let linked_redis_cache_id_binding = args
             .linked_redis_cache_id
@@ -157,23 +157,23 @@ pub mod linked_server {
         };
         let o = register_interface::register(context.get_inner(), &request);
         LinkedServerResult {
-            geo_replicated_primary_host_name: pulumi_wasm_rust::__private::into_domain(
+            geo_replicated_primary_host_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("geoReplicatedPrimaryHostName"),
             ),
-            linked_redis_cache_id: pulumi_wasm_rust::__private::into_domain(
+            linked_redis_cache_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("linkedRedisCacheId"),
             ),
-            linked_redis_cache_location: pulumi_wasm_rust::__private::into_domain(
+            linked_redis_cache_location: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("linkedRedisCacheLocation"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            resource_group_name: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("resourceGroupName"),
             ),
-            server_role: pulumi_wasm_rust::__private::into_domain(
+            server_role: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("serverRole"),
             ),
-            target_redis_cache_name: pulumi_wasm_rust::__private::into_domain(
+            target_redis_cache_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("targetRedisCacheName"),
             ),
         }

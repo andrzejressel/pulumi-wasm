@@ -87,19 +87,19 @@
 /// ```
 ///
 pub mod volume_replication {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct VolumeReplicationArgs {
         #[builder(into, default)]
-        pub delete_destination_volume: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub delete_destination_volume: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// An description of this resource.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub description: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Destination volume parameters.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub destination_volume_parameters: pulumi_wasm_rust::InputOrOutput<
+        pub destination_volume_parameters: pulumi_gestalt_rust::InputOrOutput<
             Option<
                 super::super::types::netapp::VolumeReplicationDestinationVolumeParameters,
             >,
@@ -109,137 +109,137 @@ pub mod volume_replication {
         /// to stop anyway. All data transferred to the destination will be discarded and content of destination
         /// volume will remain at the state of the last successful update. Default is false.
         #[builder(into, default)]
-        pub force_stopping: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub force_stopping: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// Labels as key value pairs. Example: `{ "owner": "Bob", "department": "finance", "purpose": "testing" }`
         ///
         /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
         /// Please refer to the field `effective_labels` for all of the labels present on the resource.
         #[builder(into, default)]
-        pub labels: pulumi_wasm_rust::InputOrOutput<
+        pub labels: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Name of region for this resource. The resource needs to be created in the region of the destination volume.
         #[builder(into)]
-        pub location: pulumi_wasm_rust::InputOrOutput<String>,
+        pub location: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The name of the replication. Needs to be unique per location.
         ///
         ///
         /// - - -
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub project: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Set to false to stop/break the mirror. Stopping the mirror makes the destination volume read-write
         /// and act independently from the source volume.
         /// Set to true to enable/resume the mirror. WARNING: Resuming a mirror overwrites any changes
         /// done to the destination volume with the content of the source volume.
         #[builder(into, default)]
-        pub replication_enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub replication_enabled: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// Specifies the replication interval.
         /// Possible values are: `EVERY_10_MINUTES`, `HOURLY`, `DAILY`.
         #[builder(into)]
-        pub replication_schedule: pulumi_wasm_rust::InputOrOutput<String>,
+        pub replication_schedule: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The name of the existing source volume.
         #[builder(into)]
-        pub volume_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub volume_name: pulumi_gestalt_rust::InputOrOutput<String>,
         #[builder(into, default)]
-        pub wait_for_mirror: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub wait_for_mirror: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
     }
     #[allow(dead_code)]
     pub struct VolumeReplicationResult {
         /// Create time of the active directory. A timestamp in RFC3339 UTC "Zulu" format. Examples: "2023-06-22T09:13:01.617Z".
-        pub create_time: pulumi_wasm_rust::Output<String>,
-        pub delete_destination_volume: pulumi_wasm_rust::Output<Option<bool>>,
+        pub create_time: pulumi_gestalt_rust::Output<String>,
+        pub delete_destination_volume: pulumi_gestalt_rust::Output<Option<bool>>,
         /// An description of this resource.
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_gestalt_rust::Output<Option<String>>,
         /// Full resource name of destination volume with format: `projects/{{project}}/locations/{{location}}/volumes/{{volumeId}}`
-        pub destination_volume: pulumi_wasm_rust::Output<String>,
+        pub destination_volume: pulumi_gestalt_rust::Output<String>,
         /// Destination volume parameters.
         /// Structure is documented below.
-        pub destination_volume_parameters: pulumi_wasm_rust::Output<
+        pub destination_volume_parameters: pulumi_gestalt_rust::Output<
             Option<
                 super::super::types::netapp::VolumeReplicationDestinationVolumeParameters,
             >,
         >,
         /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Pulumi, other clients and services.
-        pub effective_labels: pulumi_wasm_rust::Output<
+        pub effective_labels: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
         /// Only replications with mirror_state=MIRRORED can be stopped. A replication in mirror_state=TRANSFERRING
         /// currently receives an update and stopping the update might be undesirable. Set this parameter to true
         /// to stop anyway. All data transferred to the destination will be discarded and content of destination
         /// volume will remain at the state of the last successful update. Default is false.
-        pub force_stopping: pulumi_wasm_rust::Output<Option<bool>>,
+        pub force_stopping: pulumi_gestalt_rust::Output<Option<bool>>,
         /// Condition of the relationship. Can be one of the following:
         /// - true: The replication relationship is healthy. It has not missed the most recent scheduled transfer.
         /// - false: The replication relationship is not healthy. It has missed the most recent scheduled transfer.
-        pub healthy: pulumi_wasm_rust::Output<bool>,
+        pub healthy: pulumi_gestalt_rust::Output<bool>,
         /// Labels as key value pairs. Example: `{ "owner": "Bob", "department": "finance", "purpose": "testing" }`
         ///
         /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
         /// Please refer to the field `effective_labels` for all of the labels present on the resource.
-        pub labels: pulumi_wasm_rust::Output<
+        pub labels: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Name of region for this resource. The resource needs to be created in the region of the destination volume.
-        pub location: pulumi_wasm_rust::Output<String>,
+        pub location: pulumi_gestalt_rust::Output<String>,
         /// Indicates the state of the mirror between source and destination volumes. Depending on the amount of data
         /// in your source volume, PREPARING phase can take hours or days. mirrorState = MIRRORED indicates your baseline
         /// transfer ended and destination volume became accessible read-only. TRANSFERRING means a MIRRORED volume
         /// currently receives an update. Updated every 5 minutes.
-        pub mirror_state: pulumi_wasm_rust::Output<String>,
+        pub mirror_state: pulumi_gestalt_rust::Output<String>,
         /// The name of the replication. Needs to be unique per location.
         ///
         ///
         /// - - -
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
-        pub project: pulumi_wasm_rust::Output<String>,
+        pub project: pulumi_gestalt_rust::Output<String>,
         /// The combination of labels configured directly on the resource
         /// and default labels configured on the provider.
-        pub pulumi_labels: pulumi_wasm_rust::Output<
+        pub pulumi_labels: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
         /// Set to false to stop/break the mirror. Stopping the mirror makes the destination volume read-write
         /// and act independently from the source volume.
         /// Set to true to enable/resume the mirror. WARNING: Resuming a mirror overwrites any changes
         /// done to the destination volume with the content of the source volume.
-        pub replication_enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub replication_enabled: pulumi_gestalt_rust::Output<Option<bool>>,
         /// Specifies the replication interval.
         /// Possible values are: `EVERY_10_MINUTES`, `HOURLY`, `DAILY`.
-        pub replication_schedule: pulumi_wasm_rust::Output<String>,
+        pub replication_schedule: pulumi_gestalt_rust::Output<String>,
         /// Reverting a replication can swap source and destination volume roles. This field indicates if the `location` hosts
         /// the source or destination volume. For resume and revert and resume operations it is critical to understand
         /// which volume is the source volume, since it will overwrite changes done to the destination volume.
-        pub role: pulumi_wasm_rust::Output<String>,
+        pub role: pulumi_gestalt_rust::Output<String>,
         /// Full resource name of source volume with format: `projects/{{project}}/locations/{{location}}/volumes/{{volumeId}}`
-        pub source_volume: pulumi_wasm_rust::Output<String>,
+        pub source_volume: pulumi_gestalt_rust::Output<String>,
         /// Indicates the state of replication resource. State of the mirror itself is indicated in mirrorState.
-        pub state: pulumi_wasm_rust::Output<String>,
+        pub state: pulumi_gestalt_rust::Output<String>,
         /// State details of the replication resource.
-        pub state_details: pulumi_wasm_rust::Output<String>,
+        pub state_details: pulumi_gestalt_rust::Output<String>,
         /// Replication transfer statistics. All statistics are updated every 5 minutes.
         /// Structure is documented below.
-        pub transfer_stats: pulumi_wasm_rust::Output<
+        pub transfer_stats: pulumi_gestalt_rust::Output<
             Vec<super::super::types::netapp::VolumeReplicationTransferStat>,
         >,
         /// The name of the existing source volume.
-        pub volume_name: pulumi_wasm_rust::Output<String>,
-        pub wait_for_mirror: pulumi_wasm_rust::Output<Option<bool>>,
+        pub volume_name: pulumi_gestalt_rust::Output<String>,
+        pub wait_for_mirror: pulumi_gestalt_rust::Output<Option<bool>>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: VolumeReplicationArgs,
     ) -> VolumeReplicationResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let delete_destination_volume_binding = args
             .delete_destination_volume
@@ -325,65 +325,67 @@ pub mod volume_replication {
         };
         let o = register_interface::register(context.get_inner(), &request);
         VolumeReplicationResult {
-            create_time: pulumi_wasm_rust::__private::into_domain(
+            create_time: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("createTime"),
             ),
-            delete_destination_volume: pulumi_wasm_rust::__private::into_domain(
+            delete_destination_volume: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("deleteDestinationVolume"),
             ),
-            description: pulumi_wasm_rust::__private::into_domain(
+            description: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("description"),
             ),
-            destination_volume: pulumi_wasm_rust::__private::into_domain(
+            destination_volume: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("destinationVolume"),
             ),
-            destination_volume_parameters: pulumi_wasm_rust::__private::into_domain(
+            destination_volume_parameters: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("destinationVolumeParameters"),
             ),
-            effective_labels: pulumi_wasm_rust::__private::into_domain(
+            effective_labels: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("effectiveLabels"),
             ),
-            force_stopping: pulumi_wasm_rust::__private::into_domain(
+            force_stopping: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("forceStopping"),
             ),
-            healthy: pulumi_wasm_rust::__private::into_domain(
+            healthy: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("healthy"),
             ),
-            labels: pulumi_wasm_rust::__private::into_domain(o.extract_field("labels")),
-            location: pulumi_wasm_rust::__private::into_domain(
+            labels: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("labels"),
+            ),
+            location: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("location"),
             ),
-            mirror_state: pulumi_wasm_rust::__private::into_domain(
+            mirror_state: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("mirrorState"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            project: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            project: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("project"),
             ),
-            pulumi_labels: pulumi_wasm_rust::__private::into_domain(
+            pulumi_labels: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("pulumiLabels"),
             ),
-            replication_enabled: pulumi_wasm_rust::__private::into_domain(
+            replication_enabled: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("replicationEnabled"),
             ),
-            replication_schedule: pulumi_wasm_rust::__private::into_domain(
+            replication_schedule: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("replicationSchedule"),
             ),
-            role: pulumi_wasm_rust::__private::into_domain(o.extract_field("role")),
-            source_volume: pulumi_wasm_rust::__private::into_domain(
+            role: pulumi_gestalt_rust::__private::into_domain(o.extract_field("role")),
+            source_volume: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("sourceVolume"),
             ),
-            state: pulumi_wasm_rust::__private::into_domain(o.extract_field("state")),
-            state_details: pulumi_wasm_rust::__private::into_domain(
+            state: pulumi_gestalt_rust::__private::into_domain(o.extract_field("state")),
+            state_details: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("stateDetails"),
             ),
-            transfer_stats: pulumi_wasm_rust::__private::into_domain(
+            transfer_stats: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("transferStats"),
             ),
-            volume_name: pulumi_wasm_rust::__private::into_domain(
+            volume_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("volumeName"),
             ),
-            wait_for_mirror: pulumi_wasm_rust::__private::into_domain(
+            wait_for_mirror: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("waitForMirror"),
             ),
         }

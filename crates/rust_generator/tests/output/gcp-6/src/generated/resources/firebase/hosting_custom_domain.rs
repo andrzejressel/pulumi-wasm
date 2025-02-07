@@ -4,8 +4,8 @@
 ///
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let default = hosting_custom_domain::create(
@@ -22,8 +22,8 @@
 ///
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let default = hosting_site::create(
@@ -50,8 +50,8 @@
 ///
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let default = hosting_site::create(
@@ -152,7 +152,7 @@
 /// ```
 ///
 pub mod hosting_custom_domain {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct HostingCustomDomainArgs {
@@ -161,28 +161,28 @@ pub mod hosting_custom_domain {
         /// `GROUPED` cert type, while Blaze plan can select any option.
         /// Possible values are: `GROUPED`, `PROJECT_GROUPED`, `DEDICATED`.
         #[builder(into, default)]
-        pub cert_preference: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub cert_preference: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The ID of the `CustomDomain`, which is the domain name you'd like to use with Firebase Hosting.
         ///
         ///
         /// - - -
         #[builder(into)]
-        pub custom_domain: pulumi_wasm_rust::InputOrOutput<String>,
+        pub custom_domain: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub project: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// A domain name that this CustomDomain should direct traffic towards. If
         /// specified, Hosting will respond to requests against this CustomDomain
         /// with an HTTP 301 code, and route traffic to the specified `redirect_target`
         /// instead.
         #[builder(into, default)]
-        pub redirect_target: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub redirect_target: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The ID of the site in which to create this custom domain association.
         #[builder(into)]
-        pub site_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub site_id: pulumi_gestalt_rust::InputOrOutput<String>,
         #[builder(into, default)]
-        pub wait_dns_verification: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub wait_dns_verification: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
     }
     #[allow(dead_code)]
     pub struct HostingCustomDomainResult {
@@ -190,32 +190,32 @@ pub mod hosting_custom_domain {
         /// for your domain name. Spark plan `CustomDomain`s only have access to the
         /// `GROUPED` cert type, while Blaze plan can select any option.
         /// Possible values are: `GROUPED`, `PROJECT_GROUPED`, `DEDICATED`.
-        pub cert_preference: pulumi_wasm_rust::Output<String>,
+        pub cert_preference: pulumi_gestalt_rust::Output<String>,
         /// The SSL certificate Hosting has for this `CustomDomain`'s domain name.
         /// For new `CustomDomain`s, this often represents Hosting's intent to create
         /// a certificate, rather than an actual cert. Check the `state` field for
         /// more.
         /// Structure is documented below.
-        pub certs: pulumi_wasm_rust::Output<
+        pub certs: pulumi_gestalt_rust::Output<
             Vec<super::super::types::firebase::HostingCustomDomainCert>,
         >,
         /// The `CustomDomain`'s create time.
-        pub create_time: pulumi_wasm_rust::Output<String>,
+        pub create_time: pulumi_gestalt_rust::Output<String>,
         /// The ID of the `CustomDomain`, which is the domain name you'd like to use with Firebase Hosting.
         ///
         ///
         /// - - -
-        pub custom_domain: pulumi_wasm_rust::Output<String>,
+        pub custom_domain: pulumi_gestalt_rust::Output<String>,
         /// The time the `CustomDomain` was deleted; null for `CustomDomains` that
         /// haven't been deleted. Deleted `CustomDomains` persist for approximately 30
         /// days, after which time Hosting removes them completely.
-        pub delete_time: pulumi_wasm_rust::Output<String>,
+        pub delete_time: pulumi_gestalt_rust::Output<String>,
         /// A string that represents the current state of the `CustomDomain` and
         /// allows you to confirm its initial state in requests that would modify it.
-        pub etag: pulumi_wasm_rust::Output<String>,
+        pub etag: pulumi_gestalt_rust::Output<String>,
         /// The minimum time before a soft-deleted `CustomDomain` is completely removed
         /// from Hosting; null for `CustomDomains` that haven't been deleted.
-        pub expire_time: pulumi_wasm_rust::Output<String>,
+        pub expire_time: pulumi_gestalt_rust::Output<String>,
         /// The host state of your domain name. Host state is determined by checking each
         /// IP address associated with your domain name to see if it's serving
         /// Hosting content.
@@ -236,16 +236,16 @@ pub mod hosting_custom_domain {
         /// All requests against your `CustomDomain`'s domain name are served by
         /// Hosting. If the `CustomDomain`'s `OwnershipState` is also `ACTIVE`, Hosting
         /// serves your Hosting Site's content on the domain name.
-        pub host_state: pulumi_wasm_rust::Output<String>,
+        pub host_state: pulumi_gestalt_rust::Output<String>,
         /// A set of errors Hosting systems encountered when trying to establish
         /// Hosting's ability to serve secure content for your domain name. Resolve
         /// these issues to ensure your `CustomDomain` behaves properly.
         /// Structure is documented below.
-        pub issues: pulumi_wasm_rust::Output<
+        pub issues: pulumi_gestalt_rust::Output<
             Vec<super::super::types::firebase::HostingCustomDomainIssue>,
         >,
         /// The fully-qualified name of the `CustomDomain`.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// The ownership state of your domain name. Ownership is determined at a
         /// Firebase project level, and established by adding `TXT` records to your
         /// domain name's DNS records.
@@ -278,42 +278,42 @@ pub mod hosting_custom_domain {
         /// OWNERSHIP_ACTIVE:
         /// Your `CustomDomain`'s domain name has `TXT` records that grant its project
         /// permission to act on its behalf.
-        pub ownership_state: pulumi_wasm_rust::Output<String>,
+        pub ownership_state: pulumi_gestalt_rust::Output<String>,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
-        pub project: pulumi_wasm_rust::Output<String>,
+        pub project: pulumi_gestalt_rust::Output<String>,
         /// if true, indicates that Hosting's systems are attmepting to
         /// make the `CustomDomain`'s state match your preferred state. This is most
         /// frequently `true` when initially provisioning a `CustomDomain` or when creating
         /// a new SSL certificate to match an updated `cert_preference`
-        pub reconciling: pulumi_wasm_rust::Output<bool>,
+        pub reconciling: pulumi_gestalt_rust::Output<bool>,
         /// A domain name that this CustomDomain should direct traffic towards. If
         /// specified, Hosting will respond to requests against this CustomDomain
         /// with an HTTP 301 code, and route traffic to the specified `redirect_target`
         /// instead.
-        pub redirect_target: pulumi_wasm_rust::Output<Option<String>>,
+        pub redirect_target: pulumi_gestalt_rust::Output<Option<String>>,
         /// A set of updates you should make to the domain name's DNS records to
         /// let Hosting serve secure content on its behalf.
         /// Structure is documented below.
-        pub required_dns_updates: pulumi_wasm_rust::Output<
+        pub required_dns_updates: pulumi_gestalt_rust::Output<
             Vec<super::super::types::firebase::HostingCustomDomainRequiredDnsUpdate>,
         >,
         /// The ID of the site in which to create this custom domain association.
-        pub site_id: pulumi_wasm_rust::Output<String>,
+        pub site_id: pulumi_gestalt_rust::Output<String>,
         /// The last time the `CustomDomain` was updated.
-        pub update_time: pulumi_wasm_rust::Output<String>,
-        pub wait_dns_verification: pulumi_wasm_rust::Output<Option<bool>>,
+        pub update_time: pulumi_gestalt_rust::Output<String>,
+        pub wait_dns_verification: pulumi_gestalt_rust::Output<Option<bool>>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: HostingCustomDomainArgs,
     ) -> HostingCustomDomainResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let cert_preference_binding = args
             .cert_preference
@@ -363,48 +363,52 @@ pub mod hosting_custom_domain {
         };
         let o = register_interface::register(context.get_inner(), &request);
         HostingCustomDomainResult {
-            cert_preference: pulumi_wasm_rust::__private::into_domain(
+            cert_preference: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("certPreference"),
             ),
-            certs: pulumi_wasm_rust::__private::into_domain(o.extract_field("certs")),
-            create_time: pulumi_wasm_rust::__private::into_domain(
+            certs: pulumi_gestalt_rust::__private::into_domain(o.extract_field("certs")),
+            create_time: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("createTime"),
             ),
-            custom_domain: pulumi_wasm_rust::__private::into_domain(
+            custom_domain: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("customDomain"),
             ),
-            delete_time: pulumi_wasm_rust::__private::into_domain(
+            delete_time: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("deleteTime"),
             ),
-            etag: pulumi_wasm_rust::__private::into_domain(o.extract_field("etag")),
-            expire_time: pulumi_wasm_rust::__private::into_domain(
+            etag: pulumi_gestalt_rust::__private::into_domain(o.extract_field("etag")),
+            expire_time: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("expireTime"),
             ),
-            host_state: pulumi_wasm_rust::__private::into_domain(
+            host_state: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("hostState"),
             ),
-            issues: pulumi_wasm_rust::__private::into_domain(o.extract_field("issues")),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            ownership_state: pulumi_wasm_rust::__private::into_domain(
+            issues: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("issues"),
+            ),
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            ownership_state: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("ownershipState"),
             ),
-            project: pulumi_wasm_rust::__private::into_domain(
+            project: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("project"),
             ),
-            reconciling: pulumi_wasm_rust::__private::into_domain(
+            reconciling: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("reconciling"),
             ),
-            redirect_target: pulumi_wasm_rust::__private::into_domain(
+            redirect_target: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("redirectTarget"),
             ),
-            required_dns_updates: pulumi_wasm_rust::__private::into_domain(
+            required_dns_updates: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("requiredDnsUpdates"),
             ),
-            site_id: pulumi_wasm_rust::__private::into_domain(o.extract_field("siteId")),
-            update_time: pulumi_wasm_rust::__private::into_domain(
+            site_id: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("siteId"),
+            ),
+            update_time: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("updateTime"),
             ),
-            wait_dns_verification: pulumi_wasm_rust::__private::into_domain(
+            wait_dns_verification: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("waitDnsVerification"),
             ),
         }

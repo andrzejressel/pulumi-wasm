@@ -3,8 +3,8 @@
 /// ## Example Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = resource_group::create(
@@ -57,71 +57,71 @@
 /// ```
 ///
 pub mod authorization_rule {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct AuthorizationRuleArgs {
         /// Does this Authorization Rule have Listen access to the Notification Hub? Defaults to `false`.
         #[builder(into, default)]
-        pub listen: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub listen: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// Does this Authorization Rule have Manage access to the Notification Hub? Defaults to `false`.
         ///
         /// > **NOTE:** If `manage` is set to `true` then both `send` and `listen` must also be set to `true`.
         #[builder(into, default)]
-        pub manage: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub manage: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// The name to use for this Authorization Rule. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The name of the Notification Hub Namespace in which the Notification Hub exists. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub namespace_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub namespace_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The name of the Notification Hub for which the Authorization Rule should be created. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub notification_hub_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub notification_hub_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The name of the Resource Group in which the Notification Hub Namespace exists. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub resource_group_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub resource_group_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Does this Authorization Rule have Send access to the Notification Hub? Defaults to `false`.
         #[builder(into, default)]
-        pub send: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub send: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
     }
     #[allow(dead_code)]
     pub struct AuthorizationRuleResult {
         /// Does this Authorization Rule have Listen access to the Notification Hub? Defaults to `false`.
-        pub listen: pulumi_wasm_rust::Output<Option<bool>>,
+        pub listen: pulumi_gestalt_rust::Output<Option<bool>>,
         /// Does this Authorization Rule have Manage access to the Notification Hub? Defaults to `false`.
         ///
         /// > **NOTE:** If `manage` is set to `true` then both `send` and `listen` must also be set to `true`.
-        pub manage: pulumi_wasm_rust::Output<Option<bool>>,
+        pub manage: pulumi_gestalt_rust::Output<Option<bool>>,
         /// The name to use for this Authorization Rule. Changing this forces a new resource to be created.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// The name of the Notification Hub Namespace in which the Notification Hub exists. Changing this forces a new resource to be created.
-        pub namespace_name: pulumi_wasm_rust::Output<String>,
+        pub namespace_name: pulumi_gestalt_rust::Output<String>,
         /// The name of the Notification Hub for which the Authorization Rule should be created. Changing this forces a new resource to be created.
-        pub notification_hub_name: pulumi_wasm_rust::Output<String>,
+        pub notification_hub_name: pulumi_gestalt_rust::Output<String>,
         /// The Primary Access Key associated with this Authorization Rule.
-        pub primary_access_key: pulumi_wasm_rust::Output<String>,
+        pub primary_access_key: pulumi_gestalt_rust::Output<String>,
         /// The Primary Connetion String associated with this Authorization Rule.
-        pub primary_connection_string: pulumi_wasm_rust::Output<String>,
+        pub primary_connection_string: pulumi_gestalt_rust::Output<String>,
         /// The name of the Resource Group in which the Notification Hub Namespace exists. Changing this forces a new resource to be created.
-        pub resource_group_name: pulumi_wasm_rust::Output<String>,
+        pub resource_group_name: pulumi_gestalt_rust::Output<String>,
         /// The Secondary Access Key associated with this Authorization Rule.
-        pub secondary_access_key: pulumi_wasm_rust::Output<String>,
+        pub secondary_access_key: pulumi_gestalt_rust::Output<String>,
         /// The Secondary Connetion String associated with this Authorization Rule.
-        pub secondary_connection_string: pulumi_wasm_rust::Output<String>,
+        pub secondary_connection_string: pulumi_gestalt_rust::Output<String>,
         /// Does this Authorization Rule have Send access to the Notification Hub? Defaults to `false`.
-        pub send: pulumi_wasm_rust::Output<Option<bool>>,
+        pub send: pulumi_gestalt_rust::Output<Option<bool>>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: AuthorizationRuleArgs,
     ) -> AuthorizationRuleResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let listen_binding = args.listen.get_output(context).get_inner();
         let manage_binding = args.manage.get_output(context).get_inner();
@@ -173,31 +173,35 @@ pub mod authorization_rule {
         };
         let o = register_interface::register(context.get_inner(), &request);
         AuthorizationRuleResult {
-            listen: pulumi_wasm_rust::__private::into_domain(o.extract_field("listen")),
-            manage: pulumi_wasm_rust::__private::into_domain(o.extract_field("manage")),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            namespace_name: pulumi_wasm_rust::__private::into_domain(
+            listen: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("listen"),
+            ),
+            manage: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("manage"),
+            ),
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            namespace_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("namespaceName"),
             ),
-            notification_hub_name: pulumi_wasm_rust::__private::into_domain(
+            notification_hub_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("notificationHubName"),
             ),
-            primary_access_key: pulumi_wasm_rust::__private::into_domain(
+            primary_access_key: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("primaryAccessKey"),
             ),
-            primary_connection_string: pulumi_wasm_rust::__private::into_domain(
+            primary_connection_string: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("primaryConnectionString"),
             ),
-            resource_group_name: pulumi_wasm_rust::__private::into_domain(
+            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("resourceGroupName"),
             ),
-            secondary_access_key: pulumi_wasm_rust::__private::into_domain(
+            secondary_access_key: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("secondaryAccessKey"),
             ),
-            secondary_connection_string: pulumi_wasm_rust::__private::into_domain(
+            secondary_connection_string: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("secondaryConnectionString"),
             ),
-            send: pulumi_wasm_rust::__private::into_domain(o.extract_field("send")),
+            send: pulumi_gestalt_rust::__private::into_domain(o.extract_field("send")),
         }
     }
 }

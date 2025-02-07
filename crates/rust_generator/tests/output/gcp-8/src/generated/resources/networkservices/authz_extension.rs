@@ -11,8 +11,8 @@
 ///
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let default = region_backend_service::create(
@@ -75,144 +75,144 @@
 /// ```
 ///
 pub mod authz_extension {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct AuthzExtensionArgs {
         /// The :authority header in the gRPC request sent from Envoy to the extension service.
         #[builder(into)]
-        pub authority: pulumi_wasm_rust::InputOrOutput<String>,
+        pub authority: pulumi_gestalt_rust::InputOrOutput<String>,
         /// A human-readable description of the resource.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub description: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Determines how the proxy behaves if the call to the extension fails or times out.
         /// When set to TRUE, request or response processing continues without error. Any subsequent extensions in the extension chain are also executed. When set to FALSE or the default setting of FALSE is used, one of the following happens:
         /// * If response headers have not been delivered to the downstream client, a generic 500 error is returned to the client. The error response can be tailored by configuring a custom error response in the load balancer.
         /// * If response headers have been delivered, then the HTTP stream to the downstream client is reset.
         #[builder(into, default)]
-        pub fail_open: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub fail_open: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// List of the HTTP headers to forward to the extension (from the client). If omitted, all headers are sent. Each element is a string indicating the header name.
         #[builder(into, default)]
-        pub forward_headers: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
+        pub forward_headers: pulumi_gestalt_rust::InputOrOutput<Option<Vec<String>>>,
         /// Set of labels associated with the AuthzExtension resource.
         ///
         /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
         /// Please refer to the field `effective_labels` for all of the labels present on the resource.
         #[builder(into, default)]
-        pub labels: pulumi_wasm_rust::InputOrOutput<
+        pub labels: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// All backend services and forwarding rules referenced by this extension must share the same load balancing scheme.
         /// For more information, refer to [Backend services overview](https://cloud.google.com/load-balancing/docs/backend-service).
         /// Possible values are: `INTERNAL_MANAGED`, `EXTERNAL_MANAGED`.
         #[builder(into)]
-        pub load_balancing_scheme: pulumi_wasm_rust::InputOrOutput<String>,
+        pub load_balancing_scheme: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The location of the resource.
         ///
         ///
         /// - - -
         #[builder(into)]
-        pub location: pulumi_wasm_rust::InputOrOutput<String>,
+        pub location: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The metadata provided here is included as part of the metadata_context (of type google.protobuf.Struct) in the ProcessingRequest message sent to the extension server. The metadata is available under the namespace com.google.authz_extension.<resourceName>. The following variables are supported in the metadata Struct:
         /// {forwarding_rule_id} - substituted with the forwarding rule's fully qualified resource name.
         #[builder(into, default)]
-        pub metadata: pulumi_wasm_rust::InputOrOutput<
+        pub metadata: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Identifier. Name of the AuthzExtension resource.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub project: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The reference to the service that runs the extension.
         /// To configure a callout extension, service must be a fully-qualified reference to a [backend service](https://cloud.google.com/compute/docs/reference/rest/v1/backendServices) in the format:
         /// https://www.googleapis.com/compute/v1/projects/{project}/regions/{region}/backendServices/{backendService} or https://www.googleapis.com/compute/v1/projects/{project}/global/backendServices/{backendService}.
         #[builder(into)]
-        pub service: pulumi_wasm_rust::InputOrOutput<String>,
+        pub service: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Specifies the timeout for each individual message on the stream. The timeout must be between 10-10000 milliseconds.
         #[builder(into)]
-        pub timeout: pulumi_wasm_rust::InputOrOutput<String>,
+        pub timeout: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The format of communication supported by the callout extension.
         /// Default value is `EXT_PROC_GRPC`.
         /// Possible values are: `WIRE_FORMAT_UNSPECIFIED`, `EXT_PROC_GRPC`.
         #[builder(into, default)]
-        pub wire_format: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub wire_format: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct AuthzExtensionResult {
         /// The :authority header in the gRPC request sent from Envoy to the extension service.
-        pub authority: pulumi_wasm_rust::Output<String>,
+        pub authority: pulumi_gestalt_rust::Output<String>,
         /// The timestamp when the resource was created.
-        pub create_time: pulumi_wasm_rust::Output<String>,
+        pub create_time: pulumi_gestalt_rust::Output<String>,
         /// A human-readable description of the resource.
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_gestalt_rust::Output<Option<String>>,
         /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Pulumi, other clients and services.
-        pub effective_labels: pulumi_wasm_rust::Output<
+        pub effective_labels: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
         /// Determines how the proxy behaves if the call to the extension fails or times out.
         /// When set to TRUE, request or response processing continues without error. Any subsequent extensions in the extension chain are also executed. When set to FALSE or the default setting of FALSE is used, one of the following happens:
         /// * If response headers have not been delivered to the downstream client, a generic 500 error is returned to the client. The error response can be tailored by configuring a custom error response in the load balancer.
         /// * If response headers have been delivered, then the HTTP stream to the downstream client is reset.
-        pub fail_open: pulumi_wasm_rust::Output<bool>,
+        pub fail_open: pulumi_gestalt_rust::Output<bool>,
         /// List of the HTTP headers to forward to the extension (from the client). If omitted, all headers are sent. Each element is a string indicating the header name.
-        pub forward_headers: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub forward_headers: pulumi_gestalt_rust::Output<Option<Vec<String>>>,
         /// Set of labels associated with the AuthzExtension resource.
         ///
         /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
         /// Please refer to the field `effective_labels` for all of the labels present on the resource.
-        pub labels: pulumi_wasm_rust::Output<
+        pub labels: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// All backend services and forwarding rules referenced by this extension must share the same load balancing scheme.
         /// For more information, refer to [Backend services overview](https://cloud.google.com/load-balancing/docs/backend-service).
         /// Possible values are: `INTERNAL_MANAGED`, `EXTERNAL_MANAGED`.
-        pub load_balancing_scheme: pulumi_wasm_rust::Output<String>,
+        pub load_balancing_scheme: pulumi_gestalt_rust::Output<String>,
         /// The location of the resource.
         ///
         ///
         /// - - -
-        pub location: pulumi_wasm_rust::Output<String>,
+        pub location: pulumi_gestalt_rust::Output<String>,
         /// The metadata provided here is included as part of the metadata_context (of type google.protobuf.Struct) in the ProcessingRequest message sent to the extension server. The metadata is available under the namespace com.google.authz_extension.<resourceName>. The following variables are supported in the metadata Struct:
         /// {forwarding_rule_id} - substituted with the forwarding rule's fully qualified resource name.
-        pub metadata: pulumi_wasm_rust::Output<
+        pub metadata: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Identifier. Name of the AuthzExtension resource.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
-        pub project: pulumi_wasm_rust::Output<String>,
+        pub project: pulumi_gestalt_rust::Output<String>,
         /// The combination of labels configured directly on the resource
         /// and default labels configured on the provider.
-        pub pulumi_labels: pulumi_wasm_rust::Output<
+        pub pulumi_labels: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
         /// The reference to the service that runs the extension.
         /// To configure a callout extension, service must be a fully-qualified reference to a [backend service](https://cloud.google.com/compute/docs/reference/rest/v1/backendServices) in the format:
         /// https://www.googleapis.com/compute/v1/projects/{project}/regions/{region}/backendServices/{backendService} or https://www.googleapis.com/compute/v1/projects/{project}/global/backendServices/{backendService}.
-        pub service: pulumi_wasm_rust::Output<String>,
+        pub service: pulumi_gestalt_rust::Output<String>,
         /// Specifies the timeout for each individual message on the stream. The timeout must be between 10-10000 milliseconds.
-        pub timeout: pulumi_wasm_rust::Output<String>,
+        pub timeout: pulumi_gestalt_rust::Output<String>,
         /// The timestamp when the resource was updated.
-        pub update_time: pulumi_wasm_rust::Output<String>,
+        pub update_time: pulumi_gestalt_rust::Output<String>,
         /// The format of communication supported by the callout extension.
         /// Default value is `EXT_PROC_GRPC`.
         /// Possible values are: `WIRE_FORMAT_UNSPECIFIED`, `EXT_PROC_GRPC`.
-        pub wire_format: pulumi_wasm_rust::Output<Option<String>>,
+        pub wire_format: pulumi_gestalt_rust::Output<Option<String>>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: AuthzExtensionArgs,
     ) -> AuthzExtensionResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let authority_binding = args.authority.get_output(context).get_inner();
         let description_binding = args.description.get_output(context).get_inner();
@@ -294,51 +294,53 @@ pub mod authz_extension {
         };
         let o = register_interface::register(context.get_inner(), &request);
         AuthzExtensionResult {
-            authority: pulumi_wasm_rust::__private::into_domain(
+            authority: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("authority"),
             ),
-            create_time: pulumi_wasm_rust::__private::into_domain(
+            create_time: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("createTime"),
             ),
-            description: pulumi_wasm_rust::__private::into_domain(
+            description: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("description"),
             ),
-            effective_labels: pulumi_wasm_rust::__private::into_domain(
+            effective_labels: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("effectiveLabels"),
             ),
-            fail_open: pulumi_wasm_rust::__private::into_domain(
+            fail_open: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("failOpen"),
             ),
-            forward_headers: pulumi_wasm_rust::__private::into_domain(
+            forward_headers: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("forwardHeaders"),
             ),
-            labels: pulumi_wasm_rust::__private::into_domain(o.extract_field("labels")),
-            load_balancing_scheme: pulumi_wasm_rust::__private::into_domain(
+            labels: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("labels"),
+            ),
+            load_balancing_scheme: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("loadBalancingScheme"),
             ),
-            location: pulumi_wasm_rust::__private::into_domain(
+            location: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("location"),
             ),
-            metadata: pulumi_wasm_rust::__private::into_domain(
+            metadata: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("metadata"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            project: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            project: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("project"),
             ),
-            pulumi_labels: pulumi_wasm_rust::__private::into_domain(
+            pulumi_labels: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("pulumiLabels"),
             ),
-            service: pulumi_wasm_rust::__private::into_domain(
+            service: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("service"),
             ),
-            timeout: pulumi_wasm_rust::__private::into_domain(
+            timeout: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("timeout"),
             ),
-            update_time: pulumi_wasm_rust::__private::into_domain(
+            update_time: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("updateTime"),
             ),
-            wire_format: pulumi_wasm_rust::__private::into_domain(
+            wire_format: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("wireFormat"),
             ),
         }

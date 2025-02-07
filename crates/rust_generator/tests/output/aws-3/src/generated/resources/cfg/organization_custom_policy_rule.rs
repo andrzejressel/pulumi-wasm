@@ -7,8 +7,8 @@
 /// ### Basic Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = organization_custom_policy_rule::create(
@@ -33,97 +33,103 @@
 /// $ pulumi import aws:cfg/organizationCustomPolicyRule:OrganizationCustomPolicyRule example example_rule_name
 /// ```
 pub mod organization_custom_policy_rule {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct OrganizationCustomPolicyRuleArgs {
         /// List of AWS account identifiers to exclude from the rule
         #[builder(into, default)]
-        pub debug_log_delivery_accounts: pulumi_wasm_rust::InputOrOutput<
+        pub debug_log_delivery_accounts: pulumi_gestalt_rust::InputOrOutput<
             Option<Vec<String>>,
         >,
         /// Description of the rule
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub description: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// List of AWS account identifiers to exclude from the rule
         #[builder(into, default)]
-        pub excluded_accounts: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
+        pub excluded_accounts: pulumi_gestalt_rust::InputOrOutput<Option<Vec<String>>>,
         /// A string in JSON format that is passed to the AWS Config Rule Lambda Function
         #[builder(into, default)]
-        pub input_parameters: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub input_parameters: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Maximum frequency with which AWS Config runs evaluations for a rule, if the rule is triggered at a periodic frequency. Defaults to `TwentyFour_Hours` for periodic frequency triggered rules. Valid values: `One_Hour`, `Three_Hours`, `Six_Hours`, `Twelve_Hours`, or `TwentyFour_Hours`.
         #[builder(into, default)]
-        pub maximum_execution_frequency: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub maximum_execution_frequency: pulumi_gestalt_rust::InputOrOutput<
+            Option<String>,
+        >,
         /// name of the rule
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// runtime system for your organization AWS Config Custom Policy rules
         #[builder(into)]
-        pub policy_runtime: pulumi_wasm_rust::InputOrOutput<String>,
+        pub policy_runtime: pulumi_gestalt_rust::InputOrOutput<String>,
         /// policy definition containing the logic for your organization AWS Config Custom Policy rule
         #[builder(into)]
-        pub policy_text: pulumi_wasm_rust::InputOrOutput<String>,
+        pub policy_text: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Identifier of the AWS resource to evaluate
         #[builder(into, default)]
-        pub resource_id_scope: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub resource_id_scope: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// List of types of AWS resources to evaluate
         #[builder(into, default)]
-        pub resource_types_scopes: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
+        pub resource_types_scopes: pulumi_gestalt_rust::InputOrOutput<
+            Option<Vec<String>>,
+        >,
         /// Tag key of AWS resources to evaluate
         #[builder(into, default)]
-        pub tag_key_scope: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub tag_key_scope: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Tag value of AWS resources to evaluate
         #[builder(into, default)]
-        pub tag_value_scope: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub tag_value_scope: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// List of notification types that trigger AWS Config to run an evaluation for the rule. Valid values: `ConfigurationItemChangeNotification`, `OversizedConfigurationItemChangeNotification`
         ///
         /// The following arguments are optional:
         #[builder(into)]
-        pub trigger_types: pulumi_wasm_rust::InputOrOutput<Vec<String>>,
+        pub trigger_types: pulumi_gestalt_rust::InputOrOutput<Vec<String>>,
     }
     #[allow(dead_code)]
     pub struct OrganizationCustomPolicyRuleResult {
         /// Amazon Resource Name (ARN) of the rule
-        pub arn: pulumi_wasm_rust::Output<String>,
+        pub arn: pulumi_gestalt_rust::Output<String>,
         /// List of AWS account identifiers to exclude from the rule
-        pub debug_log_delivery_accounts: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub debug_log_delivery_accounts: pulumi_gestalt_rust::Output<
+            Option<Vec<String>>,
+        >,
         /// Description of the rule
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_gestalt_rust::Output<Option<String>>,
         /// List of AWS account identifiers to exclude from the rule
-        pub excluded_accounts: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub excluded_accounts: pulumi_gestalt_rust::Output<Option<Vec<String>>>,
         /// A string in JSON format that is passed to the AWS Config Rule Lambda Function
-        pub input_parameters: pulumi_wasm_rust::Output<Option<String>>,
+        pub input_parameters: pulumi_gestalt_rust::Output<Option<String>>,
         /// Maximum frequency with which AWS Config runs evaluations for a rule, if the rule is triggered at a periodic frequency. Defaults to `TwentyFour_Hours` for periodic frequency triggered rules. Valid values: `One_Hour`, `Three_Hours`, `Six_Hours`, `Twelve_Hours`, or `TwentyFour_Hours`.
-        pub maximum_execution_frequency: pulumi_wasm_rust::Output<Option<String>>,
+        pub maximum_execution_frequency: pulumi_gestalt_rust::Output<Option<String>>,
         /// name of the rule
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// runtime system for your organization AWS Config Custom Policy rules
-        pub policy_runtime: pulumi_wasm_rust::Output<String>,
+        pub policy_runtime: pulumi_gestalt_rust::Output<String>,
         /// policy definition containing the logic for your organization AWS Config Custom Policy rule
-        pub policy_text: pulumi_wasm_rust::Output<String>,
+        pub policy_text: pulumi_gestalt_rust::Output<String>,
         /// Identifier of the AWS resource to evaluate
-        pub resource_id_scope: pulumi_wasm_rust::Output<Option<String>>,
+        pub resource_id_scope: pulumi_gestalt_rust::Output<Option<String>>,
         /// List of types of AWS resources to evaluate
-        pub resource_types_scopes: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub resource_types_scopes: pulumi_gestalt_rust::Output<Option<Vec<String>>>,
         /// Tag key of AWS resources to evaluate
-        pub tag_key_scope: pulumi_wasm_rust::Output<Option<String>>,
+        pub tag_key_scope: pulumi_gestalt_rust::Output<Option<String>>,
         /// Tag value of AWS resources to evaluate
-        pub tag_value_scope: pulumi_wasm_rust::Output<Option<String>>,
+        pub tag_value_scope: pulumi_gestalt_rust::Output<Option<String>>,
         /// List of notification types that trigger AWS Config to run an evaluation for the rule. Valid values: `ConfigurationItemChangeNotification`, `OversizedConfigurationItemChangeNotification`
         ///
         /// The following arguments are optional:
-        pub trigger_types: pulumi_wasm_rust::Output<Vec<String>>,
+        pub trigger_types: pulumi_gestalt_rust::Output<Vec<String>>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: OrganizationCustomPolicyRuleArgs,
     ) -> OrganizationCustomPolicyRuleResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let debug_log_delivery_accounts_binding = args
             .debug_log_delivery_accounts
@@ -221,42 +227,42 @@ pub mod organization_custom_policy_rule {
         };
         let o = register_interface::register(context.get_inner(), &request);
         OrganizationCustomPolicyRuleResult {
-            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
-            debug_log_delivery_accounts: pulumi_wasm_rust::__private::into_domain(
+            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
+            debug_log_delivery_accounts: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("debugLogDeliveryAccounts"),
             ),
-            description: pulumi_wasm_rust::__private::into_domain(
+            description: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("description"),
             ),
-            excluded_accounts: pulumi_wasm_rust::__private::into_domain(
+            excluded_accounts: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("excludedAccounts"),
             ),
-            input_parameters: pulumi_wasm_rust::__private::into_domain(
+            input_parameters: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("inputParameters"),
             ),
-            maximum_execution_frequency: pulumi_wasm_rust::__private::into_domain(
+            maximum_execution_frequency: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("maximumExecutionFrequency"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            policy_runtime: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            policy_runtime: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("policyRuntime"),
             ),
-            policy_text: pulumi_wasm_rust::__private::into_domain(
+            policy_text: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("policyText"),
             ),
-            resource_id_scope: pulumi_wasm_rust::__private::into_domain(
+            resource_id_scope: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("resourceIdScope"),
             ),
-            resource_types_scopes: pulumi_wasm_rust::__private::into_domain(
+            resource_types_scopes: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("resourceTypesScopes"),
             ),
-            tag_key_scope: pulumi_wasm_rust::__private::into_domain(
+            tag_key_scope: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("tagKeyScope"),
             ),
-            tag_value_scope: pulumi_wasm_rust::__private::into_domain(
+            tag_value_scope: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("tagValueScope"),
             ),
-            trigger_types: pulumi_wasm_rust::__private::into_domain(
+            trigger_types: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("triggerTypes"),
             ),
         }

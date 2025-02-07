@@ -34,84 +34,84 @@
 /// $ pulumi import aws:elasticache/reservedCacheNode:ReservedCacheNode example CustomReservationID
 /// ```
 pub mod reserved_cache_node {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ReservedCacheNodeArgs {
         /// Number of cache node instances to reserve.
         /// Default value is `1`.
         #[builder(into, default)]
-        pub cache_node_count: pulumi_wasm_rust::InputOrOutput<Option<f64>>,
+        pub cache_node_count: pulumi_gestalt_rust::InputOrOutput<Option<f64>>,
         /// ID of the reserved cache node offering to purchase.
         /// To determine an `reserved_cache_nodes_offering_id`, see the `aws.elasticache.getReservedCacheNodeOffering` data source.
         ///
         /// The following arguments are optional:
         #[builder(into)]
-        pub reserved_cache_nodes_offering_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub reserved_cache_nodes_offering_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Map of tags to assign to the reservation. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         #[builder(into, default)]
-        pub timeouts: pulumi_wasm_rust::InputOrOutput<
+        pub timeouts: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::elasticache::ReservedCacheNodeTimeouts>,
         >,
     }
     #[allow(dead_code)]
     pub struct ReservedCacheNodeResult {
         /// ARN for the reserved cache node.
-        pub arn: pulumi_wasm_rust::Output<String>,
+        pub arn: pulumi_gestalt_rust::Output<String>,
         /// Number of cache node instances to reserve.
         /// Default value is `1`.
-        pub cache_node_count: pulumi_wasm_rust::Output<f64>,
+        pub cache_node_count: pulumi_gestalt_rust::Output<f64>,
         /// Node type for the reserved cache nodes.
-        pub cache_node_type: pulumi_wasm_rust::Output<String>,
+        pub cache_node_type: pulumi_gestalt_rust::Output<String>,
         /// Duration of the reservation as an RFC3339 duration.
-        pub duration: pulumi_wasm_rust::Output<String>,
+        pub duration: pulumi_gestalt_rust::Output<String>,
         /// Fixed price charged for this reserved cache node.
-        pub fixed_price: pulumi_wasm_rust::Output<f64>,
+        pub fixed_price: pulumi_gestalt_rust::Output<f64>,
         /// Offering type of this reserved cache node.
-        pub offering_type: pulumi_wasm_rust::Output<String>,
+        pub offering_type: pulumi_gestalt_rust::Output<String>,
         /// Engine type for the reserved cache node.
-        pub product_description: pulumi_wasm_rust::Output<String>,
+        pub product_description: pulumi_gestalt_rust::Output<String>,
         /// Recurring price charged to run this reserved cache node.
-        pub recurring_charges: pulumi_wasm_rust::Output<
+        pub recurring_charges: pulumi_gestalt_rust::Output<
             Vec<super::super::types::elasticache::ReservedCacheNodeRecurringCharge>,
         >,
         /// ID of the reserved cache node offering to purchase.
         /// To determine an `reserved_cache_nodes_offering_id`, see the `aws.elasticache.getReservedCacheNodeOffering` data source.
         ///
         /// The following arguments are optional:
-        pub reserved_cache_nodes_offering_id: pulumi_wasm_rust::Output<String>,
+        pub reserved_cache_nodes_offering_id: pulumi_gestalt_rust::Output<String>,
         /// Time the reservation started.
-        pub start_time: pulumi_wasm_rust::Output<String>,
+        pub start_time: pulumi_gestalt_rust::Output<String>,
         /// State of the reserved cache node.
-        pub state: pulumi_wasm_rust::Output<String>,
+        pub state: pulumi_gestalt_rust::Output<String>,
         /// Map of tags to assign to the reservation. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        pub tags_all: pulumi_wasm_rust::Output<
+        pub tags_all: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
-        pub timeouts: pulumi_wasm_rust::Output<
+        pub timeouts: pulumi_gestalt_rust::Output<
             Option<super::super::types::elasticache::ReservedCacheNodeTimeouts>,
         >,
         /// Hourly price charged for this reserved cache node.
-        pub usage_price: pulumi_wasm_rust::Output<f64>,
+        pub usage_price: pulumi_gestalt_rust::Output<f64>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: ReservedCacheNodeArgs,
     ) -> ReservedCacheNodeResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let cache_node_count_binding = args
             .cache_node_count
@@ -148,43 +148,43 @@ pub mod reserved_cache_node {
         };
         let o = register_interface::register(context.get_inner(), &request);
         ReservedCacheNodeResult {
-            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
-            cache_node_count: pulumi_wasm_rust::__private::into_domain(
+            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
+            cache_node_count: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("cacheNodeCount"),
             ),
-            cache_node_type: pulumi_wasm_rust::__private::into_domain(
+            cache_node_type: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("cacheNodeType"),
             ),
-            duration: pulumi_wasm_rust::__private::into_domain(
+            duration: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("duration"),
             ),
-            fixed_price: pulumi_wasm_rust::__private::into_domain(
+            fixed_price: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("fixedPrice"),
             ),
-            offering_type: pulumi_wasm_rust::__private::into_domain(
+            offering_type: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("offeringType"),
             ),
-            product_description: pulumi_wasm_rust::__private::into_domain(
+            product_description: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("productDescription"),
             ),
-            recurring_charges: pulumi_wasm_rust::__private::into_domain(
+            recurring_charges: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("recurringCharges"),
             ),
-            reserved_cache_nodes_offering_id: pulumi_wasm_rust::__private::into_domain(
+            reserved_cache_nodes_offering_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("reservedCacheNodesOfferingId"),
             ),
-            start_time: pulumi_wasm_rust::__private::into_domain(
+            start_time: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("startTime"),
             ),
-            state: pulumi_wasm_rust::__private::into_domain(o.extract_field("state")),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_wasm_rust::__private::into_domain(
+            state: pulumi_gestalt_rust::__private::into_domain(o.extract_field("state")),
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            tags_all: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("tagsAll"),
             ),
-            timeouts: pulumi_wasm_rust::__private::into_domain(
+            timeouts: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("timeouts"),
             ),
-            usage_price: pulumi_wasm_rust::__private::into_domain(
+            usage_price: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("usagePrice"),
             ),
         }

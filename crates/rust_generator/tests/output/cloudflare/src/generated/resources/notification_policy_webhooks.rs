@@ -3,8 +3,8 @@
 /// ## Example Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = notification_policy_webhooks::create(
@@ -26,51 +26,51 @@
 /// ```
 ///
 pub mod notification_policy_webhooks {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct NotificationPolicyWebhooksArgs {
         /// The account identifier to target for the resource.
         #[builder(into)]
-        pub account_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub account_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The name of the webhook destination.
         #[builder(into)]
-        pub name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// An optional secret can be provided that will be passed in the `cf-webhook-auth` header when dispatching a webhook notification. Secrets are not returned in any API response body. Refer to the [documentation](https://api.cloudflare.com/#notification-webhooks-create-webhook) for more details.
         #[builder(into, default)]
-        pub secret: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub secret: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The URL of the webhook destinations. **Modifying this attribute will force creation of a new resource.**
         #[builder(into, default)]
-        pub url: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub url: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct NotificationPolicyWebhooksResult {
         /// The account identifier to target for the resource.
-        pub account_id: pulumi_wasm_rust::Output<String>,
+        pub account_id: pulumi_gestalt_rust::Output<String>,
         /// Timestamp of when the notification webhook was created.
-        pub created_at: pulumi_wasm_rust::Output<String>,
+        pub created_at: pulumi_gestalt_rust::Output<String>,
         /// Timestamp of when the notification webhook last failed.
-        pub last_failure: pulumi_wasm_rust::Output<String>,
+        pub last_failure: pulumi_gestalt_rust::Output<String>,
         /// Timestamp of when the notification webhook was last successful.
-        pub last_success: pulumi_wasm_rust::Output<String>,
+        pub last_success: pulumi_gestalt_rust::Output<String>,
         /// The name of the webhook destination.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// An optional secret can be provided that will be passed in the `cf-webhook-auth` header when dispatching a webhook notification. Secrets are not returned in any API response body. Refer to the [documentation](https://api.cloudflare.com/#notification-webhooks-create-webhook) for more details.
-        pub secret: pulumi_wasm_rust::Output<Option<String>>,
-        pub type_: pulumi_wasm_rust::Output<String>,
+        pub secret: pulumi_gestalt_rust::Output<Option<String>>,
+        pub type_: pulumi_gestalt_rust::Output<String>,
         /// The URL of the webhook destinations. **Modifying this attribute will force creation of a new resource.**
-        pub url: pulumi_wasm_rust::Output<Option<String>>,
+        pub url: pulumi_gestalt_rust::Output<Option<String>>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: NotificationPolicyWebhooksArgs,
     ) -> NotificationPolicyWebhooksResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let account_id_binding = args.account_id.get_output(context).get_inner();
         let name_binding = args.name.get_output(context).get_inner();
@@ -102,22 +102,24 @@ pub mod notification_policy_webhooks {
         };
         let o = register_interface::register(context.get_inner(), &request);
         NotificationPolicyWebhooksResult {
-            account_id: pulumi_wasm_rust::__private::into_domain(
+            account_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("accountId"),
             ),
-            created_at: pulumi_wasm_rust::__private::into_domain(
+            created_at: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("createdAt"),
             ),
-            last_failure: pulumi_wasm_rust::__private::into_domain(
+            last_failure: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("lastFailure"),
             ),
-            last_success: pulumi_wasm_rust::__private::into_domain(
+            last_success: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("lastSuccess"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            secret: pulumi_wasm_rust::__private::into_domain(o.extract_field("secret")),
-            type_: pulumi_wasm_rust::__private::into_domain(o.extract_field("type")),
-            url: pulumi_wasm_rust::__private::into_domain(o.extract_field("url")),
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            secret: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("secret"),
+            ),
+            type_: pulumi_gestalt_rust::__private::into_domain(o.extract_field("type")),
+            url: pulumi_gestalt_rust::__private::into_domain(o.extract_field("url")),
         }
     }
 }

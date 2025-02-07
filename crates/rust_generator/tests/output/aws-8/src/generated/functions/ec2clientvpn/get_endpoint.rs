@@ -1,89 +1,89 @@
 pub mod get_endpoint {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct GetEndpointArgs {
         /// ID of the Client VPN endpoint.
         #[builder(into, default)]
-        pub client_vpn_endpoint_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub client_vpn_endpoint_id: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// One or more configuration blocks containing name-values filters. Detailed below.
         #[builder(into, default)]
-        pub filters: pulumi_wasm_rust::InputOrOutput<
+        pub filters: pulumi_gestalt_rust::InputOrOutput<
             Option<Vec<super::super::super::types::ec2clientvpn::GetEndpointFilter>>,
         >,
         /// Map of tags, each pair of which must exactly match a pair on the desired endpoint.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
     #[allow(dead_code)]
     pub struct GetEndpointResult {
         /// The ARN of the Client VPN endpoint.
-        pub arn: pulumi_wasm_rust::Output<String>,
+        pub arn: pulumi_gestalt_rust::Output<String>,
         /// Information about the authentication method used by the Client VPN endpoint.
-        pub authentication_options: pulumi_wasm_rust::Output<
+        pub authentication_options: pulumi_gestalt_rust::Output<
             Vec<
                 super::super::super::types::ec2clientvpn::GetEndpointAuthenticationOption,
             >,
         >,
         /// IPv4 address range, in CIDR notation, from which client IP addresses are assigned.
-        pub client_cidr_block: pulumi_wasm_rust::Output<String>,
+        pub client_cidr_block: pulumi_gestalt_rust::Output<String>,
         /// The options for managing connection authorization for new client connections.
-        pub client_connect_options: pulumi_wasm_rust::Output<
+        pub client_connect_options: pulumi_gestalt_rust::Output<
             Vec<super::super::super::types::ec2clientvpn::GetEndpointClientConnectOption>,
         >,
         /// Options for enabling a customizable text banner that will be displayed on AWS provided clients when a VPN session is established.
-        pub client_login_banner_options: pulumi_wasm_rust::Output<
+        pub client_login_banner_options: pulumi_gestalt_rust::Output<
             Vec<
                 super::super::super::types::ec2clientvpn::GetEndpointClientLoginBannerOption,
             >,
         >,
-        pub client_vpn_endpoint_id: pulumi_wasm_rust::Output<String>,
+        pub client_vpn_endpoint_id: pulumi_gestalt_rust::Output<String>,
         /// Information about the client connection logging options for the Client VPN endpoint.
-        pub connection_log_options: pulumi_wasm_rust::Output<
+        pub connection_log_options: pulumi_gestalt_rust::Output<
             Vec<super::super::super::types::ec2clientvpn::GetEndpointConnectionLogOption>,
         >,
         /// Brief description of the endpoint.
-        pub description: pulumi_wasm_rust::Output<String>,
+        pub description: pulumi_gestalt_rust::Output<String>,
         /// DNS name to be used by clients when connecting to the Client VPN endpoint.
-        pub dns_name: pulumi_wasm_rust::Output<String>,
+        pub dns_name: pulumi_gestalt_rust::Output<String>,
         /// Information about the DNS servers to be used for DNS resolution.
-        pub dns_servers: pulumi_wasm_rust::Output<Vec<String>>,
-        pub filters: pulumi_wasm_rust::Output<
+        pub dns_servers: pulumi_gestalt_rust::Output<Vec<String>>,
+        pub filters: pulumi_gestalt_rust::Output<
             Option<Vec<super::super::super::types::ec2clientvpn::GetEndpointFilter>>,
         >,
         /// The provider-assigned unique ID for this managed resource.
-        pub id: pulumi_wasm_rust::Output<String>,
+        pub id: pulumi_gestalt_rust::Output<String>,
         /// IDs of the security groups for the target network associated with the Client VPN endpoint.
-        pub security_group_ids: pulumi_wasm_rust::Output<Vec<String>>,
+        pub security_group_ids: pulumi_gestalt_rust::Output<Vec<String>>,
         /// Whether the self-service portal for the Client VPN endpoint is enabled.
-        pub self_service_portal: pulumi_wasm_rust::Output<String>,
+        pub self_service_portal: pulumi_gestalt_rust::Output<String>,
         /// The URL of the self-service portal.
-        pub self_service_portal_url: pulumi_wasm_rust::Output<String>,
+        pub self_service_portal_url: pulumi_gestalt_rust::Output<String>,
         /// The ARN of the server certificate.
-        pub server_certificate_arn: pulumi_wasm_rust::Output<String>,
+        pub server_certificate_arn: pulumi_gestalt_rust::Output<String>,
         /// The maximum VPN session duration time in hours.
-        pub session_timeout_hours: pulumi_wasm_rust::Output<i32>,
+        pub session_timeout_hours: pulumi_gestalt_rust::Output<i32>,
         /// Whether split-tunnel is enabled in the AWS Client VPN endpoint.
-        pub split_tunnel: pulumi_wasm_rust::Output<bool>,
-        pub tags: pulumi_wasm_rust::Output<std::collections::HashMap<String, String>>,
+        pub split_tunnel: pulumi_gestalt_rust::Output<bool>,
+        pub tags: pulumi_gestalt_rust::Output<std::collections::HashMap<String, String>>,
         /// Transport protocol used by the Client VPN endpoint.
-        pub transport_protocol: pulumi_wasm_rust::Output<String>,
+        pub transport_protocol: pulumi_gestalt_rust::Output<String>,
         /// ID of the VPC associated with the Client VPN endpoint.
-        pub vpc_id: pulumi_wasm_rust::Output<String>,
+        pub vpc_id: pulumi_gestalt_rust::Output<String>,
         /// Port number for the Client VPN endpoint.
-        pub vpn_port: pulumi_wasm_rust::Output<i32>,
+        pub vpn_port: pulumi_gestalt_rust::Output<i32>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         args: GetEndpointArgs,
     ) -> GetEndpointResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let client_vpn_endpoint_id_binding = args
             .client_vpn_endpoint_id
@@ -111,62 +111,64 @@ pub mod get_endpoint {
         };
         let o = register_interface::invoke(context.get_inner(), &request);
         GetEndpointResult {
-            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
-            authentication_options: pulumi_wasm_rust::__private::into_domain(
+            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
+            authentication_options: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("authenticationOptions"),
             ),
-            client_cidr_block: pulumi_wasm_rust::__private::into_domain(
+            client_cidr_block: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("clientCidrBlock"),
             ),
-            client_connect_options: pulumi_wasm_rust::__private::into_domain(
+            client_connect_options: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("clientConnectOptions"),
             ),
-            client_login_banner_options: pulumi_wasm_rust::__private::into_domain(
+            client_login_banner_options: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("clientLoginBannerOptions"),
             ),
-            client_vpn_endpoint_id: pulumi_wasm_rust::__private::into_domain(
+            client_vpn_endpoint_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("clientVpnEndpointId"),
             ),
-            connection_log_options: pulumi_wasm_rust::__private::into_domain(
+            connection_log_options: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("connectionLogOptions"),
             ),
-            description: pulumi_wasm_rust::__private::into_domain(
+            description: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("description"),
             ),
-            dns_name: pulumi_wasm_rust::__private::into_domain(
+            dns_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("dnsName"),
             ),
-            dns_servers: pulumi_wasm_rust::__private::into_domain(
+            dns_servers: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("dnsServers"),
             ),
-            filters: pulumi_wasm_rust::__private::into_domain(
+            filters: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("filters"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
-            security_group_ids: pulumi_wasm_rust::__private::into_domain(
+            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
+            security_group_ids: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("securityGroupIds"),
             ),
-            self_service_portal: pulumi_wasm_rust::__private::into_domain(
+            self_service_portal: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("selfServicePortal"),
             ),
-            self_service_portal_url: pulumi_wasm_rust::__private::into_domain(
+            self_service_portal_url: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("selfServicePortalUrl"),
             ),
-            server_certificate_arn: pulumi_wasm_rust::__private::into_domain(
+            server_certificate_arn: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("serverCertificateArn"),
             ),
-            session_timeout_hours: pulumi_wasm_rust::__private::into_domain(
+            session_timeout_hours: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("sessionTimeoutHours"),
             ),
-            split_tunnel: pulumi_wasm_rust::__private::into_domain(
+            split_tunnel: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("splitTunnel"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
-            transport_protocol: pulumi_wasm_rust::__private::into_domain(
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            transport_protocol: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("transportProtocol"),
             ),
-            vpc_id: pulumi_wasm_rust::__private::into_domain(o.extract_field("vpcId")),
-            vpn_port: pulumi_wasm_rust::__private::into_domain(
+            vpc_id: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("vpcId"),
+            ),
+            vpn_port: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("vpnPort"),
             ),
         }

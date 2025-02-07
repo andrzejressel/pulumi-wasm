@@ -7,8 +7,8 @@
 /// ### Dimensional Example
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let serviceMonitor = anomaly_monitor::create(
@@ -53,46 +53,46 @@
 /// $ pulumi import aws:costexplorer/anomalyMonitor:AnomalyMonitor example costAnomalyMonitorARN
 /// ```
 pub mod anomaly_monitor {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct AnomalyMonitorArgs {
         /// The dimensions to evaluate. Valid values: `SERVICE`.
         #[builder(into, default)]
-        pub monitor_dimension: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub monitor_dimension: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// A valid JSON representation for the [Expression](https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_Expression.html) object.
         #[builder(into, default)]
-        pub monitor_specification: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub monitor_specification: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The possible type values. Valid values: `DIMENSIONAL` | `CUSTOM`.
         #[builder(into)]
-        pub monitor_type: pulumi_wasm_rust::InputOrOutput<String>,
+        pub monitor_type: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The name of the monitor.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
     #[allow(dead_code)]
     pub struct AnomalyMonitorResult {
         /// ARN of the anomaly monitor.
-        pub arn: pulumi_wasm_rust::Output<String>,
+        pub arn: pulumi_gestalt_rust::Output<String>,
         /// The dimensions to evaluate. Valid values: `SERVICE`.
-        pub monitor_dimension: pulumi_wasm_rust::Output<Option<String>>,
+        pub monitor_dimension: pulumi_gestalt_rust::Output<Option<String>>,
         /// A valid JSON representation for the [Expression](https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_Expression.html) object.
-        pub monitor_specification: pulumi_wasm_rust::Output<Option<String>>,
+        pub monitor_specification: pulumi_gestalt_rust::Output<Option<String>>,
         /// The possible type values. Valid values: `DIMENSIONAL` | `CUSTOM`.
-        pub monitor_type: pulumi_wasm_rust::Output<String>,
+        pub monitor_type: pulumi_gestalt_rust::Output<String>,
         /// The name of the monitor.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        pub tags_all: pulumi_wasm_rust::Output<
+        pub tags_all: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
     }
@@ -101,11 +101,11 @@ pub mod anomaly_monitor {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: AnomalyMonitorArgs,
     ) -> AnomalyMonitorResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let monitor_dimension_binding = args
             .monitor_dimension
@@ -147,19 +147,19 @@ pub mod anomaly_monitor {
         };
         let o = register_interface::register(context.get_inner(), &request);
         AnomalyMonitorResult {
-            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
-            monitor_dimension: pulumi_wasm_rust::__private::into_domain(
+            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
+            monitor_dimension: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("monitorDimension"),
             ),
-            monitor_specification: pulumi_wasm_rust::__private::into_domain(
+            monitor_specification: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("monitorSpecification"),
             ),
-            monitor_type: pulumi_wasm_rust::__private::into_domain(
+            monitor_type: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("monitorType"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            tags_all: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("tagsAll"),
             ),
         }

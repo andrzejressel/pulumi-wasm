@@ -3,8 +3,8 @@
 /// ## Example Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = resource_group::create(
@@ -66,47 +66,47 @@
 /// ```
 ///
 pub mod windows_function_app_slot {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct WindowsFunctionAppSlotArgs {
         /// A map of key-value pairs for [App Settings](https://docs.microsoft.com/azure/azure-functions/functions-app-settings) and custom values.
         #[builder(into, default)]
-        pub app_settings: pulumi_wasm_rust::InputOrOutput<
+        pub app_settings: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// an `auth_settings` block as detailed below.
         #[builder(into, default)]
-        pub auth_settings: pulumi_wasm_rust::InputOrOutput<
+        pub auth_settings: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::appservice::WindowsFunctionAppSlotAuthSettings>,
         >,
         /// an `auth_settings_v2` block as detailed below.
         #[builder(into, default)]
-        pub auth_settings_v2: pulumi_wasm_rust::InputOrOutput<
+        pub auth_settings_v2: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::appservice::WindowsFunctionAppSlotAuthSettingsV2>,
         >,
         /// a `backup` block as detailed below.
         #[builder(into, default)]
-        pub backup: pulumi_wasm_rust::InputOrOutput<
+        pub backup: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::appservice::WindowsFunctionAppSlotBackup>,
         >,
         /// Should built-in logging be enabled. Configures `AzureWebJobsDashboard` app setting based on the configured storage setting. Defaults to `true`.
         #[builder(into, default)]
-        pub builtin_logging_enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub builtin_logging_enabled: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// Should the Function App Slot use Client Certificates.
         #[builder(into, default)]
-        pub client_certificate_enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub client_certificate_enabled: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// Paths to exclude when using client certificates, separated by ;
         #[builder(into, default)]
-        pub client_certificate_exclusion_paths: pulumi_wasm_rust::InputOrOutput<
+        pub client_certificate_exclusion_paths: pulumi_gestalt_rust::InputOrOutput<
             Option<String>,
         >,
         /// The mode of the Function App Slot's client certificates requirement for incoming requests. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`. Defaults to `Optional`.
         #[builder(into, default)]
-        pub client_certificate_mode: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub client_certificate_mode: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// a `connection_string` block as detailed below.
         #[builder(into, default)]
-        pub connection_strings: pulumi_wasm_rust::InputOrOutput<
+        pub connection_strings: pulumi_gestalt_rust::InputOrOutput<
             Option<
                 Vec<
                     super::super::types::appservice::WindowsFunctionAppSlotConnectionString,
@@ -115,60 +115,68 @@ pub mod windows_function_app_slot {
         >,
         /// Force disable the content share settings.
         #[builder(into, default)]
-        pub content_share_force_disabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub content_share_force_disabled: pulumi_gestalt_rust::InputOrOutput<
+            Option<bool>,
+        >,
         /// The amount of memory in gigabyte-seconds that your application is allowed to consume per day. Setting this value only affects function apps in Consumption Plans. Defaults to `0`.
         #[builder(into, default)]
-        pub daily_memory_time_quota: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
+        pub daily_memory_time_quota: pulumi_gestalt_rust::InputOrOutput<Option<i32>>,
         /// Is the Windows Function App Slot enabled. Defaults to `true`.
         #[builder(into, default)]
-        pub enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub enabled: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// Should the default FTP Basic Authentication publishing profile be enabled. Defaults to `true`.
         #[builder(into, default)]
-        pub ftp_publish_basic_authentication_enabled: pulumi_wasm_rust::InputOrOutput<
+        pub ftp_publish_basic_authentication_enabled: pulumi_gestalt_rust::InputOrOutput<
             Option<bool>,
         >,
         /// The name of the Windows Function App this Slot is a member of. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub function_app_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub function_app_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The runtime version associated with the Function App Slot. Defaults to `~4`.
         #[builder(into, default)]
-        pub functions_extension_version: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub functions_extension_version: pulumi_gestalt_rust::InputOrOutput<
+            Option<String>,
+        >,
         /// Can the Function App Slot only be accessed via HTTPS?. Defaults to `false`.
         #[builder(into, default)]
-        pub https_only: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub https_only: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// an `identity` block as detailed below.
         #[builder(into, default)]
-        pub identity: pulumi_wasm_rust::InputOrOutput<
+        pub identity: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::appservice::WindowsFunctionAppSlotIdentity>,
         >,
         /// The User Assigned Identity ID used for accessing KeyVault secrets. The identity must be assigned to the application in the `identity` block. [For more information see - Access vaults with a user-assigned identity](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity)
         #[builder(into, default)]
-        pub key_vault_reference_identity_id: pulumi_wasm_rust::InputOrOutput<
+        pub key_vault_reference_identity_id: pulumi_gestalt_rust::InputOrOutput<
             Option<String>,
         >,
         /// Specifies the name of the Windows Function App Slot. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Should public network access be enabled for the Function App. Defaults to `true`.
         #[builder(into, default)]
-        pub public_network_access_enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub public_network_access_enabled: pulumi_gestalt_rust::InputOrOutput<
+            Option<bool>,
+        >,
         /// The ID of the Service Plan in which to run this slot. If not specified the same Service Plan as the Windows Function App will be used.
         #[builder(into, default)]
-        pub service_plan_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub service_plan_id: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// a `site_config` block as detailed below.
         #[builder(into)]
-        pub site_config: pulumi_wasm_rust::InputOrOutput<
+        pub site_config: pulumi_gestalt_rust::InputOrOutput<
             super::super::types::appservice::WindowsFunctionAppSlotSiteConfig,
         >,
         /// The access key which will be used to access the storage account for the Function App Slot.
         #[builder(into, default)]
-        pub storage_account_access_key: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub storage_account_access_key: pulumi_gestalt_rust::InputOrOutput<
+            Option<String>,
+        >,
         /// The backend storage account name which will be used by this Function App Slot.
         #[builder(into, default)]
-        pub storage_account_name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub storage_account_name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// One or more `storage_account` blocks as defined below.
         #[builder(into, default)]
-        pub storage_accounts: pulumi_wasm_rust::InputOrOutput<
+        pub storage_accounts: pulumi_gestalt_rust::InputOrOutput<
             Option<
                 Vec<
                     super::super::types::appservice::WindowsFunctionAppSlotStorageAccount,
@@ -181,56 +189,64 @@ pub mod windows_function_app_slot {
         ///
         /// > **NOTE:** `storage_key_vault_secret_id` used without a version will use the latest version of the secret, however, the service can take up to 24h to pick up a rotation of the latest version. See the [official docs](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#rotation) for more information.
         #[builder(into, default)]
-        pub storage_key_vault_secret_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub storage_key_vault_secret_id: pulumi_gestalt_rust::InputOrOutput<
+            Option<String>,
+        >,
         /// Should the Function App Slot use its Managed Identity to access storage.
         ///
         /// > **NOTE:** One of `storage_account_access_key` or `storage_uses_managed_identity` must be specified when using `storage_account_name`.
         #[builder(into, default)]
-        pub storage_uses_managed_identity: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub storage_uses_managed_identity: pulumi_gestalt_rust::InputOrOutput<
+            Option<bool>,
+        >,
         /// A mapping of tags which should be assigned to the Windows Function App Slot.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         #[builder(into, default)]
-        pub virtual_network_subnet_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub virtual_network_subnet_id: pulumi_gestalt_rust::InputOrOutput<
+            Option<String>,
+        >,
         /// Is container image pull over virtual network enabled? Defaults to `false`.
         #[builder(into, default)]
-        pub vnet_image_pull_enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub vnet_image_pull_enabled: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// Should the default WebDeploy Basic Authentication publishing credentials enabled. Defaults to `true`.
         #[builder(into, default)]
-        pub webdeploy_publish_basic_authentication_enabled: pulumi_wasm_rust::InputOrOutput<
+        pub webdeploy_publish_basic_authentication_enabled: pulumi_gestalt_rust::InputOrOutput<
             Option<bool>,
         >,
     }
     #[allow(dead_code)]
     pub struct WindowsFunctionAppSlotResult {
         /// A map of key-value pairs for [App Settings](https://docs.microsoft.com/azure/azure-functions/functions-app-settings) and custom values.
-        pub app_settings: pulumi_wasm_rust::Output<
+        pub app_settings: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// an `auth_settings` block as detailed below.
-        pub auth_settings: pulumi_wasm_rust::Output<
+        pub auth_settings: pulumi_gestalt_rust::Output<
             Option<super::super::types::appservice::WindowsFunctionAppSlotAuthSettings>,
         >,
         /// an `auth_settings_v2` block as detailed below.
-        pub auth_settings_v2: pulumi_wasm_rust::Output<
+        pub auth_settings_v2: pulumi_gestalt_rust::Output<
             Option<super::super::types::appservice::WindowsFunctionAppSlotAuthSettingsV2>,
         >,
         /// a `backup` block as detailed below.
-        pub backup: pulumi_wasm_rust::Output<
+        pub backup: pulumi_gestalt_rust::Output<
             Option<super::super::types::appservice::WindowsFunctionAppSlotBackup>,
         >,
         /// Should built-in logging be enabled. Configures `AzureWebJobsDashboard` app setting based on the configured storage setting. Defaults to `true`.
-        pub builtin_logging_enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub builtin_logging_enabled: pulumi_gestalt_rust::Output<Option<bool>>,
         /// Should the Function App Slot use Client Certificates.
-        pub client_certificate_enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub client_certificate_enabled: pulumi_gestalt_rust::Output<Option<bool>>,
         /// Paths to exclude when using client certificates, separated by ;
-        pub client_certificate_exclusion_paths: pulumi_wasm_rust::Output<Option<String>>,
+        pub client_certificate_exclusion_paths: pulumi_gestalt_rust::Output<
+            Option<String>,
+        >,
         /// The mode of the Function App Slot's client certificates requirement for incoming requests. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`. Defaults to `Optional`.
-        pub client_certificate_mode: pulumi_wasm_rust::Output<Option<String>>,
+        pub client_certificate_mode: pulumi_gestalt_rust::Output<Option<String>>,
         /// a `connection_string` block as detailed below.
-        pub connection_strings: pulumi_wasm_rust::Output<
+        pub connection_strings: pulumi_gestalt_rust::Output<
             Option<
                 Vec<
                     super::super::types::appservice::WindowsFunctionAppSlotConnectionString,
@@ -238,63 +254,63 @@ pub mod windows_function_app_slot {
             >,
         >,
         /// Force disable the content share settings.
-        pub content_share_force_disabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub content_share_force_disabled: pulumi_gestalt_rust::Output<Option<bool>>,
         /// The identifier used by App Service to perform domain ownership verification via DNS TXT record.
-        pub custom_domain_verification_id: pulumi_wasm_rust::Output<String>,
+        pub custom_domain_verification_id: pulumi_gestalt_rust::Output<String>,
         /// The amount of memory in gigabyte-seconds that your application is allowed to consume per day. Setting this value only affects function apps in Consumption Plans. Defaults to `0`.
-        pub daily_memory_time_quota: pulumi_wasm_rust::Output<Option<i32>>,
+        pub daily_memory_time_quota: pulumi_gestalt_rust::Output<Option<i32>>,
         /// The default hostname of the Windows Function App Slot.
-        pub default_hostname: pulumi_wasm_rust::Output<String>,
+        pub default_hostname: pulumi_gestalt_rust::Output<String>,
         /// Is the Windows Function App Slot enabled. Defaults to `true`.
-        pub enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub enabled: pulumi_gestalt_rust::Output<Option<bool>>,
         /// Should the default FTP Basic Authentication publishing profile be enabled. Defaults to `true`.
-        pub ftp_publish_basic_authentication_enabled: pulumi_wasm_rust::Output<
+        pub ftp_publish_basic_authentication_enabled: pulumi_gestalt_rust::Output<
             Option<bool>,
         >,
         /// The name of the Windows Function App this Slot is a member of. Changing this forces a new resource to be created.
-        pub function_app_id: pulumi_wasm_rust::Output<String>,
+        pub function_app_id: pulumi_gestalt_rust::Output<String>,
         /// The runtime version associated with the Function App Slot. Defaults to `~4`.
-        pub functions_extension_version: pulumi_wasm_rust::Output<Option<String>>,
+        pub functions_extension_version: pulumi_gestalt_rust::Output<Option<String>>,
         /// The ID of the App Service Environment used by Function App Slot.
-        pub hosting_environment_id: pulumi_wasm_rust::Output<String>,
+        pub hosting_environment_id: pulumi_gestalt_rust::Output<String>,
         /// Can the Function App Slot only be accessed via HTTPS?. Defaults to `false`.
-        pub https_only: pulumi_wasm_rust::Output<Option<bool>>,
+        pub https_only: pulumi_gestalt_rust::Output<Option<bool>>,
         /// an `identity` block as detailed below.
-        pub identity: pulumi_wasm_rust::Output<
+        pub identity: pulumi_gestalt_rust::Output<
             Option<super::super::types::appservice::WindowsFunctionAppSlotIdentity>,
         >,
         /// The User Assigned Identity ID used for accessing KeyVault secrets. The identity must be assigned to the application in the `identity` block. [For more information see - Access vaults with a user-assigned identity](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity)
-        pub key_vault_reference_identity_id: pulumi_wasm_rust::Output<String>,
+        pub key_vault_reference_identity_id: pulumi_gestalt_rust::Output<String>,
         /// The Kind value for this Windows Function App Slot.
-        pub kind: pulumi_wasm_rust::Output<String>,
+        pub kind: pulumi_gestalt_rust::Output<String>,
         /// Specifies the name of the Windows Function App Slot. Changing this forces a new resource to be created.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// A list of outbound IP addresses. For example `["52.23.25.3", "52.143.43.12"]`.
-        pub outbound_ip_address_lists: pulumi_wasm_rust::Output<Vec<String>>,
+        pub outbound_ip_address_lists: pulumi_gestalt_rust::Output<Vec<String>>,
         /// A comma separated list of outbound IP addresses as a string. For example `52.23.25.3,52.143.43.12`.
-        pub outbound_ip_addresses: pulumi_wasm_rust::Output<String>,
+        pub outbound_ip_addresses: pulumi_gestalt_rust::Output<String>,
         /// A list of possible outbound IP addresses, not all of which are necessarily in use. This is a superset of `outbound_ip_address_list`. For example `["52.23.25.3", "52.143.43.12"]`.
-        pub possible_outbound_ip_address_lists: pulumi_wasm_rust::Output<Vec<String>>,
+        pub possible_outbound_ip_address_lists: pulumi_gestalt_rust::Output<Vec<String>>,
         /// A comma separated list of possible outbound IP addresses as a string. For example `52.23.25.3,52.143.43.12,52.143.43.17`. This is a superset of `outbound_ip_addresses`. For example `["52.23.25.3", "52.143.43.12","52.143.43.17"]`.
-        pub possible_outbound_ip_addresses: pulumi_wasm_rust::Output<String>,
+        pub possible_outbound_ip_addresses: pulumi_gestalt_rust::Output<String>,
         /// Should public network access be enabled for the Function App. Defaults to `true`.
-        pub public_network_access_enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub public_network_access_enabled: pulumi_gestalt_rust::Output<Option<bool>>,
         /// The ID of the Service Plan in which to run this slot. If not specified the same Service Plan as the Windows Function App will be used.
-        pub service_plan_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub service_plan_id: pulumi_gestalt_rust::Output<Option<String>>,
         /// a `site_config` block as detailed below.
-        pub site_config: pulumi_wasm_rust::Output<
+        pub site_config: pulumi_gestalt_rust::Output<
             super::super::types::appservice::WindowsFunctionAppSlotSiteConfig,
         >,
         /// A `site_credential` block as defined below.
-        pub site_credentials: pulumi_wasm_rust::Output<
+        pub site_credentials: pulumi_gestalt_rust::Output<
             Vec<super::super::types::appservice::WindowsFunctionAppSlotSiteCredential>,
         >,
         /// The access key which will be used to access the storage account for the Function App Slot.
-        pub storage_account_access_key: pulumi_wasm_rust::Output<Option<String>>,
+        pub storage_account_access_key: pulumi_gestalt_rust::Output<Option<String>>,
         /// The backend storage account name which will be used by this Function App Slot.
-        pub storage_account_name: pulumi_wasm_rust::Output<Option<String>>,
+        pub storage_account_name: pulumi_gestalt_rust::Output<Option<String>>,
         /// One or more `storage_account` blocks as defined below.
-        pub storage_accounts: pulumi_wasm_rust::Output<
+        pub storage_accounts: pulumi_gestalt_rust::Output<
             Option<
                 Vec<
                     super::super::types::appservice::WindowsFunctionAppSlotStorageAccount,
@@ -306,20 +322,20 @@ pub mod windows_function_app_slot {
         /// > **NOTE:** `storage_key_vault_secret_id` cannot be used with `storage_account_name`.
         ///
         /// > **NOTE:** `storage_key_vault_secret_id` used without a version will use the latest version of the secret, however, the service can take up to 24h to pick up a rotation of the latest version. See the [official docs](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#rotation) for more information.
-        pub storage_key_vault_secret_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub storage_key_vault_secret_id: pulumi_gestalt_rust::Output<Option<String>>,
         /// Should the Function App Slot use its Managed Identity to access storage.
         ///
         /// > **NOTE:** One of `storage_account_access_key` or `storage_uses_managed_identity` must be specified when using `storage_account_name`.
-        pub storage_uses_managed_identity: pulumi_wasm_rust::Output<Option<bool>>,
+        pub storage_uses_managed_identity: pulumi_gestalt_rust::Output<Option<bool>>,
         /// A mapping of tags which should be assigned to the Windows Function App Slot.
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
-        pub virtual_network_subnet_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub virtual_network_subnet_id: pulumi_gestalt_rust::Output<Option<String>>,
         /// Is container image pull over virtual network enabled? Defaults to `false`.
-        pub vnet_image_pull_enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub vnet_image_pull_enabled: pulumi_gestalt_rust::Output<Option<bool>>,
         /// Should the default WebDeploy Basic Authentication publishing credentials enabled. Defaults to `true`.
-        pub webdeploy_publish_basic_authentication_enabled: pulumi_wasm_rust::Output<
+        pub webdeploy_publish_basic_authentication_enabled: pulumi_gestalt_rust::Output<
             Option<bool>,
         >,
     }
@@ -328,11 +344,11 @@ pub mod windows_function_app_slot {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: WindowsFunctionAppSlotArgs,
     ) -> WindowsFunctionAppSlotResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let app_settings_binding = args.app_settings.get_output(context).get_inner();
         let auth_settings_binding = args.auth_settings.get_output(context).get_inner();
@@ -565,116 +581,118 @@ pub mod windows_function_app_slot {
         };
         let o = register_interface::register(context.get_inner(), &request);
         WindowsFunctionAppSlotResult {
-            app_settings: pulumi_wasm_rust::__private::into_domain(
+            app_settings: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("appSettings"),
             ),
-            auth_settings: pulumi_wasm_rust::__private::into_domain(
+            auth_settings: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("authSettings"),
             ),
-            auth_settings_v2: pulumi_wasm_rust::__private::into_domain(
+            auth_settings_v2: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("authSettingsV2"),
             ),
-            backup: pulumi_wasm_rust::__private::into_domain(o.extract_field("backup")),
-            builtin_logging_enabled: pulumi_wasm_rust::__private::into_domain(
+            backup: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("backup"),
+            ),
+            builtin_logging_enabled: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("builtinLoggingEnabled"),
             ),
-            client_certificate_enabled: pulumi_wasm_rust::__private::into_domain(
+            client_certificate_enabled: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("clientCertificateEnabled"),
             ),
-            client_certificate_exclusion_paths: pulumi_wasm_rust::__private::into_domain(
+            client_certificate_exclusion_paths: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("clientCertificateExclusionPaths"),
             ),
-            client_certificate_mode: pulumi_wasm_rust::__private::into_domain(
+            client_certificate_mode: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("clientCertificateMode"),
             ),
-            connection_strings: pulumi_wasm_rust::__private::into_domain(
+            connection_strings: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("connectionStrings"),
             ),
-            content_share_force_disabled: pulumi_wasm_rust::__private::into_domain(
+            content_share_force_disabled: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("contentShareForceDisabled"),
             ),
-            custom_domain_verification_id: pulumi_wasm_rust::__private::into_domain(
+            custom_domain_verification_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("customDomainVerificationId"),
             ),
-            daily_memory_time_quota: pulumi_wasm_rust::__private::into_domain(
+            daily_memory_time_quota: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("dailyMemoryTimeQuota"),
             ),
-            default_hostname: pulumi_wasm_rust::__private::into_domain(
+            default_hostname: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("defaultHostname"),
             ),
-            enabled: pulumi_wasm_rust::__private::into_domain(
+            enabled: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("enabled"),
             ),
-            ftp_publish_basic_authentication_enabled: pulumi_wasm_rust::__private::into_domain(
+            ftp_publish_basic_authentication_enabled: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("ftpPublishBasicAuthenticationEnabled"),
             ),
-            function_app_id: pulumi_wasm_rust::__private::into_domain(
+            function_app_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("functionAppId"),
             ),
-            functions_extension_version: pulumi_wasm_rust::__private::into_domain(
+            functions_extension_version: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("functionsExtensionVersion"),
             ),
-            hosting_environment_id: pulumi_wasm_rust::__private::into_domain(
+            hosting_environment_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("hostingEnvironmentId"),
             ),
-            https_only: pulumi_wasm_rust::__private::into_domain(
+            https_only: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("httpsOnly"),
             ),
-            identity: pulumi_wasm_rust::__private::into_domain(
+            identity: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("identity"),
             ),
-            key_vault_reference_identity_id: pulumi_wasm_rust::__private::into_domain(
+            key_vault_reference_identity_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("keyVaultReferenceIdentityId"),
             ),
-            kind: pulumi_wasm_rust::__private::into_domain(o.extract_field("kind")),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            outbound_ip_address_lists: pulumi_wasm_rust::__private::into_domain(
+            kind: pulumi_gestalt_rust::__private::into_domain(o.extract_field("kind")),
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            outbound_ip_address_lists: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("outboundIpAddressLists"),
             ),
-            outbound_ip_addresses: pulumi_wasm_rust::__private::into_domain(
+            outbound_ip_addresses: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("outboundIpAddresses"),
             ),
-            possible_outbound_ip_address_lists: pulumi_wasm_rust::__private::into_domain(
+            possible_outbound_ip_address_lists: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("possibleOutboundIpAddressLists"),
             ),
-            possible_outbound_ip_addresses: pulumi_wasm_rust::__private::into_domain(
+            possible_outbound_ip_addresses: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("possibleOutboundIpAddresses"),
             ),
-            public_network_access_enabled: pulumi_wasm_rust::__private::into_domain(
+            public_network_access_enabled: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("publicNetworkAccessEnabled"),
             ),
-            service_plan_id: pulumi_wasm_rust::__private::into_domain(
+            service_plan_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("servicePlanId"),
             ),
-            site_config: pulumi_wasm_rust::__private::into_domain(
+            site_config: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("siteConfig"),
             ),
-            site_credentials: pulumi_wasm_rust::__private::into_domain(
+            site_credentials: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("siteCredentials"),
             ),
-            storage_account_access_key: pulumi_wasm_rust::__private::into_domain(
+            storage_account_access_key: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("storageAccountAccessKey"),
             ),
-            storage_account_name: pulumi_wasm_rust::__private::into_domain(
+            storage_account_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("storageAccountName"),
             ),
-            storage_accounts: pulumi_wasm_rust::__private::into_domain(
+            storage_accounts: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("storageAccounts"),
             ),
-            storage_key_vault_secret_id: pulumi_wasm_rust::__private::into_domain(
+            storage_key_vault_secret_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("storageKeyVaultSecretId"),
             ),
-            storage_uses_managed_identity: pulumi_wasm_rust::__private::into_domain(
+            storage_uses_managed_identity: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("storageUsesManagedIdentity"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
-            virtual_network_subnet_id: pulumi_wasm_rust::__private::into_domain(
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            virtual_network_subnet_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("virtualNetworkSubnetId"),
             ),
-            vnet_image_pull_enabled: pulumi_wasm_rust::__private::into_domain(
+            vnet_image_pull_enabled: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("vnetImagePullEnabled"),
             ),
-            webdeploy_publish_basic_authentication_enabled: pulumi_wasm_rust::__private::into_domain(
+            webdeploy_publish_basic_authentication_enabled: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("webdeployPublishBasicAuthenticationEnabled"),
             ),
         }

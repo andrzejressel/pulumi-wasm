@@ -398,7 +398,7 @@
 /// ```
 ///
 pub mod cluster {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ClusterArgs {
@@ -406,68 +406,70 @@ pub mod cluster {
         /// Default value: "AUTH_MODE_DISABLED" Possible values: ["AUTH_MODE_UNSPECIFIED", "AUTH_MODE_IAM_AUTH",
         /// "AUTH_MODE_DISABLED"]
         #[builder(into, default)]
-        pub authorization_mode: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub authorization_mode: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Cross cluster replication config
         #[builder(into, default)]
-        pub cross_cluster_replication_config: pulumi_wasm_rust::InputOrOutput<
+        pub cross_cluster_replication_config: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::redis::ClusterCrossClusterReplicationConfig>,
         >,
         /// Optional. Indicates if the cluster is deletion protected or not. If the value if set to true, any delete cluster
         /// operation will fail. Default value is true.
         #[builder(into, default)]
-        pub deletion_protection_enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub deletion_protection_enabled: pulumi_gestalt_rust::InputOrOutput<
+            Option<bool>,
+        >,
         /// Maintenance policy for a cluster
         #[builder(into, default)]
-        pub maintenance_policy: pulumi_wasm_rust::InputOrOutput<
+        pub maintenance_policy: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::redis::ClusterMaintenancePolicy>,
         >,
         /// Unique name of the resource in this scope including project and location using the form:
         /// projects/{projectId}/locations/{locationId}/clusters/{clusterId}
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The nodeType for the Redis cluster. If not provided, REDIS_HIGHMEM_MEDIUM will be used as default Possible values:
         /// ["REDIS_SHARED_CORE_NANO", "REDIS_HIGHMEM_MEDIUM", "REDIS_HIGHMEM_XLARGE", "REDIS_STANDARD_SMALL"]
         #[builder(into, default)]
-        pub node_type: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub node_type: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Persistence config (RDB, AOF) for the cluster.
         #[builder(into, default)]
-        pub persistence_config: pulumi_wasm_rust::InputOrOutput<
+        pub persistence_config: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::redis::ClusterPersistenceConfig>,
         >,
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub project: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Required. Each PscConfig configures the consumer network where two
         /// network addresses will be designated to the cluster for client access.
         /// Currently, only one PscConfig is supported.
         /// Structure is documented below.
         #[builder(into)]
-        pub psc_configs: pulumi_wasm_rust::InputOrOutput<
+        pub psc_configs: pulumi_gestalt_rust::InputOrOutput<
             Vec<super::super::types::redis::ClusterPscConfig>,
         >,
         /// Configure Redis Cluster behavior using a subset of native Redis configuration parameters. Please check Memorystore
         /// documentation for the list of supported parameters:
         /// https://cloud.google.com/memorystore/docs/cluster/supported-instance-configurations
         #[builder(into, default)]
-        pub redis_configs: pulumi_wasm_rust::InputOrOutput<
+        pub redis_configs: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// The name of the region of the Redis cluster.
         #[builder(into, default)]
-        pub region: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub region: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Optional. The number of replica nodes per shard.
         #[builder(into, default)]
-        pub replica_count: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
+        pub replica_count: pulumi_gestalt_rust::InputOrOutput<Option<i32>>,
         /// Required. Number of shards for the Redis cluster.
         #[builder(into)]
-        pub shard_count: pulumi_wasm_rust::InputOrOutput<i32>,
+        pub shard_count: pulumi_gestalt_rust::InputOrOutput<i32>,
         /// Optional. The in-transit encryption for the Redis cluster. If not provided, encryption is disabled for the cluster.
         /// Default value: "TRANSIT_ENCRYPTION_MODE_DISABLED" Possible values: ["TRANSIT_ENCRYPTION_MODE_UNSPECIFIED",
         /// "TRANSIT_ENCRYPTION_MODE_DISABLED", "TRANSIT_ENCRYPTION_MODE_SERVER_AUTHENTICATION"]
         #[builder(into, default)]
-        pub transit_encryption_mode: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub transit_encryption_mode: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Immutable. Zone distribution config for Memorystore Redis cluster.
         #[builder(into, default)]
-        pub zone_distribution_config: pulumi_wasm_rust::InputOrOutput<
+        pub zone_distribution_config: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::redis::ClusterZoneDistributionConfig>,
         >,
     }
@@ -476,88 +478,88 @@ pub mod cluster {
         /// Optional. The authorization mode of the Redis cluster. If not provided, auth feature is disabled for the cluster.
         /// Default value: "AUTH_MODE_DISABLED" Possible values: ["AUTH_MODE_UNSPECIFIED", "AUTH_MODE_IAM_AUTH",
         /// "AUTH_MODE_DISABLED"]
-        pub authorization_mode: pulumi_wasm_rust::Output<Option<String>>,
+        pub authorization_mode: pulumi_gestalt_rust::Output<Option<String>>,
         /// The timestamp associated with the cluster creation request. A timestamp in
         /// RFC3339 UTC "Zulu" format, with nanosecond resolution and up to nine fractional
         /// digits. Examples: "2014-10-02T15:01:23Z" and "2014-10-02T15:01:23.045123456Z".
-        pub create_time: pulumi_wasm_rust::Output<String>,
+        pub create_time: pulumi_gestalt_rust::Output<String>,
         /// Cross cluster replication config
-        pub cross_cluster_replication_config: pulumi_wasm_rust::Output<
+        pub cross_cluster_replication_config: pulumi_gestalt_rust::Output<
             super::super::types::redis::ClusterCrossClusterReplicationConfig,
         >,
         /// Optional. Indicates if the cluster is deletion protected or not. If the value if set to true, any delete cluster
         /// operation will fail. Default value is true.
-        pub deletion_protection_enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub deletion_protection_enabled: pulumi_gestalt_rust::Output<Option<bool>>,
         /// Output only. Endpoints created on each given network,
         /// for Redis clients to connect to the cluster.
         /// Currently only one endpoint is supported.
         /// Structure is documented below.
-        pub discovery_endpoints: pulumi_wasm_rust::Output<
+        pub discovery_endpoints: pulumi_gestalt_rust::Output<
             Vec<super::super::types::redis::ClusterDiscoveryEndpoint>,
         >,
         /// Maintenance policy for a cluster
-        pub maintenance_policy: pulumi_wasm_rust::Output<
+        pub maintenance_policy: pulumi_gestalt_rust::Output<
             Option<super::super::types::redis::ClusterMaintenancePolicy>,
         >,
         /// Upcoming maintenance schedule.
         /// Structure is documented below.
-        pub maintenance_schedules: pulumi_wasm_rust::Output<
+        pub maintenance_schedules: pulumi_gestalt_rust::Output<
             Vec<super::super::types::redis::ClusterMaintenanceSchedule>,
         >,
         /// Unique name of the resource in this scope including project and location using the form:
         /// projects/{projectId}/locations/{locationId}/clusters/{clusterId}
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// The nodeType for the Redis cluster. If not provided, REDIS_HIGHMEM_MEDIUM will be used as default Possible values:
         /// ["REDIS_SHARED_CORE_NANO", "REDIS_HIGHMEM_MEDIUM", "REDIS_HIGHMEM_XLARGE", "REDIS_STANDARD_SMALL"]
-        pub node_type: pulumi_wasm_rust::Output<String>,
+        pub node_type: pulumi_gestalt_rust::Output<String>,
         /// Persistence config (RDB, AOF) for the cluster.
-        pub persistence_config: pulumi_wasm_rust::Output<
+        pub persistence_config: pulumi_gestalt_rust::Output<
             super::super::types::redis::ClusterPersistenceConfig,
         >,
         /// Output only. Redis memory precise size in GB for the entire cluster.
-        pub precise_size_gb: pulumi_wasm_rust::Output<f64>,
-        pub project: pulumi_wasm_rust::Output<String>,
+        pub precise_size_gb: pulumi_gestalt_rust::Output<f64>,
+        pub project: pulumi_gestalt_rust::Output<String>,
         /// Required. Each PscConfig configures the consumer network where two
         /// network addresses will be designated to the cluster for client access.
         /// Currently, only one PscConfig is supported.
         /// Structure is documented below.
-        pub psc_configs: pulumi_wasm_rust::Output<
+        pub psc_configs: pulumi_gestalt_rust::Output<
             Vec<super::super::types::redis::ClusterPscConfig>,
         >,
         /// Output only. PSC connections for discovery of the cluster topology and accessing the cluster.
         /// Structure is documented below.
-        pub psc_connections: pulumi_wasm_rust::Output<
+        pub psc_connections: pulumi_gestalt_rust::Output<
             Vec<super::super::types::redis::ClusterPscConnection>,
         >,
         /// Configure Redis Cluster behavior using a subset of native Redis configuration parameters. Please check Memorystore
         /// documentation for the list of supported parameters:
         /// https://cloud.google.com/memorystore/docs/cluster/supported-instance-configurations
-        pub redis_configs: pulumi_wasm_rust::Output<
+        pub redis_configs: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// The name of the region of the Redis cluster.
-        pub region: pulumi_wasm_rust::Output<String>,
+        pub region: pulumi_gestalt_rust::Output<String>,
         /// Optional. The number of replica nodes per shard.
-        pub replica_count: pulumi_wasm_rust::Output<Option<i32>>,
+        pub replica_count: pulumi_gestalt_rust::Output<Option<i32>>,
         /// Required. Number of shards for the Redis cluster.
-        pub shard_count: pulumi_wasm_rust::Output<i32>,
+        pub shard_count: pulumi_gestalt_rust::Output<i32>,
         /// Output only. Redis memory size in GB for the entire cluster.
-        pub size_gb: pulumi_wasm_rust::Output<i32>,
+        pub size_gb: pulumi_gestalt_rust::Output<i32>,
         /// The current state of this cluster. Can be CREATING, READY, UPDATING, DELETING and SUSPENDED
-        pub state: pulumi_wasm_rust::Output<String>,
+        pub state: pulumi_gestalt_rust::Output<String>,
         /// Output only. Additional information about the current state of the cluster.
         /// Structure is documented below.
-        pub state_infos: pulumi_wasm_rust::Output<
+        pub state_infos: pulumi_gestalt_rust::Output<
             Vec<super::super::types::redis::ClusterStateInfo>,
         >,
         /// Optional. The in-transit encryption for the Redis cluster. If not provided, encryption is disabled for the cluster.
         /// Default value: "TRANSIT_ENCRYPTION_MODE_DISABLED" Possible values: ["TRANSIT_ENCRYPTION_MODE_UNSPECIFIED",
         /// "TRANSIT_ENCRYPTION_MODE_DISABLED", "TRANSIT_ENCRYPTION_MODE_SERVER_AUTHENTICATION"]
-        pub transit_encryption_mode: pulumi_wasm_rust::Output<Option<String>>,
+        pub transit_encryption_mode: pulumi_gestalt_rust::Output<Option<String>>,
         /// System assigned, unique identifier for the cluster.
-        pub uid: pulumi_wasm_rust::Output<String>,
+        pub uid: pulumi_gestalt_rust::Output<String>,
         /// Immutable. Zone distribution config for Memorystore Redis cluster.
-        pub zone_distribution_config: pulumi_wasm_rust::Output<
+        pub zone_distribution_config: pulumi_gestalt_rust::Output<
             Option<super::super::types::redis::ClusterZoneDistributionConfig>,
         >,
     }
@@ -566,11 +568,11 @@ pub mod cluster {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: ClusterArgs,
     ) -> ClusterResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let authorization_mode_binding = args
             .authorization_mode
@@ -677,66 +679,70 @@ pub mod cluster {
         };
         let o = register_interface::register(context.get_inner(), &request);
         ClusterResult {
-            authorization_mode: pulumi_wasm_rust::__private::into_domain(
+            authorization_mode: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("authorizationMode"),
             ),
-            create_time: pulumi_wasm_rust::__private::into_domain(
+            create_time: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("createTime"),
             ),
-            cross_cluster_replication_config: pulumi_wasm_rust::__private::into_domain(
+            cross_cluster_replication_config: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("crossClusterReplicationConfig"),
             ),
-            deletion_protection_enabled: pulumi_wasm_rust::__private::into_domain(
+            deletion_protection_enabled: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("deletionProtectionEnabled"),
             ),
-            discovery_endpoints: pulumi_wasm_rust::__private::into_domain(
+            discovery_endpoints: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("discoveryEndpoints"),
             ),
-            maintenance_policy: pulumi_wasm_rust::__private::into_domain(
+            maintenance_policy: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("maintenancePolicy"),
             ),
-            maintenance_schedules: pulumi_wasm_rust::__private::into_domain(
+            maintenance_schedules: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("maintenanceSchedules"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            node_type: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            node_type: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("nodeType"),
             ),
-            persistence_config: pulumi_wasm_rust::__private::into_domain(
+            persistence_config: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("persistenceConfig"),
             ),
-            precise_size_gb: pulumi_wasm_rust::__private::into_domain(
+            precise_size_gb: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("preciseSizeGb"),
             ),
-            project: pulumi_wasm_rust::__private::into_domain(
+            project: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("project"),
             ),
-            psc_configs: pulumi_wasm_rust::__private::into_domain(
+            psc_configs: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("pscConfigs"),
             ),
-            psc_connections: pulumi_wasm_rust::__private::into_domain(
+            psc_connections: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("pscConnections"),
             ),
-            redis_configs: pulumi_wasm_rust::__private::into_domain(
+            redis_configs: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("redisConfigs"),
             ),
-            region: pulumi_wasm_rust::__private::into_domain(o.extract_field("region")),
-            replica_count: pulumi_wasm_rust::__private::into_domain(
+            region: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("region"),
+            ),
+            replica_count: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("replicaCount"),
             ),
-            shard_count: pulumi_wasm_rust::__private::into_domain(
+            shard_count: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("shardCount"),
             ),
-            size_gb: pulumi_wasm_rust::__private::into_domain(o.extract_field("sizeGb")),
-            state: pulumi_wasm_rust::__private::into_domain(o.extract_field("state")),
-            state_infos: pulumi_wasm_rust::__private::into_domain(
+            size_gb: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("sizeGb"),
+            ),
+            state: pulumi_gestalt_rust::__private::into_domain(o.extract_field("state")),
+            state_infos: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("stateInfos"),
             ),
-            transit_encryption_mode: pulumi_wasm_rust::__private::into_domain(
+            transit_encryption_mode: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("transitEncryptionMode"),
             ),
-            uid: pulumi_wasm_rust::__private::into_domain(o.extract_field("uid")),
-            zone_distribution_config: pulumi_wasm_rust::__private::into_domain(
+            uid: pulumi_gestalt_rust::__private::into_domain(o.extract_field("uid")),
+            zone_distribution_config: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("zoneDistributionConfig"),
             ),
         }

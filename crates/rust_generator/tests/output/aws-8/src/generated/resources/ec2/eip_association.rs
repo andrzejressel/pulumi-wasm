@@ -38,72 +38,72 @@
 /// $ pulumi import aws:ec2/eipAssociation:EipAssociation test eipassoc-ab12c345
 /// ```
 pub mod eip_association {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct EipAssociationArgs {
         /// The allocation ID. This is required for EC2-VPC.
         #[builder(into, default)]
-        pub allocation_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub allocation_id: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Whether to allow an Elastic IP to
         /// be re-associated. Defaults to `true` in VPC.
         #[builder(into, default)]
-        pub allow_reassociation: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub allow_reassociation: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// The ID of the instance. This is required for
         /// EC2-Classic. For EC2-VPC, you can specify either the instance ID or the
         /// network interface ID, but not both. The operation fails if you specify an
         /// instance ID unless exactly one network interface is attached.
         #[builder(into, default)]
-        pub instance_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub instance_id: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The ID of the network interface. If the
         /// instance has more than one network interface, you must specify a network
         /// interface ID.
         #[builder(into, default)]
-        pub network_interface_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub network_interface_id: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The primary or secondary private IP address
         /// to associate with the Elastic IP address. If no private IP address is
         /// specified, the Elastic IP address is associated with the primary private IP
         /// address.
         #[builder(into, default)]
-        pub private_ip_address: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub private_ip_address: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The Elastic IP address. This is required for EC2-Classic.
         #[builder(into, default)]
-        pub public_ip: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub public_ip: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct EipAssociationResult {
         /// The allocation ID. This is required for EC2-VPC.
-        pub allocation_id: pulumi_wasm_rust::Output<String>,
+        pub allocation_id: pulumi_gestalt_rust::Output<String>,
         /// Whether to allow an Elastic IP to
         /// be re-associated. Defaults to `true` in VPC.
-        pub allow_reassociation: pulumi_wasm_rust::Output<Option<bool>>,
+        pub allow_reassociation: pulumi_gestalt_rust::Output<Option<bool>>,
         /// The ID of the instance. This is required for
         /// EC2-Classic. For EC2-VPC, you can specify either the instance ID or the
         /// network interface ID, but not both. The operation fails if you specify an
         /// instance ID unless exactly one network interface is attached.
-        pub instance_id: pulumi_wasm_rust::Output<String>,
+        pub instance_id: pulumi_gestalt_rust::Output<String>,
         /// The ID of the network interface. If the
         /// instance has more than one network interface, you must specify a network
         /// interface ID.
-        pub network_interface_id: pulumi_wasm_rust::Output<String>,
+        pub network_interface_id: pulumi_gestalt_rust::Output<String>,
         /// The primary or secondary private IP address
         /// to associate with the Elastic IP address. If no private IP address is
         /// specified, the Elastic IP address is associated with the primary private IP
         /// address.
-        pub private_ip_address: pulumi_wasm_rust::Output<String>,
+        pub private_ip_address: pulumi_gestalt_rust::Output<String>,
         /// The Elastic IP address. This is required for EC2-Classic.
-        pub public_ip: pulumi_wasm_rust::Output<String>,
+        pub public_ip: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: EipAssociationArgs,
     ) -> EipAssociationResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let allocation_id_binding = args.allocation_id.get_output(context).get_inner();
         let allow_reassociation_binding = args
@@ -153,22 +153,22 @@ pub mod eip_association {
         };
         let o = register_interface::register(context.get_inner(), &request);
         EipAssociationResult {
-            allocation_id: pulumi_wasm_rust::__private::into_domain(
+            allocation_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("allocationId"),
             ),
-            allow_reassociation: pulumi_wasm_rust::__private::into_domain(
+            allow_reassociation: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("allowReassociation"),
             ),
-            instance_id: pulumi_wasm_rust::__private::into_domain(
+            instance_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("instanceId"),
             ),
-            network_interface_id: pulumi_wasm_rust::__private::into_domain(
+            network_interface_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("networkInterfaceId"),
             ),
-            private_ip_address: pulumi_wasm_rust::__private::into_domain(
+            private_ip_address: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("privateIpAddress"),
             ),
-            public_ip: pulumi_wasm_rust::__private::into_domain(
+            public_ip: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("publicIp"),
             ),
         }

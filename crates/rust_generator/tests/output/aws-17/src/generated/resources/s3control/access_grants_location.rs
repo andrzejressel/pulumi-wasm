@@ -6,8 +6,8 @@
 /// ## Example Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = access_grants_instance::create(
@@ -32,43 +32,43 @@
 /// $ pulumi import aws:s3control/accessGrantsLocation:AccessGrantsLocation example 123456789012,default
 /// ```
 pub mod access_grants_location {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct AccessGrantsLocationArgs {
         #[builder(into, default)]
-        pub account_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub account_id: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The ARN of the IAM role that S3 Access Grants should use when fulfilling runtime access
         /// requests to the location.
         #[builder(into)]
-        pub iam_role_arn: pulumi_wasm_rust::InputOrOutput<String>,
+        pub iam_role_arn: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The default S3 URI `s3://` or the URI to a custom location, a specific bucket or prefix.
         #[builder(into)]
-        pub location_scope: pulumi_wasm_rust::InputOrOutput<String>,
+        pub location_scope: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
     #[allow(dead_code)]
     pub struct AccessGrantsLocationResult {
         /// Amazon Resource Name (ARN) of the S3 Access Grants location.
-        pub access_grants_location_arn: pulumi_wasm_rust::Output<String>,
+        pub access_grants_location_arn: pulumi_gestalt_rust::Output<String>,
         /// Unique ID of the S3 Access Grants location.
-        pub access_grants_location_id: pulumi_wasm_rust::Output<String>,
-        pub account_id: pulumi_wasm_rust::Output<String>,
+        pub access_grants_location_id: pulumi_gestalt_rust::Output<String>,
+        pub account_id: pulumi_gestalt_rust::Output<String>,
         /// The ARN of the IAM role that S3 Access Grants should use when fulfilling runtime access
         /// requests to the location.
-        pub iam_role_arn: pulumi_wasm_rust::Output<String>,
+        pub iam_role_arn: pulumi_gestalt_rust::Output<String>,
         /// The default S3 URI `s3://` or the URI to a custom location, a specific bucket or prefix.
-        pub location_scope: pulumi_wasm_rust::Output<String>,
+        pub location_scope: pulumi_gestalt_rust::Output<String>,
         /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        pub tags_all: pulumi_wasm_rust::Output<
+        pub tags_all: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
     }
@@ -77,11 +77,11 @@ pub mod access_grants_location {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: AccessGrantsLocationArgs,
     ) -> AccessGrantsLocationResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let account_id_binding = args.account_id.get_output(context).get_inner();
         let iam_role_arn_binding = args.iam_role_arn.get_output(context).get_inner();
@@ -112,23 +112,23 @@ pub mod access_grants_location {
         };
         let o = register_interface::register(context.get_inner(), &request);
         AccessGrantsLocationResult {
-            access_grants_location_arn: pulumi_wasm_rust::__private::into_domain(
+            access_grants_location_arn: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("accessGrantsLocationArn"),
             ),
-            access_grants_location_id: pulumi_wasm_rust::__private::into_domain(
+            access_grants_location_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("accessGrantsLocationId"),
             ),
-            account_id: pulumi_wasm_rust::__private::into_domain(
+            account_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("accountId"),
             ),
-            iam_role_arn: pulumi_wasm_rust::__private::into_domain(
+            iam_role_arn: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("iamRoleArn"),
             ),
-            location_scope: pulumi_wasm_rust::__private::into_domain(
+            location_scope: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("locationScope"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_wasm_rust::__private::into_domain(
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            tags_all: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("tagsAll"),
             ),
         }

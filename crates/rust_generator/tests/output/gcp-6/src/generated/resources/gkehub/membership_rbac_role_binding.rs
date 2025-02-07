@@ -69,25 +69,25 @@
 /// ```
 ///
 pub mod membership_rbac_role_binding {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct MembershipRbacRoleBindingArgs {
         /// Location of the Membership
         #[builder(into)]
-        pub location: pulumi_wasm_rust::InputOrOutput<String>,
+        pub location: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Id of the membership
         #[builder(into)]
-        pub membership_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub membership_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The client-provided identifier of the RBAC Role Binding.
         #[builder(into)]
-        pub membership_rbac_role_binding_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub membership_rbac_role_binding_id: pulumi_gestalt_rust::InputOrOutput<String>,
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub project: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Role to bind to the principal.
         /// Structure is documented below.
         #[builder(into)]
-        pub role: pulumi_wasm_rust::InputOrOutput<
+        pub role: pulumi_gestalt_rust::InputOrOutput<
             super::super::types::gkehub::MembershipRbacRoleBindingRole,
         >,
         /// Principal that is be authorized in the cluster (at least of one the oneof
@@ -95,53 +95,53 @@ pub mod membership_rbac_role_binding {
         /// user is the name of the user as seen by the kubernetes cluster, example
         /// "alice" or "alice@domain.tld"
         #[builder(into)]
-        pub user: pulumi_wasm_rust::InputOrOutput<String>,
+        pub user: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct MembershipRbacRoleBindingResult {
         /// Time the RBAC Role Binding was created in UTC.
-        pub create_time: pulumi_wasm_rust::Output<String>,
+        pub create_time: pulumi_gestalt_rust::Output<String>,
         /// Time the RBAC Role Binding was deleted in UTC.
-        pub delete_time: pulumi_wasm_rust::Output<String>,
+        pub delete_time: pulumi_gestalt_rust::Output<String>,
         /// Location of the Membership
-        pub location: pulumi_wasm_rust::Output<String>,
+        pub location: pulumi_gestalt_rust::Output<String>,
         /// Id of the membership
-        pub membership_id: pulumi_wasm_rust::Output<String>,
+        pub membership_id: pulumi_gestalt_rust::Output<String>,
         /// The client-provided identifier of the RBAC Role Binding.
-        pub membership_rbac_role_binding_id: pulumi_wasm_rust::Output<String>,
+        pub membership_rbac_role_binding_id: pulumi_gestalt_rust::Output<String>,
         /// The resource name for the RBAC Role Binding
-        pub name: pulumi_wasm_rust::Output<String>,
-        pub project: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
+        pub project: pulumi_gestalt_rust::Output<String>,
         /// Role to bind to the principal.
         /// Structure is documented below.
-        pub role: pulumi_wasm_rust::Output<
+        pub role: pulumi_gestalt_rust::Output<
             super::super::types::gkehub::MembershipRbacRoleBindingRole,
         >,
         /// State of the RBAC Role Binding resource.
         /// Structure is documented below.
-        pub states: pulumi_wasm_rust::Output<
+        pub states: pulumi_gestalt_rust::Output<
             Vec<super::super::types::gkehub::MembershipRbacRoleBindingState>,
         >,
         /// Google-generated UUID for this resource.
-        pub uid: pulumi_wasm_rust::Output<String>,
+        pub uid: pulumi_gestalt_rust::Output<String>,
         /// Time the RBAC Role Binding was updated in UTC.
-        pub update_time: pulumi_wasm_rust::Output<String>,
+        pub update_time: pulumi_gestalt_rust::Output<String>,
         /// Principal that is be authorized in the cluster (at least of one the oneof
         /// is required). Updating one will unset the other automatically.
         /// user is the name of the user as seen by the kubernetes cluster, example
         /// "alice" or "alice@domain.tld"
-        pub user: pulumi_wasm_rust::Output<String>,
+        pub user: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: MembershipRbacRoleBindingArgs,
     ) -> MembershipRbacRoleBindingResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let location_binding = args.location.get_output(context).get_inner();
         let membership_id_binding = args.membership_id.get_output(context).get_inner();
@@ -186,32 +186,34 @@ pub mod membership_rbac_role_binding {
         };
         let o = register_interface::register(context.get_inner(), &request);
         MembershipRbacRoleBindingResult {
-            create_time: pulumi_wasm_rust::__private::into_domain(
+            create_time: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("createTime"),
             ),
-            delete_time: pulumi_wasm_rust::__private::into_domain(
+            delete_time: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("deleteTime"),
             ),
-            location: pulumi_wasm_rust::__private::into_domain(
+            location: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("location"),
             ),
-            membership_id: pulumi_wasm_rust::__private::into_domain(
+            membership_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("membershipId"),
             ),
-            membership_rbac_role_binding_id: pulumi_wasm_rust::__private::into_domain(
+            membership_rbac_role_binding_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("membershipRbacRoleBindingId"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            project: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            project: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("project"),
             ),
-            role: pulumi_wasm_rust::__private::into_domain(o.extract_field("role")),
-            states: pulumi_wasm_rust::__private::into_domain(o.extract_field("states")),
-            uid: pulumi_wasm_rust::__private::into_domain(o.extract_field("uid")),
-            update_time: pulumi_wasm_rust::__private::into_domain(
+            role: pulumi_gestalt_rust::__private::into_domain(o.extract_field("role")),
+            states: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("states"),
+            ),
+            uid: pulumi_gestalt_rust::__private::into_domain(o.extract_field("uid")),
+            update_time: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("updateTime"),
             ),
-            user: pulumi_wasm_rust::__private::into_domain(o.extract_field("user")),
+            user: pulumi_gestalt_rust::__private::into_domain(o.extract_field("user")),
         }
     }
 }

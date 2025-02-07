@@ -3,8 +3,8 @@
 /// ## Example Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = zero_trust_dex_test::create(
@@ -34,58 +34,58 @@
 /// ```
 ///
 pub mod zero_trust_dex_test {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ZeroTrustDexTestArgs {
         /// The account identifier to target for the resource. **Modifying this attribute will force creation of a new resource.**
         #[builder(into)]
-        pub account_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub account_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The configuration object which contains the details for the WARP client to conduct the test.
         #[builder(into)]
-        pub data: pulumi_wasm_rust::InputOrOutput<super::types::ZeroTrustDexTestData>,
+        pub data: pulumi_gestalt_rust::InputOrOutput<super::types::ZeroTrustDexTestData>,
         /// Additional details about the test.
         #[builder(into)]
-        pub description: pulumi_wasm_rust::InputOrOutput<String>,
+        pub description: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Determines whether or not the test is active.
         #[builder(into)]
-        pub enabled: pulumi_wasm_rust::InputOrOutput<bool>,
+        pub enabled: pulumi_gestalt_rust::InputOrOutput<bool>,
         /// How often the test will run.
         #[builder(into)]
-        pub interval: pulumi_wasm_rust::InputOrOutput<String>,
+        pub interval: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The name of the Device Dex Test. Must be unique.
         #[builder(into)]
-        pub name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct ZeroTrustDexTestResult {
         /// The account identifier to target for the resource. **Modifying this attribute will force creation of a new resource.**
-        pub account_id: pulumi_wasm_rust::Output<String>,
+        pub account_id: pulumi_gestalt_rust::Output<String>,
         /// Timestamp of when the Dex Test was created.
-        pub created: pulumi_wasm_rust::Output<String>,
+        pub created: pulumi_gestalt_rust::Output<String>,
         /// The configuration object which contains the details for the WARP client to conduct the test.
-        pub data: pulumi_wasm_rust::Output<super::types::ZeroTrustDexTestData>,
+        pub data: pulumi_gestalt_rust::Output<super::types::ZeroTrustDexTestData>,
         /// Additional details about the test.
-        pub description: pulumi_wasm_rust::Output<String>,
+        pub description: pulumi_gestalt_rust::Output<String>,
         /// Determines whether or not the test is active.
-        pub enabled: pulumi_wasm_rust::Output<bool>,
+        pub enabled: pulumi_gestalt_rust::Output<bool>,
         /// How often the test will run.
-        pub interval: pulumi_wasm_rust::Output<String>,
+        pub interval: pulumi_gestalt_rust::Output<String>,
         /// The name of the Device Dex Test. Must be unique.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// Timestamp of when the Dex Test was last updated.
-        pub updated: pulumi_wasm_rust::Output<String>,
+        pub updated: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: ZeroTrustDexTestArgs,
     ) -> ZeroTrustDexTestResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let account_id_binding = args.account_id.get_output(context).get_inner();
         let data_binding = args.data.get_output(context).get_inner();
@@ -126,24 +126,26 @@ pub mod zero_trust_dex_test {
         };
         let o = register_interface::register(context.get_inner(), &request);
         ZeroTrustDexTestResult {
-            account_id: pulumi_wasm_rust::__private::into_domain(
+            account_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("accountId"),
             ),
-            created: pulumi_wasm_rust::__private::into_domain(
+            created: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("created"),
             ),
-            data: pulumi_wasm_rust::__private::into_domain(o.extract_field("data")),
-            description: pulumi_wasm_rust::__private::into_domain(
+            data: pulumi_gestalt_rust::__private::into_domain(o.extract_field("data")),
+            description: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("description"),
             ),
-            enabled: pulumi_wasm_rust::__private::into_domain(
+            enabled: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("enabled"),
             ),
-            interval: pulumi_wasm_rust::__private::into_domain(
+            interval: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("interval"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            updated: pulumi_wasm_rust::__private::into_domain(o.extract_field("updated")),
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            updated: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("updated"),
+            ),
         }
     }
 }

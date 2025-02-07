@@ -49,39 +49,39 @@
 /// $ pulumi import aws:storagegateway/uploadBuffer:UploadBuffer example arn:aws:storagegateway:us-east-1:123456789012:gateway/sgw-12345678:pci-0000:03:00.0-scsi-0:0:0:0
 /// ```
 pub mod upload_buffer {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct UploadBufferArgs {
         /// Local disk identifier. For example, `pci-0000:03:00.0-scsi-0:0:0:0`.
         #[builder(into, default)]
-        pub disk_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub disk_id: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Local disk path. For example, `/dev/nvme1n1`.
         #[builder(into, default)]
-        pub disk_path: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub disk_path: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The Amazon Resource Name (ARN) of the gateway.
         #[builder(into)]
-        pub gateway_arn: pulumi_wasm_rust::InputOrOutput<String>,
+        pub gateway_arn: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct UploadBufferResult {
         /// Local disk identifier. For example, `pci-0000:03:00.0-scsi-0:0:0:0`.
-        pub disk_id: pulumi_wasm_rust::Output<String>,
+        pub disk_id: pulumi_gestalt_rust::Output<String>,
         /// Local disk path. For example, `/dev/nvme1n1`.
-        pub disk_path: pulumi_wasm_rust::Output<String>,
+        pub disk_path: pulumi_gestalt_rust::Output<String>,
         /// The Amazon Resource Name (ARN) of the gateway.
-        pub gateway_arn: pulumi_wasm_rust::Output<String>,
+        pub gateway_arn: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: UploadBufferArgs,
     ) -> UploadBufferResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let disk_id_binding = args.disk_id.get_output(context).get_inner();
         let disk_path_binding = args.disk_path.get_output(context).get_inner();
@@ -107,11 +107,13 @@ pub mod upload_buffer {
         };
         let o = register_interface::register(context.get_inner(), &request);
         UploadBufferResult {
-            disk_id: pulumi_wasm_rust::__private::into_domain(o.extract_field("diskId")),
-            disk_path: pulumi_wasm_rust::__private::into_domain(
+            disk_id: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("diskId"),
+            ),
+            disk_path: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("diskPath"),
             ),
-            gateway_arn: pulumi_wasm_rust::__private::into_domain(
+            gateway_arn: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("gatewayArn"),
             ),
         }

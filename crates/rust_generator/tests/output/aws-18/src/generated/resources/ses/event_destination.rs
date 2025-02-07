@@ -5,8 +5,8 @@
 /// ### CloudWatch Destination
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let cloudwatch = event_destination::create(
@@ -31,8 +31,8 @@
 /// ### Kinesis Destination
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let kinesis = event_destination::create(
@@ -56,8 +56,8 @@
 /// ### SNS Destination
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let sns = event_destination::create(
@@ -85,64 +85,64 @@
 /// $ pulumi import aws:ses/eventDestination:EventDestination sns some-configuration-set-test/event-destination-sns
 /// ```
 pub mod event_destination {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct EventDestinationArgs {
         /// CloudWatch destination for the events
         #[builder(into, default)]
-        pub cloudwatch_destinations: pulumi_wasm_rust::InputOrOutput<
+        pub cloudwatch_destinations: pulumi_gestalt_rust::InputOrOutput<
             Option<Vec<super::super::types::ses::EventDestinationCloudwatchDestination>>,
         >,
         /// The name of the configuration set
         #[builder(into)]
-        pub configuration_set_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub configuration_set_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// If true, the event destination will be enabled
         #[builder(into, default)]
-        pub enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub enabled: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// Send the events to a kinesis firehose destination
         #[builder(into, default)]
-        pub kinesis_destination: pulumi_wasm_rust::InputOrOutput<
+        pub kinesis_destination: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::ses::EventDestinationKinesisDestination>,
         >,
         /// A list of matching types. May be any of `"send"`, `"reject"`, `"bounce"`, `"complaint"`, `"delivery"`, `"open"`, `"click"`, or `"renderingFailure"`.
         #[builder(into)]
-        pub matching_types: pulumi_wasm_rust::InputOrOutput<Vec<String>>,
+        pub matching_types: pulumi_gestalt_rust::InputOrOutput<Vec<String>>,
         /// The name of the event destination
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Send the events to an SNS Topic destination
         ///
         /// > **NOTE:** You can specify `"cloudwatch_destination"` or `"kinesis_destination"` but not both
         #[builder(into, default)]
-        pub sns_destination: pulumi_wasm_rust::InputOrOutput<
+        pub sns_destination: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::ses::EventDestinationSnsDestination>,
         >,
     }
     #[allow(dead_code)]
     pub struct EventDestinationResult {
         /// The SES event destination ARN.
-        pub arn: pulumi_wasm_rust::Output<String>,
+        pub arn: pulumi_gestalt_rust::Output<String>,
         /// CloudWatch destination for the events
-        pub cloudwatch_destinations: pulumi_wasm_rust::Output<
+        pub cloudwatch_destinations: pulumi_gestalt_rust::Output<
             Option<Vec<super::super::types::ses::EventDestinationCloudwatchDestination>>,
         >,
         /// The name of the configuration set
-        pub configuration_set_name: pulumi_wasm_rust::Output<String>,
+        pub configuration_set_name: pulumi_gestalt_rust::Output<String>,
         /// If true, the event destination will be enabled
-        pub enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub enabled: pulumi_gestalt_rust::Output<Option<bool>>,
         /// Send the events to a kinesis firehose destination
-        pub kinesis_destination: pulumi_wasm_rust::Output<
+        pub kinesis_destination: pulumi_gestalt_rust::Output<
             Option<super::super::types::ses::EventDestinationKinesisDestination>,
         >,
         /// A list of matching types. May be any of `"send"`, `"reject"`, `"bounce"`, `"complaint"`, `"delivery"`, `"open"`, `"click"`, or `"renderingFailure"`.
-        pub matching_types: pulumi_wasm_rust::Output<Vec<String>>,
+        pub matching_types: pulumi_gestalt_rust::Output<Vec<String>>,
         /// The name of the event destination
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// Send the events to an SNS Topic destination
         ///
         /// > **NOTE:** You can specify `"cloudwatch_destination"` or `"kinesis_destination"` but not both
-        pub sns_destination: pulumi_wasm_rust::Output<
+        pub sns_destination: pulumi_gestalt_rust::Output<
             Option<super::super::types::ses::EventDestinationSnsDestination>,
         >,
     }
@@ -151,11 +151,11 @@ pub mod event_destination {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: EventDestinationArgs,
     ) -> EventDestinationResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let cloudwatch_destinations_binding = args
             .cloudwatch_destinations
@@ -213,24 +213,24 @@ pub mod event_destination {
         };
         let o = register_interface::register(context.get_inner(), &request);
         EventDestinationResult {
-            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
-            cloudwatch_destinations: pulumi_wasm_rust::__private::into_domain(
+            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
+            cloudwatch_destinations: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("cloudwatchDestinations"),
             ),
-            configuration_set_name: pulumi_wasm_rust::__private::into_domain(
+            configuration_set_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("configurationSetName"),
             ),
-            enabled: pulumi_wasm_rust::__private::into_domain(
+            enabled: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("enabled"),
             ),
-            kinesis_destination: pulumi_wasm_rust::__private::into_domain(
+            kinesis_destination: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("kinesisDestination"),
             ),
-            matching_types: pulumi_wasm_rust::__private::into_domain(
+            matching_types: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("matchingTypes"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            sns_destination: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            sns_destination: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("snsDestination"),
             ),
         }

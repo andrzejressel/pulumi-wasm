@@ -1,20 +1,20 @@
 pub mod get_account_roles {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct GetAccountRolesArgs {
         /// The account identifier to target for the resource.
         #[builder(into)]
-        pub account_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub account_id: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct GetAccountRolesResult {
         /// The account identifier to target for the resource.
-        pub account_id: pulumi_wasm_rust::Output<String>,
+        pub account_id: pulumi_gestalt_rust::Output<String>,
         /// The provider-assigned unique ID for this managed resource.
-        pub id: pulumi_wasm_rust::Output<String>,
+        pub id: pulumi_gestalt_rust::Output<String>,
         /// A list of roles object.
-        pub roles: pulumi_wasm_rust::Output<
+        pub roles: pulumi_gestalt_rust::Output<
             Vec<super::super::types::GetAccountRolesRole>,
         >,
     }
@@ -23,10 +23,10 @@ pub mod get_account_roles {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         args: GetAccountRolesArgs,
     ) -> GetAccountRolesResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let account_id_binding = args.account_id.get_output(context).get_inner();
         let request = register_interface::ResourceInvokeRequest {
@@ -41,11 +41,11 @@ pub mod get_account_roles {
         };
         let o = register_interface::invoke(context.get_inner(), &request);
         GetAccountRolesResult {
-            account_id: pulumi_wasm_rust::__private::into_domain(
+            account_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("accountId"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
-            roles: pulumi_wasm_rust::__private::into_domain(o.extract_field("roles")),
+            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
+            roles: pulumi_gestalt_rust::__private::into_domain(o.extract_field("roles")),
         }
     }
 }

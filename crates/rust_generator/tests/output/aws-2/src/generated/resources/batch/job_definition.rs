@@ -214,128 +214,130 @@
 /// $ pulumi import aws:batch/jobDefinition:JobDefinition test arn:aws:batch:us-east-1:123456789012:job-definition/sample
 /// ```
 pub mod job_definition {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct JobDefinitionArgs {
         /// Valid [container properties](http://docs.aws.amazon.com/batch/latest/APIReference/API_RegisterJobDefinition.html) provided as a single valid JSON document. This parameter is only valid if the `type` parameter is `container`.
         #[builder(into, default)]
-        pub container_properties: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub container_properties: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// When updating a job definition a new revision is created. This parameter determines if the previous version is `deregistered` (`INACTIVE`) or left  `ACTIVE`. Defaults to `true`.
         #[builder(into, default)]
-        pub deregister_on_new_revision: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub deregister_on_new_revision: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// Valid [ECS properties](http://docs.aws.amazon.com/batch/latest/APIReference/API_RegisterJobDefinition.html) provided as a single valid JSON document. This parameter is only valid if the `type` parameter is `container`.
         #[builder(into, default)]
-        pub ecs_properties: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub ecs_properties: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Valid eks properties. This parameter is only valid if the `type` parameter is `container`.
         #[builder(into, default)]
-        pub eks_properties: pulumi_wasm_rust::InputOrOutput<
+        pub eks_properties: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::batch::JobDefinitionEksProperties>,
         >,
         /// Name of the job definition.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Valid [node properties](http://docs.aws.amazon.com/batch/latest/APIReference/API_RegisterJobDefinition.html) provided as a single valid JSON document. This parameter is required if the `type` parameter is `multinode`.
         #[builder(into, default)]
-        pub node_properties: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub node_properties: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Parameter substitution placeholders to set in the job definition.
         #[builder(into, default)]
-        pub parameters: pulumi_wasm_rust::InputOrOutput<
+        pub parameters: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Platform capabilities required by the job definition. If no value is specified, it defaults to `EC2`. To run the job on Fargate resources, specify `FARGATE`.
         #[builder(into, default)]
-        pub platform_capabilities: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
+        pub platform_capabilities: pulumi_gestalt_rust::InputOrOutput<
+            Option<Vec<String>>,
+        >,
         /// Whether to propagate the tags from the job definition to the corresponding Amazon ECS task. Default is `false`.
         #[builder(into, default)]
-        pub propagate_tags: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub propagate_tags: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// Retry strategy to use for failed jobs that are submitted with this job definition. Maximum number of `retry_strategy` is `1`.  Defined below.
         #[builder(into, default)]
-        pub retry_strategy: pulumi_wasm_rust::InputOrOutput<
+        pub retry_strategy: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::batch::JobDefinitionRetryStrategy>,
         >,
         /// Scheduling priority of the job definition. This only affects jobs in job queues with a fair share policy. Jobs with a higher scheduling priority are scheduled before jobs with a lower scheduling priority. Allowed values `0` through `9999`.
         #[builder(into, default)]
-        pub scheduling_priority: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
+        pub scheduling_priority: pulumi_gestalt_rust::InputOrOutput<Option<i32>>,
         /// Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Timeout for jobs so that if a job runs longer, AWS Batch terminates the job. Maximum number of `timeout` is `1`. Defined below.
         #[builder(into, default)]
-        pub timeout: pulumi_wasm_rust::InputOrOutput<
+        pub timeout: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::batch::JobDefinitionTimeout>,
         >,
         /// Type of job definition. Must be `container` or `multinode`.
         ///
         /// The following arguments are optional:
         #[builder(into)]
-        pub type_: pulumi_wasm_rust::InputOrOutput<String>,
+        pub type_: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct JobDefinitionResult {
         /// ARN of the job definition, includes revision (`:#`).
-        pub arn: pulumi_wasm_rust::Output<String>,
+        pub arn: pulumi_gestalt_rust::Output<String>,
         /// ARN without the revision number.
-        pub arn_prefix: pulumi_wasm_rust::Output<String>,
+        pub arn_prefix: pulumi_gestalt_rust::Output<String>,
         /// Valid [container properties](http://docs.aws.amazon.com/batch/latest/APIReference/API_RegisterJobDefinition.html) provided as a single valid JSON document. This parameter is only valid if the `type` parameter is `container`.
-        pub container_properties: pulumi_wasm_rust::Output<Option<String>>,
+        pub container_properties: pulumi_gestalt_rust::Output<Option<String>>,
         /// When updating a job definition a new revision is created. This parameter determines if the previous version is `deregistered` (`INACTIVE`) or left  `ACTIVE`. Defaults to `true`.
-        pub deregister_on_new_revision: pulumi_wasm_rust::Output<Option<bool>>,
+        pub deregister_on_new_revision: pulumi_gestalt_rust::Output<Option<bool>>,
         /// Valid [ECS properties](http://docs.aws.amazon.com/batch/latest/APIReference/API_RegisterJobDefinition.html) provided as a single valid JSON document. This parameter is only valid if the `type` parameter is `container`.
-        pub ecs_properties: pulumi_wasm_rust::Output<Option<String>>,
+        pub ecs_properties: pulumi_gestalt_rust::Output<Option<String>>,
         /// Valid eks properties. This parameter is only valid if the `type` parameter is `container`.
-        pub eks_properties: pulumi_wasm_rust::Output<
+        pub eks_properties: pulumi_gestalt_rust::Output<
             Option<super::super::types::batch::JobDefinitionEksProperties>,
         >,
         /// Name of the job definition.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// Valid [node properties](http://docs.aws.amazon.com/batch/latest/APIReference/API_RegisterJobDefinition.html) provided as a single valid JSON document. This parameter is required if the `type` parameter is `multinode`.
-        pub node_properties: pulumi_wasm_rust::Output<Option<String>>,
+        pub node_properties: pulumi_gestalt_rust::Output<Option<String>>,
         /// Parameter substitution placeholders to set in the job definition.
-        pub parameters: pulumi_wasm_rust::Output<
+        pub parameters: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Platform capabilities required by the job definition. If no value is specified, it defaults to `EC2`. To run the job on Fargate resources, specify `FARGATE`.
-        pub platform_capabilities: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub platform_capabilities: pulumi_gestalt_rust::Output<Option<Vec<String>>>,
         /// Whether to propagate the tags from the job definition to the corresponding Amazon ECS task. Default is `false`.
-        pub propagate_tags: pulumi_wasm_rust::Output<Option<bool>>,
+        pub propagate_tags: pulumi_gestalt_rust::Output<Option<bool>>,
         /// Retry strategy to use for failed jobs that are submitted with this job definition. Maximum number of `retry_strategy` is `1`.  Defined below.
-        pub retry_strategy: pulumi_wasm_rust::Output<
+        pub retry_strategy: pulumi_gestalt_rust::Output<
             Option<super::super::types::batch::JobDefinitionRetryStrategy>,
         >,
         /// Revision of the job definition.
-        pub revision: pulumi_wasm_rust::Output<i32>,
+        pub revision: pulumi_gestalt_rust::Output<i32>,
         /// Scheduling priority of the job definition. This only affects jobs in job queues with a fair share policy. Jobs with a higher scheduling priority are scheduled before jobs with a lower scheduling priority. Allowed values `0` through `9999`.
-        pub scheduling_priority: pulumi_wasm_rust::Output<Option<i32>>,
+        pub scheduling_priority: pulumi_gestalt_rust::Output<Option<i32>>,
         /// Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        pub tags_all: pulumi_wasm_rust::Output<
+        pub tags_all: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
         /// Timeout for jobs so that if a job runs longer, AWS Batch terminates the job. Maximum number of `timeout` is `1`. Defined below.
-        pub timeout: pulumi_wasm_rust::Output<
+        pub timeout: pulumi_gestalt_rust::Output<
             Option<super::super::types::batch::JobDefinitionTimeout>,
         >,
         /// Type of job definition. Must be `container` or `multinode`.
         ///
         /// The following arguments are optional:
-        pub type_: pulumi_wasm_rust::Output<String>,
+        pub type_: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: JobDefinitionArgs,
     ) -> JobDefinitionResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let container_properties_binding = args
             .container_properties
@@ -431,52 +433,52 @@ pub mod job_definition {
         };
         let o = register_interface::register(context.get_inner(), &request);
         JobDefinitionResult {
-            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
-            arn_prefix: pulumi_wasm_rust::__private::into_domain(
+            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
+            arn_prefix: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("arnPrefix"),
             ),
-            container_properties: pulumi_wasm_rust::__private::into_domain(
+            container_properties: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("containerProperties"),
             ),
-            deregister_on_new_revision: pulumi_wasm_rust::__private::into_domain(
+            deregister_on_new_revision: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("deregisterOnNewRevision"),
             ),
-            ecs_properties: pulumi_wasm_rust::__private::into_domain(
+            ecs_properties: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("ecsProperties"),
             ),
-            eks_properties: pulumi_wasm_rust::__private::into_domain(
+            eks_properties: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("eksProperties"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            node_properties: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            node_properties: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("nodeProperties"),
             ),
-            parameters: pulumi_wasm_rust::__private::into_domain(
+            parameters: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("parameters"),
             ),
-            platform_capabilities: pulumi_wasm_rust::__private::into_domain(
+            platform_capabilities: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("platformCapabilities"),
             ),
-            propagate_tags: pulumi_wasm_rust::__private::into_domain(
+            propagate_tags: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("propagateTags"),
             ),
-            retry_strategy: pulumi_wasm_rust::__private::into_domain(
+            retry_strategy: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("retryStrategy"),
             ),
-            revision: pulumi_wasm_rust::__private::into_domain(
+            revision: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("revision"),
             ),
-            scheduling_priority: pulumi_wasm_rust::__private::into_domain(
+            scheduling_priority: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("schedulingPriority"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_wasm_rust::__private::into_domain(
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            tags_all: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("tagsAll"),
             ),
-            timeout: pulumi_wasm_rust::__private::into_domain(
+            timeout: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("timeout"),
             ),
-            type_: pulumi_wasm_rust::__private::into_domain(o.extract_field("type")),
+            type_: pulumi_gestalt_rust::__private::into_domain(o.extract_field("type")),
         }
     }
 }

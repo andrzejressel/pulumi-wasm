@@ -42,8 +42,8 @@
 /// ### Custom Domain Validation Options
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let cert = certificate::create(
@@ -97,8 +97,8 @@
 /// See the `aws.acm.CertificateValidation` resource for a full example of performing DNS validation.
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = record::create(
@@ -123,79 +123,81 @@
 /// $ pulumi import aws:acm/certificate:Certificate cert arn:aws:acm:eu-central-1:123456789012:certificate/7e7a28d2-163f-4b8f-b9cd-822f96c08d6a
 /// ```
 pub mod certificate {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct CertificateArgs {
         /// ARN of an ACM PCA
         #[builder(into, default)]
-        pub certificate_authority_arn: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub certificate_authority_arn: pulumi_gestalt_rust::InputOrOutput<
+            Option<String>,
+        >,
         /// Certificate's PEM-formatted public key
         #[builder(into, default)]
-        pub certificate_body: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub certificate_body: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Certificate's PEM-formatted chain
         /// * Creating a private CA issued certificate
         #[builder(into, default)]
-        pub certificate_chain: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub certificate_chain: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Fully qualified domain name (FQDN) in the certificate.
         #[builder(into, default)]
-        pub domain_name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub domain_name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Amount of time to start automatic renewal process before expiration.
         /// Has no effect if less than 60 days.
         /// Represented by either
         /// a subset of [RFC 3339 duration](https://www.rfc-editor.org/rfc/rfc3339) supporting years, months, and days (e.g., `P90D`),
         /// or a string such as `2160h`.
         #[builder(into, default)]
-        pub early_renewal_duration: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub early_renewal_duration: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Specifies the algorithm of the public and private key pair that your Amazon issued certificate uses to encrypt data. See [ACM Certificate characteristics](https://docs.aws.amazon.com/acm/latest/userguide/acm-certificate.html#algorithms) for more details.
         #[builder(into, default)]
-        pub key_algorithm: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub key_algorithm: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Configuration block used to set certificate options. Detailed below.
         #[builder(into, default)]
-        pub options: pulumi_wasm_rust::InputOrOutput<
+        pub options: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::acm::CertificateOptions>,
         >,
         /// Certificate's PEM-formatted private key
         #[builder(into, default)]
-        pub private_key: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub private_key: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Set of domains that should be SANs in the issued certificate.
         /// To remove all elements of a previously configured list, set this value equal to an empty list (`[]`)
         #[builder(into, default)]
-        pub subject_alternative_names: pulumi_wasm_rust::InputOrOutput<
+        pub subject_alternative_names: pulumi_gestalt_rust::InputOrOutput<
             Option<Vec<String>>,
         >,
         /// Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Which method to use for validation. `DNS` or `EMAIL` are valid. This parameter must not be set for certificates that were imported into ACM and then into Pulumi.
         #[builder(into, default)]
-        pub validation_method: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub validation_method: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Configuration block used to specify information about the initial validation of each domain name. Detailed below.
         /// * Importing an existing certificate
         #[builder(into, default)]
-        pub validation_options: pulumi_wasm_rust::InputOrOutput<
+        pub validation_options: pulumi_gestalt_rust::InputOrOutput<
             Option<Vec<super::super::types::acm::CertificateValidationOption>>,
         >,
     }
     #[allow(dead_code)]
     pub struct CertificateResult {
         /// ARN of the certificate
-        pub arn: pulumi_wasm_rust::Output<String>,
+        pub arn: pulumi_gestalt_rust::Output<String>,
         /// ARN of an ACM PCA
-        pub certificate_authority_arn: pulumi_wasm_rust::Output<Option<String>>,
+        pub certificate_authority_arn: pulumi_gestalt_rust::Output<Option<String>>,
         /// Certificate's PEM-formatted public key
-        pub certificate_body: pulumi_wasm_rust::Output<Option<String>>,
+        pub certificate_body: pulumi_gestalt_rust::Output<Option<String>>,
         /// Certificate's PEM-formatted chain
         /// * Creating a private CA issued certificate
-        pub certificate_chain: pulumi_wasm_rust::Output<Option<String>>,
+        pub certificate_chain: pulumi_gestalt_rust::Output<Option<String>>,
         /// Fully qualified domain name (FQDN) in the certificate.
-        pub domain_name: pulumi_wasm_rust::Output<String>,
+        pub domain_name: pulumi_gestalt_rust::Output<String>,
         /// Set of domain validation objects which can be used to complete certificate validation.
         /// Can have more than one element, e.g., if SANs are defined.
         /// Only set if `DNS`-validation was used.
-        pub domain_validation_options: pulumi_wasm_rust::Output<
+        pub domain_validation_options: pulumi_gestalt_rust::Output<
             Vec<super::super::types::acm::CertificateDomainValidationOption>,
         >,
         /// Amount of time to start automatic renewal process before expiration.
@@ -203,49 +205,49 @@ pub mod certificate {
         /// Represented by either
         /// a subset of [RFC 3339 duration](https://www.rfc-editor.org/rfc/rfc3339) supporting years, months, and days (e.g., `P90D`),
         /// or a string such as `2160h`.
-        pub early_renewal_duration: pulumi_wasm_rust::Output<Option<String>>,
+        pub early_renewal_duration: pulumi_gestalt_rust::Output<Option<String>>,
         /// Specifies the algorithm of the public and private key pair that your Amazon issued certificate uses to encrypt data. See [ACM Certificate characteristics](https://docs.aws.amazon.com/acm/latest/userguide/acm-certificate.html#algorithms) for more details.
-        pub key_algorithm: pulumi_wasm_rust::Output<String>,
+        pub key_algorithm: pulumi_gestalt_rust::Output<String>,
         /// Expiration date and time of the certificate.
-        pub not_after: pulumi_wasm_rust::Output<String>,
+        pub not_after: pulumi_gestalt_rust::Output<String>,
         /// Start of the validity period of the certificate.
-        pub not_before: pulumi_wasm_rust::Output<String>,
+        pub not_before: pulumi_gestalt_rust::Output<String>,
         /// Configuration block used to set certificate options. Detailed below.
-        pub options: pulumi_wasm_rust::Output<
+        pub options: pulumi_gestalt_rust::Output<
             super::super::types::acm::CertificateOptions,
         >,
         /// `true` if a Private certificate eligible for managed renewal is within the `early_renewal_duration` period.
-        pub pending_renewal: pulumi_wasm_rust::Output<bool>,
+        pub pending_renewal: pulumi_gestalt_rust::Output<bool>,
         /// Certificate's PEM-formatted private key
-        pub private_key: pulumi_wasm_rust::Output<Option<String>>,
+        pub private_key: pulumi_gestalt_rust::Output<Option<String>>,
         /// Whether the certificate is eligible for managed renewal.
-        pub renewal_eligibility: pulumi_wasm_rust::Output<String>,
+        pub renewal_eligibility: pulumi_gestalt_rust::Output<String>,
         /// Contains information about the status of ACM's [managed renewal](https://docs.aws.amazon.com/acm/latest/userguide/acm-renewal.html) for the certificate.
-        pub renewal_summaries: pulumi_wasm_rust::Output<
+        pub renewal_summaries: pulumi_gestalt_rust::Output<
             Vec<super::super::types::acm::CertificateRenewalSummary>,
         >,
         /// Status of the certificate.
-        pub status: pulumi_wasm_rust::Output<String>,
+        pub status: pulumi_gestalt_rust::Output<String>,
         /// Set of domains that should be SANs in the issued certificate.
         /// To remove all elements of a previously configured list, set this value equal to an empty list (`[]`)
-        pub subject_alternative_names: pulumi_wasm_rust::Output<Vec<String>>,
+        pub subject_alternative_names: pulumi_gestalt_rust::Output<Vec<String>>,
         /// Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        pub tags_all: pulumi_wasm_rust::Output<
+        pub tags_all: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
         /// Source of the certificate.
-        pub type_: pulumi_wasm_rust::Output<String>,
+        pub type_: pulumi_gestalt_rust::Output<String>,
         /// List of addresses that received a validation email. Only set if `EMAIL` validation was used.
-        pub validation_emails: pulumi_wasm_rust::Output<Vec<String>>,
+        pub validation_emails: pulumi_gestalt_rust::Output<Vec<String>>,
         /// Which method to use for validation. `DNS` or `EMAIL` are valid. This parameter must not be set for certificates that were imported into ACM and then into Pulumi.
-        pub validation_method: pulumi_wasm_rust::Output<String>,
+        pub validation_method: pulumi_gestalt_rust::Output<String>,
         /// Configuration block used to specify information about the initial validation of each domain name. Detailed below.
         /// * Importing an existing certificate
-        pub validation_options: pulumi_wasm_rust::Output<
+        pub validation_options: pulumi_gestalt_rust::Output<
             Option<Vec<super::super::types::acm::CertificateValidationOption>>,
         >,
     }
@@ -254,11 +256,11 @@ pub mod certificate {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: CertificateArgs,
     ) -> CertificateResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let certificate_authority_arn_binding = args
             .certificate_authority_arn
@@ -350,65 +352,67 @@ pub mod certificate {
         };
         let o = register_interface::register(context.get_inner(), &request);
         CertificateResult {
-            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
-            certificate_authority_arn: pulumi_wasm_rust::__private::into_domain(
+            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
+            certificate_authority_arn: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("certificateAuthorityArn"),
             ),
-            certificate_body: pulumi_wasm_rust::__private::into_domain(
+            certificate_body: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("certificateBody"),
             ),
-            certificate_chain: pulumi_wasm_rust::__private::into_domain(
+            certificate_chain: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("certificateChain"),
             ),
-            domain_name: pulumi_wasm_rust::__private::into_domain(
+            domain_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("domainName"),
             ),
-            domain_validation_options: pulumi_wasm_rust::__private::into_domain(
+            domain_validation_options: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("domainValidationOptions"),
             ),
-            early_renewal_duration: pulumi_wasm_rust::__private::into_domain(
+            early_renewal_duration: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("earlyRenewalDuration"),
             ),
-            key_algorithm: pulumi_wasm_rust::__private::into_domain(
+            key_algorithm: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("keyAlgorithm"),
             ),
-            not_after: pulumi_wasm_rust::__private::into_domain(
+            not_after: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("notAfter"),
             ),
-            not_before: pulumi_wasm_rust::__private::into_domain(
+            not_before: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("notBefore"),
             ),
-            options: pulumi_wasm_rust::__private::into_domain(
+            options: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("options"),
             ),
-            pending_renewal: pulumi_wasm_rust::__private::into_domain(
+            pending_renewal: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("pendingRenewal"),
             ),
-            private_key: pulumi_wasm_rust::__private::into_domain(
+            private_key: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("privateKey"),
             ),
-            renewal_eligibility: pulumi_wasm_rust::__private::into_domain(
+            renewal_eligibility: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("renewalEligibility"),
             ),
-            renewal_summaries: pulumi_wasm_rust::__private::into_domain(
+            renewal_summaries: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("renewalSummaries"),
             ),
-            status: pulumi_wasm_rust::__private::into_domain(o.extract_field("status")),
-            subject_alternative_names: pulumi_wasm_rust::__private::into_domain(
+            status: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("status"),
+            ),
+            subject_alternative_names: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("subjectAlternativeNames"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_wasm_rust::__private::into_domain(
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            tags_all: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("tagsAll"),
             ),
-            type_: pulumi_wasm_rust::__private::into_domain(o.extract_field("type")),
-            validation_emails: pulumi_wasm_rust::__private::into_domain(
+            type_: pulumi_gestalt_rust::__private::into_domain(o.extract_field("type")),
+            validation_emails: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("validationEmails"),
             ),
-            validation_method: pulumi_wasm_rust::__private::into_domain(
+            validation_method: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("validationMethod"),
             ),
-            validation_options: pulumi_wasm_rust::__private::into_domain(
+            validation_options: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("validationOptions"),
             ),
         }

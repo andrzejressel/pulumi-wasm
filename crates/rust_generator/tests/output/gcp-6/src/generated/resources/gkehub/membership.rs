@@ -13,8 +13,8 @@
 ///
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let membership = membership::create(
@@ -74,8 +74,8 @@
 ///
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let membership = membership::create(
@@ -142,7 +142,7 @@
 /// ```
 ///
 pub mod membership {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct MembershipArgs {
@@ -151,18 +151,18 @@ pub mod membership {
         /// https://cloud.google.com/kubernetes-engine/docs/how-to/workload-identity
         /// Structure is documented below.
         #[builder(into, default)]
-        pub authority: pulumi_wasm_rust::InputOrOutput<
+        pub authority: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::gkehub::MembershipAuthority>,
         >,
         /// The name of this entity type to be displayed on the console. This field is unavailable in v1 of the API.
         ///
         /// > **Warning:** `description` is deprecated and will be removed in a future major release.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub description: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// If this Membership is a Kubernetes API server hosted on GKE, this is a self link to its GCP resource.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub endpoint: pulumi_wasm_rust::InputOrOutput<
+        pub endpoint: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::gkehub::MembershipEndpoint>,
         >,
         /// Labels to apply to this membership.
@@ -170,23 +170,23 @@ pub mod membership {
         /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
         /// Please refer to the field `effective_labels` for all of the labels present on the resource.
         #[builder(into, default)]
-        pub labels: pulumi_wasm_rust::InputOrOutput<
+        pub labels: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Location of the membership.
         /// The default value is `global`.
         #[builder(into, default)]
-        pub location: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub location: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The client-provided identifier of the membership.
         ///
         ///
         /// - - -
         #[builder(into)]
-        pub membership_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub membership_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub project: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct MembershipResult {
@@ -194,45 +194,45 @@ pub mod membership {
         /// See the workload identity documentation for more details:
         /// https://cloud.google.com/kubernetes-engine/docs/how-to/workload-identity
         /// Structure is documented below.
-        pub authority: pulumi_wasm_rust::Output<
+        pub authority: pulumi_gestalt_rust::Output<
             Option<super::super::types::gkehub::MembershipAuthority>,
         >,
         /// The name of this entity type to be displayed on the console. This field is unavailable in v1 of the API.
         ///
         /// > **Warning:** `description` is deprecated and will be removed in a future major release.
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_gestalt_rust::Output<Option<String>>,
         /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Pulumi, other clients and services.
-        pub effective_labels: pulumi_wasm_rust::Output<
+        pub effective_labels: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
         /// If this Membership is a Kubernetes API server hosted on GKE, this is a self link to its GCP resource.
         /// Structure is documented below.
-        pub endpoint: pulumi_wasm_rust::Output<
+        pub endpoint: pulumi_gestalt_rust::Output<
             Option<super::super::types::gkehub::MembershipEndpoint>,
         >,
         /// Labels to apply to this membership.
         ///
         /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
         /// Please refer to the field `effective_labels` for all of the labels present on the resource.
-        pub labels: pulumi_wasm_rust::Output<
+        pub labels: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Location of the membership.
         /// The default value is `global`.
-        pub location: pulumi_wasm_rust::Output<Option<String>>,
+        pub location: pulumi_gestalt_rust::Output<Option<String>>,
         /// The client-provided identifier of the membership.
         ///
         ///
         /// - - -
-        pub membership_id: pulumi_wasm_rust::Output<String>,
+        pub membership_id: pulumi_gestalt_rust::Output<String>,
         /// The unique identifier of the membership.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
-        pub project: pulumi_wasm_rust::Output<String>,
+        pub project: pulumi_gestalt_rust::Output<String>,
         /// The combination of labels configured directly on the resource
         /// and default labels configured on the provider.
-        pub pulumi_labels: pulumi_wasm_rust::Output<
+        pub pulumi_labels: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
     }
@@ -241,11 +241,11 @@ pub mod membership {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: MembershipArgs,
     ) -> MembershipResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let authority_binding = args.authority.get_output(context).get_inner();
         let description_binding = args.description.get_output(context).get_inner();
@@ -291,30 +291,32 @@ pub mod membership {
         };
         let o = register_interface::register(context.get_inner(), &request);
         MembershipResult {
-            authority: pulumi_wasm_rust::__private::into_domain(
+            authority: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("authority"),
             ),
-            description: pulumi_wasm_rust::__private::into_domain(
+            description: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("description"),
             ),
-            effective_labels: pulumi_wasm_rust::__private::into_domain(
+            effective_labels: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("effectiveLabels"),
             ),
-            endpoint: pulumi_wasm_rust::__private::into_domain(
+            endpoint: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("endpoint"),
             ),
-            labels: pulumi_wasm_rust::__private::into_domain(o.extract_field("labels")),
-            location: pulumi_wasm_rust::__private::into_domain(
+            labels: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("labels"),
+            ),
+            location: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("location"),
             ),
-            membership_id: pulumi_wasm_rust::__private::into_domain(
+            membership_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("membershipId"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            project: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            project: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("project"),
             ),
-            pulumi_labels: pulumi_wasm_rust::__private::into_domain(
+            pulumi_labels: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("pulumiLabels"),
             ),
         }

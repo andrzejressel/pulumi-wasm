@@ -20,8 +20,8 @@
 ///
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let gceReservation = reservation::create(
@@ -76,13 +76,13 @@
 /// ```
 ///
 pub mod reservation {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ReservationArgs {
         /// An optional description of this resource.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub description: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Name of the resource. Provided by the client when the resource is
         /// created. The name must be 1-63 characters long, and comply with
         /// RFC1035. Specifically, the name must be 1-63 characters long and match
@@ -91,37 +91,39 @@ pub mod reservation {
         /// characters must be a dash, lowercase letter, or digit, except the last
         /// character, which cannot be a dash.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub project: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The share setting for reservations.
         #[builder(into, default)]
-        pub share_settings: pulumi_wasm_rust::InputOrOutput<
+        pub share_settings: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::compute::ReservationShareSettings>,
         >,
         /// Reservation for instances with specific machine shapes.
         /// Structure is documented below.
         #[builder(into)]
-        pub specific_reservation: pulumi_wasm_rust::InputOrOutput<
+        pub specific_reservation: pulumi_gestalt_rust::InputOrOutput<
             super::super::types::compute::ReservationSpecificReservation,
         >,
         /// When set to true, only VMs that target this reservation by name can consume this reservation. Otherwise, it can be
         /// consumed by VMs with affinity for any reservation. Defaults to false.
         #[builder(into, default)]
-        pub specific_reservation_required: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub specific_reservation_required: pulumi_gestalt_rust::InputOrOutput<
+            Option<bool>,
+        >,
         /// The zone where the reservation is made.
         #[builder(into)]
-        pub zone: pulumi_wasm_rust::InputOrOutput<String>,
+        pub zone: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct ReservationResult {
         /// Full or partial URL to a parent commitment. This field displays for
         /// reservations that are tied to a commitment.
-        pub commitment: pulumi_wasm_rust::Output<String>,
+        pub commitment: pulumi_gestalt_rust::Output<String>,
         /// Creation timestamp in RFC3339 text format.
-        pub creation_timestamp: pulumi_wasm_rust::Output<String>,
+        pub creation_timestamp: pulumi_gestalt_rust::Output<String>,
         /// An optional description of this resource.
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_gestalt_rust::Output<Option<String>>,
         /// Name of the resource. Provided by the client when the resource is
         /// created. The name must be 1-63 characters long, and comply with
         /// RFC1035. Specifically, the name must be 1-63 characters long and match
@@ -129,37 +131,37 @@ pub mod reservation {
         /// first character must be a lowercase letter, and all following
         /// characters must be a dash, lowercase letter, or digit, except the last
         /// character, which cannot be a dash.
-        pub name: pulumi_wasm_rust::Output<String>,
-        pub project: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
+        pub project: pulumi_gestalt_rust::Output<String>,
         /// The URI of the created resource.
-        pub self_link: pulumi_wasm_rust::Output<String>,
+        pub self_link: pulumi_gestalt_rust::Output<String>,
         /// The share setting for reservations.
-        pub share_settings: pulumi_wasm_rust::Output<
+        pub share_settings: pulumi_gestalt_rust::Output<
             super::super::types::compute::ReservationShareSettings,
         >,
         /// Reservation for instances with specific machine shapes.
         /// Structure is documented below.
-        pub specific_reservation: pulumi_wasm_rust::Output<
+        pub specific_reservation: pulumi_gestalt_rust::Output<
             super::super::types::compute::ReservationSpecificReservation,
         >,
         /// When set to true, only VMs that target this reservation by name can consume this reservation. Otherwise, it can be
         /// consumed by VMs with affinity for any reservation. Defaults to false.
-        pub specific_reservation_required: pulumi_wasm_rust::Output<Option<bool>>,
+        pub specific_reservation_required: pulumi_gestalt_rust::Output<Option<bool>>,
         /// The status of the reservation.
-        pub status: pulumi_wasm_rust::Output<String>,
+        pub status: pulumi_gestalt_rust::Output<String>,
         /// The zone where the reservation is made.
-        pub zone: pulumi_wasm_rust::Output<String>,
+        pub zone: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: ReservationArgs,
     ) -> ReservationResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let description_binding = args.description.get_output(context).get_inner();
         let name_binding = args.name.get_output(context).get_inner();
@@ -211,33 +213,35 @@ pub mod reservation {
         };
         let o = register_interface::register(context.get_inner(), &request);
         ReservationResult {
-            commitment: pulumi_wasm_rust::__private::into_domain(
+            commitment: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("commitment"),
             ),
-            creation_timestamp: pulumi_wasm_rust::__private::into_domain(
+            creation_timestamp: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("creationTimestamp"),
             ),
-            description: pulumi_wasm_rust::__private::into_domain(
+            description: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("description"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            project: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            project: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("project"),
             ),
-            self_link: pulumi_wasm_rust::__private::into_domain(
+            self_link: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("selfLink"),
             ),
-            share_settings: pulumi_wasm_rust::__private::into_domain(
+            share_settings: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("shareSettings"),
             ),
-            specific_reservation: pulumi_wasm_rust::__private::into_domain(
+            specific_reservation: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("specificReservation"),
             ),
-            specific_reservation_required: pulumi_wasm_rust::__private::into_domain(
+            specific_reservation_required: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("specificReservationRequired"),
             ),
-            status: pulumi_wasm_rust::__private::into_domain(o.extract_field("status")),
-            zone: pulumi_wasm_rust::__private::into_domain(o.extract_field("zone")),
+            status: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("status"),
+            ),
+            zone: pulumi_gestalt_rust::__private::into_domain(o.extract_field("zone")),
         }
     }
 }

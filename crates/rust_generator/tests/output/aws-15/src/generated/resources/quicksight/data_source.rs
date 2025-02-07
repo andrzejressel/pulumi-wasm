@@ -3,8 +3,8 @@
 /// ## Example Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let default = data_source::create(
@@ -40,95 +40,95 @@
 /// $ pulumi import aws:quicksight/dataSource:DataSource example 123456789123/my-data-source-id
 /// ```
 pub mod data_source {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct DataSourceArgs {
         /// The ID for the AWS account that the data source is in. Currently, you use the ID for the AWS account that contains your Amazon QuickSight account.
         #[builder(into, default)]
-        pub aws_account_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub aws_account_id: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The credentials Amazon QuickSight uses to connect to your underlying source. See Credentials below for more details.
         #[builder(into, default)]
-        pub credentials: pulumi_wasm_rust::InputOrOutput<
+        pub credentials: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::quicksight::DataSourceCredentials>,
         >,
         /// An identifier for the data source.
         #[builder(into)]
-        pub data_source_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub data_source_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// A name for the data source, maximum of 128 characters.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The parameters used to connect to this data source (exactly one).
         #[builder(into)]
-        pub parameters: pulumi_wasm_rust::InputOrOutput<
+        pub parameters: pulumi_gestalt_rust::InputOrOutput<
             super::super::types::quicksight::DataSourceParameters,
         >,
         /// A set of resource permissions on the data source. Maximum of 64 items. See Permission below for more details.
         #[builder(into, default)]
-        pub permissions: pulumi_wasm_rust::InputOrOutput<
+        pub permissions: pulumi_gestalt_rust::InputOrOutput<
             Option<Vec<super::super::types::quicksight::DataSourcePermission>>,
         >,
         /// Secure Socket Layer (SSL) properties that apply when Amazon QuickSight connects to your underlying source. See SSL Properties below for more details.
         #[builder(into, default)]
-        pub ssl_properties: pulumi_wasm_rust::InputOrOutput<
+        pub ssl_properties: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::quicksight::DataSourceSslProperties>,
         >,
         /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// The type of the data source. See the [AWS Documentation](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_CreateDataSource.html#QS-CreateDataSource-request-Type) for the complete list of valid values.
         ///
         /// The following arguments are optional:
         #[builder(into)]
-        pub type_: pulumi_wasm_rust::InputOrOutput<String>,
+        pub type_: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Use this parameter only when you want Amazon QuickSight to use a VPC connection when connecting to your underlying source. See VPC Connection Properties below for more details.
         #[builder(into, default)]
-        pub vpc_connection_properties: pulumi_wasm_rust::InputOrOutput<
+        pub vpc_connection_properties: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::quicksight::DataSourceVpcConnectionProperties>,
         >,
     }
     #[allow(dead_code)]
     pub struct DataSourceResult {
         /// Amazon Resource Name (ARN) of the data source
-        pub arn: pulumi_wasm_rust::Output<String>,
+        pub arn: pulumi_gestalt_rust::Output<String>,
         /// The ID for the AWS account that the data source is in. Currently, you use the ID for the AWS account that contains your Amazon QuickSight account.
-        pub aws_account_id: pulumi_wasm_rust::Output<String>,
+        pub aws_account_id: pulumi_gestalt_rust::Output<String>,
         /// The credentials Amazon QuickSight uses to connect to your underlying source. See Credentials below for more details.
-        pub credentials: pulumi_wasm_rust::Output<
+        pub credentials: pulumi_gestalt_rust::Output<
             Option<super::super::types::quicksight::DataSourceCredentials>,
         >,
         /// An identifier for the data source.
-        pub data_source_id: pulumi_wasm_rust::Output<String>,
+        pub data_source_id: pulumi_gestalt_rust::Output<String>,
         /// A name for the data source, maximum of 128 characters.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// The parameters used to connect to this data source (exactly one).
-        pub parameters: pulumi_wasm_rust::Output<
+        pub parameters: pulumi_gestalt_rust::Output<
             super::super::types::quicksight::DataSourceParameters,
         >,
         /// A set of resource permissions on the data source. Maximum of 64 items. See Permission below for more details.
-        pub permissions: pulumi_wasm_rust::Output<
+        pub permissions: pulumi_gestalt_rust::Output<
             Option<Vec<super::super::types::quicksight::DataSourcePermission>>,
         >,
         /// Secure Socket Layer (SSL) properties that apply when Amazon QuickSight connects to your underlying source. See SSL Properties below for more details.
-        pub ssl_properties: pulumi_wasm_rust::Output<
+        pub ssl_properties: pulumi_gestalt_rust::Output<
             super::super::types::quicksight::DataSourceSslProperties,
         >,
         /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        pub tags_all: pulumi_wasm_rust::Output<
+        pub tags_all: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
         /// The type of the data source. See the [AWS Documentation](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_CreateDataSource.html#QS-CreateDataSource-request-Type) for the complete list of valid values.
         ///
         /// The following arguments are optional:
-        pub type_: pulumi_wasm_rust::Output<String>,
+        pub type_: pulumi_gestalt_rust::Output<String>,
         /// Use this parameter only when you want Amazon QuickSight to use a VPC connection when connecting to your underlying source. See VPC Connection Properties below for more details.
-        pub vpc_connection_properties: pulumi_wasm_rust::Output<
+        pub vpc_connection_properties: pulumi_gestalt_rust::Output<
             Option<super::super::types::quicksight::DataSourceVpcConnectionProperties>,
         >,
     }
@@ -137,11 +137,11 @@ pub mod data_source {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: DataSourceArgs,
     ) -> DataSourceResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let aws_account_id_binding = args.aws_account_id.get_output(context).get_inner();
         let credentials_binding = args.credentials.get_output(context).get_inner();
@@ -205,32 +205,32 @@ pub mod data_source {
         };
         let o = register_interface::register(context.get_inner(), &request);
         DataSourceResult {
-            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
-            aws_account_id: pulumi_wasm_rust::__private::into_domain(
+            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
+            aws_account_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("awsAccountId"),
             ),
-            credentials: pulumi_wasm_rust::__private::into_domain(
+            credentials: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("credentials"),
             ),
-            data_source_id: pulumi_wasm_rust::__private::into_domain(
+            data_source_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("dataSourceId"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            parameters: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            parameters: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("parameters"),
             ),
-            permissions: pulumi_wasm_rust::__private::into_domain(
+            permissions: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("permissions"),
             ),
-            ssl_properties: pulumi_wasm_rust::__private::into_domain(
+            ssl_properties: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("sslProperties"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_wasm_rust::__private::into_domain(
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            tags_all: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("tagsAll"),
             ),
-            type_: pulumi_wasm_rust::__private::into_domain(o.extract_field("type")),
-            vpc_connection_properties: pulumi_wasm_rust::__private::into_domain(
+            type_: pulumi_gestalt_rust::__private::into_domain(o.extract_field("type")),
+            vpc_connection_properties: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("vpcConnectionProperties"),
             ),
         }

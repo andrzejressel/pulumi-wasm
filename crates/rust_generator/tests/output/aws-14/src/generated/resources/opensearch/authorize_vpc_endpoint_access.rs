@@ -26,40 +26,40 @@
 /// $ pulumi import aws:opensearch/authorizeVpcEndpointAccess:AuthorizeVpcEndpointAccess example authorize_vpc_endpoint_access-id-12345678
 /// ```
 pub mod authorize_vpc_endpoint_access {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct AuthorizeVpcEndpointAccessArgs {
         /// AWS account ID to grant access to.
         #[builder(into)]
-        pub account: pulumi_wasm_rust::InputOrOutput<String>,
+        pub account: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Name of OpenSearch Service domain to provide access to.
         #[builder(into)]
-        pub domain_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub domain_name: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct AuthorizeVpcEndpointAccessResult {
         /// AWS account ID to grant access to.
-        pub account: pulumi_wasm_rust::Output<String>,
+        pub account: pulumi_gestalt_rust::Output<String>,
         /// Information about the Amazon Web Services account or service that was provided access to the domain. See authorized principal attribute for further details.
-        pub authorized_principals: pulumi_wasm_rust::Output<
+        pub authorized_principals: pulumi_gestalt_rust::Output<
             Vec<
                 super::super::types::opensearch::AuthorizeVpcEndpointAccessAuthorizedPrincipal,
             >,
         >,
         /// Name of OpenSearch Service domain to provide access to.
-        pub domain_name: pulumi_wasm_rust::Output<String>,
+        pub domain_name: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: AuthorizeVpcEndpointAccessArgs,
     ) -> AuthorizeVpcEndpointAccessResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let account_binding = args.account.get_output(context).get_inner();
         let domain_name_binding = args.domain_name.get_output(context).get_inner();
@@ -81,13 +81,13 @@ pub mod authorize_vpc_endpoint_access {
         };
         let o = register_interface::register(context.get_inner(), &request);
         AuthorizeVpcEndpointAccessResult {
-            account: pulumi_wasm_rust::__private::into_domain(
+            account: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("account"),
             ),
-            authorized_principals: pulumi_wasm_rust::__private::into_domain(
+            authorized_principals: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("authorizedPrincipals"),
             ),
-            domain_name: pulumi_wasm_rust::__private::into_domain(
+            domain_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("domainName"),
             ),
         }

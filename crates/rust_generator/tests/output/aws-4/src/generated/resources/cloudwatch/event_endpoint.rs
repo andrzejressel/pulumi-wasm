@@ -5,8 +5,8 @@
 /// ## Example Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let this = event_endpoint::create(
@@ -57,57 +57,57 @@
 /// $ pulumi import aws:cloudwatch/eventEndpoint:EventEndpoint imported_endpoint example-endpoint
 /// ```
 pub mod event_endpoint {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct EventEndpointArgs {
         /// A description of the global endpoint.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub description: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The event buses to use. The names of the event buses must be identical in each Region. Exactly two event buses are required. Documented below.
         #[builder(into)]
-        pub event_buses: pulumi_wasm_rust::InputOrOutput<
+        pub event_buses: pulumi_gestalt_rust::InputOrOutput<
             Vec<super::super::types::cloudwatch::EventEndpointEventBus>,
         >,
         /// The name of the global endpoint.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Parameters used for replication. Documented below.
         #[builder(into, default)]
-        pub replication_config: pulumi_wasm_rust::InputOrOutput<
+        pub replication_config: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::cloudwatch::EventEndpointReplicationConfig>,
         >,
         /// The ARN of the IAM role used for replication between event buses.
         #[builder(into, default)]
-        pub role_arn: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub role_arn: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Parameters used for routing, including the health check and secondary Region. Documented below.
         #[builder(into)]
-        pub routing_config: pulumi_wasm_rust::InputOrOutput<
+        pub routing_config: pulumi_gestalt_rust::InputOrOutput<
             super::super::types::cloudwatch::EventEndpointRoutingConfig,
         >,
     }
     #[allow(dead_code)]
     pub struct EventEndpointResult {
         /// The ARN of the endpoint that was created.
-        pub arn: pulumi_wasm_rust::Output<String>,
+        pub arn: pulumi_gestalt_rust::Output<String>,
         /// A description of the global endpoint.
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_gestalt_rust::Output<Option<String>>,
         /// The URL of the endpoint that was created.
-        pub endpoint_url: pulumi_wasm_rust::Output<String>,
+        pub endpoint_url: pulumi_gestalt_rust::Output<String>,
         /// The event buses to use. The names of the event buses must be identical in each Region. Exactly two event buses are required. Documented below.
-        pub event_buses: pulumi_wasm_rust::Output<
+        pub event_buses: pulumi_gestalt_rust::Output<
             Vec<super::super::types::cloudwatch::EventEndpointEventBus>,
         >,
         /// The name of the global endpoint.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// Parameters used for replication. Documented below.
-        pub replication_config: pulumi_wasm_rust::Output<
+        pub replication_config: pulumi_gestalt_rust::Output<
             Option<super::super::types::cloudwatch::EventEndpointReplicationConfig>,
         >,
         /// The ARN of the IAM role used for replication between event buses.
-        pub role_arn: pulumi_wasm_rust::Output<Option<String>>,
+        pub role_arn: pulumi_gestalt_rust::Output<Option<String>>,
         /// Parameters used for routing, including the health check and secondary Region. Documented below.
-        pub routing_config: pulumi_wasm_rust::Output<
+        pub routing_config: pulumi_gestalt_rust::Output<
             super::super::types::cloudwatch::EventEndpointRoutingConfig,
         >,
     }
@@ -116,11 +116,11 @@ pub mod event_endpoint {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: EventEndpointArgs,
     ) -> EventEndpointResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let description_binding = args.description.get_output(context).get_inner();
         let event_buses_binding = args.event_buses.get_output(context).get_inner();
@@ -164,24 +164,24 @@ pub mod event_endpoint {
         };
         let o = register_interface::register(context.get_inner(), &request);
         EventEndpointResult {
-            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
-            description: pulumi_wasm_rust::__private::into_domain(
+            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
+            description: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("description"),
             ),
-            endpoint_url: pulumi_wasm_rust::__private::into_domain(
+            endpoint_url: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("endpointUrl"),
             ),
-            event_buses: pulumi_wasm_rust::__private::into_domain(
+            event_buses: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("eventBuses"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            replication_config: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            replication_config: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("replicationConfig"),
             ),
-            role_arn: pulumi_wasm_rust::__private::into_domain(
+            role_arn: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("roleArn"),
             ),
-            routing_config: pulumi_wasm_rust::__private::into_domain(
+            routing_config: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("routingConfig"),
             ),
         }

@@ -1,52 +1,52 @@
 pub mod get_subnet {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct GetSubnetArgs {
         /// Specifies the name of the Subnet.
         #[builder(into)]
-        pub name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Specifies the name of the resource group the Virtual Network is located in.
         #[builder(into)]
-        pub resource_group_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub resource_group_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Specifies the name of the Virtual Network this Subnet is located within.
         #[builder(into)]
-        pub virtual_network_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub virtual_network_name: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct GetSubnetResult {
-        pub address_prefix: pulumi_wasm_rust::Output<String>,
+        pub address_prefix: pulumi_gestalt_rust::Output<String>,
         /// The address prefixes for the subnet.
-        pub address_prefixes: pulumi_wasm_rust::Output<Vec<String>>,
+        pub address_prefixes: pulumi_gestalt_rust::Output<Vec<String>>,
         /// Is the default outbound access enabled for the subnet.
-        pub default_outbound_access_enabled: pulumi_wasm_rust::Output<bool>,
+        pub default_outbound_access_enabled: pulumi_gestalt_rust::Output<bool>,
         /// The provider-assigned unique ID for this managed resource.
-        pub id: pulumi_wasm_rust::Output<String>,
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub id: pulumi_gestalt_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// The ID of the Network Security Group associated with the subnet.
-        pub network_security_group_id: pulumi_wasm_rust::Output<String>,
+        pub network_security_group_id: pulumi_gestalt_rust::Output<String>,
         /// Enable or Disable network policies for the private endpoint on the subnet.
-        pub private_endpoint_network_policies: pulumi_wasm_rust::Output<String>,
+        pub private_endpoint_network_policies: pulumi_gestalt_rust::Output<String>,
         /// Enable or Disable network policies for the private link service on the subnet.
-        pub private_link_service_network_policies_enabled: pulumi_wasm_rust::Output<
+        pub private_link_service_network_policies_enabled: pulumi_gestalt_rust::Output<
             bool,
         >,
-        pub resource_group_name: pulumi_wasm_rust::Output<String>,
+        pub resource_group_name: pulumi_gestalt_rust::Output<String>,
         /// The ID of the Route Table associated with this subnet.
-        pub route_table_id: pulumi_wasm_rust::Output<String>,
+        pub route_table_id: pulumi_gestalt_rust::Output<String>,
         /// A list of Service Endpoints within this subnet.
-        pub service_endpoints: pulumi_wasm_rust::Output<Vec<String>>,
-        pub virtual_network_name: pulumi_wasm_rust::Output<String>,
+        pub service_endpoints: pulumi_gestalt_rust::Output<Vec<String>>,
+        pub virtual_network_name: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         args: GetSubnetArgs,
     ) -> GetSubnetResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let name_binding = args.name.get_output(context).get_inner();
         let resource_group_name_binding = args
@@ -77,36 +77,36 @@ pub mod get_subnet {
         };
         let o = register_interface::invoke(context.get_inner(), &request);
         GetSubnetResult {
-            address_prefix: pulumi_wasm_rust::__private::into_domain(
+            address_prefix: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("addressPrefix"),
             ),
-            address_prefixes: pulumi_wasm_rust::__private::into_domain(
+            address_prefixes: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("addressPrefixes"),
             ),
-            default_outbound_access_enabled: pulumi_wasm_rust::__private::into_domain(
+            default_outbound_access_enabled: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("defaultOutboundAccessEnabled"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            network_security_group_id: pulumi_wasm_rust::__private::into_domain(
+            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            network_security_group_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("networkSecurityGroupId"),
             ),
-            private_endpoint_network_policies: pulumi_wasm_rust::__private::into_domain(
+            private_endpoint_network_policies: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("privateEndpointNetworkPolicies"),
             ),
-            private_link_service_network_policies_enabled: pulumi_wasm_rust::__private::into_domain(
+            private_link_service_network_policies_enabled: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("privateLinkServiceNetworkPoliciesEnabled"),
             ),
-            resource_group_name: pulumi_wasm_rust::__private::into_domain(
+            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("resourceGroupName"),
             ),
-            route_table_id: pulumi_wasm_rust::__private::into_domain(
+            route_table_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("routeTableId"),
             ),
-            service_endpoints: pulumi_wasm_rust::__private::into_domain(
+            service_endpoints: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("serviceEndpoints"),
             ),
-            virtual_network_name: pulumi_wasm_rust::__private::into_domain(
+            virtual_network_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("virtualNetworkName"),
             ),
         }

@@ -50,7 +50,7 @@ impl Type {
             },
             Type::Option(type_) => format!("Option<{}>", type_.get_rust_type(depth)),
             Type::DiscriminatedUnion(refs) => format!(
-                "pulumi_wasm_rust::OneOf{}<{}>",
+                "pulumi_gestalt_rust::OneOf{}<{}>",
                 refs.len(),
                 refs.iter()
                     .map(|r| r.get_rust_type(depth))

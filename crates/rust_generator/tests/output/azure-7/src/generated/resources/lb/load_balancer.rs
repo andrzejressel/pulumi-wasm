@@ -3,8 +3,8 @@
 /// ## Example Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = resource_group::create(
@@ -50,67 +50,67 @@
 /// ```
 ///
 pub mod load_balancer {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct LoadBalancerArgs {
         /// Specifies the Edge Zone within the Azure Region where this Load Balancer should exist. Changing this forces a new Load Balancer to be created.
         #[builder(into, default)]
-        pub edge_zone: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub edge_zone: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// One or more `frontend_ip_configuration` blocks as documented below.
         #[builder(into, default)]
-        pub frontend_ip_configurations: pulumi_wasm_rust::InputOrOutput<
+        pub frontend_ip_configurations: pulumi_gestalt_rust::InputOrOutput<
             Option<Vec<super::super::types::lb::LoadBalancerFrontendIpConfiguration>>,
         >,
         /// Specifies the supported Azure Region where the Load Balancer should be created. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub location: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub location: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Specifies the name of the Load Balancer. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The name of the Resource Group in which to create the Load Balancer. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub resource_group_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub resource_group_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The SKU of the Azure Load Balancer. Accepted values are `Basic`, `Standard` and `Gateway`. Defaults to `Standard`. Changing this forces a new resource to be created.
         ///
         /// > **NOTE:** The `Microsoft.Network/AllowGatewayLoadBalancer` feature is required to be registered in order to use the `Gateway` SKU. The feature can only be registered by the Azure service team, please submit an [Azure support ticket](https://azure.microsoft.com/en-us/support/create-ticket/) for that.
         #[builder(into, default)]
-        pub sku: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub sku: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// `sku_tier` - (Optional) The SKU tier of this Load Balancer. Possible values are `Global` and `Regional`. Defaults to `Regional`. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub sku_tier: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub sku_tier: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// A mapping of tags to assign to the resource.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
     #[allow(dead_code)]
     pub struct LoadBalancerResult {
         /// Specifies the Edge Zone within the Azure Region where this Load Balancer should exist. Changing this forces a new Load Balancer to be created.
-        pub edge_zone: pulumi_wasm_rust::Output<Option<String>>,
+        pub edge_zone: pulumi_gestalt_rust::Output<Option<String>>,
         /// One or more `frontend_ip_configuration` blocks as documented below.
-        pub frontend_ip_configurations: pulumi_wasm_rust::Output<
+        pub frontend_ip_configurations: pulumi_gestalt_rust::Output<
             Option<Vec<super::super::types::lb::LoadBalancerFrontendIpConfiguration>>,
         >,
         /// Specifies the supported Azure Region where the Load Balancer should be created. Changing this forces a new resource to be created.
-        pub location: pulumi_wasm_rust::Output<String>,
+        pub location: pulumi_gestalt_rust::Output<String>,
         /// Specifies the name of the Load Balancer. Changing this forces a new resource to be created.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// Private IP Address to assign to the Load Balancer.
-        pub private_ip_address: pulumi_wasm_rust::Output<String>,
+        pub private_ip_address: pulumi_gestalt_rust::Output<String>,
         /// The list of private IP address assigned to the load balancer in `frontend_ip_configuration` blocks, if any.
-        pub private_ip_addresses: pulumi_wasm_rust::Output<Vec<String>>,
+        pub private_ip_addresses: pulumi_gestalt_rust::Output<Vec<String>>,
         /// The name of the Resource Group in which to create the Load Balancer. Changing this forces a new resource to be created.
-        pub resource_group_name: pulumi_wasm_rust::Output<String>,
+        pub resource_group_name: pulumi_gestalt_rust::Output<String>,
         /// The SKU of the Azure Load Balancer. Accepted values are `Basic`, `Standard` and `Gateway`. Defaults to `Standard`. Changing this forces a new resource to be created.
         ///
         /// > **NOTE:** The `Microsoft.Network/AllowGatewayLoadBalancer` feature is required to be registered in order to use the `Gateway` SKU. The feature can only be registered by the Azure service team, please submit an [Azure support ticket](https://azure.microsoft.com/en-us/support/create-ticket/) for that.
-        pub sku: pulumi_wasm_rust::Output<Option<String>>,
+        pub sku: pulumi_gestalt_rust::Output<Option<String>>,
         /// `sku_tier` - (Optional) The SKU tier of this Load Balancer. Possible values are `Global` and `Regional`. Defaults to `Regional`. Changing this forces a new resource to be created.
-        pub sku_tier: pulumi_wasm_rust::Output<Option<String>>,
+        pub sku_tier: pulumi_gestalt_rust::Output<Option<String>>,
         /// A mapping of tags to assign to the resource.
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
@@ -119,11 +119,11 @@ pub mod load_balancer {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: LoadBalancerArgs,
     ) -> LoadBalancerResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let edge_zone_binding = args.edge_zone.get_output(context).get_inner();
         let frontend_ip_configurations_binding = args
@@ -180,30 +180,30 @@ pub mod load_balancer {
         };
         let o = register_interface::register(context.get_inner(), &request);
         LoadBalancerResult {
-            edge_zone: pulumi_wasm_rust::__private::into_domain(
+            edge_zone: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("edgeZone"),
             ),
-            frontend_ip_configurations: pulumi_wasm_rust::__private::into_domain(
+            frontend_ip_configurations: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("frontendIpConfigurations"),
             ),
-            location: pulumi_wasm_rust::__private::into_domain(
+            location: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("location"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            private_ip_address: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            private_ip_address: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("privateIpAddress"),
             ),
-            private_ip_addresses: pulumi_wasm_rust::__private::into_domain(
+            private_ip_addresses: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("privateIpAddresses"),
             ),
-            resource_group_name: pulumi_wasm_rust::__private::into_domain(
+            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("resourceGroupName"),
             ),
-            sku: pulumi_wasm_rust::__private::into_domain(o.extract_field("sku")),
-            sku_tier: pulumi_wasm_rust::__private::into_domain(
+            sku: pulumi_gestalt_rust::__private::into_domain(o.extract_field("sku")),
+            sku_tier: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("skuTier"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
         }
     }
 }

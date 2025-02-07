@@ -3,8 +3,8 @@
 /// ## Example Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = resource_group::create(
@@ -65,62 +65,62 @@
 /// ```
 ///
 pub mod policy_vm_workload {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct PolicyVMWorkloadArgs {
         /// The name of the VM Workload Backup Policy. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// One or more `protection_policy` blocks as defined below.
         #[builder(into)]
-        pub protection_policies: pulumi_wasm_rust::InputOrOutput<
+        pub protection_policies: pulumi_gestalt_rust::InputOrOutput<
             Vec<super::super::types::backup::PolicyVmWorkloadProtectionPolicy>,
         >,
         /// The name of the Recovery Services Vault to use. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub recovery_vault_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub recovery_vault_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The name of the resource group in which to create the VM Workload Backup Policy. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub resource_group_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub resource_group_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// A `settings` block as defined below.
         #[builder(into)]
-        pub settings: pulumi_wasm_rust::InputOrOutput<
+        pub settings: pulumi_gestalt_rust::InputOrOutput<
             super::super::types::backup::PolicyVmWorkloadSettings,
         >,
         /// The VM Workload type for the Backup Policy. Possible values are `SQLDataBase` and `SAPHanaDatabase`. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub workload_type: pulumi_wasm_rust::InputOrOutput<String>,
+        pub workload_type: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct PolicyVMWorkloadResult {
         /// The name of the VM Workload Backup Policy. Changing this forces a new resource to be created.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// One or more `protection_policy` blocks as defined below.
-        pub protection_policies: pulumi_wasm_rust::Output<
+        pub protection_policies: pulumi_gestalt_rust::Output<
             Vec<super::super::types::backup::PolicyVmWorkloadProtectionPolicy>,
         >,
         /// The name of the Recovery Services Vault to use. Changing this forces a new resource to be created.
-        pub recovery_vault_name: pulumi_wasm_rust::Output<String>,
+        pub recovery_vault_name: pulumi_gestalt_rust::Output<String>,
         /// The name of the resource group in which to create the VM Workload Backup Policy. Changing this forces a new resource to be created.
-        pub resource_group_name: pulumi_wasm_rust::Output<String>,
+        pub resource_group_name: pulumi_gestalt_rust::Output<String>,
         /// A `settings` block as defined below.
-        pub settings: pulumi_wasm_rust::Output<
+        pub settings: pulumi_gestalt_rust::Output<
             super::super::types::backup::PolicyVmWorkloadSettings,
         >,
         /// The VM Workload type for the Backup Policy. Possible values are `SQLDataBase` and `SAPHanaDatabase`. Changing this forces a new resource to be created.
-        pub workload_type: pulumi_wasm_rust::Output<String>,
+        pub workload_type: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: PolicyVMWorkloadArgs,
     ) -> PolicyVMWorkloadResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let name_binding = args.name.get_output(context).get_inner();
         let protection_policies_binding = args
@@ -170,20 +170,20 @@ pub mod policy_vm_workload {
         };
         let o = register_interface::register(context.get_inner(), &request);
         PolicyVMWorkloadResult {
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            protection_policies: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            protection_policies: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("protectionPolicies"),
             ),
-            recovery_vault_name: pulumi_wasm_rust::__private::into_domain(
+            recovery_vault_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("recoveryVaultName"),
             ),
-            resource_group_name: pulumi_wasm_rust::__private::into_domain(
+            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("resourceGroupName"),
             ),
-            settings: pulumi_wasm_rust::__private::into_domain(
+            settings: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("settings"),
             ),
-            workload_type: pulumi_wasm_rust::__private::into_domain(
+            workload_type: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("workloadType"),
             ),
         }

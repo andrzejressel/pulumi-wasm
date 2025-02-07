@@ -51,55 +51,55 @@
 /// -> __Note:__ The `activation_code` attribute cannot be imported.
 ///
 pub mod activation {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ActivationArgs {
         /// The description of the resource that you want to register.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub description: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// UTC timestamp in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) by which this activation request should expire. The default value is 24 hours from resource creation time. This provider will only perform drift detection of its value when present in a configuration.
         #[builder(into, default)]
-        pub expiration_date: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub expiration_date: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The IAM Role to attach to the managed instance.
         #[builder(into)]
-        pub iam_role: pulumi_wasm_rust::InputOrOutput<String>,
+        pub iam_role: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The default name of the registered managed instance.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The maximum number of managed instances you want to register. The default value is 1 instance.
         #[builder(into, default)]
-        pub registration_limit: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
+        pub registration_limit: pulumi_gestalt_rust::InputOrOutput<Option<i32>>,
         /// A map of tags to assign to the object. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
     #[allow(dead_code)]
     pub struct ActivationResult {
         /// The code the system generates when it processes the activation.
-        pub activation_code: pulumi_wasm_rust::Output<String>,
+        pub activation_code: pulumi_gestalt_rust::Output<String>,
         /// The description of the resource that you want to register.
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_gestalt_rust::Output<Option<String>>,
         /// UTC timestamp in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) by which this activation request should expire. The default value is 24 hours from resource creation time. This provider will only perform drift detection of its value when present in a configuration.
-        pub expiration_date: pulumi_wasm_rust::Output<String>,
+        pub expiration_date: pulumi_gestalt_rust::Output<String>,
         /// If the current activation has expired.
-        pub expired: pulumi_wasm_rust::Output<bool>,
+        pub expired: pulumi_gestalt_rust::Output<bool>,
         /// The IAM Role to attach to the managed instance.
-        pub iam_role: pulumi_wasm_rust::Output<String>,
+        pub iam_role: pulumi_gestalt_rust::Output<String>,
         /// The default name of the registered managed instance.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// The number of managed instances that are currently registered using this activation.
-        pub registration_count: pulumi_wasm_rust::Output<i32>,
+        pub registration_count: pulumi_gestalt_rust::Output<i32>,
         /// The maximum number of managed instances you want to register. The default value is 1 instance.
-        pub registration_limit: pulumi_wasm_rust::Output<Option<i32>>,
+        pub registration_limit: pulumi_gestalt_rust::Output<Option<i32>>,
         /// A map of tags to assign to the object. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        pub tags_all: pulumi_wasm_rust::Output<
+        pub tags_all: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
     }
@@ -108,11 +108,11 @@ pub mod activation {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: ActivationArgs,
     ) -> ActivationResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let description_binding = args.description.get_output(context).get_inner();
         let expiration_date_binding = args
@@ -159,30 +159,30 @@ pub mod activation {
         };
         let o = register_interface::register(context.get_inner(), &request);
         ActivationResult {
-            activation_code: pulumi_wasm_rust::__private::into_domain(
+            activation_code: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("activationCode"),
             ),
-            description: pulumi_wasm_rust::__private::into_domain(
+            description: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("description"),
             ),
-            expiration_date: pulumi_wasm_rust::__private::into_domain(
+            expiration_date: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("expirationDate"),
             ),
-            expired: pulumi_wasm_rust::__private::into_domain(
+            expired: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("expired"),
             ),
-            iam_role: pulumi_wasm_rust::__private::into_domain(
+            iam_role: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("iamRole"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            registration_count: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            registration_count: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("registrationCount"),
             ),
-            registration_limit: pulumi_wasm_rust::__private::into_domain(
+            registration_limit: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("registrationLimit"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_wasm_rust::__private::into_domain(
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            tags_all: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("tagsAll"),
             ),
         }

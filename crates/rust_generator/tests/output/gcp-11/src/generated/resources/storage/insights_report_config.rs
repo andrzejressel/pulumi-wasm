@@ -92,74 +92,74 @@
 /// ```
 ///
 pub mod insights_report_config {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct InsightsReportConfigArgs {
         /// Options for configuring the format of the inventory report CSV file.
         /// Structure is documented below.
         #[builder(into)]
-        pub csv_options: pulumi_wasm_rust::InputOrOutput<
+        pub csv_options: pulumi_gestalt_rust::InputOrOutput<
             super::super::types::storage::InsightsReportConfigCsvOptions,
         >,
         /// The editable display name of the inventory report configuration. Has a limit of 256 characters. Can be empty.
         #[builder(into, default)]
-        pub display_name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub display_name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Options for configuring how inventory reports are generated.
         #[builder(into, default)]
-        pub frequency_options: pulumi_wasm_rust::InputOrOutput<
+        pub frequency_options: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::storage::InsightsReportConfigFrequencyOptions>,
         >,
         /// The location of the ReportConfig. The source and destination buckets specified in the ReportConfig
         /// must be in the same location.
         #[builder(into)]
-        pub location: pulumi_wasm_rust::InputOrOutput<String>,
+        pub location: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Options for including metadata in an inventory report.
         #[builder(into, default)]
-        pub object_metadata_report_options: pulumi_wasm_rust::InputOrOutput<
+        pub object_metadata_report_options: pulumi_gestalt_rust::InputOrOutput<
             Option<
                 super::super::types::storage::InsightsReportConfigObjectMetadataReportOptions,
             >,
         >,
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub project: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct InsightsReportConfigResult {
         /// Options for configuring the format of the inventory report CSV file.
         /// Structure is documented below.
-        pub csv_options: pulumi_wasm_rust::Output<
+        pub csv_options: pulumi_gestalt_rust::Output<
             super::super::types::storage::InsightsReportConfigCsvOptions,
         >,
         /// The editable display name of the inventory report configuration. Has a limit of 256 characters. Can be empty.
-        pub display_name: pulumi_wasm_rust::Output<Option<String>>,
+        pub display_name: pulumi_gestalt_rust::Output<Option<String>>,
         /// Options for configuring how inventory reports are generated.
-        pub frequency_options: pulumi_wasm_rust::Output<
+        pub frequency_options: pulumi_gestalt_rust::Output<
             Option<super::super::types::storage::InsightsReportConfigFrequencyOptions>,
         >,
         /// The location of the ReportConfig. The source and destination buckets specified in the ReportConfig
         /// must be in the same location.
-        pub location: pulumi_wasm_rust::Output<String>,
+        pub location: pulumi_gestalt_rust::Output<String>,
         /// The UUID of the inventory report configuration.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// Options for including metadata in an inventory report.
-        pub object_metadata_report_options: pulumi_wasm_rust::Output<
+        pub object_metadata_report_options: pulumi_gestalt_rust::Output<
             Option<
                 super::super::types::storage::InsightsReportConfigObjectMetadataReportOptions,
             >,
         >,
-        pub project: pulumi_wasm_rust::Output<String>,
+        pub project: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: InsightsReportConfigArgs,
     ) -> InsightsReportConfigResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let csv_options_binding = args.csv_options.get_output(context).get_inner();
         let display_name_binding = args.display_name.get_output(context).get_inner();
@@ -206,23 +206,25 @@ pub mod insights_report_config {
         };
         let o = register_interface::register(context.get_inner(), &request);
         InsightsReportConfigResult {
-            csv_options: pulumi_wasm_rust::__private::into_domain(
+            csv_options: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("csvOptions"),
             ),
-            display_name: pulumi_wasm_rust::__private::into_domain(
+            display_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("displayName"),
             ),
-            frequency_options: pulumi_wasm_rust::__private::into_domain(
+            frequency_options: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("frequencyOptions"),
             ),
-            location: pulumi_wasm_rust::__private::into_domain(
+            location: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("location"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            object_metadata_report_options: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            object_metadata_report_options: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("objectMetadataReportOptions"),
             ),
-            project: pulumi_wasm_rust::__private::into_domain(o.extract_field("project")),
+            project: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("project"),
+            ),
         }
     }
 }

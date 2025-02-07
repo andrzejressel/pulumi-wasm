@@ -44,63 +44,63 @@
 /// ```
 ///
 pub mod certificate_issuer {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct CertificateIssuerArgs {
         /// The account number with the third-party Certificate Issuer.
         #[builder(into, default)]
-        pub account_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub account_id: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// One or more `admin` blocks as defined below.
         #[builder(into, default)]
-        pub admins: pulumi_wasm_rust::InputOrOutput<
+        pub admins: pulumi_gestalt_rust::InputOrOutput<
             Option<Vec<super::super::types::keyvault::CertificateIssuerAdmin>>,
         >,
         /// The ID of the Key Vault in which to create the Certificate Issuer. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub key_vault_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub key_vault_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The name which should be used for this Key Vault Certificate Issuer. Changing this forces a new Key Vault Certificate Issuer to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The ID of the organization as provided to the issuer.
         #[builder(into, default)]
-        pub org_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub org_id: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The password associated with the account and organization ID at the third-party Certificate Issuer. If not specified, will not overwrite any previous value.
         #[builder(into, default)]
-        pub password: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub password: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The name of the third-party Certificate Issuer. Possible values are: `DigiCert`, `GlobalSign`, `OneCertV2-PrivateCA`, `OneCertV2-PublicCA` and `SslAdminV2`.
         #[builder(into)]
-        pub provider_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub provider_name: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct CertificateIssuerResult {
         /// The account number with the third-party Certificate Issuer.
-        pub account_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub account_id: pulumi_gestalt_rust::Output<Option<String>>,
         /// One or more `admin` blocks as defined below.
-        pub admins: pulumi_wasm_rust::Output<
+        pub admins: pulumi_gestalt_rust::Output<
             Option<Vec<super::super::types::keyvault::CertificateIssuerAdmin>>,
         >,
         /// The ID of the Key Vault in which to create the Certificate Issuer. Changing this forces a new resource to be created.
-        pub key_vault_id: pulumi_wasm_rust::Output<String>,
+        pub key_vault_id: pulumi_gestalt_rust::Output<String>,
         /// The name which should be used for this Key Vault Certificate Issuer. Changing this forces a new Key Vault Certificate Issuer to be created.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// The ID of the organization as provided to the issuer.
-        pub org_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub org_id: pulumi_gestalt_rust::Output<Option<String>>,
         /// The password associated with the account and organization ID at the third-party Certificate Issuer. If not specified, will not overwrite any previous value.
-        pub password: pulumi_wasm_rust::Output<Option<String>>,
+        pub password: pulumi_gestalt_rust::Output<Option<String>>,
         /// The name of the third-party Certificate Issuer. Possible values are: `DigiCert`, `GlobalSign`, `OneCertV2-PrivateCA`, `OneCertV2-PublicCA` and `SslAdminV2`.
-        pub provider_name: pulumi_wasm_rust::Output<String>,
+        pub provider_name: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: CertificateIssuerArgs,
     ) -> CertificateIssuerResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let account_id_binding = args.account_id.get_output(context).get_inner();
         let admins_binding = args.admins.get_output(context).get_inner();
@@ -146,19 +146,23 @@ pub mod certificate_issuer {
         };
         let o = register_interface::register(context.get_inner(), &request);
         CertificateIssuerResult {
-            account_id: pulumi_wasm_rust::__private::into_domain(
+            account_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("accountId"),
             ),
-            admins: pulumi_wasm_rust::__private::into_domain(o.extract_field("admins")),
-            key_vault_id: pulumi_wasm_rust::__private::into_domain(
+            admins: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("admins"),
+            ),
+            key_vault_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("keyVaultId"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            org_id: pulumi_wasm_rust::__private::into_domain(o.extract_field("orgId")),
-            password: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            org_id: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("orgId"),
+            ),
+            password: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("password"),
             ),
-            provider_name: pulumi_wasm_rust::__private::into_domain(
+            provider_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("providerName"),
             ),
         }

@@ -62,7 +62,7 @@
 /// ```
 ///
 pub mod deployment {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct DeploymentArgs {
@@ -71,33 +71,33 @@ pub mod deployment {
         /// updating this field does not actually affect the deployment, just how it is updated. Default value: "CREATE_OR_ACQUIRE"
         /// Possible values: ["ACQUIRE", "CREATE_OR_ACQUIRE"]
         #[builder(into, default)]
-        pub create_policy: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub create_policy: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Set the policy to use for deleting new resources on update/delete. Valid values are 'DELETE' (default) or 'ABANDON'. If
         /// 'DELETE', resource is deleted after removal from Deployment Manager. If 'ABANDON', the resource is only removed from
         /// Deployment Manager and is not actually deleted. Note that updating this field does not actually change the deployment,
         /// just how it is updated. Default value: "DELETE" Possible values: ["ABANDON", "DELETE"]
         #[builder(into, default)]
-        pub delete_policy: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub delete_policy: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Optional user-provided description of deployment.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub description: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Key-value pairs to apply to this labels.
         #[builder(into, default)]
-        pub labels: pulumi_wasm_rust::InputOrOutput<
+        pub labels: pulumi_gestalt_rust::InputOrOutput<
             Option<Vec<super::super::types::deploymentmanager::DeploymentLabel>>,
         >,
         /// Unique name for the deployment
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         #[builder(into, default)]
-        pub preview: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub preview: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub project: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Parameters that define your deployment, including the deployment
         /// configuration and relevant templates.
         /// Structure is documented below.
         #[builder(into)]
-        pub target: pulumi_wasm_rust::InputOrOutput<
+        pub target: pulumi_gestalt_rust::InputOrOutput<
             super::super::types::deploymentmanager::DeploymentTarget,
         >,
     }
@@ -107,33 +107,33 @@ pub mod deployment {
         /// (default) or 'ACQUIRE'. If set to 'ACQUIRE' and resources do not already exist, the deployment will fail. Note that
         /// updating this field does not actually affect the deployment, just how it is updated. Default value: "CREATE_OR_ACQUIRE"
         /// Possible values: ["ACQUIRE", "CREATE_OR_ACQUIRE"]
-        pub create_policy: pulumi_wasm_rust::Output<Option<String>>,
+        pub create_policy: pulumi_gestalt_rust::Output<Option<String>>,
         /// Set the policy to use for deleting new resources on update/delete. Valid values are 'DELETE' (default) or 'ABANDON'. If
         /// 'DELETE', resource is deleted after removal from Deployment Manager. If 'ABANDON', the resource is only removed from
         /// Deployment Manager and is not actually deleted. Note that updating this field does not actually change the deployment,
         /// just how it is updated. Default value: "DELETE" Possible values: ["ABANDON", "DELETE"]
-        pub delete_policy: pulumi_wasm_rust::Output<Option<String>>,
+        pub delete_policy: pulumi_gestalt_rust::Output<Option<String>>,
         /// Unique identifier for deployment. Output only.
-        pub deployment_id: pulumi_wasm_rust::Output<String>,
+        pub deployment_id: pulumi_gestalt_rust::Output<String>,
         /// Optional user-provided description of deployment.
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_gestalt_rust::Output<Option<String>>,
         /// Key-value pairs to apply to this labels.
-        pub labels: pulumi_wasm_rust::Output<
+        pub labels: pulumi_gestalt_rust::Output<
             Option<Vec<super::super::types::deploymentmanager::DeploymentLabel>>,
         >,
         /// Output only. URL of the manifest representing the last manifest that
         /// was successfully deployed.
-        pub manifest: pulumi_wasm_rust::Output<String>,
+        pub manifest: pulumi_gestalt_rust::Output<String>,
         /// Unique name for the deployment
-        pub name: pulumi_wasm_rust::Output<String>,
-        pub preview: pulumi_wasm_rust::Output<Option<bool>>,
-        pub project: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
+        pub preview: pulumi_gestalt_rust::Output<Option<bool>>,
+        pub project: pulumi_gestalt_rust::Output<String>,
         /// Output only. Server defined URL for the resource.
-        pub self_link: pulumi_wasm_rust::Output<String>,
+        pub self_link: pulumi_gestalt_rust::Output<String>,
         /// Parameters that define your deployment, including the deployment
         /// configuration and relevant templates.
         /// Structure is documented below.
-        pub target: pulumi_wasm_rust::Output<
+        pub target: pulumi_gestalt_rust::Output<
             super::super::types::deploymentmanager::DeploymentTarget,
         >,
     }
@@ -142,11 +142,11 @@ pub mod deployment {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: DeploymentArgs,
     ) -> DeploymentResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let create_policy_binding = args.create_policy.get_output(context).get_inner();
         let delete_policy_binding = args.delete_policy.get_output(context).get_inner();
@@ -197,33 +197,37 @@ pub mod deployment {
         };
         let o = register_interface::register(context.get_inner(), &request);
         DeploymentResult {
-            create_policy: pulumi_wasm_rust::__private::into_domain(
+            create_policy: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("createPolicy"),
             ),
-            delete_policy: pulumi_wasm_rust::__private::into_domain(
+            delete_policy: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("deletePolicy"),
             ),
-            deployment_id: pulumi_wasm_rust::__private::into_domain(
+            deployment_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("deploymentId"),
             ),
-            description: pulumi_wasm_rust::__private::into_domain(
+            description: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("description"),
             ),
-            labels: pulumi_wasm_rust::__private::into_domain(o.extract_field("labels")),
-            manifest: pulumi_wasm_rust::__private::into_domain(
+            labels: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("labels"),
+            ),
+            manifest: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("manifest"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            preview: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            preview: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("preview"),
             ),
-            project: pulumi_wasm_rust::__private::into_domain(
+            project: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("project"),
             ),
-            self_link: pulumi_wasm_rust::__private::into_domain(
+            self_link: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("selfLink"),
             ),
-            target: pulumi_wasm_rust::__private::into_domain(o.extract_field("target")),
+            target: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("target"),
+            ),
         }
     }
 }

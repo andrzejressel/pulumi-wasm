@@ -5,8 +5,8 @@
 /// ### Basic Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = serverless_vpc_endpoint::create(
@@ -28,55 +28,55 @@
 /// $ pulumi import aws:opensearch/serverlessVpcEndpoint:ServerlessVpcEndpoint example vpce-8012925589
 /// ```
 pub mod serverless_vpc_endpoint {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ServerlessVpcEndpointArgs {
         /// Name of the interface endpoint.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// One or more security groups that define the ports, protocols, and sources for inbound traffic that you are authorizing into your endpoint. Up to 5 security groups can be provided.
         #[builder(into, default)]
-        pub security_group_ids: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
+        pub security_group_ids: pulumi_gestalt_rust::InputOrOutput<Option<Vec<String>>>,
         /// One or more subnet IDs from which you'll access OpenSearch Serverless. Up to 6 subnets can be provided.
         #[builder(into)]
-        pub subnet_ids: pulumi_wasm_rust::InputOrOutput<Vec<String>>,
+        pub subnet_ids: pulumi_gestalt_rust::InputOrOutput<Vec<String>>,
         #[builder(into, default)]
-        pub timeouts: pulumi_wasm_rust::InputOrOutput<
+        pub timeouts: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::opensearch::ServerlessVpcEndpointTimeouts>,
         >,
         /// ID of the VPC from which you'll access OpenSearch Serverless.
         ///
         /// The following arguments are optional:
         #[builder(into)]
-        pub vpc_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub vpc_id: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct ServerlessVpcEndpointResult {
         /// Name of the interface endpoint.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// One or more security groups that define the ports, protocols, and sources for inbound traffic that you are authorizing into your endpoint. Up to 5 security groups can be provided.
-        pub security_group_ids: pulumi_wasm_rust::Output<Vec<String>>,
+        pub security_group_ids: pulumi_gestalt_rust::Output<Vec<String>>,
         /// One or more subnet IDs from which you'll access OpenSearch Serverless. Up to 6 subnets can be provided.
-        pub subnet_ids: pulumi_wasm_rust::Output<Vec<String>>,
-        pub timeouts: pulumi_wasm_rust::Output<
+        pub subnet_ids: pulumi_gestalt_rust::Output<Vec<String>>,
+        pub timeouts: pulumi_gestalt_rust::Output<
             Option<super::super::types::opensearch::ServerlessVpcEndpointTimeouts>,
         >,
         /// ID of the VPC from which you'll access OpenSearch Serverless.
         ///
         /// The following arguments are optional:
-        pub vpc_id: pulumi_wasm_rust::Output<String>,
+        pub vpc_id: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: ServerlessVpcEndpointArgs,
     ) -> ServerlessVpcEndpointResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let name_binding = args.name.get_output(context).get_inner();
         let security_group_ids_binding = args
@@ -115,17 +115,17 @@ pub mod serverless_vpc_endpoint {
         };
         let o = register_interface::register(context.get_inner(), &request);
         ServerlessVpcEndpointResult {
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            security_group_ids: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            security_group_ids: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("securityGroupIds"),
             ),
-            subnet_ids: pulumi_wasm_rust::__private::into_domain(
+            subnet_ids: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("subnetIds"),
             ),
-            timeouts: pulumi_wasm_rust::__private::into_domain(
+            timeouts: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("timeouts"),
             ),
-            vpc_id: pulumi_wasm_rust::__private::into_domain(o.extract_field("vpcId")),
+            vpc_id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("vpcId")),
         }
     }
 }

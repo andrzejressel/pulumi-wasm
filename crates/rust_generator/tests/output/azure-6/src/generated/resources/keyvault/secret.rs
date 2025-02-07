@@ -54,75 +54,75 @@
 /// ```
 ///
 pub mod secret {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct SecretArgs {
         /// Specifies the content type for the Key Vault Secret.
         #[builder(into, default)]
-        pub content_type: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub content_type: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Expiration UTC datetime (Y-m-d'T'H:M:S'Z').
         #[builder(into, default)]
-        pub expiration_date: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub expiration_date: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The ID of the Key Vault where the Secret should be created. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub key_vault_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub key_vault_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Specifies the name of the Key Vault Secret. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Key not usable before the provided UTC datetime (Y-m-d'T'H:M:S'Z').
         #[builder(into, default)]
-        pub not_before_date: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub not_before_date: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// A mapping of tags to assign to the resource.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Specifies the value of the Key Vault Secret. Changing this will create a new version of the Key Vault Secret.
         ///
         /// > **Note:** Key Vault strips newlines. To preserve newlines in multi-line secrets try replacing them with `\n` or by base 64 encoding them with `replace(file("my_secret_file"), "/\n/", "\n")` or `base64encode(file("my_secret_file"))`, respectively.
         #[builder(into)]
-        pub value: pulumi_wasm_rust::InputOrOutput<String>,
+        pub value: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct SecretResult {
         /// Specifies the content type for the Key Vault Secret.
-        pub content_type: pulumi_wasm_rust::Output<Option<String>>,
+        pub content_type: pulumi_gestalt_rust::Output<Option<String>>,
         /// Expiration UTC datetime (Y-m-d'T'H:M:S'Z').
-        pub expiration_date: pulumi_wasm_rust::Output<Option<String>>,
+        pub expiration_date: pulumi_gestalt_rust::Output<Option<String>>,
         /// The ID of the Key Vault where the Secret should be created. Changing this forces a new resource to be created.
-        pub key_vault_id: pulumi_wasm_rust::Output<String>,
+        pub key_vault_id: pulumi_gestalt_rust::Output<String>,
         /// Specifies the name of the Key Vault Secret. Changing this forces a new resource to be created.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// Key not usable before the provided UTC datetime (Y-m-d'T'H:M:S'Z').
-        pub not_before_date: pulumi_wasm_rust::Output<Option<String>>,
+        pub not_before_date: pulumi_gestalt_rust::Output<Option<String>>,
         /// The (Versioned) ID for this Key Vault Secret. This property points to a specific version of a Key Vault Secret, as such using this won't auto-rotate values if used in other Azure Services.
-        pub resource_id: pulumi_wasm_rust::Output<String>,
+        pub resource_id: pulumi_gestalt_rust::Output<String>,
         /// The Versionless ID of the Key Vault Secret. This property allows other Azure Services (that support it) to auto-rotate their value when the Key Vault Secret is updated.
-        pub resource_versionless_id: pulumi_wasm_rust::Output<String>,
+        pub resource_versionless_id: pulumi_gestalt_rust::Output<String>,
         /// A mapping of tags to assign to the resource.
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Specifies the value of the Key Vault Secret. Changing this will create a new version of the Key Vault Secret.
         ///
         /// > **Note:** Key Vault strips newlines. To preserve newlines in multi-line secrets try replacing them with `\n` or by base 64 encoding them with `replace(file("my_secret_file"), "/\n/", "\n")` or `base64encode(file("my_secret_file"))`, respectively.
-        pub value: pulumi_wasm_rust::Output<String>,
+        pub value: pulumi_gestalt_rust::Output<String>,
         /// The current version of the Key Vault Secret.
-        pub version: pulumi_wasm_rust::Output<String>,
+        pub version: pulumi_gestalt_rust::Output<String>,
         /// The Base ID of the Key Vault Secret.
-        pub versionless_id: pulumi_wasm_rust::Output<String>,
+        pub versionless_id: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: SecretArgs,
     ) -> SecretResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let content_type_binding = args.content_type.get_output(context).get_inner();
         let expiration_date_binding = args
@@ -174,31 +174,31 @@ pub mod secret {
         };
         let o = register_interface::register(context.get_inner(), &request);
         SecretResult {
-            content_type: pulumi_wasm_rust::__private::into_domain(
+            content_type: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("contentType"),
             ),
-            expiration_date: pulumi_wasm_rust::__private::into_domain(
+            expiration_date: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("expirationDate"),
             ),
-            key_vault_id: pulumi_wasm_rust::__private::into_domain(
+            key_vault_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("keyVaultId"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            not_before_date: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            not_before_date: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("notBeforeDate"),
             ),
-            resource_id: pulumi_wasm_rust::__private::into_domain(
+            resource_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("resourceId"),
             ),
-            resource_versionless_id: pulumi_wasm_rust::__private::into_domain(
+            resource_versionless_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("resourceVersionlessId"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
-            value: pulumi_wasm_rust::__private::into_domain(o.extract_field("value")),
-            version: pulumi_wasm_rust::__private::into_domain(
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            value: pulumi_gestalt_rust::__private::into_domain(o.extract_field("value")),
+            version: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("version"),
             ),
-            versionless_id: pulumi_wasm_rust::__private::into_domain(
+            versionless_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("versionlessId"),
             ),
         }

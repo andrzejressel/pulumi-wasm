@@ -1,5 +1,5 @@
 pub mod get_backup_plan_association {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct GetBackupPlanAssociationArgs {
@@ -7,43 +7,43 @@ pub mod get_backup_plan_association {
         ///
         /// - - -
         #[builder(into)]
-        pub backup_plan_association_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub backup_plan_association_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The location in which the Backupplan association resource belongs.
         #[builder(into)]
-        pub location: pulumi_wasm_rust::InputOrOutput<String>,
+        pub location: pulumi_gestalt_rust::InputOrOutput<String>,
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub project: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct GetBackupPlanAssociationResult {
-        pub backup_plan: pulumi_wasm_rust::Output<String>,
-        pub backup_plan_association_id: pulumi_wasm_rust::Output<String>,
-        pub create_time: pulumi_wasm_rust::Output<String>,
-        pub data_source: pulumi_wasm_rust::Output<String>,
+        pub backup_plan: pulumi_gestalt_rust::Output<String>,
+        pub backup_plan_association_id: pulumi_gestalt_rust::Output<String>,
+        pub create_time: pulumi_gestalt_rust::Output<String>,
+        pub data_source: pulumi_gestalt_rust::Output<String>,
         /// The provider-assigned unique ID for this managed resource.
-        pub id: pulumi_wasm_rust::Output<String>,
-        pub last_successful_backup_consistency_time: pulumi_wasm_rust::Output<String>,
-        pub location: pulumi_wasm_rust::Output<String>,
-        pub name: pulumi_wasm_rust::Output<String>,
-        pub project: pulumi_wasm_rust::Output<Option<String>>,
-        pub resource: pulumi_wasm_rust::Output<String>,
-        pub resource_type: pulumi_wasm_rust::Output<String>,
-        pub rules_config_infos: pulumi_wasm_rust::Output<
+        pub id: pulumi_gestalt_rust::Output<String>,
+        pub last_successful_backup_consistency_time: pulumi_gestalt_rust::Output<String>,
+        pub location: pulumi_gestalt_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
+        pub project: pulumi_gestalt_rust::Output<Option<String>>,
+        pub resource: pulumi_gestalt_rust::Output<String>,
+        pub resource_type: pulumi_gestalt_rust::Output<String>,
+        pub rules_config_infos: pulumi_gestalt_rust::Output<
             Vec<
                 super::super::super::types::backupdisasterrecovery::GetBackupPlanAssociationRulesConfigInfo,
             >,
         >,
-        pub update_time: pulumi_wasm_rust::Output<String>,
+        pub update_time: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         args: GetBackupPlanAssociationArgs,
     ) -> GetBackupPlanAssociationResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let backup_plan_association_id_binding = args
             .backup_plan_association_id
@@ -72,39 +72,39 @@ pub mod get_backup_plan_association {
         };
         let o = register_interface::invoke(context.get_inner(), &request);
         GetBackupPlanAssociationResult {
-            backup_plan: pulumi_wasm_rust::__private::into_domain(
+            backup_plan: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("backupPlan"),
             ),
-            backup_plan_association_id: pulumi_wasm_rust::__private::into_domain(
+            backup_plan_association_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("backupPlanAssociationId"),
             ),
-            create_time: pulumi_wasm_rust::__private::into_domain(
+            create_time: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("createTime"),
             ),
-            data_source: pulumi_wasm_rust::__private::into_domain(
+            data_source: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("dataSource"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
-            last_successful_backup_consistency_time: pulumi_wasm_rust::__private::into_domain(
+            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
+            last_successful_backup_consistency_time: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("lastSuccessfulBackupConsistencyTime"),
             ),
-            location: pulumi_wasm_rust::__private::into_domain(
+            location: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("location"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            project: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            project: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("project"),
             ),
-            resource: pulumi_wasm_rust::__private::into_domain(
+            resource: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("resource"),
             ),
-            resource_type: pulumi_wasm_rust::__private::into_domain(
+            resource_type: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("resourceType"),
             ),
-            rules_config_infos: pulumi_wasm_rust::__private::into_domain(
+            rules_config_infos: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("rulesConfigInfos"),
             ),
-            update_time: pulumi_wasm_rust::__private::into_domain(
+            update_time: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("updateTime"),
             ),
         }

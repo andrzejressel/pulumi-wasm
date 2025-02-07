@@ -4,8 +4,8 @@
 /// ## Example Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = network_association::create(
@@ -26,38 +26,38 @@
 /// $ pulumi import aws:ec2clientvpn/networkAssociation:NetworkAssociation example cvpn-endpoint-0ac3a1abbccddd666,cvpn-assoc-0b8db902465d069ad
 /// ```
 pub mod network_association {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct NetworkAssociationArgs {
         /// The ID of the Client VPN endpoint.
         #[builder(into)]
-        pub client_vpn_endpoint_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub client_vpn_endpoint_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The ID of the subnet to associate with the Client VPN endpoint.
         #[builder(into)]
-        pub subnet_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub subnet_id: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct NetworkAssociationResult {
         /// The unique ID of the target network association.
-        pub association_id: pulumi_wasm_rust::Output<String>,
+        pub association_id: pulumi_gestalt_rust::Output<String>,
         /// The ID of the Client VPN endpoint.
-        pub client_vpn_endpoint_id: pulumi_wasm_rust::Output<String>,
+        pub client_vpn_endpoint_id: pulumi_gestalt_rust::Output<String>,
         /// The ID of the subnet to associate with the Client VPN endpoint.
-        pub subnet_id: pulumi_wasm_rust::Output<String>,
+        pub subnet_id: pulumi_gestalt_rust::Output<String>,
         /// The ID of the VPC in which the target subnet is located.
-        pub vpc_id: pulumi_wasm_rust::Output<String>,
+        pub vpc_id: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: NetworkAssociationArgs,
     ) -> NetworkAssociationResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let client_vpn_endpoint_id_binding = args
             .client_vpn_endpoint_id
@@ -81,16 +81,16 @@ pub mod network_association {
         };
         let o = register_interface::register(context.get_inner(), &request);
         NetworkAssociationResult {
-            association_id: pulumi_wasm_rust::__private::into_domain(
+            association_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("associationId"),
             ),
-            client_vpn_endpoint_id: pulumi_wasm_rust::__private::into_domain(
+            client_vpn_endpoint_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("clientVpnEndpointId"),
             ),
-            subnet_id: pulumi_wasm_rust::__private::into_domain(
+            subnet_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("subnetId"),
             ),
-            vpc_id: pulumi_wasm_rust::__private::into_domain(o.extract_field("vpcId")),
+            vpc_id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("vpcId")),
         }
     }
 }

@@ -100,44 +100,44 @@
 /// ```
 ///
 pub mod workspace_sql_aad_admin {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct WorkspaceSqlAadAdminArgs {
         /// The login name of the Azure AD Administrator of this Synapse Workspace.
         #[builder(into)]
-        pub login: pulumi_wasm_rust::InputOrOutput<String>,
+        pub login: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The object id of the Azure AD Administrator of this Synapse Workspace.
         #[builder(into)]
-        pub object_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub object_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The ID of the Synapse Workspace where the Azure AD Administrator should be configured.
         #[builder(into)]
-        pub synapse_workspace_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub synapse_workspace_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The tenant id of the Azure AD Administrator of this Synapse Workspace.
         #[builder(into)]
-        pub tenant_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub tenant_id: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct WorkspaceSqlAadAdminResult {
         /// The login name of the Azure AD Administrator of this Synapse Workspace.
-        pub login: pulumi_wasm_rust::Output<String>,
+        pub login: pulumi_gestalt_rust::Output<String>,
         /// The object id of the Azure AD Administrator of this Synapse Workspace.
-        pub object_id: pulumi_wasm_rust::Output<String>,
+        pub object_id: pulumi_gestalt_rust::Output<String>,
         /// The ID of the Synapse Workspace where the Azure AD Administrator should be configured.
-        pub synapse_workspace_id: pulumi_wasm_rust::Output<String>,
+        pub synapse_workspace_id: pulumi_gestalt_rust::Output<String>,
         /// The tenant id of the Azure AD Administrator of this Synapse Workspace.
-        pub tenant_id: pulumi_wasm_rust::Output<String>,
+        pub tenant_id: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: WorkspaceSqlAadAdminArgs,
     ) -> WorkspaceSqlAadAdminResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let login_binding = args.login.get_output(context).get_inner();
         let object_id_binding = args.object_id.get_output(context).get_inner();
@@ -171,14 +171,14 @@ pub mod workspace_sql_aad_admin {
         };
         let o = register_interface::register(context.get_inner(), &request);
         WorkspaceSqlAadAdminResult {
-            login: pulumi_wasm_rust::__private::into_domain(o.extract_field("login")),
-            object_id: pulumi_wasm_rust::__private::into_domain(
+            login: pulumi_gestalt_rust::__private::into_domain(o.extract_field("login")),
+            object_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("objectId"),
             ),
-            synapse_workspace_id: pulumi_wasm_rust::__private::into_domain(
+            synapse_workspace_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("synapseWorkspaceId"),
             ),
-            tenant_id: pulumi_wasm_rust::__private::into_domain(
+            tenant_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("tenantId"),
             ),
         }

@@ -5,8 +5,8 @@
 /// ### Basic usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let test = image_version::create(
@@ -27,41 +27,41 @@
 /// $ pulumi import aws:sagemaker/imageVersion:ImageVersion test_image my-code-repo
 /// ```
 pub mod image_version {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ImageVersionArgs {
         /// The registry path of the container image on which this image version is based.
         #[builder(into)]
-        pub base_image: pulumi_wasm_rust::InputOrOutput<String>,
+        pub base_image: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The name of the image. Must be unique to your account.
         #[builder(into)]
-        pub image_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub image_name: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct ImageVersionResult {
         /// The Amazon Resource Name (ARN) assigned by AWS to this Image Version.
-        pub arn: pulumi_wasm_rust::Output<String>,
+        pub arn: pulumi_gestalt_rust::Output<String>,
         /// The registry path of the container image on which this image version is based.
-        pub base_image: pulumi_wasm_rust::Output<String>,
+        pub base_image: pulumi_gestalt_rust::Output<String>,
         /// The registry path of the container image that contains this image version.
-        pub container_image: pulumi_wasm_rust::Output<String>,
+        pub container_image: pulumi_gestalt_rust::Output<String>,
         /// The Amazon Resource Name (ARN) of the image the version is based on.
-        pub image_arn: pulumi_wasm_rust::Output<String>,
+        pub image_arn: pulumi_gestalt_rust::Output<String>,
         /// The name of the image. Must be unique to your account.
-        pub image_name: pulumi_wasm_rust::Output<String>,
-        pub version: pulumi_wasm_rust::Output<i32>,
+        pub image_name: pulumi_gestalt_rust::Output<String>,
+        pub version: pulumi_gestalt_rust::Output<i32>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: ImageVersionArgs,
     ) -> ImageVersionResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let base_image_binding = args.base_image.get_output(context).get_inner();
         let image_name_binding = args.image_name.get_output(context).get_inner();
@@ -82,20 +82,22 @@ pub mod image_version {
         };
         let o = register_interface::register(context.get_inner(), &request);
         ImageVersionResult {
-            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
-            base_image: pulumi_wasm_rust::__private::into_domain(
+            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
+            base_image: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("baseImage"),
             ),
-            container_image: pulumi_wasm_rust::__private::into_domain(
+            container_image: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("containerImage"),
             ),
-            image_arn: pulumi_wasm_rust::__private::into_domain(
+            image_arn: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("imageArn"),
             ),
-            image_name: pulumi_wasm_rust::__private::into_domain(
+            image_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("imageName"),
             ),
-            version: pulumi_wasm_rust::__private::into_domain(o.extract_field("version")),
+            version: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("version"),
+            ),
         }
     }
 }

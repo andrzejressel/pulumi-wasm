@@ -7,8 +7,8 @@
 /// AWS managed rules can be used by setting the source owner to `AWS` and the source identifier to the name of the managed rule. More information about AWS managed rules can be found in the [AWS Config Developer Guide](https://docs.aws.amazon.com/config/latest/developerguide/evaluate-config_use-managed-rules.html).
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let this = rule::create(
@@ -68,88 +68,88 @@
 /// $ pulumi import aws:cfg/remediationConfiguration:RemediationConfiguration this example
 /// ```
 pub mod remediation_configuration {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct RemediationConfigurationArgs {
         /// Remediation is triggered automatically if `true`.
         #[builder(into, default)]
-        pub automatic: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub automatic: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// Name of the AWS Config rule.
         #[builder(into)]
-        pub config_rule_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub config_rule_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Configuration block for execution controls. See below.
         #[builder(into, default)]
-        pub execution_controls: pulumi_wasm_rust::InputOrOutput<
+        pub execution_controls: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::cfg::RemediationConfigurationExecutionControls>,
         >,
         /// Maximum number of failed attempts for auto-remediation. If you do not select a number, the default is 5.
         #[builder(into, default)]
-        pub maximum_automatic_attempts: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
+        pub maximum_automatic_attempts: pulumi_gestalt_rust::InputOrOutput<Option<i32>>,
         /// Can be specified multiple times for each parameter. Each parameter block supports arguments below.
         #[builder(into, default)]
-        pub parameters: pulumi_wasm_rust::InputOrOutput<
+        pub parameters: pulumi_gestalt_rust::InputOrOutput<
             Option<Vec<super::super::types::cfg::RemediationConfigurationParameter>>,
         >,
         /// Type of resource.
         #[builder(into, default)]
-        pub resource_type: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub resource_type: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Maximum time in seconds that AWS Config runs auto-remediation. If you do not select a number, the default is 60 seconds.
         #[builder(into, default)]
-        pub retry_attempt_seconds: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
+        pub retry_attempt_seconds: pulumi_gestalt_rust::InputOrOutput<Option<i32>>,
         /// Target ID is the name of the public document.
         #[builder(into)]
-        pub target_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub target_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Type of the target. Target executes remediation. For example, SSM document.
         ///
         /// The following arguments are optional:
         #[builder(into)]
-        pub target_type: pulumi_wasm_rust::InputOrOutput<String>,
+        pub target_type: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Version of the target. For example, version of the SSM document
         #[builder(into, default)]
-        pub target_version: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub target_version: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct RemediationConfigurationResult {
         /// ARN of the Config Remediation Configuration.
-        pub arn: pulumi_wasm_rust::Output<String>,
+        pub arn: pulumi_gestalt_rust::Output<String>,
         /// Remediation is triggered automatically if `true`.
-        pub automatic: pulumi_wasm_rust::Output<Option<bool>>,
+        pub automatic: pulumi_gestalt_rust::Output<Option<bool>>,
         /// Name of the AWS Config rule.
-        pub config_rule_name: pulumi_wasm_rust::Output<String>,
+        pub config_rule_name: pulumi_gestalt_rust::Output<String>,
         /// Configuration block for execution controls. See below.
-        pub execution_controls: pulumi_wasm_rust::Output<
+        pub execution_controls: pulumi_gestalt_rust::Output<
             Option<super::super::types::cfg::RemediationConfigurationExecutionControls>,
         >,
         /// Maximum number of failed attempts for auto-remediation. If you do not select a number, the default is 5.
-        pub maximum_automatic_attempts: pulumi_wasm_rust::Output<Option<i32>>,
+        pub maximum_automatic_attempts: pulumi_gestalt_rust::Output<Option<i32>>,
         /// Can be specified multiple times for each parameter. Each parameter block supports arguments below.
-        pub parameters: pulumi_wasm_rust::Output<
+        pub parameters: pulumi_gestalt_rust::Output<
             Option<Vec<super::super::types::cfg::RemediationConfigurationParameter>>,
         >,
         /// Type of resource.
-        pub resource_type: pulumi_wasm_rust::Output<Option<String>>,
+        pub resource_type: pulumi_gestalt_rust::Output<Option<String>>,
         /// Maximum time in seconds that AWS Config runs auto-remediation. If you do not select a number, the default is 60 seconds.
-        pub retry_attempt_seconds: pulumi_wasm_rust::Output<Option<i32>>,
+        pub retry_attempt_seconds: pulumi_gestalt_rust::Output<Option<i32>>,
         /// Target ID is the name of the public document.
-        pub target_id: pulumi_wasm_rust::Output<String>,
+        pub target_id: pulumi_gestalt_rust::Output<String>,
         /// Type of the target. Target executes remediation. For example, SSM document.
         ///
         /// The following arguments are optional:
-        pub target_type: pulumi_wasm_rust::Output<String>,
+        pub target_type: pulumi_gestalt_rust::Output<String>,
         /// Version of the target. For example, version of the SSM document
-        pub target_version: pulumi_wasm_rust::Output<Option<String>>,
+        pub target_version: pulumi_gestalt_rust::Output<Option<String>>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: RemediationConfigurationArgs,
     ) -> RemediationConfigurationResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let automatic_binding = args.automatic.get_output(context).get_inner();
         let config_rule_name_binding = args
@@ -222,35 +222,35 @@ pub mod remediation_configuration {
         };
         let o = register_interface::register(context.get_inner(), &request);
         RemediationConfigurationResult {
-            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
-            automatic: pulumi_wasm_rust::__private::into_domain(
+            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
+            automatic: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("automatic"),
             ),
-            config_rule_name: pulumi_wasm_rust::__private::into_domain(
+            config_rule_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("configRuleName"),
             ),
-            execution_controls: pulumi_wasm_rust::__private::into_domain(
+            execution_controls: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("executionControls"),
             ),
-            maximum_automatic_attempts: pulumi_wasm_rust::__private::into_domain(
+            maximum_automatic_attempts: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("maximumAutomaticAttempts"),
             ),
-            parameters: pulumi_wasm_rust::__private::into_domain(
+            parameters: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("parameters"),
             ),
-            resource_type: pulumi_wasm_rust::__private::into_domain(
+            resource_type: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("resourceType"),
             ),
-            retry_attempt_seconds: pulumi_wasm_rust::__private::into_domain(
+            retry_attempt_seconds: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("retryAttemptSeconds"),
             ),
-            target_id: pulumi_wasm_rust::__private::into_domain(
+            target_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("targetId"),
             ),
-            target_type: pulumi_wasm_rust::__private::into_domain(
+            target_type: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("targetType"),
             ),
-            target_version: pulumi_wasm_rust::__private::into_domain(
+            target_version: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("targetVersion"),
             ),
         }

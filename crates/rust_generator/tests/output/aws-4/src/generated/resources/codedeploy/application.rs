@@ -5,8 +5,8 @@
 /// ### ECS Application
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = application::create(
@@ -19,8 +19,8 @@
 /// ### Lambda Application
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = application::create(
@@ -36,8 +36,8 @@
 /// ### Server Application
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = application::create(
@@ -58,42 +58,42 @@
 /// $ pulumi import aws:codedeploy/application:Application example my-application
 /// ```
 pub mod application {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ApplicationArgs {
         /// The compute platform can either be `ECS`, `Lambda`, or `Server`. Default is `Server`.
         #[builder(into, default)]
-        pub compute_platform: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub compute_platform: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The name of the application.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
     #[allow(dead_code)]
     pub struct ApplicationResult {
         /// The application ID.
-        pub application_id: pulumi_wasm_rust::Output<String>,
+        pub application_id: pulumi_gestalt_rust::Output<String>,
         /// The ARN of the CodeDeploy application.
-        pub arn: pulumi_wasm_rust::Output<String>,
+        pub arn: pulumi_gestalt_rust::Output<String>,
         /// The compute platform can either be `ECS`, `Lambda`, or `Server`. Default is `Server`.
-        pub compute_platform: pulumi_wasm_rust::Output<Option<String>>,
+        pub compute_platform: pulumi_gestalt_rust::Output<Option<String>>,
         /// The name for a connection to a GitHub account.
-        pub github_account_name: pulumi_wasm_rust::Output<String>,
+        pub github_account_name: pulumi_gestalt_rust::Output<String>,
         /// Whether the user has authenticated with GitHub for the specified application.
-        pub linked_to_github: pulumi_wasm_rust::Output<bool>,
+        pub linked_to_github: pulumi_gestalt_rust::Output<bool>,
         /// The name of the application.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        pub tags_all: pulumi_wasm_rust::Output<
+        pub tags_all: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
     }
@@ -102,11 +102,11 @@ pub mod application {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: ApplicationArgs,
     ) -> ApplicationResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let compute_platform_binding = args
             .compute_platform
@@ -135,22 +135,22 @@ pub mod application {
         };
         let o = register_interface::register(context.get_inner(), &request);
         ApplicationResult {
-            application_id: pulumi_wasm_rust::__private::into_domain(
+            application_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("applicationId"),
             ),
-            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
-            compute_platform: pulumi_wasm_rust::__private::into_domain(
+            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
+            compute_platform: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("computePlatform"),
             ),
-            github_account_name: pulumi_wasm_rust::__private::into_domain(
+            github_account_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("githubAccountName"),
             ),
-            linked_to_github: pulumi_wasm_rust::__private::into_domain(
+            linked_to_github: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("linkedToGithub"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            tags_all: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("tagsAll"),
             ),
         }

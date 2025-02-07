@@ -8,66 +8,66 @@
 /// $ pulumi import aws:apigateway/usagePlan:UsagePlan myusageplan <usage_plan_id>
 /// ```
 pub mod usage_plan {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct UsagePlanArgs {
         /// Associated API stages of the usage plan.
         #[builder(into, default)]
-        pub api_stages: pulumi_wasm_rust::InputOrOutput<
+        pub api_stages: pulumi_gestalt_rust::InputOrOutput<
             Option<Vec<super::super::types::apigateway::UsagePlanApiStage>>,
         >,
         /// Description of a usage plan.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub description: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Name of the usage plan.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// AWS Marketplace product identifier to associate with the usage plan as a SaaS product on AWS Marketplace.
         #[builder(into, default)]
-        pub product_code: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub product_code: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Quota of the usage plan.
         #[builder(into, default)]
-        pub quota_settings: pulumi_wasm_rust::InputOrOutput<
+        pub quota_settings: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::apigateway::UsagePlanQuotaSettings>,
         >,
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Throttling limits of the usage plan.
         #[builder(into, default)]
-        pub throttle_settings: pulumi_wasm_rust::InputOrOutput<
+        pub throttle_settings: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::apigateway::UsagePlanThrottleSettings>,
         >,
     }
     #[allow(dead_code)]
     pub struct UsagePlanResult {
         /// Associated API stages of the usage plan.
-        pub api_stages: pulumi_wasm_rust::Output<
+        pub api_stages: pulumi_gestalt_rust::Output<
             Option<Vec<super::super::types::apigateway::UsagePlanApiStage>>,
         >,
         /// ARN
-        pub arn: pulumi_wasm_rust::Output<String>,
+        pub arn: pulumi_gestalt_rust::Output<String>,
         /// Description of a usage plan.
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_gestalt_rust::Output<Option<String>>,
         /// Name of the usage plan.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// AWS Marketplace product identifier to associate with the usage plan as a SaaS product on AWS Marketplace.
-        pub product_code: pulumi_wasm_rust::Output<Option<String>>,
+        pub product_code: pulumi_gestalt_rust::Output<Option<String>>,
         /// Quota of the usage plan.
-        pub quota_settings: pulumi_wasm_rust::Output<
+        pub quota_settings: pulumi_gestalt_rust::Output<
             Option<super::super::types::apigateway::UsagePlanQuotaSettings>,
         >,
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        pub tags_all: pulumi_wasm_rust::Output<
+        pub tags_all: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
         /// Throttling limits of the usage plan.
-        pub throttle_settings: pulumi_wasm_rust::Output<
+        pub throttle_settings: pulumi_gestalt_rust::Output<
             Option<super::super::types::apigateway::UsagePlanThrottleSettings>,
         >,
     }
@@ -76,11 +76,11 @@ pub mod usage_plan {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: UsagePlanArgs,
     ) -> UsagePlanResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let api_stages_binding = args.api_stages.get_output(context).get_inner();
         let description_binding = args.description.get_output(context).get_inner();
@@ -129,25 +129,25 @@ pub mod usage_plan {
         };
         let o = register_interface::register(context.get_inner(), &request);
         UsagePlanResult {
-            api_stages: pulumi_wasm_rust::__private::into_domain(
+            api_stages: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("apiStages"),
             ),
-            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
-            description: pulumi_wasm_rust::__private::into_domain(
+            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
+            description: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("description"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            product_code: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            product_code: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("productCode"),
             ),
-            quota_settings: pulumi_wasm_rust::__private::into_domain(
+            quota_settings: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("quotaSettings"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_wasm_rust::__private::into_domain(
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            tags_all: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("tagsAll"),
             ),
-            throttle_settings: pulumi_wasm_rust::__private::into_domain(
+            throttle_settings: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("throttleSettings"),
             ),
         }

@@ -3,8 +3,8 @@
 /// ## Example Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = managed_cluster::create(
@@ -47,24 +47,24 @@
 /// ```
 ///
 pub mod managed_cluster {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ManagedClusterArgs {
         /// Controls how connections to the cluster are authenticated. A `authentication` block as defined below.
         #[builder(into, default)]
-        pub authentication: pulumi_wasm_rust::InputOrOutput<
+        pub authentication: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::servicefabric::ManagedClusterAuthentication>,
         >,
         /// If true, backup service is enabled.
         #[builder(into, default)]
-        pub backup_service_enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub backup_service_enabled: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// Port to use when connecting to the cluster.
         #[builder(into)]
-        pub client_connection_port: pulumi_wasm_rust::InputOrOutput<i32>,
+        pub client_connection_port: pulumi_gestalt_rust::InputOrOutput<i32>,
         /// One or more `custom_fabric_setting` blocks as defined below.
         #[builder(into, default)]
-        pub custom_fabric_settings: pulumi_wasm_rust::InputOrOutput<
+        pub custom_fabric_settings: pulumi_gestalt_rust::InputOrOutput<
             Option<
                 Vec<
                     super::super::types::servicefabric::ManagedClusterCustomFabricSetting,
@@ -73,62 +73,62 @@ pub mod managed_cluster {
         >,
         /// Hostname for the cluster. If unset the cluster's name will be used..
         #[builder(into, default)]
-        pub dns_name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub dns_name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// If true, DNS service is enabled.
         #[builder(into, default)]
-        pub dns_service_enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub dns_service_enabled: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// Port that should be used by the Service Fabric Explorer to visualize applications and cluster status.
         #[builder(into)]
-        pub http_gateway_port: pulumi_wasm_rust::InputOrOutput<i32>,
+        pub http_gateway_port: pulumi_gestalt_rust::InputOrOutput<i32>,
         /// One or more `lb_rule` blocks as defined below.
         #[builder(into)]
-        pub lb_rules: pulumi_wasm_rust::InputOrOutput<
+        pub lb_rules: pulumi_gestalt_rust::InputOrOutput<
             Vec<super::super::types::servicefabric::ManagedClusterLbRule>,
         >,
         /// The Azure Region where the Resource Group should exist. Changing this forces a new Resource Group to be created.
         #[builder(into, default)]
-        pub location: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub location: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The name which should be used for this Resource Group. Changing this forces a new Resource Group to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// One or more `node_type` blocks as defined below.
         #[builder(into, default)]
-        pub node_types: pulumi_wasm_rust::InputOrOutput<
+        pub node_types: pulumi_gestalt_rust::InputOrOutput<
             Option<Vec<super::super::types::servicefabric::ManagedClusterNodeType>>,
         >,
         /// Administrator password for the VMs that will be created as part of this cluster.
         #[builder(into, default)]
-        pub password: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub password: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The name of the Resource Group where the Resource Group should exist. Changing this forces a new Resource Group to be created.
         #[builder(into)]
-        pub resource_group_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub resource_group_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// SKU for this cluster. Changing this forces a new resource to be created. Default is `Basic`, allowed values are either `Basic` or `Standard`.
         #[builder(into, default)]
-        pub sku: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub sku: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// A mapping of tags which should be assigned to the Resource Group.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Upgrade wave for the fabric runtime. Default is `Wave0`, allowed value must be one of `Wave0`, `Wave1`, or `Wave2`.
         #[builder(into, default)]
-        pub upgrade_wave: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub upgrade_wave: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Administrator password for the VMs that will be created as part of this cluster.
         #[builder(into, default)]
-        pub username: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub username: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct ManagedClusterResult {
         /// Controls how connections to the cluster are authenticated. A `authentication` block as defined below.
-        pub authentication: pulumi_wasm_rust::Output<
+        pub authentication: pulumi_gestalt_rust::Output<
             Option<super::super::types::servicefabric::ManagedClusterAuthentication>,
         >,
         /// If true, backup service is enabled.
-        pub backup_service_enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub backup_service_enabled: pulumi_gestalt_rust::Output<Option<bool>>,
         /// Port to use when connecting to the cluster.
-        pub client_connection_port: pulumi_wasm_rust::Output<i32>,
+        pub client_connection_port: pulumi_gestalt_rust::Output<i32>,
         /// One or more `custom_fabric_setting` blocks as defined below.
-        pub custom_fabric_settings: pulumi_wasm_rust::Output<
+        pub custom_fabric_settings: pulumi_gestalt_rust::Output<
             Option<
                 Vec<
                     super::super::types::servicefabric::ManagedClusterCustomFabricSetting,
@@ -136,48 +136,48 @@ pub mod managed_cluster {
             >,
         >,
         /// Hostname for the cluster. If unset the cluster's name will be used..
-        pub dns_name: pulumi_wasm_rust::Output<String>,
+        pub dns_name: pulumi_gestalt_rust::Output<String>,
         /// If true, DNS service is enabled.
-        pub dns_service_enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub dns_service_enabled: pulumi_gestalt_rust::Output<Option<bool>>,
         /// Port that should be used by the Service Fabric Explorer to visualize applications and cluster status.
-        pub http_gateway_port: pulumi_wasm_rust::Output<i32>,
+        pub http_gateway_port: pulumi_gestalt_rust::Output<i32>,
         /// One or more `lb_rule` blocks as defined below.
-        pub lb_rules: pulumi_wasm_rust::Output<
+        pub lb_rules: pulumi_gestalt_rust::Output<
             Vec<super::super::types::servicefabric::ManagedClusterLbRule>,
         >,
         /// The Azure Region where the Resource Group should exist. Changing this forces a new Resource Group to be created.
-        pub location: pulumi_wasm_rust::Output<String>,
+        pub location: pulumi_gestalt_rust::Output<String>,
         /// The name which should be used for this Resource Group. Changing this forces a new Resource Group to be created.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// One or more `node_type` blocks as defined below.
-        pub node_types: pulumi_wasm_rust::Output<
+        pub node_types: pulumi_gestalt_rust::Output<
             Option<Vec<super::super::types::servicefabric::ManagedClusterNodeType>>,
         >,
         /// Administrator password for the VMs that will be created as part of this cluster.
-        pub password: pulumi_wasm_rust::Output<Option<String>>,
+        pub password: pulumi_gestalt_rust::Output<Option<String>>,
         /// The name of the Resource Group where the Resource Group should exist. Changing this forces a new Resource Group to be created.
-        pub resource_group_name: pulumi_wasm_rust::Output<String>,
+        pub resource_group_name: pulumi_gestalt_rust::Output<String>,
         /// SKU for this cluster. Changing this forces a new resource to be created. Default is `Basic`, allowed values are either `Basic` or `Standard`.
-        pub sku: pulumi_wasm_rust::Output<Option<String>>,
+        pub sku: pulumi_gestalt_rust::Output<Option<String>>,
         /// A mapping of tags which should be assigned to the Resource Group.
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Upgrade wave for the fabric runtime. Default is `Wave0`, allowed value must be one of `Wave0`, `Wave1`, or `Wave2`.
-        pub upgrade_wave: pulumi_wasm_rust::Output<Option<String>>,
+        pub upgrade_wave: pulumi_gestalt_rust::Output<Option<String>>,
         /// Administrator password for the VMs that will be created as part of this cluster.
-        pub username: pulumi_wasm_rust::Output<Option<String>>,
+        pub username: pulumi_gestalt_rust::Output<Option<String>>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: ManagedClusterArgs,
     ) -> ManagedClusterResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let authentication_binding = args.authentication.get_output(context).get_inner();
         let backup_service_enabled_binding = args
@@ -291,49 +291,49 @@ pub mod managed_cluster {
         };
         let o = register_interface::register(context.get_inner(), &request);
         ManagedClusterResult {
-            authentication: pulumi_wasm_rust::__private::into_domain(
+            authentication: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("authentication"),
             ),
-            backup_service_enabled: pulumi_wasm_rust::__private::into_domain(
+            backup_service_enabled: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("backupServiceEnabled"),
             ),
-            client_connection_port: pulumi_wasm_rust::__private::into_domain(
+            client_connection_port: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("clientConnectionPort"),
             ),
-            custom_fabric_settings: pulumi_wasm_rust::__private::into_domain(
+            custom_fabric_settings: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("customFabricSettings"),
             ),
-            dns_name: pulumi_wasm_rust::__private::into_domain(
+            dns_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("dnsName"),
             ),
-            dns_service_enabled: pulumi_wasm_rust::__private::into_domain(
+            dns_service_enabled: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("dnsServiceEnabled"),
             ),
-            http_gateway_port: pulumi_wasm_rust::__private::into_domain(
+            http_gateway_port: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("httpGatewayPort"),
             ),
-            lb_rules: pulumi_wasm_rust::__private::into_domain(
+            lb_rules: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("lbRules"),
             ),
-            location: pulumi_wasm_rust::__private::into_domain(
+            location: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("location"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            node_types: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            node_types: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("nodeTypes"),
             ),
-            password: pulumi_wasm_rust::__private::into_domain(
+            password: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("password"),
             ),
-            resource_group_name: pulumi_wasm_rust::__private::into_domain(
+            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("resourceGroupName"),
             ),
-            sku: pulumi_wasm_rust::__private::into_domain(o.extract_field("sku")),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
-            upgrade_wave: pulumi_wasm_rust::__private::into_domain(
+            sku: pulumi_gestalt_rust::__private::into_domain(o.extract_field("sku")),
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            upgrade_wave: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("upgradeWave"),
             ),
-            username: pulumi_wasm_rust::__private::into_domain(
+            username: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("username"),
             ),
         }

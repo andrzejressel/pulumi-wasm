@@ -45,44 +45,44 @@
 /// ```
 ///
 pub mod product_api {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ProductApiArgs {
         /// The name of the API Management Service. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub api_management_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub api_management_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The Name of the API Management API within the API Management Service. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub api_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub api_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The ID of the API Management Product within the API Management Service. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub product_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub product_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The name of the Resource Group in which the API Management Service exists. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub resource_group_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub resource_group_name: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct ProductApiResult {
         /// The name of the API Management Service. Changing this forces a new resource to be created.
-        pub api_management_name: pulumi_wasm_rust::Output<String>,
+        pub api_management_name: pulumi_gestalt_rust::Output<String>,
         /// The Name of the API Management API within the API Management Service. Changing this forces a new resource to be created.
-        pub api_name: pulumi_wasm_rust::Output<String>,
+        pub api_name: pulumi_gestalt_rust::Output<String>,
         /// The ID of the API Management Product within the API Management Service. Changing this forces a new resource to be created.
-        pub product_id: pulumi_wasm_rust::Output<String>,
+        pub product_id: pulumi_gestalt_rust::Output<String>,
         /// The name of the Resource Group in which the API Management Service exists. Changing this forces a new resource to be created.
-        pub resource_group_name: pulumi_wasm_rust::Output<String>,
+        pub resource_group_name: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: ProductApiArgs,
     ) -> ProductApiResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let api_management_name_binding = args
             .api_management_name
@@ -119,16 +119,16 @@ pub mod product_api {
         };
         let o = register_interface::register(context.get_inner(), &request);
         ProductApiResult {
-            api_management_name: pulumi_wasm_rust::__private::into_domain(
+            api_management_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("apiManagementName"),
             ),
-            api_name: pulumi_wasm_rust::__private::into_domain(
+            api_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("apiName"),
             ),
-            product_id: pulumi_wasm_rust::__private::into_domain(
+            product_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("productId"),
             ),
-            resource_group_name: pulumi_wasm_rust::__private::into_domain(
+            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("resourceGroupName"),
             ),
         }

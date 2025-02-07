@@ -32,7 +32,7 @@
 /// ```
 ///
 pub mod public_ip {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct PublicIpArgs {
@@ -40,146 +40,146 @@ pub mod public_ip {
         ///
         /// > **Note** `Dynamic` Public IP Addresses aren't allocated until they're assigned to a resource (such as a Virtual Machine or a Load Balancer) by design within Azure. See `ip_address` argument.
         #[builder(into)]
-        pub allocation_method: pulumi_wasm_rust::InputOrOutput<String>,
+        pub allocation_method: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The DDoS protection mode of the public IP. Possible values are `Disabled`, `Enabled`, and `VirtualNetworkInherited`. Defaults to `VirtualNetworkInherited`.
         #[builder(into, default)]
-        pub ddos_protection_mode: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub ddos_protection_mode: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The ID of DDoS protection plan associated with the public IP.
         ///
         /// > **Note:** `ddos_protection_plan_id` can only be set when `ddos_protection_mode` is `Enabled`.
         #[builder(into, default)]
-        pub ddos_protection_plan_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub ddos_protection_plan_id: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Label for the Domain Name. Will be used to make up the FQDN. If a domain name label is specified, an A DNS record is created for the public IP in the Microsoft Azure DNS system.
         #[builder(into, default)]
-        pub domain_name_label: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub domain_name_label: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Scope for the domain name label. If a domain name label scope is specified, an A DNS record is created for the public IP in the Microsoft Azure DNS system with a hashed value includes in FQDN. Possible values are `NoReuse`, `ResourceGroupReuse`, `SubscriptionReuse` and `TenantReuse`. Changing this forces a new Public IP to be created.
         #[builder(into, default)]
-        pub domain_name_label_scope: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub domain_name_label_scope: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Specifies the Edge Zone within the Azure Region where this Public IP should exist. Changing this forces a new Public IP to be created.
         #[builder(into, default)]
-        pub edge_zone: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub edge_zone: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Specifies the timeout for the TCP idle connection. The value can be set between 4 and 30 minutes.
         #[builder(into, default)]
-        pub idle_timeout_in_minutes: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
+        pub idle_timeout_in_minutes: pulumi_gestalt_rust::InputOrOutput<Option<i32>>,
         /// A mapping of IP tags to assign to the public IP. Changing this forces a new resource to be created.
         ///
         /// > **Note** IP Tag `RoutingPreference` requires multiple `zones` and `Standard` SKU to be set.
         #[builder(into, default)]
-        pub ip_tags: pulumi_wasm_rust::InputOrOutput<
+        pub ip_tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// The IP Version to use, IPv6 or IPv4. Changing this forces a new resource to be created. Defaults to `IPv4`.
         ///
         /// > **Note** Only `static` IP address allocation is supported for IPv6.
         #[builder(into, default)]
-        pub ip_version: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub ip_version: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Specifies the supported Azure location where the Public IP should exist. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub location: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub location: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Specifies the name of the Public IP. Changing this forces a new Public IP to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// If specified then public IP address allocated will be provided from the public IP prefix resource. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub public_ip_prefix_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub public_ip_prefix_id: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The name of the Resource Group where this Public IP should exist. Changing this forces a new Public IP to be created.
         #[builder(into)]
-        pub resource_group_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub resource_group_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// A fully qualified domain name that resolves to this public IP address. If the reverseFqdn is specified, then a PTR DNS record is created pointing from the IP address in the in-addr.arpa domain to the reverse FQDN.
         #[builder(into, default)]
-        pub reverse_fqdn: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub reverse_fqdn: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The SKU of the Public IP. Accepted values are `Basic` and `Standard`. Defaults to `Standard`. Changing this forces a new resource to be created.
         ///
         /// > **Note** Public IP Standard SKUs require `allocation_method` to be set to `Static`.
         #[builder(into, default)]
-        pub sku: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub sku: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The SKU Tier that should be used for the Public IP. Possible values are `Regional` and `Global`. Defaults to `Regional`. Changing this forces a new resource to be created.
         ///
         /// > **Note** When `sku_tier` is set to `Global`, `sku` must be set to `Standard`.
         #[builder(into, default)]
-        pub sku_tier: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub sku_tier: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// A mapping of tags to assign to the resource.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// A collection containing the availability zone to allocate the Public IP in. Changing this forces a new resource to be created.
         ///
         /// > **Note:** Availability Zones are only supported with a [Standard SKU](https://docs.microsoft.com/azure/virtual-network/virtual-network-ip-addresses-overview-arm#standard) and [in select regions](https://docs.microsoft.com/azure/availability-zones/az-overview) at this time. Standard SKU Public IP Addresses that do not specify a zone are **not** zone-redundant by default.
         #[builder(into, default)]
-        pub zones: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
+        pub zones: pulumi_gestalt_rust::InputOrOutput<Option<Vec<String>>>,
     }
     #[allow(dead_code)]
     pub struct PublicIpResult {
         /// Defines the allocation method for this IP address. Possible values are `Static` or `Dynamic`.
         ///
         /// > **Note** `Dynamic` Public IP Addresses aren't allocated until they're assigned to a resource (such as a Virtual Machine or a Load Balancer) by design within Azure. See `ip_address` argument.
-        pub allocation_method: pulumi_wasm_rust::Output<String>,
+        pub allocation_method: pulumi_gestalt_rust::Output<String>,
         /// The DDoS protection mode of the public IP. Possible values are `Disabled`, `Enabled`, and `VirtualNetworkInherited`. Defaults to `VirtualNetworkInherited`.
-        pub ddos_protection_mode: pulumi_wasm_rust::Output<Option<String>>,
+        pub ddos_protection_mode: pulumi_gestalt_rust::Output<Option<String>>,
         /// The ID of DDoS protection plan associated with the public IP.
         ///
         /// > **Note:** `ddos_protection_plan_id` can only be set when `ddos_protection_mode` is `Enabled`.
-        pub ddos_protection_plan_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub ddos_protection_plan_id: pulumi_gestalt_rust::Output<Option<String>>,
         /// Label for the Domain Name. Will be used to make up the FQDN. If a domain name label is specified, an A DNS record is created for the public IP in the Microsoft Azure DNS system.
-        pub domain_name_label: pulumi_wasm_rust::Output<Option<String>>,
+        pub domain_name_label: pulumi_gestalt_rust::Output<Option<String>>,
         /// Scope for the domain name label. If a domain name label scope is specified, an A DNS record is created for the public IP in the Microsoft Azure DNS system with a hashed value includes in FQDN. Possible values are `NoReuse`, `ResourceGroupReuse`, `SubscriptionReuse` and `TenantReuse`. Changing this forces a new Public IP to be created.
-        pub domain_name_label_scope: pulumi_wasm_rust::Output<Option<String>>,
+        pub domain_name_label_scope: pulumi_gestalt_rust::Output<Option<String>>,
         /// Specifies the Edge Zone within the Azure Region where this Public IP should exist. Changing this forces a new Public IP to be created.
-        pub edge_zone: pulumi_wasm_rust::Output<Option<String>>,
+        pub edge_zone: pulumi_gestalt_rust::Output<Option<String>>,
         /// Fully qualified domain name of the A DNS record associated with the public IP. `domain_name_label` must be specified to get the `fqdn`. This is the concatenation of the `domain_name_label` and the regionalized DNS zone
-        pub fqdn: pulumi_wasm_rust::Output<String>,
+        pub fqdn: pulumi_gestalt_rust::Output<String>,
         /// Specifies the timeout for the TCP idle connection. The value can be set between 4 and 30 minutes.
-        pub idle_timeout_in_minutes: pulumi_wasm_rust::Output<Option<i32>>,
+        pub idle_timeout_in_minutes: pulumi_gestalt_rust::Output<Option<i32>>,
         /// The IP address value that was allocated.
-        pub ip_address: pulumi_wasm_rust::Output<String>,
+        pub ip_address: pulumi_gestalt_rust::Output<String>,
         /// A mapping of IP tags to assign to the public IP. Changing this forces a new resource to be created.
         ///
         /// > **Note** IP Tag `RoutingPreference` requires multiple `zones` and `Standard` SKU to be set.
-        pub ip_tags: pulumi_wasm_rust::Output<
+        pub ip_tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// The IP Version to use, IPv6 or IPv4. Changing this forces a new resource to be created. Defaults to `IPv4`.
         ///
         /// > **Note** Only `static` IP address allocation is supported for IPv6.
-        pub ip_version: pulumi_wasm_rust::Output<Option<String>>,
+        pub ip_version: pulumi_gestalt_rust::Output<Option<String>>,
         /// Specifies the supported Azure location where the Public IP should exist. Changing this forces a new resource to be created.
-        pub location: pulumi_wasm_rust::Output<String>,
+        pub location: pulumi_gestalt_rust::Output<String>,
         /// Specifies the name of the Public IP. Changing this forces a new Public IP to be created.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// If specified then public IP address allocated will be provided from the public IP prefix resource. Changing this forces a new resource to be created.
-        pub public_ip_prefix_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub public_ip_prefix_id: pulumi_gestalt_rust::Output<Option<String>>,
         /// The name of the Resource Group where this Public IP should exist. Changing this forces a new Public IP to be created.
-        pub resource_group_name: pulumi_wasm_rust::Output<String>,
+        pub resource_group_name: pulumi_gestalt_rust::Output<String>,
         /// A fully qualified domain name that resolves to this public IP address. If the reverseFqdn is specified, then a PTR DNS record is created pointing from the IP address in the in-addr.arpa domain to the reverse FQDN.
-        pub reverse_fqdn: pulumi_wasm_rust::Output<Option<String>>,
+        pub reverse_fqdn: pulumi_gestalt_rust::Output<Option<String>>,
         /// The SKU of the Public IP. Accepted values are `Basic` and `Standard`. Defaults to `Standard`. Changing this forces a new resource to be created.
         ///
         /// > **Note** Public IP Standard SKUs require `allocation_method` to be set to `Static`.
-        pub sku: pulumi_wasm_rust::Output<Option<String>>,
+        pub sku: pulumi_gestalt_rust::Output<Option<String>>,
         /// The SKU Tier that should be used for the Public IP. Possible values are `Regional` and `Global`. Defaults to `Regional`. Changing this forces a new resource to be created.
         ///
         /// > **Note** When `sku_tier` is set to `Global`, `sku` must be set to `Standard`.
-        pub sku_tier: pulumi_wasm_rust::Output<Option<String>>,
+        pub sku_tier: pulumi_gestalt_rust::Output<Option<String>>,
         /// A mapping of tags to assign to the resource.
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// A collection containing the availability zone to allocate the Public IP in. Changing this forces a new resource to be created.
         ///
         /// > **Note:** Availability Zones are only supported with a [Standard SKU](https://docs.microsoft.com/azure/virtual-network/virtual-network-ip-addresses-overview-arm#standard) and [in select regions](https://docs.microsoft.com/azure/availability-zones/az-overview) at this time. Standard SKU Public IP Addresses that do not specify a zone are **not** zone-redundant by default.
-        pub zones: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub zones: pulumi_gestalt_rust::Output<Option<Vec<String>>>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: PublicIpArgs,
     ) -> PublicIpResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let allocation_method_binding = args
             .allocation_method
@@ -304,54 +304,56 @@ pub mod public_ip {
         };
         let o = register_interface::register(context.get_inner(), &request);
         PublicIpResult {
-            allocation_method: pulumi_wasm_rust::__private::into_domain(
+            allocation_method: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("allocationMethod"),
             ),
-            ddos_protection_mode: pulumi_wasm_rust::__private::into_domain(
+            ddos_protection_mode: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("ddosProtectionMode"),
             ),
-            ddos_protection_plan_id: pulumi_wasm_rust::__private::into_domain(
+            ddos_protection_plan_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("ddosProtectionPlanId"),
             ),
-            domain_name_label: pulumi_wasm_rust::__private::into_domain(
+            domain_name_label: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("domainNameLabel"),
             ),
-            domain_name_label_scope: pulumi_wasm_rust::__private::into_domain(
+            domain_name_label_scope: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("domainNameLabelScope"),
             ),
-            edge_zone: pulumi_wasm_rust::__private::into_domain(
+            edge_zone: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("edgeZone"),
             ),
-            fqdn: pulumi_wasm_rust::__private::into_domain(o.extract_field("fqdn")),
-            idle_timeout_in_minutes: pulumi_wasm_rust::__private::into_domain(
+            fqdn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("fqdn")),
+            idle_timeout_in_minutes: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("idleTimeoutInMinutes"),
             ),
-            ip_address: pulumi_wasm_rust::__private::into_domain(
+            ip_address: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("ipAddress"),
             ),
-            ip_tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("ipTags")),
-            ip_version: pulumi_wasm_rust::__private::into_domain(
+            ip_tags: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("ipTags"),
+            ),
+            ip_version: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("ipVersion"),
             ),
-            location: pulumi_wasm_rust::__private::into_domain(
+            location: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("location"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            public_ip_prefix_id: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            public_ip_prefix_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("publicIpPrefixId"),
             ),
-            resource_group_name: pulumi_wasm_rust::__private::into_domain(
+            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("resourceGroupName"),
             ),
-            reverse_fqdn: pulumi_wasm_rust::__private::into_domain(
+            reverse_fqdn: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("reverseFqdn"),
             ),
-            sku: pulumi_wasm_rust::__private::into_domain(o.extract_field("sku")),
-            sku_tier: pulumi_wasm_rust::__private::into_domain(
+            sku: pulumi_gestalt_rust::__private::into_domain(o.extract_field("sku")),
+            sku_tier: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("skuTier"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
-            zones: pulumi_wasm_rust::__private::into_domain(o.extract_field("zones")),
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            zones: pulumi_gestalt_rust::__private::into_domain(o.extract_field("zones")),
         }
     }
 }

@@ -1,53 +1,53 @@
 pub mod get_lb_rule {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct GetLbRuleArgs {
         /// The ID of the Load Balancer Rule.
         #[builder(into)]
-        pub loadbalancer_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub loadbalancer_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The name of this Load Balancer Rule.
         #[builder(into)]
-        pub name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct GetLbRuleResult {
         /// A reference to a Backend Address Pool over which this Load Balancing Rule operates.
-        pub backend_address_pool_id: pulumi_wasm_rust::Output<String>,
+        pub backend_address_pool_id: pulumi_gestalt_rust::Output<String>,
         /// The port used for internal connections on the endpoint.
-        pub backend_port: pulumi_wasm_rust::Output<i32>,
+        pub backend_port: pulumi_gestalt_rust::Output<i32>,
         /// If outbound SNAT is enabled for this Load Balancer Rule.
-        pub disable_outbound_snat: pulumi_wasm_rust::Output<bool>,
+        pub disable_outbound_snat: pulumi_gestalt_rust::Output<bool>,
         /// If Floating IPs are enabled for this Load Balancer Rule
-        pub enable_floating_ip: pulumi_wasm_rust::Output<bool>,
+        pub enable_floating_ip: pulumi_gestalt_rust::Output<bool>,
         /// If TCP Reset is enabled for this Load Balancer Rule.
-        pub enable_tcp_reset: pulumi_wasm_rust::Output<bool>,
+        pub enable_tcp_reset: pulumi_gestalt_rust::Output<bool>,
         /// The name of the frontend IP configuration to which the rule is associated.
-        pub frontend_ip_configuration_name: pulumi_wasm_rust::Output<String>,
+        pub frontend_ip_configuration_name: pulumi_gestalt_rust::Output<String>,
         /// The port for the external endpoint.
-        pub frontend_port: pulumi_wasm_rust::Output<i32>,
+        pub frontend_port: pulumi_gestalt_rust::Output<i32>,
         /// The provider-assigned unique ID for this managed resource.
-        pub id: pulumi_wasm_rust::Output<String>,
+        pub id: pulumi_gestalt_rust::Output<String>,
         /// Specifies the idle timeout in minutes for TCP connections.
-        pub idle_timeout_in_minutes: pulumi_wasm_rust::Output<i32>,
+        pub idle_timeout_in_minutes: pulumi_gestalt_rust::Output<i32>,
         /// Specifies the load balancing distribution type used by the Load Balancer.
-        pub load_distribution: pulumi_wasm_rust::Output<String>,
-        pub loadbalancer_id: pulumi_wasm_rust::Output<String>,
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub load_distribution: pulumi_gestalt_rust::Output<String>,
+        pub loadbalancer_id: pulumi_gestalt_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// A reference to a Probe used by this Load Balancing Rule.
-        pub probe_id: pulumi_wasm_rust::Output<String>,
+        pub probe_id: pulumi_gestalt_rust::Output<String>,
         /// The transport protocol for the external endpoint.
-        pub protocol: pulumi_wasm_rust::Output<String>,
+        pub protocol: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         args: GetLbRuleArgs,
     ) -> GetLbRuleResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let loadbalancer_id_binding = args
             .loadbalancer_id
@@ -70,42 +70,42 @@ pub mod get_lb_rule {
         };
         let o = register_interface::invoke(context.get_inner(), &request);
         GetLbRuleResult {
-            backend_address_pool_id: pulumi_wasm_rust::__private::into_domain(
+            backend_address_pool_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("backendAddressPoolId"),
             ),
-            backend_port: pulumi_wasm_rust::__private::into_domain(
+            backend_port: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("backendPort"),
             ),
-            disable_outbound_snat: pulumi_wasm_rust::__private::into_domain(
+            disable_outbound_snat: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("disableOutboundSnat"),
             ),
-            enable_floating_ip: pulumi_wasm_rust::__private::into_domain(
+            enable_floating_ip: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("enableFloatingIp"),
             ),
-            enable_tcp_reset: pulumi_wasm_rust::__private::into_domain(
+            enable_tcp_reset: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("enableTcpReset"),
             ),
-            frontend_ip_configuration_name: pulumi_wasm_rust::__private::into_domain(
+            frontend_ip_configuration_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("frontendIpConfigurationName"),
             ),
-            frontend_port: pulumi_wasm_rust::__private::into_domain(
+            frontend_port: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("frontendPort"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
-            idle_timeout_in_minutes: pulumi_wasm_rust::__private::into_domain(
+            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
+            idle_timeout_in_minutes: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("idleTimeoutInMinutes"),
             ),
-            load_distribution: pulumi_wasm_rust::__private::into_domain(
+            load_distribution: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("loadDistribution"),
             ),
-            loadbalancer_id: pulumi_wasm_rust::__private::into_domain(
+            loadbalancer_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("loadbalancerId"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            probe_id: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            probe_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("probeId"),
             ),
-            protocol: pulumi_wasm_rust::__private::into_domain(
+            protocol: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("protocol"),
             ),
         }

@@ -3,8 +3,8 @@
 /// ## Example Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = resource_group::create(
@@ -49,30 +49,30 @@
 /// ```
 ///
 pub mod fleet_update_strategy {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct FleetUpdateStrategyArgs {
         /// The ID of the Fleet Manager. Changing this forces a new Kubernetes Fleet Update Strategy to be created.
         #[builder(into)]
-        pub kubernetes_fleet_manager_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub kubernetes_fleet_manager_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The name which should be used for this Kubernetes Fleet Update Strategy. Changing this forces a new Kubernetes Fleet Update Strategy to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// One or more `stage` blocks as defined below.
         #[builder(into)]
-        pub stages: pulumi_wasm_rust::InputOrOutput<
+        pub stages: pulumi_gestalt_rust::InputOrOutput<
             Vec<super::super::types::containerservice::FleetUpdateStrategyStage>,
         >,
     }
     #[allow(dead_code)]
     pub struct FleetUpdateStrategyResult {
         /// The ID of the Fleet Manager. Changing this forces a new Kubernetes Fleet Update Strategy to be created.
-        pub kubernetes_fleet_manager_id: pulumi_wasm_rust::Output<String>,
+        pub kubernetes_fleet_manager_id: pulumi_gestalt_rust::Output<String>,
         /// The name which should be used for this Kubernetes Fleet Update Strategy. Changing this forces a new Kubernetes Fleet Update Strategy to be created.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// One or more `stage` blocks as defined below.
-        pub stages: pulumi_wasm_rust::Output<
+        pub stages: pulumi_gestalt_rust::Output<
             Vec<super::super::types::containerservice::FleetUpdateStrategyStage>,
         >,
     }
@@ -81,11 +81,11 @@ pub mod fleet_update_strategy {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: FleetUpdateStrategyArgs,
     ) -> FleetUpdateStrategyResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let kubernetes_fleet_manager_id_binding = args
             .kubernetes_fleet_manager_id
@@ -115,11 +115,13 @@ pub mod fleet_update_strategy {
         };
         let o = register_interface::register(context.get_inner(), &request);
         FleetUpdateStrategyResult {
-            kubernetes_fleet_manager_id: pulumi_wasm_rust::__private::into_domain(
+            kubernetes_fleet_manager_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("kubernetesFleetManagerId"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            stages: pulumi_wasm_rust::__private::into_domain(o.extract_field("stages")),
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            stages: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("stages"),
+            ),
         }
     }
 }

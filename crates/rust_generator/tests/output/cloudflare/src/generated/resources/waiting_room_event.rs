@@ -3,8 +3,8 @@
 /// ## Example Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = waiting_room_event::create(
@@ -29,103 +29,103 @@
 /// ```
 ///
 pub mod waiting_room_event {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct WaitingRoomEventArgs {
         /// This is a templated html file that will be rendered at the edge.
         #[builder(into, default)]
-        pub custom_page_html: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub custom_page_html: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// A description to let users add more details about the event.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub description: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Disables automatic renewal of session cookies.
         #[builder(into, default)]
-        pub disable_session_renewal: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub disable_session_renewal: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// ISO 8601 timestamp that marks the end of the event. **Modifying this attribute will force creation of a new resource.**
         #[builder(into)]
-        pub event_end_time: pulumi_wasm_rust::InputOrOutput<String>,
+        pub event_end_time: pulumi_gestalt_rust::InputOrOutput<String>,
         /// ISO 8601 timestamp that marks the start of the event. Must occur at least 1 minute before `event_end_time`. **Modifying this attribute will force creation of a new resource.**
         #[builder(into)]
-        pub event_start_time: pulumi_wasm_rust::InputOrOutput<String>,
+        pub event_start_time: pulumi_gestalt_rust::InputOrOutput<String>,
         /// A unique name to identify the event. Only alphanumeric characters, hyphens, and underscores are allowed. **Modifying this attribute will force creation of a new resource.**
         #[builder(into)]
-        pub name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The number of new users that will be let into the route every minute.
         #[builder(into, default)]
-        pub new_users_per_minute: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
+        pub new_users_per_minute: pulumi_gestalt_rust::InputOrOutput<Option<i32>>,
         /// ISO 8601 timestamp that marks when to begin queueing all users before the event starts. Must occur at least 5 minutes before `event_start_time`.
         #[builder(into, default)]
-        pub prequeue_start_time: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub prequeue_start_time: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The queueing method used by the waiting room. Available values: `fifo`, `random`, `passthrough`, `reject`.
         #[builder(into, default)]
-        pub queueing_method: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub queueing_method: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Lifetime of a cookie (in minutes) set by Cloudflare for users who get access to the origin.
         #[builder(into, default)]
-        pub session_duration: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
+        pub session_duration: pulumi_gestalt_rust::InputOrOutput<Option<i32>>,
         /// Users in the prequeue will be shuffled randomly at the `event_start_time`. Requires that `prequeue_start_time` is not null. Defaults to `false`.
         #[builder(into, default)]
-        pub shuffle_at_event_start: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub shuffle_at_event_start: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// If suspended, the event is ignored and traffic will be handled based on the waiting room configuration.
         #[builder(into, default)]
-        pub suspended: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub suspended: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// The total number of active user sessions on the route at a point in time.
         #[builder(into, default)]
-        pub total_active_users: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
+        pub total_active_users: pulumi_gestalt_rust::InputOrOutput<Option<i32>>,
         /// The Waiting Room ID the event should apply to. **Modifying this attribute will force creation of a new resource.**
         #[builder(into)]
-        pub waiting_room_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub waiting_room_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The zone identifier to target for the resource. **Modifying this attribute will force creation of a new resource.**
         #[builder(into)]
-        pub zone_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub zone_id: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct WaitingRoomEventResult {
         /// Creation time.
-        pub created_on: pulumi_wasm_rust::Output<String>,
+        pub created_on: pulumi_gestalt_rust::Output<String>,
         /// This is a templated html file that will be rendered at the edge.
-        pub custom_page_html: pulumi_wasm_rust::Output<Option<String>>,
+        pub custom_page_html: pulumi_gestalt_rust::Output<Option<String>>,
         /// A description to let users add more details about the event.
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_gestalt_rust::Output<Option<String>>,
         /// Disables automatic renewal of session cookies.
-        pub disable_session_renewal: pulumi_wasm_rust::Output<Option<bool>>,
+        pub disable_session_renewal: pulumi_gestalt_rust::Output<Option<bool>>,
         /// ISO 8601 timestamp that marks the end of the event. **Modifying this attribute will force creation of a new resource.**
-        pub event_end_time: pulumi_wasm_rust::Output<String>,
+        pub event_end_time: pulumi_gestalt_rust::Output<String>,
         /// ISO 8601 timestamp that marks the start of the event. Must occur at least 1 minute before `event_end_time`. **Modifying this attribute will force creation of a new resource.**
-        pub event_start_time: pulumi_wasm_rust::Output<String>,
+        pub event_start_time: pulumi_gestalt_rust::Output<String>,
         /// Last modified time.
-        pub modified_on: pulumi_wasm_rust::Output<String>,
+        pub modified_on: pulumi_gestalt_rust::Output<String>,
         /// A unique name to identify the event. Only alphanumeric characters, hyphens, and underscores are allowed. **Modifying this attribute will force creation of a new resource.**
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// The number of new users that will be let into the route every minute.
-        pub new_users_per_minute: pulumi_wasm_rust::Output<Option<i32>>,
+        pub new_users_per_minute: pulumi_gestalt_rust::Output<Option<i32>>,
         /// ISO 8601 timestamp that marks when to begin queueing all users before the event starts. Must occur at least 5 minutes before `event_start_time`.
-        pub prequeue_start_time: pulumi_wasm_rust::Output<Option<String>>,
+        pub prequeue_start_time: pulumi_gestalt_rust::Output<Option<String>>,
         /// The queueing method used by the waiting room. Available values: `fifo`, `random`, `passthrough`, `reject`.
-        pub queueing_method: pulumi_wasm_rust::Output<Option<String>>,
+        pub queueing_method: pulumi_gestalt_rust::Output<Option<String>>,
         /// Lifetime of a cookie (in minutes) set by Cloudflare for users who get access to the origin.
-        pub session_duration: pulumi_wasm_rust::Output<Option<i32>>,
+        pub session_duration: pulumi_gestalt_rust::Output<Option<i32>>,
         /// Users in the prequeue will be shuffled randomly at the `event_start_time`. Requires that `prequeue_start_time` is not null. Defaults to `false`.
-        pub shuffle_at_event_start: pulumi_wasm_rust::Output<Option<bool>>,
+        pub shuffle_at_event_start: pulumi_gestalt_rust::Output<Option<bool>>,
         /// If suspended, the event is ignored and traffic will be handled based on the waiting room configuration.
-        pub suspended: pulumi_wasm_rust::Output<Option<bool>>,
+        pub suspended: pulumi_gestalt_rust::Output<Option<bool>>,
         /// The total number of active user sessions on the route at a point in time.
-        pub total_active_users: pulumi_wasm_rust::Output<Option<i32>>,
+        pub total_active_users: pulumi_gestalt_rust::Output<Option<i32>>,
         /// The Waiting Room ID the event should apply to. **Modifying this attribute will force creation of a new resource.**
-        pub waiting_room_id: pulumi_wasm_rust::Output<String>,
+        pub waiting_room_id: pulumi_gestalt_rust::Output<String>,
         /// The zone identifier to target for the resource. **Modifying this attribute will force creation of a new resource.**
-        pub zone_id: pulumi_wasm_rust::Output<String>,
+        pub zone_id: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: WaitingRoomEventArgs,
     ) -> WaitingRoomEventResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let custom_page_html_binding = args
             .custom_page_html
@@ -241,53 +241,55 @@ pub mod waiting_room_event {
         };
         let o = register_interface::register(context.get_inner(), &request);
         WaitingRoomEventResult {
-            created_on: pulumi_wasm_rust::__private::into_domain(
+            created_on: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("createdOn"),
             ),
-            custom_page_html: pulumi_wasm_rust::__private::into_domain(
+            custom_page_html: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("customPageHtml"),
             ),
-            description: pulumi_wasm_rust::__private::into_domain(
+            description: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("description"),
             ),
-            disable_session_renewal: pulumi_wasm_rust::__private::into_domain(
+            disable_session_renewal: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("disableSessionRenewal"),
             ),
-            event_end_time: pulumi_wasm_rust::__private::into_domain(
+            event_end_time: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("eventEndTime"),
             ),
-            event_start_time: pulumi_wasm_rust::__private::into_domain(
+            event_start_time: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("eventStartTime"),
             ),
-            modified_on: pulumi_wasm_rust::__private::into_domain(
+            modified_on: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("modifiedOn"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            new_users_per_minute: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            new_users_per_minute: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("newUsersPerMinute"),
             ),
-            prequeue_start_time: pulumi_wasm_rust::__private::into_domain(
+            prequeue_start_time: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("prequeueStartTime"),
             ),
-            queueing_method: pulumi_wasm_rust::__private::into_domain(
+            queueing_method: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("queueingMethod"),
             ),
-            session_duration: pulumi_wasm_rust::__private::into_domain(
+            session_duration: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("sessionDuration"),
             ),
-            shuffle_at_event_start: pulumi_wasm_rust::__private::into_domain(
+            shuffle_at_event_start: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("shuffleAtEventStart"),
             ),
-            suspended: pulumi_wasm_rust::__private::into_domain(
+            suspended: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("suspended"),
             ),
-            total_active_users: pulumi_wasm_rust::__private::into_domain(
+            total_active_users: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("totalActiveUsers"),
             ),
-            waiting_room_id: pulumi_wasm_rust::__private::into_domain(
+            waiting_room_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("waitingRoomId"),
             ),
-            zone_id: pulumi_wasm_rust::__private::into_domain(o.extract_field("zoneId")),
+            zone_id: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("zoneId"),
+            ),
         }
     }
 }

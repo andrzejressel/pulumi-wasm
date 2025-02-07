@@ -34,197 +34,199 @@
 /// $ pulumi import aws:dms/endpoint:Endpoint test test-dms-endpoint-tf
 /// ```
 pub mod endpoint {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct EndpointArgs {
         /// ARN for the certificate.
         #[builder(into, default)]
-        pub certificate_arn: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub certificate_arn: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Name of the endpoint database.
         #[builder(into, default)]
-        pub database_name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub database_name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Configuration block for OpenSearch settings. See below.
         #[builder(into, default)]
-        pub elasticsearch_settings: pulumi_wasm_rust::InputOrOutput<
+        pub elasticsearch_settings: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::dms::EndpointElasticsearchSettings>,
         >,
         /// Database endpoint identifier. Identifiers must contain from 1 to 255 alphanumeric characters or hyphens, begin with a letter, contain only ASCII letters, digits, and hyphens, not end with a hyphen, and not contain two consecutive hyphens.
         #[builder(into)]
-        pub endpoint_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub endpoint_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Type of endpoint. Valid values are `source`, `target`.
         #[builder(into)]
-        pub endpoint_type: pulumi_wasm_rust::InputOrOutput<String>,
+        pub endpoint_type: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Type of engine for the endpoint. Valid values are `aurora`, `aurora-postgresql`, `aurora-serverless`, `aurora-postgresql-serverless`,`azuredb`, `azure-sql-managed-instance`, `babelfish`, `db2`, `db2-zos`, `docdb`, `dynamodb`, `elasticsearch`, `kafka`, `kinesis`, `mariadb`, `mongodb`, `mysql`, `opensearch`, `oracle`, `postgres`, `redshift`,`redshift-serverless`, `s3`, `sqlserver`, `neptune` ,`sybase`. Please note that some of engine names are available only for `target` endpoint type (e.g. `redshift`).
         #[builder(into)]
-        pub engine_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub engine_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Additional attributes associated with the connection. For available attributes for a `source` Endpoint, see [Sources for data migration](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Source.html). For available attributes for a `target` Endpoint, see [Targets for data migration](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.html).
         #[builder(into, default)]
-        pub extra_connection_attributes: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub extra_connection_attributes: pulumi_gestalt_rust::InputOrOutput<
+            Option<String>,
+        >,
         /// Configuration block for Kafka settings. See below.
         #[builder(into, default)]
-        pub kafka_settings: pulumi_wasm_rust::InputOrOutput<
+        pub kafka_settings: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::dms::EndpointKafkaSettings>,
         >,
         /// Configuration block for Kinesis settings. See below.
         #[builder(into, default)]
-        pub kinesis_settings: pulumi_wasm_rust::InputOrOutput<
+        pub kinesis_settings: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::dms::EndpointKinesisSettings>,
         >,
         /// ARN for the KMS key that will be used to encrypt the connection parameters. If you do not specify a value for `kms_key_arn`, then AWS DMS will use your default encryption key. AWS KMS creates the default encryption key for your AWS account. Your AWS account has a different default encryption key for each AWS region. To encrypt an S3 target with a KMS Key, use the parameter `s3_settings.server_side_encryption_kms_key_id`. When `engine_name` is `redshift`, `kms_key_arn` is the KMS Key for the Redshift target and the parameter `redshift_settings.server_side_encryption_kms_key_id` encrypts the S3 intermediate storage.
         ///
         /// The following arguments are optional:
         #[builder(into, default)]
-        pub kms_key_arn: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub kms_key_arn: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Configuration block for MongoDB settings. See below.
         #[builder(into, default)]
-        pub mongodb_settings: pulumi_wasm_rust::InputOrOutput<
+        pub mongodb_settings: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::dms::EndpointMongodbSettings>,
         >,
         /// Password to be used to login to the endpoint database.
         #[builder(into, default)]
-        pub password: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub password: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         #[builder(into, default)]
-        pub pause_replication_tasks: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub pause_replication_tasks: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// Port used by the endpoint database.
         #[builder(into, default)]
-        pub port: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
+        pub port: pulumi_gestalt_rust::InputOrOutput<Option<i32>>,
         /// Configuration block for Postgres settings. See below.
         #[builder(into, default)]
-        pub postgres_settings: pulumi_wasm_rust::InputOrOutput<
+        pub postgres_settings: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::dms::EndpointPostgresSettings>,
         >,
         #[builder(into, default)]
-        pub redis_settings: pulumi_wasm_rust::InputOrOutput<
+        pub redis_settings: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::dms::EndpointRedisSettings>,
         >,
         /// Configuration block for Redshift settings. See below.
         #[builder(into, default)]
-        pub redshift_settings: pulumi_wasm_rust::InputOrOutput<
+        pub redshift_settings: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::dms::EndpointRedshiftSettings>,
         >,
         /// (**Deprecated**, use the `aws.dms.S3Endpoint` resource instead) Configuration block for S3 settings. See below.
         #[builder(into, default)]
-        pub s3_settings: pulumi_wasm_rust::InputOrOutput<
+        pub s3_settings: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::dms::EndpointS3Settings>,
         >,
         /// ARN of the IAM role that specifies AWS DMS as the trusted entity and has the required permissions to access the value in the Secrets Manager secret referred to by `secrets_manager_arn`. The role must allow the `iam:PassRole` action.
         ///
         /// > **Note:** You can specify one of two sets of values for these permissions. You can specify the values for this setting and `secrets_manager_arn`. Or you can specify clear-text values for `username`, `password` , `server_name`, and `port`. You can't specify both.
         #[builder(into, default)]
-        pub secrets_manager_access_role_arn: pulumi_wasm_rust::InputOrOutput<
+        pub secrets_manager_access_role_arn: pulumi_gestalt_rust::InputOrOutput<
             Option<String>,
         >,
         /// Full ARN, partial ARN, or friendly name of the Secrets Manager secret that contains the endpoint connection details. Supported only when `engine_name` is `aurora`, `aurora-postgresql`, `mariadb`, `mongodb`, `mysql`, `oracle`, `postgres`, `redshift`, or `sqlserver`.
         #[builder(into, default)]
-        pub secrets_manager_arn: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub secrets_manager_arn: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Host name of the server.
         #[builder(into, default)]
-        pub server_name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub server_name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// ARN used by the service access IAM role for dynamodb endpoints.
         #[builder(into, default)]
-        pub service_access_role: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub service_access_role: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// SSL mode to use for the connection. Valid values are `none`, `require`, `verify-ca`, `verify-full`
         #[builder(into, default)]
-        pub ssl_mode: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub ssl_mode: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// User name to be used to login to the endpoint database.
         #[builder(into, default)]
-        pub username: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub username: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct EndpointResult {
         /// ARN for the certificate.
-        pub certificate_arn: pulumi_wasm_rust::Output<String>,
+        pub certificate_arn: pulumi_gestalt_rust::Output<String>,
         /// Name of the endpoint database.
-        pub database_name: pulumi_wasm_rust::Output<Option<String>>,
+        pub database_name: pulumi_gestalt_rust::Output<Option<String>>,
         /// Configuration block for OpenSearch settings. See below.
-        pub elasticsearch_settings: pulumi_wasm_rust::Output<
+        pub elasticsearch_settings: pulumi_gestalt_rust::Output<
             Option<super::super::types::dms::EndpointElasticsearchSettings>,
         >,
         /// ARN for the endpoint.
-        pub endpoint_arn: pulumi_wasm_rust::Output<String>,
+        pub endpoint_arn: pulumi_gestalt_rust::Output<String>,
         /// Database endpoint identifier. Identifiers must contain from 1 to 255 alphanumeric characters or hyphens, begin with a letter, contain only ASCII letters, digits, and hyphens, not end with a hyphen, and not contain two consecutive hyphens.
-        pub endpoint_id: pulumi_wasm_rust::Output<String>,
+        pub endpoint_id: pulumi_gestalt_rust::Output<String>,
         /// Type of endpoint. Valid values are `source`, `target`.
-        pub endpoint_type: pulumi_wasm_rust::Output<String>,
+        pub endpoint_type: pulumi_gestalt_rust::Output<String>,
         /// Type of engine for the endpoint. Valid values are `aurora`, `aurora-postgresql`, `aurora-serverless`, `aurora-postgresql-serverless`,`azuredb`, `azure-sql-managed-instance`, `babelfish`, `db2`, `db2-zos`, `docdb`, `dynamodb`, `elasticsearch`, `kafka`, `kinesis`, `mariadb`, `mongodb`, `mysql`, `opensearch`, `oracle`, `postgres`, `redshift`,`redshift-serverless`, `s3`, `sqlserver`, `neptune` ,`sybase`. Please note that some of engine names are available only for `target` endpoint type (e.g. `redshift`).
-        pub engine_name: pulumi_wasm_rust::Output<String>,
+        pub engine_name: pulumi_gestalt_rust::Output<String>,
         /// Additional attributes associated with the connection. For available attributes for a `source` Endpoint, see [Sources for data migration](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Source.html). For available attributes for a `target` Endpoint, see [Targets for data migration](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.html).
-        pub extra_connection_attributes: pulumi_wasm_rust::Output<String>,
+        pub extra_connection_attributes: pulumi_gestalt_rust::Output<String>,
         /// Configuration block for Kafka settings. See below.
-        pub kafka_settings: pulumi_wasm_rust::Output<
+        pub kafka_settings: pulumi_gestalt_rust::Output<
             Option<super::super::types::dms::EndpointKafkaSettings>,
         >,
         /// Configuration block for Kinesis settings. See below.
-        pub kinesis_settings: pulumi_wasm_rust::Output<
+        pub kinesis_settings: pulumi_gestalt_rust::Output<
             Option<super::super::types::dms::EndpointKinesisSettings>,
         >,
         /// ARN for the KMS key that will be used to encrypt the connection parameters. If you do not specify a value for `kms_key_arn`, then AWS DMS will use your default encryption key. AWS KMS creates the default encryption key for your AWS account. Your AWS account has a different default encryption key for each AWS region. To encrypt an S3 target with a KMS Key, use the parameter `s3_settings.server_side_encryption_kms_key_id`. When `engine_name` is `redshift`, `kms_key_arn` is the KMS Key for the Redshift target and the parameter `redshift_settings.server_side_encryption_kms_key_id` encrypts the S3 intermediate storage.
         ///
         /// The following arguments are optional:
-        pub kms_key_arn: pulumi_wasm_rust::Output<String>,
+        pub kms_key_arn: pulumi_gestalt_rust::Output<String>,
         /// Configuration block for MongoDB settings. See below.
-        pub mongodb_settings: pulumi_wasm_rust::Output<
+        pub mongodb_settings: pulumi_gestalt_rust::Output<
             Option<super::super::types::dms::EndpointMongodbSettings>,
         >,
         /// Password to be used to login to the endpoint database.
-        pub password: pulumi_wasm_rust::Output<Option<String>>,
-        pub pause_replication_tasks: pulumi_wasm_rust::Output<Option<bool>>,
+        pub password: pulumi_gestalt_rust::Output<Option<String>>,
+        pub pause_replication_tasks: pulumi_gestalt_rust::Output<Option<bool>>,
         /// Port used by the endpoint database.
-        pub port: pulumi_wasm_rust::Output<Option<i32>>,
+        pub port: pulumi_gestalt_rust::Output<Option<i32>>,
         /// Configuration block for Postgres settings. See below.
-        pub postgres_settings: pulumi_wasm_rust::Output<
+        pub postgres_settings: pulumi_gestalt_rust::Output<
             Option<super::super::types::dms::EndpointPostgresSettings>,
         >,
-        pub redis_settings: pulumi_wasm_rust::Output<
+        pub redis_settings: pulumi_gestalt_rust::Output<
             Option<super::super::types::dms::EndpointRedisSettings>,
         >,
         /// Configuration block for Redshift settings. See below.
-        pub redshift_settings: pulumi_wasm_rust::Output<
+        pub redshift_settings: pulumi_gestalt_rust::Output<
             super::super::types::dms::EndpointRedshiftSettings,
         >,
         /// (**Deprecated**, use the `aws.dms.S3Endpoint` resource instead) Configuration block for S3 settings. See below.
-        pub s3_settings: pulumi_wasm_rust::Output<
+        pub s3_settings: pulumi_gestalt_rust::Output<
             Option<super::super::types::dms::EndpointS3Settings>,
         >,
         /// ARN of the IAM role that specifies AWS DMS as the trusted entity and has the required permissions to access the value in the Secrets Manager secret referred to by `secrets_manager_arn`. The role must allow the `iam:PassRole` action.
         ///
         /// > **Note:** You can specify one of two sets of values for these permissions. You can specify the values for this setting and `secrets_manager_arn`. Or you can specify clear-text values for `username`, `password` , `server_name`, and `port`. You can't specify both.
-        pub secrets_manager_access_role_arn: pulumi_wasm_rust::Output<Option<String>>,
+        pub secrets_manager_access_role_arn: pulumi_gestalt_rust::Output<Option<String>>,
         /// Full ARN, partial ARN, or friendly name of the Secrets Manager secret that contains the endpoint connection details. Supported only when `engine_name` is `aurora`, `aurora-postgresql`, `mariadb`, `mongodb`, `mysql`, `oracle`, `postgres`, `redshift`, or `sqlserver`.
-        pub secrets_manager_arn: pulumi_wasm_rust::Output<Option<String>>,
+        pub secrets_manager_arn: pulumi_gestalt_rust::Output<Option<String>>,
         /// Host name of the server.
-        pub server_name: pulumi_wasm_rust::Output<Option<String>>,
+        pub server_name: pulumi_gestalt_rust::Output<Option<String>>,
         /// ARN used by the service access IAM role for dynamodb endpoints.
-        pub service_access_role: pulumi_wasm_rust::Output<Option<String>>,
+        pub service_access_role: pulumi_gestalt_rust::Output<Option<String>>,
         /// SSL mode to use for the connection. Valid values are `none`, `require`, `verify-ca`, `verify-full`
-        pub ssl_mode: pulumi_wasm_rust::Output<String>,
+        pub ssl_mode: pulumi_gestalt_rust::Output<String>,
         /// Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        pub tags_all: pulumi_wasm_rust::Output<
+        pub tags_all: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
         /// User name to be used to login to the endpoint database.
-        pub username: pulumi_wasm_rust::Output<Option<String>>,
+        pub username: pulumi_gestalt_rust::Output<Option<String>>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: EndpointArgs,
     ) -> EndpointResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let certificate_arn_binding = args
             .certificate_arn
@@ -393,81 +395,81 @@ pub mod endpoint {
         };
         let o = register_interface::register(context.get_inner(), &request);
         EndpointResult {
-            certificate_arn: pulumi_wasm_rust::__private::into_domain(
+            certificate_arn: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("certificateArn"),
             ),
-            database_name: pulumi_wasm_rust::__private::into_domain(
+            database_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("databaseName"),
             ),
-            elasticsearch_settings: pulumi_wasm_rust::__private::into_domain(
+            elasticsearch_settings: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("elasticsearchSettings"),
             ),
-            endpoint_arn: pulumi_wasm_rust::__private::into_domain(
+            endpoint_arn: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("endpointArn"),
             ),
-            endpoint_id: pulumi_wasm_rust::__private::into_domain(
+            endpoint_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("endpointId"),
             ),
-            endpoint_type: pulumi_wasm_rust::__private::into_domain(
+            endpoint_type: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("endpointType"),
             ),
-            engine_name: pulumi_wasm_rust::__private::into_domain(
+            engine_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("engineName"),
             ),
-            extra_connection_attributes: pulumi_wasm_rust::__private::into_domain(
+            extra_connection_attributes: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("extraConnectionAttributes"),
             ),
-            kafka_settings: pulumi_wasm_rust::__private::into_domain(
+            kafka_settings: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("kafkaSettings"),
             ),
-            kinesis_settings: pulumi_wasm_rust::__private::into_domain(
+            kinesis_settings: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("kinesisSettings"),
             ),
-            kms_key_arn: pulumi_wasm_rust::__private::into_domain(
+            kms_key_arn: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("kmsKeyArn"),
             ),
-            mongodb_settings: pulumi_wasm_rust::__private::into_domain(
+            mongodb_settings: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("mongodbSettings"),
             ),
-            password: pulumi_wasm_rust::__private::into_domain(
+            password: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("password"),
             ),
-            pause_replication_tasks: pulumi_wasm_rust::__private::into_domain(
+            pause_replication_tasks: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("pauseReplicationTasks"),
             ),
-            port: pulumi_wasm_rust::__private::into_domain(o.extract_field("port")),
-            postgres_settings: pulumi_wasm_rust::__private::into_domain(
+            port: pulumi_gestalt_rust::__private::into_domain(o.extract_field("port")),
+            postgres_settings: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("postgresSettings"),
             ),
-            redis_settings: pulumi_wasm_rust::__private::into_domain(
+            redis_settings: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("redisSettings"),
             ),
-            redshift_settings: pulumi_wasm_rust::__private::into_domain(
+            redshift_settings: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("redshiftSettings"),
             ),
-            s3_settings: pulumi_wasm_rust::__private::into_domain(
+            s3_settings: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("s3Settings"),
             ),
-            secrets_manager_access_role_arn: pulumi_wasm_rust::__private::into_domain(
+            secrets_manager_access_role_arn: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("secretsManagerAccessRoleArn"),
             ),
-            secrets_manager_arn: pulumi_wasm_rust::__private::into_domain(
+            secrets_manager_arn: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("secretsManagerArn"),
             ),
-            server_name: pulumi_wasm_rust::__private::into_domain(
+            server_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("serverName"),
             ),
-            service_access_role: pulumi_wasm_rust::__private::into_domain(
+            service_access_role: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("serviceAccessRole"),
             ),
-            ssl_mode: pulumi_wasm_rust::__private::into_domain(
+            ssl_mode: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("sslMode"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_wasm_rust::__private::into_domain(
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            tags_all: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("tagsAll"),
             ),
-            username: pulumi_wasm_rust::__private::into_domain(
+            username: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("username"),
             ),
         }

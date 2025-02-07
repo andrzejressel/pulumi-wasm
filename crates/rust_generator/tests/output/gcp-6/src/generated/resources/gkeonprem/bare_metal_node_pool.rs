@@ -176,7 +176,7 @@
 /// ```
 ///
 pub mod bare_metal_node_pool {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct BareMetalNodePoolArgs {
@@ -187,29 +187,29 @@ pub mod bare_metal_node_pool {
         /// non-authoritative, and will only manage the annotations present in your configuration. Please refer to the field
         /// 'effective_annotations' for all of the annotations present on the resource.
         #[builder(into, default)]
-        pub annotations: pulumi_wasm_rust::InputOrOutput<
+        pub annotations: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// The cluster this node pool belongs to.
         #[builder(into)]
-        pub bare_metal_cluster: pulumi_wasm_rust::InputOrOutput<String>,
+        pub bare_metal_cluster: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The display name for the Bare Metal Node Pool.
         #[builder(into, default)]
-        pub display_name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub display_name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The location of the resource.
         #[builder(into)]
-        pub location: pulumi_wasm_rust::InputOrOutput<String>,
+        pub location: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The bare metal node pool name.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Node pool configuration.
         /// Structure is documented below.
         #[builder(into)]
-        pub node_pool_config: pulumi_wasm_rust::InputOrOutput<
+        pub node_pool_config: pulumi_gestalt_rust::InputOrOutput<
             super::super::types::gkeonprem::BareMetalNodePoolNodePoolConfig,
         >,
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub project: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct BareMetalNodePoolResult {
@@ -219,18 +219,18 @@ pub mod bare_metal_node_pool {
         /// alphanumerics, with dashes (-), underscores (_), dots (.), and alphanumerics between. **Note**: This field is
         /// non-authoritative, and will only manage the annotations present in your configuration. Please refer to the field
         /// 'effective_annotations' for all of the annotations present on the resource.
-        pub annotations: pulumi_wasm_rust::Output<
+        pub annotations: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// The cluster this node pool belongs to.
-        pub bare_metal_cluster: pulumi_wasm_rust::Output<String>,
+        pub bare_metal_cluster: pulumi_gestalt_rust::Output<String>,
         /// The time the cluster was created, in RFC3339 text format.
-        pub create_time: pulumi_wasm_rust::Output<String>,
+        pub create_time: pulumi_gestalt_rust::Output<String>,
         /// The time the cluster was deleted, in RFC3339 text format.
-        pub delete_time: pulumi_wasm_rust::Output<String>,
+        pub delete_time: pulumi_gestalt_rust::Output<String>,
         /// The display name for the Bare Metal Node Pool.
-        pub display_name: pulumi_wasm_rust::Output<Option<String>>,
-        pub effective_annotations: pulumi_wasm_rust::Output<
+        pub display_name: pulumi_gestalt_rust::Output<Option<String>>,
+        pub effective_annotations: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
         /// This checksum is computed by the server based on the value of other
@@ -238,42 +238,42 @@ pub mod bare_metal_node_pool {
         /// client has an up-to-date value before proceeding.
         /// Allows clients to perform consistent read-modify-writes
         /// through optimistic concurrency control.
-        pub etag: pulumi_wasm_rust::Output<String>,
+        pub etag: pulumi_gestalt_rust::Output<String>,
         /// The location of the resource.
-        pub location: pulumi_wasm_rust::Output<String>,
+        pub location: pulumi_gestalt_rust::Output<String>,
         /// The bare metal node pool name.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// Node pool configuration.
         /// Structure is documented below.
-        pub node_pool_config: pulumi_wasm_rust::Output<
+        pub node_pool_config: pulumi_gestalt_rust::Output<
             super::super::types::gkeonprem::BareMetalNodePoolNodePoolConfig,
         >,
-        pub project: pulumi_wasm_rust::Output<String>,
+        pub project: pulumi_gestalt_rust::Output<String>,
         /// If set, there are currently changes in flight to the Bare Metal User Cluster.
-        pub reconciling: pulumi_wasm_rust::Output<bool>,
+        pub reconciling: pulumi_gestalt_rust::Output<bool>,
         /// (Output)
         /// The lifecycle state of the condition.
-        pub state: pulumi_wasm_rust::Output<String>,
+        pub state: pulumi_gestalt_rust::Output<String>,
         /// Specifies detailed node pool status.
         /// Structure is documented below.
-        pub statuses: pulumi_wasm_rust::Output<
+        pub statuses: pulumi_gestalt_rust::Output<
             Vec<super::super::types::gkeonprem::BareMetalNodePoolStatus>,
         >,
         /// The unique identifier of the Bare Metal Node Pool.
-        pub uid: pulumi_wasm_rust::Output<String>,
+        pub uid: pulumi_gestalt_rust::Output<String>,
         /// The time the cluster was last updated, in RFC3339 text format.
-        pub update_time: pulumi_wasm_rust::Output<String>,
+        pub update_time: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: BareMetalNodePoolArgs,
     ) -> BareMetalNodePoolResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let annotations_binding = args.annotations.get_output(context).get_inner();
         let bare_metal_cluster_binding = args
@@ -325,44 +325,44 @@ pub mod bare_metal_node_pool {
         };
         let o = register_interface::register(context.get_inner(), &request);
         BareMetalNodePoolResult {
-            annotations: pulumi_wasm_rust::__private::into_domain(
+            annotations: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("annotations"),
             ),
-            bare_metal_cluster: pulumi_wasm_rust::__private::into_domain(
+            bare_metal_cluster: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("bareMetalCluster"),
             ),
-            create_time: pulumi_wasm_rust::__private::into_domain(
+            create_time: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("createTime"),
             ),
-            delete_time: pulumi_wasm_rust::__private::into_domain(
+            delete_time: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("deleteTime"),
             ),
-            display_name: pulumi_wasm_rust::__private::into_domain(
+            display_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("displayName"),
             ),
-            effective_annotations: pulumi_wasm_rust::__private::into_domain(
+            effective_annotations: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("effectiveAnnotations"),
             ),
-            etag: pulumi_wasm_rust::__private::into_domain(o.extract_field("etag")),
-            location: pulumi_wasm_rust::__private::into_domain(
+            etag: pulumi_gestalt_rust::__private::into_domain(o.extract_field("etag")),
+            location: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("location"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            node_pool_config: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            node_pool_config: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("nodePoolConfig"),
             ),
-            project: pulumi_wasm_rust::__private::into_domain(
+            project: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("project"),
             ),
-            reconciling: pulumi_wasm_rust::__private::into_domain(
+            reconciling: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("reconciling"),
             ),
-            state: pulumi_wasm_rust::__private::into_domain(o.extract_field("state")),
-            statuses: pulumi_wasm_rust::__private::into_domain(
+            state: pulumi_gestalt_rust::__private::into_domain(o.extract_field("state")),
+            statuses: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("statuses"),
             ),
-            uid: pulumi_wasm_rust::__private::into_domain(o.extract_field("uid")),
-            update_time: pulumi_wasm_rust::__private::into_domain(
+            uid: pulumi_gestalt_rust::__private::into_domain(o.extract_field("uid")),
+            update_time: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("updateTime"),
             ),
         }

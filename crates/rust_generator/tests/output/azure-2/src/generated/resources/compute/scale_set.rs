@@ -231,8 +231,8 @@
 /// ## Example of storage_profile_image_reference with id
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = image::create(
@@ -262,232 +262,232 @@
 /// ```
 ///
 pub mod scale_set {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ScaleSetArgs {
         /// Automatic OS patches can be applied by Azure to your scaleset. This is particularly useful when `upgrade_policy_mode` is set to `Rolling`. Defaults to `false`.
         #[builder(into, default)]
-        pub automatic_os_upgrade: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub automatic_os_upgrade: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// A `boot_diagnostics` block as referenced below.
         #[builder(into, default)]
-        pub boot_diagnostics: pulumi_wasm_rust::InputOrOutput<
+        pub boot_diagnostics: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::compute::ScaleSetBootDiagnostics>,
         >,
         /// Specifies the eviction policy for Virtual Machines in this Scale Set. Possible values are `Deallocate` and `Delete`. Changing this forces a new resource to be created.
         ///
         /// > **NOTE:** `eviction_policy` can only be set when `priority` is set to `Low`.
         #[builder(into, default)]
-        pub eviction_policy: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub eviction_policy: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Can be specified multiple times to add extension profiles to the scale set. Each `extension` block supports the fields documented below.
         #[builder(into, default)]
-        pub extensions: pulumi_wasm_rust::InputOrOutput<
+        pub extensions: pulumi_gestalt_rust::InputOrOutput<
             Option<Vec<super::super::types::compute::ScaleSetExtension>>,
         >,
         /// Specifies the identifier for the load balancer health probe. Required when using `Rolling` as your `upgrade_policy_mode`.
         #[builder(into, default)]
-        pub health_probe_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub health_probe_id: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// An `identity` block as defined below.
         #[builder(into, default)]
-        pub identity: pulumi_wasm_rust::InputOrOutput<
+        pub identity: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::compute::ScaleSetIdentity>,
         >,
         /// (Optional, when a Windows machine) Specifies the Windows OS license type. If supplied, the only allowed values are `Windows_Client` and `Windows_Server`.
         #[builder(into, default)]
-        pub license_type: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub license_type: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub location: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub location: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Specifies the name of the virtual machine scale set resource. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// A collection of `network_profile` blocks as documented below.
         #[builder(into)]
-        pub network_profiles: pulumi_wasm_rust::InputOrOutput<
+        pub network_profiles: pulumi_gestalt_rust::InputOrOutput<
             Vec<super::super::types::compute::ScaleSetNetworkProfile>,
         >,
         /// A `os_profile` block as documented below.
         #[builder(into)]
-        pub os_profile: pulumi_wasm_rust::InputOrOutput<
+        pub os_profile: pulumi_gestalt_rust::InputOrOutput<
             super::super::types::compute::ScaleSetOsProfile,
         >,
         /// A `os_profile_linux_config` block as documented below.
         #[builder(into, default)]
-        pub os_profile_linux_config: pulumi_wasm_rust::InputOrOutput<
+        pub os_profile_linux_config: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::compute::ScaleSetOsProfileLinuxConfig>,
         >,
         /// A collection of `os_profile_secrets` blocks as documented below.
         #[builder(into, default)]
-        pub os_profile_secrets: pulumi_wasm_rust::InputOrOutput<
+        pub os_profile_secrets: pulumi_gestalt_rust::InputOrOutput<
             Option<Vec<super::super::types::compute::ScaleSetOsProfileSecret>>,
         >,
         /// A `os_profile_windows_config` block as documented below.
         #[builder(into, default)]
-        pub os_profile_windows_config: pulumi_wasm_rust::InputOrOutput<
+        pub os_profile_windows_config: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::compute::ScaleSetOsProfileWindowsConfig>,
         >,
         /// Specifies whether the virtual machine scale set should be overprovisioned. Defaults to `true`.
         #[builder(into, default)]
-        pub overprovision: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub overprovision: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// A `plan` block as documented below.
         #[builder(into, default)]
-        pub plan: pulumi_wasm_rust::InputOrOutput<
+        pub plan: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::compute::ScaleSetPlan>,
         >,
         /// Specifies the priority for the Virtual Machines in the Scale Set. Possible values are `Low` and `Regular`. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub priority: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub priority: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The ID of the Proximity Placement Group to which this Virtual Machine should be assigned. Changing this forces a new resource to be created
         #[builder(into, default)]
-        pub proximity_placement_group_id: pulumi_wasm_rust::InputOrOutput<
+        pub proximity_placement_group_id: pulumi_gestalt_rust::InputOrOutput<
             Option<String>,
         >,
         /// The name of the resource group in which to create the virtual machine scale set. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub resource_group_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub resource_group_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// A `rolling_upgrade_policy` block as defined below. This is only applicable when the `upgrade_policy_mode` is `Rolling`.
         #[builder(into, default)]
-        pub rolling_upgrade_policy: pulumi_wasm_rust::InputOrOutput<
+        pub rolling_upgrade_policy: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::compute::ScaleSetRollingUpgradePolicy>,
         >,
         /// Specifies whether the scale set is limited to a single placement group with a maximum size of 100 virtual machines. If set to false, managed disks must be used. Changing this forces a new resource to be created. See [documentation](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-placement-groups) for more information. Defaults to `true`.
         #[builder(into, default)]
-        pub single_placement_group: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub single_placement_group: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// A `sku` block as documented below.
         #[builder(into)]
-        pub sku: pulumi_wasm_rust::InputOrOutput<
+        pub sku: pulumi_gestalt_rust::InputOrOutput<
             super::super::types::compute::ScaleSetSku,
         >,
         /// A `storage_profile_data_disk` block as documented below.
         #[builder(into, default)]
-        pub storage_profile_data_disks: pulumi_wasm_rust::InputOrOutput<
+        pub storage_profile_data_disks: pulumi_gestalt_rust::InputOrOutput<
             Option<Vec<super::super::types::compute::ScaleSetStorageProfileDataDisk>>,
         >,
         /// A `storage_profile_image_reference` block as documented below.
         #[builder(into, default)]
-        pub storage_profile_image_reference: pulumi_wasm_rust::InputOrOutput<
+        pub storage_profile_image_reference: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::compute::ScaleSetStorageProfileImageReference>,
         >,
         /// A `storage_profile_os_disk` block as documented below.
         #[builder(into)]
-        pub storage_profile_os_disk: pulumi_wasm_rust::InputOrOutput<
+        pub storage_profile_os_disk: pulumi_gestalt_rust::InputOrOutput<
             super::super::types::compute::ScaleSetStorageProfileOsDisk,
         >,
         /// A mapping of tags to assign to the resource.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Specifies the mode of an upgrade to virtual machines in the scale set. Possible values, `Rolling`, `Manual`, or `Automatic`. When choosing `Rolling`, you will need to set a health probe.
         #[builder(into)]
-        pub upgrade_policy_mode: pulumi_wasm_rust::InputOrOutput<String>,
+        pub upgrade_policy_mode: pulumi_gestalt_rust::InputOrOutput<String>,
         /// A collection of availability zones to spread the Virtual Machines over. Changing this forces a new resource to be created.
         ///
         /// > **NOTE:** Availability Zones are [only supported in several regions at this time](https://docs.microsoft.com/azure/availability-zones/az-overview).
         #[builder(into, default)]
-        pub zones: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
+        pub zones: pulumi_gestalt_rust::InputOrOutput<Option<Vec<String>>>,
     }
     #[allow(dead_code)]
     pub struct ScaleSetResult {
         /// Automatic OS patches can be applied by Azure to your scaleset. This is particularly useful when `upgrade_policy_mode` is set to `Rolling`. Defaults to `false`.
-        pub automatic_os_upgrade: pulumi_wasm_rust::Output<Option<bool>>,
+        pub automatic_os_upgrade: pulumi_gestalt_rust::Output<Option<bool>>,
         /// A `boot_diagnostics` block as referenced below.
-        pub boot_diagnostics: pulumi_wasm_rust::Output<
+        pub boot_diagnostics: pulumi_gestalt_rust::Output<
             Option<super::super::types::compute::ScaleSetBootDiagnostics>,
         >,
         /// Specifies the eviction policy for Virtual Machines in this Scale Set. Possible values are `Deallocate` and `Delete`. Changing this forces a new resource to be created.
         ///
         /// > **NOTE:** `eviction_policy` can only be set when `priority` is set to `Low`.
-        pub eviction_policy: pulumi_wasm_rust::Output<Option<String>>,
+        pub eviction_policy: pulumi_gestalt_rust::Output<Option<String>>,
         /// Can be specified multiple times to add extension profiles to the scale set. Each `extension` block supports the fields documented below.
-        pub extensions: pulumi_wasm_rust::Output<
+        pub extensions: pulumi_gestalt_rust::Output<
             Option<Vec<super::super::types::compute::ScaleSetExtension>>,
         >,
         /// Specifies the identifier for the load balancer health probe. Required when using `Rolling` as your `upgrade_policy_mode`.
-        pub health_probe_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub health_probe_id: pulumi_gestalt_rust::Output<Option<String>>,
         /// An `identity` block as defined below.
-        pub identity: pulumi_wasm_rust::Output<
+        pub identity: pulumi_gestalt_rust::Output<
             Option<super::super::types::compute::ScaleSetIdentity>,
         >,
         /// (Optional, when a Windows machine) Specifies the Windows OS license type. If supplied, the only allowed values are `Windows_Client` and `Windows_Server`.
-        pub license_type: pulumi_wasm_rust::Output<String>,
+        pub license_type: pulumi_gestalt_rust::Output<String>,
         /// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
-        pub location: pulumi_wasm_rust::Output<String>,
+        pub location: pulumi_gestalt_rust::Output<String>,
         /// Specifies the name of the virtual machine scale set resource. Changing this forces a new resource to be created.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// A collection of `network_profile` blocks as documented below.
-        pub network_profiles: pulumi_wasm_rust::Output<
+        pub network_profiles: pulumi_gestalt_rust::Output<
             Vec<super::super::types::compute::ScaleSetNetworkProfile>,
         >,
         /// A `os_profile` block as documented below.
-        pub os_profile: pulumi_wasm_rust::Output<
+        pub os_profile: pulumi_gestalt_rust::Output<
             super::super::types::compute::ScaleSetOsProfile,
         >,
         /// A `os_profile_linux_config` block as documented below.
-        pub os_profile_linux_config: pulumi_wasm_rust::Output<
+        pub os_profile_linux_config: pulumi_gestalt_rust::Output<
             super::super::types::compute::ScaleSetOsProfileLinuxConfig,
         >,
         /// A collection of `os_profile_secrets` blocks as documented below.
-        pub os_profile_secrets: pulumi_wasm_rust::Output<
+        pub os_profile_secrets: pulumi_gestalt_rust::Output<
             Option<Vec<super::super::types::compute::ScaleSetOsProfileSecret>>,
         >,
         /// A `os_profile_windows_config` block as documented below.
-        pub os_profile_windows_config: pulumi_wasm_rust::Output<
+        pub os_profile_windows_config: pulumi_gestalt_rust::Output<
             Option<super::super::types::compute::ScaleSetOsProfileWindowsConfig>,
         >,
         /// Specifies whether the virtual machine scale set should be overprovisioned. Defaults to `true`.
-        pub overprovision: pulumi_wasm_rust::Output<Option<bool>>,
+        pub overprovision: pulumi_gestalt_rust::Output<Option<bool>>,
         /// A `plan` block as documented below.
-        pub plan: pulumi_wasm_rust::Output<
+        pub plan: pulumi_gestalt_rust::Output<
             Option<super::super::types::compute::ScaleSetPlan>,
         >,
         /// Specifies the priority for the Virtual Machines in the Scale Set. Possible values are `Low` and `Regular`. Changing this forces a new resource to be created.
-        pub priority: pulumi_wasm_rust::Output<Option<String>>,
+        pub priority: pulumi_gestalt_rust::Output<Option<String>>,
         /// The ID of the Proximity Placement Group to which this Virtual Machine should be assigned. Changing this forces a new resource to be created
-        pub proximity_placement_group_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub proximity_placement_group_id: pulumi_gestalt_rust::Output<Option<String>>,
         /// The name of the resource group in which to create the virtual machine scale set. Changing this forces a new resource to be created.
-        pub resource_group_name: pulumi_wasm_rust::Output<String>,
+        pub resource_group_name: pulumi_gestalt_rust::Output<String>,
         /// A `rolling_upgrade_policy` block as defined below. This is only applicable when the `upgrade_policy_mode` is `Rolling`.
-        pub rolling_upgrade_policy: pulumi_wasm_rust::Output<
+        pub rolling_upgrade_policy: pulumi_gestalt_rust::Output<
             Option<super::super::types::compute::ScaleSetRollingUpgradePolicy>,
         >,
         /// Specifies whether the scale set is limited to a single placement group with a maximum size of 100 virtual machines. If set to false, managed disks must be used. Changing this forces a new resource to be created. See [documentation](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-placement-groups) for more information. Defaults to `true`.
-        pub single_placement_group: pulumi_wasm_rust::Output<Option<bool>>,
+        pub single_placement_group: pulumi_gestalt_rust::Output<Option<bool>>,
         /// A `sku` block as documented below.
-        pub sku: pulumi_wasm_rust::Output<super::super::types::compute::ScaleSetSku>,
+        pub sku: pulumi_gestalt_rust::Output<super::super::types::compute::ScaleSetSku>,
         /// A `storage_profile_data_disk` block as documented below.
-        pub storage_profile_data_disks: pulumi_wasm_rust::Output<
+        pub storage_profile_data_disks: pulumi_gestalt_rust::Output<
             Option<Vec<super::super::types::compute::ScaleSetStorageProfileDataDisk>>,
         >,
         /// A `storage_profile_image_reference` block as documented below.
-        pub storage_profile_image_reference: pulumi_wasm_rust::Output<
+        pub storage_profile_image_reference: pulumi_gestalt_rust::Output<
             super::super::types::compute::ScaleSetStorageProfileImageReference,
         >,
         /// A `storage_profile_os_disk` block as documented below.
-        pub storage_profile_os_disk: pulumi_wasm_rust::Output<
+        pub storage_profile_os_disk: pulumi_gestalt_rust::Output<
             super::super::types::compute::ScaleSetStorageProfileOsDisk,
         >,
         /// A mapping of tags to assign to the resource.
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Specifies the mode of an upgrade to virtual machines in the scale set. Possible values, `Rolling`, `Manual`, or `Automatic`. When choosing `Rolling`, you will need to set a health probe.
-        pub upgrade_policy_mode: pulumi_wasm_rust::Output<String>,
+        pub upgrade_policy_mode: pulumi_gestalt_rust::Output<String>,
         /// A collection of availability zones to spread the Virtual Machines over. Changing this forces a new resource to be created.
         ///
         /// > **NOTE:** Availability Zones are [only supported in several regions at this time](https://docs.microsoft.com/azure/availability-zones/az-overview).
-        pub zones: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub zones: pulumi_gestalt_rust::Output<Option<Vec<String>>>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: ScaleSetArgs,
     ) -> ScaleSetResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let automatic_os_upgrade_binding = args
             .automatic_os_upgrade
@@ -686,80 +686,80 @@ pub mod scale_set {
         };
         let o = register_interface::register(context.get_inner(), &request);
         ScaleSetResult {
-            automatic_os_upgrade: pulumi_wasm_rust::__private::into_domain(
+            automatic_os_upgrade: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("automaticOsUpgrade"),
             ),
-            boot_diagnostics: pulumi_wasm_rust::__private::into_domain(
+            boot_diagnostics: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("bootDiagnostics"),
             ),
-            eviction_policy: pulumi_wasm_rust::__private::into_domain(
+            eviction_policy: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("evictionPolicy"),
             ),
-            extensions: pulumi_wasm_rust::__private::into_domain(
+            extensions: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("extensions"),
             ),
-            health_probe_id: pulumi_wasm_rust::__private::into_domain(
+            health_probe_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("healthProbeId"),
             ),
-            identity: pulumi_wasm_rust::__private::into_domain(
+            identity: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("identity"),
             ),
-            license_type: pulumi_wasm_rust::__private::into_domain(
+            license_type: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("licenseType"),
             ),
-            location: pulumi_wasm_rust::__private::into_domain(
+            location: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("location"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            network_profiles: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            network_profiles: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("networkProfiles"),
             ),
-            os_profile: pulumi_wasm_rust::__private::into_domain(
+            os_profile: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("osProfile"),
             ),
-            os_profile_linux_config: pulumi_wasm_rust::__private::into_domain(
+            os_profile_linux_config: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("osProfileLinuxConfig"),
             ),
-            os_profile_secrets: pulumi_wasm_rust::__private::into_domain(
+            os_profile_secrets: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("osProfileSecrets"),
             ),
-            os_profile_windows_config: pulumi_wasm_rust::__private::into_domain(
+            os_profile_windows_config: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("osProfileWindowsConfig"),
             ),
-            overprovision: pulumi_wasm_rust::__private::into_domain(
+            overprovision: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("overprovision"),
             ),
-            plan: pulumi_wasm_rust::__private::into_domain(o.extract_field("plan")),
-            priority: pulumi_wasm_rust::__private::into_domain(
+            plan: pulumi_gestalt_rust::__private::into_domain(o.extract_field("plan")),
+            priority: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("priority"),
             ),
-            proximity_placement_group_id: pulumi_wasm_rust::__private::into_domain(
+            proximity_placement_group_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("proximityPlacementGroupId"),
             ),
-            resource_group_name: pulumi_wasm_rust::__private::into_domain(
+            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("resourceGroupName"),
             ),
-            rolling_upgrade_policy: pulumi_wasm_rust::__private::into_domain(
+            rolling_upgrade_policy: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("rollingUpgradePolicy"),
             ),
-            single_placement_group: pulumi_wasm_rust::__private::into_domain(
+            single_placement_group: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("singlePlacementGroup"),
             ),
-            sku: pulumi_wasm_rust::__private::into_domain(o.extract_field("sku")),
-            storage_profile_data_disks: pulumi_wasm_rust::__private::into_domain(
+            sku: pulumi_gestalt_rust::__private::into_domain(o.extract_field("sku")),
+            storage_profile_data_disks: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("storageProfileDataDisks"),
             ),
-            storage_profile_image_reference: pulumi_wasm_rust::__private::into_domain(
+            storage_profile_image_reference: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("storageProfileImageReference"),
             ),
-            storage_profile_os_disk: pulumi_wasm_rust::__private::into_domain(
+            storage_profile_os_disk: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("storageProfileOsDisk"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
-            upgrade_policy_mode: pulumi_wasm_rust::__private::into_domain(
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            upgrade_policy_mode: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("upgradePolicyMode"),
             ),
-            zones: pulumi_wasm_rust::__private::into_domain(o.extract_field("zones")),
+            zones: pulumi_gestalt_rust::__private::into_domain(o.extract_field("zones")),
         }
     }
 }

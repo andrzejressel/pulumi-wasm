@@ -1,8 +1,8 @@
 /// ## Example Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = resource_group::create(
@@ -64,53 +64,53 @@
 /// ```
 ///
 pub mod managed_database {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ManagedDatabaseArgs {
         /// A `long_term_retention_policy` block as defined below.
         #[builder(into, default)]
-        pub long_term_retention_policy: pulumi_wasm_rust::InputOrOutput<
+        pub long_term_retention_policy: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::mssql::ManagedDatabaseLongTermRetentionPolicy>,
         >,
         /// The ID of the Azure SQL Managed Instance on which to create this Managed Database. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub managed_instance_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub managed_instance_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The name of the Managed Database to create. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// A `point_in_time_restore` block as defined below. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub point_in_time_restore: pulumi_wasm_rust::InputOrOutput<
+        pub point_in_time_restore: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::mssql::ManagedDatabasePointInTimeRestore>,
         >,
         /// The backup retention period in days. This is how many days Point-in-Time Restore will be supported.
         #[builder(into, default)]
-        pub short_term_retention_days: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
+        pub short_term_retention_days: pulumi_gestalt_rust::InputOrOutput<Option<i32>>,
         /// A mapping of tags to assign to the resource.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
     #[allow(dead_code)]
     pub struct ManagedDatabaseResult {
         /// A `long_term_retention_policy` block as defined below.
-        pub long_term_retention_policy: pulumi_wasm_rust::Output<
+        pub long_term_retention_policy: pulumi_gestalt_rust::Output<
             super::super::types::mssql::ManagedDatabaseLongTermRetentionPolicy,
         >,
         /// The ID of the Azure SQL Managed Instance on which to create this Managed Database. Changing this forces a new resource to be created.
-        pub managed_instance_id: pulumi_wasm_rust::Output<String>,
+        pub managed_instance_id: pulumi_gestalt_rust::Output<String>,
         /// The name of the Managed Database to create. Changing this forces a new resource to be created.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// A `point_in_time_restore` block as defined below. Changing this forces a new resource to be created.
-        pub point_in_time_restore: pulumi_wasm_rust::Output<
+        pub point_in_time_restore: pulumi_gestalt_rust::Output<
             Option<super::super::types::mssql::ManagedDatabasePointInTimeRestore>,
         >,
         /// The backup retention period in days. This is how many days Point-in-Time Restore will be supported.
-        pub short_term_retention_days: pulumi_wasm_rust::Output<Option<i32>>,
+        pub short_term_retention_days: pulumi_gestalt_rust::Output<Option<i32>>,
         /// A mapping of tags to assign to the resource.
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
@@ -119,11 +119,11 @@ pub mod managed_database {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: ManagedDatabaseArgs,
     ) -> ManagedDatabaseResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let long_term_retention_policy_binding = args
             .long_term_retention_policy
@@ -176,20 +176,20 @@ pub mod managed_database {
         };
         let o = register_interface::register(context.get_inner(), &request);
         ManagedDatabaseResult {
-            long_term_retention_policy: pulumi_wasm_rust::__private::into_domain(
+            long_term_retention_policy: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("longTermRetentionPolicy"),
             ),
-            managed_instance_id: pulumi_wasm_rust::__private::into_domain(
+            managed_instance_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("managedInstanceId"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            point_in_time_restore: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            point_in_time_restore: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("pointInTimeRestore"),
             ),
-            short_term_retention_days: pulumi_wasm_rust::__private::into_domain(
+            short_term_retention_days: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("shortTermRetentionDays"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
         }
     }
 }

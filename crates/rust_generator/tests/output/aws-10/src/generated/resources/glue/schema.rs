@@ -3,8 +3,8 @@
 /// ## Example Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = schema::create(
@@ -30,64 +30,64 @@
 /// $ pulumi import aws:glue/schema:Schema example arn:aws:glue:us-west-2:123456789012:schema/example/example
 /// ```
 pub mod schema {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct SchemaArgs {
         /// The compatibility mode of the schema. Values values are: `NONE`, `DISABLED`, `BACKWARD`, `BACKWARD_ALL`, `FORWARD`, `FORWARD_ALL`, `FULL`, and `FULL_ALL`.
         #[builder(into)]
-        pub compatibility: pulumi_wasm_rust::InputOrOutput<String>,
+        pub compatibility: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The data format of the schema definition. Valid values are `AVRO`, `JSON` and `PROTOBUF`.
         #[builder(into)]
-        pub data_format: pulumi_wasm_rust::InputOrOutput<String>,
+        pub data_format: pulumi_gestalt_rust::InputOrOutput<String>,
         /// A description of the schema.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub description: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The ARN of the Glue Registry to create the schema in.
         #[builder(into, default)]
-        pub registry_arn: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub registry_arn: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The schema definition using the `data_format` setting for `schema_name`.
         #[builder(into)]
-        pub schema_definition: pulumi_wasm_rust::InputOrOutput<String>,
+        pub schema_definition: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The Name of the schema.
         #[builder(into)]
-        pub schema_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub schema_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
     #[allow(dead_code)]
     pub struct SchemaResult {
         /// Amazon Resource Name (ARN) of the schema.
-        pub arn: pulumi_wasm_rust::Output<String>,
+        pub arn: pulumi_gestalt_rust::Output<String>,
         /// The compatibility mode of the schema. Values values are: `NONE`, `DISABLED`, `BACKWARD`, `BACKWARD_ALL`, `FORWARD`, `FORWARD_ALL`, `FULL`, and `FULL_ALL`.
-        pub compatibility: pulumi_wasm_rust::Output<String>,
+        pub compatibility: pulumi_gestalt_rust::Output<String>,
         /// The data format of the schema definition. Valid values are `AVRO`, `JSON` and `PROTOBUF`.
-        pub data_format: pulumi_wasm_rust::Output<String>,
+        pub data_format: pulumi_gestalt_rust::Output<String>,
         /// A description of the schema.
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_gestalt_rust::Output<Option<String>>,
         /// The latest version of the schema associated with the returned schema definition.
-        pub latest_schema_version: pulumi_wasm_rust::Output<i32>,
+        pub latest_schema_version: pulumi_gestalt_rust::Output<i32>,
         /// The next version of the schema associated with the returned schema definition.
-        pub next_schema_version: pulumi_wasm_rust::Output<i32>,
+        pub next_schema_version: pulumi_gestalt_rust::Output<i32>,
         /// The ARN of the Glue Registry to create the schema in.
-        pub registry_arn: pulumi_wasm_rust::Output<String>,
+        pub registry_arn: pulumi_gestalt_rust::Output<String>,
         /// The name of the Glue Registry.
-        pub registry_name: pulumi_wasm_rust::Output<String>,
+        pub registry_name: pulumi_gestalt_rust::Output<String>,
         /// The version number of the checkpoint (the last time the compatibility mode was changed).
-        pub schema_checkpoint: pulumi_wasm_rust::Output<i32>,
+        pub schema_checkpoint: pulumi_gestalt_rust::Output<i32>,
         /// The schema definition using the `data_format` setting for `schema_name`.
-        pub schema_definition: pulumi_wasm_rust::Output<String>,
+        pub schema_definition: pulumi_gestalt_rust::Output<String>,
         /// The Name of the schema.
-        pub schema_name: pulumi_wasm_rust::Output<String>,
+        pub schema_name: pulumi_gestalt_rust::Output<String>,
         /// Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        pub tags_all: pulumi_wasm_rust::Output<
+        pub tags_all: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
     }
@@ -96,11 +96,11 @@ pub mod schema {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: SchemaArgs,
     ) -> SchemaResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let compatibility_binding = args.compatibility.get_output(context).get_inner();
         let data_format_binding = args.data_format.get_output(context).get_inner();
@@ -149,39 +149,39 @@ pub mod schema {
         };
         let o = register_interface::register(context.get_inner(), &request);
         SchemaResult {
-            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
-            compatibility: pulumi_wasm_rust::__private::into_domain(
+            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
+            compatibility: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("compatibility"),
             ),
-            data_format: pulumi_wasm_rust::__private::into_domain(
+            data_format: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("dataFormat"),
             ),
-            description: pulumi_wasm_rust::__private::into_domain(
+            description: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("description"),
             ),
-            latest_schema_version: pulumi_wasm_rust::__private::into_domain(
+            latest_schema_version: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("latestSchemaVersion"),
             ),
-            next_schema_version: pulumi_wasm_rust::__private::into_domain(
+            next_schema_version: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("nextSchemaVersion"),
             ),
-            registry_arn: pulumi_wasm_rust::__private::into_domain(
+            registry_arn: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("registryArn"),
             ),
-            registry_name: pulumi_wasm_rust::__private::into_domain(
+            registry_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("registryName"),
             ),
-            schema_checkpoint: pulumi_wasm_rust::__private::into_domain(
+            schema_checkpoint: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("schemaCheckpoint"),
             ),
-            schema_definition: pulumi_wasm_rust::__private::into_domain(
+            schema_definition: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("schemaDefinition"),
             ),
-            schema_name: pulumi_wasm_rust::__private::into_domain(
+            schema_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("schemaName"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_wasm_rust::__private::into_domain(
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            tags_all: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("tagsAll"),
             ),
         }

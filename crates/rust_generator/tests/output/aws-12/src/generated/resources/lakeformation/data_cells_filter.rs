@@ -5,8 +5,8 @@
 /// ### Basic Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = data_cells_filter::create(
@@ -39,27 +39,27 @@
 /// $ pulumi import aws:lakeformation/dataCellsFilter:DataCellsFilter example database_name,name,table_catalog_id,table_name
 /// ```
 pub mod data_cells_filter {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct DataCellsFilterArgs {
         /// Information about the data cells filter. See Table Data below for details.
         #[builder(into, default)]
-        pub table_data: pulumi_wasm_rust::InputOrOutput<
+        pub table_data: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::lakeformation::DataCellsFilterTableData>,
         >,
         #[builder(into, default)]
-        pub timeouts: pulumi_wasm_rust::InputOrOutput<
+        pub timeouts: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::lakeformation::DataCellsFilterTimeouts>,
         >,
     }
     #[allow(dead_code)]
     pub struct DataCellsFilterResult {
         /// Information about the data cells filter. See Table Data below for details.
-        pub table_data: pulumi_wasm_rust::Output<
+        pub table_data: pulumi_gestalt_rust::Output<
             Option<super::super::types::lakeformation::DataCellsFilterTableData>,
         >,
-        pub timeouts: pulumi_wasm_rust::Output<
+        pub timeouts: pulumi_gestalt_rust::Output<
             Option<super::super::types::lakeformation::DataCellsFilterTimeouts>,
         >,
     }
@@ -68,11 +68,11 @@ pub mod data_cells_filter {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: DataCellsFilterArgs,
     ) -> DataCellsFilterResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let table_data_binding = args.table_data.get_output(context).get_inner();
         let timeouts_binding = args.timeouts.get_output(context).get_inner();
@@ -93,10 +93,10 @@ pub mod data_cells_filter {
         };
         let o = register_interface::register(context.get_inner(), &request);
         DataCellsFilterResult {
-            table_data: pulumi_wasm_rust::__private::into_domain(
+            table_data: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("tableData"),
             ),
-            timeouts: pulumi_wasm_rust::__private::into_domain(
+            timeouts: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("timeouts"),
             ),
         }

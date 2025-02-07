@@ -98,7 +98,7 @@
 /// ```
 ///
 pub mod occurence {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct OccurenceArgs {
@@ -112,24 +112,24 @@ pub mod occurence {
         /// which authority this attestation was intended to sign.
         /// Structure is documented below.
         #[builder(into)]
-        pub attestation: pulumi_wasm_rust::InputOrOutput<
+        pub attestation: pulumi_gestalt_rust::InputOrOutput<
             super::super::types::containeranalysis::OccurenceAttestation,
         >,
         /// The analysis note associated with this occurrence, in the form of
         /// projects/[PROJECT]/notes/[NOTE_ID]. This field can be used as a
         /// filter in list requests.
         #[builder(into)]
-        pub note_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub note_name: pulumi_gestalt_rust::InputOrOutput<String>,
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub project: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// A description of actions that can be taken to remedy the note.
         #[builder(into, default)]
-        pub remediation: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub remediation: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Required. Immutable. A URI that represents the resource for which
         /// the occurrence applies. For example,
         /// https://gcr.io/project/image@sha256:123abc for a Docker image.
         #[builder(into)]
-        pub resource_uri: pulumi_wasm_rust::InputOrOutput<String>,
+        pub resource_uri: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct OccurenceResult {
@@ -142,41 +142,41 @@ pub mod occurence {
         /// know the authority and artifact to be verified) and intent (for
         /// which authority this attestation was intended to sign.
         /// Structure is documented below.
-        pub attestation: pulumi_wasm_rust::Output<
+        pub attestation: pulumi_gestalt_rust::Output<
             super::super::types::containeranalysis::OccurenceAttestation,
         >,
         /// The time when the repository was created.
-        pub create_time: pulumi_wasm_rust::Output<String>,
+        pub create_time: pulumi_gestalt_rust::Output<String>,
         /// The note kind which explicitly denotes which of the occurrence
         /// details are specified. This field can be used as a filter in list
         /// requests.
-        pub kind: pulumi_wasm_rust::Output<String>,
+        pub kind: pulumi_gestalt_rust::Output<String>,
         /// The name of the occurrence.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// The analysis note associated with this occurrence, in the form of
         /// projects/[PROJECT]/notes/[NOTE_ID]. This field can be used as a
         /// filter in list requests.
-        pub note_name: pulumi_wasm_rust::Output<String>,
-        pub project: pulumi_wasm_rust::Output<String>,
+        pub note_name: pulumi_gestalt_rust::Output<String>,
+        pub project: pulumi_gestalt_rust::Output<String>,
         /// A description of actions that can be taken to remedy the note.
-        pub remediation: pulumi_wasm_rust::Output<Option<String>>,
+        pub remediation: pulumi_gestalt_rust::Output<Option<String>>,
         /// Required. Immutable. A URI that represents the resource for which
         /// the occurrence applies. For example,
         /// https://gcr.io/project/image@sha256:123abc for a Docker image.
-        pub resource_uri: pulumi_wasm_rust::Output<String>,
+        pub resource_uri: pulumi_gestalt_rust::Output<String>,
         /// The time when the repository was last updated.
-        pub update_time: pulumi_wasm_rust::Output<String>,
+        pub update_time: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: OccurenceArgs,
     ) -> OccurenceResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let attestation_binding = args.attestation.get_output(context).get_inner();
         let note_name_binding = args.note_name.get_output(context).get_inner();
@@ -212,27 +212,27 @@ pub mod occurence {
         };
         let o = register_interface::register(context.get_inner(), &request);
         OccurenceResult {
-            attestation: pulumi_wasm_rust::__private::into_domain(
+            attestation: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("attestation"),
             ),
-            create_time: pulumi_wasm_rust::__private::into_domain(
+            create_time: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("createTime"),
             ),
-            kind: pulumi_wasm_rust::__private::into_domain(o.extract_field("kind")),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            note_name: pulumi_wasm_rust::__private::into_domain(
+            kind: pulumi_gestalt_rust::__private::into_domain(o.extract_field("kind")),
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            note_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("noteName"),
             ),
-            project: pulumi_wasm_rust::__private::into_domain(
+            project: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("project"),
             ),
-            remediation: pulumi_wasm_rust::__private::into_domain(
+            remediation: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("remediation"),
             ),
-            resource_uri: pulumi_wasm_rust::__private::into_domain(
+            resource_uri: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("resourceUri"),
             ),
-            update_time: pulumi_wasm_rust::__private::into_domain(
+            update_time: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("updateTime"),
             ),
         }

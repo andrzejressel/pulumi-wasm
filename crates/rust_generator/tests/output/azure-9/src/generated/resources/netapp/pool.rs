@@ -3,8 +3,8 @@
 /// ## NetApp Pool Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = resource_group::create(
@@ -45,68 +45,68 @@
 /// ```
 ///
 pub mod pool {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct PoolArgs {
         /// The name of the NetApp account in which the NetApp Pool should be created. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub account_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub account_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The encryption type of the pool. Valid values include `Single`, and `Double`. Defaults to `Single`. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub encryption_type: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub encryption_type: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub location: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub location: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The name of the NetApp Pool. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// QoS Type of the pool. Valid values include `Auto` or `Manual`. Defaults to `Auto`.
         #[builder(into, default)]
-        pub qos_type: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub qos_type: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The name of the resource group where the NetApp Pool should be created. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub resource_group_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub resource_group_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The service level of the file system. Valid values include `Premium`, `Standard`, and `Ultra`. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub service_level: pulumi_wasm_rust::InputOrOutput<String>,
+        pub service_level: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Provisioned size of the pool in TB. Value must be between `1` and `2048`.
         ///
         /// > **NOTE** `2` TB capacity pool sizing is currently in preview. You can only take advantage of the `2` TB minimum if all the volumes in the capacity pool are using `Standard` network features. If any volume is using `Basic` network features, the minimum size is `4` TB. Please see the product [documentation](https://learn.microsoft.com/azure/azure-netapp-files/azure-netapp-files-set-up-capacity-pool) for more information.
         ///
         /// > **NOTE** The maximum `size_in_tb` is goverened by regional quotas. You may request additional capacity from Azure, currently up to `2048`.
         #[builder(into)]
-        pub size_in_tb: pulumi_wasm_rust::InputOrOutput<i32>,
+        pub size_in_tb: pulumi_gestalt_rust::InputOrOutput<i32>,
         /// A mapping of tags to assign to the resource.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
     #[allow(dead_code)]
     pub struct PoolResult {
         /// The name of the NetApp account in which the NetApp Pool should be created. Changing this forces a new resource to be created.
-        pub account_name: pulumi_wasm_rust::Output<String>,
+        pub account_name: pulumi_gestalt_rust::Output<String>,
         /// The encryption type of the pool. Valid values include `Single`, and `Double`. Defaults to `Single`. Changing this forces a new resource to be created.
-        pub encryption_type: pulumi_wasm_rust::Output<Option<String>>,
+        pub encryption_type: pulumi_gestalt_rust::Output<Option<String>>,
         /// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
-        pub location: pulumi_wasm_rust::Output<String>,
+        pub location: pulumi_gestalt_rust::Output<String>,
         /// The name of the NetApp Pool. Changing this forces a new resource to be created.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// QoS Type of the pool. Valid values include `Auto` or `Manual`. Defaults to `Auto`.
-        pub qos_type: pulumi_wasm_rust::Output<Option<String>>,
+        pub qos_type: pulumi_gestalt_rust::Output<Option<String>>,
         /// The name of the resource group where the NetApp Pool should be created. Changing this forces a new resource to be created.
-        pub resource_group_name: pulumi_wasm_rust::Output<String>,
+        pub resource_group_name: pulumi_gestalt_rust::Output<String>,
         /// The service level of the file system. Valid values include `Premium`, `Standard`, and `Ultra`. Changing this forces a new resource to be created.
-        pub service_level: pulumi_wasm_rust::Output<String>,
+        pub service_level: pulumi_gestalt_rust::Output<String>,
         /// Provisioned size of the pool in TB. Value must be between `1` and `2048`.
         ///
         /// > **NOTE** `2` TB capacity pool sizing is currently in preview. You can only take advantage of the `2` TB minimum if all the volumes in the capacity pool are using `Standard` network features. If any volume is using `Basic` network features, the minimum size is `4` TB. Please see the product [documentation](https://learn.microsoft.com/azure/azure-netapp-files/azure-netapp-files-set-up-capacity-pool) for more information.
         ///
         /// > **NOTE** The maximum `size_in_tb` is goverened by regional quotas. You may request additional capacity from Azure, currently up to `2048`.
-        pub size_in_tb: pulumi_wasm_rust::Output<i32>,
+        pub size_in_tb: pulumi_gestalt_rust::Output<i32>,
         /// A mapping of tags to assign to the resource.
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
@@ -115,11 +115,11 @@ pub mod pool {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: PoolArgs,
     ) -> PoolResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let account_name_binding = args.account_name.get_output(context).get_inner();
         let encryption_type_binding = args
@@ -181,29 +181,29 @@ pub mod pool {
         };
         let o = register_interface::register(context.get_inner(), &request);
         PoolResult {
-            account_name: pulumi_wasm_rust::__private::into_domain(
+            account_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("accountName"),
             ),
-            encryption_type: pulumi_wasm_rust::__private::into_domain(
+            encryption_type: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("encryptionType"),
             ),
-            location: pulumi_wasm_rust::__private::into_domain(
+            location: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("location"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            qos_type: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            qos_type: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("qosType"),
             ),
-            resource_group_name: pulumi_wasm_rust::__private::into_domain(
+            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("resourceGroupName"),
             ),
-            service_level: pulumi_wasm_rust::__private::into_domain(
+            service_level: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("serviceLevel"),
             ),
-            size_in_tb: pulumi_wasm_rust::__private::into_domain(
+            size_in_tb: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("sizeInTb"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
         }
     }
 }

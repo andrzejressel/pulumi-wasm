@@ -1,46 +1,46 @@
 pub mod get_analytics_workspace {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct GetAnalyticsWorkspaceArgs {
         /// Specifies the name of the Log Analytics Workspace.
         #[builder(into)]
-        pub name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The name of the resource group in which the Log Analytics workspace is located in.
         #[builder(into)]
-        pub resource_group_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub resource_group_name: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct GetAnalyticsWorkspaceResult {
         /// The workspace daily quota for ingestion in GB.
-        pub daily_quota_gb: pulumi_wasm_rust::Output<f64>,
+        pub daily_quota_gb: pulumi_gestalt_rust::Output<f64>,
         /// The provider-assigned unique ID for this managed resource.
-        pub id: pulumi_wasm_rust::Output<String>,
-        pub location: pulumi_wasm_rust::Output<String>,
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub id: pulumi_gestalt_rust::Output<String>,
+        pub location: pulumi_gestalt_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// The Primary shared key for the Log Analytics Workspace.
-        pub primary_shared_key: pulumi_wasm_rust::Output<String>,
-        pub resource_group_name: pulumi_wasm_rust::Output<String>,
+        pub primary_shared_key: pulumi_gestalt_rust::Output<String>,
+        pub resource_group_name: pulumi_gestalt_rust::Output<String>,
         /// The workspace data retention in days.
-        pub retention_in_days: pulumi_wasm_rust::Output<i32>,
+        pub retention_in_days: pulumi_gestalt_rust::Output<i32>,
         /// The Secondary shared key for the Log Analytics Workspace.
-        pub secondary_shared_key: pulumi_wasm_rust::Output<String>,
+        pub secondary_shared_key: pulumi_gestalt_rust::Output<String>,
         /// The SKU of the Log Analytics Workspace.
-        pub sku: pulumi_wasm_rust::Output<String>,
+        pub sku: pulumi_gestalt_rust::Output<String>,
         /// A mapping of tags assigned to the resource.
-        pub tags: pulumi_wasm_rust::Output<std::collections::HashMap<String, String>>,
+        pub tags: pulumi_gestalt_rust::Output<std::collections::HashMap<String, String>>,
         /// The Workspace (or Customer) ID for the Log Analytics Workspace.
-        pub workspace_id: pulumi_wasm_rust::Output<String>,
+        pub workspace_id: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         args: GetAnalyticsWorkspaceArgs,
     ) -> GetAnalyticsWorkspaceResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let name_binding = args.name.get_output(context).get_inner();
         let resource_group_name_binding = args
@@ -64,29 +64,29 @@ pub mod get_analytics_workspace {
         };
         let o = register_interface::invoke(context.get_inner(), &request);
         GetAnalyticsWorkspaceResult {
-            daily_quota_gb: pulumi_wasm_rust::__private::into_domain(
+            daily_quota_gb: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("dailyQuotaGb"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
-            location: pulumi_wasm_rust::__private::into_domain(
+            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
+            location: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("location"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            primary_shared_key: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            primary_shared_key: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("primarySharedKey"),
             ),
-            resource_group_name: pulumi_wasm_rust::__private::into_domain(
+            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("resourceGroupName"),
             ),
-            retention_in_days: pulumi_wasm_rust::__private::into_domain(
+            retention_in_days: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("retentionInDays"),
             ),
-            secondary_shared_key: pulumi_wasm_rust::__private::into_domain(
+            secondary_shared_key: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("secondarySharedKey"),
             ),
-            sku: pulumi_wasm_rust::__private::into_domain(o.extract_field("sku")),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
-            workspace_id: pulumi_wasm_rust::__private::into_domain(
+            sku: pulumi_gestalt_rust::__private::into_domain(o.extract_field("sku")),
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            workspace_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("workspaceId"),
             ),
         }

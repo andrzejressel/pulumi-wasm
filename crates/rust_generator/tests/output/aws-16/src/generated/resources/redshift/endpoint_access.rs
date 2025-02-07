@@ -3,8 +3,8 @@
 /// ## Example Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = endpoint_access::create(
@@ -26,57 +26,59 @@
 /// $ pulumi import aws:redshift/endpointAccess:EndpointAccess example example
 /// ```
 pub mod endpoint_access {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct EndpointAccessArgs {
         /// The cluster identifier of the cluster to access.
         #[builder(into)]
-        pub cluster_identifier: pulumi_wasm_rust::InputOrOutput<String>,
+        pub cluster_identifier: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The Redshift-managed VPC endpoint name.
         #[builder(into)]
-        pub endpoint_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub endpoint_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The Amazon Web Services account ID of the owner of the cluster. This is only required if the cluster is in another Amazon Web Services account.
         #[builder(into, default)]
-        pub resource_owner: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub resource_owner: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The subnet group from which Amazon Redshift chooses the subnet to deploy the endpoint.
         #[builder(into)]
-        pub subnet_group_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub subnet_group_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The security group that defines the ports, protocols, and sources for inbound traffic that you are authorizing into your endpoint.
         #[builder(into, default)]
-        pub vpc_security_group_ids: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
+        pub vpc_security_group_ids: pulumi_gestalt_rust::InputOrOutput<
+            Option<Vec<String>>,
+        >,
     }
     #[allow(dead_code)]
     pub struct EndpointAccessResult {
         /// The DNS address of the endpoint.
-        pub address: pulumi_wasm_rust::Output<String>,
+        pub address: pulumi_gestalt_rust::Output<String>,
         /// The cluster identifier of the cluster to access.
-        pub cluster_identifier: pulumi_wasm_rust::Output<String>,
+        pub cluster_identifier: pulumi_gestalt_rust::Output<String>,
         /// The Redshift-managed VPC endpoint name.
-        pub endpoint_name: pulumi_wasm_rust::Output<String>,
+        pub endpoint_name: pulumi_gestalt_rust::Output<String>,
         /// The port number on which the cluster accepts incoming connections.
-        pub port: pulumi_wasm_rust::Output<i32>,
+        pub port: pulumi_gestalt_rust::Output<i32>,
         /// The Amazon Web Services account ID of the owner of the cluster. This is only required if the cluster is in another Amazon Web Services account.
-        pub resource_owner: pulumi_wasm_rust::Output<String>,
+        pub resource_owner: pulumi_gestalt_rust::Output<String>,
         /// The subnet group from which Amazon Redshift chooses the subnet to deploy the endpoint.
-        pub subnet_group_name: pulumi_wasm_rust::Output<String>,
+        pub subnet_group_name: pulumi_gestalt_rust::Output<String>,
         /// The connection endpoint for connecting to an Amazon Redshift cluster through the proxy. See details below.
-        pub vpc_endpoints: pulumi_wasm_rust::Output<
+        pub vpc_endpoints: pulumi_gestalt_rust::Output<
             Vec<super::super::types::redshift::EndpointAccessVpcEndpoint>,
         >,
         /// The security group that defines the ports, protocols, and sources for inbound traffic that you are authorizing into your endpoint.
-        pub vpc_security_group_ids: pulumi_wasm_rust::Output<Vec<String>>,
+        pub vpc_security_group_ids: pulumi_gestalt_rust::Output<Vec<String>>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: EndpointAccessArgs,
     ) -> EndpointAccessResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let cluster_identifier_binding = args
             .cluster_identifier
@@ -121,26 +123,26 @@ pub mod endpoint_access {
         };
         let o = register_interface::register(context.get_inner(), &request);
         EndpointAccessResult {
-            address: pulumi_wasm_rust::__private::into_domain(
+            address: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("address"),
             ),
-            cluster_identifier: pulumi_wasm_rust::__private::into_domain(
+            cluster_identifier: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("clusterIdentifier"),
             ),
-            endpoint_name: pulumi_wasm_rust::__private::into_domain(
+            endpoint_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("endpointName"),
             ),
-            port: pulumi_wasm_rust::__private::into_domain(o.extract_field("port")),
-            resource_owner: pulumi_wasm_rust::__private::into_domain(
+            port: pulumi_gestalt_rust::__private::into_domain(o.extract_field("port")),
+            resource_owner: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("resourceOwner"),
             ),
-            subnet_group_name: pulumi_wasm_rust::__private::into_domain(
+            subnet_group_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("subnetGroupName"),
             ),
-            vpc_endpoints: pulumi_wasm_rust::__private::into_domain(
+            vpc_endpoints: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("vpcEndpoints"),
             ),
-            vpc_security_group_ids: pulumi_wasm_rust::__private::into_domain(
+            vpc_security_group_ids: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("vpcSecurityGroupIds"),
             ),
         }

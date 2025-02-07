@@ -143,86 +143,86 @@
 /// $ pulumi import aws:codepipeline/pipeline:Pipeline foo example
 /// ```
 pub mod pipeline {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct PipelineArgs {
         /// One or more artifact_store blocks. Artifact stores are documented below.
         #[builder(into)]
-        pub artifact_stores: pulumi_wasm_rust::InputOrOutput<
+        pub artifact_stores: pulumi_gestalt_rust::InputOrOutput<
             Vec<super::super::types::codepipeline::PipelineArtifactStore>,
         >,
         /// The method that the pipeline will use to handle multiple executions. The default mode is `SUPERSEDED`. For value values, refer to the [AWS documentation](https://docs.aws.amazon.com/codepipeline/latest/APIReference/API_PipelineDeclaration.html#CodePipeline-Type-PipelineDeclaration-executionMode).
         ///
         /// **Note:** `QUEUED` or `PARALLEL` mode can only be used with V2 pipelines.
         #[builder(into, default)]
-        pub execution_mode: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub execution_mode: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The name of the pipeline.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Type of the pipeline. Possible values are: `V1` and `V2`. Default value is `V1`.
         #[builder(into, default)]
-        pub pipeline_type: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub pipeline_type: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// A service role Amazon Resource Name (ARN) that grants AWS CodePipeline permission to make calls to AWS services on your behalf.
         #[builder(into)]
-        pub role_arn: pulumi_wasm_rust::InputOrOutput<String>,
+        pub role_arn: pulumi_gestalt_rust::InputOrOutput<String>,
         /// A stage block. Stages are documented below.
         #[builder(into)]
-        pub stages: pulumi_wasm_rust::InputOrOutput<
+        pub stages: pulumi_gestalt_rust::InputOrOutput<
             Vec<super::super::types::codepipeline::PipelineStage>,
         >,
         /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// A trigger block. Valid only when `pipeline_type` is `V2`. Triggers are documented below.
         #[builder(into, default)]
-        pub triggers: pulumi_wasm_rust::InputOrOutput<
+        pub triggers: pulumi_gestalt_rust::InputOrOutput<
             Option<Vec<super::super::types::codepipeline::PipelineTrigger>>,
         >,
         /// A pipeline-level variable block. Valid only when `pipeline_type` is `V2`. Variable are documented below.
         #[builder(into, default)]
-        pub variables: pulumi_wasm_rust::InputOrOutput<
+        pub variables: pulumi_gestalt_rust::InputOrOutput<
             Option<Vec<super::super::types::codepipeline::PipelineVariable>>,
         >,
     }
     #[allow(dead_code)]
     pub struct PipelineResult {
         /// The codepipeline ARN.
-        pub arn: pulumi_wasm_rust::Output<String>,
+        pub arn: pulumi_gestalt_rust::Output<String>,
         /// One or more artifact_store blocks. Artifact stores are documented below.
-        pub artifact_stores: pulumi_wasm_rust::Output<
+        pub artifact_stores: pulumi_gestalt_rust::Output<
             Vec<super::super::types::codepipeline::PipelineArtifactStore>,
         >,
         /// The method that the pipeline will use to handle multiple executions. The default mode is `SUPERSEDED`. For value values, refer to the [AWS documentation](https://docs.aws.amazon.com/codepipeline/latest/APIReference/API_PipelineDeclaration.html#CodePipeline-Type-PipelineDeclaration-executionMode).
         ///
         /// **Note:** `QUEUED` or `PARALLEL` mode can only be used with V2 pipelines.
-        pub execution_mode: pulumi_wasm_rust::Output<Option<String>>,
+        pub execution_mode: pulumi_gestalt_rust::Output<Option<String>>,
         /// The name of the pipeline.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// Type of the pipeline. Possible values are: `V1` and `V2`. Default value is `V1`.
-        pub pipeline_type: pulumi_wasm_rust::Output<Option<String>>,
+        pub pipeline_type: pulumi_gestalt_rust::Output<Option<String>>,
         /// A service role Amazon Resource Name (ARN) that grants AWS CodePipeline permission to make calls to AWS services on your behalf.
-        pub role_arn: pulumi_wasm_rust::Output<String>,
+        pub role_arn: pulumi_gestalt_rust::Output<String>,
         /// A stage block. Stages are documented below.
-        pub stages: pulumi_wasm_rust::Output<
+        pub stages: pulumi_gestalt_rust::Output<
             Vec<super::super::types::codepipeline::PipelineStage>,
         >,
         /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        pub tags_all: pulumi_wasm_rust::Output<
+        pub tags_all: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
         /// A trigger block. Valid only when `pipeline_type` is `V2`. Triggers are documented below.
-        pub triggers: pulumi_wasm_rust::Output<
+        pub triggers: pulumi_gestalt_rust::Output<
             Vec<super::super::types::codepipeline::PipelineTrigger>,
         >,
         /// A pipeline-level variable block. Valid only when `pipeline_type` is `V2`. Variable are documented below.
-        pub variables: pulumi_wasm_rust::Output<
+        pub variables: pulumi_gestalt_rust::Output<
             Option<Vec<super::super::types::codepipeline::PipelineVariable>>,
         >,
     }
@@ -231,11 +231,11 @@ pub mod pipeline {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: PipelineArgs,
     ) -> PipelineResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let artifact_stores_binding = args
             .artifact_stores
@@ -294,29 +294,31 @@ pub mod pipeline {
         };
         let o = register_interface::register(context.get_inner(), &request);
         PipelineResult {
-            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
-            artifact_stores: pulumi_wasm_rust::__private::into_domain(
+            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
+            artifact_stores: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("artifactStores"),
             ),
-            execution_mode: pulumi_wasm_rust::__private::into_domain(
+            execution_mode: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("executionMode"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            pipeline_type: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            pipeline_type: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("pipelineType"),
             ),
-            role_arn: pulumi_wasm_rust::__private::into_domain(
+            role_arn: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("roleArn"),
             ),
-            stages: pulumi_wasm_rust::__private::into_domain(o.extract_field("stages")),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_wasm_rust::__private::into_domain(
+            stages: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("stages"),
+            ),
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            tags_all: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("tagsAll"),
             ),
-            triggers: pulumi_wasm_rust::__private::into_domain(
+            triggers: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("triggers"),
             ),
-            variables: pulumi_wasm_rust::__private::into_domain(
+            variables: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("variables"),
             ),
         }

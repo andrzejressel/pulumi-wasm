@@ -70,53 +70,53 @@
 /// -> **NOTE** The ID requires quoting as there are semicolons. This user unfriendly ID can be found in the Deployments of the used resourcegroup, look for an Deployment which starts with `ConfigureAFSProtection-`, click then `Go to resource`.
 ///
 pub mod protected_file_share {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ProtectedFileShareArgs {
         /// Specifies the ID of the backup policy to use. The policy must be an Azure File Share backup policy. Other types are not supported.
         #[builder(into)]
-        pub backup_policy_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub backup_policy_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Specifies the name of the Recovery Services Vault to use. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub recovery_vault_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub recovery_vault_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The name of the resource group in which to create the Azure Backup Protected File Share. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub resource_group_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub resource_group_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Specifies the name of the file share to backup. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub source_file_share_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub source_file_share_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Specifies the ID of the storage account of the file share to backup. Changing this forces a new resource to be created.
         ///
         /// > **NOTE** The storage account must already be registered with the recovery vault in order to backup shares within the account. You can use the `azure.backup.ContainerStorageAccount` resource or the [Register-AzRecoveryServicesBackupContainer PowerShell cmdlet](https://docs.microsoft.com/powershell/module/az.recoveryservices/register-azrecoveryservicesbackupcontainer?view=azps-3.2.0) to register a storage account with a vault. When using the `azure.backup.ContainerStorageAccount` resource to register, you can use `depends_on` to explicitly declare the dependency. It will make sure that the registration is completed before creating the `azure.backup.ProtectedFileShare` resource.
         #[builder(into)]
-        pub source_storage_account_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub source_storage_account_id: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct ProtectedFileShareResult {
         /// Specifies the ID of the backup policy to use. The policy must be an Azure File Share backup policy. Other types are not supported.
-        pub backup_policy_id: pulumi_wasm_rust::Output<String>,
+        pub backup_policy_id: pulumi_gestalt_rust::Output<String>,
         /// Specifies the name of the Recovery Services Vault to use. Changing this forces a new resource to be created.
-        pub recovery_vault_name: pulumi_wasm_rust::Output<String>,
+        pub recovery_vault_name: pulumi_gestalt_rust::Output<String>,
         /// The name of the resource group in which to create the Azure Backup Protected File Share. Changing this forces a new resource to be created.
-        pub resource_group_name: pulumi_wasm_rust::Output<String>,
+        pub resource_group_name: pulumi_gestalt_rust::Output<String>,
         /// Specifies the name of the file share to backup. Changing this forces a new resource to be created.
-        pub source_file_share_name: pulumi_wasm_rust::Output<String>,
+        pub source_file_share_name: pulumi_gestalt_rust::Output<String>,
         /// Specifies the ID of the storage account of the file share to backup. Changing this forces a new resource to be created.
         ///
         /// > **NOTE** The storage account must already be registered with the recovery vault in order to backup shares within the account. You can use the `azure.backup.ContainerStorageAccount` resource or the [Register-AzRecoveryServicesBackupContainer PowerShell cmdlet](https://docs.microsoft.com/powershell/module/az.recoveryservices/register-azrecoveryservicesbackupcontainer?view=azps-3.2.0) to register a storage account with a vault. When using the `azure.backup.ContainerStorageAccount` resource to register, you can use `depends_on` to explicitly declare the dependency. It will make sure that the registration is completed before creating the `azure.backup.ProtectedFileShare` resource.
-        pub source_storage_account_id: pulumi_wasm_rust::Output<String>,
+        pub source_storage_account_id: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: ProtectedFileShareArgs,
     ) -> ProtectedFileShareResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let backup_policy_id_binding = args
             .backup_policy_id
@@ -167,19 +167,19 @@ pub mod protected_file_share {
         };
         let o = register_interface::register(context.get_inner(), &request);
         ProtectedFileShareResult {
-            backup_policy_id: pulumi_wasm_rust::__private::into_domain(
+            backup_policy_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("backupPolicyId"),
             ),
-            recovery_vault_name: pulumi_wasm_rust::__private::into_domain(
+            recovery_vault_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("recoveryVaultName"),
             ),
-            resource_group_name: pulumi_wasm_rust::__private::into_domain(
+            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("resourceGroupName"),
             ),
-            source_file_share_name: pulumi_wasm_rust::__private::into_domain(
+            source_file_share_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("sourceFileShareName"),
             ),
-            source_storage_account_id: pulumi_wasm_rust::__private::into_domain(
+            source_storage_account_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("sourceStorageAccountId"),
             ),
         }

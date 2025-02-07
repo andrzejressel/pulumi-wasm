@@ -3,8 +3,8 @@
 /// ## Example Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = vpc_network_performance_metric_subscription::create(
@@ -17,46 +17,46 @@
 /// }
 /// ```
 pub mod vpc_network_performance_metric_subscription {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct VpcNetworkPerformanceMetricSubscriptionArgs {
         /// The target Region or Availability Zone that the metric subscription is enabled for. For example, `eu-west-1`.
         #[builder(into)]
-        pub destination: pulumi_wasm_rust::InputOrOutput<String>,
+        pub destination: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The metric used for the enabled subscription. Valid values: `aggregate-latency`. Default: `aggregate-latency`.
         #[builder(into, default)]
-        pub metric: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub metric: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The source Region or Availability Zone that the metric subscription is enabled for. For example, `us-east-1`.
         #[builder(into)]
-        pub source: pulumi_wasm_rust::InputOrOutput<String>,
+        pub source: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The statistic used for the enabled subscription. Valid values: `p50`. Default: `p50`.
         #[builder(into, default)]
-        pub statistic: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub statistic: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct VpcNetworkPerformanceMetricSubscriptionResult {
         /// The target Region or Availability Zone that the metric subscription is enabled for. For example, `eu-west-1`.
-        pub destination: pulumi_wasm_rust::Output<String>,
+        pub destination: pulumi_gestalt_rust::Output<String>,
         /// The metric used for the enabled subscription. Valid values: `aggregate-latency`. Default: `aggregate-latency`.
-        pub metric: pulumi_wasm_rust::Output<Option<String>>,
+        pub metric: pulumi_gestalt_rust::Output<Option<String>>,
         /// The data aggregation time for the subscription.
-        pub period: pulumi_wasm_rust::Output<String>,
+        pub period: pulumi_gestalt_rust::Output<String>,
         /// The source Region or Availability Zone that the metric subscription is enabled for. For example, `us-east-1`.
-        pub source: pulumi_wasm_rust::Output<String>,
+        pub source: pulumi_gestalt_rust::Output<String>,
         /// The statistic used for the enabled subscription. Valid values: `p50`. Default: `p50`.
-        pub statistic: pulumi_wasm_rust::Output<Option<String>>,
+        pub statistic: pulumi_gestalt_rust::Output<Option<String>>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: VpcNetworkPerformanceMetricSubscriptionArgs,
     ) -> VpcNetworkPerformanceMetricSubscriptionResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let destination_binding = args.destination.get_output(context).get_inner();
         let metric_binding = args.metric.get_output(context).get_inner();
@@ -88,13 +88,19 @@ pub mod vpc_network_performance_metric_subscription {
         };
         let o = register_interface::register(context.get_inner(), &request);
         VpcNetworkPerformanceMetricSubscriptionResult {
-            destination: pulumi_wasm_rust::__private::into_domain(
+            destination: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("destination"),
             ),
-            metric: pulumi_wasm_rust::__private::into_domain(o.extract_field("metric")),
-            period: pulumi_wasm_rust::__private::into_domain(o.extract_field("period")),
-            source: pulumi_wasm_rust::__private::into_domain(o.extract_field("source")),
-            statistic: pulumi_wasm_rust::__private::into_domain(
+            metric: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("metric"),
+            ),
+            period: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("period"),
+            ),
+            source: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("source"),
+            ),
+            statistic: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("statistic"),
             ),
         }

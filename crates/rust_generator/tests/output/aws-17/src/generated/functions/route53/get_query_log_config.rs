@@ -1,5 +1,5 @@
 pub mod get_query_log_config {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct GetQueryLogConfigArgs {
@@ -9,49 +9,49 @@ pub mod get_query_log_config {
         ///
         /// In addition to all arguments above, the following attributes are exported:
         #[builder(into, default)]
-        pub filters: pulumi_wasm_rust::InputOrOutput<
+        pub filters: pulumi_gestalt_rust::InputOrOutput<
             Option<Vec<super::super::super::types::route53::GetQueryLogConfigFilter>>,
         >,
         /// The name of the query logging configuration.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// ID of the Route53 Resolver Query Logging Configuration.
         #[builder(into, default)]
-        pub resolver_query_log_config_id: pulumi_wasm_rust::InputOrOutput<
+        pub resolver_query_log_config_id: pulumi_gestalt_rust::InputOrOutput<
             Option<String>,
         >,
         /// Map of tags to assign to the service.
         ///
         /// [1]: https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_Filter.html
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
     #[allow(dead_code)]
     pub struct GetQueryLogConfigResult {
-        pub arn: pulumi_wasm_rust::Output<String>,
-        pub destination_arn: pulumi_wasm_rust::Output<String>,
-        pub filters: pulumi_wasm_rust::Output<
+        pub arn: pulumi_gestalt_rust::Output<String>,
+        pub destination_arn: pulumi_gestalt_rust::Output<String>,
+        pub filters: pulumi_gestalt_rust::Output<
             Option<Vec<super::super::super::types::route53::GetQueryLogConfigFilter>>,
         >,
         /// The provider-assigned unique ID for this managed resource.
-        pub id: pulumi_wasm_rust::Output<String>,
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
-        pub owner_id: pulumi_wasm_rust::Output<String>,
-        pub resolver_query_log_config_id: pulumi_wasm_rust::Output<Option<String>>,
-        pub share_status: pulumi_wasm_rust::Output<String>,
-        pub tags: pulumi_wasm_rust::Output<std::collections::HashMap<String, String>>,
+        pub id: pulumi_gestalt_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<Option<String>>,
+        pub owner_id: pulumi_gestalt_rust::Output<String>,
+        pub resolver_query_log_config_id: pulumi_gestalt_rust::Output<Option<String>>,
+        pub share_status: pulumi_gestalt_rust::Output<String>,
+        pub tags: pulumi_gestalt_rust::Output<std::collections::HashMap<String, String>>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         args: GetQueryLogConfigArgs,
     ) -> GetQueryLogConfigResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let filters_binding = args.filters.get_output(context).get_inner();
         let name_binding = args.name.get_output(context).get_inner();
@@ -84,25 +84,25 @@ pub mod get_query_log_config {
         };
         let o = register_interface::invoke(context.get_inner(), &request);
         GetQueryLogConfigResult {
-            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
-            destination_arn: pulumi_wasm_rust::__private::into_domain(
+            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
+            destination_arn: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("destinationArn"),
             ),
-            filters: pulumi_wasm_rust::__private::into_domain(
+            filters: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("filters"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            owner_id: pulumi_wasm_rust::__private::into_domain(
+            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            owner_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("ownerId"),
             ),
-            resolver_query_log_config_id: pulumi_wasm_rust::__private::into_domain(
+            resolver_query_log_config_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("resolverQueryLogConfigId"),
             ),
-            share_status: pulumi_wasm_rust::__private::into_domain(
+            share_status: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("shareStatus"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
         }
     }
 }

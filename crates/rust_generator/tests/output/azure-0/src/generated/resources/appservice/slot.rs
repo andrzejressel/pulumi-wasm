@@ -128,134 +128,134 @@
 /// ```
 ///
 pub mod slot {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct SlotArgs {
         /// The name of the App Service within which to create the App Service Slot. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub app_service_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub app_service_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The ID of the App Service Plan within which to create this App Service Slot. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub app_service_plan_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub app_service_plan_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// A key-value pair of App Settings.
         #[builder(into, default)]
-        pub app_settings: pulumi_wasm_rust::InputOrOutput<
+        pub app_settings: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// A `auth_settings` block as defined below.
         #[builder(into, default)]
-        pub auth_settings: pulumi_wasm_rust::InputOrOutput<
+        pub auth_settings: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::appservice::SlotAuthSettings>,
         >,
         /// Should the App Service Slot send session affinity cookies, which route client requests in the same session to the same instance?
         #[builder(into, default)]
-        pub client_affinity_enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub client_affinity_enabled: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// An `connection_string` block as defined below.
         #[builder(into, default)]
-        pub connection_strings: pulumi_wasm_rust::InputOrOutput<
+        pub connection_strings: pulumi_gestalt_rust::InputOrOutput<
             Option<Vec<super::super::types::appservice::SlotConnectionString>>,
         >,
         /// Is the App Service Slot Enabled? Defaults to `true`.
         #[builder(into, default)]
-        pub enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub enabled: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// Can the App Service Slot only be accessed via HTTPS? Defaults to `false`.
         #[builder(into, default)]
-        pub https_only: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub https_only: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// An `identity` block as defined below.
         #[builder(into, default)]
-        pub identity: pulumi_wasm_rust::InputOrOutput<
+        pub identity: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::appservice::SlotIdentity>,
         >,
         /// The User Assigned Identity Id used for looking up KeyVault secrets. The identity must be assigned to the application. See [Access vaults with a user-assigned identity](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity) for more information.
         #[builder(into, default)]
-        pub key_vault_reference_identity_id: pulumi_wasm_rust::InputOrOutput<
+        pub key_vault_reference_identity_id: pulumi_gestalt_rust::InputOrOutput<
             Option<String>,
         >,
         /// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub location: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub location: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// A `logs` block as defined below.
         #[builder(into, default)]
-        pub logs: pulumi_wasm_rust::InputOrOutput<
+        pub logs: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::appservice::SlotLogs>,
         >,
         /// Specifies the name of the App Service Slot component. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The name of the resource group in which to create the App Service Slot component. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub resource_group_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub resource_group_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// A `site_config` object as defined below.
         #[builder(into, default)]
-        pub site_config: pulumi_wasm_rust::InputOrOutput<
+        pub site_config: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::appservice::SlotSiteConfig>,
         >,
         /// One or more `storage_account` blocks as defined below.
         #[builder(into, default)]
-        pub storage_accounts: pulumi_wasm_rust::InputOrOutput<
+        pub storage_accounts: pulumi_gestalt_rust::InputOrOutput<
             Option<Vec<super::super::types::appservice::SlotStorageAccount>>,
         >,
         /// A mapping of tags to assign to the resource.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
     #[allow(dead_code)]
     pub struct SlotResult {
         /// The name of the App Service within which to create the App Service Slot. Changing this forces a new resource to be created.
-        pub app_service_name: pulumi_wasm_rust::Output<String>,
+        pub app_service_name: pulumi_gestalt_rust::Output<String>,
         /// The ID of the App Service Plan within which to create this App Service Slot. Changing this forces a new resource to be created.
-        pub app_service_plan_id: pulumi_wasm_rust::Output<String>,
+        pub app_service_plan_id: pulumi_gestalt_rust::Output<String>,
         /// A key-value pair of App Settings.
-        pub app_settings: pulumi_wasm_rust::Output<
+        pub app_settings: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
         /// A `auth_settings` block as defined below.
-        pub auth_settings: pulumi_wasm_rust::Output<
+        pub auth_settings: pulumi_gestalt_rust::Output<
             super::super::types::appservice::SlotAuthSettings,
         >,
         /// Should the App Service Slot send session affinity cookies, which route client requests in the same session to the same instance?
-        pub client_affinity_enabled: pulumi_wasm_rust::Output<bool>,
+        pub client_affinity_enabled: pulumi_gestalt_rust::Output<bool>,
         /// An `connection_string` block as defined below.
-        pub connection_strings: pulumi_wasm_rust::Output<
+        pub connection_strings: pulumi_gestalt_rust::Output<
             Vec<super::super::types::appservice::SlotConnectionString>,
         >,
         /// The Default Hostname associated with the App Service Slot - such as `mysite.azurewebsites.net`
-        pub default_site_hostname: pulumi_wasm_rust::Output<String>,
+        pub default_site_hostname: pulumi_gestalt_rust::Output<String>,
         /// Is the App Service Slot Enabled? Defaults to `true`.
-        pub enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub enabled: pulumi_gestalt_rust::Output<Option<bool>>,
         /// Can the App Service Slot only be accessed via HTTPS? Defaults to `false`.
-        pub https_only: pulumi_wasm_rust::Output<Option<bool>>,
+        pub https_only: pulumi_gestalt_rust::Output<Option<bool>>,
         /// An `identity` block as defined below.
-        pub identity: pulumi_wasm_rust::Output<
+        pub identity: pulumi_gestalt_rust::Output<
             Option<super::super::types::appservice::SlotIdentity>,
         >,
         /// The User Assigned Identity Id used for looking up KeyVault secrets. The identity must be assigned to the application. See [Access vaults with a user-assigned identity](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity) for more information.
-        pub key_vault_reference_identity_id: pulumi_wasm_rust::Output<String>,
+        pub key_vault_reference_identity_id: pulumi_gestalt_rust::Output<String>,
         /// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
-        pub location: pulumi_wasm_rust::Output<String>,
+        pub location: pulumi_gestalt_rust::Output<String>,
         /// A `logs` block as defined below.
-        pub logs: pulumi_wasm_rust::Output<super::super::types::appservice::SlotLogs>,
+        pub logs: pulumi_gestalt_rust::Output<super::super::types::appservice::SlotLogs>,
         /// Specifies the name of the App Service Slot component. Changing this forces a new resource to be created.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// The name of the resource group in which to create the App Service Slot component. Changing this forces a new resource to be created.
-        pub resource_group_name: pulumi_wasm_rust::Output<String>,
+        pub resource_group_name: pulumi_gestalt_rust::Output<String>,
         /// A `site_config` object as defined below.
-        pub site_config: pulumi_wasm_rust::Output<
+        pub site_config: pulumi_gestalt_rust::Output<
             super::super::types::appservice::SlotSiteConfig,
         >,
         /// A `site_credential` block as defined below, which contains the site-level credentials used to publish to this App Service slot.
-        pub site_credentials: pulumi_wasm_rust::Output<
+        pub site_credentials: pulumi_gestalt_rust::Output<
             Vec<super::super::types::appservice::SlotSiteCredential>,
         >,
         /// One or more `storage_account` blocks as defined below.
-        pub storage_accounts: pulumi_wasm_rust::Output<
+        pub storage_accounts: pulumi_gestalt_rust::Output<
             Vec<super::super::types::appservice::SlotStorageAccount>,
         >,
         /// A mapping of tags to assign to the resource.
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
@@ -264,11 +264,11 @@ pub mod slot {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: SlotArgs,
     ) -> SlotResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let app_service_name_binding = args
             .app_service_name
@@ -385,57 +385,57 @@ pub mod slot {
         };
         let o = register_interface::register(context.get_inner(), &request);
         SlotResult {
-            app_service_name: pulumi_wasm_rust::__private::into_domain(
+            app_service_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("appServiceName"),
             ),
-            app_service_plan_id: pulumi_wasm_rust::__private::into_domain(
+            app_service_plan_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("appServicePlanId"),
             ),
-            app_settings: pulumi_wasm_rust::__private::into_domain(
+            app_settings: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("appSettings"),
             ),
-            auth_settings: pulumi_wasm_rust::__private::into_domain(
+            auth_settings: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("authSettings"),
             ),
-            client_affinity_enabled: pulumi_wasm_rust::__private::into_domain(
+            client_affinity_enabled: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("clientAffinityEnabled"),
             ),
-            connection_strings: pulumi_wasm_rust::__private::into_domain(
+            connection_strings: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("connectionStrings"),
             ),
-            default_site_hostname: pulumi_wasm_rust::__private::into_domain(
+            default_site_hostname: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("defaultSiteHostname"),
             ),
-            enabled: pulumi_wasm_rust::__private::into_domain(
+            enabled: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("enabled"),
             ),
-            https_only: pulumi_wasm_rust::__private::into_domain(
+            https_only: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("httpsOnly"),
             ),
-            identity: pulumi_wasm_rust::__private::into_domain(
+            identity: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("identity"),
             ),
-            key_vault_reference_identity_id: pulumi_wasm_rust::__private::into_domain(
+            key_vault_reference_identity_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("keyVaultReferenceIdentityId"),
             ),
-            location: pulumi_wasm_rust::__private::into_domain(
+            location: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("location"),
             ),
-            logs: pulumi_wasm_rust::__private::into_domain(o.extract_field("logs")),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            resource_group_name: pulumi_wasm_rust::__private::into_domain(
+            logs: pulumi_gestalt_rust::__private::into_domain(o.extract_field("logs")),
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("resourceGroupName"),
             ),
-            site_config: pulumi_wasm_rust::__private::into_domain(
+            site_config: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("siteConfig"),
             ),
-            site_credentials: pulumi_wasm_rust::__private::into_domain(
+            site_credentials: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("siteCredentials"),
             ),
-            storage_accounts: pulumi_wasm_rust::__private::into_domain(
+            storage_accounts: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("storageAccounts"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
         }
     }
 }

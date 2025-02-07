@@ -14,8 +14,8 @@
 ///
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let posture1 = posture::create(
@@ -107,76 +107,76 @@
 /// ```
 ///
 pub mod posture {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct PostureArgs {
         /// Description of the posture.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub description: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Location of the resource, eg: global.
         #[builder(into)]
-        pub location: pulumi_wasm_rust::InputOrOutput<String>,
+        pub location: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The parent of the resource, an organization. Format should be `organizations/{organization_id}`.
         #[builder(into)]
-        pub parent: pulumi_wasm_rust::InputOrOutput<String>,
+        pub parent: pulumi_gestalt_rust::InputOrOutput<String>,
         /// List of policy sets for the posture.
         /// Structure is documented below.
         #[builder(into)]
-        pub policy_sets: pulumi_wasm_rust::InputOrOutput<
+        pub policy_sets: pulumi_gestalt_rust::InputOrOutput<
             Vec<super::super::types::securityposture::PosturePolicySet>,
         >,
         /// Id of the posture. It is an immutable field.
         #[builder(into)]
-        pub posture_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub posture_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// State of the posture. Update to state field should not be triggered along with
         /// with other field updates.
         /// Possible values are: `DEPRECATED`, `DRAFT`, `ACTIVE`.
         #[builder(into)]
-        pub state: pulumi_wasm_rust::InputOrOutput<String>,
+        pub state: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct PostureResult {
         /// Time the Posture was created in UTC.
-        pub create_time: pulumi_wasm_rust::Output<String>,
+        pub create_time: pulumi_gestalt_rust::Output<String>,
         /// Description of the posture.
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_gestalt_rust::Output<Option<String>>,
         /// For Resource freshness validation (https://google.aip.dev/154)
-        pub etag: pulumi_wasm_rust::Output<String>,
+        pub etag: pulumi_gestalt_rust::Output<String>,
         /// Location of the resource, eg: global.
-        pub location: pulumi_wasm_rust::Output<String>,
+        pub location: pulumi_gestalt_rust::Output<String>,
         /// Name of the posture.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// The parent of the resource, an organization. Format should be `organizations/{organization_id}`.
-        pub parent: pulumi_wasm_rust::Output<String>,
+        pub parent: pulumi_gestalt_rust::Output<String>,
         /// List of policy sets for the posture.
         /// Structure is documented below.
-        pub policy_sets: pulumi_wasm_rust::Output<
+        pub policy_sets: pulumi_gestalt_rust::Output<
             Vec<super::super::types::securityposture::PosturePolicySet>,
         >,
         /// Id of the posture. It is an immutable field.
-        pub posture_id: pulumi_wasm_rust::Output<String>,
+        pub posture_id: pulumi_gestalt_rust::Output<String>,
         /// If set, there are currently changes in flight to the posture.
-        pub reconciling: pulumi_wasm_rust::Output<bool>,
+        pub reconciling: pulumi_gestalt_rust::Output<bool>,
         /// Revision_id of the posture.
-        pub revision_id: pulumi_wasm_rust::Output<String>,
+        pub revision_id: pulumi_gestalt_rust::Output<String>,
         /// State of the posture. Update to state field should not be triggered along with
         /// with other field updates.
         /// Possible values are: `DEPRECATED`, `DRAFT`, `ACTIVE`.
-        pub state: pulumi_wasm_rust::Output<String>,
+        pub state: pulumi_gestalt_rust::Output<String>,
         /// Time the Posture was updated in UTC.
-        pub update_time: pulumi_wasm_rust::Output<String>,
+        pub update_time: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: PostureArgs,
     ) -> PostureResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let description_binding = args.description.get_output(context).get_inner();
         let location_binding = args.location.get_output(context).get_inner();
@@ -217,32 +217,34 @@ pub mod posture {
         };
         let o = register_interface::register(context.get_inner(), &request);
         PostureResult {
-            create_time: pulumi_wasm_rust::__private::into_domain(
+            create_time: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("createTime"),
             ),
-            description: pulumi_wasm_rust::__private::into_domain(
+            description: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("description"),
             ),
-            etag: pulumi_wasm_rust::__private::into_domain(o.extract_field("etag")),
-            location: pulumi_wasm_rust::__private::into_domain(
+            etag: pulumi_gestalt_rust::__private::into_domain(o.extract_field("etag")),
+            location: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("location"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            parent: pulumi_wasm_rust::__private::into_domain(o.extract_field("parent")),
-            policy_sets: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            parent: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("parent"),
+            ),
+            policy_sets: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("policySets"),
             ),
-            posture_id: pulumi_wasm_rust::__private::into_domain(
+            posture_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("postureId"),
             ),
-            reconciling: pulumi_wasm_rust::__private::into_domain(
+            reconciling: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("reconciling"),
             ),
-            revision_id: pulumi_wasm_rust::__private::into_domain(
+            revision_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("revisionId"),
             ),
-            state: pulumi_wasm_rust::__private::into_domain(o.extract_field("state")),
-            update_time: pulumi_wasm_rust::__private::into_domain(
+            state: pulumi_gestalt_rust::__private::into_domain(o.extract_field("state")),
+            update_time: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("updateTime"),
             ),
         }

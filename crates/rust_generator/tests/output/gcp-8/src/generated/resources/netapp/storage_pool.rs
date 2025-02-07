@@ -4,8 +4,8 @@
 ///
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let default = connection::create(
@@ -77,143 +77,143 @@
 /// ```
 ///
 pub mod storage_pool {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct StoragePoolArgs {
         /// Specifies the Active Directory policy to be used. Format: `projects/{{project}}/locations/{{location}}/activeDirectories/{{name}}`.
         /// The policy needs to be in the same location as the storage pool.
         #[builder(into, default)]
-        pub active_directory: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub active_directory: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Optional. True if the storage pool supports Auto Tiering enabled volumes. Default is false.
         /// Auto-tiering can be enabled after storage pool creation but it can't be disabled once enabled.
         #[builder(into, default)]
-        pub allow_auto_tiering: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub allow_auto_tiering: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// Capacity of the storage pool (in GiB).
         #[builder(into)]
-        pub capacity_gib: pulumi_wasm_rust::InputOrOutput<String>,
+        pub capacity_gib: pulumi_gestalt_rust::InputOrOutput<String>,
         /// An optional description of this resource.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub description: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Specifies the CMEK policy to be used for volume encryption. Format: `projects/{{project}}/locations/{{location}}/kmsConfigs/{{name}}`.
         /// The policy needs to be in the same location as the storage pool.
         #[builder(into, default)]
-        pub kms_config: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub kms_config: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Labels as key value pairs. Example: `{ "owner": "Bob", "department": "finance", "purpose": "testing" }`.
         ///
         /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
         /// Please refer to the field `effective_labels` for all of the labels present on the resource.
         #[builder(into, default)]
-        pub labels: pulumi_wasm_rust::InputOrOutput<
+        pub labels: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// When enabled, the volumes uses Active Directory as LDAP name service for UID/GID lookups. Required to enable extended group support for NFSv3,
         /// using security identifiers for NFSv4.1 or principal names for kerberized NFSv4.1.
         #[builder(into, default)]
-        pub ldap_enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub ldap_enabled: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// Name of the location. For zonal Flex pools specify a zone name, in all other cases a region name.
         #[builder(into)]
-        pub location: pulumi_wasm_rust::InputOrOutput<String>,
+        pub location: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The resource name of the storage pool. Needs to be unique per location/region.
         ///
         ///
         /// - - -
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// VPC network name with format: `projects/{{project}}/global/networks/{{network}}`
         #[builder(into)]
-        pub network: pulumi_wasm_rust::InputOrOutput<String>,
+        pub network: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub project: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Specifies the replica zone for regional Flex pools. `zone` and `replica_zone` values can be swapped to initiate a
         /// [zone switch](https://cloud.google.com/netapp/volumes/docs/configure-and-use/storage-pools/edit-or-delete-storage-pool#switch_active_and_replica_zones).
         #[builder(into, default)]
-        pub replica_zone: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub replica_zone: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Service level of the storage pool.
         /// Possible values are: `PREMIUM`, `EXTREME`, `STANDARD`, `FLEX`.
         #[builder(into)]
-        pub service_level: pulumi_wasm_rust::InputOrOutput<String>,
+        pub service_level: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Specifies the active zone for regional Flex pools. `zone` and `replica_zone` values can be swapped to initiate a
         /// [zone switch](https://cloud.google.com/netapp/volumes/docs/configure-and-use/storage-pools/edit-or-delete-storage-pool#switch_active_and_replica_zones).
         /// If you want to create a zonal Flex pool, specify a zone name for `location` and omit `zone`.
         #[builder(into, default)]
-        pub zone: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub zone: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct StoragePoolResult {
         /// Specifies the Active Directory policy to be used. Format: `projects/{{project}}/locations/{{location}}/activeDirectories/{{name}}`.
         /// The policy needs to be in the same location as the storage pool.
-        pub active_directory: pulumi_wasm_rust::Output<Option<String>>,
+        pub active_directory: pulumi_gestalt_rust::Output<Option<String>>,
         /// Optional. True if the storage pool supports Auto Tiering enabled volumes. Default is false.
         /// Auto-tiering can be enabled after storage pool creation but it can't be disabled once enabled.
-        pub allow_auto_tiering: pulumi_wasm_rust::Output<Option<bool>>,
+        pub allow_auto_tiering: pulumi_gestalt_rust::Output<Option<bool>>,
         /// Capacity of the storage pool (in GiB).
-        pub capacity_gib: pulumi_wasm_rust::Output<String>,
+        pub capacity_gib: pulumi_gestalt_rust::Output<String>,
         /// An optional description of this resource.
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_gestalt_rust::Output<Option<String>>,
         /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Pulumi, other clients and services.
-        pub effective_labels: pulumi_wasm_rust::Output<
+        pub effective_labels: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
         /// Reports if volumes in the pool are encrypted using a Google-managed encryption key or CMEK.
-        pub encryption_type: pulumi_wasm_rust::Output<String>,
+        pub encryption_type: pulumi_gestalt_rust::Output<String>,
         /// Specifies the CMEK policy to be used for volume encryption. Format: `projects/{{project}}/locations/{{location}}/kmsConfigs/{{name}}`.
         /// The policy needs to be in the same location as the storage pool.
-        pub kms_config: pulumi_wasm_rust::Output<Option<String>>,
+        pub kms_config: pulumi_gestalt_rust::Output<Option<String>>,
         /// Labels as key value pairs. Example: `{ "owner": "Bob", "department": "finance", "purpose": "testing" }`.
         ///
         /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
         /// Please refer to the field `effective_labels` for all of the labels present on the resource.
-        pub labels: pulumi_wasm_rust::Output<
+        pub labels: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// When enabled, the volumes uses Active Directory as LDAP name service for UID/GID lookups. Required to enable extended group support for NFSv3,
         /// using security identifiers for NFSv4.1 or principal names for kerberized NFSv4.1.
-        pub ldap_enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub ldap_enabled: pulumi_gestalt_rust::Output<Option<bool>>,
         /// Name of the location. For zonal Flex pools specify a zone name, in all other cases a region name.
-        pub location: pulumi_wasm_rust::Output<String>,
+        pub location: pulumi_gestalt_rust::Output<String>,
         /// The resource name of the storage pool. Needs to be unique per location/region.
         ///
         ///
         /// - - -
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// VPC network name with format: `projects/{{project}}/global/networks/{{network}}`
-        pub network: pulumi_wasm_rust::Output<String>,
+        pub network: pulumi_gestalt_rust::Output<String>,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
-        pub project: pulumi_wasm_rust::Output<String>,
+        pub project: pulumi_gestalt_rust::Output<String>,
         /// The combination of labels configured directly on the resource
         /// and default labels configured on the provider.
-        pub pulumi_labels: pulumi_wasm_rust::Output<
+        pub pulumi_labels: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
         /// Specifies the replica zone for regional Flex pools. `zone` and `replica_zone` values can be swapped to initiate a
         /// [zone switch](https://cloud.google.com/netapp/volumes/docs/configure-and-use/storage-pools/edit-or-delete-storage-pool#switch_active_and_replica_zones).
-        pub replica_zone: pulumi_wasm_rust::Output<Option<String>>,
+        pub replica_zone: pulumi_gestalt_rust::Output<Option<String>>,
         /// Service level of the storage pool.
         /// Possible values are: `PREMIUM`, `EXTREME`, `STANDARD`, `FLEX`.
-        pub service_level: pulumi_wasm_rust::Output<String>,
+        pub service_level: pulumi_gestalt_rust::Output<String>,
         /// Size allocated to volumes in the storage pool (in GiB).
-        pub volume_capacity_gib: pulumi_wasm_rust::Output<String>,
+        pub volume_capacity_gib: pulumi_gestalt_rust::Output<String>,
         /// Number of volume in the storage pool.
-        pub volume_count: pulumi_wasm_rust::Output<i32>,
+        pub volume_count: pulumi_gestalt_rust::Output<i32>,
         /// Specifies the active zone for regional Flex pools. `zone` and `replica_zone` values can be swapped to initiate a
         /// [zone switch](https://cloud.google.com/netapp/volumes/docs/configure-and-use/storage-pools/edit-or-delete-storage-pool#switch_active_and_replica_zones).
         /// If you want to create a zonal Flex pool, specify a zone name for `location` and omit `zone`.
-        pub zone: pulumi_wasm_rust::Output<Option<String>>,
+        pub zone: pulumi_gestalt_rust::Output<Option<String>>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: StoragePoolArgs,
     ) -> StoragePoolResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let active_directory_binding = args
             .active_directory
@@ -300,57 +300,59 @@ pub mod storage_pool {
         };
         let o = register_interface::register(context.get_inner(), &request);
         StoragePoolResult {
-            active_directory: pulumi_wasm_rust::__private::into_domain(
+            active_directory: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("activeDirectory"),
             ),
-            allow_auto_tiering: pulumi_wasm_rust::__private::into_domain(
+            allow_auto_tiering: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("allowAutoTiering"),
             ),
-            capacity_gib: pulumi_wasm_rust::__private::into_domain(
+            capacity_gib: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("capacityGib"),
             ),
-            description: pulumi_wasm_rust::__private::into_domain(
+            description: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("description"),
             ),
-            effective_labels: pulumi_wasm_rust::__private::into_domain(
+            effective_labels: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("effectiveLabels"),
             ),
-            encryption_type: pulumi_wasm_rust::__private::into_domain(
+            encryption_type: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("encryptionType"),
             ),
-            kms_config: pulumi_wasm_rust::__private::into_domain(
+            kms_config: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("kmsConfig"),
             ),
-            labels: pulumi_wasm_rust::__private::into_domain(o.extract_field("labels")),
-            ldap_enabled: pulumi_wasm_rust::__private::into_domain(
+            labels: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("labels"),
+            ),
+            ldap_enabled: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("ldapEnabled"),
             ),
-            location: pulumi_wasm_rust::__private::into_domain(
+            location: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("location"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            network: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            network: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("network"),
             ),
-            project: pulumi_wasm_rust::__private::into_domain(
+            project: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("project"),
             ),
-            pulumi_labels: pulumi_wasm_rust::__private::into_domain(
+            pulumi_labels: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("pulumiLabels"),
             ),
-            replica_zone: pulumi_wasm_rust::__private::into_domain(
+            replica_zone: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("replicaZone"),
             ),
-            service_level: pulumi_wasm_rust::__private::into_domain(
+            service_level: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("serviceLevel"),
             ),
-            volume_capacity_gib: pulumi_wasm_rust::__private::into_domain(
+            volume_capacity_gib: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("volumeCapacityGib"),
             ),
-            volume_count: pulumi_wasm_rust::__private::into_domain(
+            volume_count: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("volumeCount"),
             ),
-            zone: pulumi_wasm_rust::__private::into_domain(o.extract_field("zone")),
+            zone: pulumi_gestalt_rust::__private::into_domain(o.extract_field("zone")),
         }
     }
 }

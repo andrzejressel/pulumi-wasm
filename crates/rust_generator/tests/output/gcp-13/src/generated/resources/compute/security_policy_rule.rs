@@ -13,8 +13,8 @@
 ///
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let default = security_policy::create(
@@ -90,8 +90,8 @@
 ///
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let default = security_policy::create(
@@ -170,7 +170,7 @@
 /// ```
 ///
 pub mod security_policy_rule {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct SecurityPolicyRuleArgs {
@@ -181,54 +181,54 @@ pub mod security_policy_rule {
         /// * redirect: redirect to a different target. This can either be an internal reCAPTCHA redirect, or an external URL-based redirect via a 302 response. Parameters for this action can be configured via redirectOptions. This action is only supported in Global Security Policies of type CLOUD_ARMOR.
         /// * throttle: limit client traffic to the configured threshold. Configure parameters for this action in rateLimitOptions. Requires rateLimitOptions to be set for this.
         #[builder(into)]
-        pub action: pulumi_wasm_rust::InputOrOutput<String>,
+        pub action: pulumi_gestalt_rust::InputOrOutput<String>,
         /// An optional description of this resource. Provide this property when you create the resource.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub description: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Optional, additional actions that are performed on headers. This field is only supported in Global Security Policies of type CLOUD_ARMOR.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub header_action: pulumi_wasm_rust::InputOrOutput<
+        pub header_action: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::compute::SecurityPolicyRuleHeaderAction>,
         >,
         /// A match condition that incoming traffic is evaluated against.
         /// If it evaluates to true, the corresponding 'action' is enforced.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub match_: pulumi_wasm_rust::InputOrOutput<
+        pub match_: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::compute::SecurityPolicyRuleMatch>,
         >,
         /// Preconfigured WAF configuration to be applied for the rule.
         /// If the rule does not evaluate preconfigured WAF rules, i.e., if evaluatePreconfiguredWaf() is not used, this field will have no effect.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub preconfigured_waf_config: pulumi_wasm_rust::InputOrOutput<
+        pub preconfigured_waf_config: pulumi_gestalt_rust::InputOrOutput<
             Option<
                 super::super::types::compute::SecurityPolicyRulePreconfiguredWafConfig,
             >,
         >,
         /// If set to true, the specified action is not enforced.
         #[builder(into, default)]
-        pub preview: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub preview: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// An integer indicating the priority of a rule in the list.
         /// The priority must be a positive value between 0 and 2147483647.
         /// Rules are evaluated from highest to lowest priority where 0 is the highest priority and 2147483647 is the lowest priority.
         #[builder(into)]
-        pub priority: pulumi_wasm_rust::InputOrOutput<i32>,
+        pub priority: pulumi_gestalt_rust::InputOrOutput<i32>,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub project: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Must be specified if the action is "rate_based_ban" or "throttle". Cannot be specified for any other actions.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub rate_limit_options: pulumi_wasm_rust::InputOrOutput<
+        pub rate_limit_options: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::compute::SecurityPolicyRuleRateLimitOptions>,
         >,
         /// Parameters defining the redirect action. Cannot be specified for any other actions. This field is only supported in Global Security Policies of type CLOUD_ARMOR.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub redirect_options: pulumi_wasm_rust::InputOrOutput<
+        pub redirect_options: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::compute::SecurityPolicyRuleRedirectOptions>,
         >,
         /// The name of the security policy this rule belongs to.
@@ -236,7 +236,7 @@ pub mod security_policy_rule {
         ///
         /// - - -
         #[builder(into)]
-        pub security_policy: pulumi_wasm_rust::InputOrOutput<String>,
+        pub security_policy: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct SecurityPolicyRuleResult {
@@ -246,63 +246,63 @@ pub mod security_policy_rule {
         /// * rate_based_ban: limit client traffic to the configured threshold and ban the client if the traffic exceeds the threshold. Configure parameters for this action in RateLimitOptions. Requires rateLimitOptions to be set.
         /// * redirect: redirect to a different target. This can either be an internal reCAPTCHA redirect, or an external URL-based redirect via a 302 response. Parameters for this action can be configured via redirectOptions. This action is only supported in Global Security Policies of type CLOUD_ARMOR.
         /// * throttle: limit client traffic to the configured threshold. Configure parameters for this action in rateLimitOptions. Requires rateLimitOptions to be set for this.
-        pub action: pulumi_wasm_rust::Output<String>,
+        pub action: pulumi_gestalt_rust::Output<String>,
         /// An optional description of this resource. Provide this property when you create the resource.
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_gestalt_rust::Output<Option<String>>,
         /// Optional, additional actions that are performed on headers. This field is only supported in Global Security Policies of type CLOUD_ARMOR.
         /// Structure is documented below.
-        pub header_action: pulumi_wasm_rust::Output<
+        pub header_action: pulumi_gestalt_rust::Output<
             Option<super::super::types::compute::SecurityPolicyRuleHeaderAction>,
         >,
         /// A match condition that incoming traffic is evaluated against.
         /// If it evaluates to true, the corresponding 'action' is enforced.
         /// Structure is documented below.
-        pub match_: pulumi_wasm_rust::Output<
+        pub match_: pulumi_gestalt_rust::Output<
             Option<super::super::types::compute::SecurityPolicyRuleMatch>,
         >,
         /// Preconfigured WAF configuration to be applied for the rule.
         /// If the rule does not evaluate preconfigured WAF rules, i.e., if evaluatePreconfiguredWaf() is not used, this field will have no effect.
         /// Structure is documented below.
-        pub preconfigured_waf_config: pulumi_wasm_rust::Output<
+        pub preconfigured_waf_config: pulumi_gestalt_rust::Output<
             Option<
                 super::super::types::compute::SecurityPolicyRulePreconfiguredWafConfig,
             >,
         >,
         /// If set to true, the specified action is not enforced.
-        pub preview: pulumi_wasm_rust::Output<Option<bool>>,
+        pub preview: pulumi_gestalt_rust::Output<Option<bool>>,
         /// An integer indicating the priority of a rule in the list.
         /// The priority must be a positive value between 0 and 2147483647.
         /// Rules are evaluated from highest to lowest priority where 0 is the highest priority and 2147483647 is the lowest priority.
-        pub priority: pulumi_wasm_rust::Output<i32>,
+        pub priority: pulumi_gestalt_rust::Output<i32>,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
-        pub project: pulumi_wasm_rust::Output<String>,
+        pub project: pulumi_gestalt_rust::Output<String>,
         /// Must be specified if the action is "rate_based_ban" or "throttle". Cannot be specified for any other actions.
         /// Structure is documented below.
-        pub rate_limit_options: pulumi_wasm_rust::Output<
+        pub rate_limit_options: pulumi_gestalt_rust::Output<
             Option<super::super::types::compute::SecurityPolicyRuleRateLimitOptions>,
         >,
         /// Parameters defining the redirect action. Cannot be specified for any other actions. This field is only supported in Global Security Policies of type CLOUD_ARMOR.
         /// Structure is documented below.
-        pub redirect_options: pulumi_wasm_rust::Output<
+        pub redirect_options: pulumi_gestalt_rust::Output<
             Option<super::super::types::compute::SecurityPolicyRuleRedirectOptions>,
         >,
         /// The name of the security policy this rule belongs to.
         ///
         ///
         /// - - -
-        pub security_policy: pulumi_wasm_rust::Output<String>,
+        pub security_policy: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: SecurityPolicyRuleArgs,
     ) -> SecurityPolicyRuleResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let action_binding = args.action.get_output(context).get_inner();
         let description_binding = args.description.get_output(context).get_inner();
@@ -380,33 +380,37 @@ pub mod security_policy_rule {
         };
         let o = register_interface::register(context.get_inner(), &request);
         SecurityPolicyRuleResult {
-            action: pulumi_wasm_rust::__private::into_domain(o.extract_field("action")),
-            description: pulumi_wasm_rust::__private::into_domain(
+            action: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("action"),
+            ),
+            description: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("description"),
             ),
-            header_action: pulumi_wasm_rust::__private::into_domain(
+            header_action: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("headerAction"),
             ),
-            match_: pulumi_wasm_rust::__private::into_domain(o.extract_field("match")),
-            preconfigured_waf_config: pulumi_wasm_rust::__private::into_domain(
+            match_: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("match"),
+            ),
+            preconfigured_waf_config: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("preconfiguredWafConfig"),
             ),
-            preview: pulumi_wasm_rust::__private::into_domain(
+            preview: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("preview"),
             ),
-            priority: pulumi_wasm_rust::__private::into_domain(
+            priority: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("priority"),
             ),
-            project: pulumi_wasm_rust::__private::into_domain(
+            project: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("project"),
             ),
-            rate_limit_options: pulumi_wasm_rust::__private::into_domain(
+            rate_limit_options: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("rateLimitOptions"),
             ),
-            redirect_options: pulumi_wasm_rust::__private::into_domain(
+            redirect_options: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("redirectOptions"),
             ),
-            security_policy: pulumi_wasm_rust::__private::into_domain(
+            security_policy: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("securityPolicy"),
             ),
         }

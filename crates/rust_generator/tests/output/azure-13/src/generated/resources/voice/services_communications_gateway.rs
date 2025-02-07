@@ -66,97 +66,99 @@
 /// ```
 ///
 pub mod services_communications_gateway {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ServicesCommunicationsGatewayArgs {
         /// Details of API bridge functionality, if required.
         #[builder(into, default)]
-        pub api_bridge: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub api_bridge: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Specifies the scope at which the auto-generated domain name can be re-used. Possible values are `TenantReuse`, `SubscriptionReuse`, `ResourceGroupReuse` and `NoReuse` . Changing this forces a new resource to be created. Defaults to `TenantReuse`.
         #[builder(into, default)]
-        pub auto_generated_domain_name_label_scope: pulumi_wasm_rust::InputOrOutput<
+        pub auto_generated_domain_name_label_scope: pulumi_gestalt_rust::InputOrOutput<
             Option<String>,
         >,
         /// The voice codecs expected for communication with Teams. Possible values are `PCMA`, `PCMU`,`G722`,`G722_2`,`SILK_8` and `SILK_16`.
         #[builder(into)]
-        pub codecs: pulumi_wasm_rust::InputOrOutput<String>,
+        pub codecs: pulumi_gestalt_rust::InputOrOutput<String>,
         /// How to connect back to the operator network, e.g. MAPS. Possible values is `PublicAddress`. Changing this forces a new Voice Services Communications Gateways to be created.
         #[builder(into)]
-        pub connectivity: pulumi_wasm_rust::InputOrOutput<String>,
+        pub connectivity: pulumi_gestalt_rust::InputOrOutput<String>,
         /// How to handle 911 calls. Possible values are `Standard` and `DirectToEsrp`.
         #[builder(into)]
-        pub e911_type: pulumi_wasm_rust::InputOrOutput<String>,
+        pub e911_type: pulumi_gestalt_rust::InputOrOutput<String>,
         /// A list of dial strings used for emergency calling.
         #[builder(into, default)]
-        pub emergency_dial_strings: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
+        pub emergency_dial_strings: pulumi_gestalt_rust::InputOrOutput<
+            Option<Vec<String>>,
+        >,
         /// Specifies the Azure Region where the Voice Services Communications Gateways should exist. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub location: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub location: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// This number is used in Teams Phone Mobile scenarios for access to the voicemail IVR from the native dialer.
         #[builder(into, default)]
-        pub microsoft_teams_voicemail_pilot_number: pulumi_wasm_rust::InputOrOutput<
+        pub microsoft_teams_voicemail_pilot_number: pulumi_gestalt_rust::InputOrOutput<
             Option<String>,
         >,
         /// Specifies the name which should be used for this Voice Services Communications Gateways. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Whether an on-premises Mobile Control Point is in use.
         #[builder(into, default)]
-        pub on_prem_mcp_enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub on_prem_mcp_enabled: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// The Voice Services Communications GatewaysAvailable supports platform types. Possible values are `OperatorConnect`, `TeamsPhoneMobile`.
         #[builder(into)]
-        pub platforms: pulumi_wasm_rust::InputOrOutput<Vec<String>>,
+        pub platforms: pulumi_gestalt_rust::InputOrOutput<Vec<String>>,
         /// Specifies the name of the Resource Group where the Voice Services Communications Gateways should exist. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub resource_group_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub resource_group_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// A `service_location` block as defined below.
         #[builder(into)]
-        pub service_locations: pulumi_wasm_rust::InputOrOutput<
+        pub service_locations: pulumi_gestalt_rust::InputOrOutput<
             Vec<super::super::types::voice::ServicesCommunicationsGatewayServiceLocation>,
         >,
         /// A mapping of tags which should be assigned to the Voice Services Communications Gateways.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
     #[allow(dead_code)]
     pub struct ServicesCommunicationsGatewayResult {
         /// Details of API bridge functionality, if required.
-        pub api_bridge: pulumi_wasm_rust::Output<Option<String>>,
+        pub api_bridge: pulumi_gestalt_rust::Output<Option<String>>,
         /// Specifies the scope at which the auto-generated domain name can be re-used. Possible values are `TenantReuse`, `SubscriptionReuse`, `ResourceGroupReuse` and `NoReuse` . Changing this forces a new resource to be created. Defaults to `TenantReuse`.
-        pub auto_generated_domain_name_label_scope: pulumi_wasm_rust::Output<
+        pub auto_generated_domain_name_label_scope: pulumi_gestalt_rust::Output<
             Option<String>,
         >,
         /// The voice codecs expected for communication with Teams. Possible values are `PCMA`, `PCMU`,`G722`,`G722_2`,`SILK_8` and `SILK_16`.
-        pub codecs: pulumi_wasm_rust::Output<String>,
+        pub codecs: pulumi_gestalt_rust::Output<String>,
         /// How to connect back to the operator network, e.g. MAPS. Possible values is `PublicAddress`. Changing this forces a new Voice Services Communications Gateways to be created.
-        pub connectivity: pulumi_wasm_rust::Output<String>,
+        pub connectivity: pulumi_gestalt_rust::Output<String>,
         /// How to handle 911 calls. Possible values are `Standard` and `DirectToEsrp`.
-        pub e911_type: pulumi_wasm_rust::Output<String>,
+        pub e911_type: pulumi_gestalt_rust::Output<String>,
         /// A list of dial strings used for emergency calling.
-        pub emergency_dial_strings: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub emergency_dial_strings: pulumi_gestalt_rust::Output<Option<Vec<String>>>,
         /// Specifies the Azure Region where the Voice Services Communications Gateways should exist. Changing this forces a new resource to be created.
-        pub location: pulumi_wasm_rust::Output<String>,
+        pub location: pulumi_gestalt_rust::Output<String>,
         /// This number is used in Teams Phone Mobile scenarios for access to the voicemail IVR from the native dialer.
-        pub microsoft_teams_voicemail_pilot_number: pulumi_wasm_rust::Output<
+        pub microsoft_teams_voicemail_pilot_number: pulumi_gestalt_rust::Output<
             Option<String>,
         >,
         /// Specifies the name which should be used for this Voice Services Communications Gateways. Changing this forces a new resource to be created.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// Whether an on-premises Mobile Control Point is in use.
-        pub on_prem_mcp_enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub on_prem_mcp_enabled: pulumi_gestalt_rust::Output<Option<bool>>,
         /// The Voice Services Communications GatewaysAvailable supports platform types. Possible values are `OperatorConnect`, `TeamsPhoneMobile`.
-        pub platforms: pulumi_wasm_rust::Output<Vec<String>>,
+        pub platforms: pulumi_gestalt_rust::Output<Vec<String>>,
         /// Specifies the name of the Resource Group where the Voice Services Communications Gateways should exist. Changing this forces a new resource to be created.
-        pub resource_group_name: pulumi_wasm_rust::Output<String>,
+        pub resource_group_name: pulumi_gestalt_rust::Output<String>,
         /// A `service_location` block as defined below.
-        pub service_locations: pulumi_wasm_rust::Output<
+        pub service_locations: pulumi_gestalt_rust::Output<
             Vec<super::super::types::voice::ServicesCommunicationsGatewayServiceLocation>,
         >,
         /// A mapping of tags which should be assigned to the Voice Services Communications Gateways.
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
@@ -165,11 +167,11 @@ pub mod services_communications_gateway {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: ServicesCommunicationsGatewayArgs,
     ) -> ServicesCommunicationsGatewayResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let api_bridge_binding = args.api_bridge.get_output(context).get_inner();
         let auto_generated_domain_name_label_scope_binding = args
@@ -269,42 +271,44 @@ pub mod services_communications_gateway {
         };
         let o = register_interface::register(context.get_inner(), &request);
         ServicesCommunicationsGatewayResult {
-            api_bridge: pulumi_wasm_rust::__private::into_domain(
+            api_bridge: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("apiBridge"),
             ),
-            auto_generated_domain_name_label_scope: pulumi_wasm_rust::__private::into_domain(
+            auto_generated_domain_name_label_scope: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("autoGeneratedDomainNameLabelScope"),
             ),
-            codecs: pulumi_wasm_rust::__private::into_domain(o.extract_field("codecs")),
-            connectivity: pulumi_wasm_rust::__private::into_domain(
+            codecs: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("codecs"),
+            ),
+            connectivity: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("connectivity"),
             ),
-            e911_type: pulumi_wasm_rust::__private::into_domain(
+            e911_type: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("e911Type"),
             ),
-            emergency_dial_strings: pulumi_wasm_rust::__private::into_domain(
+            emergency_dial_strings: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("emergencyDialStrings"),
             ),
-            location: pulumi_wasm_rust::__private::into_domain(
+            location: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("location"),
             ),
-            microsoft_teams_voicemail_pilot_number: pulumi_wasm_rust::__private::into_domain(
+            microsoft_teams_voicemail_pilot_number: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("microsoftTeamsVoicemailPilotNumber"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            on_prem_mcp_enabled: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            on_prem_mcp_enabled: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("onPremMcpEnabled"),
             ),
-            platforms: pulumi_wasm_rust::__private::into_domain(
+            platforms: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("platforms"),
             ),
-            resource_group_name: pulumi_wasm_rust::__private::into_domain(
+            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("resourceGroupName"),
             ),
-            service_locations: pulumi_wasm_rust::__private::into_domain(
+            service_locations: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("serviceLocations"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
         }
     }
 }

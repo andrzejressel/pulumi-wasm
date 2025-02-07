@@ -9,8 +9,8 @@
 /// ### Basic Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = schedule::create(
@@ -64,87 +64,87 @@
 /// $ pulumi import aws:scheduler/schedule:Schedule example my-schedule-group/my-schedule
 /// ```
 pub mod schedule {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ScheduleArgs {
         /// Brief description of the schedule.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub description: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The date, in UTC, before which the schedule can invoke its target. Depending on the schedule's recurrence expression, invocations might stop on, or before, the end date you specify. EventBridge Scheduler ignores the end date for one-time schedules. Example: `2030-01-01T01:00:00Z`.
         #[builder(into, default)]
-        pub end_date: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub end_date: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Configures a time window during which EventBridge Scheduler invokes the schedule. Detailed below.
         #[builder(into)]
-        pub flexible_time_window: pulumi_wasm_rust::InputOrOutput<
+        pub flexible_time_window: pulumi_gestalt_rust::InputOrOutput<
             super::super::types::scheduler::ScheduleFlexibleTimeWindow,
         >,
         /// Name of the schedule group to associate with this schedule. When omitted, the `default` schedule group is used.
         #[builder(into, default)]
-        pub group_name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub group_name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// ARN for the customer managed KMS key that EventBridge Scheduler will use to encrypt and decrypt your data.
         #[builder(into, default)]
-        pub kms_key_arn: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub kms_key_arn: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Name of the schedule. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
         #[builder(into, default)]
-        pub name_prefix: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name_prefix: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Defines when the schedule runs. Read more in [Schedule types on EventBridge Scheduler](https://docs.aws.amazon.com/scheduler/latest/UserGuide/schedule-types.html).
         #[builder(into)]
-        pub schedule_expression: pulumi_wasm_rust::InputOrOutput<String>,
+        pub schedule_expression: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Timezone in which the scheduling expression is evaluated. Defaults to `UTC`. Example: `Australia/Sydney`.
         #[builder(into, default)]
-        pub schedule_expression_timezone: pulumi_wasm_rust::InputOrOutput<
+        pub schedule_expression_timezone: pulumi_gestalt_rust::InputOrOutput<
             Option<String>,
         >,
         /// The date, in UTC, after which the schedule can begin invoking its target. Depending on the schedule's recurrence expression, invocations might occur on, or after, the start date you specify. EventBridge Scheduler ignores the start date for one-time schedules. Example: `2030-01-01T01:00:00Z`.
         #[builder(into, default)]
-        pub start_date: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub start_date: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Specifies whether the schedule is enabled or disabled. One of: `ENABLED` (default), `DISABLED`.
         #[builder(into, default)]
-        pub state: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub state: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Configures the target of the schedule. Detailed below.
         ///
         /// The following arguments are optional:
         #[builder(into)]
-        pub target: pulumi_wasm_rust::InputOrOutput<
+        pub target: pulumi_gestalt_rust::InputOrOutput<
             super::super::types::scheduler::ScheduleTarget,
         >,
     }
     #[allow(dead_code)]
     pub struct ScheduleResult {
         /// ARN of the schedule.
-        pub arn: pulumi_wasm_rust::Output<String>,
+        pub arn: pulumi_gestalt_rust::Output<String>,
         /// Brief description of the schedule.
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_gestalt_rust::Output<Option<String>>,
         /// The date, in UTC, before which the schedule can invoke its target. Depending on the schedule's recurrence expression, invocations might stop on, or before, the end date you specify. EventBridge Scheduler ignores the end date for one-time schedules. Example: `2030-01-01T01:00:00Z`.
-        pub end_date: pulumi_wasm_rust::Output<Option<String>>,
+        pub end_date: pulumi_gestalt_rust::Output<Option<String>>,
         /// Configures a time window during which EventBridge Scheduler invokes the schedule. Detailed below.
-        pub flexible_time_window: pulumi_wasm_rust::Output<
+        pub flexible_time_window: pulumi_gestalt_rust::Output<
             super::super::types::scheduler::ScheduleFlexibleTimeWindow,
         >,
         /// Name of the schedule group to associate with this schedule. When omitted, the `default` schedule group is used.
-        pub group_name: pulumi_wasm_rust::Output<String>,
+        pub group_name: pulumi_gestalt_rust::Output<String>,
         /// ARN for the customer managed KMS key that EventBridge Scheduler will use to encrypt and decrypt your data.
-        pub kms_key_arn: pulumi_wasm_rust::Output<Option<String>>,
+        pub kms_key_arn: pulumi_gestalt_rust::Output<Option<String>>,
         /// Name of the schedule. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
-        pub name_prefix: pulumi_wasm_rust::Output<String>,
+        pub name_prefix: pulumi_gestalt_rust::Output<String>,
         /// Defines when the schedule runs. Read more in [Schedule types on EventBridge Scheduler](https://docs.aws.amazon.com/scheduler/latest/UserGuide/schedule-types.html).
-        pub schedule_expression: pulumi_wasm_rust::Output<String>,
+        pub schedule_expression: pulumi_gestalt_rust::Output<String>,
         /// Timezone in which the scheduling expression is evaluated. Defaults to `UTC`. Example: `Australia/Sydney`.
-        pub schedule_expression_timezone: pulumi_wasm_rust::Output<Option<String>>,
+        pub schedule_expression_timezone: pulumi_gestalt_rust::Output<Option<String>>,
         /// The date, in UTC, after which the schedule can begin invoking its target. Depending on the schedule's recurrence expression, invocations might occur on, or after, the start date you specify. EventBridge Scheduler ignores the start date for one-time schedules. Example: `2030-01-01T01:00:00Z`.
-        pub start_date: pulumi_wasm_rust::Output<Option<String>>,
+        pub start_date: pulumi_gestalt_rust::Output<Option<String>>,
         /// Specifies whether the schedule is enabled or disabled. One of: `ENABLED` (default), `DISABLED`.
-        pub state: pulumi_wasm_rust::Output<Option<String>>,
+        pub state: pulumi_gestalt_rust::Output<Option<String>>,
         /// Configures the target of the schedule. Detailed below.
         ///
         /// The following arguments are optional:
-        pub target: pulumi_wasm_rust::Output<
+        pub target: pulumi_gestalt_rust::Output<
             super::super::types::scheduler::ScheduleTarget,
         >,
     }
@@ -153,11 +153,11 @@ pub mod schedule {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: ScheduleArgs,
     ) -> ScheduleResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let description_binding = args.description.get_output(context).get_inner();
         let end_date_binding = args.end_date.get_output(context).get_inner();
@@ -237,37 +237,39 @@ pub mod schedule {
         };
         let o = register_interface::register(context.get_inner(), &request);
         ScheduleResult {
-            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
-            description: pulumi_wasm_rust::__private::into_domain(
+            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
+            description: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("description"),
             ),
-            end_date: pulumi_wasm_rust::__private::into_domain(
+            end_date: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("endDate"),
             ),
-            flexible_time_window: pulumi_wasm_rust::__private::into_domain(
+            flexible_time_window: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("flexibleTimeWindow"),
             ),
-            group_name: pulumi_wasm_rust::__private::into_domain(
+            group_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("groupName"),
             ),
-            kms_key_arn: pulumi_wasm_rust::__private::into_domain(
+            kms_key_arn: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("kmsKeyArn"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            name_prefix: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            name_prefix: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("namePrefix"),
             ),
-            schedule_expression: pulumi_wasm_rust::__private::into_domain(
+            schedule_expression: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("scheduleExpression"),
             ),
-            schedule_expression_timezone: pulumi_wasm_rust::__private::into_domain(
+            schedule_expression_timezone: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("scheduleExpressionTimezone"),
             ),
-            start_date: pulumi_wasm_rust::__private::into_domain(
+            start_date: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("startDate"),
             ),
-            state: pulumi_wasm_rust::__private::into_domain(o.extract_field("state")),
-            target: pulumi_wasm_rust::__private::into_domain(o.extract_field("target")),
+            state: pulumi_gestalt_rust::__private::into_domain(o.extract_field("state")),
+            target: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("target"),
+            ),
         }
     }
 }

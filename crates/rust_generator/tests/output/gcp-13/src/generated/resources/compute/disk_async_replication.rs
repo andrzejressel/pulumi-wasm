@@ -30,29 +30,29 @@
 ///         disk: ${["secondary-disk"].id}
 /// ```
 pub mod disk_async_replication {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct DiskAsyncReplicationArgs {
         /// The primary disk (source of replication).
         #[builder(into)]
-        pub primary_disk: pulumi_wasm_rust::InputOrOutput<String>,
+        pub primary_disk: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The secondary disk (target of replication). You can specify only one value. Structure is documented below.
         ///
         /// The `secondary_disk` block includes:
         #[builder(into)]
-        pub secondary_disk: pulumi_wasm_rust::InputOrOutput<
+        pub secondary_disk: pulumi_gestalt_rust::InputOrOutput<
             super::super::types::compute::DiskAsyncReplicationSecondaryDisk,
         >,
     }
     #[allow(dead_code)]
     pub struct DiskAsyncReplicationResult {
         /// The primary disk (source of replication).
-        pub primary_disk: pulumi_wasm_rust::Output<String>,
+        pub primary_disk: pulumi_gestalt_rust::Output<String>,
         /// The secondary disk (target of replication). You can specify only one value. Structure is documented below.
         ///
         /// The `secondary_disk` block includes:
-        pub secondary_disk: pulumi_wasm_rust::Output<
+        pub secondary_disk: pulumi_gestalt_rust::Output<
             super::super::types::compute::DiskAsyncReplicationSecondaryDisk,
         >,
     }
@@ -61,11 +61,11 @@ pub mod disk_async_replication {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: DiskAsyncReplicationArgs,
     ) -> DiskAsyncReplicationResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let primary_disk_binding = args.primary_disk.get_output(context).get_inner();
         let secondary_disk_binding = args.secondary_disk.get_output(context).get_inner();
@@ -86,10 +86,10 @@ pub mod disk_async_replication {
         };
         let o = register_interface::register(context.get_inner(), &request);
         DiskAsyncReplicationResult {
-            primary_disk: pulumi_wasm_rust::__private::into_domain(
+            primary_disk: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("primaryDisk"),
             ),
-            secondary_disk: pulumi_wasm_rust::__private::into_domain(
+            secondary_disk: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("secondaryDisk"),
             ),
         }

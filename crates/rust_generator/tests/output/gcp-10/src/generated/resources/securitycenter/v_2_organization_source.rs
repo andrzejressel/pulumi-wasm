@@ -16,8 +16,8 @@
 ///
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let customSource = source::create(
@@ -50,58 +50,58 @@
 /// ```
 ///
 pub mod v_2_organization_source {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct V2OrganizationSourceArgs {
         /// The description of the source (max of 1024 characters).
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub description: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The source’s display name. A source’s display name must be unique
         /// amongst its siblings, for example, two sources with the same parent
         /// can't share the same display name. The display name must start and end
         /// with a letter or digit, may contain letters, digits, spaces, hyphens,
         /// and underscores, and can be no longer than 32 characters.
         #[builder(into)]
-        pub display_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub display_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The organization whose Cloud Security Command Center the Source
         /// lives in.
         ///
         ///
         /// - - -
         #[builder(into)]
-        pub organization: pulumi_wasm_rust::InputOrOutput<String>,
+        pub organization: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct V2OrganizationSourceResult {
         /// The description of the source (max of 1024 characters).
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_gestalt_rust::Output<Option<String>>,
         /// The source’s display name. A source’s display name must be unique
         /// amongst its siblings, for example, two sources with the same parent
         /// can't share the same display name. The display name must start and end
         /// with a letter or digit, may contain letters, digits, spaces, hyphens,
         /// and underscores, and can be no longer than 32 characters.
-        pub display_name: pulumi_wasm_rust::Output<String>,
+        pub display_name: pulumi_gestalt_rust::Output<String>,
         /// The resource name of this source, in the format
         /// `organizations/{{organization}}/sources/{{source}}`.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// The organization whose Cloud Security Command Center the Source
         /// lives in.
         ///
         ///
         /// - - -
-        pub organization: pulumi_wasm_rust::Output<String>,
+        pub organization: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: V2OrganizationSourceArgs,
     ) -> V2OrganizationSourceResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let description_binding = args.description.get_output(context).get_inner();
         let display_name_binding = args.display_name.get_output(context).get_inner();
@@ -127,14 +127,14 @@ pub mod v_2_organization_source {
         };
         let o = register_interface::register(context.get_inner(), &request);
         V2OrganizationSourceResult {
-            description: pulumi_wasm_rust::__private::into_domain(
+            description: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("description"),
             ),
-            display_name: pulumi_wasm_rust::__private::into_domain(
+            display_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("displayName"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            organization: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            organization: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("organization"),
             ),
         }

@@ -28,50 +28,50 @@
 /// $ pulumi import aws:cloudhsmv2/hsm:Hsm bar hsm-quo8dahtaca
 /// ```
 pub mod hsm {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct HsmArgs {
         /// The IDs of AZ in which HSM module will be located. Conflicts with `subnet_id`.
         #[builder(into, default)]
-        pub availability_zone: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub availability_zone: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The ID of Cloud HSM v2 cluster to which HSM will be added.
         #[builder(into)]
-        pub cluster_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub cluster_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The IP address of HSM module. Must be within the CIDR of selected subnet.
         #[builder(into, default)]
-        pub ip_address: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub ip_address: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The ID of subnet in which HSM module will be located. Conflicts with `availability_zone`.
         #[builder(into, default)]
-        pub subnet_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub subnet_id: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct HsmResult {
         /// The IDs of AZ in which HSM module will be located. Conflicts with `subnet_id`.
-        pub availability_zone: pulumi_wasm_rust::Output<String>,
+        pub availability_zone: pulumi_gestalt_rust::Output<String>,
         /// The ID of Cloud HSM v2 cluster to which HSM will be added.
-        pub cluster_id: pulumi_wasm_rust::Output<String>,
+        pub cluster_id: pulumi_gestalt_rust::Output<String>,
         /// The id of the ENI interface allocated for HSM module.
-        pub hsm_eni_id: pulumi_wasm_rust::Output<String>,
+        pub hsm_eni_id: pulumi_gestalt_rust::Output<String>,
         /// The id of the HSM module.
-        pub hsm_id: pulumi_wasm_rust::Output<String>,
+        pub hsm_id: pulumi_gestalt_rust::Output<String>,
         /// The state of the HSM module.
-        pub hsm_state: pulumi_wasm_rust::Output<String>,
+        pub hsm_state: pulumi_gestalt_rust::Output<String>,
         /// The IP address of HSM module. Must be within the CIDR of selected subnet.
-        pub ip_address: pulumi_wasm_rust::Output<String>,
+        pub ip_address: pulumi_gestalt_rust::Output<String>,
         /// The ID of subnet in which HSM module will be located. Conflicts with `availability_zone`.
-        pub subnet_id: pulumi_wasm_rust::Output<String>,
+        pub subnet_id: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: HsmArgs,
     ) -> HsmResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let availability_zone_binding = args
             .availability_zone
@@ -105,23 +105,25 @@ pub mod hsm {
         };
         let o = register_interface::register(context.get_inner(), &request);
         HsmResult {
-            availability_zone: pulumi_wasm_rust::__private::into_domain(
+            availability_zone: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("availabilityZone"),
             ),
-            cluster_id: pulumi_wasm_rust::__private::into_domain(
+            cluster_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("clusterId"),
             ),
-            hsm_eni_id: pulumi_wasm_rust::__private::into_domain(
+            hsm_eni_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("hsmEniId"),
             ),
-            hsm_id: pulumi_wasm_rust::__private::into_domain(o.extract_field("hsmId")),
-            hsm_state: pulumi_wasm_rust::__private::into_domain(
+            hsm_id: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("hsmId"),
+            ),
+            hsm_state: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("hsmState"),
             ),
-            ip_address: pulumi_wasm_rust::__private::into_domain(
+            ip_address: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("ipAddress"),
             ),
-            subnet_id: pulumi_wasm_rust::__private::into_domain(
+            subnet_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("subnetId"),
             ),
         }

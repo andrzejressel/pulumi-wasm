@@ -73,90 +73,94 @@
 /// ```
 ///
 pub mod configuration {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ConfigurationArgs {
         /// A `antimalware` block as defined below.
         #[builder(into, default)]
-        pub antimalware: pulumi_wasm_rust::InputOrOutput<
+        pub antimalware: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::automanage::ConfigurationAntimalware>,
         >,
         /// Whether the automation account is enabled. Defaults to `false`.
         #[builder(into, default)]
-        pub automation_account_enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub automation_account_enabled: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// A `azure_security_baseline` block as defined below.
         #[builder(into, default)]
-        pub azure_security_baseline: pulumi_wasm_rust::InputOrOutput<
+        pub azure_security_baseline: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::automanage::ConfigurationAzureSecurityBaseline>,
         >,
         /// A `backup` block as defined below.
         #[builder(into, default)]
-        pub backup: pulumi_wasm_rust::InputOrOutput<
+        pub backup: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::automanage::ConfigurationBackup>,
         >,
         /// Whether the boot diagnostics are enabled. Defaults to `false`.
         #[builder(into, default)]
-        pub boot_diagnostics_enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub boot_diagnostics_enabled: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// Whether the defender for cloud is enabled. Defaults to `false`.
         #[builder(into, default)]
-        pub defender_for_cloud_enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub defender_for_cloud_enabled: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// Whether the guest configuration is enabled. Defaults to `false`.
         #[builder(into, default)]
-        pub guest_configuration_enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub guest_configuration_enabled: pulumi_gestalt_rust::InputOrOutput<
+            Option<bool>,
+        >,
         /// The Azure Region where the Automanage Configuration should exist. Changing this forces a new Automanage Configuration to be created.
         #[builder(into, default)]
-        pub location: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub location: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Whether log analytics are enabled. Defaults to `false`.
         #[builder(into, default)]
-        pub log_analytics_enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub log_analytics_enabled: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// The name which should be used for this Automanage Configuration. Changing this forces a new Automanage Configuration to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The name of the Resource Group where the Automanage Configuration should exist. Changing this forces a new Automanage Configuration to be created.
         #[builder(into)]
-        pub resource_group_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub resource_group_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Whether the status change alert is enabled. Defaults to `false`.
         #[builder(into, default)]
-        pub status_change_alert_enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub status_change_alert_enabled: pulumi_gestalt_rust::InputOrOutput<
+            Option<bool>,
+        >,
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
     #[allow(dead_code)]
     pub struct ConfigurationResult {
         /// A `antimalware` block as defined below.
-        pub antimalware: pulumi_wasm_rust::Output<
+        pub antimalware: pulumi_gestalt_rust::Output<
             Option<super::super::types::automanage::ConfigurationAntimalware>,
         >,
         /// Whether the automation account is enabled. Defaults to `false`.
-        pub automation_account_enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub automation_account_enabled: pulumi_gestalt_rust::Output<Option<bool>>,
         /// A `azure_security_baseline` block as defined below.
-        pub azure_security_baseline: pulumi_wasm_rust::Output<
+        pub azure_security_baseline: pulumi_gestalt_rust::Output<
             Option<super::super::types::automanage::ConfigurationAzureSecurityBaseline>,
         >,
         /// A `backup` block as defined below.
-        pub backup: pulumi_wasm_rust::Output<
+        pub backup: pulumi_gestalt_rust::Output<
             Option<super::super::types::automanage::ConfigurationBackup>,
         >,
         /// Whether the boot diagnostics are enabled. Defaults to `false`.
-        pub boot_diagnostics_enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub boot_diagnostics_enabled: pulumi_gestalt_rust::Output<Option<bool>>,
         /// Whether the defender for cloud is enabled. Defaults to `false`.
-        pub defender_for_cloud_enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub defender_for_cloud_enabled: pulumi_gestalt_rust::Output<Option<bool>>,
         /// Whether the guest configuration is enabled. Defaults to `false`.
-        pub guest_configuration_enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub guest_configuration_enabled: pulumi_gestalt_rust::Output<Option<bool>>,
         /// The Azure Region where the Automanage Configuration should exist. Changing this forces a new Automanage Configuration to be created.
-        pub location: pulumi_wasm_rust::Output<String>,
+        pub location: pulumi_gestalt_rust::Output<String>,
         /// Whether log analytics are enabled. Defaults to `false`.
-        pub log_analytics_enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub log_analytics_enabled: pulumi_gestalt_rust::Output<Option<bool>>,
         /// The name which should be used for this Automanage Configuration. Changing this forces a new Automanage Configuration to be created.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// The name of the Resource Group where the Automanage Configuration should exist. Changing this forces a new Automanage Configuration to be created.
-        pub resource_group_name: pulumi_wasm_rust::Output<String>,
+        pub resource_group_name: pulumi_gestalt_rust::Output<String>,
         /// Whether the status change alert is enabled. Defaults to `false`.
-        pub status_change_alert_enabled: pulumi_wasm_rust::Output<Option<bool>>,
-        pub tags: pulumi_wasm_rust::Output<
+        pub status_change_alert_enabled: pulumi_gestalt_rust::Output<Option<bool>>,
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
@@ -165,11 +169,11 @@ pub mod configuration {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: ConfigurationArgs,
     ) -> ConfigurationResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let antimalware_binding = args.antimalware.get_output(context).get_inner();
         let automation_account_enabled_binding = args
@@ -269,39 +273,41 @@ pub mod configuration {
         };
         let o = register_interface::register(context.get_inner(), &request);
         ConfigurationResult {
-            antimalware: pulumi_wasm_rust::__private::into_domain(
+            antimalware: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("antimalware"),
             ),
-            automation_account_enabled: pulumi_wasm_rust::__private::into_domain(
+            automation_account_enabled: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("automationAccountEnabled"),
             ),
-            azure_security_baseline: pulumi_wasm_rust::__private::into_domain(
+            azure_security_baseline: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("azureSecurityBaseline"),
             ),
-            backup: pulumi_wasm_rust::__private::into_domain(o.extract_field("backup")),
-            boot_diagnostics_enabled: pulumi_wasm_rust::__private::into_domain(
+            backup: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("backup"),
+            ),
+            boot_diagnostics_enabled: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("bootDiagnosticsEnabled"),
             ),
-            defender_for_cloud_enabled: pulumi_wasm_rust::__private::into_domain(
+            defender_for_cloud_enabled: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("defenderForCloudEnabled"),
             ),
-            guest_configuration_enabled: pulumi_wasm_rust::__private::into_domain(
+            guest_configuration_enabled: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("guestConfigurationEnabled"),
             ),
-            location: pulumi_wasm_rust::__private::into_domain(
+            location: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("location"),
             ),
-            log_analytics_enabled: pulumi_wasm_rust::__private::into_domain(
+            log_analytics_enabled: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("logAnalyticsEnabled"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            resource_group_name: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("resourceGroupName"),
             ),
-            status_change_alert_enabled: pulumi_wasm_rust::__private::into_domain(
+            status_change_alert_enabled: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("statusChangeAlertEnabled"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
         }
     }
 }

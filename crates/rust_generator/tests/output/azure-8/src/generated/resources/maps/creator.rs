@@ -39,40 +39,40 @@
 /// ```
 ///
 pub mod creator {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct CreatorArgs {
         /// The Azure Region where the Azure Maps Creator should exist. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub location: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub location: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The ID of the Azure Maps Creator. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub maps_account_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub maps_account_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The name of the Azure Maps Creator. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The storage units to be allocated. Integer values from 1 to 100, inclusive.
         #[builder(into)]
-        pub storage_units: pulumi_wasm_rust::InputOrOutput<i32>,
+        pub storage_units: pulumi_gestalt_rust::InputOrOutput<i32>,
         /// A mapping of tags which should be assigned to the Azure Maps Creator.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
     #[allow(dead_code)]
     pub struct CreatorResult {
         /// The Azure Region where the Azure Maps Creator should exist. Changing this forces a new resource to be created.
-        pub location: pulumi_wasm_rust::Output<String>,
+        pub location: pulumi_gestalt_rust::Output<String>,
         /// The ID of the Azure Maps Creator. Changing this forces a new resource to be created.
-        pub maps_account_id: pulumi_wasm_rust::Output<String>,
+        pub maps_account_id: pulumi_gestalt_rust::Output<String>,
         /// The name of the Azure Maps Creator. Changing this forces a new resource to be created.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// The storage units to be allocated. Integer values from 1 to 100, inclusive.
-        pub storage_units: pulumi_wasm_rust::Output<i32>,
+        pub storage_units: pulumi_gestalt_rust::Output<i32>,
         /// A mapping of tags which should be assigned to the Azure Maps Creator.
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
@@ -81,11 +81,11 @@ pub mod creator {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: CreatorArgs,
     ) -> CreatorResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let location_binding = args.location.get_output(context).get_inner();
         let maps_account_id_binding = args
@@ -124,17 +124,17 @@ pub mod creator {
         };
         let o = register_interface::register(context.get_inner(), &request);
         CreatorResult {
-            location: pulumi_wasm_rust::__private::into_domain(
+            location: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("location"),
             ),
-            maps_account_id: pulumi_wasm_rust::__private::into_domain(
+            maps_account_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("mapsAccountId"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            storage_units: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            storage_units: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("storageUnits"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
         }
     }
 }

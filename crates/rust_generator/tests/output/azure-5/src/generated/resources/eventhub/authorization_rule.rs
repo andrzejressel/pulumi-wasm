@@ -51,75 +51,75 @@
 /// ```
 ///
 pub mod authorization_rule {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct AuthorizationRuleArgs {
         /// Specifies the name of the EventHub. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub eventhub_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub eventhub_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Does this Authorization Rule have permissions to Listen to the Event Hub? Defaults to `false`.
         #[builder(into, default)]
-        pub listen: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub listen: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// Does this Authorization Rule have permissions to Manage to the Event Hub? When this property is `true` - both `listen` and `send` must be too. Defaults to `false`.
         #[builder(into, default)]
-        pub manage: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub manage: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// Specifies the name of the EventHub Authorization Rule resource. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Specifies the name of the grandparent EventHub Namespace. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub namespace_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub namespace_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The name of the resource group in which the EventHub Namespace exists. Changing this forces a new resource to be created.
         ///
         /// > **NOTE** At least one of the 3 permissions below needs to be set.
         #[builder(into)]
-        pub resource_group_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub resource_group_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Does this Authorization Rule have permissions to Send to the Event Hub? Defaults to `false`.
         #[builder(into, default)]
-        pub send: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub send: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
     }
     #[allow(dead_code)]
     pub struct AuthorizationRuleResult {
         /// Specifies the name of the EventHub. Changing this forces a new resource to be created.
-        pub eventhub_name: pulumi_wasm_rust::Output<String>,
+        pub eventhub_name: pulumi_gestalt_rust::Output<String>,
         /// Does this Authorization Rule have permissions to Listen to the Event Hub? Defaults to `false`.
-        pub listen: pulumi_wasm_rust::Output<Option<bool>>,
+        pub listen: pulumi_gestalt_rust::Output<Option<bool>>,
         /// Does this Authorization Rule have permissions to Manage to the Event Hub? When this property is `true` - both `listen` and `send` must be too. Defaults to `false`.
-        pub manage: pulumi_wasm_rust::Output<Option<bool>>,
+        pub manage: pulumi_gestalt_rust::Output<Option<bool>>,
         /// Specifies the name of the EventHub Authorization Rule resource. Changing this forces a new resource to be created.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// Specifies the name of the grandparent EventHub Namespace. Changing this forces a new resource to be created.
-        pub namespace_name: pulumi_wasm_rust::Output<String>,
+        pub namespace_name: pulumi_gestalt_rust::Output<String>,
         /// The Primary Connection String for the Event Hubs authorization Rule.
-        pub primary_connection_string: pulumi_wasm_rust::Output<String>,
+        pub primary_connection_string: pulumi_gestalt_rust::Output<String>,
         /// The alias of the Primary Connection String for the Event Hubs authorization Rule, which is generated when disaster recovery is enabled.
-        pub primary_connection_string_alias: pulumi_wasm_rust::Output<String>,
+        pub primary_connection_string_alias: pulumi_gestalt_rust::Output<String>,
         /// The Primary Key for the Event Hubs authorization Rule.
-        pub primary_key: pulumi_wasm_rust::Output<String>,
+        pub primary_key: pulumi_gestalt_rust::Output<String>,
         /// The name of the resource group in which the EventHub Namespace exists. Changing this forces a new resource to be created.
         ///
         /// > **NOTE** At least one of the 3 permissions below needs to be set.
-        pub resource_group_name: pulumi_wasm_rust::Output<String>,
+        pub resource_group_name: pulumi_gestalt_rust::Output<String>,
         /// The Secondary Connection String for the Event Hubs Authorization Rule.
-        pub secondary_connection_string: pulumi_wasm_rust::Output<String>,
+        pub secondary_connection_string: pulumi_gestalt_rust::Output<String>,
         /// The alias of the Secondary Connection String for the Event Hubs Authorization Rule, which is generated when disaster recovery is enabled.
-        pub secondary_connection_string_alias: pulumi_wasm_rust::Output<String>,
+        pub secondary_connection_string_alias: pulumi_gestalt_rust::Output<String>,
         /// The Secondary Key for the Event Hubs Authorization Rule.
-        pub secondary_key: pulumi_wasm_rust::Output<String>,
+        pub secondary_key: pulumi_gestalt_rust::Output<String>,
         /// Does this Authorization Rule have permissions to Send to the Event Hub? Defaults to `false`.
-        pub send: pulumi_wasm_rust::Output<Option<bool>>,
+        pub send: pulumi_gestalt_rust::Output<Option<bool>>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: AuthorizationRuleArgs,
     ) -> AuthorizationRuleResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let eventhub_name_binding = args.eventhub_name.get_output(context).get_inner();
         let listen_binding = args.listen.get_output(context).get_inner();
@@ -168,37 +168,41 @@ pub mod authorization_rule {
         };
         let o = register_interface::register(context.get_inner(), &request);
         AuthorizationRuleResult {
-            eventhub_name: pulumi_wasm_rust::__private::into_domain(
+            eventhub_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("eventhubName"),
             ),
-            listen: pulumi_wasm_rust::__private::into_domain(o.extract_field("listen")),
-            manage: pulumi_wasm_rust::__private::into_domain(o.extract_field("manage")),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            namespace_name: pulumi_wasm_rust::__private::into_domain(
+            listen: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("listen"),
+            ),
+            manage: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("manage"),
+            ),
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            namespace_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("namespaceName"),
             ),
-            primary_connection_string: pulumi_wasm_rust::__private::into_domain(
+            primary_connection_string: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("primaryConnectionString"),
             ),
-            primary_connection_string_alias: pulumi_wasm_rust::__private::into_domain(
+            primary_connection_string_alias: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("primaryConnectionStringAlias"),
             ),
-            primary_key: pulumi_wasm_rust::__private::into_domain(
+            primary_key: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("primaryKey"),
             ),
-            resource_group_name: pulumi_wasm_rust::__private::into_domain(
+            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("resourceGroupName"),
             ),
-            secondary_connection_string: pulumi_wasm_rust::__private::into_domain(
+            secondary_connection_string: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("secondaryConnectionString"),
             ),
-            secondary_connection_string_alias: pulumi_wasm_rust::__private::into_domain(
+            secondary_connection_string_alias: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("secondaryConnectionStringAlias"),
             ),
-            secondary_key: pulumi_wasm_rust::__private::into_domain(
+            secondary_key: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("secondaryKey"),
             ),
-            send: pulumi_wasm_rust::__private::into_domain(o.extract_field("send")),
+            send: pulumi_gestalt_rust::__private::into_domain(o.extract_field("send")),
         }
     }
 }

@@ -3,8 +3,8 @@
 /// ## Example Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = s_3_location::create(
@@ -30,69 +30,69 @@
 /// $ pulumi import aws:datasync/s3Location:S3Location example arn:aws:datasync:us-east-1:123456789012:location/loc-12345678901234567
 /// ```
 pub mod s_3_location {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct S3LocationArgs {
         /// A list of DataSync Agent ARNs with which this location will be associated.
         #[builder(into, default)]
-        pub agent_arns: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
+        pub agent_arns: pulumi_gestalt_rust::InputOrOutput<Option<Vec<String>>>,
         /// Amazon Resource Name (ARN) of the S3 Bucket.
         #[builder(into)]
-        pub s3_bucket_arn: pulumi_wasm_rust::InputOrOutput<String>,
+        pub s3_bucket_arn: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Configuration block containing information for connecting to S3.
         #[builder(into)]
-        pub s3_config: pulumi_wasm_rust::InputOrOutput<
+        pub s3_config: pulumi_gestalt_rust::InputOrOutput<
             super::super::types::datasync::S3LocationS3Config,
         >,
         /// The Amazon S3 storage class that you want to store your files in when this location is used as a task destination. [Valid values](https://docs.aws.amazon.com/datasync/latest/userguide/create-s3-location.html#using-storage-classes)
         #[builder(into, default)]
-        pub s3_storage_class: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub s3_storage_class: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Prefix to perform actions as source or destination.
         #[builder(into)]
-        pub subdirectory: pulumi_wasm_rust::InputOrOutput<String>,
+        pub subdirectory: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Key-value pairs of resource tags to assign to the DataSync Location. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
     #[allow(dead_code)]
     pub struct S3LocationResult {
         /// A list of DataSync Agent ARNs with which this location will be associated.
-        pub agent_arns: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub agent_arns: pulumi_gestalt_rust::Output<Option<Vec<String>>>,
         /// Amazon Resource Name (ARN) of the DataSync Location.
-        pub arn: pulumi_wasm_rust::Output<String>,
+        pub arn: pulumi_gestalt_rust::Output<String>,
         /// Amazon Resource Name (ARN) of the S3 Bucket.
-        pub s3_bucket_arn: pulumi_wasm_rust::Output<String>,
+        pub s3_bucket_arn: pulumi_gestalt_rust::Output<String>,
         /// Configuration block containing information for connecting to S3.
-        pub s3_config: pulumi_wasm_rust::Output<
+        pub s3_config: pulumi_gestalt_rust::Output<
             super::super::types::datasync::S3LocationS3Config,
         >,
         /// The Amazon S3 storage class that you want to store your files in when this location is used as a task destination. [Valid values](https://docs.aws.amazon.com/datasync/latest/userguide/create-s3-location.html#using-storage-classes)
-        pub s3_storage_class: pulumi_wasm_rust::Output<String>,
+        pub s3_storage_class: pulumi_gestalt_rust::Output<String>,
         /// Prefix to perform actions as source or destination.
-        pub subdirectory: pulumi_wasm_rust::Output<String>,
+        pub subdirectory: pulumi_gestalt_rust::Output<String>,
         /// Key-value pairs of resource tags to assign to the DataSync Location. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        pub tags_all: pulumi_wasm_rust::Output<
+        pub tags_all: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
-        pub uri: pulumi_wasm_rust::Output<String>,
+        pub uri: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: S3LocationArgs,
     ) -> S3LocationResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let agent_arns_binding = args.agent_arns.get_output(context).get_inner();
         let s3_bucket_arn_binding = args.s3_bucket_arn.get_output(context).get_inner();
@@ -136,27 +136,27 @@ pub mod s_3_location {
         };
         let o = register_interface::register(context.get_inner(), &request);
         S3LocationResult {
-            agent_arns: pulumi_wasm_rust::__private::into_domain(
+            agent_arns: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("agentArns"),
             ),
-            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
-            s3_bucket_arn: pulumi_wasm_rust::__private::into_domain(
+            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
+            s3_bucket_arn: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("s3BucketArn"),
             ),
-            s3_config: pulumi_wasm_rust::__private::into_domain(
+            s3_config: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("s3Config"),
             ),
-            s3_storage_class: pulumi_wasm_rust::__private::into_domain(
+            s3_storage_class: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("s3StorageClass"),
             ),
-            subdirectory: pulumi_wasm_rust::__private::into_domain(
+            subdirectory: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("subdirectory"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_wasm_rust::__private::into_domain(
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            tags_all: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("tagsAll"),
             ),
-            uri: pulumi_wasm_rust::__private::into_domain(o.extract_field("uri")),
+            uri: pulumi_gestalt_rust::__private::into_domain(o.extract_field("uri")),
         }
     }
 }

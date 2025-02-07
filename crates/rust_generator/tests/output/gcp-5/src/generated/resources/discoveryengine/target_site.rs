@@ -12,8 +12,8 @@
 ///
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let basic = target_site::create(
@@ -45,8 +45,8 @@
 ///
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let advanced = target_site::create(
@@ -100,7 +100,7 @@
 /// ```
 ///
 pub mod target_site {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct TargetSiteArgs {
@@ -109,7 +109,7 @@ pub mod target_site {
         ///
         /// - - -
         #[builder(into)]
-        pub data_store_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub data_store_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// If set to false, a uri_pattern is generated to include all pages whose
         /// address contains the provided_uri_pattern. If set to true, an uri_pattern
         /// is generated to try to be an exact match of the provided_uri_pattern or
@@ -117,23 +117,23 @@ pub mod target_site {
         /// provided_uri_pattern is always normalized to generate the URI pattern to
         /// be used by the search engine.
         #[builder(into, default)]
-        pub exact_match: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub exact_match: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// The geographic location where the data store should reside. The value can
         /// only be one of "global", "us" and "eu".
         #[builder(into)]
-        pub location: pulumi_wasm_rust::InputOrOutput<String>,
+        pub location: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub project: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The user provided URI pattern from which the `generated_uri_pattern` is
         /// generated.
         #[builder(into)]
-        pub provided_uri_pattern: pulumi_wasm_rust::InputOrOutput<String>,
+        pub provided_uri_pattern: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The possible target site types.
         /// Possible values are: `INCLUDE`, `EXCLUDE`.
         #[builder(into, default)]
-        pub type_: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub type_: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct TargetSiteResult {
@@ -141,62 +141,62 @@ pub mod target_site {
         ///
         ///
         /// - - -
-        pub data_store_id: pulumi_wasm_rust::Output<String>,
+        pub data_store_id: pulumi_gestalt_rust::Output<String>,
         /// If set to false, a uri_pattern is generated to include all pages whose
         /// address contains the provided_uri_pattern. If set to true, an uri_pattern
         /// is generated to try to be an exact match of the provided_uri_pattern or
         /// just the specific page if the provided_uri_pattern is a specific one.
         /// provided_uri_pattern is always normalized to generate the URI pattern to
         /// be used by the search engine.
-        pub exact_match: pulumi_wasm_rust::Output<Option<bool>>,
+        pub exact_match: pulumi_gestalt_rust::Output<Option<bool>>,
         /// Site search indexing failure reasons.
         /// Structure is documented below.
-        pub failure_reasons: pulumi_wasm_rust::Output<
+        pub failure_reasons: pulumi_gestalt_rust::Output<
             Vec<super::super::types::discoveryengine::TargetSiteFailureReason>,
         >,
         /// This is system-generated based on the `provided_uri_pattern`.
-        pub generated_uri_pattern: pulumi_wasm_rust::Output<String>,
+        pub generated_uri_pattern: pulumi_gestalt_rust::Output<String>,
         /// The indexing status.
-        pub indexing_status: pulumi_wasm_rust::Output<String>,
+        pub indexing_status: pulumi_gestalt_rust::Output<String>,
         /// The geographic location where the data store should reside. The value can
         /// only be one of "global", "us" and "eu".
-        pub location: pulumi_wasm_rust::Output<String>,
+        pub location: pulumi_gestalt_rust::Output<String>,
         /// The unique full resource name of the target site. Values are of the format
         /// `projects/{project}/locations/{location}/collections/{collection_id}/dataStores/{data_store_id}/siteSearchEngine/targetSites/{target_site_id}`.
         /// This field must be a UTF-8 encoded string with a length limit of 1024
         /// characters.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
-        pub project: pulumi_wasm_rust::Output<String>,
+        pub project: pulumi_gestalt_rust::Output<String>,
         /// The user provided URI pattern from which the `generated_uri_pattern` is
         /// generated.
-        pub provided_uri_pattern: pulumi_wasm_rust::Output<String>,
+        pub provided_uri_pattern: pulumi_gestalt_rust::Output<String>,
         /// Root domain of the `provided_uri_pattern`.
-        pub root_domain_uri: pulumi_wasm_rust::Output<String>,
+        pub root_domain_uri: pulumi_gestalt_rust::Output<String>,
         /// Site ownership and validity verification status.
         /// Structure is documented below.
-        pub site_verification_infos: pulumi_wasm_rust::Output<
+        pub site_verification_infos: pulumi_gestalt_rust::Output<
             Vec<super::super::types::discoveryengine::TargetSiteSiteVerificationInfo>,
         >,
         /// The unique id of the target site.
-        pub target_site_id: pulumi_wasm_rust::Output<String>,
+        pub target_site_id: pulumi_gestalt_rust::Output<String>,
         /// The possible target site types.
         /// Possible values are: `INCLUDE`, `EXCLUDE`.
-        pub type_: pulumi_wasm_rust::Output<Option<String>>,
+        pub type_: pulumi_gestalt_rust::Output<Option<String>>,
         /// The target site's last updated time.
-        pub update_time: pulumi_wasm_rust::Output<String>,
+        pub update_time: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: TargetSiteArgs,
     ) -> TargetSiteResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let data_store_id_binding = args.data_store_id.get_output(context).get_inner();
         let exact_match_binding = args.exact_match.get_output(context).get_inner();
@@ -240,42 +240,42 @@ pub mod target_site {
         };
         let o = register_interface::register(context.get_inner(), &request);
         TargetSiteResult {
-            data_store_id: pulumi_wasm_rust::__private::into_domain(
+            data_store_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("dataStoreId"),
             ),
-            exact_match: pulumi_wasm_rust::__private::into_domain(
+            exact_match: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("exactMatch"),
             ),
-            failure_reasons: pulumi_wasm_rust::__private::into_domain(
+            failure_reasons: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("failureReasons"),
             ),
-            generated_uri_pattern: pulumi_wasm_rust::__private::into_domain(
+            generated_uri_pattern: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("generatedUriPattern"),
             ),
-            indexing_status: pulumi_wasm_rust::__private::into_domain(
+            indexing_status: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("indexingStatus"),
             ),
-            location: pulumi_wasm_rust::__private::into_domain(
+            location: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("location"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            project: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            project: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("project"),
             ),
-            provided_uri_pattern: pulumi_wasm_rust::__private::into_domain(
+            provided_uri_pattern: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("providedUriPattern"),
             ),
-            root_domain_uri: pulumi_wasm_rust::__private::into_domain(
+            root_domain_uri: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("rootDomainUri"),
             ),
-            site_verification_infos: pulumi_wasm_rust::__private::into_domain(
+            site_verification_infos: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("siteVerificationInfos"),
             ),
-            target_site_id: pulumi_wasm_rust::__private::into_domain(
+            target_site_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("targetSiteId"),
             ),
-            type_: pulumi_wasm_rust::__private::into_domain(o.extract_field("type")),
-            update_time: pulumi_wasm_rust::__private::into_domain(
+            type_: pulumi_gestalt_rust::__private::into_domain(o.extract_field("type")),
+            update_time: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("updateTime"),
             ),
         }

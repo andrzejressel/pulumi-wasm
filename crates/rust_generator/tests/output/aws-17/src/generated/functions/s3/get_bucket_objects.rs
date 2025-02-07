@@ -1,57 +1,57 @@
 pub mod get_bucket_objects {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct GetBucketObjectsArgs {
         /// Lists object keys in this S3 bucket. Alternatively, an [S3 access point](https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html) ARN can be specified
         #[builder(into)]
-        pub bucket: pulumi_wasm_rust::InputOrOutput<String>,
+        pub bucket: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Character used to group keys (Default: none)
         #[builder(into, default)]
-        pub delimiter: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub delimiter: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Encodes keys using this method (Default: none; besides none, only "url" can be used)
         #[builder(into, default)]
-        pub encoding_type: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub encoding_type: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Boolean specifying whether to populate the owner list (Default: false)
         #[builder(into, default)]
-        pub fetch_owner: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub fetch_owner: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// Maximum object keys to return (Default: 1000)
         #[builder(into, default)]
-        pub max_keys: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
+        pub max_keys: pulumi_gestalt_rust::InputOrOutput<Option<i32>>,
         /// Limits results to object keys with this prefix (Default: none)
         #[builder(into, default)]
-        pub prefix: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub prefix: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Returns key names lexicographically after a specific object key in your bucket (Default: none; S3 lists object keys in UTF-8 character encoding in lexicographical order)
         #[builder(into, default)]
-        pub start_after: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub start_after: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct GetBucketObjectsResult {
-        pub bucket: pulumi_wasm_rust::Output<String>,
+        pub bucket: pulumi_gestalt_rust::Output<String>,
         /// List of any keys between `prefix` and the next occurrence of `delimiter` (i.e., similar to subdirectories of the `prefix` "directory"); the list is only returned when you specify `delimiter`
-        pub common_prefixes: pulumi_wasm_rust::Output<Vec<String>>,
-        pub delimiter: pulumi_wasm_rust::Output<Option<String>>,
-        pub encoding_type: pulumi_wasm_rust::Output<Option<String>>,
-        pub fetch_owner: pulumi_wasm_rust::Output<Option<bool>>,
+        pub common_prefixes: pulumi_gestalt_rust::Output<Vec<String>>,
+        pub delimiter: pulumi_gestalt_rust::Output<Option<String>>,
+        pub encoding_type: pulumi_gestalt_rust::Output<Option<String>>,
+        pub fetch_owner: pulumi_gestalt_rust::Output<Option<bool>>,
         /// The provider-assigned unique ID for this managed resource.
-        pub id: pulumi_wasm_rust::Output<String>,
+        pub id: pulumi_gestalt_rust::Output<String>,
         /// List of strings representing object keys
-        pub keys: pulumi_wasm_rust::Output<Vec<String>>,
-        pub max_keys: pulumi_wasm_rust::Output<Option<i32>>,
+        pub keys: pulumi_gestalt_rust::Output<Vec<String>>,
+        pub max_keys: pulumi_gestalt_rust::Output<Option<i32>>,
         /// List of strings representing object owner IDs (see `fetch_owner` above)
-        pub owners: pulumi_wasm_rust::Output<Vec<String>>,
-        pub prefix: pulumi_wasm_rust::Output<Option<String>>,
-        pub start_after: pulumi_wasm_rust::Output<Option<String>>,
+        pub owners: pulumi_gestalt_rust::Output<Vec<String>>,
+        pub prefix: pulumi_gestalt_rust::Output<Option<String>>,
+        pub start_after: pulumi_gestalt_rust::Output<Option<String>>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         args: GetBucketObjectsArgs,
     ) -> GetBucketObjectsResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let bucket_binding = args.bucket.get_output(context).get_inner();
         let delimiter_binding = args.delimiter.get_output(context).get_inner();
@@ -96,27 +96,33 @@ pub mod get_bucket_objects {
         };
         let o = register_interface::invoke(context.get_inner(), &request);
         GetBucketObjectsResult {
-            bucket: pulumi_wasm_rust::__private::into_domain(o.extract_field("bucket")),
-            common_prefixes: pulumi_wasm_rust::__private::into_domain(
+            bucket: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("bucket"),
+            ),
+            common_prefixes: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("commonPrefixes"),
             ),
-            delimiter: pulumi_wasm_rust::__private::into_domain(
+            delimiter: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("delimiter"),
             ),
-            encoding_type: pulumi_wasm_rust::__private::into_domain(
+            encoding_type: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("encodingType"),
             ),
-            fetch_owner: pulumi_wasm_rust::__private::into_domain(
+            fetch_owner: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("fetchOwner"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
-            keys: pulumi_wasm_rust::__private::into_domain(o.extract_field("keys")),
-            max_keys: pulumi_wasm_rust::__private::into_domain(
+            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
+            keys: pulumi_gestalt_rust::__private::into_domain(o.extract_field("keys")),
+            max_keys: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("maxKeys"),
             ),
-            owners: pulumi_wasm_rust::__private::into_domain(o.extract_field("owners")),
-            prefix: pulumi_wasm_rust::__private::into_domain(o.extract_field("prefix")),
-            start_after: pulumi_wasm_rust::__private::into_domain(
+            owners: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("owners"),
+            ),
+            prefix: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("prefix"),
+            ),
+            start_after: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("startAfter"),
             ),
         }

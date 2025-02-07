@@ -3,8 +3,8 @@
 /// ## Example Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let mutationPipelineTest = resolver::create(
@@ -109,107 +109,107 @@
 /// $ pulumi import aws:appsync/resolver:Resolver example abcdef123456-exampleType-exampleField
 /// ```
 pub mod resolver {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ResolverArgs {
         /// API ID for the GraphQL API.
         #[builder(into)]
-        pub api_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub api_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The Caching Config. See Caching Config.
         #[builder(into, default)]
-        pub caching_config: pulumi_wasm_rust::InputOrOutput<
+        pub caching_config: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::appsync::ResolverCachingConfig>,
         >,
         /// The function code that contains the request and response functions. When code is used, the runtime is required. The runtime value must be APPSYNC_JS.
         #[builder(into, default)]
-        pub code: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub code: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Data source name.
         #[builder(into, default)]
-        pub data_source: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub data_source: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Field name from the schema defined in the GraphQL API.
         #[builder(into)]
-        pub field: pulumi_wasm_rust::InputOrOutput<String>,
+        pub field: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Resolver type. Valid values are `UNIT` and `PIPELINE`.
         #[builder(into, default)]
-        pub kind: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub kind: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Maximum batching size for a resolver. Valid values are between `0` and `2000`.
         #[builder(into, default)]
-        pub max_batch_size: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
+        pub max_batch_size: pulumi_gestalt_rust::InputOrOutput<Option<i32>>,
         /// The caching configuration for the resolver. See Pipeline Config.
         #[builder(into, default)]
-        pub pipeline_config: pulumi_wasm_rust::InputOrOutput<
+        pub pipeline_config: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::appsync::ResolverPipelineConfig>,
         >,
         /// Request mapping template for UNIT resolver or 'before mapping template' for PIPELINE resolver. Required for non-Lambda resolvers.
         #[builder(into, default)]
-        pub request_template: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub request_template: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Response mapping template for UNIT resolver or 'after mapping template' for PIPELINE resolver. Required for non-Lambda resolvers.
         #[builder(into, default)]
-        pub response_template: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub response_template: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Describes a runtime used by an AWS AppSync pipeline resolver or AWS AppSync function. Specifies the name and version of the runtime to use. Note that if a runtime is specified, code must also be specified. See Runtime.
         #[builder(into, default)]
-        pub runtime: pulumi_wasm_rust::InputOrOutput<
+        pub runtime: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::appsync::ResolverRuntime>,
         >,
         /// Describes a Sync configuration for a resolver. See Sync Config.
         #[builder(into, default)]
-        pub sync_config: pulumi_wasm_rust::InputOrOutput<
+        pub sync_config: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::appsync::ResolverSyncConfig>,
         >,
         /// Type name from the schema defined in the GraphQL API.
         #[builder(into)]
-        pub type_: pulumi_wasm_rust::InputOrOutput<String>,
+        pub type_: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct ResolverResult {
         /// API ID for the GraphQL API.
-        pub api_id: pulumi_wasm_rust::Output<String>,
+        pub api_id: pulumi_gestalt_rust::Output<String>,
         /// ARN
-        pub arn: pulumi_wasm_rust::Output<String>,
+        pub arn: pulumi_gestalt_rust::Output<String>,
         /// The Caching Config. See Caching Config.
-        pub caching_config: pulumi_wasm_rust::Output<
+        pub caching_config: pulumi_gestalt_rust::Output<
             Option<super::super::types::appsync::ResolverCachingConfig>,
         >,
         /// The function code that contains the request and response functions. When code is used, the runtime is required. The runtime value must be APPSYNC_JS.
-        pub code: pulumi_wasm_rust::Output<Option<String>>,
+        pub code: pulumi_gestalt_rust::Output<Option<String>>,
         /// Data source name.
-        pub data_source: pulumi_wasm_rust::Output<Option<String>>,
+        pub data_source: pulumi_gestalt_rust::Output<Option<String>>,
         /// Field name from the schema defined in the GraphQL API.
-        pub field: pulumi_wasm_rust::Output<String>,
+        pub field: pulumi_gestalt_rust::Output<String>,
         /// Resolver type. Valid values are `UNIT` and `PIPELINE`.
-        pub kind: pulumi_wasm_rust::Output<Option<String>>,
+        pub kind: pulumi_gestalt_rust::Output<Option<String>>,
         /// Maximum batching size for a resolver. Valid values are between `0` and `2000`.
-        pub max_batch_size: pulumi_wasm_rust::Output<Option<i32>>,
+        pub max_batch_size: pulumi_gestalt_rust::Output<Option<i32>>,
         /// The caching configuration for the resolver. See Pipeline Config.
-        pub pipeline_config: pulumi_wasm_rust::Output<
+        pub pipeline_config: pulumi_gestalt_rust::Output<
             Option<super::super::types::appsync::ResolverPipelineConfig>,
         >,
         /// Request mapping template for UNIT resolver or 'before mapping template' for PIPELINE resolver. Required for non-Lambda resolvers.
-        pub request_template: pulumi_wasm_rust::Output<Option<String>>,
+        pub request_template: pulumi_gestalt_rust::Output<Option<String>>,
         /// Response mapping template for UNIT resolver or 'after mapping template' for PIPELINE resolver. Required for non-Lambda resolvers.
-        pub response_template: pulumi_wasm_rust::Output<Option<String>>,
+        pub response_template: pulumi_gestalt_rust::Output<Option<String>>,
         /// Describes a runtime used by an AWS AppSync pipeline resolver or AWS AppSync function. Specifies the name and version of the runtime to use. Note that if a runtime is specified, code must also be specified. See Runtime.
-        pub runtime: pulumi_wasm_rust::Output<
+        pub runtime: pulumi_gestalt_rust::Output<
             Option<super::super::types::appsync::ResolverRuntime>,
         >,
         /// Describes a Sync configuration for a resolver. See Sync Config.
-        pub sync_config: pulumi_wasm_rust::Output<
+        pub sync_config: pulumi_gestalt_rust::Output<
             Option<super::super::types::appsync::ResolverSyncConfig>,
         >,
         /// Type name from the schema defined in the GraphQL API.
-        pub type_: pulumi_wasm_rust::Output<String>,
+        pub type_: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: ResolverArgs,
     ) -> ResolverResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let api_id_binding = args.api_id.get_output(context).get_inner();
         let caching_config_binding = args.caching_config.get_output(context).get_inner();
@@ -294,36 +294,38 @@ pub mod resolver {
         };
         let o = register_interface::register(context.get_inner(), &request);
         ResolverResult {
-            api_id: pulumi_wasm_rust::__private::into_domain(o.extract_field("apiId")),
-            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
-            caching_config: pulumi_wasm_rust::__private::into_domain(
+            api_id: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("apiId"),
+            ),
+            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
+            caching_config: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("cachingConfig"),
             ),
-            code: pulumi_wasm_rust::__private::into_domain(o.extract_field("code")),
-            data_source: pulumi_wasm_rust::__private::into_domain(
+            code: pulumi_gestalt_rust::__private::into_domain(o.extract_field("code")),
+            data_source: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("dataSource"),
             ),
-            field: pulumi_wasm_rust::__private::into_domain(o.extract_field("field")),
-            kind: pulumi_wasm_rust::__private::into_domain(o.extract_field("kind")),
-            max_batch_size: pulumi_wasm_rust::__private::into_domain(
+            field: pulumi_gestalt_rust::__private::into_domain(o.extract_field("field")),
+            kind: pulumi_gestalt_rust::__private::into_domain(o.extract_field("kind")),
+            max_batch_size: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("maxBatchSize"),
             ),
-            pipeline_config: pulumi_wasm_rust::__private::into_domain(
+            pipeline_config: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("pipelineConfig"),
             ),
-            request_template: pulumi_wasm_rust::__private::into_domain(
+            request_template: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("requestTemplate"),
             ),
-            response_template: pulumi_wasm_rust::__private::into_domain(
+            response_template: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("responseTemplate"),
             ),
-            runtime: pulumi_wasm_rust::__private::into_domain(
+            runtime: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("runtime"),
             ),
-            sync_config: pulumi_wasm_rust::__private::into_domain(
+            sync_config: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("syncConfig"),
             ),
-            type_: pulumi_wasm_rust::__private::into_domain(o.extract_field("type")),
+            type_: pulumi_gestalt_rust::__private::into_domain(o.extract_field("type")),
         }
     }
 }

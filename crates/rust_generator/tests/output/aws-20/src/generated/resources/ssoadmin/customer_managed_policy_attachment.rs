@@ -50,43 +50,43 @@
 /// $ pulumi import aws:ssoadmin/customerManagedPolicyAttachment:CustomerManagedPolicyAttachment example TestPolicy,/,arn:aws:sso:::permissionSet/ssoins-2938j0x8920sbj72/ps-80383020jr9302rk,arn:aws:sso:::instance/ssoins-2938j0x8920sbj72
 /// ```
 pub mod customer_managed_policy_attachment {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct CustomerManagedPolicyAttachmentArgs {
         /// Specifies the name and path of a customer managed policy. See below.
         #[builder(into)]
-        pub customer_managed_policy_reference: pulumi_wasm_rust::InputOrOutput<
+        pub customer_managed_policy_reference: pulumi_gestalt_rust::InputOrOutput<
             super::super::types::ssoadmin::CustomerManagedPolicyAttachmentCustomerManagedPolicyReference,
         >,
         /// The Amazon Resource Name (ARN) of the SSO Instance under which the operation will be executed.
         #[builder(into)]
-        pub instance_arn: pulumi_wasm_rust::InputOrOutput<String>,
+        pub instance_arn: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The Amazon Resource Name (ARN) of the Permission Set.
         #[builder(into)]
-        pub permission_set_arn: pulumi_wasm_rust::InputOrOutput<String>,
+        pub permission_set_arn: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct CustomerManagedPolicyAttachmentResult {
         /// Specifies the name and path of a customer managed policy. See below.
-        pub customer_managed_policy_reference: pulumi_wasm_rust::Output<
+        pub customer_managed_policy_reference: pulumi_gestalt_rust::Output<
             super::super::types::ssoadmin::CustomerManagedPolicyAttachmentCustomerManagedPolicyReference,
         >,
         /// The Amazon Resource Name (ARN) of the SSO Instance under which the operation will be executed.
-        pub instance_arn: pulumi_wasm_rust::Output<String>,
+        pub instance_arn: pulumi_gestalt_rust::Output<String>,
         /// The Amazon Resource Name (ARN) of the Permission Set.
-        pub permission_set_arn: pulumi_wasm_rust::Output<String>,
+        pub permission_set_arn: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: CustomerManagedPolicyAttachmentArgs,
     ) -> CustomerManagedPolicyAttachmentResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let customer_managed_policy_reference_binding = args
             .customer_managed_policy_reference
@@ -119,13 +119,13 @@ pub mod customer_managed_policy_attachment {
         };
         let o = register_interface::register(context.get_inner(), &request);
         CustomerManagedPolicyAttachmentResult {
-            customer_managed_policy_reference: pulumi_wasm_rust::__private::into_domain(
+            customer_managed_policy_reference: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("customerManagedPolicyReference"),
             ),
-            instance_arn: pulumi_wasm_rust::__private::into_domain(
+            instance_arn: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("instanceArn"),
             ),
-            permission_set_arn: pulumi_wasm_rust::__private::into_domain(
+            permission_set_arn: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("permissionSetArn"),
             ),
         }

@@ -84,80 +84,80 @@
 /// ```
 ///
 pub mod virtual_network_gateway_nat_rule {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct VirtualNetworkGatewayNatRuleArgs {
         /// One or more `external_mapping` blocks as documented below.
         #[builder(into)]
-        pub external_mappings: pulumi_wasm_rust::InputOrOutput<
+        pub external_mappings: pulumi_gestalt_rust::InputOrOutput<
             Vec<
                 super::super::types::network::VirtualNetworkGatewayNatRuleExternalMapping,
             >,
         >,
         /// One or more `internal_mapping` blocks as documented below.
         #[builder(into)]
-        pub internal_mappings: pulumi_wasm_rust::InputOrOutput<
+        pub internal_mappings: pulumi_gestalt_rust::InputOrOutput<
             Vec<
                 super::super::types::network::VirtualNetworkGatewayNatRuleInternalMapping,
             >,
         >,
         /// The ID of the IP Configuration this Virtual Network Gateway Nat Rule applies to.
         #[builder(into, default)]
-        pub ip_configuration_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub ip_configuration_id: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The source Nat direction of the Virtual Network Gateway Nat. Possible values are `EgressSnat` and `IngressSnat`. Defaults to `EgressSnat`. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub mode: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub mode: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The name which should be used for this Virtual Network Gateway Nat Rule. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The Name of the Resource Group in which this Virtual Network Gateway Nat Rule should be created. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub resource_group_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub resource_group_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The type of the Virtual Network Gateway Nat Rule. Possible values are `Dynamic` and `Static`. Defaults to `Static`. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub type_: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub type_: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The ID of the Virtual Network Gateway that this Virtual Network Gateway Nat Rule belongs to. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub virtual_network_gateway_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub virtual_network_gateway_id: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct VirtualNetworkGatewayNatRuleResult {
         /// One or more `external_mapping` blocks as documented below.
-        pub external_mappings: pulumi_wasm_rust::Output<
+        pub external_mappings: pulumi_gestalt_rust::Output<
             Vec<
                 super::super::types::network::VirtualNetworkGatewayNatRuleExternalMapping,
             >,
         >,
         /// One or more `internal_mapping` blocks as documented below.
-        pub internal_mappings: pulumi_wasm_rust::Output<
+        pub internal_mappings: pulumi_gestalt_rust::Output<
             Vec<
                 super::super::types::network::VirtualNetworkGatewayNatRuleInternalMapping,
             >,
         >,
         /// The ID of the IP Configuration this Virtual Network Gateway Nat Rule applies to.
-        pub ip_configuration_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub ip_configuration_id: pulumi_gestalt_rust::Output<Option<String>>,
         /// The source Nat direction of the Virtual Network Gateway Nat. Possible values are `EgressSnat` and `IngressSnat`. Defaults to `EgressSnat`. Changing this forces a new resource to be created.
-        pub mode: pulumi_wasm_rust::Output<Option<String>>,
+        pub mode: pulumi_gestalt_rust::Output<Option<String>>,
         /// The name which should be used for this Virtual Network Gateway Nat Rule. Changing this forces a new resource to be created.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// The Name of the Resource Group in which this Virtual Network Gateway Nat Rule should be created. Changing this forces a new resource to be created.
-        pub resource_group_name: pulumi_wasm_rust::Output<String>,
+        pub resource_group_name: pulumi_gestalt_rust::Output<String>,
         /// The type of the Virtual Network Gateway Nat Rule. Possible values are `Dynamic` and `Static`. Defaults to `Static`. Changing this forces a new resource to be created.
-        pub type_: pulumi_wasm_rust::Output<Option<String>>,
+        pub type_: pulumi_gestalt_rust::Output<Option<String>>,
         /// The ID of the Virtual Network Gateway that this Virtual Network Gateway Nat Rule belongs to. Changing this forces a new resource to be created.
-        pub virtual_network_gateway_id: pulumi_wasm_rust::Output<String>,
+        pub virtual_network_gateway_id: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: VirtualNetworkGatewayNatRuleArgs,
     ) -> VirtualNetworkGatewayNatRuleResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let external_mappings_binding = args
             .external_mappings
@@ -224,22 +224,22 @@ pub mod virtual_network_gateway_nat_rule {
         };
         let o = register_interface::register(context.get_inner(), &request);
         VirtualNetworkGatewayNatRuleResult {
-            external_mappings: pulumi_wasm_rust::__private::into_domain(
+            external_mappings: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("externalMappings"),
             ),
-            internal_mappings: pulumi_wasm_rust::__private::into_domain(
+            internal_mappings: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("internalMappings"),
             ),
-            ip_configuration_id: pulumi_wasm_rust::__private::into_domain(
+            ip_configuration_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("ipConfigurationId"),
             ),
-            mode: pulumi_wasm_rust::__private::into_domain(o.extract_field("mode")),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            resource_group_name: pulumi_wasm_rust::__private::into_domain(
+            mode: pulumi_gestalt_rust::__private::into_domain(o.extract_field("mode")),
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("resourceGroupName"),
             ),
-            type_: pulumi_wasm_rust::__private::into_domain(o.extract_field("type")),
-            virtual_network_gateway_id: pulumi_wasm_rust::__private::into_domain(
+            type_: pulumi_gestalt_rust::__private::into_domain(o.extract_field("type")),
+            virtual_network_gateway_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("virtualNetworkGatewayId"),
             ),
         }

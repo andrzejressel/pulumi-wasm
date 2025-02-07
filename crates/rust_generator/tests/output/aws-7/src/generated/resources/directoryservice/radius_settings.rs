@@ -3,8 +3,8 @@
 /// ## Example Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = radius_settings::create(
@@ -31,69 +31,69 @@
 /// $ pulumi import aws:directoryservice/radiusSettings:RadiusSettings example d-926724cf57
 /// ```
 pub mod radius_settings {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct RadiusSettingsArgs {
         /// The protocol specified for your RADIUS endpoints. Valid values: `PAP`, `CHAP`, `MS-CHAPv1`, `MS-CHAPv2`.
         #[builder(into)]
-        pub authentication_protocol: pulumi_wasm_rust::InputOrOutput<String>,
+        pub authentication_protocol: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The identifier of the directory for which you want to manager RADIUS settings.
         #[builder(into)]
-        pub directory_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub directory_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Display label.
         #[builder(into)]
-        pub display_label: pulumi_wasm_rust::InputOrOutput<String>,
+        pub display_label: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The port that your RADIUS server is using for communications. Your self-managed network must allow inbound traffic over this port from the AWS Directory Service servers.
         #[builder(into)]
-        pub radius_port: pulumi_wasm_rust::InputOrOutput<i32>,
+        pub radius_port: pulumi_gestalt_rust::InputOrOutput<i32>,
         /// The maximum number of times that communication with the RADIUS server is attempted. Minimum value of `0`. Maximum value of `10`.
         #[builder(into)]
-        pub radius_retries: pulumi_wasm_rust::InputOrOutput<i32>,
+        pub radius_retries: pulumi_gestalt_rust::InputOrOutput<i32>,
         /// An array of strings that contains the fully qualified domain name (FQDN) or IP addresses of the RADIUS server endpoints, or the FQDN or IP addresses of your RADIUS server load balancer.
         #[builder(into)]
-        pub radius_servers: pulumi_wasm_rust::InputOrOutput<Vec<String>>,
+        pub radius_servers: pulumi_gestalt_rust::InputOrOutput<Vec<String>>,
         /// The amount of time, in seconds, to wait for the RADIUS server to respond. Minimum value of `1`. Maximum value of `50`.
         #[builder(into)]
-        pub radius_timeout: pulumi_wasm_rust::InputOrOutput<i32>,
+        pub radius_timeout: pulumi_gestalt_rust::InputOrOutput<i32>,
         /// Required for enabling RADIUS on the directory.
         #[builder(into)]
-        pub shared_secret: pulumi_wasm_rust::InputOrOutput<String>,
+        pub shared_secret: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Not currently used.
         #[builder(into, default)]
-        pub use_same_username: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub use_same_username: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
     }
     #[allow(dead_code)]
     pub struct RadiusSettingsResult {
         /// The protocol specified for your RADIUS endpoints. Valid values: `PAP`, `CHAP`, `MS-CHAPv1`, `MS-CHAPv2`.
-        pub authentication_protocol: pulumi_wasm_rust::Output<String>,
+        pub authentication_protocol: pulumi_gestalt_rust::Output<String>,
         /// The identifier of the directory for which you want to manager RADIUS settings.
-        pub directory_id: pulumi_wasm_rust::Output<String>,
+        pub directory_id: pulumi_gestalt_rust::Output<String>,
         /// Display label.
-        pub display_label: pulumi_wasm_rust::Output<String>,
+        pub display_label: pulumi_gestalt_rust::Output<String>,
         /// The port that your RADIUS server is using for communications. Your self-managed network must allow inbound traffic over this port from the AWS Directory Service servers.
-        pub radius_port: pulumi_wasm_rust::Output<i32>,
+        pub radius_port: pulumi_gestalt_rust::Output<i32>,
         /// The maximum number of times that communication with the RADIUS server is attempted. Minimum value of `0`. Maximum value of `10`.
-        pub radius_retries: pulumi_wasm_rust::Output<i32>,
+        pub radius_retries: pulumi_gestalt_rust::Output<i32>,
         /// An array of strings that contains the fully qualified domain name (FQDN) or IP addresses of the RADIUS server endpoints, or the FQDN or IP addresses of your RADIUS server load balancer.
-        pub radius_servers: pulumi_wasm_rust::Output<Vec<String>>,
+        pub radius_servers: pulumi_gestalt_rust::Output<Vec<String>>,
         /// The amount of time, in seconds, to wait for the RADIUS server to respond. Minimum value of `1`. Maximum value of `50`.
-        pub radius_timeout: pulumi_wasm_rust::Output<i32>,
+        pub radius_timeout: pulumi_gestalt_rust::Output<i32>,
         /// Required for enabling RADIUS on the directory.
-        pub shared_secret: pulumi_wasm_rust::Output<String>,
+        pub shared_secret: pulumi_gestalt_rust::Output<String>,
         /// Not currently used.
-        pub use_same_username: pulumi_wasm_rust::Output<Option<bool>>,
+        pub use_same_username: pulumi_gestalt_rust::Output<Option<bool>>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: RadiusSettingsArgs,
     ) -> RadiusSettingsResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let authentication_protocol_binding = args
             .authentication_protocol
@@ -155,31 +155,31 @@ pub mod radius_settings {
         };
         let o = register_interface::register(context.get_inner(), &request);
         RadiusSettingsResult {
-            authentication_protocol: pulumi_wasm_rust::__private::into_domain(
+            authentication_protocol: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("authenticationProtocol"),
             ),
-            directory_id: pulumi_wasm_rust::__private::into_domain(
+            directory_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("directoryId"),
             ),
-            display_label: pulumi_wasm_rust::__private::into_domain(
+            display_label: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("displayLabel"),
             ),
-            radius_port: pulumi_wasm_rust::__private::into_domain(
+            radius_port: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("radiusPort"),
             ),
-            radius_retries: pulumi_wasm_rust::__private::into_domain(
+            radius_retries: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("radiusRetries"),
             ),
-            radius_servers: pulumi_wasm_rust::__private::into_domain(
+            radius_servers: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("radiusServers"),
             ),
-            radius_timeout: pulumi_wasm_rust::__private::into_domain(
+            radius_timeout: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("radiusTimeout"),
             ),
-            shared_secret: pulumi_wasm_rust::__private::into_domain(
+            shared_secret: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("sharedSecret"),
             ),
-            use_same_username: pulumi_wasm_rust::__private::into_domain(
+            use_same_username: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("useSameUsername"),
             ),
         }

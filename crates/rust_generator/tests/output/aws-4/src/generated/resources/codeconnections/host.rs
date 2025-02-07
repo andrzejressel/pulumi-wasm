@@ -7,8 +7,8 @@
 /// ### Basic Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = host::create(
@@ -30,54 +30,54 @@
 /// $ pulumi import aws:codeconnections/host:Host example-host arn:aws:codeconnections:us-west-1:0123456789:host/79d4d357-a2ee-41e4-b350-2fe39ae59448
 /// ```
 pub mod host {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct HostArgs {
         /// The name of the host to be created. The name must be unique in the calling AWS account.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The endpoint of the infrastructure to be represented by the host after it is created.
         #[builder(into)]
-        pub provider_endpoint: pulumi_wasm_rust::InputOrOutput<String>,
+        pub provider_endpoint: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The name of the external provider where your third-party code repository is configured.
         #[builder(into)]
-        pub provider_type: pulumi_wasm_rust::InputOrOutput<String>,
+        pub provider_type: pulumi_gestalt_rust::InputOrOutput<String>,
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         #[builder(into, default)]
-        pub timeouts: pulumi_wasm_rust::InputOrOutput<
+        pub timeouts: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::codeconnections::HostTimeouts>,
         >,
         /// The VPC configuration to be provisioned for the host. A VPC must be configured, and the infrastructure to be represented by the host must already be connected to the VPC.
         #[builder(into, default)]
-        pub vpc_configuration: pulumi_wasm_rust::InputOrOutput<
+        pub vpc_configuration: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::codeconnections::HostVpcConfiguration>,
         >,
     }
     #[allow(dead_code)]
     pub struct HostResult {
         /// The CodeConnections Host ARN.
-        pub arn: pulumi_wasm_rust::Output<String>,
+        pub arn: pulumi_gestalt_rust::Output<String>,
         /// The name of the host to be created. The name must be unique in the calling AWS account.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// The endpoint of the infrastructure to be represented by the host after it is created.
-        pub provider_endpoint: pulumi_wasm_rust::Output<String>,
+        pub provider_endpoint: pulumi_gestalt_rust::Output<String>,
         /// The name of the external provider where your third-party code repository is configured.
-        pub provider_type: pulumi_wasm_rust::Output<String>,
-        pub tags: pulumi_wasm_rust::Output<
+        pub provider_type: pulumi_gestalt_rust::Output<String>,
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
-        pub tags_all: pulumi_wasm_rust::Output<
+        pub tags_all: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
-        pub timeouts: pulumi_wasm_rust::Output<
+        pub timeouts: pulumi_gestalt_rust::Output<
             Option<super::super::types::codeconnections::HostTimeouts>,
         >,
         /// The VPC configuration to be provisioned for the host. A VPC must be configured, and the infrastructure to be represented by the host must already be connected to the VPC.
-        pub vpc_configuration: pulumi_wasm_rust::Output<
+        pub vpc_configuration: pulumi_gestalt_rust::Output<
             Option<super::super::types::codeconnections::HostVpcConfiguration>,
         >,
     }
@@ -86,11 +86,11 @@ pub mod host {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: HostArgs,
     ) -> HostResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let name_binding = args.name.get_output(context).get_inner();
         let provider_endpoint_binding = args
@@ -137,22 +137,22 @@ pub mod host {
         };
         let o = register_interface::register(context.get_inner(), &request);
         HostResult {
-            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            provider_endpoint: pulumi_wasm_rust::__private::into_domain(
+            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            provider_endpoint: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("providerEndpoint"),
             ),
-            provider_type: pulumi_wasm_rust::__private::into_domain(
+            provider_type: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("providerType"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_wasm_rust::__private::into_domain(
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            tags_all: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("tagsAll"),
             ),
-            timeouts: pulumi_wasm_rust::__private::into_domain(
+            timeouts: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("timeouts"),
             ),
-            vpc_configuration: pulumi_wasm_rust::__private::into_domain(
+            vpc_configuration: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("vpcConfiguration"),
             ),
         }

@@ -86,69 +86,69 @@
 /// ```
 ///
 pub mod alert_prometheus_rule_group {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct AlertPrometheusRuleGroupArgs {
         /// Specifies the name of the Managed Kubernetes Cluster.
         #[builder(into, default)]
-        pub cluster_name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub cluster_name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The description of the Alert Management Prometheus Rule Group.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub description: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Specifies the interval in which to run the Alert Management Prometheus Rule Group represented in ISO 8601 duration format. Possible values are between `PT1M` and `PT15M`.
         #[builder(into, default)]
-        pub interval: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub interval: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Specifies the Azure Region where the Alert Management Prometheus Rule Group should exist. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub location: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub location: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Specifies the name which should be used for this Alert Management Prometheus Rule Group. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Specifies the name of the Resource Group where the Alert Management Prometheus Rule Group should exist. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub resource_group_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub resource_group_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Is this Alert Management Prometheus Rule Group enabled? Possible values are `true` and `false`.
         #[builder(into, default)]
-        pub rule_group_enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub rule_group_enabled: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// One or more `rule` blocks as defined below.
         #[builder(into)]
-        pub rules: pulumi_wasm_rust::InputOrOutput<
+        pub rules: pulumi_gestalt_rust::InputOrOutput<
             Vec<super::super::types::monitoring::AlertPrometheusRuleGroupRule>,
         >,
         /// Specifies the resource ID of the Azure Monitor Workspace.
         #[builder(into)]
-        pub scopes: pulumi_wasm_rust::InputOrOutput<Vec<String>>,
+        pub scopes: pulumi_gestalt_rust::InputOrOutput<Vec<String>>,
         /// A mapping of tags to assign to the Alert Management Prometheus Rule Group.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
     #[allow(dead_code)]
     pub struct AlertPrometheusRuleGroupResult {
         /// Specifies the name of the Managed Kubernetes Cluster.
-        pub cluster_name: pulumi_wasm_rust::Output<Option<String>>,
+        pub cluster_name: pulumi_gestalt_rust::Output<Option<String>>,
         /// The description of the Alert Management Prometheus Rule Group.
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_gestalt_rust::Output<Option<String>>,
         /// Specifies the interval in which to run the Alert Management Prometheus Rule Group represented in ISO 8601 duration format. Possible values are between `PT1M` and `PT15M`.
-        pub interval: pulumi_wasm_rust::Output<Option<String>>,
+        pub interval: pulumi_gestalt_rust::Output<Option<String>>,
         /// Specifies the Azure Region where the Alert Management Prometheus Rule Group should exist. Changing this forces a new resource to be created.
-        pub location: pulumi_wasm_rust::Output<String>,
+        pub location: pulumi_gestalt_rust::Output<String>,
         /// Specifies the name which should be used for this Alert Management Prometheus Rule Group. Changing this forces a new resource to be created.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// Specifies the name of the Resource Group where the Alert Management Prometheus Rule Group should exist. Changing this forces a new resource to be created.
-        pub resource_group_name: pulumi_wasm_rust::Output<String>,
+        pub resource_group_name: pulumi_gestalt_rust::Output<String>,
         /// Is this Alert Management Prometheus Rule Group enabled? Possible values are `true` and `false`.
-        pub rule_group_enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub rule_group_enabled: pulumi_gestalt_rust::Output<Option<bool>>,
         /// One or more `rule` blocks as defined below.
-        pub rules: pulumi_wasm_rust::Output<
+        pub rules: pulumi_gestalt_rust::Output<
             Vec<super::super::types::monitoring::AlertPrometheusRuleGroupRule>,
         >,
         /// Specifies the resource ID of the Azure Monitor Workspace.
-        pub scopes: pulumi_wasm_rust::Output<Vec<String>>,
+        pub scopes: pulumi_gestalt_rust::Output<Vec<String>>,
         /// A mapping of tags to assign to the Alert Management Prometheus Rule Group.
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
@@ -157,11 +157,11 @@ pub mod alert_prometheus_rule_group {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: AlertPrometheusRuleGroupArgs,
     ) -> AlertPrometheusRuleGroupResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let cluster_name_binding = args.cluster_name.get_output(context).get_inner();
         let description_binding = args.description.get_output(context).get_inner();
@@ -229,28 +229,30 @@ pub mod alert_prometheus_rule_group {
         };
         let o = register_interface::register(context.get_inner(), &request);
         AlertPrometheusRuleGroupResult {
-            cluster_name: pulumi_wasm_rust::__private::into_domain(
+            cluster_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("clusterName"),
             ),
-            description: pulumi_wasm_rust::__private::into_domain(
+            description: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("description"),
             ),
-            interval: pulumi_wasm_rust::__private::into_domain(
+            interval: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("interval"),
             ),
-            location: pulumi_wasm_rust::__private::into_domain(
+            location: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("location"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            resource_group_name: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("resourceGroupName"),
             ),
-            rule_group_enabled: pulumi_wasm_rust::__private::into_domain(
+            rule_group_enabled: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("ruleGroupEnabled"),
             ),
-            rules: pulumi_wasm_rust::__private::into_domain(o.extract_field("rules")),
-            scopes: pulumi_wasm_rust::__private::into_domain(o.extract_field("scopes")),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
+            rules: pulumi_gestalt_rust::__private::into_domain(o.extract_field("rules")),
+            scopes: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("scopes"),
+            ),
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
         }
     }
 }

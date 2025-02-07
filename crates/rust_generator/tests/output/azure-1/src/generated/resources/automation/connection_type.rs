@@ -44,53 +44,53 @@
 /// ```
 ///
 pub mod connection_type {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ConnectionTypeArgs {
         /// The name of the automation account in which the Connection is created. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub automation_account_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub automation_account_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// One or more `field` blocks as defined below. Changing this forces a new Automation to be created.
         #[builder(into)]
-        pub fields: pulumi_wasm_rust::InputOrOutput<
+        pub fields: pulumi_gestalt_rust::InputOrOutput<
             Vec<super::super::types::automation::ConnectionTypeField>,
         >,
         /// Whether the connection type is global. Changing this forces a new Automation to be created.
         #[builder(into, default)]
-        pub is_global: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub is_global: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// The name which should be used for this Automation Connection Type. Changing this forces a new Automation to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The name of the Resource Group where the Automation should exist. Changing this forces a new Automation to be created.
         #[builder(into)]
-        pub resource_group_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub resource_group_name: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct ConnectionTypeResult {
         /// The name of the automation account in which the Connection is created. Changing this forces a new resource to be created.
-        pub automation_account_name: pulumi_wasm_rust::Output<String>,
+        pub automation_account_name: pulumi_gestalt_rust::Output<String>,
         /// One or more `field` blocks as defined below. Changing this forces a new Automation to be created.
-        pub fields: pulumi_wasm_rust::Output<
+        pub fields: pulumi_gestalt_rust::Output<
             Vec<super::super::types::automation::ConnectionTypeField>,
         >,
         /// Whether the connection type is global. Changing this forces a new Automation to be created.
-        pub is_global: pulumi_wasm_rust::Output<Option<bool>>,
+        pub is_global: pulumi_gestalt_rust::Output<Option<bool>>,
         /// The name which should be used for this Automation Connection Type. Changing this forces a new Automation to be created.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// The name of the Resource Group where the Automation should exist. Changing this forces a new Automation to be created.
-        pub resource_group_name: pulumi_wasm_rust::Output<String>,
+        pub resource_group_name: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: ConnectionTypeArgs,
     ) -> ConnectionTypeResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let automation_account_name_binding = args
             .automation_account_name
@@ -132,15 +132,17 @@ pub mod connection_type {
         };
         let o = register_interface::register(context.get_inner(), &request);
         ConnectionTypeResult {
-            automation_account_name: pulumi_wasm_rust::__private::into_domain(
+            automation_account_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("automationAccountName"),
             ),
-            fields: pulumi_wasm_rust::__private::into_domain(o.extract_field("fields")),
-            is_global: pulumi_wasm_rust::__private::into_domain(
+            fields: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("fields"),
+            ),
+            is_global: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("isGlobal"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            resource_group_name: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("resourceGroupName"),
             ),
         }

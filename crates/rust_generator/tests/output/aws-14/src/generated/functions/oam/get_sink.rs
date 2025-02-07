@@ -1,40 +1,40 @@
 pub mod get_sink {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct GetSinkArgs {
         /// ARN of the sink.
         #[builder(into)]
-        pub sink_identifier: pulumi_wasm_rust::InputOrOutput<String>,
+        pub sink_identifier: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Tags assigned to the sink.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
     #[allow(dead_code)]
     pub struct GetSinkResult {
         /// ARN of the sink.
-        pub arn: pulumi_wasm_rust::Output<String>,
+        pub arn: pulumi_gestalt_rust::Output<String>,
         /// The provider-assigned unique ID for this managed resource.
-        pub id: pulumi_wasm_rust::Output<String>,
+        pub id: pulumi_gestalt_rust::Output<String>,
         /// Name of the sink.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// Random ID string that AWS generated as part of the sink ARN.
-        pub sink_id: pulumi_wasm_rust::Output<String>,
-        pub sink_identifier: pulumi_wasm_rust::Output<String>,
+        pub sink_id: pulumi_gestalt_rust::Output<String>,
+        pub sink_identifier: pulumi_gestalt_rust::Output<String>,
         /// Tags assigned to the sink.
-        pub tags: pulumi_wasm_rust::Output<std::collections::HashMap<String, String>>,
+        pub tags: pulumi_gestalt_rust::Output<std::collections::HashMap<String, String>>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         args: GetSinkArgs,
     ) -> GetSinkResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let sink_identifier_binding = args
             .sink_identifier
@@ -57,14 +57,16 @@ pub mod get_sink {
         };
         let o = register_interface::invoke(context.get_inner(), &request);
         GetSinkResult {
-            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
-            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            sink_id: pulumi_wasm_rust::__private::into_domain(o.extract_field("sinkId")),
-            sink_identifier: pulumi_wasm_rust::__private::into_domain(
+            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
+            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            sink_id: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("sinkId"),
+            ),
+            sink_identifier: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("sinkIdentifier"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
         }
     }
 }

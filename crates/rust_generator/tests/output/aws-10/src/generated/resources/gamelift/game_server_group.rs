@@ -3,8 +3,8 @@
 /// ## Example Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = game_server_group::create(
@@ -109,22 +109,22 @@
 /// $ pulumi import aws:gamelift/gameServerGroup:GameServerGroup example example
 /// ```
 pub mod game_server_group {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct GameServerGroupArgs {
         #[builder(into, default)]
-        pub auto_scaling_policy: pulumi_wasm_rust::InputOrOutput<
+        pub auto_scaling_policy: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::gamelift::GameServerGroupAutoScalingPolicy>,
         >,
         /// Indicates how GameLift FleetIQ balances the use of Spot Instances and On-Demand Instances.
         /// Valid values: `SPOT_ONLY`, `SPOT_PREFERRED`, `ON_DEMAND_ONLY`. Defaults to `SPOT_PREFERRED`.
         #[builder(into, default)]
-        pub balancing_strategy: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub balancing_strategy: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Name of the game server group.
         /// This value is used to generate unique ARN identifiers for the EC2 Auto Scaling group and the GameLift FleetIQ game server group.
         #[builder(into)]
-        pub game_server_group_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub game_server_group_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Indicates whether instances in the game server group are protected from early termination.
         /// Unprotected instances that have active game servers running might be terminated during a scale-down event,
         /// causing players to be dropped from the game.
@@ -132,95 +132,95 @@ pub mod game_server_group {
         /// of a forced game server group deletion.
         /// Valid values: `NO_PROTECTION`, `FULL_PROTECTION`. Defaults to `NO_PROTECTION`.
         #[builder(into, default)]
-        pub game_server_protection_policy: pulumi_wasm_rust::InputOrOutput<
+        pub game_server_protection_policy: pulumi_gestalt_rust::InputOrOutput<
             Option<String>,
         >,
         #[builder(into)]
-        pub instance_definitions: pulumi_wasm_rust::InputOrOutput<
+        pub instance_definitions: pulumi_gestalt_rust::InputOrOutput<
             Vec<super::super::types::gamelift::GameServerGroupInstanceDefinition>,
         >,
         #[builder(into)]
-        pub launch_template: pulumi_wasm_rust::InputOrOutput<
+        pub launch_template: pulumi_gestalt_rust::InputOrOutput<
             super::super::types::gamelift::GameServerGroupLaunchTemplate,
         >,
         /// The maximum number of instances allowed in the EC2 Auto Scaling group.
         /// During automatic scaling events, GameLift FleetIQ and EC2 do not scale up the group above this maximum.
         #[builder(into)]
-        pub max_size: pulumi_wasm_rust::InputOrOutput<i32>,
+        pub max_size: pulumi_gestalt_rust::InputOrOutput<i32>,
         /// The minimum number of instances allowed in the EC2 Auto Scaling group.
         /// During automatic scaling events, GameLift FleetIQ and EC2 do not scale down the group below this minimum.
         #[builder(into)]
-        pub min_size: pulumi_wasm_rust::InputOrOutput<i32>,
+        pub min_size: pulumi_gestalt_rust::InputOrOutput<i32>,
         /// ARN for an IAM role that allows Amazon GameLift to access your EC2 Auto Scaling groups.
         #[builder(into)]
-        pub role_arn: pulumi_wasm_rust::InputOrOutput<String>,
+        pub role_arn: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Key-value map of resource tags
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// A list of VPC subnets to use with instances in the game server group.
         /// By default, all GameLift FleetIQ-supported Availability Zones are used.
         #[builder(into, default)]
-        pub vpc_subnets: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
+        pub vpc_subnets: pulumi_gestalt_rust::InputOrOutput<Option<Vec<String>>>,
     }
     #[allow(dead_code)]
     pub struct GameServerGroupResult {
         /// The ARN of the GameLift Game Server Group.
-        pub arn: pulumi_wasm_rust::Output<String>,
+        pub arn: pulumi_gestalt_rust::Output<String>,
         /// The ARN of the created EC2 Auto Scaling group.
-        pub auto_scaling_group_arn: pulumi_wasm_rust::Output<String>,
-        pub auto_scaling_policy: pulumi_wasm_rust::Output<
+        pub auto_scaling_group_arn: pulumi_gestalt_rust::Output<String>,
+        pub auto_scaling_policy: pulumi_gestalt_rust::Output<
             Option<super::super::types::gamelift::GameServerGroupAutoScalingPolicy>,
         >,
         /// Indicates how GameLift FleetIQ balances the use of Spot Instances and On-Demand Instances.
         /// Valid values: `SPOT_ONLY`, `SPOT_PREFERRED`, `ON_DEMAND_ONLY`. Defaults to `SPOT_PREFERRED`.
-        pub balancing_strategy: pulumi_wasm_rust::Output<String>,
+        pub balancing_strategy: pulumi_gestalt_rust::Output<String>,
         /// Name of the game server group.
         /// This value is used to generate unique ARN identifiers for the EC2 Auto Scaling group and the GameLift FleetIQ game server group.
-        pub game_server_group_name: pulumi_wasm_rust::Output<String>,
+        pub game_server_group_name: pulumi_gestalt_rust::Output<String>,
         /// Indicates whether instances in the game server group are protected from early termination.
         /// Unprotected instances that have active game servers running might be terminated during a scale-down event,
         /// causing players to be dropped from the game.
         /// Protected instances cannot be terminated while there are active game servers running except in the event
         /// of a forced game server group deletion.
         /// Valid values: `NO_PROTECTION`, `FULL_PROTECTION`. Defaults to `NO_PROTECTION`.
-        pub game_server_protection_policy: pulumi_wasm_rust::Output<String>,
-        pub instance_definitions: pulumi_wasm_rust::Output<
+        pub game_server_protection_policy: pulumi_gestalt_rust::Output<String>,
+        pub instance_definitions: pulumi_gestalt_rust::Output<
             Vec<super::super::types::gamelift::GameServerGroupInstanceDefinition>,
         >,
-        pub launch_template: pulumi_wasm_rust::Output<
+        pub launch_template: pulumi_gestalt_rust::Output<
             super::super::types::gamelift::GameServerGroupLaunchTemplate,
         >,
         /// The maximum number of instances allowed in the EC2 Auto Scaling group.
         /// During automatic scaling events, GameLift FleetIQ and EC2 do not scale up the group above this maximum.
-        pub max_size: pulumi_wasm_rust::Output<i32>,
+        pub max_size: pulumi_gestalt_rust::Output<i32>,
         /// The minimum number of instances allowed in the EC2 Auto Scaling group.
         /// During automatic scaling events, GameLift FleetIQ and EC2 do not scale down the group below this minimum.
-        pub min_size: pulumi_wasm_rust::Output<i32>,
+        pub min_size: pulumi_gestalt_rust::Output<i32>,
         /// ARN for an IAM role that allows Amazon GameLift to access your EC2 Auto Scaling groups.
-        pub role_arn: pulumi_wasm_rust::Output<String>,
+        pub role_arn: pulumi_gestalt_rust::Output<String>,
         /// Key-value map of resource tags
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
-        pub tags_all: pulumi_wasm_rust::Output<
+        pub tags_all: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
         /// A list of VPC subnets to use with instances in the game server group.
         /// By default, all GameLift FleetIQ-supported Availability Zones are used.
-        pub vpc_subnets: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub vpc_subnets: pulumi_gestalt_rust::Output<Option<Vec<String>>>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: GameServerGroupArgs,
     ) -> GameServerGroupResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let auto_scaling_policy_binding = args
             .auto_scaling_policy
@@ -304,42 +304,42 @@ pub mod game_server_group {
         };
         let o = register_interface::register(context.get_inner(), &request);
         GameServerGroupResult {
-            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
-            auto_scaling_group_arn: pulumi_wasm_rust::__private::into_domain(
+            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
+            auto_scaling_group_arn: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("autoScalingGroupArn"),
             ),
-            auto_scaling_policy: pulumi_wasm_rust::__private::into_domain(
+            auto_scaling_policy: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("autoScalingPolicy"),
             ),
-            balancing_strategy: pulumi_wasm_rust::__private::into_domain(
+            balancing_strategy: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("balancingStrategy"),
             ),
-            game_server_group_name: pulumi_wasm_rust::__private::into_domain(
+            game_server_group_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("gameServerGroupName"),
             ),
-            game_server_protection_policy: pulumi_wasm_rust::__private::into_domain(
+            game_server_protection_policy: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("gameServerProtectionPolicy"),
             ),
-            instance_definitions: pulumi_wasm_rust::__private::into_domain(
+            instance_definitions: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("instanceDefinitions"),
             ),
-            launch_template: pulumi_wasm_rust::__private::into_domain(
+            launch_template: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("launchTemplate"),
             ),
-            max_size: pulumi_wasm_rust::__private::into_domain(
+            max_size: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("maxSize"),
             ),
-            min_size: pulumi_wasm_rust::__private::into_domain(
+            min_size: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("minSize"),
             ),
-            role_arn: pulumi_wasm_rust::__private::into_domain(
+            role_arn: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("roleArn"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_wasm_rust::__private::into_domain(
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            tags_all: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("tagsAll"),
             ),
-            vpc_subnets: pulumi_wasm_rust::__private::into_domain(
+            vpc_subnets: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("vpcSubnets"),
             ),
         }

@@ -67,7 +67,7 @@
 /// ```
 ///
 pub mod folder_scc_big_query_export {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct FolderSccBigQueryExportArgs {
@@ -76,15 +76,15 @@ pub mod folder_scc_big_query_export {
         ///
         /// - - -
         #[builder(into)]
-        pub big_query_export_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub big_query_export_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The dataset to write findings' updates to.
         /// Its format is "projects/[projectId]/datasets/[bigquery_dataset_id]".
         /// BigQuery Dataset unique ID must contain only letters (a-z, A-Z), numbers (0-9), or underscores (_).
         #[builder(into)]
-        pub dataset: pulumi_wasm_rust::InputOrOutput<String>,
+        pub dataset: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The description of the export (max of 1024 characters).
         #[builder(into)]
-        pub description: pulumi_wasm_rust::InputOrOutput<String>,
+        pub description: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Expression that defines the filter to apply across create/update
         /// events of findings. The
         /// expression is a list of zero or more restrictions combined via
@@ -105,11 +105,11 @@ pub mod folder_scc_big_query_export {
         /// [Filtering notifications](https://cloud.google.com/security-command-center/docs/how-to-api-filter-notifications)
         /// for information on how to write a filter.
         #[builder(into)]
-        pub filter: pulumi_wasm_rust::InputOrOutput<String>,
+        pub filter: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The folder where Cloud Security Command Center Big Query Export
         /// Config lives in.
         #[builder(into)]
-        pub folder: pulumi_wasm_rust::InputOrOutput<String>,
+        pub folder: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct FolderSccBigQueryExportResult {
@@ -117,17 +117,17 @@ pub mod folder_scc_big_query_export {
         ///
         ///
         /// - - -
-        pub big_query_export_id: pulumi_wasm_rust::Output<String>,
+        pub big_query_export_id: pulumi_gestalt_rust::Output<String>,
         /// The time at which the BigQuery export was created.
         /// A timestamp in RFC3339 UTC "Zulu" format, with nanosecond resolution and up to nine fractional digits.
         /// Examples: "2014-10-02T15:01:23Z" and "2014-10-02T15:01:23.045123456Z".
-        pub create_time: pulumi_wasm_rust::Output<String>,
+        pub create_time: pulumi_gestalt_rust::Output<String>,
         /// The dataset to write findings' updates to.
         /// Its format is "projects/[projectId]/datasets/[bigquery_dataset_id]".
         /// BigQuery Dataset unique ID must contain only letters (a-z, A-Z), numbers (0-9), or underscores (_).
-        pub dataset: pulumi_wasm_rust::Output<String>,
+        pub dataset: pulumi_gestalt_rust::Output<String>,
         /// The description of the export (max of 1024 characters).
-        pub description: pulumi_wasm_rust::Output<String>,
+        pub description: pulumi_gestalt_rust::Output<String>,
         /// Expression that defines the filter to apply across create/update
         /// events of findings. The
         /// expression is a list of zero or more restrictions combined via
@@ -147,33 +147,33 @@ pub mod folder_scc_big_query_export {
         /// See
         /// [Filtering notifications](https://cloud.google.com/security-command-center/docs/how-to-api-filter-notifications)
         /// for information on how to write a filter.
-        pub filter: pulumi_wasm_rust::Output<String>,
+        pub filter: pulumi_gestalt_rust::Output<String>,
         /// The folder where Cloud Security Command Center Big Query Export
         /// Config lives in.
-        pub folder: pulumi_wasm_rust::Output<String>,
+        pub folder: pulumi_gestalt_rust::Output<String>,
         /// Email address of the user who last edited the BigQuery export.
-        pub most_recent_editor: pulumi_wasm_rust::Output<String>,
+        pub most_recent_editor: pulumi_gestalt_rust::Output<String>,
         /// The resource name of this export, in the format
         /// `projects/{{project}}/bigQueryExports/{{big_query_export_id}}`.
         /// This field is provided in responses, and is ignored when provided in create requests.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// The service account that needs permission to create table and upload data to the BigQuery dataset.
-        pub principal: pulumi_wasm_rust::Output<String>,
+        pub principal: pulumi_gestalt_rust::Output<String>,
         /// The most recent time at which the BigQuery export was updated.
         /// A timestamp in RFC3339 UTC "Zulu" format, with nanosecond resolution and up to nine fractional digits.
         /// Examples: "2014-10-02T15:01:23Z" and "2014-10-02T15:01:23.045123456Z".
-        pub update_time: pulumi_wasm_rust::Output<String>,
+        pub update_time: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: FolderSccBigQueryExportArgs,
     ) -> FolderSccBigQueryExportResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let big_query_export_id_binding = args
             .big_query_export_id
@@ -213,28 +213,32 @@ pub mod folder_scc_big_query_export {
         };
         let o = register_interface::register(context.get_inner(), &request);
         FolderSccBigQueryExportResult {
-            big_query_export_id: pulumi_wasm_rust::__private::into_domain(
+            big_query_export_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("bigQueryExportId"),
             ),
-            create_time: pulumi_wasm_rust::__private::into_domain(
+            create_time: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("createTime"),
             ),
-            dataset: pulumi_wasm_rust::__private::into_domain(
+            dataset: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("dataset"),
             ),
-            description: pulumi_wasm_rust::__private::into_domain(
+            description: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("description"),
             ),
-            filter: pulumi_wasm_rust::__private::into_domain(o.extract_field("filter")),
-            folder: pulumi_wasm_rust::__private::into_domain(o.extract_field("folder")),
-            most_recent_editor: pulumi_wasm_rust::__private::into_domain(
+            filter: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("filter"),
+            ),
+            folder: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("folder"),
+            ),
+            most_recent_editor: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("mostRecentEditor"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            principal: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            principal: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("principal"),
             ),
-            update_time: pulumi_wasm_rust::__private::into_domain(
+            update_time: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("updateTime"),
             ),
         }

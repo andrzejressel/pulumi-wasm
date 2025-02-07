@@ -1,8 +1,8 @@
-use pulumi_wasm_providers_docker::functions::get_remote_image;
-use pulumi_wasm_providers_docker::functions::get_remote_image::GetRemoteImageArgs;
-use pulumi_wasm_providers_docker::types::{ContainerLabel, DockerBuild};
-use pulumi_wasm_providers_docker::{container, image};
-use pulumi_wasm_rust::{add_export, pulumi_main, PulumiContext};
+use pulumi_gestalt_providers_docker::functions::get_remote_image;
+use pulumi_gestalt_providers_docker::functions::get_remote_image::GetRemoteImageArgs;
+use pulumi_gestalt_providers_docker::types::{ContainerLabel, DockerBuild};
+use pulumi_gestalt_providers_docker::{container, image};
+use pulumi_gestalt_rust::{add_export, pulumi_main, PulumiContext};
 
 pulumi_main!();
 

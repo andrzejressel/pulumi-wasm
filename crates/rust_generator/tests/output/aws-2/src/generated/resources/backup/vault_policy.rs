@@ -51,36 +51,36 @@
 /// $ pulumi import aws:backup/vaultPolicy:VaultPolicy test TestVault
 /// ```
 pub mod vault_policy {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct VaultPolicyArgs {
         /// Name of the backup vault to add policy for.
         #[builder(into)]
-        pub backup_vault_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub backup_vault_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The backup vault access policy document in JSON format.
         #[builder(into)]
-        pub policy: pulumi_wasm_rust::InputOrOutput<String>,
+        pub policy: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct VaultPolicyResult {
         /// The ARN of the vault.
-        pub backup_vault_arn: pulumi_wasm_rust::Output<String>,
+        pub backup_vault_arn: pulumi_gestalt_rust::Output<String>,
         /// Name of the backup vault to add policy for.
-        pub backup_vault_name: pulumi_wasm_rust::Output<String>,
+        pub backup_vault_name: pulumi_gestalt_rust::Output<String>,
         /// The backup vault access policy document in JSON format.
-        pub policy: pulumi_wasm_rust::Output<String>,
+        pub policy: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: VaultPolicyArgs,
     ) -> VaultPolicyResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let backup_vault_name_binding = args
             .backup_vault_name
@@ -104,13 +104,15 @@ pub mod vault_policy {
         };
         let o = register_interface::register(context.get_inner(), &request);
         VaultPolicyResult {
-            backup_vault_arn: pulumi_wasm_rust::__private::into_domain(
+            backup_vault_arn: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("backupVaultArn"),
             ),
-            backup_vault_name: pulumi_wasm_rust::__private::into_domain(
+            backup_vault_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("backupVaultName"),
             ),
-            policy: pulumi_wasm_rust::__private::into_domain(o.extract_field("policy")),
+            policy: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("policy"),
+            ),
         }
     }
 }

@@ -29,65 +29,67 @@
 /// ```
 ///
 pub mod availability_set {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct AvailabilitySetArgs {
         /// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub location: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub location: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Specifies whether the availability set is managed or not. Possible values are `true` (to specify aligned) or `false` (to specify classic). Default is `true`. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub managed: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub managed: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// Specifies the name of the availability set. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Specifies the number of fault domains that are used. Defaults to `3`. Changing this forces a new resource to be created.
         ///
         /// > **NOTE:** The number of Fault Domains varies depending on which Azure Region you're using. More information about update and fault domains and how they work can be found [here](https://learn.microsoft.com/en-us/azure/virtual-machines/availability-set-overview).
         #[builder(into, default)]
-        pub platform_fault_domain_count: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
+        pub platform_fault_domain_count: pulumi_gestalt_rust::InputOrOutput<Option<i32>>,
         /// Specifies the number of update domains that are used. Defaults to `5`. Changing this forces a new resource to be created.
         ///
         /// > **NOTE:** The number of Update Domains varies depending on which Azure Region you're using. More information about update and fault domains and how they work can be found [here](https://learn.microsoft.com/en-us/azure/virtual-machines/availability-set-overview).
         #[builder(into, default)]
-        pub platform_update_domain_count: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
+        pub platform_update_domain_count: pulumi_gestalt_rust::InputOrOutput<
+            Option<i32>,
+        >,
         /// The ID of the Proximity Placement Group to which this Virtual Machine should be assigned. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub proximity_placement_group_id: pulumi_wasm_rust::InputOrOutput<
+        pub proximity_placement_group_id: pulumi_gestalt_rust::InputOrOutput<
             Option<String>,
         >,
         /// The name of the resource group in which to create the availability set. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub resource_group_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub resource_group_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// A mapping of tags to assign to the resource.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
     #[allow(dead_code)]
     pub struct AvailabilitySetResult {
         /// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
-        pub location: pulumi_wasm_rust::Output<String>,
+        pub location: pulumi_gestalt_rust::Output<String>,
         /// Specifies whether the availability set is managed or not. Possible values are `true` (to specify aligned) or `false` (to specify classic). Default is `true`. Changing this forces a new resource to be created.
-        pub managed: pulumi_wasm_rust::Output<Option<bool>>,
+        pub managed: pulumi_gestalt_rust::Output<Option<bool>>,
         /// Specifies the name of the availability set. Changing this forces a new resource to be created.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// Specifies the number of fault domains that are used. Defaults to `3`. Changing this forces a new resource to be created.
         ///
         /// > **NOTE:** The number of Fault Domains varies depending on which Azure Region you're using. More information about update and fault domains and how they work can be found [here](https://learn.microsoft.com/en-us/azure/virtual-machines/availability-set-overview).
-        pub platform_fault_domain_count: pulumi_wasm_rust::Output<Option<i32>>,
+        pub platform_fault_domain_count: pulumi_gestalt_rust::Output<Option<i32>>,
         /// Specifies the number of update domains that are used. Defaults to `5`. Changing this forces a new resource to be created.
         ///
         /// > **NOTE:** The number of Update Domains varies depending on which Azure Region you're using. More information about update and fault domains and how they work can be found [here](https://learn.microsoft.com/en-us/azure/virtual-machines/availability-set-overview).
-        pub platform_update_domain_count: pulumi_wasm_rust::Output<Option<i32>>,
+        pub platform_update_domain_count: pulumi_gestalt_rust::Output<Option<i32>>,
         /// The ID of the Proximity Placement Group to which this Virtual Machine should be assigned. Changing this forces a new resource to be created.
-        pub proximity_placement_group_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub proximity_placement_group_id: pulumi_gestalt_rust::Output<Option<String>>,
         /// The name of the resource group in which to create the availability set. Changing this forces a new resource to be created.
-        pub resource_group_name: pulumi_wasm_rust::Output<String>,
+        pub resource_group_name: pulumi_gestalt_rust::Output<String>,
         /// A mapping of tags to assign to the resource.
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
@@ -96,11 +98,11 @@ pub mod availability_set {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: AvailabilitySetArgs,
     ) -> AvailabilitySetResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let location_binding = args.location.get_output(context).get_inner();
         let managed_binding = args.managed.get_output(context).get_inner();
@@ -163,26 +165,26 @@ pub mod availability_set {
         };
         let o = register_interface::register(context.get_inner(), &request);
         AvailabilitySetResult {
-            location: pulumi_wasm_rust::__private::into_domain(
+            location: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("location"),
             ),
-            managed: pulumi_wasm_rust::__private::into_domain(
+            managed: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("managed"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            platform_fault_domain_count: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            platform_fault_domain_count: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("platformFaultDomainCount"),
             ),
-            platform_update_domain_count: pulumi_wasm_rust::__private::into_domain(
+            platform_update_domain_count: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("platformUpdateDomainCount"),
             ),
-            proximity_placement_group_id: pulumi_wasm_rust::__private::into_domain(
+            proximity_placement_group_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("proximityPlacementGroupId"),
             ),
-            resource_group_name: pulumi_wasm_rust::__private::into_domain(
+            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("resourceGroupName"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
         }
     }
 }

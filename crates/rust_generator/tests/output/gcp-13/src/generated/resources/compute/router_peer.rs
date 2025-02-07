@@ -16,8 +16,8 @@
 ///
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let peer = router_peer::create(
@@ -37,8 +37,8 @@
 ///
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let peer = router_peer::create(
@@ -60,8 +60,8 @@
 ///
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let peer = router_peer::create(
@@ -90,8 +90,8 @@
 ///
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let addrIntf = address::create(
@@ -234,8 +234,8 @@
 ///
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let foobar = router_peer::create(
@@ -417,7 +417,7 @@
 /// ```
 ///
 pub mod router_peer {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct RouterPeerArgs {
@@ -426,7 +426,7 @@ pub mod router_peer {
         /// Default value is `DEFAULT`.
         /// Possible values are: `DEFAULT`, `CUSTOM`.
         #[builder(into, default)]
-        pub advertise_mode: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub advertise_mode: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// User-specified list of prefix groups to advertise in custom
         /// mode, which currently supports the following option:
         /// * `ALL_SUBNETS`: Advertises all of the router's own VPC subnets.
@@ -438,7 +438,7 @@ pub mod router_peer {
         /// These groups are advertised in addition to any specified prefixes.
         /// Leave this field blank to advertise no custom groups.
         #[builder(into, default)]
-        pub advertised_groups: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
+        pub advertised_groups: pulumi_gestalt_rust::InputOrOutput<Option<Vec<String>>>,
         /// User-specified list of individual IP ranges to advertise in
         /// custom mode. This field can only be populated if advertiseMode
         /// is `CUSTOM` and is advertised to all peers of the router. These IP
@@ -446,18 +446,18 @@ pub mod router_peer {
         /// Leave this field blank to advertise no custom IP ranges.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub advertised_ip_ranges: pulumi_wasm_rust::InputOrOutput<
+        pub advertised_ip_ranges: pulumi_gestalt_rust::InputOrOutput<
             Option<Vec<super::super::types::compute::RouterPeerAdvertisedIpRange>>,
         >,
         /// The priority of routes advertised to this BGP peer.
         /// Where there is more than one matching route of maximum
         /// length, the routes with the lowest priority value win.
         #[builder(into, default)]
-        pub advertised_route_priority: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
+        pub advertised_route_priority: pulumi_gestalt_rust::InputOrOutput<Option<i32>>,
         /// BFD configuration for the BGP peering.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub bfd: pulumi_wasm_rust::InputOrOutput<
+        pub bfd: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::compute::RouterPeerBfd>,
         >,
         /// The custom learned route IP address range. Must be a valid CIDR-formatted prefix.
@@ -465,7 +465,7 @@ pub mod router_peer {
         /// a /32 singular IP address range, and, for IPv6, /128.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub custom_learned_ip_ranges: pulumi_wasm_rust::InputOrOutput<
+        pub custom_learned_ip_ranges: pulumi_gestalt_rust::InputOrOutput<
             Option<Vec<super::super::types::compute::RouterPeerCustomLearnedIpRange>>,
         >,
         /// The user-defined custom learned route priority for a BGP session.
@@ -473,47 +473,49 @@ pub mod router_peer {
         /// You can choose a value from 0 to 65335. If you don't provide a value,
         /// Google Cloud assigns a priority of 100 to the ranges.
         #[builder(into, default)]
-        pub custom_learned_route_priority: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
+        pub custom_learned_route_priority: pulumi_gestalt_rust::InputOrOutput<
+            Option<i32>,
+        >,
         /// The status of the BGP peer connection. If set to false, any active session
         /// with the peer is terminated and all associated routing information is removed.
         /// If set to true, the peer connection can be established with routing information.
         /// The default is true.
         #[builder(into, default)]
-        pub enable: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub enable: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// Enable IPv4 traffic over BGP Peer. It is enabled by default if the peerIpAddress is version 4.
         #[builder(into, default)]
-        pub enable_ipv4: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub enable_ipv4: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// Enable IPv6 traffic over BGP Peer. If not specified, it is disabled by default.
         #[builder(into, default)]
-        pub enable_ipv6: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub enable_ipv6: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// routers.list of export policies applied to this peer, in the order they must be evaluated.
         /// The name must correspond to an existing policy that has ROUTE_POLICY_TYPE_EXPORT type.
         #[builder(into, default)]
-        pub export_policies: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
+        pub export_policies: pulumi_gestalt_rust::InputOrOutput<Option<Vec<String>>>,
         /// routers.list of import policies applied to this peer, in the order they must be evaluated.
         /// The name must correspond to an existing policy that has ROUTE_POLICY_TYPE_IMPORT type.
         #[builder(into, default)]
-        pub import_policies: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
+        pub import_policies: pulumi_gestalt_rust::InputOrOutput<Option<Vec<String>>>,
         /// Name of the interface the BGP peer is associated with.
         #[builder(into)]
-        pub interface: pulumi_wasm_rust::InputOrOutput<String>,
+        pub interface: pulumi_gestalt_rust::InputOrOutput<String>,
         /// IP address of the interface inside Google Cloud Platform.
         /// Only IPv4 is supported.
         #[builder(into, default)]
-        pub ip_address: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub ip_address: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// IPv4 address of the interface inside Google Cloud Platform.
         #[builder(into, default)]
-        pub ipv4_nexthop_address: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub ipv4_nexthop_address: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// IPv6 address of the interface inside Google Cloud Platform.
         /// The address must be in the range 2600:2d00:0:2::/64 or 2600:2d00:0:3::/64.
         /// If you do not specify the next hop addresses, Google Cloud automatically
         /// assigns unused addresses from the 2600:2d00:0:2::/64 or 2600:2d00:0:3::/64 range for you.
         #[builder(into, default)]
-        pub ipv6_nexthop_address: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub ipv6_nexthop_address: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Configuration for MD5 authentication on the BGP session.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub md5_authentication_key: pulumi_wasm_rust::InputOrOutput<
+        pub md5_authentication_key: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::compute::RouterPeerMd5AuthenticationKey>,
         >,
         /// Name of this BGP peer. The name must be 1-63 characters long,
@@ -523,44 +525,50 @@ pub mod router_peer {
         /// following characters must be a dash, lowercase letter, or digit,
         /// except the last character, which cannot be a dash.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Peer BGP Autonomous System Number (ASN).
         /// Each BGP interface may use a different value.
         #[builder(into)]
-        pub peer_asn: pulumi_wasm_rust::InputOrOutput<i32>,
+        pub peer_asn: pulumi_gestalt_rust::InputOrOutput<i32>,
         /// IP address of the BGP interface outside Google Cloud Platform.
         /// Only IPv4 is supported. Required if `ip_address` is set.
         #[builder(into, default)]
-        pub peer_ip_address: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub peer_ip_address: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// IPv4 address of the BGP interface outside Google Cloud Platform.
         #[builder(into, default)]
-        pub peer_ipv4_nexthop_address: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub peer_ipv4_nexthop_address: pulumi_gestalt_rust::InputOrOutput<
+            Option<String>,
+        >,
         /// IPv6 address of the BGP interface outside Google Cloud Platform.
         /// The address must be in the range 2600:2d00:0:2::/64 or 2600:2d00:0:3::/64.
         /// If you do not specify the next hop addresses, Google Cloud automatically
         /// assigns unused addresses from the 2600:2d00:0:2::/64 or 2600:2d00:0:3::/64 range for you.
         #[builder(into, default)]
-        pub peer_ipv6_nexthop_address: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub peer_ipv6_nexthop_address: pulumi_gestalt_rust::InputOrOutput<
+            Option<String>,
+        >,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub project: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Region where the router and BgpPeer reside.
         /// If it is not provided, the provider region is used.
         #[builder(into, default)]
-        pub region: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub region: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The name of the Cloud Router in which this BgpPeer will be configured.
         ///
         ///
         /// - - -
         #[builder(into)]
-        pub router: pulumi_wasm_rust::InputOrOutput<String>,
+        pub router: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The URI of the VM instance that is used as third-party router appliances
         /// such as Next Gen Firewalls, Virtual Routers, or Router Appliances.
         /// The VM instance must be located in zones contained in the same region as
         /// this Cloud Router. The VM instance is the peer side of the BGP session.
         #[builder(into, default)]
-        pub router_appliance_instance: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub router_appliance_instance: pulumi_gestalt_rust::InputOrOutput<
+            Option<String>,
+        >,
     }
     #[allow(dead_code)]
     pub struct RouterPeerResult {
@@ -568,7 +576,7 @@ pub mod router_peer {
         /// Valid values of this enum field are: `DEFAULT`, `CUSTOM`
         /// Default value is `DEFAULT`.
         /// Possible values are: `DEFAULT`, `CUSTOM`.
-        pub advertise_mode: pulumi_wasm_rust::Output<Option<String>>,
+        pub advertise_mode: pulumi_gestalt_rust::Output<Option<String>>,
         /// User-specified list of prefix groups to advertise in custom
         /// mode, which currently supports the following option:
         /// * `ALL_SUBNETS`: Advertises all of the router's own VPC subnets.
@@ -579,62 +587,64 @@ pub mod router_peer {
         /// and overrides the list defined for the router (in the "bgp" message).
         /// These groups are advertised in addition to any specified prefixes.
         /// Leave this field blank to advertise no custom groups.
-        pub advertised_groups: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub advertised_groups: pulumi_gestalt_rust::Output<Option<Vec<String>>>,
         /// User-specified list of individual IP ranges to advertise in
         /// custom mode. This field can only be populated if advertiseMode
         /// is `CUSTOM` and is advertised to all peers of the router. These IP
         /// ranges will be advertised in addition to any specified groups.
         /// Leave this field blank to advertise no custom IP ranges.
         /// Structure is documented below.
-        pub advertised_ip_ranges: pulumi_wasm_rust::Output<
+        pub advertised_ip_ranges: pulumi_gestalt_rust::Output<
             Option<Vec<super::super::types::compute::RouterPeerAdvertisedIpRange>>,
         >,
         /// The priority of routes advertised to this BGP peer.
         /// Where there is more than one matching route of maximum
         /// length, the routes with the lowest priority value win.
-        pub advertised_route_priority: pulumi_wasm_rust::Output<Option<i32>>,
+        pub advertised_route_priority: pulumi_gestalt_rust::Output<Option<i32>>,
         /// BFD configuration for the BGP peering.
         /// Structure is documented below.
-        pub bfd: pulumi_wasm_rust::Output<super::super::types::compute::RouterPeerBfd>,
+        pub bfd: pulumi_gestalt_rust::Output<
+            super::super::types::compute::RouterPeerBfd,
+        >,
         /// The custom learned route IP address range. Must be a valid CIDR-formatted prefix.
         /// If an IP address is provided without a subnet mask, it is interpreted as, for IPv4,
         /// a /32 singular IP address range, and, for IPv6, /128.
         /// Structure is documented below.
-        pub custom_learned_ip_ranges: pulumi_wasm_rust::Output<
+        pub custom_learned_ip_ranges: pulumi_gestalt_rust::Output<
             Option<Vec<super::super::types::compute::RouterPeerCustomLearnedIpRange>>,
         >,
         /// The user-defined custom learned route priority for a BGP session.
         /// This value is applied to all custom learned route ranges for the session.
         /// You can choose a value from 0 to 65335. If you don't provide a value,
         /// Google Cloud assigns a priority of 100 to the ranges.
-        pub custom_learned_route_priority: pulumi_wasm_rust::Output<Option<i32>>,
+        pub custom_learned_route_priority: pulumi_gestalt_rust::Output<Option<i32>>,
         /// The status of the BGP peer connection. If set to false, any active session
         /// with the peer is terminated and all associated routing information is removed.
         /// If set to true, the peer connection can be established with routing information.
         /// The default is true.
-        pub enable: pulumi_wasm_rust::Output<Option<bool>>,
+        pub enable: pulumi_gestalt_rust::Output<Option<bool>>,
         /// Enable IPv4 traffic over BGP Peer. It is enabled by default if the peerIpAddress is version 4.
-        pub enable_ipv4: pulumi_wasm_rust::Output<bool>,
+        pub enable_ipv4: pulumi_gestalt_rust::Output<bool>,
         /// Enable IPv6 traffic over BGP Peer. If not specified, it is disabled by default.
-        pub enable_ipv6: pulumi_wasm_rust::Output<Option<bool>>,
+        pub enable_ipv6: pulumi_gestalt_rust::Output<Option<bool>>,
         /// routers.list of export policies applied to this peer, in the order they must be evaluated.
         /// The name must correspond to an existing policy that has ROUTE_POLICY_TYPE_EXPORT type.
-        pub export_policies: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub export_policies: pulumi_gestalt_rust::Output<Option<Vec<String>>>,
         /// routers.list of import policies applied to this peer, in the order they must be evaluated.
         /// The name must correspond to an existing policy that has ROUTE_POLICY_TYPE_IMPORT type.
-        pub import_policies: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub import_policies: pulumi_gestalt_rust::Output<Option<Vec<String>>>,
         /// Name of the interface the BGP peer is associated with.
-        pub interface: pulumi_wasm_rust::Output<String>,
+        pub interface: pulumi_gestalt_rust::Output<String>,
         /// IP address of the interface inside Google Cloud Platform.
         /// Only IPv4 is supported.
-        pub ip_address: pulumi_wasm_rust::Output<String>,
+        pub ip_address: pulumi_gestalt_rust::Output<String>,
         /// IPv4 address of the interface inside Google Cloud Platform.
-        pub ipv4_nexthop_address: pulumi_wasm_rust::Output<String>,
+        pub ipv4_nexthop_address: pulumi_gestalt_rust::Output<String>,
         /// IPv6 address of the interface inside Google Cloud Platform.
         /// The address must be in the range 2600:2d00:0:2::/64 or 2600:2d00:0:3::/64.
         /// If you do not specify the next hop addresses, Google Cloud automatically
         /// assigns unused addresses from the 2600:2d00:0:2::/64 or 2600:2d00:0:3::/64 range for you.
-        pub ipv6_nexthop_address: pulumi_wasm_rust::Output<String>,
+        pub ipv6_nexthop_address: pulumi_gestalt_rust::Output<String>,
         /// The resource that configures and manages this BGP peer.
         /// * `MANAGED_BY_USER` is the default value and can be managed by
         /// you or other users
@@ -644,10 +654,10 @@ pub mod router_peer {
         /// creates, updates, and deletes this type of BGP peer when the
         /// PARTNER InterconnectAttachment is created, updated,
         /// or deleted.
-        pub management_type: pulumi_wasm_rust::Output<String>,
+        pub management_type: pulumi_gestalt_rust::Output<String>,
         /// Configuration for MD5 authentication on the BGP session.
         /// Structure is documented below.
-        pub md5_authentication_key: pulumi_wasm_rust::Output<
+        pub md5_authentication_key: pulumi_gestalt_rust::Output<
             Option<super::super::types::compute::RouterPeerMd5AuthenticationKey>,
         >,
         /// Name of this BGP peer. The name must be 1-63 characters long,
@@ -656,47 +666,47 @@ pub mod router_peer {
         /// means the first character must be a lowercase letter, and all
         /// following characters must be a dash, lowercase letter, or digit,
         /// except the last character, which cannot be a dash.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// Peer BGP Autonomous System Number (ASN).
         /// Each BGP interface may use a different value.
-        pub peer_asn: pulumi_wasm_rust::Output<i32>,
+        pub peer_asn: pulumi_gestalt_rust::Output<i32>,
         /// IP address of the BGP interface outside Google Cloud Platform.
         /// Only IPv4 is supported. Required if `ip_address` is set.
-        pub peer_ip_address: pulumi_wasm_rust::Output<String>,
+        pub peer_ip_address: pulumi_gestalt_rust::Output<String>,
         /// IPv4 address of the BGP interface outside Google Cloud Platform.
-        pub peer_ipv4_nexthop_address: pulumi_wasm_rust::Output<String>,
+        pub peer_ipv4_nexthop_address: pulumi_gestalt_rust::Output<String>,
         /// IPv6 address of the BGP interface outside Google Cloud Platform.
         /// The address must be in the range 2600:2d00:0:2::/64 or 2600:2d00:0:3::/64.
         /// If you do not specify the next hop addresses, Google Cloud automatically
         /// assigns unused addresses from the 2600:2d00:0:2::/64 or 2600:2d00:0:3::/64 range for you.
-        pub peer_ipv6_nexthop_address: pulumi_wasm_rust::Output<String>,
+        pub peer_ipv6_nexthop_address: pulumi_gestalt_rust::Output<String>,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
-        pub project: pulumi_wasm_rust::Output<String>,
+        pub project: pulumi_gestalt_rust::Output<String>,
         /// Region where the router and BgpPeer reside.
         /// If it is not provided, the provider region is used.
-        pub region: pulumi_wasm_rust::Output<String>,
+        pub region: pulumi_gestalt_rust::Output<String>,
         /// The name of the Cloud Router in which this BgpPeer will be configured.
         ///
         ///
         /// - - -
-        pub router: pulumi_wasm_rust::Output<String>,
+        pub router: pulumi_gestalt_rust::Output<String>,
         /// The URI of the VM instance that is used as third-party router appliances
         /// such as Next Gen Firewalls, Virtual Routers, or Router Appliances.
         /// The VM instance must be located in zones contained in the same region as
         /// this Cloud Router. The VM instance is the peer side of the BGP session.
-        pub router_appliance_instance: pulumi_wasm_rust::Output<Option<String>>,
+        pub router_appliance_instance: pulumi_gestalt_rust::Output<Option<String>>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: RouterPeerArgs,
     ) -> RouterPeerResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let advertise_mode_binding = args.advertise_mode.get_output(context).get_inner();
         let advertised_groups_binding = args
@@ -879,75 +889,81 @@ pub mod router_peer {
         };
         let o = register_interface::register(context.get_inner(), &request);
         RouterPeerResult {
-            advertise_mode: pulumi_wasm_rust::__private::into_domain(
+            advertise_mode: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("advertiseMode"),
             ),
-            advertised_groups: pulumi_wasm_rust::__private::into_domain(
+            advertised_groups: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("advertisedGroups"),
             ),
-            advertised_ip_ranges: pulumi_wasm_rust::__private::into_domain(
+            advertised_ip_ranges: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("advertisedIpRanges"),
             ),
-            advertised_route_priority: pulumi_wasm_rust::__private::into_domain(
+            advertised_route_priority: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("advertisedRoutePriority"),
             ),
-            bfd: pulumi_wasm_rust::__private::into_domain(o.extract_field("bfd")),
-            custom_learned_ip_ranges: pulumi_wasm_rust::__private::into_domain(
+            bfd: pulumi_gestalt_rust::__private::into_domain(o.extract_field("bfd")),
+            custom_learned_ip_ranges: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("customLearnedIpRanges"),
             ),
-            custom_learned_route_priority: pulumi_wasm_rust::__private::into_domain(
+            custom_learned_route_priority: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("customLearnedRoutePriority"),
             ),
-            enable: pulumi_wasm_rust::__private::into_domain(o.extract_field("enable")),
-            enable_ipv4: pulumi_wasm_rust::__private::into_domain(
+            enable: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("enable"),
+            ),
+            enable_ipv4: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("enableIpv4"),
             ),
-            enable_ipv6: pulumi_wasm_rust::__private::into_domain(
+            enable_ipv6: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("enableIpv6"),
             ),
-            export_policies: pulumi_wasm_rust::__private::into_domain(
+            export_policies: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("exportPolicies"),
             ),
-            import_policies: pulumi_wasm_rust::__private::into_domain(
+            import_policies: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("importPolicies"),
             ),
-            interface: pulumi_wasm_rust::__private::into_domain(
+            interface: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("interface"),
             ),
-            ip_address: pulumi_wasm_rust::__private::into_domain(
+            ip_address: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("ipAddress"),
             ),
-            ipv4_nexthop_address: pulumi_wasm_rust::__private::into_domain(
+            ipv4_nexthop_address: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("ipv4NexthopAddress"),
             ),
-            ipv6_nexthop_address: pulumi_wasm_rust::__private::into_domain(
+            ipv6_nexthop_address: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("ipv6NexthopAddress"),
             ),
-            management_type: pulumi_wasm_rust::__private::into_domain(
+            management_type: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("managementType"),
             ),
-            md5_authentication_key: pulumi_wasm_rust::__private::into_domain(
+            md5_authentication_key: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("md5AuthenticationKey"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            peer_asn: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            peer_asn: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("peerAsn"),
             ),
-            peer_ip_address: pulumi_wasm_rust::__private::into_domain(
+            peer_ip_address: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("peerIpAddress"),
             ),
-            peer_ipv4_nexthop_address: pulumi_wasm_rust::__private::into_domain(
+            peer_ipv4_nexthop_address: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("peerIpv4NexthopAddress"),
             ),
-            peer_ipv6_nexthop_address: pulumi_wasm_rust::__private::into_domain(
+            peer_ipv6_nexthop_address: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("peerIpv6NexthopAddress"),
             ),
-            project: pulumi_wasm_rust::__private::into_domain(
+            project: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("project"),
             ),
-            region: pulumi_wasm_rust::__private::into_domain(o.extract_field("region")),
-            router: pulumi_wasm_rust::__private::into_domain(o.extract_field("router")),
-            router_appliance_instance: pulumi_wasm_rust::__private::into_domain(
+            region: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("region"),
+            ),
+            router: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("router"),
+            ),
+            router_appliance_instance: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("routerApplianceInstance"),
             ),
         }

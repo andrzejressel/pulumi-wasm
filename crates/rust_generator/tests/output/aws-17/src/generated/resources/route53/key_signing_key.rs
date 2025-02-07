@@ -78,68 +78,68 @@
 /// $ pulumi import aws:route53/keySigningKey:KeySigningKey example Z1D633PJN98FT9,example
 /// ```
 pub mod key_signing_key {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct KeySigningKeyArgs {
         /// Identifier of the Route 53 Hosted Zone.
         #[builder(into)]
-        pub hosted_zone_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub hosted_zone_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Amazon Resource Name (ARN) of the Key Management Service (KMS) Key. This must be unique for each key-signing key (KSK) in a single hosted zone. This key must be in the `us-east-1` Region and meet certain requirements, which are described in the [Route 53 Developer Guide](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-configuring-dnssec-cmk-requirements.html) and [Route 53 API Reference](https://docs.aws.amazon.com/Route53/latest/APIReference/API_CreateKeySigningKey.html).
         #[builder(into)]
-        pub key_management_service_arn: pulumi_wasm_rust::InputOrOutput<String>,
+        pub key_management_service_arn: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Name of the key-signing key (KSK). Must be unique for each key-singing key in the same hosted zone.
         ///
         /// The following arguments are optional:
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Status of the key-signing key (KSK). Valid values: `ACTIVE`, `INACTIVE`. Defaults to `ACTIVE`.
         #[builder(into, default)]
-        pub status: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub status: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct KeySigningKeyResult {
         /// A string used to represent the delegation signer digest algorithm. This value must follow the guidelines provided by [RFC-8624 Section 3.3](https://tools.ietf.org/html/rfc8624#section-3.3).
-        pub digest_algorithm_mnemonic: pulumi_wasm_rust::Output<String>,
+        pub digest_algorithm_mnemonic: pulumi_gestalt_rust::Output<String>,
         /// An integer used to represent the delegation signer digest algorithm. This value must follow the guidelines provided by [RFC-8624 Section 3.3](https://tools.ietf.org/html/rfc8624#section-3.3).
-        pub digest_algorithm_type: pulumi_wasm_rust::Output<i32>,
+        pub digest_algorithm_type: pulumi_gestalt_rust::Output<i32>,
         /// A cryptographic digest of a DNSKEY resource record (RR). DNSKEY records are used to publish the public key that resolvers can use to verify DNSSEC signatures that are used to secure certain kinds of information provided by the DNS system.
-        pub digest_value: pulumi_wasm_rust::Output<String>,
+        pub digest_value: pulumi_gestalt_rust::Output<String>,
         /// A string that represents a DNSKEY record.
-        pub dnskey_record: pulumi_wasm_rust::Output<String>,
+        pub dnskey_record: pulumi_gestalt_rust::Output<String>,
         /// A string that represents a delegation signer (DS) record.
-        pub ds_record: pulumi_wasm_rust::Output<String>,
+        pub ds_record: pulumi_gestalt_rust::Output<String>,
         /// An integer that specifies how the key is used. For key-signing key (KSK), this value is always 257.
-        pub flag: pulumi_wasm_rust::Output<i32>,
+        pub flag: pulumi_gestalt_rust::Output<i32>,
         /// Identifier of the Route 53 Hosted Zone.
-        pub hosted_zone_id: pulumi_wasm_rust::Output<String>,
+        pub hosted_zone_id: pulumi_gestalt_rust::Output<String>,
         /// Amazon Resource Name (ARN) of the Key Management Service (KMS) Key. This must be unique for each key-signing key (KSK) in a single hosted zone. This key must be in the `us-east-1` Region and meet certain requirements, which are described in the [Route 53 Developer Guide](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-configuring-dnssec-cmk-requirements.html) and [Route 53 API Reference](https://docs.aws.amazon.com/Route53/latest/APIReference/API_CreateKeySigningKey.html).
-        pub key_management_service_arn: pulumi_wasm_rust::Output<String>,
+        pub key_management_service_arn: pulumi_gestalt_rust::Output<String>,
         /// An integer used to identify the DNSSEC record for the domain name. The process used to calculate the value is described in [RFC-4034 Appendix B](https://tools.ietf.org/rfc/rfc4034.txt).
-        pub key_tag: pulumi_wasm_rust::Output<i32>,
+        pub key_tag: pulumi_gestalt_rust::Output<i32>,
         /// Name of the key-signing key (KSK). Must be unique for each key-singing key in the same hosted zone.
         ///
         /// The following arguments are optional:
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// The public key, represented as a Base64 encoding, as required by [RFC-4034 Page 5](https://tools.ietf.org/rfc/rfc4034.txt).
-        pub public_key: pulumi_wasm_rust::Output<String>,
+        pub public_key: pulumi_gestalt_rust::Output<String>,
         /// A string used to represent the signing algorithm. This value must follow the guidelines provided by [RFC-8624 Section 3.1](https://tools.ietf.org/html/rfc8624#section-3.1).
-        pub signing_algorithm_mnemonic: pulumi_wasm_rust::Output<String>,
+        pub signing_algorithm_mnemonic: pulumi_gestalt_rust::Output<String>,
         /// An integer used to represent the signing algorithm. This value must follow the guidelines provided by [RFC-8624 Section 3.1](https://tools.ietf.org/html/rfc8624#section-3.1).
-        pub signing_algorithm_type: pulumi_wasm_rust::Output<i32>,
+        pub signing_algorithm_type: pulumi_gestalt_rust::Output<i32>,
         /// Status of the key-signing key (KSK). Valid values: `ACTIVE`, `INACTIVE`. Defaults to `ACTIVE`.
-        pub status: pulumi_wasm_rust::Output<Option<String>>,
+        pub status: pulumi_gestalt_rust::Output<Option<String>>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: KeySigningKeyArgs,
     ) -> KeySigningKeyResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let hosted_zone_id_binding = args.hosted_zone_id.get_output(context).get_inner();
         let key_management_service_arn_binding = args
@@ -173,40 +173,44 @@ pub mod key_signing_key {
         };
         let o = register_interface::register(context.get_inner(), &request);
         KeySigningKeyResult {
-            digest_algorithm_mnemonic: pulumi_wasm_rust::__private::into_domain(
+            digest_algorithm_mnemonic: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("digestAlgorithmMnemonic"),
             ),
-            digest_algorithm_type: pulumi_wasm_rust::__private::into_domain(
+            digest_algorithm_type: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("digestAlgorithmType"),
             ),
-            digest_value: pulumi_wasm_rust::__private::into_domain(
+            digest_value: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("digestValue"),
             ),
-            dnskey_record: pulumi_wasm_rust::__private::into_domain(
+            dnskey_record: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("dnskeyRecord"),
             ),
-            ds_record: pulumi_wasm_rust::__private::into_domain(
+            ds_record: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("dsRecord"),
             ),
-            flag: pulumi_wasm_rust::__private::into_domain(o.extract_field("flag")),
-            hosted_zone_id: pulumi_wasm_rust::__private::into_domain(
+            flag: pulumi_gestalt_rust::__private::into_domain(o.extract_field("flag")),
+            hosted_zone_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("hostedZoneId"),
             ),
-            key_management_service_arn: pulumi_wasm_rust::__private::into_domain(
+            key_management_service_arn: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("keyManagementServiceArn"),
             ),
-            key_tag: pulumi_wasm_rust::__private::into_domain(o.extract_field("keyTag")),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            public_key: pulumi_wasm_rust::__private::into_domain(
+            key_tag: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("keyTag"),
+            ),
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            public_key: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("publicKey"),
             ),
-            signing_algorithm_mnemonic: pulumi_wasm_rust::__private::into_domain(
+            signing_algorithm_mnemonic: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("signingAlgorithmMnemonic"),
             ),
-            signing_algorithm_type: pulumi_wasm_rust::__private::into_domain(
+            signing_algorithm_type: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("signingAlgorithmType"),
             ),
-            status: pulumi_wasm_rust::__private::into_domain(o.extract_field("status")),
+            status: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("status"),
+            ),
         }
     }
 }

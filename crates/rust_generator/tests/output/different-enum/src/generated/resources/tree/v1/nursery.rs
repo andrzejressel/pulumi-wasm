@@ -1,11 +1,11 @@
 pub mod nursery {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct NurseryArgs {
         /// The sizes of trees available
         #[builder(into, default)]
-        pub sizes: pulumi_wasm_rust::InputOrOutput<
+        pub sizes: pulumi_gestalt_rust::InputOrOutput<
             Option<
                 std::collections::HashMap<
                     String,
@@ -15,7 +15,7 @@ pub mod nursery {
         >,
         /// The varieties available
         #[builder(into)]
-        pub varieties: pulumi_wasm_rust::InputOrOutput<
+        pub varieties: pulumi_gestalt_rust::InputOrOutput<
             Vec<super::super::super::types::tree::v1::RubberTreeVariety>,
         >,
     }
@@ -24,11 +24,11 @@ pub mod nursery {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: NurseryArgs,
     ) {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let sizes_binding = args.sizes.get_output(context).get_inner();
         let varieties_binding = args.varieties.get_output(context).get_inner();

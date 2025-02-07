@@ -3,8 +3,8 @@
 /// ## Example Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = resource_group::create(
@@ -43,48 +43,48 @@
 /// ```
 ///
 pub mod vm_ware_replication_policy {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct VMWareReplicationPolicyArgs {
         /// Specifies the frequency at which to create application consistent recovery points. Must between `0` to `720`.
         #[builder(into)]
-        pub application_consistent_snapshot_frequency_in_minutes: pulumi_wasm_rust::InputOrOutput<
+        pub application_consistent_snapshot_frequency_in_minutes: pulumi_gestalt_rust::InputOrOutput<
             i32,
         >,
         /// The name which should be used for this Classic Replication Policy. Changing this forces a new Replication Policy to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Specifies the period up to which the recovery points will be retained. Must between `0` to `21600`.
         #[builder(into)]
-        pub recovery_point_retention_in_minutes: pulumi_wasm_rust::InputOrOutput<i32>,
+        pub recovery_point_retention_in_minutes: pulumi_gestalt_rust::InputOrOutput<i32>,
         /// ID of the Recovery Services Vault. Changing this forces a new Replication Policy to be created.
         #[builder(into)]
-        pub recovery_vault_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub recovery_vault_id: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct VMWareReplicationPolicyResult {
         /// Specifies the frequency at which to create application consistent recovery points. Must between `0` to `720`.
-        pub application_consistent_snapshot_frequency_in_minutes: pulumi_wasm_rust::Output<
+        pub application_consistent_snapshot_frequency_in_minutes: pulumi_gestalt_rust::Output<
             i32,
         >,
         /// The name which should be used for this Classic Replication Policy. Changing this forces a new Replication Policy to be created.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// Specifies the period up to which the recovery points will be retained. Must between `0` to `21600`.
-        pub recovery_point_retention_in_minutes: pulumi_wasm_rust::Output<i32>,
+        pub recovery_point_retention_in_minutes: pulumi_gestalt_rust::Output<i32>,
         /// ID of the Recovery Services Vault. Changing this forces a new Replication Policy to be created.
-        pub recovery_vault_id: pulumi_wasm_rust::Output<String>,
+        pub recovery_vault_id: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: VMWareReplicationPolicyArgs,
     ) -> VMWareReplicationPolicyResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let application_consistent_snapshot_frequency_in_minutes_binding = args
             .application_consistent_snapshot_frequency_in_minutes
@@ -125,14 +125,14 @@ pub mod vm_ware_replication_policy {
         };
         let o = register_interface::register(context.get_inner(), &request);
         VMWareReplicationPolicyResult {
-            application_consistent_snapshot_frequency_in_minutes: pulumi_wasm_rust::__private::into_domain(
+            application_consistent_snapshot_frequency_in_minutes: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("applicationConsistentSnapshotFrequencyInMinutes"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            recovery_point_retention_in_minutes: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            recovery_point_retention_in_minutes: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("recoveryPointRetentionInMinutes"),
             ),
-            recovery_vault_id: pulumi_wasm_rust::__private::into_domain(
+            recovery_vault_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("recoveryVaultId"),
             ),
         }

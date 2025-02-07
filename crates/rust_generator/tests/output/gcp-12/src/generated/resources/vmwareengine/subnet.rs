@@ -56,79 +56,79 @@
 /// ```
 ///
 pub mod subnet {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct SubnetArgs {
         /// The IP address range of the subnet in CIDR format.
         #[builder(into)]
-        pub ip_cidr_range: pulumi_wasm_rust::InputOrOutput<String>,
+        pub ip_cidr_range: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The ID of the subnet. For userDefined subnets, this name should be in the format of "service-n",
         /// where n ranges from 1 to 5.
         ///
         ///
         /// - - -
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The resource name of the private cloud to create a new subnet in.
         /// Resource names are schemeless URIs that follow the conventions in https://cloud.google.com/apis/design/resource_names.
         /// For example: projects/my-project/locations/us-west1-a/privateClouds/my-cloud
         #[builder(into)]
-        pub parent: pulumi_wasm_rust::InputOrOutput<String>,
+        pub parent: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct SubnetResult {
         /// Creation time of this resource.
         /// A timestamp in RFC3339 UTC "Zulu" format, with nanosecond resolution and
         /// up to nine fractional digits. Examples: "2014-10-02T15:01:23Z" and "2014-10-02T15:01:23.045123456Z".
-        pub create_time: pulumi_wasm_rust::Output<String>,
+        pub create_time: pulumi_gestalt_rust::Output<String>,
         /// DHCP address ranges.
         /// Structure is documented below.
-        pub dhcp_address_ranges: pulumi_wasm_rust::Output<
+        pub dhcp_address_ranges: pulumi_gestalt_rust::Output<
             Vec<super::super::types::vmwareengine::SubnetDhcpAddressRange>,
         >,
         /// The canonical identifier of the logical router that this subnet is attached to.
-        pub gateway_id: pulumi_wasm_rust::Output<String>,
+        pub gateway_id: pulumi_gestalt_rust::Output<String>,
         /// The IP address of the gateway of this subnet. Must fall within the IP prefix defined above.
-        pub gateway_ip: pulumi_wasm_rust::Output<String>,
+        pub gateway_ip: pulumi_gestalt_rust::Output<String>,
         /// The IP address range of the subnet in CIDR format.
-        pub ip_cidr_range: pulumi_wasm_rust::Output<String>,
+        pub ip_cidr_range: pulumi_gestalt_rust::Output<String>,
         /// The ID of the subnet. For userDefined subnets, this name should be in the format of "service-n",
         /// where n ranges from 1 to 5.
         ///
         ///
         /// - - -
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// The resource name of the private cloud to create a new subnet in.
         /// Resource names are schemeless URIs that follow the conventions in https://cloud.google.com/apis/design/resource_names.
         /// For example: projects/my-project/locations/us-west1-a/privateClouds/my-cloud
-        pub parent: pulumi_wasm_rust::Output<String>,
+        pub parent: pulumi_gestalt_rust::Output<String>,
         /// Whether the NSX-T configuration in the backend follows the standard configuration supported by Google Cloud.
         /// If false, the subnet cannot be modified through Google Cloud, only through NSX-T directly.
-        pub standard_config: pulumi_wasm_rust::Output<bool>,
+        pub standard_config: pulumi_gestalt_rust::Output<bool>,
         /// State of the subnet.
-        pub state: pulumi_wasm_rust::Output<String>,
+        pub state: pulumi_gestalt_rust::Output<String>,
         /// The type of the subnet.
-        pub type_: pulumi_wasm_rust::Output<String>,
+        pub type_: pulumi_gestalt_rust::Output<String>,
         /// System-generated unique identifier for the resource.
-        pub uid: pulumi_wasm_rust::Output<String>,
+        pub uid: pulumi_gestalt_rust::Output<String>,
         /// Last updated time of this resource.
         /// A timestamp in RFC3339 UTC "Zulu" format, with nanosecond resolution and up to nine
         /// fractional digits. Examples: "2014-10-02T15:01:23Z" and "2014-10-02T15:01:23.045123456Z".
-        pub update_time: pulumi_wasm_rust::Output<String>,
+        pub update_time: pulumi_gestalt_rust::Output<String>,
         /// VLAN ID of the VLAN on which the subnet is configured.
-        pub vlan_id: pulumi_wasm_rust::Output<i32>,
+        pub vlan_id: pulumi_gestalt_rust::Output<i32>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: SubnetArgs,
     ) -> SubnetResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let ip_cidr_range_binding = args.ip_cidr_range.get_output(context).get_inner();
         let name_binding = args.name.get_output(context).get_inner();
@@ -154,33 +154,37 @@ pub mod subnet {
         };
         let o = register_interface::register(context.get_inner(), &request);
         SubnetResult {
-            create_time: pulumi_wasm_rust::__private::into_domain(
+            create_time: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("createTime"),
             ),
-            dhcp_address_ranges: pulumi_wasm_rust::__private::into_domain(
+            dhcp_address_ranges: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("dhcpAddressRanges"),
             ),
-            gateway_id: pulumi_wasm_rust::__private::into_domain(
+            gateway_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("gatewayId"),
             ),
-            gateway_ip: pulumi_wasm_rust::__private::into_domain(
+            gateway_ip: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("gatewayIp"),
             ),
-            ip_cidr_range: pulumi_wasm_rust::__private::into_domain(
+            ip_cidr_range: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("ipCidrRange"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            parent: pulumi_wasm_rust::__private::into_domain(o.extract_field("parent")),
-            standard_config: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            parent: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("parent"),
+            ),
+            standard_config: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("standardConfig"),
             ),
-            state: pulumi_wasm_rust::__private::into_domain(o.extract_field("state")),
-            type_: pulumi_wasm_rust::__private::into_domain(o.extract_field("type")),
-            uid: pulumi_wasm_rust::__private::into_domain(o.extract_field("uid")),
-            update_time: pulumi_wasm_rust::__private::into_domain(
+            state: pulumi_gestalt_rust::__private::into_domain(o.extract_field("state")),
+            type_: pulumi_gestalt_rust::__private::into_domain(o.extract_field("type")),
+            uid: pulumi_gestalt_rust::__private::into_domain(o.extract_field("uid")),
+            update_time: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("updateTime"),
             ),
-            vlan_id: pulumi_wasm_rust::__private::into_domain(o.extract_field("vlanId")),
+            vlan_id: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("vlanId"),
+            ),
         }
     }
 }

@@ -1,5 +1,5 @@
 pub mod get_service {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct GetServiceArgs {
@@ -7,33 +7,33 @@ pub mod get_service {
         ///
         /// - - -
         #[builder(into)]
-        pub location: pulumi_wasm_rust::InputOrOutput<String>,
+        pub location: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The name of the Cloud Run Service.
         #[builder(into)]
-        pub name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The project in which the resource belongs. If it
         /// is not provided, the provider project is used.
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub project: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct GetServiceResult {
-        pub autogenerate_revision_name: pulumi_wasm_rust::Output<bool>,
+        pub autogenerate_revision_name: pulumi_gestalt_rust::Output<bool>,
         /// The provider-assigned unique ID for this managed resource.
-        pub id: pulumi_wasm_rust::Output<String>,
-        pub location: pulumi_wasm_rust::Output<String>,
-        pub metadatas: pulumi_wasm_rust::Output<
+        pub id: pulumi_gestalt_rust::Output<String>,
+        pub location: pulumi_gestalt_rust::Output<String>,
+        pub metadatas: pulumi_gestalt_rust::Output<
             Vec<super::super::super::types::cloudrun::GetServiceMetadata>,
         >,
-        pub name: pulumi_wasm_rust::Output<String>,
-        pub project: pulumi_wasm_rust::Output<Option<String>>,
-        pub statuses: pulumi_wasm_rust::Output<
+        pub name: pulumi_gestalt_rust::Output<String>,
+        pub project: pulumi_gestalt_rust::Output<Option<String>>,
+        pub statuses: pulumi_gestalt_rust::Output<
             Vec<super::super::super::types::cloudrun::GetServiceStatus>,
         >,
-        pub templates: pulumi_wasm_rust::Output<
+        pub templates: pulumi_gestalt_rust::Output<
             Vec<super::super::super::types::cloudrun::GetServiceTemplate>,
         >,
-        pub traffics: pulumi_wasm_rust::Output<
+        pub traffics: pulumi_gestalt_rust::Output<
             Vec<super::super::super::types::cloudrun::GetServiceTraffic>,
         >,
     }
@@ -42,10 +42,10 @@ pub mod get_service {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         args: GetServiceArgs,
     ) -> GetServiceResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let location_binding = args.location.get_output(context).get_inner();
         let name_binding = args.name.get_output(context).get_inner();
@@ -70,27 +70,27 @@ pub mod get_service {
         };
         let o = register_interface::invoke(context.get_inner(), &request);
         GetServiceResult {
-            autogenerate_revision_name: pulumi_wasm_rust::__private::into_domain(
+            autogenerate_revision_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("autogenerateRevisionName"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
-            location: pulumi_wasm_rust::__private::into_domain(
+            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
+            location: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("location"),
             ),
-            metadatas: pulumi_wasm_rust::__private::into_domain(
+            metadatas: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("metadatas"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            project: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            project: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("project"),
             ),
-            statuses: pulumi_wasm_rust::__private::into_domain(
+            statuses: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("statuses"),
             ),
-            templates: pulumi_wasm_rust::__private::into_domain(
+            templates: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("templates"),
             ),
-            traffics: pulumi_wasm_rust::__private::into_domain(
+            traffics: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("traffics"),
             ),
         }

@@ -3,8 +3,8 @@
 /// ## Example Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let bar = cluster::create(
@@ -27,142 +27,146 @@
 /// $ pulumi import aws:dax/cluster:Cluster my_cluster my_cluster
 /// ```
 pub mod cluster {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ClusterArgs {
         /// List of Availability Zones in which the
         /// nodes will be created
         #[builder(into, default)]
-        pub availability_zones: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
+        pub availability_zones: pulumi_gestalt_rust::InputOrOutput<Option<Vec<String>>>,
         /// The type of encryption the
         /// cluster's endpoint should support. Valid values are: `NONE` and `TLS`.
         /// Default value is `NONE`.
         #[builder(into, default)]
-        pub cluster_endpoint_encryption_type: pulumi_wasm_rust::InputOrOutput<
+        pub cluster_endpoint_encryption_type: pulumi_gestalt_rust::InputOrOutput<
             Option<String>,
         >,
         /// Group identifier. DAX converts this name to
         /// lowercase
         #[builder(into)]
-        pub cluster_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub cluster_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Description for the cluster
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub description: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// A valid Amazon Resource Name (ARN) that identifies
         /// an IAM role. At runtime, DAX will assume this role and use the role's
         /// permissions to access DynamoDB on your behalf
         #[builder(into)]
-        pub iam_role_arn: pulumi_wasm_rust::InputOrOutput<String>,
+        pub iam_role_arn: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Specifies the weekly time range for when
         /// maintenance on the cluster is performed. The format is `ddd:hh24:mi-ddd:hh24:mi`
         /// (24H Clock UTC). The minimum maintenance window is a 60 minute period. Example:
         /// `sun:05:00-sun:09:00`
         #[builder(into, default)]
-        pub maintenance_window: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub maintenance_window: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The compute and memory capacity of the nodes. See
         /// [Nodes](http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/DAX.concepts.cluster.html#DAX.concepts.nodes) for supported node types
         #[builder(into)]
-        pub node_type: pulumi_wasm_rust::InputOrOutput<String>,
+        pub node_type: pulumi_gestalt_rust::InputOrOutput<String>,
         /// An Amazon Resource Name (ARN) of an
         /// SNS topic to send DAX notifications to. Example:
         /// `arn:aws:sns:us-east-1:012345678999:my_sns_topic`
         #[builder(into, default)]
-        pub notification_topic_arn: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub notification_topic_arn: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Name of the parameter group to associate
         /// with this DAX cluster
         #[builder(into, default)]
-        pub parameter_group_name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub parameter_group_name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The number of nodes in the DAX cluster. A
         /// replication factor of 1 will create a single-node cluster, without any read
         /// replicas
         #[builder(into)]
-        pub replication_factor: pulumi_wasm_rust::InputOrOutput<i32>,
+        pub replication_factor: pulumi_gestalt_rust::InputOrOutput<i32>,
         /// One or more VPC security groups associated
         /// with the cluster
         #[builder(into, default)]
-        pub security_group_ids: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
+        pub security_group_ids: pulumi_gestalt_rust::InputOrOutput<Option<Vec<String>>>,
         /// Encrypt at rest options
         #[builder(into, default)]
-        pub server_side_encryption: pulumi_wasm_rust::InputOrOutput<
+        pub server_side_encryption: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::dax::ClusterServerSideEncryption>,
         >,
         /// Name of the subnet group to be used for the
         /// cluster
         #[builder(into, default)]
-        pub subnet_group_name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub subnet_group_name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
     #[allow(dead_code)]
     pub struct ClusterResult {
         /// The ARN of the DAX cluster
-        pub arn: pulumi_wasm_rust::Output<String>,
+        pub arn: pulumi_gestalt_rust::Output<String>,
         /// List of Availability Zones in which the
         /// nodes will be created
-        pub availability_zones: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub availability_zones: pulumi_gestalt_rust::Output<Option<Vec<String>>>,
         /// The DNS name of the DAX cluster without the port appended
-        pub cluster_address: pulumi_wasm_rust::Output<String>,
+        pub cluster_address: pulumi_gestalt_rust::Output<String>,
         /// The type of encryption the
         /// cluster's endpoint should support. Valid values are: `NONE` and `TLS`.
         /// Default value is `NONE`.
-        pub cluster_endpoint_encryption_type: pulumi_wasm_rust::Output<Option<String>>,
+        pub cluster_endpoint_encryption_type: pulumi_gestalt_rust::Output<
+            Option<String>,
+        >,
         /// Group identifier. DAX converts this name to
         /// lowercase
-        pub cluster_name: pulumi_wasm_rust::Output<String>,
+        pub cluster_name: pulumi_gestalt_rust::Output<String>,
         /// The configuration endpoint for this DAX cluster,
         /// consisting of a DNS name and a port number
-        pub configuration_endpoint: pulumi_wasm_rust::Output<String>,
+        pub configuration_endpoint: pulumi_gestalt_rust::Output<String>,
         /// Description for the cluster
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_gestalt_rust::Output<Option<String>>,
         /// A valid Amazon Resource Name (ARN) that identifies
         /// an IAM role. At runtime, DAX will assume this role and use the role's
         /// permissions to access DynamoDB on your behalf
-        pub iam_role_arn: pulumi_wasm_rust::Output<String>,
+        pub iam_role_arn: pulumi_gestalt_rust::Output<String>,
         /// Specifies the weekly time range for when
         /// maintenance on the cluster is performed. The format is `ddd:hh24:mi-ddd:hh24:mi`
         /// (24H Clock UTC). The minimum maintenance window is a 60 minute period. Example:
         /// `sun:05:00-sun:09:00`
-        pub maintenance_window: pulumi_wasm_rust::Output<String>,
+        pub maintenance_window: pulumi_gestalt_rust::Output<String>,
         /// The compute and memory capacity of the nodes. See
         /// [Nodes](http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/DAX.concepts.cluster.html#DAX.concepts.nodes) for supported node types
-        pub node_type: pulumi_wasm_rust::Output<String>,
+        pub node_type: pulumi_gestalt_rust::Output<String>,
         /// List of node objects including `id`, `address`, `port` and
         /// `availability_zone`. Referenceable e.g., as
         /// `${aws_dax_cluster.test.nodes.0.address}`
-        pub nodes: pulumi_wasm_rust::Output<Vec<super::super::types::dax::ClusterNode>>,
+        pub nodes: pulumi_gestalt_rust::Output<
+            Vec<super::super::types::dax::ClusterNode>,
+        >,
         /// An Amazon Resource Name (ARN) of an
         /// SNS topic to send DAX notifications to. Example:
         /// `arn:aws:sns:us-east-1:012345678999:my_sns_topic`
-        pub notification_topic_arn: pulumi_wasm_rust::Output<Option<String>>,
+        pub notification_topic_arn: pulumi_gestalt_rust::Output<Option<String>>,
         /// Name of the parameter group to associate
         /// with this DAX cluster
-        pub parameter_group_name: pulumi_wasm_rust::Output<String>,
+        pub parameter_group_name: pulumi_gestalt_rust::Output<String>,
         /// The port used by the configuration endpoint
-        pub port: pulumi_wasm_rust::Output<i32>,
+        pub port: pulumi_gestalt_rust::Output<i32>,
         /// The number of nodes in the DAX cluster. A
         /// replication factor of 1 will create a single-node cluster, without any read
         /// replicas
-        pub replication_factor: pulumi_wasm_rust::Output<i32>,
+        pub replication_factor: pulumi_gestalt_rust::Output<i32>,
         /// One or more VPC security groups associated
         /// with the cluster
-        pub security_group_ids: pulumi_wasm_rust::Output<Vec<String>>,
+        pub security_group_ids: pulumi_gestalt_rust::Output<Vec<String>>,
         /// Encrypt at rest options
-        pub server_side_encryption: pulumi_wasm_rust::Output<
+        pub server_side_encryption: pulumi_gestalt_rust::Output<
             Option<super::super::types::dax::ClusterServerSideEncryption>,
         >,
         /// Name of the subnet group to be used for the
         /// cluster
-        pub subnet_group_name: pulumi_wasm_rust::Output<String>,
+        pub subnet_group_name: pulumi_gestalt_rust::Output<String>,
         /// A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        pub tags_all: pulumi_wasm_rust::Output<
+        pub tags_all: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
     }
@@ -171,11 +175,11 @@ pub mod cluster {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: ClusterArgs,
     ) -> ClusterResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let availability_zones_binding = args
             .availability_zones
@@ -283,56 +287,56 @@ pub mod cluster {
         };
         let o = register_interface::register(context.get_inner(), &request);
         ClusterResult {
-            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
-            availability_zones: pulumi_wasm_rust::__private::into_domain(
+            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
+            availability_zones: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("availabilityZones"),
             ),
-            cluster_address: pulumi_wasm_rust::__private::into_domain(
+            cluster_address: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("clusterAddress"),
             ),
-            cluster_endpoint_encryption_type: pulumi_wasm_rust::__private::into_domain(
+            cluster_endpoint_encryption_type: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("clusterEndpointEncryptionType"),
             ),
-            cluster_name: pulumi_wasm_rust::__private::into_domain(
+            cluster_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("clusterName"),
             ),
-            configuration_endpoint: pulumi_wasm_rust::__private::into_domain(
+            configuration_endpoint: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("configurationEndpoint"),
             ),
-            description: pulumi_wasm_rust::__private::into_domain(
+            description: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("description"),
             ),
-            iam_role_arn: pulumi_wasm_rust::__private::into_domain(
+            iam_role_arn: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("iamRoleArn"),
             ),
-            maintenance_window: pulumi_wasm_rust::__private::into_domain(
+            maintenance_window: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("maintenanceWindow"),
             ),
-            node_type: pulumi_wasm_rust::__private::into_domain(
+            node_type: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("nodeType"),
             ),
-            nodes: pulumi_wasm_rust::__private::into_domain(o.extract_field("nodes")),
-            notification_topic_arn: pulumi_wasm_rust::__private::into_domain(
+            nodes: pulumi_gestalt_rust::__private::into_domain(o.extract_field("nodes")),
+            notification_topic_arn: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("notificationTopicArn"),
             ),
-            parameter_group_name: pulumi_wasm_rust::__private::into_domain(
+            parameter_group_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("parameterGroupName"),
             ),
-            port: pulumi_wasm_rust::__private::into_domain(o.extract_field("port")),
-            replication_factor: pulumi_wasm_rust::__private::into_domain(
+            port: pulumi_gestalt_rust::__private::into_domain(o.extract_field("port")),
+            replication_factor: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("replicationFactor"),
             ),
-            security_group_ids: pulumi_wasm_rust::__private::into_domain(
+            security_group_ids: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("securityGroupIds"),
             ),
-            server_side_encryption: pulumi_wasm_rust::__private::into_domain(
+            server_side_encryption: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("serverSideEncryption"),
             ),
-            subnet_group_name: pulumi_wasm_rust::__private::into_domain(
+            subnet_group_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("subnetGroupName"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_wasm_rust::__private::into_domain(
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            tags_all: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("tagsAll"),
             ),
         }

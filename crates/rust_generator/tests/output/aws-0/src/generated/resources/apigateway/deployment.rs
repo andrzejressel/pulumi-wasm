@@ -22,7 +22,7 @@
 /// The `triggers` argument cannot be imported.
 ///
 pub mod deployment {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct DeploymentArgs {
@@ -30,32 +30,32 @@ pub mod deployment {
         /// See `canary_settings below.
         /// Has no effect when `stage_name` is not set.
         #[builder(into, default)]
-        pub canary_settings: pulumi_wasm_rust::InputOrOutput<
+        pub canary_settings: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::apigateway::DeploymentCanarySettings>,
         >,
         /// Description of the deployment
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub description: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// REST API identifier.
         #[builder(into)]
-        pub rest_api: pulumi_wasm_rust::InputOrOutput<String>,
+        pub rest_api: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Description to set on the stage managed by the `stage_name` argument.
         /// Has no effect when `stage_name` is not set.
         #[builder(into, default)]
-        pub stage_description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub stage_description: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Name of the stage to create with this deployment.
         /// If the specified stage already exists, it will be updated to point to the new deployment.
         /// We recommend using the `aws.apigateway.Stage` resource instead to manage stages.
         #[builder(into, default)]
-        pub stage_name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub stage_name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Map of arbitrary keys and values that, when changed, will trigger a redeployment.
         #[builder(into, default)]
-        pub triggers: pulumi_wasm_rust::InputOrOutput<
+        pub triggers: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Map to set on the stage managed by the `stage_name` argument.
         #[builder(into, default)]
-        pub variables: pulumi_wasm_rust::InputOrOutput<
+        pub variables: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
@@ -64,35 +64,35 @@ pub mod deployment {
         /// Input configuration for the canary deployment when the deployment is a canary release deployment.
         /// See `canary_settings below.
         /// Has no effect when `stage_name` is not set.
-        pub canary_settings: pulumi_wasm_rust::Output<
+        pub canary_settings: pulumi_gestalt_rust::Output<
             Option<super::super::types::apigateway::DeploymentCanarySettings>,
         >,
         /// Creation date of the deployment
-        pub created_date: pulumi_wasm_rust::Output<String>,
+        pub created_date: pulumi_gestalt_rust::Output<String>,
         /// Description of the deployment
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_gestalt_rust::Output<Option<String>>,
         /// Execution ARN to be used in `lambda_permission`'s `source_arn`
         /// when allowing API Gateway to invoke a Lambda function,
         /// e.g., `arn:aws:execute-api:eu-west-2:123456789012:z4675bid1j/prod`
-        pub execution_arn: pulumi_wasm_rust::Output<String>,
+        pub execution_arn: pulumi_gestalt_rust::Output<String>,
         /// URL to invoke the API pointing to the stage,
         /// e.g., `https://z4675bid1j.execute-api.eu-west-2.amazonaws.com/prod`
-        pub invoke_url: pulumi_wasm_rust::Output<String>,
+        pub invoke_url: pulumi_gestalt_rust::Output<String>,
         /// REST API identifier.
-        pub rest_api: pulumi_wasm_rust::Output<String>,
+        pub rest_api: pulumi_gestalt_rust::Output<String>,
         /// Description to set on the stage managed by the `stage_name` argument.
         /// Has no effect when `stage_name` is not set.
-        pub stage_description: pulumi_wasm_rust::Output<Option<String>>,
+        pub stage_description: pulumi_gestalt_rust::Output<Option<String>>,
         /// Name of the stage to create with this deployment.
         /// If the specified stage already exists, it will be updated to point to the new deployment.
         /// We recommend using the `aws.apigateway.Stage` resource instead to manage stages.
-        pub stage_name: pulumi_wasm_rust::Output<Option<String>>,
+        pub stage_name: pulumi_gestalt_rust::Output<Option<String>>,
         /// Map of arbitrary keys and values that, when changed, will trigger a redeployment.
-        pub triggers: pulumi_wasm_rust::Output<
+        pub triggers: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Map to set on the stage managed by the `stage_name` argument.
-        pub variables: pulumi_wasm_rust::Output<
+        pub variables: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
@@ -101,11 +101,11 @@ pub mod deployment {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: DeploymentArgs,
     ) -> DeploymentResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let canary_settings_binding = args
             .canary_settings
@@ -157,34 +157,34 @@ pub mod deployment {
         };
         let o = register_interface::register(context.get_inner(), &request);
         DeploymentResult {
-            canary_settings: pulumi_wasm_rust::__private::into_domain(
+            canary_settings: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("canarySettings"),
             ),
-            created_date: pulumi_wasm_rust::__private::into_domain(
+            created_date: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("createdDate"),
             ),
-            description: pulumi_wasm_rust::__private::into_domain(
+            description: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("description"),
             ),
-            execution_arn: pulumi_wasm_rust::__private::into_domain(
+            execution_arn: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("executionArn"),
             ),
-            invoke_url: pulumi_wasm_rust::__private::into_domain(
+            invoke_url: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("invokeUrl"),
             ),
-            rest_api: pulumi_wasm_rust::__private::into_domain(
+            rest_api: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("restApi"),
             ),
-            stage_description: pulumi_wasm_rust::__private::into_domain(
+            stage_description: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("stageDescription"),
             ),
-            stage_name: pulumi_wasm_rust::__private::into_domain(
+            stage_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("stageName"),
             ),
-            triggers: pulumi_wasm_rust::__private::into_domain(
+            triggers: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("triggers"),
             ),
-            variables: pulumi_wasm_rust::__private::into_domain(
+            variables: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("variables"),
             ),
         }

@@ -52,26 +52,26 @@
 /// ```
 ///
 pub mod resource_deployment_script_power_shell {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ResourceDeploymentScriptPowerShellArgs {
         /// Specifies the cleanup preference when the script execution gets in a terminal state. Possible values are `Always`, `OnExpiration`, `OnSuccess`. Defaults to `Always`. Changing this forces a new Resource Deployment Script to be created.
         #[builder(into, default)]
-        pub cleanup_preference: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub cleanup_preference: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Command line arguments to pass to the script. Changing this forces a new Resource Deployment Script to be created.
         #[builder(into, default)]
-        pub command_line: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub command_line: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// A `container` block as defined below. Changing this forces a new Resource Deployment Script to be created.
         #[builder(into, default)]
-        pub container: pulumi_wasm_rust::InputOrOutput<
+        pub container: pulumi_gestalt_rust::InputOrOutput<
             Option<
                 super::super::types::core::ResourceDeploymentScriptPowerShellContainer,
             >,
         >,
         /// An `environment_variable` block as defined below. Changing this forces a new Resource Deployment Script to be created.
         #[builder(into, default)]
-        pub environment_variables: pulumi_wasm_rust::InputOrOutput<
+        pub environment_variables: pulumi_gestalt_rust::InputOrOutput<
             Option<
                 Vec<
                     super::super::types::core::ResourceDeploymentScriptPowerShellEnvironmentVariable,
@@ -80,66 +80,68 @@ pub mod resource_deployment_script_power_shell {
         >,
         /// Gets or sets how the deployment script should be forced to execute even if the script resource has not changed. Can be current time stamp or a GUID. Changing this forces a new Resource Deployment Script to be created.
         #[builder(into, default)]
-        pub force_update_tag: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub force_update_tag: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// An `identity` block as defined below. Changing this forces a new Resource Deployment Script to be created.
         #[builder(into, default)]
-        pub identity: pulumi_wasm_rust::InputOrOutput<
+        pub identity: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::core::ResourceDeploymentScriptPowerShellIdentity>,
         >,
         /// Specifies the Azure Region where the Resource Deployment Script should exist. Changing this forces a new Resource Deployment Script to be created.
         #[builder(into, default)]
-        pub location: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub location: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Specifies the name which should be used for this Resource Deployment Script. The name length must be from 1 to 260 characters. The name can only contain alphanumeric, underscore, parentheses, hyphen and period, and it cannot end with a period. Changing this forces a new Resource Deployment Script to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Uri for the script. This is the entry point for the external script. Changing this forces a new Resource Deployment Script to be created.
         #[builder(into, default)]
-        pub primary_script_uri: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub primary_script_uri: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Specifies the name of the Resource Group where the Resource Deployment Script should exist. Changing this forces a new Resource Deployment Script to be created.
         #[builder(into)]
-        pub resource_group_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub resource_group_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Interval for which the service retains the script resource after it reaches a terminal state. Resource will be deleted when this duration expires. The time duration should be between `1` hour and `26` hours (inclusive) and should be specified in ISO 8601 format. Changing this forces a new Resource Deployment Script to be created.
         #[builder(into)]
-        pub retention_interval: pulumi_wasm_rust::InputOrOutput<String>,
+        pub retention_interval: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Script body. Changing this forces a new Resource Deployment Script to be created.
         #[builder(into, default)]
-        pub script_content: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub script_content: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// A `storage_account` block as defined below. Changing this forces a new Resource Deployment Script to be created.
         #[builder(into, default)]
-        pub storage_account: pulumi_wasm_rust::InputOrOutput<
+        pub storage_account: pulumi_gestalt_rust::InputOrOutput<
             Option<
                 super::super::types::core::ResourceDeploymentScriptPowerShellStorageAccount,
             >,
         >,
         /// Supporting files for the external script. Changing this forces a new Resource Deployment Script to be created.
         #[builder(into, default)]
-        pub supporting_script_uris: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
+        pub supporting_script_uris: pulumi_gestalt_rust::InputOrOutput<
+            Option<Vec<String>>,
+        >,
         /// A mapping of tags which should be assigned to the Resource Deployment Script.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Maximum allowed script execution time specified in ISO 8601 format. Needs to be greater than 0 and smaller than 1 day. Defaults to `P1D`. Changing this forces a new Resource Deployment Script to be created.
         #[builder(into, default)]
-        pub timeout: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub timeout: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Specifies the version of the Azure PowerShell that should be used in the format `X.Y` (e.g. `9.7`). A canonical list of versions [is available from the Microsoft Container Registry API](https://mcr.microsoft.com/v2/azure-powershell/tags/list). Changing this forces a new Resource Deployment Script to be created.
         #[builder(into)]
-        pub version: pulumi_wasm_rust::InputOrOutput<String>,
+        pub version: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct ResourceDeploymentScriptPowerShellResult {
         /// Specifies the cleanup preference when the script execution gets in a terminal state. Possible values are `Always`, `OnExpiration`, `OnSuccess`. Defaults to `Always`. Changing this forces a new Resource Deployment Script to be created.
-        pub cleanup_preference: pulumi_wasm_rust::Output<Option<String>>,
+        pub cleanup_preference: pulumi_gestalt_rust::Output<Option<String>>,
         /// Command line arguments to pass to the script. Changing this forces a new Resource Deployment Script to be created.
-        pub command_line: pulumi_wasm_rust::Output<Option<String>>,
+        pub command_line: pulumi_gestalt_rust::Output<Option<String>>,
         /// A `container` block as defined below. Changing this forces a new Resource Deployment Script to be created.
-        pub container: pulumi_wasm_rust::Output<
+        pub container: pulumi_gestalt_rust::Output<
             Option<
                 super::super::types::core::ResourceDeploymentScriptPowerShellContainer,
             >,
         >,
         /// An `environment_variable` block as defined below. Changing this forces a new Resource Deployment Script to be created.
-        pub environment_variables: pulumi_wasm_rust::Output<
+        pub environment_variables: pulumi_gestalt_rust::Output<
             Option<
                 Vec<
                     super::super::types::core::ResourceDeploymentScriptPowerShellEnvironmentVariable,
@@ -147,52 +149,52 @@ pub mod resource_deployment_script_power_shell {
             >,
         >,
         /// Gets or sets how the deployment script should be forced to execute even if the script resource has not changed. Can be current time stamp or a GUID. Changing this forces a new Resource Deployment Script to be created.
-        pub force_update_tag: pulumi_wasm_rust::Output<Option<String>>,
+        pub force_update_tag: pulumi_gestalt_rust::Output<Option<String>>,
         /// An `identity` block as defined below. Changing this forces a new Resource Deployment Script to be created.
-        pub identity: pulumi_wasm_rust::Output<
+        pub identity: pulumi_gestalt_rust::Output<
             Option<super::super::types::core::ResourceDeploymentScriptPowerShellIdentity>,
         >,
         /// Specifies the Azure Region where the Resource Deployment Script should exist. Changing this forces a new Resource Deployment Script to be created.
-        pub location: pulumi_wasm_rust::Output<String>,
+        pub location: pulumi_gestalt_rust::Output<String>,
         /// Specifies the name which should be used for this Resource Deployment Script. The name length must be from 1 to 260 characters. The name can only contain alphanumeric, underscore, parentheses, hyphen and period, and it cannot end with a period. Changing this forces a new Resource Deployment Script to be created.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// List of script outputs.
-        pub outputs: pulumi_wasm_rust::Output<String>,
+        pub outputs: pulumi_gestalt_rust::Output<String>,
         /// Uri for the script. This is the entry point for the external script. Changing this forces a new Resource Deployment Script to be created.
-        pub primary_script_uri: pulumi_wasm_rust::Output<Option<String>>,
+        pub primary_script_uri: pulumi_gestalt_rust::Output<Option<String>>,
         /// Specifies the name of the Resource Group where the Resource Deployment Script should exist. Changing this forces a new Resource Deployment Script to be created.
-        pub resource_group_name: pulumi_wasm_rust::Output<String>,
+        pub resource_group_name: pulumi_gestalt_rust::Output<String>,
         /// Interval for which the service retains the script resource after it reaches a terminal state. Resource will be deleted when this duration expires. The time duration should be between `1` hour and `26` hours (inclusive) and should be specified in ISO 8601 format. Changing this forces a new Resource Deployment Script to be created.
-        pub retention_interval: pulumi_wasm_rust::Output<String>,
+        pub retention_interval: pulumi_gestalt_rust::Output<String>,
         /// Script body. Changing this forces a new Resource Deployment Script to be created.
-        pub script_content: pulumi_wasm_rust::Output<Option<String>>,
+        pub script_content: pulumi_gestalt_rust::Output<Option<String>>,
         /// A `storage_account` block as defined below. Changing this forces a new Resource Deployment Script to be created.
-        pub storage_account: pulumi_wasm_rust::Output<
+        pub storage_account: pulumi_gestalt_rust::Output<
             Option<
                 super::super::types::core::ResourceDeploymentScriptPowerShellStorageAccount,
             >,
         >,
         /// Supporting files for the external script. Changing this forces a new Resource Deployment Script to be created.
-        pub supporting_script_uris: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub supporting_script_uris: pulumi_gestalt_rust::Output<Option<Vec<String>>>,
         /// A mapping of tags which should be assigned to the Resource Deployment Script.
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Maximum allowed script execution time specified in ISO 8601 format. Needs to be greater than 0 and smaller than 1 day. Defaults to `P1D`. Changing this forces a new Resource Deployment Script to be created.
-        pub timeout: pulumi_wasm_rust::Output<Option<String>>,
+        pub timeout: pulumi_gestalt_rust::Output<Option<String>>,
         /// Specifies the version of the Azure PowerShell that should be used in the format `X.Y` (e.g. `9.7`). A canonical list of versions [is available from the Microsoft Container Registry API](https://mcr.microsoft.com/v2/azure-powershell/tags/list). Changing this forces a new Resource Deployment Script to be created.
-        pub version: pulumi_wasm_rust::Output<String>,
+        pub version: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: ResourceDeploymentScriptPowerShellArgs,
     ) -> ResourceDeploymentScriptPowerShellResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let cleanup_preference_binding = args
             .cleanup_preference
@@ -313,54 +315,56 @@ pub mod resource_deployment_script_power_shell {
         };
         let o = register_interface::register(context.get_inner(), &request);
         ResourceDeploymentScriptPowerShellResult {
-            cleanup_preference: pulumi_wasm_rust::__private::into_domain(
+            cleanup_preference: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("cleanupPreference"),
             ),
-            command_line: pulumi_wasm_rust::__private::into_domain(
+            command_line: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("commandLine"),
             ),
-            container: pulumi_wasm_rust::__private::into_domain(
+            container: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("container"),
             ),
-            environment_variables: pulumi_wasm_rust::__private::into_domain(
+            environment_variables: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("environmentVariables"),
             ),
-            force_update_tag: pulumi_wasm_rust::__private::into_domain(
+            force_update_tag: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("forceUpdateTag"),
             ),
-            identity: pulumi_wasm_rust::__private::into_domain(
+            identity: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("identity"),
             ),
-            location: pulumi_wasm_rust::__private::into_domain(
+            location: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("location"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            outputs: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            outputs: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("outputs"),
             ),
-            primary_script_uri: pulumi_wasm_rust::__private::into_domain(
+            primary_script_uri: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("primaryScriptUri"),
             ),
-            resource_group_name: pulumi_wasm_rust::__private::into_domain(
+            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("resourceGroupName"),
             ),
-            retention_interval: pulumi_wasm_rust::__private::into_domain(
+            retention_interval: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("retentionInterval"),
             ),
-            script_content: pulumi_wasm_rust::__private::into_domain(
+            script_content: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("scriptContent"),
             ),
-            storage_account: pulumi_wasm_rust::__private::into_domain(
+            storage_account: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("storageAccount"),
             ),
-            supporting_script_uris: pulumi_wasm_rust::__private::into_domain(
+            supporting_script_uris: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("supportingScriptUris"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
-            timeout: pulumi_wasm_rust::__private::into_domain(
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            timeout: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("timeout"),
             ),
-            version: pulumi_wasm_rust::__private::into_domain(o.extract_field("version")),
+            version: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("version"),
+            ),
         }
     }
 }

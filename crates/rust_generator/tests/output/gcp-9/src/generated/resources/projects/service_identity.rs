@@ -42,44 +42,44 @@
 /// This resource does not support import.
 ///
 pub mod service_identity {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ServiceIdentityArgs {
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub project: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The service to generate identity for.
         ///
         /// - - -
         #[builder(into)]
-        pub service: pulumi_wasm_rust::InputOrOutput<String>,
+        pub service: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct ServiceIdentityResult {
         /// The email address of the Google managed service account.
-        pub email: pulumi_wasm_rust::Output<String>,
+        pub email: pulumi_gestalt_rust::Output<String>,
         /// The Identity of the Google managed service account in the form 'serviceAccount:{email}'. This value is often used to refer to the service account in order to grant IAM permissions.
-        pub member: pulumi_wasm_rust::Output<String>,
+        pub member: pulumi_gestalt_rust::Output<String>,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
-        pub project: pulumi_wasm_rust::Output<String>,
+        pub project: pulumi_gestalt_rust::Output<String>,
         /// The service to generate identity for.
         ///
         /// - - -
-        pub service: pulumi_wasm_rust::Output<String>,
+        pub service: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: ServiceIdentityArgs,
     ) -> ServiceIdentityResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let project_binding = args.project.get_output(context).get_inner();
         let service_binding = args.service.get_output(context).get_inner();
@@ -100,12 +100,16 @@ pub mod service_identity {
         };
         let o = register_interface::register(context.get_inner(), &request);
         ServiceIdentityResult {
-            email: pulumi_wasm_rust::__private::into_domain(o.extract_field("email")),
-            member: pulumi_wasm_rust::__private::into_domain(o.extract_field("member")),
-            project: pulumi_wasm_rust::__private::into_domain(
+            email: pulumi_gestalt_rust::__private::into_domain(o.extract_field("email")),
+            member: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("member"),
+            ),
+            project: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("project"),
             ),
-            service: pulumi_wasm_rust::__private::into_domain(o.extract_field("service")),
+            service: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("service"),
+            ),
         }
     }
 }

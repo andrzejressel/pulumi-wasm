@@ -32,92 +32,92 @@
 ///
 /// This command will encode the `supersecret` token in Pulumi state and generate a code suggestion to include a new RandomPassword resource in your Pulumi program. Include the suggested code and do a `pulumi up`. Your secret password is now securely stored in Pulumi, and you can reference it in your Pulumi program as `newPassword.result`.
 pub mod random_password {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct RandomPasswordArgs {
         /// Arbitrary map of values that, when changed, will trigger recreation of resource. See the main provider documentation for more information.
         #[builder(into, default)]
-        pub keepers: pulumi_wasm_rust::InputOrOutput<
+        pub keepers: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// The length of the string desired. The minimum value for length is 1 and, length must also be >= (`min_upper` + `min_lower` + `min_numeric` + `min_special`).
         #[builder(into)]
-        pub length: pulumi_wasm_rust::InputOrOutput<i32>,
+        pub length: pulumi_gestalt_rust::InputOrOutput<i32>,
         /// Include lowercase alphabet characters in the result. Default value is `true`.
         #[builder(into, default)]
-        pub lower: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub lower: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// Minimum number of lowercase alphabet characters in the result. Default value is `0`.
         #[builder(into, default)]
-        pub min_lower: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
+        pub min_lower: pulumi_gestalt_rust::InputOrOutput<Option<i32>>,
         /// Minimum number of numeric characters in the result. Default value is `0`.
         #[builder(into, default)]
-        pub min_numeric: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
+        pub min_numeric: pulumi_gestalt_rust::InputOrOutput<Option<i32>>,
         /// Minimum number of special characters in the result. Default value is `0`.
         #[builder(into, default)]
-        pub min_special: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
+        pub min_special: pulumi_gestalt_rust::InputOrOutput<Option<i32>>,
         /// Minimum number of uppercase alphabet characters in the result. Default value is `0`.
         #[builder(into, default)]
-        pub min_upper: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
+        pub min_upper: pulumi_gestalt_rust::InputOrOutput<Option<i32>>,
         /// Include numeric characters in the result. Default value is `true`. **NOTE**: This is deprecated, use `numeric` instead.
         #[builder(into, default)]
-        pub number: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub number: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// Include numeric characters in the result. Default value is `true`.
         #[builder(into, default)]
-        pub numeric: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub numeric: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// Supply your own list of special characters to use for string generation.  This overrides the default character list in the special argument.  The `special` argument must still be set to true for any overwritten characters to be used in generation.
         #[builder(into, default)]
-        pub override_special: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub override_special: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Include special characters in the result. These are `!@#$%&*()-_=+[]{}<>:?`. Default value is `true`.
         #[builder(into, default)]
-        pub special: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub special: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// Include uppercase alphabet characters in the result. Default value is `true`.
         #[builder(into, default)]
-        pub upper: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub upper: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
     }
     #[allow(dead_code)]
     pub struct RandomPasswordResult {
         /// A bcrypt hash of the generated random string. **NOTE**: If the generated random string is greater than 72 bytes in length, `bcrypt_hash` will contain a hash of the first 72 bytes.
-        pub bcrypt_hash: pulumi_wasm_rust::Output<String>,
+        pub bcrypt_hash: pulumi_gestalt_rust::Output<String>,
         /// Arbitrary map of values that, when changed, will trigger recreation of resource. See the main provider documentation for more information.
-        pub keepers: pulumi_wasm_rust::Output<
+        pub keepers: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// The length of the string desired. The minimum value for length is 1 and, length must also be >= (`min_upper` + `min_lower` + `min_numeric` + `min_special`).
-        pub length: pulumi_wasm_rust::Output<i32>,
+        pub length: pulumi_gestalt_rust::Output<i32>,
         /// Include lowercase alphabet characters in the result. Default value is `true`.
-        pub lower: pulumi_wasm_rust::Output<bool>,
+        pub lower: pulumi_gestalt_rust::Output<bool>,
         /// Minimum number of lowercase alphabet characters in the result. Default value is `0`.
-        pub min_lower: pulumi_wasm_rust::Output<i32>,
+        pub min_lower: pulumi_gestalt_rust::Output<i32>,
         /// Minimum number of numeric characters in the result. Default value is `0`.
-        pub min_numeric: pulumi_wasm_rust::Output<i32>,
+        pub min_numeric: pulumi_gestalt_rust::Output<i32>,
         /// Minimum number of special characters in the result. Default value is `0`.
-        pub min_special: pulumi_wasm_rust::Output<i32>,
+        pub min_special: pulumi_gestalt_rust::Output<i32>,
         /// Minimum number of uppercase alphabet characters in the result. Default value is `0`.
-        pub min_upper: pulumi_wasm_rust::Output<i32>,
+        pub min_upper: pulumi_gestalt_rust::Output<i32>,
         /// Include numeric characters in the result. Default value is `true`. **NOTE**: This is deprecated, use `numeric` instead.
-        pub number: pulumi_wasm_rust::Output<bool>,
+        pub number: pulumi_gestalt_rust::Output<bool>,
         /// Include numeric characters in the result. Default value is `true`.
-        pub numeric: pulumi_wasm_rust::Output<bool>,
+        pub numeric: pulumi_gestalt_rust::Output<bool>,
         /// Supply your own list of special characters to use for string generation.  This overrides the default character list in the special argument.  The `special` argument must still be set to true for any overwritten characters to be used in generation.
-        pub override_special: pulumi_wasm_rust::Output<Option<String>>,
+        pub override_special: pulumi_gestalt_rust::Output<Option<String>>,
         /// The generated random string.
-        pub result: pulumi_wasm_rust::Output<String>,
+        pub result: pulumi_gestalt_rust::Output<String>,
         /// Include special characters in the result. These are `!@#$%&*()-_=+[]{}<>:?`. Default value is `true`.
-        pub special: pulumi_wasm_rust::Output<bool>,
+        pub special: pulumi_gestalt_rust::Output<bool>,
         /// Include uppercase alphabet characters in the result. Default value is `true`.
-        pub upper: pulumi_wasm_rust::Output<bool>,
+        pub upper: pulumi_gestalt_rust::Output<bool>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: RandomPasswordArgs,
     ) -> RandomPasswordResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let keepers_binding = args.keepers.get_output(context).get_inner();
         let length_binding = args.length.get_output(context).get_inner();
@@ -191,38 +191,44 @@ pub mod random_password {
         };
         let o = register_interface::register(context.get_inner(), &request);
         RandomPasswordResult {
-            bcrypt_hash: pulumi_wasm_rust::__private::into_domain(
+            bcrypt_hash: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("bcryptHash"),
             ),
-            keepers: pulumi_wasm_rust::__private::into_domain(
+            keepers: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("keepers"),
             ),
-            length: pulumi_wasm_rust::__private::into_domain(o.extract_field("length")),
-            lower: pulumi_wasm_rust::__private::into_domain(o.extract_field("lower")),
-            min_lower: pulumi_wasm_rust::__private::into_domain(
+            length: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("length"),
+            ),
+            lower: pulumi_gestalt_rust::__private::into_domain(o.extract_field("lower")),
+            min_lower: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("minLower"),
             ),
-            min_numeric: pulumi_wasm_rust::__private::into_domain(
+            min_numeric: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("minNumeric"),
             ),
-            min_special: pulumi_wasm_rust::__private::into_domain(
+            min_special: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("minSpecial"),
             ),
-            min_upper: pulumi_wasm_rust::__private::into_domain(
+            min_upper: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("minUpper"),
             ),
-            number: pulumi_wasm_rust::__private::into_domain(o.extract_field("number")),
-            numeric: pulumi_wasm_rust::__private::into_domain(
+            number: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("number"),
+            ),
+            numeric: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("numeric"),
             ),
-            override_special: pulumi_wasm_rust::__private::into_domain(
+            override_special: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("overrideSpecial"),
             ),
-            result: pulumi_wasm_rust::__private::into_domain(o.extract_field("result")),
-            special: pulumi_wasm_rust::__private::into_domain(
+            result: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("result"),
+            ),
+            special: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("special"),
             ),
-            upper: pulumi_wasm_rust::__private::into_domain(o.extract_field("upper")),
+            upper: pulumi_gestalt_rust::__private::into_domain(o.extract_field("upper")),
         }
     }
 }

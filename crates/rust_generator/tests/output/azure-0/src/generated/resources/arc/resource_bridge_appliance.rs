@@ -33,59 +33,59 @@
 /// ```
 ///
 pub mod resource_bridge_appliance {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ResourceBridgeApplianceArgs {
         /// Specifies a supported Fabric/Infrastructure for this Arc Resource Bridge Appliance. The possible value is `AKSEdge`.
         #[builder(into)]
-        pub distro: pulumi_wasm_rust::InputOrOutput<String>,
+        pub distro: pulumi_gestalt_rust::InputOrOutput<String>,
         /// An `identity` block as defined below. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub identity: pulumi_wasm_rust::InputOrOutput<
+        pub identity: pulumi_gestalt_rust::InputOrOutput<
             super::super::types::arc::ResourceBridgeApplianceIdentity,
         >,
         /// The infrastructure provider about the connected Arc Resource Bridge Appliance. Possible values are `HCI`,`SCVMM` and `VMWare`. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub infrastructure_provider: pulumi_wasm_rust::InputOrOutput<String>,
+        pub infrastructure_provider: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The Azure Region where the Arc Resource Bridge Appliance should exist. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub location: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub location: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The Name which should be used for this Arc Resource Bridge Appliance. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The `public_key_base64` is an RSA public key in PKCS1 format encoded in base64. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub public_key_base64: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub public_key_base64: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Specifies the resource group where the Arc Resource Bridge Appliance exists. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub resource_group_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub resource_group_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// A mapping of tags which should be assigned to the Arc Resource Bridge Appliance.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
     #[allow(dead_code)]
     pub struct ResourceBridgeApplianceResult {
         /// Specifies a supported Fabric/Infrastructure for this Arc Resource Bridge Appliance. The possible value is `AKSEdge`.
-        pub distro: pulumi_wasm_rust::Output<String>,
+        pub distro: pulumi_gestalt_rust::Output<String>,
         /// An `identity` block as defined below. Changing this forces a new resource to be created.
-        pub identity: pulumi_wasm_rust::Output<
+        pub identity: pulumi_gestalt_rust::Output<
             super::super::types::arc::ResourceBridgeApplianceIdentity,
         >,
         /// The infrastructure provider about the connected Arc Resource Bridge Appliance. Possible values are `HCI`,`SCVMM` and `VMWare`. Changing this forces a new resource to be created.
-        pub infrastructure_provider: pulumi_wasm_rust::Output<String>,
+        pub infrastructure_provider: pulumi_gestalt_rust::Output<String>,
         /// The Azure Region where the Arc Resource Bridge Appliance should exist. Changing this forces a new resource to be created.
-        pub location: pulumi_wasm_rust::Output<String>,
+        pub location: pulumi_gestalt_rust::Output<String>,
         /// The Name which should be used for this Arc Resource Bridge Appliance. Changing this forces a new resource to be created.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// The `public_key_base64` is an RSA public key in PKCS1 format encoded in base64. Changing this forces a new resource to be created.
-        pub public_key_base64: pulumi_wasm_rust::Output<Option<String>>,
+        pub public_key_base64: pulumi_gestalt_rust::Output<Option<String>>,
         /// Specifies the resource group where the Arc Resource Bridge Appliance exists. Changing this forces a new resource to be created.
-        pub resource_group_name: pulumi_wasm_rust::Output<String>,
+        pub resource_group_name: pulumi_gestalt_rust::Output<String>,
         /// A mapping of tags which should be assigned to the Arc Resource Bridge Appliance.
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
@@ -94,11 +94,11 @@ pub mod resource_bridge_appliance {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: ResourceBridgeApplianceArgs,
     ) -> ResourceBridgeApplianceResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let distro_binding = args.distro.get_output(context).get_inner();
         let identity_binding = args.identity.get_output(context).get_inner();
@@ -158,24 +158,26 @@ pub mod resource_bridge_appliance {
         };
         let o = register_interface::register(context.get_inner(), &request);
         ResourceBridgeApplianceResult {
-            distro: pulumi_wasm_rust::__private::into_domain(o.extract_field("distro")),
-            identity: pulumi_wasm_rust::__private::into_domain(
+            distro: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("distro"),
+            ),
+            identity: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("identity"),
             ),
-            infrastructure_provider: pulumi_wasm_rust::__private::into_domain(
+            infrastructure_provider: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("infrastructureProvider"),
             ),
-            location: pulumi_wasm_rust::__private::into_domain(
+            location: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("location"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            public_key_base64: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            public_key_base64: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("publicKeyBase64"),
             ),
-            resource_group_name: pulumi_wasm_rust::__private::into_domain(
+            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("resourceGroupName"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
         }
     }
 }

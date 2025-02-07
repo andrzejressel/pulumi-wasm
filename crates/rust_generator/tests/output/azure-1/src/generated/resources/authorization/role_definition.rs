@@ -62,7 +62,7 @@
 /// ```
 ///
 pub mod role_definition {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct RoleDefinitionArgs {
@@ -70,56 +70,56 @@ pub mod role_definition {
         ///
         /// > **NOTE:** The value for `scope` is automatically included in this list if no other values supplied.
         #[builder(into, default)]
-        pub assignable_scopes: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
+        pub assignable_scopes: pulumi_gestalt_rust::InputOrOutput<Option<Vec<String>>>,
         /// A description of the Role Definition.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub description: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The name of the Role Definition.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// A `permissions` block as defined below.
         #[builder(into, default)]
-        pub permissions: pulumi_wasm_rust::InputOrOutput<
+        pub permissions: pulumi_gestalt_rust::InputOrOutput<
             Option<Vec<super::super::types::authorization::RoleDefinitionPermission>>,
         >,
         /// A unique UUID/GUID which identifies this role - one will be generated if not specified. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub role_definition_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub role_definition_id: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The scope at which the Role Definition applies to, such as `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333`, `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333/resourceGroups/myGroup`, `/providers/Microsoft.Management/managementGroups/0b1f6471-1bf0-4dda-aec3-111122223333`, or `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333/resourceGroups/myGroup/providers/Microsoft.Compute/virtualMachines/myVM`. It is recommended to use the first entry of the `assignable_scopes`. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub scope: pulumi_wasm_rust::InputOrOutput<String>,
+        pub scope: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct RoleDefinitionResult {
         /// One or more assignable scopes for this Role Definition, such as `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333`, `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333/resourceGroups/myGroup`, `/providers/Microsoft.Management/managementGroups/0b1f6471-1bf0-4dda-aec3-111122223333` , or `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333/resourceGroups/myGroup/providers/Microsoft.Compute/virtualMachines/myVM`.
         ///
         /// > **NOTE:** The value for `scope` is automatically included in this list if no other values supplied.
-        pub assignable_scopes: pulumi_wasm_rust::Output<Vec<String>>,
+        pub assignable_scopes: pulumi_gestalt_rust::Output<Vec<String>>,
         /// A description of the Role Definition.
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_gestalt_rust::Output<Option<String>>,
         /// The name of the Role Definition.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// A `permissions` block as defined below.
-        pub permissions: pulumi_wasm_rust::Output<
+        pub permissions: pulumi_gestalt_rust::Output<
             Option<Vec<super::super::types::authorization::RoleDefinitionPermission>>,
         >,
         /// A unique UUID/GUID which identifies this role - one will be generated if not specified. Changing this forces a new resource to be created.
-        pub role_definition_id: pulumi_wasm_rust::Output<String>,
+        pub role_definition_id: pulumi_gestalt_rust::Output<String>,
         /// The Azure Resource Manager ID for the resource.
-        pub role_definition_resource_id: pulumi_wasm_rust::Output<String>,
+        pub role_definition_resource_id: pulumi_gestalt_rust::Output<String>,
         /// The scope at which the Role Definition applies to, such as `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333`, `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333/resourceGroups/myGroup`, `/providers/Microsoft.Management/managementGroups/0b1f6471-1bf0-4dda-aec3-111122223333`, or `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333/resourceGroups/myGroup/providers/Microsoft.Compute/virtualMachines/myVM`. It is recommended to use the first entry of the `assignable_scopes`. Changing this forces a new resource to be created.
-        pub scope: pulumi_wasm_rust::Output<String>,
+        pub scope: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: RoleDefinitionArgs,
     ) -> RoleDefinitionResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let assignable_scopes_binding = args
             .assignable_scopes
@@ -166,23 +166,23 @@ pub mod role_definition {
         };
         let o = register_interface::register(context.get_inner(), &request);
         RoleDefinitionResult {
-            assignable_scopes: pulumi_wasm_rust::__private::into_domain(
+            assignable_scopes: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("assignableScopes"),
             ),
-            description: pulumi_wasm_rust::__private::into_domain(
+            description: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("description"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            permissions: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            permissions: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("permissions"),
             ),
-            role_definition_id: pulumi_wasm_rust::__private::into_domain(
+            role_definition_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("roleDefinitionId"),
             ),
-            role_definition_resource_id: pulumi_wasm_rust::__private::into_domain(
+            role_definition_resource_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("roleDefinitionResourceId"),
             ),
-            scope: pulumi_wasm_rust::__private::into_domain(o.extract_field("scope")),
+            scope: pulumi_gestalt_rust::__private::into_domain(o.extract_field("scope")),
         }
     }
 }

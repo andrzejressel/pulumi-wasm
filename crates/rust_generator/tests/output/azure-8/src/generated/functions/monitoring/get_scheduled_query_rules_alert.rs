@@ -1,52 +1,52 @@
 pub mod get_scheduled_query_rules_alert {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct GetScheduledQueryRulesAlertArgs {
         /// Specifies the name of the scheduled query rule.
         #[builder(into)]
-        pub name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Specifies the name of the resource group where the scheduled query rule is located.
         #[builder(into)]
-        pub resource_group_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub resource_group_name: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct GetScheduledQueryRulesAlertResult {
         /// supports the following:
-        pub actions: pulumi_wasm_rust::Output<
+        pub actions: pulumi_gestalt_rust::Output<
             Vec<
                 super::super::super::types::monitoring::GetScheduledQueryRulesAlertAction,
             >,
         >,
         /// The list of Resource IDs referred into query.
-        pub authorized_resource_ids: pulumi_wasm_rust::Output<Vec<String>>,
+        pub authorized_resource_ids: pulumi_gestalt_rust::Output<Vec<String>>,
         /// The resource URI over which log search query is to be run.
-        pub data_source_id: pulumi_wasm_rust::Output<String>,
+        pub data_source_id: pulumi_gestalt_rust::Output<String>,
         /// The description of the scheduled query rule.
-        pub description: pulumi_wasm_rust::Output<String>,
+        pub description: pulumi_gestalt_rust::Output<String>,
         /// Whether this scheduled query rule is enabled.
-        pub enabled: pulumi_wasm_rust::Output<bool>,
+        pub enabled: pulumi_gestalt_rust::Output<bool>,
         /// Frequency at which rule condition should be evaluated.
-        pub frequency: pulumi_wasm_rust::Output<i32>,
+        pub frequency: pulumi_gestalt_rust::Output<i32>,
         /// The provider-assigned unique ID for this managed resource.
-        pub id: pulumi_wasm_rust::Output<String>,
+        pub id: pulumi_gestalt_rust::Output<String>,
         /// Specifies the Azure Region where the resource should exist.
-        pub location: pulumi_wasm_rust::Output<String>,
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub location: pulumi_gestalt_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// Log search query.
-        pub query: pulumi_wasm_rust::Output<String>,
+        pub query: pulumi_gestalt_rust::Output<String>,
         /// The type of query results.
-        pub query_type: pulumi_wasm_rust::Output<String>,
-        pub resource_group_name: pulumi_wasm_rust::Output<String>,
+        pub query_type: pulumi_gestalt_rust::Output<String>,
+        pub resource_group_name: pulumi_gestalt_rust::Output<String>,
         /// Severity of the alert.
-        pub severity: pulumi_wasm_rust::Output<i32>,
-        pub tags: pulumi_wasm_rust::Output<std::collections::HashMap<String, String>>,
+        pub severity: pulumi_gestalt_rust::Output<i32>,
+        pub tags: pulumi_gestalt_rust::Output<std::collections::HashMap<String, String>>,
         /// Time for which alerts should be throttled or suppressed.
-        pub throttling: pulumi_wasm_rust::Output<i32>,
+        pub throttling: pulumi_gestalt_rust::Output<i32>,
         /// Time window for which data needs to be fetched for query.
-        pub time_window: pulumi_wasm_rust::Output<i32>,
+        pub time_window: pulumi_gestalt_rust::Output<i32>,
         /// A `trigger` block as defined below.
-        pub triggers: pulumi_wasm_rust::Output<
+        pub triggers: pulumi_gestalt_rust::Output<
             Vec<
                 super::super::super::types::monitoring::GetScheduledQueryRulesAlertTrigger,
             >,
@@ -57,10 +57,10 @@ pub mod get_scheduled_query_rules_alert {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         args: GetScheduledQueryRulesAlertArgs,
     ) -> GetScheduledQueryRulesAlertResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let name_binding = args.name.get_output(context).get_inner();
         let resource_group_name_binding = args
@@ -84,47 +84,47 @@ pub mod get_scheduled_query_rules_alert {
         };
         let o = register_interface::invoke(context.get_inner(), &request);
         GetScheduledQueryRulesAlertResult {
-            actions: pulumi_wasm_rust::__private::into_domain(
+            actions: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("actions"),
             ),
-            authorized_resource_ids: pulumi_wasm_rust::__private::into_domain(
+            authorized_resource_ids: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("authorizedResourceIds"),
             ),
-            data_source_id: pulumi_wasm_rust::__private::into_domain(
+            data_source_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("dataSourceId"),
             ),
-            description: pulumi_wasm_rust::__private::into_domain(
+            description: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("description"),
             ),
-            enabled: pulumi_wasm_rust::__private::into_domain(
+            enabled: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("enabled"),
             ),
-            frequency: pulumi_wasm_rust::__private::into_domain(
+            frequency: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("frequency"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
-            location: pulumi_wasm_rust::__private::into_domain(
+            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
+            location: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("location"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            query: pulumi_wasm_rust::__private::into_domain(o.extract_field("query")),
-            query_type: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            query: pulumi_gestalt_rust::__private::into_domain(o.extract_field("query")),
+            query_type: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("queryType"),
             ),
-            resource_group_name: pulumi_wasm_rust::__private::into_domain(
+            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("resourceGroupName"),
             ),
-            severity: pulumi_wasm_rust::__private::into_domain(
+            severity: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("severity"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
-            throttling: pulumi_wasm_rust::__private::into_domain(
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            throttling: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("throttling"),
             ),
-            time_window: pulumi_wasm_rust::__private::into_domain(
+            time_window: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("timeWindow"),
             ),
-            triggers: pulumi_wasm_rust::__private::into_domain(
+            triggers: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("triggers"),
             ),
         }

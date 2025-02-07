@@ -3,8 +3,8 @@
 /// ## Example Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let myProfile = user_profile::create(
@@ -17,44 +17,44 @@
 /// }
 /// ```
 pub mod user_profile {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct UserProfileArgs {
         /// Whether users can specify their own SSH public key through the My Settings page
         #[builder(into, default)]
-        pub allow_self_management: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub allow_self_management: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// The users public key
         #[builder(into, default)]
-        pub ssh_public_key: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub ssh_public_key: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The ssh username, with witch this user wants to log in
         #[builder(into)]
-        pub ssh_username: pulumi_wasm_rust::InputOrOutput<String>,
+        pub ssh_username: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The user's IAM ARN
         #[builder(into)]
-        pub user_arn: pulumi_wasm_rust::InputOrOutput<String>,
+        pub user_arn: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct UserProfileResult {
         /// Whether users can specify their own SSH public key through the My Settings page
-        pub allow_self_management: pulumi_wasm_rust::Output<Option<bool>>,
+        pub allow_self_management: pulumi_gestalt_rust::Output<Option<bool>>,
         /// The users public key
-        pub ssh_public_key: pulumi_wasm_rust::Output<Option<String>>,
+        pub ssh_public_key: pulumi_gestalt_rust::Output<Option<String>>,
         /// The ssh username, with witch this user wants to log in
-        pub ssh_username: pulumi_wasm_rust::Output<String>,
+        pub ssh_username: pulumi_gestalt_rust::Output<String>,
         /// The user's IAM ARN
-        pub user_arn: pulumi_wasm_rust::Output<String>,
+        pub user_arn: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: UserProfileArgs,
     ) -> UserProfileResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let allow_self_management_binding = args
             .allow_self_management
@@ -88,16 +88,16 @@ pub mod user_profile {
         };
         let o = register_interface::register(context.get_inner(), &request);
         UserProfileResult {
-            allow_self_management: pulumi_wasm_rust::__private::into_domain(
+            allow_self_management: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("allowSelfManagement"),
             ),
-            ssh_public_key: pulumi_wasm_rust::__private::into_domain(
+            ssh_public_key: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("sshPublicKey"),
             ),
-            ssh_username: pulumi_wasm_rust::__private::into_domain(
+            ssh_username: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("sshUsername"),
             ),
-            user_arn: pulumi_wasm_rust::__private::into_domain(
+            user_arn: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("userArn"),
             ),
         }

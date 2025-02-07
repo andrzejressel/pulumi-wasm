@@ -3,8 +3,8 @@
 /// ## Example Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = account::create("example", AccountArgs::builder().build_struct());
@@ -30,62 +30,62 @@
 /// $ pulumi import aws:macie/customDataIdentifier:CustomDataIdentifier example abcd1
 /// ```
 pub mod custom_data_identifier {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct CustomDataIdentifierArgs {
         /// A custom description of the custom data identifier. The description can contain as many as 512 characters.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub description: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// An array that lists specific character sequences (ignore words) to exclude from the results. If the text matched by the regular expression is the same as any string in this array, Amazon Macie ignores it. The array can contain as many as 10 ignore words. Each ignore word can contain 4 - 90 characters. Ignore words are case sensitive.
         #[builder(into, default)]
-        pub ignore_words: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
+        pub ignore_words: pulumi_gestalt_rust::InputOrOutput<Option<Vec<String>>>,
         /// An array that lists specific character sequences (keywords), one of which must be within proximity (`maximum_match_distance`) of the regular expression to match. The array can contain as many as 50 keywords. Each keyword can contain 3 - 90 characters. Keywords aren't case sensitive.
         #[builder(into, default)]
-        pub keywords: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
+        pub keywords: pulumi_gestalt_rust::InputOrOutput<Option<Vec<String>>>,
         /// The maximum number of characters that can exist between text that matches the regex pattern and the character sequences specified by the keywords array. Macie includes or excludes a result based on the proximity of a keyword to text that matches the regex pattern. The distance can be 1 - 300 characters. The default value is 50.
         #[builder(into, default)]
-        pub maximum_match_distance: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
+        pub maximum_match_distance: pulumi_gestalt_rust::InputOrOutput<Option<i32>>,
         /// A custom name for the custom data identifier. The name can contain as many as 128 characters. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
         #[builder(into, default)]
-        pub name_prefix: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name_prefix: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The regular expression (regex) that defines the pattern to match. The expression can contain as many as 512 characters.
         #[builder(into, default)]
-        pub regex: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub regex: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// A map of key-value pairs that specifies the tags to associate with the custom data identifier.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
     #[allow(dead_code)]
     pub struct CustomDataIdentifierResult {
         /// The Amazon Resource Name (ARN) of the custom data identifier.
-        pub arn: pulumi_wasm_rust::Output<String>,
+        pub arn: pulumi_gestalt_rust::Output<String>,
         /// The date and time, in UTC and extended RFC 3339 format, when the Amazon Macie account was created.
-        pub created_at: pulumi_wasm_rust::Output<String>,
+        pub created_at: pulumi_gestalt_rust::Output<String>,
         /// A custom description of the custom data identifier. The description can contain as many as 512 characters.
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_gestalt_rust::Output<Option<String>>,
         /// An array that lists specific character sequences (ignore words) to exclude from the results. If the text matched by the regular expression is the same as any string in this array, Amazon Macie ignores it. The array can contain as many as 10 ignore words. Each ignore word can contain 4 - 90 characters. Ignore words are case sensitive.
-        pub ignore_words: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub ignore_words: pulumi_gestalt_rust::Output<Option<Vec<String>>>,
         /// An array that lists specific character sequences (keywords), one of which must be within proximity (`maximum_match_distance`) of the regular expression to match. The array can contain as many as 50 keywords. Each keyword can contain 3 - 90 characters. Keywords aren't case sensitive.
-        pub keywords: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub keywords: pulumi_gestalt_rust::Output<Option<Vec<String>>>,
         /// The maximum number of characters that can exist between text that matches the regex pattern and the character sequences specified by the keywords array. Macie includes or excludes a result based on the proximity of a keyword to text that matches the regex pattern. The distance can be 1 - 300 characters. The default value is 50.
-        pub maximum_match_distance: pulumi_wasm_rust::Output<i32>,
+        pub maximum_match_distance: pulumi_gestalt_rust::Output<i32>,
         /// A custom name for the custom data identifier. The name can contain as many as 128 characters. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
-        pub name_prefix: pulumi_wasm_rust::Output<String>,
+        pub name_prefix: pulumi_gestalt_rust::Output<String>,
         /// The regular expression (regex) that defines the pattern to match. The expression can contain as many as 512 characters.
-        pub regex: pulumi_wasm_rust::Output<Option<String>>,
+        pub regex: pulumi_gestalt_rust::Output<Option<String>>,
         /// A map of key-value pairs that specifies the tags to associate with the custom data identifier.
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
-        pub tags_all: pulumi_wasm_rust::Output<
+        pub tags_all: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
     }
@@ -94,11 +94,11 @@ pub mod custom_data_identifier {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: CustomDataIdentifierArgs,
     ) -> CustomDataIdentifierResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let description_binding = args.description.get_output(context).get_inner();
         let ignore_words_binding = args.ignore_words.get_output(context).get_inner();
@@ -152,29 +152,29 @@ pub mod custom_data_identifier {
         };
         let o = register_interface::register(context.get_inner(), &request);
         CustomDataIdentifierResult {
-            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
-            created_at: pulumi_wasm_rust::__private::into_domain(
+            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
+            created_at: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("createdAt"),
             ),
-            description: pulumi_wasm_rust::__private::into_domain(
+            description: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("description"),
             ),
-            ignore_words: pulumi_wasm_rust::__private::into_domain(
+            ignore_words: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("ignoreWords"),
             ),
-            keywords: pulumi_wasm_rust::__private::into_domain(
+            keywords: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("keywords"),
             ),
-            maximum_match_distance: pulumi_wasm_rust::__private::into_domain(
+            maximum_match_distance: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("maximumMatchDistance"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            name_prefix: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            name_prefix: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("namePrefix"),
             ),
-            regex: pulumi_wasm_rust::__private::into_domain(o.extract_field("regex")),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_wasm_rust::__private::into_domain(
+            regex: pulumi_gestalt_rust::__private::into_domain(o.extract_field("regex")),
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            tags_all: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("tagsAll"),
             ),
         }

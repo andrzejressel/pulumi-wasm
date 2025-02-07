@@ -3,8 +3,8 @@
 /// ## Example Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let test = primary_contact::create(
@@ -33,89 +33,89 @@
 /// $ pulumi import aws:account/primaryContact:PrimaryContact test 1234567890
 /// ```
 pub mod primary_contact {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct PrimaryContactArgs {
         /// The ID of the target account when managing member accounts. Will manage current user's account by default if omitted.
         #[builder(into, default)]
-        pub account_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub account_id: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The first line of the primary contact address.
         #[builder(into)]
-        pub address_line1: pulumi_wasm_rust::InputOrOutput<String>,
+        pub address_line1: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The second line of the primary contact address, if any.
         #[builder(into, default)]
-        pub address_line2: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub address_line2: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The third line of the primary contact address, if any.
         #[builder(into, default)]
-        pub address_line3: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub address_line3: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The city of the primary contact address.
         #[builder(into)]
-        pub city: pulumi_wasm_rust::InputOrOutput<String>,
+        pub city: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The name of the company associated with the primary contact information, if any.
         #[builder(into, default)]
-        pub company_name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub company_name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The ISO-3166 two-letter country code for the primary contact address.
         #[builder(into)]
-        pub country_code: pulumi_wasm_rust::InputOrOutput<String>,
+        pub country_code: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The district or county of the primary contact address, if any.
         #[builder(into, default)]
-        pub district_or_county: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub district_or_county: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The full name of the primary contact address.
         #[builder(into)]
-        pub full_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub full_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The phone number of the primary contact information. The number will be validated and, in some countries, checked for activation.
         #[builder(into)]
-        pub phone_number: pulumi_wasm_rust::InputOrOutput<String>,
+        pub phone_number: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The postal code of the primary contact address.
         #[builder(into)]
-        pub postal_code: pulumi_wasm_rust::InputOrOutput<String>,
+        pub postal_code: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The state or region of the primary contact address. This field is required in selected countries.
         #[builder(into, default)]
-        pub state_or_region: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub state_or_region: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The URL of the website associated with the primary contact information, if any.
         #[builder(into, default)]
-        pub website_url: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub website_url: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct PrimaryContactResult {
         /// The ID of the target account when managing member accounts. Will manage current user's account by default if omitted.
-        pub account_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub account_id: pulumi_gestalt_rust::Output<Option<String>>,
         /// The first line of the primary contact address.
-        pub address_line1: pulumi_wasm_rust::Output<String>,
+        pub address_line1: pulumi_gestalt_rust::Output<String>,
         /// The second line of the primary contact address, if any.
-        pub address_line2: pulumi_wasm_rust::Output<Option<String>>,
+        pub address_line2: pulumi_gestalt_rust::Output<Option<String>>,
         /// The third line of the primary contact address, if any.
-        pub address_line3: pulumi_wasm_rust::Output<Option<String>>,
+        pub address_line3: pulumi_gestalt_rust::Output<Option<String>>,
         /// The city of the primary contact address.
-        pub city: pulumi_wasm_rust::Output<String>,
+        pub city: pulumi_gestalt_rust::Output<String>,
         /// The name of the company associated with the primary contact information, if any.
-        pub company_name: pulumi_wasm_rust::Output<Option<String>>,
+        pub company_name: pulumi_gestalt_rust::Output<Option<String>>,
         /// The ISO-3166 two-letter country code for the primary contact address.
-        pub country_code: pulumi_wasm_rust::Output<String>,
+        pub country_code: pulumi_gestalt_rust::Output<String>,
         /// The district or county of the primary contact address, if any.
-        pub district_or_county: pulumi_wasm_rust::Output<Option<String>>,
+        pub district_or_county: pulumi_gestalt_rust::Output<Option<String>>,
         /// The full name of the primary contact address.
-        pub full_name: pulumi_wasm_rust::Output<String>,
+        pub full_name: pulumi_gestalt_rust::Output<String>,
         /// The phone number of the primary contact information. The number will be validated and, in some countries, checked for activation.
-        pub phone_number: pulumi_wasm_rust::Output<String>,
+        pub phone_number: pulumi_gestalt_rust::Output<String>,
         /// The postal code of the primary contact address.
-        pub postal_code: pulumi_wasm_rust::Output<String>,
+        pub postal_code: pulumi_gestalt_rust::Output<String>,
         /// The state or region of the primary contact address. This field is required in selected countries.
-        pub state_or_region: pulumi_wasm_rust::Output<Option<String>>,
+        pub state_or_region: pulumi_gestalt_rust::Output<Option<String>>,
         /// The URL of the website associated with the primary contact information, if any.
-        pub website_url: pulumi_wasm_rust::Output<Option<String>>,
+        pub website_url: pulumi_gestalt_rust::Output<Option<String>>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: PrimaryContactArgs,
     ) -> PrimaryContactResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let account_id_binding = args.account_id.get_output(context).get_inner();
         let address_line1_binding = args.address_line1.get_output(context).get_inner();
@@ -197,41 +197,41 @@ pub mod primary_contact {
         };
         let o = register_interface::register(context.get_inner(), &request);
         PrimaryContactResult {
-            account_id: pulumi_wasm_rust::__private::into_domain(
+            account_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("accountId"),
             ),
-            address_line1: pulumi_wasm_rust::__private::into_domain(
+            address_line1: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("addressLine1"),
             ),
-            address_line2: pulumi_wasm_rust::__private::into_domain(
+            address_line2: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("addressLine2"),
             ),
-            address_line3: pulumi_wasm_rust::__private::into_domain(
+            address_line3: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("addressLine3"),
             ),
-            city: pulumi_wasm_rust::__private::into_domain(o.extract_field("city")),
-            company_name: pulumi_wasm_rust::__private::into_domain(
+            city: pulumi_gestalt_rust::__private::into_domain(o.extract_field("city")),
+            company_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("companyName"),
             ),
-            country_code: pulumi_wasm_rust::__private::into_domain(
+            country_code: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("countryCode"),
             ),
-            district_or_county: pulumi_wasm_rust::__private::into_domain(
+            district_or_county: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("districtOrCounty"),
             ),
-            full_name: pulumi_wasm_rust::__private::into_domain(
+            full_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("fullName"),
             ),
-            phone_number: pulumi_wasm_rust::__private::into_domain(
+            phone_number: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("phoneNumber"),
             ),
-            postal_code: pulumi_wasm_rust::__private::into_domain(
+            postal_code: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("postalCode"),
             ),
-            state_or_region: pulumi_wasm_rust::__private::into_domain(
+            state_or_region: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("stateOrRegion"),
             ),
-            website_url: pulumi_wasm_rust::__private::into_domain(
+            website_url: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("websiteUrl"),
             ),
         }

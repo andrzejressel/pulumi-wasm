@@ -25,45 +25,45 @@
 /// ```
 ///
 pub mod zone {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ZoneArgs {
         /// The name of the DNS Zone. Must be a valid domain name. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Specifies the resource group where the resource exists. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub resource_group_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub resource_group_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// An `soa_record` block as defined below.
         #[builder(into, default)]
-        pub soa_record: pulumi_wasm_rust::InputOrOutput<
+        pub soa_record: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::dns::ZoneSoaRecord>,
         >,
         /// A mapping of tags to assign to the resource.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
     #[allow(dead_code)]
     pub struct ZoneResult {
         /// (Optional) Maximum number of Records in the zone. Defaults to `1000`.
-        pub max_number_of_record_sets: pulumi_wasm_rust::Output<i32>,
+        pub max_number_of_record_sets: pulumi_gestalt_rust::Output<i32>,
         /// The name of the DNS Zone. Must be a valid domain name. Changing this forces a new resource to be created.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// (Optional) A list of values that make up the NS record for the zone.
-        pub name_servers: pulumi_wasm_rust::Output<Vec<String>>,
+        pub name_servers: pulumi_gestalt_rust::Output<Vec<String>>,
         /// (Optional) The number of records already in the zone.
-        pub number_of_record_sets: pulumi_wasm_rust::Output<i32>,
+        pub number_of_record_sets: pulumi_gestalt_rust::Output<i32>,
         /// Specifies the resource group where the resource exists. Changing this forces a new resource to be created.
-        pub resource_group_name: pulumi_wasm_rust::Output<String>,
+        pub resource_group_name: pulumi_gestalt_rust::Output<String>,
         /// An `soa_record` block as defined below.
-        pub soa_record: pulumi_wasm_rust::Output<
+        pub soa_record: pulumi_gestalt_rust::Output<
             super::super::types::dns::ZoneSoaRecord,
         >,
         /// A mapping of tags to assign to the resource.
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
@@ -72,11 +72,11 @@ pub mod zone {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: ZoneArgs,
     ) -> ZoneResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let name_binding = args.name.get_output(context).get_inner();
         let resource_group_name_binding = args
@@ -110,23 +110,23 @@ pub mod zone {
         };
         let o = register_interface::register(context.get_inner(), &request);
         ZoneResult {
-            max_number_of_record_sets: pulumi_wasm_rust::__private::into_domain(
+            max_number_of_record_sets: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("maxNumberOfRecordSets"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            name_servers: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            name_servers: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("nameServers"),
             ),
-            number_of_record_sets: pulumi_wasm_rust::__private::into_domain(
+            number_of_record_sets: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("numberOfRecordSets"),
             ),
-            resource_group_name: pulumi_wasm_rust::__private::into_domain(
+            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("resourceGroupName"),
             ),
-            soa_record: pulumi_wasm_rust::__private::into_domain(
+            soa_record: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("soaRecord"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
         }
     }
 }

@@ -98,8 +98,8 @@
 /// This example creates an IAM role with what appears to be empty IAM `inline_policy` argument instead of using `inline_policy` as a configuration block. The result is that if someone were to add an inline policy out-of-band, on the next apply, this provider will remove that policy.
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = role::create(
@@ -166,8 +166,8 @@
 /// This example creates an IAM role with an empty `managed_policy_arns` argument. If someone attaches a policy out-of-band, on the next apply, this provider will detach that policy.
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = role::create(
@@ -189,7 +189,7 @@
 /// $ pulumi import aws:iam/role:Role developer developer_name
 /// ```
 pub mod role {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct RoleArgs {
@@ -199,95 +199,95 @@ pub mod role {
         ///
         /// The following arguments are optional:
         #[builder(into)]
-        pub assume_role_policy: pulumi_wasm_rust::InputOrOutput<String>,
+        pub assume_role_policy: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Description of the role.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub description: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Whether to force detaching any policies the role has before destroying it. Defaults to `false`.
         #[builder(into, default)]
-        pub force_detach_policies: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub force_detach_policies: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// Configuration block defining an exclusive set of IAM inline policies associated with the IAM role. See below. If no blocks are configured, Pulumi will not manage any inline policies in this resource. Configuring one empty block (i.e., `inline_policy {}`) will cause Pulumi to remove _all_ inline policies added out of band on `apply`.
         #[builder(into, default)]
-        pub inline_policies: pulumi_wasm_rust::InputOrOutput<
+        pub inline_policies: pulumi_gestalt_rust::InputOrOutput<
             Option<Vec<super::super::types::iam::RoleInlinePolicy>>,
         >,
         /// Set of exclusive IAM managed policy ARNs to attach to the IAM role. If this attribute is not configured, Pulumi will ignore policy attachments to this resource. When configured, Pulumi will align the role's managed policy attachments with this set by attaching or detaching managed policies. Configuring an empty set (i.e., `managed_policy_arns = []`) will cause Pulumi to remove _all_ managed policy attachments.
         #[builder(into, default)]
-        pub managed_policy_arns: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
+        pub managed_policy_arns: pulumi_gestalt_rust::InputOrOutput<Option<Vec<String>>>,
         /// Maximum session duration (in seconds) that you want to set for the specified role. If you do not specify a value for this setting, the default maximum of one hour is applied. This setting can have a value from 1 hour to 12 hours.
         #[builder(into, default)]
-        pub max_session_duration: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
+        pub max_session_duration: pulumi_gestalt_rust::InputOrOutput<Option<i32>>,
         /// Friendly name of the role. If omitted, the provider will assign a random, unique name. See [IAM Identifiers](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html) for more information.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Creates a unique friendly name beginning with the specified prefix. Conflicts with `name`.
         #[builder(into, default)]
-        pub name_prefix: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name_prefix: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Path to the role. See [IAM Identifiers](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html) for more information.
         #[builder(into, default)]
-        pub path: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub path: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// ARN of the policy that is used to set the permissions boundary for the role.
         #[builder(into, default)]
-        pub permissions_boundary: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub permissions_boundary: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Key-value mapping of tags for the IAM role. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
     #[allow(dead_code)]
     pub struct RoleResult {
         /// Amazon Resource Name (ARN) specifying the role.
-        pub arn: pulumi_wasm_rust::Output<String>,
+        pub arn: pulumi_gestalt_rust::Output<String>,
         /// Policy that grants an entity permission to assume the role.
         ///
         /// > **NOTE:** The `assume_role_policy` is very similar to but slightly different than a standard IAM policy and cannot use an `aws.iam.Policy` resource.  However, it _can_ use an `aws.iam.getPolicyDocument` data source. See the example above of how this works.
         ///
         /// The following arguments are optional:
-        pub assume_role_policy: pulumi_wasm_rust::Output<String>,
+        pub assume_role_policy: pulumi_gestalt_rust::Output<String>,
         /// Creation date of the IAM role.
-        pub create_date: pulumi_wasm_rust::Output<String>,
+        pub create_date: pulumi_gestalt_rust::Output<String>,
         /// Description of the role.
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_gestalt_rust::Output<Option<String>>,
         /// Whether to force detaching any policies the role has before destroying it. Defaults to `false`.
-        pub force_detach_policies: pulumi_wasm_rust::Output<Option<bool>>,
+        pub force_detach_policies: pulumi_gestalt_rust::Output<Option<bool>>,
         /// Configuration block defining an exclusive set of IAM inline policies associated with the IAM role. See below. If no blocks are configured, Pulumi will not manage any inline policies in this resource. Configuring one empty block (i.e., `inline_policy {}`) will cause Pulumi to remove _all_ inline policies added out of band on `apply`.
-        pub inline_policies: pulumi_wasm_rust::Output<
+        pub inline_policies: pulumi_gestalt_rust::Output<
             Vec<super::super::types::iam::RoleInlinePolicy>,
         >,
         /// Set of exclusive IAM managed policy ARNs to attach to the IAM role. If this attribute is not configured, Pulumi will ignore policy attachments to this resource. When configured, Pulumi will align the role's managed policy attachments with this set by attaching or detaching managed policies. Configuring an empty set (i.e., `managed_policy_arns = []`) will cause Pulumi to remove _all_ managed policy attachments.
-        pub managed_policy_arns: pulumi_wasm_rust::Output<Vec<String>>,
+        pub managed_policy_arns: pulumi_gestalt_rust::Output<Vec<String>>,
         /// Maximum session duration (in seconds) that you want to set for the specified role. If you do not specify a value for this setting, the default maximum of one hour is applied. This setting can have a value from 1 hour to 12 hours.
-        pub max_session_duration: pulumi_wasm_rust::Output<Option<i32>>,
+        pub max_session_duration: pulumi_gestalt_rust::Output<Option<i32>>,
         /// Friendly name of the role. If omitted, the provider will assign a random, unique name. See [IAM Identifiers](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html) for more information.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// Creates a unique friendly name beginning with the specified prefix. Conflicts with `name`.
-        pub name_prefix: pulumi_wasm_rust::Output<String>,
+        pub name_prefix: pulumi_gestalt_rust::Output<String>,
         /// Path to the role. See [IAM Identifiers](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html) for more information.
-        pub path: pulumi_wasm_rust::Output<Option<String>>,
+        pub path: pulumi_gestalt_rust::Output<Option<String>>,
         /// ARN of the policy that is used to set the permissions boundary for the role.
-        pub permissions_boundary: pulumi_wasm_rust::Output<Option<String>>,
+        pub permissions_boundary: pulumi_gestalt_rust::Output<Option<String>>,
         /// Key-value mapping of tags for the IAM role. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        pub tags_all: pulumi_wasm_rust::Output<
+        pub tags_all: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
         /// Stable and unique string identifying the role.
-        pub unique_id: pulumi_wasm_rust::Output<String>,
+        pub unique_id: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: RoleArgs,
     ) -> RoleResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let assume_role_policy_binding = args
             .assume_role_policy
@@ -371,41 +371,41 @@ pub mod role {
         };
         let o = register_interface::register(context.get_inner(), &request);
         RoleResult {
-            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
-            assume_role_policy: pulumi_wasm_rust::__private::into_domain(
+            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
+            assume_role_policy: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("assumeRolePolicy"),
             ),
-            create_date: pulumi_wasm_rust::__private::into_domain(
+            create_date: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("createDate"),
             ),
-            description: pulumi_wasm_rust::__private::into_domain(
+            description: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("description"),
             ),
-            force_detach_policies: pulumi_wasm_rust::__private::into_domain(
+            force_detach_policies: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("forceDetachPolicies"),
             ),
-            inline_policies: pulumi_wasm_rust::__private::into_domain(
+            inline_policies: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("inlinePolicies"),
             ),
-            managed_policy_arns: pulumi_wasm_rust::__private::into_domain(
+            managed_policy_arns: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("managedPolicyArns"),
             ),
-            max_session_duration: pulumi_wasm_rust::__private::into_domain(
+            max_session_duration: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("maxSessionDuration"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            name_prefix: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            name_prefix: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("namePrefix"),
             ),
-            path: pulumi_wasm_rust::__private::into_domain(o.extract_field("path")),
-            permissions_boundary: pulumi_wasm_rust::__private::into_domain(
+            path: pulumi_gestalt_rust::__private::into_domain(o.extract_field("path")),
+            permissions_boundary: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("permissionsBoundary"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_wasm_rust::__private::into_domain(
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            tags_all: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("tagsAll"),
             ),
-            unique_id: pulumi_wasm_rust::__private::into_domain(
+            unique_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("uniqueId"),
             ),
         }

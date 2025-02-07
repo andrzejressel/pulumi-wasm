@@ -14,8 +14,8 @@
 ///
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let patch = patch_deployment::create(
@@ -38,8 +38,8 @@
 ///
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let patch = patch_deployment::create(
@@ -74,8 +74,8 @@
 ///
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let patch = patch_deployment::create(
@@ -271,31 +271,31 @@
 /// ```
 ///
 pub mod patch_deployment {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct PatchDeploymentArgs {
         /// Description of the patch deployment. Length of the description is limited to 1024 characters.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub description: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Duration of the patch. After the duration ends, the patch times out. A duration in seconds with up to nine fractional
         /// digits, terminated by 's'. Example: "3.5s"
         #[builder(into, default)]
-        pub duration: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub duration: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// VM instances to patch.
         /// Structure is documented below.
         #[builder(into)]
-        pub instance_filter: pulumi_wasm_rust::InputOrOutput<
+        pub instance_filter: pulumi_gestalt_rust::InputOrOutput<
             super::super::types::osconfig::PatchDeploymentInstanceFilter,
         >,
         /// Schedule a one-time execution.
         #[builder(into, default)]
-        pub one_time_schedule: pulumi_wasm_rust::InputOrOutput<
+        pub one_time_schedule: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::osconfig::PatchDeploymentOneTimeSchedule>,
         >,
         /// Patch configuration that is applied.
         #[builder(into, default)]
-        pub patch_config: pulumi_wasm_rust::InputOrOutput<
+        pub patch_config: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::osconfig::PatchDeploymentPatchConfig>,
         >,
         /// A name for the patch deployment in the project. When creating a name the following rules apply:
@@ -305,17 +305,17 @@ pub mod patch_deployment {
         /// * Must end with a number or a letter.
         /// * Must be unique within the project.
         #[builder(into)]
-        pub patch_deployment_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub patch_deployment_id: pulumi_gestalt_rust::InputOrOutput<String>,
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub project: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Schedule recurring executions.
         #[builder(into, default)]
-        pub recurring_schedule: pulumi_wasm_rust::InputOrOutput<
+        pub recurring_schedule: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::osconfig::PatchDeploymentRecurringSchedule>,
         >,
         /// Rollout strategy of the patch job.
         #[builder(into, default)]
-        pub rollout: pulumi_wasm_rust::InputOrOutput<
+        pub rollout: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::osconfig::PatchDeploymentRollout>,
         >,
     }
@@ -323,29 +323,29 @@ pub mod patch_deployment {
     pub struct PatchDeploymentResult {
         /// Time the patch deployment was created. Timestamp is in RFC3339 text format.
         /// A timestamp in RFC3339 UTC "Zulu" format, accurate to nanoseconds. Example: "2014-10-02T15:01:23.045123456Z".
-        pub create_time: pulumi_wasm_rust::Output<String>,
+        pub create_time: pulumi_gestalt_rust::Output<String>,
         /// Description of the patch deployment. Length of the description is limited to 1024 characters.
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_gestalt_rust::Output<Option<String>>,
         /// Duration of the patch. After the duration ends, the patch times out. A duration in seconds with up to nine fractional
         /// digits, terminated by 's'. Example: "3.5s"
-        pub duration: pulumi_wasm_rust::Output<Option<String>>,
+        pub duration: pulumi_gestalt_rust::Output<Option<String>>,
         /// VM instances to patch.
         /// Structure is documented below.
-        pub instance_filter: pulumi_wasm_rust::Output<
+        pub instance_filter: pulumi_gestalt_rust::Output<
             super::super::types::osconfig::PatchDeploymentInstanceFilter,
         >,
         /// The last time a patch job was started by this deployment. Timestamp is in RFC3339 text format.
         /// A timestamp in RFC3339 UTC "Zulu" format, accurate to nanoseconds. Example: "2014-10-02T15:01:23.045123456Z".
-        pub last_execute_time: pulumi_wasm_rust::Output<String>,
+        pub last_execute_time: pulumi_gestalt_rust::Output<String>,
         /// Unique name for the patch deployment resource in a project.
         /// The patch deployment name is in the form: projects/{project_id}/patchDeployments/{patchDeploymentId}.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// Schedule a one-time execution.
-        pub one_time_schedule: pulumi_wasm_rust::Output<
+        pub one_time_schedule: pulumi_gestalt_rust::Output<
             Option<super::super::types::osconfig::PatchDeploymentOneTimeSchedule>,
         >,
         /// Patch configuration that is applied.
-        pub patch_config: pulumi_wasm_rust::Output<
+        pub patch_config: pulumi_gestalt_rust::Output<
             Option<super::super::types::osconfig::PatchDeploymentPatchConfig>,
         >,
         /// A name for the patch deployment in the project. When creating a name the following rules apply:
@@ -354,30 +354,30 @@ pub mod patch_deployment {
         /// * Must be between 1-63 characters.
         /// * Must end with a number or a letter.
         /// * Must be unique within the project.
-        pub patch_deployment_id: pulumi_wasm_rust::Output<String>,
-        pub project: pulumi_wasm_rust::Output<String>,
+        pub patch_deployment_id: pulumi_gestalt_rust::Output<String>,
+        pub project: pulumi_gestalt_rust::Output<String>,
         /// Schedule recurring executions.
-        pub recurring_schedule: pulumi_wasm_rust::Output<
+        pub recurring_schedule: pulumi_gestalt_rust::Output<
             Option<super::super::types::osconfig::PatchDeploymentRecurringSchedule>,
         >,
         /// Rollout strategy of the patch job.
-        pub rollout: pulumi_wasm_rust::Output<
+        pub rollout: pulumi_gestalt_rust::Output<
             Option<super::super::types::osconfig::PatchDeploymentRollout>,
         >,
         /// Time the patch deployment was last updated. Timestamp is in RFC3339 text format.
         /// A timestamp in RFC3339 UTC "Zulu" format, accurate to nanoseconds. Example: "2014-10-02T15:01:23.045123456Z".
-        pub update_time: pulumi_wasm_rust::Output<String>,
+        pub update_time: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: PatchDeploymentArgs,
     ) -> PatchDeploymentResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let description_binding = args.description.get_output(context).get_inner();
         let duration_binding = args.duration.get_output(context).get_inner();
@@ -445,41 +445,41 @@ pub mod patch_deployment {
         };
         let o = register_interface::register(context.get_inner(), &request);
         PatchDeploymentResult {
-            create_time: pulumi_wasm_rust::__private::into_domain(
+            create_time: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("createTime"),
             ),
-            description: pulumi_wasm_rust::__private::into_domain(
+            description: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("description"),
             ),
-            duration: pulumi_wasm_rust::__private::into_domain(
+            duration: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("duration"),
             ),
-            instance_filter: pulumi_wasm_rust::__private::into_domain(
+            instance_filter: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("instanceFilter"),
             ),
-            last_execute_time: pulumi_wasm_rust::__private::into_domain(
+            last_execute_time: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("lastExecuteTime"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            one_time_schedule: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            one_time_schedule: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("oneTimeSchedule"),
             ),
-            patch_config: pulumi_wasm_rust::__private::into_domain(
+            patch_config: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("patchConfig"),
             ),
-            patch_deployment_id: pulumi_wasm_rust::__private::into_domain(
+            patch_deployment_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("patchDeploymentId"),
             ),
-            project: pulumi_wasm_rust::__private::into_domain(
+            project: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("project"),
             ),
-            recurring_schedule: pulumi_wasm_rust::__private::into_domain(
+            recurring_schedule: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("recurringSchedule"),
             ),
-            rollout: pulumi_wasm_rust::__private::into_domain(
+            rollout: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("rollout"),
             ),
-            update_time: pulumi_wasm_rust::__private::into_domain(
+            update_time: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("updateTime"),
             ),
         }

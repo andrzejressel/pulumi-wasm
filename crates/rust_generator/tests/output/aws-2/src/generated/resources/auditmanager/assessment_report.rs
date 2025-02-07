@@ -5,8 +5,8 @@
 /// ### Basic Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let test = assessment_report::create(
@@ -27,7 +27,7 @@
 /// $ pulumi import aws:auditmanager/assessmentReport:AssessmentReport example abc123-de45
 /// ```
 pub mod assessment_report {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct AssessmentReportArgs {
@@ -35,39 +35,39 @@ pub mod assessment_report {
         ///
         /// The following arguments are optional:
         #[builder(into)]
-        pub assessment_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub assessment_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Description of the assessment report.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub description: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Name of the assessment report.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct AssessmentReportResult {
         /// Unique identifier of the assessment to create the report from.
         ///
         /// The following arguments are optional:
-        pub assessment_id: pulumi_wasm_rust::Output<String>,
+        pub assessment_id: pulumi_gestalt_rust::Output<String>,
         /// Name of the user who created the assessment report.
-        pub author: pulumi_wasm_rust::Output<String>,
+        pub author: pulumi_gestalt_rust::Output<String>,
         /// Description of the assessment report.
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_gestalt_rust::Output<Option<String>>,
         /// Name of the assessment report.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// Current status of the specified assessment report. Valid values are `COMPLETE`, `IN_PROGRESS`, and `FAILED`.
-        pub status: pulumi_wasm_rust::Output<String>,
+        pub status: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: AssessmentReportArgs,
     ) -> AssessmentReportResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let assessment_id_binding = args.assessment_id.get_output(context).get_inner();
         let description_binding = args.description.get_output(context).get_inner();
@@ -93,15 +93,19 @@ pub mod assessment_report {
         };
         let o = register_interface::register(context.get_inner(), &request);
         AssessmentReportResult {
-            assessment_id: pulumi_wasm_rust::__private::into_domain(
+            assessment_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("assessmentId"),
             ),
-            author: pulumi_wasm_rust::__private::into_domain(o.extract_field("author")),
-            description: pulumi_wasm_rust::__private::into_domain(
+            author: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("author"),
+            ),
+            description: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("description"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            status: pulumi_wasm_rust::__private::into_domain(o.extract_field("status")),
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            status: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("status"),
+            ),
         }
     }
 }

@@ -27,7 +27,7 @@
 /// $ pulumi import aws:finspace/kxVolume:KxVolume example n3ceo7wqxoxcti5tujqwzs,my-tf-kx-volume
 /// ```
 pub mod kx_volume {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct KxVolumeArgs {
@@ -35,60 +35,60 @@ pub mod kx_volume {
         ///
         /// The following arguments are optional:
         #[builder(into)]
-        pub availability_zones: pulumi_wasm_rust::InputOrOutput<Vec<String>>,
+        pub availability_zones: pulumi_gestalt_rust::InputOrOutput<Vec<String>>,
         /// The number of availability zones you want to assign per volume. Currently, Finspace only support SINGLE for volumes.
         /// * `SINGLE` - Assigns one availability zone per volume.
         #[builder(into)]
-        pub az_mode: pulumi_wasm_rust::InputOrOutput<String>,
+        pub az_mode: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Description of the volume.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub description: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// A unique identifier for the kdb environment, whose clusters can attach to the volume.
         #[builder(into)]
-        pub environment_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub environment_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Unique name for the volumr that you want to create.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Specifies the configuration for the Network attached storage (`NAS_1`) file system volume. This parameter is required when `volume_type` is `NAS_1`. See `nas1_configuration` Argument Reference below.
         #[builder(into, default)]
-        pub nas1_configurations: pulumi_wasm_rust::InputOrOutput<
+        pub nas1_configurations: pulumi_gestalt_rust::InputOrOutput<
             Option<Vec<super::super::types::finspace::KxVolumeNas1Configuration>>,
         >,
         /// A list of key-value pairs to label the volume. You can add up to 50 tags to a volume
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// The type of file system volume. Currently, FinSpace only supports the `NAS_1` volume type. When you select the `NAS_1` volume type, you must also provide `nas1_configuration`.
         #[builder(into)]
-        pub type_: pulumi_wasm_rust::InputOrOutput<String>,
+        pub type_: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct KxVolumeResult {
         /// Amazon Resource Name (ARN) identifier of the KX volume.
-        pub arn: pulumi_wasm_rust::Output<String>,
-        pub attached_clusters: pulumi_wasm_rust::Output<
+        pub arn: pulumi_gestalt_rust::Output<String>,
+        pub attached_clusters: pulumi_gestalt_rust::Output<
             Vec<super::super::types::finspace::KxVolumeAttachedCluster>,
         >,
         /// The identifier of the AWS Availability Zone IDs.
         ///
         /// The following arguments are optional:
-        pub availability_zones: pulumi_wasm_rust::Output<Vec<String>>,
+        pub availability_zones: pulumi_gestalt_rust::Output<Vec<String>>,
         /// The number of availability zones you want to assign per volume. Currently, Finspace only support SINGLE for volumes.
         /// * `SINGLE` - Assigns one availability zone per volume.
-        pub az_mode: pulumi_wasm_rust::Output<String>,
+        pub az_mode: pulumi_gestalt_rust::Output<String>,
         /// The timestamp at which the volume was created in FinSpace. The value is determined as epoch time in milliseconds. For example, the value for Monday, November 1, 2021 12:00:00 PM UTC is specified as 1635768000000.
-        pub created_timestamp: pulumi_wasm_rust::Output<String>,
+        pub created_timestamp: pulumi_gestalt_rust::Output<String>,
         /// Description of the volume.
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_gestalt_rust::Output<Option<String>>,
         /// A unique identifier for the kdb environment, whose clusters can attach to the volume.
-        pub environment_id: pulumi_wasm_rust::Output<String>,
+        pub environment_id: pulumi_gestalt_rust::Output<String>,
         /// Last timestamp at which the volume was updated in FinSpace. Value determined as epoch time in seconds. For example, the value for Monday, November 1, 2021 12:00:00 PM UTC is specified as 1635768000.
-        pub last_modified_timestamp: pulumi_wasm_rust::Output<String>,
+        pub last_modified_timestamp: pulumi_gestalt_rust::Output<String>,
         /// Unique name for the volumr that you want to create.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// Specifies the configuration for the Network attached storage (`NAS_1`) file system volume. This parameter is required when `volume_type` is `NAS_1`. See `nas1_configuration` Argument Reference below.
-        pub nas1_configurations: pulumi_wasm_rust::Output<
+        pub nas1_configurations: pulumi_gestalt_rust::Output<
             Option<Vec<super::super::types::finspace::KxVolumeNas1Configuration>>,
         >,
         /// The status of volume creation.
@@ -101,29 +101,29 @@ pub mod kx_volume {
         /// * `DELETING` – The volume is in the process of being deleted.
         /// * `DELETE_FAILED` – The system failed to delete the volume.
         /// * `DELETED` – The volume is successfully deleted.
-        pub status: pulumi_wasm_rust::Output<String>,
+        pub status: pulumi_gestalt_rust::Output<String>,
         /// The error message when a failed state occurs.
-        pub status_reason: pulumi_wasm_rust::Output<String>,
+        pub status_reason: pulumi_gestalt_rust::Output<String>,
         /// A list of key-value pairs to label the volume. You can add up to 50 tags to a volume
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
-        pub tags_all: pulumi_wasm_rust::Output<
+        pub tags_all: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
         /// The type of file system volume. Currently, FinSpace only supports the `NAS_1` volume type. When you select the `NAS_1` volume type, you must also provide `nas1_configuration`.
-        pub type_: pulumi_wasm_rust::Output<String>,
+        pub type_: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: KxVolumeArgs,
     ) -> KxVolumeResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let availability_zones_binding = args
             .availability_zones
@@ -180,39 +180,43 @@ pub mod kx_volume {
         };
         let o = register_interface::register(context.get_inner(), &request);
         KxVolumeResult {
-            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
-            attached_clusters: pulumi_wasm_rust::__private::into_domain(
+            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
+            attached_clusters: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("attachedClusters"),
             ),
-            availability_zones: pulumi_wasm_rust::__private::into_domain(
+            availability_zones: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("availabilityZones"),
             ),
-            az_mode: pulumi_wasm_rust::__private::into_domain(o.extract_field("azMode")),
-            created_timestamp: pulumi_wasm_rust::__private::into_domain(
+            az_mode: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("azMode"),
+            ),
+            created_timestamp: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("createdTimestamp"),
             ),
-            description: pulumi_wasm_rust::__private::into_domain(
+            description: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("description"),
             ),
-            environment_id: pulumi_wasm_rust::__private::into_domain(
+            environment_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("environmentId"),
             ),
-            last_modified_timestamp: pulumi_wasm_rust::__private::into_domain(
+            last_modified_timestamp: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("lastModifiedTimestamp"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            nas1_configurations: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            nas1_configurations: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("nas1Configurations"),
             ),
-            status: pulumi_wasm_rust::__private::into_domain(o.extract_field("status")),
-            status_reason: pulumi_wasm_rust::__private::into_domain(
+            status: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("status"),
+            ),
+            status_reason: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("statusReason"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_wasm_rust::__private::into_domain(
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            tags_all: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("tagsAll"),
             ),
-            type_: pulumi_wasm_rust::__private::into_domain(o.extract_field("type")),
+            type_: pulumi_gestalt_rust::__private::into_domain(o.extract_field("type")),
         }
     }
 }

@@ -5,7 +5,7 @@ pub enum Diameter {
     twelveinch,
 }
 
-impl pulumi_wasm_rust::__private::serde::Serialize for Diameter {
+impl pulumi_gestalt_rust::__private::serde::Serialize for Diameter {
     fn serialize<S>(&self, serializer: S) -> Result<S::Ok, S::Error>
     where
         S: serde::Serializer,
@@ -18,7 +18,7 @@ impl pulumi_wasm_rust::__private::serde::Serialize for Diameter {
     }
 }
 
-impl<'de> pulumi_wasm_rust::__private::serde::Deserialize<'de> for Diameter {
+impl<'de> pulumi_gestalt_rust::__private::serde::Deserialize<'de> for Diameter {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
         D: serde::Deserializer<'de>,

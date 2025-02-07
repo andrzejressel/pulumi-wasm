@@ -29,7 +29,7 @@
 /// $ pulumi import aws:securityhub/productSubscription:ProductSubscription example arn:aws:securityhub:eu-west-1:733251395267:product/alertlogic/althreatmanagement,arn:aws:securityhub:eu-west-1:123456789012:product-subscription/alertlogic/althreatmanagement
 /// ```
 pub mod product_subscription {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ProductSubscriptionArgs {
@@ -73,12 +73,12 @@ pub mod product_subscription {
         /// * `arn:aws:securityhub:${var.region}::product/turbot/turbot`
         /// * `arn:aws:securityhub:${var.region}::product/twistlock/twistlock-enterprise`
         #[builder(into)]
-        pub product_arn: pulumi_wasm_rust::InputOrOutput<String>,
+        pub product_arn: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct ProductSubscriptionResult {
         /// The ARN of a resource that represents your subscription to the product that generates the findings that you want to import into Security Hub.
-        pub arn: pulumi_wasm_rust::Output<String>,
+        pub arn: pulumi_gestalt_rust::Output<String>,
         /// The ARN of the product that generates findings that you want to import into Security Hub - see below.
         ///
         /// Amazon maintains a list of [Product integrations in AWS Security Hub](https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-findings-providers.html) that changes over time. Any of the products on the linked [Available AWS service integrations](https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-internal-providers.html) or [Available third-party partner product integrations](https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-partner-providers.html) can be configured using `aws.securityhub.ProductSubscription`.
@@ -118,18 +118,18 @@ pub mod product_subscription {
         /// * `arn:aws:securityhub:${var.region}::product/trend-micro/deep-security`
         /// * `arn:aws:securityhub:${var.region}::product/turbot/turbot`
         /// * `arn:aws:securityhub:${var.region}::product/twistlock/twistlock-enterprise`
-        pub product_arn: pulumi_wasm_rust::Output<String>,
+        pub product_arn: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: ProductSubscriptionArgs,
     ) -> ProductSubscriptionResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let product_arn_binding = args.product_arn.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
@@ -145,8 +145,8 @@ pub mod product_subscription {
         };
         let o = register_interface::register(context.get_inner(), &request);
         ProductSubscriptionResult {
-            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
-            product_arn: pulumi_wasm_rust::__private::into_domain(
+            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
+            product_arn: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("productArn"),
             ),
         }

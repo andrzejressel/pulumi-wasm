@@ -13,57 +13,57 @@
 /// $ pulumi import aws:msk/replicator:Replicator example arn:aws:kafka:us-west-2:123456789012:configuration/example/279c0212-d057-4dba-9aa9-1c4e5a25bfc7-3
 /// ```
 pub mod replicator {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ReplicatorArgs {
         /// A summary description of the replicator.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub description: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// A list of Kafka clusters which are targets of the replicator.
         #[builder(into)]
-        pub kafka_clusters: pulumi_wasm_rust::InputOrOutput<
+        pub kafka_clusters: pulumi_gestalt_rust::InputOrOutput<
             Vec<super::super::types::msk::ReplicatorKafkaCluster>,
         >,
         /// A list of replication configurations, where each configuration targets a given source cluster to target cluster replication flow.
         #[builder(into)]
-        pub replication_info_list: pulumi_wasm_rust::InputOrOutput<
+        pub replication_info_list: pulumi_gestalt_rust::InputOrOutput<
             super::super::types::msk::ReplicatorReplicationInfoList,
         >,
         /// The name of the replicator.
         #[builder(into)]
-        pub replicator_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub replicator_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The ARN of the IAM role used by the replicator to access resources in the customer's account (e.g source and target clusters).
         #[builder(into)]
-        pub service_execution_role_arn: pulumi_wasm_rust::InputOrOutput<String>,
+        pub service_execution_role_arn: pulumi_gestalt_rust::InputOrOutput<String>,
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
     #[allow(dead_code)]
     pub struct ReplicatorResult {
         /// ARN of the Replicator. Do not begin the description with "An", "The", "Defines", "Indicates", or "Specifies," as these are verbose. In other words, "Indicates the amount of storage," can be rewritten as "Amount of storage," without losing any information.
-        pub arn: pulumi_wasm_rust::Output<String>,
-        pub current_version: pulumi_wasm_rust::Output<String>,
+        pub arn: pulumi_gestalt_rust::Output<String>,
+        pub current_version: pulumi_gestalt_rust::Output<String>,
         /// A summary description of the replicator.
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_gestalt_rust::Output<Option<String>>,
         /// A list of Kafka clusters which are targets of the replicator.
-        pub kafka_clusters: pulumi_wasm_rust::Output<
+        pub kafka_clusters: pulumi_gestalt_rust::Output<
             Vec<super::super::types::msk::ReplicatorKafkaCluster>,
         >,
         /// A list of replication configurations, where each configuration targets a given source cluster to target cluster replication flow.
-        pub replication_info_list: pulumi_wasm_rust::Output<
+        pub replication_info_list: pulumi_gestalt_rust::Output<
             super::super::types::msk::ReplicatorReplicationInfoList,
         >,
         /// The name of the replicator.
-        pub replicator_name: pulumi_wasm_rust::Output<String>,
+        pub replicator_name: pulumi_gestalt_rust::Output<String>,
         /// The ARN of the IAM role used by the replicator to access resources in the customer's account (e.g source and target clusters).
-        pub service_execution_role_arn: pulumi_wasm_rust::Output<String>,
-        pub tags: pulumi_wasm_rust::Output<
+        pub service_execution_role_arn: pulumi_gestalt_rust::Output<String>,
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
-        pub tags_all: pulumi_wasm_rust::Output<
+        pub tags_all: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
     }
@@ -72,11 +72,11 @@ pub mod replicator {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: ReplicatorArgs,
     ) -> ReplicatorResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let description_binding = args.description.get_output(context).get_inner();
         let kafka_clusters_binding = args.kafka_clusters.get_output(context).get_inner();
@@ -126,27 +126,27 @@ pub mod replicator {
         };
         let o = register_interface::register(context.get_inner(), &request);
         ReplicatorResult {
-            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
-            current_version: pulumi_wasm_rust::__private::into_domain(
+            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
+            current_version: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("currentVersion"),
             ),
-            description: pulumi_wasm_rust::__private::into_domain(
+            description: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("description"),
             ),
-            kafka_clusters: pulumi_wasm_rust::__private::into_domain(
+            kafka_clusters: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("kafkaClusters"),
             ),
-            replication_info_list: pulumi_wasm_rust::__private::into_domain(
+            replication_info_list: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("replicationInfoList"),
             ),
-            replicator_name: pulumi_wasm_rust::__private::into_domain(
+            replicator_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("replicatorName"),
             ),
-            service_execution_role_arn: pulumi_wasm_rust::__private::into_domain(
+            service_execution_role_arn: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("serviceExecutionRoleArn"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_wasm_rust::__private::into_domain(
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            tags_all: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("tagsAll"),
             ),
         }

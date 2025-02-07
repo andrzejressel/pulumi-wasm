@@ -102,7 +102,7 @@
 /// ```
 ///
 pub mod network_endpoint {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct NetworkEndpointArgs {
@@ -110,66 +110,66 @@ pub mod network_endpoint {
         /// This is required for network endpoints of type GCE_VM_IP_PORT.
         /// The instance must be in the same zone of network endpoint group.
         #[builder(into, default)]
-        pub instance: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub instance: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// IPv4 address of network endpoint. The IP address must belong
         /// to a VM in GCE (either the primary IP or as part of an aliased IP
         /// range).
         #[builder(into)]
-        pub ip_address: pulumi_wasm_rust::InputOrOutput<String>,
+        pub ip_address: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The network endpoint group this endpoint is part of.
         ///
         ///
         /// - - -
         #[builder(into)]
-        pub network_endpoint_group: pulumi_wasm_rust::InputOrOutput<String>,
+        pub network_endpoint_group: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Port number of network endpoint.
         /// **Note** `port` is required unless the Network Endpoint Group is created
         /// with the type of `GCE_VM_IP`
         #[builder(into, default)]
-        pub port: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
+        pub port: pulumi_gestalt_rust::InputOrOutput<Option<i32>>,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub project: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Zone where the containing network endpoint group is located.
         #[builder(into, default)]
-        pub zone: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub zone: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct NetworkEndpointResult {
         /// The name for a specific VM instance that the IP address belongs to.
         /// This is required for network endpoints of type GCE_VM_IP_PORT.
         /// The instance must be in the same zone of network endpoint group.
-        pub instance: pulumi_wasm_rust::Output<Option<String>>,
+        pub instance: pulumi_gestalt_rust::Output<Option<String>>,
         /// IPv4 address of network endpoint. The IP address must belong
         /// to a VM in GCE (either the primary IP or as part of an aliased IP
         /// range).
-        pub ip_address: pulumi_wasm_rust::Output<String>,
+        pub ip_address: pulumi_gestalt_rust::Output<String>,
         /// The network endpoint group this endpoint is part of.
         ///
         ///
         /// - - -
-        pub network_endpoint_group: pulumi_wasm_rust::Output<String>,
+        pub network_endpoint_group: pulumi_gestalt_rust::Output<String>,
         /// Port number of network endpoint.
         /// **Note** `port` is required unless the Network Endpoint Group is created
         /// with the type of `GCE_VM_IP`
-        pub port: pulumi_wasm_rust::Output<Option<i32>>,
+        pub port: pulumi_gestalt_rust::Output<Option<i32>>,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
-        pub project: pulumi_wasm_rust::Output<String>,
+        pub project: pulumi_gestalt_rust::Output<String>,
         /// Zone where the containing network endpoint group is located.
-        pub zone: pulumi_wasm_rust::Output<String>,
+        pub zone: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: NetworkEndpointArgs,
     ) -> NetworkEndpointResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let instance_binding = args.instance.get_output(context).get_inner();
         let ip_address_binding = args.ip_address.get_output(context).get_inner();
@@ -213,20 +213,20 @@ pub mod network_endpoint {
         };
         let o = register_interface::register(context.get_inner(), &request);
         NetworkEndpointResult {
-            instance: pulumi_wasm_rust::__private::into_domain(
+            instance: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("instance"),
             ),
-            ip_address: pulumi_wasm_rust::__private::into_domain(
+            ip_address: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("ipAddress"),
             ),
-            network_endpoint_group: pulumi_wasm_rust::__private::into_domain(
+            network_endpoint_group: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("networkEndpointGroup"),
             ),
-            port: pulumi_wasm_rust::__private::into_domain(o.extract_field("port")),
-            project: pulumi_wasm_rust::__private::into_domain(
+            port: pulumi_gestalt_rust::__private::into_domain(o.extract_field("port")),
+            project: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("project"),
             ),
-            zone: pulumi_wasm_rust::__private::into_domain(o.extract_field("zone")),
+            zone: pulumi_gestalt_rust::__private::into_domain(o.extract_field("zone")),
         }
     }
 }

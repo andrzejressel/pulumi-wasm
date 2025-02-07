@@ -36,10 +36,10 @@ fix-issues:
     cargo check
 
 build-language-plugin:
-    cd pulumi-language-wasm && just
+    cd pulumi-language-gestalt && just
 
 package-language-plugin VERSION:
-    cd pulumi-language-wasm && just package-language-plugin-all {{VERSION}}
+    cd pulumi-language-gestalt && just package-language-plugin-all {{VERSION}}
 
 install-requirements:
     rustup component add rustfmt
@@ -52,24 +52,24 @@ install-requirements:
 
 # Compiling everything together causes linking issues
 build-wasm-components:
-    cargo build -p pulumi_wasm_runner
-    cargo component build -p pulumi_wasm
-    cargo component build -p pulumi_wasm_example_simple
-    cargo component build -p pulumi_wasm_example_docker
-    cargo component build -p pulumi_wasm_example_dependencies
-    cargo component build -p pulumi_wasm_example_multiple_providers
-    cargo component build -p pulumi_wasm_example_plugins
-    cargo component build -p pulumi_wasm_example_secret
+    cargo build -p pulumi_gestalt_runner
+    cargo component build -p pulumi_gestalt
+    cargo component build -p pulumi_gestalt_example_simple
+    cargo component build -p pulumi_gestalt_example_docker
+    cargo component build -p pulumi_gestalt_example_dependencies
+    cargo component build -p pulumi_gestalt_example_multiple_providers
+    cargo component build -p pulumi_gestalt_example_plugins
+    cargo component build -p pulumi_gestalt_example_secret
 
 build-wasm-components-release:
-    cargo build -p pulumi_wasm_runner --release
-    cargo component build -p pulumi_wasm --release
-    cargo component build -p pulumi_wasm_example_simple --release
-    cargo component build -p pulumi_wasm_example_docker --release
-    cargo component build -p pulumi_wasm_example_dependencies --release
-    cargo component build -p pulumi_wasm_example_multiple_providers --release
-    cargo component build -p pulumi_wasm_example_plugins --release
-    cargo component build -p pulumi_wasm_example_secret --release
+    cargo build -p pulumi_gestalt_runner --release
+    cargo component build -p pulumi_gestalt --release
+    cargo component build -p pulumi_gestalt_example_simple --release
+    cargo component build -p pulumi_gestalt_example_docker --release
+    cargo component build -p pulumi_gestalt_example_dependencies --release
+    cargo component build -p pulumi_gestalt_example_multiple_providers --release
+    cargo component build -p pulumi_gestalt_example_plugins --release
+    cargo component build -p pulumi_gestalt_example_secret --release
 
 build-static-library:
     cargo build -p pulumi_native_c
@@ -78,7 +78,7 @@ check:
     cargo fmt -- --check
 
 fmt:
-    cd pulumi-language-wasm && just fmt
+    cd pulumi-language-gestalt && just fmt
     cargo fmt
 
 fmt-clippy:
@@ -92,44 +92,44 @@ regenerator:
     cargo run -p regenerator
 
 regenerate-generator-tests $DO_NOT_COMPILE="true":
-    cargo nextest run -p pulumi_wasm_generator --all-features --test '*' --profile all_cores
+    cargo nextest run -p pulumi_gestalt_generator --all-features --test '*' --profile all_cores
 
 publish:
-    cargo hack publish -p pulumi_wasm_wit --all-features --no-dev-deps --allow-dirty
-    cargo hack publish -p pulumi_wasm_proto --all-features --no-dev-deps --allow-dirty
-    cargo hack publish -p pulumi_wasm_common --all-features --no-dev-deps --allow-dirty
-    cargo hack publish -p pulumi_wasm_grpc_connection --all-features --no-dev-deps --allow-dirty
-    cargo hack publish -p pulumi_wasm_rust --all-features --no-dev-deps --allow-dirty
-    cargo hack publish -p pulumi_wasm_generator --all-features --no-dev-deps --allow-dirty
-    cargo hack publish -p pulumi_wasm_build --all-features --no-dev-deps --allow-dirty
-    cargo hack publish -p pulumi_wasm_core --all-features --no-dev-deps --allow-dirty
-    cargo hack publish -p pulumi_wasm_runner_component_creator --all-features --no-dev-deps --allow-dirty
-    cargo hack publish -p pulumi_wasm_runner --all-features --no-dev-deps --allow-dirty
+    cargo hack publish -p pulumi_gestalt_wit --all-features --no-dev-deps --allow-dirty
+    cargo hack publish -p pulumi_gestalt_proto --all-features --no-dev-deps --allow-dirty
+    cargo hack publish -p pulumi_gestalt_common --all-features --no-dev-deps --allow-dirty
+    cargo hack publish -p pulumi_gestalt_grpc_connection --all-features --no-dev-deps --allow-dirty
+    cargo hack publish -p pulumi_gestalt_rust --all-features --no-dev-deps --allow-dirty
+    cargo hack publish -p pulumi_gestalt_generator --all-features --no-dev-deps --allow-dirty
+    cargo hack publish -p pulumi_gestalt_build --all-features --no-dev-deps --allow-dirty
+    cargo hack publish -p pulumi_gestalt_core --all-features --no-dev-deps --allow-dirty
+    cargo hack publish -p pulumi_gestalt_runner_component_creator --all-features --no-dev-deps --allow-dirty
+    cargo hack publish -p pulumi_gestalt_runner --all-features --no-dev-deps --allow-dirty
 
 test-provider-compilation COMPILATION_NAME:
-    cargo llvm-cov nextest -p pulumi_wasm_generator --cobertura --output-path covertura.xml --features generator_{{COMPILATION_NAME}} --test '*'
+    cargo llvm-cov nextest -p pulumi_gestalt_generator --cobertura --output-path covertura.xml --features generator_{{COMPILATION_NAME}} --test '*'
 
 test-examples:
     cargo llvm-cov nextest \
-        -p pulumi_wasm_example_simple \
-        -p pulumi_wasm_example_docker \
-        -p pulumi_wasm_example_dependencies \
-        -p pulumi_wasm_example_multiple_providers \
-        -p pulumi_wasm_example_typesystem \
-        -p pulumi_wasm_example_plugins \
-        -p pulumi_wasm_example_secret \
+        -p pulumi_gestalt_example_simple \
+        -p pulumi_gestalt_example_docker \
+        -p pulumi_gestalt_example_dependencies \
+        -p pulumi_gestalt_example_multiple_providers \
+        -p pulumi_gestalt_example_typesystem \
+        -p pulumi_gestalt_example_plugins \
+        -p pulumi_gestalt_example_secret \
         --cobertura --output-path covertura.xml --features example_test
 
 test-cpp:
     cargo llvm-cov nextest \
-        -p pulumi_wasm_example_cpp \
+        -p pulumi_gestalt_example_cpp \
         --cobertura --output-path covertura.xml --features example_test
 
 generator-tests:
-    cargo nextest run --all-features -p pulumi_wasm_generator
+    cargo nextest run --all-features -p pulumi_gestalt_generator
 
 generator-tests-release:
-    cargo nextest run --all-features -p pulumi_wasm_generator --release
+    cargo nextest run --all-features -p pulumi_gestalt_generator --release
 
 test-all:
     cargo llvm-cov nextest --cobertura --output-path covertura.xml --all-features
@@ -149,14 +149,14 @@ test-docs:
 
 rust-docs:
     cargo doc --no-deps \
-        -p pulumi_wasm_rust \
-        -p pulumi_wasm_build \
-        -p pulumi_wasm_providers_aws_mini \
-        -p pulumi_wasm_providers_azure_mini \
-        -p pulumi_wasm_providers_cloudflare \
-        -p pulumi_wasm_providers_docker \
-        -p pulumi_wasm_providers_gcp_mini \
-        -p pulumi_wasm_providers_random
+        -p pulumi_gestalt_rust \
+        -p pulumi_gestalt_build \
+        -p pulumi_gestalt_providers_aws_mini \
+        -p pulumi_gestalt_providers_azure_mini \
+        -p pulumi_gestalt_providers_cloudflare \
+        -p pulumi_gestalt_providers_docker \
+        -p pulumi_gestalt_providers_gcp_mini \
+        -p pulumi_gestalt_providers_random
 
 rust-docs-release $RUSTDOCFLAGS="--html-in-header docs_additions/umami.html":
     just rust-docs

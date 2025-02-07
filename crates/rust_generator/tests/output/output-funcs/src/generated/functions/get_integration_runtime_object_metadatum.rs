@@ -1,30 +1,30 @@
 pub mod get_integration_runtime_object_metadatum {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct GetIntegrationRuntimeObjectMetadatumArgs {
         /// The factory name.
         #[builder(into)]
-        pub factory_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub factory_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The integration runtime name.
         #[builder(into)]
-        pub integration_runtime_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub integration_runtime_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Metadata path.
         #[builder(into, default)]
-        pub metadata_path: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub metadata_path: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The resource group name.
         #[builder(into)]
-        pub resource_group_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub resource_group_name: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct GetIntegrationRuntimeObjectMetadatumResult {
         /// The link to the next page of results, if any remaining results exist.
-        pub next_link: pulumi_wasm_rust::Output<Option<String>>,
+        pub next_link: pulumi_gestalt_rust::Output<Option<String>>,
         /// List of SSIS object metadata.
-        pub value: pulumi_wasm_rust::Output<
+        pub value: pulumi_gestalt_rust::Output<
             Option<
                 Vec<
-                    pulumi_wasm_rust::OneOf4<
+                    pulumi_gestalt_rust::OneOf4<
                         super::super::types::SsisEnvironmentResponse,
                         super::super::types::SsisFolderResponse,
                         super::super::types::SsisPackageResponse,
@@ -39,10 +39,10 @@ pub mod get_integration_runtime_object_metadatum {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         args: GetIntegrationRuntimeObjectMetadatumArgs,
     ) -> GetIntegrationRuntimeObjectMetadatumResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let factory_name_binding = args.factory_name.get_output(context).get_inner();
         let integration_runtime_name_binding = args
@@ -78,10 +78,10 @@ pub mod get_integration_runtime_object_metadatum {
         };
         let o = register_interface::invoke(context.get_inner(), &request);
         GetIntegrationRuntimeObjectMetadatumResult {
-            next_link: pulumi_wasm_rust::__private::into_domain(
+            next_link: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("nextLink"),
             ),
-            value: pulumi_wasm_rust::__private::into_domain(o.extract_field("value")),
+            value: pulumi_gestalt_rust::__private::into_domain(o.extract_field("value")),
         }
     }
 }

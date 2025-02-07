@@ -79,79 +79,79 @@
 /// $ pulumi import aws:codepipeline/webhook:Webhook example arn:aws:codepipeline:us-west-2:123456789012:webhook:example
 /// ```
 pub mod webhook {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct WebhookArgs {
         /// The type of authentication  to use. One of `IP`, `GITHUB_HMAC`, or `UNAUTHENTICATED`.
         #[builder(into)]
-        pub authentication: pulumi_wasm_rust::InputOrOutput<String>,
+        pub authentication: pulumi_gestalt_rust::InputOrOutput<String>,
         /// An `auth` block. Required for `IP` and `GITHUB_HMAC`. Auth blocks are documented below.
         #[builder(into, default)]
-        pub authentication_configuration: pulumi_wasm_rust::InputOrOutput<
+        pub authentication_configuration: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::codepipeline::WebhookAuthenticationConfiguration>,
         >,
         /// One or more `filter` blocks. Filter blocks are documented below.
         #[builder(into)]
-        pub filters: pulumi_wasm_rust::InputOrOutput<
+        pub filters: pulumi_gestalt_rust::InputOrOutput<
             Vec<super::super::types::codepipeline::WebhookFilter>,
         >,
         /// The name of the webhook.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// The name of the action in a pipeline you want to connect to the webhook. The action must be from the source (first) stage of the pipeline.
         #[builder(into)]
-        pub target_action: pulumi_wasm_rust::InputOrOutput<String>,
+        pub target_action: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The name of the pipeline.
         #[builder(into)]
-        pub target_pipeline: pulumi_wasm_rust::InputOrOutput<String>,
+        pub target_pipeline: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct WebhookResult {
         /// The CodePipeline webhook's ARN.
-        pub arn: pulumi_wasm_rust::Output<String>,
+        pub arn: pulumi_gestalt_rust::Output<String>,
         /// The type of authentication  to use. One of `IP`, `GITHUB_HMAC`, or `UNAUTHENTICATED`.
-        pub authentication: pulumi_wasm_rust::Output<String>,
+        pub authentication: pulumi_gestalt_rust::Output<String>,
         /// An `auth` block. Required for `IP` and `GITHUB_HMAC`. Auth blocks are documented below.
-        pub authentication_configuration: pulumi_wasm_rust::Output<
+        pub authentication_configuration: pulumi_gestalt_rust::Output<
             Option<super::super::types::codepipeline::WebhookAuthenticationConfiguration>,
         >,
         /// One or more `filter` blocks. Filter blocks are documented below.
-        pub filters: pulumi_wasm_rust::Output<
+        pub filters: pulumi_gestalt_rust::Output<
             Vec<super::super::types::codepipeline::WebhookFilter>,
         >,
         /// The name of the webhook.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        pub tags_all: pulumi_wasm_rust::Output<
+        pub tags_all: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
         /// The name of the action in a pipeline you want to connect to the webhook. The action must be from the source (first) stage of the pipeline.
-        pub target_action: pulumi_wasm_rust::Output<String>,
+        pub target_action: pulumi_gestalt_rust::Output<String>,
         /// The name of the pipeline.
-        pub target_pipeline: pulumi_wasm_rust::Output<String>,
+        pub target_pipeline: pulumi_gestalt_rust::Output<String>,
         /// The CodePipeline webhook's URL. POST events to this endpoint to trigger the target.
-        pub url: pulumi_wasm_rust::Output<String>,
+        pub url: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: WebhookArgs,
     ) -> WebhookResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let authentication_binding = args.authentication.get_output(context).get_inner();
         let authentication_configuration_binding = args
@@ -203,28 +203,28 @@ pub mod webhook {
         };
         let o = register_interface::register(context.get_inner(), &request);
         WebhookResult {
-            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
-            authentication: pulumi_wasm_rust::__private::into_domain(
+            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
+            authentication: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("authentication"),
             ),
-            authentication_configuration: pulumi_wasm_rust::__private::into_domain(
+            authentication_configuration: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("authenticationConfiguration"),
             ),
-            filters: pulumi_wasm_rust::__private::into_domain(
+            filters: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("filters"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            tags_all: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("tagsAll"),
             ),
-            target_action: pulumi_wasm_rust::__private::into_domain(
+            target_action: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("targetAction"),
             ),
-            target_pipeline: pulumi_wasm_rust::__private::into_domain(
+            target_pipeline: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("targetPipeline"),
             ),
-            url: pulumi_wasm_rust::__private::into_domain(o.extract_field("url")),
+            url: pulumi_gestalt_rust::__private::into_domain(o.extract_field("url")),
         }
     }
 }

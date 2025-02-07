@@ -13,8 +13,8 @@
 /// ## Example Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let myCert = zero_trust_access_mtls_certificate::create(
@@ -44,50 +44,52 @@
 /// ```
 ///
 pub mod zero_trust_access_mtls_certificate {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ZeroTrustAccessMtlsCertificateArgs {
         /// The account identifier to target for the resource. Conflicts with `zone_id`.
         #[builder(into, default)]
-        pub account_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub account_id: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The hostnames that will be prompted for this certificate.
         #[builder(into, default)]
-        pub associated_hostnames: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
+        pub associated_hostnames: pulumi_gestalt_rust::InputOrOutput<
+            Option<Vec<String>>,
+        >,
         /// The Root CA for your certificates.
         #[builder(into, default)]
-        pub certificate: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub certificate: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The name of the certificate.
         #[builder(into)]
-        pub name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The zone identifier to target for the resource. Conflicts with `account_id`.
         #[builder(into, default)]
-        pub zone_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub zone_id: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct ZeroTrustAccessMtlsCertificateResult {
         /// The account identifier to target for the resource. Conflicts with `zone_id`.
-        pub account_id: pulumi_wasm_rust::Output<String>,
+        pub account_id: pulumi_gestalt_rust::Output<String>,
         /// The hostnames that will be prompted for this certificate.
-        pub associated_hostnames: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub associated_hostnames: pulumi_gestalt_rust::Output<Option<Vec<String>>>,
         /// The Root CA for your certificates.
-        pub certificate: pulumi_wasm_rust::Output<Option<String>>,
-        pub fingerprint: pulumi_wasm_rust::Output<String>,
+        pub certificate: pulumi_gestalt_rust::Output<Option<String>>,
+        pub fingerprint: pulumi_gestalt_rust::Output<String>,
         /// The name of the certificate.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// The zone identifier to target for the resource. Conflicts with `account_id`.
-        pub zone_id: pulumi_wasm_rust::Output<String>,
+        pub zone_id: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: ZeroTrustAccessMtlsCertificateArgs,
     ) -> ZeroTrustAccessMtlsCertificateResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let account_id_binding = args.account_id.get_output(context).get_inner();
         let associated_hostnames_binding = args
@@ -127,20 +129,22 @@ pub mod zero_trust_access_mtls_certificate {
         };
         let o = register_interface::register(context.get_inner(), &request);
         ZeroTrustAccessMtlsCertificateResult {
-            account_id: pulumi_wasm_rust::__private::into_domain(
+            account_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("accountId"),
             ),
-            associated_hostnames: pulumi_wasm_rust::__private::into_domain(
+            associated_hostnames: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("associatedHostnames"),
             ),
-            certificate: pulumi_wasm_rust::__private::into_domain(
+            certificate: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("certificate"),
             ),
-            fingerprint: pulumi_wasm_rust::__private::into_domain(
+            fingerprint: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("fingerprint"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            zone_id: pulumi_wasm_rust::__private::into_domain(o.extract_field("zoneId")),
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            zone_id: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("zoneId"),
+            ),
         }
     }
 }

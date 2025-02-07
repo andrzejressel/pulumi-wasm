@@ -48,16 +48,16 @@
 /// ```
 ///
 pub mod traffic_manager_external_endpoint {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct TrafficManagerExternalEndpointArgs {
         /// If Always Serve is enabled, probing for endpoint health will be disabled and endpoints will be included in the traffic routing method. Defaults to `false`.
         #[builder(into, default)]
-        pub always_serve_enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub always_serve_enabled: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// One or more `custom_header` blocks as defined below.
         #[builder(into, default)]
-        pub custom_headers: pulumi_wasm_rust::InputOrOutput<
+        pub custom_headers: pulumi_gestalt_rust::InputOrOutput<
             Option<
                 Vec<
                     super::super::types::network::TrafficManagerExternalEndpointCustomHeader,
@@ -66,42 +66,42 @@ pub mod traffic_manager_external_endpoint {
         >,
         /// Is the endpoint enabled? Defaults to `true`.
         #[builder(into, default)]
-        pub enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub enabled: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// Specifies the Azure location of the Endpoint, this must be specified for Profiles using the `Performance` routing method.
         #[builder(into, default)]
-        pub endpoint_location: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub endpoint_location: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// A list of Geographic Regions used to distribute traffic, such as `WORLD`, `UK` or `DE`. The same location can't be specified in two endpoints. [See the Geographic Hierarchies documentation for more information](https://docs.microsoft.com/rest/api/trafficmanager/geographichierarchies/getdefault).
         #[builder(into, default)]
-        pub geo_mappings: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
+        pub geo_mappings: pulumi_gestalt_rust::InputOrOutput<Option<Vec<String>>>,
         /// The name of the External Endpoint. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Specifies the priority of this Endpoint, this must be specified for Profiles using the `Priority` traffic routing method. Supports values between 1 and 1000, with no Endpoints sharing the same value. If omitted the value will be computed in order of creation.
         #[builder(into, default)]
-        pub priority: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
+        pub priority: pulumi_gestalt_rust::InputOrOutput<Option<i32>>,
         /// The ID of the Traffic Manager Profile that this External Endpoint should be created within. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub profile_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub profile_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// One or more `subnet` blocks as defined below. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub subnets: pulumi_wasm_rust::InputOrOutput<
+        pub subnets: pulumi_gestalt_rust::InputOrOutput<
             Option<
                 Vec<super::super::types::network::TrafficManagerExternalEndpointSubnet>,
             >,
         >,
         /// The FQDN DNS name of the target.
         #[builder(into)]
-        pub target: pulumi_wasm_rust::InputOrOutput<String>,
+        pub target: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Specifies how much traffic should be distributed to this endpoint, this must be specified for Profiles using the Weighted traffic routing method. Valid values are between `1` and `1000`. Defaults to `1`.
         #[builder(into, default)]
-        pub weight: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
+        pub weight: pulumi_gestalt_rust::InputOrOutput<Option<i32>>,
     }
     #[allow(dead_code)]
     pub struct TrafficManagerExternalEndpointResult {
         /// If Always Serve is enabled, probing for endpoint health will be disabled and endpoints will be included in the traffic routing method. Defaults to `false`.
-        pub always_serve_enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub always_serve_enabled: pulumi_gestalt_rust::Output<Option<bool>>,
         /// One or more `custom_header` blocks as defined below.
-        pub custom_headers: pulumi_wasm_rust::Output<
+        pub custom_headers: pulumi_gestalt_rust::Output<
             Option<
                 Vec<
                     super::super::types::network::TrafficManagerExternalEndpointCustomHeader,
@@ -109,38 +109,38 @@ pub mod traffic_manager_external_endpoint {
             >,
         >,
         /// Is the endpoint enabled? Defaults to `true`.
-        pub enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub enabled: pulumi_gestalt_rust::Output<Option<bool>>,
         /// Specifies the Azure location of the Endpoint, this must be specified for Profiles using the `Performance` routing method.
-        pub endpoint_location: pulumi_wasm_rust::Output<String>,
+        pub endpoint_location: pulumi_gestalt_rust::Output<String>,
         /// A list of Geographic Regions used to distribute traffic, such as `WORLD`, `UK` or `DE`. The same location can't be specified in two endpoints. [See the Geographic Hierarchies documentation for more information](https://docs.microsoft.com/rest/api/trafficmanager/geographichierarchies/getdefault).
-        pub geo_mappings: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub geo_mappings: pulumi_gestalt_rust::Output<Option<Vec<String>>>,
         /// The name of the External Endpoint. Changing this forces a new resource to be created.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// Specifies the priority of this Endpoint, this must be specified for Profiles using the `Priority` traffic routing method. Supports values between 1 and 1000, with no Endpoints sharing the same value. If omitted the value will be computed in order of creation.
-        pub priority: pulumi_wasm_rust::Output<i32>,
+        pub priority: pulumi_gestalt_rust::Output<i32>,
         /// The ID of the Traffic Manager Profile that this External Endpoint should be created within. Changing this forces a new resource to be created.
-        pub profile_id: pulumi_wasm_rust::Output<String>,
+        pub profile_id: pulumi_gestalt_rust::Output<String>,
         /// One or more `subnet` blocks as defined below. Changing this forces a new resource to be created.
-        pub subnets: pulumi_wasm_rust::Output<
+        pub subnets: pulumi_gestalt_rust::Output<
             Option<
                 Vec<super::super::types::network::TrafficManagerExternalEndpointSubnet>,
             >,
         >,
         /// The FQDN DNS name of the target.
-        pub target: pulumi_wasm_rust::Output<String>,
+        pub target: pulumi_gestalt_rust::Output<String>,
         /// Specifies how much traffic should be distributed to this endpoint, this must be specified for Profiles using the Weighted traffic routing method. Valid values are between `1` and `1000`. Defaults to `1`.
-        pub weight: pulumi_wasm_rust::Output<Option<i32>>,
+        pub weight: pulumi_gestalt_rust::Output<Option<i32>>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: TrafficManagerExternalEndpointArgs,
     ) -> TrafficManagerExternalEndpointResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let always_serve_enabled_binding = args
             .always_serve_enabled
@@ -213,33 +213,37 @@ pub mod traffic_manager_external_endpoint {
         };
         let o = register_interface::register(context.get_inner(), &request);
         TrafficManagerExternalEndpointResult {
-            always_serve_enabled: pulumi_wasm_rust::__private::into_domain(
+            always_serve_enabled: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("alwaysServeEnabled"),
             ),
-            custom_headers: pulumi_wasm_rust::__private::into_domain(
+            custom_headers: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("customHeaders"),
             ),
-            enabled: pulumi_wasm_rust::__private::into_domain(
+            enabled: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("enabled"),
             ),
-            endpoint_location: pulumi_wasm_rust::__private::into_domain(
+            endpoint_location: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("endpointLocation"),
             ),
-            geo_mappings: pulumi_wasm_rust::__private::into_domain(
+            geo_mappings: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("geoMappings"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            priority: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            priority: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("priority"),
             ),
-            profile_id: pulumi_wasm_rust::__private::into_domain(
+            profile_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("profileId"),
             ),
-            subnets: pulumi_wasm_rust::__private::into_domain(
+            subnets: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("subnets"),
             ),
-            target: pulumi_wasm_rust::__private::into_domain(o.extract_field("target")),
-            weight: pulumi_wasm_rust::__private::into_domain(o.extract_field("weight")),
+            target: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("target"),
+            ),
+            weight: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("weight"),
+            ),
         }
     }
 }

@@ -135,50 +135,50 @@
 /// ```
 ///
 pub mod server_transparent_data_encryption {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ServerTransparentDataEncryptionArgs {
         /// When enabled, the server will continuously check the key vault for any new versions of the key being used as the TDE protector. If a new version of the key is detected, the TDE protector on the server will be automatically rotated to the latest key version within 60 minutes.
         #[builder(into, default)]
-        pub auto_rotation_enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub auto_rotation_enabled: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// To use customer managed keys from Azure Key Vault, provide the AKV Key ID. To use service managed keys, omit this field.
         ///
         /// > **NOTE:** In order to use customer managed keys, the identity of the MSSQL server must have the following permissions on the key vault: 'get', 'wrapKey' and 'unwrapKey'
         ///
         /// > **NOTE:** If `server_id` denotes a secondary server deployed for disaster recovery purposes, then the `key_vault_key_id` should be the same key used for the primary server's transparent data encryption. Both primary and secondary servers should be encrypted with same key material.
         #[builder(into, default)]
-        pub key_vault_key_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub key_vault_key_id: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         #[builder(into, default)]
-        pub managed_hsm_key_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub managed_hsm_key_id: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Specifies the name of the MS SQL Server. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub server_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub server_id: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct ServerTransparentDataEncryptionResult {
         /// When enabled, the server will continuously check the key vault for any new versions of the key being used as the TDE protector. If a new version of the key is detected, the TDE protector on the server will be automatically rotated to the latest key version within 60 minutes.
-        pub auto_rotation_enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub auto_rotation_enabled: pulumi_gestalt_rust::Output<Option<bool>>,
         /// To use customer managed keys from Azure Key Vault, provide the AKV Key ID. To use service managed keys, omit this field.
         ///
         /// > **NOTE:** In order to use customer managed keys, the identity of the MSSQL server must have the following permissions on the key vault: 'get', 'wrapKey' and 'unwrapKey'
         ///
         /// > **NOTE:** If `server_id` denotes a secondary server deployed for disaster recovery purposes, then the `key_vault_key_id` should be the same key used for the primary server's transparent data encryption. Both primary and secondary servers should be encrypted with same key material.
-        pub key_vault_key_id: pulumi_wasm_rust::Output<Option<String>>,
-        pub managed_hsm_key_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub key_vault_key_id: pulumi_gestalt_rust::Output<Option<String>>,
+        pub managed_hsm_key_id: pulumi_gestalt_rust::Output<Option<String>>,
         /// Specifies the name of the MS SQL Server. Changing this forces a new resource to be created.
-        pub server_id: pulumi_wasm_rust::Output<String>,
+        pub server_id: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: ServerTransparentDataEncryptionArgs,
     ) -> ServerTransparentDataEncryptionResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let auto_rotation_enabled_binding = args
             .auto_rotation_enabled
@@ -219,16 +219,16 @@ pub mod server_transparent_data_encryption {
         };
         let o = register_interface::register(context.get_inner(), &request);
         ServerTransparentDataEncryptionResult {
-            auto_rotation_enabled: pulumi_wasm_rust::__private::into_domain(
+            auto_rotation_enabled: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("autoRotationEnabled"),
             ),
-            key_vault_key_id: pulumi_wasm_rust::__private::into_domain(
+            key_vault_key_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("keyVaultKeyId"),
             ),
-            managed_hsm_key_id: pulumi_wasm_rust::__private::into_domain(
+            managed_hsm_key_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("managedHsmKeyId"),
             ),
-            server_id: pulumi_wasm_rust::__private::into_domain(
+            server_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("serverId"),
             ),
         }

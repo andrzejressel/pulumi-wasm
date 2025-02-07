@@ -57,82 +57,82 @@
 /// ```
 ///
 pub mod hci_marketplace_gallery_image {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct HciMarketplaceGalleryImageArgs {
         /// The ID of the Custom Location where the Azure Stack HCI Marketplace Gallery Image should exist. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub custom_location_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub custom_location_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The hypervisor generation of the Azure Stack HCI Marketplace Gallery Image. Possible values are `V1` and `V2`. Changing this forces a new Azure Stack HCI Marketplace Gallery Image to be created.
         #[builder(into)]
-        pub hyperv_generation: pulumi_wasm_rust::InputOrOutput<String>,
+        pub hyperv_generation: pulumi_gestalt_rust::InputOrOutput<String>,
         /// An `identifier` block as defined below. Changing this forces a new Azure Stack HCI Marketplace Gallery Image to be created.
         #[builder(into)]
-        pub identifier: pulumi_wasm_rust::InputOrOutput<
+        pub identifier: pulumi_gestalt_rust::InputOrOutput<
             super::super::types::stack::HciMarketplaceGalleryImageIdentifier,
         >,
         /// The Azure Region where the Azure Stack HCI Marketplace Gallery Image should exist. Changing this forces a new Azure Stack HCI Marketplace Gallery Image to be created.
         #[builder(into, default)]
-        pub location: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub location: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The name which should be used for this Azure Stack HCI Marketplace Gallery Image. Changing this forces a new Azure Stack HCI Marketplace Gallery Image to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The Operating System type of the Azure Stack HCI Marketplace Gallery Image. Possible values are `Windows` and `Linux`. Changing this forces a new Azure Stack HCI Marketplace Gallery Image to be created.
         #[builder(into)]
-        pub os_type: pulumi_wasm_rust::InputOrOutput<String>,
+        pub os_type: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The name of the Resource Group where the Azure Stack HCI Marketplace Gallery Image should exist. Changing this forces a new Azure Stack HCI Marketplace Gallery Image to be created.
         #[builder(into)]
-        pub resource_group_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub resource_group_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The ID of the Azure Stack HCI Storage Path used for this Marketplace Gallery Image. Changing this forces a new Azure Stack HCI Virtual Hard Disk to be created.
         #[builder(into, default)]
-        pub storage_path_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub storage_path_id: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// A mapping of tags which should be assigned to the Azure Stack HCI Marketplace Gallery Image.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// The version of the Azure Stack HCI Marketplace Gallery Image. Changing this forces a new Azure Stack HCI Marketplace Gallery Image to be created.
         #[builder(into)]
-        pub version: pulumi_wasm_rust::InputOrOutput<String>,
+        pub version: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct HciMarketplaceGalleryImageResult {
         /// The ID of the Custom Location where the Azure Stack HCI Marketplace Gallery Image should exist. Changing this forces a new resource to be created.
-        pub custom_location_id: pulumi_wasm_rust::Output<String>,
+        pub custom_location_id: pulumi_gestalt_rust::Output<String>,
         /// The hypervisor generation of the Azure Stack HCI Marketplace Gallery Image. Possible values are `V1` and `V2`. Changing this forces a new Azure Stack HCI Marketplace Gallery Image to be created.
-        pub hyperv_generation: pulumi_wasm_rust::Output<String>,
+        pub hyperv_generation: pulumi_gestalt_rust::Output<String>,
         /// An `identifier` block as defined below. Changing this forces a new Azure Stack HCI Marketplace Gallery Image to be created.
-        pub identifier: pulumi_wasm_rust::Output<
+        pub identifier: pulumi_gestalt_rust::Output<
             super::super::types::stack::HciMarketplaceGalleryImageIdentifier,
         >,
         /// The Azure Region where the Azure Stack HCI Marketplace Gallery Image should exist. Changing this forces a new Azure Stack HCI Marketplace Gallery Image to be created.
-        pub location: pulumi_wasm_rust::Output<String>,
+        pub location: pulumi_gestalt_rust::Output<String>,
         /// The name which should be used for this Azure Stack HCI Marketplace Gallery Image. Changing this forces a new Azure Stack HCI Marketplace Gallery Image to be created.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// The Operating System type of the Azure Stack HCI Marketplace Gallery Image. Possible values are `Windows` and `Linux`. Changing this forces a new Azure Stack HCI Marketplace Gallery Image to be created.
-        pub os_type: pulumi_wasm_rust::Output<String>,
+        pub os_type: pulumi_gestalt_rust::Output<String>,
         /// The name of the Resource Group where the Azure Stack HCI Marketplace Gallery Image should exist. Changing this forces a new Azure Stack HCI Marketplace Gallery Image to be created.
-        pub resource_group_name: pulumi_wasm_rust::Output<String>,
+        pub resource_group_name: pulumi_gestalt_rust::Output<String>,
         /// The ID of the Azure Stack HCI Storage Path used for this Marketplace Gallery Image. Changing this forces a new Azure Stack HCI Virtual Hard Disk to be created.
-        pub storage_path_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub storage_path_id: pulumi_gestalt_rust::Output<Option<String>>,
         /// A mapping of tags which should be assigned to the Azure Stack HCI Marketplace Gallery Image.
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// The version of the Azure Stack HCI Marketplace Gallery Image. Changing this forces a new Azure Stack HCI Marketplace Gallery Image to be created.
-        pub version: pulumi_wasm_rust::Output<String>,
+        pub version: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: HciMarketplaceGalleryImageArgs,
     ) -> HciMarketplaceGalleryImageResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let custom_location_id_binding = args
             .custom_location_id
@@ -206,28 +206,32 @@ pub mod hci_marketplace_gallery_image {
         };
         let o = register_interface::register(context.get_inner(), &request);
         HciMarketplaceGalleryImageResult {
-            custom_location_id: pulumi_wasm_rust::__private::into_domain(
+            custom_location_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("customLocationId"),
             ),
-            hyperv_generation: pulumi_wasm_rust::__private::into_domain(
+            hyperv_generation: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("hypervGeneration"),
             ),
-            identifier: pulumi_wasm_rust::__private::into_domain(
+            identifier: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("identifier"),
             ),
-            location: pulumi_wasm_rust::__private::into_domain(
+            location: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("location"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            os_type: pulumi_wasm_rust::__private::into_domain(o.extract_field("osType")),
-            resource_group_name: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            os_type: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("osType"),
+            ),
+            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("resourceGroupName"),
             ),
-            storage_path_id: pulumi_wasm_rust::__private::into_domain(
+            storage_path_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("storagePathId"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
-            version: pulumi_wasm_rust::__private::into_domain(o.extract_field("version")),
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            version: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("version"),
+            ),
         }
     }
 }

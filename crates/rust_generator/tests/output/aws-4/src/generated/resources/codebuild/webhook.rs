@@ -11,8 +11,8 @@
 /// > **Note:** Further managing the automatically created Bitbucket/GitHub webhook with the `bitbucket_hook`/`github_repository_webhook` resource is only possible with importing that resource after creation of the `aws.codebuild.Webhook` resource. The CodeBuild API does not ever provide the `secret` attribute for the `aws.codebuild.Webhook` resource in this scenario.
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = webhook::create(
@@ -70,63 +70,63 @@
 /// $ pulumi import aws:codebuild/webhook:Webhook example MyProjectName
 /// ```
 pub mod webhook {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct WebhookArgs {
         /// A regular expression used to determine which branches get built. Default is all branches are built. We recommend using `filter_group` over `branch_filter`.
         #[builder(into, default)]
-        pub branch_filter: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub branch_filter: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The type of build this webhook will trigger. Valid values for this parameter are: `BUILD`, `BUILD_BATCH`.
         #[builder(into, default)]
-        pub build_type: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub build_type: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Information about the webhook's trigger. Filter group blocks are documented below.
         #[builder(into, default)]
-        pub filter_groups: pulumi_wasm_rust::InputOrOutput<
+        pub filter_groups: pulumi_gestalt_rust::InputOrOutput<
             Option<Vec<super::super::types::codebuild::WebhookFilterGroup>>,
         >,
         /// The name of the build project.
         #[builder(into)]
-        pub project_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub project_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Scope configuration for global or organization webhooks. Scope configuration blocks are documented below.
         #[builder(into, default)]
-        pub scope_configuration: pulumi_wasm_rust::InputOrOutput<
+        pub scope_configuration: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::codebuild::WebhookScopeConfiguration>,
         >,
     }
     #[allow(dead_code)]
     pub struct WebhookResult {
         /// A regular expression used to determine which branches get built. Default is all branches are built. We recommend using `filter_group` over `branch_filter`.
-        pub branch_filter: pulumi_wasm_rust::Output<Option<String>>,
+        pub branch_filter: pulumi_gestalt_rust::Output<Option<String>>,
         /// The type of build this webhook will trigger. Valid values for this parameter are: `BUILD`, `BUILD_BATCH`.
-        pub build_type: pulumi_wasm_rust::Output<Option<String>>,
+        pub build_type: pulumi_gestalt_rust::Output<Option<String>>,
         /// Information about the webhook's trigger. Filter group blocks are documented below.
-        pub filter_groups: pulumi_wasm_rust::Output<
+        pub filter_groups: pulumi_gestalt_rust::Output<
             Option<Vec<super::super::types::codebuild::WebhookFilterGroup>>,
         >,
         /// The CodeBuild endpoint where webhook events are sent.
-        pub payload_url: pulumi_wasm_rust::Output<String>,
+        pub payload_url: pulumi_gestalt_rust::Output<String>,
         /// The name of the build project.
-        pub project_name: pulumi_wasm_rust::Output<String>,
+        pub project_name: pulumi_gestalt_rust::Output<String>,
         /// Scope configuration for global or organization webhooks. Scope configuration blocks are documented below.
-        pub scope_configuration: pulumi_wasm_rust::Output<
+        pub scope_configuration: pulumi_gestalt_rust::Output<
             Option<super::super::types::codebuild::WebhookScopeConfiguration>,
         >,
         /// The secret token of the associated repository. Not returned by the CodeBuild API for all source types.
-        pub secret: pulumi_wasm_rust::Output<String>,
+        pub secret: pulumi_gestalt_rust::Output<String>,
         /// The URL to the webhook.
-        pub url: pulumi_wasm_rust::Output<String>,
+        pub url: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: WebhookArgs,
     ) -> WebhookResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let branch_filter_binding = args.branch_filter.get_output(context).get_inner();
         let build_type_binding = args.build_type.get_output(context).get_inner();
@@ -165,26 +165,28 @@ pub mod webhook {
         };
         let o = register_interface::register(context.get_inner(), &request);
         WebhookResult {
-            branch_filter: pulumi_wasm_rust::__private::into_domain(
+            branch_filter: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("branchFilter"),
             ),
-            build_type: pulumi_wasm_rust::__private::into_domain(
+            build_type: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("buildType"),
             ),
-            filter_groups: pulumi_wasm_rust::__private::into_domain(
+            filter_groups: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("filterGroups"),
             ),
-            payload_url: pulumi_wasm_rust::__private::into_domain(
+            payload_url: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("payloadUrl"),
             ),
-            project_name: pulumi_wasm_rust::__private::into_domain(
+            project_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("projectName"),
             ),
-            scope_configuration: pulumi_wasm_rust::__private::into_domain(
+            scope_configuration: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("scopeConfiguration"),
             ),
-            secret: pulumi_wasm_rust::__private::into_domain(o.extract_field("secret")),
-            url: pulumi_wasm_rust::__private::into_domain(o.extract_field("url")),
+            secret: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("secret"),
+            ),
+            url: pulumi_gestalt_rust::__private::into_domain(o.extract_field("url")),
         }
     }
 }

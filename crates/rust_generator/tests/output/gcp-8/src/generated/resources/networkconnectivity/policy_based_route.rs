@@ -13,8 +13,8 @@
 ///
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let default = policy_based_route::create(
@@ -100,22 +100,22 @@
 /// ```
 ///
 pub mod policy_based_route {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct PolicyBasedRouteArgs {
         /// An optional description of this resource.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub description: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The filter to match L4 traffic.
         /// Structure is documented below.
         #[builder(into)]
-        pub filter: pulumi_wasm_rust::InputOrOutput<
+        pub filter: pulumi_gestalt_rust::InputOrOutput<
             super::super::types::networkconnectivity::PolicyBasedRouteFilter,
         >,
         /// The interconnect attachments that this policy-based route applies to.
         #[builder(into, default)]
-        pub interconnect_attachment: pulumi_wasm_rust::InputOrOutput<
+        pub interconnect_attachment: pulumi_gestalt_rust::InputOrOutput<
             Option<
                 super::super::types::networkconnectivity::PolicyBasedRouteInterconnectAttachment,
             >,
@@ -123,31 +123,31 @@ pub mod policy_based_route {
         /// User-defined labels. **Note**: This field is non-authoritative, and will only manage the labels present in your
         /// configuration. Please refer to the field 'effective_labels' for all of the labels present on the resource.
         #[builder(into, default)]
-        pub labels: pulumi_wasm_rust::InputOrOutput<
+        pub labels: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// The name of the policy based route.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Fully-qualified URL of the network that this route applies to, for example: projects/my-project/global/networks/my-network.
         #[builder(into)]
-        pub network: pulumi_wasm_rust::InputOrOutput<String>,
+        pub network: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The IP address of a global-access-enabled L4 ILB that is the next hop for matching packets.
         #[builder(into, default)]
-        pub next_hop_ilb_ip: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub next_hop_ilb_ip: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Other routes that will be referenced to determine the next hop of the packet. Possible values: ["DEFAULT_ROUTING"]
         #[builder(into, default)]
-        pub next_hop_other_routes: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub next_hop_other_routes: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The priority of this policy-based route. Priority is used to break ties in cases where there are more than one matching
         /// policy-based routes found. In cases where multiple policy-based routes are matched, the one with the lowest-numbered
         /// priority value wins. The default value is 1000. The priority value must be from 1 to 65535, inclusive.
         #[builder(into, default)]
-        pub priority: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
+        pub priority: pulumi_gestalt_rust::InputOrOutput<Option<i32>>,
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub project: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// VM instances to which this policy-based route applies to.
         #[builder(into, default)]
-        pub virtual_machine: pulumi_wasm_rust::InputOrOutput<
+        pub virtual_machine: pulumi_gestalt_rust::InputOrOutput<
             Option<
                 super::super::types::networkconnectivity::PolicyBasedRouteVirtualMachine,
             >,
@@ -156,60 +156,60 @@ pub mod policy_based_route {
     #[allow(dead_code)]
     pub struct PolicyBasedRouteResult {
         /// Time when the policy-based route was created.
-        pub create_time: pulumi_wasm_rust::Output<String>,
+        pub create_time: pulumi_gestalt_rust::Output<String>,
         /// An optional description of this resource.
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_gestalt_rust::Output<Option<String>>,
         /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Pulumi, other clients and services.
-        pub effective_labels: pulumi_wasm_rust::Output<
+        pub effective_labels: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
         /// The filter to match L4 traffic.
         /// Structure is documented below.
-        pub filter: pulumi_wasm_rust::Output<
+        pub filter: pulumi_gestalt_rust::Output<
             super::super::types::networkconnectivity::PolicyBasedRouteFilter,
         >,
         /// The interconnect attachments that this policy-based route applies to.
-        pub interconnect_attachment: pulumi_wasm_rust::Output<
+        pub interconnect_attachment: pulumi_gestalt_rust::Output<
             Option<
                 super::super::types::networkconnectivity::PolicyBasedRouteInterconnectAttachment,
             >,
         >,
         /// Type of this resource.
-        pub kind: pulumi_wasm_rust::Output<String>,
+        pub kind: pulumi_gestalt_rust::Output<String>,
         /// User-defined labels. **Note**: This field is non-authoritative, and will only manage the labels present in your
         /// configuration. Please refer to the field 'effective_labels' for all of the labels present on the resource.
-        pub labels: pulumi_wasm_rust::Output<
+        pub labels: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// The name of the policy based route.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// Fully-qualified URL of the network that this route applies to, for example: projects/my-project/global/networks/my-network.
-        pub network: pulumi_wasm_rust::Output<String>,
+        pub network: pulumi_gestalt_rust::Output<String>,
         /// The IP address of a global-access-enabled L4 ILB that is the next hop for matching packets.
-        pub next_hop_ilb_ip: pulumi_wasm_rust::Output<Option<String>>,
+        pub next_hop_ilb_ip: pulumi_gestalt_rust::Output<Option<String>>,
         /// Other routes that will be referenced to determine the next hop of the packet. Possible values: ["DEFAULT_ROUTING"]
-        pub next_hop_other_routes: pulumi_wasm_rust::Output<Option<String>>,
+        pub next_hop_other_routes: pulumi_gestalt_rust::Output<Option<String>>,
         /// The priority of this policy-based route. Priority is used to break ties in cases where there are more than one matching
         /// policy-based routes found. In cases where multiple policy-based routes are matched, the one with the lowest-numbered
         /// priority value wins. The default value is 1000. The priority value must be from 1 to 65535, inclusive.
-        pub priority: pulumi_wasm_rust::Output<Option<i32>>,
-        pub project: pulumi_wasm_rust::Output<String>,
+        pub priority: pulumi_gestalt_rust::Output<Option<i32>>,
+        pub project: pulumi_gestalt_rust::Output<String>,
         /// The combination of labels configured directly on the resource
         /// and default labels configured on the provider.
-        pub pulumi_labels: pulumi_wasm_rust::Output<
+        pub pulumi_labels: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
         /// Time when the policy-based route was created.
-        pub update_time: pulumi_wasm_rust::Output<String>,
+        pub update_time: pulumi_gestalt_rust::Output<String>,
         /// VM instances to which this policy-based route applies to.
-        pub virtual_machine: pulumi_wasm_rust::Output<
+        pub virtual_machine: pulumi_gestalt_rust::Output<
             Option<
                 super::super::types::networkconnectivity::PolicyBasedRouteVirtualMachine,
             >,
         >,
         /// If potential misconfigurations are detected for this route, this field will be populated with warning messages.
         /// Structure is documented below.
-        pub warnings: pulumi_wasm_rust::Output<
+        pub warnings: pulumi_gestalt_rust::Output<
             Vec<super::super::types::networkconnectivity::PolicyBasedRouteWarning>,
         >,
     }
@@ -218,11 +218,11 @@ pub mod policy_based_route {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: PolicyBasedRouteArgs,
     ) -> PolicyBasedRouteResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let description_binding = args.description.get_output(context).get_inner();
         let filter_binding = args.filter.get_output(context).get_inner();
@@ -300,47 +300,51 @@ pub mod policy_based_route {
         };
         let o = register_interface::register(context.get_inner(), &request);
         PolicyBasedRouteResult {
-            create_time: pulumi_wasm_rust::__private::into_domain(
+            create_time: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("createTime"),
             ),
-            description: pulumi_wasm_rust::__private::into_domain(
+            description: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("description"),
             ),
-            effective_labels: pulumi_wasm_rust::__private::into_domain(
+            effective_labels: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("effectiveLabels"),
             ),
-            filter: pulumi_wasm_rust::__private::into_domain(o.extract_field("filter")),
-            interconnect_attachment: pulumi_wasm_rust::__private::into_domain(
+            filter: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("filter"),
+            ),
+            interconnect_attachment: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("interconnectAttachment"),
             ),
-            kind: pulumi_wasm_rust::__private::into_domain(o.extract_field("kind")),
-            labels: pulumi_wasm_rust::__private::into_domain(o.extract_field("labels")),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            network: pulumi_wasm_rust::__private::into_domain(
+            kind: pulumi_gestalt_rust::__private::into_domain(o.extract_field("kind")),
+            labels: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("labels"),
+            ),
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            network: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("network"),
             ),
-            next_hop_ilb_ip: pulumi_wasm_rust::__private::into_domain(
+            next_hop_ilb_ip: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("nextHopIlbIp"),
             ),
-            next_hop_other_routes: pulumi_wasm_rust::__private::into_domain(
+            next_hop_other_routes: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("nextHopOtherRoutes"),
             ),
-            priority: pulumi_wasm_rust::__private::into_domain(
+            priority: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("priority"),
             ),
-            project: pulumi_wasm_rust::__private::into_domain(
+            project: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("project"),
             ),
-            pulumi_labels: pulumi_wasm_rust::__private::into_domain(
+            pulumi_labels: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("pulumiLabels"),
             ),
-            update_time: pulumi_wasm_rust::__private::into_domain(
+            update_time: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("updateTime"),
             ),
-            virtual_machine: pulumi_wasm_rust::__private::into_domain(
+            virtual_machine: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("virtualMachine"),
             ),
-            warnings: pulumi_wasm_rust::__private::into_domain(
+            warnings: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("warnings"),
             ),
         }

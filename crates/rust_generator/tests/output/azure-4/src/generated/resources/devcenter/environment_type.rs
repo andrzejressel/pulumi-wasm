@@ -37,30 +37,30 @@
 /// ```
 ///
 pub mod environment_type {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct EnvironmentTypeArgs {
         /// The ID of the associated Dev Center. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub dev_center_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub dev_center_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Specifies the name of this Dev Center Environment Type. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// A mapping of tags which should be assigned to the Dev Center Environment Type.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
     #[allow(dead_code)]
     pub struct EnvironmentTypeResult {
         /// The ID of the associated Dev Center. Changing this forces a new resource to be created.
-        pub dev_center_id: pulumi_wasm_rust::Output<String>,
+        pub dev_center_id: pulumi_gestalt_rust::Output<String>,
         /// Specifies the name of this Dev Center Environment Type. Changing this forces a new resource to be created.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// A mapping of tags which should be assigned to the Dev Center Environment Type.
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
@@ -69,11 +69,11 @@ pub mod environment_type {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: EnvironmentTypeArgs,
     ) -> EnvironmentTypeResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let dev_center_id_binding = args.dev_center_id.get_output(context).get_inner();
         let name_binding = args.name.get_output(context).get_inner();
@@ -99,11 +99,11 @@ pub mod environment_type {
         };
         let o = register_interface::register(context.get_inner(), &request);
         EnvironmentTypeResult {
-            dev_center_id: pulumi_wasm_rust::__private::into_domain(
+            dev_center_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("devCenterId"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
         }
     }
 }

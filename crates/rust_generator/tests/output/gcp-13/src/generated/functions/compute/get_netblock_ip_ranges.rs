@@ -1,5 +1,5 @@
 pub mod get_netblock_ip_ranges {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct GetNetblockIpRangesArgs {
@@ -23,29 +23,29 @@ pub mod get_netblock_ip_ranges {
         ///
         /// * `legacy-health-checkers` - Corresponds to the IP addresses used for legacy style health checkers (used by Network Load Balancing). [ More details.](https://cloud.google.com/load-balancing/docs/health-checks)
         #[builder(into, default)]
-        pub range_type: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub range_type: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct GetNetblockIpRangesResult {
         /// Retrieve list of all CIDR blocks.
-        pub cidr_blocks: pulumi_wasm_rust::Output<Vec<String>>,
+        pub cidr_blocks: pulumi_gestalt_rust::Output<Vec<String>>,
         /// Retrieve list of the IPv4 CIDR blocks
-        pub cidr_blocks_ipv4s: pulumi_wasm_rust::Output<Vec<String>>,
+        pub cidr_blocks_ipv4s: pulumi_gestalt_rust::Output<Vec<String>>,
         /// Retrieve list of the IPv6 CIDR blocks, if available.
-        pub cidr_blocks_ipv6s: pulumi_wasm_rust::Output<Vec<String>>,
+        pub cidr_blocks_ipv6s: pulumi_gestalt_rust::Output<Vec<String>>,
         /// The provider-assigned unique ID for this managed resource.
-        pub id: pulumi_wasm_rust::Output<String>,
-        pub range_type: pulumi_wasm_rust::Output<Option<String>>,
+        pub id: pulumi_gestalt_rust::Output<String>,
+        pub range_type: pulumi_gestalt_rust::Output<Option<String>>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         args: GetNetblockIpRangesArgs,
     ) -> GetNetblockIpRangesResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let range_type_binding = args.range_type.get_output(context).get_inner();
         let request = register_interface::ResourceInvokeRequest {
@@ -60,17 +60,17 @@ pub mod get_netblock_ip_ranges {
         };
         let o = register_interface::invoke(context.get_inner(), &request);
         GetNetblockIpRangesResult {
-            cidr_blocks: pulumi_wasm_rust::__private::into_domain(
+            cidr_blocks: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("cidrBlocks"),
             ),
-            cidr_blocks_ipv4s: pulumi_wasm_rust::__private::into_domain(
+            cidr_blocks_ipv4s: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("cidrBlocksIpv4s"),
             ),
-            cidr_blocks_ipv6s: pulumi_wasm_rust::__private::into_domain(
+            cidr_blocks_ipv6s: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("cidrBlocksIpv6s"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
-            range_type: pulumi_wasm_rust::__private::into_domain(
+            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
+            range_type: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("rangeType"),
             ),
         }

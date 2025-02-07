@@ -3,8 +3,8 @@
 /// ## Example Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let barracuda = agreement::create(
@@ -27,41 +27,41 @@
 /// ```
 ///
 pub mod agreement {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct AgreementArgs {
         /// The Offer of the Marketplace Image. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub offer: pulumi_wasm_rust::InputOrOutput<String>,
+        pub offer: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The Plan of the Marketplace Image. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub plan: pulumi_wasm_rust::InputOrOutput<String>,
+        pub plan: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The Publisher of the Marketplace Image. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub publisher: pulumi_wasm_rust::InputOrOutput<String>,
+        pub publisher: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct AgreementResult {
-        pub license_text_link: pulumi_wasm_rust::Output<String>,
+        pub license_text_link: pulumi_gestalt_rust::Output<String>,
         /// The Offer of the Marketplace Image. Changing this forces a new resource to be created.
-        pub offer: pulumi_wasm_rust::Output<String>,
+        pub offer: pulumi_gestalt_rust::Output<String>,
         /// The Plan of the Marketplace Image. Changing this forces a new resource to be created.
-        pub plan: pulumi_wasm_rust::Output<String>,
-        pub privacy_policy_link: pulumi_wasm_rust::Output<String>,
+        pub plan: pulumi_gestalt_rust::Output<String>,
+        pub privacy_policy_link: pulumi_gestalt_rust::Output<String>,
         /// The Publisher of the Marketplace Image. Changing this forces a new resource to be created.
-        pub publisher: pulumi_wasm_rust::Output<String>,
+        pub publisher: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: AgreementArgs,
     ) -> AgreementResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let offer_binding = args.offer.get_output(context).get_inner();
         let plan_binding = args.plan.get_output(context).get_inner();
@@ -87,15 +87,15 @@ pub mod agreement {
         };
         let o = register_interface::register(context.get_inner(), &request);
         AgreementResult {
-            license_text_link: pulumi_wasm_rust::__private::into_domain(
+            license_text_link: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("licenseTextLink"),
             ),
-            offer: pulumi_wasm_rust::__private::into_domain(o.extract_field("offer")),
-            plan: pulumi_wasm_rust::__private::into_domain(o.extract_field("plan")),
-            privacy_policy_link: pulumi_wasm_rust::__private::into_domain(
+            offer: pulumi_gestalt_rust::__private::into_domain(o.extract_field("offer")),
+            plan: pulumi_gestalt_rust::__private::into_domain(o.extract_field("plan")),
+            privacy_policy_link: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("privacyPolicyLink"),
             ),
-            publisher: pulumi_wasm_rust::__private::into_domain(
+            publisher: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("publisher"),
             ),
         }

@@ -1,40 +1,40 @@
 pub mod get_contacts_rotation {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct GetContactsRotationArgs {
         /// The Amazon Resource Name (ARN) of the rotation.
         #[builder(into)]
-        pub arn: pulumi_wasm_rust::InputOrOutput<String>,
+        pub arn: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct GetContactsRotationResult {
-        pub arn: pulumi_wasm_rust::Output<String>,
+        pub arn: pulumi_gestalt_rust::Output<String>,
         /// The Amazon Resource Names (ARNs) of the contacts to add to the rotation. The order in which you list the contacts is their shift order in the rotation schedule.
-        pub contact_ids: pulumi_wasm_rust::Output<Vec<String>>,
-        pub id: pulumi_wasm_rust::Output<String>,
+        pub contact_ids: pulumi_gestalt_rust::Output<Vec<String>>,
+        pub id: pulumi_gestalt_rust::Output<String>,
         /// The name for the rotation.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// Information about when an on-call rotation is in effect and how long the rotation period lasts.
-        pub recurrences: pulumi_wasm_rust::Output<
+        pub recurrences: pulumi_gestalt_rust::Output<
             Vec<super::super::super::types::ssm::GetContactsRotationRecurrence>,
         >,
         /// The date and time, in RFC 3339 format, that the rotation goes into effect.
-        pub start_time: pulumi_wasm_rust::Output<String>,
+        pub start_time: pulumi_gestalt_rust::Output<String>,
         /// A map of tags to assign to the resource.
-        pub tags: pulumi_wasm_rust::Output<std::collections::HashMap<String, String>>,
+        pub tags: pulumi_gestalt_rust::Output<std::collections::HashMap<String, String>>,
         /// The time zone to base the rotation’s activity on in Internet Assigned Numbers Authority (IANA) format.
-        pub time_zone_id: pulumi_wasm_rust::Output<String>,
+        pub time_zone_id: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         args: GetContactsRotationArgs,
     ) -> GetContactsRotationResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let arn_binding = args.arn.get_output(context).get_inner();
         let request = register_interface::ResourceInvokeRequest {
@@ -49,20 +49,20 @@ pub mod get_contacts_rotation {
         };
         let o = register_interface::invoke(context.get_inner(), &request);
         GetContactsRotationResult {
-            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
-            contact_ids: pulumi_wasm_rust::__private::into_domain(
+            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
+            contact_ids: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("contactIds"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            recurrences: pulumi_wasm_rust::__private::into_domain(
+            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            recurrences: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("recurrences"),
             ),
-            start_time: pulumi_wasm_rust::__private::into_domain(
+            start_time: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("startTime"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
-            time_zone_id: pulumi_wasm_rust::__private::into_domain(
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            time_zone_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("timeZoneId"),
             ),
         }

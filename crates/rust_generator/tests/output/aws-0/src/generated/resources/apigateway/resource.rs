@@ -3,8 +3,8 @@
 /// ## Example Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let myDemoAPI = rest_api::create(
@@ -33,41 +33,41 @@
 /// $ pulumi import aws:apigateway/resource:Resource example 12345abcde/67890fghij
 /// ```
 pub mod resource {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ResourceArgs {
         /// ID of the parent API resource
         #[builder(into)]
-        pub parent_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub parent_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Last path segment of this API resource.
         #[builder(into)]
-        pub path_part: pulumi_wasm_rust::InputOrOutput<String>,
+        pub path_part: pulumi_gestalt_rust::InputOrOutput<String>,
         /// ID of the associated REST API
         #[builder(into)]
-        pub rest_api: pulumi_wasm_rust::InputOrOutput<String>,
+        pub rest_api: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct ResourceResult {
         /// ID of the parent API resource
-        pub parent_id: pulumi_wasm_rust::Output<String>,
+        pub parent_id: pulumi_gestalt_rust::Output<String>,
         /// Complete path for this API resource, including all parent paths.
-        pub path: pulumi_wasm_rust::Output<String>,
+        pub path: pulumi_gestalt_rust::Output<String>,
         /// Last path segment of this API resource.
-        pub path_part: pulumi_wasm_rust::Output<String>,
+        pub path_part: pulumi_gestalt_rust::Output<String>,
         /// ID of the associated REST API
-        pub rest_api: pulumi_wasm_rust::Output<String>,
+        pub rest_api: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: ResourceArgs,
     ) -> ResourceResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let parent_id_binding = args.parent_id.get_output(context).get_inner();
         let path_part_binding = args.path_part.get_output(context).get_inner();
@@ -93,14 +93,14 @@ pub mod resource {
         };
         let o = register_interface::register(context.get_inner(), &request);
         ResourceResult {
-            parent_id: pulumi_wasm_rust::__private::into_domain(
+            parent_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("parentId"),
             ),
-            path: pulumi_wasm_rust::__private::into_domain(o.extract_field("path")),
-            path_part: pulumi_wasm_rust::__private::into_domain(
+            path: pulumi_gestalt_rust::__private::into_domain(o.extract_field("path")),
+            path_part: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("pathPart"),
             ),
-            rest_api: pulumi_wasm_rust::__private::into_domain(
+            rest_api: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("restApi"),
             ),
         }

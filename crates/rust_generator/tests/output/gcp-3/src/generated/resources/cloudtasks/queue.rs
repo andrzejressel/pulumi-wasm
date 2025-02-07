@@ -8,8 +8,8 @@
 ///
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let default = queue::create(
@@ -25,8 +25,8 @@
 ///
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let advancedConfiguration = queue::create(
@@ -169,7 +169,7 @@
 /// ```
 ///
 pub mod queue {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct QueueArgs {
@@ -177,13 +177,13 @@ pub mod queue {
         /// to App Engine tasks in this queue
         /// Structure is documented below.
         #[builder(into, default)]
-        pub app_engine_routing_override: pulumi_wasm_rust::InputOrOutput<
+        pub app_engine_routing_override: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::cloudtasks::QueueAppEngineRoutingOverride>,
         >,
         /// Modifies HTTP target for HTTP tasks.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub http_target: pulumi_wasm_rust::InputOrOutput<
+        pub http_target: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::cloudtasks::QueueHttpTarget>,
         >,
         /// The location of the queue
@@ -191,14 +191,14 @@ pub mod queue {
         ///
         /// - - -
         #[builder(into)]
-        pub location: pulumi_wasm_rust::InputOrOutput<String>,
+        pub location: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The queue name.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub project: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Rate limits for task dispatches.
         /// The queue's actual dispatch rate is the result of:
         /// * Number of tasks in the queue
@@ -208,19 +208,19 @@ pub mod queue {
         /// smooth sudden large traffic spikes.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub rate_limits: pulumi_wasm_rust::InputOrOutput<
+        pub rate_limits: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::cloudtasks::QueueRateLimits>,
         >,
         /// Settings that determine the retry behavior.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub retry_config: pulumi_wasm_rust::InputOrOutput<
+        pub retry_config: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::cloudtasks::QueueRetryConfig>,
         >,
         /// Configuration options for writing logs to Stackdriver Logging.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub stackdriver_logging_config: pulumi_wasm_rust::InputOrOutput<
+        pub stackdriver_logging_config: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::cloudtasks::QueueStackdriverLoggingConfig>,
         >,
     }
@@ -229,24 +229,24 @@ pub mod queue {
         /// Overrides for task-level appEngineRouting. These settings apply only
         /// to App Engine tasks in this queue
         /// Structure is documented below.
-        pub app_engine_routing_override: pulumi_wasm_rust::Output<
+        pub app_engine_routing_override: pulumi_gestalt_rust::Output<
             Option<super::super::types::cloudtasks::QueueAppEngineRoutingOverride>,
         >,
         /// Modifies HTTP target for HTTP tasks.
         /// Structure is documented below.
-        pub http_target: pulumi_wasm_rust::Output<
+        pub http_target: pulumi_gestalt_rust::Output<
             Option<super::super::types::cloudtasks::QueueHttpTarget>,
         >,
         /// The location of the queue
         ///
         ///
         /// - - -
-        pub location: pulumi_wasm_rust::Output<String>,
+        pub location: pulumi_gestalt_rust::Output<String>,
         /// The queue name.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
-        pub project: pulumi_wasm_rust::Output<String>,
+        pub project: pulumi_gestalt_rust::Output<String>,
         /// Rate limits for task dispatches.
         /// The queue's actual dispatch rate is the result of:
         /// * Number of tasks in the queue
@@ -255,17 +255,17 @@ pub mod queue {
         /// Unavailable) responses from the worker, high error rates, or to
         /// smooth sudden large traffic spikes.
         /// Structure is documented below.
-        pub rate_limits: pulumi_wasm_rust::Output<
+        pub rate_limits: pulumi_gestalt_rust::Output<
             super::super::types::cloudtasks::QueueRateLimits,
         >,
         /// Settings that determine the retry behavior.
         /// Structure is documented below.
-        pub retry_config: pulumi_wasm_rust::Output<
+        pub retry_config: pulumi_gestalt_rust::Output<
             super::super::types::cloudtasks::QueueRetryConfig,
         >,
         /// Configuration options for writing logs to Stackdriver Logging.
         /// Structure is documented below.
-        pub stackdriver_logging_config: pulumi_wasm_rust::Output<
+        pub stackdriver_logging_config: pulumi_gestalt_rust::Output<
             Option<super::super::types::cloudtasks::QueueStackdriverLoggingConfig>,
         >,
     }
@@ -274,11 +274,11 @@ pub mod queue {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: QueueArgs,
     ) -> QueueResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let app_engine_routing_override_binding = args
             .app_engine_routing_override
@@ -335,26 +335,26 @@ pub mod queue {
         };
         let o = register_interface::register(context.get_inner(), &request);
         QueueResult {
-            app_engine_routing_override: pulumi_wasm_rust::__private::into_domain(
+            app_engine_routing_override: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("appEngineRoutingOverride"),
             ),
-            http_target: pulumi_wasm_rust::__private::into_domain(
+            http_target: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("httpTarget"),
             ),
-            location: pulumi_wasm_rust::__private::into_domain(
+            location: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("location"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            project: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            project: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("project"),
             ),
-            rate_limits: pulumi_wasm_rust::__private::into_domain(
+            rate_limits: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("rateLimits"),
             ),
-            retry_config: pulumi_wasm_rust::__private::into_domain(
+            retry_config: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("retryConfig"),
             ),
-            stackdriver_logging_config: pulumi_wasm_rust::__private::into_domain(
+            stackdriver_logging_config: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("stackdriverLoggingConfig"),
             ),
         }

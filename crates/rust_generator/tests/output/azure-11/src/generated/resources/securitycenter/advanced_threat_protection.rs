@@ -37,34 +37,34 @@
 /// ```
 ///
 pub mod advanced_threat_protection {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct AdvancedThreatProtectionArgs {
         /// Should Advanced Threat Protection be enabled on this resource?
         #[builder(into)]
-        pub enabled: pulumi_wasm_rust::InputOrOutput<bool>,
+        pub enabled: pulumi_gestalt_rust::InputOrOutput<bool>,
         /// The ID of the Azure Resource which to enable Advanced Threat Protection on. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub target_resource_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub target_resource_id: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct AdvancedThreatProtectionResult {
         /// Should Advanced Threat Protection be enabled on this resource?
-        pub enabled: pulumi_wasm_rust::Output<bool>,
+        pub enabled: pulumi_gestalt_rust::Output<bool>,
         /// The ID of the Azure Resource which to enable Advanced Threat Protection on. Changing this forces a new resource to be created.
-        pub target_resource_id: pulumi_wasm_rust::Output<String>,
+        pub target_resource_id: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: AdvancedThreatProtectionArgs,
     ) -> AdvancedThreatProtectionResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let enabled_binding = args.enabled.get_output(context).get_inner();
         let target_resource_id_binding = args
@@ -89,10 +89,10 @@ pub mod advanced_threat_protection {
         };
         let o = register_interface::register(context.get_inner(), &request);
         AdvancedThreatProtectionResult {
-            enabled: pulumi_wasm_rust::__private::into_domain(
+            enabled: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("enabled"),
             ),
-            target_resource_id: pulumi_wasm_rust::__private::into_domain(
+            target_resource_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("targetResourceId"),
             ),
         }

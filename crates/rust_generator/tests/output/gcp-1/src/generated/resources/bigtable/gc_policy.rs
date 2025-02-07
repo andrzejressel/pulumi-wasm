@@ -14,8 +14,8 @@
 /// ## Example Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let instance = instance::create(
@@ -58,8 +58,8 @@
 /// Multiple conditions is also supported. `UNION` when any of its sub-policies apply (OR). `INTERSECTION` when all its sub-policies apply (AND)
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let policy = gc_policy::create(
@@ -79,8 +79,8 @@
 ///
 /// An example of more complex GC policy:
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let instance = instance::create(
@@ -131,96 +131,96 @@
 /// This resource does not support import.
 ///
 pub mod gc_policy {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct GCPolicyArgs {
         /// The name of the column family.
         #[builder(into)]
-        pub column_family: pulumi_wasm_rust::InputOrOutput<String>,
+        pub column_family: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The deletion policy for the GC policy.
         /// Setting ABANDON allows the resource to be abandoned rather than deleted. This is useful for GC policy as it cannot be deleted in a replicated instance.
         ///
         /// Possible values are: `ABANDON`.
         #[builder(into, default)]
-        pub deletion_policy: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub deletion_policy: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Serialized JSON object to represent a more complex GC policy. Conflicts with `mode`, `max_age` and `max_version`. Conflicts with `mode`, `max_age` and `max_version`.
         #[builder(into, default)]
-        pub gc_rules: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub gc_rules: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Boolean for whether to allow ignoring warnings when updating the gc policy.
         /// Setting this to `true` allows relaxing the gc policy for replicated clusters by up to 90 days, but keep in mind this may increase how long clusters are inconsistent. Make sure
         /// you understand the risks listed at https://cloud.google.com/bigtable/docs/garbage-collection#increasing before setting this option.
         ///
         /// -----
         #[builder(into, default)]
-        pub ignore_warnings: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub ignore_warnings: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// The name of the Bigtable instance.
         #[builder(into)]
-        pub instance_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub instance_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// GC policy that applies to all cells older than the given age.
         #[builder(into, default)]
-        pub max_age: pulumi_wasm_rust::InputOrOutput<
+        pub max_age: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::bigtable::GcPolicyMaxAge>,
         >,
         /// GC policy that applies to all versions of a cell except for the most recent.
         #[builder(into, default)]
-        pub max_versions: pulumi_wasm_rust::InputOrOutput<
+        pub max_versions: pulumi_gestalt_rust::InputOrOutput<
             Option<Vec<super::super::types::bigtable::GcPolicyMaxVersion>>,
         >,
         /// If multiple policies are set, you should choose between `UNION` OR `INTERSECTION`.
         #[builder(into, default)]
-        pub mode: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub mode: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The ID of the project in which the resource belongs. If it is not provided, the provider project is used.
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub project: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The name of the table.
         #[builder(into)]
-        pub table: pulumi_wasm_rust::InputOrOutput<String>,
+        pub table: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct GCPolicyResult {
         /// The name of the column family.
-        pub column_family: pulumi_wasm_rust::Output<String>,
+        pub column_family: pulumi_gestalt_rust::Output<String>,
         /// The deletion policy for the GC policy.
         /// Setting ABANDON allows the resource to be abandoned rather than deleted. This is useful for GC policy as it cannot be deleted in a replicated instance.
         ///
         /// Possible values are: `ABANDON`.
-        pub deletion_policy: pulumi_wasm_rust::Output<Option<String>>,
+        pub deletion_policy: pulumi_gestalt_rust::Output<Option<String>>,
         /// Serialized JSON object to represent a more complex GC policy. Conflicts with `mode`, `max_age` and `max_version`. Conflicts with `mode`, `max_age` and `max_version`.
-        pub gc_rules: pulumi_wasm_rust::Output<Option<String>>,
+        pub gc_rules: pulumi_gestalt_rust::Output<Option<String>>,
         /// Boolean for whether to allow ignoring warnings when updating the gc policy.
         /// Setting this to `true` allows relaxing the gc policy for replicated clusters by up to 90 days, but keep in mind this may increase how long clusters are inconsistent. Make sure
         /// you understand the risks listed at https://cloud.google.com/bigtable/docs/garbage-collection#increasing before setting this option.
         ///
         /// -----
-        pub ignore_warnings: pulumi_wasm_rust::Output<Option<bool>>,
+        pub ignore_warnings: pulumi_gestalt_rust::Output<Option<bool>>,
         /// The name of the Bigtable instance.
-        pub instance_name: pulumi_wasm_rust::Output<String>,
+        pub instance_name: pulumi_gestalt_rust::Output<String>,
         /// GC policy that applies to all cells older than the given age.
-        pub max_age: pulumi_wasm_rust::Output<
+        pub max_age: pulumi_gestalt_rust::Output<
             Option<super::super::types::bigtable::GcPolicyMaxAge>,
         >,
         /// GC policy that applies to all versions of a cell except for the most recent.
-        pub max_versions: pulumi_wasm_rust::Output<
+        pub max_versions: pulumi_gestalt_rust::Output<
             Option<Vec<super::super::types::bigtable::GcPolicyMaxVersion>>,
         >,
         /// If multiple policies are set, you should choose between `UNION` OR `INTERSECTION`.
-        pub mode: pulumi_wasm_rust::Output<Option<String>>,
+        pub mode: pulumi_gestalt_rust::Output<Option<String>>,
         /// The ID of the project in which the resource belongs. If it is not provided, the provider project is used.
-        pub project: pulumi_wasm_rust::Output<String>,
+        pub project: pulumi_gestalt_rust::Output<String>,
         /// The name of the table.
-        pub table: pulumi_wasm_rust::Output<String>,
+        pub table: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: GCPolicyArgs,
     ) -> GCPolicyResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let column_family_binding = args.column_family.get_output(context).get_inner();
         let deletion_policy_binding = args
@@ -287,30 +287,32 @@ pub mod gc_policy {
         };
         let o = register_interface::register(context.get_inner(), &request);
         GCPolicyResult {
-            column_family: pulumi_wasm_rust::__private::into_domain(
+            column_family: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("columnFamily"),
             ),
-            deletion_policy: pulumi_wasm_rust::__private::into_domain(
+            deletion_policy: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("deletionPolicy"),
             ),
-            gc_rules: pulumi_wasm_rust::__private::into_domain(
+            gc_rules: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("gcRules"),
             ),
-            ignore_warnings: pulumi_wasm_rust::__private::into_domain(
+            ignore_warnings: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("ignoreWarnings"),
             ),
-            instance_name: pulumi_wasm_rust::__private::into_domain(
+            instance_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("instanceName"),
             ),
-            max_age: pulumi_wasm_rust::__private::into_domain(o.extract_field("maxAge")),
-            max_versions: pulumi_wasm_rust::__private::into_domain(
+            max_age: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("maxAge"),
+            ),
+            max_versions: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("maxVersions"),
             ),
-            mode: pulumi_wasm_rust::__private::into_domain(o.extract_field("mode")),
-            project: pulumi_wasm_rust::__private::into_domain(
+            mode: pulumi_gestalt_rust::__private::into_domain(o.extract_field("mode")),
+            project: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("project"),
             ),
-            table: pulumi_wasm_rust::__private::into_domain(o.extract_field("table")),
+            table: pulumi_gestalt_rust::__private::into_domain(o.extract_field("table")),
         }
     }
 }

@@ -58,8 +58,8 @@
 ///
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let containerNetwork = network::create(
@@ -155,57 +155,57 @@
 /// ```
 ///
 pub mod network_peering_routes_config {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct NetworkPeeringRoutesConfigArgs {
         /// Whether to export the custom routes to the peer network.
         #[builder(into)]
-        pub export_custom_routes: pulumi_wasm_rust::InputOrOutput<bool>,
+        pub export_custom_routes: pulumi_gestalt_rust::InputOrOutput<bool>,
         /// Whether to import the custom routes to the peer network.
         #[builder(into)]
-        pub import_custom_routes: pulumi_wasm_rust::InputOrOutput<bool>,
+        pub import_custom_routes: pulumi_gestalt_rust::InputOrOutput<bool>,
         /// The name of the primary network for the peering.
         ///
         ///
         /// - - -
         #[builder(into)]
-        pub network: pulumi_wasm_rust::InputOrOutput<String>,
+        pub network: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Name of the peering.
         #[builder(into)]
-        pub peering: pulumi_wasm_rust::InputOrOutput<String>,
+        pub peering: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub project: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct NetworkPeeringRoutesConfigResult {
         /// Whether to export the custom routes to the peer network.
-        pub export_custom_routes: pulumi_wasm_rust::Output<bool>,
+        pub export_custom_routes: pulumi_gestalt_rust::Output<bool>,
         /// Whether to import the custom routes to the peer network.
-        pub import_custom_routes: pulumi_wasm_rust::Output<bool>,
+        pub import_custom_routes: pulumi_gestalt_rust::Output<bool>,
         /// The name of the primary network for the peering.
         ///
         ///
         /// - - -
-        pub network: pulumi_wasm_rust::Output<String>,
+        pub network: pulumi_gestalt_rust::Output<String>,
         /// Name of the peering.
-        pub peering: pulumi_wasm_rust::Output<String>,
+        pub peering: pulumi_gestalt_rust::Output<String>,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
-        pub project: pulumi_wasm_rust::Output<String>,
+        pub project: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: NetworkPeeringRoutesConfigArgs,
     ) -> NetworkPeeringRoutesConfigResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let export_custom_routes_binding = args
             .export_custom_routes
@@ -248,19 +248,21 @@ pub mod network_peering_routes_config {
         };
         let o = register_interface::register(context.get_inner(), &request);
         NetworkPeeringRoutesConfigResult {
-            export_custom_routes: pulumi_wasm_rust::__private::into_domain(
+            export_custom_routes: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("exportCustomRoutes"),
             ),
-            import_custom_routes: pulumi_wasm_rust::__private::into_domain(
+            import_custom_routes: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("importCustomRoutes"),
             ),
-            network: pulumi_wasm_rust::__private::into_domain(
+            network: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("network"),
             ),
-            peering: pulumi_wasm_rust::__private::into_domain(
+            peering: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("peering"),
             ),
-            project: pulumi_wasm_rust::__private::into_domain(o.extract_field("project")),
+            project: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("project"),
+            ),
         }
     }
 }

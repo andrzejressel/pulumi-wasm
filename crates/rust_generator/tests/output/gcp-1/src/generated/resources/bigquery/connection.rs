@@ -15,8 +15,8 @@
 ///
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let connection = connection::create(
@@ -124,8 +124,8 @@
 ///
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let connection = connection::create(
@@ -152,8 +152,8 @@
 ///
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let connection = connection::create(
@@ -177,8 +177,8 @@
 ///
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let connection = connection::create(
@@ -202,8 +202,8 @@
 ///
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let connection = connection::create(
@@ -336,53 +336,53 @@
 /// ```
 ///
 pub mod connection {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ConnectionArgs {
         /// Connection properties specific to Amazon Web Services.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub aws: pulumi_wasm_rust::InputOrOutput<
+        pub aws: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::bigquery::ConnectionAws>,
         >,
         /// Container for connection properties specific to Azure.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub azure: pulumi_wasm_rust::InputOrOutput<
+        pub azure: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::bigquery::ConnectionAzure>,
         >,
         /// Container for connection properties for delegation of access to GCP resources.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub cloud_resource: pulumi_wasm_rust::InputOrOutput<
+        pub cloud_resource: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::bigquery::ConnectionCloudResource>,
         >,
         /// Connection properties specific to Cloud Spanner
         /// Structure is documented below.
         #[builder(into, default)]
-        pub cloud_spanner: pulumi_wasm_rust::InputOrOutput<
+        pub cloud_spanner: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::bigquery::ConnectionCloudSpanner>,
         >,
         /// Connection properties specific to the Cloud SQL.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub cloud_sql: pulumi_wasm_rust::InputOrOutput<
+        pub cloud_sql: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::bigquery::ConnectionCloudSql>,
         >,
         /// Optional connection id that should be assigned to the created connection.
         #[builder(into, default)]
-        pub connection_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub connection_id: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// A descriptive description for the connection
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub description: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// A descriptive name for the connection
         #[builder(into, default)]
-        pub friendly_name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub friendly_name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Optional. The Cloud KMS key that is used for encryption.
         /// Example: projects/[kms_project_id]/locations/[region]/keyRings/[key_region]/cryptoKeys/[key]
         #[builder(into, default)]
-        pub kms_key_name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub kms_key_name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The geographic location where the connection should reside.
         /// Cloud SQL instance must be in the same location as the connection
         /// with following exceptions: Cloud SQL us-central1 maps to BigQuery US, Cloud SQL europe-west1 maps to BigQuery EU.
@@ -391,15 +391,15 @@ pub mod connection {
         /// AWS allowed regions are aws-us-east-1
         /// Azure allowed regions are azure-eastus2
         #[builder(into, default)]
-        pub location: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub location: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub project: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Container for connection properties to execute stored procedures for Apache Spark. resources.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub spark: pulumi_wasm_rust::InputOrOutput<
+        pub spark: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::bigquery::ConnectionSpark>,
         >,
     }
@@ -407,40 +407,40 @@ pub mod connection {
     pub struct ConnectionResult {
         /// Connection properties specific to Amazon Web Services.
         /// Structure is documented below.
-        pub aws: pulumi_wasm_rust::Output<
+        pub aws: pulumi_gestalt_rust::Output<
             Option<super::super::types::bigquery::ConnectionAws>,
         >,
         /// Container for connection properties specific to Azure.
         /// Structure is documented below.
-        pub azure: pulumi_wasm_rust::Output<
+        pub azure: pulumi_gestalt_rust::Output<
             Option<super::super::types::bigquery::ConnectionAzure>,
         >,
         /// Container for connection properties for delegation of access to GCP resources.
         /// Structure is documented below.
-        pub cloud_resource: pulumi_wasm_rust::Output<
+        pub cloud_resource: pulumi_gestalt_rust::Output<
             Option<super::super::types::bigquery::ConnectionCloudResource>,
         >,
         /// Connection properties specific to Cloud Spanner
         /// Structure is documented below.
-        pub cloud_spanner: pulumi_wasm_rust::Output<
+        pub cloud_spanner: pulumi_gestalt_rust::Output<
             Option<super::super::types::bigquery::ConnectionCloudSpanner>,
         >,
         /// Connection properties specific to the Cloud SQL.
         /// Structure is documented below.
-        pub cloud_sql: pulumi_wasm_rust::Output<
+        pub cloud_sql: pulumi_gestalt_rust::Output<
             Option<super::super::types::bigquery::ConnectionCloudSql>,
         >,
         /// Optional connection id that should be assigned to the created connection.
-        pub connection_id: pulumi_wasm_rust::Output<String>,
+        pub connection_id: pulumi_gestalt_rust::Output<String>,
         /// A descriptive description for the connection
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_gestalt_rust::Output<Option<String>>,
         /// A descriptive name for the connection
-        pub friendly_name: pulumi_wasm_rust::Output<Option<String>>,
+        pub friendly_name: pulumi_gestalt_rust::Output<Option<String>>,
         /// True if the connection has credential assigned.
-        pub has_credential: pulumi_wasm_rust::Output<bool>,
+        pub has_credential: pulumi_gestalt_rust::Output<bool>,
         /// Optional. The Cloud KMS key that is used for encryption.
         /// Example: projects/[kms_project_id]/locations/[region]/keyRings/[key_region]/cryptoKeys/[key]
-        pub kms_key_name: pulumi_wasm_rust::Output<Option<String>>,
+        pub kms_key_name: pulumi_gestalt_rust::Output<Option<String>>,
         /// The geographic location where the connection should reside.
         /// Cloud SQL instance must be in the same location as the connection
         /// with following exceptions: Cloud SQL us-central1 maps to BigQuery US, Cloud SQL europe-west1 maps to BigQuery EU.
@@ -448,16 +448,16 @@ pub mod connection {
         /// Spanner Connections same as spanner region
         /// AWS allowed regions are aws-us-east-1
         /// Azure allowed regions are azure-eastus2
-        pub location: pulumi_wasm_rust::Output<Option<String>>,
+        pub location: pulumi_gestalt_rust::Output<Option<String>>,
         /// The resource name of the connection in the form of:
         /// "projects/{project_id}/locations/{location_id}/connections/{connectionId}"
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
-        pub project: pulumi_wasm_rust::Output<String>,
+        pub project: pulumi_gestalt_rust::Output<String>,
         /// Container for connection properties to execute stored procedures for Apache Spark. resources.
         /// Structure is documented below.
-        pub spark: pulumi_wasm_rust::Output<
+        pub spark: pulumi_gestalt_rust::Output<
             Option<super::super::types::bigquery::ConnectionSpark>,
         >,
     }
@@ -466,11 +466,11 @@ pub mod connection {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: ConnectionArgs,
     ) -> ConnectionResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let aws_binding = args.aws.get_output(context).get_inner();
         let azure_binding = args.azure.get_output(context).get_inner();
@@ -541,40 +541,40 @@ pub mod connection {
         };
         let o = register_interface::register(context.get_inner(), &request);
         ConnectionResult {
-            aws: pulumi_wasm_rust::__private::into_domain(o.extract_field("aws")),
-            azure: pulumi_wasm_rust::__private::into_domain(o.extract_field("azure")),
-            cloud_resource: pulumi_wasm_rust::__private::into_domain(
+            aws: pulumi_gestalt_rust::__private::into_domain(o.extract_field("aws")),
+            azure: pulumi_gestalt_rust::__private::into_domain(o.extract_field("azure")),
+            cloud_resource: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("cloudResource"),
             ),
-            cloud_spanner: pulumi_wasm_rust::__private::into_domain(
+            cloud_spanner: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("cloudSpanner"),
             ),
-            cloud_sql: pulumi_wasm_rust::__private::into_domain(
+            cloud_sql: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("cloudSql"),
             ),
-            connection_id: pulumi_wasm_rust::__private::into_domain(
+            connection_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("connectionId"),
             ),
-            description: pulumi_wasm_rust::__private::into_domain(
+            description: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("description"),
             ),
-            friendly_name: pulumi_wasm_rust::__private::into_domain(
+            friendly_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("friendlyName"),
             ),
-            has_credential: pulumi_wasm_rust::__private::into_domain(
+            has_credential: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("hasCredential"),
             ),
-            kms_key_name: pulumi_wasm_rust::__private::into_domain(
+            kms_key_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("kmsKeyName"),
             ),
-            location: pulumi_wasm_rust::__private::into_domain(
+            location: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("location"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            project: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            project: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("project"),
             ),
-            spark: pulumi_wasm_rust::__private::into_domain(o.extract_field("spark")),
+            spark: pulumi_gestalt_rust::__private::into_domain(o.extract_field("spark")),
         }
     }
 }

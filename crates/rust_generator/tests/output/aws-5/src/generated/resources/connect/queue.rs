@@ -62,72 +62,72 @@
 /// $ pulumi import aws:connect/queue:Queue example f1288a1f-6193-445a-b47e-af739b2:c1d4e5f6-1b3c-1b3c-1b3c-c1d4e5f6c1d4e5
 /// ```
 pub mod queue {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct QueueArgs {
         /// Specifies the description of the Queue.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub description: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Specifies the identifier of the Hours of Operation.
         #[builder(into)]
-        pub hours_of_operation_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub hours_of_operation_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Specifies the identifier of the hosting Amazon Connect Instance.
         #[builder(into)]
-        pub instance_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub instance_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Specifies the maximum number of contacts that can be in the queue before it is considered full. Minimum value of 0.
         #[builder(into, default)]
-        pub max_contacts: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
+        pub max_contacts: pulumi_gestalt_rust::InputOrOutput<Option<i32>>,
         /// Specifies the name of the Queue.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// A block that defines the outbound caller ID name, number, and outbound whisper flow. The Outbound Caller Config block is documented below.
         #[builder(into, default)]
-        pub outbound_caller_config: pulumi_wasm_rust::InputOrOutput<
+        pub outbound_caller_config: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::connect::QueueOutboundCallerConfig>,
         >,
         /// Specifies a list of quick connects ids that determine the quick connects available to agents who are working the queue.
         #[builder(into, default)]
-        pub quick_connect_ids: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
+        pub quick_connect_ids: pulumi_gestalt_rust::InputOrOutput<Option<Vec<String>>>,
         /// Specifies the description of the Queue. Valid values are `ENABLED`, `DISABLED`.
         #[builder(into, default)]
-        pub status: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub status: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Tags to apply to the Queue. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
     #[allow(dead_code)]
     pub struct QueueResult {
         /// The Amazon Resource Name (ARN) of the Queue.
-        pub arn: pulumi_wasm_rust::Output<String>,
+        pub arn: pulumi_gestalt_rust::Output<String>,
         /// Specifies the description of the Queue.
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_gestalt_rust::Output<Option<String>>,
         /// Specifies the identifier of the Hours of Operation.
-        pub hours_of_operation_id: pulumi_wasm_rust::Output<String>,
+        pub hours_of_operation_id: pulumi_gestalt_rust::Output<String>,
         /// Specifies the identifier of the hosting Amazon Connect Instance.
-        pub instance_id: pulumi_wasm_rust::Output<String>,
+        pub instance_id: pulumi_gestalt_rust::Output<String>,
         /// Specifies the maximum number of contacts that can be in the queue before it is considered full. Minimum value of 0.
-        pub max_contacts: pulumi_wasm_rust::Output<Option<i32>>,
+        pub max_contacts: pulumi_gestalt_rust::Output<Option<i32>>,
         /// Specifies the name of the Queue.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// A block that defines the outbound caller ID name, number, and outbound whisper flow. The Outbound Caller Config block is documented below.
-        pub outbound_caller_config: pulumi_wasm_rust::Output<
+        pub outbound_caller_config: pulumi_gestalt_rust::Output<
             Option<super::super::types::connect::QueueOutboundCallerConfig>,
         >,
         /// The identifier for the Queue.
-        pub queue_id: pulumi_wasm_rust::Output<String>,
+        pub queue_id: pulumi_gestalt_rust::Output<String>,
         /// Specifies a list of quick connects ids that determine the quick connects available to agents who are working the queue.
-        pub quick_connect_ids: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub quick_connect_ids: pulumi_gestalt_rust::Output<Option<Vec<String>>>,
         /// Specifies the description of the Queue. Valid values are `ENABLED`, `DISABLED`.
-        pub status: pulumi_wasm_rust::Output<String>,
+        pub status: pulumi_gestalt_rust::Output<String>,
         /// Tags to apply to the Queue. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        pub tags_all: pulumi_wasm_rust::Output<
+        pub tags_all: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
     }
@@ -136,11 +136,11 @@ pub mod queue {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: QueueArgs,
     ) -> QueueResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let description_binding = args.description.get_output(context).get_inner();
         let hours_of_operation_id_binding = args
@@ -205,32 +205,34 @@ pub mod queue {
         };
         let o = register_interface::register(context.get_inner(), &request);
         QueueResult {
-            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
-            description: pulumi_wasm_rust::__private::into_domain(
+            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
+            description: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("description"),
             ),
-            hours_of_operation_id: pulumi_wasm_rust::__private::into_domain(
+            hours_of_operation_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("hoursOfOperationId"),
             ),
-            instance_id: pulumi_wasm_rust::__private::into_domain(
+            instance_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("instanceId"),
             ),
-            max_contacts: pulumi_wasm_rust::__private::into_domain(
+            max_contacts: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("maxContacts"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            outbound_caller_config: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            outbound_caller_config: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("outboundCallerConfig"),
             ),
-            queue_id: pulumi_wasm_rust::__private::into_domain(
+            queue_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("queueId"),
             ),
-            quick_connect_ids: pulumi_wasm_rust::__private::into_domain(
+            quick_connect_ids: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("quickConnectIds"),
             ),
-            status: pulumi_wasm_rust::__private::into_domain(o.extract_field("status")),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_wasm_rust::__private::into_domain(
+            status: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("status"),
+            ),
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            tags_all: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("tagsAll"),
             ),
         }

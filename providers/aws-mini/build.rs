@@ -1,6 +1,9 @@
 use std::path::Path;
 
 fn main() -> Result<(), Box<dyn std::error::Error>> {
-    pulumi_wasm_build::generate_from_schema_with_filter(Path::new("../aws.json"), &["ec2", "s3"])?;
+    pulumi_gestalt_build::generate_from_schema_with_filter(
+        Path::new("../aws.json"),
+        &["ec2", "s3"],
+    )?;
     Ok(())
 }

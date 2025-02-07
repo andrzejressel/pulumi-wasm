@@ -36,113 +36,115 @@
 /// $ pulumi import aws:cloudformation/stack:Stack stack networking-stack
 /// ```
 pub mod stack {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct StackArgs {
         /// A list of capabilities.
         /// Valid values: `CAPABILITY_IAM`, `CAPABILITY_NAMED_IAM`, or `CAPABILITY_AUTO_EXPAND`
         #[builder(into, default)]
-        pub capabilities: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
+        pub capabilities: pulumi_gestalt_rust::InputOrOutput<Option<Vec<String>>>,
         /// Set to true to disable rollback of the stack if stack creation failed.
         /// Conflicts with `on_failure`.
         #[builder(into, default)]
-        pub disable_rollback: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub disable_rollback: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// The ARN of an IAM role that AWS CloudFormation assumes to create the stack. If you don't specify a value, AWS CloudFormation uses the role that was previously associated with the stack. If no role is available, AWS CloudFormation uses a temporary session that is generated from your user credentials.
         #[builder(into, default)]
-        pub iam_role_arn: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub iam_role_arn: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Stack name.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// A list of SNS topic ARNs to publish stack related events.
         #[builder(into, default)]
-        pub notification_arns: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
+        pub notification_arns: pulumi_gestalt_rust::InputOrOutput<Option<Vec<String>>>,
         /// Action to be taken if stack creation fails. This must be
         /// one of: `DO_NOTHING`, `ROLLBACK`, or `DELETE`. Conflicts with `disable_rollback`.
         #[builder(into, default)]
-        pub on_failure: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub on_failure: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// A map of Parameter structures that specify input parameters for the stack.
         #[builder(into, default)]
-        pub parameters: pulumi_wasm_rust::InputOrOutput<
+        pub parameters: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Structure containing the stack policy body.
         /// Conflicts w/ `policy_url`.
         #[builder(into, default)]
-        pub policy_body: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub policy_body: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Location of a file containing the stack policy.
         /// Conflicts w/ `policy_body`.
         #[builder(into, default)]
-        pub policy_url: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub policy_url: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Map of resource tags to associate with this stack. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Structure containing the template body (max size: 51,200 bytes).
         #[builder(into, default)]
-        pub template_body: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub template_body: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Location of a file containing the template body (max size: 460,800 bytes).
         #[builder(into, default)]
-        pub template_url: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub template_url: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The amount of time that can pass before the stack status becomes `CREATE_FAILED`.
         #[builder(into, default)]
-        pub timeout_in_minutes: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
+        pub timeout_in_minutes: pulumi_gestalt_rust::InputOrOutput<Option<i32>>,
     }
     #[allow(dead_code)]
     pub struct StackResult {
         /// A list of capabilities.
         /// Valid values: `CAPABILITY_IAM`, `CAPABILITY_NAMED_IAM`, or `CAPABILITY_AUTO_EXPAND`
-        pub capabilities: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub capabilities: pulumi_gestalt_rust::Output<Option<Vec<String>>>,
         /// Set to true to disable rollback of the stack if stack creation failed.
         /// Conflicts with `on_failure`.
-        pub disable_rollback: pulumi_wasm_rust::Output<Option<bool>>,
+        pub disable_rollback: pulumi_gestalt_rust::Output<Option<bool>>,
         /// The ARN of an IAM role that AWS CloudFormation assumes to create the stack. If you don't specify a value, AWS CloudFormation uses the role that was previously associated with the stack. If no role is available, AWS CloudFormation uses a temporary session that is generated from your user credentials.
-        pub iam_role_arn: pulumi_wasm_rust::Output<Option<String>>,
+        pub iam_role_arn: pulumi_gestalt_rust::Output<Option<String>>,
         /// Stack name.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// A list of SNS topic ARNs to publish stack related events.
-        pub notification_arns: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub notification_arns: pulumi_gestalt_rust::Output<Option<Vec<String>>>,
         /// Action to be taken if stack creation fails. This must be
         /// one of: `DO_NOTHING`, `ROLLBACK`, or `DELETE`. Conflicts with `disable_rollback`.
-        pub on_failure: pulumi_wasm_rust::Output<Option<String>>,
+        pub on_failure: pulumi_gestalt_rust::Output<Option<String>>,
         /// A map of outputs from the stack.
-        pub outputs: pulumi_wasm_rust::Output<std::collections::HashMap<String, String>>,
+        pub outputs: pulumi_gestalt_rust::Output<
+            std::collections::HashMap<String, String>,
+        >,
         /// A map of Parameter structures that specify input parameters for the stack.
-        pub parameters: pulumi_wasm_rust::Output<
+        pub parameters: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
         /// Structure containing the stack policy body.
         /// Conflicts w/ `policy_url`.
-        pub policy_body: pulumi_wasm_rust::Output<String>,
+        pub policy_body: pulumi_gestalt_rust::Output<String>,
         /// Location of a file containing the stack policy.
         /// Conflicts w/ `policy_body`.
-        pub policy_url: pulumi_wasm_rust::Output<Option<String>>,
+        pub policy_url: pulumi_gestalt_rust::Output<Option<String>>,
         /// Map of resource tags to associate with this stack. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        pub tags_all: pulumi_wasm_rust::Output<
+        pub tags_all: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
         /// Structure containing the template body (max size: 51,200 bytes).
-        pub template_body: pulumi_wasm_rust::Output<String>,
+        pub template_body: pulumi_gestalt_rust::Output<String>,
         /// Location of a file containing the template body (max size: 460,800 bytes).
-        pub template_url: pulumi_wasm_rust::Output<Option<String>>,
+        pub template_url: pulumi_gestalt_rust::Output<Option<String>>,
         /// The amount of time that can pass before the stack status becomes `CREATE_FAILED`.
-        pub timeout_in_minutes: pulumi_wasm_rust::Output<Option<i32>>,
+        pub timeout_in_minutes: pulumi_gestalt_rust::Output<Option<i32>>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: StackArgs,
     ) -> StackResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let capabilities_binding = args.capabilities.get_output(context).get_inner();
         let disable_rollback_binding = args
@@ -227,45 +229,45 @@ pub mod stack {
         };
         let o = register_interface::register(context.get_inner(), &request);
         StackResult {
-            capabilities: pulumi_wasm_rust::__private::into_domain(
+            capabilities: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("capabilities"),
             ),
-            disable_rollback: pulumi_wasm_rust::__private::into_domain(
+            disable_rollback: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("disableRollback"),
             ),
-            iam_role_arn: pulumi_wasm_rust::__private::into_domain(
+            iam_role_arn: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("iamRoleArn"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            notification_arns: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            notification_arns: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("notificationArns"),
             ),
-            on_failure: pulumi_wasm_rust::__private::into_domain(
+            on_failure: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("onFailure"),
             ),
-            outputs: pulumi_wasm_rust::__private::into_domain(
+            outputs: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("outputs"),
             ),
-            parameters: pulumi_wasm_rust::__private::into_domain(
+            parameters: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("parameters"),
             ),
-            policy_body: pulumi_wasm_rust::__private::into_domain(
+            policy_body: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("policyBody"),
             ),
-            policy_url: pulumi_wasm_rust::__private::into_domain(
+            policy_url: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("policyUrl"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_wasm_rust::__private::into_domain(
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            tags_all: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("tagsAll"),
             ),
-            template_body: pulumi_wasm_rust::__private::into_domain(
+            template_body: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("templateBody"),
             ),
-            template_url: pulumi_wasm_rust::__private::into_domain(
+            template_url: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("templateUrl"),
             ),
-            timeout_in_minutes: pulumi_wasm_rust::__private::into_domain(
+            timeout_in_minutes: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("timeoutInMinutes"),
             ),
         }

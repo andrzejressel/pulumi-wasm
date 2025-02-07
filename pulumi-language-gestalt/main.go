@@ -17,8 +17,8 @@ import (
 	"strings"
 	"time"
 
-	"github.com/andrzejressel/pulumi-wasm/pulumi-language-wasm/executors"
-	"github.com/andrzejressel/pulumi-wasm/pulumi-language-wasm/fsys"
+	"github.com/andrzejressel/pulumi-gestalt/pulumi-language-gestalt/executors"
+	"github.com/andrzejressel/pulumi-gestalt/pulumi-language-gestalt/fsys"
 
 	pbempty "github.com/golang/protobuf/ptypes/empty"
 	"github.com/pkg/errors"
@@ -50,14 +50,14 @@ func main() {
 	flag.Parse()
 	args := flag.Args()
 	logging.InitLogging(false, 0, false)
-	cmdutil.InitTracing("pulumi-language-wasm", "pulumi-language-wasm", tracing)
+	cmdutil.InitTracing("pulumi-language-gestalt", "pulumi-language-gestalt", tracing)
 
 	wd, err := os.Getwd()
 	if err != nil {
 		cmdutil.Exit(fmt.Errorf("could not get the working directory: %w", err))
 	}
 
-	wasmExecOptions := executors.WasmExecutorOptions{
+	gestaltExecOptions := executors.GestaltExecutorOptions{
 		Binary:      binary,
 		UseExecutor: useExecutor,
 		WD:          fsys.DirFS(wd),
@@ -86,7 +86,7 @@ func main() {
 	handle, err := rpcutil.ServeWithOptions(rpcutil.ServeOptions{
 		Cancel: cancelChannel,
 		Init: func(srv *grpc.Server) error {
-			host := newLanguageHost(wasmExecOptions, engineAddress, tracing)
+			host := newLanguageHost(gestaltExecOptions, engineAddress, tracing)
 			pulumirpc.RegisterLanguageRuntimeServer(srv, host)
 			return nil
 		},
@@ -105,30 +105,30 @@ func main() {
 	}
 }
 
-// wasmLanguageHost implements the LanguageRuntimeServer interface
+// gestaltLanguageHost implements the LanguageRuntimeServer interface
 // for use as an API endpoint.
-type wasmLanguageHost struct {
+type gestaltLanguageHost struct {
 	pulumirpc.UnimplementedLanguageRuntimeServer
 
-	currentExecutor *executors.WasmExecutor
-	execOptions     executors.WasmExecutorOptions
+	currentExecutor *executors.GestaltExecutor
+	execOptions     executors.GestaltExecutorOptions
 	engineAddress   string
 	tracing         string
 }
 
-func newLanguageHost(execOptions executors.WasmExecutorOptions,
+func newLanguageHost(execOptions executors.GestaltExecutorOptions,
 	engineAddress, tracing string,
-) *wasmLanguageHost {
-	return &wasmLanguageHost{
+) *gestaltLanguageHost {
+	return &gestaltLanguageHost{
 		execOptions:   execOptions,
 		engineAddress: engineAddress,
 		tracing:       tracing,
 	}
 }
 
-func (host *wasmLanguageHost) Executor() (*executors.WasmExecutor, error) {
+func (host *gestaltLanguageHost) Executor() (*executors.GestaltExecutor, error) {
 	if host.currentExecutor == nil {
-		executor, err := executors.NewWasmExecutor(host.execOptions)
+		executor, err := executors.NewGestaltExecutor(host.execOptions)
 		if err != nil {
 			return nil, err
 		}
@@ -139,7 +139,7 @@ func (host *wasmLanguageHost) Executor() (*executors.WasmExecutor, error) {
 }
 
 // GetRequiredPlugins computes the complete set of anticipated plugins required by a program.
-func (host *wasmLanguageHost) GetRequiredPlugins(
+func (host *gestaltLanguageHost) GetRequiredPlugins(
 	ctx context.Context,
 	req *pulumirpc.GetRequiredPluginsRequest,
 ) (*pulumirpc.GetRequiredPluginsResponse, error) {
@@ -178,7 +178,7 @@ func (host *wasmLanguageHost) GetRequiredPlugins(
 	return &pulumirpc.GetRequiredPluginsResponse{Plugins: plugins}, nil
 }
 
-func (host *wasmLanguageHost) determinePulumiPackages(
+func (host *gestaltLanguageHost) determinePulumiPackages(
 	ctx context.Context,
 ) ([]plugin.PulumiPluginJSON, error) {
 	logging.V(3).Infof("GetRequiredPlugins: Determining Pulumi plugins")
@@ -243,7 +243,7 @@ type hostCommandOutput struct {
 	stderr string
 }
 
-func (host *wasmLanguageHost) runHostCommand(
+func (host *gestaltLanguageHost) runHostCommand(
 	ctx context.Context, dir, name string, args []string, quiet bool, combineOutput bool,
 ) (hostCommandOutput, error) {
 	commandStr := strings.Join(args, " ")
@@ -286,7 +286,7 @@ func (host *wasmLanguageHost) runHostCommand(
 }
 
 // Run is an RPC endpoint for LanguageRuntimeServer::Run
-func (host *wasmLanguageHost) Run(ctx context.Context, req *pulumirpc.RunRequest) (*pulumirpc.RunResponse, error) {
+func (host *gestaltLanguageHost) Run(ctx context.Context, req *pulumirpc.RunRequest) (*pulumirpc.RunResponse, error) {
 	logging.V(5).Infof("Run: program=%v", req.GetProgram())
 
 	config, err := host.constructConfig(req)
@@ -344,7 +344,7 @@ func (host *wasmLanguageHost) Run(ctx context.Context, req *pulumirpc.RunRequest
 // constructEnv constructs an environ for `pulumi-language-scala`
 // by enumerating all the optional and non-optional evn vars present
 // in a RunRequest.
-func (host *wasmLanguageHost) constructEnv(req *pulumirpc.RunRequest, config, configSecretKeys string) []string {
+func (host *gestaltLanguageHost) constructEnv(req *pulumirpc.RunRequest, config, configSecretKeys string) []string {
 	env := os.Environ()
 
 	maybeAppendEnv := func(k, v string) {
@@ -369,7 +369,7 @@ func (host *wasmLanguageHost) constructEnv(req *pulumirpc.RunRequest, config, co
 }
 
 // constructConfig json-serializes the configuration data given as part of a RunRequest.
-func (host *wasmLanguageHost) constructConfig(req *pulumirpc.RunRequest) (string, error) {
+func (host *gestaltLanguageHost) constructConfig(req *pulumirpc.RunRequest) (string, error) {
 	configMap := req.GetConfig()
 	if configMap == nil {
 		return "", nil
@@ -385,7 +385,7 @@ func (host *wasmLanguageHost) constructConfig(req *pulumirpc.RunRequest) (string
 
 // constructConfigSecretKeys JSON-serializes the list of keys that contain secret values given as part of
 // a RunRequest.
-func (host *wasmLanguageHost) constructConfigSecretKeys(req *pulumirpc.RunRequest) (string, error) {
+func (host *gestaltLanguageHost) constructConfigSecretKeys(req *pulumirpc.RunRequest) (string, error) {
 	configSecretKeys := req.GetConfigSecretKeys()
 	if configSecretKeys == nil {
 		return "[]", nil
@@ -399,13 +399,13 @@ func (host *wasmLanguageHost) constructConfigSecretKeys(req *pulumirpc.RunReques
 	return string(configSecretKeysJSON), nil
 }
 
-func (host *wasmLanguageHost) GetPluginInfo(_ context.Context, _ *pbempty.Empty) (*pulumirpc.PluginInfo, error) {
+func (host *gestaltLanguageHost) GetPluginInfo(_ context.Context, _ *pbempty.Empty) (*pulumirpc.PluginInfo, error) {
 	return &pulumirpc.PluginInfo{
 		Version: version.Version,
 	}, nil
 }
 
-func (host *wasmLanguageHost) InstallDependencies(req *pulumirpc.InstallDependenciesRequest,
+func (host *gestaltLanguageHost) InstallDependencies(req *pulumirpc.InstallDependenciesRequest,
 	server pulumirpc.LanguageRuntime_InstallDependenciesServer,
 ) error {
 	executor, err := host.Executor()
@@ -444,14 +444,14 @@ func (host *wasmLanguageHost) InstallDependencies(req *pulumirpc.InstallDependen
 	return nil
 }
 
-func (host *wasmLanguageHost) GetProgramDependencies(
+func (host *gestaltLanguageHost) GetProgramDependencies(
 	ctx context.Context, req *pulumirpc.GetProgramDependenciesRequest,
 ) (*pulumirpc.GetProgramDependenciesResponse, error) {
 	// TODO: Implement dependency fetcher
 	return &pulumirpc.GetProgramDependenciesResponse{}, nil
 }
 
-func (host *wasmLanguageHost) About(ctx context.Context, _ *pulumirpc.AboutRequest) (*pulumirpc.AboutResponse, error) {
+func (host *gestaltLanguageHost) About(ctx context.Context, _ *pulumirpc.AboutRequest) (*pulumirpc.AboutResponse, error) {
 	metadata := make(map[string]string)
 
 	scalaExec, err := host.Executor()
@@ -459,7 +459,7 @@ func (host *wasmLanguageHost) About(ctx context.Context, _ *pulumirpc.AboutReque
 		return nil, err
 	}
 
-	javaExec, err := executors.NewWasmExecutor(executors.WasmExecutorOptions{
+	javaExec, err := executors.NewGestaltExecutor(executors.GestaltExecutorOptions{
 		UseExecutor: "jar",
 		WD:          host.execOptions.WD,
 		Binary:      host.execOptions.Binary,

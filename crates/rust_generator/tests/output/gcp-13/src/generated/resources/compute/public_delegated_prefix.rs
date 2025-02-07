@@ -13,8 +13,8 @@
 ///
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let advertised = public_advertised_prefix::create(
@@ -70,22 +70,22 @@
 /// ```
 ///
 pub mod public_delegated_prefix {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct PublicDelegatedPrefixArgs {
         /// An optional description of this resource.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub description: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The IPv4 address range, in CIDR format, represented by this public advertised prefix.
         ///
         ///
         /// - - -
         #[builder(into)]
-        pub ip_cidr_range: pulumi_wasm_rust::InputOrOutput<String>,
+        pub ip_cidr_range: pulumi_gestalt_rust::InputOrOutput<String>,
         /// If true, the prefix will be live migrated.
         #[builder(into, default)]
-        pub is_live_migration: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub is_live_migration: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// Name of the resource. The name must be 1-63 characters long, and
         /// comply with RFC1035. Specifically, the name must be 1-63 characters
         /// long and match the regular expression `a-z?`
@@ -93,56 +93,56 @@ pub mod public_delegated_prefix {
         /// following characters must be a dash, lowercase letter, or digit,
         /// except the last character, which cannot be a dash.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The URL of parent prefix. Either PublicAdvertisedPrefix or PublicDelegatedPrefix.
         #[builder(into)]
-        pub parent_prefix: pulumi_wasm_rust::InputOrOutput<String>,
+        pub parent_prefix: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub project: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// A region where the prefix will reside.
         #[builder(into)]
-        pub region: pulumi_wasm_rust::InputOrOutput<String>,
+        pub region: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct PublicDelegatedPrefixResult {
         /// An optional description of this resource.
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_gestalt_rust::Output<Option<String>>,
         /// The IPv4 address range, in CIDR format, represented by this public advertised prefix.
         ///
         ///
         /// - - -
-        pub ip_cidr_range: pulumi_wasm_rust::Output<String>,
+        pub ip_cidr_range: pulumi_gestalt_rust::Output<String>,
         /// If true, the prefix will be live migrated.
-        pub is_live_migration: pulumi_wasm_rust::Output<Option<bool>>,
+        pub is_live_migration: pulumi_gestalt_rust::Output<Option<bool>>,
         /// Name of the resource. The name must be 1-63 characters long, and
         /// comply with RFC1035. Specifically, the name must be 1-63 characters
         /// long and match the regular expression `a-z?`
         /// which means the first character must be a lowercase letter, and all
         /// following characters must be a dash, lowercase letter, or digit,
         /// except the last character, which cannot be a dash.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// The URL of parent prefix. Either PublicAdvertisedPrefix or PublicDelegatedPrefix.
-        pub parent_prefix: pulumi_wasm_rust::Output<String>,
+        pub parent_prefix: pulumi_gestalt_rust::Output<String>,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
-        pub project: pulumi_wasm_rust::Output<String>,
+        pub project: pulumi_gestalt_rust::Output<String>,
         /// A region where the prefix will reside.
-        pub region: pulumi_wasm_rust::Output<String>,
+        pub region: pulumi_gestalt_rust::Output<String>,
         /// The URI of the created resource.
-        pub self_link: pulumi_wasm_rust::Output<String>,
+        pub self_link: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: PublicDelegatedPrefixArgs,
     ) -> PublicDelegatedPrefixResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let description_binding = args.description.get_output(context).get_inner();
         let ip_cidr_range_binding = args.ip_cidr_range.get_output(context).get_inner();
@@ -191,24 +191,26 @@ pub mod public_delegated_prefix {
         };
         let o = register_interface::register(context.get_inner(), &request);
         PublicDelegatedPrefixResult {
-            description: pulumi_wasm_rust::__private::into_domain(
+            description: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("description"),
             ),
-            ip_cidr_range: pulumi_wasm_rust::__private::into_domain(
+            ip_cidr_range: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("ipCidrRange"),
             ),
-            is_live_migration: pulumi_wasm_rust::__private::into_domain(
+            is_live_migration: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("isLiveMigration"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            parent_prefix: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            parent_prefix: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("parentPrefix"),
             ),
-            project: pulumi_wasm_rust::__private::into_domain(
+            project: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("project"),
             ),
-            region: pulumi_wasm_rust::__private::into_domain(o.extract_field("region")),
-            self_link: pulumi_wasm_rust::__private::into_domain(
+            region: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("region"),
+            ),
+            self_link: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("selfLink"),
             ),
         }

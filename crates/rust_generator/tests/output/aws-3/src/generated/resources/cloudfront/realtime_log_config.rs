@@ -70,50 +70,50 @@
 /// $ pulumi import aws:cloudfront/realtimeLogConfig:RealtimeLogConfig example arn:aws:cloudfront::111122223333:realtime-log-config/ExampleNameForRealtimeLogConfig
 /// ```
 pub mod realtime_log_config {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct RealtimeLogConfigArgs {
         /// The Amazon Kinesis data streams where real-time log data is sent.
         #[builder(into)]
-        pub endpoint: pulumi_wasm_rust::InputOrOutput<
+        pub endpoint: pulumi_gestalt_rust::InputOrOutput<
             super::super::types::cloudfront::RealtimeLogConfigEndpoint,
         >,
         /// The fields that are included in each real-time log record. See the [AWS documentation](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/real-time-logs.html#understand-real-time-log-config-fields) for supported values.
         #[builder(into)]
-        pub fields: pulumi_wasm_rust::InputOrOutput<Vec<String>>,
+        pub fields: pulumi_gestalt_rust::InputOrOutput<Vec<String>>,
         /// The unique name to identify this real-time log configuration.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The sampling rate for this real-time log configuration. The sampling rate determines the percentage of viewer requests that are represented in the real-time log data. An integer between `1` and `100`, inclusive.
         #[builder(into)]
-        pub sampling_rate: pulumi_wasm_rust::InputOrOutput<i32>,
+        pub sampling_rate: pulumi_gestalt_rust::InputOrOutput<i32>,
     }
     #[allow(dead_code)]
     pub struct RealtimeLogConfigResult {
         /// The ARN (Amazon Resource Name) of the CloudFront real-time log configuration.
-        pub arn: pulumi_wasm_rust::Output<String>,
+        pub arn: pulumi_gestalt_rust::Output<String>,
         /// The Amazon Kinesis data streams where real-time log data is sent.
-        pub endpoint: pulumi_wasm_rust::Output<
+        pub endpoint: pulumi_gestalt_rust::Output<
             super::super::types::cloudfront::RealtimeLogConfigEndpoint,
         >,
         /// The fields that are included in each real-time log record. See the [AWS documentation](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/real-time-logs.html#understand-real-time-log-config-fields) for supported values.
-        pub fields: pulumi_wasm_rust::Output<Vec<String>>,
+        pub fields: pulumi_gestalt_rust::Output<Vec<String>>,
         /// The unique name to identify this real-time log configuration.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// The sampling rate for this real-time log configuration. The sampling rate determines the percentage of viewer requests that are represented in the real-time log data. An integer between `1` and `100`, inclusive.
-        pub sampling_rate: pulumi_wasm_rust::Output<i32>,
+        pub sampling_rate: pulumi_gestalt_rust::Output<i32>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: RealtimeLogConfigArgs,
     ) -> RealtimeLogConfigResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let endpoint_binding = args.endpoint.get_output(context).get_inner();
         let fields_binding = args.fields.get_output(context).get_inner();
@@ -144,13 +144,15 @@ pub mod realtime_log_config {
         };
         let o = register_interface::register(context.get_inner(), &request);
         RealtimeLogConfigResult {
-            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
-            endpoint: pulumi_wasm_rust::__private::into_domain(
+            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
+            endpoint: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("endpoint"),
             ),
-            fields: pulumi_wasm_rust::__private::into_domain(o.extract_field("fields")),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            sampling_rate: pulumi_wasm_rust::__private::into_domain(
+            fields: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("fields"),
+            ),
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            sampling_rate: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("samplingRate"),
             ),
         }

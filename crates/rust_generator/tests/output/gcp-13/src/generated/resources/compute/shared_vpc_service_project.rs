@@ -12,8 +12,8 @@
 /// ## Example Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let service1 = shared_vpc_service_project::create(
@@ -42,39 +42,39 @@
 /// ```
 ///
 pub mod shared_vpc_service_project {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct SharedVPCServiceProjectArgs {
         /// The deletion policy for the shared VPC service. Setting ABANDON allows the resource to be abandoned rather than deleted. Possible values are: "ABANDON".
         #[builder(into, default)]
-        pub deletion_policy: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub deletion_policy: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The ID of a host project to associate.
         #[builder(into)]
-        pub host_project: pulumi_wasm_rust::InputOrOutput<String>,
+        pub host_project: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The ID of the project that will serve as a Shared VPC service project.
         #[builder(into)]
-        pub service_project: pulumi_wasm_rust::InputOrOutput<String>,
+        pub service_project: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct SharedVPCServiceProjectResult {
         /// The deletion policy for the shared VPC service. Setting ABANDON allows the resource to be abandoned rather than deleted. Possible values are: "ABANDON".
-        pub deletion_policy: pulumi_wasm_rust::Output<Option<String>>,
+        pub deletion_policy: pulumi_gestalt_rust::Output<Option<String>>,
         /// The ID of a host project to associate.
-        pub host_project: pulumi_wasm_rust::Output<String>,
+        pub host_project: pulumi_gestalt_rust::Output<String>,
         /// The ID of the project that will serve as a Shared VPC service project.
-        pub service_project: pulumi_wasm_rust::Output<String>,
+        pub service_project: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: SharedVPCServiceProjectArgs,
     ) -> SharedVPCServiceProjectResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let deletion_policy_binding = args
             .deletion_policy
@@ -106,13 +106,13 @@ pub mod shared_vpc_service_project {
         };
         let o = register_interface::register(context.get_inner(), &request);
         SharedVPCServiceProjectResult {
-            deletion_policy: pulumi_wasm_rust::__private::into_domain(
+            deletion_policy: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("deletionPolicy"),
             ),
-            host_project: pulumi_wasm_rust::__private::into_domain(
+            host_project: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("hostProject"),
             ),
-            service_project: pulumi_wasm_rust::__private::into_domain(
+            service_project: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("serviceProject"),
             ),
         }

@@ -3,8 +3,8 @@
 /// ## Example Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let test = fleet::create(
@@ -36,8 +36,8 @@
 /// ### Basic Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = fleet::create(
@@ -55,90 +55,90 @@
 /// $ pulumi import aws:codebuild/fleet:Fleet name fleet-name
 /// ```
 pub mod fleet {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct FleetArgs {
         /// Number of machines allocated to the ﬂeet.
         #[builder(into)]
-        pub base_capacity: pulumi_wasm_rust::InputOrOutput<i32>,
+        pub base_capacity: pulumi_gestalt_rust::InputOrOutput<i32>,
         /// Compute resources the compute fleet uses. See [compute types](https://docs.aws.amazon.com/codebuild/latest/userguide/build-env-ref-compute-types.html#environment.types) for more information and valid values.
         #[builder(into)]
-        pub compute_type: pulumi_wasm_rust::InputOrOutput<String>,
+        pub compute_type: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Environment type of the compute fleet. See [environment types](https://docs.aws.amazon.com/codebuild/latest/userguide/build-env-ref-compute-types.html#environment.types) for more information and valid values.
         ///
         /// The following arguments are optional:
         #[builder(into)]
-        pub environment_type: pulumi_wasm_rust::InputOrOutput<String>,
+        pub environment_type: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The service role associated with the compute fleet.
         #[builder(into, default)]
-        pub fleet_service_role: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub fleet_service_role: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The Amazon Machine Image (AMI) of the compute fleet.
         #[builder(into, default)]
-        pub image_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub image_id: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Fleet name.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Overflow behavior for compute fleet. Valid values: `ON_DEMAND`, `QUEUE`.
         #[builder(into, default)]
-        pub overflow_behavior: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub overflow_behavior: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Configuration block. Detailed below. This option is only valid when your overflow behavior is `QUEUE`.
         #[builder(into, default)]
-        pub scaling_configuration: pulumi_wasm_rust::InputOrOutput<
+        pub scaling_configuration: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::codebuild::FleetScalingConfiguration>,
         >,
         /// Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Configuration block. Detailed below.
         #[builder(into, default)]
-        pub vpc_configs: pulumi_wasm_rust::InputOrOutput<
+        pub vpc_configs: pulumi_gestalt_rust::InputOrOutput<
             Option<Vec<super::super::types::codebuild::FleetVpcConfig>>,
         >,
     }
     #[allow(dead_code)]
     pub struct FleetResult {
         /// ARN of the Fleet.
-        pub arn: pulumi_wasm_rust::Output<String>,
+        pub arn: pulumi_gestalt_rust::Output<String>,
         /// Number of machines allocated to the ﬂeet.
-        pub base_capacity: pulumi_wasm_rust::Output<i32>,
+        pub base_capacity: pulumi_gestalt_rust::Output<i32>,
         /// Compute resources the compute fleet uses. See [compute types](https://docs.aws.amazon.com/codebuild/latest/userguide/build-env-ref-compute-types.html#environment.types) for more information and valid values.
-        pub compute_type: pulumi_wasm_rust::Output<String>,
+        pub compute_type: pulumi_gestalt_rust::Output<String>,
         /// Creation time of the fleet.
-        pub created: pulumi_wasm_rust::Output<String>,
+        pub created: pulumi_gestalt_rust::Output<String>,
         /// Environment type of the compute fleet. See [environment types](https://docs.aws.amazon.com/codebuild/latest/userguide/build-env-ref-compute-types.html#environment.types) for more information and valid values.
         ///
         /// The following arguments are optional:
-        pub environment_type: pulumi_wasm_rust::Output<String>,
+        pub environment_type: pulumi_gestalt_rust::Output<String>,
         /// The service role associated with the compute fleet.
-        pub fleet_service_role: pulumi_wasm_rust::Output<Option<String>>,
+        pub fleet_service_role: pulumi_gestalt_rust::Output<Option<String>>,
         /// The Amazon Machine Image (AMI) of the compute fleet.
-        pub image_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub image_id: pulumi_gestalt_rust::Output<Option<String>>,
         /// Last modification time of the fleet.
-        pub last_modified: pulumi_wasm_rust::Output<String>,
+        pub last_modified: pulumi_gestalt_rust::Output<String>,
         /// Fleet name.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// Overflow behavior for compute fleet. Valid values: `ON_DEMAND`, `QUEUE`.
-        pub overflow_behavior: pulumi_wasm_rust::Output<String>,
+        pub overflow_behavior: pulumi_gestalt_rust::Output<String>,
         /// Configuration block. Detailed below. This option is only valid when your overflow behavior is `QUEUE`.
-        pub scaling_configuration: pulumi_wasm_rust::Output<
+        pub scaling_configuration: pulumi_gestalt_rust::Output<
             Option<super::super::types::codebuild::FleetScalingConfiguration>,
         >,
         /// Nested attribute containing information about the current status of the fleet.
-        pub statuses: pulumi_wasm_rust::Output<
+        pub statuses: pulumi_gestalt_rust::Output<
             Vec<super::super::types::codebuild::FleetStatus>,
         >,
         /// Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
-        pub tags_all: pulumi_wasm_rust::Output<
+        pub tags_all: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
         /// Configuration block. Detailed below.
-        pub vpc_configs: pulumi_wasm_rust::Output<
+        pub vpc_configs: pulumi_gestalt_rust::Output<
             Option<Vec<super::super::types::codebuild::FleetVpcConfig>>,
         >,
     }
@@ -147,11 +147,11 @@ pub mod fleet {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: FleetArgs,
     ) -> FleetResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let base_capacity_binding = args.base_capacity.get_output(context).get_inner();
         let compute_type_binding = args.compute_type.get_output(context).get_inner();
@@ -224,43 +224,43 @@ pub mod fleet {
         };
         let o = register_interface::register(context.get_inner(), &request);
         FleetResult {
-            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
-            base_capacity: pulumi_wasm_rust::__private::into_domain(
+            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
+            base_capacity: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("baseCapacity"),
             ),
-            compute_type: pulumi_wasm_rust::__private::into_domain(
+            compute_type: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("computeType"),
             ),
-            created: pulumi_wasm_rust::__private::into_domain(
+            created: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("created"),
             ),
-            environment_type: pulumi_wasm_rust::__private::into_domain(
+            environment_type: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("environmentType"),
             ),
-            fleet_service_role: pulumi_wasm_rust::__private::into_domain(
+            fleet_service_role: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("fleetServiceRole"),
             ),
-            image_id: pulumi_wasm_rust::__private::into_domain(
+            image_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("imageId"),
             ),
-            last_modified: pulumi_wasm_rust::__private::into_domain(
+            last_modified: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("lastModified"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            overflow_behavior: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            overflow_behavior: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("overflowBehavior"),
             ),
-            scaling_configuration: pulumi_wasm_rust::__private::into_domain(
+            scaling_configuration: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("scalingConfiguration"),
             ),
-            statuses: pulumi_wasm_rust::__private::into_domain(
+            statuses: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("statuses"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_wasm_rust::__private::into_domain(
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            tags_all: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("tagsAll"),
             ),
-            vpc_configs: pulumi_wasm_rust::__private::into_domain(
+            vpc_configs: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("vpcConfigs"),
             ),
         }

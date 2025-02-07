@@ -3,8 +3,8 @@
 /// ## Example Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = resource_group::create(
@@ -54,65 +54,65 @@
 /// ```
 ///
 pub mod network_connection {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct NetworkConnectionArgs {
         /// The Azure Active Directory Join type. Possible values are `AzureADJoin` and `HybridAzureADJoin`. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub domain_join_type: pulumi_wasm_rust::InputOrOutput<String>,
+        pub domain_join_type: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The name of the Azure Active Directory domain.
         #[builder(into, default)]
-        pub domain_name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub domain_name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The password for the account used to join domain.
         #[builder(into, default)]
-        pub domain_password: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub domain_password: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The username of the Azure Active Directory account (user or service account) that has permissions to create computer objects in Active Directory.
         #[builder(into, default)]
-        pub domain_username: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub domain_username: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The Azure Region where the Dev Center Network Connection should exist. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub location: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub location: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Specifies the name of this Dev Center Network Connection. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The Azure Active Directory domain Organization Unit (OU).
         #[builder(into, default)]
-        pub organization_unit: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub organization_unit: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Specifies the name of the Resource Group within which this Dev Center Network Connection should exist. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub resource_group_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub resource_group_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The ID of the Subnet that is used to attach Virtual Machines.
         #[builder(into)]
-        pub subnet_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub subnet_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// A mapping of tags which should be assigned to the Dev Center Network Connection.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
     #[allow(dead_code)]
     pub struct NetworkConnectionResult {
         /// The Azure Active Directory Join type. Possible values are `AzureADJoin` and `HybridAzureADJoin`. Changing this forces a new resource to be created.
-        pub domain_join_type: pulumi_wasm_rust::Output<String>,
+        pub domain_join_type: pulumi_gestalt_rust::Output<String>,
         /// The name of the Azure Active Directory domain.
-        pub domain_name: pulumi_wasm_rust::Output<Option<String>>,
+        pub domain_name: pulumi_gestalt_rust::Output<Option<String>>,
         /// The password for the account used to join domain.
-        pub domain_password: pulumi_wasm_rust::Output<Option<String>>,
+        pub domain_password: pulumi_gestalt_rust::Output<Option<String>>,
         /// The username of the Azure Active Directory account (user or service account) that has permissions to create computer objects in Active Directory.
-        pub domain_username: pulumi_wasm_rust::Output<Option<String>>,
+        pub domain_username: pulumi_gestalt_rust::Output<Option<String>>,
         /// The Azure Region where the Dev Center Network Connection should exist. Changing this forces a new resource to be created.
-        pub location: pulumi_wasm_rust::Output<String>,
+        pub location: pulumi_gestalt_rust::Output<String>,
         /// Specifies the name of this Dev Center Network Connection. Changing this forces a new resource to be created.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// The Azure Active Directory domain Organization Unit (OU).
-        pub organization_unit: pulumi_wasm_rust::Output<Option<String>>,
+        pub organization_unit: pulumi_gestalt_rust::Output<Option<String>>,
         /// Specifies the name of the Resource Group within which this Dev Center Network Connection should exist. Changing this forces a new resource to be created.
-        pub resource_group_name: pulumi_wasm_rust::Output<String>,
+        pub resource_group_name: pulumi_gestalt_rust::Output<String>,
         /// The ID of the Subnet that is used to attach Virtual Machines.
-        pub subnet_id: pulumi_wasm_rust::Output<String>,
+        pub subnet_id: pulumi_gestalt_rust::Output<String>,
         /// A mapping of tags which should be assigned to the Dev Center Network Connection.
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
@@ -121,11 +121,11 @@ pub mod network_connection {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: NetworkConnectionArgs,
     ) -> NetworkConnectionResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let domain_join_type_binding = args
             .domain_join_type
@@ -201,32 +201,32 @@ pub mod network_connection {
         };
         let o = register_interface::register(context.get_inner(), &request);
         NetworkConnectionResult {
-            domain_join_type: pulumi_wasm_rust::__private::into_domain(
+            domain_join_type: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("domainJoinType"),
             ),
-            domain_name: pulumi_wasm_rust::__private::into_domain(
+            domain_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("domainName"),
             ),
-            domain_password: pulumi_wasm_rust::__private::into_domain(
+            domain_password: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("domainPassword"),
             ),
-            domain_username: pulumi_wasm_rust::__private::into_domain(
+            domain_username: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("domainUsername"),
             ),
-            location: pulumi_wasm_rust::__private::into_domain(
+            location: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("location"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            organization_unit: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            organization_unit: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("organizationUnit"),
             ),
-            resource_group_name: pulumi_wasm_rust::__private::into_domain(
+            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("resourceGroupName"),
             ),
-            subnet_id: pulumi_wasm_rust::__private::into_domain(
+            subnet_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("subnetId"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
         }
     }
 }

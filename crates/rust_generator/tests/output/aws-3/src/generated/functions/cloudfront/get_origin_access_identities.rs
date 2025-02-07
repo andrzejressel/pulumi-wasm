@@ -1,33 +1,33 @@
 pub mod get_origin_access_identities {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct GetOriginAccessIdentitiesArgs {
         /// Filter origin access identities by comment.
         #[builder(into, default)]
-        pub comments: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
+        pub comments: pulumi_gestalt_rust::InputOrOutput<Option<Vec<String>>>,
     }
     #[allow(dead_code)]
     pub struct GetOriginAccessIdentitiesResult {
-        pub comments: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub comments: pulumi_gestalt_rust::Output<Option<Vec<String>>>,
         /// Set of ARNs of the matched origin access identities.
-        pub iam_arns: pulumi_wasm_rust::Output<Vec<String>>,
+        pub iam_arns: pulumi_gestalt_rust::Output<Vec<String>>,
         /// The provider-assigned unique ID for this managed resource.
-        pub id: pulumi_wasm_rust::Output<String>,
+        pub id: pulumi_gestalt_rust::Output<String>,
         /// Set of ids of the matched origin access identities.
-        pub ids: pulumi_wasm_rust::Output<Vec<String>>,
+        pub ids: pulumi_gestalt_rust::Output<Vec<String>>,
         /// Set of S3 canonical user IDs of the matched origin access identities.
-        pub s3_canonical_user_ids: pulumi_wasm_rust::Output<Vec<String>>,
+        pub s3_canonical_user_ids: pulumi_gestalt_rust::Output<Vec<String>>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         args: GetOriginAccessIdentitiesArgs,
     ) -> GetOriginAccessIdentitiesResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let comments_binding = args.comments.get_output(context).get_inner();
         let request = register_interface::ResourceInvokeRequest {
@@ -43,15 +43,15 @@ pub mod get_origin_access_identities {
         };
         let o = register_interface::invoke(context.get_inner(), &request);
         GetOriginAccessIdentitiesResult {
-            comments: pulumi_wasm_rust::__private::into_domain(
+            comments: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("comments"),
             ),
-            iam_arns: pulumi_wasm_rust::__private::into_domain(
+            iam_arns: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("iamArns"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
-            ids: pulumi_wasm_rust::__private::into_domain(o.extract_field("ids")),
-            s3_canonical_user_ids: pulumi_wasm_rust::__private::into_domain(
+            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
+            ids: pulumi_gestalt_rust::__private::into_domain(o.extract_field("ids")),
+            s3_canonical_user_ids: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("s3CanonicalUserIds"),
             ),
         }

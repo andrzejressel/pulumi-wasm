@@ -252,7 +252,7 @@
 /// ```
 ///
 pub mod cluster {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ClusterArgs {
@@ -262,62 +262,62 @@ pub mod cluster {
         /// **Note**: This field is non-authoritative, and will only manage the annotations present in your configuration.
         /// Please refer to the field `effective_annotations` for all of the annotations present on the resource.
         #[builder(into, default)]
-        pub annotations: pulumi_wasm_rust::InputOrOutput<
+        pub annotations: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// The automated backup policy for this cluster. AutomatedBackupPolicy is disabled by default.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub automated_backup_policy: pulumi_wasm_rust::InputOrOutput<
+        pub automated_backup_policy: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::alloydb::ClusterAutomatedBackupPolicy>,
         >,
         /// The ID of the alloydb cluster.
         #[builder(into)]
-        pub cluster_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub cluster_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The type of cluster. If not set, defaults to PRIMARY.
         /// Default value is `PRIMARY`.
         /// Possible values are: `PRIMARY`, `SECONDARY`.
         #[builder(into, default)]
-        pub cluster_type: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub cluster_type: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The continuous backup config for this cluster.
         /// If no policy is provided then the default policy will be used. The default policy takes one backup a day and retains backups for 14 days.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub continuous_backup_config: pulumi_wasm_rust::InputOrOutput<
+        pub continuous_backup_config: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::alloydb::ClusterContinuousBackupConfig>,
         >,
         /// The database engine major version. This is an optional field and it's populated at the Cluster creation time. This field cannot be changed after cluster creation.
         #[builder(into, default)]
-        pub database_version: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub database_version: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Policy to determine if the cluster should be deleted forcefully.
         /// Deleting a cluster forcefully, deletes the cluster and all its associated instances within the cluster.
         /// Deleting a Secondary cluster with a secondary instance REQUIRES setting deletion_policy = "FORCE" otherwise an error is returned. This is needed as there is no support to delete just the secondary instance, and the only way to delete secondary instance is to delete the associated secondary cluster forcefully which also deletes the secondary instance.
         /// Possible values: DEFAULT, FORCE
         #[builder(into, default)]
-        pub deletion_policy: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub deletion_policy: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// User-settable and human-readable display name for the Cluster.
         #[builder(into, default)]
-        pub display_name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub display_name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// EncryptionConfig describes the encryption config of a cluster or a backup that is encrypted with a CMEK (customer-managed encryption key).
         /// Structure is documented below.
         #[builder(into, default)]
-        pub encryption_config: pulumi_wasm_rust::InputOrOutput<
+        pub encryption_config: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::alloydb::ClusterEncryptionConfig>,
         >,
         /// For Resource freshness validation (https://google.aip.dev/154)
         #[builder(into, default)]
-        pub etag: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub etag: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Initial user to setup during cluster creation.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub initial_user: pulumi_wasm_rust::InputOrOutput<
+        pub initial_user: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::alloydb::ClusterInitialUser>,
         >,
         /// User-defined labels for the alloydb cluster.
         /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
         /// Please refer to the field `effective_labels` for all of the labels present on the resource.
         #[builder(into, default)]
-        pub labels: pulumi_wasm_rust::InputOrOutput<
+        pub labels: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// The location where the alloydb cluster should reside.
@@ -325,51 +325,51 @@ pub mod cluster {
         ///
         /// - - -
         #[builder(into)]
-        pub location: pulumi_wasm_rust::InputOrOutput<String>,
+        pub location: pulumi_gestalt_rust::InputOrOutput<String>,
         /// MaintenanceUpdatePolicy defines the policy for system updates.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub maintenance_update_policy: pulumi_wasm_rust::InputOrOutput<
+        pub maintenance_update_policy: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::alloydb::ClusterMaintenanceUpdatePolicy>,
         >,
         /// Metadata related to network configuration.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub network_config: pulumi_wasm_rust::InputOrOutput<
+        pub network_config: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::alloydb::ClusterNetworkConfig>,
         >,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub project: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Configuration for Private Service Connect (PSC) for the cluster.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub psc_config: pulumi_wasm_rust::InputOrOutput<
+        pub psc_config: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::alloydb::ClusterPscConfig>,
         >,
         /// The source when restoring from a backup. Conflicts with 'restore_continuous_backup_source', both can't be set together.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub restore_backup_source: pulumi_wasm_rust::InputOrOutput<
+        pub restore_backup_source: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::alloydb::ClusterRestoreBackupSource>,
         >,
         /// The source when restoring via point in time recovery (PITR). Conflicts with 'restore_backup_source', both can't be set together.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub restore_continuous_backup_source: pulumi_wasm_rust::InputOrOutput<
+        pub restore_continuous_backup_source: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::alloydb::ClusterRestoreContinuousBackupSource>,
         >,
         /// Configuration of the secondary cluster for Cross Region Replication. This should be set if and only if the cluster is of type SECONDARY.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub secondary_config: pulumi_wasm_rust::InputOrOutput<
+        pub secondary_config: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::alloydb::ClusterSecondaryConfig>,
         >,
         /// The subscrition type of cluster.
         /// Possible values are: `TRIAL`, `STANDARD`.
         #[builder(into, default)]
-        pub subscription_type: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub subscription_type: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct ClusterResult {
@@ -378,153 +378,153 @@ pub mod cluster {
         ///
         /// **Note**: This field is non-authoritative, and will only manage the annotations present in your configuration.
         /// Please refer to the field `effective_annotations` for all of the annotations present on the resource.
-        pub annotations: pulumi_wasm_rust::Output<
+        pub annotations: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// The automated backup policy for this cluster. AutomatedBackupPolicy is disabled by default.
         /// Structure is documented below.
-        pub automated_backup_policy: pulumi_wasm_rust::Output<
+        pub automated_backup_policy: pulumi_gestalt_rust::Output<
             super::super::types::alloydb::ClusterAutomatedBackupPolicy,
         >,
         /// Cluster created from backup.
         /// Structure is documented below.
-        pub backup_sources: pulumi_wasm_rust::Output<
+        pub backup_sources: pulumi_gestalt_rust::Output<
             Vec<super::super::types::alloydb::ClusterBackupSource>,
         >,
         /// The ID of the alloydb cluster.
-        pub cluster_id: pulumi_wasm_rust::Output<String>,
+        pub cluster_id: pulumi_gestalt_rust::Output<String>,
         /// The type of cluster. If not set, defaults to PRIMARY.
         /// Default value is `PRIMARY`.
         /// Possible values are: `PRIMARY`, `SECONDARY`.
-        pub cluster_type: pulumi_wasm_rust::Output<Option<String>>,
+        pub cluster_type: pulumi_gestalt_rust::Output<Option<String>>,
         /// The continuous backup config for this cluster.
         /// If no policy is provided then the default policy will be used. The default policy takes one backup a day and retains backups for 14 days.
         /// Structure is documented below.
-        pub continuous_backup_config: pulumi_wasm_rust::Output<
+        pub continuous_backup_config: pulumi_gestalt_rust::Output<
             super::super::types::alloydb::ClusterContinuousBackupConfig,
         >,
         /// ContinuousBackupInfo describes the continuous backup properties of a cluster.
         /// Structure is documented below.
-        pub continuous_backup_infos: pulumi_wasm_rust::Output<
+        pub continuous_backup_infos: pulumi_gestalt_rust::Output<
             Vec<super::super::types::alloydb::ClusterContinuousBackupInfo>,
         >,
         /// The database engine major version. This is an optional field and it's populated at the Cluster creation time. This field cannot be changed after cluster creation.
-        pub database_version: pulumi_wasm_rust::Output<String>,
+        pub database_version: pulumi_gestalt_rust::Output<String>,
         /// Policy to determine if the cluster should be deleted forcefully.
         /// Deleting a cluster forcefully, deletes the cluster and all its associated instances within the cluster.
         /// Deleting a Secondary cluster with a secondary instance REQUIRES setting deletion_policy = "FORCE" otherwise an error is returned. This is needed as there is no support to delete just the secondary instance, and the only way to delete secondary instance is to delete the associated secondary cluster forcefully which also deletes the secondary instance.
         /// Possible values: DEFAULT, FORCE
-        pub deletion_policy: pulumi_wasm_rust::Output<Option<String>>,
+        pub deletion_policy: pulumi_gestalt_rust::Output<Option<String>>,
         /// User-settable and human-readable display name for the Cluster.
-        pub display_name: pulumi_wasm_rust::Output<Option<String>>,
-        pub effective_annotations: pulumi_wasm_rust::Output<
+        pub display_name: pulumi_gestalt_rust::Output<Option<String>>,
+        pub effective_annotations: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
         /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Pulumi, other clients and services.
-        pub effective_labels: pulumi_wasm_rust::Output<
+        pub effective_labels: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
         /// EncryptionConfig describes the encryption config of a cluster or a backup that is encrypted with a CMEK (customer-managed encryption key).
         /// Structure is documented below.
-        pub encryption_config: pulumi_wasm_rust::Output<
+        pub encryption_config: pulumi_gestalt_rust::Output<
             Option<super::super::types::alloydb::ClusterEncryptionConfig>,
         >,
         /// (Output)
         /// Output only. The encryption information for the WALs and backups required for ContinuousBackup.
         /// Structure is documented below.
-        pub encryption_infos: pulumi_wasm_rust::Output<
+        pub encryption_infos: pulumi_gestalt_rust::Output<
             Vec<super::super::types::alloydb::ClusterEncryptionInfo>,
         >,
         /// For Resource freshness validation (https://google.aip.dev/154)
-        pub etag: pulumi_wasm_rust::Output<Option<String>>,
+        pub etag: pulumi_gestalt_rust::Output<Option<String>>,
         /// Initial user to setup during cluster creation.
         /// Structure is documented below.
-        pub initial_user: pulumi_wasm_rust::Output<
+        pub initial_user: pulumi_gestalt_rust::Output<
             Option<super::super::types::alloydb::ClusterInitialUser>,
         >,
         /// User-defined labels for the alloydb cluster.
         /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
         /// Please refer to the field `effective_labels` for all of the labels present on the resource.
-        pub labels: pulumi_wasm_rust::Output<
+        pub labels: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// The location where the alloydb cluster should reside.
         ///
         ///
         /// - - -
-        pub location: pulumi_wasm_rust::Output<String>,
+        pub location: pulumi_gestalt_rust::Output<String>,
         /// MaintenanceUpdatePolicy defines the policy for system updates.
         /// Structure is documented below.
-        pub maintenance_update_policy: pulumi_wasm_rust::Output<
+        pub maintenance_update_policy: pulumi_gestalt_rust::Output<
             Option<super::super::types::alloydb::ClusterMaintenanceUpdatePolicy>,
         >,
         /// Cluster created via DMS migration.
         /// Structure is documented below.
-        pub migration_sources: pulumi_wasm_rust::Output<
+        pub migration_sources: pulumi_gestalt_rust::Output<
             Vec<super::super::types::alloydb::ClusterMigrationSource>,
         >,
         /// The name of the cluster resource.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// Metadata related to network configuration.
         /// Structure is documented below.
-        pub network_config: pulumi_wasm_rust::Output<
+        pub network_config: pulumi_gestalt_rust::Output<
             super::super::types::alloydb::ClusterNetworkConfig,
         >,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
-        pub project: pulumi_wasm_rust::Output<String>,
+        pub project: pulumi_gestalt_rust::Output<String>,
         /// Configuration for Private Service Connect (PSC) for the cluster.
         /// Structure is documented below.
-        pub psc_config: pulumi_wasm_rust::Output<
+        pub psc_config: pulumi_gestalt_rust::Output<
             Option<super::super::types::alloydb::ClusterPscConfig>,
         >,
         /// The combination of labels configured directly on the resource
         /// and default labels configured on the provider.
-        pub pulumi_labels: pulumi_wasm_rust::Output<
+        pub pulumi_labels: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
         /// Output only. Reconciling (https://google.aip.dev/128#reconciliation).
         /// Set to true if the current state of Cluster does not match the user's intended state, and the service is actively updating the resource to reconcile them.
         /// This can happen due to user-triggered updates or system actions like failover or maintenance.
-        pub reconciling: pulumi_wasm_rust::Output<bool>,
+        pub reconciling: pulumi_gestalt_rust::Output<bool>,
         /// The source when restoring from a backup. Conflicts with 'restore_continuous_backup_source', both can't be set together.
         /// Structure is documented below.
-        pub restore_backup_source: pulumi_wasm_rust::Output<
+        pub restore_backup_source: pulumi_gestalt_rust::Output<
             Option<super::super::types::alloydb::ClusterRestoreBackupSource>,
         >,
         /// The source when restoring via point in time recovery (PITR). Conflicts with 'restore_backup_source', both can't be set together.
         /// Structure is documented below.
-        pub restore_continuous_backup_source: pulumi_wasm_rust::Output<
+        pub restore_continuous_backup_source: pulumi_gestalt_rust::Output<
             Option<super::super::types::alloydb::ClusterRestoreContinuousBackupSource>,
         >,
         /// Configuration of the secondary cluster for Cross Region Replication. This should be set if and only if the cluster is of type SECONDARY.
         /// Structure is documented below.
-        pub secondary_config: pulumi_wasm_rust::Output<
+        pub secondary_config: pulumi_gestalt_rust::Output<
             Option<super::super::types::alloydb::ClusterSecondaryConfig>,
         >,
         /// Output only. The current serving state of the cluster.
-        pub state: pulumi_wasm_rust::Output<String>,
+        pub state: pulumi_gestalt_rust::Output<String>,
         /// The subscrition type of cluster.
         /// Possible values are: `TRIAL`, `STANDARD`.
-        pub subscription_type: pulumi_wasm_rust::Output<String>,
+        pub subscription_type: pulumi_gestalt_rust::Output<String>,
         /// Contains information and all metadata related to TRIAL clusters.
         /// Structure is documented below.
-        pub trial_metadatas: pulumi_wasm_rust::Output<
+        pub trial_metadatas: pulumi_gestalt_rust::Output<
             Vec<super::super::types::alloydb::ClusterTrialMetadata>,
         >,
         /// The system-generated UID of the resource.
-        pub uid: pulumi_wasm_rust::Output<String>,
+        pub uid: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: ClusterArgs,
     ) -> ClusterResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let annotations_binding = args.annotations.get_output(context).get_inner();
         let automated_backup_policy_binding = args
@@ -670,95 +670,97 @@ pub mod cluster {
         };
         let o = register_interface::register(context.get_inner(), &request);
         ClusterResult {
-            annotations: pulumi_wasm_rust::__private::into_domain(
+            annotations: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("annotations"),
             ),
-            automated_backup_policy: pulumi_wasm_rust::__private::into_domain(
+            automated_backup_policy: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("automatedBackupPolicy"),
             ),
-            backup_sources: pulumi_wasm_rust::__private::into_domain(
+            backup_sources: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("backupSources"),
             ),
-            cluster_id: pulumi_wasm_rust::__private::into_domain(
+            cluster_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("clusterId"),
             ),
-            cluster_type: pulumi_wasm_rust::__private::into_domain(
+            cluster_type: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("clusterType"),
             ),
-            continuous_backup_config: pulumi_wasm_rust::__private::into_domain(
+            continuous_backup_config: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("continuousBackupConfig"),
             ),
-            continuous_backup_infos: pulumi_wasm_rust::__private::into_domain(
+            continuous_backup_infos: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("continuousBackupInfos"),
             ),
-            database_version: pulumi_wasm_rust::__private::into_domain(
+            database_version: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("databaseVersion"),
             ),
-            deletion_policy: pulumi_wasm_rust::__private::into_domain(
+            deletion_policy: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("deletionPolicy"),
             ),
-            display_name: pulumi_wasm_rust::__private::into_domain(
+            display_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("displayName"),
             ),
-            effective_annotations: pulumi_wasm_rust::__private::into_domain(
+            effective_annotations: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("effectiveAnnotations"),
             ),
-            effective_labels: pulumi_wasm_rust::__private::into_domain(
+            effective_labels: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("effectiveLabels"),
             ),
-            encryption_config: pulumi_wasm_rust::__private::into_domain(
+            encryption_config: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("encryptionConfig"),
             ),
-            encryption_infos: pulumi_wasm_rust::__private::into_domain(
+            encryption_infos: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("encryptionInfos"),
             ),
-            etag: pulumi_wasm_rust::__private::into_domain(o.extract_field("etag")),
-            initial_user: pulumi_wasm_rust::__private::into_domain(
+            etag: pulumi_gestalt_rust::__private::into_domain(o.extract_field("etag")),
+            initial_user: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("initialUser"),
             ),
-            labels: pulumi_wasm_rust::__private::into_domain(o.extract_field("labels")),
-            location: pulumi_wasm_rust::__private::into_domain(
+            labels: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("labels"),
+            ),
+            location: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("location"),
             ),
-            maintenance_update_policy: pulumi_wasm_rust::__private::into_domain(
+            maintenance_update_policy: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("maintenanceUpdatePolicy"),
             ),
-            migration_sources: pulumi_wasm_rust::__private::into_domain(
+            migration_sources: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("migrationSources"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            network_config: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            network_config: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("networkConfig"),
             ),
-            project: pulumi_wasm_rust::__private::into_domain(
+            project: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("project"),
             ),
-            psc_config: pulumi_wasm_rust::__private::into_domain(
+            psc_config: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("pscConfig"),
             ),
-            pulumi_labels: pulumi_wasm_rust::__private::into_domain(
+            pulumi_labels: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("pulumiLabels"),
             ),
-            reconciling: pulumi_wasm_rust::__private::into_domain(
+            reconciling: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("reconciling"),
             ),
-            restore_backup_source: pulumi_wasm_rust::__private::into_domain(
+            restore_backup_source: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("restoreBackupSource"),
             ),
-            restore_continuous_backup_source: pulumi_wasm_rust::__private::into_domain(
+            restore_continuous_backup_source: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("restoreContinuousBackupSource"),
             ),
-            secondary_config: pulumi_wasm_rust::__private::into_domain(
+            secondary_config: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("secondaryConfig"),
             ),
-            state: pulumi_wasm_rust::__private::into_domain(o.extract_field("state")),
-            subscription_type: pulumi_wasm_rust::__private::into_domain(
+            state: pulumi_gestalt_rust::__private::into_domain(o.extract_field("state")),
+            subscription_type: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("subscriptionType"),
             ),
-            trial_metadatas: pulumi_wasm_rust::__private::into_domain(
+            trial_metadatas: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("trialMetadatas"),
             ),
-            uid: pulumi_wasm_rust::__private::into_domain(o.extract_field("uid")),
+            uid: pulumi_gestalt_rust::__private::into_domain(o.extract_field("uid")),
         }
     }
 }

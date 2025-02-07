@@ -3,8 +3,8 @@
 /// ## Example Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = resource_group::create(
@@ -172,86 +172,88 @@
 /// ```
 ///
 pub mod server_extended_auditing_policy {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ServerExtendedAuditingPolicyArgs {
         /// A list of Actions-Groups and Actions to audit.
         #[builder(into, default)]
-        pub audit_actions_and_groups: pulumi_wasm_rust::InputOrOutput<
+        pub audit_actions_and_groups: pulumi_gestalt_rust::InputOrOutput<
             Option<Vec<String>>,
         >,
         /// Whether to enable the extended auditing policy. Possible values are `true` and `false`. Defaults to `true`.
         ///
         /// ->**NOTE:**  If `enabled` is `true`, `storage_endpoint` or `log_monitoring_enabled` are required.
         #[builder(into, default)]
-        pub enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub enabled: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// Enable audit events to Azure Monitor? To enable server audit events to Azure Monitor, please enable its main database audit events to Azure Monitor. Defaults to `true`.
         #[builder(into, default)]
-        pub log_monitoring_enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub log_monitoring_enabled: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// Specifies condition of where clause when creating an audit.
         #[builder(into, default)]
-        pub predicate_expression: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub predicate_expression: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The number of days to retain logs for in the storage account. Defaults to `0`.
         #[builder(into, default)]
-        pub retention_in_days: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
+        pub retention_in_days: pulumi_gestalt_rust::InputOrOutput<Option<i32>>,
         /// The ID of the SQL Server to set the extended auditing policy. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub server_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub server_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The access key to use for the auditing storage account.
         #[builder(into, default)]
-        pub storage_account_access_key: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub storage_account_access_key: pulumi_gestalt_rust::InputOrOutput<
+            Option<String>,
+        >,
         /// Is `storage_account_access_key` value the storage's secondary key?
         #[builder(into, default)]
-        pub storage_account_access_key_is_secondary: pulumi_wasm_rust::InputOrOutput<
+        pub storage_account_access_key_is_secondary: pulumi_gestalt_rust::InputOrOutput<
             Option<bool>,
         >,
         /// The ID of the Subscription containing the Storage Account.
         #[builder(into, default)]
-        pub storage_account_subscription_id: pulumi_wasm_rust::InputOrOutput<
+        pub storage_account_subscription_id: pulumi_gestalt_rust::InputOrOutput<
             Option<String>,
         >,
         /// The blob storage endpoint (e.g. <https://example.blob.core.windows.net>). This blob storage will hold all extended auditing logs.
         #[builder(into, default)]
-        pub storage_endpoint: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub storage_endpoint: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct ServerExtendedAuditingPolicyResult {
         /// A list of Actions-Groups and Actions to audit.
-        pub audit_actions_and_groups: pulumi_wasm_rust::Output<Vec<String>>,
+        pub audit_actions_and_groups: pulumi_gestalt_rust::Output<Vec<String>>,
         /// Whether to enable the extended auditing policy. Possible values are `true` and `false`. Defaults to `true`.
         ///
         /// ->**NOTE:**  If `enabled` is `true`, `storage_endpoint` or `log_monitoring_enabled` are required.
-        pub enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub enabled: pulumi_gestalt_rust::Output<Option<bool>>,
         /// Enable audit events to Azure Monitor? To enable server audit events to Azure Monitor, please enable its main database audit events to Azure Monitor. Defaults to `true`.
-        pub log_monitoring_enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub log_monitoring_enabled: pulumi_gestalt_rust::Output<Option<bool>>,
         /// Specifies condition of where clause when creating an audit.
-        pub predicate_expression: pulumi_wasm_rust::Output<Option<String>>,
+        pub predicate_expression: pulumi_gestalt_rust::Output<Option<String>>,
         /// The number of days to retain logs for in the storage account. Defaults to `0`.
-        pub retention_in_days: pulumi_wasm_rust::Output<Option<i32>>,
+        pub retention_in_days: pulumi_gestalt_rust::Output<Option<i32>>,
         /// The ID of the SQL Server to set the extended auditing policy. Changing this forces a new resource to be created.
-        pub server_id: pulumi_wasm_rust::Output<String>,
+        pub server_id: pulumi_gestalt_rust::Output<String>,
         /// The access key to use for the auditing storage account.
-        pub storage_account_access_key: pulumi_wasm_rust::Output<Option<String>>,
+        pub storage_account_access_key: pulumi_gestalt_rust::Output<Option<String>>,
         /// Is `storage_account_access_key` value the storage's secondary key?
-        pub storage_account_access_key_is_secondary: pulumi_wasm_rust::Output<
+        pub storage_account_access_key_is_secondary: pulumi_gestalt_rust::Output<
             Option<bool>,
         >,
         /// The ID of the Subscription containing the Storage Account.
-        pub storage_account_subscription_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub storage_account_subscription_id: pulumi_gestalt_rust::Output<Option<String>>,
         /// The blob storage endpoint (e.g. <https://example.blob.core.windows.net>). This blob storage will hold all extended auditing logs.
-        pub storage_endpoint: pulumi_wasm_rust::Output<Option<String>>,
+        pub storage_endpoint: pulumi_gestalt_rust::Output<Option<String>>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: ServerExtendedAuditingPolicyArgs,
     ) -> ServerExtendedAuditingPolicyResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let audit_actions_and_groups_binding = args
             .audit_actions_and_groups
@@ -337,34 +339,34 @@ pub mod server_extended_auditing_policy {
         };
         let o = register_interface::register(context.get_inner(), &request);
         ServerExtendedAuditingPolicyResult {
-            audit_actions_and_groups: pulumi_wasm_rust::__private::into_domain(
+            audit_actions_and_groups: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("auditActionsAndGroups"),
             ),
-            enabled: pulumi_wasm_rust::__private::into_domain(
+            enabled: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("enabled"),
             ),
-            log_monitoring_enabled: pulumi_wasm_rust::__private::into_domain(
+            log_monitoring_enabled: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("logMonitoringEnabled"),
             ),
-            predicate_expression: pulumi_wasm_rust::__private::into_domain(
+            predicate_expression: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("predicateExpression"),
             ),
-            retention_in_days: pulumi_wasm_rust::__private::into_domain(
+            retention_in_days: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("retentionInDays"),
             ),
-            server_id: pulumi_wasm_rust::__private::into_domain(
+            server_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("serverId"),
             ),
-            storage_account_access_key: pulumi_wasm_rust::__private::into_domain(
+            storage_account_access_key: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("storageAccountAccessKey"),
             ),
-            storage_account_access_key_is_secondary: pulumi_wasm_rust::__private::into_domain(
+            storage_account_access_key_is_secondary: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("storageAccountAccessKeyIsSecondary"),
             ),
-            storage_account_subscription_id: pulumi_wasm_rust::__private::into_domain(
+            storage_account_subscription_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("storageAccountSubscriptionId"),
             ),
-            storage_endpoint: pulumi_wasm_rust::__private::into_domain(
+            storage_endpoint: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("storageEndpoint"),
             ),
         }

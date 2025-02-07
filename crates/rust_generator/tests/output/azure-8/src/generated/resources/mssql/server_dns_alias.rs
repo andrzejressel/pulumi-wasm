@@ -3,8 +3,8 @@
 /// ## Example Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = resource_group::create(
@@ -44,36 +44,36 @@
 /// ```
 ///
 pub mod server_dns_alias {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ServerDnsAliasArgs {
         /// The ID of the mssql server. Changing this forces a new MSSQL Server DNS Alias to be created.
         #[builder(into)]
-        pub mssql_server_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub mssql_server_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The name which should be used for this MSSQL Server DNS Alias. Changing this forces a new MSSQL Server DNS Alias to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct ServerDnsAliasResult {
         /// The fully qualified DNS record for alias.
-        pub dns_record: pulumi_wasm_rust::Output<String>,
+        pub dns_record: pulumi_gestalt_rust::Output<String>,
         /// The ID of the mssql server. Changing this forces a new MSSQL Server DNS Alias to be created.
-        pub mssql_server_id: pulumi_wasm_rust::Output<String>,
+        pub mssql_server_id: pulumi_gestalt_rust::Output<String>,
         /// The name which should be used for this MSSQL Server DNS Alias. Changing this forces a new MSSQL Server DNS Alias to be created.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: ServerDnsAliasArgs,
     ) -> ServerDnsAliasResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let mssql_server_id_binding = args
             .mssql_server_id
@@ -97,13 +97,13 @@ pub mod server_dns_alias {
         };
         let o = register_interface::register(context.get_inner(), &request);
         ServerDnsAliasResult {
-            dns_record: pulumi_wasm_rust::__private::into_domain(
+            dns_record: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("dnsRecord"),
             ),
-            mssql_server_id: pulumi_wasm_rust::__private::into_domain(
+            mssql_server_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("mssqlServerId"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
         }
     }
 }

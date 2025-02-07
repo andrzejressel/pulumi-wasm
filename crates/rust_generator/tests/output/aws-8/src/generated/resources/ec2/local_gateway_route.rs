@@ -3,8 +3,8 @@
 /// ## Example Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = local_gateway_route::create(
@@ -28,41 +28,43 @@
 /// $ pulumi import aws:ec2/localGatewayRoute:LocalGatewayRoute example lgw-rtb-12345678_172.16.0.0/16
 /// ```
 pub mod local_gateway_route {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct LocalGatewayRouteArgs {
         /// IPv4 CIDR range used for destination matches. Routing decisions are based on the most specific match.
         #[builder(into)]
-        pub destination_cidr_block: pulumi_wasm_rust::InputOrOutput<String>,
+        pub destination_cidr_block: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Identifier of EC2 Local Gateway Route Table.
         #[builder(into)]
-        pub local_gateway_route_table_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub local_gateway_route_table_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Identifier of EC2 Local Gateway Virtual Interface Group.
         #[builder(into)]
-        pub local_gateway_virtual_interface_group_id: pulumi_wasm_rust::InputOrOutput<
+        pub local_gateway_virtual_interface_group_id: pulumi_gestalt_rust::InputOrOutput<
             String,
         >,
     }
     #[allow(dead_code)]
     pub struct LocalGatewayRouteResult {
         /// IPv4 CIDR range used for destination matches. Routing decisions are based on the most specific match.
-        pub destination_cidr_block: pulumi_wasm_rust::Output<String>,
+        pub destination_cidr_block: pulumi_gestalt_rust::Output<String>,
         /// Identifier of EC2 Local Gateway Route Table.
-        pub local_gateway_route_table_id: pulumi_wasm_rust::Output<String>,
+        pub local_gateway_route_table_id: pulumi_gestalt_rust::Output<String>,
         /// Identifier of EC2 Local Gateway Virtual Interface Group.
-        pub local_gateway_virtual_interface_group_id: pulumi_wasm_rust::Output<String>,
+        pub local_gateway_virtual_interface_group_id: pulumi_gestalt_rust::Output<
+            String,
+        >,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: LocalGatewayRouteArgs,
     ) -> LocalGatewayRouteResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let destination_cidr_block_binding = args
             .destination_cidr_block
@@ -97,13 +99,13 @@ pub mod local_gateway_route {
         };
         let o = register_interface::register(context.get_inner(), &request);
         LocalGatewayRouteResult {
-            destination_cidr_block: pulumi_wasm_rust::__private::into_domain(
+            destination_cidr_block: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("destinationCidrBlock"),
             ),
-            local_gateway_route_table_id: pulumi_wasm_rust::__private::into_domain(
+            local_gateway_route_table_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("localGatewayRouteTableId"),
             ),
-            local_gateway_virtual_interface_group_id: pulumi_wasm_rust::__private::into_domain(
+            local_gateway_virtual_interface_group_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("localGatewayVirtualInterfaceGroupId"),
             ),
         }

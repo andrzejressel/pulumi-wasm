@@ -3,8 +3,8 @@
 /// ## Example Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = resource_group::create(
@@ -102,69 +102,69 @@
 /// ```
 ///
 pub mod mover_job_definition {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct MoverJobDefinitionArgs {
         /// Specifies the name of the Storage Mover Agent to assign for new Job Runs of this Storage Mover Job Definition.
         #[builder(into, default)]
-        pub agent_name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub agent_name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Specifies the strategy to use for copy. Possible values are `Additive` and `Mirror`.
         #[builder(into)]
-        pub copy_mode: pulumi_wasm_rust::InputOrOutput<String>,
+        pub copy_mode: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Specifies a description for this Storage Mover Job Definition.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub description: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Specifies the name which should be used for this Storage Mover Job Definition. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Specifies the name of the Storage Mover Source Endpoint. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub source_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub source_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Specifies the sub path to use when reading from the Storage Mover Source Endpoint. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub source_sub_path: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub source_sub_path: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Specifies the ID of the Storage Mover Project. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub storage_mover_project_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub storage_mover_project_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Specifies the name of the Storage Mover target Endpoint. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub target_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub target_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Specifies the sub path to use when writing to the Storage Mover Target Endpoint. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub target_sub_path: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub target_sub_path: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct MoverJobDefinitionResult {
         /// Specifies the name of the Storage Mover Agent to assign for new Job Runs of this Storage Mover Job Definition.
-        pub agent_name: pulumi_wasm_rust::Output<Option<String>>,
+        pub agent_name: pulumi_gestalt_rust::Output<Option<String>>,
         /// Specifies the strategy to use for copy. Possible values are `Additive` and `Mirror`.
-        pub copy_mode: pulumi_wasm_rust::Output<String>,
+        pub copy_mode: pulumi_gestalt_rust::Output<String>,
         /// Specifies a description for this Storage Mover Job Definition.
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_gestalt_rust::Output<Option<String>>,
         /// Specifies the name which should be used for this Storage Mover Job Definition. Changing this forces a new resource to be created.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// Specifies the name of the Storage Mover Source Endpoint. Changing this forces a new resource to be created.
-        pub source_name: pulumi_wasm_rust::Output<String>,
+        pub source_name: pulumi_gestalt_rust::Output<String>,
         /// Specifies the sub path to use when reading from the Storage Mover Source Endpoint. Changing this forces a new resource to be created.
-        pub source_sub_path: pulumi_wasm_rust::Output<Option<String>>,
+        pub source_sub_path: pulumi_gestalt_rust::Output<Option<String>>,
         /// Specifies the ID of the Storage Mover Project. Changing this forces a new resource to be created.
-        pub storage_mover_project_id: pulumi_wasm_rust::Output<String>,
+        pub storage_mover_project_id: pulumi_gestalt_rust::Output<String>,
         /// Specifies the name of the Storage Mover target Endpoint. Changing this forces a new resource to be created.
-        pub target_name: pulumi_wasm_rust::Output<String>,
+        pub target_name: pulumi_gestalt_rust::Output<String>,
         /// Specifies the sub path to use when writing to the Storage Mover Target Endpoint. Changing this forces a new resource to be created.
-        pub target_sub_path: pulumi_wasm_rust::Output<Option<String>>,
+        pub target_sub_path: pulumi_gestalt_rust::Output<Option<String>>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: MoverJobDefinitionArgs,
     ) -> MoverJobDefinitionResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let agent_name_binding = args.agent_name.get_output(context).get_inner();
         let copy_mode_binding = args.copy_mode.get_output(context).get_inner();
@@ -229,29 +229,29 @@ pub mod mover_job_definition {
         };
         let o = register_interface::register(context.get_inner(), &request);
         MoverJobDefinitionResult {
-            agent_name: pulumi_wasm_rust::__private::into_domain(
+            agent_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("agentName"),
             ),
-            copy_mode: pulumi_wasm_rust::__private::into_domain(
+            copy_mode: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("copyMode"),
             ),
-            description: pulumi_wasm_rust::__private::into_domain(
+            description: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("description"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            source_name: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            source_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("sourceName"),
             ),
-            source_sub_path: pulumi_wasm_rust::__private::into_domain(
+            source_sub_path: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("sourceSubPath"),
             ),
-            storage_mover_project_id: pulumi_wasm_rust::__private::into_domain(
+            storage_mover_project_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("storageMoverProjectId"),
             ),
-            target_name: pulumi_wasm_rust::__private::into_domain(
+            target_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("targetName"),
             ),
-            target_sub_path: pulumi_wasm_rust::__private::into_domain(
+            target_sub_path: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("targetSubPath"),
             ),
         }

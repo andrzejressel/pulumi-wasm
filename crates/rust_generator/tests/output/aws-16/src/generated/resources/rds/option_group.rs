@@ -8,8 +8,8 @@
 /// ## Example Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = option_group::create(
@@ -54,65 +54,65 @@
 /// $ pulumi import aws:rds/optionGroup:OptionGroup example mysql-option-group
 /// ```
 pub mod option_group {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct OptionGroupArgs {
         /// Specifies the name of the engine that this option group should be associated with.
         #[builder(into)]
-        pub engine_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub engine_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Specifies the major version of the engine that this option group should be associated with.
         #[builder(into)]
-        pub major_engine_version: pulumi_wasm_rust::InputOrOutput<String>,
+        pub major_engine_version: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Name of the option group. If omitted, the provider will assign a random, unique name. Must be lowercase, to match as it is stored in AWS.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Creates a unique name beginning with the specified prefix. Conflicts with `name`. Must be lowercase, to match as it is stored in AWS.
         #[builder(into, default)]
-        pub name_prefix: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name_prefix: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Description of the option group. Defaults to "Managed by Pulumi".
         #[builder(into, default)]
-        pub option_group_description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub option_group_description: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The options to apply. See `option` Block below for more details.
         #[builder(into, default)]
-        pub options: pulumi_wasm_rust::InputOrOutput<
+        pub options: pulumi_gestalt_rust::InputOrOutput<
             Option<Vec<super::super::types::rds::OptionGroupOption>>,
         >,
         /// Set to true if you do not wish the option group to be deleted at destroy time, and instead just remove the option group from the Pulumi state.
         #[builder(into, default)]
-        pub skip_destroy: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub skip_destroy: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
     #[allow(dead_code)]
     pub struct OptionGroupResult {
         /// ARN of the DB option group.
-        pub arn: pulumi_wasm_rust::Output<String>,
+        pub arn: pulumi_gestalt_rust::Output<String>,
         /// Specifies the name of the engine that this option group should be associated with.
-        pub engine_name: pulumi_wasm_rust::Output<String>,
+        pub engine_name: pulumi_gestalt_rust::Output<String>,
         /// Specifies the major version of the engine that this option group should be associated with.
-        pub major_engine_version: pulumi_wasm_rust::Output<String>,
+        pub major_engine_version: pulumi_gestalt_rust::Output<String>,
         /// Name of the option group. If omitted, the provider will assign a random, unique name. Must be lowercase, to match as it is stored in AWS.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// Creates a unique name beginning with the specified prefix. Conflicts with `name`. Must be lowercase, to match as it is stored in AWS.
-        pub name_prefix: pulumi_wasm_rust::Output<String>,
+        pub name_prefix: pulumi_gestalt_rust::Output<String>,
         /// Description of the option group. Defaults to "Managed by Pulumi".
-        pub option_group_description: pulumi_wasm_rust::Output<String>,
+        pub option_group_description: pulumi_gestalt_rust::Output<String>,
         /// The options to apply. See `option` Block below for more details.
-        pub options: pulumi_wasm_rust::Output<
+        pub options: pulumi_gestalt_rust::Output<
             Option<Vec<super::super::types::rds::OptionGroupOption>>,
         >,
         /// Set to true if you do not wish the option group to be deleted at destroy time, and instead just remove the option group from the Pulumi state.
-        pub skip_destroy: pulumi_wasm_rust::Output<Option<bool>>,
+        pub skip_destroy: pulumi_gestalt_rust::Output<Option<bool>>,
         /// Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        pub tags_all: pulumi_wasm_rust::Output<
+        pub tags_all: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
     }
@@ -121,11 +121,11 @@ pub mod option_group {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: OptionGroupArgs,
     ) -> OptionGroupResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let engine_name_binding = args.engine_name.get_output(context).get_inner();
         let major_engine_version_binding = args
@@ -182,28 +182,28 @@ pub mod option_group {
         };
         let o = register_interface::register(context.get_inner(), &request);
         OptionGroupResult {
-            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
-            engine_name: pulumi_wasm_rust::__private::into_domain(
+            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
+            engine_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("engineName"),
             ),
-            major_engine_version: pulumi_wasm_rust::__private::into_domain(
+            major_engine_version: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("majorEngineVersion"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            name_prefix: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            name_prefix: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("namePrefix"),
             ),
-            option_group_description: pulumi_wasm_rust::__private::into_domain(
+            option_group_description: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("optionGroupDescription"),
             ),
-            options: pulumi_wasm_rust::__private::into_domain(
+            options: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("options"),
             ),
-            skip_destroy: pulumi_wasm_rust::__private::into_domain(
+            skip_destroy: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("skipDestroy"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_wasm_rust::__private::into_domain(
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            tags_all: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("tagsAll"),
             ),
         }

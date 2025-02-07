@@ -7,8 +7,8 @@
 /// ## Example Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let strict = account_password_policy::create(
@@ -33,73 +33,77 @@
 /// $ pulumi import aws:iam/accountPasswordPolicy:AccountPasswordPolicy strict iam-account-password-policy
 /// ```
 pub mod account_password_policy {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct AccountPasswordPolicyArgs {
         /// Whether to allow users to change their own password
         #[builder(into, default)]
-        pub allow_users_to_change_password: pulumi_wasm_rust::InputOrOutput<
+        pub allow_users_to_change_password: pulumi_gestalt_rust::InputOrOutput<
             Option<bool>,
         >,
         /// Whether users are prevented from setting a new password after their password has expired (i.e., require administrator reset)
         #[builder(into, default)]
-        pub hard_expiry: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub hard_expiry: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// The number of days that an user password is valid.
         #[builder(into, default)]
-        pub max_password_age: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
+        pub max_password_age: pulumi_gestalt_rust::InputOrOutput<Option<i32>>,
         /// Minimum length to require for user passwords.
         #[builder(into, default)]
-        pub minimum_password_length: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
+        pub minimum_password_length: pulumi_gestalt_rust::InputOrOutput<Option<i32>>,
         /// The number of previous passwords that users are prevented from reusing.
         #[builder(into, default)]
-        pub password_reuse_prevention: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
+        pub password_reuse_prevention: pulumi_gestalt_rust::InputOrOutput<Option<i32>>,
         /// Whether to require lowercase characters for user passwords.
         #[builder(into, default)]
-        pub require_lowercase_characters: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub require_lowercase_characters: pulumi_gestalt_rust::InputOrOutput<
+            Option<bool>,
+        >,
         /// Whether to require numbers for user passwords.
         #[builder(into, default)]
-        pub require_numbers: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub require_numbers: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// Whether to require symbols for user passwords.
         #[builder(into, default)]
-        pub require_symbols: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub require_symbols: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// Whether to require uppercase characters for user passwords.
         #[builder(into, default)]
-        pub require_uppercase_characters: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub require_uppercase_characters: pulumi_gestalt_rust::InputOrOutput<
+            Option<bool>,
+        >,
     }
     #[allow(dead_code)]
     pub struct AccountPasswordPolicyResult {
         /// Whether to allow users to change their own password
-        pub allow_users_to_change_password: pulumi_wasm_rust::Output<Option<bool>>,
+        pub allow_users_to_change_password: pulumi_gestalt_rust::Output<Option<bool>>,
         /// Indicates whether passwords in the account expire. Returns `true` if `max_password_age` contains a value greater than `0`. Returns `false` if it is `0` or _not present_.
-        pub expire_passwords: pulumi_wasm_rust::Output<bool>,
+        pub expire_passwords: pulumi_gestalt_rust::Output<bool>,
         /// Whether users are prevented from setting a new password after their password has expired (i.e., require administrator reset)
-        pub hard_expiry: pulumi_wasm_rust::Output<bool>,
+        pub hard_expiry: pulumi_gestalt_rust::Output<bool>,
         /// The number of days that an user password is valid.
-        pub max_password_age: pulumi_wasm_rust::Output<i32>,
+        pub max_password_age: pulumi_gestalt_rust::Output<i32>,
         /// Minimum length to require for user passwords.
-        pub minimum_password_length: pulumi_wasm_rust::Output<Option<i32>>,
+        pub minimum_password_length: pulumi_gestalt_rust::Output<Option<i32>>,
         /// The number of previous passwords that users are prevented from reusing.
-        pub password_reuse_prevention: pulumi_wasm_rust::Output<i32>,
+        pub password_reuse_prevention: pulumi_gestalt_rust::Output<i32>,
         /// Whether to require lowercase characters for user passwords.
-        pub require_lowercase_characters: pulumi_wasm_rust::Output<bool>,
+        pub require_lowercase_characters: pulumi_gestalt_rust::Output<bool>,
         /// Whether to require numbers for user passwords.
-        pub require_numbers: pulumi_wasm_rust::Output<bool>,
+        pub require_numbers: pulumi_gestalt_rust::Output<bool>,
         /// Whether to require symbols for user passwords.
-        pub require_symbols: pulumi_wasm_rust::Output<bool>,
+        pub require_symbols: pulumi_gestalt_rust::Output<bool>,
         /// Whether to require uppercase characters for user passwords.
-        pub require_uppercase_characters: pulumi_wasm_rust::Output<bool>,
+        pub require_uppercase_characters: pulumi_gestalt_rust::Output<bool>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: AccountPasswordPolicyArgs,
     ) -> AccountPasswordPolicyResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let allow_users_to_change_password_binding = args
             .allow_users_to_change_password
@@ -179,34 +183,34 @@ pub mod account_password_policy {
         };
         let o = register_interface::register(context.get_inner(), &request);
         AccountPasswordPolicyResult {
-            allow_users_to_change_password: pulumi_wasm_rust::__private::into_domain(
+            allow_users_to_change_password: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("allowUsersToChangePassword"),
             ),
-            expire_passwords: pulumi_wasm_rust::__private::into_domain(
+            expire_passwords: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("expirePasswords"),
             ),
-            hard_expiry: pulumi_wasm_rust::__private::into_domain(
+            hard_expiry: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("hardExpiry"),
             ),
-            max_password_age: pulumi_wasm_rust::__private::into_domain(
+            max_password_age: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("maxPasswordAge"),
             ),
-            minimum_password_length: pulumi_wasm_rust::__private::into_domain(
+            minimum_password_length: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("minimumPasswordLength"),
             ),
-            password_reuse_prevention: pulumi_wasm_rust::__private::into_domain(
+            password_reuse_prevention: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("passwordReusePrevention"),
             ),
-            require_lowercase_characters: pulumi_wasm_rust::__private::into_domain(
+            require_lowercase_characters: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("requireLowercaseCharacters"),
             ),
-            require_numbers: pulumi_wasm_rust::__private::into_domain(
+            require_numbers: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("requireNumbers"),
             ),
-            require_symbols: pulumi_wasm_rust::__private::into_domain(
+            require_symbols: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("requireSymbols"),
             ),
-            require_uppercase_characters: pulumi_wasm_rust::__private::into_domain(
+            require_uppercase_characters: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("requireUppercaseCharacters"),
             ),
         }

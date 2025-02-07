@@ -1,5 +1,5 @@
 pub mod get_resolver_endpoint {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct GetResolverEndpointArgs {
@@ -9,39 +9,39 @@ pub mod get_resolver_endpoint {
         ///
         /// In addition to all arguments above, the following attributes are exported:
         #[builder(into, default)]
-        pub filters: pulumi_wasm_rust::InputOrOutput<
+        pub filters: pulumi_gestalt_rust::InputOrOutput<
             Option<Vec<super::super::super::types::route53::GetResolverEndpointFilter>>,
         >,
         /// ID of the Route53 Resolver Endpoint.
         #[builder(into, default)]
-        pub resolver_endpoint_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub resolver_endpoint_id: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct GetResolverEndpointResult {
-        pub arn: pulumi_wasm_rust::Output<String>,
-        pub direction: pulumi_wasm_rust::Output<String>,
-        pub filters: pulumi_wasm_rust::Output<
+        pub arn: pulumi_gestalt_rust::Output<String>,
+        pub direction: pulumi_gestalt_rust::Output<String>,
+        pub filters: pulumi_gestalt_rust::Output<
             Option<Vec<super::super::super::types::route53::GetResolverEndpointFilter>>,
         >,
         /// The provider-assigned unique ID for this managed resource.
-        pub id: pulumi_wasm_rust::Output<String>,
-        pub ip_addresses: pulumi_wasm_rust::Output<Vec<String>>,
-        pub name: pulumi_wasm_rust::Output<String>,
-        pub protocols: pulumi_wasm_rust::Output<Vec<String>>,
-        pub resolver_endpoint_id: pulumi_wasm_rust::Output<Option<String>>,
-        pub resolver_endpoint_type: pulumi_wasm_rust::Output<String>,
-        pub status: pulumi_wasm_rust::Output<String>,
-        pub vpc_id: pulumi_wasm_rust::Output<String>,
+        pub id: pulumi_gestalt_rust::Output<String>,
+        pub ip_addresses: pulumi_gestalt_rust::Output<Vec<String>>,
+        pub name: pulumi_gestalt_rust::Output<String>,
+        pub protocols: pulumi_gestalt_rust::Output<Vec<String>>,
+        pub resolver_endpoint_id: pulumi_gestalt_rust::Output<Option<String>>,
+        pub resolver_endpoint_type: pulumi_gestalt_rust::Output<String>,
+        pub status: pulumi_gestalt_rust::Output<String>,
+        pub vpc_id: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         args: GetResolverEndpointArgs,
     ) -> GetResolverEndpointResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let filters_binding = args.filters.get_output(context).get_inner();
         let resolver_endpoint_id_binding = args
@@ -64,29 +64,31 @@ pub mod get_resolver_endpoint {
         };
         let o = register_interface::invoke(context.get_inner(), &request);
         GetResolverEndpointResult {
-            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
-            direction: pulumi_wasm_rust::__private::into_domain(
+            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
+            direction: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("direction"),
             ),
-            filters: pulumi_wasm_rust::__private::into_domain(
+            filters: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("filters"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
-            ip_addresses: pulumi_wasm_rust::__private::into_domain(
+            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
+            ip_addresses: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("ipAddresses"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            protocols: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            protocols: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("protocols"),
             ),
-            resolver_endpoint_id: pulumi_wasm_rust::__private::into_domain(
+            resolver_endpoint_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("resolverEndpointId"),
             ),
-            resolver_endpoint_type: pulumi_wasm_rust::__private::into_domain(
+            resolver_endpoint_type: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("resolverEndpointType"),
             ),
-            status: pulumi_wasm_rust::__private::into_domain(o.extract_field("status")),
-            vpc_id: pulumi_wasm_rust::__private::into_domain(o.extract_field("vpcId")),
+            status: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("status"),
+            ),
+            vpc_id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("vpcId")),
         }
     }
 }

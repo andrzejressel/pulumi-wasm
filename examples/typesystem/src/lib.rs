@@ -1,12 +1,12 @@
 #[cfg(test)]
 mod tests {
-    use pulumi_wasm_providers_typesystem::deep::nested::module::some_resource::SomeResourceArgs;
-    use pulumi_wasm_providers_typesystem::types::{
+    use pulumi_gestalt_providers_typesystem::deep::nested::module::some_resource::SomeResourceArgs;
+    use pulumi_gestalt_providers_typesystem::types::{
         IntegerEnum, MyEnum, NumberEnum, UnionCase1, UnionCase2, UnionCaseWithConst1,
         UnionCaseWithConst2,
     };
-    use pulumi_wasm_providers_typesystem::typesystem_server::TypesystemServerArgs;
-    use pulumi_wasm_rust::{OneOf2, Output};
+    use pulumi_gestalt_providers_typesystem::typesystem_server::TypesystemServerArgs;
+    use pulumi_gestalt_rust::{OneOf2, Output};
 
     #[test]
     fn test_case_deserialization() {
@@ -181,7 +181,7 @@ mod tests {
     fn resource_compilation_test() {
         let context = get_context();
 
-        pulumi_wasm_providers_typesystem::deep::nested::module::some_resource::create(
+        pulumi_gestalt_providers_typesystem::deep::nested::module::some_resource::create(
             context,
             "test",
             SomeResourceArgs::builder().build_struct(),
@@ -191,18 +191,19 @@ mod tests {
     #[allow(dead_code)]
     fn function_compilation_test() {
         let context = get_context();
-        pulumi_wasm_providers_typesystem::functions::deep::nested::module::some_function::invoke(
+        pulumi_gestalt_providers_typesystem::functions::deep::nested::module::some_function::invoke(
             context,
         );
     }
 
     #[allow(dead_code)]
     fn types_compilation_test() {
-        let _ = pulumi_wasm_providers_typesystem::types::deep::nested::module::SomeType::builder()
-            .build_struct();
+        let _ =
+            pulumi_gestalt_providers_typesystem::types::deep::nested::module::SomeType::builder()
+                .build_struct();
     }
 
-    fn get_context() -> &'static pulumi_wasm_rust::PulumiContext {
+    fn get_context() -> &'static pulumi_gestalt_rust::PulumiContext {
         todo!()
     }
 }

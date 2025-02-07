@@ -1,11 +1,11 @@
 pub mod get_pipeline_definition {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct GetPipelineDefinitionArgs {
         /// Parameter values used in the pipeline definition. See below
         #[builder(into, default)]
-        pub parameter_values: pulumi_wasm_rust::InputOrOutput<
+        pub parameter_values: pulumi_gestalt_rust::InputOrOutput<
             Option<
                 Vec<
                     super::super::super::types::datapipeline::GetPipelineDefinitionParameterValue,
@@ -14,29 +14,29 @@ pub mod get_pipeline_definition {
         >,
         /// ID of the pipeline.
         #[builder(into)]
-        pub pipeline_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub pipeline_id: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct GetPipelineDefinitionResult {
         /// The provider-assigned unique ID for this managed resource.
-        pub id: pulumi_wasm_rust::Output<String>,
+        pub id: pulumi_gestalt_rust::Output<String>,
         /// Parameter objects used in the pipeline definition. See below
-        pub parameter_objects: pulumi_wasm_rust::Output<
+        pub parameter_objects: pulumi_gestalt_rust::Output<
             Vec<
                 super::super::super::types::datapipeline::GetPipelineDefinitionParameterObject,
             >,
         >,
         /// Parameter values used in the pipeline definition. See below
-        pub parameter_values: pulumi_wasm_rust::Output<
+        pub parameter_values: pulumi_gestalt_rust::Output<
             Option<
                 Vec<
                     super::super::super::types::datapipeline::GetPipelineDefinitionParameterValue,
                 >,
             >,
         >,
-        pub pipeline_id: pulumi_wasm_rust::Output<String>,
+        pub pipeline_id: pulumi_gestalt_rust::Output<String>,
         /// Objects defined in the pipeline. See below
-        pub pipeline_objects: pulumi_wasm_rust::Output<
+        pub pipeline_objects: pulumi_gestalt_rust::Output<
             Vec<
                 super::super::super::types::datapipeline::GetPipelineDefinitionPipelineObject,
             >,
@@ -47,10 +47,10 @@ pub mod get_pipeline_definition {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         args: GetPipelineDefinitionArgs,
     ) -> GetPipelineDefinitionResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let parameter_values_binding = args
             .parameter_values
@@ -73,17 +73,17 @@ pub mod get_pipeline_definition {
         };
         let o = register_interface::invoke(context.get_inner(), &request);
         GetPipelineDefinitionResult {
-            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
-            parameter_objects: pulumi_wasm_rust::__private::into_domain(
+            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
+            parameter_objects: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("parameterObjects"),
             ),
-            parameter_values: pulumi_wasm_rust::__private::into_domain(
+            parameter_values: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("parameterValues"),
             ),
-            pipeline_id: pulumi_wasm_rust::__private::into_domain(
+            pipeline_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("pipelineId"),
             ),
-            pipeline_objects: pulumi_wasm_rust::__private::into_domain(
+            pipeline_objects: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("pipelineObjects"),
             ),
         }

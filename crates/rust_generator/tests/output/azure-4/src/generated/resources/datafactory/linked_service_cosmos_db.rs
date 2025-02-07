@@ -45,78 +45,78 @@
 /// ```
 ///
 pub mod linked_service_cosmos_db {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct LinkedServiceCosmosDbArgs {
         /// The endpoint of the Azure CosmosDB account. Required if `connection_string` is unspecified.
         #[builder(into, default)]
-        pub account_endpoint: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub account_endpoint: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The account key of the Azure Cosmos DB account. Required if `connection_string` is unspecified.
         #[builder(into, default)]
-        pub account_key: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub account_key: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// A map of additional properties to associate with the Data Factory Linked Service.
         ///
         /// The following supported arguments are specific to CosmosDB Linked Service:
         #[builder(into, default)]
-        pub additional_properties: pulumi_wasm_rust::InputOrOutput<
+        pub additional_properties: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// List of tags that can be used for describing the Data Factory Linked Service.
         #[builder(into, default)]
-        pub annotations: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
+        pub annotations: pulumi_gestalt_rust::InputOrOutput<Option<Vec<String>>>,
         /// The connection string. Required if `account_endpoint`, `account_key`, and `database` are unspecified.
         #[builder(into, default)]
-        pub connection_string: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub connection_string: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
         #[builder(into)]
-        pub data_factory_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub data_factory_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The name of the database. Required if `connection_string` is unspecified.
         #[builder(into, default)]
-        pub database: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub database: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The description for the Data Factory Linked Service.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub description: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The integration runtime reference to associate with the Data Factory Linked Service.
         #[builder(into, default)]
-        pub integration_runtime_name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub integration_runtime_name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Specifies the name of the Data Factory Linked Service. Changing this forces a new resource to be created. Must be unique within a data factory. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// A map of parameters to associate with the Data Factory Linked Service.
         #[builder(into, default)]
-        pub parameters: pulumi_wasm_rust::InputOrOutput<
+        pub parameters: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
     #[allow(dead_code)]
     pub struct LinkedServiceCosmosDbResult {
         /// The endpoint of the Azure CosmosDB account. Required if `connection_string` is unspecified.
-        pub account_endpoint: pulumi_wasm_rust::Output<Option<String>>,
+        pub account_endpoint: pulumi_gestalt_rust::Output<Option<String>>,
         /// The account key of the Azure Cosmos DB account. Required if `connection_string` is unspecified.
-        pub account_key: pulumi_wasm_rust::Output<Option<String>>,
+        pub account_key: pulumi_gestalt_rust::Output<Option<String>>,
         /// A map of additional properties to associate with the Data Factory Linked Service.
         ///
         /// The following supported arguments are specific to CosmosDB Linked Service:
-        pub additional_properties: pulumi_wasm_rust::Output<
+        pub additional_properties: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// List of tags that can be used for describing the Data Factory Linked Service.
-        pub annotations: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub annotations: pulumi_gestalt_rust::Output<Option<Vec<String>>>,
         /// The connection string. Required if `account_endpoint`, `account_key`, and `database` are unspecified.
-        pub connection_string: pulumi_wasm_rust::Output<Option<String>>,
+        pub connection_string: pulumi_gestalt_rust::Output<Option<String>>,
         /// The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
-        pub data_factory_id: pulumi_wasm_rust::Output<String>,
+        pub data_factory_id: pulumi_gestalt_rust::Output<String>,
         /// The name of the database. Required if `connection_string` is unspecified.
-        pub database: pulumi_wasm_rust::Output<Option<String>>,
+        pub database: pulumi_gestalt_rust::Output<Option<String>>,
         /// The description for the Data Factory Linked Service.
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_gestalt_rust::Output<Option<String>>,
         /// The integration runtime reference to associate with the Data Factory Linked Service.
-        pub integration_runtime_name: pulumi_wasm_rust::Output<Option<String>>,
+        pub integration_runtime_name: pulumi_gestalt_rust::Output<Option<String>>,
         /// Specifies the name of the Data Factory Linked Service. Changing this forces a new resource to be created. Must be unique within a data factory. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// A map of parameters to associate with the Data Factory Linked Service.
-        pub parameters: pulumi_wasm_rust::Output<
+        pub parameters: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
@@ -125,11 +125,11 @@ pub mod linked_service_cosmos_db {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: LinkedServiceCosmosDbArgs,
     ) -> LinkedServiceCosmosDbResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let account_endpoint_binding = args
             .account_endpoint
@@ -211,35 +211,35 @@ pub mod linked_service_cosmos_db {
         };
         let o = register_interface::register(context.get_inner(), &request);
         LinkedServiceCosmosDbResult {
-            account_endpoint: pulumi_wasm_rust::__private::into_domain(
+            account_endpoint: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("accountEndpoint"),
             ),
-            account_key: pulumi_wasm_rust::__private::into_domain(
+            account_key: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("accountKey"),
             ),
-            additional_properties: pulumi_wasm_rust::__private::into_domain(
+            additional_properties: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("additionalProperties"),
             ),
-            annotations: pulumi_wasm_rust::__private::into_domain(
+            annotations: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("annotations"),
             ),
-            connection_string: pulumi_wasm_rust::__private::into_domain(
+            connection_string: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("connectionString"),
             ),
-            data_factory_id: pulumi_wasm_rust::__private::into_domain(
+            data_factory_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("dataFactoryId"),
             ),
-            database: pulumi_wasm_rust::__private::into_domain(
+            database: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("database"),
             ),
-            description: pulumi_wasm_rust::__private::into_domain(
+            description: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("description"),
             ),
-            integration_runtime_name: pulumi_wasm_rust::__private::into_domain(
+            integration_runtime_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("integrationRuntimeName"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            parameters: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            parameters: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("parameters"),
             ),
         }

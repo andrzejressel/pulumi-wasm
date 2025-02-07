@@ -13,8 +13,8 @@
 /// To set policy with a [boolean constraint](https://cloud.google.com/resource-manager/docs/organization-policy/quickstart-boolean-constraints):
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let serialPortPolicy = policy::create(
@@ -32,8 +32,8 @@
 /// To set a policy with a [list constraint](https://cloud.google.com/resource-manager/docs/organization-policy/quickstart-list-constraints):
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let servicesPolicy = policy::create(
@@ -54,8 +54,8 @@
 /// Or to deny some services, use the following instead:
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let servicesPolicy = policy::create(
@@ -81,8 +81,8 @@
 /// To restore the default organization policy, use the following instead:
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let servicesPolicy = policy::create(
@@ -111,29 +111,29 @@
 /// It is all right if the constraint contains a slash, as in the example above.
 ///
 pub mod policy {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct PolicyArgs {
         /// A boolean policy is a constraint that is either enforced or not. Structure is documented
         /// below.
         #[builder(into, default)]
-        pub boolean_policy: pulumi_wasm_rust::InputOrOutput<
+        pub boolean_policy: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::organizations::PolicyBooleanPolicy>,
         >,
         /// The name of the Constraint the Policy is configuring, for example, `serviceuser.services`. Check out the [complete list of available constraints](https://cloud.google.com/resource-manager/docs/organization-policy/understanding-constraints#available_constraints).
         ///
         /// - - -
         #[builder(into)]
-        pub constraint: pulumi_wasm_rust::InputOrOutput<String>,
+        pub constraint: pulumi_gestalt_rust::InputOrOutput<String>,
         /// A policy that can define specific values that are allowed or denied for the given constraint. It can also be used to allow or deny all values. Structure is documented below.
         #[builder(into, default)]
-        pub list_policy: pulumi_wasm_rust::InputOrOutput<
+        pub list_policy: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::organizations::PolicyListPolicy>,
         >,
         /// The numeric ID of the organization to set the policy for.
         #[builder(into)]
-        pub org_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub org_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// A restore policy is a constraint to restore the default policy. Structure is documented below.
         ///
         /// > **Note:** If none of [`boolean_policy`, `list_policy`, `restore_policy`] are defined the policy for a given constraint will
@@ -141,56 +141,56 @@ pub mod policy {
         ///
         /// - - -
         #[builder(into, default)]
-        pub restore_policy: pulumi_wasm_rust::InputOrOutput<
+        pub restore_policy: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::organizations::PolicyRestorePolicy>,
         >,
         /// Version of the Policy. Default version is 0.
         #[builder(into, default)]
-        pub version: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
+        pub version: pulumi_gestalt_rust::InputOrOutput<Option<i32>>,
     }
     #[allow(dead_code)]
     pub struct PolicyResult {
         /// A boolean policy is a constraint that is either enforced or not. Structure is documented
         /// below.
-        pub boolean_policy: pulumi_wasm_rust::Output<
+        pub boolean_policy: pulumi_gestalt_rust::Output<
             Option<super::super::types::organizations::PolicyBooleanPolicy>,
         >,
         /// The name of the Constraint the Policy is configuring, for example, `serviceuser.services`. Check out the [complete list of available constraints](https://cloud.google.com/resource-manager/docs/organization-policy/understanding-constraints#available_constraints).
         ///
         /// - - -
-        pub constraint: pulumi_wasm_rust::Output<String>,
+        pub constraint: pulumi_gestalt_rust::Output<String>,
         /// (Computed) The etag of the organization policy. `etag` is used for optimistic concurrency control as a way to help prevent simultaneous updates of a policy from overwriting each other.
-        pub etag: pulumi_wasm_rust::Output<String>,
+        pub etag: pulumi_gestalt_rust::Output<String>,
         /// A policy that can define specific values that are allowed or denied for the given constraint. It can also be used to allow or deny all values. Structure is documented below.
-        pub list_policy: pulumi_wasm_rust::Output<
+        pub list_policy: pulumi_gestalt_rust::Output<
             Option<super::super::types::organizations::PolicyListPolicy>,
         >,
         /// The numeric ID of the organization to set the policy for.
-        pub org_id: pulumi_wasm_rust::Output<String>,
+        pub org_id: pulumi_gestalt_rust::Output<String>,
         /// A restore policy is a constraint to restore the default policy. Structure is documented below.
         ///
         /// > **Note:** If none of [`boolean_policy`, `list_policy`, `restore_policy`] are defined the policy for a given constraint will
         /// effectively be unset. This is represented in the UI as the constraint being 'Inherited'.
         ///
         /// - - -
-        pub restore_policy: pulumi_wasm_rust::Output<
+        pub restore_policy: pulumi_gestalt_rust::Output<
             Option<super::super::types::organizations::PolicyRestorePolicy>,
         >,
         /// (Computed) The timestamp in RFC3339 UTC "Zulu" format, accurate to nanoseconds, representing when the variable was last updated. Example: "2016-10-09T12:33:37.578138407Z".
-        pub update_time: pulumi_wasm_rust::Output<String>,
+        pub update_time: pulumi_gestalt_rust::Output<String>,
         /// Version of the Policy. Default version is 0.
-        pub version: pulumi_wasm_rust::Output<i32>,
+        pub version: pulumi_gestalt_rust::Output<i32>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: PolicyArgs,
     ) -> PolicyResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let boolean_policy_binding = args.boolean_policy.get_output(context).get_inner();
         let constraint_binding = args.constraint.get_output(context).get_inner();
@@ -231,24 +231,28 @@ pub mod policy {
         };
         let o = register_interface::register(context.get_inner(), &request);
         PolicyResult {
-            boolean_policy: pulumi_wasm_rust::__private::into_domain(
+            boolean_policy: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("booleanPolicy"),
             ),
-            constraint: pulumi_wasm_rust::__private::into_domain(
+            constraint: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("constraint"),
             ),
-            etag: pulumi_wasm_rust::__private::into_domain(o.extract_field("etag")),
-            list_policy: pulumi_wasm_rust::__private::into_domain(
+            etag: pulumi_gestalt_rust::__private::into_domain(o.extract_field("etag")),
+            list_policy: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("listPolicy"),
             ),
-            org_id: pulumi_wasm_rust::__private::into_domain(o.extract_field("orgId")),
-            restore_policy: pulumi_wasm_rust::__private::into_domain(
+            org_id: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("orgId"),
+            ),
+            restore_policy: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("restorePolicy"),
             ),
-            update_time: pulumi_wasm_rust::__private::into_domain(
+            update_time: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("updateTime"),
             ),
-            version: pulumi_wasm_rust::__private::into_domain(o.extract_field("version")),
+            version: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("version"),
+            ),
         }
     }
 }

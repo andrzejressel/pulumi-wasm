@@ -5,8 +5,8 @@
 /// ## Example Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let some = canary::create(
@@ -34,154 +34,154 @@
 /// $ pulumi import aws:synthetics/canary:Canary some some-canary
 /// ```
 pub mod canary {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct CanaryArgs {
         /// configuration for canary artifacts, including the encryption-at-rest settings for artifacts that the canary uploads to Amazon S3. See Artifact Config.
         #[builder(into, default)]
-        pub artifact_config: pulumi_wasm_rust::InputOrOutput<
+        pub artifact_config: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::synthetics::CanaryArtifactConfig>,
         >,
         /// Location in Amazon S3 where Synthetics stores artifacts from the test runs of this canary.
         #[builder(into)]
-        pub artifact_s3_location: pulumi_wasm_rust::InputOrOutput<String>,
+        pub artifact_s3_location: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Specifies whether to also delete the Lambda functions and layers used by this canary. The default is `false`.
         #[builder(into, default)]
-        pub delete_lambda: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub delete_lambda: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// ARN of the IAM role to be used to run the canary. see [AWS Docs](https://docs.aws.amazon.com/AmazonSynthetics/latest/APIReference/API_CreateCanary.html#API_CreateCanary_RequestSyntax) for permissions needs for IAM Role.
         #[builder(into)]
-        pub execution_role_arn: pulumi_wasm_rust::InputOrOutput<String>,
+        pub execution_role_arn: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Number of days to retain data about failed runs of this canary. If you omit this field, the default of 31 days is used. The valid range is 1 to 455 days.
         #[builder(into, default)]
-        pub failure_retention_period: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
+        pub failure_retention_period: pulumi_gestalt_rust::InputOrOutput<Option<i32>>,
         /// Entry point to use for the source code when running the canary. This value must end with the string `.handler` .
         #[builder(into)]
-        pub handler: pulumi_wasm_rust::InputOrOutput<String>,
+        pub handler: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Name for this canary. Has a maximum length of 21 characters. Valid characters are lowercase alphanumeric, hyphen, or underscore.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Configuration block for individual canary runs. Detailed below.
         #[builder(into, default)]
-        pub run_config: pulumi_wasm_rust::InputOrOutput<
+        pub run_config: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::synthetics::CanaryRunConfig>,
         >,
         /// Runtime version to use for the canary. Versions change often so consult the [Amazon CloudWatch documentation](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Synthetics_Canaries_Library.html) for the latest valid versions. Values include `syn-python-selenium-1.0`, `syn-nodejs-puppeteer-3.0`, `syn-nodejs-2.2`, `syn-nodejs-2.1`, `syn-nodejs-2.0`, and `syn-1.0`.
         #[builder(into)]
-        pub runtime_version: pulumi_wasm_rust::InputOrOutput<String>,
+        pub runtime_version: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Full bucket name which is used if your canary script is located in S3. The bucket must already exist. **Conflicts with `zip_file`.**
         #[builder(into, default)]
-        pub s3_bucket: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub s3_bucket: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// S3 key of your script. **Conflicts with `zip_file`.**
         #[builder(into, default)]
-        pub s3_key: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub s3_key: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// S3 version ID of your script. **Conflicts with `zip_file`.**
         #[builder(into, default)]
-        pub s3_version: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub s3_version: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Configuration block providing how often the canary is to run and when these test runs are to stop. Detailed below.
         ///
         /// The following arguments are optional:
         #[builder(into)]
-        pub schedule: pulumi_wasm_rust::InputOrOutput<
+        pub schedule: pulumi_gestalt_rust::InputOrOutput<
             super::super::types::synthetics::CanarySchedule,
         >,
         /// Whether to run or stop the canary.
         #[builder(into, default)]
-        pub start_canary: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub start_canary: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// Number of days to retain data about successful runs of this canary. If you omit this field, the default of 31 days is used. The valid range is 1 to 455 days.
         #[builder(into, default)]
-        pub success_retention_period: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
+        pub success_retention_period: pulumi_gestalt_rust::InputOrOutput<Option<i32>>,
         /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Configuration block. Detailed below.
         #[builder(into, default)]
-        pub vpc_config: pulumi_wasm_rust::InputOrOutput<
+        pub vpc_config: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::synthetics::CanaryVpcConfig>,
         >,
         /// ZIP file that contains the script, if you input your canary script directly into the canary instead of referring to an S3 location. It can be up to 225KB. **Conflicts with `s3_bucket`, `s3_key`, and `s3_version`.**
         #[builder(into, default)]
-        pub zip_file: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub zip_file: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct CanaryResult {
         /// Amazon Resource Name (ARN) of the Canary.
-        pub arn: pulumi_wasm_rust::Output<String>,
+        pub arn: pulumi_gestalt_rust::Output<String>,
         /// configuration for canary artifacts, including the encryption-at-rest settings for artifacts that the canary uploads to Amazon S3. See Artifact Config.
-        pub artifact_config: pulumi_wasm_rust::Output<
+        pub artifact_config: pulumi_gestalt_rust::Output<
             Option<super::super::types::synthetics::CanaryArtifactConfig>,
         >,
         /// Location in Amazon S3 where Synthetics stores artifacts from the test runs of this canary.
-        pub artifact_s3_location: pulumi_wasm_rust::Output<String>,
+        pub artifact_s3_location: pulumi_gestalt_rust::Output<String>,
         /// Specifies whether to also delete the Lambda functions and layers used by this canary. The default is `false`.
-        pub delete_lambda: pulumi_wasm_rust::Output<Option<bool>>,
+        pub delete_lambda: pulumi_gestalt_rust::Output<Option<bool>>,
         /// ARN of the Lambda function that is used as your canary's engine.
-        pub engine_arn: pulumi_wasm_rust::Output<String>,
+        pub engine_arn: pulumi_gestalt_rust::Output<String>,
         /// ARN of the IAM role to be used to run the canary. see [AWS Docs](https://docs.aws.amazon.com/AmazonSynthetics/latest/APIReference/API_CreateCanary.html#API_CreateCanary_RequestSyntax) for permissions needs for IAM Role.
-        pub execution_role_arn: pulumi_wasm_rust::Output<String>,
+        pub execution_role_arn: pulumi_gestalt_rust::Output<String>,
         /// Number of days to retain data about failed runs of this canary. If you omit this field, the default of 31 days is used. The valid range is 1 to 455 days.
-        pub failure_retention_period: pulumi_wasm_rust::Output<Option<i32>>,
+        pub failure_retention_period: pulumi_gestalt_rust::Output<Option<i32>>,
         /// Entry point to use for the source code when running the canary. This value must end with the string `.handler` .
-        pub handler: pulumi_wasm_rust::Output<String>,
+        pub handler: pulumi_gestalt_rust::Output<String>,
         /// Name for this canary. Has a maximum length of 21 characters. Valid characters are lowercase alphanumeric, hyphen, or underscore.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// Configuration block for individual canary runs. Detailed below.
-        pub run_config: pulumi_wasm_rust::Output<
+        pub run_config: pulumi_gestalt_rust::Output<
             super::super::types::synthetics::CanaryRunConfig,
         >,
         /// Runtime version to use for the canary. Versions change often so consult the [Amazon CloudWatch documentation](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Synthetics_Canaries_Library.html) for the latest valid versions. Values include `syn-python-selenium-1.0`, `syn-nodejs-puppeteer-3.0`, `syn-nodejs-2.2`, `syn-nodejs-2.1`, `syn-nodejs-2.0`, and `syn-1.0`.
-        pub runtime_version: pulumi_wasm_rust::Output<String>,
+        pub runtime_version: pulumi_gestalt_rust::Output<String>,
         /// Full bucket name which is used if your canary script is located in S3. The bucket must already exist. **Conflicts with `zip_file`.**
-        pub s3_bucket: pulumi_wasm_rust::Output<Option<String>>,
+        pub s3_bucket: pulumi_gestalt_rust::Output<Option<String>>,
         /// S3 key of your script. **Conflicts with `zip_file`.**
-        pub s3_key: pulumi_wasm_rust::Output<Option<String>>,
+        pub s3_key: pulumi_gestalt_rust::Output<Option<String>>,
         /// S3 version ID of your script. **Conflicts with `zip_file`.**
-        pub s3_version: pulumi_wasm_rust::Output<Option<String>>,
+        pub s3_version: pulumi_gestalt_rust::Output<Option<String>>,
         /// Configuration block providing how often the canary is to run and when these test runs are to stop. Detailed below.
         ///
         /// The following arguments are optional:
-        pub schedule: pulumi_wasm_rust::Output<
+        pub schedule: pulumi_gestalt_rust::Output<
             super::super::types::synthetics::CanarySchedule,
         >,
         /// ARN of the Lambda layer where Synthetics stores the canary script code.
-        pub source_location_arn: pulumi_wasm_rust::Output<String>,
+        pub source_location_arn: pulumi_gestalt_rust::Output<String>,
         /// Whether to run or stop the canary.
-        pub start_canary: pulumi_wasm_rust::Output<Option<bool>>,
+        pub start_canary: pulumi_gestalt_rust::Output<Option<bool>>,
         /// Canary status.
-        pub status: pulumi_wasm_rust::Output<String>,
+        pub status: pulumi_gestalt_rust::Output<String>,
         /// Number of days to retain data about successful runs of this canary. If you omit this field, the default of 31 days is used. The valid range is 1 to 455 days.
-        pub success_retention_period: pulumi_wasm_rust::Output<Option<i32>>,
+        pub success_retention_period: pulumi_gestalt_rust::Output<Option<i32>>,
         /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        pub tags_all: pulumi_wasm_rust::Output<
+        pub tags_all: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
         /// Structure that contains information about when the canary was created, modified, and most recently run. see Timeline.
-        pub timelines: pulumi_wasm_rust::Output<
+        pub timelines: pulumi_gestalt_rust::Output<
             Vec<super::super::types::synthetics::CanaryTimeline>,
         >,
         /// Configuration block. Detailed below.
-        pub vpc_config: pulumi_wasm_rust::Output<
+        pub vpc_config: pulumi_gestalt_rust::Output<
             Option<super::super::types::synthetics::CanaryVpcConfig>,
         >,
         /// ZIP file that contains the script, if you input your canary script directly into the canary instead of referring to an S3 location. It can be up to 225KB. **Conflicts with `s3_bucket`, `s3_key`, and `s3_version`.**
-        pub zip_file: pulumi_wasm_rust::Output<Option<String>>,
+        pub zip_file: pulumi_gestalt_rust::Output<Option<String>>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: CanaryArgs,
     ) -> CanaryResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let artifact_config_binding = args
             .artifact_config
@@ -300,66 +300,70 @@ pub mod canary {
         };
         let o = register_interface::register(context.get_inner(), &request);
         CanaryResult {
-            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
-            artifact_config: pulumi_wasm_rust::__private::into_domain(
+            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
+            artifact_config: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("artifactConfig"),
             ),
-            artifact_s3_location: pulumi_wasm_rust::__private::into_domain(
+            artifact_s3_location: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("artifactS3Location"),
             ),
-            delete_lambda: pulumi_wasm_rust::__private::into_domain(
+            delete_lambda: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("deleteLambda"),
             ),
-            engine_arn: pulumi_wasm_rust::__private::into_domain(
+            engine_arn: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("engineArn"),
             ),
-            execution_role_arn: pulumi_wasm_rust::__private::into_domain(
+            execution_role_arn: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("executionRoleArn"),
             ),
-            failure_retention_period: pulumi_wasm_rust::__private::into_domain(
+            failure_retention_period: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("failureRetentionPeriod"),
             ),
-            handler: pulumi_wasm_rust::__private::into_domain(
+            handler: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("handler"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            run_config: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            run_config: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("runConfig"),
             ),
-            runtime_version: pulumi_wasm_rust::__private::into_domain(
+            runtime_version: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("runtimeVersion"),
             ),
-            s3_bucket: pulumi_wasm_rust::__private::into_domain(
+            s3_bucket: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("s3Bucket"),
             ),
-            s3_key: pulumi_wasm_rust::__private::into_domain(o.extract_field("s3Key")),
-            s3_version: pulumi_wasm_rust::__private::into_domain(
+            s3_key: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("s3Key"),
+            ),
+            s3_version: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("s3Version"),
             ),
-            schedule: pulumi_wasm_rust::__private::into_domain(
+            schedule: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("schedule"),
             ),
-            source_location_arn: pulumi_wasm_rust::__private::into_domain(
+            source_location_arn: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("sourceLocationArn"),
             ),
-            start_canary: pulumi_wasm_rust::__private::into_domain(
+            start_canary: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("startCanary"),
             ),
-            status: pulumi_wasm_rust::__private::into_domain(o.extract_field("status")),
-            success_retention_period: pulumi_wasm_rust::__private::into_domain(
+            status: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("status"),
+            ),
+            success_retention_period: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("successRetentionPeriod"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_wasm_rust::__private::into_domain(
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            tags_all: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("tagsAll"),
             ),
-            timelines: pulumi_wasm_rust::__private::into_domain(
+            timelines: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("timelines"),
             ),
-            vpc_config: pulumi_wasm_rust::__private::into_domain(
+            vpc_config: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("vpcConfig"),
             ),
-            zip_file: pulumi_wasm_rust::__private::into_domain(
+            zip_file: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("zipFile"),
             ),
         }

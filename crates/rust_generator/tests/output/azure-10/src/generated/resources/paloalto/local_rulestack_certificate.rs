@@ -3,8 +3,8 @@
 /// ## Example Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = resource_group::create(
@@ -42,58 +42,58 @@
 /// ```
 ///
 pub mod local_rulestack_certificate {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct LocalRulestackCertificateArgs {
         /// The comment for Audit purposes.
         #[builder(into, default)]
-        pub audit_comment: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub audit_comment: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The description for the Certificate.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub description: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The `versionles_id` of the Key Vault Certificate to use. Changing this forces a new Palo Alto Networks Rulestack Certificate to be created.
         #[builder(into, default)]
-        pub key_vault_certificate_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub key_vault_certificate_id: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The name which should be used for this Palo Alto Networks Rulestack Certificate.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The ID of the TODO. Changing this forces a new Palo Alto Networks Rulestack Certificate to be created.
         #[builder(into)]
-        pub rulestack_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub rulestack_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Should a Self Signed Certificate be used. Defaults to `false`. Changing this forces a new Palo Alto Networks Rulestack Certificate to be created.
         ///
         /// > **Note:** One and only one of `self_signed` or `key_vault_certificate_id` must be specified.
         #[builder(into, default)]
-        pub self_signed: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub self_signed: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
     }
     #[allow(dead_code)]
     pub struct LocalRulestackCertificateResult {
         /// The comment for Audit purposes.
-        pub audit_comment: pulumi_wasm_rust::Output<Option<String>>,
+        pub audit_comment: pulumi_gestalt_rust::Output<Option<String>>,
         /// The description for the Certificate.
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_gestalt_rust::Output<Option<String>>,
         /// The `versionles_id` of the Key Vault Certificate to use. Changing this forces a new Palo Alto Networks Rulestack Certificate to be created.
-        pub key_vault_certificate_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub key_vault_certificate_id: pulumi_gestalt_rust::Output<Option<String>>,
         /// The name which should be used for this Palo Alto Networks Rulestack Certificate.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// The ID of the TODO. Changing this forces a new Palo Alto Networks Rulestack Certificate to be created.
-        pub rulestack_id: pulumi_wasm_rust::Output<String>,
+        pub rulestack_id: pulumi_gestalt_rust::Output<String>,
         /// Should a Self Signed Certificate be used. Defaults to `false`. Changing this forces a new Palo Alto Networks Rulestack Certificate to be created.
         ///
         /// > **Note:** One and only one of `self_signed` or `key_vault_certificate_id` must be specified.
-        pub self_signed: pulumi_wasm_rust::Output<Option<bool>>,
+        pub self_signed: pulumi_gestalt_rust::Output<Option<bool>>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: LocalRulestackCertificateArgs,
     ) -> LocalRulestackCertificateResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let audit_comment_binding = args.audit_comment.get_output(context).get_inner();
         let description_binding = args.description.get_output(context).get_inner();
@@ -138,20 +138,20 @@ pub mod local_rulestack_certificate {
         };
         let o = register_interface::register(context.get_inner(), &request);
         LocalRulestackCertificateResult {
-            audit_comment: pulumi_wasm_rust::__private::into_domain(
+            audit_comment: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("auditComment"),
             ),
-            description: pulumi_wasm_rust::__private::into_domain(
+            description: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("description"),
             ),
-            key_vault_certificate_id: pulumi_wasm_rust::__private::into_domain(
+            key_vault_certificate_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("keyVaultCertificateId"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            rulestack_id: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            rulestack_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("rulestackId"),
             ),
-            self_signed: pulumi_wasm_rust::__private::into_domain(
+            self_signed: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("selfSigned"),
             ),
         }

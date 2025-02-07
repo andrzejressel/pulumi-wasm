@@ -3,8 +3,8 @@
 /// ## Example Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = resource_group::create(
@@ -75,149 +75,151 @@
 /// ```
 ///
 pub mod metadata {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct MetadataArgs {
         /// An `author` blocks as defined below.
         #[builder(into, default)]
-        pub author: pulumi_wasm_rust::InputOrOutput<
+        pub author: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::sentinel::MetadataAuthor>,
         >,
         /// A `category` block as defined below.
         #[builder(into, default)]
-        pub category: pulumi_wasm_rust::InputOrOutput<
+        pub category: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::sentinel::MetadataCategory>,
         >,
         /// The ID of the content. Used to identify dependencies and content from solutions or community.
         #[builder(into)]
-        pub content_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub content_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Schema version of the content. Can be used to distinguish between flow based on the schema version.
         #[builder(into, default)]
-        pub content_schema_version: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub content_schema_version: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The Custom version of the content.
         #[builder(into, default)]
-        pub custom_version: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub custom_version: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// A JSON formatted `dependency` block as defined below. Dependency for the content item, what other content items it requires to work.
         #[builder(into, default)]
-        pub dependency: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub dependency: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The first publish date of solution content item.
         #[builder(into, default)]
-        pub first_publish_date: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub first_publish_date: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The ID of the icon, this id can be fetched from the solution template.
         #[builder(into, default)]
-        pub icon_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub icon_id: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The kind of content the metadata is for. Possible values are `AnalyticsRule`, `AnalyticsRuleTemplate`, `AutomationRule`, `AzureFunction`, `DataConnector`, `DataType`, `HuntingQuery`, `InvestigationQuery`, `LogicAppsCustomConnector`, `Parser`, `Playbook`, `PlaybookTemplate`, `Solution`, `Watchlist`, `WatchlistTemplate`, `Workbook` and `WorkbookTemplate`.
         #[builder(into)]
-        pub kind: pulumi_wasm_rust::InputOrOutput<String>,
+        pub kind: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The last publish date of solution content item.
         #[builder(into, default)]
-        pub last_publish_date: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub last_publish_date: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The name which should be used for this Sentinel Metadata. Changing this forces a new Sentinel Metadata to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The ID of the parent resource ID of the content item, which the metadata belongs to.
         #[builder(into)]
-        pub parent_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub parent_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Specifies a list of preview image file names. These will be taken from solution artifacts.
         #[builder(into, default)]
-        pub preview_images: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
+        pub preview_images: pulumi_gestalt_rust::InputOrOutput<Option<Vec<String>>>,
         /// Specifies a list of preview image file names used for dark theme. These will be taken from solution artifacts.
         #[builder(into, default)]
-        pub preview_images_darks: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
+        pub preview_images_darks: pulumi_gestalt_rust::InputOrOutput<
+            Option<Vec<String>>,
+        >,
         /// Specifies a list of providers for the solution content item.
         #[builder(into, default)]
-        pub providers: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
+        pub providers: pulumi_gestalt_rust::InputOrOutput<Option<Vec<String>>>,
         /// A `source` block as defined below.
         #[builder(into, default)]
-        pub source: pulumi_wasm_rust::InputOrOutput<
+        pub source: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::sentinel::MetadataSource>,
         >,
         /// A `support` block as defined below.
         #[builder(into, default)]
-        pub support: pulumi_wasm_rust::InputOrOutput<
+        pub support: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::sentinel::MetadataSupport>,
         >,
         /// Specifies a list of tactics the resource covers. Possible values are `Reconnaissance`, `ResourceDevelopment`, `InitialAccess`, `Execution`, `Persistence`, `PrivilegeEscalation`, `DefenseEvasion`, `CredentialAccess`, `Discovery`, `LateralMovement`, `Collection`, `CommandAndControl`, `Exfiltration`, `Impact`, `ImpairProcessControl` and `InhibitResponseFunction`.
         #[builder(into, default)]
-        pub threat_analysis_tactics: pulumi_wasm_rust::InputOrOutput<
+        pub threat_analysis_tactics: pulumi_gestalt_rust::InputOrOutput<
             Option<Vec<String>>,
         >,
         /// Specifies a list of techniques the resource covers.
         #[builder(into, default)]
-        pub threat_analysis_techniques: pulumi_wasm_rust::InputOrOutput<
+        pub threat_analysis_techniques: pulumi_gestalt_rust::InputOrOutput<
             Option<Vec<String>>,
         >,
         /// Version of the content.
         #[builder(into, default)]
-        pub version: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub version: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The ID of the Log Analytics Workspace. Changing this forces a new Sentinel Metadata to be created.
         #[builder(into)]
-        pub workspace_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub workspace_id: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct MetadataResult {
         /// An `author` blocks as defined below.
-        pub author: pulumi_wasm_rust::Output<
+        pub author: pulumi_gestalt_rust::Output<
             Option<super::super::types::sentinel::MetadataAuthor>,
         >,
         /// A `category` block as defined below.
-        pub category: pulumi_wasm_rust::Output<
+        pub category: pulumi_gestalt_rust::Output<
             Option<super::super::types::sentinel::MetadataCategory>,
         >,
         /// The ID of the content. Used to identify dependencies and content from solutions or community.
-        pub content_id: pulumi_wasm_rust::Output<String>,
+        pub content_id: pulumi_gestalt_rust::Output<String>,
         /// Schema version of the content. Can be used to distinguish between flow based on the schema version.
-        pub content_schema_version: pulumi_wasm_rust::Output<Option<String>>,
+        pub content_schema_version: pulumi_gestalt_rust::Output<Option<String>>,
         /// The Custom version of the content.
-        pub custom_version: pulumi_wasm_rust::Output<Option<String>>,
+        pub custom_version: pulumi_gestalt_rust::Output<Option<String>>,
         /// A JSON formatted `dependency` block as defined below. Dependency for the content item, what other content items it requires to work.
-        pub dependency: pulumi_wasm_rust::Output<Option<String>>,
+        pub dependency: pulumi_gestalt_rust::Output<Option<String>>,
         /// The first publish date of solution content item.
-        pub first_publish_date: pulumi_wasm_rust::Output<Option<String>>,
+        pub first_publish_date: pulumi_gestalt_rust::Output<Option<String>>,
         /// The ID of the icon, this id can be fetched from the solution template.
-        pub icon_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub icon_id: pulumi_gestalt_rust::Output<Option<String>>,
         /// The kind of content the metadata is for. Possible values are `AnalyticsRule`, `AnalyticsRuleTemplate`, `AutomationRule`, `AzureFunction`, `DataConnector`, `DataType`, `HuntingQuery`, `InvestigationQuery`, `LogicAppsCustomConnector`, `Parser`, `Playbook`, `PlaybookTemplate`, `Solution`, `Watchlist`, `WatchlistTemplate`, `Workbook` and `WorkbookTemplate`.
-        pub kind: pulumi_wasm_rust::Output<String>,
+        pub kind: pulumi_gestalt_rust::Output<String>,
         /// The last publish date of solution content item.
-        pub last_publish_date: pulumi_wasm_rust::Output<Option<String>>,
+        pub last_publish_date: pulumi_gestalt_rust::Output<Option<String>>,
         /// The name which should be used for this Sentinel Metadata. Changing this forces a new Sentinel Metadata to be created.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// The ID of the parent resource ID of the content item, which the metadata belongs to.
-        pub parent_id: pulumi_wasm_rust::Output<String>,
+        pub parent_id: pulumi_gestalt_rust::Output<String>,
         /// Specifies a list of preview image file names. These will be taken from solution artifacts.
-        pub preview_images: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub preview_images: pulumi_gestalt_rust::Output<Option<Vec<String>>>,
         /// Specifies a list of preview image file names used for dark theme. These will be taken from solution artifacts.
-        pub preview_images_darks: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub preview_images_darks: pulumi_gestalt_rust::Output<Option<Vec<String>>>,
         /// Specifies a list of providers for the solution content item.
-        pub providers: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub providers: pulumi_gestalt_rust::Output<Option<Vec<String>>>,
         /// A `source` block as defined below.
-        pub source: pulumi_wasm_rust::Output<
+        pub source: pulumi_gestalt_rust::Output<
             super::super::types::sentinel::MetadataSource,
         >,
         /// A `support` block as defined below.
-        pub support: pulumi_wasm_rust::Output<
+        pub support: pulumi_gestalt_rust::Output<
             Option<super::super::types::sentinel::MetadataSupport>,
         >,
         /// Specifies a list of tactics the resource covers. Possible values are `Reconnaissance`, `ResourceDevelopment`, `InitialAccess`, `Execution`, `Persistence`, `PrivilegeEscalation`, `DefenseEvasion`, `CredentialAccess`, `Discovery`, `LateralMovement`, `Collection`, `CommandAndControl`, `Exfiltration`, `Impact`, `ImpairProcessControl` and `InhibitResponseFunction`.
-        pub threat_analysis_tactics: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub threat_analysis_tactics: pulumi_gestalt_rust::Output<Option<Vec<String>>>,
         /// Specifies a list of techniques the resource covers.
-        pub threat_analysis_techniques: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub threat_analysis_techniques: pulumi_gestalt_rust::Output<Option<Vec<String>>>,
         /// Version of the content.
-        pub version: pulumi_wasm_rust::Output<Option<String>>,
+        pub version: pulumi_gestalt_rust::Output<Option<String>>,
         /// The ID of the Log Analytics Workspace. Changing this forces a new Sentinel Metadata to be created.
-        pub workspace_id: pulumi_wasm_rust::Output<String>,
+        pub workspace_id: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: MetadataArgs,
     ) -> MetadataResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let author_binding = args.author.get_output(context).get_inner();
         let category_binding = args.category.get_output(context).get_inner();
@@ -351,57 +353,63 @@ pub mod metadata {
         };
         let o = register_interface::register(context.get_inner(), &request);
         MetadataResult {
-            author: pulumi_wasm_rust::__private::into_domain(o.extract_field("author")),
-            category: pulumi_wasm_rust::__private::into_domain(
+            author: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("author"),
+            ),
+            category: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("category"),
             ),
-            content_id: pulumi_wasm_rust::__private::into_domain(
+            content_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("contentId"),
             ),
-            content_schema_version: pulumi_wasm_rust::__private::into_domain(
+            content_schema_version: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("contentSchemaVersion"),
             ),
-            custom_version: pulumi_wasm_rust::__private::into_domain(
+            custom_version: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("customVersion"),
             ),
-            dependency: pulumi_wasm_rust::__private::into_domain(
+            dependency: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("dependency"),
             ),
-            first_publish_date: pulumi_wasm_rust::__private::into_domain(
+            first_publish_date: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("firstPublishDate"),
             ),
-            icon_id: pulumi_wasm_rust::__private::into_domain(o.extract_field("iconId")),
-            kind: pulumi_wasm_rust::__private::into_domain(o.extract_field("kind")),
-            last_publish_date: pulumi_wasm_rust::__private::into_domain(
+            icon_id: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("iconId"),
+            ),
+            kind: pulumi_gestalt_rust::__private::into_domain(o.extract_field("kind")),
+            last_publish_date: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("lastPublishDate"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            parent_id: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            parent_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("parentId"),
             ),
-            preview_images: pulumi_wasm_rust::__private::into_domain(
+            preview_images: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("previewImages"),
             ),
-            preview_images_darks: pulumi_wasm_rust::__private::into_domain(
+            preview_images_darks: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("previewImagesDarks"),
             ),
-            providers: pulumi_wasm_rust::__private::into_domain(
+            providers: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("providers"),
             ),
-            source: pulumi_wasm_rust::__private::into_domain(o.extract_field("source")),
-            support: pulumi_wasm_rust::__private::into_domain(
+            source: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("source"),
+            ),
+            support: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("support"),
             ),
-            threat_analysis_tactics: pulumi_wasm_rust::__private::into_domain(
+            threat_analysis_tactics: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("threatAnalysisTactics"),
             ),
-            threat_analysis_techniques: pulumi_wasm_rust::__private::into_domain(
+            threat_analysis_techniques: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("threatAnalysisTechniques"),
             ),
-            version: pulumi_wasm_rust::__private::into_domain(
+            version: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("version"),
             ),
-            workspace_id: pulumi_wasm_rust::__private::into_domain(
+            workspace_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("workspaceId"),
             ),
         }

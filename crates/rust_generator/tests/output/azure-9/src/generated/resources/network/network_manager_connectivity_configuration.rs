@@ -77,82 +77,82 @@
 /// ```
 ///
 pub mod network_manager_connectivity_configuration {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct NetworkManagerConnectivityConfigurationArgs {
         /// One or more `applies_to_group` blocks as defined below.
         #[builder(into)]
-        pub applies_to_groups: pulumi_wasm_rust::InputOrOutput<
+        pub applies_to_groups: pulumi_gestalt_rust::InputOrOutput<
             Vec<
                 super::super::types::network::NetworkManagerConnectivityConfigurationAppliesToGroup,
             >,
         >,
         /// Specifies the connectivity topology type. Possible values are `HubAndSpoke` and `Mesh`.
         #[builder(into)]
-        pub connectivity_topology: pulumi_wasm_rust::InputOrOutput<String>,
+        pub connectivity_topology: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Indicates whether to remove current existing Virtual Network Peering in the Connectivity Configuration affected scope. Possible values are `true` and `false`.
         #[builder(into, default)]
-        pub delete_existing_peering_enabled: pulumi_wasm_rust::InputOrOutput<
+        pub delete_existing_peering_enabled: pulumi_gestalt_rust::InputOrOutput<
             Option<bool>,
         >,
         /// A description of the Connectivity Configuration.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub description: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Indicates whether to global mesh is supported. Possible values are `true` and `false`.
         #[builder(into, default)]
-        pub global_mesh_enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub global_mesh_enabled: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// A `hub` block as defined below.
         #[builder(into, default)]
-        pub hub: pulumi_wasm_rust::InputOrOutput<
+        pub hub: pulumi_gestalt_rust::InputOrOutput<
             Option<
                 super::super::types::network::NetworkManagerConnectivityConfigurationHub,
             >,
         >,
         /// Specifies the name which should be used for this Network Manager Connectivity Configuration. Changing this forces a new Network Manager Connectivity Configuration to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Specifies the ID of the Network Manager. Changing this forces a new Network Manager Connectivity Configuration to be created.
         #[builder(into)]
-        pub network_manager_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub network_manager_id: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct NetworkManagerConnectivityConfigurationResult {
         /// One or more `applies_to_group` blocks as defined below.
-        pub applies_to_groups: pulumi_wasm_rust::Output<
+        pub applies_to_groups: pulumi_gestalt_rust::Output<
             Vec<
                 super::super::types::network::NetworkManagerConnectivityConfigurationAppliesToGroup,
             >,
         >,
         /// Specifies the connectivity topology type. Possible values are `HubAndSpoke` and `Mesh`.
-        pub connectivity_topology: pulumi_wasm_rust::Output<String>,
+        pub connectivity_topology: pulumi_gestalt_rust::Output<String>,
         /// Indicates whether to remove current existing Virtual Network Peering in the Connectivity Configuration affected scope. Possible values are `true` and `false`.
-        pub delete_existing_peering_enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub delete_existing_peering_enabled: pulumi_gestalt_rust::Output<Option<bool>>,
         /// A description of the Connectivity Configuration.
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_gestalt_rust::Output<Option<String>>,
         /// Indicates whether to global mesh is supported. Possible values are `true` and `false`.
-        pub global_mesh_enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub global_mesh_enabled: pulumi_gestalt_rust::Output<Option<bool>>,
         /// A `hub` block as defined below.
-        pub hub: pulumi_wasm_rust::Output<
+        pub hub: pulumi_gestalt_rust::Output<
             Option<
                 super::super::types::network::NetworkManagerConnectivityConfigurationHub,
             >,
         >,
         /// Specifies the name which should be used for this Network Manager Connectivity Configuration. Changing this forces a new Network Manager Connectivity Configuration to be created.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// Specifies the ID of the Network Manager. Changing this forces a new Network Manager Connectivity Configuration to be created.
-        pub network_manager_id: pulumi_wasm_rust::Output<String>,
+        pub network_manager_id: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: NetworkManagerConnectivityConfigurationArgs,
     ) -> NetworkManagerConnectivityConfigurationResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let applies_to_groups_binding = args
             .applies_to_groups
@@ -219,24 +219,24 @@ pub mod network_manager_connectivity_configuration {
         };
         let o = register_interface::register(context.get_inner(), &request);
         NetworkManagerConnectivityConfigurationResult {
-            applies_to_groups: pulumi_wasm_rust::__private::into_domain(
+            applies_to_groups: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("appliesToGroups"),
             ),
-            connectivity_topology: pulumi_wasm_rust::__private::into_domain(
+            connectivity_topology: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("connectivityTopology"),
             ),
-            delete_existing_peering_enabled: pulumi_wasm_rust::__private::into_domain(
+            delete_existing_peering_enabled: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("deleteExistingPeeringEnabled"),
             ),
-            description: pulumi_wasm_rust::__private::into_domain(
+            description: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("description"),
             ),
-            global_mesh_enabled: pulumi_wasm_rust::__private::into_domain(
+            global_mesh_enabled: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("globalMeshEnabled"),
             ),
-            hub: pulumi_wasm_rust::__private::into_domain(o.extract_field("hub")),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            network_manager_id: pulumi_wasm_rust::__private::into_domain(
+            hub: pulumi_gestalt_rust::__private::into_domain(o.extract_field("hub")),
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            network_manager_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("networkManagerId"),
             ),
         }

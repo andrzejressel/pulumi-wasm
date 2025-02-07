@@ -3,8 +3,8 @@
 /// ## Example Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = resource_group::create(
@@ -47,57 +47,57 @@
 /// ```
 ///
 pub mod capacity_reservation {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct CapacityReservationArgs {
         /// The ID of the Capacity Reservation Group where the Capacity Reservation exists. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub capacity_reservation_group_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub capacity_reservation_group_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Specifies the name of this Capacity Reservation. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// A `sku` block as defined below.
         #[builder(into)]
-        pub sku: pulumi_wasm_rust::InputOrOutput<
+        pub sku: pulumi_gestalt_rust::InputOrOutput<
             super::super::types::compute::CapacityReservationSku,
         >,
         /// A mapping of tags to assign to the resource.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Specifies the Availability Zone for this Capacity Reservation. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub zone: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub zone: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct CapacityReservationResult {
         /// The ID of the Capacity Reservation Group where the Capacity Reservation exists. Changing this forces a new resource to be created.
-        pub capacity_reservation_group_id: pulumi_wasm_rust::Output<String>,
+        pub capacity_reservation_group_id: pulumi_gestalt_rust::Output<String>,
         /// Specifies the name of this Capacity Reservation. Changing this forces a new resource to be created.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// A `sku` block as defined below.
-        pub sku: pulumi_wasm_rust::Output<
+        pub sku: pulumi_gestalt_rust::Output<
             super::super::types::compute::CapacityReservationSku,
         >,
         /// A mapping of tags to assign to the resource.
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Specifies the Availability Zone for this Capacity Reservation. Changing this forces a new resource to be created.
-        pub zone: pulumi_wasm_rust::Output<Option<String>>,
+        pub zone: pulumi_gestalt_rust::Output<Option<String>>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: CapacityReservationArgs,
     ) -> CapacityReservationResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let capacity_reservation_group_id_binding = args
             .capacity_reservation_group_id
@@ -136,13 +136,13 @@ pub mod capacity_reservation {
         };
         let o = register_interface::register(context.get_inner(), &request);
         CapacityReservationResult {
-            capacity_reservation_group_id: pulumi_wasm_rust::__private::into_domain(
+            capacity_reservation_group_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("capacityReservationGroupId"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            sku: pulumi_wasm_rust::__private::into_domain(o.extract_field("sku")),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
-            zone: pulumi_wasm_rust::__private::into_domain(o.extract_field("zone")),
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            sku: pulumi_gestalt_rust::__private::into_domain(o.extract_field("sku")),
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            zone: pulumi_gestalt_rust::__private::into_domain(o.extract_field("zone")),
         }
     }
 }

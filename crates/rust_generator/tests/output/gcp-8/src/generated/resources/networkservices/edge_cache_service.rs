@@ -338,135 +338,137 @@
 /// ```
 ///
 pub mod edge_cache_service {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct EdgeCacheServiceArgs {
         /// A human-readable description of the resource.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub description: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Disables HTTP/2. HTTP/2 (h2) is enabled by default and recommended for performance. HTTP/2 improves connection re-use
         /// and reduces connection setup overhead by sending multiple streams over the same connection. Some legacy HTTP clients may
         /// have issues with HTTP/2 connections due to broken HTTP/2 implementations. Setting this to true will prevent HTTP/2 from
         /// being advertised and negotiated.
         #[builder(into, default)]
-        pub disable_http2: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub disable_http2: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// HTTP/3 (IETF QUIC) and Google QUIC are enabled by default.
         #[builder(into, default)]
-        pub disable_quic: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub disable_quic: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// Resource URL that points at the Cloud Armor edge security policy that is applied on each request against the
         /// EdgeCacheService.
         #[builder(into, default)]
-        pub edge_security_policy: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub edge_security_policy: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// URLs to sslCertificate resources that are used to authenticate connections between users and the EdgeCacheService. Note
         /// that only "global" certificates with a "scope" of "EDGE_CACHE" can be attached to an EdgeCacheService.
         #[builder(into, default)]
-        pub edge_ssl_certificates: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
+        pub edge_ssl_certificates: pulumi_gestalt_rust::InputOrOutput<
+            Option<Vec<String>>,
+        >,
         /// Set of label tags associated with the EdgeCache resource. **Note**: This field is non-authoritative, and will only
         /// manage the labels present in your configuration. Please refer to the field 'effective_labels' for all of the labels
         /// present on the resource.
         #[builder(into, default)]
-        pub labels: pulumi_wasm_rust::InputOrOutput<
+        pub labels: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Specifies the logging options for the traffic served by this service. If logging is enabled, logs will be exported to
         /// Cloud Logging.
         #[builder(into, default)]
-        pub log_config: pulumi_wasm_rust::InputOrOutput<
+        pub log_config: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::networkservices::EdgeCacheServiceLogConfig>,
         >,
         /// Name of the resource; provided by the client when the resource is created.
         /// The name must be 1-64 characters long, and match the regular expression [a-zA-Z][a-zA-Z0-9_-]* which means the first character must be a letter,
         /// and all following characters must be a dash, underscore, letter or digit.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub project: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Require TLS (HTTPS) for all clients connecting to this service. Clients who connect over HTTP (port 80) will receive a
         /// HTTP 301 to the same URL over HTTPS (port 443). You must have at least one (1) edgeSslCertificate specified to enable
         /// this.
         #[builder(into, default)]
-        pub require_tls: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub require_tls: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// Defines how requests are routed, modified, cached and/or which origin content is filled from.
         /// Structure is documented below.
         #[builder(into)]
-        pub routing: pulumi_wasm_rust::InputOrOutput<
+        pub routing: pulumi_gestalt_rust::InputOrOutput<
             super::super::types::networkservices::EdgeCacheServiceRouting,
         >,
         /// URL of the SslPolicy resource that will be associated with the EdgeCacheService. If not set, the EdgeCacheService has no
         /// SSL policy configured, and will default to the "COMPATIBLE" policy.
         #[builder(into, default)]
-        pub ssl_policy: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub ssl_policy: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct EdgeCacheServiceResult {
         /// A human-readable description of the resource.
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_gestalt_rust::Output<Option<String>>,
         /// Disables HTTP/2. HTTP/2 (h2) is enabled by default and recommended for performance. HTTP/2 improves connection re-use
         /// and reduces connection setup overhead by sending multiple streams over the same connection. Some legacy HTTP clients may
         /// have issues with HTTP/2 connections due to broken HTTP/2 implementations. Setting this to true will prevent HTTP/2 from
         /// being advertised and negotiated.
-        pub disable_http2: pulumi_wasm_rust::Output<Option<bool>>,
+        pub disable_http2: pulumi_gestalt_rust::Output<Option<bool>>,
         /// HTTP/3 (IETF QUIC) and Google QUIC are enabled by default.
-        pub disable_quic: pulumi_wasm_rust::Output<bool>,
+        pub disable_quic: pulumi_gestalt_rust::Output<bool>,
         /// Resource URL that points at the Cloud Armor edge security policy that is applied on each request against the
         /// EdgeCacheService.
-        pub edge_security_policy: pulumi_wasm_rust::Output<Option<String>>,
+        pub edge_security_policy: pulumi_gestalt_rust::Output<Option<String>>,
         /// URLs to sslCertificate resources that are used to authenticate connections between users and the EdgeCacheService. Note
         /// that only "global" certificates with a "scope" of "EDGE_CACHE" can be attached to an EdgeCacheService.
-        pub edge_ssl_certificates: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub edge_ssl_certificates: pulumi_gestalt_rust::Output<Option<Vec<String>>>,
         /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Pulumi, other clients and services.
-        pub effective_labels: pulumi_wasm_rust::Output<
+        pub effective_labels: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
         /// The IPv4 addresses associated with this service. Addresses are static for the lifetime of the service.
-        pub ipv4_addresses: pulumi_wasm_rust::Output<Vec<String>>,
+        pub ipv4_addresses: pulumi_gestalt_rust::Output<Vec<String>>,
         /// The IPv6 addresses associated with this service. Addresses are static for the lifetime of the service.
-        pub ipv6_addresses: pulumi_wasm_rust::Output<Vec<String>>,
+        pub ipv6_addresses: pulumi_gestalt_rust::Output<Vec<String>>,
         /// Set of label tags associated with the EdgeCache resource. **Note**: This field is non-authoritative, and will only
         /// manage the labels present in your configuration. Please refer to the field 'effective_labels' for all of the labels
         /// present on the resource.
-        pub labels: pulumi_wasm_rust::Output<
+        pub labels: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Specifies the logging options for the traffic served by this service. If logging is enabled, logs will be exported to
         /// Cloud Logging.
-        pub log_config: pulumi_wasm_rust::Output<
+        pub log_config: pulumi_gestalt_rust::Output<
             Option<super::super::types::networkservices::EdgeCacheServiceLogConfig>,
         >,
         /// Name of the resource; provided by the client when the resource is created.
         /// The name must be 1-64 characters long, and match the regular expression [a-zA-Z][a-zA-Z0-9_-]* which means the first character must be a letter,
         /// and all following characters must be a dash, underscore, letter or digit.
-        pub name: pulumi_wasm_rust::Output<String>,
-        pub project: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
+        pub project: pulumi_gestalt_rust::Output<String>,
         /// The combination of labels configured directly on the resource
         /// and default labels configured on the provider.
-        pub pulumi_labels: pulumi_wasm_rust::Output<
+        pub pulumi_labels: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
         /// Require TLS (HTTPS) for all clients connecting to this service. Clients who connect over HTTP (port 80) will receive a
         /// HTTP 301 to the same URL over HTTPS (port 443). You must have at least one (1) edgeSslCertificate specified to enable
         /// this.
-        pub require_tls: pulumi_wasm_rust::Output<bool>,
+        pub require_tls: pulumi_gestalt_rust::Output<bool>,
         /// Defines how requests are routed, modified, cached and/or which origin content is filled from.
         /// Structure is documented below.
-        pub routing: pulumi_wasm_rust::Output<
+        pub routing: pulumi_gestalt_rust::Output<
             super::super::types::networkservices::EdgeCacheServiceRouting,
         >,
         /// URL of the SslPolicy resource that will be associated with the EdgeCacheService. If not set, the EdgeCacheService has no
         /// SSL policy configured, and will default to the "COMPATIBLE" policy.
-        pub ssl_policy: pulumi_wasm_rust::Output<Option<String>>,
+        pub ssl_policy: pulumi_gestalt_rust::Output<Option<String>>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: EdgeCacheServiceArgs,
     ) -> EdgeCacheServiceResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let description_binding = args.description.get_output(context).get_inner();
         let disable_http2_binding = args.disable_http2.get_output(context).get_inner();
@@ -543,48 +545,50 @@ pub mod edge_cache_service {
         };
         let o = register_interface::register(context.get_inner(), &request);
         EdgeCacheServiceResult {
-            description: pulumi_wasm_rust::__private::into_domain(
+            description: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("description"),
             ),
-            disable_http2: pulumi_wasm_rust::__private::into_domain(
+            disable_http2: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("disableHttp2"),
             ),
-            disable_quic: pulumi_wasm_rust::__private::into_domain(
+            disable_quic: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("disableQuic"),
             ),
-            edge_security_policy: pulumi_wasm_rust::__private::into_domain(
+            edge_security_policy: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("edgeSecurityPolicy"),
             ),
-            edge_ssl_certificates: pulumi_wasm_rust::__private::into_domain(
+            edge_ssl_certificates: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("edgeSslCertificates"),
             ),
-            effective_labels: pulumi_wasm_rust::__private::into_domain(
+            effective_labels: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("effectiveLabels"),
             ),
-            ipv4_addresses: pulumi_wasm_rust::__private::into_domain(
+            ipv4_addresses: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("ipv4Addresses"),
             ),
-            ipv6_addresses: pulumi_wasm_rust::__private::into_domain(
+            ipv6_addresses: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("ipv6Addresses"),
             ),
-            labels: pulumi_wasm_rust::__private::into_domain(o.extract_field("labels")),
-            log_config: pulumi_wasm_rust::__private::into_domain(
+            labels: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("labels"),
+            ),
+            log_config: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("logConfig"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            project: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            project: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("project"),
             ),
-            pulumi_labels: pulumi_wasm_rust::__private::into_domain(
+            pulumi_labels: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("pulumiLabels"),
             ),
-            require_tls: pulumi_wasm_rust::__private::into_domain(
+            require_tls: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("requireTls"),
             ),
-            routing: pulumi_wasm_rust::__private::into_domain(
+            routing: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("routing"),
             ),
-            ssl_policy: pulumi_wasm_rust::__private::into_domain(
+            ssl_policy: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("sslPolicy"),
             ),
         }

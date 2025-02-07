@@ -11,8 +11,8 @@
 /// ## Example Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let default = cluster::create(
@@ -61,48 +61,50 @@
 /// $ pulumi import aws:rds/clusterActivityStream:ClusterActivityStream default arn:aws:rds:us-west-2:123456789012:cluster:aurora-cluster-demo
 /// ```
 pub mod cluster_activity_stream {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ClusterActivityStreamArgs {
         /// Specifies whether the database activity stream includes engine-native audit fields. This option only applies to an Oracle DB instance. By default, no engine-native audit fields are included. Defaults `false`.
         #[builder(into, default)]
-        pub engine_native_audit_fields_included: pulumi_wasm_rust::InputOrOutput<
+        pub engine_native_audit_fields_included: pulumi_gestalt_rust::InputOrOutput<
             Option<bool>,
         >,
         /// The AWS KMS key identifier for encrypting messages in the database activity stream. The AWS KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the KMS key.
         #[builder(into)]
-        pub kms_key_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub kms_key_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Specifies the mode of the database activity stream. Database events such as a change or access generate an activity stream event. The database session can handle these events either synchronously or asynchronously. One of: `sync`, `async`.
         #[builder(into)]
-        pub mode: pulumi_wasm_rust::InputOrOutput<String>,
+        pub mode: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The Amazon Resource Name (ARN) of the DB cluster.
         #[builder(into)]
-        pub resource_arn: pulumi_wasm_rust::InputOrOutput<String>,
+        pub resource_arn: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct ClusterActivityStreamResult {
         /// Specifies whether the database activity stream includes engine-native audit fields. This option only applies to an Oracle DB instance. By default, no engine-native audit fields are included. Defaults `false`.
-        pub engine_native_audit_fields_included: pulumi_wasm_rust::Output<Option<bool>>,
+        pub engine_native_audit_fields_included: pulumi_gestalt_rust::Output<
+            Option<bool>,
+        >,
         /// The name of the Amazon Kinesis data stream to be used for the database activity stream.
-        pub kinesis_stream_name: pulumi_wasm_rust::Output<String>,
+        pub kinesis_stream_name: pulumi_gestalt_rust::Output<String>,
         /// The AWS KMS key identifier for encrypting messages in the database activity stream. The AWS KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the KMS key.
-        pub kms_key_id: pulumi_wasm_rust::Output<String>,
+        pub kms_key_id: pulumi_gestalt_rust::Output<String>,
         /// Specifies the mode of the database activity stream. Database events such as a change or access generate an activity stream event. The database session can handle these events either synchronously or asynchronously. One of: `sync`, `async`.
-        pub mode: pulumi_wasm_rust::Output<String>,
+        pub mode: pulumi_gestalt_rust::Output<String>,
         /// The Amazon Resource Name (ARN) of the DB cluster.
-        pub resource_arn: pulumi_wasm_rust::Output<String>,
+        pub resource_arn: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: ClusterActivityStreamArgs,
     ) -> ClusterActivityStreamResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let engine_native_audit_fields_included_binding = args
             .engine_native_audit_fields_included
@@ -136,17 +138,17 @@ pub mod cluster_activity_stream {
         };
         let o = register_interface::register(context.get_inner(), &request);
         ClusterActivityStreamResult {
-            engine_native_audit_fields_included: pulumi_wasm_rust::__private::into_domain(
+            engine_native_audit_fields_included: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("engineNativeAuditFieldsIncluded"),
             ),
-            kinesis_stream_name: pulumi_wasm_rust::__private::into_domain(
+            kinesis_stream_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("kinesisStreamName"),
             ),
-            kms_key_id: pulumi_wasm_rust::__private::into_domain(
+            kms_key_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("kmsKeyId"),
             ),
-            mode: pulumi_wasm_rust::__private::into_domain(o.extract_field("mode")),
-            resource_arn: pulumi_wasm_rust::__private::into_domain(
+            mode: pulumi_gestalt_rust::__private::into_domain(o.extract_field("mode")),
+            resource_arn: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("resourceArn"),
             ),
         }

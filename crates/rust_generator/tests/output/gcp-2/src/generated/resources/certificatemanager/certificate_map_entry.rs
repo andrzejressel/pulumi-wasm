@@ -83,7 +83,7 @@
 /// ```
 ///
 pub mod certificate_map_entry {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct CertificateMapEntryArgs {
@@ -91,15 +91,15 @@ pub mod certificate_map_entry {
         /// There can be defined up to fifteen certificates in each Certificate Map Entry.
         /// Each certificate must match pattern projects/*/locations/*/certificates/*.
         #[builder(into)]
-        pub certificates: pulumi_wasm_rust::InputOrOutput<Vec<String>>,
+        pub certificates: pulumi_gestalt_rust::InputOrOutput<Vec<String>>,
         /// A human-readable description of the resource.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub description: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// A Hostname (FQDN, e.g. example.com) or a wildcard hostname expression (*.example.com)
         /// for a set of hostnames with common suffix. Used as Server Name Indication (SNI) for
         /// selecting a proper certificate.
         #[builder(into, default)]
-        pub hostname: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub hostname: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Set of labels associated with a Certificate Map Entry.
         /// An object containing a list of "key": value pairs.
         /// Example: { "name": "wrench", "mass": "1.3kg", "count": "3" }.
@@ -107,7 +107,7 @@ pub mod certificate_map_entry {
         /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
         /// Please refer to the field `effective_labels` for all of the labels present on the resource.
         #[builder(into, default)]
-        pub labels: pulumi_wasm_rust::InputOrOutput<
+        pub labels: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// A map entry that is inputted into the cetrificate map
@@ -115,85 +115,85 @@ pub mod certificate_map_entry {
         ///
         /// - - -
         #[builder(into)]
-        pub map: pulumi_wasm_rust::InputOrOutput<String>,
+        pub map: pulumi_gestalt_rust::InputOrOutput<String>,
         /// A predefined matcher for particular cases, other than SNI selection
         #[builder(into, default)]
-        pub matcher: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub matcher: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// A user-defined name of the Certificate Map Entry. Certificate Map Entry
         /// names must be unique globally and match pattern
         /// 'projects/*/locations/*/certificateMaps/*/certificateMapEntries/*'
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub project: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct CertificateMapEntryResult {
         /// A set of Certificates defines for the given hostname.
         /// There can be defined up to fifteen certificates in each Certificate Map Entry.
         /// Each certificate must match pattern projects/*/locations/*/certificates/*.
-        pub certificates: pulumi_wasm_rust::Output<Vec<String>>,
+        pub certificates: pulumi_gestalt_rust::Output<Vec<String>>,
         /// Creation timestamp of a Certificate Map Entry. Timestamp in RFC3339 UTC "Zulu" format,
         /// with nanosecond resolution and up to nine fractional digits.
         /// Examples: "2014-10-02T15:01:23Z" and "2014-10-02T15:01:23.045123456Z".
-        pub create_time: pulumi_wasm_rust::Output<String>,
+        pub create_time: pulumi_gestalt_rust::Output<String>,
         /// A human-readable description of the resource.
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_gestalt_rust::Output<Option<String>>,
         /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Pulumi, other clients and services.
-        pub effective_labels: pulumi_wasm_rust::Output<
+        pub effective_labels: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
         /// A Hostname (FQDN, e.g. example.com) or a wildcard hostname expression (*.example.com)
         /// for a set of hostnames with common suffix. Used as Server Name Indication (SNI) for
         /// selecting a proper certificate.
-        pub hostname: pulumi_wasm_rust::Output<Option<String>>,
+        pub hostname: pulumi_gestalt_rust::Output<Option<String>>,
         /// Set of labels associated with a Certificate Map Entry.
         /// An object containing a list of "key": value pairs.
         /// Example: { "name": "wrench", "mass": "1.3kg", "count": "3" }.
         ///
         /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
         /// Please refer to the field `effective_labels` for all of the labels present on the resource.
-        pub labels: pulumi_wasm_rust::Output<
+        pub labels: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// A map entry that is inputted into the cetrificate map
         ///
         ///
         /// - - -
-        pub map: pulumi_wasm_rust::Output<String>,
+        pub map: pulumi_gestalt_rust::Output<String>,
         /// A predefined matcher for particular cases, other than SNI selection
-        pub matcher: pulumi_wasm_rust::Output<Option<String>>,
+        pub matcher: pulumi_gestalt_rust::Output<Option<String>>,
         /// A user-defined name of the Certificate Map Entry. Certificate Map Entry
         /// names must be unique globally and match pattern
         /// 'projects/*/locations/*/certificateMaps/*/certificateMapEntries/*'
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
-        pub project: pulumi_wasm_rust::Output<String>,
+        pub project: pulumi_gestalt_rust::Output<String>,
         /// The combination of labels configured directly on the resource
         /// and default labels configured on the provider.
-        pub pulumi_labels: pulumi_wasm_rust::Output<
+        pub pulumi_labels: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
         /// A serving state of this Certificate Map Entry.
-        pub state: pulumi_wasm_rust::Output<String>,
+        pub state: pulumi_gestalt_rust::Output<String>,
         /// Update timestamp of a Certificate Map Entry. Timestamp in RFC3339 UTC "Zulu" format,
         /// with nanosecond resolution and up to nine fractional digits.
         /// Examples: "2014-10-02T15:01:23Z" and "2014-10-02T15:01:23.045123456Z".
-        pub update_time: pulumi_wasm_rust::Output<String>,
+        pub update_time: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: CertificateMapEntryArgs,
     ) -> CertificateMapEntryResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let certificates_binding = args.certificates.get_output(context).get_inner();
         let description_binding = args.description.get_output(context).get_inner();
@@ -245,35 +245,37 @@ pub mod certificate_map_entry {
         };
         let o = register_interface::register(context.get_inner(), &request);
         CertificateMapEntryResult {
-            certificates: pulumi_wasm_rust::__private::into_domain(
+            certificates: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("certificates"),
             ),
-            create_time: pulumi_wasm_rust::__private::into_domain(
+            create_time: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("createTime"),
             ),
-            description: pulumi_wasm_rust::__private::into_domain(
+            description: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("description"),
             ),
-            effective_labels: pulumi_wasm_rust::__private::into_domain(
+            effective_labels: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("effectiveLabels"),
             ),
-            hostname: pulumi_wasm_rust::__private::into_domain(
+            hostname: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("hostname"),
             ),
-            labels: pulumi_wasm_rust::__private::into_domain(o.extract_field("labels")),
-            map: pulumi_wasm_rust::__private::into_domain(o.extract_field("map")),
-            matcher: pulumi_wasm_rust::__private::into_domain(
+            labels: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("labels"),
+            ),
+            map: pulumi_gestalt_rust::__private::into_domain(o.extract_field("map")),
+            matcher: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("matcher"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            project: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            project: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("project"),
             ),
-            pulumi_labels: pulumi_wasm_rust::__private::into_domain(
+            pulumi_labels: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("pulumiLabels"),
             ),
-            state: pulumi_wasm_rust::__private::into_domain(o.extract_field("state")),
-            update_time: pulumi_wasm_rust::__private::into_domain(
+            state: pulumi_gestalt_rust::__private::into_domain(o.extract_field("state")),
+            update_time: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("updateTime"),
             ),
         }

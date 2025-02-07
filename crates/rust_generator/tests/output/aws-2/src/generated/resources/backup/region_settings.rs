@@ -36,29 +36,29 @@
 /// $ pulumi import aws:backup/regionSettings:RegionSettings test us-west-2
 /// ```
 pub mod region_settings {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct RegionSettingsArgs {
         /// A map of services along with the management preferences for the Region. For more information, see the [AWS Documentation](https://docs.aws.amazon.com/aws-backup/latest/devguide/API_UpdateRegionSettings.html#API_UpdateRegionSettings_RequestSyntax).
         #[builder(into, default)]
-        pub resource_type_management_preference: pulumi_wasm_rust::InputOrOutput<
+        pub resource_type_management_preference: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, bool>>,
         >,
         /// A map of services along with the opt-in preferences for the Region.
         #[builder(into)]
-        pub resource_type_opt_in_preference: pulumi_wasm_rust::InputOrOutput<
+        pub resource_type_opt_in_preference: pulumi_gestalt_rust::InputOrOutput<
             std::collections::HashMap<String, bool>,
         >,
     }
     #[allow(dead_code)]
     pub struct RegionSettingsResult {
         /// A map of services along with the management preferences for the Region. For more information, see the [AWS Documentation](https://docs.aws.amazon.com/aws-backup/latest/devguide/API_UpdateRegionSettings.html#API_UpdateRegionSettings_RequestSyntax).
-        pub resource_type_management_preference: pulumi_wasm_rust::Output<
+        pub resource_type_management_preference: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, bool>,
         >,
         /// A map of services along with the opt-in preferences for the Region.
-        pub resource_type_opt_in_preference: pulumi_wasm_rust::Output<
+        pub resource_type_opt_in_preference: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, bool>,
         >,
     }
@@ -67,11 +67,11 @@ pub mod region_settings {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: RegionSettingsArgs,
     ) -> RegionSettingsResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let resource_type_management_preference_binding = args
             .resource_type_management_preference
@@ -98,10 +98,10 @@ pub mod region_settings {
         };
         let o = register_interface::register(context.get_inner(), &request);
         RegionSettingsResult {
-            resource_type_management_preference: pulumi_wasm_rust::__private::into_domain(
+            resource_type_management_preference: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("resourceTypeManagementPreference"),
             ),
-            resource_type_opt_in_preference: pulumi_wasm_rust::__private::into_domain(
+            resource_type_opt_in_preference: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("resourceTypeOptInPreference"),
             ),
         }

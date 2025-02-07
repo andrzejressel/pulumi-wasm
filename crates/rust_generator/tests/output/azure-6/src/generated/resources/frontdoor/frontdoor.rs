@@ -13,8 +13,8 @@
 /// ## Example Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = resource_group::create(
@@ -85,125 +85,125 @@
 /// ```
 ///
 pub mod frontdoor {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct FrontdoorArgs {
         /// A `backend_pool_health_probe` block as defined below.
         #[builder(into)]
-        pub backend_pool_health_probes: pulumi_wasm_rust::InputOrOutput<
+        pub backend_pool_health_probes: pulumi_gestalt_rust::InputOrOutput<
             Vec<super::super::types::frontdoor::FrontdoorBackendPoolHealthProbe>,
         >,
         /// A `backend_pool_load_balancing` block as defined below.
         #[builder(into)]
-        pub backend_pool_load_balancings: pulumi_wasm_rust::InputOrOutput<
+        pub backend_pool_load_balancings: pulumi_gestalt_rust::InputOrOutput<
             Vec<super::super::types::frontdoor::FrontdoorBackendPoolLoadBalancing>,
         >,
         /// A `backend_pool_settings` block as defined below.
         #[builder(into, default)]
-        pub backend_pool_settings: pulumi_wasm_rust::InputOrOutput<
+        pub backend_pool_settings: pulumi_gestalt_rust::InputOrOutput<
             Option<Vec<super::super::types::frontdoor::FrontdoorBackendPoolSetting>>,
         >,
         /// A `backend_pool` block as defined below.
         ///
         /// > Azure by default allows specifying up to 50 Backend Pools - but this quota can be increased via Microsoft Support.
         #[builder(into)]
-        pub backend_pools: pulumi_wasm_rust::InputOrOutput<
+        pub backend_pools: pulumi_gestalt_rust::InputOrOutput<
             Vec<super::super::types::frontdoor::FrontdoorBackendPool>,
         >,
         /// A friendly name for the Front Door service.
         #[builder(into, default)]
-        pub friendly_name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub friendly_name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// A `frontend_endpoint` block as defined below.
         #[builder(into)]
-        pub frontend_endpoints: pulumi_wasm_rust::InputOrOutput<
+        pub frontend_endpoints: pulumi_gestalt_rust::InputOrOutput<
             Vec<super::super::types::frontdoor::FrontdoorFrontendEndpoint>,
         >,
         /// Should the Front Door Load Balancer be Enabled? Defaults to `true`.
         #[builder(into, default)]
-        pub load_balancer_enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub load_balancer_enabled: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// Specifies the name of the Front Door service. Must be globally unique. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Specifies the name of the Resource Group in which the Front Door service should exist. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub resource_group_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub resource_group_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// A `routing_rule` block as defined below.
         #[builder(into)]
-        pub routing_rules: pulumi_wasm_rust::InputOrOutput<
+        pub routing_rules: pulumi_gestalt_rust::InputOrOutput<
             Vec<super::super::types::frontdoor::FrontdoorRoutingRule>,
         >,
         /// A mapping of tags to assign to the resource.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
     #[allow(dead_code)]
     pub struct FrontdoorResult {
         /// A `backend_pool_health_probe` block as defined below.
-        pub backend_pool_health_probes: pulumi_wasm_rust::Output<
+        pub backend_pool_health_probes: pulumi_gestalt_rust::Output<
             Vec<super::super::types::frontdoor::FrontdoorBackendPoolHealthProbe>,
         >,
         /// A map/dictionary of Backend Pool Health Probe Names (key) to the Backend Pool Health Probe ID (value)
-        pub backend_pool_health_probes_map: pulumi_wasm_rust::Output<
+        pub backend_pool_health_probes_map: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
         /// A map/dictionary of Backend Pool Load Balancing Setting Names (key) to the Backend Pool Load Balancing Setting ID (value)
-        pub backend_pool_load_balancing_settings_map: pulumi_wasm_rust::Output<
+        pub backend_pool_load_balancing_settings_map: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
         /// A `backend_pool_load_balancing` block as defined below.
-        pub backend_pool_load_balancings: pulumi_wasm_rust::Output<
+        pub backend_pool_load_balancings: pulumi_gestalt_rust::Output<
             Vec<super::super::types::frontdoor::FrontdoorBackendPoolLoadBalancing>,
         >,
         /// A `backend_pool_settings` block as defined below.
-        pub backend_pool_settings: pulumi_wasm_rust::Output<
+        pub backend_pool_settings: pulumi_gestalt_rust::Output<
             Vec<super::super::types::frontdoor::FrontdoorBackendPoolSetting>,
         >,
         /// A `backend_pool` block as defined below.
         ///
         /// > Azure by default allows specifying up to 50 Backend Pools - but this quota can be increased via Microsoft Support.
-        pub backend_pools: pulumi_wasm_rust::Output<
+        pub backend_pools: pulumi_gestalt_rust::Output<
             Vec<super::super::types::frontdoor::FrontdoorBackendPool>,
         >,
         /// A map/dictionary of Backend Pool Names (key) to the Backend Pool ID (value)
-        pub backend_pools_map: pulumi_wasm_rust::Output<
+        pub backend_pools_map: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
         /// The host that each frontendEndpoint must CNAME to.
-        pub cname: pulumi_wasm_rust::Output<String>,
-        pub explicit_resource_orders: pulumi_wasm_rust::Output<
+        pub cname: pulumi_gestalt_rust::Output<String>,
+        pub explicit_resource_orders: pulumi_gestalt_rust::Output<
             Vec<super::super::types::frontdoor::FrontdoorExplicitResourceOrder>,
         >,
         /// A friendly name for the Front Door service.
-        pub friendly_name: pulumi_wasm_rust::Output<Option<String>>,
+        pub friendly_name: pulumi_gestalt_rust::Output<Option<String>>,
         /// A `frontend_endpoint` block as defined below.
-        pub frontend_endpoints: pulumi_wasm_rust::Output<
+        pub frontend_endpoints: pulumi_gestalt_rust::Output<
             Vec<super::super::types::frontdoor::FrontdoorFrontendEndpoint>,
         >,
         /// A map/dictionary of Frontend Endpoint Names (key) to the Frontend Endpoint ID (value)
-        pub frontend_endpoints_map: pulumi_wasm_rust::Output<
+        pub frontend_endpoints_map: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
         /// The unique ID of the Front Door which is embedded into the incoming headers `X-Azure-FDID` attribute and maybe used to filter traffic sent by the Front Door to your backend.
-        pub header_frontdoor_id: pulumi_wasm_rust::Output<String>,
+        pub header_frontdoor_id: pulumi_gestalt_rust::Output<String>,
         /// Should the Front Door Load Balancer be Enabled? Defaults to `true`.
-        pub load_balancer_enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub load_balancer_enabled: pulumi_gestalt_rust::Output<Option<bool>>,
         /// Specifies the name of the Front Door service. Must be globally unique. Changing this forces a new resource to be created.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// Specifies the name of the Resource Group in which the Front Door service should exist. Changing this forces a new resource to be created.
-        pub resource_group_name: pulumi_wasm_rust::Output<String>,
+        pub resource_group_name: pulumi_gestalt_rust::Output<String>,
         /// A `routing_rule` block as defined below.
-        pub routing_rules: pulumi_wasm_rust::Output<
+        pub routing_rules: pulumi_gestalt_rust::Output<
             Vec<super::super::types::frontdoor::FrontdoorRoutingRule>,
         >,
         /// A map/dictionary of Routing Rule Names (key) to the Routing Rule ID (value)
-        pub routing_rules_map: pulumi_wasm_rust::Output<
+        pub routing_rules_map: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
         /// A mapping of tags to assign to the resource.
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
@@ -212,11 +212,11 @@ pub mod frontdoor {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: FrontdoorArgs,
     ) -> FrontdoorResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let backend_pool_health_probes_binding = args
             .backend_pool_health_probes
@@ -300,57 +300,57 @@ pub mod frontdoor {
         };
         let o = register_interface::register(context.get_inner(), &request);
         FrontdoorResult {
-            backend_pool_health_probes: pulumi_wasm_rust::__private::into_domain(
+            backend_pool_health_probes: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("backendPoolHealthProbes"),
             ),
-            backend_pool_health_probes_map: pulumi_wasm_rust::__private::into_domain(
+            backend_pool_health_probes_map: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("backendPoolHealthProbesMap"),
             ),
-            backend_pool_load_balancing_settings_map: pulumi_wasm_rust::__private::into_domain(
+            backend_pool_load_balancing_settings_map: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("backendPoolLoadBalancingSettingsMap"),
             ),
-            backend_pool_load_balancings: pulumi_wasm_rust::__private::into_domain(
+            backend_pool_load_balancings: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("backendPoolLoadBalancings"),
             ),
-            backend_pool_settings: pulumi_wasm_rust::__private::into_domain(
+            backend_pool_settings: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("backendPoolSettings"),
             ),
-            backend_pools: pulumi_wasm_rust::__private::into_domain(
+            backend_pools: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("backendPools"),
             ),
-            backend_pools_map: pulumi_wasm_rust::__private::into_domain(
+            backend_pools_map: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("backendPoolsMap"),
             ),
-            cname: pulumi_wasm_rust::__private::into_domain(o.extract_field("cname")),
-            explicit_resource_orders: pulumi_wasm_rust::__private::into_domain(
+            cname: pulumi_gestalt_rust::__private::into_domain(o.extract_field("cname")),
+            explicit_resource_orders: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("explicitResourceOrders"),
             ),
-            friendly_name: pulumi_wasm_rust::__private::into_domain(
+            friendly_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("friendlyName"),
             ),
-            frontend_endpoints: pulumi_wasm_rust::__private::into_domain(
+            frontend_endpoints: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("frontendEndpoints"),
             ),
-            frontend_endpoints_map: pulumi_wasm_rust::__private::into_domain(
+            frontend_endpoints_map: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("frontendEndpointsMap"),
             ),
-            header_frontdoor_id: pulumi_wasm_rust::__private::into_domain(
+            header_frontdoor_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("headerFrontdoorId"),
             ),
-            load_balancer_enabled: pulumi_wasm_rust::__private::into_domain(
+            load_balancer_enabled: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("loadBalancerEnabled"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            resource_group_name: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("resourceGroupName"),
             ),
-            routing_rules: pulumi_wasm_rust::__private::into_domain(
+            routing_rules: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("routingRules"),
             ),
-            routing_rules_map: pulumi_wasm_rust::__private::into_domain(
+            routing_rules_map: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("routingRulesMap"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
         }
     }
 }

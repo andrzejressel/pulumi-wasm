@@ -41,59 +41,59 @@
 /// $ pulumi import aws:transcribe/medicalVocabulary:MedicalVocabulary example example-name
 /// ```
 pub mod medical_vocabulary {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct MedicalVocabularyArgs {
         /// The language code you selected for your medical vocabulary. US English (en-US) is the only language supported with Amazon Transcribe Medical.
         #[builder(into)]
-        pub language_code: pulumi_wasm_rust::InputOrOutput<String>,
+        pub language_code: pulumi_gestalt_rust::InputOrOutput<String>,
         /// A map of tags to assign to the MedicalVocabulary. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// The Amazon S3 location (URI) of the text file that contains your custom medical vocabulary.
         #[builder(into)]
-        pub vocabulary_file_uri: pulumi_wasm_rust::InputOrOutput<String>,
+        pub vocabulary_file_uri: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The name of the Medical Vocabulary.
         ///
         /// The following arguments are optional:
         #[builder(into)]
-        pub vocabulary_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub vocabulary_name: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct MedicalVocabularyResult {
         /// ARN of the MedicalVocabulary.
-        pub arn: pulumi_wasm_rust::Output<String>,
+        pub arn: pulumi_gestalt_rust::Output<String>,
         /// Generated download URI.
-        pub download_uri: pulumi_wasm_rust::Output<String>,
+        pub download_uri: pulumi_gestalt_rust::Output<String>,
         /// The language code you selected for your medical vocabulary. US English (en-US) is the only language supported with Amazon Transcribe Medical.
-        pub language_code: pulumi_wasm_rust::Output<String>,
+        pub language_code: pulumi_gestalt_rust::Output<String>,
         /// A map of tags to assign to the MedicalVocabulary. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
-        pub tags_all: pulumi_wasm_rust::Output<
+        pub tags_all: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
         /// The Amazon S3 location (URI) of the text file that contains your custom medical vocabulary.
-        pub vocabulary_file_uri: pulumi_wasm_rust::Output<String>,
+        pub vocabulary_file_uri: pulumi_gestalt_rust::Output<String>,
         /// The name of the Medical Vocabulary.
         ///
         /// The following arguments are optional:
-        pub vocabulary_name: pulumi_wasm_rust::Output<String>,
+        pub vocabulary_name: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: MedicalVocabularyArgs,
     ) -> MedicalVocabularyResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let language_code_binding = args.language_code.get_output(context).get_inner();
         let tags_binding = args.tags.get_output(context).get_inner();
@@ -130,21 +130,21 @@ pub mod medical_vocabulary {
         };
         let o = register_interface::register(context.get_inner(), &request);
         MedicalVocabularyResult {
-            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
-            download_uri: pulumi_wasm_rust::__private::into_domain(
+            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
+            download_uri: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("downloadUri"),
             ),
-            language_code: pulumi_wasm_rust::__private::into_domain(
+            language_code: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("languageCode"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_wasm_rust::__private::into_domain(
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            tags_all: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("tagsAll"),
             ),
-            vocabulary_file_uri: pulumi_wasm_rust::__private::into_domain(
+            vocabulary_file_uri: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("vocabularyFileUri"),
             ),
-            vocabulary_name: pulumi_wasm_rust::__private::into_domain(
+            vocabulary_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("vocabularyName"),
             ),
         }

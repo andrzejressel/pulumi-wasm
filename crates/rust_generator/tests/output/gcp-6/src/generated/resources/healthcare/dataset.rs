@@ -13,8 +13,8 @@
 ///
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let default = dataset::create(
@@ -96,14 +96,14 @@
 /// ```
 ///
 pub mod dataset {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct DatasetArgs {
         /// A nested object resource.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub encryption_spec: pulumi_wasm_rust::InputOrOutput<
+        pub encryption_spec: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::healthcare::DatasetEncryptionSpec>,
         >,
         /// The location for the Dataset.
@@ -111,54 +111,54 @@ pub mod dataset {
         ///
         /// - - -
         #[builder(into)]
-        pub location: pulumi_wasm_rust::InputOrOutput<String>,
+        pub location: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The resource name for the Dataset.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub project: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The default timezone used by this dataset. Must be a either a valid IANA time zone name such as
         /// "America/New_York" or empty, which defaults to UTC. This is used for parsing times in resources
         /// (e.g., HL7 messages) where no explicit timezone is specified.
         #[builder(into, default)]
-        pub time_zone: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub time_zone: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct DatasetResult {
         /// A nested object resource.
         /// Structure is documented below.
-        pub encryption_spec: pulumi_wasm_rust::Output<
+        pub encryption_spec: pulumi_gestalt_rust::Output<
             super::super::types::healthcare::DatasetEncryptionSpec,
         >,
         /// The location for the Dataset.
         ///
         ///
         /// - - -
-        pub location: pulumi_wasm_rust::Output<String>,
+        pub location: pulumi_gestalt_rust::Output<String>,
         /// The resource name for the Dataset.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
-        pub project: pulumi_wasm_rust::Output<String>,
+        pub project: pulumi_gestalt_rust::Output<String>,
         /// The fully qualified name of this dataset
-        pub self_link: pulumi_wasm_rust::Output<String>,
+        pub self_link: pulumi_gestalt_rust::Output<String>,
         /// The default timezone used by this dataset. Must be a either a valid IANA time zone name such as
         /// "America/New_York" or empty, which defaults to UTC. This is used for parsing times in resources
         /// (e.g., HL7 messages) where no explicit timezone is specified.
-        pub time_zone: pulumi_wasm_rust::Output<String>,
+        pub time_zone: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: DatasetArgs,
     ) -> DatasetResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let encryption_spec_binding = args
             .encryption_spec
@@ -197,20 +197,20 @@ pub mod dataset {
         };
         let o = register_interface::register(context.get_inner(), &request);
         DatasetResult {
-            encryption_spec: pulumi_wasm_rust::__private::into_domain(
+            encryption_spec: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("encryptionSpec"),
             ),
-            location: pulumi_wasm_rust::__private::into_domain(
+            location: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("location"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            project: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            project: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("project"),
             ),
-            self_link: pulumi_wasm_rust::__private::into_domain(
+            self_link: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("selfLink"),
             ),
-            time_zone: pulumi_wasm_rust::__private::into_domain(
+            time_zone: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("timeZone"),
             ),
         }

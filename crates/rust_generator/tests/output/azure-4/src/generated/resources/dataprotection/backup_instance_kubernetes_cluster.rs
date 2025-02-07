@@ -205,67 +205,67 @@
 /// ```
 ///
 pub mod backup_instance_kubernetes_cluster {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct BackupInstanceKubernetesClusterArgs {
         /// A `backup_datasource_parameters` block as defined below.
         #[builder(into, default)]
-        pub backup_datasource_parameters: pulumi_wasm_rust::InputOrOutput<
+        pub backup_datasource_parameters: pulumi_gestalt_rust::InputOrOutput<
             Option<
                 super::super::types::dataprotection::BackupInstanceKubernetesClusterBackupDatasourceParameters,
             >,
         >,
         /// The ID of the Backup Policy. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub backup_policy_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub backup_policy_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The ID of the Kubernetes Cluster. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub kubernetes_cluster_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub kubernetes_cluster_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The location of the Backup Instance Kubernetes Cluster. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub location: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub location: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The name which should be used for this Backup Instance Kubernetes Cluster. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The name of the Resource Group where snapshots are stored. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub snapshot_resource_group_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub snapshot_resource_group_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The ID of the Backup Vault within which the Backup Instance Kubernetes Cluster should exist. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub vault_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub vault_id: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct BackupInstanceKubernetesClusterResult {
         /// A `backup_datasource_parameters` block as defined below.
-        pub backup_datasource_parameters: pulumi_wasm_rust::Output<
+        pub backup_datasource_parameters: pulumi_gestalt_rust::Output<
             Option<
                 super::super::types::dataprotection::BackupInstanceKubernetesClusterBackupDatasourceParameters,
             >,
         >,
         /// The ID of the Backup Policy. Changing this forces a new resource to be created.
-        pub backup_policy_id: pulumi_wasm_rust::Output<String>,
+        pub backup_policy_id: pulumi_gestalt_rust::Output<String>,
         /// The ID of the Kubernetes Cluster. Changing this forces a new resource to be created.
-        pub kubernetes_cluster_id: pulumi_wasm_rust::Output<String>,
+        pub kubernetes_cluster_id: pulumi_gestalt_rust::Output<String>,
         /// The location of the Backup Instance Kubernetes Cluster. Changing this forces a new resource to be created.
-        pub location: pulumi_wasm_rust::Output<String>,
+        pub location: pulumi_gestalt_rust::Output<String>,
         /// The name which should be used for this Backup Instance Kubernetes Cluster. Changing this forces a new resource to be created.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// The name of the Resource Group where snapshots are stored. Changing this forces a new resource to be created.
-        pub snapshot_resource_group_name: pulumi_wasm_rust::Output<String>,
+        pub snapshot_resource_group_name: pulumi_gestalt_rust::Output<String>,
         /// The ID of the Backup Vault within which the Backup Instance Kubernetes Cluster should exist. Changing this forces a new resource to be created.
-        pub vault_id: pulumi_wasm_rust::Output<String>,
+        pub vault_id: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: BackupInstanceKubernetesClusterArgs,
     ) -> BackupInstanceKubernetesClusterResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let backup_datasource_parameters_binding = args
             .backup_datasource_parameters
@@ -324,23 +324,23 @@ pub mod backup_instance_kubernetes_cluster {
         };
         let o = register_interface::register(context.get_inner(), &request);
         BackupInstanceKubernetesClusterResult {
-            backup_datasource_parameters: pulumi_wasm_rust::__private::into_domain(
+            backup_datasource_parameters: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("backupDatasourceParameters"),
             ),
-            backup_policy_id: pulumi_wasm_rust::__private::into_domain(
+            backup_policy_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("backupPolicyId"),
             ),
-            kubernetes_cluster_id: pulumi_wasm_rust::__private::into_domain(
+            kubernetes_cluster_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("kubernetesClusterId"),
             ),
-            location: pulumi_wasm_rust::__private::into_domain(
+            location: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("location"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            snapshot_resource_group_name: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            snapshot_resource_group_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("snapshotResourceGroupName"),
             ),
-            vault_id: pulumi_wasm_rust::__private::into_domain(
+            vault_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("vaultId"),
             ),
         }

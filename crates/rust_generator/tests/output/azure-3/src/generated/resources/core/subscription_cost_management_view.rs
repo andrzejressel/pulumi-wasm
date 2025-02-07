@@ -3,8 +3,8 @@
 /// ## Example Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = subscription_cost_management_view::create(
@@ -42,86 +42,86 @@
 /// ```
 ///
 pub mod subscription_cost_management_view {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct SubscriptionCostManagementViewArgs {
         /// Whether the costs data in the Cost Management View are accumulated over time. Changing this forces a new Cost Management View for a Subscription to be created.
         #[builder(into)]
-        pub accumulated: pulumi_wasm_rust::InputOrOutput<bool>,
+        pub accumulated: pulumi_gestalt_rust::InputOrOutput<bool>,
         /// Chart type of the main view in Cost Analysis. Possible values are `Area`, `GroupedColumn`, `Line`, `StackedColumn` and `Table`.
         #[builder(into)]
-        pub chart_type: pulumi_wasm_rust::InputOrOutput<String>,
+        pub chart_type: pulumi_gestalt_rust::InputOrOutput<String>,
         /// A `dataset` block as defined below.
         #[builder(into)]
-        pub dataset: pulumi_wasm_rust::InputOrOutput<
+        pub dataset: pulumi_gestalt_rust::InputOrOutput<
             super::super::types::core::SubscriptionCostManagementViewDataset,
         >,
         /// User visible input name of the Cost Management View.
         #[builder(into)]
-        pub display_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub display_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// One or more `kpi` blocks as defined below, to show in Cost Analysis UI.
         #[builder(into, default)]
-        pub kpis: pulumi_wasm_rust::InputOrOutput<
+        pub kpis: pulumi_gestalt_rust::InputOrOutput<
             Option<Vec<super::super::types::core::SubscriptionCostManagementViewKpi>>,
         >,
         /// The name which should be used for this Cost Management View for a Subscription. Changing this forces a new Cost Management View for a Subscription to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// One or more `pivot` blocks as defined below, containing the configuration of 3 sub-views in the Cost Analysis UI. Non table views should have three pivots.
         #[builder(into, default)]
-        pub pivots: pulumi_wasm_rust::InputOrOutput<
+        pub pivots: pulumi_gestalt_rust::InputOrOutput<
             Option<Vec<super::super::types::core::SubscriptionCostManagementViewPivot>>,
         >,
         /// The type of the report. The only possible value is `Usage`.
         #[builder(into)]
-        pub report_type: pulumi_wasm_rust::InputOrOutput<String>,
+        pub report_type: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The ID of the Subscription this View is scoped to. Changing this forces a new Cost Management View for a Subscription to be created.
         #[builder(into)]
-        pub subscription_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub subscription_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The time frame for pulling data for the report. Possible values are `Custom`, `MonthToDate`, `WeekToDate` and `YearToDate`.
         #[builder(into)]
-        pub timeframe: pulumi_wasm_rust::InputOrOutput<String>,
+        pub timeframe: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct SubscriptionCostManagementViewResult {
         /// Whether the costs data in the Cost Management View are accumulated over time. Changing this forces a new Cost Management View for a Subscription to be created.
-        pub accumulated: pulumi_wasm_rust::Output<bool>,
+        pub accumulated: pulumi_gestalt_rust::Output<bool>,
         /// Chart type of the main view in Cost Analysis. Possible values are `Area`, `GroupedColumn`, `Line`, `StackedColumn` and `Table`.
-        pub chart_type: pulumi_wasm_rust::Output<String>,
+        pub chart_type: pulumi_gestalt_rust::Output<String>,
         /// A `dataset` block as defined below.
-        pub dataset: pulumi_wasm_rust::Output<
+        pub dataset: pulumi_gestalt_rust::Output<
             super::super::types::core::SubscriptionCostManagementViewDataset,
         >,
         /// User visible input name of the Cost Management View.
-        pub display_name: pulumi_wasm_rust::Output<String>,
+        pub display_name: pulumi_gestalt_rust::Output<String>,
         /// One or more `kpi` blocks as defined below, to show in Cost Analysis UI.
-        pub kpis: pulumi_wasm_rust::Output<
+        pub kpis: pulumi_gestalt_rust::Output<
             Option<Vec<super::super::types::core::SubscriptionCostManagementViewKpi>>,
         >,
         /// The name which should be used for this Cost Management View for a Subscription. Changing this forces a new Cost Management View for a Subscription to be created.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// One or more `pivot` blocks as defined below, containing the configuration of 3 sub-views in the Cost Analysis UI. Non table views should have three pivots.
-        pub pivots: pulumi_wasm_rust::Output<
+        pub pivots: pulumi_gestalt_rust::Output<
             Option<Vec<super::super::types::core::SubscriptionCostManagementViewPivot>>,
         >,
         /// The type of the report. The only possible value is `Usage`.
-        pub report_type: pulumi_wasm_rust::Output<String>,
+        pub report_type: pulumi_gestalt_rust::Output<String>,
         /// The ID of the Subscription this View is scoped to. Changing this forces a new Cost Management View for a Subscription to be created.
-        pub subscription_id: pulumi_wasm_rust::Output<String>,
+        pub subscription_id: pulumi_gestalt_rust::Output<String>,
         /// The time frame for pulling data for the report. Possible values are `Custom`, `MonthToDate`, `WeekToDate` and `YearToDate`.
-        pub timeframe: pulumi_wasm_rust::Output<String>,
+        pub timeframe: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: SubscriptionCostManagementViewArgs,
     ) -> SubscriptionCostManagementViewResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let accumulated_binding = args.accumulated.get_output(context).get_inner();
         let chart_type_binding = args.chart_type.get_output(context).get_inner();
@@ -186,28 +186,30 @@ pub mod subscription_cost_management_view {
         };
         let o = register_interface::register(context.get_inner(), &request);
         SubscriptionCostManagementViewResult {
-            accumulated: pulumi_wasm_rust::__private::into_domain(
+            accumulated: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("accumulated"),
             ),
-            chart_type: pulumi_wasm_rust::__private::into_domain(
+            chart_type: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("chartType"),
             ),
-            dataset: pulumi_wasm_rust::__private::into_domain(
+            dataset: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("dataset"),
             ),
-            display_name: pulumi_wasm_rust::__private::into_domain(
+            display_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("displayName"),
             ),
-            kpis: pulumi_wasm_rust::__private::into_domain(o.extract_field("kpis")),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            pivots: pulumi_wasm_rust::__private::into_domain(o.extract_field("pivots")),
-            report_type: pulumi_wasm_rust::__private::into_domain(
+            kpis: pulumi_gestalt_rust::__private::into_domain(o.extract_field("kpis")),
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            pivots: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("pivots"),
+            ),
+            report_type: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("reportType"),
             ),
-            subscription_id: pulumi_wasm_rust::__private::into_domain(
+            subscription_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("subscriptionId"),
             ),
-            timeframe: pulumi_wasm_rust::__private::into_domain(
+            timeframe: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("timeframe"),
             ),
         }

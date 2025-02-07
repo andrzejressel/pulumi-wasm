@@ -100,234 +100,236 @@
 /// ```
 ///
 pub mod pool {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct PoolArgs {
         /// Specifies the name of the Batch account in which the pool will be created. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub account_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub account_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// A `auto_scale` block that describes the scale settings when using auto scale as defined below.
         #[builder(into, default)]
-        pub auto_scale: pulumi_wasm_rust::InputOrOutput<
+        pub auto_scale: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::batch::PoolAutoScale>,
         >,
         /// One or more `certificate` blocks that describe the certificates to be installed on each compute node in the pool as defined below.
         #[builder(into, default)]
-        pub certificates: pulumi_wasm_rust::InputOrOutput<
+        pub certificates: pulumi_gestalt_rust::InputOrOutput<
             Option<Vec<super::super::types::batch::PoolCertificate>>,
         >,
         /// The container configuration used in the pool's VMs. One `container_configuration` block as defined below.
         #[builder(into, default)]
-        pub container_configuration: pulumi_wasm_rust::InputOrOutput<
+        pub container_configuration: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::batch::PoolContainerConfiguration>,
         >,
         /// A `data_disks` block describes the data disk settings as defined below.
         #[builder(into, default)]
-        pub data_disks: pulumi_wasm_rust::InputOrOutput<
+        pub data_disks: pulumi_gestalt_rust::InputOrOutput<
             Option<Vec<super::super::types::batch::PoolDataDisk>>,
         >,
         /// A `disk_encryption` block, as defined below, describes the disk encryption configuration applied on compute nodes in the pool. Disk encryption configuration is not supported on Linux pool created with Virtual Machine Image or Shared Image Gallery Image.
         #[builder(into, default)]
-        pub disk_encryptions: pulumi_wasm_rust::InputOrOutput<
+        pub disk_encryptions: pulumi_gestalt_rust::InputOrOutput<
             Option<Vec<super::super::types::batch::PoolDiskEncryption>>,
         >,
         /// Specifies the display name of the Batch pool. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub display_name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub display_name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// An `extensions` block as defined below.
         #[builder(into, default)]
-        pub extensions: pulumi_wasm_rust::InputOrOutput<
+        pub extensions: pulumi_gestalt_rust::InputOrOutput<
             Option<Vec<super::super::types::batch::PoolExtension>>,
         >,
         /// A `fixed_scale` block that describes the scale settings when using fixed scale as defined below.
         #[builder(into, default)]
-        pub fixed_scale: pulumi_wasm_rust::InputOrOutput<
+        pub fixed_scale: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::batch::PoolFixedScale>,
         >,
         /// An `identity` block as defined below.
         #[builder(into, default)]
-        pub identity: pulumi_wasm_rust::InputOrOutput<
+        pub identity: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::batch::PoolIdentity>,
         >,
         /// Whether the pool permits direct communication between nodes. This imposes restrictions on which nodes can be assigned to the pool. Enabling this value can reduce the chance of the requested number of nodes to be allocated in the pool. Values allowed are `Disabled` and `Enabled`. Defaults to `Enabled`.
         #[builder(into, default)]
-        pub inter_node_communication: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub inter_node_communication: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The type of on-premises license to be used when deploying the operating system. This only applies to images that contain the Windows operating system, and should only be used when you hold valid on-premises licenses for the nodes which will be deployed. If omitted, no on-premises licensing discount is applied. Values are: "Windows_Server" - The on-premises license is for Windows Server. "Windows_Client" - The on-premises license is for Windows Client.
         #[builder(into, default)]
-        pub license_type: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub license_type: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Specifies the maximum number of tasks that can run concurrently on a single compute node in the pool. Defaults to `1`. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub max_tasks_per_node: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
+        pub max_tasks_per_node: pulumi_gestalt_rust::InputOrOutput<Option<i32>>,
         /// A map of custom batch pool metadata.
         #[builder(into, default)]
-        pub metadata: pulumi_wasm_rust::InputOrOutput<
+        pub metadata: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// A `mount` block defined as below.
         #[builder(into, default)]
-        pub mounts: pulumi_wasm_rust::InputOrOutput<
+        pub mounts: pulumi_gestalt_rust::InputOrOutput<
             Option<Vec<super::super::types::batch::PoolMount>>,
         >,
         /// Specifies the name of the Batch pool. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// A `network_configuration` block that describes the network configurations for the Batch pool as defined below. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub network_configuration: pulumi_wasm_rust::InputOrOutput<
+        pub network_configuration: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::batch::PoolNetworkConfiguration>,
         >,
         /// Specifies the SKU of the node agents that will be created in the Batch pool. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub node_agent_sku_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub node_agent_sku_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// A `node_placement` block that describes the placement policy for allocating nodes in the pool as defined below.
         #[builder(into, default)]
-        pub node_placements: pulumi_wasm_rust::InputOrOutput<
+        pub node_placements: pulumi_gestalt_rust::InputOrOutput<
             Option<Vec<super::super::types::batch::PoolNodePlacement>>,
         >,
         /// Specifies the ephemeral disk placement for operating system disk for all VMs in the pool. This property can be used by user in the request to choose which location the operating system should be in. e.g., cache disk space for Ephemeral OS disk provisioning. For more information on Ephemeral OS disk size requirements, please refer to Ephemeral OS disk size requirements for Windows VMs at <https://docs.microsoft.com/en-us/azure/virtual-machines/windows/ephemeral-os-disks#size-requirements> and Linux VMs at <https://docs.microsoft.com/en-us/azure/virtual-machines/linux/ephemeral-os-disks#size-requirements>. The only possible value is `CacheDisk`.
         #[builder(into, default)]
-        pub os_disk_placement: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub os_disk_placement: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The name of the resource group in which to create the Batch pool. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub resource_group_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub resource_group_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// A `start_task` block that describes the start task settings for the Batch pool as defined below.
         #[builder(into, default)]
-        pub start_task: pulumi_wasm_rust::InputOrOutput<
+        pub start_task: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::batch::PoolStartTask>,
         >,
         /// Whether to stop if there is a pending resize operation on this pool.
         #[builder(into, default)]
-        pub stop_pending_resize_operation: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub stop_pending_resize_operation: pulumi_gestalt_rust::InputOrOutput<
+            Option<bool>,
+        >,
         /// A `storage_image_reference` block for the virtual machines that will compose the Batch pool as defined below. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub storage_image_reference: pulumi_wasm_rust::InputOrOutput<
+        pub storage_image_reference: pulumi_gestalt_rust::InputOrOutput<
             super::super::types::batch::PoolStorageImageReference,
         >,
         /// The desired node communication mode for the pool. Possible values are `Classic`, `Default` and `Simplified`.
         #[builder(into, default)]
-        pub target_node_communication_mode: pulumi_wasm_rust::InputOrOutput<
+        pub target_node_communication_mode: pulumi_gestalt_rust::InputOrOutput<
             Option<String>,
         >,
         /// A `task_scheduling_policy` block that describes how tasks are distributed across compute nodes in a pool as defined below. If not specified, the default is spread as defined below.
         #[builder(into, default)]
-        pub task_scheduling_policies: pulumi_wasm_rust::InputOrOutput<
+        pub task_scheduling_policies: pulumi_gestalt_rust::InputOrOutput<
             Option<Vec<super::super::types::batch::PoolTaskSchedulingPolicy>>,
         >,
         /// A `user_accounts` block that describes the list of user accounts to be created on each node in the pool as defined below.
         #[builder(into, default)]
-        pub user_accounts: pulumi_wasm_rust::InputOrOutput<
+        pub user_accounts: pulumi_gestalt_rust::InputOrOutput<
             Option<Vec<super::super::types::batch::PoolUserAccount>>,
         >,
         /// Specifies the size of the VM created in the Batch pool. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub vm_size: pulumi_wasm_rust::InputOrOutput<String>,
+        pub vm_size: pulumi_gestalt_rust::InputOrOutput<String>,
         /// A `windows` block that describes the Windows configuration in the pool as defined below.
         ///
         /// > **NOTE:** For Windows compute nodes, the Batch service installs the certificates to the specified certificate store and location. For Linux compute nodes, the certificates are stored in a directory inside the task working directory and an environment variable `AZ_BATCH_CERTIFICATES_DIR` is supplied to the task to query for this location. For certificates with visibility of `remoteUser`, a `certs` directory is created in the user's home directory (e.g., `/home/{user-name}/certs`) and certificates are placed in that directory.
         ///
         /// > **Please Note:** `fixed_scale` and `auto_scale` blocks cannot be used both at the same time.
         #[builder(into, default)]
-        pub windows: pulumi_wasm_rust::InputOrOutput<
+        pub windows: pulumi_gestalt_rust::InputOrOutput<
             Option<Vec<super::super::types::batch::PoolWindow>>,
         >,
     }
     #[allow(dead_code)]
     pub struct PoolResult {
         /// Specifies the name of the Batch account in which the pool will be created. Changing this forces a new resource to be created.
-        pub account_name: pulumi_wasm_rust::Output<String>,
+        pub account_name: pulumi_gestalt_rust::Output<String>,
         /// A `auto_scale` block that describes the scale settings when using auto scale as defined below.
-        pub auto_scale: pulumi_wasm_rust::Output<
+        pub auto_scale: pulumi_gestalt_rust::Output<
             Option<super::super::types::batch::PoolAutoScale>,
         >,
         /// One or more `certificate` blocks that describe the certificates to be installed on each compute node in the pool as defined below.
-        pub certificates: pulumi_wasm_rust::Output<
+        pub certificates: pulumi_gestalt_rust::Output<
             Option<Vec<super::super::types::batch::PoolCertificate>>,
         >,
         /// The container configuration used in the pool's VMs. One `container_configuration` block as defined below.
-        pub container_configuration: pulumi_wasm_rust::Output<
+        pub container_configuration: pulumi_gestalt_rust::Output<
             Option<super::super::types::batch::PoolContainerConfiguration>,
         >,
         /// A `data_disks` block describes the data disk settings as defined below.
-        pub data_disks: pulumi_wasm_rust::Output<
+        pub data_disks: pulumi_gestalt_rust::Output<
             Option<Vec<super::super::types::batch::PoolDataDisk>>,
         >,
         /// A `disk_encryption` block, as defined below, describes the disk encryption configuration applied on compute nodes in the pool. Disk encryption configuration is not supported on Linux pool created with Virtual Machine Image or Shared Image Gallery Image.
-        pub disk_encryptions: pulumi_wasm_rust::Output<
+        pub disk_encryptions: pulumi_gestalt_rust::Output<
             Option<Vec<super::super::types::batch::PoolDiskEncryption>>,
         >,
         /// Specifies the display name of the Batch pool. Changing this forces a new resource to be created.
-        pub display_name: pulumi_wasm_rust::Output<Option<String>>,
+        pub display_name: pulumi_gestalt_rust::Output<Option<String>>,
         /// An `extensions` block as defined below.
-        pub extensions: pulumi_wasm_rust::Output<
+        pub extensions: pulumi_gestalt_rust::Output<
             Option<Vec<super::super::types::batch::PoolExtension>>,
         >,
         /// A `fixed_scale` block that describes the scale settings when using fixed scale as defined below.
-        pub fixed_scale: pulumi_wasm_rust::Output<
+        pub fixed_scale: pulumi_gestalt_rust::Output<
             Option<super::super::types::batch::PoolFixedScale>,
         >,
         /// An `identity` block as defined below.
-        pub identity: pulumi_wasm_rust::Output<
+        pub identity: pulumi_gestalt_rust::Output<
             Option<super::super::types::batch::PoolIdentity>,
         >,
         /// Whether the pool permits direct communication between nodes. This imposes restrictions on which nodes can be assigned to the pool. Enabling this value can reduce the chance of the requested number of nodes to be allocated in the pool. Values allowed are `Disabled` and `Enabled`. Defaults to `Enabled`.
-        pub inter_node_communication: pulumi_wasm_rust::Output<Option<String>>,
+        pub inter_node_communication: pulumi_gestalt_rust::Output<Option<String>>,
         /// The type of on-premises license to be used when deploying the operating system. This only applies to images that contain the Windows operating system, and should only be used when you hold valid on-premises licenses for the nodes which will be deployed. If omitted, no on-premises licensing discount is applied. Values are: "Windows_Server" - The on-premises license is for Windows Server. "Windows_Client" - The on-premises license is for Windows Client.
-        pub license_type: pulumi_wasm_rust::Output<Option<String>>,
+        pub license_type: pulumi_gestalt_rust::Output<Option<String>>,
         /// Specifies the maximum number of tasks that can run concurrently on a single compute node in the pool. Defaults to `1`. Changing this forces a new resource to be created.
-        pub max_tasks_per_node: pulumi_wasm_rust::Output<Option<i32>>,
+        pub max_tasks_per_node: pulumi_gestalt_rust::Output<Option<i32>>,
         /// A map of custom batch pool metadata.
-        pub metadata: pulumi_wasm_rust::Output<
+        pub metadata: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// A `mount` block defined as below.
-        pub mounts: pulumi_wasm_rust::Output<
+        pub mounts: pulumi_gestalt_rust::Output<
             Option<Vec<super::super::types::batch::PoolMount>>,
         >,
         /// Specifies the name of the Batch pool. Changing this forces a new resource to be created.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// A `network_configuration` block that describes the network configurations for the Batch pool as defined below. Changing this forces a new resource to be created.
-        pub network_configuration: pulumi_wasm_rust::Output<
+        pub network_configuration: pulumi_gestalt_rust::Output<
             Option<super::super::types::batch::PoolNetworkConfiguration>,
         >,
         /// Specifies the SKU of the node agents that will be created in the Batch pool. Changing this forces a new resource to be created.
-        pub node_agent_sku_id: pulumi_wasm_rust::Output<String>,
+        pub node_agent_sku_id: pulumi_gestalt_rust::Output<String>,
         /// A `node_placement` block that describes the placement policy for allocating nodes in the pool as defined below.
-        pub node_placements: pulumi_wasm_rust::Output<
+        pub node_placements: pulumi_gestalt_rust::Output<
             Option<Vec<super::super::types::batch::PoolNodePlacement>>,
         >,
         /// Specifies the ephemeral disk placement for operating system disk for all VMs in the pool. This property can be used by user in the request to choose which location the operating system should be in. e.g., cache disk space for Ephemeral OS disk provisioning. For more information on Ephemeral OS disk size requirements, please refer to Ephemeral OS disk size requirements for Windows VMs at <https://docs.microsoft.com/en-us/azure/virtual-machines/windows/ephemeral-os-disks#size-requirements> and Linux VMs at <https://docs.microsoft.com/en-us/azure/virtual-machines/linux/ephemeral-os-disks#size-requirements>. The only possible value is `CacheDisk`.
-        pub os_disk_placement: pulumi_wasm_rust::Output<Option<String>>,
+        pub os_disk_placement: pulumi_gestalt_rust::Output<Option<String>>,
         /// The name of the resource group in which to create the Batch pool. Changing this forces a new resource to be created.
-        pub resource_group_name: pulumi_wasm_rust::Output<String>,
+        pub resource_group_name: pulumi_gestalt_rust::Output<String>,
         /// A `start_task` block that describes the start task settings for the Batch pool as defined below.
-        pub start_task: pulumi_wasm_rust::Output<
+        pub start_task: pulumi_gestalt_rust::Output<
             Option<super::super::types::batch::PoolStartTask>,
         >,
         /// Whether to stop if there is a pending resize operation on this pool.
-        pub stop_pending_resize_operation: pulumi_wasm_rust::Output<Option<bool>>,
+        pub stop_pending_resize_operation: pulumi_gestalt_rust::Output<Option<bool>>,
         /// A `storage_image_reference` block for the virtual machines that will compose the Batch pool as defined below. Changing this forces a new resource to be created.
-        pub storage_image_reference: pulumi_wasm_rust::Output<
+        pub storage_image_reference: pulumi_gestalt_rust::Output<
             super::super::types::batch::PoolStorageImageReference,
         >,
         /// The desired node communication mode for the pool. Possible values are `Classic`, `Default` and `Simplified`.
-        pub target_node_communication_mode: pulumi_wasm_rust::Output<Option<String>>,
+        pub target_node_communication_mode: pulumi_gestalt_rust::Output<Option<String>>,
         /// A `task_scheduling_policy` block that describes how tasks are distributed across compute nodes in a pool as defined below. If not specified, the default is spread as defined below.
-        pub task_scheduling_policies: pulumi_wasm_rust::Output<
+        pub task_scheduling_policies: pulumi_gestalt_rust::Output<
             Vec<super::super::types::batch::PoolTaskSchedulingPolicy>,
         >,
         /// A `user_accounts` block that describes the list of user accounts to be created on each node in the pool as defined below.
-        pub user_accounts: pulumi_wasm_rust::Output<
+        pub user_accounts: pulumi_gestalt_rust::Output<
             Option<Vec<super::super::types::batch::PoolUserAccount>>,
         >,
         /// Specifies the size of the VM created in the Batch pool. Changing this forces a new resource to be created.
-        pub vm_size: pulumi_wasm_rust::Output<String>,
+        pub vm_size: pulumi_gestalt_rust::Output<String>,
         /// A `windows` block that describes the Windows configuration in the pool as defined below.
         ///
         /// > **NOTE:** For Windows compute nodes, the Batch service installs the certificates to the specified certificate store and location. For Linux compute nodes, the certificates are stored in a directory inside the task working directory and an environment variable `AZ_BATCH_CERTIFICATES_DIR` is supplied to the task to query for this location. For certificates with visibility of `remoteUser`, a `certs` directory is created in the user's home directory (e.g., `/home/{user-name}/certs`) and certificates are placed in that directory.
         ///
         /// > **Please Note:** `fixed_scale` and `auto_scale` blocks cannot be used both at the same time.
-        pub windows: pulumi_wasm_rust::Output<
+        pub windows: pulumi_gestalt_rust::Output<
             Option<Vec<super::super::types::batch::PoolWindow>>,
         >,
     }
@@ -336,11 +338,11 @@ pub mod pool {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: PoolArgs,
     ) -> PoolResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let account_name_binding = args.account_name.get_output(context).get_inner();
         let auto_scale_binding = args.auto_scale.get_output(context).get_inner();
@@ -535,85 +537,91 @@ pub mod pool {
         };
         let o = register_interface::register(context.get_inner(), &request);
         PoolResult {
-            account_name: pulumi_wasm_rust::__private::into_domain(
+            account_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("accountName"),
             ),
-            auto_scale: pulumi_wasm_rust::__private::into_domain(
+            auto_scale: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("autoScale"),
             ),
-            certificates: pulumi_wasm_rust::__private::into_domain(
+            certificates: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("certificates"),
             ),
-            container_configuration: pulumi_wasm_rust::__private::into_domain(
+            container_configuration: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("containerConfiguration"),
             ),
-            data_disks: pulumi_wasm_rust::__private::into_domain(
+            data_disks: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("dataDisks"),
             ),
-            disk_encryptions: pulumi_wasm_rust::__private::into_domain(
+            disk_encryptions: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("diskEncryptions"),
             ),
-            display_name: pulumi_wasm_rust::__private::into_domain(
+            display_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("displayName"),
             ),
-            extensions: pulumi_wasm_rust::__private::into_domain(
+            extensions: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("extensions"),
             ),
-            fixed_scale: pulumi_wasm_rust::__private::into_domain(
+            fixed_scale: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("fixedScale"),
             ),
-            identity: pulumi_wasm_rust::__private::into_domain(
+            identity: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("identity"),
             ),
-            inter_node_communication: pulumi_wasm_rust::__private::into_domain(
+            inter_node_communication: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("interNodeCommunication"),
             ),
-            license_type: pulumi_wasm_rust::__private::into_domain(
+            license_type: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("licenseType"),
             ),
-            max_tasks_per_node: pulumi_wasm_rust::__private::into_domain(
+            max_tasks_per_node: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("maxTasksPerNode"),
             ),
-            metadata: pulumi_wasm_rust::__private::into_domain(
+            metadata: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("metadata"),
             ),
-            mounts: pulumi_wasm_rust::__private::into_domain(o.extract_field("mounts")),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            network_configuration: pulumi_wasm_rust::__private::into_domain(
+            mounts: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("mounts"),
+            ),
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            network_configuration: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("networkConfiguration"),
             ),
-            node_agent_sku_id: pulumi_wasm_rust::__private::into_domain(
+            node_agent_sku_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("nodeAgentSkuId"),
             ),
-            node_placements: pulumi_wasm_rust::__private::into_domain(
+            node_placements: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("nodePlacements"),
             ),
-            os_disk_placement: pulumi_wasm_rust::__private::into_domain(
+            os_disk_placement: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("osDiskPlacement"),
             ),
-            resource_group_name: pulumi_wasm_rust::__private::into_domain(
+            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("resourceGroupName"),
             ),
-            start_task: pulumi_wasm_rust::__private::into_domain(
+            start_task: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("startTask"),
             ),
-            stop_pending_resize_operation: pulumi_wasm_rust::__private::into_domain(
+            stop_pending_resize_operation: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("stopPendingResizeOperation"),
             ),
-            storage_image_reference: pulumi_wasm_rust::__private::into_domain(
+            storage_image_reference: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("storageImageReference"),
             ),
-            target_node_communication_mode: pulumi_wasm_rust::__private::into_domain(
+            target_node_communication_mode: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("targetNodeCommunicationMode"),
             ),
-            task_scheduling_policies: pulumi_wasm_rust::__private::into_domain(
+            task_scheduling_policies: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("taskSchedulingPolicies"),
             ),
-            user_accounts: pulumi_wasm_rust::__private::into_domain(
+            user_accounts: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("userAccounts"),
             ),
-            vm_size: pulumi_wasm_rust::__private::into_domain(o.extract_field("vmSize")),
-            windows: pulumi_wasm_rust::__private::into_domain(o.extract_field("windows")),
+            vm_size: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("vmSize"),
+            ),
+            windows: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("windows"),
+            ),
         }
     }
 }

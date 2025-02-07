@@ -104,7 +104,7 @@
 /// ```
 ///
 pub mod secret_version {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct SecretVersionArgs {
@@ -115,65 +115,65 @@ pub mod secret_version {
         /// * DISABLE
         /// * ABANDON
         #[builder(into, default)]
-        pub deletion_policy: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub deletion_policy: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The current state of the SecretVersion.
         #[builder(into, default)]
-        pub enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub enabled: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// If set to 'true', the secret data is expected to be base64-encoded string and would be sent as is.
         #[builder(into, default)]
-        pub is_secret_data_base64: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub is_secret_data_base64: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// Secret Manager secret resource
         ///
         ///
         /// - - -
         #[builder(into)]
-        pub secret: pulumi_wasm_rust::InputOrOutput<String>,
+        pub secret: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The secret data. Must be no larger than 64KiB.
         /// **Note**: This property is sensitive and will not be displayed in the plan.
         #[builder(into)]
-        pub secret_data: pulumi_wasm_rust::InputOrOutput<String>,
+        pub secret_data: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct SecretVersionResult {
         /// The time at which the Secret was created.
-        pub create_time: pulumi_wasm_rust::Output<String>,
+        pub create_time: pulumi_gestalt_rust::Output<String>,
         /// The deletion policy for the secret version. Setting `ABANDON` allows the resource
         /// to be abandoned rather than deleted. Setting `DISABLE` allows the resource to be
         /// disabled rather than deleted. Default is `DELETE`. Possible values are:
         /// * DELETE
         /// * DISABLE
         /// * ABANDON
-        pub deletion_policy: pulumi_wasm_rust::Output<Option<String>>,
+        pub deletion_policy: pulumi_gestalt_rust::Output<Option<String>>,
         /// The time at which the Secret was destroyed. Only present if state is DESTROYED.
-        pub destroy_time: pulumi_wasm_rust::Output<String>,
+        pub destroy_time: pulumi_gestalt_rust::Output<String>,
         /// The current state of the SecretVersion.
-        pub enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub enabled: pulumi_gestalt_rust::Output<Option<bool>>,
         /// If set to 'true', the secret data is expected to be base64-encoded string and would be sent as is.
-        pub is_secret_data_base64: pulumi_wasm_rust::Output<Option<bool>>,
+        pub is_secret_data_base64: pulumi_gestalt_rust::Output<Option<bool>>,
         /// The resource name of the SecretVersion. Format:
         /// `projects/{{project}}/secrets/{{secret_id}}/versions/{{version}}`
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// Secret Manager secret resource
         ///
         ///
         /// - - -
-        pub secret: pulumi_wasm_rust::Output<String>,
+        pub secret: pulumi_gestalt_rust::Output<String>,
         /// The secret data. Must be no larger than 64KiB.
         /// **Note**: This property is sensitive and will not be displayed in the plan.
-        pub secret_data: pulumi_wasm_rust::Output<String>,
+        pub secret_data: pulumi_gestalt_rust::Output<String>,
         /// The version of the Secret.
-        pub version: pulumi_wasm_rust::Output<String>,
+        pub version: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: SecretVersionArgs,
     ) -> SecretVersionResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let deletion_policy_binding = args
             .deletion_policy
@@ -215,27 +215,31 @@ pub mod secret_version {
         };
         let o = register_interface::register(context.get_inner(), &request);
         SecretVersionResult {
-            create_time: pulumi_wasm_rust::__private::into_domain(
+            create_time: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("createTime"),
             ),
-            deletion_policy: pulumi_wasm_rust::__private::into_domain(
+            deletion_policy: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("deletionPolicy"),
             ),
-            destroy_time: pulumi_wasm_rust::__private::into_domain(
+            destroy_time: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("destroyTime"),
             ),
-            enabled: pulumi_wasm_rust::__private::into_domain(
+            enabled: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("enabled"),
             ),
-            is_secret_data_base64: pulumi_wasm_rust::__private::into_domain(
+            is_secret_data_base64: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("isSecretDataBase64"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            secret: pulumi_wasm_rust::__private::into_domain(o.extract_field("secret")),
-            secret_data: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            secret: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("secret"),
+            ),
+            secret_data: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("secretData"),
             ),
-            version: pulumi_wasm_rust::__private::into_domain(o.extract_field("version")),
+            version: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("version"),
+            ),
         }
     }
 }

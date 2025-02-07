@@ -18,8 +18,8 @@
 ///
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let basicEntry = entry::create(
@@ -41,8 +41,8 @@
 ///
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let basicEntry = entry::create(
@@ -68,8 +68,8 @@
 ///
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let basicEntry = entry::create(
@@ -107,30 +107,30 @@
 /// ```
 ///
 pub mod entry {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct EntryArgs {
         /// Entry description, which can consist of several sentences or paragraphs that describe entry contents.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub description: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Display information such as title and description. A short name to identify the entry,
         /// for example, "Analytics Data - Jan 2011".
         #[builder(into, default)]
-        pub display_name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub display_name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The name of the entry group this entry is in.
         #[builder(into)]
-        pub entry_group: pulumi_wasm_rust::InputOrOutput<String>,
+        pub entry_group: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The id of the entry to create.
         ///
         ///
         /// - - -
         #[builder(into)]
-        pub entry_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub entry_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Specification that applies to a Cloud Storage fileset. This is only valid on entries of type FILESET.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub gcs_fileset_spec: pulumi_wasm_rust::InputOrOutput<
+        pub gcs_fileset_spec: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::datacatalog::EntryGcsFilesetSpec>,
         >,
         /// The resource this metadata entry refers to.
@@ -140,104 +140,104 @@ pub mod entry {
         /// Output only when Entry is of type in the EntryType enum. For entries with userSpecifiedType,
         /// this field is optional and defaults to an empty string.
         #[builder(into, default)]
-        pub linked_resource: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub linked_resource: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Schema of the entry (e.g. BigQuery, GoogleSQL, Avro schema), as a json string. An entry might not have any schema
         /// attached to it. See
         /// https://cloud.google.com/data-catalog/docs/reference/rest/v1/projects.locations.entryGroups.entries#schema
         /// for what fields this schema can contain.
         #[builder(into, default)]
-        pub schema: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub schema: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The type of the entry. Only used for Entries with types in the EntryType enum.
         /// Currently, only FILESET enum value is allowed. All other entries created through Data Catalog must use userSpecifiedType.
         /// Possible values are: `FILESET`.
         #[builder(into, default)]
-        pub type_: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub type_: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// This field indicates the entry's source system that Data Catalog does not integrate with.
         /// userSpecifiedSystem strings must begin with a letter or underscore and can only contain letters, numbers,
         /// and underscores; are case insensitive; must be at least 1 character and at most 64 characters long.
         #[builder(into, default)]
-        pub user_specified_system: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub user_specified_system: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Entry type if it does not fit any of the input-allowed values listed in EntryType enum above.
         /// When creating an entry, users should check the enum values first, if nothing matches the entry
         /// to be created, then provide a custom value, for example "my_special_type".
         /// userSpecifiedType strings must begin with a letter or underscore and can only contain letters,
         /// numbers, and underscores; are case insensitive; must be at least 1 character and at most 64 characters long.
         #[builder(into, default)]
-        pub user_specified_type: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub user_specified_type: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct EntryResult {
         /// Specification for a group of BigQuery tables with name pattern [prefix]YYYYMMDD.
         /// Context: https://cloud.google.com/bigquery/docs/partitioned-tables#partitioning_versus_sharding.
         /// Structure is documented below.
-        pub bigquery_date_sharded_specs: pulumi_wasm_rust::Output<
+        pub bigquery_date_sharded_specs: pulumi_gestalt_rust::Output<
             Vec<super::super::types::datacatalog::EntryBigqueryDateShardedSpec>,
         >,
         /// Specification that applies to a BigQuery table. This is only valid on entries of type TABLE.
         /// Structure is documented below.
-        pub bigquery_table_specs: pulumi_wasm_rust::Output<
+        pub bigquery_table_specs: pulumi_gestalt_rust::Output<
             Vec<super::super::types::datacatalog::EntryBigqueryTableSpec>,
         >,
         /// Entry description, which can consist of several sentences or paragraphs that describe entry contents.
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_gestalt_rust::Output<Option<String>>,
         /// Display information such as title and description. A short name to identify the entry,
         /// for example, "Analytics Data - Jan 2011".
-        pub display_name: pulumi_wasm_rust::Output<Option<String>>,
+        pub display_name: pulumi_gestalt_rust::Output<Option<String>>,
         /// The name of the entry group this entry is in.
-        pub entry_group: pulumi_wasm_rust::Output<String>,
+        pub entry_group: pulumi_gestalt_rust::Output<String>,
         /// The id of the entry to create.
         ///
         ///
         /// - - -
-        pub entry_id: pulumi_wasm_rust::Output<String>,
+        pub entry_id: pulumi_gestalt_rust::Output<String>,
         /// Specification that applies to a Cloud Storage fileset. This is only valid on entries of type FILESET.
         /// Structure is documented below.
-        pub gcs_fileset_spec: pulumi_wasm_rust::Output<
+        pub gcs_fileset_spec: pulumi_gestalt_rust::Output<
             Option<super::super::types::datacatalog::EntryGcsFilesetSpec>,
         >,
         /// This field indicates the entry's source system that Data Catalog integrates with, such as BigQuery or Pub/Sub.
-        pub integrated_system: pulumi_wasm_rust::Output<String>,
+        pub integrated_system: pulumi_gestalt_rust::Output<String>,
         /// The resource this metadata entry refers to.
         /// For Google Cloud Platform resources, linkedResource is the full name of the resource.
         /// For example, the linkedResource for a table resource from BigQuery is:
         /// //bigquery.googleapis.com/projects/projectId/datasets/datasetId/tables/tableId
         /// Output only when Entry is of type in the EntryType enum. For entries with userSpecifiedType,
         /// this field is optional and defaults to an empty string.
-        pub linked_resource: pulumi_wasm_rust::Output<String>,
+        pub linked_resource: pulumi_gestalt_rust::Output<String>,
         /// The Data Catalog resource name of the entry in URL format.
         /// Example: projects/{project_id}/locations/{location}/entryGroups/{entryGroupId}/entries/{entryId}.
         /// Note that this Entry and its child resources may not actually be stored in the location in this name.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// Schema of the entry (e.g. BigQuery, GoogleSQL, Avro schema), as a json string. An entry might not have any schema
         /// attached to it. See
         /// https://cloud.google.com/data-catalog/docs/reference/rest/v1/projects.locations.entryGroups.entries#schema
         /// for what fields this schema can contain.
-        pub schema: pulumi_wasm_rust::Output<Option<String>>,
+        pub schema: pulumi_gestalt_rust::Output<Option<String>>,
         /// The type of the entry. Only used for Entries with types in the EntryType enum.
         /// Currently, only FILESET enum value is allowed. All other entries created through Data Catalog must use userSpecifiedType.
         /// Possible values are: `FILESET`.
-        pub type_: pulumi_wasm_rust::Output<Option<String>>,
+        pub type_: pulumi_gestalt_rust::Output<Option<String>>,
         /// This field indicates the entry's source system that Data Catalog does not integrate with.
         /// userSpecifiedSystem strings must begin with a letter or underscore and can only contain letters, numbers,
         /// and underscores; are case insensitive; must be at least 1 character and at most 64 characters long.
-        pub user_specified_system: pulumi_wasm_rust::Output<Option<String>>,
+        pub user_specified_system: pulumi_gestalt_rust::Output<Option<String>>,
         /// Entry type if it does not fit any of the input-allowed values listed in EntryType enum above.
         /// When creating an entry, users should check the enum values first, if nothing matches the entry
         /// to be created, then provide a custom value, for example "my_special_type".
         /// userSpecifiedType strings must begin with a letter or underscore and can only contain letters,
         /// numbers, and underscores; are case insensitive; must be at least 1 character and at most 64 characters long.
-        pub user_specified_type: pulumi_wasm_rust::Output<Option<String>>,
+        pub user_specified_type: pulumi_gestalt_rust::Output<Option<String>>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: EntryArgs,
     ) -> EntryResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let description_binding = args.description.get_output(context).get_inner();
         let display_name_binding = args.display_name.get_output(context).get_inner();
@@ -310,40 +310,42 @@ pub mod entry {
         };
         let o = register_interface::register(context.get_inner(), &request);
         EntryResult {
-            bigquery_date_sharded_specs: pulumi_wasm_rust::__private::into_domain(
+            bigquery_date_sharded_specs: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("bigqueryDateShardedSpecs"),
             ),
-            bigquery_table_specs: pulumi_wasm_rust::__private::into_domain(
+            bigquery_table_specs: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("bigqueryTableSpecs"),
             ),
-            description: pulumi_wasm_rust::__private::into_domain(
+            description: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("description"),
             ),
-            display_name: pulumi_wasm_rust::__private::into_domain(
+            display_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("displayName"),
             ),
-            entry_group: pulumi_wasm_rust::__private::into_domain(
+            entry_group: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("entryGroup"),
             ),
-            entry_id: pulumi_wasm_rust::__private::into_domain(
+            entry_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("entryId"),
             ),
-            gcs_fileset_spec: pulumi_wasm_rust::__private::into_domain(
+            gcs_fileset_spec: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("gcsFilesetSpec"),
             ),
-            integrated_system: pulumi_wasm_rust::__private::into_domain(
+            integrated_system: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("integratedSystem"),
             ),
-            linked_resource: pulumi_wasm_rust::__private::into_domain(
+            linked_resource: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("linkedResource"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            schema: pulumi_wasm_rust::__private::into_domain(o.extract_field("schema")),
-            type_: pulumi_wasm_rust::__private::into_domain(o.extract_field("type")),
-            user_specified_system: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            schema: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("schema"),
+            ),
+            type_: pulumi_gestalt_rust::__private::into_domain(o.extract_field("type")),
+            user_specified_system: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("userSpecifiedSystem"),
             ),
-            user_specified_type: pulumi_wasm_rust::__private::into_domain(
+            user_specified_type: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("userSpecifiedType"),
             ),
         }

@@ -47,34 +47,34 @@
 /// $ pulumi import aws:directoryservice/logService:LogService msad d-1234567890
 /// ```
 pub mod log_service {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct LogServiceArgs {
         /// ID of directory.
         #[builder(into)]
-        pub directory_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub directory_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Name of the cloudwatch log group to which the logs should be published. The log group should be already created and the directory service principal should be provided with required permission to create stream and publish logs. Changing this value would delete the current subscription and create a new one. A directory can only have one log subscription at a time.
         #[builder(into)]
-        pub log_group_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub log_group_name: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct LogServiceResult {
         /// ID of directory.
-        pub directory_id: pulumi_wasm_rust::Output<String>,
+        pub directory_id: pulumi_gestalt_rust::Output<String>,
         /// Name of the cloudwatch log group to which the logs should be published. The log group should be already created and the directory service principal should be provided with required permission to create stream and publish logs. Changing this value would delete the current subscription and create a new one. A directory can only have one log subscription at a time.
-        pub log_group_name: pulumi_wasm_rust::Output<String>,
+        pub log_group_name: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: LogServiceArgs,
     ) -> LogServiceResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let directory_id_binding = args.directory_id.get_output(context).get_inner();
         let log_group_name_binding = args.log_group_name.get_output(context).get_inner();
@@ -95,10 +95,10 @@ pub mod log_service {
         };
         let o = register_interface::register(context.get_inner(), &request);
         LogServiceResult {
-            directory_id: pulumi_wasm_rust::__private::into_domain(
+            directory_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("directoryId"),
             ),
-            log_group_name: pulumi_wasm_rust::__private::into_domain(
+            log_group_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("logGroupName"),
             ),
         }

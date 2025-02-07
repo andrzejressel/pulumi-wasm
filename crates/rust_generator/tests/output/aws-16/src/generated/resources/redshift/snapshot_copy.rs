@@ -5,8 +5,8 @@
 /// ### Basic Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = snapshot_copy::create(
@@ -27,55 +27,55 @@
 /// $ pulumi import aws:redshift/snapshotCopy:SnapshotCopy example cluster-id-12345678
 /// ```
 pub mod snapshot_copy {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct SnapshotCopyArgs {
         /// Identifier of the source cluster.
         #[builder(into)]
-        pub cluster_identifier: pulumi_wasm_rust::InputOrOutput<String>,
+        pub cluster_identifier: pulumi_gestalt_rust::InputOrOutput<String>,
         /// AWS Region to copy snapshots to.
         ///
         /// The following arguments are optional:
         #[builder(into)]
-        pub destination_region: pulumi_wasm_rust::InputOrOutput<String>,
+        pub destination_region: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Number of days to retain newly copied snapshots in the destination AWS Region after they are copied from the source AWS Region. If the value is `-1`, the manual snapshot is retained indefinitely.
         #[builder(into, default)]
-        pub manual_snapshot_retention_period: pulumi_wasm_rust::InputOrOutput<
+        pub manual_snapshot_retention_period: pulumi_gestalt_rust::InputOrOutput<
             Option<i32>,
         >,
         /// Number of days to retain automated snapshots in the destination region after they are copied from the source region.
         #[builder(into, default)]
-        pub retention_period: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
+        pub retention_period: pulumi_gestalt_rust::InputOrOutput<Option<i32>>,
         /// Name of the snapshot copy grant to use when snapshots of an AWS KMS-encrypted cluster are copied to the destination region.
         #[builder(into, default)]
-        pub snapshot_copy_grant_name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub snapshot_copy_grant_name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct SnapshotCopyResult {
         /// Identifier of the source cluster.
-        pub cluster_identifier: pulumi_wasm_rust::Output<String>,
+        pub cluster_identifier: pulumi_gestalt_rust::Output<String>,
         /// AWS Region to copy snapshots to.
         ///
         /// The following arguments are optional:
-        pub destination_region: pulumi_wasm_rust::Output<String>,
+        pub destination_region: pulumi_gestalt_rust::Output<String>,
         /// Number of days to retain newly copied snapshots in the destination AWS Region after they are copied from the source AWS Region. If the value is `-1`, the manual snapshot is retained indefinitely.
-        pub manual_snapshot_retention_period: pulumi_wasm_rust::Output<i32>,
+        pub manual_snapshot_retention_period: pulumi_gestalt_rust::Output<i32>,
         /// Number of days to retain automated snapshots in the destination region after they are copied from the source region.
-        pub retention_period: pulumi_wasm_rust::Output<i32>,
+        pub retention_period: pulumi_gestalt_rust::Output<i32>,
         /// Name of the snapshot copy grant to use when snapshots of an AWS KMS-encrypted cluster are copied to the destination region.
-        pub snapshot_copy_grant_name: pulumi_wasm_rust::Output<Option<String>>,
+        pub snapshot_copy_grant_name: pulumi_gestalt_rust::Output<Option<String>>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: SnapshotCopyArgs,
     ) -> SnapshotCopyResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let cluster_identifier_binding = args
             .cluster_identifier
@@ -126,19 +126,19 @@ pub mod snapshot_copy {
         };
         let o = register_interface::register(context.get_inner(), &request);
         SnapshotCopyResult {
-            cluster_identifier: pulumi_wasm_rust::__private::into_domain(
+            cluster_identifier: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("clusterIdentifier"),
             ),
-            destination_region: pulumi_wasm_rust::__private::into_domain(
+            destination_region: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("destinationRegion"),
             ),
-            manual_snapshot_retention_period: pulumi_wasm_rust::__private::into_domain(
+            manual_snapshot_retention_period: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("manualSnapshotRetentionPeriod"),
             ),
-            retention_period: pulumi_wasm_rust::__private::into_domain(
+            retention_period: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("retentionPeriod"),
             ),
-            snapshot_copy_grant_name: pulumi_wasm_rust::__private::into_domain(
+            snapshot_copy_grant_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("snapshotCopyGrantName"),
             ),
         }

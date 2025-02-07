@@ -45,54 +45,54 @@
 /// ```
 ///
 pub mod channel_email {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ChannelEmailArgs {
         /// The name of the Bot Resource this channel will be associated with. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub bot_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub bot_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The email address that the Bot will authenticate with.
         #[builder(into)]
-        pub email_address: pulumi_wasm_rust::InputOrOutput<String>,
+        pub email_address: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The email password that the Bot will authenticate with.
         #[builder(into, default)]
-        pub email_password: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub email_password: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The supported Azure location where the resource exists. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub location: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub location: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The magic code used to set up OAUTH authentication.
         #[builder(into, default)]
-        pub magic_code: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub magic_code: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The name of the resource group in which to create the Bot Channel. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub resource_group_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub resource_group_name: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct ChannelEmailResult {
         /// The name of the Bot Resource this channel will be associated with. Changing this forces a new resource to be created.
-        pub bot_name: pulumi_wasm_rust::Output<String>,
+        pub bot_name: pulumi_gestalt_rust::Output<String>,
         /// The email address that the Bot will authenticate with.
-        pub email_address: pulumi_wasm_rust::Output<String>,
+        pub email_address: pulumi_gestalt_rust::Output<String>,
         /// The email password that the Bot will authenticate with.
-        pub email_password: pulumi_wasm_rust::Output<Option<String>>,
+        pub email_password: pulumi_gestalt_rust::Output<Option<String>>,
         /// The supported Azure location where the resource exists. Changing this forces a new resource to be created.
-        pub location: pulumi_wasm_rust::Output<String>,
+        pub location: pulumi_gestalt_rust::Output<String>,
         /// The magic code used to set up OAUTH authentication.
-        pub magic_code: pulumi_wasm_rust::Output<Option<String>>,
+        pub magic_code: pulumi_gestalt_rust::Output<Option<String>>,
         /// The name of the resource group in which to create the Bot Channel. Changing this forces a new resource to be created.
-        pub resource_group_name: pulumi_wasm_rust::Output<String>,
+        pub resource_group_name: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: ChannelEmailArgs,
     ) -> ChannelEmailResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let bot_name_binding = args.bot_name.get_output(context).get_inner();
         let email_address_binding = args.email_address.get_output(context).get_inner();
@@ -136,22 +136,22 @@ pub mod channel_email {
         };
         let o = register_interface::register(context.get_inner(), &request);
         ChannelEmailResult {
-            bot_name: pulumi_wasm_rust::__private::into_domain(
+            bot_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("botName"),
             ),
-            email_address: pulumi_wasm_rust::__private::into_domain(
+            email_address: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("emailAddress"),
             ),
-            email_password: pulumi_wasm_rust::__private::into_domain(
+            email_password: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("emailPassword"),
             ),
-            location: pulumi_wasm_rust::__private::into_domain(
+            location: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("location"),
             ),
-            magic_code: pulumi_wasm_rust::__private::into_domain(
+            magic_code: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("magicCode"),
             ),
-            resource_group_name: pulumi_wasm_rust::__private::into_domain(
+            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("resourceGroupName"),
             ),
         }

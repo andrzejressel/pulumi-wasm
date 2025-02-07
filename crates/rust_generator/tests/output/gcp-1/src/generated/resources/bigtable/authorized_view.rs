@@ -81,62 +81,62 @@
 /// ```
 ///
 pub mod authorized_view {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct AuthorizedViewArgs {
         #[builder(into, default)]
-        pub deletion_protection: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub deletion_protection: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The name of the Bigtable instance in which the authorized view belongs.
         #[builder(into)]
-        pub instance_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub instance_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The name of the authorized view. Must be 1-50 characters and must only contain hyphens, underscores, periods, letters and numbers.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The ID of the project in which the resource belongs. If it
         /// is not provided, the provider project is used.
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub project: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// An AuthorizedView permitting access to an explicit subset of a Table. Structure is documented below.
         ///
         /// -----
         #[builder(into, default)]
-        pub subset_view: pulumi_wasm_rust::InputOrOutput<
+        pub subset_view: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::bigtable::AuthorizedViewSubsetView>,
         >,
         /// The name of the Bigtable table in which the authorized view belongs.
         #[builder(into)]
-        pub table_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub table_name: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct AuthorizedViewResult {
-        pub deletion_protection: pulumi_wasm_rust::Output<String>,
+        pub deletion_protection: pulumi_gestalt_rust::Output<String>,
         /// The name of the Bigtable instance in which the authorized view belongs.
-        pub instance_name: pulumi_wasm_rust::Output<String>,
+        pub instance_name: pulumi_gestalt_rust::Output<String>,
         /// The name of the authorized view. Must be 1-50 characters and must only contain hyphens, underscores, periods, letters and numbers.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// The ID of the project in which the resource belongs. If it
         /// is not provided, the provider project is used.
-        pub project: pulumi_wasm_rust::Output<String>,
+        pub project: pulumi_gestalt_rust::Output<String>,
         /// An AuthorizedView permitting access to an explicit subset of a Table. Structure is documented below.
         ///
         /// -----
-        pub subset_view: pulumi_wasm_rust::Output<
+        pub subset_view: pulumi_gestalt_rust::Output<
             Option<super::super::types::bigtable::AuthorizedViewSubsetView>,
         >,
         /// The name of the Bigtable table in which the authorized view belongs.
-        pub table_name: pulumi_wasm_rust::Output<String>,
+        pub table_name: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: AuthorizedViewArgs,
     ) -> AuthorizedViewResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let deletion_protection_binding = args
             .deletion_protection
@@ -180,20 +180,20 @@ pub mod authorized_view {
         };
         let o = register_interface::register(context.get_inner(), &request);
         AuthorizedViewResult {
-            deletion_protection: pulumi_wasm_rust::__private::into_domain(
+            deletion_protection: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("deletionProtection"),
             ),
-            instance_name: pulumi_wasm_rust::__private::into_domain(
+            instance_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("instanceName"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            project: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            project: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("project"),
             ),
-            subset_view: pulumi_wasm_rust::__private::into_domain(
+            subset_view: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("subsetView"),
             ),
-            table_name: pulumi_wasm_rust::__private::into_domain(
+            table_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("tableName"),
             ),
         }

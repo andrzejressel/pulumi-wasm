@@ -61,98 +61,98 @@
 /// ```
 ///
 pub mod output_blob {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct OutputBlobArgs {
         /// The authentication mode for the Stream Output. Possible values are `Msi` and `ConnectionString`. Defaults to `ConnectionString`.
         #[builder(into, default)]
-        pub authentication_mode: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub authentication_mode: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The maximum wait time per batch in `hh:mm:ss` e.g. `00:02:00` for two minutes.
         #[builder(into, default)]
-        pub batch_max_wait_time: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub batch_max_wait_time: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The minimum number of rows per batch (must be between `0` and `1000000`).
         #[builder(into, default)]
-        pub batch_min_rows: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
+        pub batch_min_rows: pulumi_gestalt_rust::InputOrOutput<Option<i32>>,
         /// Determines whether blob blocks are either committed automatically or appended. Possible values are `Append` and `Once`. Defaults to `Append`.
         #[builder(into, default)]
-        pub blob_write_mode: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub blob_write_mode: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The date format. Wherever `{date}` appears in `path_pattern`, the value of this property is used as the date format instead.
         #[builder(into)]
-        pub date_format: pulumi_wasm_rust::InputOrOutput<String>,
+        pub date_format: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The name of the Stream Output. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The blob path pattern. Not a regular expression. It represents a pattern against which blob names will be matched to determine whether or not they should be included as input or output to the job.
         #[builder(into)]
-        pub path_pattern: pulumi_wasm_rust::InputOrOutput<String>,
+        pub path_pattern: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The name of the Resource Group where the Stream Analytics Job exists. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub resource_group_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub resource_group_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// A `serialization` block as defined below.
         #[builder(into)]
-        pub serialization: pulumi_wasm_rust::InputOrOutput<
+        pub serialization: pulumi_gestalt_rust::InputOrOutput<
             super::super::types::streamanalytics::OutputBlobSerialization,
         >,
         /// The Access Key which should be used to connect to this Storage Account.
         #[builder(into, default)]
-        pub storage_account_key: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub storage_account_key: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The name of the Storage Account.
         #[builder(into)]
-        pub storage_account_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub storage_account_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The name of the Container within the Storage Account.
         #[builder(into)]
-        pub storage_container_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub storage_container_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The name of the Stream Analytics Job. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub stream_analytics_job_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub stream_analytics_job_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The time format. Wherever `{time}` appears in `path_pattern`, the value of this property is used as the time format instead.
         #[builder(into)]
-        pub time_format: pulumi_wasm_rust::InputOrOutput<String>,
+        pub time_format: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct OutputBlobResult {
         /// The authentication mode for the Stream Output. Possible values are `Msi` and `ConnectionString`. Defaults to `ConnectionString`.
-        pub authentication_mode: pulumi_wasm_rust::Output<Option<String>>,
+        pub authentication_mode: pulumi_gestalt_rust::Output<Option<String>>,
         /// The maximum wait time per batch in `hh:mm:ss` e.g. `00:02:00` for two minutes.
-        pub batch_max_wait_time: pulumi_wasm_rust::Output<Option<String>>,
+        pub batch_max_wait_time: pulumi_gestalt_rust::Output<Option<String>>,
         /// The minimum number of rows per batch (must be between `0` and `1000000`).
-        pub batch_min_rows: pulumi_wasm_rust::Output<Option<i32>>,
+        pub batch_min_rows: pulumi_gestalt_rust::Output<Option<i32>>,
         /// Determines whether blob blocks are either committed automatically or appended. Possible values are `Append` and `Once`. Defaults to `Append`.
-        pub blob_write_mode: pulumi_wasm_rust::Output<Option<String>>,
+        pub blob_write_mode: pulumi_gestalt_rust::Output<Option<String>>,
         /// The date format. Wherever `{date}` appears in `path_pattern`, the value of this property is used as the date format instead.
-        pub date_format: pulumi_wasm_rust::Output<String>,
+        pub date_format: pulumi_gestalt_rust::Output<String>,
         /// The name of the Stream Output. Changing this forces a new resource to be created.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// The blob path pattern. Not a regular expression. It represents a pattern against which blob names will be matched to determine whether or not they should be included as input or output to the job.
-        pub path_pattern: pulumi_wasm_rust::Output<String>,
+        pub path_pattern: pulumi_gestalt_rust::Output<String>,
         /// The name of the Resource Group where the Stream Analytics Job exists. Changing this forces a new resource to be created.
-        pub resource_group_name: pulumi_wasm_rust::Output<String>,
+        pub resource_group_name: pulumi_gestalt_rust::Output<String>,
         /// A `serialization` block as defined below.
-        pub serialization: pulumi_wasm_rust::Output<
+        pub serialization: pulumi_gestalt_rust::Output<
             super::super::types::streamanalytics::OutputBlobSerialization,
         >,
         /// The Access Key which should be used to connect to this Storage Account.
-        pub storage_account_key: pulumi_wasm_rust::Output<Option<String>>,
+        pub storage_account_key: pulumi_gestalt_rust::Output<Option<String>>,
         /// The name of the Storage Account.
-        pub storage_account_name: pulumi_wasm_rust::Output<String>,
+        pub storage_account_name: pulumi_gestalt_rust::Output<String>,
         /// The name of the Container within the Storage Account.
-        pub storage_container_name: pulumi_wasm_rust::Output<String>,
+        pub storage_container_name: pulumi_gestalt_rust::Output<String>,
         /// The name of the Stream Analytics Job. Changing this forces a new resource to be created.
-        pub stream_analytics_job_name: pulumi_wasm_rust::Output<String>,
+        pub stream_analytics_job_name: pulumi_gestalt_rust::Output<String>,
         /// The time format. Wherever `{time}` appears in `path_pattern`, the value of this property is used as the time format instead.
-        pub time_format: pulumi_wasm_rust::Output<String>,
+        pub time_format: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: OutputBlobArgs,
     ) -> OutputBlobResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let authentication_mode_binding = args
             .authentication_mode
@@ -257,44 +257,44 @@ pub mod output_blob {
         };
         let o = register_interface::register(context.get_inner(), &request);
         OutputBlobResult {
-            authentication_mode: pulumi_wasm_rust::__private::into_domain(
+            authentication_mode: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("authenticationMode"),
             ),
-            batch_max_wait_time: pulumi_wasm_rust::__private::into_domain(
+            batch_max_wait_time: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("batchMaxWaitTime"),
             ),
-            batch_min_rows: pulumi_wasm_rust::__private::into_domain(
+            batch_min_rows: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("batchMinRows"),
             ),
-            blob_write_mode: pulumi_wasm_rust::__private::into_domain(
+            blob_write_mode: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("blobWriteMode"),
             ),
-            date_format: pulumi_wasm_rust::__private::into_domain(
+            date_format: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("dateFormat"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            path_pattern: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            path_pattern: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("pathPattern"),
             ),
-            resource_group_name: pulumi_wasm_rust::__private::into_domain(
+            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("resourceGroupName"),
             ),
-            serialization: pulumi_wasm_rust::__private::into_domain(
+            serialization: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("serialization"),
             ),
-            storage_account_key: pulumi_wasm_rust::__private::into_domain(
+            storage_account_key: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("storageAccountKey"),
             ),
-            storage_account_name: pulumi_wasm_rust::__private::into_domain(
+            storage_account_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("storageAccountName"),
             ),
-            storage_container_name: pulumi_wasm_rust::__private::into_domain(
+            storage_container_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("storageContainerName"),
             ),
-            stream_analytics_job_name: pulumi_wasm_rust::__private::into_domain(
+            stream_analytics_job_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("streamAnalyticsJobName"),
             ),
-            time_format: pulumi_wasm_rust::__private::into_domain(
+            time_format: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("timeFormat"),
             ),
         }

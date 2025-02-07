@@ -83,7 +83,7 @@
 /// ```
 ///
 pub mod target_ssl_proxy {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct TargetSSLProxyArgs {
@@ -92,15 +92,15 @@ pub mod target_ssl_proxy {
         ///
         /// - - -
         #[builder(into)]
-        pub backend_service: pulumi_wasm_rust::InputOrOutput<String>,
+        pub backend_service: pulumi_gestalt_rust::InputOrOutput<String>,
         /// A reference to the CertificateMap resource uri that identifies a certificate map
         /// associated with the given target proxy. This field can only be set for global target proxies.
         /// Accepted format is `//certificatemanager.googleapis.com/projects/{project}/locations/{location}/certificateMaps/{resourceName}`.
         #[builder(into, default)]
-        pub certificate_map: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub certificate_map: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// An optional description of this resource.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub description: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Name of the resource. Provided by the client when the resource is
         /// created. The name must be 1-63 characters long, and comply with
         /// RFC1035. Specifically, the name must be 1-63 characters long and match
@@ -109,27 +109,27 @@ pub mod target_ssl_proxy {
         /// characters must be a dash, lowercase letter, or digit, except the last
         /// character, which cannot be a dash.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub project: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Specifies the type of proxy header to append before sending data to
         /// the backend.
         /// Default value is `NONE`.
         /// Possible values are: `NONE`, `PROXY_V1`.
         #[builder(into, default)]
-        pub proxy_header: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub proxy_header: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// A list of SslCertificate resources that are used to authenticate
         /// connections between users and the load balancer. At least one
         /// SSL certificate must be specified.
         #[builder(into, default)]
-        pub ssl_certificates: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
+        pub ssl_certificates: pulumi_gestalt_rust::InputOrOutput<Option<Vec<String>>>,
         /// A reference to the SslPolicy resource that will be associated with
         /// the TargetSslProxy resource. If not set, the TargetSslProxy
         /// resource will not have any SSL policy configured.
         #[builder(into, default)]
-        pub ssl_policy: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub ssl_policy: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct TargetSSLProxyResult {
@@ -137,15 +137,15 @@ pub mod target_ssl_proxy {
         ///
         ///
         /// - - -
-        pub backend_service: pulumi_wasm_rust::Output<String>,
+        pub backend_service: pulumi_gestalt_rust::Output<String>,
         /// A reference to the CertificateMap resource uri that identifies a certificate map
         /// associated with the given target proxy. This field can only be set for global target proxies.
         /// Accepted format is `//certificatemanager.googleapis.com/projects/{project}/locations/{location}/certificateMaps/{resourceName}`.
-        pub certificate_map: pulumi_wasm_rust::Output<Option<String>>,
+        pub certificate_map: pulumi_gestalt_rust::Output<Option<String>>,
         /// Creation timestamp in RFC3339 text format.
-        pub creation_timestamp: pulumi_wasm_rust::Output<String>,
+        pub creation_timestamp: pulumi_gestalt_rust::Output<String>,
         /// An optional description of this resource.
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_gestalt_rust::Output<Option<String>>,
         /// Name of the resource. Provided by the client when the resource is
         /// created. The name must be 1-63 characters long, and comply with
         /// RFC1035. Specifically, the name must be 1-63 characters long and match
@@ -153,38 +153,38 @@ pub mod target_ssl_proxy {
         /// first character must be a lowercase letter, and all following
         /// characters must be a dash, lowercase letter, or digit, except the last
         /// character, which cannot be a dash.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
-        pub project: pulumi_wasm_rust::Output<String>,
+        pub project: pulumi_gestalt_rust::Output<String>,
         /// Specifies the type of proxy header to append before sending data to
         /// the backend.
         /// Default value is `NONE`.
         /// Possible values are: `NONE`, `PROXY_V1`.
-        pub proxy_header: pulumi_wasm_rust::Output<Option<String>>,
+        pub proxy_header: pulumi_gestalt_rust::Output<Option<String>>,
         /// The unique identifier for the resource.
-        pub proxy_id: pulumi_wasm_rust::Output<i32>,
+        pub proxy_id: pulumi_gestalt_rust::Output<i32>,
         /// The URI of the created resource.
-        pub self_link: pulumi_wasm_rust::Output<String>,
+        pub self_link: pulumi_gestalt_rust::Output<String>,
         /// A list of SslCertificate resources that are used to authenticate
         /// connections between users and the load balancer. At least one
         /// SSL certificate must be specified.
-        pub ssl_certificates: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub ssl_certificates: pulumi_gestalt_rust::Output<Option<Vec<String>>>,
         /// A reference to the SslPolicy resource that will be associated with
         /// the TargetSslProxy resource. If not set, the TargetSslProxy
         /// resource will not have any SSL policy configured.
-        pub ssl_policy: pulumi_wasm_rust::Output<Option<String>>,
+        pub ssl_policy: pulumi_gestalt_rust::Output<Option<String>>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: TargetSSLProxyArgs,
     ) -> TargetSSLProxyResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let backend_service_binding = args
             .backend_service
@@ -244,35 +244,35 @@ pub mod target_ssl_proxy {
         };
         let o = register_interface::register(context.get_inner(), &request);
         TargetSSLProxyResult {
-            backend_service: pulumi_wasm_rust::__private::into_domain(
+            backend_service: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("backendService"),
             ),
-            certificate_map: pulumi_wasm_rust::__private::into_domain(
+            certificate_map: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("certificateMap"),
             ),
-            creation_timestamp: pulumi_wasm_rust::__private::into_domain(
+            creation_timestamp: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("creationTimestamp"),
             ),
-            description: pulumi_wasm_rust::__private::into_domain(
+            description: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("description"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            project: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            project: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("project"),
             ),
-            proxy_header: pulumi_wasm_rust::__private::into_domain(
+            proxy_header: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("proxyHeader"),
             ),
-            proxy_id: pulumi_wasm_rust::__private::into_domain(
+            proxy_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("proxyId"),
             ),
-            self_link: pulumi_wasm_rust::__private::into_domain(
+            self_link: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("selfLink"),
             ),
-            ssl_certificates: pulumi_wasm_rust::__private::into_domain(
+            ssl_certificates: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("sslCertificates"),
             ),
-            ssl_policy: pulumi_wasm_rust::__private::into_domain(
+            ssl_policy: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("sslPolicy"),
             ),
         }

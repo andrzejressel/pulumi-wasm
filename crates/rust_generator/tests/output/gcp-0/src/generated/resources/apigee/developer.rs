@@ -160,76 +160,76 @@
 /// ```
 ///
 pub mod developer {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct DeveloperArgs {
         /// Developer attributes (name/value pairs). The custom attribute limit is 18.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub attributes: pulumi_wasm_rust::InputOrOutput<
+        pub attributes: pulumi_gestalt_rust::InputOrOutput<
             Option<Vec<super::super::types::apigee::DeveloperAttribute>>,
         >,
         /// Email address of the developer. This value is used to uniquely identify the developer in Apigee hybrid. Note that the email address has to be in lowercase only..
         #[builder(into)]
-        pub email: pulumi_wasm_rust::InputOrOutput<String>,
+        pub email: pulumi_gestalt_rust::InputOrOutput<String>,
         /// First name of the developer.
         #[builder(into)]
-        pub first_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub first_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Last name of the developer.
         #[builder(into)]
-        pub last_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub last_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The Apigee Organization associated with the Apigee instance,
         /// in the format `organizations/{{org_name}}`.
         ///
         ///
         /// - - -
         #[builder(into)]
-        pub org_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub org_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// User name of the developer. Not used by Apigee hybrid.
         #[builder(into)]
-        pub user_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub user_name: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct DeveloperResult {
         /// Developer attributes (name/value pairs). The custom attribute limit is 18.
         /// Structure is documented below.
-        pub attributes: pulumi_wasm_rust::Output<
+        pub attributes: pulumi_gestalt_rust::Output<
             Option<Vec<super::super::types::apigee::DeveloperAttribute>>,
         >,
         /// Time at which the developer was created in milliseconds since epoch.
-        pub created_at: pulumi_wasm_rust::Output<String>,
+        pub created_at: pulumi_gestalt_rust::Output<String>,
         /// Email address of the developer. This value is used to uniquely identify the developer in Apigee hybrid. Note that the email address has to be in lowercase only..
-        pub email: pulumi_wasm_rust::Output<String>,
+        pub email: pulumi_gestalt_rust::Output<String>,
         /// First name of the developer.
-        pub first_name: pulumi_wasm_rust::Output<String>,
+        pub first_name: pulumi_gestalt_rust::Output<String>,
         /// Time at which the developer was last modified in milliseconds since epoch.
-        pub last_modified_at: pulumi_wasm_rust::Output<String>,
+        pub last_modified_at: pulumi_gestalt_rust::Output<String>,
         /// Last name of the developer.
-        pub last_name: pulumi_wasm_rust::Output<String>,
+        pub last_name: pulumi_gestalt_rust::Output<String>,
         /// The Apigee Organization associated with the Apigee instance,
         /// in the format `organizations/{{org_name}}`.
         ///
         ///
         /// - - -
-        pub org_id: pulumi_wasm_rust::Output<String>,
+        pub org_id: pulumi_gestalt_rust::Output<String>,
         /// Name of the Apigee organization in which the developer resides.
-        pub organizatio_name: pulumi_wasm_rust::Output<String>,
+        pub organizatio_name: pulumi_gestalt_rust::Output<String>,
         /// Status of the developer. Valid values are active and inactive.
-        pub status: pulumi_wasm_rust::Output<String>,
+        pub status: pulumi_gestalt_rust::Output<String>,
         /// User name of the developer. Not used by Apigee hybrid.
-        pub user_name: pulumi_wasm_rust::Output<String>,
+        pub user_name: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: DeveloperArgs,
     ) -> DeveloperResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let attributes_binding = args.attributes.get_output(context).get_inner();
         let email_binding = args.email.get_output(context).get_inner();
@@ -270,28 +270,32 @@ pub mod developer {
         };
         let o = register_interface::register(context.get_inner(), &request);
         DeveloperResult {
-            attributes: pulumi_wasm_rust::__private::into_domain(
+            attributes: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("attributes"),
             ),
-            created_at: pulumi_wasm_rust::__private::into_domain(
+            created_at: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("createdAt"),
             ),
-            email: pulumi_wasm_rust::__private::into_domain(o.extract_field("email")),
-            first_name: pulumi_wasm_rust::__private::into_domain(
+            email: pulumi_gestalt_rust::__private::into_domain(o.extract_field("email")),
+            first_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("firstName"),
             ),
-            last_modified_at: pulumi_wasm_rust::__private::into_domain(
+            last_modified_at: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("lastModifiedAt"),
             ),
-            last_name: pulumi_wasm_rust::__private::into_domain(
+            last_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("lastName"),
             ),
-            org_id: pulumi_wasm_rust::__private::into_domain(o.extract_field("orgId")),
-            organizatio_name: pulumi_wasm_rust::__private::into_domain(
+            org_id: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("orgId"),
+            ),
+            organizatio_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("organizatioName"),
             ),
-            status: pulumi_wasm_rust::__private::into_domain(o.extract_field("status")),
-            user_name: pulumi_wasm_rust::__private::into_domain(
+            status: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("status"),
+            ),
+            user_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("userName"),
             ),
         }

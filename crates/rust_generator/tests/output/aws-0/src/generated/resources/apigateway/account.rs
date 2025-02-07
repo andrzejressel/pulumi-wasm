@@ -62,33 +62,33 @@
 /// $ pulumi import aws:apigateway/account:Account demo api-gateway-account
 /// ```
 pub mod account {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct AccountArgs {
         /// ARN of an IAM role for CloudWatch (to allow logging & monitoring). See more [in AWS Docs](https://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-stage-settings.html#how-to-stage-settings-console). Logging & monitoring can be enabled/disabled and otherwise tuned on the API Gateway Stage level.
         #[builder(into, default)]
-        pub cloudwatch_role_arn: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub cloudwatch_role_arn: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// If `true`, destroying the resource will reset account settings to default, otherwise account settings are not modified.
         /// Defaults to `false`.
         /// Will be removed in a future major version of the provider.
         #[builder(into, default)]
-        pub reset_on_delete: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub reset_on_delete: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
     }
     #[allow(dead_code)]
     pub struct AccountResult {
         /// The version of the API keys used for the account.
-        pub api_key_version: pulumi_wasm_rust::Output<String>,
+        pub api_key_version: pulumi_gestalt_rust::Output<String>,
         /// ARN of an IAM role for CloudWatch (to allow logging & monitoring). See more [in AWS Docs](https://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-stage-settings.html#how-to-stage-settings-console). Logging & monitoring can be enabled/disabled and otherwise tuned on the API Gateway Stage level.
-        pub cloudwatch_role_arn: pulumi_wasm_rust::Output<String>,
+        pub cloudwatch_role_arn: pulumi_gestalt_rust::Output<String>,
         /// A list of features supported for the account.
-        pub features: pulumi_wasm_rust::Output<Vec<String>>,
+        pub features: pulumi_gestalt_rust::Output<Vec<String>>,
         /// If `true`, destroying the resource will reset account settings to default, otherwise account settings are not modified.
         /// Defaults to `false`.
         /// Will be removed in a future major version of the provider.
-        pub reset_on_delete: pulumi_wasm_rust::Output<Option<bool>>,
+        pub reset_on_delete: pulumi_gestalt_rust::Output<Option<bool>>,
         /// Account-Level throttle settings. See exported fields below.
-        pub throttle_settings: pulumi_wasm_rust::Output<
+        pub throttle_settings: pulumi_gestalt_rust::Output<
             Vec<super::super::types::apigateway::AccountThrottleSetting>,
         >,
     }
@@ -97,11 +97,11 @@ pub mod account {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: AccountArgs,
     ) -> AccountResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let cloudwatch_role_arn_binding = args
             .cloudwatch_role_arn
@@ -128,19 +128,19 @@ pub mod account {
         };
         let o = register_interface::register(context.get_inner(), &request);
         AccountResult {
-            api_key_version: pulumi_wasm_rust::__private::into_domain(
+            api_key_version: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("apiKeyVersion"),
             ),
-            cloudwatch_role_arn: pulumi_wasm_rust::__private::into_domain(
+            cloudwatch_role_arn: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("cloudwatchRoleArn"),
             ),
-            features: pulumi_wasm_rust::__private::into_domain(
+            features: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("features"),
             ),
-            reset_on_delete: pulumi_wasm_rust::__private::into_domain(
+            reset_on_delete: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("resetOnDelete"),
             ),
-            throttle_settings: pulumi_wasm_rust::__private::into_domain(
+            throttle_settings: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("throttleSettings"),
             ),
         }

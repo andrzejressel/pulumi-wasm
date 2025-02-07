@@ -5,8 +5,8 @@
 /// ## Example Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = resource_group::create(
@@ -45,43 +45,43 @@
 /// ```
 ///
 pub mod table {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct TableArgs {
         /// One or more `acl` blocks as defined below.
         #[builder(into, default)]
-        pub acls: pulumi_wasm_rust::InputOrOutput<
+        pub acls: pulumi_gestalt_rust::InputOrOutput<
             Option<Vec<super::super::types::storage::TableAcl>>,
         >,
         /// The name of the storage table. Only Alphanumeric characters allowed, starting with a letter. Must be unique within the storage account the table is located. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Specifies the storage account in which to create the storage table. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub storage_account_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub storage_account_name: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct TableResult {
         /// One or more `acl` blocks as defined below.
-        pub acls: pulumi_wasm_rust::Output<
+        pub acls: pulumi_gestalt_rust::Output<
             Option<Vec<super::super::types::storage::TableAcl>>,
         >,
         /// The name of the storage table. Only Alphanumeric characters allowed, starting with a letter. Must be unique within the storage account the table is located. Changing this forces a new resource to be created.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// Specifies the storage account in which to create the storage table. Changing this forces a new resource to be created.
-        pub storage_account_name: pulumi_wasm_rust::Output<String>,
+        pub storage_account_name: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: TableArgs,
     ) -> TableResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let acls_binding = args.acls.get_output(context).get_inner();
         let name_binding = args.name.get_output(context).get_inner();
@@ -110,9 +110,9 @@ pub mod table {
         };
         let o = register_interface::register(context.get_inner(), &request);
         TableResult {
-            acls: pulumi_wasm_rust::__private::into_domain(o.extract_field("acls")),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            storage_account_name: pulumi_wasm_rust::__private::into_domain(
+            acls: pulumi_gestalt_rust::__private::into_domain(o.extract_field("acls")),
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            storage_account_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("storageAccountName"),
             ),
         }

@@ -13,8 +13,8 @@
 ///
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let environment = environment::create(
@@ -57,44 +57,44 @@
 /// ```
 ///
 pub mod environment {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct EnvironmentArgs {
         /// Use a container image to start the notebook instance.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub container_image: pulumi_wasm_rust::InputOrOutput<
+        pub container_image: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::notebooks::EnvironmentContainerImage>,
         >,
         /// A brief description of this environment.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub description: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Display name of this environment for the UI.
         #[builder(into, default)]
-        pub display_name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub display_name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// A reference to the zone where the machine resides.
         ///
         ///
         /// - - -
         #[builder(into)]
-        pub location: pulumi_wasm_rust::InputOrOutput<String>,
+        pub location: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The name specified for the Environment instance.
         /// Format: projects/{project_id}/locations/{location}/environments/{environmentId}
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Path to a Bash script that automatically runs after a notebook instance fully boots up.
         /// The path must be a URL or Cloud Storage path. Example: "gs://path-to-file/file-name"
         #[builder(into, default)]
-        pub post_startup_script: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub post_startup_script: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub project: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Use a Compute Engine VM image to start the notebook instance.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub vm_image: pulumi_wasm_rust::InputOrOutput<
+        pub vm_image: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::notebooks::EnvironmentVmImage>,
         >,
     }
@@ -102,32 +102,32 @@ pub mod environment {
     pub struct EnvironmentResult {
         /// Use a container image to start the notebook instance.
         /// Structure is documented below.
-        pub container_image: pulumi_wasm_rust::Output<
+        pub container_image: pulumi_gestalt_rust::Output<
             Option<super::super::types::notebooks::EnvironmentContainerImage>,
         >,
         /// Instance creation time
-        pub create_time: pulumi_wasm_rust::Output<String>,
+        pub create_time: pulumi_gestalt_rust::Output<String>,
         /// A brief description of this environment.
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_gestalt_rust::Output<Option<String>>,
         /// Display name of this environment for the UI.
-        pub display_name: pulumi_wasm_rust::Output<Option<String>>,
+        pub display_name: pulumi_gestalt_rust::Output<Option<String>>,
         /// A reference to the zone where the machine resides.
         ///
         ///
         /// - - -
-        pub location: pulumi_wasm_rust::Output<String>,
+        pub location: pulumi_gestalt_rust::Output<String>,
         /// The name specified for the Environment instance.
         /// Format: projects/{project_id}/locations/{location}/environments/{environmentId}
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// Path to a Bash script that automatically runs after a notebook instance fully boots up.
         /// The path must be a URL or Cloud Storage path. Example: "gs://path-to-file/file-name"
-        pub post_startup_script: pulumi_wasm_rust::Output<Option<String>>,
+        pub post_startup_script: pulumi_gestalt_rust::Output<Option<String>>,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
-        pub project: pulumi_wasm_rust::Output<String>,
+        pub project: pulumi_gestalt_rust::Output<String>,
         /// Use a Compute Engine VM image to start the notebook instance.
         /// Structure is documented below.
-        pub vm_image: pulumi_wasm_rust::Output<
+        pub vm_image: pulumi_gestalt_rust::Output<
             Option<super::super::types::notebooks::EnvironmentVmImage>,
         >,
     }
@@ -136,11 +136,11 @@ pub mod environment {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: EnvironmentArgs,
     ) -> EnvironmentResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let container_image_binding = args
             .container_image
@@ -197,29 +197,29 @@ pub mod environment {
         };
         let o = register_interface::register(context.get_inner(), &request);
         EnvironmentResult {
-            container_image: pulumi_wasm_rust::__private::into_domain(
+            container_image: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("containerImage"),
             ),
-            create_time: pulumi_wasm_rust::__private::into_domain(
+            create_time: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("createTime"),
             ),
-            description: pulumi_wasm_rust::__private::into_domain(
+            description: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("description"),
             ),
-            display_name: pulumi_wasm_rust::__private::into_domain(
+            display_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("displayName"),
             ),
-            location: pulumi_wasm_rust::__private::into_domain(
+            location: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("location"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            post_startup_script: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            post_startup_script: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("postStartupScript"),
             ),
-            project: pulumi_wasm_rust::__private::into_domain(
+            project: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("project"),
             ),
-            vm_image: pulumi_wasm_rust::__private::into_domain(
+            vm_image: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("vmImage"),
             ),
         }

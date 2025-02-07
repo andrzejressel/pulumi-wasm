@@ -69,7 +69,7 @@
 /// ```
 ///
 pub mod account_network_rules {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct AccountNetworkRulesArgs {
@@ -77,10 +77,10 @@ pub mod account_network_rules {
         ///
         /// > **NOTE** User has to explicitly set `bypass` to empty slice (`[]`) to remove it.
         #[builder(into, default)]
-        pub bypasses: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
+        pub bypasses: pulumi_gestalt_rust::InputOrOutput<Option<Vec<String>>>,
         /// Specifies the default action of allow or deny when no other rules match. Valid options are `Deny` or `Allow`.
         #[builder(into)]
-        pub default_action: pulumi_wasm_rust::InputOrOutput<String>,
+        pub default_action: pulumi_gestalt_rust::InputOrOutput<String>,
         /// List of public IP or IP ranges in CIDR Format. Only IPv4 addresses are allowed. Private IP address ranges (as defined in [RFC 1918](https://tools.ietf.org/html/rfc1918#section-3)) are not allowed.
         ///
         /// > **NOTE** Small address ranges using "/31" or "/32" prefix sizes are not supported. These ranges should be configured using individual IP address rules without prefix specified.
@@ -89,10 +89,10 @@ pub mod account_network_rules {
         ///
         /// > **NOTE** User has to explicitly set `ip_rules` to empty slice (`[]`) to remove it.
         #[builder(into, default)]
-        pub ip_rules: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
+        pub ip_rules: pulumi_gestalt_rust::InputOrOutput<Option<Vec<String>>>,
         /// One or more `private_link_access` block as defined below.
         #[builder(into, default)]
-        pub private_link_access_rules: pulumi_wasm_rust::InputOrOutput<
+        pub private_link_access_rules: pulumi_gestalt_rust::InputOrOutput<
             Option<
                 Vec<
                     super::super::types::storage::AccountNetworkRulesPrivateLinkAccessRule,
@@ -101,12 +101,12 @@ pub mod account_network_rules {
         >,
         /// Specifies the ID of the storage account. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub storage_account_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub storage_account_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// A list of virtual network subnet ids to secure the storage account.
         ///
         /// > **NOTE** User has to explicitly set `virtual_network_subnet_ids` to empty slice (`[]`) to remove it.
         #[builder(into, default)]
-        pub virtual_network_subnet_ids: pulumi_wasm_rust::InputOrOutput<
+        pub virtual_network_subnet_ids: pulumi_gestalt_rust::InputOrOutput<
             Option<Vec<String>>,
         >,
     }
@@ -115,9 +115,9 @@ pub mod account_network_rules {
         /// Specifies whether traffic is bypassed for Logging/Metrics/AzureServices. Valid options are any combination of `Logging`, `Metrics`, `AzureServices`, or `None`. Defaults to `["AzureServices"]`.
         ///
         /// > **NOTE** User has to explicitly set `bypass` to empty slice (`[]`) to remove it.
-        pub bypasses: pulumi_wasm_rust::Output<Vec<String>>,
+        pub bypasses: pulumi_gestalt_rust::Output<Vec<String>>,
         /// Specifies the default action of allow or deny when no other rules match. Valid options are `Deny` or `Allow`.
-        pub default_action: pulumi_wasm_rust::Output<String>,
+        pub default_action: pulumi_gestalt_rust::Output<String>,
         /// List of public IP or IP ranges in CIDR Format. Only IPv4 addresses are allowed. Private IP address ranges (as defined in [RFC 1918](https://tools.ietf.org/html/rfc1918#section-3)) are not allowed.
         ///
         /// > **NOTE** Small address ranges using "/31" or "/32" prefix sizes are not supported. These ranges should be configured using individual IP address rules without prefix specified.
@@ -125,9 +125,9 @@ pub mod account_network_rules {
         /// > **NOTE** IP network rules have no effect on requests originating from the same Azure region as the storage account. Use Virtual network rules to allow same-region requests. Services deployed in the same region as the storage account use private Azure IP addresses for communication. Thus, you cannot restrict access to specific Azure services based on their public outbound IP address range.
         ///
         /// > **NOTE** User has to explicitly set `ip_rules` to empty slice (`[]`) to remove it.
-        pub ip_rules: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub ip_rules: pulumi_gestalt_rust::Output<Option<Vec<String>>>,
         /// One or more `private_link_access` block as defined below.
-        pub private_link_access_rules: pulumi_wasm_rust::Output<
+        pub private_link_access_rules: pulumi_gestalt_rust::Output<
             Option<
                 Vec<
                     super::super::types::storage::AccountNetworkRulesPrivateLinkAccessRule,
@@ -135,22 +135,22 @@ pub mod account_network_rules {
             >,
         >,
         /// Specifies the ID of the storage account. Changing this forces a new resource to be created.
-        pub storage_account_id: pulumi_wasm_rust::Output<String>,
+        pub storage_account_id: pulumi_gestalt_rust::Output<String>,
         /// A list of virtual network subnet ids to secure the storage account.
         ///
         /// > **NOTE** User has to explicitly set `virtual_network_subnet_ids` to empty slice (`[]`) to remove it.
-        pub virtual_network_subnet_ids: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub virtual_network_subnet_ids: pulumi_gestalt_rust::Output<Option<Vec<String>>>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: AccountNetworkRulesArgs,
     ) -> AccountNetworkRulesResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let bypasses_binding = args.bypasses.get_output(context).get_inner();
         let default_action_binding = args.default_action.get_output(context).get_inner();
@@ -200,22 +200,22 @@ pub mod account_network_rules {
         };
         let o = register_interface::register(context.get_inner(), &request);
         AccountNetworkRulesResult {
-            bypasses: pulumi_wasm_rust::__private::into_domain(
+            bypasses: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("bypasses"),
             ),
-            default_action: pulumi_wasm_rust::__private::into_domain(
+            default_action: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("defaultAction"),
             ),
-            ip_rules: pulumi_wasm_rust::__private::into_domain(
+            ip_rules: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("ipRules"),
             ),
-            private_link_access_rules: pulumi_wasm_rust::__private::into_domain(
+            private_link_access_rules: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("privateLinkAccessRules"),
             ),
-            storage_account_id: pulumi_wasm_rust::__private::into_domain(
+            storage_account_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("storageAccountId"),
             ),
-            virtual_network_subnet_ids: pulumi_wasm_rust::__private::into_domain(
+            virtual_network_subnet_ids: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("virtualNetworkSubnetIds"),
             ),
         }

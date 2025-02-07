@@ -1,5 +1,5 @@
 pub mod get_secrets {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct GetSecretsArgs {
@@ -7,17 +7,17 @@ pub mod get_secrets {
         ///
         /// **NOTE:** The vault must be in the same subscription as the provider. If the vault is in another subscription, you must create an aliased provider for that subscription.
         #[builder(into)]
-        pub key_vault_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub key_vault_id: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct GetSecretsResult {
         /// The provider-assigned unique ID for this managed resource.
-        pub id: pulumi_wasm_rust::Output<String>,
-        pub key_vault_id: pulumi_wasm_rust::Output<String>,
+        pub id: pulumi_gestalt_rust::Output<String>,
+        pub key_vault_id: pulumi_gestalt_rust::Output<String>,
         /// List containing names of secrets that exist in this Key Vault.
-        pub names: pulumi_wasm_rust::Output<Vec<String>>,
+        pub names: pulumi_gestalt_rust::Output<Vec<String>>,
         /// One or more `secrets` blocks as defined below.
-        pub secrets: pulumi_wasm_rust::Output<
+        pub secrets: pulumi_gestalt_rust::Output<
             Vec<super::super::super::types::keyvault::GetSecretsSecret>,
         >,
     }
@@ -26,10 +26,10 @@ pub mod get_secrets {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         args: GetSecretsArgs,
     ) -> GetSecretsResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let key_vault_id_binding = args.key_vault_id.get_output(context).get_inner();
         let request = register_interface::ResourceInvokeRequest {
@@ -44,12 +44,14 @@ pub mod get_secrets {
         };
         let o = register_interface::invoke(context.get_inner(), &request);
         GetSecretsResult {
-            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
-            key_vault_id: pulumi_wasm_rust::__private::into_domain(
+            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
+            key_vault_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("keyVaultId"),
             ),
-            names: pulumi_wasm_rust::__private::into_domain(o.extract_field("names")),
-            secrets: pulumi_wasm_rust::__private::into_domain(o.extract_field("secrets")),
+            names: pulumi_gestalt_rust::__private::into_domain(o.extract_field("names")),
+            secrets: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("secrets"),
+            ),
         }
     }
 }

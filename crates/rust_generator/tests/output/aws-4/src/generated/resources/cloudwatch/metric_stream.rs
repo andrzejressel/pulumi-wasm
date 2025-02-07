@@ -123,8 +123,8 @@
 /// ### Additional Statistics
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let main = metric_stream::create(
@@ -160,99 +160,99 @@
 /// $ pulumi import aws:cloudwatch/metricStream:MetricStream sample sample-stream-name
 /// ```
 pub mod metric_stream {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct MetricStreamArgs {
         /// List of exclusive metric filters. If you specify this parameter, the stream sends metrics from all metric namespaces except for the namespaces and the conditional metric names that you specify here. If you don't specify metric names or provide empty metric names whole metric namespace is excluded. Conflicts with `include_filter`.
         #[builder(into, default)]
-        pub exclude_filters: pulumi_wasm_rust::InputOrOutput<
+        pub exclude_filters: pulumi_gestalt_rust::InputOrOutput<
             Option<Vec<super::super::types::cloudwatch::MetricStreamExcludeFilter>>,
         >,
         /// ARN of the Amazon Kinesis Firehose delivery stream to use for this metric stream.
         #[builder(into)]
-        pub firehose_arn: pulumi_wasm_rust::InputOrOutput<String>,
+        pub firehose_arn: pulumi_gestalt_rust::InputOrOutput<String>,
         /// List of inclusive metric filters. If you specify this parameter, the stream sends only the conditional metric names from the metric namespaces that you specify here. If you don't specify metric names or provide empty metric names whole metric namespace is included. Conflicts with `exclude_filter`.
         #[builder(into, default)]
-        pub include_filters: pulumi_wasm_rust::InputOrOutput<
+        pub include_filters: pulumi_gestalt_rust::InputOrOutput<
             Option<Vec<super::super::types::cloudwatch::MetricStreamIncludeFilter>>,
         >,
         /// If you are creating a metric stream in a monitoring account, specify true to include metrics from source accounts that are linked to this monitoring account, in the metric stream. The default is false. For more information about linking accounts, see [CloudWatch cross-account observability](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Unified-Cross-Account.html).
         #[builder(into, default)]
-        pub include_linked_accounts_metrics: pulumi_wasm_rust::InputOrOutput<
+        pub include_linked_accounts_metrics: pulumi_gestalt_rust::InputOrOutput<
             Option<bool>,
         >,
         /// Friendly name of the metric stream. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Creates a unique friendly name beginning with the specified prefix. Conflicts with `name`.
         #[builder(into, default)]
-        pub name_prefix: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name_prefix: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Output format for the stream. Possible values are `json`, `opentelemetry0.7`, and `opentelemetry1.0`. For more information about output formats, see [Metric streams output formats](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-metric-streams-formats.html).
         ///
         /// The following arguments are optional:
         #[builder(into)]
-        pub output_format: pulumi_wasm_rust::InputOrOutput<String>,
+        pub output_format: pulumi_gestalt_rust::InputOrOutput<String>,
         /// ARN of the IAM role that this metric stream will use to access Amazon Kinesis Firehose resources. For more information about role permissions, see [Trust between CloudWatch and Kinesis Data Firehose](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-metric-streams-trustpolicy.html).
         #[builder(into)]
-        pub role_arn: pulumi_wasm_rust::InputOrOutput<String>,
+        pub role_arn: pulumi_gestalt_rust::InputOrOutput<String>,
         /// For each entry in this array, you specify one or more metrics and the list of additional statistics to stream for those metrics. The additional statistics that you can stream depend on the stream's `output_format`. If the OutputFormat is `json`, you can stream any additional statistic that is supported by CloudWatch, listed in [CloudWatch statistics definitions](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Statistics-definitions.html.html). If the OutputFormat is `opentelemetry0.7` or `opentelemetry1.0`, you can stream percentile statistics (p99 etc.). See details below.
         #[builder(into, default)]
-        pub statistics_configurations: pulumi_wasm_rust::InputOrOutput<
+        pub statistics_configurations: pulumi_gestalt_rust::InputOrOutput<
             Option<
                 Vec<super::super::types::cloudwatch::MetricStreamStatisticsConfiguration>,
             >,
         >,
         /// Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
     #[allow(dead_code)]
     pub struct MetricStreamResult {
         /// ARN of the metric stream.
-        pub arn: pulumi_wasm_rust::Output<String>,
+        pub arn: pulumi_gestalt_rust::Output<String>,
         /// Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) that the metric stream was created.
-        pub creation_date: pulumi_wasm_rust::Output<String>,
+        pub creation_date: pulumi_gestalt_rust::Output<String>,
         /// List of exclusive metric filters. If you specify this parameter, the stream sends metrics from all metric namespaces except for the namespaces and the conditional metric names that you specify here. If you don't specify metric names or provide empty metric names whole metric namespace is excluded. Conflicts with `include_filter`.
-        pub exclude_filters: pulumi_wasm_rust::Output<
+        pub exclude_filters: pulumi_gestalt_rust::Output<
             Option<Vec<super::super::types::cloudwatch::MetricStreamExcludeFilter>>,
         >,
         /// ARN of the Amazon Kinesis Firehose delivery stream to use for this metric stream.
-        pub firehose_arn: pulumi_wasm_rust::Output<String>,
+        pub firehose_arn: pulumi_gestalt_rust::Output<String>,
         /// List of inclusive metric filters. If you specify this parameter, the stream sends only the conditional metric names from the metric namespaces that you specify here. If you don't specify metric names or provide empty metric names whole metric namespace is included. Conflicts with `exclude_filter`.
-        pub include_filters: pulumi_wasm_rust::Output<
+        pub include_filters: pulumi_gestalt_rust::Output<
             Option<Vec<super::super::types::cloudwatch::MetricStreamIncludeFilter>>,
         >,
         /// If you are creating a metric stream in a monitoring account, specify true to include metrics from source accounts that are linked to this monitoring account, in the metric stream. The default is false. For more information about linking accounts, see [CloudWatch cross-account observability](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Unified-Cross-Account.html).
-        pub include_linked_accounts_metrics: pulumi_wasm_rust::Output<Option<bool>>,
+        pub include_linked_accounts_metrics: pulumi_gestalt_rust::Output<Option<bool>>,
         /// Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) that the metric stream was last updated.
-        pub last_update_date: pulumi_wasm_rust::Output<String>,
+        pub last_update_date: pulumi_gestalt_rust::Output<String>,
         /// Friendly name of the metric stream. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// Creates a unique friendly name beginning with the specified prefix. Conflicts with `name`.
-        pub name_prefix: pulumi_wasm_rust::Output<String>,
+        pub name_prefix: pulumi_gestalt_rust::Output<String>,
         /// Output format for the stream. Possible values are `json`, `opentelemetry0.7`, and `opentelemetry1.0`. For more information about output formats, see [Metric streams output formats](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-metric-streams-formats.html).
         ///
         /// The following arguments are optional:
-        pub output_format: pulumi_wasm_rust::Output<String>,
+        pub output_format: pulumi_gestalt_rust::Output<String>,
         /// ARN of the IAM role that this metric stream will use to access Amazon Kinesis Firehose resources. For more information about role permissions, see [Trust between CloudWatch and Kinesis Data Firehose](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-metric-streams-trustpolicy.html).
-        pub role_arn: pulumi_wasm_rust::Output<String>,
+        pub role_arn: pulumi_gestalt_rust::Output<String>,
         /// State of the metric stream. Possible values are `running` and `stopped`.
-        pub state: pulumi_wasm_rust::Output<String>,
+        pub state: pulumi_gestalt_rust::Output<String>,
         /// For each entry in this array, you specify one or more metrics and the list of additional statistics to stream for those metrics. The additional statistics that you can stream depend on the stream's `output_format`. If the OutputFormat is `json`, you can stream any additional statistic that is supported by CloudWatch, listed in [CloudWatch statistics definitions](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Statistics-definitions.html.html). If the OutputFormat is `opentelemetry0.7` or `opentelemetry1.0`, you can stream percentile statistics (p99 etc.). See details below.
-        pub statistics_configurations: pulumi_wasm_rust::Output<
+        pub statistics_configurations: pulumi_gestalt_rust::Output<
             Option<
                 Vec<super::super::types::cloudwatch::MetricStreamStatisticsConfiguration>,
             >,
         >,
         /// Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        pub tags_all: pulumi_wasm_rust::Output<
+        pub tags_all: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
     }
@@ -261,11 +261,11 @@ pub mod metric_stream {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: MetricStreamArgs,
     ) -> MetricStreamResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let exclude_filters_binding = args
             .exclude_filters
@@ -338,41 +338,41 @@ pub mod metric_stream {
         };
         let o = register_interface::register(context.get_inner(), &request);
         MetricStreamResult {
-            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
-            creation_date: pulumi_wasm_rust::__private::into_domain(
+            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
+            creation_date: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("creationDate"),
             ),
-            exclude_filters: pulumi_wasm_rust::__private::into_domain(
+            exclude_filters: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("excludeFilters"),
             ),
-            firehose_arn: pulumi_wasm_rust::__private::into_domain(
+            firehose_arn: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("firehoseArn"),
             ),
-            include_filters: pulumi_wasm_rust::__private::into_domain(
+            include_filters: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("includeFilters"),
             ),
-            include_linked_accounts_metrics: pulumi_wasm_rust::__private::into_domain(
+            include_linked_accounts_metrics: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("includeLinkedAccountsMetrics"),
             ),
-            last_update_date: pulumi_wasm_rust::__private::into_domain(
+            last_update_date: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("lastUpdateDate"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            name_prefix: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            name_prefix: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("namePrefix"),
             ),
-            output_format: pulumi_wasm_rust::__private::into_domain(
+            output_format: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("outputFormat"),
             ),
-            role_arn: pulumi_wasm_rust::__private::into_domain(
+            role_arn: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("roleArn"),
             ),
-            state: pulumi_wasm_rust::__private::into_domain(o.extract_field("state")),
-            statistics_configurations: pulumi_wasm_rust::__private::into_domain(
+            state: pulumi_gestalt_rust::__private::into_domain(o.extract_field("state")),
+            statistics_configurations: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("statisticsConfigurations"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_wasm_rust::__private::into_domain(
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            tags_all: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("tagsAll"),
             ),
         }

@@ -32,46 +32,46 @@
 /// ```
 ///
 pub mod suppression {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct SuppressionArgs {
         /// The Name which should be used for this Advisor suppression. Changing this forces a new Advisor suppression to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The ID of the Advisor recommendation to suppress. Changing this forces a new Advisor suppression to be created.
         #[builder(into)]
-        pub recommendation_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub recommendation_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The ID of the Resource to suppress the Advisor recommendation for. Changing this forces a new Advisor suppression to be created.
         #[builder(into)]
-        pub resource_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub resource_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// A optional time to live value. If omitted, the suppression will not expire. Changing this forces a new Advisor suppression to be created.
         #[builder(into, default)]
-        pub ttl: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub ttl: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct SuppressionResult {
         /// The Name which should be used for this Advisor suppression. Changing this forces a new Advisor suppression to be created.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// The ID of the Advisor recommendation to suppress. Changing this forces a new Advisor suppression to be created.
-        pub recommendation_id: pulumi_wasm_rust::Output<String>,
+        pub recommendation_id: pulumi_gestalt_rust::Output<String>,
         /// The ID of the Resource to suppress the Advisor recommendation for. Changing this forces a new Advisor suppression to be created.
-        pub resource_id: pulumi_wasm_rust::Output<String>,
+        pub resource_id: pulumi_gestalt_rust::Output<String>,
         /// The GUID of the suppression.
-        pub suppression_id: pulumi_wasm_rust::Output<String>,
+        pub suppression_id: pulumi_gestalt_rust::Output<String>,
         /// A optional time to live value. If omitted, the suppression will not expire. Changing this forces a new Advisor suppression to be created.
-        pub ttl: pulumi_wasm_rust::Output<Option<String>>,
+        pub ttl: pulumi_gestalt_rust::Output<Option<String>>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: SuppressionArgs,
     ) -> SuppressionResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let name_binding = args.name.get_output(context).get_inner();
         let recommendation_id_binding = args
@@ -105,17 +105,17 @@ pub mod suppression {
         };
         let o = register_interface::register(context.get_inner(), &request);
         SuppressionResult {
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            recommendation_id: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            recommendation_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("recommendationId"),
             ),
-            resource_id: pulumi_wasm_rust::__private::into_domain(
+            resource_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("resourceId"),
             ),
-            suppression_id: pulumi_wasm_rust::__private::into_domain(
+            suppression_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("suppressionId"),
             ),
-            ttl: pulumi_wasm_rust::__private::into_domain(o.extract_field("ttl")),
+            ttl: pulumi_gestalt_rust::__private::into_domain(o.extract_field("ttl")),
         }
     }
 }

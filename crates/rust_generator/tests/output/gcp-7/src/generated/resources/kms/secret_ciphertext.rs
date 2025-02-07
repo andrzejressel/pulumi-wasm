@@ -61,14 +61,14 @@
 /// This resource does not support import.
 ///
 pub mod secret_ciphertext {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct SecretCiphertextArgs {
         /// The additional authenticated data used for integrity checks during encryption and decryption.
         /// **Note**: This property is sensitive and will not be displayed in the plan.
         #[builder(into, default)]
-        pub additional_authenticated_data: pulumi_wasm_rust::InputOrOutput<
+        pub additional_authenticated_data: pulumi_gestalt_rust::InputOrOutput<
             Option<String>,
         >,
         /// The full name of the CryptoKey that will be used to encrypt the provided plaintext.
@@ -77,39 +77,39 @@ pub mod secret_ciphertext {
         ///
         /// - - -
         #[builder(into)]
-        pub crypto_key: pulumi_wasm_rust::InputOrOutput<String>,
+        pub crypto_key: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The plaintext to be encrypted.
         /// **Note**: This property is sensitive and will not be displayed in the plan.
         #[builder(into)]
-        pub plaintext: pulumi_wasm_rust::InputOrOutput<String>,
+        pub plaintext: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct SecretCiphertextResult {
         /// The additional authenticated data used for integrity checks during encryption and decryption.
         /// **Note**: This property is sensitive and will not be displayed in the plan.
-        pub additional_authenticated_data: pulumi_wasm_rust::Output<Option<String>>,
+        pub additional_authenticated_data: pulumi_gestalt_rust::Output<Option<String>>,
         /// Contains the result of encrypting the provided plaintext, encoded in base64.
-        pub ciphertext: pulumi_wasm_rust::Output<String>,
+        pub ciphertext: pulumi_gestalt_rust::Output<String>,
         /// The full name of the CryptoKey that will be used to encrypt the provided plaintext.
         /// Format: `'projects/{{project}}/locations/{{location}}/keyRings/{{keyRing}}/cryptoKeys/{{cryptoKey}}'`
         ///
         ///
         /// - - -
-        pub crypto_key: pulumi_wasm_rust::Output<String>,
+        pub crypto_key: pulumi_gestalt_rust::Output<String>,
         /// The plaintext to be encrypted.
         /// **Note**: This property is sensitive and will not be displayed in the plan.
-        pub plaintext: pulumi_wasm_rust::Output<String>,
+        pub plaintext: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: SecretCiphertextArgs,
     ) -> SecretCiphertextResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let additional_authenticated_data_binding = args
             .additional_authenticated_data
@@ -138,16 +138,16 @@ pub mod secret_ciphertext {
         };
         let o = register_interface::register(context.get_inner(), &request);
         SecretCiphertextResult {
-            additional_authenticated_data: pulumi_wasm_rust::__private::into_domain(
+            additional_authenticated_data: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("additionalAuthenticatedData"),
             ),
-            ciphertext: pulumi_wasm_rust::__private::into_domain(
+            ciphertext: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("ciphertext"),
             ),
-            crypto_key: pulumi_wasm_rust::__private::into_domain(
+            crypto_key: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("cryptoKey"),
             ),
-            plaintext: pulumi_wasm_rust::__private::into_domain(
+            plaintext: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("plaintext"),
             ),
         }

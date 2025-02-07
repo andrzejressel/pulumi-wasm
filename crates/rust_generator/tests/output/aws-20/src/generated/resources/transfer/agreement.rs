@@ -5,8 +5,8 @@
 /// ### Basic
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = agreement::create(
@@ -31,58 +31,58 @@
 /// $ pulumi import aws:transfer/agreement:Agreement example s-4221a88afd5f4362a/a-4221a88afd5f4362a
 /// ```
 pub mod agreement {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct AgreementArgs {
         /// The IAM Role which provides read and write access to the parent directory of the file location mentioned in the StartFileTransfer request.
         #[builder(into)]
-        pub access_role: pulumi_wasm_rust::InputOrOutput<String>,
+        pub access_role: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The landing directory for the files transferred by using the AS2 protocol.
         #[builder(into)]
-        pub base_directory: pulumi_wasm_rust::InputOrOutput<String>,
+        pub base_directory: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The Optional description of the transdfer.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub description: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The unique identifier for the AS2 local profile.
         #[builder(into)]
-        pub local_profile_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub local_profile_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The unique identifier for the AS2 partner profile.
         #[builder(into)]
-        pub partner_profile_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub partner_profile_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The unique server identifier for the server instance. This is the specific server the agreement uses.
         #[builder(into)]
-        pub server_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub server_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
     #[allow(dead_code)]
     pub struct AgreementResult {
         /// The IAM Role which provides read and write access to the parent directory of the file location mentioned in the StartFileTransfer request.
-        pub access_role: pulumi_wasm_rust::Output<String>,
+        pub access_role: pulumi_gestalt_rust::Output<String>,
         /// The unique identifier for the AS2 agreement.
-        pub agreement_id: pulumi_wasm_rust::Output<String>,
+        pub agreement_id: pulumi_gestalt_rust::Output<String>,
         /// The ARN of the agreement.
-        pub arn: pulumi_wasm_rust::Output<String>,
+        pub arn: pulumi_gestalt_rust::Output<String>,
         /// The landing directory for the files transferred by using the AS2 protocol.
-        pub base_directory: pulumi_wasm_rust::Output<String>,
+        pub base_directory: pulumi_gestalt_rust::Output<String>,
         /// The Optional description of the transdfer.
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_gestalt_rust::Output<Option<String>>,
         /// The unique identifier for the AS2 local profile.
-        pub local_profile_id: pulumi_wasm_rust::Output<String>,
+        pub local_profile_id: pulumi_gestalt_rust::Output<String>,
         /// The unique identifier for the AS2 partner profile.
-        pub partner_profile_id: pulumi_wasm_rust::Output<String>,
+        pub partner_profile_id: pulumi_gestalt_rust::Output<String>,
         /// The unique server identifier for the server instance. This is the specific server the agreement uses.
-        pub server_id: pulumi_wasm_rust::Output<String>,
-        pub status: pulumi_wasm_rust::Output<String>,
+        pub server_id: pulumi_gestalt_rust::Output<String>,
+        pub status: pulumi_gestalt_rust::Output<String>,
         /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
-        pub tags_all: pulumi_wasm_rust::Output<
+        pub tags_all: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
     }
@@ -91,11 +91,11 @@ pub mod agreement {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: AgreementArgs,
     ) -> AgreementResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let access_role_binding = args.access_role.get_output(context).get_inner();
         let base_directory_binding = args.base_directory.get_output(context).get_inner();
@@ -147,31 +147,33 @@ pub mod agreement {
         };
         let o = register_interface::register(context.get_inner(), &request);
         AgreementResult {
-            access_role: pulumi_wasm_rust::__private::into_domain(
+            access_role: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("accessRole"),
             ),
-            agreement_id: pulumi_wasm_rust::__private::into_domain(
+            agreement_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("agreementId"),
             ),
-            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
-            base_directory: pulumi_wasm_rust::__private::into_domain(
+            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
+            base_directory: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("baseDirectory"),
             ),
-            description: pulumi_wasm_rust::__private::into_domain(
+            description: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("description"),
             ),
-            local_profile_id: pulumi_wasm_rust::__private::into_domain(
+            local_profile_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("localProfileId"),
             ),
-            partner_profile_id: pulumi_wasm_rust::__private::into_domain(
+            partner_profile_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("partnerProfileId"),
             ),
-            server_id: pulumi_wasm_rust::__private::into_domain(
+            server_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("serverId"),
             ),
-            status: pulumi_wasm_rust::__private::into_domain(o.extract_field("status")),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_wasm_rust::__private::into_domain(
+            status: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("status"),
+            ),
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            tags_all: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("tagsAll"),
             ),
         }

@@ -29,69 +29,69 @@
 /// $ pulumi import aws:rbin/rule:Rule example examplerule
 /// ```
 pub mod rule {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct RuleArgs {
         /// The retention rule description.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub description: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Information about the retention rule lock configuration. See `lock_configuration` below.
         #[builder(into, default)]
-        pub lock_configuration: pulumi_wasm_rust::InputOrOutput<
+        pub lock_configuration: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::rbin::RuleLockConfiguration>,
         >,
         /// Specifies the resource tags to use to identify resources that are to be retained by a tag-level retention rule. See `resource_tags` below.
         #[builder(into, default)]
-        pub resource_tags: pulumi_wasm_rust::InputOrOutput<
+        pub resource_tags: pulumi_gestalt_rust::InputOrOutput<
             Option<Vec<super::super::types::rbin::RuleResourceTag>>,
         >,
         /// The resource type to be retained by the retention rule. Valid values are `EBS_SNAPSHOT` and `EC2_IMAGE`.
         #[builder(into)]
-        pub resource_type: pulumi_wasm_rust::InputOrOutput<String>,
+        pub resource_type: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Information about the retention period for which the retention rule is to retain resources. See `retention_period` below.
         ///
         /// The following arguments are optional:
         #[builder(into)]
-        pub retention_period: pulumi_wasm_rust::InputOrOutput<
+        pub retention_period: pulumi_gestalt_rust::InputOrOutput<
             super::super::types::rbin::RuleRetentionPeriod,
         >,
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
     #[allow(dead_code)]
     pub struct RuleResult {
-        pub arn: pulumi_wasm_rust::Output<String>,
+        pub arn: pulumi_gestalt_rust::Output<String>,
         /// The retention rule description.
-        pub description: pulumi_wasm_rust::Output<String>,
+        pub description: pulumi_gestalt_rust::Output<String>,
         /// Information about the retention rule lock configuration. See `lock_configuration` below.
-        pub lock_configuration: pulumi_wasm_rust::Output<
+        pub lock_configuration: pulumi_gestalt_rust::Output<
             Option<super::super::types::rbin::RuleLockConfiguration>,
         >,
         /// (Timestamp) The date and time at which the unlock delay is set to expire. Only returned for retention rules that have been unlocked and that are still within the unlock delay period.
-        pub lock_end_time: pulumi_wasm_rust::Output<String>,
+        pub lock_end_time: pulumi_gestalt_rust::Output<String>,
         /// (Optional) The lock state of the retention rules to list. Only retention rules with the specified lock state are returned. Valid values are `locked`, `pending_unlock`, `unlocked`.
-        pub lock_state: pulumi_wasm_rust::Output<String>,
+        pub lock_state: pulumi_gestalt_rust::Output<String>,
         /// Specifies the resource tags to use to identify resources that are to be retained by a tag-level retention rule. See `resource_tags` below.
-        pub resource_tags: pulumi_wasm_rust::Output<
+        pub resource_tags: pulumi_gestalt_rust::Output<
             Vec<super::super::types::rbin::RuleResourceTag>,
         >,
         /// The resource type to be retained by the retention rule. Valid values are `EBS_SNAPSHOT` and `EC2_IMAGE`.
-        pub resource_type: pulumi_wasm_rust::Output<String>,
+        pub resource_type: pulumi_gestalt_rust::Output<String>,
         /// Information about the retention period for which the retention rule is to retain resources. See `retention_period` below.
         ///
         /// The following arguments are optional:
-        pub retention_period: pulumi_wasm_rust::Output<
+        pub retention_period: pulumi_gestalt_rust::Output<
             super::super::types::rbin::RuleRetentionPeriod,
         >,
         /// (String) The state of the retention rule. Only retention rules that are in the `available` state retain resources. Valid values include `pending` and `available`.
-        pub status: pulumi_wasm_rust::Output<String>,
-        pub tags: pulumi_wasm_rust::Output<
+        pub status: pulumi_gestalt_rust::Output<String>,
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
-        pub tags_all: pulumi_wasm_rust::Output<
+        pub tags_all: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
     }
@@ -100,11 +100,11 @@ pub mod rule {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: RuleArgs,
     ) -> RuleResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let description_binding = args.description.get_output(context).get_inner();
         let lock_configuration_binding = args
@@ -151,31 +151,33 @@ pub mod rule {
         };
         let o = register_interface::register(context.get_inner(), &request);
         RuleResult {
-            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
-            description: pulumi_wasm_rust::__private::into_domain(
+            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
+            description: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("description"),
             ),
-            lock_configuration: pulumi_wasm_rust::__private::into_domain(
+            lock_configuration: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("lockConfiguration"),
             ),
-            lock_end_time: pulumi_wasm_rust::__private::into_domain(
+            lock_end_time: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("lockEndTime"),
             ),
-            lock_state: pulumi_wasm_rust::__private::into_domain(
+            lock_state: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("lockState"),
             ),
-            resource_tags: pulumi_wasm_rust::__private::into_domain(
+            resource_tags: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("resourceTags"),
             ),
-            resource_type: pulumi_wasm_rust::__private::into_domain(
+            resource_type: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("resourceType"),
             ),
-            retention_period: pulumi_wasm_rust::__private::into_domain(
+            retention_period: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("retentionPeriod"),
             ),
-            status: pulumi_wasm_rust::__private::into_domain(o.extract_field("status")),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_wasm_rust::__private::into_domain(
+            status: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("status"),
+            ),
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            tags_all: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("tagsAll"),
             ),
         }

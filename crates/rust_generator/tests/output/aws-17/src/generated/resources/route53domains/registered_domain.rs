@@ -27,139 +27,139 @@
 /// $ pulumi import aws:route53domains/registeredDomain:RegisteredDomain example example.com
 /// ```
 pub mod registered_domain {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct RegisteredDomainArgs {
         /// Details about the domain administrative contact. See Contact Blocks for more details.
         #[builder(into, default)]
-        pub admin_contact: pulumi_wasm_rust::InputOrOutput<
+        pub admin_contact: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::route53domains::RegisteredDomainAdminContact>,
         >,
         /// Whether domain administrative contact information is concealed from WHOIS queries. Default: `true`.
         #[builder(into, default)]
-        pub admin_privacy: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub admin_privacy: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// Whether the domain registration is set to renew automatically. Default: `true`.
         #[builder(into, default)]
-        pub auto_renew: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub auto_renew: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// Details about the domain billing contact. See Contact Blocks for more details.
         #[builder(into, default)]
-        pub billing_contact: pulumi_wasm_rust::InputOrOutput<
+        pub billing_contact: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::route53domains::RegisteredDomainBillingContact>,
         >,
         /// Whether domain billing contact information is concealed from WHOIS queries. Default: `true`.
         #[builder(into, default)]
-        pub billing_privacy: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub billing_privacy: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// The name of the registered domain.
         #[builder(into)]
-        pub domain_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub domain_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The list of nameservers for the domain. See `name_server` Blocks for more details.
         #[builder(into, default)]
-        pub name_servers: pulumi_wasm_rust::InputOrOutput<
+        pub name_servers: pulumi_gestalt_rust::InputOrOutput<
             Option<Vec<super::super::types::route53domains::RegisteredDomainNameServer>>,
         >,
         /// Details about the domain registrant. See Contact Blocks for more details.
         #[builder(into, default)]
-        pub registrant_contact: pulumi_wasm_rust::InputOrOutput<
+        pub registrant_contact: pulumi_gestalt_rust::InputOrOutput<
             Option<
                 super::super::types::route53domains::RegisteredDomainRegistrantContact,
             >,
         >,
         /// Whether domain registrant contact information is concealed from WHOIS queries. Default: `true`.
         #[builder(into, default)]
-        pub registrant_privacy: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub registrant_privacy: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Details about the domain technical contact. See Contact Blocks for more details.
         #[builder(into, default)]
-        pub tech_contact: pulumi_wasm_rust::InputOrOutput<
+        pub tech_contact: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::route53domains::RegisteredDomainTechContact>,
         >,
         /// Whether domain technical contact information is concealed from WHOIS queries. Default: `true`.
         #[builder(into, default)]
-        pub tech_privacy: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub tech_privacy: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// Whether the domain is locked for transfer. Default: `true`.
         #[builder(into, default)]
-        pub transfer_lock: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub transfer_lock: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
     }
     #[allow(dead_code)]
     pub struct RegisteredDomainResult {
         /// Email address to contact to report incorrect contact information for a domain, to report that the domain is being used to send spam, to report that someone is cybersquatting on a domain name, or report some other type of abuse.
-        pub abuse_contact_email: pulumi_wasm_rust::Output<String>,
+        pub abuse_contact_email: pulumi_gestalt_rust::Output<String>,
         /// Phone number for reporting abuse.
-        pub abuse_contact_phone: pulumi_wasm_rust::Output<String>,
+        pub abuse_contact_phone: pulumi_gestalt_rust::Output<String>,
         /// Details about the domain administrative contact. See Contact Blocks for more details.
-        pub admin_contact: pulumi_wasm_rust::Output<
+        pub admin_contact: pulumi_gestalt_rust::Output<
             super::super::types::route53domains::RegisteredDomainAdminContact,
         >,
         /// Whether domain administrative contact information is concealed from WHOIS queries. Default: `true`.
-        pub admin_privacy: pulumi_wasm_rust::Output<Option<bool>>,
+        pub admin_privacy: pulumi_gestalt_rust::Output<Option<bool>>,
         /// Whether the domain registration is set to renew automatically. Default: `true`.
-        pub auto_renew: pulumi_wasm_rust::Output<Option<bool>>,
+        pub auto_renew: pulumi_gestalt_rust::Output<Option<bool>>,
         /// Details about the domain billing contact. See Contact Blocks for more details.
-        pub billing_contact: pulumi_wasm_rust::Output<
+        pub billing_contact: pulumi_gestalt_rust::Output<
             super::super::types::route53domains::RegisteredDomainBillingContact,
         >,
         /// Whether domain billing contact information is concealed from WHOIS queries. Default: `true`.
-        pub billing_privacy: pulumi_wasm_rust::Output<Option<bool>>,
+        pub billing_privacy: pulumi_gestalt_rust::Output<Option<bool>>,
         /// The date when the domain was created as found in the response to a WHOIS query.
-        pub creation_date: pulumi_wasm_rust::Output<String>,
+        pub creation_date: pulumi_gestalt_rust::Output<String>,
         /// The name of the registered domain.
-        pub domain_name: pulumi_wasm_rust::Output<String>,
+        pub domain_name: pulumi_gestalt_rust::Output<String>,
         /// The date when the registration for the domain is set to expire.
-        pub expiration_date: pulumi_wasm_rust::Output<String>,
+        pub expiration_date: pulumi_gestalt_rust::Output<String>,
         /// The list of nameservers for the domain. See `name_server` Blocks for more details.
-        pub name_servers: pulumi_wasm_rust::Output<
+        pub name_servers: pulumi_gestalt_rust::Output<
             Vec<super::super::types::route53domains::RegisteredDomainNameServer>,
         >,
         /// Details about the domain registrant. See Contact Blocks for more details.
-        pub registrant_contact: pulumi_wasm_rust::Output<
+        pub registrant_contact: pulumi_gestalt_rust::Output<
             super::super::types::route53domains::RegisteredDomainRegistrantContact,
         >,
         /// Whether domain registrant contact information is concealed from WHOIS queries. Default: `true`.
-        pub registrant_privacy: pulumi_wasm_rust::Output<Option<bool>>,
+        pub registrant_privacy: pulumi_gestalt_rust::Output<Option<bool>>,
         /// Name of the registrar of the domain as identified in the registry.
-        pub registrar_name: pulumi_wasm_rust::Output<String>,
+        pub registrar_name: pulumi_gestalt_rust::Output<String>,
         /// Web address of the registrar.
-        pub registrar_url: pulumi_wasm_rust::Output<String>,
+        pub registrar_url: pulumi_gestalt_rust::Output<String>,
         /// Reseller of the domain.
-        pub reseller: pulumi_wasm_rust::Output<String>,
+        pub reseller: pulumi_gestalt_rust::Output<String>,
         /// List of [domain name status codes](https://www.icann.org/resources/pages/epp-status-codes-2014-06-16-en).
-        pub status_lists: pulumi_wasm_rust::Output<Vec<String>>,
+        pub status_lists: pulumi_gestalt_rust::Output<Vec<String>>,
         /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        pub tags_all: pulumi_wasm_rust::Output<
+        pub tags_all: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
         /// Details about the domain technical contact. See Contact Blocks for more details.
-        pub tech_contact: pulumi_wasm_rust::Output<
+        pub tech_contact: pulumi_gestalt_rust::Output<
             super::super::types::route53domains::RegisteredDomainTechContact,
         >,
         /// Whether domain technical contact information is concealed from WHOIS queries. Default: `true`.
-        pub tech_privacy: pulumi_wasm_rust::Output<Option<bool>>,
+        pub tech_privacy: pulumi_gestalt_rust::Output<Option<bool>>,
         /// Whether the domain is locked for transfer. Default: `true`.
-        pub transfer_lock: pulumi_wasm_rust::Output<Option<bool>>,
+        pub transfer_lock: pulumi_gestalt_rust::Output<Option<bool>>,
         /// The last updated date of the domain as found in the response to a WHOIS query.
-        pub updated_date: pulumi_wasm_rust::Output<String>,
+        pub updated_date: pulumi_gestalt_rust::Output<String>,
         /// The fully qualified name of the WHOIS server that can answer the WHOIS query for the domain.
-        pub whois_server: pulumi_wasm_rust::Output<String>,
+        pub whois_server: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: RegisteredDomainArgs,
     ) -> RegisteredDomainResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let admin_contact_binding = args.admin_contact.get_output(context).get_inner();
         let admin_privacy_binding = args.admin_privacy.get_output(context).get_inner();
@@ -247,74 +247,74 @@ pub mod registered_domain {
         };
         let o = register_interface::register(context.get_inner(), &request);
         RegisteredDomainResult {
-            abuse_contact_email: pulumi_wasm_rust::__private::into_domain(
+            abuse_contact_email: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("abuseContactEmail"),
             ),
-            abuse_contact_phone: pulumi_wasm_rust::__private::into_domain(
+            abuse_contact_phone: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("abuseContactPhone"),
             ),
-            admin_contact: pulumi_wasm_rust::__private::into_domain(
+            admin_contact: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("adminContact"),
             ),
-            admin_privacy: pulumi_wasm_rust::__private::into_domain(
+            admin_privacy: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("adminPrivacy"),
             ),
-            auto_renew: pulumi_wasm_rust::__private::into_domain(
+            auto_renew: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("autoRenew"),
             ),
-            billing_contact: pulumi_wasm_rust::__private::into_domain(
+            billing_contact: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("billingContact"),
             ),
-            billing_privacy: pulumi_wasm_rust::__private::into_domain(
+            billing_privacy: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("billingPrivacy"),
             ),
-            creation_date: pulumi_wasm_rust::__private::into_domain(
+            creation_date: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("creationDate"),
             ),
-            domain_name: pulumi_wasm_rust::__private::into_domain(
+            domain_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("domainName"),
             ),
-            expiration_date: pulumi_wasm_rust::__private::into_domain(
+            expiration_date: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("expirationDate"),
             ),
-            name_servers: pulumi_wasm_rust::__private::into_domain(
+            name_servers: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("nameServers"),
             ),
-            registrant_contact: pulumi_wasm_rust::__private::into_domain(
+            registrant_contact: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("registrantContact"),
             ),
-            registrant_privacy: pulumi_wasm_rust::__private::into_domain(
+            registrant_privacy: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("registrantPrivacy"),
             ),
-            registrar_name: pulumi_wasm_rust::__private::into_domain(
+            registrar_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("registrarName"),
             ),
-            registrar_url: pulumi_wasm_rust::__private::into_domain(
+            registrar_url: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("registrarUrl"),
             ),
-            reseller: pulumi_wasm_rust::__private::into_domain(
+            reseller: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("reseller"),
             ),
-            status_lists: pulumi_wasm_rust::__private::into_domain(
+            status_lists: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("statusLists"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_wasm_rust::__private::into_domain(
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            tags_all: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("tagsAll"),
             ),
-            tech_contact: pulumi_wasm_rust::__private::into_domain(
+            tech_contact: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("techContact"),
             ),
-            tech_privacy: pulumi_wasm_rust::__private::into_domain(
+            tech_privacy: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("techPrivacy"),
             ),
-            transfer_lock: pulumi_wasm_rust::__private::into_domain(
+            transfer_lock: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("transferLock"),
             ),
-            updated_date: pulumi_wasm_rust::__private::into_domain(
+            updated_date: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("updatedDate"),
             ),
-            whois_server: pulumi_wasm_rust::__private::into_domain(
+            whois_server: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("whoisServer"),
             ),
         }

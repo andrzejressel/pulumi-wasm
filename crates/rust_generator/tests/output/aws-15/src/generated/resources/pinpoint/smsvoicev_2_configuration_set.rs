@@ -3,8 +3,8 @@
 /// ## Example Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = smsvoicev_2_configuration_set::create(
@@ -26,41 +26,41 @@
 /// $ pulumi import aws:pinpoint/smsvoicev2ConfigurationSet:Smsvoicev2ConfigurationSet example example-configuration-set
 /// ```
 pub mod smsvoicev_2_configuration_set {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct Smsvoicev2ConfigurationSetArgs {
         /// The default message type. Must either be "TRANSACTIONAL" or "PROMOTIONAL"
         #[builder(into, default)]
-        pub default_message_type: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub default_message_type: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The default sender ID to use for this configuration set.
         #[builder(into, default)]
-        pub default_sender_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub default_sender_id: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The name of the configuration set.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
     #[allow(dead_code)]
     pub struct Smsvoicev2ConfigurationSetResult {
         /// ARN of the configuration set.
-        pub arn: pulumi_wasm_rust::Output<String>,
+        pub arn: pulumi_gestalt_rust::Output<String>,
         /// The default message type. Must either be "TRANSACTIONAL" or "PROMOTIONAL"
-        pub default_message_type: pulumi_wasm_rust::Output<Option<String>>,
+        pub default_message_type: pulumi_gestalt_rust::Output<Option<String>>,
         /// The default sender ID to use for this configuration set.
-        pub default_sender_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub default_sender_id: pulumi_gestalt_rust::Output<Option<String>>,
         /// The name of the configuration set.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        pub tags_all: pulumi_wasm_rust::Output<
+        pub tags_all: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
     }
@@ -69,11 +69,11 @@ pub mod smsvoicev_2_configuration_set {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: Smsvoicev2ConfigurationSetArgs,
     ) -> Smsvoicev2ConfigurationSetResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let default_message_type_binding = args
             .default_message_type
@@ -111,16 +111,16 @@ pub mod smsvoicev_2_configuration_set {
         };
         let o = register_interface::register(context.get_inner(), &request);
         Smsvoicev2ConfigurationSetResult {
-            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
-            default_message_type: pulumi_wasm_rust::__private::into_domain(
+            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
+            default_message_type: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("defaultMessageType"),
             ),
-            default_sender_id: pulumi_wasm_rust::__private::into_domain(
+            default_sender_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("defaultSenderId"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            tags_all: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("tagsAll"),
             ),
         }

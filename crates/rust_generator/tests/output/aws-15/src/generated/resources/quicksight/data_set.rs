@@ -5,8 +5,8 @@
 /// ### Basic Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = data_set::create(
@@ -34,8 +34,8 @@
 /// ### With Column Level Permission Rules
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = data_set::create(
@@ -70,8 +70,8 @@
 /// ### With Field Folders
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = data_set::create(
@@ -106,8 +106,8 @@
 /// ### With Permissions
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = data_set::create(
@@ -144,8 +144,8 @@
 /// ### With Row Level Permission Tag Configuration
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = data_set::create(
@@ -190,151 +190,151 @@
 /// $ pulumi import aws:quicksight/dataSet:DataSet example 123456789012,example-id
 /// ```
 pub mod data_set {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct DataSetArgs {
         /// AWS account ID.
         #[builder(into, default)]
-        pub aws_account_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub aws_account_id: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Groupings of columns that work together in certain Amazon QuickSight features. Currently, only geospatial hierarchy is supported. See column_groups.
         #[builder(into, default)]
-        pub column_groups: pulumi_wasm_rust::InputOrOutput<
+        pub column_groups: pulumi_gestalt_rust::InputOrOutput<
             Option<Vec<super::super::types::quicksight::DataSetColumnGroup>>,
         >,
         /// A set of 1 or more definitions of a [ColumnLevelPermissionRule](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_ColumnLevelPermissionRule.html). See column_level_permission_rules.
         #[builder(into, default)]
-        pub column_level_permission_rules: pulumi_wasm_rust::InputOrOutput<
+        pub column_level_permission_rules: pulumi_gestalt_rust::InputOrOutput<
             Option<
                 Vec<super::super::types::quicksight::DataSetColumnLevelPermissionRule>,
             >,
         >,
         /// Identifier for the data set.
         #[builder(into)]
-        pub data_set_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub data_set_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The usage configuration to apply to child datasets that reference this dataset as a source. See data_set_usage_configuration.
         #[builder(into, default)]
-        pub data_set_usage_configuration: pulumi_wasm_rust::InputOrOutput<
+        pub data_set_usage_configuration: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::quicksight::DataSetDataSetUsageConfiguration>,
         >,
         /// The folder that contains fields and nested subfolders for your dataset. See field_folders.
         #[builder(into, default)]
-        pub field_folders: pulumi_wasm_rust::InputOrOutput<
+        pub field_folders: pulumi_gestalt_rust::InputOrOutput<
             Option<Vec<super::super::types::quicksight::DataSetFieldFolder>>,
         >,
         /// Indicates whether you want to import the data into SPICE. Valid values are `SPICE` and `DIRECT_QUERY`.
         #[builder(into)]
-        pub import_mode: pulumi_wasm_rust::InputOrOutput<String>,
+        pub import_mode: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Configures the combination and transformation of the data from the physical tables. Maximum of 1 entry. See logical_table_map.
         #[builder(into, default)]
-        pub logical_table_maps: pulumi_wasm_rust::InputOrOutput<
+        pub logical_table_maps: pulumi_gestalt_rust::InputOrOutput<
             Option<Vec<super::super::types::quicksight::DataSetLogicalTableMap>>,
         >,
         /// Display name for the dataset.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// A set of resource permissions on the data source. Maximum of 64 items. See permissions.
         #[builder(into, default)]
-        pub permissions: pulumi_wasm_rust::InputOrOutput<
+        pub permissions: pulumi_gestalt_rust::InputOrOutput<
             Option<Vec<super::super::types::quicksight::DataSetPermission>>,
         >,
         /// Declares the physical tables that are available in the underlying data sources. See physical_table_map.
         ///
         /// The following arguments are optional:
         #[builder(into, default)]
-        pub physical_table_maps: pulumi_wasm_rust::InputOrOutput<
+        pub physical_table_maps: pulumi_gestalt_rust::InputOrOutput<
             Option<Vec<super::super::types::quicksight::DataSetPhysicalTableMap>>,
         >,
         /// The refresh properties for the data set. **NOTE**: Only valid when `import_mode` is set to `SPICE`. See refresh_properties.
         #[builder(into, default)]
-        pub refresh_properties: pulumi_wasm_rust::InputOrOutput<
+        pub refresh_properties: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::quicksight::DataSetRefreshProperties>,
         >,
         /// The row-level security configuration for the data that you want to create. See row_level_permission_data_set.
         #[builder(into, default)]
-        pub row_level_permission_data_set: pulumi_wasm_rust::InputOrOutput<
+        pub row_level_permission_data_set: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::quicksight::DataSetRowLevelPermissionDataSet>,
         >,
         /// The configuration of tags on a dataset to set row-level security. Row-level security tags are currently supported for anonymous embedding only. See row_level_permission_tag_configuration.
         #[builder(into, default)]
-        pub row_level_permission_tag_configuration: pulumi_wasm_rust::InputOrOutput<
+        pub row_level_permission_tag_configuration: pulumi_gestalt_rust::InputOrOutput<
             Option<
                 super::super::types::quicksight::DataSetRowLevelPermissionTagConfiguration,
             >,
         >,
         /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
     #[allow(dead_code)]
     pub struct DataSetResult {
         /// Amazon Resource Name (ARN) of the data set.
-        pub arn: pulumi_wasm_rust::Output<String>,
+        pub arn: pulumi_gestalt_rust::Output<String>,
         /// AWS account ID.
-        pub aws_account_id: pulumi_wasm_rust::Output<String>,
+        pub aws_account_id: pulumi_gestalt_rust::Output<String>,
         /// Groupings of columns that work together in certain Amazon QuickSight features. Currently, only geospatial hierarchy is supported. See column_groups.
-        pub column_groups: pulumi_wasm_rust::Output<
+        pub column_groups: pulumi_gestalt_rust::Output<
             Option<Vec<super::super::types::quicksight::DataSetColumnGroup>>,
         >,
         /// A set of 1 or more definitions of a [ColumnLevelPermissionRule](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_ColumnLevelPermissionRule.html). See column_level_permission_rules.
-        pub column_level_permission_rules: pulumi_wasm_rust::Output<
+        pub column_level_permission_rules: pulumi_gestalt_rust::Output<
             Option<
                 Vec<super::super::types::quicksight::DataSetColumnLevelPermissionRule>,
             >,
         >,
         /// Identifier for the data set.
-        pub data_set_id: pulumi_wasm_rust::Output<String>,
+        pub data_set_id: pulumi_gestalt_rust::Output<String>,
         /// The usage configuration to apply to child datasets that reference this dataset as a source. See data_set_usage_configuration.
-        pub data_set_usage_configuration: pulumi_wasm_rust::Output<
+        pub data_set_usage_configuration: pulumi_gestalt_rust::Output<
             super::super::types::quicksight::DataSetDataSetUsageConfiguration,
         >,
         /// The folder that contains fields and nested subfolders for your dataset. See field_folders.
-        pub field_folders: pulumi_wasm_rust::Output<
+        pub field_folders: pulumi_gestalt_rust::Output<
             Option<Vec<super::super::types::quicksight::DataSetFieldFolder>>,
         >,
         /// Indicates whether you want to import the data into SPICE. Valid values are `SPICE` and `DIRECT_QUERY`.
-        pub import_mode: pulumi_wasm_rust::Output<String>,
+        pub import_mode: pulumi_gestalt_rust::Output<String>,
         /// Configures the combination and transformation of the data from the physical tables. Maximum of 1 entry. See logical_table_map.
-        pub logical_table_maps: pulumi_wasm_rust::Output<
+        pub logical_table_maps: pulumi_gestalt_rust::Output<
             Vec<super::super::types::quicksight::DataSetLogicalTableMap>,
         >,
         /// Display name for the dataset.
-        pub name: pulumi_wasm_rust::Output<String>,
-        pub output_columns: pulumi_wasm_rust::Output<
+        pub name: pulumi_gestalt_rust::Output<String>,
+        pub output_columns: pulumi_gestalt_rust::Output<
             Vec<super::super::types::quicksight::DataSetOutputColumn>,
         >,
         /// A set of resource permissions on the data source. Maximum of 64 items. See permissions.
-        pub permissions: pulumi_wasm_rust::Output<
+        pub permissions: pulumi_gestalt_rust::Output<
             Option<Vec<super::super::types::quicksight::DataSetPermission>>,
         >,
         /// Declares the physical tables that are available in the underlying data sources. See physical_table_map.
         ///
         /// The following arguments are optional:
-        pub physical_table_maps: pulumi_wasm_rust::Output<
+        pub physical_table_maps: pulumi_gestalt_rust::Output<
             Option<Vec<super::super::types::quicksight::DataSetPhysicalTableMap>>,
         >,
         /// The refresh properties for the data set. **NOTE**: Only valid when `import_mode` is set to `SPICE`. See refresh_properties.
-        pub refresh_properties: pulumi_wasm_rust::Output<
+        pub refresh_properties: pulumi_gestalt_rust::Output<
             Option<super::super::types::quicksight::DataSetRefreshProperties>,
         >,
         /// The row-level security configuration for the data that you want to create. See row_level_permission_data_set.
-        pub row_level_permission_data_set: pulumi_wasm_rust::Output<
+        pub row_level_permission_data_set: pulumi_gestalt_rust::Output<
             Option<super::super::types::quicksight::DataSetRowLevelPermissionDataSet>,
         >,
         /// The configuration of tags on a dataset to set row-level security. Row-level security tags are currently supported for anonymous embedding only. See row_level_permission_tag_configuration.
-        pub row_level_permission_tag_configuration: pulumi_wasm_rust::Output<
+        pub row_level_permission_tag_configuration: pulumi_gestalt_rust::Output<
             Option<
                 super::super::types::quicksight::DataSetRowLevelPermissionTagConfiguration,
             >,
         >,
         /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        pub tags_all: pulumi_wasm_rust::Output<
+        pub tags_all: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
     }
@@ -343,11 +343,11 @@ pub mod data_set {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: DataSetArgs,
     ) -> DataSetResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let aws_account_id_binding = args.aws_account_id.get_output(context).get_inner();
         let column_groups_binding = args.column_groups.get_output(context).get_inner();
@@ -454,52 +454,52 @@ pub mod data_set {
         };
         let o = register_interface::register(context.get_inner(), &request);
         DataSetResult {
-            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
-            aws_account_id: pulumi_wasm_rust::__private::into_domain(
+            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
+            aws_account_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("awsAccountId"),
             ),
-            column_groups: pulumi_wasm_rust::__private::into_domain(
+            column_groups: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("columnGroups"),
             ),
-            column_level_permission_rules: pulumi_wasm_rust::__private::into_domain(
+            column_level_permission_rules: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("columnLevelPermissionRules"),
             ),
-            data_set_id: pulumi_wasm_rust::__private::into_domain(
+            data_set_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("dataSetId"),
             ),
-            data_set_usage_configuration: pulumi_wasm_rust::__private::into_domain(
+            data_set_usage_configuration: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("dataSetUsageConfiguration"),
             ),
-            field_folders: pulumi_wasm_rust::__private::into_domain(
+            field_folders: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("fieldFolders"),
             ),
-            import_mode: pulumi_wasm_rust::__private::into_domain(
+            import_mode: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("importMode"),
             ),
-            logical_table_maps: pulumi_wasm_rust::__private::into_domain(
+            logical_table_maps: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("logicalTableMaps"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            output_columns: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            output_columns: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("outputColumns"),
             ),
-            permissions: pulumi_wasm_rust::__private::into_domain(
+            permissions: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("permissions"),
             ),
-            physical_table_maps: pulumi_wasm_rust::__private::into_domain(
+            physical_table_maps: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("physicalTableMaps"),
             ),
-            refresh_properties: pulumi_wasm_rust::__private::into_domain(
+            refresh_properties: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("refreshProperties"),
             ),
-            row_level_permission_data_set: pulumi_wasm_rust::__private::into_domain(
+            row_level_permission_data_set: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("rowLevelPermissionDataSet"),
             ),
-            row_level_permission_tag_configuration: pulumi_wasm_rust::__private::into_domain(
+            row_level_permission_tag_configuration: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("rowLevelPermissionTagConfiguration"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_wasm_rust::__private::into_domain(
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            tags_all: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("tagsAll"),
             ),
         }

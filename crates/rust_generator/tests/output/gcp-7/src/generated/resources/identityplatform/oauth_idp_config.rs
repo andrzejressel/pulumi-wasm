@@ -12,8 +12,8 @@
 ///
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let oauthIdpConfig = oauth_idp_config::create(
@@ -55,7 +55,7 @@
 /// ```
 ///
 pub mod oauth_idp_config {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct OauthIdpConfigArgs {
@@ -64,26 +64,26 @@ pub mod oauth_idp_config {
         ///
         /// - - -
         #[builder(into)]
-        pub client_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub client_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The client secret of the OAuth client, to enable OIDC code flow.
         #[builder(into, default)]
-        pub client_secret: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub client_secret: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Human friendly display name.
         #[builder(into, default)]
-        pub display_name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub display_name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// If this config allows users to sign in with the provider.
         #[builder(into, default)]
-        pub enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub enabled: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// For OIDC Idps, the issuer identifier.
         #[builder(into)]
-        pub issuer: pulumi_wasm_rust::InputOrOutput<String>,
+        pub issuer: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The name of the OauthIdpConfig. Must start with `oidc.`.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub project: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct OauthIdpConfigResult {
@@ -91,31 +91,31 @@ pub mod oauth_idp_config {
         ///
         ///
         /// - - -
-        pub client_id: pulumi_wasm_rust::Output<String>,
+        pub client_id: pulumi_gestalt_rust::Output<String>,
         /// The client secret of the OAuth client, to enable OIDC code flow.
-        pub client_secret: pulumi_wasm_rust::Output<Option<String>>,
+        pub client_secret: pulumi_gestalt_rust::Output<Option<String>>,
         /// Human friendly display name.
-        pub display_name: pulumi_wasm_rust::Output<Option<String>>,
+        pub display_name: pulumi_gestalt_rust::Output<Option<String>>,
         /// If this config allows users to sign in with the provider.
-        pub enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub enabled: pulumi_gestalt_rust::Output<Option<bool>>,
         /// For OIDC Idps, the issuer identifier.
-        pub issuer: pulumi_wasm_rust::Output<String>,
+        pub issuer: pulumi_gestalt_rust::Output<String>,
         /// The name of the OauthIdpConfig. Must start with `oidc.`.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
-        pub project: pulumi_wasm_rust::Output<String>,
+        pub project: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: OauthIdpConfigArgs,
     ) -> OauthIdpConfigResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let client_id_binding = args.client_id.get_output(context).get_inner();
         let client_secret_binding = args.client_secret.get_output(context).get_inner();
@@ -161,21 +161,25 @@ pub mod oauth_idp_config {
         };
         let o = register_interface::register(context.get_inner(), &request);
         OauthIdpConfigResult {
-            client_id: pulumi_wasm_rust::__private::into_domain(
+            client_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("clientId"),
             ),
-            client_secret: pulumi_wasm_rust::__private::into_domain(
+            client_secret: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("clientSecret"),
             ),
-            display_name: pulumi_wasm_rust::__private::into_domain(
+            display_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("displayName"),
             ),
-            enabled: pulumi_wasm_rust::__private::into_domain(
+            enabled: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("enabled"),
             ),
-            issuer: pulumi_wasm_rust::__private::into_domain(o.extract_field("issuer")),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            project: pulumi_wasm_rust::__private::into_domain(o.extract_field("project")),
+            issuer: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("issuer"),
+            ),
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            project: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("project"),
+            ),
         }
     }
 }

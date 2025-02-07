@@ -29,53 +29,53 @@
 /// $ pulumi import aws:imagebuilder/distributionConfiguration:DistributionConfiguration example arn:aws:imagebuilder:us-east-1:123456789012:distribution-configuration/example
 /// ```
 pub mod distribution_configuration {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct DistributionConfigurationArgs {
         /// Description of the distribution configuration.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub description: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// One or more configuration blocks with distribution settings. Detailed below.
         ///
         /// The following arguments are optional:
         #[builder(into)]
-        pub distributions: pulumi_wasm_rust::InputOrOutput<
+        pub distributions: pulumi_gestalt_rust::InputOrOutput<
             Vec<super::super::types::imagebuilder::DistributionConfigurationDistribution>,
         >,
         /// Name of the distribution configuration.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Key-value map of resource tags for the distribution configuration. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
     #[allow(dead_code)]
     pub struct DistributionConfigurationResult {
         /// (Required) Amazon Resource Name (ARN) of the distribution configuration.
-        pub arn: pulumi_wasm_rust::Output<String>,
+        pub arn: pulumi_gestalt_rust::Output<String>,
         /// Date the distribution configuration was created.
-        pub date_created: pulumi_wasm_rust::Output<String>,
+        pub date_created: pulumi_gestalt_rust::Output<String>,
         /// Date the distribution configuration was updated.
-        pub date_updated: pulumi_wasm_rust::Output<String>,
+        pub date_updated: pulumi_gestalt_rust::Output<String>,
         /// Description of the distribution configuration.
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_gestalt_rust::Output<Option<String>>,
         /// One or more configuration blocks with distribution settings. Detailed below.
         ///
         /// The following arguments are optional:
-        pub distributions: pulumi_wasm_rust::Output<
+        pub distributions: pulumi_gestalt_rust::Output<
             Vec<super::super::types::imagebuilder::DistributionConfigurationDistribution>,
         >,
         /// Name of the distribution configuration.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// Key-value map of resource tags for the distribution configuration. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        pub tags_all: pulumi_wasm_rust::Output<
+        pub tags_all: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
     }
@@ -84,11 +84,11 @@ pub mod distribution_configuration {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: DistributionConfigurationArgs,
     ) -> DistributionConfigurationResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let description_binding = args.description.get_output(context).get_inner();
         let distributions_binding = args.distributions.get_output(context).get_inner();
@@ -120,22 +120,22 @@ pub mod distribution_configuration {
         };
         let o = register_interface::register(context.get_inner(), &request);
         DistributionConfigurationResult {
-            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
-            date_created: pulumi_wasm_rust::__private::into_domain(
+            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
+            date_created: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("dateCreated"),
             ),
-            date_updated: pulumi_wasm_rust::__private::into_domain(
+            date_updated: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("dateUpdated"),
             ),
-            description: pulumi_wasm_rust::__private::into_domain(
+            description: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("description"),
             ),
-            distributions: pulumi_wasm_rust::__private::into_domain(
+            distributions: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("distributions"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            tags_all: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("tagsAll"),
             ),
         }

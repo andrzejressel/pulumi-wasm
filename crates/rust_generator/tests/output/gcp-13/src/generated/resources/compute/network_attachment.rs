@@ -13,8 +13,8 @@
 ///
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let acceptedProducerProject = project::create(
@@ -71,8 +71,8 @@
 ///
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let default = network::create(
@@ -160,93 +160,97 @@
 /// ```
 ///
 pub mod network_attachment {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct NetworkAttachmentArgs {
         /// The connection preference of service attachment. The value can be set to ACCEPT_AUTOMATIC. An ACCEPT_AUTOMATIC service attachment is one that always accepts the connection from consumer forwarding rules.
         /// Possible values are: `ACCEPT_AUTOMATIC`, `ACCEPT_MANUAL`, `INVALID`.
         #[builder(into)]
-        pub connection_preference: pulumi_wasm_rust::InputOrOutput<String>,
+        pub connection_preference: pulumi_gestalt_rust::InputOrOutput<String>,
         /// An optional description of this resource. Provide this property when you create the resource.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub description: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Name of the resource. Provided by the client when the resource is created. The name must be 1-63 characters long, and comply with RFC1035. Specifically, the name must be 1-63 characters long and match the regular expression a-z? which means the first character must be a lowercase letter, and all following characters must be a dash, lowercase letter, or digit, except the last character, which cannot be a dash.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Projects that are allowed to connect to this network attachment. The project can be specified using its id or number.
         #[builder(into, default)]
-        pub producer_accept_lists: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
+        pub producer_accept_lists: pulumi_gestalt_rust::InputOrOutput<
+            Option<Vec<String>>,
+        >,
         /// Projects that are not allowed to connect to this network attachment. The project can be specified using its id or number.
         #[builder(into, default)]
-        pub producer_reject_lists: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
+        pub producer_reject_lists: pulumi_gestalt_rust::InputOrOutput<
+            Option<Vec<String>>,
+        >,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub project: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// URL of the region where the network attachment resides. This field applies only to the region resource. You must specify this field as part of the HTTP request URL. It is not settable as a field in the request body.
         ///
         ///
         /// - - -
         #[builder(into, default)]
-        pub region: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub region: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// An array of URLs where each entry is the URL of a subnet provided by the service consumer to use for endpoints in the producers that connect to this network attachment.
         #[builder(into)]
-        pub subnetworks: pulumi_wasm_rust::InputOrOutput<Vec<String>>,
+        pub subnetworks: pulumi_gestalt_rust::InputOrOutput<Vec<String>>,
     }
     #[allow(dead_code)]
     pub struct NetworkAttachmentResult {
         /// An array of connections for all the producers connected to this network attachment.
         /// Structure is documented below.
-        pub connection_endpoints: pulumi_wasm_rust::Output<
+        pub connection_endpoints: pulumi_gestalt_rust::Output<
             Vec<super::super::types::compute::NetworkAttachmentConnectionEndpoint>,
         >,
         /// The connection preference of service attachment. The value can be set to ACCEPT_AUTOMATIC. An ACCEPT_AUTOMATIC service attachment is one that always accepts the connection from consumer forwarding rules.
         /// Possible values are: `ACCEPT_AUTOMATIC`, `ACCEPT_MANUAL`, `INVALID`.
-        pub connection_preference: pulumi_wasm_rust::Output<String>,
+        pub connection_preference: pulumi_gestalt_rust::Output<String>,
         /// Creation timestamp in RFC3339 text format.
-        pub creation_timestamp: pulumi_wasm_rust::Output<String>,
+        pub creation_timestamp: pulumi_gestalt_rust::Output<String>,
         /// An optional description of this resource. Provide this property when you create the resource.
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_gestalt_rust::Output<Option<String>>,
         /// Fingerprint of this resource. A hash of the contents stored in this object. This
         /// field is used in optimistic locking. An up-to-date fingerprint must be provided in order to patch.
-        pub fingerprint: pulumi_wasm_rust::Output<String>,
+        pub fingerprint: pulumi_gestalt_rust::Output<String>,
         /// Type of the resource.
-        pub kind: pulumi_wasm_rust::Output<String>,
+        pub kind: pulumi_gestalt_rust::Output<String>,
         /// Name of the resource. Provided by the client when the resource is created. The name must be 1-63 characters long, and comply with RFC1035. Specifically, the name must be 1-63 characters long and match the regular expression a-z? which means the first character must be a lowercase letter, and all following characters must be a dash, lowercase letter, or digit, except the last character, which cannot be a dash.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// The URL of the network which the Network Attachment belongs to. Practically it is inferred by fetching the network of the first subnetwork associated.
         /// Because it is required that all the subnetworks must be from the same network, it is assured that the Network Attachment belongs to the same network as all the subnetworks.
-        pub network: pulumi_wasm_rust::Output<String>,
+        pub network: pulumi_gestalt_rust::Output<String>,
         /// Projects that are allowed to connect to this network attachment. The project can be specified using its id or number.
-        pub producer_accept_lists: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub producer_accept_lists: pulumi_gestalt_rust::Output<Option<Vec<String>>>,
         /// Projects that are not allowed to connect to this network attachment. The project can be specified using its id or number.
-        pub producer_reject_lists: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub producer_reject_lists: pulumi_gestalt_rust::Output<Option<Vec<String>>>,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
-        pub project: pulumi_wasm_rust::Output<String>,
+        pub project: pulumi_gestalt_rust::Output<String>,
         /// URL of the region where the network attachment resides. This field applies only to the region resource. You must specify this field as part of the HTTP request URL. It is not settable as a field in the request body.
         ///
         ///
         /// - - -
-        pub region: pulumi_wasm_rust::Output<String>,
+        pub region: pulumi_gestalt_rust::Output<String>,
         /// Server-defined URL for the resource.
-        pub self_link: pulumi_wasm_rust::Output<String>,
+        pub self_link: pulumi_gestalt_rust::Output<String>,
         /// Server-defined URL for this resource's resource id.
-        pub self_link_with_id: pulumi_wasm_rust::Output<String>,
+        pub self_link_with_id: pulumi_gestalt_rust::Output<String>,
         /// An array of URLs where each entry is the URL of a subnet provided by the service consumer to use for endpoints in the producers that connect to this network attachment.
-        pub subnetworks: pulumi_wasm_rust::Output<Vec<String>>,
+        pub subnetworks: pulumi_gestalt_rust::Output<Vec<String>>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: NetworkAttachmentArgs,
     ) -> NetworkAttachmentResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let connection_preference_binding = args
             .connection_preference
@@ -306,43 +310,45 @@ pub mod network_attachment {
         };
         let o = register_interface::register(context.get_inner(), &request);
         NetworkAttachmentResult {
-            connection_endpoints: pulumi_wasm_rust::__private::into_domain(
+            connection_endpoints: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("connectionEndpoints"),
             ),
-            connection_preference: pulumi_wasm_rust::__private::into_domain(
+            connection_preference: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("connectionPreference"),
             ),
-            creation_timestamp: pulumi_wasm_rust::__private::into_domain(
+            creation_timestamp: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("creationTimestamp"),
             ),
-            description: pulumi_wasm_rust::__private::into_domain(
+            description: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("description"),
             ),
-            fingerprint: pulumi_wasm_rust::__private::into_domain(
+            fingerprint: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("fingerprint"),
             ),
-            kind: pulumi_wasm_rust::__private::into_domain(o.extract_field("kind")),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            network: pulumi_wasm_rust::__private::into_domain(
+            kind: pulumi_gestalt_rust::__private::into_domain(o.extract_field("kind")),
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            network: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("network"),
             ),
-            producer_accept_lists: pulumi_wasm_rust::__private::into_domain(
+            producer_accept_lists: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("producerAcceptLists"),
             ),
-            producer_reject_lists: pulumi_wasm_rust::__private::into_domain(
+            producer_reject_lists: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("producerRejectLists"),
             ),
-            project: pulumi_wasm_rust::__private::into_domain(
+            project: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("project"),
             ),
-            region: pulumi_wasm_rust::__private::into_domain(o.extract_field("region")),
-            self_link: pulumi_wasm_rust::__private::into_domain(
+            region: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("region"),
+            ),
+            self_link: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("selfLink"),
             ),
-            self_link_with_id: pulumi_wasm_rust::__private::into_domain(
+            self_link_with_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("selfLinkWithId"),
             ),
-            subnetworks: pulumi_wasm_rust::__private::into_domain(
+            subnetworks: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("subnetworks"),
             ),
         }

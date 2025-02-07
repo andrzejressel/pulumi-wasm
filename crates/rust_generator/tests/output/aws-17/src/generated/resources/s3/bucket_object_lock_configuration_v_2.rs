@@ -9,8 +9,8 @@
 /// ### Object Lock configuration for new or existing buckets
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = bucket_v_2::create(
@@ -62,55 +62,55 @@
 /// $ pulumi import aws:s3/bucketObjectLockConfigurationV2:BucketObjectLockConfigurationV2 example bucket-name,123456789012
 /// ```
 pub mod bucket_object_lock_configuration_v_2 {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct BucketObjectLockConfigurationV2Args {
         /// Name of the bucket.
         #[builder(into)]
-        pub bucket: pulumi_wasm_rust::InputOrOutput<String>,
+        pub bucket: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Account ID of the expected bucket owner.
         #[builder(into, default)]
-        pub expected_bucket_owner: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub expected_bucket_owner: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Indicates whether this bucket has an Object Lock configuration enabled. Defaults to `Enabled`. Valid values: `Enabled`.
         #[builder(into, default)]
-        pub object_lock_enabled: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub object_lock_enabled: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Configuration block for specifying the Object Lock rule for the specified object. See below.
         #[builder(into, default)]
-        pub rule: pulumi_wasm_rust::InputOrOutput<
+        pub rule: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::s3::BucketObjectLockConfigurationV2Rule>,
         >,
         /// This argument is deprecated and no longer needed to enable Object Lock.
         /// To enable Object Lock for an existing bucket, you must first enable versioning on the bucket and then enable Object Lock. For more details on versioning, see the `aws.s3.BucketVersioningV2` resource.
         #[builder(into, default)]
-        pub token: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub token: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct BucketObjectLockConfigurationV2Result {
         /// Name of the bucket.
-        pub bucket: pulumi_wasm_rust::Output<String>,
+        pub bucket: pulumi_gestalt_rust::Output<String>,
         /// Account ID of the expected bucket owner.
-        pub expected_bucket_owner: pulumi_wasm_rust::Output<Option<String>>,
+        pub expected_bucket_owner: pulumi_gestalt_rust::Output<Option<String>>,
         /// Indicates whether this bucket has an Object Lock configuration enabled. Defaults to `Enabled`. Valid values: `Enabled`.
-        pub object_lock_enabled: pulumi_wasm_rust::Output<Option<String>>,
+        pub object_lock_enabled: pulumi_gestalt_rust::Output<Option<String>>,
         /// Configuration block for specifying the Object Lock rule for the specified object. See below.
-        pub rule: pulumi_wasm_rust::Output<
+        pub rule: pulumi_gestalt_rust::Output<
             Option<super::super::types::s3::BucketObjectLockConfigurationV2Rule>,
         >,
         /// This argument is deprecated and no longer needed to enable Object Lock.
         /// To enable Object Lock for an existing bucket, you must first enable versioning on the bucket and then enable Object Lock. For more details on versioning, see the `aws.s3.BucketVersioningV2` resource.
-        pub token: pulumi_wasm_rust::Output<Option<String>>,
+        pub token: pulumi_gestalt_rust::Output<Option<String>>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: BucketObjectLockConfigurationV2Args,
     ) -> BucketObjectLockConfigurationV2Result {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let bucket_binding = args.bucket.get_output(context).get_inner();
         let expected_bucket_owner_binding = args
@@ -153,15 +153,17 @@ pub mod bucket_object_lock_configuration_v_2 {
         };
         let o = register_interface::register(context.get_inner(), &request);
         BucketObjectLockConfigurationV2Result {
-            bucket: pulumi_wasm_rust::__private::into_domain(o.extract_field("bucket")),
-            expected_bucket_owner: pulumi_wasm_rust::__private::into_domain(
+            bucket: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("bucket"),
+            ),
+            expected_bucket_owner: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("expectedBucketOwner"),
             ),
-            object_lock_enabled: pulumi_wasm_rust::__private::into_domain(
+            object_lock_enabled: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("objectLockEnabled"),
             ),
-            rule: pulumi_wasm_rust::__private::into_domain(o.extract_field("rule")),
-            token: pulumi_wasm_rust::__private::into_domain(o.extract_field("token")),
+            rule: pulumi_gestalt_rust::__private::into_domain(o.extract_field("rule")),
+            token: pulumi_gestalt_rust::__private::into_domain(o.extract_field("token")),
         }
     }
 }

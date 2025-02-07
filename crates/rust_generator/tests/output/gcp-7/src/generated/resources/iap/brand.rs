@@ -4,8 +4,8 @@
 ///
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let project = project::create(
@@ -60,7 +60,7 @@
 /// ```
 ///
 pub mod brand {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct BrandArgs {
@@ -69,18 +69,18 @@ pub mod brand {
         ///
         /// - - -
         #[builder(into)]
-        pub application_title: pulumi_wasm_rust::InputOrOutput<String>,
+        pub application_title: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub project: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Support email displayed on the OAuth consent screen. Can be either a
         /// user or group email. When a user email is specified, the caller must
         /// be the user with the associated email address. When a group email is
         /// specified, the caller can be either a user or a service account which
         /// is an owner of the specified group in Cloud Identity.
         #[builder(into)]
-        pub support_email: pulumi_wasm_rust::InputOrOutput<String>,
+        pub support_email: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct BrandResult {
@@ -88,34 +88,34 @@ pub mod brand {
         ///
         ///
         /// - - -
-        pub application_title: pulumi_wasm_rust::Output<String>,
+        pub application_title: pulumi_gestalt_rust::Output<String>,
         /// Output only. Identifier of the brand, in the format `projects/{project_number}/brands/{brand_id}`
         /// NOTE: The name can also be expressed as `projects/{project_id}/brands/{brand_id}`, e.g. when importing.
         /// NOTE: The brand identification corresponds to the project number as only one
         /// brand can be created per project.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// Whether the brand is only intended for usage inside the GSuite organization only.
-        pub org_internal_only: pulumi_wasm_rust::Output<bool>,
+        pub org_internal_only: pulumi_gestalt_rust::Output<bool>,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
-        pub project: pulumi_wasm_rust::Output<String>,
+        pub project: pulumi_gestalt_rust::Output<String>,
         /// Support email displayed on the OAuth consent screen. Can be either a
         /// user or group email. When a user email is specified, the caller must
         /// be the user with the associated email address. When a group email is
         /// specified, the caller can be either a user or a service account which
         /// is an owner of the specified group in Cloud Identity.
-        pub support_email: pulumi_wasm_rust::Output<String>,
+        pub support_email: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: BrandArgs,
     ) -> BrandResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let application_title_binding = args
             .application_title
@@ -144,17 +144,17 @@ pub mod brand {
         };
         let o = register_interface::register(context.get_inner(), &request);
         BrandResult {
-            application_title: pulumi_wasm_rust::__private::into_domain(
+            application_title: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("applicationTitle"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            org_internal_only: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            org_internal_only: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("orgInternalOnly"),
             ),
-            project: pulumi_wasm_rust::__private::into_domain(
+            project: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("project"),
             ),
-            support_email: pulumi_wasm_rust::__private::into_domain(
+            support_email: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("supportEmail"),
             ),
         }

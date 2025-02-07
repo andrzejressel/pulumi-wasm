@@ -5,8 +5,8 @@
 /// ### Basic Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = folder_membership::create(
@@ -28,48 +28,48 @@
 /// $ pulumi import aws:quicksight/folderMembership:FolderMembership example 123456789012,example-folder,DATASET,example-dataset
 /// ```
 pub mod folder_membership {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct FolderMembershipArgs {
         /// AWS account ID.
         #[builder(into, default)]
-        pub aws_account_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub aws_account_id: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Identifier for the folder.
         #[builder(into)]
-        pub folder_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub folder_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// ID of the asset (the dashboard, analysis, or dataset).
         #[builder(into)]
-        pub member_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub member_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Type of the member. Valid values are `ANALYSIS`, `DASHBOARD`, and `DATASET`.
         ///
         /// The following arguments are optional:
         #[builder(into)]
-        pub member_type: pulumi_wasm_rust::InputOrOutput<String>,
+        pub member_type: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct FolderMembershipResult {
         /// AWS account ID.
-        pub aws_account_id: pulumi_wasm_rust::Output<String>,
+        pub aws_account_id: pulumi_gestalt_rust::Output<String>,
         /// Identifier for the folder.
-        pub folder_id: pulumi_wasm_rust::Output<String>,
+        pub folder_id: pulumi_gestalt_rust::Output<String>,
         /// ID of the asset (the dashboard, analysis, or dataset).
-        pub member_id: pulumi_wasm_rust::Output<String>,
+        pub member_id: pulumi_gestalt_rust::Output<String>,
         /// Type of the member. Valid values are `ANALYSIS`, `DASHBOARD`, and `DATASET`.
         ///
         /// The following arguments are optional:
-        pub member_type: pulumi_wasm_rust::Output<String>,
+        pub member_type: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: FolderMembershipArgs,
     ) -> FolderMembershipResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let aws_account_id_binding = args.aws_account_id.get_output(context).get_inner();
         let folder_id_binding = args.folder_id.get_output(context).get_inner();
@@ -100,16 +100,16 @@ pub mod folder_membership {
         };
         let o = register_interface::register(context.get_inner(), &request);
         FolderMembershipResult {
-            aws_account_id: pulumi_wasm_rust::__private::into_domain(
+            aws_account_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("awsAccountId"),
             ),
-            folder_id: pulumi_wasm_rust::__private::into_domain(
+            folder_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("folderId"),
             ),
-            member_id: pulumi_wasm_rust::__private::into_domain(
+            member_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("memberId"),
             ),
-            member_type: pulumi_wasm_rust::__private::into_domain(
+            member_type: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("memberType"),
             ),
         }

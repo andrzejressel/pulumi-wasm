@@ -60,8 +60,8 @@
 /// ### RDS Custom for SQL Server Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let test = custom_db_engine_version::create(
@@ -78,8 +78,8 @@
 /// ### RDS Custom for SQL Server Usage with AMI from another region
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = ami_copy::create(
@@ -110,99 +110,99 @@
 /// $ pulumi import aws:rds/customDbEngineVersion:CustomDbEngineVersion example custom-oracle-ee-cdb:19.cdb_cev1
 /// ```
 pub mod custom_db_engine_version {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct CustomDbEngineVersionArgs {
         /// The name of the Amazon S3 bucket that contains the database installation files.
         #[builder(into, default)]
-        pub database_installation_files_s3_bucket_name: pulumi_wasm_rust::InputOrOutput<
+        pub database_installation_files_s3_bucket_name: pulumi_gestalt_rust::InputOrOutput<
             Option<String>,
         >,
         /// The prefix for the Amazon S3 bucket that contains the database installation files.
         #[builder(into, default)]
-        pub database_installation_files_s3_prefix: pulumi_wasm_rust::InputOrOutput<
+        pub database_installation_files_s3_prefix: pulumi_gestalt_rust::InputOrOutput<
             Option<String>,
         >,
         /// The description of the CEV.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub description: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The name of the database engine. Valid values are `custom-oracle*`, `custom-sqlserver*`.
         #[builder(into)]
-        pub engine: pulumi_wasm_rust::InputOrOutput<String>,
+        pub engine: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The version of the database engine.
         #[builder(into)]
-        pub engine_version: pulumi_wasm_rust::InputOrOutput<String>,
+        pub engine_version: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The name of the manifest file within the local filesystem. Conflicts with `manifest`.
         #[builder(into, default)]
-        pub filename: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub filename: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The ARN of the AWS KMS key that is used to encrypt the database installation files. Required for RDS Custom for Oracle.
         #[builder(into, default)]
-        pub kms_key_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub kms_key_id: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The manifest file, in JSON format, that contains the list of database installation files. Conflicts with `filename`.
         #[builder(into, default)]
-        pub manifest: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub manifest: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Used to trigger updates. Must be set to a base64-encoded SHA256 hash of the manifest source specified with `filename`. The usual way to set this is filebase64sha256("manifest.json") where "manifest.json" is the local filename of the manifest source.
         #[builder(into, default)]
-        pub manifest_hash: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub manifest_hash: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The ID of the AMI to create the CEV from. Required for RDS Custom for SQL Server. For RDS Custom for Oracle, you can specify an AMI ID that was used in a different Oracle CEV.
         #[builder(into, default)]
-        pub source_image_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub source_image_id: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The status of the CEV. Valid values are `available`, `inactive`, `inactive-except-restore`.
         #[builder(into, default)]
-        pub status: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub status: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// A mapping of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
     #[allow(dead_code)]
     pub struct CustomDbEngineVersionResult {
         /// The Amazon Resource Name (ARN) for the custom engine version.
-        pub arn: pulumi_wasm_rust::Output<String>,
+        pub arn: pulumi_gestalt_rust::Output<String>,
         /// The date and time that the CEV was created.
-        pub create_time: pulumi_wasm_rust::Output<String>,
+        pub create_time: pulumi_gestalt_rust::Output<String>,
         /// The name of the Amazon S3 bucket that contains the database installation files.
-        pub database_installation_files_s3_bucket_name: pulumi_wasm_rust::Output<
+        pub database_installation_files_s3_bucket_name: pulumi_gestalt_rust::Output<
             Option<String>,
         >,
         /// The prefix for the Amazon S3 bucket that contains the database installation files.
-        pub database_installation_files_s3_prefix: pulumi_wasm_rust::Output<
+        pub database_installation_files_s3_prefix: pulumi_gestalt_rust::Output<
             Option<String>,
         >,
         /// The name of the DB parameter group family for the CEV.
-        pub db_parameter_group_family: pulumi_wasm_rust::Output<String>,
+        pub db_parameter_group_family: pulumi_gestalt_rust::Output<String>,
         /// The description of the CEV.
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_gestalt_rust::Output<Option<String>>,
         /// The name of the database engine. Valid values are `custom-oracle*`, `custom-sqlserver*`.
-        pub engine: pulumi_wasm_rust::Output<String>,
+        pub engine: pulumi_gestalt_rust::Output<String>,
         /// The version of the database engine.
-        pub engine_version: pulumi_wasm_rust::Output<String>,
+        pub engine_version: pulumi_gestalt_rust::Output<String>,
         /// The name of the manifest file within the local filesystem. Conflicts with `manifest`.
-        pub filename: pulumi_wasm_rust::Output<Option<String>>,
+        pub filename: pulumi_gestalt_rust::Output<Option<String>>,
         /// The ID of the AMI that was created with the CEV.
-        pub image_id: pulumi_wasm_rust::Output<String>,
+        pub image_id: pulumi_gestalt_rust::Output<String>,
         /// The ARN of the AWS KMS key that is used to encrypt the database installation files. Required for RDS Custom for Oracle.
-        pub kms_key_id: pulumi_wasm_rust::Output<String>,
+        pub kms_key_id: pulumi_gestalt_rust::Output<String>,
         /// The major version of the database engine.
-        pub major_engine_version: pulumi_wasm_rust::Output<String>,
+        pub major_engine_version: pulumi_gestalt_rust::Output<String>,
         /// The manifest file, in JSON format, that contains the list of database installation files. Conflicts with `filename`.
-        pub manifest: pulumi_wasm_rust::Output<Option<String>>,
+        pub manifest: pulumi_gestalt_rust::Output<Option<String>>,
         /// The returned manifest file, in JSON format, service generated and often different from input `manifest`.
-        pub manifest_computed: pulumi_wasm_rust::Output<String>,
+        pub manifest_computed: pulumi_gestalt_rust::Output<String>,
         /// Used to trigger updates. Must be set to a base64-encoded SHA256 hash of the manifest source specified with `filename`. The usual way to set this is filebase64sha256("manifest.json") where "manifest.json" is the local filename of the manifest source.
-        pub manifest_hash: pulumi_wasm_rust::Output<Option<String>>,
+        pub manifest_hash: pulumi_gestalt_rust::Output<Option<String>>,
         /// The ID of the AMI to create the CEV from. Required for RDS Custom for SQL Server. For RDS Custom for Oracle, you can specify an AMI ID that was used in a different Oracle CEV.
-        pub source_image_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub source_image_id: pulumi_gestalt_rust::Output<Option<String>>,
         /// The status of the CEV. Valid values are `available`, `inactive`, `inactive-except-restore`.
-        pub status: pulumi_wasm_rust::Output<String>,
+        pub status: pulumi_gestalt_rust::Output<String>,
         /// A mapping of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        pub tags_all: pulumi_wasm_rust::Output<
+        pub tags_all: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
     }
@@ -211,11 +211,11 @@ pub mod custom_db_engine_version {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: CustomDbEngineVersionArgs,
     ) -> CustomDbEngineVersionResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let database_installation_files_s3_bucket_name_binding = args
             .database_installation_files_s3_bucket_name
@@ -295,53 +295,57 @@ pub mod custom_db_engine_version {
         };
         let o = register_interface::register(context.get_inner(), &request);
         CustomDbEngineVersionResult {
-            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
-            create_time: pulumi_wasm_rust::__private::into_domain(
+            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
+            create_time: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("createTime"),
             ),
-            database_installation_files_s3_bucket_name: pulumi_wasm_rust::__private::into_domain(
+            database_installation_files_s3_bucket_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("databaseInstallationFilesS3BucketName"),
             ),
-            database_installation_files_s3_prefix: pulumi_wasm_rust::__private::into_domain(
+            database_installation_files_s3_prefix: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("databaseInstallationFilesS3Prefix"),
             ),
-            db_parameter_group_family: pulumi_wasm_rust::__private::into_domain(
+            db_parameter_group_family: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("dbParameterGroupFamily"),
             ),
-            description: pulumi_wasm_rust::__private::into_domain(
+            description: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("description"),
             ),
-            engine: pulumi_wasm_rust::__private::into_domain(o.extract_field("engine")),
-            engine_version: pulumi_wasm_rust::__private::into_domain(
+            engine: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("engine"),
+            ),
+            engine_version: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("engineVersion"),
             ),
-            filename: pulumi_wasm_rust::__private::into_domain(
+            filename: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("filename"),
             ),
-            image_id: pulumi_wasm_rust::__private::into_domain(
+            image_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("imageId"),
             ),
-            kms_key_id: pulumi_wasm_rust::__private::into_domain(
+            kms_key_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("kmsKeyId"),
             ),
-            major_engine_version: pulumi_wasm_rust::__private::into_domain(
+            major_engine_version: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("majorEngineVersion"),
             ),
-            manifest: pulumi_wasm_rust::__private::into_domain(
+            manifest: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("manifest"),
             ),
-            manifest_computed: pulumi_wasm_rust::__private::into_domain(
+            manifest_computed: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("manifestComputed"),
             ),
-            manifest_hash: pulumi_wasm_rust::__private::into_domain(
+            manifest_hash: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("manifestHash"),
             ),
-            source_image_id: pulumi_wasm_rust::__private::into_domain(
+            source_image_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("sourceImageId"),
             ),
-            status: pulumi_wasm_rust::__private::into_domain(o.extract_field("status")),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_wasm_rust::__private::into_domain(
+            status: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("status"),
+            ),
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            tags_all: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("tagsAll"),
             ),
         }

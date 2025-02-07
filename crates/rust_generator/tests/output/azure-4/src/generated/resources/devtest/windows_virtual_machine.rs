@@ -59,132 +59,132 @@
 /// ```
 ///
 pub mod windows_virtual_machine {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct WindowsVirtualMachineArgs {
         /// Can this Virtual Machine be claimed by users? Defaults to `true`.
         #[builder(into, default)]
-        pub allow_claim: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub allow_claim: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// Should the Virtual Machine be created without a Public IP Address? Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub disallow_public_ip_address: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub disallow_public_ip_address: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// A `gallery_image_reference` block as defined below.
         #[builder(into)]
-        pub gallery_image_reference: pulumi_wasm_rust::InputOrOutput<
+        pub gallery_image_reference: pulumi_gestalt_rust::InputOrOutput<
             super::super::types::devtest::WindowsVirtualMachineGalleryImageReference,
         >,
         /// One or more `inbound_nat_rule` blocks as defined below. Changing this forces a new resource to be created.
         ///
         /// > **NOTE:** If any `inbound_nat_rule` blocks are specified then `disallow_public_ip_address` must be set to `true`.
         #[builder(into, default)]
-        pub inbound_nat_rules: pulumi_wasm_rust::InputOrOutput<
+        pub inbound_nat_rules: pulumi_gestalt_rust::InputOrOutput<
             Option<
                 Vec<super::super::types::devtest::WindowsVirtualMachineInboundNatRule>,
             >,
         >,
         /// Specifies the name of the Dev Test Lab in which the Virtual Machine should be created. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub lab_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub lab_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The name of a Subnet within the Dev Test Virtual Network where this machine should exist. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub lab_subnet_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub lab_subnet_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The ID of the Dev Test Virtual Network where this Virtual Machine should be created. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub lab_virtual_network_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub lab_virtual_network_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Specifies the supported Azure location where the Dev Test Lab exists. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub location: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub location: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Specifies the name of the Dev Test Machine. Changing this forces a new resource to be created.
         ///
         /// > **NOTE:** The validation requirements for the Name change based on the `os_type` used in this Virtual Machine. For a Linux VM the name must be between 1-62 characters, and for a Windows VM the name must be between 1-15 characters. It must begin and end with a letter or number, and cannot be all numbers.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Any notes about the Virtual Machine.
         #[builder(into, default)]
-        pub notes: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub notes: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The Password associated with the `username` used to login to this Virtual Machine. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub password: pulumi_wasm_rust::InputOrOutput<String>,
+        pub password: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The name of the resource group in which the Dev Test Lab resource exists. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub resource_group_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub resource_group_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The Machine Size to use for this Virtual Machine, such as `Standard_F2`. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub size: pulumi_wasm_rust::InputOrOutput<String>,
+        pub size: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The type of Storage to use on this Virtual Machine. Possible values are `Standard` and `Premium`. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub storage_type: pulumi_wasm_rust::InputOrOutput<String>,
+        pub storage_type: pulumi_gestalt_rust::InputOrOutput<String>,
         /// A mapping of tags to assign to the resource.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// The Username associated with the local administrator on this Virtual Machine. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub username: pulumi_wasm_rust::InputOrOutput<String>,
+        pub username: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct WindowsVirtualMachineResult {
         /// Can this Virtual Machine be claimed by users? Defaults to `true`.
-        pub allow_claim: pulumi_wasm_rust::Output<Option<bool>>,
+        pub allow_claim: pulumi_gestalt_rust::Output<Option<bool>>,
         /// Should the Virtual Machine be created without a Public IP Address? Changing this forces a new resource to be created.
-        pub disallow_public_ip_address: pulumi_wasm_rust::Output<Option<bool>>,
+        pub disallow_public_ip_address: pulumi_gestalt_rust::Output<Option<bool>>,
         /// The FQDN of the Virtual Machine.
-        pub fqdn: pulumi_wasm_rust::Output<String>,
+        pub fqdn: pulumi_gestalt_rust::Output<String>,
         /// A `gallery_image_reference` block as defined below.
-        pub gallery_image_reference: pulumi_wasm_rust::Output<
+        pub gallery_image_reference: pulumi_gestalt_rust::Output<
             super::super::types::devtest::WindowsVirtualMachineGalleryImageReference,
         >,
         /// One or more `inbound_nat_rule` blocks as defined below. Changing this forces a new resource to be created.
         ///
         /// > **NOTE:** If any `inbound_nat_rule` blocks are specified then `disallow_public_ip_address` must be set to `true`.
-        pub inbound_nat_rules: pulumi_wasm_rust::Output<
+        pub inbound_nat_rules: pulumi_gestalt_rust::Output<
             Option<
                 Vec<super::super::types::devtest::WindowsVirtualMachineInboundNatRule>,
             >,
         >,
         /// Specifies the name of the Dev Test Lab in which the Virtual Machine should be created. Changing this forces a new resource to be created.
-        pub lab_name: pulumi_wasm_rust::Output<String>,
+        pub lab_name: pulumi_gestalt_rust::Output<String>,
         /// The name of a Subnet within the Dev Test Virtual Network where this machine should exist. Changing this forces a new resource to be created.
-        pub lab_subnet_name: pulumi_wasm_rust::Output<String>,
+        pub lab_subnet_name: pulumi_gestalt_rust::Output<String>,
         /// The ID of the Dev Test Virtual Network where this Virtual Machine should be created. Changing this forces a new resource to be created.
-        pub lab_virtual_network_id: pulumi_wasm_rust::Output<String>,
+        pub lab_virtual_network_id: pulumi_gestalt_rust::Output<String>,
         /// Specifies the supported Azure location where the Dev Test Lab exists. Changing this forces a new resource to be created.
-        pub location: pulumi_wasm_rust::Output<String>,
+        pub location: pulumi_gestalt_rust::Output<String>,
         /// Specifies the name of the Dev Test Machine. Changing this forces a new resource to be created.
         ///
         /// > **NOTE:** The validation requirements for the Name change based on the `os_type` used in this Virtual Machine. For a Linux VM the name must be between 1-62 characters, and for a Windows VM the name must be between 1-15 characters. It must begin and end with a letter or number, and cannot be all numbers.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// Any notes about the Virtual Machine.
-        pub notes: pulumi_wasm_rust::Output<Option<String>>,
+        pub notes: pulumi_gestalt_rust::Output<Option<String>>,
         /// The Password associated with the `username` used to login to this Virtual Machine. Changing this forces a new resource to be created.
-        pub password: pulumi_wasm_rust::Output<String>,
+        pub password: pulumi_gestalt_rust::Output<String>,
         /// The name of the resource group in which the Dev Test Lab resource exists. Changing this forces a new resource to be created.
-        pub resource_group_name: pulumi_wasm_rust::Output<String>,
+        pub resource_group_name: pulumi_gestalt_rust::Output<String>,
         /// The Machine Size to use for this Virtual Machine, such as `Standard_F2`. Changing this forces a new resource to be created.
-        pub size: pulumi_wasm_rust::Output<String>,
+        pub size: pulumi_gestalt_rust::Output<String>,
         /// The type of Storage to use on this Virtual Machine. Possible values are `Standard` and `Premium`. Changing this forces a new resource to be created.
-        pub storage_type: pulumi_wasm_rust::Output<String>,
+        pub storage_type: pulumi_gestalt_rust::Output<String>,
         /// A mapping of tags to assign to the resource.
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// The unique immutable identifier of the Virtual Machine.
-        pub unique_identifier: pulumi_wasm_rust::Output<String>,
+        pub unique_identifier: pulumi_gestalt_rust::Output<String>,
         /// The Username associated with the local administrator on this Virtual Machine. Changing this forces a new resource to be created.
-        pub username: pulumi_wasm_rust::Output<String>,
+        pub username: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: WindowsVirtualMachineArgs,
     ) -> WindowsVirtualMachineResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let allow_claim_binding = args.allow_claim.get_output(context).get_inner();
         let disallow_public_ip_address_binding = args
@@ -293,48 +293,48 @@ pub mod windows_virtual_machine {
         };
         let o = register_interface::register(context.get_inner(), &request);
         WindowsVirtualMachineResult {
-            allow_claim: pulumi_wasm_rust::__private::into_domain(
+            allow_claim: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("allowClaim"),
             ),
-            disallow_public_ip_address: pulumi_wasm_rust::__private::into_domain(
+            disallow_public_ip_address: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("disallowPublicIpAddress"),
             ),
-            fqdn: pulumi_wasm_rust::__private::into_domain(o.extract_field("fqdn")),
-            gallery_image_reference: pulumi_wasm_rust::__private::into_domain(
+            fqdn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("fqdn")),
+            gallery_image_reference: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("galleryImageReference"),
             ),
-            inbound_nat_rules: pulumi_wasm_rust::__private::into_domain(
+            inbound_nat_rules: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("inboundNatRules"),
             ),
-            lab_name: pulumi_wasm_rust::__private::into_domain(
+            lab_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("labName"),
             ),
-            lab_subnet_name: pulumi_wasm_rust::__private::into_domain(
+            lab_subnet_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("labSubnetName"),
             ),
-            lab_virtual_network_id: pulumi_wasm_rust::__private::into_domain(
+            lab_virtual_network_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("labVirtualNetworkId"),
             ),
-            location: pulumi_wasm_rust::__private::into_domain(
+            location: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("location"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            notes: pulumi_wasm_rust::__private::into_domain(o.extract_field("notes")),
-            password: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            notes: pulumi_gestalt_rust::__private::into_domain(o.extract_field("notes")),
+            password: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("password"),
             ),
-            resource_group_name: pulumi_wasm_rust::__private::into_domain(
+            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("resourceGroupName"),
             ),
-            size: pulumi_wasm_rust::__private::into_domain(o.extract_field("size")),
-            storage_type: pulumi_wasm_rust::__private::into_domain(
+            size: pulumi_gestalt_rust::__private::into_domain(o.extract_field("size")),
+            storage_type: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("storageType"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
-            unique_identifier: pulumi_wasm_rust::__private::into_domain(
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            unique_identifier: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("uniqueIdentifier"),
             ),
-            username: pulumi_wasm_rust::__private::into_domain(
+            username: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("username"),
             ),
         }

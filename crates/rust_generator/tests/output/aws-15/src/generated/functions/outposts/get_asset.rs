@@ -1,39 +1,39 @@
 pub mod get_asset {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct GetAssetArgs {
         /// Outpost ARN.
         #[builder(into)]
-        pub arn: pulumi_wasm_rust::InputOrOutput<String>,
+        pub arn: pulumi_gestalt_rust::InputOrOutput<String>,
         /// ID of the asset.
         #[builder(into)]
-        pub asset_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub asset_id: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct GetAssetResult {
-        pub arn: pulumi_wasm_rust::Output<String>,
-        pub asset_id: pulumi_wasm_rust::Output<String>,
+        pub arn: pulumi_gestalt_rust::Output<String>,
+        pub asset_id: pulumi_gestalt_rust::Output<String>,
         /// Type of the asset.
-        pub asset_type: pulumi_wasm_rust::Output<String>,
+        pub asset_type: pulumi_gestalt_rust::Output<String>,
         /// Host ID of the Dedicated Hosts on the asset, if a Dedicated Host is provisioned.
-        pub host_id: pulumi_wasm_rust::Output<String>,
+        pub host_id: pulumi_gestalt_rust::Output<String>,
         /// The provider-assigned unique ID for this managed resource.
-        pub id: pulumi_wasm_rust::Output<String>,
+        pub id: pulumi_gestalt_rust::Output<String>,
         /// Position of an asset in a rack measured in rack units.
-        pub rack_elevation: pulumi_wasm_rust::Output<i32>,
+        pub rack_elevation: pulumi_gestalt_rust::Output<i32>,
         /// Rack ID of the asset.
-        pub rack_id: pulumi_wasm_rust::Output<String>,
+        pub rack_id: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         args: GetAssetArgs,
     ) -> GetAssetResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let arn_binding = args.arn.get_output(context).get_inner();
         let asset_id_binding = args.asset_id.get_output(context).get_inner();
@@ -53,19 +53,23 @@ pub mod get_asset {
         };
         let o = register_interface::invoke(context.get_inner(), &request);
         GetAssetResult {
-            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
-            asset_id: pulumi_wasm_rust::__private::into_domain(
+            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
+            asset_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("assetId"),
             ),
-            asset_type: pulumi_wasm_rust::__private::into_domain(
+            asset_type: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("assetType"),
             ),
-            host_id: pulumi_wasm_rust::__private::into_domain(o.extract_field("hostId")),
-            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
-            rack_elevation: pulumi_wasm_rust::__private::into_domain(
+            host_id: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("hostId"),
+            ),
+            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
+            rack_elevation: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("rackElevation"),
             ),
-            rack_id: pulumi_wasm_rust::__private::into_domain(o.extract_field("rackId")),
+            rack_id: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("rackId"),
+            ),
         }
     }
 }

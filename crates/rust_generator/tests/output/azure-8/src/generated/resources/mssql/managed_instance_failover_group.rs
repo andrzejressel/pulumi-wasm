@@ -115,68 +115,68 @@
 /// ```
 ///
 pub mod managed_instance_failover_group {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ManagedInstanceFailoverGroupArgs {
         /// The Azure Region where the Managed Instance Failover Group should exist. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub location: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub location: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The ID of the Azure SQL Managed Instance which will be replicated using a Managed Instance Failover Group. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub managed_instance_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub managed_instance_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The name which should be used for this Managed Instance Failover Group. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The ID of the Azure SQL Managed Instance which will be replicated to. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub partner_managed_instance_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub partner_managed_instance_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// A `read_write_endpoint_failover_policy` block as defined below.
         #[builder(into)]
-        pub read_write_endpoint_failover_policy: pulumi_wasm_rust::InputOrOutput<
+        pub read_write_endpoint_failover_policy: pulumi_gestalt_rust::InputOrOutput<
             super::super::types::mssql::ManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicy,
         >,
         /// Failover policy for the read-only endpoint. Defaults to `true`.
         #[builder(into, default)]
-        pub readonly_endpoint_failover_policy_enabled: pulumi_wasm_rust::InputOrOutput<
+        pub readonly_endpoint_failover_policy_enabled: pulumi_gestalt_rust::InputOrOutput<
             Option<bool>,
         >,
     }
     #[allow(dead_code)]
     pub struct ManagedInstanceFailoverGroupResult {
         /// The Azure Region where the Managed Instance Failover Group should exist. Changing this forces a new resource to be created.
-        pub location: pulumi_wasm_rust::Output<String>,
+        pub location: pulumi_gestalt_rust::Output<String>,
         /// The ID of the Azure SQL Managed Instance which will be replicated using a Managed Instance Failover Group. Changing this forces a new resource to be created.
-        pub managed_instance_id: pulumi_wasm_rust::Output<String>,
+        pub managed_instance_id: pulumi_gestalt_rust::Output<String>,
         /// The name which should be used for this Managed Instance Failover Group. Changing this forces a new resource to be created.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// The ID of the Azure SQL Managed Instance which will be replicated to. Changing this forces a new resource to be created.
-        pub partner_managed_instance_id: pulumi_wasm_rust::Output<String>,
+        pub partner_managed_instance_id: pulumi_gestalt_rust::Output<String>,
         /// A `partner_region` block as defined below.
-        pub partner_regions: pulumi_wasm_rust::Output<
+        pub partner_regions: pulumi_gestalt_rust::Output<
             Vec<super::super::types::mssql::ManagedInstanceFailoverGroupPartnerRegion>,
         >,
         /// A `read_write_endpoint_failover_policy` block as defined below.
-        pub read_write_endpoint_failover_policy: pulumi_wasm_rust::Output<
+        pub read_write_endpoint_failover_policy: pulumi_gestalt_rust::Output<
             super::super::types::mssql::ManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicy,
         >,
         /// Failover policy for the read-only endpoint. Defaults to `true`.
-        pub readonly_endpoint_failover_policy_enabled: pulumi_wasm_rust::Output<
+        pub readonly_endpoint_failover_policy_enabled: pulumi_gestalt_rust::Output<
             Option<bool>,
         >,
         /// The partner replication role of the Managed Instance Failover Group.
-        pub role: pulumi_wasm_rust::Output<String>,
+        pub role: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: ManagedInstanceFailoverGroupArgs,
     ) -> ManagedInstanceFailoverGroupResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let location_binding = args.location.get_output(context).get_inner();
         let managed_instance_id_binding = args
@@ -230,26 +230,26 @@ pub mod managed_instance_failover_group {
         };
         let o = register_interface::register(context.get_inner(), &request);
         ManagedInstanceFailoverGroupResult {
-            location: pulumi_wasm_rust::__private::into_domain(
+            location: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("location"),
             ),
-            managed_instance_id: pulumi_wasm_rust::__private::into_domain(
+            managed_instance_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("managedInstanceId"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            partner_managed_instance_id: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            partner_managed_instance_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("partnerManagedInstanceId"),
             ),
-            partner_regions: pulumi_wasm_rust::__private::into_domain(
+            partner_regions: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("partnerRegions"),
             ),
-            read_write_endpoint_failover_policy: pulumi_wasm_rust::__private::into_domain(
+            read_write_endpoint_failover_policy: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("readWriteEndpointFailoverPolicy"),
             ),
-            readonly_endpoint_failover_policy_enabled: pulumi_wasm_rust::__private::into_domain(
+            readonly_endpoint_failover_policy_enabled: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("readonlyEndpointFailoverPolicyEnabled"),
             ),
-            role: pulumi_wasm_rust::__private::into_domain(o.extract_field("role")),
+            role: pulumi_gestalt_rust::__private::into_domain(o.extract_field("role")),
         }
     }
 }

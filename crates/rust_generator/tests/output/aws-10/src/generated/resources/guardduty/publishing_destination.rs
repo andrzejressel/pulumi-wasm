@@ -110,48 +110,48 @@
 /// $ pulumi import aws:guardduty/publishingDestination:PublishingDestination test a4b86f26fa42e7e7cf0d1c333ea77777:a4b86f27a0e464e4a7e0516d242f1234
 /// ```
 pub mod publishing_destination {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct PublishingDestinationArgs {
         /// The bucket arn and prefix under which the findings get exported. Bucket-ARN is required, the prefix is optional and will be `AWSLogs/[Account-ID]/GuardDuty/[Region]/` if not provided
         #[builder(into)]
-        pub destination_arn: pulumi_wasm_rust::InputOrOutput<String>,
+        pub destination_arn: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Currently there is only "S3" available as destination type which is also the default value
         ///
         /// > **Note:** In case of missing permissions (S3 Bucket Policy _or_ KMS Key permissions) the resource will fail to create. If the permissions are changed after resource creation, this can be asked from the AWS API via the "DescribePublishingDestination" call (https://docs.aws.amazon.com/cli/latest/reference/guardduty/describe-publishing-destination.html).
         #[builder(into, default)]
-        pub destination_type: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub destination_type: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The detector ID of the GuardDuty.
         #[builder(into)]
-        pub detector_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub detector_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The ARN of the KMS key used to encrypt GuardDuty findings. GuardDuty enforces this to be encrypted.
         #[builder(into)]
-        pub kms_key_arn: pulumi_wasm_rust::InputOrOutput<String>,
+        pub kms_key_arn: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct PublishingDestinationResult {
         /// The bucket arn and prefix under which the findings get exported. Bucket-ARN is required, the prefix is optional and will be `AWSLogs/[Account-ID]/GuardDuty/[Region]/` if not provided
-        pub destination_arn: pulumi_wasm_rust::Output<String>,
+        pub destination_arn: pulumi_gestalt_rust::Output<String>,
         /// Currently there is only "S3" available as destination type which is also the default value
         ///
         /// > **Note:** In case of missing permissions (S3 Bucket Policy _or_ KMS Key permissions) the resource will fail to create. If the permissions are changed after resource creation, this can be asked from the AWS API via the "DescribePublishingDestination" call (https://docs.aws.amazon.com/cli/latest/reference/guardduty/describe-publishing-destination.html).
-        pub destination_type: pulumi_wasm_rust::Output<Option<String>>,
+        pub destination_type: pulumi_gestalt_rust::Output<Option<String>>,
         /// The detector ID of the GuardDuty.
-        pub detector_id: pulumi_wasm_rust::Output<String>,
+        pub detector_id: pulumi_gestalt_rust::Output<String>,
         /// The ARN of the KMS key used to encrypt GuardDuty findings. GuardDuty enforces this to be encrypted.
-        pub kms_key_arn: pulumi_wasm_rust::Output<String>,
+        pub kms_key_arn: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: PublishingDestinationArgs,
     ) -> PublishingDestinationResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let destination_arn_binding = args
             .destination_arn
@@ -188,16 +188,16 @@ pub mod publishing_destination {
         };
         let o = register_interface::register(context.get_inner(), &request);
         PublishingDestinationResult {
-            destination_arn: pulumi_wasm_rust::__private::into_domain(
+            destination_arn: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("destinationArn"),
             ),
-            destination_type: pulumi_wasm_rust::__private::into_domain(
+            destination_type: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("destinationType"),
             ),
-            detector_id: pulumi_wasm_rust::__private::into_domain(
+            detector_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("detectorId"),
             ),
-            kms_key_arn: pulumi_wasm_rust::__private::into_domain(
+            kms_key_arn: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("kmsKeyArn"),
             ),
         }

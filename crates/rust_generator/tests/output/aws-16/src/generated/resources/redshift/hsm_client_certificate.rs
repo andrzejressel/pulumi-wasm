@@ -3,8 +3,8 @@
 /// ## Example Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = hsm_client_certificate::create(
@@ -24,33 +24,35 @@
 /// $ pulumi import aws:redshift/hsmClientCertificate:HsmClientCertificate test example
 /// ```
 pub mod hsm_client_certificate {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct HsmClientCertificateArgs {
         /// The identifier of the HSM client certificate.
         #[builder(into)]
-        pub hsm_client_certificate_identifier: pulumi_wasm_rust::InputOrOutput<String>,
+        pub hsm_client_certificate_identifier: pulumi_gestalt_rust::InputOrOutput<
+            String,
+        >,
         /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
     #[allow(dead_code)]
     pub struct HsmClientCertificateResult {
         /// Amazon Resource Name (ARN) of the Hsm Client Certificate.
-        pub arn: pulumi_wasm_rust::Output<String>,
+        pub arn: pulumi_gestalt_rust::Output<String>,
         /// The identifier of the HSM client certificate.
-        pub hsm_client_certificate_identifier: pulumi_wasm_rust::Output<String>,
+        pub hsm_client_certificate_identifier: pulumi_gestalt_rust::Output<String>,
         /// The public key that the Amazon Redshift cluster will use to connect to the HSM. You must register the public key in the HSM.
-        pub hsm_client_certificate_public_key: pulumi_wasm_rust::Output<String>,
+        pub hsm_client_certificate_public_key: pulumi_gestalt_rust::Output<String>,
         /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        pub tags_all: pulumi_wasm_rust::Output<
+        pub tags_all: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
     }
@@ -59,11 +61,11 @@ pub mod hsm_client_certificate {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: HsmClientCertificateArgs,
     ) -> HsmClientCertificateResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let hsm_client_certificate_identifier_binding = args
             .hsm_client_certificate_identifier
@@ -87,15 +89,15 @@ pub mod hsm_client_certificate {
         };
         let o = register_interface::register(context.get_inner(), &request);
         HsmClientCertificateResult {
-            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
-            hsm_client_certificate_identifier: pulumi_wasm_rust::__private::into_domain(
+            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
+            hsm_client_certificate_identifier: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("hsmClientCertificateIdentifier"),
             ),
-            hsm_client_certificate_public_key: pulumi_wasm_rust::__private::into_domain(
+            hsm_client_certificate_public_key: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("hsmClientCertificatePublicKey"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_wasm_rust::__private::into_domain(
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            tags_all: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("tagsAll"),
             ),
         }

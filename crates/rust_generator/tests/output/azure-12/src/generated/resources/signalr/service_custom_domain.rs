@@ -96,7 +96,7 @@
 /// ```
 ///
 pub mod service_custom_domain {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ServiceCustomDomainArgs {
@@ -104,40 +104,40 @@ pub mod service_custom_domain {
         ///
         /// > **NOTE:** Please ensure the custom domain name is included in the Subject Alternative Names of the selected SignalR Custom Certificate.
         #[builder(into)]
-        pub domain_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub domain_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Specifies the name of the SignalR Custom Domain. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Specifies the SignalR Custom Certificate ID of the SignalR Custom Domain. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub signalr_custom_certificate_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub signalr_custom_certificate_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Specifies the SignalR ID of the SignalR Custom Domain. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub signalr_service_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub signalr_service_id: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct ServiceCustomDomainResult {
         /// Specifies the custom domain name of the SignalR Custom Domain. Changing this forces a new resource to be created.
         ///
         /// > **NOTE:** Please ensure the custom domain name is included in the Subject Alternative Names of the selected SignalR Custom Certificate.
-        pub domain_name: pulumi_wasm_rust::Output<String>,
+        pub domain_name: pulumi_gestalt_rust::Output<String>,
         /// Specifies the name of the SignalR Custom Domain. Changing this forces a new resource to be created.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// Specifies the SignalR Custom Certificate ID of the SignalR Custom Domain. Changing this forces a new resource to be created.
-        pub signalr_custom_certificate_id: pulumi_wasm_rust::Output<String>,
+        pub signalr_custom_certificate_id: pulumi_gestalt_rust::Output<String>,
         /// Specifies the SignalR ID of the SignalR Custom Domain. Changing this forces a new resource to be created.
-        pub signalr_service_id: pulumi_wasm_rust::Output<String>,
+        pub signalr_service_id: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: ServiceCustomDomainArgs,
     ) -> ServiceCustomDomainResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let domain_name_binding = args.domain_name.get_output(context).get_inner();
         let name_binding = args.name.get_output(context).get_inner();
@@ -174,14 +174,14 @@ pub mod service_custom_domain {
         };
         let o = register_interface::register(context.get_inner(), &request);
         ServiceCustomDomainResult {
-            domain_name: pulumi_wasm_rust::__private::into_domain(
+            domain_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("domainName"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            signalr_custom_certificate_id: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            signalr_custom_certificate_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("signalrCustomCertificateId"),
             ),
-            signalr_service_id: pulumi_wasm_rust::__private::into_domain(
+            signalr_service_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("signalrServiceId"),
             ),
         }

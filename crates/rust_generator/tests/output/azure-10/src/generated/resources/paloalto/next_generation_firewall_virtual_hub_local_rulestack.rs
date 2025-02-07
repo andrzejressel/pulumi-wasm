@@ -1,10 +1,10 @@
 pub mod next_generation_firewall_virtual_hub_local_rulestack {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct NextGenerationFirewallVirtualHubLocalRulestackArgs {
         #[builder(into, default)]
-        pub destination_nats: pulumi_wasm_rust::InputOrOutput<
+        pub destination_nats: pulumi_gestalt_rust::InputOrOutput<
             Option<
                 Vec<
                     super::super::types::paloalto::NextGenerationFirewallVirtualHubLocalRulestackDestinationNat,
@@ -12,47 +12,47 @@ pub mod next_generation_firewall_virtual_hub_local_rulestack {
             >,
         >,
         #[builder(into, default)]
-        pub dns_settings: pulumi_wasm_rust::InputOrOutput<
+        pub dns_settings: pulumi_gestalt_rust::InputOrOutput<
             Option<
                 super::super::types::paloalto::NextGenerationFirewallVirtualHubLocalRulestackDnsSettings,
             >,
         >,
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         #[builder(into)]
-        pub network_profile: pulumi_wasm_rust::InputOrOutput<
+        pub network_profile: pulumi_gestalt_rust::InputOrOutput<
             super::super::types::paloalto::NextGenerationFirewallVirtualHubLocalRulestackNetworkProfile,
         >,
         #[builder(into)]
-        pub resource_group_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub resource_group_name: pulumi_gestalt_rust::InputOrOutput<String>,
         #[builder(into)]
-        pub rulestack_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub rulestack_id: pulumi_gestalt_rust::InputOrOutput<String>,
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
     #[allow(dead_code)]
     pub struct NextGenerationFirewallVirtualHubLocalRulestackResult {
-        pub destination_nats: pulumi_wasm_rust::Output<
+        pub destination_nats: pulumi_gestalt_rust::Output<
             Option<
                 Vec<
                     super::super::types::paloalto::NextGenerationFirewallVirtualHubLocalRulestackDestinationNat,
                 >,
             >,
         >,
-        pub dns_settings: pulumi_wasm_rust::Output<
+        pub dns_settings: pulumi_gestalt_rust::Output<
             Option<
                 super::super::types::paloalto::NextGenerationFirewallVirtualHubLocalRulestackDnsSettings,
             >,
         >,
-        pub name: pulumi_wasm_rust::Output<String>,
-        pub network_profile: pulumi_wasm_rust::Output<
+        pub name: pulumi_gestalt_rust::Output<String>,
+        pub network_profile: pulumi_gestalt_rust::Output<
             super::super::types::paloalto::NextGenerationFirewallVirtualHubLocalRulestackNetworkProfile,
         >,
-        pub resource_group_name: pulumi_wasm_rust::Output<String>,
-        pub rulestack_id: pulumi_wasm_rust::Output<String>,
-        pub tags: pulumi_wasm_rust::Output<
+        pub resource_group_name: pulumi_gestalt_rust::Output<String>,
+        pub rulestack_id: pulumi_gestalt_rust::Output<String>,
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
@@ -61,11 +61,11 @@ pub mod next_generation_firewall_virtual_hub_local_rulestack {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: NextGenerationFirewallVirtualHubLocalRulestackArgs,
     ) -> NextGenerationFirewallVirtualHubLocalRulestackResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let destination_nats_binding = args
             .destination_nats
@@ -121,23 +121,23 @@ pub mod next_generation_firewall_virtual_hub_local_rulestack {
         };
         let o = register_interface::register(context.get_inner(), &request);
         NextGenerationFirewallVirtualHubLocalRulestackResult {
-            destination_nats: pulumi_wasm_rust::__private::into_domain(
+            destination_nats: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("destinationNats"),
             ),
-            dns_settings: pulumi_wasm_rust::__private::into_domain(
+            dns_settings: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("dnsSettings"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            network_profile: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            network_profile: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("networkProfile"),
             ),
-            resource_group_name: pulumi_wasm_rust::__private::into_domain(
+            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("resourceGroupName"),
             ),
-            rulestack_id: pulumi_wasm_rust::__private::into_domain(
+            rulestack_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("rulestackId"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
         }
     }
 }

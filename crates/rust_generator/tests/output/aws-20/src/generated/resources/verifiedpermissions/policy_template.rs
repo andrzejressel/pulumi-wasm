@@ -5,8 +5,8 @@
 /// ### Basic Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = policy_template::create(
@@ -29,47 +29,47 @@
 /// $ pulumi import aws:verifiedpermissions/policyTemplate:PolicyTemplate example policyStoreId:policyTemplateId
 /// ```
 pub mod policy_template {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct PolicyTemplateArgs {
         /// Provides a description for the policy template.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub description: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The ID of the Policy Store.
         #[builder(into)]
-        pub policy_store_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub policy_store_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Defines the content of the statement, written in Cedar policy language.
         ///
         /// The following arguments are optional:
         #[builder(into)]
-        pub statement: pulumi_wasm_rust::InputOrOutput<String>,
+        pub statement: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct PolicyTemplateResult {
         /// The date the Policy Store was created.
-        pub created_date: pulumi_wasm_rust::Output<String>,
+        pub created_date: pulumi_gestalt_rust::Output<String>,
         /// Provides a description for the policy template.
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_gestalt_rust::Output<Option<String>>,
         /// The ID of the Policy Store.
-        pub policy_store_id: pulumi_wasm_rust::Output<String>,
+        pub policy_store_id: pulumi_gestalt_rust::Output<String>,
         /// The ID of the Policy Store.
-        pub policy_template_id: pulumi_wasm_rust::Output<String>,
+        pub policy_template_id: pulumi_gestalt_rust::Output<String>,
         /// Defines the content of the statement, written in Cedar policy language.
         ///
         /// The following arguments are optional:
-        pub statement: pulumi_wasm_rust::Output<String>,
+        pub statement: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: PolicyTemplateArgs,
     ) -> PolicyTemplateResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let description_binding = args.description.get_output(context).get_inner();
         let policy_store_id_binding = args
@@ -98,19 +98,19 @@ pub mod policy_template {
         };
         let o = register_interface::register(context.get_inner(), &request);
         PolicyTemplateResult {
-            created_date: pulumi_wasm_rust::__private::into_domain(
+            created_date: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("createdDate"),
             ),
-            description: pulumi_wasm_rust::__private::into_domain(
+            description: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("description"),
             ),
-            policy_store_id: pulumi_wasm_rust::__private::into_domain(
+            policy_store_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("policyStoreId"),
             ),
-            policy_template_id: pulumi_wasm_rust::__private::into_domain(
+            policy_template_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("policyTemplateId"),
             ),
-            statement: pulumi_wasm_rust::__private::into_domain(
+            statement: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("statement"),
             ),
         }

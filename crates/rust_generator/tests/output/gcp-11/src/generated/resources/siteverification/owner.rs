@@ -96,7 +96,7 @@
 /// verified owners is to delete the web resource itself.
 ///
 pub mod owner {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct OwnerArgs {
@@ -104,32 +104,32 @@ pub mod owner {
         ///
         /// - - -
         #[builder(into)]
-        pub email: pulumi_wasm_rust::InputOrOutput<String>,
+        pub email: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The id of of the web resource to which the owner will be added, in the form `webResource/<resource_id>`,
         /// such as `webResource/https://www.example.com/`
         #[builder(into)]
-        pub web_resource_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub web_resource_id: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct OwnerResult {
         /// The email of the user to be added as an owner.
         ///
         /// - - -
-        pub email: pulumi_wasm_rust::Output<String>,
+        pub email: pulumi_gestalt_rust::Output<String>,
         /// The id of of the web resource to which the owner will be added, in the form `webResource/<resource_id>`,
         /// such as `webResource/https://www.example.com/`
-        pub web_resource_id: pulumi_wasm_rust::Output<String>,
+        pub web_resource_id: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: OwnerArgs,
     ) -> OwnerResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let email_binding = args.email.get_output(context).get_inner();
         let web_resource_id_binding = args
@@ -153,8 +153,8 @@ pub mod owner {
         };
         let o = register_interface::register(context.get_inner(), &request);
         OwnerResult {
-            email: pulumi_wasm_rust::__private::into_domain(o.extract_field("email")),
-            web_resource_id: pulumi_wasm_rust::__private::into_domain(
+            email: pulumi_gestalt_rust::__private::into_domain(o.extract_field("email")),
+            web_resource_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("webResourceId"),
             ),
         }

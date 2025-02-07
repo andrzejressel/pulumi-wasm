@@ -282,14 +282,14 @@
 /// ```
 ///
 pub mod pipeline_job {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct PipelineJobArgs {
         /// Specifies the backfill configuration.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub backfill_pipeline_job: pulumi_wasm_rust::InputOrOutput<
+        pub backfill_pipeline_job: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::healthcare::PipelineJobBackfillPipelineJob>,
         >,
         /// Healthcare Dataset under which the Pipeline Job is to run
@@ -297,10 +297,10 @@ pub mod pipeline_job {
         ///
         /// - - -
         #[builder(into)]
-        pub dataset: pulumi_wasm_rust::InputOrOutput<String>,
+        pub dataset: pulumi_gestalt_rust::InputOrOutput<String>,
         /// If true, disables writing lineage for the pipeline.
         #[builder(into, default)]
-        pub disable_lineage: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub disable_lineage: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// User-supplied key-value pairs used to organize Pipeline Jobs.
         /// Label keys must be between 1 and 63 characters long, have a UTF-8 encoding of
         /// maximum 128 bytes, and must conform to the following PCRE regular expression:
@@ -315,25 +315,25 @@ pub mod pipeline_job {
         /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
         /// Please refer to the field `effective_labels` for all of the labels present on the resource.
         #[builder(into, default)]
-        pub labels: pulumi_wasm_rust::InputOrOutput<
+        pub labels: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Location where the Pipeline Job is to run
         #[builder(into)]
-        pub location: pulumi_wasm_rust::InputOrOutput<String>,
+        pub location: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Specifies mapping configuration.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub mapping_pipeline_job: pulumi_wasm_rust::InputOrOutput<
+        pub mapping_pipeline_job: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::healthcare::PipelineJobMappingPipelineJob>,
         >,
         /// Specifies the name of the pipeline job. This field is user-assigned.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Specifies reconciliation configuration.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub reconciliation_pipeline_job: pulumi_wasm_rust::InputOrOutput<
+        pub reconciliation_pipeline_job: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::healthcare::PipelineJobReconciliationPipelineJob>,
         >,
     }
@@ -341,18 +341,18 @@ pub mod pipeline_job {
     pub struct PipelineJobResult {
         /// Specifies the backfill configuration.
         /// Structure is documented below.
-        pub backfill_pipeline_job: pulumi_wasm_rust::Output<
+        pub backfill_pipeline_job: pulumi_gestalt_rust::Output<
             Option<super::super::types::healthcare::PipelineJobBackfillPipelineJob>,
         >,
         /// Healthcare Dataset under which the Pipeline Job is to run
         ///
         ///
         /// - - -
-        pub dataset: pulumi_wasm_rust::Output<String>,
+        pub dataset: pulumi_gestalt_rust::Output<String>,
         /// If true, disables writing lineage for the pipeline.
-        pub disable_lineage: pulumi_wasm_rust::Output<Option<bool>>,
+        pub disable_lineage: pulumi_gestalt_rust::Output<Option<bool>>,
         /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Pulumi, other clients and services.
-        pub effective_labels: pulumi_wasm_rust::Output<
+        pub effective_labels: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
         /// User-supplied key-value pairs used to organize Pipeline Jobs.
@@ -368,41 +368,41 @@ pub mod pipeline_job {
         ///
         /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
         /// Please refer to the field `effective_labels` for all of the labels present on the resource.
-        pub labels: pulumi_wasm_rust::Output<
+        pub labels: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Location where the Pipeline Job is to run
-        pub location: pulumi_wasm_rust::Output<String>,
+        pub location: pulumi_gestalt_rust::Output<String>,
         /// Specifies mapping configuration.
         /// Structure is documented below.
-        pub mapping_pipeline_job: pulumi_wasm_rust::Output<
+        pub mapping_pipeline_job: pulumi_gestalt_rust::Output<
             Option<super::super::types::healthcare::PipelineJobMappingPipelineJob>,
         >,
         /// Specifies the name of the pipeline job. This field is user-assigned.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// The combination of labels configured directly on the resource
         /// and default labels configured on the provider.
-        pub pulumi_labels: pulumi_wasm_rust::Output<
+        pub pulumi_labels: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
         /// Specifies reconciliation configuration.
         /// Structure is documented below.
-        pub reconciliation_pipeline_job: pulumi_wasm_rust::Output<
+        pub reconciliation_pipeline_job: pulumi_gestalt_rust::Output<
             Option<super::super::types::healthcare::PipelineJobReconciliationPipelineJob>,
         >,
         /// The fully qualified name of this dataset
-        pub self_link: pulumi_wasm_rust::Output<String>,
+        pub self_link: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: PipelineJobArgs,
     ) -> PipelineJobResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let backfill_pipeline_job_binding = args
             .backfill_pipeline_job
@@ -465,33 +465,35 @@ pub mod pipeline_job {
         };
         let o = register_interface::register(context.get_inner(), &request);
         PipelineJobResult {
-            backfill_pipeline_job: pulumi_wasm_rust::__private::into_domain(
+            backfill_pipeline_job: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("backfillPipelineJob"),
             ),
-            dataset: pulumi_wasm_rust::__private::into_domain(
+            dataset: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("dataset"),
             ),
-            disable_lineage: pulumi_wasm_rust::__private::into_domain(
+            disable_lineage: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("disableLineage"),
             ),
-            effective_labels: pulumi_wasm_rust::__private::into_domain(
+            effective_labels: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("effectiveLabels"),
             ),
-            labels: pulumi_wasm_rust::__private::into_domain(o.extract_field("labels")),
-            location: pulumi_wasm_rust::__private::into_domain(
+            labels: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("labels"),
+            ),
+            location: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("location"),
             ),
-            mapping_pipeline_job: pulumi_wasm_rust::__private::into_domain(
+            mapping_pipeline_job: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("mappingPipelineJob"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            pulumi_labels: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            pulumi_labels: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("pulumiLabels"),
             ),
-            reconciliation_pipeline_job: pulumi_wasm_rust::__private::into_domain(
+            reconciliation_pipeline_job: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("reconciliationPipelineJob"),
             ),
-            self_link: pulumi_wasm_rust::__private::into_domain(
+            self_link: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("selfLink"),
             ),
         }

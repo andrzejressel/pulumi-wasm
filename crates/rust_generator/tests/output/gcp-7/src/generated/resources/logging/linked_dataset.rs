@@ -13,8 +13,8 @@
 ///
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let loggingLinkedDataset = project_bucket_config::create(
@@ -40,8 +40,8 @@
 ///
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let loggingLinkedDataset = project_bucket_config::create(
@@ -79,7 +79,7 @@
 /// ```
 ///
 pub mod linked_dataset {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct LinkedDatasetArgs {
@@ -88,7 +88,7 @@ pub mod linked_dataset {
         /// Views corresponding to the LogViews in the bucket.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub bigquery_datasets: pulumi_wasm_rust::InputOrOutput<
+        pub bigquery_datasets: pulumi_gestalt_rust::InputOrOutput<
             Option<Vec<super::super::types::logging::LinkedDatasetBigqueryDataset>>,
         >,
         /// The bucket to which the linked dataset is attached.
@@ -96,19 +96,19 @@ pub mod linked_dataset {
         ///
         /// - - -
         #[builder(into)]
-        pub bucket: pulumi_wasm_rust::InputOrOutput<String>,
+        pub bucket: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Describes this link. The maximum length of the description is 8000 characters.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub description: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The id of the linked dataset.
         #[builder(into)]
-        pub link_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub link_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The location of the linked dataset.
         #[builder(into, default)]
-        pub location: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub location: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The parent of the linked dataset.
         #[builder(into, default)]
-        pub parent: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub parent: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct LinkedDatasetResult {
@@ -116,42 +116,42 @@ pub mod linked_dataset {
         /// with it, in the same project as the LogBucket it's linked to. This dataset will also have BigQuery
         /// Views corresponding to the LogViews in the bucket.
         /// Structure is documented below.
-        pub bigquery_datasets: pulumi_wasm_rust::Output<
+        pub bigquery_datasets: pulumi_gestalt_rust::Output<
             Vec<super::super::types::logging::LinkedDatasetBigqueryDataset>,
         >,
         /// The bucket to which the linked dataset is attached.
         ///
         ///
         /// - - -
-        pub bucket: pulumi_wasm_rust::Output<String>,
+        pub bucket: pulumi_gestalt_rust::Output<String>,
         /// Output only. The creation timestamp of the link. A timestamp in RFC3339 UTC "Zulu" format,
         /// with nanosecond resolution and up to nine fractional digits. Examples: "2014-10-02T15:01:23Z"
         /// and "2014-10-02T15:01:23.045123456Z".
-        pub create_time: pulumi_wasm_rust::Output<String>,
+        pub create_time: pulumi_gestalt_rust::Output<String>,
         /// Describes this link. The maximum length of the description is 8000 characters.
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_gestalt_rust::Output<Option<String>>,
         /// Output only. The linked dataset lifecycle state.
-        pub lifecycle_state: pulumi_wasm_rust::Output<String>,
+        pub lifecycle_state: pulumi_gestalt_rust::Output<String>,
         /// The id of the linked dataset.
-        pub link_id: pulumi_wasm_rust::Output<String>,
+        pub link_id: pulumi_gestalt_rust::Output<String>,
         /// The location of the linked dataset.
-        pub location: pulumi_wasm_rust::Output<String>,
+        pub location: pulumi_gestalt_rust::Output<String>,
         /// The resource name of the linked dataset. The name can have up to 100 characters. A valid link id
         /// (at the end of the link name) must only have alphanumeric characters and underscores within it.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// The parent of the linked dataset.
-        pub parent: pulumi_wasm_rust::Output<String>,
+        pub parent: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: LinkedDatasetArgs,
     ) -> LinkedDatasetResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let bigquery_datasets_binding = args
             .bigquery_datasets
@@ -195,25 +195,31 @@ pub mod linked_dataset {
         };
         let o = register_interface::register(context.get_inner(), &request);
         LinkedDatasetResult {
-            bigquery_datasets: pulumi_wasm_rust::__private::into_domain(
+            bigquery_datasets: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("bigqueryDatasets"),
             ),
-            bucket: pulumi_wasm_rust::__private::into_domain(o.extract_field("bucket")),
-            create_time: pulumi_wasm_rust::__private::into_domain(
+            bucket: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("bucket"),
+            ),
+            create_time: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("createTime"),
             ),
-            description: pulumi_wasm_rust::__private::into_domain(
+            description: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("description"),
             ),
-            lifecycle_state: pulumi_wasm_rust::__private::into_domain(
+            lifecycle_state: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("lifecycleState"),
             ),
-            link_id: pulumi_wasm_rust::__private::into_domain(o.extract_field("linkId")),
-            location: pulumi_wasm_rust::__private::into_domain(
+            link_id: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("linkId"),
+            ),
+            location: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("location"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            parent: pulumi_wasm_rust::__private::into_domain(o.extract_field("parent")),
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            parent: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("parent"),
+            ),
         }
     }
 }

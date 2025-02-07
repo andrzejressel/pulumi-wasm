@@ -18,8 +18,8 @@
 /// ## Example Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let clusterInstances = cluster_instance::create(
@@ -53,183 +53,187 @@
 /// $ pulumi import aws:rds/clusterInstance:ClusterInstance prod_instance_1 aurora-cluster-instance-1
 /// ```
 pub mod cluster_instance {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ClusterInstanceArgs {
         /// Specifies whether any database modifications are applied immediately, or during the next maintenance window. Default is`false`.
         #[builder(into, default)]
-        pub apply_immediately: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub apply_immediately: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// Indicates that minor engine upgrades will be applied automatically to the DB instance during the maintenance window. Default `true`.
         #[builder(into, default)]
-        pub auto_minor_version_upgrade: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub auto_minor_version_upgrade: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// EC2 Availability Zone that the DB instance is created in. See [docs](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html) about the details.
         #[builder(into, default)]
-        pub availability_zone: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub availability_zone: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Identifier of the CA certificate for the DB instance.
         #[builder(into, default)]
-        pub ca_cert_identifier: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub ca_cert_identifier: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Identifier of the `aws.rds.Cluster` in which to launch this instance.
         #[builder(into)]
-        pub cluster_identifier: pulumi_wasm_rust::InputOrOutput<String>,
+        pub cluster_identifier: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Indicates whether to copy all of the user-defined tags from the DB instance to snapshots of the DB instance. Default `false`.
         #[builder(into, default)]
-        pub copy_tags_to_snapshot: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub copy_tags_to_snapshot: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// Instance profile associated with the underlying Amazon EC2 instance of an RDS Custom DB instance.
         #[builder(into, default)]
-        pub custom_iam_instance_profile: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub custom_iam_instance_profile: pulumi_gestalt_rust::InputOrOutput<
+            Option<String>,
+        >,
         /// Name of the DB parameter group to associate with this instance.
         #[builder(into, default)]
-        pub db_parameter_group_name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub db_parameter_group_name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Specifies the DB subnet group to associate with this DB instance. The default behavior varies depending on whether `db_subnet_group_name` is specified. Please refer to official [AWS documentation](https://docs.aws.amazon.com/cli/latest/reference/rds/create-db-instance.html) to understand how `db_subnet_group_name` and `publicly_accessible` parameters affect DB instance behaviour. **NOTE:** This must match the `db_subnet_group_name` of the attached `aws.rds.Cluster`.
         #[builder(into, default)]
-        pub db_subnet_group_name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub db_subnet_group_name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Name of the database engine to be used for the RDS cluster instance.
         /// Valid Values: `aurora-mysql`, `aurora-postgresql`, `mysql`, `postgres`.(Note that `mysql` and `postgres` are Multi-AZ RDS clusters).
         #[builder(into)]
-        pub engine: pulumi_wasm_rust::InputOrOutput<String>,
+        pub engine: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Database engine version. Please note that to upgrade the `engine_version` of the instance, it must be done on the `aws.rds.Cluster` `engine_version`. Trying to upgrade in `aws_cluster_instance` will not update the `engine_version`.
         #[builder(into, default)]
-        pub engine_version: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub engine_version: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Forces an instance to be destroyed when a part of a read replica cluster. **Note:** will promote the read replica to a standalone cluster before instance deletion.
         #[builder(into, default)]
-        pub force_destroy: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub force_destroy: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// Identifier for the RDS instance, if omitted, Pulumi will assign a random, unique identifier.
         #[builder(into, default)]
-        pub identifier: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub identifier: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Creates a unique identifier beginning with the specified prefix. Conflicts with `identifier`.
         #[builder(into, default)]
-        pub identifier_prefix: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub identifier_prefix: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Instance class to use. For details on CPU and memory, see [Scaling Aurora DB Instances](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Aurora.Managing.html). Aurora uses `db.*` instance classes/types. Please see [AWS Documentation](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.html) for currently available instance classes and complete details. For Aurora Serverless v2 use `db.serverless`.
         #[builder(into)]
-        pub instance_class: pulumi_wasm_rust::InputOrOutput<String>,
+        pub instance_class: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Interval, in seconds, between points when Enhanced Monitoring metrics are collected for the DB instance. To disable collecting Enhanced Monitoring metrics, specify 0. The default is 0. Valid Values: 0, 1, 5, 10, 15, 30, 60.
         #[builder(into, default)]
-        pub monitoring_interval: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
+        pub monitoring_interval: pulumi_gestalt_rust::InputOrOutput<Option<i32>>,
         /// ARN for the IAM role that permits RDS to send enhanced monitoring metrics to CloudWatch Logs. You can find more information on the [AWS Documentation](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Monitoring.html) what IAM permissions are needed to allow Enhanced Monitoring for RDS Instances.
         #[builder(into, default)]
-        pub monitoring_role_arn: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub monitoring_role_arn: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Specifies whether Performance Insights is enabled or not.
         #[builder(into, default)]
-        pub performance_insights_enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub performance_insights_enabled: pulumi_gestalt_rust::InputOrOutput<
+            Option<bool>,
+        >,
         /// ARN for the KMS key to encrypt Performance Insights data. When specifying `performance_insights_kms_key_id`, `performance_insights_enabled` needs to be set to true.
         #[builder(into, default)]
-        pub performance_insights_kms_key_id: pulumi_wasm_rust::InputOrOutput<
+        pub performance_insights_kms_key_id: pulumi_gestalt_rust::InputOrOutput<
             Option<String>,
         >,
         /// Amount of time in days to retain Performance Insights data. Valid values are `7`, `731` (2 years) or a multiple of `31`. When specifying `performance_insights_retention_period`, `performance_insights_enabled` needs to be set to true. Defaults to '7'.
         #[builder(into, default)]
-        pub performance_insights_retention_period: pulumi_wasm_rust::InputOrOutput<
+        pub performance_insights_retention_period: pulumi_gestalt_rust::InputOrOutput<
             Option<i32>,
         >,
         /// Daily time range during which automated backups are created if automated backups are enabled. Eg: "04:00-09:00". **NOTE:** If `preferred_backup_window` is set at the cluster level, this argument **must** be omitted.
         #[builder(into, default)]
-        pub preferred_backup_window: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub preferred_backup_window: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Window to perform maintenance in. Syntax: "ddd:hh24:mi-ddd:hh24:mi". Eg: "Mon:00:00-Mon:03:00".
         #[builder(into, default)]
-        pub preferred_maintenance_window: pulumi_wasm_rust::InputOrOutput<
+        pub preferred_maintenance_window: pulumi_gestalt_rust::InputOrOutput<
             Option<String>,
         >,
         /// Default 0. Failover Priority setting on instance level. The reader who has lower tier has higher priority to get promoted to writer.
         #[builder(into, default)]
-        pub promotion_tier: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
+        pub promotion_tier: pulumi_gestalt_rust::InputOrOutput<Option<i32>>,
         /// Bool to control if instance is publicly accessible. Default `false`. See the documentation on [Creating DB Instances](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html) for more details on controlling this property.
         #[builder(into, default)]
-        pub publicly_accessible: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub publicly_accessible: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// Map of tags to assign to the instance. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
     #[allow(dead_code)]
     pub struct ClusterInstanceResult {
         /// Specifies whether any database modifications are applied immediately, or during the next maintenance window. Default is`false`.
-        pub apply_immediately: pulumi_wasm_rust::Output<bool>,
+        pub apply_immediately: pulumi_gestalt_rust::Output<bool>,
         /// Amazon Resource Name (ARN) of cluster instance
-        pub arn: pulumi_wasm_rust::Output<String>,
+        pub arn: pulumi_gestalt_rust::Output<String>,
         /// Indicates that minor engine upgrades will be applied automatically to the DB instance during the maintenance window. Default `true`.
-        pub auto_minor_version_upgrade: pulumi_wasm_rust::Output<Option<bool>>,
+        pub auto_minor_version_upgrade: pulumi_gestalt_rust::Output<Option<bool>>,
         /// EC2 Availability Zone that the DB instance is created in. See [docs](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html) about the details.
-        pub availability_zone: pulumi_wasm_rust::Output<String>,
+        pub availability_zone: pulumi_gestalt_rust::Output<String>,
         /// Identifier of the CA certificate for the DB instance.
-        pub ca_cert_identifier: pulumi_wasm_rust::Output<String>,
+        pub ca_cert_identifier: pulumi_gestalt_rust::Output<String>,
         /// Identifier of the `aws.rds.Cluster` in which to launch this instance.
-        pub cluster_identifier: pulumi_wasm_rust::Output<String>,
+        pub cluster_identifier: pulumi_gestalt_rust::Output<String>,
         /// Indicates whether to copy all of the user-defined tags from the DB instance to snapshots of the DB instance. Default `false`.
-        pub copy_tags_to_snapshot: pulumi_wasm_rust::Output<Option<bool>>,
+        pub copy_tags_to_snapshot: pulumi_gestalt_rust::Output<Option<bool>>,
         /// Instance profile associated with the underlying Amazon EC2 instance of an RDS Custom DB instance.
-        pub custom_iam_instance_profile: pulumi_wasm_rust::Output<Option<String>>,
+        pub custom_iam_instance_profile: pulumi_gestalt_rust::Output<Option<String>>,
         /// Name of the DB parameter group to associate with this instance.
-        pub db_parameter_group_name: pulumi_wasm_rust::Output<String>,
+        pub db_parameter_group_name: pulumi_gestalt_rust::Output<String>,
         /// Specifies the DB subnet group to associate with this DB instance. The default behavior varies depending on whether `db_subnet_group_name` is specified. Please refer to official [AWS documentation](https://docs.aws.amazon.com/cli/latest/reference/rds/create-db-instance.html) to understand how `db_subnet_group_name` and `publicly_accessible` parameters affect DB instance behaviour. **NOTE:** This must match the `db_subnet_group_name` of the attached `aws.rds.Cluster`.
-        pub db_subnet_group_name: pulumi_wasm_rust::Output<String>,
+        pub db_subnet_group_name: pulumi_gestalt_rust::Output<String>,
         /// Region-unique, immutable identifier for the DB instance.
-        pub dbi_resource_id: pulumi_wasm_rust::Output<String>,
+        pub dbi_resource_id: pulumi_gestalt_rust::Output<String>,
         /// DNS address for this instance. May not be writable
-        pub endpoint: pulumi_wasm_rust::Output<String>,
+        pub endpoint: pulumi_gestalt_rust::Output<String>,
         /// Name of the database engine to be used for the RDS cluster instance.
         /// Valid Values: `aurora-mysql`, `aurora-postgresql`, `mysql`, `postgres`.(Note that `mysql` and `postgres` are Multi-AZ RDS clusters).
-        pub engine: pulumi_wasm_rust::Output<String>,
+        pub engine: pulumi_gestalt_rust::Output<String>,
         /// Database engine version. Please note that to upgrade the `engine_version` of the instance, it must be done on the `aws.rds.Cluster` `engine_version`. Trying to upgrade in `aws_cluster_instance` will not update the `engine_version`.
-        pub engine_version: pulumi_wasm_rust::Output<String>,
+        pub engine_version: pulumi_gestalt_rust::Output<String>,
         /// Database engine version
-        pub engine_version_actual: pulumi_wasm_rust::Output<String>,
+        pub engine_version_actual: pulumi_gestalt_rust::Output<String>,
         /// Forces an instance to be destroyed when a part of a read replica cluster. **Note:** will promote the read replica to a standalone cluster before instance deletion.
-        pub force_destroy: pulumi_wasm_rust::Output<Option<bool>>,
+        pub force_destroy: pulumi_gestalt_rust::Output<Option<bool>>,
         /// Identifier for the RDS instance, if omitted, Pulumi will assign a random, unique identifier.
-        pub identifier: pulumi_wasm_rust::Output<String>,
+        pub identifier: pulumi_gestalt_rust::Output<String>,
         /// Creates a unique identifier beginning with the specified prefix. Conflicts with `identifier`.
-        pub identifier_prefix: pulumi_wasm_rust::Output<String>,
+        pub identifier_prefix: pulumi_gestalt_rust::Output<String>,
         /// Instance class to use. For details on CPU and memory, see [Scaling Aurora DB Instances](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Aurora.Managing.html). Aurora uses `db.*` instance classes/types. Please see [AWS Documentation](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.html) for currently available instance classes and complete details. For Aurora Serverless v2 use `db.serverless`.
-        pub instance_class: pulumi_wasm_rust::Output<String>,
+        pub instance_class: pulumi_gestalt_rust::Output<String>,
         /// ARN for the KMS encryption key if one is set to the cluster.
-        pub kms_key_id: pulumi_wasm_rust::Output<String>,
+        pub kms_key_id: pulumi_gestalt_rust::Output<String>,
         /// Interval, in seconds, between points when Enhanced Monitoring metrics are collected for the DB instance. To disable collecting Enhanced Monitoring metrics, specify 0. The default is 0. Valid Values: 0, 1, 5, 10, 15, 30, 60.
-        pub monitoring_interval: pulumi_wasm_rust::Output<Option<i32>>,
+        pub monitoring_interval: pulumi_gestalt_rust::Output<Option<i32>>,
         /// ARN for the IAM role that permits RDS to send enhanced monitoring metrics to CloudWatch Logs. You can find more information on the [AWS Documentation](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Monitoring.html) what IAM permissions are needed to allow Enhanced Monitoring for RDS Instances.
-        pub monitoring_role_arn: pulumi_wasm_rust::Output<String>,
+        pub monitoring_role_arn: pulumi_gestalt_rust::Output<String>,
         /// Network type of the DB instance.
-        pub network_type: pulumi_wasm_rust::Output<String>,
+        pub network_type: pulumi_gestalt_rust::Output<String>,
         /// Specifies whether Performance Insights is enabled or not.
-        pub performance_insights_enabled: pulumi_wasm_rust::Output<bool>,
+        pub performance_insights_enabled: pulumi_gestalt_rust::Output<bool>,
         /// ARN for the KMS key to encrypt Performance Insights data. When specifying `performance_insights_kms_key_id`, `performance_insights_enabled` needs to be set to true.
-        pub performance_insights_kms_key_id: pulumi_wasm_rust::Output<String>,
+        pub performance_insights_kms_key_id: pulumi_gestalt_rust::Output<String>,
         /// Amount of time in days to retain Performance Insights data. Valid values are `7`, `731` (2 years) or a multiple of `31`. When specifying `performance_insights_retention_period`, `performance_insights_enabled` needs to be set to true. Defaults to '7'.
-        pub performance_insights_retention_period: pulumi_wasm_rust::Output<i32>,
+        pub performance_insights_retention_period: pulumi_gestalt_rust::Output<i32>,
         /// Database port
-        pub port: pulumi_wasm_rust::Output<i32>,
+        pub port: pulumi_gestalt_rust::Output<i32>,
         /// Daily time range during which automated backups are created if automated backups are enabled. Eg: "04:00-09:00". **NOTE:** If `preferred_backup_window` is set at the cluster level, this argument **must** be omitted.
-        pub preferred_backup_window: pulumi_wasm_rust::Output<String>,
+        pub preferred_backup_window: pulumi_gestalt_rust::Output<String>,
         /// Window to perform maintenance in. Syntax: "ddd:hh24:mi-ddd:hh24:mi". Eg: "Mon:00:00-Mon:03:00".
-        pub preferred_maintenance_window: pulumi_wasm_rust::Output<String>,
+        pub preferred_maintenance_window: pulumi_gestalt_rust::Output<String>,
         /// Default 0. Failover Priority setting on instance level. The reader who has lower tier has higher priority to get promoted to writer.
-        pub promotion_tier: pulumi_wasm_rust::Output<Option<i32>>,
+        pub promotion_tier: pulumi_gestalt_rust::Output<Option<i32>>,
         /// Bool to control if instance is publicly accessible. Default `false`. See the documentation on [Creating DB Instances](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html) for more details on controlling this property.
-        pub publicly_accessible: pulumi_wasm_rust::Output<bool>,
+        pub publicly_accessible: pulumi_gestalt_rust::Output<bool>,
         /// Specifies whether the DB cluster is encrypted.
-        pub storage_encrypted: pulumi_wasm_rust::Output<bool>,
+        pub storage_encrypted: pulumi_gestalt_rust::Output<bool>,
         /// Map of tags to assign to the instance. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        pub tags_all: pulumi_wasm_rust::Output<
+        pub tags_all: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
         /// Boolean indicating if this instance is writable. `False` indicates this instance is a read replica.
-        pub writer: pulumi_wasm_rust::Output<bool>,
+        pub writer: pulumi_gestalt_rust::Output<bool>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: ClusterInstanceArgs,
     ) -> ClusterInstanceResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let apply_immediately_binding = args
             .apply_immediately
@@ -419,101 +423,105 @@ pub mod cluster_instance {
         };
         let o = register_interface::register(context.get_inner(), &request);
         ClusterInstanceResult {
-            apply_immediately: pulumi_wasm_rust::__private::into_domain(
+            apply_immediately: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("applyImmediately"),
             ),
-            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
-            auto_minor_version_upgrade: pulumi_wasm_rust::__private::into_domain(
+            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
+            auto_minor_version_upgrade: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("autoMinorVersionUpgrade"),
             ),
-            availability_zone: pulumi_wasm_rust::__private::into_domain(
+            availability_zone: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("availabilityZone"),
             ),
-            ca_cert_identifier: pulumi_wasm_rust::__private::into_domain(
+            ca_cert_identifier: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("caCertIdentifier"),
             ),
-            cluster_identifier: pulumi_wasm_rust::__private::into_domain(
+            cluster_identifier: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("clusterIdentifier"),
             ),
-            copy_tags_to_snapshot: pulumi_wasm_rust::__private::into_domain(
+            copy_tags_to_snapshot: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("copyTagsToSnapshot"),
             ),
-            custom_iam_instance_profile: pulumi_wasm_rust::__private::into_domain(
+            custom_iam_instance_profile: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("customIamInstanceProfile"),
             ),
-            db_parameter_group_name: pulumi_wasm_rust::__private::into_domain(
+            db_parameter_group_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("dbParameterGroupName"),
             ),
-            db_subnet_group_name: pulumi_wasm_rust::__private::into_domain(
+            db_subnet_group_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("dbSubnetGroupName"),
             ),
-            dbi_resource_id: pulumi_wasm_rust::__private::into_domain(
+            dbi_resource_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("dbiResourceId"),
             ),
-            endpoint: pulumi_wasm_rust::__private::into_domain(
+            endpoint: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("endpoint"),
             ),
-            engine: pulumi_wasm_rust::__private::into_domain(o.extract_field("engine")),
-            engine_version: pulumi_wasm_rust::__private::into_domain(
+            engine: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("engine"),
+            ),
+            engine_version: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("engineVersion"),
             ),
-            engine_version_actual: pulumi_wasm_rust::__private::into_domain(
+            engine_version_actual: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("engineVersionActual"),
             ),
-            force_destroy: pulumi_wasm_rust::__private::into_domain(
+            force_destroy: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("forceDestroy"),
             ),
-            identifier: pulumi_wasm_rust::__private::into_domain(
+            identifier: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("identifier"),
             ),
-            identifier_prefix: pulumi_wasm_rust::__private::into_domain(
+            identifier_prefix: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("identifierPrefix"),
             ),
-            instance_class: pulumi_wasm_rust::__private::into_domain(
+            instance_class: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("instanceClass"),
             ),
-            kms_key_id: pulumi_wasm_rust::__private::into_domain(
+            kms_key_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("kmsKeyId"),
             ),
-            monitoring_interval: pulumi_wasm_rust::__private::into_domain(
+            monitoring_interval: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("monitoringInterval"),
             ),
-            monitoring_role_arn: pulumi_wasm_rust::__private::into_domain(
+            monitoring_role_arn: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("monitoringRoleArn"),
             ),
-            network_type: pulumi_wasm_rust::__private::into_domain(
+            network_type: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("networkType"),
             ),
-            performance_insights_enabled: pulumi_wasm_rust::__private::into_domain(
+            performance_insights_enabled: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("performanceInsightsEnabled"),
             ),
-            performance_insights_kms_key_id: pulumi_wasm_rust::__private::into_domain(
+            performance_insights_kms_key_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("performanceInsightsKmsKeyId"),
             ),
-            performance_insights_retention_period: pulumi_wasm_rust::__private::into_domain(
+            performance_insights_retention_period: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("performanceInsightsRetentionPeriod"),
             ),
-            port: pulumi_wasm_rust::__private::into_domain(o.extract_field("port")),
-            preferred_backup_window: pulumi_wasm_rust::__private::into_domain(
+            port: pulumi_gestalt_rust::__private::into_domain(o.extract_field("port")),
+            preferred_backup_window: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("preferredBackupWindow"),
             ),
-            preferred_maintenance_window: pulumi_wasm_rust::__private::into_domain(
+            preferred_maintenance_window: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("preferredMaintenanceWindow"),
             ),
-            promotion_tier: pulumi_wasm_rust::__private::into_domain(
+            promotion_tier: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("promotionTier"),
             ),
-            publicly_accessible: pulumi_wasm_rust::__private::into_domain(
+            publicly_accessible: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("publiclyAccessible"),
             ),
-            storage_encrypted: pulumi_wasm_rust::__private::into_domain(
+            storage_encrypted: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("storageEncrypted"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_wasm_rust::__private::into_domain(
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            tags_all: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("tagsAll"),
             ),
-            writer: pulumi_wasm_rust::__private::into_domain(o.extract_field("writer")),
+            writer: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("writer"),
+            ),
         }
     }
 }

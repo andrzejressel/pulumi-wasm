@@ -1,43 +1,43 @@
 pub mod get_outposts {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct GetOutpostsArgs {
         /// Availability Zone name.
         #[builder(into, default)]
-        pub availability_zone: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub availability_zone: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Availability Zone identifier.
         #[builder(into, default)]
-        pub availability_zone_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub availability_zone_id: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// AWS Account identifier of the Outpost owner.
         #[builder(into, default)]
-        pub owner_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub owner_id: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Site identifier.
         #[builder(into, default)]
-        pub site_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub site_id: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct GetOutpostsResult {
         /// Set of Amazon Resource Names (ARNs).
-        pub arns: pulumi_wasm_rust::Output<Vec<String>>,
-        pub availability_zone: pulumi_wasm_rust::Output<String>,
-        pub availability_zone_id: pulumi_wasm_rust::Output<String>,
+        pub arns: pulumi_gestalt_rust::Output<Vec<String>>,
+        pub availability_zone: pulumi_gestalt_rust::Output<String>,
+        pub availability_zone_id: pulumi_gestalt_rust::Output<String>,
         /// The provider-assigned unique ID for this managed resource.
-        pub id: pulumi_wasm_rust::Output<String>,
+        pub id: pulumi_gestalt_rust::Output<String>,
         /// Set of identifiers.
-        pub ids: pulumi_wasm_rust::Output<Vec<String>>,
-        pub owner_id: pulumi_wasm_rust::Output<String>,
-        pub site_id: pulumi_wasm_rust::Output<String>,
+        pub ids: pulumi_gestalt_rust::Output<Vec<String>>,
+        pub owner_id: pulumi_gestalt_rust::Output<String>,
+        pub site_id: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         args: GetOutpostsArgs,
     ) -> GetOutpostsResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let availability_zone_binding = args
             .availability_zone
@@ -73,19 +73,21 @@ pub mod get_outposts {
         };
         let o = register_interface::invoke(context.get_inner(), &request);
         GetOutpostsResult {
-            arns: pulumi_wasm_rust::__private::into_domain(o.extract_field("arns")),
-            availability_zone: pulumi_wasm_rust::__private::into_domain(
+            arns: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arns")),
+            availability_zone: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("availabilityZone"),
             ),
-            availability_zone_id: pulumi_wasm_rust::__private::into_domain(
+            availability_zone_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("availabilityZoneId"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
-            ids: pulumi_wasm_rust::__private::into_domain(o.extract_field("ids")),
-            owner_id: pulumi_wasm_rust::__private::into_domain(
+            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
+            ids: pulumi_gestalt_rust::__private::into_domain(o.extract_field("ids")),
+            owner_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("ownerId"),
             ),
-            site_id: pulumi_wasm_rust::__private::into_domain(o.extract_field("siteId")),
+            site_id: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("siteId"),
+            ),
         }
     }
 }

@@ -159,7 +159,7 @@
 /// ```
 ///
 pub mod instance {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct InstanceArgs {
@@ -167,7 +167,7 @@ pub mod instance {
         /// **Note**: This field is non-authoritative, and will only manage the annotations present in your configuration.
         /// Please refer to the field `effective_annotations` for all of the annotations present on the resource.
         #[builder(into, default)]
-        pub annotations: pulumi_wasm_rust::InputOrOutput<
+        pub annotations: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// 'Availability type of an Instance. Defaults to REGIONAL for both primary and read instances.
@@ -178,77 +178,77 @@ pub mod instance {
         /// can have regional availability (nodes are present in 2 or more zones in a region).'
         /// Possible values are: `AVAILABILITY_TYPE_UNSPECIFIED`, `ZONAL`, `REGIONAL`.
         #[builder(into, default)]
-        pub availability_type: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub availability_type: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Client connection specific configurations.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub client_connection_config: pulumi_wasm_rust::InputOrOutput<
+        pub client_connection_config: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::alloydb::InstanceClientConnectionConfig>,
         >,
         /// Identifies the alloydb cluster. Must be in the format
         /// 'projects/{project}/locations/{location}/clusters/{cluster_id}'
         #[builder(into)]
-        pub cluster: pulumi_wasm_rust::InputOrOutput<String>,
+        pub cluster: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Database flags. Set at instance level. * They are copied from primary instance on read instance creation. * Read instances can set new or override existing flags that are relevant for reads, e.g. for enabling columnar cache on a read instance. Flags set on read instance may or may not be present on primary.
         #[builder(into, default)]
-        pub database_flags: pulumi_wasm_rust::InputOrOutput<
+        pub database_flags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// User-settable and human-readable display name for the Instance.
         #[builder(into, default)]
-        pub display_name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub display_name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The Compute Engine zone that the instance should serve from, per https://cloud.google.com/compute/docs/regions-zones This can ONLY be specified for ZONAL instances. If present for a REGIONAL instance, an error will be thrown. If this is absent for a ZONAL instance, instance is created in a random zone with available capacity.
         #[builder(into, default)]
-        pub gce_zone: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub gce_zone: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The ID of the alloydb instance.
         ///
         ///
         /// - - -
         #[builder(into)]
-        pub instance_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub instance_id: pulumi_gestalt_rust::InputOrOutput<String>,
         #[builder(into)]
-        pub instance_type: pulumi_wasm_rust::InputOrOutput<String>,
+        pub instance_type: pulumi_gestalt_rust::InputOrOutput<String>,
         /// User-defined labels for the alloydb instance.
         /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
         /// Please refer to the field `effective_labels` for all of the labels present on the resource.
         #[builder(into, default)]
-        pub labels: pulumi_wasm_rust::InputOrOutput<
+        pub labels: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Configurations for the machines that host the underlying database engine.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub machine_config: pulumi_wasm_rust::InputOrOutput<
+        pub machine_config: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::alloydb::InstanceMachineConfig>,
         >,
         /// Instance level network configuration.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub network_config: pulumi_wasm_rust::InputOrOutput<
+        pub network_config: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::alloydb::InstanceNetworkConfig>,
         >,
         /// Configuration for enhanced query insights.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub observability_config: pulumi_wasm_rust::InputOrOutput<
+        pub observability_config: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::alloydb::InstanceObservabilityConfig>,
         >,
         /// Configuration for Private Service Connect (PSC) for the instance.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub psc_instance_config: pulumi_wasm_rust::InputOrOutput<
+        pub psc_instance_config: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::alloydb::InstancePscInstanceConfig>,
         >,
         /// Configuration for query insights.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub query_insights_config: pulumi_wasm_rust::InputOrOutput<
+        pub query_insights_config: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::alloydb::InstanceQueryInsightsConfig>,
         >,
         /// Read pool specific config. If the instance type is READ_POOL, this configuration must be provided.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub read_pool_config: pulumi_wasm_rust::InputOrOutput<
+        pub read_pool_config: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::alloydb::InstanceReadPoolConfig>,
         >,
     }
@@ -257,7 +257,7 @@ pub mod instance {
         /// Annotations to allow client tools to store small amount of arbitrary data. This is distinct from labels.
         /// **Note**: This field is non-authoritative, and will only manage the annotations present in your configuration.
         /// Please refer to the field `effective_annotations` for all of the annotations present on the resource.
-        pub annotations: pulumi_wasm_rust::Output<
+        pub annotations: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// 'Availability type of an Instance. Defaults to REGIONAL for both primary and read instances.
@@ -267,110 +267,110 @@ pub mod instance {
         /// Read pool of size 1 can only have zonal availability. Read pools with node count of 2 or more
         /// can have regional availability (nodes are present in 2 or more zones in a region).'
         /// Possible values are: `AVAILABILITY_TYPE_UNSPECIFIED`, `ZONAL`, `REGIONAL`.
-        pub availability_type: pulumi_wasm_rust::Output<String>,
+        pub availability_type: pulumi_gestalt_rust::Output<String>,
         /// Client connection specific configurations.
         /// Structure is documented below.
-        pub client_connection_config: pulumi_wasm_rust::Output<
+        pub client_connection_config: pulumi_gestalt_rust::Output<
             super::super::types::alloydb::InstanceClientConnectionConfig,
         >,
         /// Identifies the alloydb cluster. Must be in the format
         /// 'projects/{project}/locations/{location}/clusters/{cluster_id}'
-        pub cluster: pulumi_wasm_rust::Output<String>,
+        pub cluster: pulumi_gestalt_rust::Output<String>,
         /// Time the Instance was created in UTC.
-        pub create_time: pulumi_wasm_rust::Output<String>,
+        pub create_time: pulumi_gestalt_rust::Output<String>,
         /// Database flags. Set at instance level. * They are copied from primary instance on read instance creation. * Read instances can set new or override existing flags that are relevant for reads, e.g. for enabling columnar cache on a read instance. Flags set on read instance may or may not be present on primary.
-        pub database_flags: pulumi_wasm_rust::Output<
+        pub database_flags: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
         /// User-settable and human-readable display name for the Instance.
-        pub display_name: pulumi_wasm_rust::Output<Option<String>>,
-        pub effective_annotations: pulumi_wasm_rust::Output<
+        pub display_name: pulumi_gestalt_rust::Output<Option<String>>,
+        pub effective_annotations: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
         /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Pulumi, other clients and services.
-        pub effective_labels: pulumi_wasm_rust::Output<
+        pub effective_labels: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
         /// The Compute Engine zone that the instance should serve from, per https://cloud.google.com/compute/docs/regions-zones This can ONLY be specified for ZONAL instances. If present for a REGIONAL instance, an error will be thrown. If this is absent for a ZONAL instance, instance is created in a random zone with available capacity.
-        pub gce_zone: pulumi_wasm_rust::Output<Option<String>>,
+        pub gce_zone: pulumi_gestalt_rust::Output<Option<String>>,
         /// The ID of the alloydb instance.
         ///
         ///
         /// - - -
-        pub instance_id: pulumi_wasm_rust::Output<String>,
-        pub instance_type: pulumi_wasm_rust::Output<String>,
+        pub instance_id: pulumi_gestalt_rust::Output<String>,
+        pub instance_type: pulumi_gestalt_rust::Output<String>,
         /// The IP address for the Instance. This is the connection endpoint for an end-user application.
-        pub ip_address: pulumi_wasm_rust::Output<String>,
+        pub ip_address: pulumi_gestalt_rust::Output<String>,
         /// User-defined labels for the alloydb instance.
         /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
         /// Please refer to the field `effective_labels` for all of the labels present on the resource.
-        pub labels: pulumi_wasm_rust::Output<
+        pub labels: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Configurations for the machines that host the underlying database engine.
         /// Structure is documented below.
-        pub machine_config: pulumi_wasm_rust::Output<
+        pub machine_config: pulumi_gestalt_rust::Output<
             super::super::types::alloydb::InstanceMachineConfig,
         >,
         /// The name of the instance resource.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// Instance level network configuration.
         /// Structure is documented below.
-        pub network_config: pulumi_wasm_rust::Output<
+        pub network_config: pulumi_gestalt_rust::Output<
             Option<super::super::types::alloydb::InstanceNetworkConfig>,
         >,
         /// Configuration for enhanced query insights.
         /// Structure is documented below.
-        pub observability_config: pulumi_wasm_rust::Output<
+        pub observability_config: pulumi_gestalt_rust::Output<
             super::super::types::alloydb::InstanceObservabilityConfig,
         >,
         /// The outbound public IP addresses for the instance. This is available ONLY when
         /// networkConfig.enableOutboundPublicIp is set to true. These IP addresses are used
         /// for outbound connections.
-        pub outbound_public_ip_addresses: pulumi_wasm_rust::Output<Vec<String>>,
+        pub outbound_public_ip_addresses: pulumi_gestalt_rust::Output<Vec<String>>,
         /// Configuration for Private Service Connect (PSC) for the instance.
         /// Structure is documented below.
-        pub psc_instance_config: pulumi_wasm_rust::Output<
+        pub psc_instance_config: pulumi_gestalt_rust::Output<
             super::super::types::alloydb::InstancePscInstanceConfig,
         >,
         /// The public IP addresses for the Instance. This is available ONLY when
         /// networkConfig.enablePublicIp is set to true. This is the connection
         /// endpoint for an end-user application.
-        pub public_ip_address: pulumi_wasm_rust::Output<String>,
+        pub public_ip_address: pulumi_gestalt_rust::Output<String>,
         /// The combination of labels configured directly on the resource
         /// and default labels configured on the provider.
-        pub pulumi_labels: pulumi_wasm_rust::Output<
+        pub pulumi_labels: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
         /// Configuration for query insights.
         /// Structure is documented below.
-        pub query_insights_config: pulumi_wasm_rust::Output<
+        pub query_insights_config: pulumi_gestalt_rust::Output<
             super::super::types::alloydb::InstanceQueryInsightsConfig,
         >,
         /// Read pool specific config. If the instance type is READ_POOL, this configuration must be provided.
         /// Structure is documented below.
-        pub read_pool_config: pulumi_wasm_rust::Output<
+        pub read_pool_config: pulumi_gestalt_rust::Output<
             Option<super::super::types::alloydb::InstanceReadPoolConfig>,
         >,
         /// Set to true if the current state of Instance does not match the user's intended state, and the service is actively updating the resource to reconcile them. This can happen due to user-triggered updates or system actions like failover or maintenance.
-        pub reconciling: pulumi_wasm_rust::Output<bool>,
+        pub reconciling: pulumi_gestalt_rust::Output<bool>,
         /// The current state of the alloydb instance.
-        pub state: pulumi_wasm_rust::Output<String>,
+        pub state: pulumi_gestalt_rust::Output<String>,
         /// The system-generated UID of the resource.
-        pub uid: pulumi_wasm_rust::Output<String>,
+        pub uid: pulumi_gestalt_rust::Output<String>,
         /// Time the Instance was updated in UTC.
-        pub update_time: pulumi_wasm_rust::Output<String>,
+        pub update_time: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: InstanceArgs,
     ) -> InstanceResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let annotations_binding = args.annotations.get_output(context).get_inner();
         let availability_type_binding = args
@@ -479,80 +479,82 @@ pub mod instance {
         };
         let o = register_interface::register(context.get_inner(), &request);
         InstanceResult {
-            annotations: pulumi_wasm_rust::__private::into_domain(
+            annotations: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("annotations"),
             ),
-            availability_type: pulumi_wasm_rust::__private::into_domain(
+            availability_type: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("availabilityType"),
             ),
-            client_connection_config: pulumi_wasm_rust::__private::into_domain(
+            client_connection_config: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("clientConnectionConfig"),
             ),
-            cluster: pulumi_wasm_rust::__private::into_domain(
+            cluster: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("cluster"),
             ),
-            create_time: pulumi_wasm_rust::__private::into_domain(
+            create_time: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("createTime"),
             ),
-            database_flags: pulumi_wasm_rust::__private::into_domain(
+            database_flags: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("databaseFlags"),
             ),
-            display_name: pulumi_wasm_rust::__private::into_domain(
+            display_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("displayName"),
             ),
-            effective_annotations: pulumi_wasm_rust::__private::into_domain(
+            effective_annotations: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("effectiveAnnotations"),
             ),
-            effective_labels: pulumi_wasm_rust::__private::into_domain(
+            effective_labels: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("effectiveLabels"),
             ),
-            gce_zone: pulumi_wasm_rust::__private::into_domain(
+            gce_zone: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("gceZone"),
             ),
-            instance_id: pulumi_wasm_rust::__private::into_domain(
+            instance_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("instanceId"),
             ),
-            instance_type: pulumi_wasm_rust::__private::into_domain(
+            instance_type: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("instanceType"),
             ),
-            ip_address: pulumi_wasm_rust::__private::into_domain(
+            ip_address: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("ipAddress"),
             ),
-            labels: pulumi_wasm_rust::__private::into_domain(o.extract_field("labels")),
-            machine_config: pulumi_wasm_rust::__private::into_domain(
+            labels: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("labels"),
+            ),
+            machine_config: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("machineConfig"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            network_config: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            network_config: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("networkConfig"),
             ),
-            observability_config: pulumi_wasm_rust::__private::into_domain(
+            observability_config: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("observabilityConfig"),
             ),
-            outbound_public_ip_addresses: pulumi_wasm_rust::__private::into_domain(
+            outbound_public_ip_addresses: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("outboundPublicIpAddresses"),
             ),
-            psc_instance_config: pulumi_wasm_rust::__private::into_domain(
+            psc_instance_config: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("pscInstanceConfig"),
             ),
-            public_ip_address: pulumi_wasm_rust::__private::into_domain(
+            public_ip_address: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("publicIpAddress"),
             ),
-            pulumi_labels: pulumi_wasm_rust::__private::into_domain(
+            pulumi_labels: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("pulumiLabels"),
             ),
-            query_insights_config: pulumi_wasm_rust::__private::into_domain(
+            query_insights_config: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("queryInsightsConfig"),
             ),
-            read_pool_config: pulumi_wasm_rust::__private::into_domain(
+            read_pool_config: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("readPoolConfig"),
             ),
-            reconciling: pulumi_wasm_rust::__private::into_domain(
+            reconciling: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("reconciling"),
             ),
-            state: pulumi_wasm_rust::__private::into_domain(o.extract_field("state")),
-            uid: pulumi_wasm_rust::__private::into_domain(o.extract_field("uid")),
-            update_time: pulumi_wasm_rust::__private::into_domain(
+            state: pulumi_gestalt_rust::__private::into_domain(o.extract_field("state")),
+            uid: pulumi_gestalt_rust::__private::into_domain(o.extract_field("uid")),
+            update_time: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("updateTime"),
             ),
         }

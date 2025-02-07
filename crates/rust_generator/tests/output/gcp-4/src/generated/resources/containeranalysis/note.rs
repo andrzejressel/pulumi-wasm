@@ -15,8 +15,8 @@
 ///
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let note = note::create(
@@ -40,8 +40,8 @@
 ///
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let note = note::create(
@@ -97,7 +97,7 @@
 /// ```
 ///
 pub mod note {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct NoteArgs {
@@ -112,31 +112,31 @@ pub mod note {
         /// project.
         /// Structure is documented below.
         #[builder(into)]
-        pub attestation_authority: pulumi_wasm_rust::InputOrOutput<
+        pub attestation_authority: pulumi_gestalt_rust::InputOrOutput<
             super::super::types::containeranalysis::NoteAttestationAuthority,
         >,
         /// Time of expiration for this note. Leave empty if note does not expire.
         #[builder(into, default)]
-        pub expiration_time: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub expiration_time: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// A detailed description of the note
         #[builder(into, default)]
-        pub long_description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub long_description: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The name of the note.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub project: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Names of other notes related to this note.
         #[builder(into, default)]
-        pub related_note_names: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
+        pub related_note_names: pulumi_gestalt_rust::InputOrOutput<Option<Vec<String>>>,
         /// URLs associated with this note and related metadata.
         #[builder(into, default)]
-        pub related_urls: pulumi_wasm_rust::InputOrOutput<
+        pub related_urls: pulumi_gestalt_rust::InputOrOutput<
             Option<Vec<super::super::types::containeranalysis::NoteRelatedUrl>>,
         >,
         /// A one sentence description of the note.
         #[builder(into, default)]
-        pub short_description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub short_description: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct NoteResult {
@@ -150,41 +150,41 @@ pub mod note {
         /// Attestation Occurrences, even if they don't all live in the same
         /// project.
         /// Structure is documented below.
-        pub attestation_authority: pulumi_wasm_rust::Output<
+        pub attestation_authority: pulumi_gestalt_rust::Output<
             super::super::types::containeranalysis::NoteAttestationAuthority,
         >,
         /// The time this note was created.
-        pub create_time: pulumi_wasm_rust::Output<String>,
+        pub create_time: pulumi_gestalt_rust::Output<String>,
         /// Time of expiration for this note. Leave empty if note does not expire.
-        pub expiration_time: pulumi_wasm_rust::Output<Option<String>>,
+        pub expiration_time: pulumi_gestalt_rust::Output<Option<String>>,
         /// The type of analysis this note describes
-        pub kind: pulumi_wasm_rust::Output<String>,
+        pub kind: pulumi_gestalt_rust::Output<String>,
         /// A detailed description of the note
-        pub long_description: pulumi_wasm_rust::Output<Option<String>>,
+        pub long_description: pulumi_gestalt_rust::Output<Option<String>>,
         /// The name of the note.
-        pub name: pulumi_wasm_rust::Output<String>,
-        pub project: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
+        pub project: pulumi_gestalt_rust::Output<String>,
         /// Names of other notes related to this note.
-        pub related_note_names: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub related_note_names: pulumi_gestalt_rust::Output<Option<Vec<String>>>,
         /// URLs associated with this note and related metadata.
-        pub related_urls: pulumi_wasm_rust::Output<
+        pub related_urls: pulumi_gestalt_rust::Output<
             Option<Vec<super::super::types::containeranalysis::NoteRelatedUrl>>,
         >,
         /// A one sentence description of the note.
-        pub short_description: pulumi_wasm_rust::Output<Option<String>>,
+        pub short_description: pulumi_gestalt_rust::Output<Option<String>>,
         /// The time this note was last updated.
-        pub update_time: pulumi_wasm_rust::Output<String>,
+        pub update_time: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: NoteArgs,
     ) -> NoteResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let attestation_authority_binding = args
             .attestation_authority
@@ -250,33 +250,33 @@ pub mod note {
         };
         let o = register_interface::register(context.get_inner(), &request);
         NoteResult {
-            attestation_authority: pulumi_wasm_rust::__private::into_domain(
+            attestation_authority: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("attestationAuthority"),
             ),
-            create_time: pulumi_wasm_rust::__private::into_domain(
+            create_time: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("createTime"),
             ),
-            expiration_time: pulumi_wasm_rust::__private::into_domain(
+            expiration_time: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("expirationTime"),
             ),
-            kind: pulumi_wasm_rust::__private::into_domain(o.extract_field("kind")),
-            long_description: pulumi_wasm_rust::__private::into_domain(
+            kind: pulumi_gestalt_rust::__private::into_domain(o.extract_field("kind")),
+            long_description: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("longDescription"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            project: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            project: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("project"),
             ),
-            related_note_names: pulumi_wasm_rust::__private::into_domain(
+            related_note_names: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("relatedNoteNames"),
             ),
-            related_urls: pulumi_wasm_rust::__private::into_domain(
+            related_urls: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("relatedUrls"),
             ),
-            short_description: pulumi_wasm_rust::__private::into_domain(
+            short_description: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("shortDescription"),
             ),
-            update_time: pulumi_wasm_rust::__private::into_domain(
+            update_time: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("updateTime"),
             ),
         }

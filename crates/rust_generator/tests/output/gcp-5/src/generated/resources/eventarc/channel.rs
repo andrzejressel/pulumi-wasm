@@ -68,69 +68,69 @@
 /// ```
 ///
 pub mod channel {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ChannelArgs {
         /// Optional. Resource name of a KMS crypto key (managed by the user) used to encrypt/decrypt their event data. It must match the pattern `projects/*/locations/*/keyRings/*/cryptoKeys/*`.
         #[builder(into, default)]
-        pub crypto_key_name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub crypto_key_name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The location for the resource
         #[builder(into)]
-        pub location: pulumi_wasm_rust::InputOrOutput<String>,
+        pub location: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Required. The resource name of the channel. Must be unique within the location on the project.
         ///
         ///
         ///
         /// - - -
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The project for the resource
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub project: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The name of the event provider (e.g. Eventarc SaaS partner) associated with the channel. This provider will be granted permissions to publish events to the channel. Format: `projects/{project}/locations/{location}/providers/{provider_id}`.
         #[builder(into, default)]
-        pub third_party_provider: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub third_party_provider: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct ChannelResult {
         /// Output only. The activation token for the channel. The token must be used by the provider to register the channel for publishing.
-        pub activation_token: pulumi_wasm_rust::Output<String>,
+        pub activation_token: pulumi_gestalt_rust::Output<String>,
         /// Output only. The creation time.
-        pub create_time: pulumi_wasm_rust::Output<String>,
+        pub create_time: pulumi_gestalt_rust::Output<String>,
         /// Optional. Resource name of a KMS crypto key (managed by the user) used to encrypt/decrypt their event data. It must match the pattern `projects/*/locations/*/keyRings/*/cryptoKeys/*`.
-        pub crypto_key_name: pulumi_wasm_rust::Output<Option<String>>,
+        pub crypto_key_name: pulumi_gestalt_rust::Output<Option<String>>,
         /// The location for the resource
-        pub location: pulumi_wasm_rust::Output<String>,
+        pub location: pulumi_gestalt_rust::Output<String>,
         /// Required. The resource name of the channel. Must be unique within the location on the project.
         ///
         ///
         ///
         /// - - -
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// The project for the resource
-        pub project: pulumi_wasm_rust::Output<String>,
+        pub project: pulumi_gestalt_rust::Output<String>,
         /// Output only. The name of the Pub/Sub topic created and managed by Eventarc system as a transport for the event delivery. Format: `projects/{project}/topics/{topic_id}`.
-        pub pubsub_topic: pulumi_wasm_rust::Output<String>,
+        pub pubsub_topic: pulumi_gestalt_rust::Output<String>,
         /// Output only. The state of a Channel. Possible values: STATE_UNSPECIFIED, PENDING, ACTIVE, INACTIVE
-        pub state: pulumi_wasm_rust::Output<String>,
+        pub state: pulumi_gestalt_rust::Output<String>,
         /// The name of the event provider (e.g. Eventarc SaaS partner) associated with the channel. This provider will be granted permissions to publish events to the channel. Format: `projects/{project}/locations/{location}/providers/{provider_id}`.
-        pub third_party_provider: pulumi_wasm_rust::Output<Option<String>>,
+        pub third_party_provider: pulumi_gestalt_rust::Output<Option<String>>,
         /// Output only. Server assigned unique identifier for the channel. The value is a UUID4 string and guaranteed to remain unchanged until the resource is deleted.
-        pub uid: pulumi_wasm_rust::Output<String>,
+        pub uid: pulumi_gestalt_rust::Output<String>,
         /// Output only. The last-modified time.
-        pub update_time: pulumi_wasm_rust::Output<String>,
+        pub update_time: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: ChannelArgs,
     ) -> ChannelResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let crypto_key_name_binding = args
             .crypto_key_name
@@ -172,31 +172,31 @@ pub mod channel {
         };
         let o = register_interface::register(context.get_inner(), &request);
         ChannelResult {
-            activation_token: pulumi_wasm_rust::__private::into_domain(
+            activation_token: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("activationToken"),
             ),
-            create_time: pulumi_wasm_rust::__private::into_domain(
+            create_time: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("createTime"),
             ),
-            crypto_key_name: pulumi_wasm_rust::__private::into_domain(
+            crypto_key_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("cryptoKeyName"),
             ),
-            location: pulumi_wasm_rust::__private::into_domain(
+            location: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("location"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            project: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            project: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("project"),
             ),
-            pubsub_topic: pulumi_wasm_rust::__private::into_domain(
+            pubsub_topic: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("pubsubTopic"),
             ),
-            state: pulumi_wasm_rust::__private::into_domain(o.extract_field("state")),
-            third_party_provider: pulumi_wasm_rust::__private::into_domain(
+            state: pulumi_gestalt_rust::__private::into_domain(o.extract_field("state")),
+            third_party_provider: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("thirdPartyProvider"),
             ),
-            uid: pulumi_wasm_rust::__private::into_domain(o.extract_field("uid")),
-            update_time: pulumi_wasm_rust::__private::into_domain(
+            uid: pulumi_gestalt_rust::__private::into_domain(o.extract_field("uid")),
+            update_time: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("updateTime"),
             ),
         }

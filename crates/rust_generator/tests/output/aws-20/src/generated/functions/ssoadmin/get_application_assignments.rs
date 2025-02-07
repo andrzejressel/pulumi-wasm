@@ -1,14 +1,14 @@
 pub mod get_application_assignments {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct GetApplicationAssignmentsArgs {
         /// ARN of the application.
         #[builder(into)]
-        pub application_arn: pulumi_wasm_rust::InputOrOutput<String>,
+        pub application_arn: pulumi_gestalt_rust::InputOrOutput<String>,
         /// List of principals assigned to the application. See the `application_assignments` attribute reference below.
         #[builder(into, default)]
-        pub application_assignments: pulumi_wasm_rust::InputOrOutput<
+        pub application_assignments: pulumi_gestalt_rust::InputOrOutput<
             Option<
                 Vec<
                     super::super::super::types::ssoadmin::GetApplicationAssignmentsApplicationAssignment,
@@ -19,26 +19,26 @@ pub mod get_application_assignments {
     #[allow(dead_code)]
     pub struct GetApplicationAssignmentsResult {
         /// ARN of the application.
-        pub application_arn: pulumi_wasm_rust::Output<String>,
+        pub application_arn: pulumi_gestalt_rust::Output<String>,
         /// List of principals assigned to the application. See the `application_assignments` attribute reference below.
-        pub application_assignments: pulumi_wasm_rust::Output<
+        pub application_assignments: pulumi_gestalt_rust::Output<
             Option<
                 Vec<
                     super::super::super::types::ssoadmin::GetApplicationAssignmentsApplicationAssignment,
                 >,
             >,
         >,
-        pub id: pulumi_wasm_rust::Output<String>,
+        pub id: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         args: GetApplicationAssignmentsArgs,
     ) -> GetApplicationAssignmentsResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let application_arn_binding = args
             .application_arn
@@ -65,13 +65,13 @@ pub mod get_application_assignments {
         };
         let o = register_interface::invoke(context.get_inner(), &request);
         GetApplicationAssignmentsResult {
-            application_arn: pulumi_wasm_rust::__private::into_domain(
+            application_arn: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("applicationArn"),
             ),
-            application_assignments: pulumi_wasm_rust::__private::into_domain(
+            application_assignments: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("applicationAssignments"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
+            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
         }
     }
 }

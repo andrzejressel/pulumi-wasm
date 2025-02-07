@@ -35,22 +35,22 @@
 /// This resource does not support import.
 ///
 pub mod document_ai_warehouse_location {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct DocumentAiWarehouseLocationArgs {
         /// The access control mode for accessing the customer data.
         /// Possible values are: `ACL_MODE_DOCUMENT_LEVEL_ACCESS_CONTROL_GCI`, `ACL_MODE_DOCUMENT_LEVEL_ACCESS_CONTROL_BYOID`, `ACL_MODE_UNIVERSAL_ACCESS`.
         #[builder(into)]
-        pub access_control_mode: pulumi_wasm_rust::InputOrOutput<String>,
+        pub access_control_mode: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The type of database used to store customer data.
         /// Possible values are: `DB_INFRA_SPANNER`, `DB_CLOUD_SQL_POSTGRES`.
         #[builder(into)]
-        pub database_type: pulumi_wasm_rust::InputOrOutput<String>,
+        pub database_type: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The default role for the person who create a document.
         /// Possible values are: `DOCUMENT_ADMIN`, `DOCUMENT_EDITOR`, `DOCUMENT_VIEWER`.
         #[builder(into, default)]
-        pub document_creator_default_role: pulumi_wasm_rust::InputOrOutput<
+        pub document_creator_default_role: pulumi_gestalt_rust::InputOrOutput<
             Option<String>,
         >,
         /// The KMS key used for CMEK encryption. It is required that
@@ -59,52 +59,52 @@ pub mod document_ai_warehouse_location {
         /// encryption is available. If the kmsKey is left empty, no
         /// encryption will be enforced.
         #[builder(into, default)]
-        pub kms_key: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub kms_key: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The location in which the instance is to be provisioned. It takes the form projects/{projectNumber}/locations/{location}.
         ///
         ///
         /// - - -
         #[builder(into)]
-        pub location: pulumi_wasm_rust::InputOrOutput<String>,
+        pub location: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The unique identifier of the project.
         #[builder(into)]
-        pub project_number: pulumi_wasm_rust::InputOrOutput<String>,
+        pub project_number: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct DocumentAiWarehouseLocationResult {
         /// The access control mode for accessing the customer data.
         /// Possible values are: `ACL_MODE_DOCUMENT_LEVEL_ACCESS_CONTROL_GCI`, `ACL_MODE_DOCUMENT_LEVEL_ACCESS_CONTROL_BYOID`, `ACL_MODE_UNIVERSAL_ACCESS`.
-        pub access_control_mode: pulumi_wasm_rust::Output<String>,
+        pub access_control_mode: pulumi_gestalt_rust::Output<String>,
         /// The type of database used to store customer data.
         /// Possible values are: `DB_INFRA_SPANNER`, `DB_CLOUD_SQL_POSTGRES`.
-        pub database_type: pulumi_wasm_rust::Output<String>,
+        pub database_type: pulumi_gestalt_rust::Output<String>,
         /// The default role for the person who create a document.
         /// Possible values are: `DOCUMENT_ADMIN`, `DOCUMENT_EDITOR`, `DOCUMENT_VIEWER`.
-        pub document_creator_default_role: pulumi_wasm_rust::Output<Option<String>>,
+        pub document_creator_default_role: pulumi_gestalt_rust::Output<Option<String>>,
         /// The KMS key used for CMEK encryption. It is required that
         /// the kms key is in the same region as the endpoint. The
         /// same key will be used for all provisioned resources, if
         /// encryption is available. If the kmsKey is left empty, no
         /// encryption will be enforced.
-        pub kms_key: pulumi_wasm_rust::Output<Option<String>>,
+        pub kms_key: pulumi_gestalt_rust::Output<Option<String>>,
         /// The location in which the instance is to be provisioned. It takes the form projects/{projectNumber}/locations/{location}.
         ///
         ///
         /// - - -
-        pub location: pulumi_wasm_rust::Output<String>,
+        pub location: pulumi_gestalt_rust::Output<String>,
         /// The unique identifier of the project.
-        pub project_number: pulumi_wasm_rust::Output<String>,
+        pub project_number: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: DocumentAiWarehouseLocationArgs,
     ) -> DocumentAiWarehouseLocationResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let access_control_mode_binding = args
             .access_control_mode
@@ -152,20 +152,22 @@ pub mod document_ai_warehouse_location {
         };
         let o = register_interface::register(context.get_inner(), &request);
         DocumentAiWarehouseLocationResult {
-            access_control_mode: pulumi_wasm_rust::__private::into_domain(
+            access_control_mode: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("accessControlMode"),
             ),
-            database_type: pulumi_wasm_rust::__private::into_domain(
+            database_type: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("databaseType"),
             ),
-            document_creator_default_role: pulumi_wasm_rust::__private::into_domain(
+            document_creator_default_role: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("documentCreatorDefaultRole"),
             ),
-            kms_key: pulumi_wasm_rust::__private::into_domain(o.extract_field("kmsKey")),
-            location: pulumi_wasm_rust::__private::into_domain(
+            kms_key: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("kmsKey"),
+            ),
+            location: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("location"),
             ),
-            project_number: pulumi_wasm_rust::__private::into_domain(
+            project_number: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("projectNumber"),
             ),
         }

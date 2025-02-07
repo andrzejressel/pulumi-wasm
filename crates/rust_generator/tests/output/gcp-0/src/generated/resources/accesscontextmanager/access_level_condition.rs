@@ -79,7 +79,7 @@
 /// This resource does not support import.
 ///
 pub mod access_level_condition {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct AccessLevelConditionArgs {
@@ -88,13 +88,13 @@ pub mod access_level_condition {
         ///
         /// - - -
         #[builder(into)]
-        pub access_level: pulumi_wasm_rust::InputOrOutput<String>,
+        pub access_level: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Device specific restrictions, all restrictions must hold for
         /// the Condition to be true. If not specified, all devices are
         /// allowed.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub device_policy: pulumi_wasm_rust::InputOrOutput<
+        pub device_policy: pulumi_gestalt_rust::InputOrOutput<
             Option<
                 super::super::types::accesscontextmanager::AccessLevelConditionDevicePolicy,
             >,
@@ -110,7 +110,7 @@ pub mod access_level_condition {
         /// listed subnets in order for this Condition to be true.
         /// If empty, all IP addresses are allowed.
         #[builder(into, default)]
-        pub ip_subnetworks: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
+        pub ip_subnetworks: pulumi_gestalt_rust::InputOrOutput<Option<Vec<String>>>,
         /// An allowed list of members (users, service accounts).
         /// Using groups is not supported yet.
         /// The signed-in user originating the request must be a part of one
@@ -119,28 +119,30 @@ pub mod access_level_condition {
         /// groups, etc.).
         /// Formats: `user:{emailid}`, `serviceAccount:{emailid}`
         #[builder(into, default)]
-        pub members: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
+        pub members: pulumi_gestalt_rust::InputOrOutput<Option<Vec<String>>>,
         /// Whether to negate the Condition. If true, the Condition becomes
         /// a NAND over its non-empty fields, each field must be false for
         /// the Condition overall to be satisfied. Defaults to false.
         #[builder(into, default)]
-        pub negate: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub negate: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// The request must originate from one of the provided
         /// countries/regions.
         /// Format: A valid ISO 3166-1 alpha-2 code.
         #[builder(into, default)]
-        pub regions: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
+        pub regions: pulumi_gestalt_rust::InputOrOutput<Option<Vec<String>>>,
         /// A list of other access levels defined in the same Policy,
         /// referenced by resource name. Referencing an AccessLevel which
         /// does not exist is an error. All access levels listed must be
         /// granted for the Condition to be true.
         /// Format: accessPolicies/{policy_id}/accessLevels/{short_name}
         #[builder(into, default)]
-        pub required_access_levels: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
+        pub required_access_levels: pulumi_gestalt_rust::InputOrOutput<
+            Option<Vec<String>>,
+        >,
         /// The request must originate from one of the provided VPC networks in Google Cloud. Cannot specify this field together with `ip_subnetworks`.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub vpc_network_sources: pulumi_wasm_rust::InputOrOutput<
+        pub vpc_network_sources: pulumi_gestalt_rust::InputOrOutput<
             Option<
                 Vec<
                     super::super::types::accesscontextmanager::AccessLevelConditionVpcNetworkSource,
@@ -154,12 +156,12 @@ pub mod access_level_condition {
         ///
         ///
         /// - - -
-        pub access_level: pulumi_wasm_rust::Output<String>,
+        pub access_level: pulumi_gestalt_rust::Output<String>,
         /// Device specific restrictions, all restrictions must hold for
         /// the Condition to be true. If not specified, all devices are
         /// allowed.
         /// Structure is documented below.
-        pub device_policy: pulumi_wasm_rust::Output<
+        pub device_policy: pulumi_gestalt_rust::Output<
             Option<
                 super::super::types::accesscontextmanager::AccessLevelConditionDevicePolicy,
             >,
@@ -174,7 +176,7 @@ pub mod access_level_condition {
         /// is not. The originating IP of a request must be in one of the
         /// listed subnets in order for this Condition to be true.
         /// If empty, all IP addresses are allowed.
-        pub ip_subnetworks: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub ip_subnetworks: pulumi_gestalt_rust::Output<Option<Vec<String>>>,
         /// An allowed list of members (users, service accounts).
         /// Using groups is not supported yet.
         /// The signed-in user originating the request must be a part of one
@@ -182,24 +184,24 @@ pub mod access_level_condition {
         /// from any user (logged in/not logged in, not present in any
         /// groups, etc.).
         /// Formats: `user:{emailid}`, `serviceAccount:{emailid}`
-        pub members: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub members: pulumi_gestalt_rust::Output<Option<Vec<String>>>,
         /// Whether to negate the Condition. If true, the Condition becomes
         /// a NAND over its non-empty fields, each field must be false for
         /// the Condition overall to be satisfied. Defaults to false.
-        pub negate: pulumi_wasm_rust::Output<Option<bool>>,
+        pub negate: pulumi_gestalt_rust::Output<Option<bool>>,
         /// The request must originate from one of the provided
         /// countries/regions.
         /// Format: A valid ISO 3166-1 alpha-2 code.
-        pub regions: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub regions: pulumi_gestalt_rust::Output<Option<Vec<String>>>,
         /// A list of other access levels defined in the same Policy,
         /// referenced by resource name. Referencing an AccessLevel which
         /// does not exist is an error. All access levels listed must be
         /// granted for the Condition to be true.
         /// Format: accessPolicies/{policy_id}/accessLevels/{short_name}
-        pub required_access_levels: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub required_access_levels: pulumi_gestalt_rust::Output<Option<Vec<String>>>,
         /// The request must originate from one of the provided VPC networks in Google Cloud. Cannot specify this field together with `ip_subnetworks`.
         /// Structure is documented below.
-        pub vpc_network_sources: pulumi_wasm_rust::Output<
+        pub vpc_network_sources: pulumi_gestalt_rust::Output<
             Option<
                 Vec<
                     super::super::types::accesscontextmanager::AccessLevelConditionVpcNetworkSource,
@@ -212,11 +214,11 @@ pub mod access_level_condition {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: AccessLevelConditionArgs,
     ) -> AccessLevelConditionResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let access_level_binding = args.access_level.get_output(context).get_inner();
         let device_policy_binding = args.device_policy.get_output(context).get_inner();
@@ -274,26 +276,28 @@ pub mod access_level_condition {
         };
         let o = register_interface::register(context.get_inner(), &request);
         AccessLevelConditionResult {
-            access_level: pulumi_wasm_rust::__private::into_domain(
+            access_level: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("accessLevel"),
             ),
-            device_policy: pulumi_wasm_rust::__private::into_domain(
+            device_policy: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("devicePolicy"),
             ),
-            ip_subnetworks: pulumi_wasm_rust::__private::into_domain(
+            ip_subnetworks: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("ipSubnetworks"),
             ),
-            members: pulumi_wasm_rust::__private::into_domain(
+            members: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("members"),
             ),
-            negate: pulumi_wasm_rust::__private::into_domain(o.extract_field("negate")),
-            regions: pulumi_wasm_rust::__private::into_domain(
+            negate: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("negate"),
+            ),
+            regions: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("regions"),
             ),
-            required_access_levels: pulumi_wasm_rust::__private::into_domain(
+            required_access_levels: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("requiredAccessLevels"),
             ),
-            vpc_network_sources: pulumi_wasm_rust::__private::into_domain(
+            vpc_network_sources: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("vpcNetworkSources"),
             ),
         }

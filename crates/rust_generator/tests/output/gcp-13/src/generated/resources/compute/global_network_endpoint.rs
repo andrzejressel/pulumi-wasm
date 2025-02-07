@@ -55,59 +55,59 @@
 /// ```
 ///
 pub mod global_network_endpoint {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct GlobalNetworkEndpointArgs {
         /// Fully qualified domain name of network endpoint.
         /// This can only be specified when network_endpoint_type of the NEG is INTERNET_FQDN_PORT.
         #[builder(into, default)]
-        pub fqdn: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub fqdn: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The global network endpoint group this endpoint is part of.
         ///
         ///
         /// - - -
         #[builder(into)]
-        pub global_network_endpoint_group: pulumi_wasm_rust::InputOrOutput<String>,
+        pub global_network_endpoint_group: pulumi_gestalt_rust::InputOrOutput<String>,
         /// IPv4 address external endpoint.
         #[builder(into, default)]
-        pub ip_address: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub ip_address: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Port number of the external endpoint.
         #[builder(into)]
-        pub port: pulumi_wasm_rust::InputOrOutput<i32>,
+        pub port: pulumi_gestalt_rust::InputOrOutput<i32>,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub project: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct GlobalNetworkEndpointResult {
         /// Fully qualified domain name of network endpoint.
         /// This can only be specified when network_endpoint_type of the NEG is INTERNET_FQDN_PORT.
-        pub fqdn: pulumi_wasm_rust::Output<Option<String>>,
+        pub fqdn: pulumi_gestalt_rust::Output<Option<String>>,
         /// The global network endpoint group this endpoint is part of.
         ///
         ///
         /// - - -
-        pub global_network_endpoint_group: pulumi_wasm_rust::Output<String>,
+        pub global_network_endpoint_group: pulumi_gestalt_rust::Output<String>,
         /// IPv4 address external endpoint.
-        pub ip_address: pulumi_wasm_rust::Output<Option<String>>,
+        pub ip_address: pulumi_gestalt_rust::Output<Option<String>>,
         /// Port number of the external endpoint.
-        pub port: pulumi_wasm_rust::Output<i32>,
+        pub port: pulumi_gestalt_rust::Output<i32>,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
-        pub project: pulumi_wasm_rust::Output<String>,
+        pub project: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: GlobalNetworkEndpointArgs,
     ) -> GlobalNetworkEndpointResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let fqdn_binding = args.fqdn.get_output(context).get_inner();
         let global_network_endpoint_group_binding = args
@@ -146,15 +146,17 @@ pub mod global_network_endpoint {
         };
         let o = register_interface::register(context.get_inner(), &request);
         GlobalNetworkEndpointResult {
-            fqdn: pulumi_wasm_rust::__private::into_domain(o.extract_field("fqdn")),
-            global_network_endpoint_group: pulumi_wasm_rust::__private::into_domain(
+            fqdn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("fqdn")),
+            global_network_endpoint_group: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("globalNetworkEndpointGroup"),
             ),
-            ip_address: pulumi_wasm_rust::__private::into_domain(
+            ip_address: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("ipAddress"),
             ),
-            port: pulumi_wasm_rust::__private::into_domain(o.extract_field("port")),
-            project: pulumi_wasm_rust::__private::into_domain(o.extract_field("project")),
+            port: pulumi_gestalt_rust::__private::into_domain(o.extract_field("port")),
+            project: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("project"),
+            ),
         }
     }
 }

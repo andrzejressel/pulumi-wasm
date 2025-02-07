@@ -1,71 +1,71 @@
 pub mod get_data_set {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct GetDataSetArgs {
         /// AWS account ID.
         #[builder(into, default)]
-        pub aws_account_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub aws_account_id: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Identifier for the data set.
         ///
         /// The following arguments are optional:
         #[builder(into)]
-        pub data_set_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub data_set_id: pulumi_gestalt_rust::InputOrOutput<String>,
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         #[builder(into, default)]
-        pub tags_all: pulumi_wasm_rust::InputOrOutput<
+        pub tags_all: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
     #[allow(dead_code)]
     pub struct GetDataSetResult {
-        pub arn: pulumi_wasm_rust::Output<String>,
-        pub aws_account_id: pulumi_wasm_rust::Output<String>,
-        pub column_groups: pulumi_wasm_rust::Output<
+        pub arn: pulumi_gestalt_rust::Output<String>,
+        pub aws_account_id: pulumi_gestalt_rust::Output<String>,
+        pub column_groups: pulumi_gestalt_rust::Output<
             Vec<super::super::super::types::quicksight::GetDataSetColumnGroup>,
         >,
-        pub column_level_permission_rules: pulumi_wasm_rust::Output<
+        pub column_level_permission_rules: pulumi_gestalt_rust::Output<
             Vec<
                 super::super::super::types::quicksight::GetDataSetColumnLevelPermissionRule,
             >,
         >,
-        pub data_set_id: pulumi_wasm_rust::Output<String>,
-        pub data_set_usage_configurations: pulumi_wasm_rust::Output<
+        pub data_set_id: pulumi_gestalt_rust::Output<String>,
+        pub data_set_usage_configurations: pulumi_gestalt_rust::Output<
             Vec<
                 super::super::super::types::quicksight::GetDataSetDataSetUsageConfiguration,
             >,
         >,
-        pub field_folders: pulumi_wasm_rust::Output<
+        pub field_folders: pulumi_gestalt_rust::Output<
             Vec<super::super::super::types::quicksight::GetDataSetFieldFolder>,
         >,
         /// The provider-assigned unique ID for this managed resource.
-        pub id: pulumi_wasm_rust::Output<String>,
-        pub import_mode: pulumi_wasm_rust::Output<String>,
-        pub logical_table_maps: pulumi_wasm_rust::Output<
+        pub id: pulumi_gestalt_rust::Output<String>,
+        pub import_mode: pulumi_gestalt_rust::Output<String>,
+        pub logical_table_maps: pulumi_gestalt_rust::Output<
             Vec<super::super::super::types::quicksight::GetDataSetLogicalTableMap>,
         >,
-        pub name: pulumi_wasm_rust::Output<String>,
-        pub permissions: pulumi_wasm_rust::Output<
+        pub name: pulumi_gestalt_rust::Output<String>,
+        pub permissions: pulumi_gestalt_rust::Output<
             Vec<super::super::super::types::quicksight::GetDataSetPermission>,
         >,
-        pub physical_table_maps: pulumi_wasm_rust::Output<
+        pub physical_table_maps: pulumi_gestalt_rust::Output<
             Vec<super::super::super::types::quicksight::GetDataSetPhysicalTableMap>,
         >,
-        pub row_level_permission_data_sets: pulumi_wasm_rust::Output<
+        pub row_level_permission_data_sets: pulumi_gestalt_rust::Output<
             Vec<
                 super::super::super::types::quicksight::GetDataSetRowLevelPermissionDataSet,
             >,
         >,
-        pub row_level_permission_tag_configurations: pulumi_wasm_rust::Output<
+        pub row_level_permission_tag_configurations: pulumi_gestalt_rust::Output<
             Vec<
                 super::super::super::types::quicksight::GetDataSetRowLevelPermissionTagConfiguration,
             >,
         >,
-        pub tags: pulumi_wasm_rust::Output<std::collections::HashMap<String, String>>,
-        pub tags_all: pulumi_wasm_rust::Output<
+        pub tags: pulumi_gestalt_rust::Output<std::collections::HashMap<String, String>>,
+        pub tags_all: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
     }
@@ -74,10 +74,10 @@ pub mod get_data_set {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         args: GetDataSetArgs,
     ) -> GetDataSetResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let aws_account_id_binding = args.aws_account_id.get_output(context).get_inner();
         let data_set_id_binding = args.data_set_id.get_output(context).get_inner();
@@ -107,47 +107,47 @@ pub mod get_data_set {
         };
         let o = register_interface::invoke(context.get_inner(), &request);
         GetDataSetResult {
-            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
-            aws_account_id: pulumi_wasm_rust::__private::into_domain(
+            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
+            aws_account_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("awsAccountId"),
             ),
-            column_groups: pulumi_wasm_rust::__private::into_domain(
+            column_groups: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("columnGroups"),
             ),
-            column_level_permission_rules: pulumi_wasm_rust::__private::into_domain(
+            column_level_permission_rules: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("columnLevelPermissionRules"),
             ),
-            data_set_id: pulumi_wasm_rust::__private::into_domain(
+            data_set_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("dataSetId"),
             ),
-            data_set_usage_configurations: pulumi_wasm_rust::__private::into_domain(
+            data_set_usage_configurations: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("dataSetUsageConfigurations"),
             ),
-            field_folders: pulumi_wasm_rust::__private::into_domain(
+            field_folders: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("fieldFolders"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
-            import_mode: pulumi_wasm_rust::__private::into_domain(
+            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
+            import_mode: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("importMode"),
             ),
-            logical_table_maps: pulumi_wasm_rust::__private::into_domain(
+            logical_table_maps: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("logicalTableMaps"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            permissions: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            permissions: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("permissions"),
             ),
-            physical_table_maps: pulumi_wasm_rust::__private::into_domain(
+            physical_table_maps: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("physicalTableMaps"),
             ),
-            row_level_permission_data_sets: pulumi_wasm_rust::__private::into_domain(
+            row_level_permission_data_sets: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("rowLevelPermissionDataSets"),
             ),
-            row_level_permission_tag_configurations: pulumi_wasm_rust::__private::into_domain(
+            row_level_permission_tag_configurations: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("rowLevelPermissionTagConfigurations"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_wasm_rust::__private::into_domain(
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            tags_all: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("tagsAll"),
             ),
         }

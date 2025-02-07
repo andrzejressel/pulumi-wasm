@@ -3,8 +3,8 @@
 /// ## Example Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = resource_group::create(
@@ -60,72 +60,72 @@
 /// ```
 ///
 pub mod logger {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct LoggerArgs {
         /// The name of the API Management Service. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub api_management_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub api_management_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// An `application_insights` block as documented below. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub application_insights: pulumi_wasm_rust::InputOrOutput<
+        pub application_insights: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::apimanagement::LoggerApplicationInsights>,
         >,
         /// Specifies whether records should be buffered in the Logger prior to publishing. Defaults to `true`.
         #[builder(into, default)]
-        pub buffered: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub buffered: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// A description of this Logger.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub description: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// An `eventhub` block as documented below. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub eventhub: pulumi_wasm_rust::InputOrOutput<
+        pub eventhub: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::apimanagement::LoggerEventhub>,
         >,
         /// The name of this Logger, which must be unique within the API Management Service. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The name of the Resource Group in which the API Management Service exists. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub resource_group_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub resource_group_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The target resource id which will be linked in the API-Management portal page. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub resource_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub resource_id: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct LoggerResult {
         /// The name of the API Management Service. Changing this forces a new resource to be created.
-        pub api_management_name: pulumi_wasm_rust::Output<String>,
+        pub api_management_name: pulumi_gestalt_rust::Output<String>,
         /// An `application_insights` block as documented below. Changing this forces a new resource to be created.
-        pub application_insights: pulumi_wasm_rust::Output<
+        pub application_insights: pulumi_gestalt_rust::Output<
             Option<super::super::types::apimanagement::LoggerApplicationInsights>,
         >,
         /// Specifies whether records should be buffered in the Logger prior to publishing. Defaults to `true`.
-        pub buffered: pulumi_wasm_rust::Output<Option<bool>>,
+        pub buffered: pulumi_gestalt_rust::Output<Option<bool>>,
         /// A description of this Logger.
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_gestalt_rust::Output<Option<String>>,
         /// An `eventhub` block as documented below. Changing this forces a new resource to be created.
-        pub eventhub: pulumi_wasm_rust::Output<
+        pub eventhub: pulumi_gestalt_rust::Output<
             Option<super::super::types::apimanagement::LoggerEventhub>,
         >,
         /// The name of this Logger, which must be unique within the API Management Service. Changing this forces a new resource to be created.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// The name of the Resource Group in which the API Management Service exists. Changing this forces a new resource to be created.
-        pub resource_group_name: pulumi_wasm_rust::Output<String>,
+        pub resource_group_name: pulumi_gestalt_rust::Output<String>,
         /// The target resource id which will be linked in the API-Management portal page. Changing this forces a new resource to be created.
-        pub resource_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub resource_id: pulumi_gestalt_rust::Output<Option<String>>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: LoggerArgs,
     ) -> LoggerResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let api_management_name_binding = args
             .api_management_name
@@ -185,26 +185,26 @@ pub mod logger {
         };
         let o = register_interface::register(context.get_inner(), &request);
         LoggerResult {
-            api_management_name: pulumi_wasm_rust::__private::into_domain(
+            api_management_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("apiManagementName"),
             ),
-            application_insights: pulumi_wasm_rust::__private::into_domain(
+            application_insights: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("applicationInsights"),
             ),
-            buffered: pulumi_wasm_rust::__private::into_domain(
+            buffered: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("buffered"),
             ),
-            description: pulumi_wasm_rust::__private::into_domain(
+            description: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("description"),
             ),
-            eventhub: pulumi_wasm_rust::__private::into_domain(
+            eventhub: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("eventhub"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            resource_group_name: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("resourceGroupName"),
             ),
-            resource_id: pulumi_wasm_rust::__private::into_domain(
+            resource_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("resourceId"),
             ),
         }

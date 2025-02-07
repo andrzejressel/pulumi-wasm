@@ -329,176 +329,178 @@
 /// ```
 ///
 pub mod workspace {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct WorkspaceArgs {
         /// The ID of the Application Insights associated with this Machine Learning Workspace. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub application_insights_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub application_insights_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The ID of the container registry associated with this Machine Learning Workspace. Changing this forces a new resource to be created.
         ///
         /// > **NOTE:** The `admin_enabled` should be `true` in order to associate the Container Registry to this Machine Learning Workspace.
         #[builder(into, default)]
-        pub container_registry_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub container_registry_id: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The description of this Machine Learning Workspace.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub description: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// An `encryption` block as defined below. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub encryption: pulumi_wasm_rust::InputOrOutput<
+        pub encryption: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::machinelearning::WorkspaceEncryption>,
         >,
         /// A `feature_store` block as defined below.
         #[builder(into, default)]
-        pub feature_store: pulumi_wasm_rust::InputOrOutput<
+        pub feature_store: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::machinelearning::WorkspaceFeatureStore>,
         >,
         /// Display name for this Machine Learning Workspace.
         #[builder(into, default)]
-        pub friendly_name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub friendly_name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Flag to signal High Business Impact (HBI) data in the workspace and reduce diagnostic data collected by the service. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub high_business_impact: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub high_business_impact: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// An `identity` block as defined below.
         #[builder(into)]
-        pub identity: pulumi_wasm_rust::InputOrOutput<
+        pub identity: pulumi_gestalt_rust::InputOrOutput<
             super::super::types::machinelearning::WorkspaceIdentity,
         >,
         /// The compute name for image build of the Machine Learning Workspace.
         #[builder(into, default)]
-        pub image_build_compute_name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub image_build_compute_name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The ID of key vault associated with this Machine Learning Workspace. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub key_vault_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub key_vault_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The type of the Workspace. Possible values are `Default`, `FeatureStore`. Defaults to `Default`
         #[builder(into, default)]
-        pub kind: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub kind: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Specifies the supported Azure location where the Machine Learning Workspace should exist. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub location: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub location: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// A `managed_network` block as defined below.
         #[builder(into, default)]
-        pub managed_network: pulumi_wasm_rust::InputOrOutput<
+        pub managed_network: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::machinelearning::WorkspaceManagedNetwork>,
         >,
         /// Specifies the name of the Machine Learning Workspace. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The user assigned identity id that represents the workspace identity.
         #[builder(into, default)]
-        pub primary_user_assigned_identity: pulumi_wasm_rust::InputOrOutput<
+        pub primary_user_assigned_identity: pulumi_gestalt_rust::InputOrOutput<
             Option<String>,
         >,
         /// Enable public access when this Machine Learning Workspace is behind VNet. Defaults to `true`.
         ///
         /// > **NOTE:** `public_access_behind_virtual_network_enabled` is deprecated and will be removed in favour of the property `public_network_access_enabled`.
         #[builder(into, default)]
-        pub public_network_access_enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub public_network_access_enabled: pulumi_gestalt_rust::InputOrOutput<
+            Option<bool>,
+        >,
         /// Specifies the name of the Resource Group in which the Machine Learning Workspace should exist. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub resource_group_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub resource_group_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// A `serverless_compute` block as defined below.
         #[builder(into, default)]
-        pub serverless_compute: pulumi_wasm_rust::InputOrOutput<
+        pub serverless_compute: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::machinelearning::WorkspaceServerlessCompute>,
         >,
         /// SKU/edition of the Machine Learning Workspace, possible values are `Free`, `Basic`, `Standard` and `Premium`. Defaults to `Basic`.
         #[builder(into, default)]
-        pub sku_name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub sku_name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The ID of the Storage Account associated with this Machine Learning Workspace. Changing this forces a new resource to be created.
         ///
         /// > **NOTE:** The `account_tier` cannot be `Premium` in order to associate the Storage Account to this Machine Learning Workspace.
         #[builder(into)]
-        pub storage_account_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub storage_account_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// A mapping of tags to assign to the resource.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Enable V1 API features, enabling `v1_legacy_mode` may prevent you from using features provided by the v2 API. Defaults to `false`.
         #[builder(into, default)]
-        pub v1_legacy_mode_enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub v1_legacy_mode_enabled: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
     }
     #[allow(dead_code)]
     pub struct WorkspaceResult {
         /// The ID of the Application Insights associated with this Machine Learning Workspace. Changing this forces a new resource to be created.
-        pub application_insights_id: pulumi_wasm_rust::Output<String>,
+        pub application_insights_id: pulumi_gestalt_rust::Output<String>,
         /// The ID of the container registry associated with this Machine Learning Workspace. Changing this forces a new resource to be created.
         ///
         /// > **NOTE:** The `admin_enabled` should be `true` in order to associate the Container Registry to this Machine Learning Workspace.
-        pub container_registry_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub container_registry_id: pulumi_gestalt_rust::Output<Option<String>>,
         /// The description of this Machine Learning Workspace.
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_gestalt_rust::Output<Option<String>>,
         /// The url for the discovery service to identify regional endpoints for machine learning experimentation services.
-        pub discovery_url: pulumi_wasm_rust::Output<String>,
+        pub discovery_url: pulumi_gestalt_rust::Output<String>,
         /// An `encryption` block as defined below. Changing this forces a new resource to be created.
-        pub encryption: pulumi_wasm_rust::Output<
+        pub encryption: pulumi_gestalt_rust::Output<
             Option<super::super::types::machinelearning::WorkspaceEncryption>,
         >,
         /// A `feature_store` block as defined below.
-        pub feature_store: pulumi_wasm_rust::Output<
+        pub feature_store: pulumi_gestalt_rust::Output<
             Option<super::super::types::machinelearning::WorkspaceFeatureStore>,
         >,
         /// Display name for this Machine Learning Workspace.
-        pub friendly_name: pulumi_wasm_rust::Output<Option<String>>,
+        pub friendly_name: pulumi_gestalt_rust::Output<Option<String>>,
         /// Flag to signal High Business Impact (HBI) data in the workspace and reduce diagnostic data collected by the service. Changing this forces a new resource to be created.
-        pub high_business_impact: pulumi_wasm_rust::Output<Option<bool>>,
+        pub high_business_impact: pulumi_gestalt_rust::Output<Option<bool>>,
         /// An `identity` block as defined below.
-        pub identity: pulumi_wasm_rust::Output<
+        pub identity: pulumi_gestalt_rust::Output<
             super::super::types::machinelearning::WorkspaceIdentity,
         >,
         /// The compute name for image build of the Machine Learning Workspace.
-        pub image_build_compute_name: pulumi_wasm_rust::Output<Option<String>>,
+        pub image_build_compute_name: pulumi_gestalt_rust::Output<Option<String>>,
         /// The ID of key vault associated with this Machine Learning Workspace. Changing this forces a new resource to be created.
-        pub key_vault_id: pulumi_wasm_rust::Output<String>,
+        pub key_vault_id: pulumi_gestalt_rust::Output<String>,
         /// The type of the Workspace. Possible values are `Default`, `FeatureStore`. Defaults to `Default`
-        pub kind: pulumi_wasm_rust::Output<Option<String>>,
+        pub kind: pulumi_gestalt_rust::Output<Option<String>>,
         /// Specifies the supported Azure location where the Machine Learning Workspace should exist. Changing this forces a new resource to be created.
-        pub location: pulumi_wasm_rust::Output<String>,
+        pub location: pulumi_gestalt_rust::Output<String>,
         /// A `managed_network` block as defined below.
-        pub managed_network: pulumi_wasm_rust::Output<
+        pub managed_network: pulumi_gestalt_rust::Output<
             super::super::types::machinelearning::WorkspaceManagedNetwork,
         >,
         /// Specifies the name of the Machine Learning Workspace. Changing this forces a new resource to be created.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// The user assigned identity id that represents the workspace identity.
-        pub primary_user_assigned_identity: pulumi_wasm_rust::Output<Option<String>>,
+        pub primary_user_assigned_identity: pulumi_gestalt_rust::Output<Option<String>>,
         /// Enable public access when this Machine Learning Workspace is behind VNet. Defaults to `true`.
         ///
         /// > **NOTE:** `public_access_behind_virtual_network_enabled` is deprecated and will be removed in favour of the property `public_network_access_enabled`.
-        pub public_network_access_enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub public_network_access_enabled: pulumi_gestalt_rust::Output<Option<bool>>,
         /// Specifies the name of the Resource Group in which the Machine Learning Workspace should exist. Changing this forces a new resource to be created.
-        pub resource_group_name: pulumi_wasm_rust::Output<String>,
+        pub resource_group_name: pulumi_gestalt_rust::Output<String>,
         /// A `serverless_compute` block as defined below.
-        pub serverless_compute: pulumi_wasm_rust::Output<
+        pub serverless_compute: pulumi_gestalt_rust::Output<
             Option<super::super::types::machinelearning::WorkspaceServerlessCompute>,
         >,
         /// SKU/edition of the Machine Learning Workspace, possible values are `Free`, `Basic`, `Standard` and `Premium`. Defaults to `Basic`.
-        pub sku_name: pulumi_wasm_rust::Output<Option<String>>,
+        pub sku_name: pulumi_gestalt_rust::Output<Option<String>>,
         /// The ID of the Storage Account associated with this Machine Learning Workspace. Changing this forces a new resource to be created.
         ///
         /// > **NOTE:** The `account_tier` cannot be `Premium` in order to associate the Storage Account to this Machine Learning Workspace.
-        pub storage_account_id: pulumi_wasm_rust::Output<String>,
+        pub storage_account_id: pulumi_gestalt_rust::Output<String>,
         /// A mapping of tags to assign to the resource.
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Enable V1 API features, enabling `v1_legacy_mode` may prevent you from using features provided by the v2 API. Defaults to `false`.
-        pub v1_legacy_mode_enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub v1_legacy_mode_enabled: pulumi_gestalt_rust::Output<Option<bool>>,
         /// The immutable id associated with this workspace.
-        pub workspace_id: pulumi_wasm_rust::Output<String>,
+        pub workspace_id: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: WorkspaceArgs,
     ) -> WorkspaceResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let application_insights_id_binding = args
             .application_insights_id
@@ -652,70 +654,70 @@ pub mod workspace {
         };
         let o = register_interface::register(context.get_inner(), &request);
         WorkspaceResult {
-            application_insights_id: pulumi_wasm_rust::__private::into_domain(
+            application_insights_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("applicationInsightsId"),
             ),
-            container_registry_id: pulumi_wasm_rust::__private::into_domain(
+            container_registry_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("containerRegistryId"),
             ),
-            description: pulumi_wasm_rust::__private::into_domain(
+            description: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("description"),
             ),
-            discovery_url: pulumi_wasm_rust::__private::into_domain(
+            discovery_url: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("discoveryUrl"),
             ),
-            encryption: pulumi_wasm_rust::__private::into_domain(
+            encryption: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("encryption"),
             ),
-            feature_store: pulumi_wasm_rust::__private::into_domain(
+            feature_store: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("featureStore"),
             ),
-            friendly_name: pulumi_wasm_rust::__private::into_domain(
+            friendly_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("friendlyName"),
             ),
-            high_business_impact: pulumi_wasm_rust::__private::into_domain(
+            high_business_impact: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("highBusinessImpact"),
             ),
-            identity: pulumi_wasm_rust::__private::into_domain(
+            identity: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("identity"),
             ),
-            image_build_compute_name: pulumi_wasm_rust::__private::into_domain(
+            image_build_compute_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("imageBuildComputeName"),
             ),
-            key_vault_id: pulumi_wasm_rust::__private::into_domain(
+            key_vault_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("keyVaultId"),
             ),
-            kind: pulumi_wasm_rust::__private::into_domain(o.extract_field("kind")),
-            location: pulumi_wasm_rust::__private::into_domain(
+            kind: pulumi_gestalt_rust::__private::into_domain(o.extract_field("kind")),
+            location: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("location"),
             ),
-            managed_network: pulumi_wasm_rust::__private::into_domain(
+            managed_network: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("managedNetwork"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            primary_user_assigned_identity: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            primary_user_assigned_identity: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("primaryUserAssignedIdentity"),
             ),
-            public_network_access_enabled: pulumi_wasm_rust::__private::into_domain(
+            public_network_access_enabled: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("publicNetworkAccessEnabled"),
             ),
-            resource_group_name: pulumi_wasm_rust::__private::into_domain(
+            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("resourceGroupName"),
             ),
-            serverless_compute: pulumi_wasm_rust::__private::into_domain(
+            serverless_compute: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("serverlessCompute"),
             ),
-            sku_name: pulumi_wasm_rust::__private::into_domain(
+            sku_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("skuName"),
             ),
-            storage_account_id: pulumi_wasm_rust::__private::into_domain(
+            storage_account_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("storageAccountId"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
-            v1_legacy_mode_enabled: pulumi_wasm_rust::__private::into_domain(
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            v1_legacy_mode_enabled: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("v1LegacyModeEnabled"),
             ),
-            workspace_id: pulumi_wasm_rust::__private::into_domain(
+            workspace_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("workspaceId"),
             ),
         }

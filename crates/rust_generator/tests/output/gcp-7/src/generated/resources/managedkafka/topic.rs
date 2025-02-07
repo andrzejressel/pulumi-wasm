@@ -63,73 +63,73 @@
 /// ```
 ///
 pub mod topic {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct TopicArgs {
         /// The cluster name.
         #[builder(into)]
-        pub cluster: pulumi_wasm_rust::InputOrOutput<String>,
+        pub cluster: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Configuration for the topic that are overridden from the cluster defaults. The key of the map is a Kafka topic property name, for example: `cleanup.policy=compact`, `compression.type=producer`.
         #[builder(into, default)]
-        pub configs: pulumi_wasm_rust::InputOrOutput<
+        pub configs: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// ID of the location of the Kafka resource. See https://cloud.google.com/managed-kafka/docs/locations for a list of supported locations.
         #[builder(into)]
-        pub location: pulumi_wasm_rust::InputOrOutput<String>,
+        pub location: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The number of partitions in a topic. You can increase the partition count for a topic, but you cannot decrease it. Increasing partitions for a topic that uses a key might change how messages are distributed.
         #[builder(into, default)]
-        pub partition_count: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
+        pub partition_count: pulumi_gestalt_rust::InputOrOutput<Option<i32>>,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub project: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The number of replicas of each partition. A replication factor of 3 is recommended for high availability.
         #[builder(into)]
-        pub replication_factor: pulumi_wasm_rust::InputOrOutput<i32>,
+        pub replication_factor: pulumi_gestalt_rust::InputOrOutput<i32>,
         /// The ID to use for the topic, which will become the final component of the topic's name. This value is structured like: `my-topic-name`.
         ///
         ///
         /// - - -
         #[builder(into)]
-        pub topic_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub topic_id: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct TopicResult {
         /// The cluster name.
-        pub cluster: pulumi_wasm_rust::Output<String>,
+        pub cluster: pulumi_gestalt_rust::Output<String>,
         /// Configuration for the topic that are overridden from the cluster defaults. The key of the map is a Kafka topic property name, for example: `cleanup.policy=compact`, `compression.type=producer`.
-        pub configs: pulumi_wasm_rust::Output<
+        pub configs: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// ID of the location of the Kafka resource. See https://cloud.google.com/managed-kafka/docs/locations for a list of supported locations.
-        pub location: pulumi_wasm_rust::Output<String>,
+        pub location: pulumi_gestalt_rust::Output<String>,
         /// The name of the topic. The `topic` segment is used when connecting directly to the cluster. Must be in the format `projects/PROJECT_ID/locations/LOCATION/clusters/CLUSTER_ID/topics/TOPIC_ID`.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// The number of partitions in a topic. You can increase the partition count for a topic, but you cannot decrease it. Increasing partitions for a topic that uses a key might change how messages are distributed.
-        pub partition_count: pulumi_wasm_rust::Output<Option<i32>>,
+        pub partition_count: pulumi_gestalt_rust::Output<Option<i32>>,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
-        pub project: pulumi_wasm_rust::Output<String>,
+        pub project: pulumi_gestalt_rust::Output<String>,
         /// The number of replicas of each partition. A replication factor of 3 is recommended for high availability.
-        pub replication_factor: pulumi_wasm_rust::Output<i32>,
+        pub replication_factor: pulumi_gestalt_rust::Output<i32>,
         /// The ID to use for the topic, which will become the final component of the topic's name. This value is structured like: `my-topic-name`.
         ///
         ///
         /// - - -
-        pub topic_id: pulumi_wasm_rust::Output<String>,
+        pub topic_id: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: TopicArgs,
     ) -> TopicResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let cluster_binding = args.cluster.get_output(context).get_inner();
         let configs_binding = args.configs.get_output(context).get_inner();
@@ -181,26 +181,26 @@ pub mod topic {
         };
         let o = register_interface::register(context.get_inner(), &request);
         TopicResult {
-            cluster: pulumi_wasm_rust::__private::into_domain(
+            cluster: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("cluster"),
             ),
-            configs: pulumi_wasm_rust::__private::into_domain(
+            configs: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("configs"),
             ),
-            location: pulumi_wasm_rust::__private::into_domain(
+            location: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("location"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            partition_count: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            partition_count: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("partitionCount"),
             ),
-            project: pulumi_wasm_rust::__private::into_domain(
+            project: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("project"),
             ),
-            replication_factor: pulumi_wasm_rust::__private::into_domain(
+            replication_factor: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("replicationFactor"),
             ),
-            topic_id: pulumi_wasm_rust::__private::into_domain(
+            topic_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("topicId"),
             ),
         }

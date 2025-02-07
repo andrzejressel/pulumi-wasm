@@ -190,7 +190,7 @@
 /// ```
 ///
 pub mod gdc_spark_application {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct GdcSparkApplicationArgs {
@@ -198,55 +198,55 @@ pub mod gdc_spark_application {
         /// **Note**: This field is non-authoritative, and will only manage the annotations present in your configuration.
         /// Please refer to the field `effective_annotations` for all of the annotations present on the resource.
         #[builder(into, default)]
-        pub annotations: pulumi_wasm_rust::InputOrOutput<
+        pub annotations: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// An ApplicationEnvironment from which to inherit configuration properties.
         #[builder(into, default)]
-        pub application_environment: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub application_environment: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// List of container image uris for additional file dependencies. Dependent files are sequentially copied from each image. If a file with the same name exists in 2 images then the file from later image is used.
         #[builder(into, default)]
-        pub dependency_images: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
+        pub dependency_images: pulumi_gestalt_rust::InputOrOutput<Option<Vec<String>>>,
         /// User-provided human-readable name to be used in user interfaces.
         #[builder(into, default)]
-        pub display_name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub display_name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The labels to associate with this application. Labels may be used for filtering and billing tracking.
         /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
         /// Please refer to the field `effective_labels` for all of the labels present on the resource.
         #[builder(into, default)]
-        pub labels: pulumi_wasm_rust::InputOrOutput<
+        pub labels: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// The location of the spark application.
         #[builder(into)]
-        pub location: pulumi_wasm_rust::InputOrOutput<String>,
+        pub location: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The Kubernetes namespace in which to create the application. This namespace must already exist on the cluster.
         #[builder(into, default)]
-        pub namespace: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub namespace: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub project: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// application-specific properties.
         #[builder(into, default)]
-        pub properties: pulumi_wasm_rust::InputOrOutput<
+        pub properties: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Represents the PySparkApplicationConfig.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub pyspark_application_config: pulumi_wasm_rust::InputOrOutput<
+        pub pyspark_application_config: pulumi_gestalt_rust::InputOrOutput<
             Option<
                 super::super::types::dataproc::GdcSparkApplicationPysparkApplicationConfig,
             >,
         >,
         /// The id of the service instance to which this spark application belongs.
         #[builder(into)]
-        pub serviceinstance: pulumi_wasm_rust::InputOrOutput<String>,
+        pub serviceinstance: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Represents the SparkApplicationConfig.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub spark_application_config: pulumi_wasm_rust::InputOrOutput<
+        pub spark_application_config: pulumi_gestalt_rust::InputOrOutput<
             Option<
                 super::super::types::dataproc::GdcSparkApplicationSparkApplicationConfig,
             >,
@@ -256,11 +256,11 @@ pub mod gdc_spark_application {
         ///
         /// - - -
         #[builder(into)]
-        pub spark_application_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub spark_application_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Represents the SparkRApplicationConfig.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub spark_r_application_config: pulumi_wasm_rust::InputOrOutput<
+        pub spark_r_application_config: pulumi_gestalt_rust::InputOrOutput<
             Option<
                 super::super::types::dataproc::GdcSparkApplicationSparkRApplicationConfig,
             >,
@@ -268,80 +268,80 @@ pub mod gdc_spark_application {
         /// Represents the SparkRApplicationConfig.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub spark_sql_application_config: pulumi_wasm_rust::InputOrOutput<
+        pub spark_sql_application_config: pulumi_gestalt_rust::InputOrOutput<
             Option<
                 super::super::types::dataproc::GdcSparkApplicationSparkSqlApplicationConfig,
             >,
         >,
         /// The Dataproc version of this application.
         #[builder(into, default)]
-        pub version: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub version: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct GdcSparkApplicationResult {
         /// The annotations to associate with this application. Annotations may be used to store client information, but are not used by the server.
         /// **Note**: This field is non-authoritative, and will only manage the annotations present in your configuration.
         /// Please refer to the field `effective_annotations` for all of the annotations present on the resource.
-        pub annotations: pulumi_wasm_rust::Output<
+        pub annotations: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// An ApplicationEnvironment from which to inherit configuration properties.
-        pub application_environment: pulumi_wasm_rust::Output<Option<String>>,
+        pub application_environment: pulumi_gestalt_rust::Output<Option<String>>,
         /// The timestamp when the resource was created.
-        pub create_time: pulumi_wasm_rust::Output<String>,
+        pub create_time: pulumi_gestalt_rust::Output<String>,
         /// List of container image uris for additional file dependencies. Dependent files are sequentially copied from each image. If a file with the same name exists in 2 images then the file from later image is used.
-        pub dependency_images: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub dependency_images: pulumi_gestalt_rust::Output<Option<Vec<String>>>,
         /// User-provided human-readable name to be used in user interfaces.
-        pub display_name: pulumi_wasm_rust::Output<Option<String>>,
-        pub effective_annotations: pulumi_wasm_rust::Output<
+        pub display_name: pulumi_gestalt_rust::Output<Option<String>>,
+        pub effective_annotations: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
         /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Pulumi, other clients and services.
-        pub effective_labels: pulumi_wasm_rust::Output<
+        pub effective_labels: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
         /// The labels to associate with this application. Labels may be used for filtering and billing tracking.
         /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
         /// Please refer to the field `effective_labels` for all of the labels present on the resource.
-        pub labels: pulumi_wasm_rust::Output<
+        pub labels: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// The location of the spark application.
-        pub location: pulumi_wasm_rust::Output<String>,
+        pub location: pulumi_gestalt_rust::Output<String>,
         /// URL for a monitoring UI for this application (for eventual Spark PHS/UI support) Out of scope for private GA
-        pub monitoring_endpoint: pulumi_wasm_rust::Output<String>,
+        pub monitoring_endpoint: pulumi_gestalt_rust::Output<String>,
         /// Identifier. The name of the application. Format: projects/{project}/locations/{location}/serviceInstances/{service_instance}/sparkApplications/{application}
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// The Kubernetes namespace in which to create the application. This namespace must already exist on the cluster.
-        pub namespace: pulumi_wasm_rust::Output<Option<String>>,
+        pub namespace: pulumi_gestalt_rust::Output<Option<String>>,
         /// An HCFS URI pointing to the location of stdout and stdout of the application Mainly useful for Pantheon and gcloud Not in scope for private GA
-        pub output_uri: pulumi_wasm_rust::Output<String>,
+        pub output_uri: pulumi_gestalt_rust::Output<String>,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
-        pub project: pulumi_wasm_rust::Output<String>,
+        pub project: pulumi_gestalt_rust::Output<String>,
         /// application-specific properties.
-        pub properties: pulumi_wasm_rust::Output<
+        pub properties: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// The combination of labels configured directly on the resource
         /// and default labels configured on the provider.
-        pub pulumi_labels: pulumi_wasm_rust::Output<
+        pub pulumi_labels: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
         /// Represents the PySparkApplicationConfig.
         /// Structure is documented below.
-        pub pyspark_application_config: pulumi_wasm_rust::Output<
+        pub pyspark_application_config: pulumi_gestalt_rust::Output<
             Option<
                 super::super::types::dataproc::GdcSparkApplicationPysparkApplicationConfig,
             >,
         >,
         /// Whether the application is currently reconciling. True if the current state of the resource does not match the intended state, and the system is working to reconcile them, whether or not the change was user initiated.
-        pub reconciling: pulumi_wasm_rust::Output<bool>,
+        pub reconciling: pulumi_gestalt_rust::Output<bool>,
         /// The id of the service instance to which this spark application belongs.
-        pub serviceinstance: pulumi_wasm_rust::Output<String>,
+        pub serviceinstance: pulumi_gestalt_rust::Output<String>,
         /// Represents the SparkApplicationConfig.
         /// Structure is documented below.
-        pub spark_application_config: pulumi_wasm_rust::Output<
+        pub spark_application_config: pulumi_gestalt_rust::Output<
             Option<
                 super::super::types::dataproc::GdcSparkApplicationSparkApplicationConfig,
             >,
@@ -350,17 +350,17 @@ pub mod gdc_spark_application {
         ///
         ///
         /// - - -
-        pub spark_application_id: pulumi_wasm_rust::Output<String>,
+        pub spark_application_id: pulumi_gestalt_rust::Output<String>,
         /// Represents the SparkRApplicationConfig.
         /// Structure is documented below.
-        pub spark_r_application_config: pulumi_wasm_rust::Output<
+        pub spark_r_application_config: pulumi_gestalt_rust::Output<
             Option<
                 super::super::types::dataproc::GdcSparkApplicationSparkRApplicationConfig,
             >,
         >,
         /// Represents the SparkRApplicationConfig.
         /// Structure is documented below.
-        pub spark_sql_application_config: pulumi_wasm_rust::Output<
+        pub spark_sql_application_config: pulumi_gestalt_rust::Output<
             Option<
                 super::super::types::dataproc::GdcSparkApplicationSparkSqlApplicationConfig,
             >,
@@ -374,26 +374,26 @@ pub mod gdc_spark_application {
         /// * `CANCELLED`
         /// * `SUCCEEDED`
         /// * `FAILED`
-        pub state: pulumi_wasm_rust::Output<String>,
+        pub state: pulumi_gestalt_rust::Output<String>,
         /// A message explaining the current state.
-        pub state_message: pulumi_wasm_rust::Output<String>,
+        pub state_message: pulumi_gestalt_rust::Output<String>,
         /// System generated unique identifier for this application, formatted as UUID4.
-        pub uid: pulumi_wasm_rust::Output<String>,
+        pub uid: pulumi_gestalt_rust::Output<String>,
         /// The timestamp when the resource was most recently updated.
-        pub update_time: pulumi_wasm_rust::Output<String>,
+        pub update_time: pulumi_gestalt_rust::Output<String>,
         /// The Dataproc version of this application.
-        pub version: pulumi_wasm_rust::Output<Option<String>>,
+        pub version: pulumi_gestalt_rust::Output<Option<String>>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: GdcSparkApplicationArgs,
     ) -> GdcSparkApplicationResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let annotations_binding = args.annotations.get_output(context).get_inner();
         let application_environment_binding = args
@@ -508,80 +508,84 @@ pub mod gdc_spark_application {
         };
         let o = register_interface::register(context.get_inner(), &request);
         GdcSparkApplicationResult {
-            annotations: pulumi_wasm_rust::__private::into_domain(
+            annotations: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("annotations"),
             ),
-            application_environment: pulumi_wasm_rust::__private::into_domain(
+            application_environment: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("applicationEnvironment"),
             ),
-            create_time: pulumi_wasm_rust::__private::into_domain(
+            create_time: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("createTime"),
             ),
-            dependency_images: pulumi_wasm_rust::__private::into_domain(
+            dependency_images: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("dependencyImages"),
             ),
-            display_name: pulumi_wasm_rust::__private::into_domain(
+            display_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("displayName"),
             ),
-            effective_annotations: pulumi_wasm_rust::__private::into_domain(
+            effective_annotations: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("effectiveAnnotations"),
             ),
-            effective_labels: pulumi_wasm_rust::__private::into_domain(
+            effective_labels: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("effectiveLabels"),
             ),
-            labels: pulumi_wasm_rust::__private::into_domain(o.extract_field("labels")),
-            location: pulumi_wasm_rust::__private::into_domain(
+            labels: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("labels"),
+            ),
+            location: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("location"),
             ),
-            monitoring_endpoint: pulumi_wasm_rust::__private::into_domain(
+            monitoring_endpoint: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("monitoringEndpoint"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            namespace: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            namespace: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("namespace"),
             ),
-            output_uri: pulumi_wasm_rust::__private::into_domain(
+            output_uri: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("outputUri"),
             ),
-            project: pulumi_wasm_rust::__private::into_domain(
+            project: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("project"),
             ),
-            properties: pulumi_wasm_rust::__private::into_domain(
+            properties: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("properties"),
             ),
-            pulumi_labels: pulumi_wasm_rust::__private::into_domain(
+            pulumi_labels: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("pulumiLabels"),
             ),
-            pyspark_application_config: pulumi_wasm_rust::__private::into_domain(
+            pyspark_application_config: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("pysparkApplicationConfig"),
             ),
-            reconciling: pulumi_wasm_rust::__private::into_domain(
+            reconciling: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("reconciling"),
             ),
-            serviceinstance: pulumi_wasm_rust::__private::into_domain(
+            serviceinstance: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("serviceinstance"),
             ),
-            spark_application_config: pulumi_wasm_rust::__private::into_domain(
+            spark_application_config: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("sparkApplicationConfig"),
             ),
-            spark_application_id: pulumi_wasm_rust::__private::into_domain(
+            spark_application_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("sparkApplicationId"),
             ),
-            spark_r_application_config: pulumi_wasm_rust::__private::into_domain(
+            spark_r_application_config: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("sparkRApplicationConfig"),
             ),
-            spark_sql_application_config: pulumi_wasm_rust::__private::into_domain(
+            spark_sql_application_config: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("sparkSqlApplicationConfig"),
             ),
-            state: pulumi_wasm_rust::__private::into_domain(o.extract_field("state")),
-            state_message: pulumi_wasm_rust::__private::into_domain(
+            state: pulumi_gestalt_rust::__private::into_domain(o.extract_field("state")),
+            state_message: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("stateMessage"),
             ),
-            uid: pulumi_wasm_rust::__private::into_domain(o.extract_field("uid")),
-            update_time: pulumi_wasm_rust::__private::into_domain(
+            uid: pulumi_gestalt_rust::__private::into_domain(o.extract_field("uid")),
+            update_time: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("updateTime"),
             ),
-            version: pulumi_wasm_rust::__private::into_domain(o.extract_field("version")),
+            version: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("version"),
+            ),
         }
     }
 }

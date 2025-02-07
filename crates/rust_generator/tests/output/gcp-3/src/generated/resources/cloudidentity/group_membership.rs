@@ -87,68 +87,68 @@
 /// ```
 ///
 pub mod group_membership {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct GroupMembershipArgs {
         /// The name of the Group to create this membership in.
         #[builder(into)]
-        pub group: pulumi_wasm_rust::InputOrOutput<String>,
+        pub group: pulumi_gestalt_rust::InputOrOutput<String>,
         /// EntityKey of the member.
         #[builder(into, default)]
-        pub member_key: pulumi_wasm_rust::InputOrOutput<
+        pub member_key: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::cloudidentity::GroupMembershipMemberKey>,
         >,
         /// EntityKey of the member.
         #[builder(into, default)]
-        pub preferred_member_key: pulumi_wasm_rust::InputOrOutput<
+        pub preferred_member_key: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::cloudidentity::GroupMembershipPreferredMemberKey>,
         >,
         /// The MembershipRoles that apply to the Membership.
         /// Must not contain duplicate MembershipRoles with the same name.
         /// Structure is documented below.
         #[builder(into)]
-        pub roles: pulumi_wasm_rust::InputOrOutput<
+        pub roles: pulumi_gestalt_rust::InputOrOutput<
             Vec<super::super::types::cloudidentity::GroupMembershipRole>,
         >,
     }
     #[allow(dead_code)]
     pub struct GroupMembershipResult {
         /// The time when the Membership was created.
-        pub create_time: pulumi_wasm_rust::Output<String>,
+        pub create_time: pulumi_gestalt_rust::Output<String>,
         /// The name of the Group to create this membership in.
-        pub group: pulumi_wasm_rust::Output<String>,
+        pub group: pulumi_gestalt_rust::Output<String>,
         /// EntityKey of the member.
-        pub member_key: pulumi_wasm_rust::Output<
+        pub member_key: pulumi_gestalt_rust::Output<
             super::super::types::cloudidentity::GroupMembershipMemberKey,
         >,
         /// The resource name of the Membership, of the form groups/{group_id}/memberships/{membership_id}.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// EntityKey of the member.
-        pub preferred_member_key: pulumi_wasm_rust::Output<
+        pub preferred_member_key: pulumi_gestalt_rust::Output<
             super::super::types::cloudidentity::GroupMembershipPreferredMemberKey,
         >,
         /// The MembershipRoles that apply to the Membership.
         /// Must not contain duplicate MembershipRoles with the same name.
         /// Structure is documented below.
-        pub roles: pulumi_wasm_rust::Output<
+        pub roles: pulumi_gestalt_rust::Output<
             Vec<super::super::types::cloudidentity::GroupMembershipRole>,
         >,
         /// The type of the membership.
-        pub type_: pulumi_wasm_rust::Output<String>,
+        pub type_: pulumi_gestalt_rust::Output<String>,
         /// The time when the Membership was last updated.
-        pub update_time: pulumi_wasm_rust::Output<String>,
+        pub update_time: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: GroupMembershipArgs,
     ) -> GroupMembershipResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let group_binding = args.group.get_output(context).get_inner();
         let member_key_binding = args.member_key.get_output(context).get_inner();
@@ -182,20 +182,20 @@ pub mod group_membership {
         };
         let o = register_interface::register(context.get_inner(), &request);
         GroupMembershipResult {
-            create_time: pulumi_wasm_rust::__private::into_domain(
+            create_time: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("createTime"),
             ),
-            group: pulumi_wasm_rust::__private::into_domain(o.extract_field("group")),
-            member_key: pulumi_wasm_rust::__private::into_domain(
+            group: pulumi_gestalt_rust::__private::into_domain(o.extract_field("group")),
+            member_key: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("memberKey"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            preferred_member_key: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            preferred_member_key: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("preferredMemberKey"),
             ),
-            roles: pulumi_wasm_rust::__private::into_domain(o.extract_field("roles")),
-            type_: pulumi_wasm_rust::__private::into_domain(o.extract_field("type")),
-            update_time: pulumi_wasm_rust::__private::into_domain(
+            roles: pulumi_gestalt_rust::__private::into_domain(o.extract_field("roles")),
+            type_: pulumi_gestalt_rust::__private::into_domain(o.extract_field("type")),
+            update_time: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("updateTime"),
             ),
         }

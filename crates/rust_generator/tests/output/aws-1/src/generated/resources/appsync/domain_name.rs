@@ -3,8 +3,8 @@
 /// ## Example Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = domain_name::create(
@@ -25,43 +25,43 @@
 /// $ pulumi import aws:appsync/domainName:DomainName example example.com
 /// ```
 pub mod domain_name {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct DomainNameArgs {
         /// ARN of the certificate. This can be an Certificate Manager (ACM) certificate or an Identity and Access Management (IAM) server certificate. The certifiacte must reside in us-east-1.
         #[builder(into)]
-        pub certificate_arn: pulumi_wasm_rust::InputOrOutput<String>,
+        pub certificate_arn: pulumi_gestalt_rust::InputOrOutput<String>,
         /// A description of the Domain Name.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub description: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Domain name.
         #[builder(into)]
-        pub domain_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub domain_name: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct DomainNameResult {
         /// Domain name that AppSync provides.
-        pub appsync_domain_name: pulumi_wasm_rust::Output<String>,
+        pub appsync_domain_name: pulumi_gestalt_rust::Output<String>,
         /// ARN of the certificate. This can be an Certificate Manager (ACM) certificate or an Identity and Access Management (IAM) server certificate. The certifiacte must reside in us-east-1.
-        pub certificate_arn: pulumi_wasm_rust::Output<String>,
+        pub certificate_arn: pulumi_gestalt_rust::Output<String>,
         /// A description of the Domain Name.
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_gestalt_rust::Output<Option<String>>,
         /// Domain name.
-        pub domain_name: pulumi_wasm_rust::Output<String>,
+        pub domain_name: pulumi_gestalt_rust::Output<String>,
         /// ID of your Amazon Route 53 hosted zone.
-        pub hosted_zone_id: pulumi_wasm_rust::Output<String>,
+        pub hosted_zone_id: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: DomainNameArgs,
     ) -> DomainNameResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let certificate_arn_binding = args
             .certificate_arn
@@ -90,19 +90,19 @@ pub mod domain_name {
         };
         let o = register_interface::register(context.get_inner(), &request);
         DomainNameResult {
-            appsync_domain_name: pulumi_wasm_rust::__private::into_domain(
+            appsync_domain_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("appsyncDomainName"),
             ),
-            certificate_arn: pulumi_wasm_rust::__private::into_domain(
+            certificate_arn: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("certificateArn"),
             ),
-            description: pulumi_wasm_rust::__private::into_domain(
+            description: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("description"),
             ),
-            domain_name: pulumi_wasm_rust::__private::into_domain(
+            domain_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("domainName"),
             ),
-            hosted_zone_id: pulumi_wasm_rust::__private::into_domain(
+            hosted_zone_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("hostedZoneId"),
             ),
         }

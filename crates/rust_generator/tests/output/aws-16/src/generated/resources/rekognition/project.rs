@@ -3,8 +3,8 @@
 /// ## Example Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = project::create(
@@ -26,39 +26,39 @@
 /// $ pulumi import aws:rekognition/project:Project example project-id-12345678
 /// ```
 pub mod project {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ProjectArgs {
         /// Specify if automatic retraining should occur. Valid values are `ENABLED` or `DISABLED`. Defaults to `DISABLED`
         #[builder(into, default)]
-        pub auto_update: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub auto_update: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Specify the feature being customized. Valid values are `CONTENT_MODERATION` or `CUSTOM_LABELS`. Defaults to `CUSTOM_LABELS`
         #[builder(into, default)]
-        pub feature: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub feature: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Desired name of the project
         ///
         /// The following arguments are optional:
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         #[builder(into, default)]
-        pub timeouts: pulumi_wasm_rust::InputOrOutput<
+        pub timeouts: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::rekognition::ProjectTimeouts>,
         >,
     }
     #[allow(dead_code)]
     pub struct ProjectResult {
         /// ARN of the Project.
-        pub arn: pulumi_wasm_rust::Output<String>,
+        pub arn: pulumi_gestalt_rust::Output<String>,
         /// Specify if automatic retraining should occur. Valid values are `ENABLED` or `DISABLED`. Defaults to `DISABLED`
-        pub auto_update: pulumi_wasm_rust::Output<String>,
+        pub auto_update: pulumi_gestalt_rust::Output<String>,
         /// Specify the feature being customized. Valid values are `CONTENT_MODERATION` or `CUSTOM_LABELS`. Defaults to `CUSTOM_LABELS`
-        pub feature: pulumi_wasm_rust::Output<Option<String>>,
+        pub feature: pulumi_gestalt_rust::Output<Option<String>>,
         /// Desired name of the project
         ///
         /// The following arguments are optional:
-        pub name: pulumi_wasm_rust::Output<String>,
-        pub timeouts: pulumi_wasm_rust::Output<
+        pub name: pulumi_gestalt_rust::Output<String>,
+        pub timeouts: pulumi_gestalt_rust::Output<
             Option<super::super::types::rekognition::ProjectTimeouts>,
         >,
     }
@@ -67,11 +67,11 @@ pub mod project {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: ProjectArgs,
     ) -> ProjectResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let auto_update_binding = args.auto_update.get_output(context).get_inner();
         let feature_binding = args.feature.get_output(context).get_inner();
@@ -102,15 +102,15 @@ pub mod project {
         };
         let o = register_interface::register(context.get_inner(), &request);
         ProjectResult {
-            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
-            auto_update: pulumi_wasm_rust::__private::into_domain(
+            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
+            auto_update: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("autoUpdate"),
             ),
-            feature: pulumi_wasm_rust::__private::into_domain(
+            feature: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("feature"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            timeouts: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            timeouts: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("timeouts"),
             ),
         }

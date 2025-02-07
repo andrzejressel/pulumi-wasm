@@ -29,8 +29,8 @@
 ///
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let cryptoKey = crypto_key::create(
@@ -57,8 +57,8 @@
 ///
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = topic::create(
@@ -78,8 +78,8 @@
 ///
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = schema::create(
@@ -110,8 +110,8 @@
 ///
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = topic::create(
@@ -144,8 +144,8 @@
 ///
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = topic::create(
@@ -203,14 +203,14 @@
 /// ```
 ///
 pub mod topic {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct TopicArgs {
         /// Settings for ingestion from a data source into this topic.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub ingestion_data_source_settings: pulumi_wasm_rust::InputOrOutput<
+        pub ingestion_data_source_settings: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::pubsub::TopicIngestionDataSourceSettings>,
         >,
         /// The resource name of the Cloud KMS CryptoKey to be used to protect access
@@ -219,13 +219,13 @@ pub mod topic {
         /// `roles/cloudkms.cryptoKeyEncrypterDecrypter` to use this feature.
         /// The expected format is `projects/*/locations/*/keyRings/*/cryptoKeys/*`
         #[builder(into, default)]
-        pub kms_key_name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub kms_key_name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// A set of key/value label pairs to assign to this Topic.
         ///
         /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
         /// Please refer to the field `effective_labels` for all of the labels present on the resource.
         #[builder(into, default)]
-        pub labels: pulumi_wasm_rust::InputOrOutput<
+        pub labels: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Indicates the minimum duration to retain a message after it is published
@@ -237,13 +237,15 @@ pub mod topic {
         /// The rotation period has the format of a decimal number, followed by the
         /// letter `s` (seconds). Cannot be more than 31 days or less than 10 minutes.
         #[builder(into, default)]
-        pub message_retention_duration: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub message_retention_duration: pulumi_gestalt_rust::InputOrOutput<
+            Option<String>,
+        >,
         /// Policy constraining the set of Google Cloud Platform regions where
         /// messages published to the topic may be stored. If not present, then no
         /// constraints are in effect.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub message_storage_policy: pulumi_wasm_rust::InputOrOutput<
+        pub message_storage_policy: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::pubsub::TopicMessageStoragePolicy>,
         >,
         /// Name of the topic.
@@ -251,27 +253,27 @@ pub mod topic {
         ///
         /// - - -
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub project: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Settings for validating messages published against a schema.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub schema_settings: pulumi_wasm_rust::InputOrOutput<
+        pub schema_settings: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::pubsub::TopicSchemaSettings>,
         >,
     }
     #[allow(dead_code)]
     pub struct TopicResult {
         /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Pulumi, other clients and services.
-        pub effective_labels: pulumi_wasm_rust::Output<
+        pub effective_labels: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
         /// Settings for ingestion from a data source into this topic.
         /// Structure is documented below.
-        pub ingestion_data_source_settings: pulumi_wasm_rust::Output<
+        pub ingestion_data_source_settings: pulumi_gestalt_rust::Output<
             Option<super::super::types::pubsub::TopicIngestionDataSourceSettings>,
         >,
         /// The resource name of the Cloud KMS CryptoKey to be used to protect access
@@ -279,12 +281,12 @@ pub mod topic {
         /// (`service-{{PROJECT_NUMBER}}@gcp-sa-pubsub.iam.gserviceaccount.com`) must have
         /// `roles/cloudkms.cryptoKeyEncrypterDecrypter` to use this feature.
         /// The expected format is `projects/*/locations/*/keyRings/*/cryptoKeys/*`
-        pub kms_key_name: pulumi_wasm_rust::Output<Option<String>>,
+        pub kms_key_name: pulumi_gestalt_rust::Output<Option<String>>,
         /// A set of key/value label pairs to assign to this Topic.
         ///
         /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
         /// Please refer to the field `effective_labels` for all of the labels present on the resource.
-        pub labels: pulumi_wasm_rust::Output<
+        pub labels: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Indicates the minimum duration to retain a message after it is published
@@ -295,30 +297,30 @@ pub mod topic {
         /// set, message retention is controlled by settings on individual subscriptions.
         /// The rotation period has the format of a decimal number, followed by the
         /// letter `s` (seconds). Cannot be more than 31 days or less than 10 minutes.
-        pub message_retention_duration: pulumi_wasm_rust::Output<Option<String>>,
+        pub message_retention_duration: pulumi_gestalt_rust::Output<Option<String>>,
         /// Policy constraining the set of Google Cloud Platform regions where
         /// messages published to the topic may be stored. If not present, then no
         /// constraints are in effect.
         /// Structure is documented below.
-        pub message_storage_policy: pulumi_wasm_rust::Output<
+        pub message_storage_policy: pulumi_gestalt_rust::Output<
             super::super::types::pubsub::TopicMessageStoragePolicy,
         >,
         /// Name of the topic.
         ///
         ///
         /// - - -
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
-        pub project: pulumi_wasm_rust::Output<String>,
+        pub project: pulumi_gestalt_rust::Output<String>,
         /// The combination of labels configured directly on the resource
         /// and default labels configured on the provider.
-        pub pulumi_labels: pulumi_wasm_rust::Output<
+        pub pulumi_labels: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
         /// Settings for validating messages published against a schema.
         /// Structure is documented below.
-        pub schema_settings: pulumi_wasm_rust::Output<
+        pub schema_settings: pulumi_gestalt_rust::Output<
             Option<super::super::types::pubsub::TopicSchemaSettings>,
         >,
     }
@@ -327,11 +329,11 @@ pub mod topic {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: TopicArgs,
     ) -> TopicResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let ingestion_data_source_settings_binding = args
             .ingestion_data_source_settings
@@ -394,30 +396,32 @@ pub mod topic {
         };
         let o = register_interface::register(context.get_inner(), &request);
         TopicResult {
-            effective_labels: pulumi_wasm_rust::__private::into_domain(
+            effective_labels: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("effectiveLabels"),
             ),
-            ingestion_data_source_settings: pulumi_wasm_rust::__private::into_domain(
+            ingestion_data_source_settings: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("ingestionDataSourceSettings"),
             ),
-            kms_key_name: pulumi_wasm_rust::__private::into_domain(
+            kms_key_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("kmsKeyName"),
             ),
-            labels: pulumi_wasm_rust::__private::into_domain(o.extract_field("labels")),
-            message_retention_duration: pulumi_wasm_rust::__private::into_domain(
+            labels: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("labels"),
+            ),
+            message_retention_duration: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("messageRetentionDuration"),
             ),
-            message_storage_policy: pulumi_wasm_rust::__private::into_domain(
+            message_storage_policy: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("messageStoragePolicy"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            project: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            project: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("project"),
             ),
-            pulumi_labels: pulumi_wasm_rust::__private::into_domain(
+            pulumi_labels: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("pulumiLabels"),
             ),
-            schema_settings: pulumi_wasm_rust::__private::into_domain(
+            schema_settings: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("schemaSettings"),
             ),
         }

@@ -94,7 +94,7 @@
 /// ```
 ///
 pub mod cloud_exadata_infrastructure {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct CloudExadataInfrastructureArgs {
@@ -106,33 +106,33 @@ pub mod cloud_exadata_infrastructure {
         ///
         /// - - -
         #[builder(into)]
-        pub cloud_exadata_infrastructure_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub cloud_exadata_infrastructure_id: pulumi_gestalt_rust::InputOrOutput<String>,
         #[builder(into, default)]
-        pub deletion_protection: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub deletion_protection: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// User friendly name for this resource.
         #[builder(into, default)]
-        pub display_name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub display_name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// GCP location where Oracle Exadata is hosted.
         #[builder(into, default)]
-        pub gcp_oracle_zone: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub gcp_oracle_zone: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Labels or tags associated with the resource.
         /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
         /// Please refer to the field `effective_labels` for all of the labels present on the resource.
         #[builder(into, default)]
-        pub labels: pulumi_wasm_rust::InputOrOutput<
+        pub labels: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Resource ID segment making up resource `name`. See documentation for resource type `oracledatabase.googleapis.com/DbServer`.
         #[builder(into)]
-        pub location: pulumi_wasm_rust::InputOrOutput<String>,
+        pub location: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub project: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Various properties of Exadata Infrastructure.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub properties: pulumi_wasm_rust::InputOrOutput<
+        pub properties: pulumi_gestalt_rust::InputOrOutput<
             Option<
                 super::super::types::oracledatabase::CloudExadataInfrastructureProperties,
             >,
@@ -147,45 +147,45 @@ pub mod cloud_exadata_infrastructure {
         ///
         ///
         /// - - -
-        pub cloud_exadata_infrastructure_id: pulumi_wasm_rust::Output<String>,
+        pub cloud_exadata_infrastructure_id: pulumi_gestalt_rust::Output<String>,
         /// The date and time that the Exadata Infrastructure was created.
-        pub create_time: pulumi_wasm_rust::Output<String>,
-        pub deletion_protection: pulumi_wasm_rust::Output<Option<bool>>,
+        pub create_time: pulumi_gestalt_rust::Output<String>,
+        pub deletion_protection: pulumi_gestalt_rust::Output<Option<bool>>,
         /// User friendly name for this resource.
-        pub display_name: pulumi_wasm_rust::Output<Option<String>>,
+        pub display_name: pulumi_gestalt_rust::Output<Option<String>>,
         /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Pulumi, other clients and services.
-        pub effective_labels: pulumi_wasm_rust::Output<
+        pub effective_labels: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
         /// Entitlement ID of the private offer against which this infrastructure
         /// resource is provisioned.
-        pub entitlement_id: pulumi_wasm_rust::Output<String>,
+        pub entitlement_id: pulumi_gestalt_rust::Output<String>,
         /// GCP location where Oracle Exadata is hosted.
-        pub gcp_oracle_zone: pulumi_wasm_rust::Output<String>,
+        pub gcp_oracle_zone: pulumi_gestalt_rust::Output<String>,
         /// Labels or tags associated with the resource.
         /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
         /// Please refer to the field `effective_labels` for all of the labels present on the resource.
-        pub labels: pulumi_wasm_rust::Output<
+        pub labels: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Resource ID segment making up resource `name`. See documentation for resource type `oracledatabase.googleapis.com/DbServer`.
-        pub location: pulumi_wasm_rust::Output<String>,
+        pub location: pulumi_gestalt_rust::Output<String>,
         /// Identifier. The name of the Exadata Infrastructure resource with the following format:
         /// projects/{project}/locations/{region}/cloudExadataInfrastructures/{cloud_exadata_infrastructure}
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
-        pub project: pulumi_wasm_rust::Output<String>,
+        pub project: pulumi_gestalt_rust::Output<String>,
         /// Various properties of Exadata Infrastructure.
         /// Structure is documented below.
-        pub properties: pulumi_wasm_rust::Output<
+        pub properties: pulumi_gestalt_rust::Output<
             Option<
                 super::super::types::oracledatabase::CloudExadataInfrastructureProperties,
             >,
         >,
         /// The combination of labels configured directly on the resource
         /// and default labels configured on the provider.
-        pub pulumi_labels: pulumi_wasm_rust::Output<
+        pub pulumi_labels: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
     }
@@ -194,11 +194,11 @@ pub mod cloud_exadata_infrastructure {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: CloudExadataInfrastructureArgs,
     ) -> CloudExadataInfrastructureResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let cloud_exadata_infrastructure_id_binding = args
             .cloud_exadata_infrastructure_id
@@ -259,39 +259,41 @@ pub mod cloud_exadata_infrastructure {
         };
         let o = register_interface::register(context.get_inner(), &request);
         CloudExadataInfrastructureResult {
-            cloud_exadata_infrastructure_id: pulumi_wasm_rust::__private::into_domain(
+            cloud_exadata_infrastructure_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("cloudExadataInfrastructureId"),
             ),
-            create_time: pulumi_wasm_rust::__private::into_domain(
+            create_time: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("createTime"),
             ),
-            deletion_protection: pulumi_wasm_rust::__private::into_domain(
+            deletion_protection: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("deletionProtection"),
             ),
-            display_name: pulumi_wasm_rust::__private::into_domain(
+            display_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("displayName"),
             ),
-            effective_labels: pulumi_wasm_rust::__private::into_domain(
+            effective_labels: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("effectiveLabels"),
             ),
-            entitlement_id: pulumi_wasm_rust::__private::into_domain(
+            entitlement_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("entitlementId"),
             ),
-            gcp_oracle_zone: pulumi_wasm_rust::__private::into_domain(
+            gcp_oracle_zone: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("gcpOracleZone"),
             ),
-            labels: pulumi_wasm_rust::__private::into_domain(o.extract_field("labels")),
-            location: pulumi_wasm_rust::__private::into_domain(
+            labels: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("labels"),
+            ),
+            location: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("location"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            project: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            project: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("project"),
             ),
-            properties: pulumi_wasm_rust::__private::into_domain(
+            properties: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("properties"),
             ),
-            pulumi_labels: pulumi_wasm_rust::__private::into_domain(
+            pulumi_labels: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("pulumiLabels"),
             ),
         }

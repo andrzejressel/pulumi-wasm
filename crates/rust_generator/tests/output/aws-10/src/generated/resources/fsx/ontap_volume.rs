@@ -6,8 +6,8 @@
 /// ### Basic Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let test = ontap_volume::create(
@@ -28,8 +28,8 @@
 /// Additional information on tiering policy with ONTAP Volumes can be found in the [FSx ONTAP Guide](https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/managing-volumes.html).
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let test = ontap_volume::create(
@@ -59,157 +59,159 @@
 /// $ pulumi import aws:fsx/ontapVolume:OntapVolume example fsvol-12345678abcdef123
 /// ```
 pub mod ontap_volume {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct OntapVolumeArgs {
         /// The Aggregate configuration only applies to `FLEXGROUP` volumes. See [`aggregate_configuration` Block] for details.
         #[builder(into, default)]
-        pub aggregate_configuration: pulumi_wasm_rust::InputOrOutput<
+        pub aggregate_configuration: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::fsx::OntapVolumeAggregateConfiguration>,
         >,
         /// Setting this to `true` allows a SnapLock administrator to delete an FSx for ONTAP SnapLock Enterprise volume with unexpired write once, read many (WORM) files. This configuration must be applied separately before attempting to delete the resource to have the desired behavior. Defaults to `false`.
         #[builder(into, default)]
-        pub bypass_snaplock_enterprise_retention: pulumi_wasm_rust::InputOrOutput<
+        pub bypass_snaplock_enterprise_retention: pulumi_gestalt_rust::InputOrOutput<
             Option<bool>,
         >,
         /// A boolean flag indicating whether tags for the volume should be copied to backups. This value defaults to `false`.
         #[builder(into, default)]
-        pub copy_tags_to_backups: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub copy_tags_to_backups: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// A map of tags to apply to the volume's final backup.
         #[builder(into, default)]
-        pub final_backup_tags: pulumi_wasm_rust::InputOrOutput<
+        pub final_backup_tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Specifies the location in the storage virtual machine's namespace where the volume is mounted. The junction_path must have a leading forward slash, such as `/vol3`
         #[builder(into, default)]
-        pub junction_path: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub junction_path: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The name of the Volume. You can use a maximum of 203 alphanumeric characters, plus the underscore (_) special character.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Specifies the type of volume, valid values are `RW`, `DP`. Default value is `RW`. These can be set by the ONTAP CLI or API. This setting is used as part of migration and replication [Migrating to Amazon FSx for NetApp ONTAP](https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/migrating-fsx-ontap.html)
         #[builder(into, default)]
-        pub ontap_volume_type: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub ontap_volume_type: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Specifies the volume security style, Valid values are `UNIX`, `NTFS`, and `MIXED`.
         #[builder(into, default)]
-        pub security_style: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub security_style: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Specifies the size of the volume, in megabytes (MB), that you are creating. Can be used for any size but required for volumes over 2 PB. Either size_in_bytes or size_in_megabytes must be specified. Minimum size for `FLEXGROUP` volumes are 100GiB per constituent.
         #[builder(into, default)]
-        pub size_in_bytes: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub size_in_bytes: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Specifies the size of the volume, in megabytes (MB), that you are creating. Supported when creating volumes under 2 PB. Either size_in_bytes or size_in_megabytes must be specified. Minimum size for `FLEXGROUP` volumes are 100GiB per constituent.
         #[builder(into, default)]
-        pub size_in_megabytes: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
+        pub size_in_megabytes: pulumi_gestalt_rust::InputOrOutput<Option<i32>>,
         /// When enabled, will skip the default final backup taken when the volume is deleted. This configuration must be applied separately before attempting to delete the resource to have the desired behavior. Defaults to `false`.
         #[builder(into, default)]
-        pub skip_final_backup: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub skip_final_backup: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// The SnapLock configuration for an FSx for ONTAP volume. See `snaplock_configuration` Block for details.
         #[builder(into, default)]
-        pub snaplock_configuration: pulumi_wasm_rust::InputOrOutput<
+        pub snaplock_configuration: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::fsx::OntapVolumeSnaplockConfiguration>,
         >,
         /// Specifies the snapshot policy for the volume. See [snapshot policies](https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/snapshots-ontap.html#snapshot-policies) in the Amazon FSx ONTAP User Guide
         #[builder(into, default)]
-        pub snapshot_policy: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub snapshot_policy: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Set to true to enable deduplication, compression, and compaction storage efficiency features on the volume.
         #[builder(into, default)]
-        pub storage_efficiency_enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub storage_efficiency_enabled: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// Specifies the storage virtual machine in which to create the volume.
         ///
         /// The following arguments are optional:
         #[builder(into)]
-        pub storage_virtual_machine_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub storage_virtual_machine_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// A map of tags to assign to the volume. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// The data tiering policy for an FSx for ONTAP volume. See `tiering_policy` Block for details.
         #[builder(into, default)]
-        pub tiering_policy: pulumi_wasm_rust::InputOrOutput<
+        pub tiering_policy: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::fsx::OntapVolumeTieringPolicy>,
         >,
         /// Specifies the styles of volume, valid values are `FLEXVOL`, `FLEXGROUP`. Default value is `FLEXVOL`. FLEXGROUPS have a larger minimum and maximum size. See Volume Styles for more details. [Volume Styles](https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/volume-styles.html)
         #[builder(into, default)]
-        pub volume_style: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub volume_style: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The type of volume, currently the only valid value is `ONTAP`.
         #[builder(into, default)]
-        pub volume_type: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub volume_type: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct OntapVolumeResult {
         /// The Aggregate configuration only applies to `FLEXGROUP` volumes. See [`aggregate_configuration` Block] for details.
-        pub aggregate_configuration: pulumi_wasm_rust::Output<
+        pub aggregate_configuration: pulumi_gestalt_rust::Output<
             Option<super::super::types::fsx::OntapVolumeAggregateConfiguration>,
         >,
         /// Amazon Resource Name of the volune.
-        pub arn: pulumi_wasm_rust::Output<String>,
+        pub arn: pulumi_gestalt_rust::Output<String>,
         /// Setting this to `true` allows a SnapLock administrator to delete an FSx for ONTAP SnapLock Enterprise volume with unexpired write once, read many (WORM) files. This configuration must be applied separately before attempting to delete the resource to have the desired behavior. Defaults to `false`.
-        pub bypass_snaplock_enterprise_retention: pulumi_wasm_rust::Output<Option<bool>>,
+        pub bypass_snaplock_enterprise_retention: pulumi_gestalt_rust::Output<
+            Option<bool>,
+        >,
         /// A boolean flag indicating whether tags for the volume should be copied to backups. This value defaults to `false`.
-        pub copy_tags_to_backups: pulumi_wasm_rust::Output<Option<bool>>,
+        pub copy_tags_to_backups: pulumi_gestalt_rust::Output<Option<bool>>,
         /// Describes the file system for the volume, e.g. `fs-12345679`
-        pub file_system_id: pulumi_wasm_rust::Output<String>,
+        pub file_system_id: pulumi_gestalt_rust::Output<String>,
         /// A map of tags to apply to the volume's final backup.
-        pub final_backup_tags: pulumi_wasm_rust::Output<
+        pub final_backup_tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Specifies the FlexCache endpoint type of the volume, Valid values are `NONE`, `ORIGIN`, `CACHE`. Default value is `NONE`. These can be set by the ONTAP CLI or API and are use with FlexCache feature.
-        pub flexcache_endpoint_type: pulumi_wasm_rust::Output<String>,
+        pub flexcache_endpoint_type: pulumi_gestalt_rust::Output<String>,
         /// Specifies the location in the storage virtual machine's namespace where the volume is mounted. The junction_path must have a leading forward slash, such as `/vol3`
-        pub junction_path: pulumi_wasm_rust::Output<Option<String>>,
+        pub junction_path: pulumi_gestalt_rust::Output<Option<String>>,
         /// The name of the Volume. You can use a maximum of 203 alphanumeric characters, plus the underscore (_) special character.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// Specifies the type of volume, valid values are `RW`, `DP`. Default value is `RW`. These can be set by the ONTAP CLI or API. This setting is used as part of migration and replication [Migrating to Amazon FSx for NetApp ONTAP](https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/migrating-fsx-ontap.html)
-        pub ontap_volume_type: pulumi_wasm_rust::Output<String>,
+        pub ontap_volume_type: pulumi_gestalt_rust::Output<String>,
         /// Specifies the volume security style, Valid values are `UNIX`, `NTFS`, and `MIXED`.
-        pub security_style: pulumi_wasm_rust::Output<String>,
+        pub security_style: pulumi_gestalt_rust::Output<String>,
         /// Specifies the size of the volume, in megabytes (MB), that you are creating. Can be used for any size but required for volumes over 2 PB. Either size_in_bytes or size_in_megabytes must be specified. Minimum size for `FLEXGROUP` volumes are 100GiB per constituent.
-        pub size_in_bytes: pulumi_wasm_rust::Output<String>,
+        pub size_in_bytes: pulumi_gestalt_rust::Output<String>,
         /// Specifies the size of the volume, in megabytes (MB), that you are creating. Supported when creating volumes under 2 PB. Either size_in_bytes or size_in_megabytes must be specified. Minimum size for `FLEXGROUP` volumes are 100GiB per constituent.
-        pub size_in_megabytes: pulumi_wasm_rust::Output<i32>,
+        pub size_in_megabytes: pulumi_gestalt_rust::Output<i32>,
         /// When enabled, will skip the default final backup taken when the volume is deleted. This configuration must be applied separately before attempting to delete the resource to have the desired behavior. Defaults to `false`.
-        pub skip_final_backup: pulumi_wasm_rust::Output<Option<bool>>,
+        pub skip_final_backup: pulumi_gestalt_rust::Output<Option<bool>>,
         /// The SnapLock configuration for an FSx for ONTAP volume. See `snaplock_configuration` Block for details.
-        pub snaplock_configuration: pulumi_wasm_rust::Output<
+        pub snaplock_configuration: pulumi_gestalt_rust::Output<
             Option<super::super::types::fsx::OntapVolumeSnaplockConfiguration>,
         >,
         /// Specifies the snapshot policy for the volume. See [snapshot policies](https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/snapshots-ontap.html#snapshot-policies) in the Amazon FSx ONTAP User Guide
-        pub snapshot_policy: pulumi_wasm_rust::Output<String>,
+        pub snapshot_policy: pulumi_gestalt_rust::Output<String>,
         /// Set to true to enable deduplication, compression, and compaction storage efficiency features on the volume.
-        pub storage_efficiency_enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub storage_efficiency_enabled: pulumi_gestalt_rust::Output<Option<bool>>,
         /// Specifies the storage virtual machine in which to create the volume.
         ///
         /// The following arguments are optional:
-        pub storage_virtual_machine_id: pulumi_wasm_rust::Output<String>,
+        pub storage_virtual_machine_id: pulumi_gestalt_rust::Output<String>,
         /// A map of tags to assign to the volume. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        pub tags_all: pulumi_wasm_rust::Output<
+        pub tags_all: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
         /// The data tiering policy for an FSx for ONTAP volume. See `tiering_policy` Block for details.
-        pub tiering_policy: pulumi_wasm_rust::Output<
+        pub tiering_policy: pulumi_gestalt_rust::Output<
             Option<super::super::types::fsx::OntapVolumeTieringPolicy>,
         >,
         /// The Volume's UUID (universally unique identifier).
-        pub uuid: pulumi_wasm_rust::Output<String>,
+        pub uuid: pulumi_gestalt_rust::Output<String>,
         /// Specifies the styles of volume, valid values are `FLEXVOL`, `FLEXGROUP`. Default value is `FLEXVOL`. FLEXGROUPS have a larger minimum and maximum size. See Volume Styles for more details. [Volume Styles](https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/volume-styles.html)
-        pub volume_style: pulumi_wasm_rust::Output<String>,
+        pub volume_style: pulumi_gestalt_rust::Output<String>,
         /// The type of volume, currently the only valid value is `ONTAP`.
-        pub volume_type: pulumi_wasm_rust::Output<Option<String>>,
+        pub volume_type: pulumi_gestalt_rust::Output<Option<String>>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: OntapVolumeArgs,
     ) -> OntapVolumeResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let aggregate_configuration_binding = args
             .aggregate_configuration
@@ -348,68 +350,68 @@ pub mod ontap_volume {
         };
         let o = register_interface::register(context.get_inner(), &request);
         OntapVolumeResult {
-            aggregate_configuration: pulumi_wasm_rust::__private::into_domain(
+            aggregate_configuration: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("aggregateConfiguration"),
             ),
-            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
-            bypass_snaplock_enterprise_retention: pulumi_wasm_rust::__private::into_domain(
+            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
+            bypass_snaplock_enterprise_retention: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("bypassSnaplockEnterpriseRetention"),
             ),
-            copy_tags_to_backups: pulumi_wasm_rust::__private::into_domain(
+            copy_tags_to_backups: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("copyTagsToBackups"),
             ),
-            file_system_id: pulumi_wasm_rust::__private::into_domain(
+            file_system_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("fileSystemId"),
             ),
-            final_backup_tags: pulumi_wasm_rust::__private::into_domain(
+            final_backup_tags: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("finalBackupTags"),
             ),
-            flexcache_endpoint_type: pulumi_wasm_rust::__private::into_domain(
+            flexcache_endpoint_type: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("flexcacheEndpointType"),
             ),
-            junction_path: pulumi_wasm_rust::__private::into_domain(
+            junction_path: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("junctionPath"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            ontap_volume_type: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            ontap_volume_type: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("ontapVolumeType"),
             ),
-            security_style: pulumi_wasm_rust::__private::into_domain(
+            security_style: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("securityStyle"),
             ),
-            size_in_bytes: pulumi_wasm_rust::__private::into_domain(
+            size_in_bytes: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("sizeInBytes"),
             ),
-            size_in_megabytes: pulumi_wasm_rust::__private::into_domain(
+            size_in_megabytes: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("sizeInMegabytes"),
             ),
-            skip_final_backup: pulumi_wasm_rust::__private::into_domain(
+            skip_final_backup: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("skipFinalBackup"),
             ),
-            snaplock_configuration: pulumi_wasm_rust::__private::into_domain(
+            snaplock_configuration: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("snaplockConfiguration"),
             ),
-            snapshot_policy: pulumi_wasm_rust::__private::into_domain(
+            snapshot_policy: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("snapshotPolicy"),
             ),
-            storage_efficiency_enabled: pulumi_wasm_rust::__private::into_domain(
+            storage_efficiency_enabled: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("storageEfficiencyEnabled"),
             ),
-            storage_virtual_machine_id: pulumi_wasm_rust::__private::into_domain(
+            storage_virtual_machine_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("storageVirtualMachineId"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_wasm_rust::__private::into_domain(
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            tags_all: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("tagsAll"),
             ),
-            tiering_policy: pulumi_wasm_rust::__private::into_domain(
+            tiering_policy: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("tieringPolicy"),
             ),
-            uuid: pulumi_wasm_rust::__private::into_domain(o.extract_field("uuid")),
-            volume_style: pulumi_wasm_rust::__private::into_domain(
+            uuid: pulumi_gestalt_rust::__private::into_domain(o.extract_field("uuid")),
+            volume_style: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("volumeStyle"),
             ),
-            volume_type: pulumi_wasm_rust::__private::into_domain(
+            volume_type: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("volumeType"),
             ),
         }

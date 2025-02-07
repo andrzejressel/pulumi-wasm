@@ -34,7 +34,7 @@
 /// This resource does not support import.
 ///
 pub mod bucket_acl {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct BucketACLArgs {
@@ -42,40 +42,40 @@ pub mod bucket_acl {
         ///
         /// - - -
         #[builder(into)]
-        pub bucket: pulumi_wasm_rust::InputOrOutput<String>,
+        pub bucket: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Configure this ACL to be the default ACL.
         #[builder(into, default)]
-        pub default_acl: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub default_acl: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The [canned GCS ACL](https://cloud.google.com/storage/docs/access-control/lists#predefined-acl) to apply. Must be set if `role_entity` is not.
         #[builder(into, default)]
-        pub predefined_acl: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub predefined_acl: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// List of role/entity pairs in the form `ROLE:entity`. See [GCS Bucket ACL documentation](https://cloud.google.com/storage/docs/json_api/v1/bucketAccessControls)  for more details. Must be set if `predefined_acl` is not.
         #[builder(into, default)]
-        pub role_entities: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
+        pub role_entities: pulumi_gestalt_rust::InputOrOutput<Option<Vec<String>>>,
     }
     #[allow(dead_code)]
     pub struct BucketACLResult {
         /// The name of the bucket it applies to.
         ///
         /// - - -
-        pub bucket: pulumi_wasm_rust::Output<String>,
+        pub bucket: pulumi_gestalt_rust::Output<String>,
         /// Configure this ACL to be the default ACL.
-        pub default_acl: pulumi_wasm_rust::Output<Option<String>>,
+        pub default_acl: pulumi_gestalt_rust::Output<Option<String>>,
         /// The [canned GCS ACL](https://cloud.google.com/storage/docs/access-control/lists#predefined-acl) to apply. Must be set if `role_entity` is not.
-        pub predefined_acl: pulumi_wasm_rust::Output<Option<String>>,
+        pub predefined_acl: pulumi_gestalt_rust::Output<Option<String>>,
         /// List of role/entity pairs in the form `ROLE:entity`. See [GCS Bucket ACL documentation](https://cloud.google.com/storage/docs/json_api/v1/bucketAccessControls)  for more details. Must be set if `predefined_acl` is not.
-        pub role_entities: pulumi_wasm_rust::Output<Vec<String>>,
+        pub role_entities: pulumi_gestalt_rust::Output<Vec<String>>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: BucketACLArgs,
     ) -> BucketACLResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let bucket_binding = args.bucket.get_output(context).get_inner();
         let default_acl_binding = args.default_acl.get_output(context).get_inner();
@@ -106,14 +106,16 @@ pub mod bucket_acl {
         };
         let o = register_interface::register(context.get_inner(), &request);
         BucketACLResult {
-            bucket: pulumi_wasm_rust::__private::into_domain(o.extract_field("bucket")),
-            default_acl: pulumi_wasm_rust::__private::into_domain(
+            bucket: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("bucket"),
+            ),
+            default_acl: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("defaultAcl"),
             ),
-            predefined_acl: pulumi_wasm_rust::__private::into_domain(
+            predefined_acl: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("predefinedAcl"),
             ),
-            role_entities: pulumi_wasm_rust::__private::into_domain(
+            role_entities: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("roleEntities"),
             ),
         }

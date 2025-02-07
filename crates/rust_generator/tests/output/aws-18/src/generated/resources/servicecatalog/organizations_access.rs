@@ -14,29 +14,29 @@
 ///       enabled: 'true'
 /// ```
 pub mod organizations_access {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct OrganizationsAccessArgs {
         /// Whether to enable AWS Organizations access.
         #[builder(into)]
-        pub enabled: pulumi_wasm_rust::InputOrOutput<bool>,
+        pub enabled: pulumi_gestalt_rust::InputOrOutput<bool>,
     }
     #[allow(dead_code)]
     pub struct OrganizationsAccessResult {
         /// Whether to enable AWS Organizations access.
-        pub enabled: pulumi_wasm_rust::Output<bool>,
+        pub enabled: pulumi_gestalt_rust::Output<bool>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: OrganizationsAccessArgs,
     ) -> OrganizationsAccessResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let enabled_binding = args.enabled.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
@@ -52,7 +52,9 @@ pub mod organizations_access {
         };
         let o = register_interface::register(context.get_inner(), &request);
         OrganizationsAccessResult {
-            enabled: pulumi_wasm_rust::__private::into_domain(o.extract_field("enabled")),
+            enabled: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("enabled"),
+            ),
         }
     }
 }

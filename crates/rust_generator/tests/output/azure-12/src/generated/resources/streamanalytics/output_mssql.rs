@@ -62,79 +62,79 @@
 /// ```
 ///
 pub mod output_mssql {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct OutputMssqlArgs {
         /// The authentication mode for the Stream Output. Possible values are `Msi` and `ConnectionString`. Defaults to `ConnectionString`.
         #[builder(into, default)]
-        pub authentication_mode: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub authentication_mode: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The MS SQL database name where the reference table exists. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub database: pulumi_wasm_rust::InputOrOutput<String>,
+        pub database: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The max batch count to write to the SQL Database. Defaults to `10000`. Possible values are between `1` and `1073741824`.
         #[builder(into, default)]
-        pub max_batch_count: pulumi_wasm_rust::InputOrOutput<Option<f64>>,
+        pub max_batch_count: pulumi_gestalt_rust::InputOrOutput<Option<f64>>,
         /// The max writer count for the SQL Database. Defaults to `1`. Possible values are `0` which bases the writer count on the query partition and `1` which corresponds to a single writer.
         #[builder(into, default)]
-        pub max_writer_count: pulumi_wasm_rust::InputOrOutput<Option<f64>>,
+        pub max_writer_count: pulumi_gestalt_rust::InputOrOutput<Option<f64>>,
         /// The name of the Stream Output. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Password used together with username, to login to the Microsoft SQL Server. Required if `authentication_mode` is `ConnectionString`.
         #[builder(into, default)]
-        pub password: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub password: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The name of the Resource Group where the Stream Analytics Job exists. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub resource_group_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub resource_group_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The SQL server url. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub server: pulumi_wasm_rust::InputOrOutput<String>,
+        pub server: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The name of the Stream Analytics Job. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub stream_analytics_job_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub stream_analytics_job_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Table in the database that the output points to. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub table: pulumi_wasm_rust::InputOrOutput<String>,
+        pub table: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Username used to login to the Microsoft SQL Server. Changing this forces a new resource to be created. Required if `authentication_mode` is `ConnectionString`.
         #[builder(into, default)]
-        pub user: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub user: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct OutputMssqlResult {
         /// The authentication mode for the Stream Output. Possible values are `Msi` and `ConnectionString`. Defaults to `ConnectionString`.
-        pub authentication_mode: pulumi_wasm_rust::Output<Option<String>>,
+        pub authentication_mode: pulumi_gestalt_rust::Output<Option<String>>,
         /// The MS SQL database name where the reference table exists. Changing this forces a new resource to be created.
-        pub database: pulumi_wasm_rust::Output<String>,
+        pub database: pulumi_gestalt_rust::Output<String>,
         /// The max batch count to write to the SQL Database. Defaults to `10000`. Possible values are between `1` and `1073741824`.
-        pub max_batch_count: pulumi_wasm_rust::Output<Option<f64>>,
+        pub max_batch_count: pulumi_gestalt_rust::Output<Option<f64>>,
         /// The max writer count for the SQL Database. Defaults to `1`. Possible values are `0` which bases the writer count on the query partition and `1` which corresponds to a single writer.
-        pub max_writer_count: pulumi_wasm_rust::Output<Option<f64>>,
+        pub max_writer_count: pulumi_gestalt_rust::Output<Option<f64>>,
         /// The name of the Stream Output. Changing this forces a new resource to be created.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// Password used together with username, to login to the Microsoft SQL Server. Required if `authentication_mode` is `ConnectionString`.
-        pub password: pulumi_wasm_rust::Output<Option<String>>,
+        pub password: pulumi_gestalt_rust::Output<Option<String>>,
         /// The name of the Resource Group where the Stream Analytics Job exists. Changing this forces a new resource to be created.
-        pub resource_group_name: pulumi_wasm_rust::Output<String>,
+        pub resource_group_name: pulumi_gestalt_rust::Output<String>,
         /// The SQL server url. Changing this forces a new resource to be created.
-        pub server: pulumi_wasm_rust::Output<String>,
+        pub server: pulumi_gestalt_rust::Output<String>,
         /// The name of the Stream Analytics Job. Changing this forces a new resource to be created.
-        pub stream_analytics_job_name: pulumi_wasm_rust::Output<String>,
+        pub stream_analytics_job_name: pulumi_gestalt_rust::Output<String>,
         /// Table in the database that the output points to. Changing this forces a new resource to be created.
-        pub table: pulumi_wasm_rust::Output<String>,
+        pub table: pulumi_gestalt_rust::Output<String>,
         /// Username used to login to the Microsoft SQL Server. Changing this forces a new resource to be created. Required if `authentication_mode` is `ConnectionString`.
-        pub user: pulumi_wasm_rust::Output<Option<String>>,
+        pub user: pulumi_gestalt_rust::Output<Option<String>>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: OutputMssqlArgs,
     ) -> OutputMssqlResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let authentication_mode_binding = args
             .authentication_mode
@@ -215,31 +215,33 @@ pub mod output_mssql {
         };
         let o = register_interface::register(context.get_inner(), &request);
         OutputMssqlResult {
-            authentication_mode: pulumi_wasm_rust::__private::into_domain(
+            authentication_mode: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("authenticationMode"),
             ),
-            database: pulumi_wasm_rust::__private::into_domain(
+            database: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("database"),
             ),
-            max_batch_count: pulumi_wasm_rust::__private::into_domain(
+            max_batch_count: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("maxBatchCount"),
             ),
-            max_writer_count: pulumi_wasm_rust::__private::into_domain(
+            max_writer_count: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("maxWriterCount"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            password: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            password: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("password"),
             ),
-            resource_group_name: pulumi_wasm_rust::__private::into_domain(
+            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("resourceGroupName"),
             ),
-            server: pulumi_wasm_rust::__private::into_domain(o.extract_field("server")),
-            stream_analytics_job_name: pulumi_wasm_rust::__private::into_domain(
+            server: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("server"),
+            ),
+            stream_analytics_job_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("streamAnalyticsJobName"),
             ),
-            table: pulumi_wasm_rust::__private::into_domain(o.extract_field("table")),
-            user: pulumi_wasm_rust::__private::into_domain(o.extract_field("user")),
+            table: pulumi_gestalt_rust::__private::into_domain(o.extract_field("table")),
+            user: pulumi_gestalt_rust::__private::into_domain(o.extract_field("user")),
         }
     }
 }

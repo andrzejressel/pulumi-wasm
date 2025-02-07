@@ -7,8 +7,8 @@
 /// ### CSV Classifier
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = classifier::create(
@@ -33,8 +33,8 @@
 /// ### Grok Classifier
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = classifier::create(
@@ -55,8 +55,8 @@
 /// ### JSON Classifier
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = classifier::create(
@@ -74,8 +74,8 @@
 /// ### XML Classifier
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = classifier::create(
@@ -101,52 +101,52 @@
 /// $ pulumi import aws:glue/classifier:Classifier MyClassifier MyClassifier
 /// ```
 pub mod classifier {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ClassifierArgs {
         /// A classifier for CSV content. Defined below.
         #[builder(into, default)]
-        pub csv_classifier: pulumi_wasm_rust::InputOrOutput<
+        pub csv_classifier: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::glue::ClassifierCsvClassifier>,
         >,
         /// A classifier that uses grok patterns. Defined below.
         #[builder(into, default)]
-        pub grok_classifier: pulumi_wasm_rust::InputOrOutput<
+        pub grok_classifier: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::glue::ClassifierGrokClassifier>,
         >,
         /// A classifier for JSON content. Defined below.
         #[builder(into, default)]
-        pub json_classifier: pulumi_wasm_rust::InputOrOutput<
+        pub json_classifier: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::glue::ClassifierJsonClassifier>,
         >,
         /// The name of the classifier.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// A classifier for XML content. Defined below.
         #[builder(into, default)]
-        pub xml_classifier: pulumi_wasm_rust::InputOrOutput<
+        pub xml_classifier: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::glue::ClassifierXmlClassifier>,
         >,
     }
     #[allow(dead_code)]
     pub struct ClassifierResult {
         /// A classifier for CSV content. Defined below.
-        pub csv_classifier: pulumi_wasm_rust::Output<
+        pub csv_classifier: pulumi_gestalt_rust::Output<
             Option<super::super::types::glue::ClassifierCsvClassifier>,
         >,
         /// A classifier that uses grok patterns. Defined below.
-        pub grok_classifier: pulumi_wasm_rust::Output<
+        pub grok_classifier: pulumi_gestalt_rust::Output<
             Option<super::super::types::glue::ClassifierGrokClassifier>,
         >,
         /// A classifier for JSON content. Defined below.
-        pub json_classifier: pulumi_wasm_rust::Output<
+        pub json_classifier: pulumi_gestalt_rust::Output<
             Option<super::super::types::glue::ClassifierJsonClassifier>,
         >,
         /// The name of the classifier.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// A classifier for XML content. Defined below.
-        pub xml_classifier: pulumi_wasm_rust::Output<
+        pub xml_classifier: pulumi_gestalt_rust::Output<
             Option<super::super::types::glue::ClassifierXmlClassifier>,
         >,
     }
@@ -155,11 +155,11 @@ pub mod classifier {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: ClassifierArgs,
     ) -> ClassifierResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let csv_classifier_binding = args.csv_classifier.get_output(context).get_inner();
         let grok_classifier_binding = args
@@ -201,17 +201,17 @@ pub mod classifier {
         };
         let o = register_interface::register(context.get_inner(), &request);
         ClassifierResult {
-            csv_classifier: pulumi_wasm_rust::__private::into_domain(
+            csv_classifier: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("csvClassifier"),
             ),
-            grok_classifier: pulumi_wasm_rust::__private::into_domain(
+            grok_classifier: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("grokClassifier"),
             ),
-            json_classifier: pulumi_wasm_rust::__private::into_domain(
+            json_classifier: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("jsonClassifier"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            xml_classifier: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            xml_classifier: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("xmlClassifier"),
             ),
         }

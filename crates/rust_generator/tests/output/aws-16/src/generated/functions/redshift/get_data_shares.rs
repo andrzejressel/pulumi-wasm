@@ -1,32 +1,32 @@
 pub mod get_data_shares {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct GetDataSharesArgs {
         /// An array of all data shares in the current region. See `data_shares` below.
         #[builder(into, default)]
-        pub data_shares: pulumi_wasm_rust::InputOrOutput<
+        pub data_shares: pulumi_gestalt_rust::InputOrOutput<
             Option<Vec<super::super::super::types::redshift::GetDataSharesDataShare>>,
         >,
     }
     #[allow(dead_code)]
     pub struct GetDataSharesResult {
         /// An array of all data shares in the current region. See `data_shares` below.
-        pub data_shares: pulumi_wasm_rust::Output<
+        pub data_shares: pulumi_gestalt_rust::Output<
             Option<Vec<super::super::super::types::redshift::GetDataSharesDataShare>>,
         >,
         /// AWS region.
-        pub id: pulumi_wasm_rust::Output<String>,
+        pub id: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         args: GetDataSharesArgs,
     ) -> GetDataSharesResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let data_shares_binding = args.data_shares.get_output(context).get_inner();
         let request = register_interface::ResourceInvokeRequest {
@@ -41,10 +41,10 @@ pub mod get_data_shares {
         };
         let o = register_interface::invoke(context.get_inner(), &request);
         GetDataSharesResult {
-            data_shares: pulumi_wasm_rust::__private::into_domain(
+            data_shares: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("dataShares"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
+            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
         }
     }
 }

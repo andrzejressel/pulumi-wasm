@@ -30,108 +30,112 @@
 /// ```
 ///
 pub mod namespace {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct NamespaceArgs {
         /// Specifies the capacity. When `sku` is `Premium`, capacity can be `1`, `2`, `4`, `8` or `16`. When `sku` is `Basic` or `Standard`, capacity can be `0` only.
         #[builder(into, default)]
-        pub capacity: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
+        pub capacity: pulumi_gestalt_rust::InputOrOutput<Option<i32>>,
         /// An `customer_managed_key` block as defined below.
         #[builder(into, default)]
-        pub customer_managed_key: pulumi_wasm_rust::InputOrOutput<
+        pub customer_managed_key: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::eventhub::NamespaceCustomerManagedKey>,
         >,
         /// An `identity` block as defined below.
         #[builder(into, default)]
-        pub identity: pulumi_wasm_rust::InputOrOutput<
+        pub identity: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::eventhub::NamespaceIdentity>,
         >,
         /// Whether or not SAS authentication is enabled for the Service Bus namespace. Defaults to `true`.
         #[builder(into, default)]
-        pub local_auth_enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub local_auth_enabled: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub location: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub location: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The minimum supported TLS version for this Service Bus Namespace. Valid values are: `1.0`, `1.1` and `1.2`. Defaults to `1.2`.
         #[builder(into, default)]
-        pub minimum_tls_version: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub minimum_tls_version: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Specifies the name of the ServiceBus Namespace resource . Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// An `network_rule_set` block as defined below.
         #[builder(into, default)]
-        pub network_rule_set: pulumi_wasm_rust::InputOrOutput<
+        pub network_rule_set: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::eventhub::NamespaceNetworkRuleSet>,
         >,
         /// Specifies the number messaging partitions. Only valid when `sku` is `Premium` and the minimum number is `1`. Possible values include `0`, `1`, `2`, and `4`. Defaults to `0` for Standard, Basic namespace. Changing this forces a new resource to be created.
         ///
         /// > **Note:** It's not possible to change the partitioning option on any existing namespace. The number of partitions can only be set during namespace creation. Please check the doc https://learn.microsoft.com/en-us/azure/service-bus-messaging/enable-partitions-premium for more feature restrictions.
         #[builder(into, default)]
-        pub premium_messaging_partitions: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
+        pub premium_messaging_partitions: pulumi_gestalt_rust::InputOrOutput<
+            Option<i32>,
+        >,
         /// Is public network access enabled for the Service Bus Namespace? Defaults to `true`.
         #[builder(into, default)]
-        pub public_network_access_enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub public_network_access_enabled: pulumi_gestalt_rust::InputOrOutput<
+            Option<bool>,
+        >,
         /// The name of the resource group in which to Changing this forces a new resource to be created.
         /// create the namespace.
         #[builder(into)]
-        pub resource_group_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub resource_group_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Defines which tier to use. Options are `Basic`, `Standard` or `Premium`. Please note that setting this field to `Premium` will force the creation of a new resource.
         #[builder(into)]
-        pub sku: pulumi_wasm_rust::InputOrOutput<String>,
+        pub sku: pulumi_gestalt_rust::InputOrOutput<String>,
         /// A mapping of tags to assign to the resource.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
     #[allow(dead_code)]
     pub struct NamespaceResult {
         /// Specifies the capacity. When `sku` is `Premium`, capacity can be `1`, `2`, `4`, `8` or `16`. When `sku` is `Basic` or `Standard`, capacity can be `0` only.
-        pub capacity: pulumi_wasm_rust::Output<Option<i32>>,
+        pub capacity: pulumi_gestalt_rust::Output<Option<i32>>,
         /// An `customer_managed_key` block as defined below.
-        pub customer_managed_key: pulumi_wasm_rust::Output<
+        pub customer_managed_key: pulumi_gestalt_rust::Output<
             Option<super::super::types::eventhub::NamespaceCustomerManagedKey>,
         >,
         /// The primary connection string for the authorization rule `RootManageSharedAccessKey`.
-        pub default_primary_connection_string: pulumi_wasm_rust::Output<String>,
+        pub default_primary_connection_string: pulumi_gestalt_rust::Output<String>,
         /// The primary access key for the authorization rule `RootManageSharedAccessKey`.
-        pub default_primary_key: pulumi_wasm_rust::Output<String>,
+        pub default_primary_key: pulumi_gestalt_rust::Output<String>,
         /// The secondary connection string for the authorization rule `RootManageSharedAccessKey`.
-        pub default_secondary_connection_string: pulumi_wasm_rust::Output<String>,
+        pub default_secondary_connection_string: pulumi_gestalt_rust::Output<String>,
         /// The secondary access key for the authorization rule `RootManageSharedAccessKey`.
-        pub default_secondary_key: pulumi_wasm_rust::Output<String>,
+        pub default_secondary_key: pulumi_gestalt_rust::Output<String>,
         /// The URL to access the ServiceBus Namespace.
-        pub endpoint: pulumi_wasm_rust::Output<String>,
+        pub endpoint: pulumi_gestalt_rust::Output<String>,
         /// An `identity` block as defined below.
-        pub identity: pulumi_wasm_rust::Output<
+        pub identity: pulumi_gestalt_rust::Output<
             Option<super::super::types::eventhub::NamespaceIdentity>,
         >,
         /// Whether or not SAS authentication is enabled for the Service Bus namespace. Defaults to `true`.
-        pub local_auth_enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub local_auth_enabled: pulumi_gestalt_rust::Output<Option<bool>>,
         /// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
-        pub location: pulumi_wasm_rust::Output<String>,
+        pub location: pulumi_gestalt_rust::Output<String>,
         /// The minimum supported TLS version for this Service Bus Namespace. Valid values are: `1.0`, `1.1` and `1.2`. Defaults to `1.2`.
-        pub minimum_tls_version: pulumi_wasm_rust::Output<Option<String>>,
+        pub minimum_tls_version: pulumi_gestalt_rust::Output<Option<String>>,
         /// Specifies the name of the ServiceBus Namespace resource . Changing this forces a new resource to be created.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// An `network_rule_set` block as defined below.
-        pub network_rule_set: pulumi_wasm_rust::Output<
+        pub network_rule_set: pulumi_gestalt_rust::Output<
             super::super::types::eventhub::NamespaceNetworkRuleSet,
         >,
         /// Specifies the number messaging partitions. Only valid when `sku` is `Premium` and the minimum number is `1`. Possible values include `0`, `1`, `2`, and `4`. Defaults to `0` for Standard, Basic namespace. Changing this forces a new resource to be created.
         ///
         /// > **Note:** It's not possible to change the partitioning option on any existing namespace. The number of partitions can only be set during namespace creation. Please check the doc https://learn.microsoft.com/en-us/azure/service-bus-messaging/enable-partitions-premium for more feature restrictions.
-        pub premium_messaging_partitions: pulumi_wasm_rust::Output<Option<i32>>,
+        pub premium_messaging_partitions: pulumi_gestalt_rust::Output<Option<i32>>,
         /// Is public network access enabled for the Service Bus Namespace? Defaults to `true`.
-        pub public_network_access_enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub public_network_access_enabled: pulumi_gestalt_rust::Output<Option<bool>>,
         /// The name of the resource group in which to Changing this forces a new resource to be created.
         /// create the namespace.
-        pub resource_group_name: pulumi_wasm_rust::Output<String>,
+        pub resource_group_name: pulumi_gestalt_rust::Output<String>,
         /// Defines which tier to use. Options are `Basic`, `Standard` or `Premium`. Please note that setting this field to `Premium` will force the creation of a new resource.
-        pub sku: pulumi_wasm_rust::Output<String>,
+        pub sku: pulumi_gestalt_rust::Output<String>,
         /// A mapping of tags to assign to the resource.
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
@@ -140,11 +144,11 @@ pub mod namespace {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: NamespaceArgs,
     ) -> NamespaceResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let capacity_binding = args.capacity.get_output(context).get_inner();
         let customer_managed_key_binding = args
@@ -241,54 +245,54 @@ pub mod namespace {
         };
         let o = register_interface::register(context.get_inner(), &request);
         NamespaceResult {
-            capacity: pulumi_wasm_rust::__private::into_domain(
+            capacity: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("capacity"),
             ),
-            customer_managed_key: pulumi_wasm_rust::__private::into_domain(
+            customer_managed_key: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("customerManagedKey"),
             ),
-            default_primary_connection_string: pulumi_wasm_rust::__private::into_domain(
+            default_primary_connection_string: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("defaultPrimaryConnectionString"),
             ),
-            default_primary_key: pulumi_wasm_rust::__private::into_domain(
+            default_primary_key: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("defaultPrimaryKey"),
             ),
-            default_secondary_connection_string: pulumi_wasm_rust::__private::into_domain(
+            default_secondary_connection_string: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("defaultSecondaryConnectionString"),
             ),
-            default_secondary_key: pulumi_wasm_rust::__private::into_domain(
+            default_secondary_key: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("defaultSecondaryKey"),
             ),
-            endpoint: pulumi_wasm_rust::__private::into_domain(
+            endpoint: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("endpoint"),
             ),
-            identity: pulumi_wasm_rust::__private::into_domain(
+            identity: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("identity"),
             ),
-            local_auth_enabled: pulumi_wasm_rust::__private::into_domain(
+            local_auth_enabled: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("localAuthEnabled"),
             ),
-            location: pulumi_wasm_rust::__private::into_domain(
+            location: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("location"),
             ),
-            minimum_tls_version: pulumi_wasm_rust::__private::into_domain(
+            minimum_tls_version: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("minimumTlsVersion"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            network_rule_set: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            network_rule_set: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("networkRuleSet"),
             ),
-            premium_messaging_partitions: pulumi_wasm_rust::__private::into_domain(
+            premium_messaging_partitions: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("premiumMessagingPartitions"),
             ),
-            public_network_access_enabled: pulumi_wasm_rust::__private::into_domain(
+            public_network_access_enabled: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("publicNetworkAccessEnabled"),
             ),
-            resource_group_name: pulumi_wasm_rust::__private::into_domain(
+            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("resourceGroupName"),
             ),
-            sku: pulumi_wasm_rust::__private::into_domain(o.extract_field("sku")),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
+            sku: pulumi_gestalt_rust::__private::into_domain(o.extract_field("sku")),
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
         }
     }
 }

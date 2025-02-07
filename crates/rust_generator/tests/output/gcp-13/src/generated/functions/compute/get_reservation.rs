@@ -1,47 +1,47 @@
 pub mod get_reservation {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct GetReservationArgs {
         /// The name of the Compute Reservation.
         #[builder(into)]
-        pub name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Project from which to list the Compute Reservation. Defaults to project declared in the provider.
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub project: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Zone where the Compute Reservation resides.
         #[builder(into)]
-        pub zone: pulumi_wasm_rust::InputOrOutput<String>,
+        pub zone: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct GetReservationResult {
-        pub commitment: pulumi_wasm_rust::Output<String>,
-        pub creation_timestamp: pulumi_wasm_rust::Output<String>,
-        pub description: pulumi_wasm_rust::Output<String>,
+        pub commitment: pulumi_gestalt_rust::Output<String>,
+        pub creation_timestamp: pulumi_gestalt_rust::Output<String>,
+        pub description: pulumi_gestalt_rust::Output<String>,
         /// The provider-assigned unique ID for this managed resource.
-        pub id: pulumi_wasm_rust::Output<String>,
-        pub name: pulumi_wasm_rust::Output<String>,
-        pub project: pulumi_wasm_rust::Output<Option<String>>,
-        pub self_link: pulumi_wasm_rust::Output<String>,
-        pub share_settings: pulumi_wasm_rust::Output<
+        pub id: pulumi_gestalt_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
+        pub project: pulumi_gestalt_rust::Output<Option<String>>,
+        pub self_link: pulumi_gestalt_rust::Output<String>,
+        pub share_settings: pulumi_gestalt_rust::Output<
             Vec<super::super::super::types::compute::GetReservationShareSetting>,
         >,
-        pub specific_reservation_required: pulumi_wasm_rust::Output<bool>,
-        pub specific_reservations: pulumi_wasm_rust::Output<
+        pub specific_reservation_required: pulumi_gestalt_rust::Output<bool>,
+        pub specific_reservations: pulumi_gestalt_rust::Output<
             Vec<super::super::super::types::compute::GetReservationSpecificReservation>,
         >,
-        pub status: pulumi_wasm_rust::Output<String>,
-        pub zone: pulumi_wasm_rust::Output<String>,
+        pub status: pulumi_gestalt_rust::Output<String>,
+        pub zone: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         args: GetReservationArgs,
     ) -> GetReservationResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let name_binding = args.name.get_output(context).get_inner();
         let project_binding = args.project.get_output(context).get_inner();
@@ -66,34 +66,36 @@ pub mod get_reservation {
         };
         let o = register_interface::invoke(context.get_inner(), &request);
         GetReservationResult {
-            commitment: pulumi_wasm_rust::__private::into_domain(
+            commitment: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("commitment"),
             ),
-            creation_timestamp: pulumi_wasm_rust::__private::into_domain(
+            creation_timestamp: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("creationTimestamp"),
             ),
-            description: pulumi_wasm_rust::__private::into_domain(
+            description: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("description"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            project: pulumi_wasm_rust::__private::into_domain(
+            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            project: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("project"),
             ),
-            self_link: pulumi_wasm_rust::__private::into_domain(
+            self_link: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("selfLink"),
             ),
-            share_settings: pulumi_wasm_rust::__private::into_domain(
+            share_settings: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("shareSettings"),
             ),
-            specific_reservation_required: pulumi_wasm_rust::__private::into_domain(
+            specific_reservation_required: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("specificReservationRequired"),
             ),
-            specific_reservations: pulumi_wasm_rust::__private::into_domain(
+            specific_reservations: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("specificReservations"),
             ),
-            status: pulumi_wasm_rust::__private::into_domain(o.extract_field("status")),
-            zone: pulumi_wasm_rust::__private::into_domain(o.extract_field("zone")),
+            status: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("status"),
+            ),
+            zone: pulumi_gestalt_rust::__private::into_domain(o.extract_field("zone")),
         }
     }
 }

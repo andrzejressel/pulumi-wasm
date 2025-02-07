@@ -11,8 +11,8 @@
 /// ## Example Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let bar = group::create(
@@ -44,8 +44,8 @@
 /// ### Create target tracking scaling policy using metric math
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = policy::create(
@@ -100,8 +100,8 @@
 /// ### Create predictive scaling policy using customized metrics
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = policy::create(
@@ -166,8 +166,8 @@
 /// ### Create predictive scaling policy using customized scaling and predefined load metric
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = policy::create(
@@ -223,44 +223,44 @@
 /// $ pulumi import aws:autoscaling/policy:Policy test-policy asg-name/policy-name
 /// ```
 pub mod policy {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct PolicyArgs {
         /// Whether the adjustment is an absolute number or a percentage of the current capacity. Valid values are `ChangeInCapacity`, `ExactCapacity`, and `PercentChangeInCapacity`.
         #[builder(into, default)]
-        pub adjustment_type: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub adjustment_type: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Name of the autoscaling group.
         #[builder(into)]
-        pub autoscaling_group_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub autoscaling_group_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Amount of time, in seconds, after a scaling activity completes and before the next scaling activity can start.
         #[builder(into, default)]
-        pub cooldown: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
+        pub cooldown: pulumi_gestalt_rust::InputOrOutput<Option<i32>>,
         /// Whether the scaling policy is enabled or disabled. Default: `true`.
         ///
         /// The following argument is only available to "SimpleScaling" and "StepScaling" type policies:
         #[builder(into, default)]
-        pub enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub enabled: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// Estimated time, in seconds, until a newly launched instance will contribute CloudWatch metrics. Without a value, AWS will default to the group's specified cooldown period.
         #[builder(into, default)]
-        pub estimated_instance_warmup: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
+        pub estimated_instance_warmup: pulumi_gestalt_rust::InputOrOutput<Option<i32>>,
         /// Aggregation type for the policy's metrics. Valid values are "Minimum", "Maximum", and "Average". Without a value, AWS will treat the aggregation type as "Average".
         #[builder(into, default)]
-        pub metric_aggregation_type: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub metric_aggregation_type: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Minimum value to scale by when `adjustment_type` is set to `PercentChangeInCapacity`.
         ///
         /// The following arguments are only available to "SimpleScaling" type policies:
         #[builder(into, default)]
-        pub min_adjustment_magnitude: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
+        pub min_adjustment_magnitude: pulumi_gestalt_rust::InputOrOutput<Option<i32>>,
         /// Name of the policy.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Policy type, either "SimpleScaling", "StepScaling", "TargetTrackingScaling", or "PredictiveScaling". If this value isn't provided, AWS will default to "SimpleScaling."
         #[builder(into, default)]
-        pub policy_type: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub policy_type: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Predictive scaling policy configuration to use with Amazon EC2 Auto Scaling.
         #[builder(into, default)]
-        pub predictive_scaling_configuration: pulumi_wasm_rust::InputOrOutput<
+        pub predictive_scaling_configuration: pulumi_gestalt_rust::InputOrOutput<
             Option<
                 super::super::types::autoscaling::PolicyPredictiveScalingConfiguration,
             >,
@@ -269,7 +269,7 @@ pub mod policy {
         /// scale, when the adjustment bounds are breached. A positive value scales
         /// up. A negative value scales down.
         #[builder(into, default)]
-        pub scaling_adjustment: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
+        pub scaling_adjustment: pulumi_gestalt_rust::InputOrOutput<Option<i32>>,
         /// Set of adjustments that manage
         /// group scaling. These have the following structure:
         ///
@@ -289,14 +289,14 @@ pub mod policy {
         ///
         /// The following fields are available in step adjustments:
         #[builder(into, default)]
-        pub step_adjustments: pulumi_wasm_rust::InputOrOutput<
+        pub step_adjustments: pulumi_gestalt_rust::InputOrOutput<
             Option<Vec<super::super::types::autoscaling::PolicyStepAdjustment>>,
         >,
         /// Target tracking policy. These have the following structure:
         ///
         /// ```ignore
-        /// use pulumi_wasm_rust::Output;
-        /// use pulumi_wasm_rust::{add_export, pulumi_main};
+        /// use pulumi_gestalt_rust::Output;
+        /// use pulumi_gestalt_rust::{add_export, pulumi_main};
         /// #[pulumi_main]
         /// fn test_main() -> Result<(), Error> {
         ///     let example = policy::create(
@@ -319,38 +319,38 @@ pub mod policy {
         ///
         /// The following fields are available in target tracking configuration:
         #[builder(into, default)]
-        pub target_tracking_configuration: pulumi_wasm_rust::InputOrOutput<
+        pub target_tracking_configuration: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::autoscaling::PolicyTargetTrackingConfiguration>,
         >,
     }
     #[allow(dead_code)]
     pub struct PolicyResult {
         /// Whether the adjustment is an absolute number or a percentage of the current capacity. Valid values are `ChangeInCapacity`, `ExactCapacity`, and `PercentChangeInCapacity`.
-        pub adjustment_type: pulumi_wasm_rust::Output<Option<String>>,
+        pub adjustment_type: pulumi_gestalt_rust::Output<Option<String>>,
         /// ARN assigned by AWS to the scaling policy.
-        pub arn: pulumi_wasm_rust::Output<String>,
+        pub arn: pulumi_gestalt_rust::Output<String>,
         /// Name of the autoscaling group.
-        pub autoscaling_group_name: pulumi_wasm_rust::Output<String>,
+        pub autoscaling_group_name: pulumi_gestalt_rust::Output<String>,
         /// Amount of time, in seconds, after a scaling activity completes and before the next scaling activity can start.
-        pub cooldown: pulumi_wasm_rust::Output<Option<i32>>,
+        pub cooldown: pulumi_gestalt_rust::Output<Option<i32>>,
         /// Whether the scaling policy is enabled or disabled. Default: `true`.
         ///
         /// The following argument is only available to "SimpleScaling" and "StepScaling" type policies:
-        pub enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub enabled: pulumi_gestalt_rust::Output<Option<bool>>,
         /// Estimated time, in seconds, until a newly launched instance will contribute CloudWatch metrics. Without a value, AWS will default to the group's specified cooldown period.
-        pub estimated_instance_warmup: pulumi_wasm_rust::Output<Option<i32>>,
+        pub estimated_instance_warmup: pulumi_gestalt_rust::Output<Option<i32>>,
         /// Aggregation type for the policy's metrics. Valid values are "Minimum", "Maximum", and "Average". Without a value, AWS will treat the aggregation type as "Average".
-        pub metric_aggregation_type: pulumi_wasm_rust::Output<String>,
+        pub metric_aggregation_type: pulumi_gestalt_rust::Output<String>,
         /// Minimum value to scale by when `adjustment_type` is set to `PercentChangeInCapacity`.
         ///
         /// The following arguments are only available to "SimpleScaling" type policies:
-        pub min_adjustment_magnitude: pulumi_wasm_rust::Output<Option<i32>>,
+        pub min_adjustment_magnitude: pulumi_gestalt_rust::Output<Option<i32>>,
         /// Name of the policy.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// Policy type, either "SimpleScaling", "StepScaling", "TargetTrackingScaling", or "PredictiveScaling". If this value isn't provided, AWS will default to "SimpleScaling."
-        pub policy_type: pulumi_wasm_rust::Output<Option<String>>,
+        pub policy_type: pulumi_gestalt_rust::Output<Option<String>>,
         /// Predictive scaling policy configuration to use with Amazon EC2 Auto Scaling.
-        pub predictive_scaling_configuration: pulumi_wasm_rust::Output<
+        pub predictive_scaling_configuration: pulumi_gestalt_rust::Output<
             Option<
                 super::super::types::autoscaling::PolicyPredictiveScalingConfiguration,
             >,
@@ -358,7 +358,7 @@ pub mod policy {
         /// Number of members by which to
         /// scale, when the adjustment bounds are breached. A positive value scales
         /// up. A negative value scales down.
-        pub scaling_adjustment: pulumi_wasm_rust::Output<Option<i32>>,
+        pub scaling_adjustment: pulumi_gestalt_rust::Output<Option<i32>>,
         /// Set of adjustments that manage
         /// group scaling. These have the following structure:
         ///
@@ -377,14 +377,14 @@ pub mod policy {
         /// ```
         ///
         /// The following fields are available in step adjustments:
-        pub step_adjustments: pulumi_wasm_rust::Output<
+        pub step_adjustments: pulumi_gestalt_rust::Output<
             Option<Vec<super::super::types::autoscaling::PolicyStepAdjustment>>,
         >,
         /// Target tracking policy. These have the following structure:
         ///
         /// ```ignore
-        /// use pulumi_wasm_rust::Output;
-        /// use pulumi_wasm_rust::{add_export, pulumi_main};
+        /// use pulumi_gestalt_rust::Output;
+        /// use pulumi_gestalt_rust::{add_export, pulumi_main};
         /// #[pulumi_main]
         /// fn test_main() -> Result<(), Error> {
         ///     let example = policy::create(
@@ -406,7 +406,7 @@ pub mod policy {
         /// ```
         ///
         /// The following fields are available in target tracking configuration:
-        pub target_tracking_configuration: pulumi_wasm_rust::Output<
+        pub target_tracking_configuration: pulumi_gestalt_rust::Output<
             Option<super::super::types::autoscaling::PolicyTargetTrackingConfiguration>,
         >,
     }
@@ -415,11 +415,11 @@ pub mod policy {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: PolicyArgs,
     ) -> PolicyResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let adjustment_type_binding = args
             .adjustment_type
@@ -522,42 +522,42 @@ pub mod policy {
         };
         let o = register_interface::register(context.get_inner(), &request);
         PolicyResult {
-            adjustment_type: pulumi_wasm_rust::__private::into_domain(
+            adjustment_type: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("adjustmentType"),
             ),
-            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
-            autoscaling_group_name: pulumi_wasm_rust::__private::into_domain(
+            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
+            autoscaling_group_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("autoscalingGroupName"),
             ),
-            cooldown: pulumi_wasm_rust::__private::into_domain(
+            cooldown: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("cooldown"),
             ),
-            enabled: pulumi_wasm_rust::__private::into_domain(
+            enabled: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("enabled"),
             ),
-            estimated_instance_warmup: pulumi_wasm_rust::__private::into_domain(
+            estimated_instance_warmup: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("estimatedInstanceWarmup"),
             ),
-            metric_aggregation_type: pulumi_wasm_rust::__private::into_domain(
+            metric_aggregation_type: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("metricAggregationType"),
             ),
-            min_adjustment_magnitude: pulumi_wasm_rust::__private::into_domain(
+            min_adjustment_magnitude: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("minAdjustmentMagnitude"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            policy_type: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            policy_type: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("policyType"),
             ),
-            predictive_scaling_configuration: pulumi_wasm_rust::__private::into_domain(
+            predictive_scaling_configuration: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("predictiveScalingConfiguration"),
             ),
-            scaling_adjustment: pulumi_wasm_rust::__private::into_domain(
+            scaling_adjustment: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("scalingAdjustment"),
             ),
-            step_adjustments: pulumi_wasm_rust::__private::into_domain(
+            step_adjustments: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("stepAdjustments"),
             ),
-            target_tracking_configuration: pulumi_wasm_rust::__private::into_domain(
+            target_tracking_configuration: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("targetTrackingConfiguration"),
             ),
         }

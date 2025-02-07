@@ -39,99 +39,103 @@
 /// ```
 ///
 pub mod topic {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct TopicArgs {
         /// The ISO 8601 timespan duration of the idle interval after which the Topic is automatically deleted, minimum of 5 minutes. Defaults to `P10675199DT2H48M5.4775807S`.
         #[builder(into, default)]
-        pub auto_delete_on_idle: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub auto_delete_on_idle: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Boolean flag which controls if server-side batched operations are enabled.
         #[builder(into, default)]
-        pub batched_operations_enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub batched_operations_enabled: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// The ISO 8601 timespan duration of TTL of messages sent to this topic if no TTL value is set on the message itself. Defaults to `P10675199DT2H48M5.4775807S`.
         #[builder(into, default)]
-        pub default_message_ttl: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub default_message_ttl: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The ISO 8601 timespan duration during which duplicates can be detected. Defaults to `PT10M` (10 Minutes).
         #[builder(into, default)]
-        pub duplicate_detection_history_time_window: pulumi_wasm_rust::InputOrOutput<
+        pub duplicate_detection_history_time_window: pulumi_gestalt_rust::InputOrOutput<
             Option<String>,
         >,
         /// Boolean flag which controls whether Express Entities are enabled. An express topic holds a message in memory temporarily before writing it to persistent storage.
         #[builder(into, default)]
-        pub express_enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub express_enabled: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// Integer value which controls the maximum size of a message allowed on the topic for Premium SKU. For supported values see the "Large messages support" section of [this document](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-premium-messaging#large-messages-support-preview). Defaults to `256`.
         #[builder(into, default)]
-        pub max_message_size_in_kilobytes: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
+        pub max_message_size_in_kilobytes: pulumi_gestalt_rust::InputOrOutput<
+            Option<i32>,
+        >,
         /// Integer value which controls the size of memory allocated for the topic. For supported values see the "Queue/topic size" section of [this document](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-quotas). Defaults to `5120`.
         #[builder(into, default)]
-        pub max_size_in_megabytes: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
+        pub max_size_in_megabytes: pulumi_gestalt_rust::InputOrOutput<Option<i32>>,
         /// Specifies the name of the ServiceBus Topic resource. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The ID of the ServiceBus Namespace to create this topic in. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub namespace_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub namespace_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Boolean flag which controls whether to enable the topic to be partitioned across multiple message brokers. Changing this forces a new resource to be created.
         ///
         /// > **NOTE:** Partitioning is available at entity creation for all queues and topics in Basic or Standard SKUs. It is not available for the Premium messaging SKU, but any previously existing partitioned entities in Premium namespaces continue to work as expected. Please [see the documentation](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-partitioning) for more information.
         #[builder(into, default)]
-        pub partitioning_enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub partitioning_enabled: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// Boolean flag which controls whether the Topic requires duplicate detection. Defaults to `false`. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub requires_duplicate_detection: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub requires_duplicate_detection: pulumi_gestalt_rust::InputOrOutput<
+            Option<bool>,
+        >,
         /// The Status of the Service Bus Topic. Acceptable values are `Active` or `Disabled`. Defaults to `Active`.
         #[builder(into, default)]
-        pub status: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub status: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Boolean flag which controls whether the Topic supports ordering.
         #[builder(into, default)]
-        pub support_ordering: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub support_ordering: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
     }
     #[allow(dead_code)]
     pub struct TopicResult {
         /// The ISO 8601 timespan duration of the idle interval after which the Topic is automatically deleted, minimum of 5 minutes. Defaults to `P10675199DT2H48M5.4775807S`.
-        pub auto_delete_on_idle: pulumi_wasm_rust::Output<Option<String>>,
+        pub auto_delete_on_idle: pulumi_gestalt_rust::Output<Option<String>>,
         /// Boolean flag which controls if server-side batched operations are enabled.
-        pub batched_operations_enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub batched_operations_enabled: pulumi_gestalt_rust::Output<Option<bool>>,
         /// The ISO 8601 timespan duration of TTL of messages sent to this topic if no TTL value is set on the message itself. Defaults to `P10675199DT2H48M5.4775807S`.
-        pub default_message_ttl: pulumi_wasm_rust::Output<Option<String>>,
+        pub default_message_ttl: pulumi_gestalt_rust::Output<Option<String>>,
         /// The ISO 8601 timespan duration during which duplicates can be detected. Defaults to `PT10M` (10 Minutes).
-        pub duplicate_detection_history_time_window: pulumi_wasm_rust::Output<
+        pub duplicate_detection_history_time_window: pulumi_gestalt_rust::Output<
             Option<String>,
         >,
         /// Boolean flag which controls whether Express Entities are enabled. An express topic holds a message in memory temporarily before writing it to persistent storage.
-        pub express_enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub express_enabled: pulumi_gestalt_rust::Output<Option<bool>>,
         /// Integer value which controls the maximum size of a message allowed on the topic for Premium SKU. For supported values see the "Large messages support" section of [this document](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-premium-messaging#large-messages-support-preview). Defaults to `256`.
-        pub max_message_size_in_kilobytes: pulumi_wasm_rust::Output<i32>,
+        pub max_message_size_in_kilobytes: pulumi_gestalt_rust::Output<i32>,
         /// Integer value which controls the size of memory allocated for the topic. For supported values see the "Queue/topic size" section of [this document](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-quotas). Defaults to `5120`.
-        pub max_size_in_megabytes: pulumi_wasm_rust::Output<i32>,
+        pub max_size_in_megabytes: pulumi_gestalt_rust::Output<i32>,
         /// Specifies the name of the ServiceBus Topic resource. Changing this forces a new resource to be created.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// The ID of the ServiceBus Namespace to create this topic in. Changing this forces a new resource to be created.
-        pub namespace_id: pulumi_wasm_rust::Output<String>,
-        pub namespace_name: pulumi_wasm_rust::Output<String>,
+        pub namespace_id: pulumi_gestalt_rust::Output<String>,
+        pub namespace_name: pulumi_gestalt_rust::Output<String>,
         /// Boolean flag which controls whether to enable the topic to be partitioned across multiple message brokers. Changing this forces a new resource to be created.
         ///
         /// > **NOTE:** Partitioning is available at entity creation for all queues and topics in Basic or Standard SKUs. It is not available for the Premium messaging SKU, but any previously existing partitioned entities in Premium namespaces continue to work as expected. Please [see the documentation](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-partitioning) for more information.
-        pub partitioning_enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub partitioning_enabled: pulumi_gestalt_rust::Output<Option<bool>>,
         /// Boolean flag which controls whether the Topic requires duplicate detection. Defaults to `false`. Changing this forces a new resource to be created.
-        pub requires_duplicate_detection: pulumi_wasm_rust::Output<Option<bool>>,
-        pub resource_group_name: pulumi_wasm_rust::Output<String>,
+        pub requires_duplicate_detection: pulumi_gestalt_rust::Output<Option<bool>>,
+        pub resource_group_name: pulumi_gestalt_rust::Output<String>,
         /// The Status of the Service Bus Topic. Acceptable values are `Active` or `Disabled`. Defaults to `Active`.
-        pub status: pulumi_wasm_rust::Output<Option<String>>,
+        pub status: pulumi_gestalt_rust::Output<Option<String>>,
         /// Boolean flag which controls whether the Topic supports ordering.
-        pub support_ordering: pulumi_wasm_rust::Output<Option<bool>>,
+        pub support_ordering: pulumi_gestalt_rust::Output<Option<bool>>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: TopicArgs,
     ) -> TopicResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let auto_delete_on_idle_binding = args
             .auto_delete_on_idle
@@ -237,45 +241,47 @@ pub mod topic {
         };
         let o = register_interface::register(context.get_inner(), &request);
         TopicResult {
-            auto_delete_on_idle: pulumi_wasm_rust::__private::into_domain(
+            auto_delete_on_idle: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("autoDeleteOnIdle"),
             ),
-            batched_operations_enabled: pulumi_wasm_rust::__private::into_domain(
+            batched_operations_enabled: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("batchedOperationsEnabled"),
             ),
-            default_message_ttl: pulumi_wasm_rust::__private::into_domain(
+            default_message_ttl: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("defaultMessageTtl"),
             ),
-            duplicate_detection_history_time_window: pulumi_wasm_rust::__private::into_domain(
+            duplicate_detection_history_time_window: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("duplicateDetectionHistoryTimeWindow"),
             ),
-            express_enabled: pulumi_wasm_rust::__private::into_domain(
+            express_enabled: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("expressEnabled"),
             ),
-            max_message_size_in_kilobytes: pulumi_wasm_rust::__private::into_domain(
+            max_message_size_in_kilobytes: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("maxMessageSizeInKilobytes"),
             ),
-            max_size_in_megabytes: pulumi_wasm_rust::__private::into_domain(
+            max_size_in_megabytes: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("maxSizeInMegabytes"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            namespace_id: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            namespace_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("namespaceId"),
             ),
-            namespace_name: pulumi_wasm_rust::__private::into_domain(
+            namespace_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("namespaceName"),
             ),
-            partitioning_enabled: pulumi_wasm_rust::__private::into_domain(
+            partitioning_enabled: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("partitioningEnabled"),
             ),
-            requires_duplicate_detection: pulumi_wasm_rust::__private::into_domain(
+            requires_duplicate_detection: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("requiresDuplicateDetection"),
             ),
-            resource_group_name: pulumi_wasm_rust::__private::into_domain(
+            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("resourceGroupName"),
             ),
-            status: pulumi_wasm_rust::__private::into_domain(o.extract_field("status")),
-            support_ordering: pulumi_wasm_rust::__private::into_domain(
+            status: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("status"),
+            ),
+            support_ordering: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("supportOrdering"),
             ),
         }

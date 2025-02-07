@@ -64,36 +64,36 @@
 /// $ pulumi import aws:route53/queryLog:QueryLog example_com xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
 /// ```
 pub mod query_log {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct QueryLogArgs {
         /// CloudWatch log group ARN to send query logs.
         #[builder(into)]
-        pub cloudwatch_log_group_arn: pulumi_wasm_rust::InputOrOutput<String>,
+        pub cloudwatch_log_group_arn: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Route53 hosted zone ID to enable query logs.
         #[builder(into)]
-        pub zone_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub zone_id: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct QueryLogResult {
         /// The Amazon Resource Name (ARN) of the Query Logging Config.
-        pub arn: pulumi_wasm_rust::Output<String>,
+        pub arn: pulumi_gestalt_rust::Output<String>,
         /// CloudWatch log group ARN to send query logs.
-        pub cloudwatch_log_group_arn: pulumi_wasm_rust::Output<String>,
+        pub cloudwatch_log_group_arn: pulumi_gestalt_rust::Output<String>,
         /// Route53 hosted zone ID to enable query logs.
-        pub zone_id: pulumi_wasm_rust::Output<String>,
+        pub zone_id: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: QueryLogArgs,
     ) -> QueryLogResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let cloudwatch_log_group_arn_binding = args
             .cloudwatch_log_group_arn
@@ -117,11 +117,13 @@ pub mod query_log {
         };
         let o = register_interface::register(context.get_inner(), &request);
         QueryLogResult {
-            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
-            cloudwatch_log_group_arn: pulumi_wasm_rust::__private::into_domain(
+            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
+            cloudwatch_log_group_arn: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("cloudwatchLogGroupArn"),
             ),
-            zone_id: pulumi_wasm_rust::__private::into_domain(o.extract_field("zoneId")),
+            zone_id: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("zoneId"),
+            ),
         }
     }
 }

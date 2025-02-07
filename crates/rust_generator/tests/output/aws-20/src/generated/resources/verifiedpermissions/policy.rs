@@ -23,42 +23,42 @@
 /// $ pulumi import aws:verifiedpermissions/policy:Policy example policy-id-12345678,policy-store-id-12345678
 /// ```
 pub mod policy {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct PolicyArgs {
         /// The definition of the policy. See Definition below.
         #[builder(into, default)]
-        pub definition: pulumi_wasm_rust::InputOrOutput<
+        pub definition: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::verifiedpermissions::PolicyDefinition>,
         >,
         /// The Policy Store ID of the policy store.
         #[builder(into)]
-        pub policy_store_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub policy_store_id: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct PolicyResult {
         /// The date the policy was created.
-        pub created_date: pulumi_wasm_rust::Output<String>,
+        pub created_date: pulumi_gestalt_rust::Output<String>,
         /// The definition of the policy. See Definition below.
-        pub definition: pulumi_wasm_rust::Output<
+        pub definition: pulumi_gestalt_rust::Output<
             Option<super::super::types::verifiedpermissions::PolicyDefinition>,
         >,
         /// The Policy ID of the policy.
-        pub policy_id: pulumi_wasm_rust::Output<String>,
+        pub policy_id: pulumi_gestalt_rust::Output<String>,
         /// The Policy Store ID of the policy store.
-        pub policy_store_id: pulumi_wasm_rust::Output<String>,
+        pub policy_store_id: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: PolicyArgs,
     ) -> PolicyResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let definition_binding = args.definition.get_output(context).get_inner();
         let policy_store_id_binding = args
@@ -82,16 +82,16 @@ pub mod policy {
         };
         let o = register_interface::register(context.get_inner(), &request);
         PolicyResult {
-            created_date: pulumi_wasm_rust::__private::into_domain(
+            created_date: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("createdDate"),
             ),
-            definition: pulumi_wasm_rust::__private::into_domain(
+            definition: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("definition"),
             ),
-            policy_id: pulumi_wasm_rust::__private::into_domain(
+            policy_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("policyId"),
             ),
-            policy_store_id: pulumi_wasm_rust::__private::into_domain(
+            policy_store_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("policyStoreId"),
             ),
         }

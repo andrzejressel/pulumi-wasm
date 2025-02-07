@@ -96,49 +96,49 @@
 /// }
 /// ```
 pub mod invocation {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct InvocationArgs {
         /// Name of the lambda function.
         #[builder(into)]
-        pub function_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub function_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// JSON payload to the lambda function.
         ///
         /// The following arguments are optional:
         #[builder(into)]
-        pub input: pulumi_wasm_rust::InputOrOutput<String>,
+        pub input: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Lifecycle scope of the resource to manage. Valid values are `CREATE_ONLY` and `CRUD`. Defaults to `CREATE_ONLY`. `CREATE_ONLY` will invoke the function only on creation or replacement. `CRUD` will invoke the function on each lifecycle event, and augment the input JSON payload with additional lifecycle information.
         #[builder(into, default)]
-        pub lifecycle_scope: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub lifecycle_scope: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Qualifier (i.e., version) of the lambda function. Defaults to `$LATEST`.
         #[builder(into, default)]
-        pub qualifier: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub qualifier: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         #[builder(into, default)]
-        pub terraform_key: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub terraform_key: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Map of arbitrary keys and values that, when changed, will trigger a re-invocation.
         #[builder(into, default)]
-        pub triggers: pulumi_wasm_rust::InputOrOutput<
+        pub triggers: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
     #[allow(dead_code)]
     pub struct InvocationResult {
         /// Name of the lambda function.
-        pub function_name: pulumi_wasm_rust::Output<String>,
+        pub function_name: pulumi_gestalt_rust::Output<String>,
         /// JSON payload to the lambda function.
         ///
         /// The following arguments are optional:
-        pub input: pulumi_wasm_rust::Output<String>,
+        pub input: pulumi_gestalt_rust::Output<String>,
         /// Lifecycle scope of the resource to manage. Valid values are `CREATE_ONLY` and `CRUD`. Defaults to `CREATE_ONLY`. `CREATE_ONLY` will invoke the function only on creation or replacement. `CRUD` will invoke the function on each lifecycle event, and augment the input JSON payload with additional lifecycle information.
-        pub lifecycle_scope: pulumi_wasm_rust::Output<Option<String>>,
+        pub lifecycle_scope: pulumi_gestalt_rust::Output<Option<String>>,
         /// Qualifier (i.e., version) of the lambda function. Defaults to `$LATEST`.
-        pub qualifier: pulumi_wasm_rust::Output<Option<String>>,
+        pub qualifier: pulumi_gestalt_rust::Output<Option<String>>,
         /// String result of the lambda function invocation.
-        pub result: pulumi_wasm_rust::Output<String>,
-        pub terraform_key: pulumi_wasm_rust::Output<Option<String>>,
+        pub result: pulumi_gestalt_rust::Output<String>,
+        pub terraform_key: pulumi_gestalt_rust::Output<Option<String>>,
         /// Map of arbitrary keys and values that, when changed, will trigger a re-invocation.
-        pub triggers: pulumi_wasm_rust::Output<
+        pub triggers: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
@@ -147,11 +147,11 @@ pub mod invocation {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: InvocationArgs,
     ) -> InvocationResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let function_name_binding = args.function_name.get_output(context).get_inner();
         let input_binding = args.input.get_output(context).get_inner();
@@ -195,21 +195,23 @@ pub mod invocation {
         };
         let o = register_interface::register(context.get_inner(), &request);
         InvocationResult {
-            function_name: pulumi_wasm_rust::__private::into_domain(
+            function_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("functionName"),
             ),
-            input: pulumi_wasm_rust::__private::into_domain(o.extract_field("input")),
-            lifecycle_scope: pulumi_wasm_rust::__private::into_domain(
+            input: pulumi_gestalt_rust::__private::into_domain(o.extract_field("input")),
+            lifecycle_scope: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("lifecycleScope"),
             ),
-            qualifier: pulumi_wasm_rust::__private::into_domain(
+            qualifier: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("qualifier"),
             ),
-            result: pulumi_wasm_rust::__private::into_domain(o.extract_field("result")),
-            terraform_key: pulumi_wasm_rust::__private::into_domain(
+            result: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("result"),
+            ),
+            terraform_key: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("terraformKey"),
             ),
-            triggers: pulumi_wasm_rust::__private::into_domain(
+            triggers: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("triggers"),
             ),
         }

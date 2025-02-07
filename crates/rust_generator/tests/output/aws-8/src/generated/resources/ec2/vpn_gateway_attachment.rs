@@ -35,34 +35,34 @@
 /// You cannot import this resource.
 ///
 pub mod vpn_gateway_attachment {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct VpnGatewayAttachmentArgs {
         /// The ID of the VPC.
         #[builder(into)]
-        pub vpc_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub vpc_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The ID of the Virtual Private Gateway.
         #[builder(into)]
-        pub vpn_gateway_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub vpn_gateway_id: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct VpnGatewayAttachmentResult {
         /// The ID of the VPC.
-        pub vpc_id: pulumi_wasm_rust::Output<String>,
+        pub vpc_id: pulumi_gestalt_rust::Output<String>,
         /// The ID of the Virtual Private Gateway.
-        pub vpn_gateway_id: pulumi_wasm_rust::Output<String>,
+        pub vpn_gateway_id: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: VpnGatewayAttachmentArgs,
     ) -> VpnGatewayAttachmentResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let vpc_id_binding = args.vpc_id.get_output(context).get_inner();
         let vpn_gateway_id_binding = args.vpn_gateway_id.get_output(context).get_inner();
@@ -83,8 +83,10 @@ pub mod vpn_gateway_attachment {
         };
         let o = register_interface::register(context.get_inner(), &request);
         VpnGatewayAttachmentResult {
-            vpc_id: pulumi_wasm_rust::__private::into_domain(o.extract_field("vpcId")),
-            vpn_gateway_id: pulumi_wasm_rust::__private::into_domain(
+            vpc_id: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("vpcId"),
+            ),
+            vpn_gateway_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("vpnGatewayId"),
             ),
         }

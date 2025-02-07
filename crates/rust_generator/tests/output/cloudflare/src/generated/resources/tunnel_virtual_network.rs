@@ -6,8 +6,8 @@
 /// ## Example Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = tunnel_virtual_network::create(
@@ -28,44 +28,44 @@
 /// ```
 ///
 pub mod tunnel_virtual_network {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct TunnelVirtualNetworkArgs {
         /// The account identifier to target for the resource. **Modifying this attribute will force creation of a new resource.**
         #[builder(into)]
-        pub account_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub account_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Description of the tunnel virtual network.
         #[builder(into, default)]
-        pub comment: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub comment: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Whether this virtual network is the default one for the account. This means IP Routes belong to this virtual network and Teams Clients in the account route through this virtual network, unless specified otherwise for each case.
         #[builder(into, default)]
-        pub is_default_network: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub is_default_network: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// A user-friendly name chosen when the virtual network is created.
         #[builder(into)]
-        pub name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct TunnelVirtualNetworkResult {
         /// The account identifier to target for the resource. **Modifying this attribute will force creation of a new resource.**
-        pub account_id: pulumi_wasm_rust::Output<String>,
+        pub account_id: pulumi_gestalt_rust::Output<String>,
         /// Description of the tunnel virtual network.
-        pub comment: pulumi_wasm_rust::Output<Option<String>>,
+        pub comment: pulumi_gestalt_rust::Output<Option<String>>,
         /// Whether this virtual network is the default one for the account. This means IP Routes belong to this virtual network and Teams Clients in the account route through this virtual network, unless specified otherwise for each case.
-        pub is_default_network: pulumi_wasm_rust::Output<Option<bool>>,
+        pub is_default_network: pulumi_gestalt_rust::Output<Option<bool>>,
         /// A user-friendly name chosen when the virtual network is created.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: TunnelVirtualNetworkArgs,
     ) -> TunnelVirtualNetworkResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let account_id_binding = args.account_id.get_output(context).get_inner();
         let comment_binding = args.comment.get_output(context).get_inner();
@@ -99,16 +99,16 @@ pub mod tunnel_virtual_network {
         };
         let o = register_interface::register(context.get_inner(), &request);
         TunnelVirtualNetworkResult {
-            account_id: pulumi_wasm_rust::__private::into_domain(
+            account_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("accountId"),
             ),
-            comment: pulumi_wasm_rust::__private::into_domain(
+            comment: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("comment"),
             ),
-            is_default_network: pulumi_wasm_rust::__private::into_domain(
+            is_default_network: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("isDefaultNetwork"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
         }
     }
 }

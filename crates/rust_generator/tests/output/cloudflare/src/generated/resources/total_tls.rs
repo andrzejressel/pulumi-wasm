@@ -3,8 +3,8 @@
 /// ## Example Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = total_tls::create(
@@ -25,39 +25,39 @@
 /// ```
 ///
 pub mod total_tls {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct TotalTlsArgs {
         /// The Certificate Authority that Total TLS certificates will be issued through. Available values: `google`, `lets_encrypt`.
         #[builder(into, default)]
-        pub certificate_authority: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub certificate_authority: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Enable Total TLS for the zone.
         #[builder(into)]
-        pub enabled: pulumi_wasm_rust::InputOrOutput<bool>,
+        pub enabled: pulumi_gestalt_rust::InputOrOutput<bool>,
         /// The zone identifier to target for the resource. **Modifying this attribute will force creation of a new resource.**
         #[builder(into)]
-        pub zone_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub zone_id: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct TotalTlsResult {
         /// The Certificate Authority that Total TLS certificates will be issued through. Available values: `google`, `lets_encrypt`.
-        pub certificate_authority: pulumi_wasm_rust::Output<Option<String>>,
+        pub certificate_authority: pulumi_gestalt_rust::Output<Option<String>>,
         /// Enable Total TLS for the zone.
-        pub enabled: pulumi_wasm_rust::Output<bool>,
+        pub enabled: pulumi_gestalt_rust::Output<bool>,
         /// The zone identifier to target for the resource. **Modifying this attribute will force creation of a new resource.**
-        pub zone_id: pulumi_wasm_rust::Output<String>,
+        pub zone_id: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: TotalTlsArgs,
     ) -> TotalTlsResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let certificate_authority_binding = args
             .certificate_authority
@@ -86,13 +86,15 @@ pub mod total_tls {
         };
         let o = register_interface::register(context.get_inner(), &request);
         TotalTlsResult {
-            certificate_authority: pulumi_wasm_rust::__private::into_domain(
+            certificate_authority: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("certificateAuthority"),
             ),
-            enabled: pulumi_wasm_rust::__private::into_domain(
+            enabled: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("enabled"),
             ),
-            zone_id: pulumi_wasm_rust::__private::into_domain(o.extract_field("zoneId")),
+            zone_id: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("zoneId"),
+            ),
         }
     }
 }

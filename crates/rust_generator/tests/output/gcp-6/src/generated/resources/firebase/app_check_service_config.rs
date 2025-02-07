@@ -13,8 +13,8 @@
 ///
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let appcheck = service::create(
@@ -38,8 +38,8 @@
 ///
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let appcheck = service::create(
@@ -64,8 +64,8 @@
 ///
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let appcheck = service::create(
@@ -112,16 +112,16 @@
 /// ```
 ///
 pub mod app_check_service_config {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct AppCheckServiceConfigArgs {
         #[builder(into, default)]
-        pub enforcement_mode: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub enforcement_mode: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub project: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The identifier of the service to configure enforcement. Currently, the following service IDs are supported:
         /// firebasestorage.googleapis.com (Cloud Storage for Firebase)
         /// firebasedatabase.googleapis.com (Firebase Realtime Database)
@@ -131,16 +131,16 @@ pub mod app_check_service_config {
         ///
         /// - - -
         #[builder(into)]
-        pub service_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub service_id: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct AppCheckServiceConfigResult {
-        pub enforcement_mode: pulumi_wasm_rust::Output<Option<String>>,
+        pub enforcement_mode: pulumi_gestalt_rust::Output<Option<String>>,
         /// The fully-qualified resource name of the service enforcement configuration.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
-        pub project: pulumi_wasm_rust::Output<String>,
+        pub project: pulumi_gestalt_rust::Output<String>,
         /// The identifier of the service to configure enforcement. Currently, the following service IDs are supported:
         /// firebasestorage.googleapis.com (Cloud Storage for Firebase)
         /// firebasedatabase.googleapis.com (Firebase Realtime Database)
@@ -149,18 +149,18 @@ pub mod app_check_service_config {
         ///
         ///
         /// - - -
-        pub service_id: pulumi_wasm_rust::Output<String>,
+        pub service_id: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: AppCheckServiceConfigArgs,
     ) -> AppCheckServiceConfigResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let enforcement_mode_binding = args
             .enforcement_mode
@@ -189,14 +189,14 @@ pub mod app_check_service_config {
         };
         let o = register_interface::register(context.get_inner(), &request);
         AppCheckServiceConfigResult {
-            enforcement_mode: pulumi_wasm_rust::__private::into_domain(
+            enforcement_mode: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("enforcementMode"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            project: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            project: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("project"),
             ),
-            service_id: pulumi_wasm_rust::__private::into_domain(
+            service_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("serviceId"),
             ),
         }

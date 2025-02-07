@@ -31,20 +31,20 @@
 /// $ pulumi import aws:iot/eventConfigurations:EventConfigurations example us-west-2
 /// ```
 pub mod event_configurations {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct EventConfigurationsArgs {
         /// Map. The new event configuration values. You can use only these strings as keys: `THING_GROUP_HIERARCHY`, `THING_GROUP_MEMBERSHIP`, `THING_TYPE`, `THING_TYPE_ASSOCIATION`, `THING_GROUP`, `THING`, `POLICY`, `CA_CERTIFICATE`, `JOB_EXECUTION`, `CERTIFICATE`, `JOB`. Use boolean for values of mapping.
         #[builder(into)]
-        pub event_configurations: pulumi_wasm_rust::InputOrOutput<
+        pub event_configurations: pulumi_gestalt_rust::InputOrOutput<
             std::collections::HashMap<String, bool>,
         >,
     }
     #[allow(dead_code)]
     pub struct EventConfigurationsResult {
         /// Map. The new event configuration values. You can use only these strings as keys: `THING_GROUP_HIERARCHY`, `THING_GROUP_MEMBERSHIP`, `THING_TYPE`, `THING_TYPE_ASSOCIATION`, `THING_GROUP`, `THING`, `POLICY`, `CA_CERTIFICATE`, `JOB_EXECUTION`, `CERTIFICATE`, `JOB`. Use boolean for values of mapping.
-        pub event_configurations: pulumi_wasm_rust::Output<
+        pub event_configurations: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, bool>,
         >,
     }
@@ -53,11 +53,11 @@ pub mod event_configurations {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: EventConfigurationsArgs,
     ) -> EventConfigurationsResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let event_configurations_binding = args
             .event_configurations
@@ -76,7 +76,7 @@ pub mod event_configurations {
         };
         let o = register_interface::register(context.get_inner(), &request);
         EventConfigurationsResult {
-            event_configurations: pulumi_wasm_rust::__private::into_domain(
+            event_configurations: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("eventConfigurations"),
             ),
         }

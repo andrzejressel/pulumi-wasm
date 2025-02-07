@@ -4,8 +4,8 @@
 /// ## Example Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = account::create(
@@ -26,39 +26,39 @@
 /// ```
 ///
 pub mod account {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct AccountArgs {
         /// Whether 2FA is enforced on the account. Defaults to `false`.
         #[builder(into, default)]
-        pub enforce_twofactor: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub enforce_twofactor: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// The name of the account that is displayed in the Cloudflare dashboard.
         #[builder(into)]
-        pub name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Account type. Available values: `enterprise`, `standard`. Defaults to `standard`. **Modifying this attribute will force creation of a new resource.**
         #[builder(into, default)]
-        pub type_: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub type_: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct AccountResult {
         /// Whether 2FA is enforced on the account. Defaults to `false`.
-        pub enforce_twofactor: pulumi_wasm_rust::Output<Option<bool>>,
+        pub enforce_twofactor: pulumi_gestalt_rust::Output<Option<bool>>,
         /// The name of the account that is displayed in the Cloudflare dashboard.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// Account type. Available values: `enterprise`, `standard`. Defaults to `standard`. **Modifying this attribute will force creation of a new resource.**
-        pub type_: pulumi_wasm_rust::Output<Option<String>>,
+        pub type_: pulumi_gestalt_rust::Output<Option<String>>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: AccountArgs,
     ) -> AccountResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let enforce_twofactor_binding = args
             .enforce_twofactor
@@ -87,11 +87,11 @@ pub mod account {
         };
         let o = register_interface::register(context.get_inner(), &request);
         AccountResult {
-            enforce_twofactor: pulumi_wasm_rust::__private::into_domain(
+            enforce_twofactor: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("enforceTwofactor"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            type_: pulumi_wasm_rust::__private::into_domain(o.extract_field("type")),
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            type_: pulumi_gestalt_rust::__private::into_domain(o.extract_field("type")),
         }
     }
 }

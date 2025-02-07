@@ -81,47 +81,47 @@
 /// ```
 ///
 pub mod dataset_blob_storage {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct DatasetBlobStorageArgs {
         /// The name of the storage account container to be shared with the receiver. Changing this forces a new Data Share Blob Storage Dataset to be created.
         #[builder(into)]
-        pub container_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub container_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The ID of the Data Share in which this Data Share Blob Storage Dataset should be created. Changing this forces a new Data Share Blob Storage Dataset to be created.
         #[builder(into)]
-        pub data_share_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub data_share_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The path of the file in the storage container to be shared with the receiver. Changing this forces a new Data Share Blob Storage Dataset to be created.
         #[builder(into, default)]
-        pub file_path: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub file_path: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The path of the folder in the storage container to be shared with the receiver. Changing this forces a new Data Share Blob Storage Dataset to be created.
         #[builder(into, default)]
-        pub folder_path: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub folder_path: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The name which should be used for this Data Share Blob Storage Dataset. Changing this forces a new Data Share Blob Storage Dataset to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// A `storage_account` block as defined below. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub storage_account: pulumi_wasm_rust::InputOrOutput<
+        pub storage_account: pulumi_gestalt_rust::InputOrOutput<
             super::super::types::datashare::DatasetBlobStorageStorageAccount,
         >,
     }
     #[allow(dead_code)]
     pub struct DatasetBlobStorageResult {
         /// The name of the storage account container to be shared with the receiver. Changing this forces a new Data Share Blob Storage Dataset to be created.
-        pub container_name: pulumi_wasm_rust::Output<String>,
+        pub container_name: pulumi_gestalt_rust::Output<String>,
         /// The ID of the Data Share in which this Data Share Blob Storage Dataset should be created. Changing this forces a new Data Share Blob Storage Dataset to be created.
-        pub data_share_id: pulumi_wasm_rust::Output<String>,
+        pub data_share_id: pulumi_gestalt_rust::Output<String>,
         /// The name of the Data Share Dataset.
-        pub display_name: pulumi_wasm_rust::Output<String>,
+        pub display_name: pulumi_gestalt_rust::Output<String>,
         /// The path of the file in the storage container to be shared with the receiver. Changing this forces a new Data Share Blob Storage Dataset to be created.
-        pub file_path: pulumi_wasm_rust::Output<Option<String>>,
+        pub file_path: pulumi_gestalt_rust::Output<Option<String>>,
         /// The path of the folder in the storage container to be shared with the receiver. Changing this forces a new Data Share Blob Storage Dataset to be created.
-        pub folder_path: pulumi_wasm_rust::Output<Option<String>>,
+        pub folder_path: pulumi_gestalt_rust::Output<Option<String>>,
         /// The name which should be used for this Data Share Blob Storage Dataset. Changing this forces a new Data Share Blob Storage Dataset to be created.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// A `storage_account` block as defined below. Changing this forces a new resource to be created.
-        pub storage_account: pulumi_wasm_rust::Output<
+        pub storage_account: pulumi_gestalt_rust::Output<
             super::super::types::datashare::DatasetBlobStorageStorageAccount,
         >,
     }
@@ -130,11 +130,11 @@ pub mod dataset_blob_storage {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: DatasetBlobStorageArgs,
     ) -> DatasetBlobStorageResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let container_name_binding = args.container_name.get_output(context).get_inner();
         let data_share_id_binding = args.data_share_id.get_output(context).get_inner();
@@ -178,23 +178,23 @@ pub mod dataset_blob_storage {
         };
         let o = register_interface::register(context.get_inner(), &request);
         DatasetBlobStorageResult {
-            container_name: pulumi_wasm_rust::__private::into_domain(
+            container_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("containerName"),
             ),
-            data_share_id: pulumi_wasm_rust::__private::into_domain(
+            data_share_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("dataShareId"),
             ),
-            display_name: pulumi_wasm_rust::__private::into_domain(
+            display_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("displayName"),
             ),
-            file_path: pulumi_wasm_rust::__private::into_domain(
+            file_path: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("filePath"),
             ),
-            folder_path: pulumi_wasm_rust::__private::into_domain(
+            folder_path: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("folderPath"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            storage_account: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            storage_account: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("storageAccount"),
             ),
         }

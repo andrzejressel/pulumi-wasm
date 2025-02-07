@@ -12,8 +12,8 @@
 ///
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let default = web_app::create(
@@ -82,7 +82,7 @@
 /// ```
 ///
 pub mod web_app {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct WebAppArgs {
@@ -90,54 +90,54 @@ pub mod web_app {
         /// If apiKeyId is not set during creation, then Firebase automatically associates an apiKeyId with the WebApp.
         /// This auto-associated key may be an existing valid key or, if no valid key exists, a new one will be provisioned.
         #[builder(into, default)]
-        pub api_key_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub api_key_id: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         #[builder(into, default)]
-        pub deletion_policy: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub deletion_policy: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The user-assigned display name of the App.
         ///
         ///
         /// - - -
         #[builder(into)]
-        pub display_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub display_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub project: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct WebAppResult {
         /// The globally unique, Google-assigned identifier (UID) for the Firebase API key associated with the WebApp.
         /// If apiKeyId is not set during creation, then Firebase automatically associates an apiKeyId with the WebApp.
         /// This auto-associated key may be an existing valid key or, if no valid key exists, a new one will be provisioned.
-        pub api_key_id: pulumi_wasm_rust::Output<String>,
+        pub api_key_id: pulumi_gestalt_rust::Output<String>,
         /// The globally unique, Firebase-assigned identifier of the App.
         /// This identifier should be treated as an opaque token, as the data format is not specified.
-        pub app_id: pulumi_wasm_rust::Output<String>,
+        pub app_id: pulumi_gestalt_rust::Output<String>,
         /// The URLs where the `WebApp` is hosted.
-        pub app_urls: pulumi_wasm_rust::Output<Vec<String>>,
-        pub deletion_policy: pulumi_wasm_rust::Output<Option<String>>,
+        pub app_urls: pulumi_gestalt_rust::Output<Vec<String>>,
+        pub deletion_policy: pulumi_gestalt_rust::Output<Option<String>>,
         /// The user-assigned display name of the App.
         ///
         ///
         /// - - -
-        pub display_name: pulumi_wasm_rust::Output<String>,
+        pub display_name: pulumi_gestalt_rust::Output<String>,
         /// The fully qualified resource name of the App, for example:
         /// projects/projectId/webApps/appId
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
-        pub project: pulumi_wasm_rust::Output<String>,
+        pub project: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: WebAppArgs,
     ) -> WebAppResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let api_key_id_binding = args.api_key_id.get_output(context).get_inner();
         let deletion_policy_binding = args
@@ -171,21 +171,25 @@ pub mod web_app {
         };
         let o = register_interface::register(context.get_inner(), &request);
         WebAppResult {
-            api_key_id: pulumi_wasm_rust::__private::into_domain(
+            api_key_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("apiKeyId"),
             ),
-            app_id: pulumi_wasm_rust::__private::into_domain(o.extract_field("appId")),
-            app_urls: pulumi_wasm_rust::__private::into_domain(
+            app_id: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("appId"),
+            ),
+            app_urls: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("appUrls"),
             ),
-            deletion_policy: pulumi_wasm_rust::__private::into_domain(
+            deletion_policy: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("deletionPolicy"),
             ),
-            display_name: pulumi_wasm_rust::__private::into_domain(
+            display_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("displayName"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            project: pulumi_wasm_rust::__private::into_domain(o.extract_field("project")),
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            project: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("project"),
+            ),
         }
     }
 }

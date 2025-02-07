@@ -63,44 +63,44 @@
 /// ```
 ///
 pub mod gateway_certificate_authority {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct GatewayCertificateAuthorityArgs {
         /// The ID of the API Management Service. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub api_management_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub api_management_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The name of the API Management Certificate. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub certificate_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub certificate_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The name of the API Management Gateway. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub gateway_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub gateway_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Whether the API Management Gateway Certificate Authority is trusted.
         #[builder(into, default)]
-        pub is_trusted: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub is_trusted: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
     }
     #[allow(dead_code)]
     pub struct GatewayCertificateAuthorityResult {
         /// The ID of the API Management Service. Changing this forces a new resource to be created.
-        pub api_management_id: pulumi_wasm_rust::Output<String>,
+        pub api_management_id: pulumi_gestalt_rust::Output<String>,
         /// The name of the API Management Certificate. Changing this forces a new resource to be created.
-        pub certificate_name: pulumi_wasm_rust::Output<String>,
+        pub certificate_name: pulumi_gestalt_rust::Output<String>,
         /// The name of the API Management Gateway. Changing this forces a new resource to be created.
-        pub gateway_name: pulumi_wasm_rust::Output<String>,
+        pub gateway_name: pulumi_gestalt_rust::Output<String>,
         /// Whether the API Management Gateway Certificate Authority is trusted.
-        pub is_trusted: pulumi_wasm_rust::Output<Option<bool>>,
+        pub is_trusted: pulumi_gestalt_rust::Output<Option<bool>>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: GatewayCertificateAuthorityArgs,
     ) -> GatewayCertificateAuthorityResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let api_management_id_binding = args
             .api_management_id
@@ -138,16 +138,16 @@ pub mod gateway_certificate_authority {
         };
         let o = register_interface::register(context.get_inner(), &request);
         GatewayCertificateAuthorityResult {
-            api_management_id: pulumi_wasm_rust::__private::into_domain(
+            api_management_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("apiManagementId"),
             ),
-            certificate_name: pulumi_wasm_rust::__private::into_domain(
+            certificate_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("certificateName"),
             ),
-            gateway_name: pulumi_wasm_rust::__private::into_domain(
+            gateway_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("gatewayName"),
             ),
-            is_trusted: pulumi_wasm_rust::__private::into_domain(
+            is_trusted: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("isTrusted"),
             ),
         }

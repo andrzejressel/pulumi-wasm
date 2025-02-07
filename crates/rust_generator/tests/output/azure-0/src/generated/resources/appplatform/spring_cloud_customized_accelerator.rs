@@ -3,8 +3,8 @@
 /// ## Example Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = resource_group::create(
@@ -62,68 +62,68 @@
 /// ```
 ///
 pub mod spring_cloud_customized_accelerator {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct SpringCloudCustomizedAcceleratorArgs {
         /// Specifies a list of accelerator tags.
         #[builder(into, default)]
-        pub accelerator_tags: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
+        pub accelerator_tags: pulumi_gestalt_rust::InputOrOutput<Option<Vec<String>>>,
         /// Specifies the type of the Spring Cloud Customized Accelerator. Possible values are `Accelerator` and `Fragment`. Defaults to `Accelerator`.
         #[builder(into, default)]
-        pub accelerator_type: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub accelerator_type: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Specifies the description of the Spring Cloud Customized Accelerator.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub description: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Specifies the display name of the Spring Cloud Customized Accelerator..
         #[builder(into, default)]
-        pub display_name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub display_name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// A `git_repository` block as defined below.
         #[builder(into)]
-        pub git_repository: pulumi_wasm_rust::InputOrOutput<
+        pub git_repository: pulumi_gestalt_rust::InputOrOutput<
             super::super::types::appplatform::SpringCloudCustomizedAcceleratorGitRepository,
         >,
         /// Specifies the icon URL of the Spring Cloud Customized Accelerator..
         #[builder(into, default)]
-        pub icon_url: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub icon_url: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The name which should be used for this Spring Cloud Customized Accelerator. Changing this forces a new Spring Cloud Customized Accelerator to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The ID of the Spring Cloud Accelerator. Changing this forces a new Spring Cloud Customized Accelerator to be created.
         #[builder(into)]
-        pub spring_cloud_accelerator_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub spring_cloud_accelerator_id: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct SpringCloudCustomizedAcceleratorResult {
         /// Specifies a list of accelerator tags.
-        pub accelerator_tags: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub accelerator_tags: pulumi_gestalt_rust::Output<Option<Vec<String>>>,
         /// Specifies the type of the Spring Cloud Customized Accelerator. Possible values are `Accelerator` and `Fragment`. Defaults to `Accelerator`.
-        pub accelerator_type: pulumi_wasm_rust::Output<Option<String>>,
+        pub accelerator_type: pulumi_gestalt_rust::Output<Option<String>>,
         /// Specifies the description of the Spring Cloud Customized Accelerator.
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_gestalt_rust::Output<Option<String>>,
         /// Specifies the display name of the Spring Cloud Customized Accelerator..
-        pub display_name: pulumi_wasm_rust::Output<Option<String>>,
+        pub display_name: pulumi_gestalt_rust::Output<Option<String>>,
         /// A `git_repository` block as defined below.
-        pub git_repository: pulumi_wasm_rust::Output<
+        pub git_repository: pulumi_gestalt_rust::Output<
             super::super::types::appplatform::SpringCloudCustomizedAcceleratorGitRepository,
         >,
         /// Specifies the icon URL of the Spring Cloud Customized Accelerator..
-        pub icon_url: pulumi_wasm_rust::Output<Option<String>>,
+        pub icon_url: pulumi_gestalt_rust::Output<Option<String>>,
         /// The name which should be used for this Spring Cloud Customized Accelerator. Changing this forces a new Spring Cloud Customized Accelerator to be created.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// The ID of the Spring Cloud Accelerator. Changing this forces a new Spring Cloud Customized Accelerator to be created.
-        pub spring_cloud_accelerator_id: pulumi_wasm_rust::Output<String>,
+        pub spring_cloud_accelerator_id: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: SpringCloudCustomizedAcceleratorArgs,
     ) -> SpringCloudCustomizedAcceleratorResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let accelerator_tags_binding = args
             .accelerator_tags
@@ -184,26 +184,26 @@ pub mod spring_cloud_customized_accelerator {
         };
         let o = register_interface::register(context.get_inner(), &request);
         SpringCloudCustomizedAcceleratorResult {
-            accelerator_tags: pulumi_wasm_rust::__private::into_domain(
+            accelerator_tags: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("acceleratorTags"),
             ),
-            accelerator_type: pulumi_wasm_rust::__private::into_domain(
+            accelerator_type: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("acceleratorType"),
             ),
-            description: pulumi_wasm_rust::__private::into_domain(
+            description: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("description"),
             ),
-            display_name: pulumi_wasm_rust::__private::into_domain(
+            display_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("displayName"),
             ),
-            git_repository: pulumi_wasm_rust::__private::into_domain(
+            git_repository: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("gitRepository"),
             ),
-            icon_url: pulumi_wasm_rust::__private::into_domain(
+            icon_url: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("iconUrl"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            spring_cloud_accelerator_id: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            spring_cloud_accelerator_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("springCloudAcceleratorId"),
             ),
         }

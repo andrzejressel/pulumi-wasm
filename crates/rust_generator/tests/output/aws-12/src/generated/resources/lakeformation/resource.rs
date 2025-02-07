@@ -22,7 +22,7 @@
 ///         bucket: an-example-bucket
 /// ```
 pub mod resource {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ResourceArgs {
@@ -30,49 +30,49 @@ pub mod resource {
         ///
         /// The following arguments are optional:
         #[builder(into)]
-        pub arn: pulumi_wasm_rust::InputOrOutput<String>,
+        pub arn: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Flag to enable AWS LakeFormation hybrid access permission mode.
         ///
         /// > **NOTE:** AWS does not support registering an S3 location with an IAM role and subsequently updating the S3 location registration to a service-linked role.
         #[builder(into, default)]
-        pub hybrid_access_enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub hybrid_access_enabled: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// Role that has read/write access to the resource.
         #[builder(into, default)]
-        pub role_arn: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub role_arn: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Designates an AWS Identity and Access Management (IAM) service-linked role by registering this role with the Data Catalog.
         #[builder(into, default)]
-        pub use_service_linked_role: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub use_service_linked_role: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         #[builder(into, default)]
-        pub with_federation: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub with_federation: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
     }
     #[allow(dead_code)]
     pub struct ResourceResult {
         /// Amazon Resource Name (ARN) of the resource.
         ///
         /// The following arguments are optional:
-        pub arn: pulumi_wasm_rust::Output<String>,
+        pub arn: pulumi_gestalt_rust::Output<String>,
         /// Flag to enable AWS LakeFormation hybrid access permission mode.
         ///
         /// > **NOTE:** AWS does not support registering an S3 location with an IAM role and subsequently updating the S3 location registration to a service-linked role.
-        pub hybrid_access_enabled: pulumi_wasm_rust::Output<bool>,
+        pub hybrid_access_enabled: pulumi_gestalt_rust::Output<bool>,
         /// Date and time the resource was last modified in [RFC 3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
-        pub last_modified: pulumi_wasm_rust::Output<String>,
+        pub last_modified: pulumi_gestalt_rust::Output<String>,
         /// Role that has read/write access to the resource.
-        pub role_arn: pulumi_wasm_rust::Output<String>,
+        pub role_arn: pulumi_gestalt_rust::Output<String>,
         /// Designates an AWS Identity and Access Management (IAM) service-linked role by registering this role with the Data Catalog.
-        pub use_service_linked_role: pulumi_wasm_rust::Output<Option<bool>>,
-        pub with_federation: pulumi_wasm_rust::Output<bool>,
+        pub use_service_linked_role: pulumi_gestalt_rust::Output<Option<bool>>,
+        pub with_federation: pulumi_gestalt_rust::Output<bool>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: ResourceArgs,
     ) -> ResourceResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let arn_binding = args.arn.get_output(context).get_inner();
         let hybrid_access_enabled_binding = args
@@ -117,20 +117,20 @@ pub mod resource {
         };
         let o = register_interface::register(context.get_inner(), &request);
         ResourceResult {
-            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
-            hybrid_access_enabled: pulumi_wasm_rust::__private::into_domain(
+            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
+            hybrid_access_enabled: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("hybridAccessEnabled"),
             ),
-            last_modified: pulumi_wasm_rust::__private::into_domain(
+            last_modified: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("lastModified"),
             ),
-            role_arn: pulumi_wasm_rust::__private::into_domain(
+            role_arn: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("roleArn"),
             ),
-            use_service_linked_role: pulumi_wasm_rust::__private::into_domain(
+            use_service_linked_role: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("useServiceLinkedRole"),
             ),
-            with_federation: pulumi_wasm_rust::__private::into_domain(
+            with_federation: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("withFederation"),
             ),
         }

@@ -62,41 +62,41 @@
 /// ```
 ///
 pub mod network_manager_static_member {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct NetworkManagerStaticMemberArgs {
         /// Specifies the name which should be used for this Network Manager Static Member. Changing this forces a new Network Manager Static Member to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Specifies the ID of the Network Manager Group. Changing this forces a new Network Manager Static Member to be created.
         #[builder(into)]
-        pub network_group_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub network_group_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Specifies the Resource ID of the Virtual Network using as the Static Member. Changing this forces a new Network Manager Static Member to be created.
         #[builder(into)]
-        pub target_virtual_network_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub target_virtual_network_id: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct NetworkManagerStaticMemberResult {
         /// Specifies the name which should be used for this Network Manager Static Member. Changing this forces a new Network Manager Static Member to be created.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// Specifies the ID of the Network Manager Group. Changing this forces a new Network Manager Static Member to be created.
-        pub network_group_id: pulumi_wasm_rust::Output<String>,
+        pub network_group_id: pulumi_gestalt_rust::Output<String>,
         /// The region of the Network Manager Static Member.
-        pub region: pulumi_wasm_rust::Output<String>,
+        pub region: pulumi_gestalt_rust::Output<String>,
         /// Specifies the Resource ID of the Virtual Network using as the Static Member. Changing this forces a new Network Manager Static Member to be created.
-        pub target_virtual_network_id: pulumi_wasm_rust::Output<String>,
+        pub target_virtual_network_id: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: NetworkManagerStaticMemberArgs,
     ) -> NetworkManagerStaticMemberResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let name_binding = args.name.get_output(context).get_inner();
         let network_group_id_binding = args
@@ -129,12 +129,14 @@ pub mod network_manager_static_member {
         };
         let o = register_interface::register(context.get_inner(), &request);
         NetworkManagerStaticMemberResult {
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            network_group_id: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            network_group_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("networkGroupId"),
             ),
-            region: pulumi_wasm_rust::__private::into_domain(o.extract_field("region")),
-            target_virtual_network_id: pulumi_wasm_rust::__private::into_domain(
+            region: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("region"),
+            ),
+            target_virtual_network_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("targetVirtualNetworkId"),
             ),
         }

@@ -3,8 +3,8 @@
 /// ## Example Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = resource_group::create(
@@ -169,73 +169,73 @@
 /// ```
 ///
 pub mod flowlet_data_flow {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct FlowletDataFlowArgs {
         /// List of tags that can be used for describing the Data Factory Flowlet Data Flow.
         #[builder(into, default)]
-        pub annotations: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
+        pub annotations: pulumi_gestalt_rust::InputOrOutput<Option<Vec<String>>>,
         /// The ID of Data Factory in which to associate the Data Flow with. Changing this forces a new resource.
         #[builder(into)]
-        pub data_factory_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub data_factory_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The description for the Data Factory Flowlet Data Flow.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub description: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The folder that this Data Flow is in. If not specified, the Data Flow will appear at the root level.
         #[builder(into, default)]
-        pub folder: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub folder: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Specifies the name of the Data Factory Flowlet Data Flow. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The script for the Data Factory Flowlet Data Flow.
         #[builder(into, default)]
-        pub script: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub script: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The script lines for the Data Factory Flowlet Data Flow.
         #[builder(into, default)]
-        pub script_lines: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
+        pub script_lines: pulumi_gestalt_rust::InputOrOutput<Option<Vec<String>>>,
         /// One or more `sink` blocks as defined below.
         #[builder(into, default)]
-        pub sinks: pulumi_wasm_rust::InputOrOutput<
+        pub sinks: pulumi_gestalt_rust::InputOrOutput<
             Option<Vec<super::super::types::datafactory::FlowletDataFlowSink>>,
         >,
         /// One or more `source` blocks as defined below.
         #[builder(into, default)]
-        pub sources: pulumi_wasm_rust::InputOrOutput<
+        pub sources: pulumi_gestalt_rust::InputOrOutput<
             Option<Vec<super::super::types::datafactory::FlowletDataFlowSource>>,
         >,
         /// One or more `transformation` blocks as defined below.
         #[builder(into, default)]
-        pub transformations: pulumi_wasm_rust::InputOrOutput<
+        pub transformations: pulumi_gestalt_rust::InputOrOutput<
             Option<Vec<super::super::types::datafactory::FlowletDataFlowTransformation>>,
         >,
     }
     #[allow(dead_code)]
     pub struct FlowletDataFlowResult {
         /// List of tags that can be used for describing the Data Factory Flowlet Data Flow.
-        pub annotations: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub annotations: pulumi_gestalt_rust::Output<Option<Vec<String>>>,
         /// The ID of Data Factory in which to associate the Data Flow with. Changing this forces a new resource.
-        pub data_factory_id: pulumi_wasm_rust::Output<String>,
+        pub data_factory_id: pulumi_gestalt_rust::Output<String>,
         /// The description for the Data Factory Flowlet Data Flow.
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_gestalt_rust::Output<Option<String>>,
         /// The folder that this Data Flow is in. If not specified, the Data Flow will appear at the root level.
-        pub folder: pulumi_wasm_rust::Output<Option<String>>,
+        pub folder: pulumi_gestalt_rust::Output<Option<String>>,
         /// Specifies the name of the Data Factory Flowlet Data Flow. Changing this forces a new resource to be created.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// The script for the Data Factory Flowlet Data Flow.
-        pub script: pulumi_wasm_rust::Output<Option<String>>,
+        pub script: pulumi_gestalt_rust::Output<Option<String>>,
         /// The script lines for the Data Factory Flowlet Data Flow.
-        pub script_lines: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub script_lines: pulumi_gestalt_rust::Output<Option<Vec<String>>>,
         /// One or more `sink` blocks as defined below.
-        pub sinks: pulumi_wasm_rust::Output<
+        pub sinks: pulumi_gestalt_rust::Output<
             Option<Vec<super::super::types::datafactory::FlowletDataFlowSink>>,
         >,
         /// One or more `source` blocks as defined below.
-        pub sources: pulumi_wasm_rust::Output<
+        pub sources: pulumi_gestalt_rust::Output<
             Option<Vec<super::super::types::datafactory::FlowletDataFlowSource>>,
         >,
         /// One or more `transformation` blocks as defined below.
-        pub transformations: pulumi_wasm_rust::Output<
+        pub transformations: pulumi_gestalt_rust::Output<
             Option<Vec<super::super::types::datafactory::FlowletDataFlowTransformation>>,
         >,
     }
@@ -244,11 +244,11 @@ pub mod flowlet_data_flow {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: FlowletDataFlowArgs,
     ) -> FlowletDataFlowResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let annotations_binding = args.annotations.get_output(context).get_inner();
         let data_factory_id_binding = args
@@ -315,26 +315,30 @@ pub mod flowlet_data_flow {
         };
         let o = register_interface::register(context.get_inner(), &request);
         FlowletDataFlowResult {
-            annotations: pulumi_wasm_rust::__private::into_domain(
+            annotations: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("annotations"),
             ),
-            data_factory_id: pulumi_wasm_rust::__private::into_domain(
+            data_factory_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("dataFactoryId"),
             ),
-            description: pulumi_wasm_rust::__private::into_domain(
+            description: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("description"),
             ),
-            folder: pulumi_wasm_rust::__private::into_domain(o.extract_field("folder")),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            script: pulumi_wasm_rust::__private::into_domain(o.extract_field("script")),
-            script_lines: pulumi_wasm_rust::__private::into_domain(
+            folder: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("folder"),
+            ),
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            script: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("script"),
+            ),
+            script_lines: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("scriptLines"),
             ),
-            sinks: pulumi_wasm_rust::__private::into_domain(o.extract_field("sinks")),
-            sources: pulumi_wasm_rust::__private::into_domain(
+            sinks: pulumi_gestalt_rust::__private::into_domain(o.extract_field("sinks")),
+            sources: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("sources"),
             ),
-            transformations: pulumi_wasm_rust::__private::into_domain(
+            transformations: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("transformations"),
             ),
         }

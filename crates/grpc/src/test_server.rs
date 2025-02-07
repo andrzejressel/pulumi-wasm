@@ -1,6 +1,6 @@
-use pulumi_wasm_proto::grpc::engine_server::Engine;
-use pulumi_wasm_proto::grpc::resource_monitor_server::ResourceMonitor;
-use pulumi_wasm_proto::grpc::{
+use pulumi_gestalt_proto::grpc::engine_server::Engine;
+use pulumi_gestalt_proto::grpc::resource_monitor_server::ResourceMonitor;
+use pulumi_gestalt_proto::grpc::{
     CallRequest, CallResponse, GetRootResourceRequest, GetRootResourceResponse, InvokeResponse,
     LogRequest, ReadResourceRequest, ReadResourceResponse, RegisterResourceOutputsRequest,
     RegisterResourceRequest, RegisterResourceResponse, ResourceInvokeRequest,

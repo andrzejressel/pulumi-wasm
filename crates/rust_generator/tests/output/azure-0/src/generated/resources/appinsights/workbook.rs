@@ -41,78 +41,78 @@
 /// ```
 ///
 pub mod workbook {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct WorkbookArgs {
         /// Workbook category, as defined by the user at creation time. There may be additional category types beyond the following: `workbook`, `sentinel`. Defaults to `workbook`.
         #[builder(into, default)]
-        pub category: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub category: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Configuration of this particular workbook. Configuration data is a string containing valid JSON.
         #[builder(into)]
-        pub data_json: pulumi_wasm_rust::InputOrOutput<String>,
+        pub data_json: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Specifies the description of the workbook.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub description: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Specifies the user-defined name (display name) of the workbook.
         #[builder(into)]
-        pub display_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub display_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// An `identity` block as defined below. Changing this forces a new Workbook to be created.
         #[builder(into, default)]
-        pub identity: pulumi_wasm_rust::InputOrOutput<
+        pub identity: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::appinsights::WorkbookIdentity>,
         >,
         /// Specifies the Azure Region where the Workbook should exist. Changing this forces a new Workbook to be created.
         #[builder(into, default)]
-        pub location: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub location: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Specifies the name of this Workbook as a UUID/GUID. It should not contain any uppercase letters. Changing this forces a new Workbook to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Specifies the name of the Resource Group where the Workbook should exist. Changing this forces a new Workbook to be created.
         #[builder(into)]
-        pub resource_group_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub resource_group_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Resource ID for a source resource. It should not contain any uppercase letters. Defaults to `azure monitor`.
         #[builder(into, default)]
-        pub source_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub source_id: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Specifies the Resource Manager ID of the Storage Container when bring your own storage is used. Changing this forces a new Workbook to be created.
         ///
         /// > **Note:** This is the Resource Manager ID of the Storage Container, rather than the regular ID - and can be accessed on the `azure.storage.Container` Data Source/Resource as `resource_manager_id`.
         #[builder(into, default)]
-        pub storage_container_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub storage_container_id: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// A mapping of tags which should be assigned to the Workbook.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
     #[allow(dead_code)]
     pub struct WorkbookResult {
         /// Workbook category, as defined by the user at creation time. There may be additional category types beyond the following: `workbook`, `sentinel`. Defaults to `workbook`.
-        pub category: pulumi_wasm_rust::Output<Option<String>>,
+        pub category: pulumi_gestalt_rust::Output<Option<String>>,
         /// Configuration of this particular workbook. Configuration data is a string containing valid JSON.
-        pub data_json: pulumi_wasm_rust::Output<String>,
+        pub data_json: pulumi_gestalt_rust::Output<String>,
         /// Specifies the description of the workbook.
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_gestalt_rust::Output<Option<String>>,
         /// Specifies the user-defined name (display name) of the workbook.
-        pub display_name: pulumi_wasm_rust::Output<String>,
+        pub display_name: pulumi_gestalt_rust::Output<String>,
         /// An `identity` block as defined below. Changing this forces a new Workbook to be created.
-        pub identity: pulumi_wasm_rust::Output<
+        pub identity: pulumi_gestalt_rust::Output<
             Option<super::super::types::appinsights::WorkbookIdentity>,
         >,
         /// Specifies the Azure Region where the Workbook should exist. Changing this forces a new Workbook to be created.
-        pub location: pulumi_wasm_rust::Output<String>,
+        pub location: pulumi_gestalt_rust::Output<String>,
         /// Specifies the name of this Workbook as a UUID/GUID. It should not contain any uppercase letters. Changing this forces a new Workbook to be created.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// Specifies the name of the Resource Group where the Workbook should exist. Changing this forces a new Workbook to be created.
-        pub resource_group_name: pulumi_wasm_rust::Output<String>,
+        pub resource_group_name: pulumi_gestalt_rust::Output<String>,
         /// Resource ID for a source resource. It should not contain any uppercase letters. Defaults to `azure monitor`.
-        pub source_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub source_id: pulumi_gestalt_rust::Output<Option<String>>,
         /// Specifies the Resource Manager ID of the Storage Container when bring your own storage is used. Changing this forces a new Workbook to be created.
         ///
         /// > **Note:** This is the Resource Manager ID of the Storage Container, rather than the regular ID - and can be accessed on the `azure.storage.Container` Data Source/Resource as `resource_manager_id`.
-        pub storage_container_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub storage_container_id: pulumi_gestalt_rust::Output<Option<String>>,
         /// A mapping of tags which should be assigned to the Workbook.
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
@@ -121,11 +121,11 @@ pub mod workbook {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: WorkbookArgs,
     ) -> WorkbookResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let category_binding = args.category.get_output(context).get_inner();
         let data_json_binding = args.data_json.get_output(context).get_inner();
@@ -197,35 +197,35 @@ pub mod workbook {
         };
         let o = register_interface::register(context.get_inner(), &request);
         WorkbookResult {
-            category: pulumi_wasm_rust::__private::into_domain(
+            category: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("category"),
             ),
-            data_json: pulumi_wasm_rust::__private::into_domain(
+            data_json: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("dataJson"),
             ),
-            description: pulumi_wasm_rust::__private::into_domain(
+            description: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("description"),
             ),
-            display_name: pulumi_wasm_rust::__private::into_domain(
+            display_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("displayName"),
             ),
-            identity: pulumi_wasm_rust::__private::into_domain(
+            identity: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("identity"),
             ),
-            location: pulumi_wasm_rust::__private::into_domain(
+            location: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("location"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            resource_group_name: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("resourceGroupName"),
             ),
-            source_id: pulumi_wasm_rust::__private::into_domain(
+            source_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("sourceId"),
             ),
-            storage_container_id: pulumi_wasm_rust::__private::into_domain(
+            storage_container_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("storageContainerId"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
         }
     }
 }

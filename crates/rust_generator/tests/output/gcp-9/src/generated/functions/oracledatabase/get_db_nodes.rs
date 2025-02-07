@@ -1,39 +1,39 @@
 pub mod get_db_nodes {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct GetDbNodesArgs {
         /// The ID of the VM Cluster.
         #[builder(into)]
-        pub cloud_vm_cluster: pulumi_wasm_rust::InputOrOutput<String>,
+        pub cloud_vm_cluster: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The location of the resource.
         #[builder(into)]
-        pub location: pulumi_wasm_rust::InputOrOutput<String>,
+        pub location: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The project in which the resource belongs. If it
         /// is not provided, the provider project is used.
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub project: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct GetDbNodesResult {
-        pub cloud_vm_cluster: pulumi_wasm_rust::Output<String>,
-        pub db_nodes: pulumi_wasm_rust::Output<
+        pub cloud_vm_cluster: pulumi_gestalt_rust::Output<String>,
+        pub db_nodes: pulumi_gestalt_rust::Output<
             Vec<super::super::super::types::oracledatabase::GetDbNodesDbNode>,
         >,
         /// The provider-assigned unique ID for this managed resource.
-        pub id: pulumi_wasm_rust::Output<String>,
-        pub location: pulumi_wasm_rust::Output<String>,
-        pub project: pulumi_wasm_rust::Output<Option<String>>,
+        pub id: pulumi_gestalt_rust::Output<String>,
+        pub location: pulumi_gestalt_rust::Output<String>,
+        pub project: pulumi_gestalt_rust::Output<Option<String>>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         args: GetDbNodesArgs,
     ) -> GetDbNodesResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let cloud_vm_cluster_binding = args
             .cloud_vm_cluster
@@ -61,17 +61,19 @@ pub mod get_db_nodes {
         };
         let o = register_interface::invoke(context.get_inner(), &request);
         GetDbNodesResult {
-            cloud_vm_cluster: pulumi_wasm_rust::__private::into_domain(
+            cloud_vm_cluster: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("cloudVmCluster"),
             ),
-            db_nodes: pulumi_wasm_rust::__private::into_domain(
+            db_nodes: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("dbNodes"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
-            location: pulumi_wasm_rust::__private::into_domain(
+            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
+            location: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("location"),
             ),
-            project: pulumi_wasm_rust::__private::into_domain(o.extract_field("project")),
+            project: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("project"),
+            ),
         }
     }
 }

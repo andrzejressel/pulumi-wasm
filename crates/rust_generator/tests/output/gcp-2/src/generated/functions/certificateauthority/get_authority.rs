@@ -1,5 +1,5 @@
 pub mod get_authority {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct GetAuthorityArgs {
@@ -7,72 +7,74 @@ pub mod get_authority {
         ///
         /// - - -
         #[builder(into, default)]
-        pub certificate_authority_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub certificate_authority_id: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The location the certificate authority exists in.
         #[builder(into, default)]
-        pub location: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub location: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The name of the pool the certificate authority belongs to.
         #[builder(into, default)]
-        pub pool: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub pool: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The ID of the project in which the resource belongs. If it
         /// is not provided, the provider project is used.
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub project: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct GetAuthorityResult {
-        pub access_urls: pulumi_wasm_rust::Output<
+        pub access_urls: pulumi_gestalt_rust::Output<
             Vec<super::super::super::types::certificateauthority::GetAuthorityAccessUrl>,
         >,
-        pub certificate_authority_id: pulumi_wasm_rust::Output<Option<String>>,
-        pub configs: pulumi_wasm_rust::Output<
+        pub certificate_authority_id: pulumi_gestalt_rust::Output<Option<String>>,
+        pub configs: pulumi_gestalt_rust::Output<
             Vec<super::super::super::types::certificateauthority::GetAuthorityConfig>,
         >,
-        pub create_time: pulumi_wasm_rust::Output<String>,
-        pub deletion_protection: pulumi_wasm_rust::Output<bool>,
-        pub desired_state: pulumi_wasm_rust::Output<String>,
-        pub effective_labels: pulumi_wasm_rust::Output<
+        pub create_time: pulumi_gestalt_rust::Output<String>,
+        pub deletion_protection: pulumi_gestalt_rust::Output<bool>,
+        pub desired_state: pulumi_gestalt_rust::Output<String>,
+        pub effective_labels: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
-        pub gcs_bucket: pulumi_wasm_rust::Output<String>,
+        pub gcs_bucket: pulumi_gestalt_rust::Output<String>,
         /// The provider-assigned unique ID for this managed resource.
-        pub id: pulumi_wasm_rust::Output<String>,
-        pub ignore_active_certificates_on_deletion: pulumi_wasm_rust::Output<bool>,
-        pub key_specs: pulumi_wasm_rust::Output<
+        pub id: pulumi_gestalt_rust::Output<String>,
+        pub ignore_active_certificates_on_deletion: pulumi_gestalt_rust::Output<bool>,
+        pub key_specs: pulumi_gestalt_rust::Output<
             Vec<super::super::super::types::certificateauthority::GetAuthorityKeySpec>,
         >,
-        pub labels: pulumi_wasm_rust::Output<std::collections::HashMap<String, String>>,
-        pub lifetime: pulumi_wasm_rust::Output<String>,
-        pub location: pulumi_wasm_rust::Output<Option<String>>,
-        pub name: pulumi_wasm_rust::Output<String>,
-        pub pem_ca_certificate: pulumi_wasm_rust::Output<String>,
-        pub pem_ca_certificates: pulumi_wasm_rust::Output<Vec<String>>,
-        /// The PEM-encoded signed certificate signing request (CSR). This is only set on subordinate certificate authorities that are awaiting user activation.
-        pub pem_csr: pulumi_wasm_rust::Output<String>,
-        pub pool: pulumi_wasm_rust::Output<Option<String>>,
-        pub project: pulumi_wasm_rust::Output<Option<String>>,
-        pub pulumi_labels: pulumi_wasm_rust::Output<
+        pub labels: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
-        pub skip_grace_period: pulumi_wasm_rust::Output<bool>,
-        pub state: pulumi_wasm_rust::Output<String>,
-        pub subordinate_configs: pulumi_wasm_rust::Output<
+        pub lifetime: pulumi_gestalt_rust::Output<String>,
+        pub location: pulumi_gestalt_rust::Output<Option<String>>,
+        pub name: pulumi_gestalt_rust::Output<String>,
+        pub pem_ca_certificate: pulumi_gestalt_rust::Output<String>,
+        pub pem_ca_certificates: pulumi_gestalt_rust::Output<Vec<String>>,
+        /// The PEM-encoded signed certificate signing request (CSR). This is only set on subordinate certificate authorities that are awaiting user activation.
+        pub pem_csr: pulumi_gestalt_rust::Output<String>,
+        pub pool: pulumi_gestalt_rust::Output<Option<String>>,
+        pub project: pulumi_gestalt_rust::Output<Option<String>>,
+        pub pulumi_labels: pulumi_gestalt_rust::Output<
+            std::collections::HashMap<String, String>,
+        >,
+        pub skip_grace_period: pulumi_gestalt_rust::Output<bool>,
+        pub state: pulumi_gestalt_rust::Output<String>,
+        pub subordinate_configs: pulumi_gestalt_rust::Output<
             Vec<
                 super::super::super::types::certificateauthority::GetAuthoritySubordinateConfig,
             >,
         >,
-        pub type_: pulumi_wasm_rust::Output<String>,
-        pub update_time: pulumi_wasm_rust::Output<String>,
+        pub type_: pulumi_gestalt_rust::Output<String>,
+        pub update_time: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         args: GetAuthorityArgs,
     ) -> GetAuthorityResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let certificate_authority_id_binding = args
             .certificate_authority_id
@@ -105,68 +107,72 @@ pub mod get_authority {
         };
         let o = register_interface::invoke(context.get_inner(), &request);
         GetAuthorityResult {
-            access_urls: pulumi_wasm_rust::__private::into_domain(
+            access_urls: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("accessUrls"),
             ),
-            certificate_authority_id: pulumi_wasm_rust::__private::into_domain(
+            certificate_authority_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("certificateAuthorityId"),
             ),
-            configs: pulumi_wasm_rust::__private::into_domain(
+            configs: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("configs"),
             ),
-            create_time: pulumi_wasm_rust::__private::into_domain(
+            create_time: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("createTime"),
             ),
-            deletion_protection: pulumi_wasm_rust::__private::into_domain(
+            deletion_protection: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("deletionProtection"),
             ),
-            desired_state: pulumi_wasm_rust::__private::into_domain(
+            desired_state: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("desiredState"),
             ),
-            effective_labels: pulumi_wasm_rust::__private::into_domain(
+            effective_labels: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("effectiveLabels"),
             ),
-            gcs_bucket: pulumi_wasm_rust::__private::into_domain(
+            gcs_bucket: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("gcsBucket"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
-            ignore_active_certificates_on_deletion: pulumi_wasm_rust::__private::into_domain(
+            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
+            ignore_active_certificates_on_deletion: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("ignoreActiveCertificatesOnDeletion"),
             ),
-            key_specs: pulumi_wasm_rust::__private::into_domain(
+            key_specs: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("keySpecs"),
             ),
-            labels: pulumi_wasm_rust::__private::into_domain(o.extract_field("labels")),
-            lifetime: pulumi_wasm_rust::__private::into_domain(
+            labels: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("labels"),
+            ),
+            lifetime: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("lifetime"),
             ),
-            location: pulumi_wasm_rust::__private::into_domain(
+            location: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("location"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            pem_ca_certificate: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            pem_ca_certificate: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("pemCaCertificate"),
             ),
-            pem_ca_certificates: pulumi_wasm_rust::__private::into_domain(
+            pem_ca_certificates: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("pemCaCertificates"),
             ),
-            pem_csr: pulumi_wasm_rust::__private::into_domain(o.extract_field("pemCsr")),
-            pool: pulumi_wasm_rust::__private::into_domain(o.extract_field("pool")),
-            project: pulumi_wasm_rust::__private::into_domain(
+            pem_csr: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("pemCsr"),
+            ),
+            pool: pulumi_gestalt_rust::__private::into_domain(o.extract_field("pool")),
+            project: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("project"),
             ),
-            pulumi_labels: pulumi_wasm_rust::__private::into_domain(
+            pulumi_labels: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("pulumiLabels"),
             ),
-            skip_grace_period: pulumi_wasm_rust::__private::into_domain(
+            skip_grace_period: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("skipGracePeriod"),
             ),
-            state: pulumi_wasm_rust::__private::into_domain(o.extract_field("state")),
-            subordinate_configs: pulumi_wasm_rust::__private::into_domain(
+            state: pulumi_gestalt_rust::__private::into_domain(o.extract_field("state")),
+            subordinate_configs: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("subordinateConfigs"),
             ),
-            type_: pulumi_wasm_rust::__private::into_domain(o.extract_field("type")),
-            update_time: pulumi_wasm_rust::__private::into_domain(
+            type_: pulumi_gestalt_rust::__private::into_domain(o.extract_field("type")),
+            update_time: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("updateTime"),
             ),
         }

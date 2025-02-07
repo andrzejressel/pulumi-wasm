@@ -85,49 +85,49 @@
 /// ```
 ///
 pub mod backup_instance_postgresql_flexible_server {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct BackupInstancePostgresqlFlexibleServerArgs {
         /// The ID of the Backup Policy.
         #[builder(into)]
-        pub backup_policy_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub backup_policy_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The location of the source database. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub location: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub location: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Specifies the name of the Backup Instance for the PostgreSQL Flexible Server. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The ID of the source server. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub server_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub server_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The ID of the Backup Vault within which the PostgreSQL Flexible Server Backup Instance should exist. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub vault_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub vault_id: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct BackupInstancePostgresqlFlexibleServerResult {
         /// The ID of the Backup Policy.
-        pub backup_policy_id: pulumi_wasm_rust::Output<String>,
+        pub backup_policy_id: pulumi_gestalt_rust::Output<String>,
         /// The location of the source database. Changing this forces a new resource to be created.
-        pub location: pulumi_wasm_rust::Output<String>,
+        pub location: pulumi_gestalt_rust::Output<String>,
         /// Specifies the name of the Backup Instance for the PostgreSQL Flexible Server. Changing this forces a new resource to be created.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// The ID of the source server. Changing this forces a new resource to be created.
-        pub server_id: pulumi_wasm_rust::Output<String>,
+        pub server_id: pulumi_gestalt_rust::Output<String>,
         /// The ID of the Backup Vault within which the PostgreSQL Flexible Server Backup Instance should exist. Changing this forces a new resource to be created.
-        pub vault_id: pulumi_wasm_rust::Output<String>,
+        pub vault_id: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: BackupInstancePostgresqlFlexibleServerArgs,
     ) -> BackupInstancePostgresqlFlexibleServerResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let backup_policy_id_binding = args
             .backup_policy_id
@@ -167,17 +167,17 @@ pub mod backup_instance_postgresql_flexible_server {
         };
         let o = register_interface::register(context.get_inner(), &request);
         BackupInstancePostgresqlFlexibleServerResult {
-            backup_policy_id: pulumi_wasm_rust::__private::into_domain(
+            backup_policy_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("backupPolicyId"),
             ),
-            location: pulumi_wasm_rust::__private::into_domain(
+            location: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("location"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            server_id: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            server_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("serverId"),
             ),
-            vault_id: pulumi_wasm_rust::__private::into_domain(
+            vault_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("vaultId"),
             ),
         }

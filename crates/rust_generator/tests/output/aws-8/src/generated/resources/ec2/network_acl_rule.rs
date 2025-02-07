@@ -9,8 +9,8 @@
 /// ## Example Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let bar = network_acl::create(
@@ -52,19 +52,19 @@
 /// $ pulumi import aws:ec2/networkAclRule:NetworkAclRule my_rule acl-7aaabd18:100:6:false
 /// ```
 pub mod network_acl_rule {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct NetworkAclRuleArgs {
         /// The network range to allow or deny, in CIDR notation (for example 172.16.0.0/24 ).
         #[builder(into, default)]
-        pub cidr_block: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub cidr_block: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Indicates whether this is an egress rule (rule is applied to traffic leaving the subnet). Default `false`.
         #[builder(into, default)]
-        pub egress: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub egress: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// The from port to match.
         #[builder(into, default)]
-        pub from_port: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
+        pub from_port: pulumi_gestalt_rust::InputOrOutput<Option<i32>>,
         /// ICMP protocol: The ICMP code. Required if specifying ICMP for the protocolE.g., -1
         ///
         /// > **NOTE:** If the value of `protocol` is `-1` or `all`, the `from_port` and `to_port` values will be ignored and the rule will apply to all ports.
@@ -73,37 +73,37 @@ pub mod network_acl_rule {
         ///
         /// > Note: For more information on ICMP types and codes, see here: https://www.iana.org/assignments/icmp-parameters/icmp-parameters.xhtml
         #[builder(into, default)]
-        pub icmp_code: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
+        pub icmp_code: pulumi_gestalt_rust::InputOrOutput<Option<i32>>,
         /// ICMP protocol: The ICMP type. Required if specifying ICMP for the protocolE.g., -1
         #[builder(into, default)]
-        pub icmp_type: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
+        pub icmp_type: pulumi_gestalt_rust::InputOrOutput<Option<i32>>,
         /// The IPv6 CIDR block to allow or deny.
         #[builder(into, default)]
-        pub ipv6_cidr_block: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub ipv6_cidr_block: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The ID of the network ACL.
         #[builder(into)]
-        pub network_acl_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub network_acl_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The protocol. A value of -1 means all protocols.
         #[builder(into)]
-        pub protocol: pulumi_wasm_rust::InputOrOutput<String>,
+        pub protocol: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Indicates whether to allow or deny the traffic that matches the rule. Accepted values: `allow` | `deny`
         #[builder(into)]
-        pub rule_action: pulumi_wasm_rust::InputOrOutput<String>,
+        pub rule_action: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The rule number for the entry (for example, 100). ACL entries are processed in ascending order by rule number.
         #[builder(into)]
-        pub rule_number: pulumi_wasm_rust::InputOrOutput<i32>,
+        pub rule_number: pulumi_gestalt_rust::InputOrOutput<i32>,
         /// The to port to match.
         #[builder(into, default)]
-        pub to_port: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
+        pub to_port: pulumi_gestalt_rust::InputOrOutput<Option<i32>>,
     }
     #[allow(dead_code)]
     pub struct NetworkAclRuleResult {
         /// The network range to allow or deny, in CIDR notation (for example 172.16.0.0/24 ).
-        pub cidr_block: pulumi_wasm_rust::Output<Option<String>>,
+        pub cidr_block: pulumi_gestalt_rust::Output<Option<String>>,
         /// Indicates whether this is an egress rule (rule is applied to traffic leaving the subnet). Default `false`.
-        pub egress: pulumi_wasm_rust::Output<Option<bool>>,
+        pub egress: pulumi_gestalt_rust::Output<Option<bool>>,
         /// The from port to match.
-        pub from_port: pulumi_wasm_rust::Output<Option<i32>>,
+        pub from_port: pulumi_gestalt_rust::Output<Option<i32>>,
         /// ICMP protocol: The ICMP code. Required if specifying ICMP for the protocolE.g., -1
         ///
         /// > **NOTE:** If the value of `protocol` is `-1` or `all`, the `from_port` and `to_port` values will be ignored and the rule will apply to all ports.
@@ -111,32 +111,32 @@ pub mod network_acl_rule {
         /// > **NOTE:** If the value of `icmp_type` is `-1` (which results in a wildcard ICMP type), the `icmp_code` must also be set to `-1` (wildcard ICMP code).
         ///
         /// > Note: For more information on ICMP types and codes, see here: https://www.iana.org/assignments/icmp-parameters/icmp-parameters.xhtml
-        pub icmp_code: pulumi_wasm_rust::Output<Option<i32>>,
+        pub icmp_code: pulumi_gestalt_rust::Output<Option<i32>>,
         /// ICMP protocol: The ICMP type. Required if specifying ICMP for the protocolE.g., -1
-        pub icmp_type: pulumi_wasm_rust::Output<Option<i32>>,
+        pub icmp_type: pulumi_gestalt_rust::Output<Option<i32>>,
         /// The IPv6 CIDR block to allow or deny.
-        pub ipv6_cidr_block: pulumi_wasm_rust::Output<Option<String>>,
+        pub ipv6_cidr_block: pulumi_gestalt_rust::Output<Option<String>>,
         /// The ID of the network ACL.
-        pub network_acl_id: pulumi_wasm_rust::Output<String>,
+        pub network_acl_id: pulumi_gestalt_rust::Output<String>,
         /// The protocol. A value of -1 means all protocols.
-        pub protocol: pulumi_wasm_rust::Output<String>,
+        pub protocol: pulumi_gestalt_rust::Output<String>,
         /// Indicates whether to allow or deny the traffic that matches the rule. Accepted values: `allow` | `deny`
-        pub rule_action: pulumi_wasm_rust::Output<String>,
+        pub rule_action: pulumi_gestalt_rust::Output<String>,
         /// The rule number for the entry (for example, 100). ACL entries are processed in ascending order by rule number.
-        pub rule_number: pulumi_wasm_rust::Output<i32>,
+        pub rule_number: pulumi_gestalt_rust::Output<i32>,
         /// The to port to match.
-        pub to_port: pulumi_wasm_rust::Output<Option<i32>>,
+        pub to_port: pulumi_gestalt_rust::Output<Option<i32>>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: NetworkAclRuleArgs,
     ) -> NetworkAclRuleResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let cidr_block_binding = args.cidr_block.get_output(context).get_inner();
         let egress_binding = args.egress.get_output(context).get_inner();
@@ -205,35 +205,39 @@ pub mod network_acl_rule {
         };
         let o = register_interface::register(context.get_inner(), &request);
         NetworkAclRuleResult {
-            cidr_block: pulumi_wasm_rust::__private::into_domain(
+            cidr_block: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("cidrBlock"),
             ),
-            egress: pulumi_wasm_rust::__private::into_domain(o.extract_field("egress")),
-            from_port: pulumi_wasm_rust::__private::into_domain(
+            egress: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("egress"),
+            ),
+            from_port: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("fromPort"),
             ),
-            icmp_code: pulumi_wasm_rust::__private::into_domain(
+            icmp_code: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("icmpCode"),
             ),
-            icmp_type: pulumi_wasm_rust::__private::into_domain(
+            icmp_type: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("icmpType"),
             ),
-            ipv6_cidr_block: pulumi_wasm_rust::__private::into_domain(
+            ipv6_cidr_block: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("ipv6CidrBlock"),
             ),
-            network_acl_id: pulumi_wasm_rust::__private::into_domain(
+            network_acl_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("networkAclId"),
             ),
-            protocol: pulumi_wasm_rust::__private::into_domain(
+            protocol: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("protocol"),
             ),
-            rule_action: pulumi_wasm_rust::__private::into_domain(
+            rule_action: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("ruleAction"),
             ),
-            rule_number: pulumi_wasm_rust::__private::into_domain(
+            rule_number: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("ruleNumber"),
             ),
-            to_port: pulumi_wasm_rust::__private::into_domain(o.extract_field("toPort")),
+            to_port: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("toPort"),
+            ),
         }
     }
 }

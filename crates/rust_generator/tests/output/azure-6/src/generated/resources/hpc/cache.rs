@@ -5,8 +5,8 @@
 /// ## Example Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = resource_group::create(
@@ -57,140 +57,140 @@
 /// ```
 ///
 pub mod cache {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct CacheArgs {
         /// Specifies whether the HPC Cache automatically rotates Encryption Key to the latest version.
         #[builder(into, default)]
-        pub automatically_rotate_key_to_latest_enabled: pulumi_wasm_rust::InputOrOutput<
+        pub automatically_rotate_key_to_latest_enabled: pulumi_gestalt_rust::InputOrOutput<
             Option<bool>,
         >,
         /// The size of the HPC Cache, in GB. Possible values are `3072`, `6144`, `12288`, `21623`, `24576`, `43246`, `49152` and `86491`. Changing this forces a new resource to be created.
         ///
         /// > **NOTE:** The `21623`, `43246` and `86491` sizes are restricted to read only resources.
         #[builder(into)]
-        pub cache_size_in_gb: pulumi_wasm_rust::InputOrOutput<i32>,
+        pub cache_size_in_gb: pulumi_gestalt_rust::InputOrOutput<i32>,
         /// A `default_access_policy` block as defined below.
         #[builder(into, default)]
-        pub default_access_policy: pulumi_wasm_rust::InputOrOutput<
+        pub default_access_policy: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::hpc::CacheDefaultAccessPolicy>,
         >,
         /// A `directory_active_directory` block as defined below.
         #[builder(into, default)]
-        pub directory_active_directory: pulumi_wasm_rust::InputOrOutput<
+        pub directory_active_directory: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::hpc::CacheDirectoryActiveDirectory>,
         >,
         /// A `directory_flat_file` block as defined below.
         #[builder(into, default)]
-        pub directory_flat_file: pulumi_wasm_rust::InputOrOutput<
+        pub directory_flat_file: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::hpc::CacheDirectoryFlatFile>,
         >,
         /// A `directory_ldap` block as defined below.
         ///
         /// > **Note:** Only one of `directory_active_directory`, `directory_flat_file` and `directory_ldap` can be set.
         #[builder(into, default)]
-        pub directory_ldap: pulumi_wasm_rust::InputOrOutput<
+        pub directory_ldap: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::hpc::CacheDirectoryLdap>,
         >,
         /// A `dns` block as defined below.
         #[builder(into, default)]
-        pub dns: pulumi_wasm_rust::InputOrOutput<
+        pub dns: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::hpc::CacheDns>,
         >,
         /// An `identity` block as defined below. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub identity: pulumi_wasm_rust::InputOrOutput<
+        pub identity: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::hpc::CacheIdentity>,
         >,
         /// The ID of the Key Vault Key which should be used to encrypt the data in this HPC Cache.
         #[builder(into, default)]
-        pub key_vault_key_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub key_vault_key_id: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Specifies the supported Azure Region where the HPC Cache should be created. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub location: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub location: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The IPv4 maximum transmission unit configured for the subnet of the HPC Cache. Possible values range from 576 - 1500. Defaults to `1500`.
         #[builder(into, default)]
-        pub mtu: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
+        pub mtu: pulumi_gestalt_rust::InputOrOutput<Option<i32>>,
         /// The name of the HPC Cache. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The NTP server IP Address or FQDN for the HPC Cache. Defaults to `time.windows.com`.
         #[builder(into, default)]
-        pub ntp_server: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub ntp_server: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The name of the Resource Group in which to create the HPC Cache. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub resource_group_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub resource_group_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The SKU of HPC Cache to use. Possible values are (ReadWrite) - `Standard_2G`, `Standard_4G` `Standard_8G` or (ReadOnly) - `Standard_L4_5G`, `Standard_L9G`, and `Standard_L16G`. Changing this forces a new resource to be created.
         ///
         /// > **NOTE:** The read-only SKUs have restricted cache sizes. `Standard_L4_5G` must be set to `21623`. `Standard_L9G` to `43246` and `Standard_L16G` to `86491`.
         #[builder(into)]
-        pub sku_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub sku_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The ID of the Subnet for the HPC Cache. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub subnet_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub subnet_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// A mapping of tags to assign to the HPC Cache.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
     #[allow(dead_code)]
     pub struct CacheResult {
         /// Specifies whether the HPC Cache automatically rotates Encryption Key to the latest version.
-        pub automatically_rotate_key_to_latest_enabled: pulumi_wasm_rust::Output<
+        pub automatically_rotate_key_to_latest_enabled: pulumi_gestalt_rust::Output<
             Option<bool>,
         >,
         /// The size of the HPC Cache, in GB. Possible values are `3072`, `6144`, `12288`, `21623`, `24576`, `43246`, `49152` and `86491`. Changing this forces a new resource to be created.
         ///
         /// > **NOTE:** The `21623`, `43246` and `86491` sizes are restricted to read only resources.
-        pub cache_size_in_gb: pulumi_wasm_rust::Output<i32>,
+        pub cache_size_in_gb: pulumi_gestalt_rust::Output<i32>,
         /// A `default_access_policy` block as defined below.
-        pub default_access_policy: pulumi_wasm_rust::Output<
+        pub default_access_policy: pulumi_gestalt_rust::Output<
             super::super::types::hpc::CacheDefaultAccessPolicy,
         >,
         /// A `directory_active_directory` block as defined below.
-        pub directory_active_directory: pulumi_wasm_rust::Output<
+        pub directory_active_directory: pulumi_gestalt_rust::Output<
             Option<super::super::types::hpc::CacheDirectoryActiveDirectory>,
         >,
         /// A `directory_flat_file` block as defined below.
-        pub directory_flat_file: pulumi_wasm_rust::Output<
+        pub directory_flat_file: pulumi_gestalt_rust::Output<
             Option<super::super::types::hpc::CacheDirectoryFlatFile>,
         >,
         /// A `directory_ldap` block as defined below.
         ///
         /// > **Note:** Only one of `directory_active_directory`, `directory_flat_file` and `directory_ldap` can be set.
-        pub directory_ldap: pulumi_wasm_rust::Output<
+        pub directory_ldap: pulumi_gestalt_rust::Output<
             Option<super::super::types::hpc::CacheDirectoryLdap>,
         >,
         /// A `dns` block as defined below.
-        pub dns: pulumi_wasm_rust::Output<Option<super::super::types::hpc::CacheDns>>,
+        pub dns: pulumi_gestalt_rust::Output<Option<super::super::types::hpc::CacheDns>>,
         /// An `identity` block as defined below. Changing this forces a new resource to be created.
-        pub identity: pulumi_wasm_rust::Output<
+        pub identity: pulumi_gestalt_rust::Output<
             Option<super::super::types::hpc::CacheIdentity>,
         >,
         /// The ID of the Key Vault Key which should be used to encrypt the data in this HPC Cache.
-        pub key_vault_key_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub key_vault_key_id: pulumi_gestalt_rust::Output<Option<String>>,
         /// Specifies the supported Azure Region where the HPC Cache should be created. Changing this forces a new resource to be created.
-        pub location: pulumi_wasm_rust::Output<String>,
+        pub location: pulumi_gestalt_rust::Output<String>,
         /// A list of IP Addresses where the HPC Cache can be mounted.
-        pub mount_addresses: pulumi_wasm_rust::Output<Vec<String>>,
+        pub mount_addresses: pulumi_gestalt_rust::Output<Vec<String>>,
         /// The IPv4 maximum transmission unit configured for the subnet of the HPC Cache. Possible values range from 576 - 1500. Defaults to `1500`.
-        pub mtu: pulumi_wasm_rust::Output<Option<i32>>,
+        pub mtu: pulumi_gestalt_rust::Output<Option<i32>>,
         /// The name of the HPC Cache. Changing this forces a new resource to be created.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// The NTP server IP Address or FQDN for the HPC Cache. Defaults to `time.windows.com`.
-        pub ntp_server: pulumi_wasm_rust::Output<Option<String>>,
+        pub ntp_server: pulumi_gestalt_rust::Output<Option<String>>,
         /// The name of the Resource Group in which to create the HPC Cache. Changing this forces a new resource to be created.
-        pub resource_group_name: pulumi_wasm_rust::Output<String>,
+        pub resource_group_name: pulumi_gestalt_rust::Output<String>,
         /// The SKU of HPC Cache to use. Possible values are (ReadWrite) - `Standard_2G`, `Standard_4G` `Standard_8G` or (ReadOnly) - `Standard_L4_5G`, `Standard_L9G`, and `Standard_L16G`. Changing this forces a new resource to be created.
         ///
         /// > **NOTE:** The read-only SKUs have restricted cache sizes. `Standard_L4_5G` must be set to `21623`. `Standard_L9G` to `43246` and `Standard_L16G` to `86491`.
-        pub sku_name: pulumi_wasm_rust::Output<String>,
+        pub sku_name: pulumi_gestalt_rust::Output<String>,
         /// The ID of the Subnet for the HPC Cache. Changing this forces a new resource to be created.
-        pub subnet_id: pulumi_wasm_rust::Output<String>,
+        pub subnet_id: pulumi_gestalt_rust::Output<String>,
         /// A mapping of tags to assign to the HPC Cache.
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
@@ -199,11 +199,11 @@ pub mod cache {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: CacheArgs,
     ) -> CacheResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let automatically_rotate_key_to_latest_enabled_binding = args
             .automatically_rotate_key_to_latest_enabled
@@ -320,52 +320,52 @@ pub mod cache {
         };
         let o = register_interface::register(context.get_inner(), &request);
         CacheResult {
-            automatically_rotate_key_to_latest_enabled: pulumi_wasm_rust::__private::into_domain(
+            automatically_rotate_key_to_latest_enabled: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("automaticallyRotateKeyToLatestEnabled"),
             ),
-            cache_size_in_gb: pulumi_wasm_rust::__private::into_domain(
+            cache_size_in_gb: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("cacheSizeInGb"),
             ),
-            default_access_policy: pulumi_wasm_rust::__private::into_domain(
+            default_access_policy: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("defaultAccessPolicy"),
             ),
-            directory_active_directory: pulumi_wasm_rust::__private::into_domain(
+            directory_active_directory: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("directoryActiveDirectory"),
             ),
-            directory_flat_file: pulumi_wasm_rust::__private::into_domain(
+            directory_flat_file: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("directoryFlatFile"),
             ),
-            directory_ldap: pulumi_wasm_rust::__private::into_domain(
+            directory_ldap: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("directoryLdap"),
             ),
-            dns: pulumi_wasm_rust::__private::into_domain(o.extract_field("dns")),
-            identity: pulumi_wasm_rust::__private::into_domain(
+            dns: pulumi_gestalt_rust::__private::into_domain(o.extract_field("dns")),
+            identity: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("identity"),
             ),
-            key_vault_key_id: pulumi_wasm_rust::__private::into_domain(
+            key_vault_key_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("keyVaultKeyId"),
             ),
-            location: pulumi_wasm_rust::__private::into_domain(
+            location: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("location"),
             ),
-            mount_addresses: pulumi_wasm_rust::__private::into_domain(
+            mount_addresses: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("mountAddresses"),
             ),
-            mtu: pulumi_wasm_rust::__private::into_domain(o.extract_field("mtu")),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            ntp_server: pulumi_wasm_rust::__private::into_domain(
+            mtu: pulumi_gestalt_rust::__private::into_domain(o.extract_field("mtu")),
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            ntp_server: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("ntpServer"),
             ),
-            resource_group_name: pulumi_wasm_rust::__private::into_domain(
+            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("resourceGroupName"),
             ),
-            sku_name: pulumi_wasm_rust::__private::into_domain(
+            sku_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("skuName"),
             ),
-            subnet_id: pulumi_wasm_rust::__private::into_domain(
+            subnet_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("subnetId"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
         }
     }
 }

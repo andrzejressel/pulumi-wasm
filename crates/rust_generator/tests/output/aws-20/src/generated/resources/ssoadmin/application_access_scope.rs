@@ -36,43 +36,43 @@
 /// $ pulumi import aws:ssoadmin/applicationAccessScope:ApplicationAccessScope example arn:aws:sso::123456789012:application/ssoins-123456789012/apl-123456789012,sso:account:access
 /// ```
 pub mod application_access_scope {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ApplicationAccessScopeArgs {
         /// Specifies the ARN of the application with the access scope with the targets to add or update.
         #[builder(into)]
-        pub application_arn: pulumi_wasm_rust::InputOrOutput<String>,
+        pub application_arn: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Specifies an array list of ARNs that represent the authorized targets for this access scope.
         #[builder(into, default)]
-        pub authorized_targets: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
+        pub authorized_targets: pulumi_gestalt_rust::InputOrOutput<Option<Vec<String>>>,
         /// Specifies the name of the access scope to be associated with the specified targets.
         ///
         /// The following arguments are optional:
         #[builder(into)]
-        pub scope: pulumi_wasm_rust::InputOrOutput<String>,
+        pub scope: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct ApplicationAccessScopeResult {
         /// Specifies the ARN of the application with the access scope with the targets to add or update.
-        pub application_arn: pulumi_wasm_rust::Output<String>,
+        pub application_arn: pulumi_gestalt_rust::Output<String>,
         /// Specifies an array list of ARNs that represent the authorized targets for this access scope.
-        pub authorized_targets: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub authorized_targets: pulumi_gestalt_rust::Output<Option<Vec<String>>>,
         /// Specifies the name of the access scope to be associated with the specified targets.
         ///
         /// The following arguments are optional:
-        pub scope: pulumi_wasm_rust::Output<String>,
+        pub scope: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: ApplicationAccessScopeArgs,
     ) -> ApplicationAccessScopeResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let application_arn_binding = args
             .application_arn
@@ -104,13 +104,13 @@ pub mod application_access_scope {
         };
         let o = register_interface::register(context.get_inner(), &request);
         ApplicationAccessScopeResult {
-            application_arn: pulumi_wasm_rust::__private::into_domain(
+            application_arn: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("applicationArn"),
             ),
-            authorized_targets: pulumi_wasm_rust::__private::into_domain(
+            authorized_targets: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("authorizedTargets"),
             ),
-            scope: pulumi_wasm_rust::__private::into_domain(o.extract_field("scope")),
+            scope: pulumi_gestalt_rust::__private::into_domain(o.extract_field("scope")),
         }
     }
 }

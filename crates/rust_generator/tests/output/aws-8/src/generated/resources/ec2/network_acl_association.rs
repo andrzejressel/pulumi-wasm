@@ -7,8 +7,8 @@
 /// ## Example Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let main = network_acl_association::create(
@@ -29,34 +29,34 @@
 /// $ pulumi import aws:ec2/networkAclAssociation:NetworkAclAssociation main aclassoc-02baf37f20966b3e6
 /// ```
 pub mod network_acl_association {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct NetworkAclAssociationArgs {
         /// The ID of the network ACL.
         #[builder(into)]
-        pub network_acl_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub network_acl_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The ID of the associated Subnet.
         #[builder(into)]
-        pub subnet_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub subnet_id: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct NetworkAclAssociationResult {
         /// The ID of the network ACL.
-        pub network_acl_id: pulumi_wasm_rust::Output<String>,
+        pub network_acl_id: pulumi_gestalt_rust::Output<String>,
         /// The ID of the associated Subnet.
-        pub subnet_id: pulumi_wasm_rust::Output<String>,
+        pub subnet_id: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: NetworkAclAssociationArgs,
     ) -> NetworkAclAssociationResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let network_acl_id_binding = args.network_acl_id.get_output(context).get_inner();
         let subnet_id_binding = args.subnet_id.get_output(context).get_inner();
@@ -77,10 +77,10 @@ pub mod network_acl_association {
         };
         let o = register_interface::register(context.get_inner(), &request);
         NetworkAclAssociationResult {
-            network_acl_id: pulumi_wasm_rust::__private::into_domain(
+            network_acl_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("networkAclId"),
             ),
-            subnet_id: pulumi_wasm_rust::__private::into_domain(
+            subnet_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("subnetId"),
             ),
         }

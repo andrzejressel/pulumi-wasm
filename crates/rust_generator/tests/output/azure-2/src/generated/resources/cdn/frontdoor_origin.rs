@@ -5,8 +5,8 @@
 /// ## Example Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = resource_group::create(
@@ -232,95 +232,95 @@
 /// ```
 ///
 pub mod frontdoor_origin {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct FrontdoorOriginArgs {
         /// The ID of the Front Door Origin Group within which this Front Door Origin should exist. Changing this forces a new Front Door Origin to be created.
         #[builder(into)]
-        pub cdn_frontdoor_origin_group_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub cdn_frontdoor_origin_group_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Specifies whether certificate name checks are enabled for this origin.
         #[builder(into)]
-        pub certificate_name_check_enabled: pulumi_wasm_rust::InputOrOutput<bool>,
+        pub certificate_name_check_enabled: pulumi_gestalt_rust::InputOrOutput<bool>,
         /// Should the origin be enabled? Possible values are `true` or `false`. Defaults to `true`.
         #[builder(into, default)]
-        pub enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub enabled: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// The IPv4 address, IPv6 address or Domain name of the Origin.
         ///
         /// !> **IMPORTANT:** This must be unique across all Front Door Origins within a Front Door Endpoint.
         #[builder(into)]
-        pub host_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub host_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The value of the HTTP port. Must be between `1` and `65535`. Defaults to `80`.
         #[builder(into, default)]
-        pub http_port: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
+        pub http_port: pulumi_gestalt_rust::InputOrOutput<Option<i32>>,
         /// The value of the HTTPS port. Must be between `1` and `65535`. Defaults to `443`.
         #[builder(into, default)]
-        pub https_port: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
+        pub https_port: pulumi_gestalt_rust::InputOrOutput<Option<i32>>,
         /// The name which should be used for this Front Door Origin. Changing this forces a new Front Door Origin to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The host header value (an IPv4 address, IPv6 address or Domain name) which is sent to the origin with each request. If unspecified the hostname from the request will be used.
         ///
         /// > Azure Front Door Origins, such as Web Apps, Blob Storage, and Cloud Services require this host header value to match the origin's hostname. This field's value overrides the host header defined in the Front Door Endpoint. For more information on how to properly set the origin host header value please see the [product documentation](https://docs.microsoft.com/azure/frontdoor/origin?pivots=front-door-standard-premium#origin-host-header).
         #[builder(into, default)]
-        pub origin_host_header: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub origin_host_header: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Priority of origin in given origin group for load balancing. Higher priorities will not be used for load balancing if any lower priority origin is healthy. Must be between `1` and `5` (inclusive). Defaults to `1`.
         #[builder(into, default)]
-        pub priority: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
+        pub priority: pulumi_gestalt_rust::InputOrOutput<Option<i32>>,
         /// A `private_link` block as defined below.
         ///
         /// > **NOTE:** Private Link requires that the Front Door Profile this Origin is hosted within is using the SKU `Premium_AzureFrontDoor` and that the `certificate_name_check_enabled` field is set to `true`.
         #[builder(into, default)]
-        pub private_link: pulumi_wasm_rust::InputOrOutput<
+        pub private_link: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::cdn::FrontdoorOriginPrivateLink>,
         >,
         /// The weight of the origin in a given origin group for load balancing. Must be between `1` and `1000`. Defaults to `500`.
         #[builder(into, default)]
-        pub weight: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
+        pub weight: pulumi_gestalt_rust::InputOrOutput<Option<i32>>,
     }
     #[allow(dead_code)]
     pub struct FrontdoorOriginResult {
         /// The ID of the Front Door Origin Group within which this Front Door Origin should exist. Changing this forces a new Front Door Origin to be created.
-        pub cdn_frontdoor_origin_group_id: pulumi_wasm_rust::Output<String>,
+        pub cdn_frontdoor_origin_group_id: pulumi_gestalt_rust::Output<String>,
         /// Specifies whether certificate name checks are enabled for this origin.
-        pub certificate_name_check_enabled: pulumi_wasm_rust::Output<bool>,
+        pub certificate_name_check_enabled: pulumi_gestalt_rust::Output<bool>,
         /// Should the origin be enabled? Possible values are `true` or `false`. Defaults to `true`.
-        pub enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub enabled: pulumi_gestalt_rust::Output<Option<bool>>,
         /// The IPv4 address, IPv6 address or Domain name of the Origin.
         ///
         /// !> **IMPORTANT:** This must be unique across all Front Door Origins within a Front Door Endpoint.
-        pub host_name: pulumi_wasm_rust::Output<String>,
+        pub host_name: pulumi_gestalt_rust::Output<String>,
         /// The value of the HTTP port. Must be between `1` and `65535`. Defaults to `80`.
-        pub http_port: pulumi_wasm_rust::Output<Option<i32>>,
+        pub http_port: pulumi_gestalt_rust::Output<Option<i32>>,
         /// The value of the HTTPS port. Must be between `1` and `65535`. Defaults to `443`.
-        pub https_port: pulumi_wasm_rust::Output<Option<i32>>,
+        pub https_port: pulumi_gestalt_rust::Output<Option<i32>>,
         /// The name which should be used for this Front Door Origin. Changing this forces a new Front Door Origin to be created.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// The host header value (an IPv4 address, IPv6 address or Domain name) which is sent to the origin with each request. If unspecified the hostname from the request will be used.
         ///
         /// > Azure Front Door Origins, such as Web Apps, Blob Storage, and Cloud Services require this host header value to match the origin's hostname. This field's value overrides the host header defined in the Front Door Endpoint. For more information on how to properly set the origin host header value please see the [product documentation](https://docs.microsoft.com/azure/frontdoor/origin?pivots=front-door-standard-premium#origin-host-header).
-        pub origin_host_header: pulumi_wasm_rust::Output<Option<String>>,
+        pub origin_host_header: pulumi_gestalt_rust::Output<Option<String>>,
         /// Priority of origin in given origin group for load balancing. Higher priorities will not be used for load balancing if any lower priority origin is healthy. Must be between `1` and `5` (inclusive). Defaults to `1`.
-        pub priority: pulumi_wasm_rust::Output<Option<i32>>,
+        pub priority: pulumi_gestalt_rust::Output<Option<i32>>,
         /// A `private_link` block as defined below.
         ///
         /// > **NOTE:** Private Link requires that the Front Door Profile this Origin is hosted within is using the SKU `Premium_AzureFrontDoor` and that the `certificate_name_check_enabled` field is set to `true`.
-        pub private_link: pulumi_wasm_rust::Output<
+        pub private_link: pulumi_gestalt_rust::Output<
             Option<super::super::types::cdn::FrontdoorOriginPrivateLink>,
         >,
         /// The weight of the origin in a given origin group for load balancing. Must be between `1` and `1000`. Defaults to `500`.
-        pub weight: pulumi_wasm_rust::Output<Option<i32>>,
+        pub weight: pulumi_gestalt_rust::Output<Option<i32>>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: FrontdoorOriginArgs,
     ) -> FrontdoorOriginResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let cdn_frontdoor_origin_group_id_binding = args
             .cdn_frontdoor_origin_group_id
@@ -395,35 +395,37 @@ pub mod frontdoor_origin {
         };
         let o = register_interface::register(context.get_inner(), &request);
         FrontdoorOriginResult {
-            cdn_frontdoor_origin_group_id: pulumi_wasm_rust::__private::into_domain(
+            cdn_frontdoor_origin_group_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("cdnFrontdoorOriginGroupId"),
             ),
-            certificate_name_check_enabled: pulumi_wasm_rust::__private::into_domain(
+            certificate_name_check_enabled: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("certificateNameCheckEnabled"),
             ),
-            enabled: pulumi_wasm_rust::__private::into_domain(
+            enabled: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("enabled"),
             ),
-            host_name: pulumi_wasm_rust::__private::into_domain(
+            host_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("hostName"),
             ),
-            http_port: pulumi_wasm_rust::__private::into_domain(
+            http_port: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("httpPort"),
             ),
-            https_port: pulumi_wasm_rust::__private::into_domain(
+            https_port: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("httpsPort"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            origin_host_header: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            origin_host_header: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("originHostHeader"),
             ),
-            priority: pulumi_wasm_rust::__private::into_domain(
+            priority: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("priority"),
             ),
-            private_link: pulumi_wasm_rust::__private::into_domain(
+            private_link: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("privateLink"),
             ),
-            weight: pulumi_wasm_rust::__private::into_domain(o.extract_field("weight")),
+            weight: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("weight"),
+            ),
         }
     }
 }

@@ -3,8 +3,8 @@
 /// ## Example Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = task::create(
@@ -23,8 +23,8 @@
 /// ### With Scheduling
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = task::create(
@@ -47,8 +47,8 @@
 /// ### With Filtering
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = task::create(
@@ -82,91 +82,91 @@
 /// $ pulumi import aws:datasync/task:Task example arn:aws:datasync:us-east-1:123456789012:task/task-12345678901234567
 /// ```
 pub mod task {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct TaskArgs {
         /// Amazon Resource Name (ARN) of the CloudWatch Log Group that is used to monitor and log events in the sync task.
         #[builder(into, default)]
-        pub cloudwatch_log_group_arn: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub cloudwatch_log_group_arn: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Amazon Resource Name (ARN) of destination DataSync Location.
         #[builder(into)]
-        pub destination_location_arn: pulumi_wasm_rust::InputOrOutput<String>,
+        pub destination_location_arn: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Filter rules that determines which files to exclude from a task.
         #[builder(into, default)]
-        pub excludes: pulumi_wasm_rust::InputOrOutput<
+        pub excludes: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::datasync::TaskExcludes>,
         >,
         /// Filter rules that determines which files to include in a task.
         #[builder(into, default)]
-        pub includes: pulumi_wasm_rust::InputOrOutput<
+        pub includes: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::datasync::TaskIncludes>,
         >,
         /// Name of the DataSync Task.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Configuration block containing option that controls the default behavior when you start an execution of this DataSync Task. For each individual task execution, you can override these options by specifying an overriding configuration in those executions.
         #[builder(into, default)]
-        pub options: pulumi_wasm_rust::InputOrOutput<
+        pub options: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::datasync::TaskOptions>,
         >,
         /// Specifies a schedule used to periodically transfer files from a source to a destination location.
         #[builder(into, default)]
-        pub schedule: pulumi_wasm_rust::InputOrOutput<
+        pub schedule: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::datasync::TaskSchedule>,
         >,
         /// Amazon Resource Name (ARN) of source DataSync Location.
         #[builder(into)]
-        pub source_location_arn: pulumi_wasm_rust::InputOrOutput<String>,
+        pub source_location_arn: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Key-value pairs of resource tags to assign to the DataSync Task. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Configuration block containing the configuration of a DataSync Task Report. See `task_report_config` below.
         #[builder(into, default)]
-        pub task_report_config: pulumi_wasm_rust::InputOrOutput<
+        pub task_report_config: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::datasync::TaskTaskReportConfig>,
         >,
     }
     #[allow(dead_code)]
     pub struct TaskResult {
         /// Amazon Resource Name (ARN) of the DataSync Task.
-        pub arn: pulumi_wasm_rust::Output<String>,
+        pub arn: pulumi_gestalt_rust::Output<String>,
         /// Amazon Resource Name (ARN) of the CloudWatch Log Group that is used to monitor and log events in the sync task.
-        pub cloudwatch_log_group_arn: pulumi_wasm_rust::Output<Option<String>>,
+        pub cloudwatch_log_group_arn: pulumi_gestalt_rust::Output<Option<String>>,
         /// Amazon Resource Name (ARN) of destination DataSync Location.
-        pub destination_location_arn: pulumi_wasm_rust::Output<String>,
+        pub destination_location_arn: pulumi_gestalt_rust::Output<String>,
         /// Filter rules that determines which files to exclude from a task.
-        pub excludes: pulumi_wasm_rust::Output<
+        pub excludes: pulumi_gestalt_rust::Output<
             Option<super::super::types::datasync::TaskExcludes>,
         >,
         /// Filter rules that determines which files to include in a task.
-        pub includes: pulumi_wasm_rust::Output<
+        pub includes: pulumi_gestalt_rust::Output<
             Option<super::super::types::datasync::TaskIncludes>,
         >,
         /// Name of the DataSync Task.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// Configuration block containing option that controls the default behavior when you start an execution of this DataSync Task. For each individual task execution, you can override these options by specifying an overriding configuration in those executions.
-        pub options: pulumi_wasm_rust::Output<
+        pub options: pulumi_gestalt_rust::Output<
             Option<super::super::types::datasync::TaskOptions>,
         >,
         /// Specifies a schedule used to periodically transfer files from a source to a destination location.
-        pub schedule: pulumi_wasm_rust::Output<
+        pub schedule: pulumi_gestalt_rust::Output<
             Option<super::super::types::datasync::TaskSchedule>,
         >,
         /// Amazon Resource Name (ARN) of source DataSync Location.
-        pub source_location_arn: pulumi_wasm_rust::Output<String>,
+        pub source_location_arn: pulumi_gestalt_rust::Output<String>,
         /// Key-value pairs of resource tags to assign to the DataSync Task. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        pub tags_all: pulumi_wasm_rust::Output<
+        pub tags_all: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
         /// Configuration block containing the configuration of a DataSync Task Report. See `task_report_config` below.
-        pub task_report_config: pulumi_wasm_rust::Output<
+        pub task_report_config: pulumi_gestalt_rust::Output<
             Option<super::super::types::datasync::TaskTaskReportConfig>,
         >,
     }
@@ -175,11 +175,11 @@ pub mod task {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: TaskArgs,
     ) -> TaskResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let cloudwatch_log_group_arn_binding = args
             .cloudwatch_log_group_arn
@@ -252,34 +252,34 @@ pub mod task {
         };
         let o = register_interface::register(context.get_inner(), &request);
         TaskResult {
-            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
-            cloudwatch_log_group_arn: pulumi_wasm_rust::__private::into_domain(
+            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
+            cloudwatch_log_group_arn: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("cloudwatchLogGroupArn"),
             ),
-            destination_location_arn: pulumi_wasm_rust::__private::into_domain(
+            destination_location_arn: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("destinationLocationArn"),
             ),
-            excludes: pulumi_wasm_rust::__private::into_domain(
+            excludes: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("excludes"),
             ),
-            includes: pulumi_wasm_rust::__private::into_domain(
+            includes: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("includes"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            options: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            options: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("options"),
             ),
-            schedule: pulumi_wasm_rust::__private::into_domain(
+            schedule: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("schedule"),
             ),
-            source_location_arn: pulumi_wasm_rust::__private::into_domain(
+            source_location_arn: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("sourceLocationArn"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_wasm_rust::__private::into_domain(
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            tags_all: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("tagsAll"),
             ),
-            task_report_config: pulumi_wasm_rust::__private::into_domain(
+            task_report_config: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("taskReportConfig"),
             ),
         }

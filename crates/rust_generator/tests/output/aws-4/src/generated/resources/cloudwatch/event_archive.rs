@@ -5,8 +5,8 @@
 /// ## Example Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let order = event_bus::create(
@@ -53,51 +53,51 @@
 /// $ pulumi import aws:cloudwatch/eventArchive:EventArchive imported_event_archive order-archive
 /// ```
 pub mod event_archive {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct EventArchiveArgs {
         /// The description of the new event archive.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub description: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Instructs the new event archive to only capture events matched by this pattern. By default, it attempts to archive every event received in the `event_source_arn`.
         #[builder(into, default)]
-        pub event_pattern: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub event_pattern: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Event bus source ARN from where these events should be archived.
         #[builder(into)]
-        pub event_source_arn: pulumi_wasm_rust::InputOrOutput<String>,
+        pub event_source_arn: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The name of the new event archive. The archive name cannot exceed 48 characters.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The maximum number of days to retain events in the new event archive. By default, it archives indefinitely.
         #[builder(into, default)]
-        pub retention_days: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
+        pub retention_days: pulumi_gestalt_rust::InputOrOutput<Option<i32>>,
     }
     #[allow(dead_code)]
     pub struct EventArchiveResult {
         /// The Amazon Resource Name (ARN) of the event archive.
-        pub arn: pulumi_wasm_rust::Output<String>,
+        pub arn: pulumi_gestalt_rust::Output<String>,
         /// The description of the new event archive.
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_gestalt_rust::Output<Option<String>>,
         /// Instructs the new event archive to only capture events matched by this pattern. By default, it attempts to archive every event received in the `event_source_arn`.
-        pub event_pattern: pulumi_wasm_rust::Output<Option<String>>,
+        pub event_pattern: pulumi_gestalt_rust::Output<Option<String>>,
         /// Event bus source ARN from where these events should be archived.
-        pub event_source_arn: pulumi_wasm_rust::Output<String>,
+        pub event_source_arn: pulumi_gestalt_rust::Output<String>,
         /// The name of the new event archive. The archive name cannot exceed 48 characters.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// The maximum number of days to retain events in the new event archive. By default, it archives indefinitely.
-        pub retention_days: pulumi_wasm_rust::Output<Option<i32>>,
+        pub retention_days: pulumi_gestalt_rust::Output<Option<i32>>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: EventArchiveArgs,
     ) -> EventArchiveResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let description_binding = args.description.get_output(context).get_inner();
         let event_pattern_binding = args.event_pattern.get_output(context).get_inner();
@@ -136,18 +136,18 @@ pub mod event_archive {
         };
         let o = register_interface::register(context.get_inner(), &request);
         EventArchiveResult {
-            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
-            description: pulumi_wasm_rust::__private::into_domain(
+            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
+            description: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("description"),
             ),
-            event_pattern: pulumi_wasm_rust::__private::into_domain(
+            event_pattern: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("eventPattern"),
             ),
-            event_source_arn: pulumi_wasm_rust::__private::into_domain(
+            event_source_arn: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("eventSourceArn"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            retention_days: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            retention_days: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("retentionDays"),
             ),
         }

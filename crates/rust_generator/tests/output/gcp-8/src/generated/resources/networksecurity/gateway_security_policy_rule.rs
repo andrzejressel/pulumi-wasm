@@ -12,8 +12,8 @@
 ///
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let default = gateway_security_policy::create(
@@ -45,8 +45,8 @@
 ///
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let default = gateway_security_policy::create(
@@ -102,103 +102,103 @@
 /// ```
 ///
 pub mod gateway_security_policy_rule {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct GatewaySecurityPolicyRuleArgs {
         /// CEL expression for matching on L7/application level criteria.
         #[builder(into, default)]
-        pub application_matcher: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub application_matcher: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Profile which tells what the primitive action should be. Possible values are: * ALLOW * DENY.
         /// Possible values are: `BASIC_PROFILE_UNSPECIFIED`, `ALLOW`, `DENY`.
         #[builder(into)]
-        pub basic_profile: pulumi_wasm_rust::InputOrOutput<String>,
+        pub basic_profile: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Free-text description of the resource.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub description: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Whether the rule is enforced.
         #[builder(into)]
-        pub enabled: pulumi_wasm_rust::InputOrOutput<bool>,
+        pub enabled: pulumi_gestalt_rust::InputOrOutput<bool>,
         /// The name of the gatewat security policy this rule belongs to.
         ///
         ///
         /// - - -
         #[builder(into)]
-        pub gateway_security_policy: pulumi_wasm_rust::InputOrOutput<String>,
+        pub gateway_security_policy: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The location of the gateway security policy.
         #[builder(into)]
-        pub location: pulumi_wasm_rust::InputOrOutput<String>,
+        pub location: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Name of the resource. ame is the full resource name so projects/{project}/locations/{location}/gatewaySecurityPolicies/{gateway_security_policy}/rules/{rule}
         /// rule should match the pattern: (^a-z?$).
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Priority of the rule. Lower number corresponds to higher precedence.
         #[builder(into)]
-        pub priority: pulumi_wasm_rust::InputOrOutput<i32>,
+        pub priority: pulumi_gestalt_rust::InputOrOutput<i32>,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub project: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// CEL expression for matching on session criteria.
         #[builder(into)]
-        pub session_matcher: pulumi_wasm_rust::InputOrOutput<String>,
+        pub session_matcher: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Flag to enable TLS inspection of traffic matching on. Can only be true if the
         /// parent GatewaySecurityPolicy references a TLSInspectionConfig.
         #[builder(into, default)]
-        pub tls_inspection_enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub tls_inspection_enabled: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
     }
     #[allow(dead_code)]
     pub struct GatewaySecurityPolicyRuleResult {
         /// CEL expression for matching on L7/application level criteria.
-        pub application_matcher: pulumi_wasm_rust::Output<Option<String>>,
+        pub application_matcher: pulumi_gestalt_rust::Output<Option<String>>,
         /// Profile which tells what the primitive action should be. Possible values are: * ALLOW * DENY.
         /// Possible values are: `BASIC_PROFILE_UNSPECIFIED`, `ALLOW`, `DENY`.
-        pub basic_profile: pulumi_wasm_rust::Output<String>,
+        pub basic_profile: pulumi_gestalt_rust::Output<String>,
         /// The timestamp when the resource was created.
         /// A timestamp in RFC3339 UTC "Zulu" format, with nanosecond resolution and up to nine fractional digits.
         /// Examples: "2014-10-02T15:01:23Z" and "2014-10-02T15:01:23.045123456Z"
-        pub create_time: pulumi_wasm_rust::Output<String>,
+        pub create_time: pulumi_gestalt_rust::Output<String>,
         /// Free-text description of the resource.
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_gestalt_rust::Output<Option<String>>,
         /// Whether the rule is enforced.
-        pub enabled: pulumi_wasm_rust::Output<bool>,
+        pub enabled: pulumi_gestalt_rust::Output<bool>,
         /// The name of the gatewat security policy this rule belongs to.
         ///
         ///
         /// - - -
-        pub gateway_security_policy: pulumi_wasm_rust::Output<String>,
+        pub gateway_security_policy: pulumi_gestalt_rust::Output<String>,
         /// The location of the gateway security policy.
-        pub location: pulumi_wasm_rust::Output<String>,
+        pub location: pulumi_gestalt_rust::Output<String>,
         /// Name of the resource. ame is the full resource name so projects/{project}/locations/{location}/gatewaySecurityPolicies/{gateway_security_policy}/rules/{rule}
         /// rule should match the pattern: (^a-z?$).
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// Priority of the rule. Lower number corresponds to higher precedence.
-        pub priority: pulumi_wasm_rust::Output<i32>,
+        pub priority: pulumi_gestalt_rust::Output<i32>,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
-        pub project: pulumi_wasm_rust::Output<String>,
+        pub project: pulumi_gestalt_rust::Output<String>,
         /// Server-defined URL of this resource.
-        pub self_link: pulumi_wasm_rust::Output<String>,
+        pub self_link: pulumi_gestalt_rust::Output<String>,
         /// CEL expression for matching on session criteria.
-        pub session_matcher: pulumi_wasm_rust::Output<String>,
+        pub session_matcher: pulumi_gestalt_rust::Output<String>,
         /// Flag to enable TLS inspection of traffic matching on. Can only be true if the
         /// parent GatewaySecurityPolicy references a TLSInspectionConfig.
-        pub tls_inspection_enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub tls_inspection_enabled: pulumi_gestalt_rust::Output<Option<bool>>,
         /// The timestamp when the resource was updated.
         /// A timestamp in RFC3339 UTC "Zulu" format, with nanosecond resolution and up to nine fractional digits.
         /// Examples: "2014-10-02T15:01:23Z" and "2014-10-02T15:01:23.045123456Z".
-        pub update_time: pulumi_wasm_rust::Output<String>,
+        pub update_time: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: GatewaySecurityPolicyRuleArgs,
     ) -> GatewaySecurityPolicyRuleResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let application_matcher_binding = args
             .application_matcher
@@ -277,44 +277,44 @@ pub mod gateway_security_policy_rule {
         };
         let o = register_interface::register(context.get_inner(), &request);
         GatewaySecurityPolicyRuleResult {
-            application_matcher: pulumi_wasm_rust::__private::into_domain(
+            application_matcher: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("applicationMatcher"),
             ),
-            basic_profile: pulumi_wasm_rust::__private::into_domain(
+            basic_profile: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("basicProfile"),
             ),
-            create_time: pulumi_wasm_rust::__private::into_domain(
+            create_time: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("createTime"),
             ),
-            description: pulumi_wasm_rust::__private::into_domain(
+            description: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("description"),
             ),
-            enabled: pulumi_wasm_rust::__private::into_domain(
+            enabled: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("enabled"),
             ),
-            gateway_security_policy: pulumi_wasm_rust::__private::into_domain(
+            gateway_security_policy: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("gatewaySecurityPolicy"),
             ),
-            location: pulumi_wasm_rust::__private::into_domain(
+            location: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("location"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            priority: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            priority: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("priority"),
             ),
-            project: pulumi_wasm_rust::__private::into_domain(
+            project: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("project"),
             ),
-            self_link: pulumi_wasm_rust::__private::into_domain(
+            self_link: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("selfLink"),
             ),
-            session_matcher: pulumi_wasm_rust::__private::into_domain(
+            session_matcher: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("sessionMatcher"),
             ),
-            tls_inspection_enabled: pulumi_wasm_rust::__private::into_domain(
+            tls_inspection_enabled: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("tlsInspectionEnabled"),
             ),
-            update_time: pulumi_wasm_rust::__private::into_domain(
+            update_time: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("updateTime"),
             ),
         }

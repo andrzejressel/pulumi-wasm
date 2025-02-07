@@ -1,49 +1,49 @@
 pub mod get_backup_run {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct GetBackupRunArgs {
         /// The identifier for this backup run. Unique only for a specific Cloud SQL instance.
         /// If left empty and multiple backups exist for the instance, `most_recent` must be set to `true`.
         #[builder(into, default)]
-        pub backup_id: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
+        pub backup_id: pulumi_gestalt_rust::InputOrOutput<Option<i32>>,
         /// The name of the instance the backup is taken from.
         #[builder(into)]
-        pub instance: pulumi_wasm_rust::InputOrOutput<String>,
+        pub instance: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Toggles use of the most recent backup run if multiple backups exist for a
         /// Cloud SQL instance.
         #[builder(into, default)]
-        pub most_recent: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub most_recent: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// The project to list instances for. If it
         /// is not provided, the provider project is used.
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub project: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct GetBackupRunResult {
-        pub backup_id: pulumi_wasm_rust::Output<i32>,
+        pub backup_id: pulumi_gestalt_rust::Output<i32>,
         /// The provider-assigned unique ID for this managed resource.
-        pub id: pulumi_wasm_rust::Output<String>,
-        pub instance: pulumi_wasm_rust::Output<String>,
+        pub id: pulumi_gestalt_rust::Output<String>,
+        pub instance: pulumi_gestalt_rust::Output<String>,
         /// Location of the backups.
-        pub location: pulumi_wasm_rust::Output<String>,
-        pub most_recent: pulumi_wasm_rust::Output<Option<bool>>,
-        pub project: pulumi_wasm_rust::Output<String>,
+        pub location: pulumi_gestalt_rust::Output<String>,
+        pub most_recent: pulumi_gestalt_rust::Output<Option<bool>>,
+        pub project: pulumi_gestalt_rust::Output<String>,
         /// The time the backup operation actually started in UTC timezone in RFC 3339 format, for
         /// example 2012-11-15T16:19:00.094Z.
-        pub start_time: pulumi_wasm_rust::Output<String>,
+        pub start_time: pulumi_gestalt_rust::Output<String>,
         /// The status of this run. Refer to [API reference](https://cloud.google.com/sql/docs/mysql/admin-api/rest/v1beta4/backupRuns#SqlBackupRunStatus) for possible status values.
-        pub status: pulumi_wasm_rust::Output<String>,
+        pub status: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         args: GetBackupRunArgs,
     ) -> GetBackupRunResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let backup_id_binding = args.backup_id.get_output(context).get_inner();
         let instance_binding = args.instance.get_output(context).get_inner();
@@ -73,26 +73,28 @@ pub mod get_backup_run {
         };
         let o = register_interface::invoke(context.get_inner(), &request);
         GetBackupRunResult {
-            backup_id: pulumi_wasm_rust::__private::into_domain(
+            backup_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("backupId"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
-            instance: pulumi_wasm_rust::__private::into_domain(
+            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
+            instance: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("instance"),
             ),
-            location: pulumi_wasm_rust::__private::into_domain(
+            location: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("location"),
             ),
-            most_recent: pulumi_wasm_rust::__private::into_domain(
+            most_recent: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("mostRecent"),
             ),
-            project: pulumi_wasm_rust::__private::into_domain(
+            project: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("project"),
             ),
-            start_time: pulumi_wasm_rust::__private::into_domain(
+            start_time: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("startTime"),
             ),
-            status: pulumi_wasm_rust::__private::into_domain(o.extract_field("status")),
+            status: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("status"),
+            ),
         }
     }
 }

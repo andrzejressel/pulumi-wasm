@@ -93,112 +93,112 @@
 /// ```
 ///
 pub mod certificate_issuance_config {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct CertificateIssuanceConfigArgs {
         /// The CA that issues the workload certificate. It includes the CA address, type, authentication to CA service, etc.
         /// Structure is documented below.
         #[builder(into)]
-        pub certificate_authority_config: pulumi_wasm_rust::InputOrOutput<
+        pub certificate_authority_config: pulumi_gestalt_rust::InputOrOutput<
             super::super::types::certificatemanager::CertificateIssuanceConfigCertificateAuthorityConfig,
         >,
         /// One or more paragraphs of text description of a CertificateIssuanceConfig.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub description: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Key algorithm to use when generating the private key.
         /// Possible values are: `RSA_2048`, `ECDSA_P256`.
         #[builder(into)]
-        pub key_algorithm: pulumi_wasm_rust::InputOrOutput<String>,
+        pub key_algorithm: pulumi_gestalt_rust::InputOrOutput<String>,
         /// 'Set of label tags associated with the CertificateIssuanceConfig resource. An object containing a list of "key": value
         /// pairs. Example: { "name": "wrench", "count": "3" }. **Note**: This field is non-authoritative, and will only manage the
         /// labels present in your configuration. Please refer to the field 'effective_labels' for all of the labels present on the
         /// resource.
         #[builder(into, default)]
-        pub labels: pulumi_wasm_rust::InputOrOutput<
+        pub labels: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Lifetime of issued certificates. A duration in seconds with up to nine fractional digits, ending with 's'.
         /// Example: "1814400s". Valid values are from 21 days (1814400s) to 30 days (2592000s)
         #[builder(into)]
-        pub lifetime: pulumi_wasm_rust::InputOrOutput<String>,
+        pub lifetime: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The Certificate Manager location. If not specified, "global" is used.
         #[builder(into, default)]
-        pub location: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub location: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// A user-defined name of the certificate issuance config.
         /// CertificateIssuanceConfig names must be unique globally.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub project: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// It specifies the percentage of elapsed time of the certificate lifetime to wait before renewing the certificate.
         /// Must be a number between 1-99, inclusive.
         /// You must set the rotation window percentage in relation to the certificate lifetime so that certificate renewal occurs at least 7 days after
         /// the certificate has been issued and at least 7 days before it expires.
         #[builder(into)]
-        pub rotation_window_percentage: pulumi_wasm_rust::InputOrOutput<i32>,
+        pub rotation_window_percentage: pulumi_gestalt_rust::InputOrOutput<i32>,
     }
     #[allow(dead_code)]
     pub struct CertificateIssuanceConfigResult {
         /// The CA that issues the workload certificate. It includes the CA address, type, authentication to CA service, etc.
         /// Structure is documented below.
-        pub certificate_authority_config: pulumi_wasm_rust::Output<
+        pub certificate_authority_config: pulumi_gestalt_rust::Output<
             super::super::types::certificatemanager::CertificateIssuanceConfigCertificateAuthorityConfig,
         >,
         /// The creation timestamp of a CertificateIssuanceConfig. Timestamp is in RFC3339 UTC "Zulu" format,
         /// accurate to nanoseconds with up to nine fractional digits.
         /// Examples: "2014-10-02T15:01:23Z" and "2014-10-02T15:01:23.045123456Z".
-        pub create_time: pulumi_wasm_rust::Output<String>,
+        pub create_time: pulumi_gestalt_rust::Output<String>,
         /// One or more paragraphs of text description of a CertificateIssuanceConfig.
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_gestalt_rust::Output<Option<String>>,
         /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Pulumi, other clients and services.
-        pub effective_labels: pulumi_wasm_rust::Output<
+        pub effective_labels: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
         /// Key algorithm to use when generating the private key.
         /// Possible values are: `RSA_2048`, `ECDSA_P256`.
-        pub key_algorithm: pulumi_wasm_rust::Output<String>,
+        pub key_algorithm: pulumi_gestalt_rust::Output<String>,
         /// 'Set of label tags associated with the CertificateIssuanceConfig resource. An object containing a list of "key": value
         /// pairs. Example: { "name": "wrench", "count": "3" }. **Note**: This field is non-authoritative, and will only manage the
         /// labels present in your configuration. Please refer to the field 'effective_labels' for all of the labels present on the
         /// resource.
-        pub labels: pulumi_wasm_rust::Output<
+        pub labels: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Lifetime of issued certificates. A duration in seconds with up to nine fractional digits, ending with 's'.
         /// Example: "1814400s". Valid values are from 21 days (1814400s) to 30 days (2592000s)
-        pub lifetime: pulumi_wasm_rust::Output<String>,
+        pub lifetime: pulumi_gestalt_rust::Output<String>,
         /// The Certificate Manager location. If not specified, "global" is used.
-        pub location: pulumi_wasm_rust::Output<Option<String>>,
+        pub location: pulumi_gestalt_rust::Output<Option<String>>,
         /// A user-defined name of the certificate issuance config.
         /// CertificateIssuanceConfig names must be unique globally.
-        pub name: pulumi_wasm_rust::Output<String>,
-        pub project: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
+        pub project: pulumi_gestalt_rust::Output<String>,
         /// The combination of labels configured directly on the resource
         /// and default labels configured on the provider.
-        pub pulumi_labels: pulumi_wasm_rust::Output<
+        pub pulumi_labels: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
         /// It specifies the percentage of elapsed time of the certificate lifetime to wait before renewing the certificate.
         /// Must be a number between 1-99, inclusive.
         /// You must set the rotation window percentage in relation to the certificate lifetime so that certificate renewal occurs at least 7 days after
         /// the certificate has been issued and at least 7 days before it expires.
-        pub rotation_window_percentage: pulumi_wasm_rust::Output<i32>,
+        pub rotation_window_percentage: pulumi_gestalt_rust::Output<i32>,
         /// The last update timestamp of a CertificateIssuanceConfig. Timestamp is in RFC3339 UTC "Zulu" format,
         /// accurate to nanoseconds with up to nine fractional digits.
         /// Examples: "2014-10-02T15:01:23Z" and "2014-10-02T15:01:23.045123456Z".
-        pub update_time: pulumi_wasm_rust::Output<String>,
+        pub update_time: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: CertificateIssuanceConfigArgs,
     ) -> CertificateIssuanceConfigResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let certificate_authority_config_binding = args
             .certificate_authority_config
@@ -261,39 +261,41 @@ pub mod certificate_issuance_config {
         };
         let o = register_interface::register(context.get_inner(), &request);
         CertificateIssuanceConfigResult {
-            certificate_authority_config: pulumi_wasm_rust::__private::into_domain(
+            certificate_authority_config: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("certificateAuthorityConfig"),
             ),
-            create_time: pulumi_wasm_rust::__private::into_domain(
+            create_time: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("createTime"),
             ),
-            description: pulumi_wasm_rust::__private::into_domain(
+            description: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("description"),
             ),
-            effective_labels: pulumi_wasm_rust::__private::into_domain(
+            effective_labels: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("effectiveLabels"),
             ),
-            key_algorithm: pulumi_wasm_rust::__private::into_domain(
+            key_algorithm: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("keyAlgorithm"),
             ),
-            labels: pulumi_wasm_rust::__private::into_domain(o.extract_field("labels")),
-            lifetime: pulumi_wasm_rust::__private::into_domain(
+            labels: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("labels"),
+            ),
+            lifetime: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("lifetime"),
             ),
-            location: pulumi_wasm_rust::__private::into_domain(
+            location: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("location"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            project: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            project: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("project"),
             ),
-            pulumi_labels: pulumi_wasm_rust::__private::into_domain(
+            pulumi_labels: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("pulumiLabels"),
             ),
-            rotation_window_percentage: pulumi_wasm_rust::__private::into_domain(
+            rotation_window_percentage: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("rotationWindowPercentage"),
             ),
-            update_time: pulumi_wasm_rust::__private::into_domain(
+            update_time: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("updateTime"),
             ),
         }

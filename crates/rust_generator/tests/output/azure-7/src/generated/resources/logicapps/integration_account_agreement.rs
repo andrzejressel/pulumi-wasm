@@ -67,86 +67,86 @@
 /// ```
 ///
 pub mod integration_account_agreement {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct IntegrationAccountAgreementArgs {
         /// The type of the Logic App Integration Account Agreement. Possible values are `AS2`, `X12` and `Edifact`.
         #[builder(into)]
-        pub agreement_type: pulumi_wasm_rust::InputOrOutput<String>,
+        pub agreement_type: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The content of the Logic App Integration Account Agreement.
         #[builder(into)]
-        pub content: pulumi_wasm_rust::InputOrOutput<String>,
+        pub content: pulumi_gestalt_rust::InputOrOutput<String>,
         /// A `guest_identity` block as documented below.
         #[builder(into)]
-        pub guest_identity: pulumi_wasm_rust::InputOrOutput<
+        pub guest_identity: pulumi_gestalt_rust::InputOrOutput<
             super::super::types::logicapps::IntegrationAccountAgreementGuestIdentity,
         >,
         /// The name of the guest Logic App Integration Account Partner.
         #[builder(into)]
-        pub guest_partner_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub guest_partner_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// A `host_identity` block as documented below.
         #[builder(into)]
-        pub host_identity: pulumi_wasm_rust::InputOrOutput<
+        pub host_identity: pulumi_gestalt_rust::InputOrOutput<
             super::super::types::logicapps::IntegrationAccountAgreementHostIdentity,
         >,
         /// The name of the host Logic App Integration Account Partner.
         #[builder(into)]
-        pub host_partner_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub host_partner_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The name of the Logic App Integration Account. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub integration_account_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub integration_account_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The metadata of the Logic App Integration Account Agreement.
         #[builder(into, default)]
-        pub metadata: pulumi_wasm_rust::InputOrOutput<
+        pub metadata: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// The name which should be used for this Logic App Integration Account Agreement. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The name of the Resource Group where the Logic App Integration Account Agreement should exist. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub resource_group_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub resource_group_name: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct IntegrationAccountAgreementResult {
         /// The type of the Logic App Integration Account Agreement. Possible values are `AS2`, `X12` and `Edifact`.
-        pub agreement_type: pulumi_wasm_rust::Output<String>,
+        pub agreement_type: pulumi_gestalt_rust::Output<String>,
         /// The content of the Logic App Integration Account Agreement.
-        pub content: pulumi_wasm_rust::Output<String>,
+        pub content: pulumi_gestalt_rust::Output<String>,
         /// A `guest_identity` block as documented below.
-        pub guest_identity: pulumi_wasm_rust::Output<
+        pub guest_identity: pulumi_gestalt_rust::Output<
             super::super::types::logicapps::IntegrationAccountAgreementGuestIdentity,
         >,
         /// The name of the guest Logic App Integration Account Partner.
-        pub guest_partner_name: pulumi_wasm_rust::Output<String>,
+        pub guest_partner_name: pulumi_gestalt_rust::Output<String>,
         /// A `host_identity` block as documented below.
-        pub host_identity: pulumi_wasm_rust::Output<
+        pub host_identity: pulumi_gestalt_rust::Output<
             super::super::types::logicapps::IntegrationAccountAgreementHostIdentity,
         >,
         /// The name of the host Logic App Integration Account Partner.
-        pub host_partner_name: pulumi_wasm_rust::Output<String>,
+        pub host_partner_name: pulumi_gestalt_rust::Output<String>,
         /// The name of the Logic App Integration Account. Changing this forces a new resource to be created.
-        pub integration_account_name: pulumi_wasm_rust::Output<String>,
+        pub integration_account_name: pulumi_gestalt_rust::Output<String>,
         /// The metadata of the Logic App Integration Account Agreement.
-        pub metadata: pulumi_wasm_rust::Output<
+        pub metadata: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// The name which should be used for this Logic App Integration Account Agreement. Changing this forces a new resource to be created.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// The name of the Resource Group where the Logic App Integration Account Agreement should exist. Changing this forces a new resource to be created.
-        pub resource_group_name: pulumi_wasm_rust::Output<String>,
+        pub resource_group_name: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: IntegrationAccountAgreementArgs,
     ) -> IntegrationAccountAgreementResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let agreement_type_binding = args.agreement_type.get_output(context).get_inner();
         let content_binding = args.content.get_output(context).get_inner();
@@ -220,32 +220,32 @@ pub mod integration_account_agreement {
         };
         let o = register_interface::register(context.get_inner(), &request);
         IntegrationAccountAgreementResult {
-            agreement_type: pulumi_wasm_rust::__private::into_domain(
+            agreement_type: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("agreementType"),
             ),
-            content: pulumi_wasm_rust::__private::into_domain(
+            content: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("content"),
             ),
-            guest_identity: pulumi_wasm_rust::__private::into_domain(
+            guest_identity: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("guestIdentity"),
             ),
-            guest_partner_name: pulumi_wasm_rust::__private::into_domain(
+            guest_partner_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("guestPartnerName"),
             ),
-            host_identity: pulumi_wasm_rust::__private::into_domain(
+            host_identity: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("hostIdentity"),
             ),
-            host_partner_name: pulumi_wasm_rust::__private::into_domain(
+            host_partner_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("hostPartnerName"),
             ),
-            integration_account_name: pulumi_wasm_rust::__private::into_domain(
+            integration_account_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("integrationAccountName"),
             ),
-            metadata: pulumi_wasm_rust::__private::into_domain(
+            metadata: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("metadata"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            resource_group_name: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("resourceGroupName"),
             ),
         }

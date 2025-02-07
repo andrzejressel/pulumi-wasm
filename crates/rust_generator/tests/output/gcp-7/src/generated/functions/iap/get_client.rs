@@ -1,33 +1,33 @@
 pub mod get_client {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct GetClientArgs {
         /// The name of the brand.
         #[builder(into)]
-        pub brand: pulumi_wasm_rust::InputOrOutput<String>,
+        pub brand: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The client_id of the brand.
         #[builder(into)]
-        pub client_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub client_id: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct GetClientResult {
-        pub brand: pulumi_wasm_rust::Output<String>,
-        pub client_id: pulumi_wasm_rust::Output<String>,
-        pub display_name: pulumi_wasm_rust::Output<String>,
+        pub brand: pulumi_gestalt_rust::Output<String>,
+        pub client_id: pulumi_gestalt_rust::Output<String>,
+        pub display_name: pulumi_gestalt_rust::Output<String>,
         /// The provider-assigned unique ID for this managed resource.
-        pub id: pulumi_wasm_rust::Output<String>,
-        pub secret: pulumi_wasm_rust::Output<String>,
+        pub id: pulumi_gestalt_rust::Output<String>,
+        pub secret: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         args: GetClientArgs,
     ) -> GetClientResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let brand_binding = args.brand.get_output(context).get_inner();
         let client_id_binding = args.client_id.get_output(context).get_inner();
@@ -47,15 +47,17 @@ pub mod get_client {
         };
         let o = register_interface::invoke(context.get_inner(), &request);
         GetClientResult {
-            brand: pulumi_wasm_rust::__private::into_domain(o.extract_field("brand")),
-            client_id: pulumi_wasm_rust::__private::into_domain(
+            brand: pulumi_gestalt_rust::__private::into_domain(o.extract_field("brand")),
+            client_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("clientId"),
             ),
-            display_name: pulumi_wasm_rust::__private::into_domain(
+            display_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("displayName"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
-            secret: pulumi_wasm_rust::__private::into_domain(o.extract_field("secret")),
+            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
+            secret: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("secret"),
+            ),
         }
     }
 }

@@ -2,22 +2,24 @@ pub mod get_client_config {
     #[allow(dead_code)]
     pub struct GetClientConfigResult {
         /// is set to the Azure Client ID (Application Object ID).
-        pub client_id: pulumi_wasm_rust::Output<String>,
+        pub client_id: pulumi_gestalt_rust::Output<String>,
         /// The provider-assigned unique ID for this managed resource.
-        pub id: pulumi_wasm_rust::Output<String>,
+        pub id: pulumi_gestalt_rust::Output<String>,
         /// is set to the Azure Object ID.
-        pub object_id: pulumi_wasm_rust::Output<String>,
+        pub object_id: pulumi_gestalt_rust::Output<String>,
         /// is set to the Azure Subscription ID.
-        pub subscription_id: pulumi_wasm_rust::Output<String>,
+        pub subscription_id: pulumi_gestalt_rust::Output<String>,
         /// is set to the Azure Tenant ID.
-        pub tenant_id: pulumi_wasm_rust::Output<String>,
+        pub tenant_id: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn invoke(context: &pulumi_wasm_rust::PulumiContext) -> GetClientConfigResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+    pub fn invoke(
+        context: &pulumi_gestalt_rust::PulumiContext,
+    ) -> GetClientConfigResult {
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let request = register_interface::ResourceInvokeRequest {
             token: "azure:core/getClientConfig:getClientConfig".into(),
@@ -26,17 +28,17 @@ pub mod get_client_config {
         };
         let o = register_interface::invoke(context.get_inner(), &request);
         GetClientConfigResult {
-            client_id: pulumi_wasm_rust::__private::into_domain(
+            client_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("clientId"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
-            object_id: pulumi_wasm_rust::__private::into_domain(
+            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
+            object_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("objectId"),
             ),
-            subscription_id: pulumi_wasm_rust::__private::into_domain(
+            subscription_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("subscriptionId"),
             ),
-            tenant_id: pulumi_wasm_rust::__private::into_domain(
+            tenant_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("tenantId"),
             ),
         }

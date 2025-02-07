@@ -3,8 +3,8 @@
 /// ## Example Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = resource_group::create(
@@ -54,7 +54,7 @@
 /// ```
 ///
 pub mod source_control {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct SourceControlArgs {
@@ -62,76 +62,76 @@ pub mod source_control {
         ///
         /// > **NOTE:** Function apps are not supported at this time.
         #[builder(into)]
-        pub app_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub app_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The branch name to use for deployments. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub branch: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub branch: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// A `github_action_configuration` block as defined below. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub github_action_configuration: pulumi_wasm_rust::InputOrOutput<
+        pub github_action_configuration: pulumi_gestalt_rust::InputOrOutput<
             Option<
                 super::super::types::appservice::SourceControlGithubActionConfiguration,
             >,
         >,
         /// The URL for the repository. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub repo_url: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub repo_url: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Should the Deployment Rollback be enabled? Defaults to `false`. Changing this forces a new resource to be created.
         ///
         /// > **NOTE:** Azure can typically set this value automatically based on the `repo_url` value.
         #[builder(into, default)]
-        pub rollback_enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub rollback_enabled: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// Should the App use local Git configuration. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub use_local_git: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub use_local_git: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// Should code be deployed manually. Set to `false` to enable continuous integration, such as webhooks into online repos such as GitHub. Defaults to `false`. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub use_manual_integration: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub use_manual_integration: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// The repository specified is Mercurial. Defaults to `false`. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub use_mercurial: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub use_mercurial: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
     }
     #[allow(dead_code)]
     pub struct SourceControlResult {
         /// The ID of the Windows or Linux Web App. Changing this forces a new resource to be created.
         ///
         /// > **NOTE:** Function apps are not supported at this time.
-        pub app_id: pulumi_wasm_rust::Output<String>,
+        pub app_id: pulumi_gestalt_rust::Output<String>,
         /// The branch name to use for deployments. Changing this forces a new resource to be created.
-        pub branch: pulumi_wasm_rust::Output<String>,
+        pub branch: pulumi_gestalt_rust::Output<String>,
         /// A `github_action_configuration` block as defined below. Changing this forces a new resource to be created.
-        pub github_action_configuration: pulumi_wasm_rust::Output<
+        pub github_action_configuration: pulumi_gestalt_rust::Output<
             Option<
                 super::super::types::appservice::SourceControlGithubActionConfiguration,
             >,
         >,
         /// The URL for the repository. Changing this forces a new resource to be created.
-        pub repo_url: pulumi_wasm_rust::Output<String>,
+        pub repo_url: pulumi_gestalt_rust::Output<String>,
         /// Should the Deployment Rollback be enabled? Defaults to `false`. Changing this forces a new resource to be created.
         ///
         /// > **NOTE:** Azure can typically set this value automatically based on the `repo_url` value.
-        pub rollback_enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub rollback_enabled: pulumi_gestalt_rust::Output<Option<bool>>,
         /// The SCM Type in use. This value is decoded by the service from the repository information supplied.
-        pub scm_type: pulumi_wasm_rust::Output<String>,
+        pub scm_type: pulumi_gestalt_rust::Output<String>,
         /// Should the App use local Git configuration. Changing this forces a new resource to be created.
-        pub use_local_git: pulumi_wasm_rust::Output<Option<bool>>,
+        pub use_local_git: pulumi_gestalt_rust::Output<Option<bool>>,
         /// Should code be deployed manually. Set to `false` to enable continuous integration, such as webhooks into online repos such as GitHub. Defaults to `false`. Changing this forces a new resource to be created.
-        pub use_manual_integration: pulumi_wasm_rust::Output<Option<bool>>,
+        pub use_manual_integration: pulumi_gestalt_rust::Output<Option<bool>>,
         /// The repository specified is Mercurial. Defaults to `false`. Changing this forces a new resource to be created.
-        pub use_mercurial: pulumi_wasm_rust::Output<Option<bool>>,
+        pub use_mercurial: pulumi_gestalt_rust::Output<Option<bool>>,
         /// Indicates if the Slot uses a GitHub action for deployment. This value is decoded by the service from the repository information supplied.
-        pub uses_github_action: pulumi_wasm_rust::Output<bool>,
+        pub uses_github_action: pulumi_gestalt_rust::Output<bool>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: SourceControlArgs,
     ) -> SourceControlResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let app_id_binding = args.app_id.get_output(context).get_inner();
         let branch_binding = args.branch.get_output(context).get_inner();
@@ -191,30 +191,34 @@ pub mod source_control {
         };
         let o = register_interface::register(context.get_inner(), &request);
         SourceControlResult {
-            app_id: pulumi_wasm_rust::__private::into_domain(o.extract_field("appId")),
-            branch: pulumi_wasm_rust::__private::into_domain(o.extract_field("branch")),
-            github_action_configuration: pulumi_wasm_rust::__private::into_domain(
+            app_id: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("appId"),
+            ),
+            branch: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("branch"),
+            ),
+            github_action_configuration: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("githubActionConfiguration"),
             ),
-            repo_url: pulumi_wasm_rust::__private::into_domain(
+            repo_url: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("repoUrl"),
             ),
-            rollback_enabled: pulumi_wasm_rust::__private::into_domain(
+            rollback_enabled: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("rollbackEnabled"),
             ),
-            scm_type: pulumi_wasm_rust::__private::into_domain(
+            scm_type: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("scmType"),
             ),
-            use_local_git: pulumi_wasm_rust::__private::into_domain(
+            use_local_git: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("useLocalGit"),
             ),
-            use_manual_integration: pulumi_wasm_rust::__private::into_domain(
+            use_manual_integration: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("useManualIntegration"),
             ),
-            use_mercurial: pulumi_wasm_rust::__private::into_domain(
+            use_mercurial: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("useMercurial"),
             ),
-            uses_github_action: pulumi_wasm_rust::__private::into_domain(
+            uses_github_action: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("usesGithubAction"),
             ),
         }

@@ -77,114 +77,114 @@
 /// $ pulumi import aws:appsync/dataSource:DataSource example abcdef123456-example
 /// ```
 pub mod data_source {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct DataSourceArgs {
         /// API ID for the GraphQL API for the data source.
         #[builder(into)]
-        pub api_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub api_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Description of the data source.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub description: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// DynamoDB settings. See `dynamodb_config` Block for details.
         #[builder(into, default)]
-        pub dynamodb_config: pulumi_wasm_rust::InputOrOutput<
+        pub dynamodb_config: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::appsync::DataSourceDynamodbConfig>,
         >,
         /// Amazon Elasticsearch settings. See `elasticsearch_config` Block for details.
         #[builder(into, default)]
-        pub elasticsearch_config: pulumi_wasm_rust::InputOrOutput<
+        pub elasticsearch_config: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::appsync::DataSourceElasticsearchConfig>,
         >,
         /// AWS EventBridge settings. See `event_bridge_config` Block for details.
         #[builder(into, default)]
-        pub event_bridge_config: pulumi_wasm_rust::InputOrOutput<
+        pub event_bridge_config: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::appsync::DataSourceEventBridgeConfig>,
         >,
         /// HTTP settings. See `http_config` Block for details.
         #[builder(into, default)]
-        pub http_config: pulumi_wasm_rust::InputOrOutput<
+        pub http_config: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::appsync::DataSourceHttpConfig>,
         >,
         /// AWS Lambda settings. See `lambda_config` Block for details.
         #[builder(into, default)]
-        pub lambda_config: pulumi_wasm_rust::InputOrOutput<
+        pub lambda_config: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::appsync::DataSourceLambdaConfig>,
         >,
         /// User-supplied name for the data source.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Amazon OpenSearch Service settings. See `opensearchservice_config` Block for details.
         #[builder(into, default)]
-        pub opensearchservice_config: pulumi_wasm_rust::InputOrOutput<
+        pub opensearchservice_config: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::appsync::DataSourceOpensearchserviceConfig>,
         >,
         /// AWS RDS settings. See `relational_database_config` Block for details.
         #[builder(into, default)]
-        pub relational_database_config: pulumi_wasm_rust::InputOrOutput<
+        pub relational_database_config: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::appsync::DataSourceRelationalDatabaseConfig>,
         >,
         /// IAM service role ARN for the data source. Required if `type` is specified as `AWS_LAMBDA`, `AMAZON_DYNAMODB`, `AMAZON_ELASTICSEARCH`, `AMAZON_EVENTBRIDGE`, or `AMAZON_OPENSEARCH_SERVICE`.
         #[builder(into, default)]
-        pub service_role_arn: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub service_role_arn: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Type of the Data Source. Valid values: `AWS_LAMBDA`, `AMAZON_DYNAMODB`, `AMAZON_ELASTICSEARCH`, `HTTP`, `NONE`, `RELATIONAL_DATABASE`, `AMAZON_EVENTBRIDGE`, `AMAZON_OPENSEARCH_SERVICE`.
         #[builder(into)]
-        pub type_: pulumi_wasm_rust::InputOrOutput<String>,
+        pub type_: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct DataSourceResult {
         /// API ID for the GraphQL API for the data source.
-        pub api_id: pulumi_wasm_rust::Output<String>,
+        pub api_id: pulumi_gestalt_rust::Output<String>,
         /// ARN
-        pub arn: pulumi_wasm_rust::Output<String>,
+        pub arn: pulumi_gestalt_rust::Output<String>,
         /// Description of the data source.
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_gestalt_rust::Output<Option<String>>,
         /// DynamoDB settings. See `dynamodb_config` Block for details.
-        pub dynamodb_config: pulumi_wasm_rust::Output<
+        pub dynamodb_config: pulumi_gestalt_rust::Output<
             Option<super::super::types::appsync::DataSourceDynamodbConfig>,
         >,
         /// Amazon Elasticsearch settings. See `elasticsearch_config` Block for details.
-        pub elasticsearch_config: pulumi_wasm_rust::Output<
+        pub elasticsearch_config: pulumi_gestalt_rust::Output<
             Option<super::super::types::appsync::DataSourceElasticsearchConfig>,
         >,
         /// AWS EventBridge settings. See `event_bridge_config` Block for details.
-        pub event_bridge_config: pulumi_wasm_rust::Output<
+        pub event_bridge_config: pulumi_gestalt_rust::Output<
             Option<super::super::types::appsync::DataSourceEventBridgeConfig>,
         >,
         /// HTTP settings. See `http_config` Block for details.
-        pub http_config: pulumi_wasm_rust::Output<
+        pub http_config: pulumi_gestalt_rust::Output<
             Option<super::super::types::appsync::DataSourceHttpConfig>,
         >,
         /// AWS Lambda settings. See `lambda_config` Block for details.
-        pub lambda_config: pulumi_wasm_rust::Output<
+        pub lambda_config: pulumi_gestalt_rust::Output<
             Option<super::super::types::appsync::DataSourceLambdaConfig>,
         >,
         /// User-supplied name for the data source.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// Amazon OpenSearch Service settings. See `opensearchservice_config` Block for details.
-        pub opensearchservice_config: pulumi_wasm_rust::Output<
+        pub opensearchservice_config: pulumi_gestalt_rust::Output<
             Option<super::super::types::appsync::DataSourceOpensearchserviceConfig>,
         >,
         /// AWS RDS settings. See `relational_database_config` Block for details.
-        pub relational_database_config: pulumi_wasm_rust::Output<
+        pub relational_database_config: pulumi_gestalt_rust::Output<
             Option<super::super::types::appsync::DataSourceRelationalDatabaseConfig>,
         >,
         /// IAM service role ARN for the data source. Required if `type` is specified as `AWS_LAMBDA`, `AMAZON_DYNAMODB`, `AMAZON_ELASTICSEARCH`, `AMAZON_EVENTBRIDGE`, or `AMAZON_OPENSEARCH_SERVICE`.
-        pub service_role_arn: pulumi_wasm_rust::Output<Option<String>>,
+        pub service_role_arn: pulumi_gestalt_rust::Output<Option<String>>,
         /// Type of the Data Source. Valid values: `AWS_LAMBDA`, `AMAZON_DYNAMODB`, `AMAZON_ELASTICSEARCH`, `HTTP`, `NONE`, `RELATIONAL_DATABASE`, `AMAZON_EVENTBRIDGE`, `AMAZON_OPENSEARCH_SERVICE`.
-        pub type_: pulumi_wasm_rust::Output<String>,
+        pub type_: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: DataSourceArgs,
     ) -> DataSourceResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let api_id_binding = args.api_id.get_output(context).get_inner();
         let description_binding = args.description.get_output(context).get_inner();
@@ -273,37 +273,39 @@ pub mod data_source {
         };
         let o = register_interface::register(context.get_inner(), &request);
         DataSourceResult {
-            api_id: pulumi_wasm_rust::__private::into_domain(o.extract_field("apiId")),
-            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
-            description: pulumi_wasm_rust::__private::into_domain(
+            api_id: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("apiId"),
+            ),
+            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
+            description: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("description"),
             ),
-            dynamodb_config: pulumi_wasm_rust::__private::into_domain(
+            dynamodb_config: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("dynamodbConfig"),
             ),
-            elasticsearch_config: pulumi_wasm_rust::__private::into_domain(
+            elasticsearch_config: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("elasticsearchConfig"),
             ),
-            event_bridge_config: pulumi_wasm_rust::__private::into_domain(
+            event_bridge_config: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("eventBridgeConfig"),
             ),
-            http_config: pulumi_wasm_rust::__private::into_domain(
+            http_config: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("httpConfig"),
             ),
-            lambda_config: pulumi_wasm_rust::__private::into_domain(
+            lambda_config: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("lambdaConfig"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            opensearchservice_config: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            opensearchservice_config: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("opensearchserviceConfig"),
             ),
-            relational_database_config: pulumi_wasm_rust::__private::into_domain(
+            relational_database_config: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("relationalDatabaseConfig"),
             ),
-            service_role_arn: pulumi_wasm_rust::__private::into_domain(
+            service_role_arn: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("serviceRoleArn"),
             ),
-            type_: pulumi_wasm_rust::__private::into_domain(o.extract_field("type")),
+            type_: pulumi_gestalt_rust::__private::into_domain(o.extract_field("type")),
         }
     }
 }

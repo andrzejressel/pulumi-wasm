@@ -6,8 +6,8 @@
 /// ## Example Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = table_item::create(
@@ -43,44 +43,44 @@
 /// You cannot import DynamoDB table items.
 ///
 pub mod table_item {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct TableItemArgs {
         /// Hash key to use for lookups and identification of the item
         #[builder(into)]
-        pub hash_key: pulumi_wasm_rust::InputOrOutput<String>,
+        pub hash_key: pulumi_gestalt_rust::InputOrOutput<String>,
         /// JSON representation of a map of attribute name/value pairs, one for each attribute. Only the primary key attributes are required; you can optionally provide other attribute name-value pairs for the item.
         #[builder(into)]
-        pub item: pulumi_wasm_rust::InputOrOutput<String>,
+        pub item: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Range key to use for lookups and identification of the item. Required if there is range key defined in the table.
         #[builder(into, default)]
-        pub range_key: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub range_key: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Name of the table to contain the item.
         #[builder(into)]
-        pub table_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub table_name: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct TableItemResult {
         /// Hash key to use for lookups and identification of the item
-        pub hash_key: pulumi_wasm_rust::Output<String>,
+        pub hash_key: pulumi_gestalt_rust::Output<String>,
         /// JSON representation of a map of attribute name/value pairs, one for each attribute. Only the primary key attributes are required; you can optionally provide other attribute name-value pairs for the item.
-        pub item: pulumi_wasm_rust::Output<String>,
+        pub item: pulumi_gestalt_rust::Output<String>,
         /// Range key to use for lookups and identification of the item. Required if there is range key defined in the table.
-        pub range_key: pulumi_wasm_rust::Output<Option<String>>,
+        pub range_key: pulumi_gestalt_rust::Output<Option<String>>,
         /// Name of the table to contain the item.
-        pub table_name: pulumi_wasm_rust::Output<String>,
+        pub table_name: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: TableItemArgs,
     ) -> TableItemResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let hash_key_binding = args.hash_key.get_output(context).get_inner();
         let item_binding = args.item.get_output(context).get_inner();
@@ -111,14 +111,14 @@ pub mod table_item {
         };
         let o = register_interface::register(context.get_inner(), &request);
         TableItemResult {
-            hash_key: pulumi_wasm_rust::__private::into_domain(
+            hash_key: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("hashKey"),
             ),
-            item: pulumi_wasm_rust::__private::into_domain(o.extract_field("item")),
-            range_key: pulumi_wasm_rust::__private::into_domain(
+            item: pulumi_gestalt_rust::__private::into_domain(o.extract_field("item")),
+            range_key: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("rangeKey"),
             ),
-            table_name: pulumi_wasm_rust::__private::into_domain(
+            table_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("tableName"),
             ),
         }

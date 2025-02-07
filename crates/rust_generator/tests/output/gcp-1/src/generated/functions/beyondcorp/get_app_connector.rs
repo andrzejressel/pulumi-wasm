@@ -1,5 +1,5 @@
 pub mod get_app_connector {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct GetAppConnectorArgs {
@@ -7,45 +7,47 @@ pub mod get_app_connector {
         ///
         /// - - -
         #[builder(into)]
-        pub name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The project in which the resource belongs. If it
         /// is not provided, the provider project is used.
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub project: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The region in which the resource belongs. If it
         /// is not provided, the provider region is used.
         #[builder(into, default)]
-        pub region: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub region: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct GetAppConnectorResult {
-        pub display_name: pulumi_wasm_rust::Output<String>,
-        pub effective_labels: pulumi_wasm_rust::Output<
+        pub display_name: pulumi_gestalt_rust::Output<String>,
+        pub effective_labels: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
         /// The provider-assigned unique ID for this managed resource.
-        pub id: pulumi_wasm_rust::Output<String>,
-        pub labels: pulumi_wasm_rust::Output<std::collections::HashMap<String, String>>,
-        pub name: pulumi_wasm_rust::Output<String>,
-        pub principal_infos: pulumi_wasm_rust::Output<
-            Vec<super::super::super::types::beyondcorp::GetAppConnectorPrincipalInfo>,
-        >,
-        pub project: pulumi_wasm_rust::Output<Option<String>>,
-        pub pulumi_labels: pulumi_wasm_rust::Output<
+        pub id: pulumi_gestalt_rust::Output<String>,
+        pub labels: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
-        pub region: pulumi_wasm_rust::Output<Option<String>>,
-        pub state: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
+        pub principal_infos: pulumi_gestalt_rust::Output<
+            Vec<super::super::super::types::beyondcorp::GetAppConnectorPrincipalInfo>,
+        >,
+        pub project: pulumi_gestalt_rust::Output<Option<String>>,
+        pub pulumi_labels: pulumi_gestalt_rust::Output<
+            std::collections::HashMap<String, String>,
+        >,
+        pub region: pulumi_gestalt_rust::Output<Option<String>>,
+        pub state: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         args: GetAppConnectorArgs,
     ) -> GetAppConnectorResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let name_binding = args.name.get_output(context).get_inner();
         let project_binding = args.project.get_output(context).get_inner();
@@ -70,26 +72,30 @@ pub mod get_app_connector {
         };
         let o = register_interface::invoke(context.get_inner(), &request);
         GetAppConnectorResult {
-            display_name: pulumi_wasm_rust::__private::into_domain(
+            display_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("displayName"),
             ),
-            effective_labels: pulumi_wasm_rust::__private::into_domain(
+            effective_labels: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("effectiveLabels"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
-            labels: pulumi_wasm_rust::__private::into_domain(o.extract_field("labels")),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            principal_infos: pulumi_wasm_rust::__private::into_domain(
+            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
+            labels: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("labels"),
+            ),
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            principal_infos: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("principalInfos"),
             ),
-            project: pulumi_wasm_rust::__private::into_domain(
+            project: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("project"),
             ),
-            pulumi_labels: pulumi_wasm_rust::__private::into_domain(
+            pulumi_labels: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("pulumiLabels"),
             ),
-            region: pulumi_wasm_rust::__private::into_domain(o.extract_field("region")),
-            state: pulumi_wasm_rust::__private::into_domain(o.extract_field("state")),
+            region: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("region"),
+            ),
+            state: pulumi_gestalt_rust::__private::into_domain(o.extract_field("state")),
         }
     }
 }

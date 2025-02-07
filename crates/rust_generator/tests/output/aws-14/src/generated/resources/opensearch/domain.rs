@@ -220,8 +220,8 @@
 /// ### First apply
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = domain::create(
@@ -273,8 +273,8 @@
 /// Notice that the only change is `advanced_security_options.0.enabled` is now set to `true`.
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = domain::create(
@@ -329,194 +329,194 @@
 /// $ pulumi import aws:opensearch/domain:Domain example domain_name
 /// ```
 pub mod domain {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct DomainArgs {
         /// IAM policy document specifying the access policies for the domain.
         #[builder(into, default)]
-        pub access_policies: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub access_policies: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Key-value string pairs to specify advanced configuration options. Note that the values for these configuration options must be strings (wrapped in quotes) or they may be wrong and cause a perpetual diff, causing the provider to want to recreate your OpenSearch domain on every apply.
         #[builder(into, default)]
-        pub advanced_options: pulumi_wasm_rust::InputOrOutput<
+        pub advanced_options: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Configuration block for [fine-grained access control](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/fgac.html). Detailed below.
         #[builder(into, default)]
-        pub advanced_security_options: pulumi_wasm_rust::InputOrOutput<
+        pub advanced_security_options: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::opensearch::DomainAdvancedSecurityOptions>,
         >,
         /// Configuration block for the Auto-Tune options of the domain. Detailed below.
         #[builder(into, default)]
-        pub auto_tune_options: pulumi_wasm_rust::InputOrOutput<
+        pub auto_tune_options: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::opensearch::DomainAutoTuneOptions>,
         >,
         /// Configuration block for the cluster of the domain. Detailed below.
         #[builder(into, default)]
-        pub cluster_config: pulumi_wasm_rust::InputOrOutput<
+        pub cluster_config: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::opensearch::DomainClusterConfig>,
         >,
         /// Configuration block for authenticating dashboard with Cognito. Detailed below.
         #[builder(into, default)]
-        pub cognito_options: pulumi_wasm_rust::InputOrOutput<
+        pub cognito_options: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::opensearch::DomainCognitoOptions>,
         >,
         /// Configuration block for domain endpoint HTTP(S) related options. Detailed below.
         #[builder(into, default)]
-        pub domain_endpoint_options: pulumi_wasm_rust::InputOrOutput<
+        pub domain_endpoint_options: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::opensearch::DomainDomainEndpointOptions>,
         >,
         /// Name of the domain.
         ///
         /// The following arguments are optional:
         #[builder(into, default)]
-        pub domain_name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub domain_name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Configuration block for EBS related options, may be required based on chosen [instance size](https://aws.amazon.com/opensearch-service/pricing/). Detailed below.
         #[builder(into, default)]
-        pub ebs_options: pulumi_wasm_rust::InputOrOutput<
+        pub ebs_options: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::opensearch::DomainEbsOptions>,
         >,
         /// Configuration block for encrypt at rest options. Only available for [certain instance types](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/encryption-at-rest.html). Detailed below.
         #[builder(into, default)]
-        pub encrypt_at_rest: pulumi_wasm_rust::InputOrOutput<
+        pub encrypt_at_rest: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::opensearch::DomainEncryptAtRest>,
         >,
         /// Either `Elasticsearch_X.Y` or `OpenSearch_X.Y` to specify the engine version for the Amazon OpenSearch Service domain. For example, `OpenSearch_1.0` or `Elasticsearch_7.9`.
         /// See [Creating and managing Amazon OpenSearch Service domains](http://docs.aws.amazon.com/opensearch-service/latest/developerguide/createupdatedomains.html#createdomains).
         /// Defaults to the lastest version of OpenSearch.
         #[builder(into, default)]
-        pub engine_version: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub engine_version: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The IP address type for the endpoint. Valid values are `ipv4` and `dualstack`.
         #[builder(into, default)]
-        pub ip_address_type: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub ip_address_type: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Configuration block for publishing slow and application logs to CloudWatch Logs. This block can be declared multiple times, for each log_type, within the same resource. Detailed below.
         #[builder(into, default)]
-        pub log_publishing_options: pulumi_wasm_rust::InputOrOutput<
+        pub log_publishing_options: pulumi_gestalt_rust::InputOrOutput<
             Option<Vec<super::super::types::opensearch::DomainLogPublishingOption>>,
         >,
         /// Configuration block for node-to-node encryption options. Detailed below.
         #[builder(into, default)]
-        pub node_to_node_encryption: pulumi_wasm_rust::InputOrOutput<
+        pub node_to_node_encryption: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::opensearch::DomainNodeToNodeEncryption>,
         >,
         /// Configuration to add Off Peak update options. ([documentation](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/off-peak.html)). Detailed below.
         #[builder(into, default)]
-        pub off_peak_window_options: pulumi_wasm_rust::InputOrOutput<
+        pub off_peak_window_options: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::opensearch::DomainOffPeakWindowOptions>,
         >,
         /// Configuration block for snapshot related options. Detailed below. DEPRECATED. For domains running OpenSearch 5.3 and later, Amazon OpenSearch takes hourly automated snapshots, making this setting irrelevant. For domains running earlier versions, OpenSearch takes daily automated snapshots.
         #[builder(into, default)]
-        pub snapshot_options: pulumi_wasm_rust::InputOrOutput<
+        pub snapshot_options: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::opensearch::DomainSnapshotOptions>,
         >,
         /// Software update options for the domain. Detailed below.
         #[builder(into, default)]
-        pub software_update_options: pulumi_wasm_rust::InputOrOutput<
+        pub software_update_options: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::opensearch::DomainSoftwareUpdateOptions>,
         >,
         /// Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Configuration block for VPC related options. Adding or removing this configuration forces a new resource ([documentation](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/vpc.html)). Detailed below.
         #[builder(into, default)]
-        pub vpc_options: pulumi_wasm_rust::InputOrOutput<
+        pub vpc_options: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::opensearch::DomainVpcOptions>,
         >,
     }
     #[allow(dead_code)]
     pub struct DomainResult {
         /// IAM policy document specifying the access policies for the domain.
-        pub access_policies: pulumi_wasm_rust::Output<String>,
+        pub access_policies: pulumi_gestalt_rust::Output<String>,
         /// Key-value string pairs to specify advanced configuration options. Note that the values for these configuration options must be strings (wrapped in quotes) or they may be wrong and cause a perpetual diff, causing the provider to want to recreate your OpenSearch domain on every apply.
-        pub advanced_options: pulumi_wasm_rust::Output<
+        pub advanced_options: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
         /// Configuration block for [fine-grained access control](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/fgac.html). Detailed below.
-        pub advanced_security_options: pulumi_wasm_rust::Output<
+        pub advanced_security_options: pulumi_gestalt_rust::Output<
             super::super::types::opensearch::DomainAdvancedSecurityOptions,
         >,
         /// ARN of the domain.
-        pub arn: pulumi_wasm_rust::Output<String>,
+        pub arn: pulumi_gestalt_rust::Output<String>,
         /// Configuration block for the Auto-Tune options of the domain. Detailed below.
-        pub auto_tune_options: pulumi_wasm_rust::Output<
+        pub auto_tune_options: pulumi_gestalt_rust::Output<
             super::super::types::opensearch::DomainAutoTuneOptions,
         >,
         /// Configuration block for the cluster of the domain. Detailed below.
-        pub cluster_config: pulumi_wasm_rust::Output<
+        pub cluster_config: pulumi_gestalt_rust::Output<
             super::super::types::opensearch::DomainClusterConfig,
         >,
         /// Configuration block for authenticating dashboard with Cognito. Detailed below.
-        pub cognito_options: pulumi_wasm_rust::Output<
+        pub cognito_options: pulumi_gestalt_rust::Output<
             Option<super::super::types::opensearch::DomainCognitoOptions>,
         >,
         /// Domain-specific endpoint for Dashboard without https scheme.
-        pub dashboard_endpoint: pulumi_wasm_rust::Output<String>,
+        pub dashboard_endpoint: pulumi_gestalt_rust::Output<String>,
         /// V2 domain endpoint for Dashboard that works with both IPv4 and IPv6 addresses, without https scheme.
-        pub dashboard_endpoint_v2: pulumi_wasm_rust::Output<String>,
+        pub dashboard_endpoint_v2: pulumi_gestalt_rust::Output<String>,
         /// Configuration block for domain endpoint HTTP(S) related options. Detailed below.
-        pub domain_endpoint_options: pulumi_wasm_rust::Output<
+        pub domain_endpoint_options: pulumi_gestalt_rust::Output<
             super::super::types::opensearch::DomainDomainEndpointOptions,
         >,
         /// Dual stack hosted zone ID for the domain.
-        pub domain_endpoint_v2_hosted_zone_id: pulumi_wasm_rust::Output<String>,
+        pub domain_endpoint_v2_hosted_zone_id: pulumi_gestalt_rust::Output<String>,
         /// Unique identifier for the domain.
-        pub domain_id: pulumi_wasm_rust::Output<String>,
+        pub domain_id: pulumi_gestalt_rust::Output<String>,
         /// Name of the domain.
         ///
         /// The following arguments are optional:
-        pub domain_name: pulumi_wasm_rust::Output<String>,
+        pub domain_name: pulumi_gestalt_rust::Output<String>,
         /// Configuration block for EBS related options, may be required based on chosen [instance size](https://aws.amazon.com/opensearch-service/pricing/). Detailed below.
-        pub ebs_options: pulumi_wasm_rust::Output<
+        pub ebs_options: pulumi_gestalt_rust::Output<
             super::super::types::opensearch::DomainEbsOptions,
         >,
         /// Configuration block for encrypt at rest options. Only available for [certain instance types](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/encryption-at-rest.html). Detailed below.
-        pub encrypt_at_rest: pulumi_wasm_rust::Output<
+        pub encrypt_at_rest: pulumi_gestalt_rust::Output<
             super::super::types::opensearch::DomainEncryptAtRest,
         >,
         /// Domain-specific endpoint used to submit index, search, and data upload requests.
-        pub endpoint: pulumi_wasm_rust::Output<String>,
+        pub endpoint: pulumi_gestalt_rust::Output<String>,
         /// V2 domain endpoint that works with both IPv4 and IPv6 addresses, used to submit index, search, and data upload requests.
-        pub endpoint_v2: pulumi_wasm_rust::Output<String>,
+        pub endpoint_v2: pulumi_gestalt_rust::Output<String>,
         /// Either `Elasticsearch_X.Y` or `OpenSearch_X.Y` to specify the engine version for the Amazon OpenSearch Service domain. For example, `OpenSearch_1.0` or `Elasticsearch_7.9`.
         /// See [Creating and managing Amazon OpenSearch Service domains](http://docs.aws.amazon.com/opensearch-service/latest/developerguide/createupdatedomains.html#createdomains).
         /// Defaults to the lastest version of OpenSearch.
-        pub engine_version: pulumi_wasm_rust::Output<String>,
+        pub engine_version: pulumi_gestalt_rust::Output<String>,
         /// The IP address type for the endpoint. Valid values are `ipv4` and `dualstack`.
-        pub ip_address_type: pulumi_wasm_rust::Output<String>,
+        pub ip_address_type: pulumi_gestalt_rust::Output<String>,
         /// (**Deprecated**) Domain-specific endpoint for kibana without https scheme. Use the `dashboard_endpoint` attribute instead.
-        pub kibana_endpoint: pulumi_wasm_rust::Output<String>,
+        pub kibana_endpoint: pulumi_gestalt_rust::Output<String>,
         /// Configuration block for publishing slow and application logs to CloudWatch Logs. This block can be declared multiple times, for each log_type, within the same resource. Detailed below.
-        pub log_publishing_options: pulumi_wasm_rust::Output<
+        pub log_publishing_options: pulumi_gestalt_rust::Output<
             Option<Vec<super::super::types::opensearch::DomainLogPublishingOption>>,
         >,
         /// Configuration block for node-to-node encryption options. Detailed below.
-        pub node_to_node_encryption: pulumi_wasm_rust::Output<
+        pub node_to_node_encryption: pulumi_gestalt_rust::Output<
             super::super::types::opensearch::DomainNodeToNodeEncryption,
         >,
         /// Configuration to add Off Peak update options. ([documentation](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/off-peak.html)). Detailed below.
-        pub off_peak_window_options: pulumi_wasm_rust::Output<
+        pub off_peak_window_options: pulumi_gestalt_rust::Output<
             super::super::types::opensearch::DomainOffPeakWindowOptions,
         >,
         /// Configuration block for snapshot related options. Detailed below. DEPRECATED. For domains running OpenSearch 5.3 and later, Amazon OpenSearch takes hourly automated snapshots, making this setting irrelevant. For domains running earlier versions, OpenSearch takes daily automated snapshots.
-        pub snapshot_options: pulumi_wasm_rust::Output<
+        pub snapshot_options: pulumi_gestalt_rust::Output<
             Option<super::super::types::opensearch::DomainSnapshotOptions>,
         >,
         /// Software update options for the domain. Detailed below.
-        pub software_update_options: pulumi_wasm_rust::Output<
+        pub software_update_options: pulumi_gestalt_rust::Output<
             super::super::types::opensearch::DomainSoftwareUpdateOptions,
         >,
         /// Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        pub tags_all: pulumi_wasm_rust::Output<
+        pub tags_all: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
         /// Configuration block for VPC related options. Adding or removing this configuration forces a new resource ([documentation](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/vpc.html)). Detailed below.
-        pub vpc_options: pulumi_wasm_rust::Output<
+        pub vpc_options: pulumi_gestalt_rust::Output<
             Option<super::super::types::opensearch::DomainVpcOptions>,
         >,
     }
@@ -525,11 +525,11 @@ pub mod domain {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: DomainArgs,
     ) -> DomainResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let access_policies_binding = args
             .access_policies
@@ -674,84 +674,84 @@ pub mod domain {
         };
         let o = register_interface::register(context.get_inner(), &request);
         DomainResult {
-            access_policies: pulumi_wasm_rust::__private::into_domain(
+            access_policies: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("accessPolicies"),
             ),
-            advanced_options: pulumi_wasm_rust::__private::into_domain(
+            advanced_options: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("advancedOptions"),
             ),
-            advanced_security_options: pulumi_wasm_rust::__private::into_domain(
+            advanced_security_options: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("advancedSecurityOptions"),
             ),
-            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
-            auto_tune_options: pulumi_wasm_rust::__private::into_domain(
+            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
+            auto_tune_options: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("autoTuneOptions"),
             ),
-            cluster_config: pulumi_wasm_rust::__private::into_domain(
+            cluster_config: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("clusterConfig"),
             ),
-            cognito_options: pulumi_wasm_rust::__private::into_domain(
+            cognito_options: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("cognitoOptions"),
             ),
-            dashboard_endpoint: pulumi_wasm_rust::__private::into_domain(
+            dashboard_endpoint: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("dashboardEndpoint"),
             ),
-            dashboard_endpoint_v2: pulumi_wasm_rust::__private::into_domain(
+            dashboard_endpoint_v2: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("dashboardEndpointV2"),
             ),
-            domain_endpoint_options: pulumi_wasm_rust::__private::into_domain(
+            domain_endpoint_options: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("domainEndpointOptions"),
             ),
-            domain_endpoint_v2_hosted_zone_id: pulumi_wasm_rust::__private::into_domain(
+            domain_endpoint_v2_hosted_zone_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("domainEndpointV2HostedZoneId"),
             ),
-            domain_id: pulumi_wasm_rust::__private::into_domain(
+            domain_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("domainId"),
             ),
-            domain_name: pulumi_wasm_rust::__private::into_domain(
+            domain_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("domainName"),
             ),
-            ebs_options: pulumi_wasm_rust::__private::into_domain(
+            ebs_options: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("ebsOptions"),
             ),
-            encrypt_at_rest: pulumi_wasm_rust::__private::into_domain(
+            encrypt_at_rest: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("encryptAtRest"),
             ),
-            endpoint: pulumi_wasm_rust::__private::into_domain(
+            endpoint: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("endpoint"),
             ),
-            endpoint_v2: pulumi_wasm_rust::__private::into_domain(
+            endpoint_v2: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("endpointV2"),
             ),
-            engine_version: pulumi_wasm_rust::__private::into_domain(
+            engine_version: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("engineVersion"),
             ),
-            ip_address_type: pulumi_wasm_rust::__private::into_domain(
+            ip_address_type: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("ipAddressType"),
             ),
-            kibana_endpoint: pulumi_wasm_rust::__private::into_domain(
+            kibana_endpoint: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("kibanaEndpoint"),
             ),
-            log_publishing_options: pulumi_wasm_rust::__private::into_domain(
+            log_publishing_options: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("logPublishingOptions"),
             ),
-            node_to_node_encryption: pulumi_wasm_rust::__private::into_domain(
+            node_to_node_encryption: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("nodeToNodeEncryption"),
             ),
-            off_peak_window_options: pulumi_wasm_rust::__private::into_domain(
+            off_peak_window_options: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("offPeakWindowOptions"),
             ),
-            snapshot_options: pulumi_wasm_rust::__private::into_domain(
+            snapshot_options: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("snapshotOptions"),
             ),
-            software_update_options: pulumi_wasm_rust::__private::into_domain(
+            software_update_options: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("softwareUpdateOptions"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_wasm_rust::__private::into_domain(
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            tags_all: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("tagsAll"),
             ),
-            vpc_options: pulumi_wasm_rust::__private::into_domain(
+            vpc_options: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("vpcOptions"),
             ),
         }

@@ -5,8 +5,8 @@
 /// ## Example Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = resource_group::create(
@@ -75,7 +75,7 @@
 /// ```
 ///
 pub mod static_web_app_function_app_registration {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct StaticWebAppFunctionAppRegistrationArgs {
@@ -85,10 +85,10 @@ pub mod static_web_app_function_app_registration {
         ///
         /// > **NOTE:** Connecting a Function App resource to a Static Web App resource updates the Function App to use AuthV2 and configures the `azure_static_web_app_v2` which may need to be accounted for by the use of `ignore_changes` depending on the existing `auth_settings_v2` configuration of the target Function App.
         #[builder(into)]
-        pub function_app_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub function_app_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The ID of the Static Web App to register the Function App to as a backend. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub static_web_app_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub static_web_app_id: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct StaticWebAppFunctionAppRegistrationResult {
@@ -97,20 +97,20 @@ pub mod static_web_app_function_app_registration {
         /// > **NOTE:** Only one Function App can be connected to a Static Web App. Multiple Function Apps are not currently supported.
         ///
         /// > **NOTE:** Connecting a Function App resource to a Static Web App resource updates the Function App to use AuthV2 and configures the `azure_static_web_app_v2` which may need to be accounted for by the use of `ignore_changes` depending on the existing `auth_settings_v2` configuration of the target Function App.
-        pub function_app_id: pulumi_wasm_rust::Output<String>,
+        pub function_app_id: pulumi_gestalt_rust::Output<String>,
         /// The ID of the Static Web App to register the Function App to as a backend. Changing this forces a new resource to be created.
-        pub static_web_app_id: pulumi_wasm_rust::Output<String>,
+        pub static_web_app_id: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: StaticWebAppFunctionAppRegistrationArgs,
     ) -> StaticWebAppFunctionAppRegistrationResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let function_app_id_binding = args
             .function_app_id
@@ -138,10 +138,10 @@ pub mod static_web_app_function_app_registration {
         };
         let o = register_interface::register(context.get_inner(), &request);
         StaticWebAppFunctionAppRegistrationResult {
-            function_app_id: pulumi_wasm_rust::__private::into_domain(
+            function_app_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("functionAppId"),
             ),
-            static_web_app_id: pulumi_wasm_rust::__private::into_domain(
+            static_web_app_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("staticWebAppId"),
             ),
         }

@@ -15,8 +15,8 @@
 ///
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = capacity_commitment::create(
@@ -57,7 +57,7 @@
 /// ```
 ///
 pub mod capacity_commitment {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct CapacityCommitmentArgs {
@@ -66,35 +66,35 @@ pub mod capacity_commitment {
         /// cannot be a dash. Max length is 64 characters. NOTE: this ID won't be kept if the capacity commitment is split
         /// or merged.
         #[builder(into, default)]
-        pub capacity_commitment_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub capacity_commitment_id: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The edition type. Valid values are STANDARD, ENTERPRISE, ENTERPRISE_PLUS
         #[builder(into, default)]
-        pub edition: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub edition: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// If true, fail the request if another project in the organization has a capacity commitment.
         #[builder(into, default)]
-        pub enforce_single_admin_project_per_org: pulumi_wasm_rust::InputOrOutput<
+        pub enforce_single_admin_project_per_org: pulumi_gestalt_rust::InputOrOutput<
             Option<String>,
         >,
         /// The geographic location where the transfer config should reside.
         /// Examples: US, EU, asia-northeast1. The default value is US.
         #[builder(into, default)]
-        pub location: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub location: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Capacity commitment plan. Valid values are at https://cloud.google.com/bigquery/docs/reference/reservations/rpc/google.cloud.bigquery.reservation.v1#commitmentplan
         ///
         ///
         /// - - -
         #[builder(into)]
-        pub plan: pulumi_wasm_rust::InputOrOutput<String>,
+        pub plan: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub project: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The plan this capacity commitment is converted to after commitmentEndTime passes. Once the plan is changed, committed period is extended according to commitment plan. Only applicable for some commitment plans.
         #[builder(into, default)]
-        pub renewal_plan: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub renewal_plan: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Number of slots in this commitment.
         #[builder(into)]
-        pub slot_count: pulumi_wasm_rust::InputOrOutput<i32>,
+        pub slot_count: pulumi_gestalt_rust::InputOrOutput<i32>,
     }
     #[allow(dead_code)]
     pub struct CapacityCommitmentResult {
@@ -102,47 +102,47 @@ pub mod capacity_commitment {
         /// empty. This field must only contain lower case alphanumeric characters or dashes. The first and last character
         /// cannot be a dash. Max length is 64 characters. NOTE: this ID won't be kept if the capacity commitment is split
         /// or merged.
-        pub capacity_commitment_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub capacity_commitment_id: pulumi_gestalt_rust::Output<Option<String>>,
         /// The start of the current commitment period. It is applicable only for ACTIVE capacity commitments.
-        pub commitment_end_time: pulumi_wasm_rust::Output<String>,
+        pub commitment_end_time: pulumi_gestalt_rust::Output<String>,
         /// The start of the current commitment period. It is applicable only for ACTIVE capacity commitments.
-        pub commitment_start_time: pulumi_wasm_rust::Output<String>,
+        pub commitment_start_time: pulumi_gestalt_rust::Output<String>,
         /// The edition type. Valid values are STANDARD, ENTERPRISE, ENTERPRISE_PLUS
-        pub edition: pulumi_wasm_rust::Output<Option<String>>,
+        pub edition: pulumi_gestalt_rust::Output<Option<String>>,
         /// If true, fail the request if another project in the organization has a capacity commitment.
-        pub enforce_single_admin_project_per_org: pulumi_wasm_rust::Output<
+        pub enforce_single_admin_project_per_org: pulumi_gestalt_rust::Output<
             Option<String>,
         >,
         /// The geographic location where the transfer config should reside.
         /// Examples: US, EU, asia-northeast1. The default value is US.
-        pub location: pulumi_wasm_rust::Output<Option<String>>,
+        pub location: pulumi_gestalt_rust::Output<Option<String>>,
         /// The resource name of the capacity commitment, e.g., projects/myproject/locations/US/capacityCommitments/123
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// Capacity commitment plan. Valid values are at https://cloud.google.com/bigquery/docs/reference/reservations/rpc/google.cloud.bigquery.reservation.v1#commitmentplan
         ///
         ///
         /// - - -
-        pub plan: pulumi_wasm_rust::Output<String>,
+        pub plan: pulumi_gestalt_rust::Output<String>,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
-        pub project: pulumi_wasm_rust::Output<String>,
+        pub project: pulumi_gestalt_rust::Output<String>,
         /// The plan this capacity commitment is converted to after commitmentEndTime passes. Once the plan is changed, committed period is extended according to commitment plan. Only applicable for some commitment plans.
-        pub renewal_plan: pulumi_wasm_rust::Output<Option<String>>,
+        pub renewal_plan: pulumi_gestalt_rust::Output<Option<String>>,
         /// Number of slots in this commitment.
-        pub slot_count: pulumi_wasm_rust::Output<i32>,
+        pub slot_count: pulumi_gestalt_rust::Output<i32>,
         /// State of the commitment
-        pub state: pulumi_wasm_rust::Output<String>,
+        pub state: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: CapacityCommitmentArgs,
     ) -> CapacityCommitmentResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let capacity_commitment_id_binding = args
             .capacity_commitment_id
@@ -199,36 +199,36 @@ pub mod capacity_commitment {
         };
         let o = register_interface::register(context.get_inner(), &request);
         CapacityCommitmentResult {
-            capacity_commitment_id: pulumi_wasm_rust::__private::into_domain(
+            capacity_commitment_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("capacityCommitmentId"),
             ),
-            commitment_end_time: pulumi_wasm_rust::__private::into_domain(
+            commitment_end_time: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("commitmentEndTime"),
             ),
-            commitment_start_time: pulumi_wasm_rust::__private::into_domain(
+            commitment_start_time: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("commitmentStartTime"),
             ),
-            edition: pulumi_wasm_rust::__private::into_domain(
+            edition: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("edition"),
             ),
-            enforce_single_admin_project_per_org: pulumi_wasm_rust::__private::into_domain(
+            enforce_single_admin_project_per_org: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("enforceSingleAdminProjectPerOrg"),
             ),
-            location: pulumi_wasm_rust::__private::into_domain(
+            location: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("location"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            plan: pulumi_wasm_rust::__private::into_domain(o.extract_field("plan")),
-            project: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            plan: pulumi_gestalt_rust::__private::into_domain(o.extract_field("plan")),
+            project: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("project"),
             ),
-            renewal_plan: pulumi_wasm_rust::__private::into_domain(
+            renewal_plan: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("renewalPlan"),
             ),
-            slot_count: pulumi_wasm_rust::__private::into_domain(
+            slot_count: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("slotCount"),
             ),
-            state: pulumi_wasm_rust::__private::into_domain(o.extract_field("state")),
+            state: pulumi_gestalt_rust::__private::into_domain(o.extract_field("state")),
         }
     }
 }

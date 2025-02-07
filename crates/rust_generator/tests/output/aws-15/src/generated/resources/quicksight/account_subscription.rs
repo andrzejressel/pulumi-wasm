@@ -3,8 +3,8 @@
 /// ## Example Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let subscription = account_subscription::create(
@@ -24,112 +24,114 @@
 /// You cannot import this resource.
 ///
 pub mod account_subscription {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct AccountSubscriptionArgs {
         /// Name of your Amazon QuickSight account. This name is unique over all of AWS, and it appears only when users sign in.
         #[builder(into)]
-        pub account_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub account_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Name of your Active Directory. This field is required if `ACTIVE_DIRECTORY` is the selected authentication method of the new Amazon QuickSight account.
         #[builder(into, default)]
-        pub active_directory_name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub active_directory_name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Admin group associated with your Active Directory. This field is required if `ACTIVE_DIRECTORY` is the selected authentication method of the new Amazon QuickSight account.
         #[builder(into, default)]
-        pub admin_groups: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
+        pub admin_groups: pulumi_gestalt_rust::InputOrOutput<Option<Vec<String>>>,
         /// Method that you want to use to authenticate your Amazon QuickSight account. Currently, the valid values for this parameter are `IAM_AND_QUICKSIGHT`, `IAM_ONLY`, `IAM_IDENTITY_CENTER`, and `ACTIVE_DIRECTORY`.
         #[builder(into)]
-        pub authentication_method: pulumi_wasm_rust::InputOrOutput<String>,
+        pub authentication_method: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Author group associated with your Active Directory.
         #[builder(into, default)]
-        pub author_groups: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
+        pub author_groups: pulumi_gestalt_rust::InputOrOutput<Option<Vec<String>>>,
         /// AWS account ID hosting the QuickSight account. Default to provider account.
         #[builder(into, default)]
-        pub aws_account_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub aws_account_id: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// A 10-digit phone number for the author of the Amazon QuickSight account to use for future communications. This field is required if `ENTERPPRISE_AND_Q` is the selected edition of the new Amazon QuickSight account.
         #[builder(into, default)]
-        pub contact_number: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub contact_number: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Active Directory ID that is associated with your Amazon QuickSight account.
         #[builder(into, default)]
-        pub directory_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub directory_id: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Edition of Amazon QuickSight that you want your account to have. Currently, you can choose from `STANDARD`, `ENTERPRISE` or `ENTERPRISE_AND_Q`.
         #[builder(into)]
-        pub edition: pulumi_wasm_rust::InputOrOutput<String>,
+        pub edition: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Email address of the author of the Amazon QuickSight account to use for future communications. This field is required if `ENTERPPRISE_AND_Q` is the selected edition of the new Amazon QuickSight account.
         #[builder(into, default)]
-        pub email_address: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub email_address: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// First name of the author of the Amazon QuickSight account to use for future communications. This field is required if `ENTERPPRISE_AND_Q` is the selected edition of the new Amazon QuickSight account.
         #[builder(into, default)]
-        pub first_name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub first_name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The Amazon Resource Name (ARN) for the IAM Identity Center instance.
         #[builder(into, default)]
-        pub iam_identity_center_instance_arn: pulumi_wasm_rust::InputOrOutput<
+        pub iam_identity_center_instance_arn: pulumi_gestalt_rust::InputOrOutput<
             Option<String>,
         >,
         /// Last name of the author of the Amazon QuickSight account to use for future communications. This field is required if `ENTERPPRISE_AND_Q` is the selected edition of the new Amazon QuickSight account.
         #[builder(into, default)]
-        pub last_name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub last_name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Email address that you want Amazon QuickSight to send notifications to regarding your Amazon QuickSight account or Amazon QuickSight subscription.
         ///
         /// The following arguments are optional:
         #[builder(into)]
-        pub notification_email: pulumi_wasm_rust::InputOrOutput<String>,
+        pub notification_email: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Reader group associated with your Active Direcrtory.
         #[builder(into, default)]
-        pub reader_groups: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
+        pub reader_groups: pulumi_gestalt_rust::InputOrOutput<Option<Vec<String>>>,
         /// Realm of the Active Directory that is associated with your Amazon QuickSight account.
         #[builder(into, default)]
-        pub realm: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub realm: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct AccountSubscriptionResult {
         /// Name of your Amazon QuickSight account. This name is unique over all of AWS, and it appears only when users sign in.
-        pub account_name: pulumi_wasm_rust::Output<String>,
+        pub account_name: pulumi_gestalt_rust::Output<String>,
         /// Status of the Amazon QuickSight account's subscription.
-        pub account_subscription_status: pulumi_wasm_rust::Output<String>,
+        pub account_subscription_status: pulumi_gestalt_rust::Output<String>,
         /// Name of your Active Directory. This field is required if `ACTIVE_DIRECTORY` is the selected authentication method of the new Amazon QuickSight account.
-        pub active_directory_name: pulumi_wasm_rust::Output<Option<String>>,
+        pub active_directory_name: pulumi_gestalt_rust::Output<Option<String>>,
         /// Admin group associated with your Active Directory. This field is required if `ACTIVE_DIRECTORY` is the selected authentication method of the new Amazon QuickSight account.
-        pub admin_groups: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub admin_groups: pulumi_gestalt_rust::Output<Option<Vec<String>>>,
         /// Method that you want to use to authenticate your Amazon QuickSight account. Currently, the valid values for this parameter are `IAM_AND_QUICKSIGHT`, `IAM_ONLY`, `IAM_IDENTITY_CENTER`, and `ACTIVE_DIRECTORY`.
-        pub authentication_method: pulumi_wasm_rust::Output<String>,
+        pub authentication_method: pulumi_gestalt_rust::Output<String>,
         /// Author group associated with your Active Directory.
-        pub author_groups: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub author_groups: pulumi_gestalt_rust::Output<Option<Vec<String>>>,
         /// AWS account ID hosting the QuickSight account. Default to provider account.
-        pub aws_account_id: pulumi_wasm_rust::Output<String>,
+        pub aws_account_id: pulumi_gestalt_rust::Output<String>,
         /// A 10-digit phone number for the author of the Amazon QuickSight account to use for future communications. This field is required if `ENTERPPRISE_AND_Q` is the selected edition of the new Amazon QuickSight account.
-        pub contact_number: pulumi_wasm_rust::Output<Option<String>>,
+        pub contact_number: pulumi_gestalt_rust::Output<Option<String>>,
         /// Active Directory ID that is associated with your Amazon QuickSight account.
-        pub directory_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub directory_id: pulumi_gestalt_rust::Output<Option<String>>,
         /// Edition of Amazon QuickSight that you want your account to have. Currently, you can choose from `STANDARD`, `ENTERPRISE` or `ENTERPRISE_AND_Q`.
-        pub edition: pulumi_wasm_rust::Output<String>,
+        pub edition: pulumi_gestalt_rust::Output<String>,
         /// Email address of the author of the Amazon QuickSight account to use for future communications. This field is required if `ENTERPPRISE_AND_Q` is the selected edition of the new Amazon QuickSight account.
-        pub email_address: pulumi_wasm_rust::Output<Option<String>>,
+        pub email_address: pulumi_gestalt_rust::Output<Option<String>>,
         /// First name of the author of the Amazon QuickSight account to use for future communications. This field is required if `ENTERPPRISE_AND_Q` is the selected edition of the new Amazon QuickSight account.
-        pub first_name: pulumi_wasm_rust::Output<Option<String>>,
+        pub first_name: pulumi_gestalt_rust::Output<Option<String>>,
         /// The Amazon Resource Name (ARN) for the IAM Identity Center instance.
-        pub iam_identity_center_instance_arn: pulumi_wasm_rust::Output<Option<String>>,
+        pub iam_identity_center_instance_arn: pulumi_gestalt_rust::Output<
+            Option<String>,
+        >,
         /// Last name of the author of the Amazon QuickSight account to use for future communications. This field is required if `ENTERPPRISE_AND_Q` is the selected edition of the new Amazon QuickSight account.
-        pub last_name: pulumi_wasm_rust::Output<Option<String>>,
+        pub last_name: pulumi_gestalt_rust::Output<Option<String>>,
         /// Email address that you want Amazon QuickSight to send notifications to regarding your Amazon QuickSight account or Amazon QuickSight subscription.
         ///
         /// The following arguments are optional:
-        pub notification_email: pulumi_wasm_rust::Output<String>,
+        pub notification_email: pulumi_gestalt_rust::Output<String>,
         /// Reader group associated with your Active Direcrtory.
-        pub reader_groups: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub reader_groups: pulumi_gestalt_rust::Output<Option<Vec<String>>>,
         /// Realm of the Active Directory that is associated with your Amazon QuickSight account.
-        pub realm: pulumi_wasm_rust::Output<Option<String>>,
+        pub realm: pulumi_gestalt_rust::Output<Option<String>>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: AccountSubscriptionArgs,
     ) -> AccountSubscriptionResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let account_name_binding = args.account_name.get_output(context).get_inner();
         let active_directory_name_binding = args
@@ -232,55 +234,55 @@ pub mod account_subscription {
         };
         let o = register_interface::register(context.get_inner(), &request);
         AccountSubscriptionResult {
-            account_name: pulumi_wasm_rust::__private::into_domain(
+            account_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("accountName"),
             ),
-            account_subscription_status: pulumi_wasm_rust::__private::into_domain(
+            account_subscription_status: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("accountSubscriptionStatus"),
             ),
-            active_directory_name: pulumi_wasm_rust::__private::into_domain(
+            active_directory_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("activeDirectoryName"),
             ),
-            admin_groups: pulumi_wasm_rust::__private::into_domain(
+            admin_groups: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("adminGroups"),
             ),
-            authentication_method: pulumi_wasm_rust::__private::into_domain(
+            authentication_method: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("authenticationMethod"),
             ),
-            author_groups: pulumi_wasm_rust::__private::into_domain(
+            author_groups: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("authorGroups"),
             ),
-            aws_account_id: pulumi_wasm_rust::__private::into_domain(
+            aws_account_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("awsAccountId"),
             ),
-            contact_number: pulumi_wasm_rust::__private::into_domain(
+            contact_number: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("contactNumber"),
             ),
-            directory_id: pulumi_wasm_rust::__private::into_domain(
+            directory_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("directoryId"),
             ),
-            edition: pulumi_wasm_rust::__private::into_domain(
+            edition: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("edition"),
             ),
-            email_address: pulumi_wasm_rust::__private::into_domain(
+            email_address: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("emailAddress"),
             ),
-            first_name: pulumi_wasm_rust::__private::into_domain(
+            first_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("firstName"),
             ),
-            iam_identity_center_instance_arn: pulumi_wasm_rust::__private::into_domain(
+            iam_identity_center_instance_arn: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("iamIdentityCenterInstanceArn"),
             ),
-            last_name: pulumi_wasm_rust::__private::into_domain(
+            last_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("lastName"),
             ),
-            notification_email: pulumi_wasm_rust::__private::into_domain(
+            notification_email: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("notificationEmail"),
             ),
-            reader_groups: pulumi_wasm_rust::__private::into_domain(
+            reader_groups: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("readerGroups"),
             ),
-            realm: pulumi_wasm_rust::__private::into_domain(o.extract_field("realm")),
+            realm: pulumi_gestalt_rust::__private::into_domain(o.extract_field("realm")),
         }
     }
 }

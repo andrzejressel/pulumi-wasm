@@ -114,108 +114,108 @@
 /// ```
 ///
 pub mod external_access_rule {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ExternalAccessRuleArgs {
         /// The action that the external access rule performs.
         /// Possible values are: `ALLOW`, `DENY`.
         #[builder(into)]
-        pub action: pulumi_wasm_rust::InputOrOutput<String>,
+        pub action: pulumi_gestalt_rust::InputOrOutput<String>,
         /// User-provided description for the external access rule.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub description: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// If destination ranges are specified, the external access rule applies only to
         /// traffic that has a destination IP address in these ranges.
         /// Structure is documented below.
         #[builder(into)]
-        pub destination_ip_ranges: pulumi_wasm_rust::InputOrOutput<
+        pub destination_ip_ranges: pulumi_gestalt_rust::InputOrOutput<
             Vec<super::super::types::vmwareengine::ExternalAccessRuleDestinationIpRange>,
         >,
         /// A list of destination ports to which the external access rule applies.
         #[builder(into)]
-        pub destination_ports: pulumi_wasm_rust::InputOrOutput<Vec<String>>,
+        pub destination_ports: pulumi_gestalt_rust::InputOrOutput<Vec<String>>,
         /// The IP protocol to which the external access rule applies.
         #[builder(into)]
-        pub ip_protocol: pulumi_wasm_rust::InputOrOutput<String>,
+        pub ip_protocol: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The ID of the external access rule.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The resource name of the network policy.
         /// Resource names are schemeless URIs that follow the conventions in https://cloud.google.com/apis/design/resource_names.
         /// For example: projects/my-project/locations/us-west1-a/networkPolicies/my-policy
         #[builder(into)]
-        pub parent: pulumi_wasm_rust::InputOrOutput<String>,
+        pub parent: pulumi_gestalt_rust::InputOrOutput<String>,
         /// External access rule priority, which determines the external access rule to use when multiple rules apply.
         #[builder(into)]
-        pub priority: pulumi_wasm_rust::InputOrOutput<i32>,
+        pub priority: pulumi_gestalt_rust::InputOrOutput<i32>,
         /// If source ranges are specified, the external access rule applies only to
         /// traffic that has a source IP address in these ranges.
         /// Structure is documented below.
         #[builder(into)]
-        pub source_ip_ranges: pulumi_wasm_rust::InputOrOutput<
+        pub source_ip_ranges: pulumi_gestalt_rust::InputOrOutput<
             Vec<super::super::types::vmwareengine::ExternalAccessRuleSourceIpRange>,
         >,
         /// A list of source ports to which the external access rule applies.
         #[builder(into)]
-        pub source_ports: pulumi_wasm_rust::InputOrOutput<Vec<String>>,
+        pub source_ports: pulumi_gestalt_rust::InputOrOutput<Vec<String>>,
     }
     #[allow(dead_code)]
     pub struct ExternalAccessRuleResult {
         /// The action that the external access rule performs.
         /// Possible values are: `ALLOW`, `DENY`.
-        pub action: pulumi_wasm_rust::Output<String>,
+        pub action: pulumi_gestalt_rust::Output<String>,
         /// Creation time of this resource.
         /// A timestamp in RFC3339 UTC "Zulu" format, with nanosecond resolution and
         /// up to nine fractional digits. Examples: "2014-10-02T15:01:23Z" and "2014-10-02T15:01:23.045123456Z".
-        pub create_time: pulumi_wasm_rust::Output<String>,
+        pub create_time: pulumi_gestalt_rust::Output<String>,
         /// User-provided description for the external access rule.
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_gestalt_rust::Output<Option<String>>,
         /// If destination ranges are specified, the external access rule applies only to
         /// traffic that has a destination IP address in these ranges.
         /// Structure is documented below.
-        pub destination_ip_ranges: pulumi_wasm_rust::Output<
+        pub destination_ip_ranges: pulumi_gestalt_rust::Output<
             Vec<super::super::types::vmwareengine::ExternalAccessRuleDestinationIpRange>,
         >,
         /// A list of destination ports to which the external access rule applies.
-        pub destination_ports: pulumi_wasm_rust::Output<Vec<String>>,
+        pub destination_ports: pulumi_gestalt_rust::Output<Vec<String>>,
         /// The IP protocol to which the external access rule applies.
-        pub ip_protocol: pulumi_wasm_rust::Output<String>,
+        pub ip_protocol: pulumi_gestalt_rust::Output<String>,
         /// The ID of the external access rule.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// The resource name of the network policy.
         /// Resource names are schemeless URIs that follow the conventions in https://cloud.google.com/apis/design/resource_names.
         /// For example: projects/my-project/locations/us-west1-a/networkPolicies/my-policy
-        pub parent: pulumi_wasm_rust::Output<String>,
+        pub parent: pulumi_gestalt_rust::Output<String>,
         /// External access rule priority, which determines the external access rule to use when multiple rules apply.
-        pub priority: pulumi_wasm_rust::Output<i32>,
+        pub priority: pulumi_gestalt_rust::Output<i32>,
         /// If source ranges are specified, the external access rule applies only to
         /// traffic that has a source IP address in these ranges.
         /// Structure is documented below.
-        pub source_ip_ranges: pulumi_wasm_rust::Output<
+        pub source_ip_ranges: pulumi_gestalt_rust::Output<
             Vec<super::super::types::vmwareengine::ExternalAccessRuleSourceIpRange>,
         >,
         /// A list of source ports to which the external access rule applies.
-        pub source_ports: pulumi_wasm_rust::Output<Vec<String>>,
+        pub source_ports: pulumi_gestalt_rust::Output<Vec<String>>,
         /// State of the Cluster.
-        pub state: pulumi_wasm_rust::Output<String>,
+        pub state: pulumi_gestalt_rust::Output<String>,
         /// System-generated unique identifier for the resource.
-        pub uid: pulumi_wasm_rust::Output<String>,
+        pub uid: pulumi_gestalt_rust::Output<String>,
         /// Last updated time of this resource.
         /// A timestamp in RFC3339 UTC "Zulu" format, with nanosecond resolution and up to nine
         /// fractional digits. Examples: "2014-10-02T15:01:23Z" and "2014-10-02T15:01:23.045123456Z".
-        pub update_time: pulumi_wasm_rust::Output<String>,
+        pub update_time: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: ExternalAccessRuleArgs,
     ) -> ExternalAccessRuleResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let action_binding = args.action.get_output(context).get_inner();
         let description_binding = args.description.get_output(context).get_inner();
@@ -285,36 +285,40 @@ pub mod external_access_rule {
         };
         let o = register_interface::register(context.get_inner(), &request);
         ExternalAccessRuleResult {
-            action: pulumi_wasm_rust::__private::into_domain(o.extract_field("action")),
-            create_time: pulumi_wasm_rust::__private::into_domain(
+            action: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("action"),
+            ),
+            create_time: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("createTime"),
             ),
-            description: pulumi_wasm_rust::__private::into_domain(
+            description: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("description"),
             ),
-            destination_ip_ranges: pulumi_wasm_rust::__private::into_domain(
+            destination_ip_ranges: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("destinationIpRanges"),
             ),
-            destination_ports: pulumi_wasm_rust::__private::into_domain(
+            destination_ports: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("destinationPorts"),
             ),
-            ip_protocol: pulumi_wasm_rust::__private::into_domain(
+            ip_protocol: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("ipProtocol"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            parent: pulumi_wasm_rust::__private::into_domain(o.extract_field("parent")),
-            priority: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            parent: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("parent"),
+            ),
+            priority: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("priority"),
             ),
-            source_ip_ranges: pulumi_wasm_rust::__private::into_domain(
+            source_ip_ranges: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("sourceIpRanges"),
             ),
-            source_ports: pulumi_wasm_rust::__private::into_domain(
+            source_ports: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("sourcePorts"),
             ),
-            state: pulumi_wasm_rust::__private::into_domain(o.extract_field("state")),
-            uid: pulumi_wasm_rust::__private::into_domain(o.extract_field("uid")),
-            update_time: pulumi_wasm_rust::__private::into_domain(
+            state: pulumi_gestalt_rust::__private::into_domain(o.extract_field("state")),
+            uid: pulumi_gestalt_rust::__private::into_domain(o.extract_field("uid")),
+            update_time: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("updateTime"),
             ),
         }

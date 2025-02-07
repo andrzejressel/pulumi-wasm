@@ -20,8 +20,8 @@
 /// In this situation, the resource is simply a waiter for manual email approval of ACM certificates.
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = certificate::create(
@@ -40,36 +40,36 @@
 /// }
 /// ```
 pub mod certificate_validation {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct CertificateValidationArgs {
         /// ARN of the certificate that is being validated.
         #[builder(into)]
-        pub certificate_arn: pulumi_wasm_rust::InputOrOutput<String>,
+        pub certificate_arn: pulumi_gestalt_rust::InputOrOutput<String>,
         /// List of FQDNs that implement the validation. Only valid for DNS validation method ACM certificates. If this is set, the resource can implement additional sanity checks and has an explicit dependency on the resource that is implementing the validation
         #[builder(into, default)]
-        pub validation_record_fqdns: pulumi_wasm_rust::InputOrOutput<
+        pub validation_record_fqdns: pulumi_gestalt_rust::InputOrOutput<
             Option<Vec<String>>,
         >,
     }
     #[allow(dead_code)]
     pub struct CertificateValidationResult {
         /// ARN of the certificate that is being validated.
-        pub certificate_arn: pulumi_wasm_rust::Output<String>,
+        pub certificate_arn: pulumi_gestalt_rust::Output<String>,
         /// List of FQDNs that implement the validation. Only valid for DNS validation method ACM certificates. If this is set, the resource can implement additional sanity checks and has an explicit dependency on the resource that is implementing the validation
-        pub validation_record_fqdns: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub validation_record_fqdns: pulumi_gestalt_rust::Output<Option<Vec<String>>>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: CertificateValidationArgs,
     ) -> CertificateValidationResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let certificate_arn_binding = args
             .certificate_arn
@@ -96,10 +96,10 @@ pub mod certificate_validation {
         };
         let o = register_interface::register(context.get_inner(), &request);
         CertificateValidationResult {
-            certificate_arn: pulumi_wasm_rust::__private::into_domain(
+            certificate_arn: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("certificateArn"),
             ),
-            validation_record_fqdns: pulumi_wasm_rust::__private::into_domain(
+            validation_record_fqdns: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("validationRecordFqdns"),
             ),
         }

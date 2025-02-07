@@ -3,8 +3,8 @@
 /// ## Example Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = resource_group::create(
@@ -113,59 +113,59 @@
 /// ```
 ///
 pub mod hybrid_runbook_worker {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct HybridRunbookWorkerArgs {
         /// The name of the automation account in which the Hybrid Worker is created. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub automation_account_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub automation_account_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The name of the Resource Group where the Automation should exist. Changing this forces a new Automation to be created.
         #[builder(into)]
-        pub resource_group_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub resource_group_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The ID of the virtual machine used for this HybridWorker. Changing this forces a new Automation to be created.
         #[builder(into)]
-        pub vm_resource_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub vm_resource_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The name of the HybridWorker Group. Changing this forces a new Automation to be created.
         #[builder(into)]
-        pub worker_group_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub worker_group_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Specify the ID of this HybridWorker in UUID notation. Changing this forces a new Automation to be created.
         #[builder(into)]
-        pub worker_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub worker_id: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct HybridRunbookWorkerResult {
         /// The name of the automation account in which the Hybrid Worker is created. Changing this forces a new resource to be created.
-        pub automation_account_name: pulumi_wasm_rust::Output<String>,
+        pub automation_account_name: pulumi_gestalt_rust::Output<String>,
         /// The IP address of assigned machine.
-        pub ip: pulumi_wasm_rust::Output<String>,
+        pub ip: pulumi_gestalt_rust::Output<String>,
         /// Last Heartbeat from the Worker.
-        pub last_seen_date_time: pulumi_wasm_rust::Output<String>,
+        pub last_seen_date_time: pulumi_gestalt_rust::Output<String>,
         /// The registration time of the worker machine.
-        pub registration_date_time: pulumi_wasm_rust::Output<String>,
+        pub registration_date_time: pulumi_gestalt_rust::Output<String>,
         /// The name of the Resource Group where the Automation should exist. Changing this forces a new Automation to be created.
-        pub resource_group_name: pulumi_wasm_rust::Output<String>,
+        pub resource_group_name: pulumi_gestalt_rust::Output<String>,
         /// The ID of the virtual machine used for this HybridWorker. Changing this forces a new Automation to be created.
-        pub vm_resource_id: pulumi_wasm_rust::Output<String>,
+        pub vm_resource_id: pulumi_gestalt_rust::Output<String>,
         /// The name of the HybridWorker Group. Changing this forces a new Automation to be created.
-        pub worker_group_name: pulumi_wasm_rust::Output<String>,
+        pub worker_group_name: pulumi_gestalt_rust::Output<String>,
         /// Specify the ID of this HybridWorker in UUID notation. Changing this forces a new Automation to be created.
-        pub worker_id: pulumi_wasm_rust::Output<String>,
+        pub worker_id: pulumi_gestalt_rust::Output<String>,
         /// The name of HybridWorker.
-        pub worker_name: pulumi_wasm_rust::Output<String>,
+        pub worker_name: pulumi_gestalt_rust::Output<String>,
         /// The type of the HybridWorker, the possible values are `HybridV1` and `HybridV2`.
-        pub worker_type: pulumi_wasm_rust::Output<String>,
+        pub worker_type: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: HybridRunbookWorkerArgs,
     ) -> HybridRunbookWorkerResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let automation_account_name_binding = args
             .automation_account_name
@@ -210,32 +210,32 @@ pub mod hybrid_runbook_worker {
         };
         let o = register_interface::register(context.get_inner(), &request);
         HybridRunbookWorkerResult {
-            automation_account_name: pulumi_wasm_rust::__private::into_domain(
+            automation_account_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("automationAccountName"),
             ),
-            ip: pulumi_wasm_rust::__private::into_domain(o.extract_field("ip")),
-            last_seen_date_time: pulumi_wasm_rust::__private::into_domain(
+            ip: pulumi_gestalt_rust::__private::into_domain(o.extract_field("ip")),
+            last_seen_date_time: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("lastSeenDateTime"),
             ),
-            registration_date_time: pulumi_wasm_rust::__private::into_domain(
+            registration_date_time: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("registrationDateTime"),
             ),
-            resource_group_name: pulumi_wasm_rust::__private::into_domain(
+            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("resourceGroupName"),
             ),
-            vm_resource_id: pulumi_wasm_rust::__private::into_domain(
+            vm_resource_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("vmResourceId"),
             ),
-            worker_group_name: pulumi_wasm_rust::__private::into_domain(
+            worker_group_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("workerGroupName"),
             ),
-            worker_id: pulumi_wasm_rust::__private::into_domain(
+            worker_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("workerId"),
             ),
-            worker_name: pulumi_wasm_rust::__private::into_domain(
+            worker_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("workerName"),
             ),
-            worker_type: pulumi_wasm_rust::__private::into_domain(
+            worker_type: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("workerType"),
             ),
         }

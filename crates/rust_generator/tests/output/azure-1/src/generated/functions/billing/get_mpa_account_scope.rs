@@ -1,31 +1,31 @@
 pub mod get_mpa_account_scope {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct GetMpaAccountScopeArgs {
         /// The Billing Account Name of the MPA account.
         #[builder(into)]
-        pub billing_account_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub billing_account_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The Customer Name in the above Billing Account.
         #[builder(into)]
-        pub customer_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub customer_name: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct GetMpaAccountScopeResult {
-        pub billing_account_name: pulumi_wasm_rust::Output<String>,
-        pub customer_name: pulumi_wasm_rust::Output<String>,
+        pub billing_account_name: pulumi_gestalt_rust::Output<String>,
+        pub customer_name: pulumi_gestalt_rust::Output<String>,
         /// The provider-assigned unique ID for this managed resource.
-        pub id: pulumi_wasm_rust::Output<String>,
+        pub id: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         args: GetMpaAccountScopeArgs,
     ) -> GetMpaAccountScopeResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let billing_account_name_binding = args
             .billing_account_name
@@ -48,13 +48,13 @@ pub mod get_mpa_account_scope {
         };
         let o = register_interface::invoke(context.get_inner(), &request);
         GetMpaAccountScopeResult {
-            billing_account_name: pulumi_wasm_rust::__private::into_domain(
+            billing_account_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("billingAccountName"),
             ),
-            customer_name: pulumi_wasm_rust::__private::into_domain(
+            customer_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("customerName"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
+            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
         }
     }
 }

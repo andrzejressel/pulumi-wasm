@@ -242,37 +242,37 @@
 /// ```
 ///
 pub mod managed_zone {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ManagedZoneArgs {
         /// Cloud logging configuration
         /// Structure is documented below.
         #[builder(into, default)]
-        pub cloud_logging_config: pulumi_wasm_rust::InputOrOutput<
+        pub cloud_logging_config: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::dns::ManagedZoneCloudLoggingConfig>,
         >,
         /// A textual description field. Defaults to 'Managed by Pulumi'.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub description: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The DNS name of this managed zone, for instance "example.com.".
         #[builder(into)]
-        pub dns_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub dns_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// DNSSEC configuration
         /// Structure is documented below.
         #[builder(into, default)]
-        pub dnssec_config: pulumi_wasm_rust::InputOrOutput<
+        pub dnssec_config: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::dns::ManagedZoneDnssecConfig>,
         >,
         /// Set this true to delete all records in the zone.
         #[builder(into, default)]
-        pub force_destroy: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub force_destroy: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// The presence for this field indicates that outbound forwarding is enabled
         /// for this zone. The value of this field contains the set of destinations
         /// to forward to.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub forwarding_config: pulumi_wasm_rust::InputOrOutput<
+        pub forwarding_config: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::dns::ManagedZoneForwardingConfig>,
         >,
         /// A set of key/value label pairs to assign to this ManagedZone.
@@ -280,7 +280,7 @@ pub mod managed_zone {
         /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
         /// Please refer to the field `effective_labels` for all of the labels present on the resource.
         #[builder(into, default)]
-        pub labels: pulumi_wasm_rust::InputOrOutput<
+        pub labels: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// User assigned name for this resource.
@@ -288,34 +288,34 @@ pub mod managed_zone {
         ///
         /// - - -
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The presence of this field indicates that DNS Peering is enabled for this
         /// zone. The value of this field contains the network to peer with.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub peering_config: pulumi_wasm_rust::InputOrOutput<
+        pub peering_config: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::dns::ManagedZonePeeringConfig>,
         >,
         /// For privately visible zones, the set of Virtual Private Cloud
         /// resources that the zone is visible from. At least one of `gke_clusters` or `networks` must be specified.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub private_visibility_config: pulumi_wasm_rust::InputOrOutput<
+        pub private_visibility_config: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::dns::ManagedZonePrivateVisibilityConfig>,
         >,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub project: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Specifies if this is a managed reverse lookup zone. If true, Cloud DNS will resolve reverse
         /// lookup queries using automatically configured records for VPC resources. This only applies
         /// to networks listed under `private_visibility_config`.
         #[builder(into, default)]
-        pub reverse_lookup: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub reverse_lookup: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// The presence of this field indicates that this zone is backed by Service Directory. The value of this field contains information related to the namespace associated with the zone.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub service_directory_config: pulumi_wasm_rust::InputOrOutput<
+        pub service_directory_config: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::dns::ManagedZoneServiceDirectoryConfig>,
         >,
         /// The zone's visibility: public zones are exposed to the Internet,
@@ -323,102 +323,102 @@ pub mod managed_zone {
         /// Default value is `public`.
         /// Possible values are: `private`, `public`.
         #[builder(into, default)]
-        pub visibility: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub visibility: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct ManagedZoneResult {
         /// Cloud logging configuration
         /// Structure is documented below.
-        pub cloud_logging_config: pulumi_wasm_rust::Output<
+        pub cloud_logging_config: pulumi_gestalt_rust::Output<
             super::super::types::dns::ManagedZoneCloudLoggingConfig,
         >,
         /// The time that this resource was created on the server.
         /// This is in RFC3339 text format.
-        pub creation_time: pulumi_wasm_rust::Output<String>,
+        pub creation_time: pulumi_gestalt_rust::Output<String>,
         /// A textual description field. Defaults to 'Managed by Pulumi'.
-        pub description: pulumi_wasm_rust::Output<String>,
+        pub description: pulumi_gestalt_rust::Output<String>,
         /// The DNS name of this managed zone, for instance "example.com.".
-        pub dns_name: pulumi_wasm_rust::Output<String>,
+        pub dns_name: pulumi_gestalt_rust::Output<String>,
         /// DNSSEC configuration
         /// Structure is documented below.
-        pub dnssec_config: pulumi_wasm_rust::Output<
+        pub dnssec_config: pulumi_gestalt_rust::Output<
             super::super::types::dns::ManagedZoneDnssecConfig,
         >,
         /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Pulumi, other clients and services.
-        pub effective_labels: pulumi_wasm_rust::Output<
+        pub effective_labels: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
         /// Set this true to delete all records in the zone.
-        pub force_destroy: pulumi_wasm_rust::Output<Option<bool>>,
+        pub force_destroy: pulumi_gestalt_rust::Output<Option<bool>>,
         /// The presence for this field indicates that outbound forwarding is enabled
         /// for this zone. The value of this field contains the set of destinations
         /// to forward to.
         /// Structure is documented below.
-        pub forwarding_config: pulumi_wasm_rust::Output<
+        pub forwarding_config: pulumi_gestalt_rust::Output<
             Option<super::super::types::dns::ManagedZoneForwardingConfig>,
         >,
         /// A set of key/value label pairs to assign to this ManagedZone.
         ///
         /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
         /// Please refer to the field `effective_labels` for all of the labels present on the resource.
-        pub labels: pulumi_wasm_rust::Output<
+        pub labels: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Unique identifier for the resource; defined by the server.
-        pub managed_zone_id: pulumi_wasm_rust::Output<String>,
+        pub managed_zone_id: pulumi_gestalt_rust::Output<String>,
         /// User assigned name for this resource.
         /// Must be unique within the project.
         ///
         /// - - -
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// Delegate your managed_zone to these virtual name servers;
         /// defined by the server
-        pub name_servers: pulumi_wasm_rust::Output<Vec<String>>,
+        pub name_servers: pulumi_gestalt_rust::Output<Vec<String>>,
         /// The presence of this field indicates that DNS Peering is enabled for this
         /// zone. The value of this field contains the network to peer with.
         /// Structure is documented below.
-        pub peering_config: pulumi_wasm_rust::Output<
+        pub peering_config: pulumi_gestalt_rust::Output<
             Option<super::super::types::dns::ManagedZonePeeringConfig>,
         >,
         /// For privately visible zones, the set of Virtual Private Cloud
         /// resources that the zone is visible from. At least one of `gke_clusters` or `networks` must be specified.
         /// Structure is documented below.
-        pub private_visibility_config: pulumi_wasm_rust::Output<
+        pub private_visibility_config: pulumi_gestalt_rust::Output<
             Option<super::super::types::dns::ManagedZonePrivateVisibilityConfig>,
         >,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
-        pub project: pulumi_wasm_rust::Output<String>,
+        pub project: pulumi_gestalt_rust::Output<String>,
         /// The combination of labels configured directly on the resource
         /// and default labels configured on the provider.
-        pub pulumi_labels: pulumi_wasm_rust::Output<
+        pub pulumi_labels: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
         /// Specifies if this is a managed reverse lookup zone. If true, Cloud DNS will resolve reverse
         /// lookup queries using automatically configured records for VPC resources. This only applies
         /// to networks listed under `private_visibility_config`.
-        pub reverse_lookup: pulumi_wasm_rust::Output<Option<bool>>,
+        pub reverse_lookup: pulumi_gestalt_rust::Output<Option<bool>>,
         /// The presence of this field indicates that this zone is backed by Service Directory. The value of this field contains information related to the namespace associated with the zone.
         /// Structure is documented below.
-        pub service_directory_config: pulumi_wasm_rust::Output<
+        pub service_directory_config: pulumi_gestalt_rust::Output<
             Option<super::super::types::dns::ManagedZoneServiceDirectoryConfig>,
         >,
         /// The zone's visibility: public zones are exposed to the Internet,
         /// while private zones are visible only to Virtual Private Cloud resources.
         /// Default value is `public`.
         /// Possible values are: `private`, `public`.
-        pub visibility: pulumi_wasm_rust::Output<Option<String>>,
+        pub visibility: pulumi_gestalt_rust::Output<Option<String>>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: ManagedZoneArgs,
     ) -> ManagedZoneResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let cloud_logging_config_binding = args
             .cloud_logging_config
@@ -511,57 +511,59 @@ pub mod managed_zone {
         };
         let o = register_interface::register(context.get_inner(), &request);
         ManagedZoneResult {
-            cloud_logging_config: pulumi_wasm_rust::__private::into_domain(
+            cloud_logging_config: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("cloudLoggingConfig"),
             ),
-            creation_time: pulumi_wasm_rust::__private::into_domain(
+            creation_time: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("creationTime"),
             ),
-            description: pulumi_wasm_rust::__private::into_domain(
+            description: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("description"),
             ),
-            dns_name: pulumi_wasm_rust::__private::into_domain(
+            dns_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("dnsName"),
             ),
-            dnssec_config: pulumi_wasm_rust::__private::into_domain(
+            dnssec_config: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("dnssecConfig"),
             ),
-            effective_labels: pulumi_wasm_rust::__private::into_domain(
+            effective_labels: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("effectiveLabels"),
             ),
-            force_destroy: pulumi_wasm_rust::__private::into_domain(
+            force_destroy: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("forceDestroy"),
             ),
-            forwarding_config: pulumi_wasm_rust::__private::into_domain(
+            forwarding_config: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("forwardingConfig"),
             ),
-            labels: pulumi_wasm_rust::__private::into_domain(o.extract_field("labels")),
-            managed_zone_id: pulumi_wasm_rust::__private::into_domain(
+            labels: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("labels"),
+            ),
+            managed_zone_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("managedZoneId"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            name_servers: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            name_servers: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("nameServers"),
             ),
-            peering_config: pulumi_wasm_rust::__private::into_domain(
+            peering_config: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("peeringConfig"),
             ),
-            private_visibility_config: pulumi_wasm_rust::__private::into_domain(
+            private_visibility_config: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("privateVisibilityConfig"),
             ),
-            project: pulumi_wasm_rust::__private::into_domain(
+            project: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("project"),
             ),
-            pulumi_labels: pulumi_wasm_rust::__private::into_domain(
+            pulumi_labels: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("pulumiLabels"),
             ),
-            reverse_lookup: pulumi_wasm_rust::__private::into_domain(
+            reverse_lookup: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("reverseLookup"),
             ),
-            service_directory_config: pulumi_wasm_rust::__private::into_domain(
+            service_directory_config: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("serviceDirectoryConfig"),
             ),
-            visibility: pulumi_wasm_rust::__private::into_domain(
+            visibility: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("visibility"),
             ),
         }

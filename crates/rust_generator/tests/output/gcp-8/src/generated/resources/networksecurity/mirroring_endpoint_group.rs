@@ -52,7 +52,7 @@
 /// ```
 ///
 pub mod mirroring_endpoint_group {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct MirroringEndpointGroupArgs {
@@ -60,17 +60,17 @@ pub mod mirroring_endpoint_group {
         /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
         /// Please refer to the field `effective_labels` for all of the labels present on the resource.
         #[builder(into, default)]
-        pub labels: pulumi_wasm_rust::InputOrOutput<
+        pub labels: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Resource ID segment making up resource `name`. It identifies the resource within its parent collection as described in https://google.aip.dev/122. See documentation for resource type `networksecurity.googleapis.com/MirroringEndpointGroup`.
         #[builder(into)]
-        pub location: pulumi_wasm_rust::InputOrOutput<String>,
+        pub location: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Required. Immutable. The Mirroring Deployment Group that this resource is connected to. Format
         /// is:
         /// `projects/{project}/locations/global/mirroringDeploymentGroups/{mirroringDeploymentGroup}`
         #[builder(into)]
-        pub mirroring_deployment_group: pulumi_wasm_rust::InputOrOutput<String>,
+        pub mirroring_deployment_group: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Required. Id of the requesting object
         /// If auto-generating Id server-side, remove this field and
         /// mirroring_endpoint_group_id from the method_signature of Create RPC
@@ -78,52 +78,52 @@ pub mod mirroring_endpoint_group {
         ///
         /// - - -
         #[builder(into)]
-        pub mirroring_endpoint_group_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub mirroring_endpoint_group_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub project: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct MirroringEndpointGroupResult {
         /// Output only. [Output only] Create time stamp
-        pub create_time: pulumi_wasm_rust::Output<String>,
+        pub create_time: pulumi_gestalt_rust::Output<String>,
         /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Pulumi, other clients and services.
-        pub effective_labels: pulumi_wasm_rust::Output<
+        pub effective_labels: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
         /// Optional. Labels as key value pairs
         /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
         /// Please refer to the field `effective_labels` for all of the labels present on the resource.
-        pub labels: pulumi_wasm_rust::Output<
+        pub labels: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Resource ID segment making up resource `name`. It identifies the resource within its parent collection as described in https://google.aip.dev/122. See documentation for resource type `networksecurity.googleapis.com/MirroringEndpointGroup`.
-        pub location: pulumi_wasm_rust::Output<String>,
+        pub location: pulumi_gestalt_rust::Output<String>,
         /// Required. Immutable. The Mirroring Deployment Group that this resource is connected to. Format
         /// is:
         /// `projects/{project}/locations/global/mirroringDeploymentGroups/{mirroringDeploymentGroup}`
-        pub mirroring_deployment_group: pulumi_wasm_rust::Output<String>,
+        pub mirroring_deployment_group: pulumi_gestalt_rust::Output<String>,
         /// Required. Id of the requesting object
         /// If auto-generating Id server-side, remove this field and
         /// mirroring_endpoint_group_id from the method_signature of Create RPC
         ///
         ///
         /// - - -
-        pub mirroring_endpoint_group_id: pulumi_wasm_rust::Output<String>,
+        pub mirroring_endpoint_group_id: pulumi_gestalt_rust::Output<String>,
         /// Immutable. Identifier. The name of the MirroringEndpointGroup.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
-        pub project: pulumi_wasm_rust::Output<String>,
+        pub project: pulumi_gestalt_rust::Output<String>,
         /// The combination of labels configured directly on the resource
         /// and default labels configured on the provider.
-        pub pulumi_labels: pulumi_wasm_rust::Output<
+        pub pulumi_labels: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
         /// Output only. Whether reconciling is in progress, recommended per
         /// https://google.aip.dev/128.
-        pub reconciling: pulumi_wasm_rust::Output<bool>,
+        pub reconciling: pulumi_gestalt_rust::Output<bool>,
         /// Output only. Current state of the endpoint group.
         /// Possible values:
         /// STATE_UNSPECIFIED
@@ -132,20 +132,20 @@ pub mod mirroring_endpoint_group {
         /// CREATING
         /// DELETING
         /// OUT_OF_SYNC
-        pub state: pulumi_wasm_rust::Output<String>,
+        pub state: pulumi_gestalt_rust::Output<String>,
         /// Output only. [Output only] Update time stamp
-        pub update_time: pulumi_wasm_rust::Output<String>,
+        pub update_time: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: MirroringEndpointGroupArgs,
     ) -> MirroringEndpointGroupResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let labels_binding = args.labels.get_output(context).get_inner();
         let location_binding = args.location.get_output(context).get_inner();
@@ -188,34 +188,36 @@ pub mod mirroring_endpoint_group {
         };
         let o = register_interface::register(context.get_inner(), &request);
         MirroringEndpointGroupResult {
-            create_time: pulumi_wasm_rust::__private::into_domain(
+            create_time: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("createTime"),
             ),
-            effective_labels: pulumi_wasm_rust::__private::into_domain(
+            effective_labels: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("effectiveLabels"),
             ),
-            labels: pulumi_wasm_rust::__private::into_domain(o.extract_field("labels")),
-            location: pulumi_wasm_rust::__private::into_domain(
+            labels: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("labels"),
+            ),
+            location: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("location"),
             ),
-            mirroring_deployment_group: pulumi_wasm_rust::__private::into_domain(
+            mirroring_deployment_group: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("mirroringDeploymentGroup"),
             ),
-            mirroring_endpoint_group_id: pulumi_wasm_rust::__private::into_domain(
+            mirroring_endpoint_group_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("mirroringEndpointGroupId"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            project: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            project: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("project"),
             ),
-            pulumi_labels: pulumi_wasm_rust::__private::into_domain(
+            pulumi_labels: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("pulumiLabels"),
             ),
-            reconciling: pulumi_wasm_rust::__private::into_domain(
+            reconciling: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("reconciling"),
             ),
-            state: pulumi_wasm_rust::__private::into_domain(o.extract_field("state")),
-            update_time: pulumi_wasm_rust::__private::into_domain(
+            state: pulumi_gestalt_rust::__private::into_domain(o.extract_field("state")),
+            update_time: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("updateTime"),
             ),
         }

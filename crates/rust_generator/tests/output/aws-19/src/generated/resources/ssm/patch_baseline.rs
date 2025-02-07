@@ -11,8 +11,8 @@
 /// Using `approved_patches` only.
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let production = patch_baseline::create(
@@ -28,8 +28,8 @@
 /// ### Advanced Usage, specifying patch filters
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let production = patch_baseline::create(
@@ -74,8 +74,8 @@
 /// ### Advanced usage, specifying Microsoft application and Windows patch rules
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let windowsOsApps = patch_baseline::create(
@@ -109,8 +109,8 @@
 /// ### Advanced usage, specifying alternate patch source repository
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let al201709 = patch_baseline::create(
@@ -141,103 +141,107 @@
 /// $ pulumi import aws:ssm/patchBaseline:PatchBaseline example pb-12345678
 /// ```
 pub mod patch_baseline {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct PatchBaselineArgs {
         /// Set of rules used to include patches in the baseline. Up to 10 approval rules can be specified. See `approval_rule` below.
         #[builder(into, default)]
-        pub approval_rules: pulumi_wasm_rust::InputOrOutput<
+        pub approval_rules: pulumi_gestalt_rust::InputOrOutput<
             Option<Vec<super::super::types::ssm::PatchBaselineApprovalRule>>,
         >,
         /// List of explicitly approved patches for the baseline. Cannot be specified with `approval_rule`.
         #[builder(into, default)]
-        pub approved_patches: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
+        pub approved_patches: pulumi_gestalt_rust::InputOrOutput<Option<Vec<String>>>,
         /// Compliance level for approved patches. This means that if an approved patch is reported as missing, this is the severity of the compliance violation. Valid values are `CRITICAL`, `HIGH`, `MEDIUM`, `LOW`, `INFORMATIONAL`, `UNSPECIFIED`. The default value is `UNSPECIFIED`.
         #[builder(into, default)]
-        pub approved_patches_compliance_level: pulumi_wasm_rust::InputOrOutput<
+        pub approved_patches_compliance_level: pulumi_gestalt_rust::InputOrOutput<
             Option<String>,
         >,
         /// Whether the list of approved patches includes non-security updates that should be applied to the instances. Applies to Linux instances only.
         #[builder(into, default)]
-        pub approved_patches_enable_non_security: pulumi_wasm_rust::InputOrOutput<
+        pub approved_patches_enable_non_security: pulumi_gestalt_rust::InputOrOutput<
             Option<bool>,
         >,
         /// Description of the patch baseline.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub description: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Set of global filters used to exclude patches from the baseline. Up to 4 global filters can be specified using Key/Value pairs. Valid Keys are `PRODUCT`, `CLASSIFICATION`, `MSRC_SEVERITY`, and `PATCH_ID`.
         #[builder(into, default)]
-        pub global_filters: pulumi_wasm_rust::InputOrOutput<
+        pub global_filters: pulumi_gestalt_rust::InputOrOutput<
             Option<Vec<super::super::types::ssm::PatchBaselineGlobalFilter>>,
         >,
         /// Name of the patch baseline.
         ///
         /// The following arguments are optional:
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Operating system the patch baseline applies to. Valid values are `ALMA_LINUX`, `AMAZON_LINUX`, `AMAZON_LINUX_2`, `AMAZON_LINUX_2022`, `AMAZON_LINUX_2023`, `CENTOS`, `DEBIAN`, `MACOS`, `ORACLE_LINUX`, `RASPBIAN`, `REDHAT_ENTERPRISE_LINUX`, `ROCKY_LINUX`, `SUSE`, `UBUNTU`, and `WINDOWS`. The default value is `WINDOWS`.
         #[builder(into, default)]
-        pub operating_system: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub operating_system: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// List of rejected patches.
         #[builder(into, default)]
-        pub rejected_patches: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
+        pub rejected_patches: pulumi_gestalt_rust::InputOrOutput<Option<Vec<String>>>,
         /// Action for Patch Manager to take on patches included in the `rejected_patches` list. Valid values are `ALLOW_AS_DEPENDENCY` and `BLOCK`.
         #[builder(into, default)]
-        pub rejected_patches_action: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub rejected_patches_action: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Configuration block with alternate sources for patches. Applies to Linux instances only. See `source` below.
         #[builder(into, default)]
-        pub sources: pulumi_wasm_rust::InputOrOutput<
+        pub sources: pulumi_gestalt_rust::InputOrOutput<
             Option<Vec<super::super::types::ssm::PatchBaselineSource>>,
         >,
         /// Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
     #[allow(dead_code)]
     pub struct PatchBaselineResult {
         /// Set of rules used to include patches in the baseline. Up to 10 approval rules can be specified. See `approval_rule` below.
-        pub approval_rules: pulumi_wasm_rust::Output<
+        pub approval_rules: pulumi_gestalt_rust::Output<
             Option<Vec<super::super::types::ssm::PatchBaselineApprovalRule>>,
         >,
         /// List of explicitly approved patches for the baseline. Cannot be specified with `approval_rule`.
-        pub approved_patches: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub approved_patches: pulumi_gestalt_rust::Output<Option<Vec<String>>>,
         /// Compliance level for approved patches. This means that if an approved patch is reported as missing, this is the severity of the compliance violation. Valid values are `CRITICAL`, `HIGH`, `MEDIUM`, `LOW`, `INFORMATIONAL`, `UNSPECIFIED`. The default value is `UNSPECIFIED`.
-        pub approved_patches_compliance_level: pulumi_wasm_rust::Output<Option<String>>,
+        pub approved_patches_compliance_level: pulumi_gestalt_rust::Output<
+            Option<String>,
+        >,
         /// Whether the list of approved patches includes non-security updates that should be applied to the instances. Applies to Linux instances only.
-        pub approved_patches_enable_non_security: pulumi_wasm_rust::Output<Option<bool>>,
+        pub approved_patches_enable_non_security: pulumi_gestalt_rust::Output<
+            Option<bool>,
+        >,
         /// ARN of the baseline.
-        pub arn: pulumi_wasm_rust::Output<String>,
+        pub arn: pulumi_gestalt_rust::Output<String>,
         /// Description of the patch baseline.
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_gestalt_rust::Output<Option<String>>,
         /// Set of global filters used to exclude patches from the baseline. Up to 4 global filters can be specified using Key/Value pairs. Valid Keys are `PRODUCT`, `CLASSIFICATION`, `MSRC_SEVERITY`, and `PATCH_ID`.
-        pub global_filters: pulumi_wasm_rust::Output<
+        pub global_filters: pulumi_gestalt_rust::Output<
             Option<Vec<super::super::types::ssm::PatchBaselineGlobalFilter>>,
         >,
         /// JSON definition of the baseline.
-        pub json: pulumi_wasm_rust::Output<String>,
+        pub json: pulumi_gestalt_rust::Output<String>,
         /// Name of the patch baseline.
         ///
         /// The following arguments are optional:
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// Operating system the patch baseline applies to. Valid values are `ALMA_LINUX`, `AMAZON_LINUX`, `AMAZON_LINUX_2`, `AMAZON_LINUX_2022`, `AMAZON_LINUX_2023`, `CENTOS`, `DEBIAN`, `MACOS`, `ORACLE_LINUX`, `RASPBIAN`, `REDHAT_ENTERPRISE_LINUX`, `ROCKY_LINUX`, `SUSE`, `UBUNTU`, and `WINDOWS`. The default value is `WINDOWS`.
-        pub operating_system: pulumi_wasm_rust::Output<Option<String>>,
+        pub operating_system: pulumi_gestalt_rust::Output<Option<String>>,
         /// List of rejected patches.
-        pub rejected_patches: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub rejected_patches: pulumi_gestalt_rust::Output<Option<Vec<String>>>,
         /// Action for Patch Manager to take on patches included in the `rejected_patches` list. Valid values are `ALLOW_AS_DEPENDENCY` and `BLOCK`.
-        pub rejected_patches_action: pulumi_wasm_rust::Output<String>,
+        pub rejected_patches_action: pulumi_gestalt_rust::Output<String>,
         /// Configuration block with alternate sources for patches. Applies to Linux instances only. See `source` below.
-        pub sources: pulumi_wasm_rust::Output<
+        pub sources: pulumi_gestalt_rust::Output<
             Option<Vec<super::super::types::ssm::PatchBaselineSource>>,
         >,
         /// Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        pub tags_all: pulumi_wasm_rust::Output<
+        pub tags_all: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
     }
@@ -246,11 +250,11 @@ pub mod patch_baseline {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: PatchBaselineArgs,
     ) -> PatchBaselineResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let approval_rules_binding = args.approval_rules.get_output(context).get_inner();
         let approved_patches_binding = args
@@ -339,41 +343,41 @@ pub mod patch_baseline {
         };
         let o = register_interface::register(context.get_inner(), &request);
         PatchBaselineResult {
-            approval_rules: pulumi_wasm_rust::__private::into_domain(
+            approval_rules: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("approvalRules"),
             ),
-            approved_patches: pulumi_wasm_rust::__private::into_domain(
+            approved_patches: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("approvedPatches"),
             ),
-            approved_patches_compliance_level: pulumi_wasm_rust::__private::into_domain(
+            approved_patches_compliance_level: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("approvedPatchesComplianceLevel"),
             ),
-            approved_patches_enable_non_security: pulumi_wasm_rust::__private::into_domain(
+            approved_patches_enable_non_security: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("approvedPatchesEnableNonSecurity"),
             ),
-            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
-            description: pulumi_wasm_rust::__private::into_domain(
+            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
+            description: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("description"),
             ),
-            global_filters: pulumi_wasm_rust::__private::into_domain(
+            global_filters: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("globalFilters"),
             ),
-            json: pulumi_wasm_rust::__private::into_domain(o.extract_field("json")),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            operating_system: pulumi_wasm_rust::__private::into_domain(
+            json: pulumi_gestalt_rust::__private::into_domain(o.extract_field("json")),
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            operating_system: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("operatingSystem"),
             ),
-            rejected_patches: pulumi_wasm_rust::__private::into_domain(
+            rejected_patches: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("rejectedPatches"),
             ),
-            rejected_patches_action: pulumi_wasm_rust::__private::into_domain(
+            rejected_patches_action: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("rejectedPatchesAction"),
             ),
-            sources: pulumi_wasm_rust::__private::into_domain(
+            sources: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("sources"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_wasm_rust::__private::into_domain(
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            tags_all: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("tagsAll"),
             ),
         }

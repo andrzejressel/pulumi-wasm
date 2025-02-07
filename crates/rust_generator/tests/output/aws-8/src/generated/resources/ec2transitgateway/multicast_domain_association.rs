@@ -3,8 +3,8 @@
 /// ## Example Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = transit_gateway::create(
@@ -34,39 +34,41 @@
 /// }
 /// ```
 pub mod multicast_domain_association {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct MulticastDomainAssociationArgs {
         /// The ID of the subnet to associate with the transit gateway multicast domain.
         #[builder(into)]
-        pub subnet_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub subnet_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The ID of the transit gateway attachment.
         #[builder(into)]
-        pub transit_gateway_attachment_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub transit_gateway_attachment_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The ID of the transit gateway multicast domain.
         #[builder(into)]
-        pub transit_gateway_multicast_domain_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub transit_gateway_multicast_domain_id: pulumi_gestalt_rust::InputOrOutput<
+            String,
+        >,
     }
     #[allow(dead_code)]
     pub struct MulticastDomainAssociationResult {
         /// The ID of the subnet to associate with the transit gateway multicast domain.
-        pub subnet_id: pulumi_wasm_rust::Output<String>,
+        pub subnet_id: pulumi_gestalt_rust::Output<String>,
         /// The ID of the transit gateway attachment.
-        pub transit_gateway_attachment_id: pulumi_wasm_rust::Output<String>,
+        pub transit_gateway_attachment_id: pulumi_gestalt_rust::Output<String>,
         /// The ID of the transit gateway multicast domain.
-        pub transit_gateway_multicast_domain_id: pulumi_wasm_rust::Output<String>,
+        pub transit_gateway_multicast_domain_id: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: MulticastDomainAssociationArgs,
     ) -> MulticastDomainAssociationResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let subnet_id_binding = args.subnet_id.get_output(context).get_inner();
         let transit_gateway_attachment_id_binding = args
@@ -99,13 +101,13 @@ pub mod multicast_domain_association {
         };
         let o = register_interface::register(context.get_inner(), &request);
         MulticastDomainAssociationResult {
-            subnet_id: pulumi_wasm_rust::__private::into_domain(
+            subnet_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("subnetId"),
             ),
-            transit_gateway_attachment_id: pulumi_wasm_rust::__private::into_domain(
+            transit_gateway_attachment_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("transitGatewayAttachmentId"),
             ),
-            transit_gateway_multicast_domain_id: pulumi_wasm_rust::__private::into_domain(
+            transit_gateway_multicast_domain_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("transitGatewayMulticastDomainId"),
             ),
         }

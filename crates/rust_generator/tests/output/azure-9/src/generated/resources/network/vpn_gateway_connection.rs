@@ -3,8 +3,8 @@
 /// ## Example Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = resource_group::create(
@@ -85,27 +85,27 @@
 /// ```
 ///
 pub mod vpn_gateway_connection {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct VpnGatewayConnectionArgs {
         /// Whether Internet Security is enabled for this VPN Connection. Defaults to `false`.
         #[builder(into, default)]
-        pub internet_security_enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub internet_security_enabled: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// The name which should be used for this VPN Gateway Connection. Changing this forces a new VPN Gateway Connection to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The ID of the remote VPN Site, which will connect to the VPN Gateway. Changing this forces a new VPN Gateway Connection to be created.
         #[builder(into)]
-        pub remote_vpn_site_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub remote_vpn_site_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// A `routing` block as defined below. If this is not specified, there will be a default route table created implicitly.
         #[builder(into, default)]
-        pub routing: pulumi_wasm_rust::InputOrOutput<
+        pub routing: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::network::VpnGatewayConnectionRouting>,
         >,
         /// One or more `traffic_selector_policy` blocks as defined below.
         #[builder(into, default)]
-        pub traffic_selector_policies: pulumi_wasm_rust::InputOrOutput<
+        pub traffic_selector_policies: pulumi_gestalt_rust::InputOrOutput<
             Option<
                 Vec<
                     super::super::types::network::VpnGatewayConnectionTrafficSelectorPolicy,
@@ -114,27 +114,27 @@ pub mod vpn_gateway_connection {
         >,
         /// The ID of the VPN Gateway that this VPN Gateway Connection belongs to. Changing this forces a new VPN Gateway Connection to be created.
         #[builder(into)]
-        pub vpn_gateway_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub vpn_gateway_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// One or more `vpn_link` blocks as defined below.
         #[builder(into)]
-        pub vpn_links: pulumi_wasm_rust::InputOrOutput<
+        pub vpn_links: pulumi_gestalt_rust::InputOrOutput<
             Vec<super::super::types::network::VpnGatewayConnectionVpnLink>,
         >,
     }
     #[allow(dead_code)]
     pub struct VpnGatewayConnectionResult {
         /// Whether Internet Security is enabled for this VPN Connection. Defaults to `false`.
-        pub internet_security_enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub internet_security_enabled: pulumi_gestalt_rust::Output<Option<bool>>,
         /// The name which should be used for this VPN Gateway Connection. Changing this forces a new VPN Gateway Connection to be created.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// The ID of the remote VPN Site, which will connect to the VPN Gateway. Changing this forces a new VPN Gateway Connection to be created.
-        pub remote_vpn_site_id: pulumi_wasm_rust::Output<String>,
+        pub remote_vpn_site_id: pulumi_gestalt_rust::Output<String>,
         /// A `routing` block as defined below. If this is not specified, there will be a default route table created implicitly.
-        pub routing: pulumi_wasm_rust::Output<
+        pub routing: pulumi_gestalt_rust::Output<
             super::super::types::network::VpnGatewayConnectionRouting,
         >,
         /// One or more `traffic_selector_policy` blocks as defined below.
-        pub traffic_selector_policies: pulumi_wasm_rust::Output<
+        pub traffic_selector_policies: pulumi_gestalt_rust::Output<
             Option<
                 Vec<
                     super::super::types::network::VpnGatewayConnectionTrafficSelectorPolicy,
@@ -142,9 +142,9 @@ pub mod vpn_gateway_connection {
             >,
         >,
         /// The ID of the VPN Gateway that this VPN Gateway Connection belongs to. Changing this forces a new VPN Gateway Connection to be created.
-        pub vpn_gateway_id: pulumi_wasm_rust::Output<String>,
+        pub vpn_gateway_id: pulumi_gestalt_rust::Output<String>,
         /// One or more `vpn_link` blocks as defined below.
-        pub vpn_links: pulumi_wasm_rust::Output<
+        pub vpn_links: pulumi_gestalt_rust::Output<
             Vec<super::super::types::network::VpnGatewayConnectionVpnLink>,
         >,
     }
@@ -153,11 +153,11 @@ pub mod vpn_gateway_connection {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: VpnGatewayConnectionArgs,
     ) -> VpnGatewayConnectionResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let internet_security_enabled_binding = args
             .internet_security_enabled
@@ -212,23 +212,23 @@ pub mod vpn_gateway_connection {
         };
         let o = register_interface::register(context.get_inner(), &request);
         VpnGatewayConnectionResult {
-            internet_security_enabled: pulumi_wasm_rust::__private::into_domain(
+            internet_security_enabled: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("internetSecurityEnabled"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            remote_vpn_site_id: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            remote_vpn_site_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("remoteVpnSiteId"),
             ),
-            routing: pulumi_wasm_rust::__private::into_domain(
+            routing: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("routing"),
             ),
-            traffic_selector_policies: pulumi_wasm_rust::__private::into_domain(
+            traffic_selector_policies: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("trafficSelectorPolicies"),
             ),
-            vpn_gateway_id: pulumi_wasm_rust::__private::into_domain(
+            vpn_gateway_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("vpnGatewayId"),
             ),
-            vpn_links: pulumi_wasm_rust::__private::into_domain(
+            vpn_links: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("vpnLinks"),
             ),
         }

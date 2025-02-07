@@ -119,7 +119,7 @@
 /// ```
 ///
 pub mod environment_keyvaluemaps_entries {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct EnvironmentKeyvaluemapsEntriesArgs {
@@ -129,13 +129,13 @@ pub mod environment_keyvaluemaps_entries {
         ///
         /// - - -
         #[builder(into)]
-        pub env_keyvaluemap_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub env_keyvaluemap_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Required. Resource URI that can be used to identify the scope of the key value map entries.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Required. Data or payload that is being retrieved and associated with the unique key.
         #[builder(into)]
-        pub value: pulumi_wasm_rust::InputOrOutput<String>,
+        pub value: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct EnvironmentKeyvaluemapsEntriesResult {
@@ -144,22 +144,22 @@ pub mod environment_keyvaluemaps_entries {
         ///
         ///
         /// - - -
-        pub env_keyvaluemap_id: pulumi_wasm_rust::Output<String>,
+        pub env_keyvaluemap_id: pulumi_gestalt_rust::Output<String>,
         /// Required. Resource URI that can be used to identify the scope of the key value map entries.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// Required. Data or payload that is being retrieved and associated with the unique key.
-        pub value: pulumi_wasm_rust::Output<String>,
+        pub value: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: EnvironmentKeyvaluemapsEntriesArgs,
     ) -> EnvironmentKeyvaluemapsEntriesResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let env_keyvaluemap_id_binding = args
             .env_keyvaluemap_id
@@ -189,11 +189,11 @@ pub mod environment_keyvaluemaps_entries {
         };
         let o = register_interface::register(context.get_inner(), &request);
         EnvironmentKeyvaluemapsEntriesResult {
-            env_keyvaluemap_id: pulumi_wasm_rust::__private::into_domain(
+            env_keyvaluemap_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("envKeyvaluemapId"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            value: pulumi_wasm_rust::__private::into_domain(o.extract_field("value")),
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            value: pulumi_gestalt_rust::__private::into_domain(o.extract_field("value")),
         }
     }
 }

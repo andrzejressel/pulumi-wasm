@@ -45,39 +45,39 @@
 /// $ pulumi import aws:lightsail/disk_attachment:Disk_attachment test test-disk,test-instance
 /// ```
 pub mod disk_attachment {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct Disk_attachmentArgs {
         /// The name of the Lightsail Disk.
         #[builder(into)]
-        pub disk_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub disk_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The disk path to expose to the instance.
         #[builder(into)]
-        pub disk_path: pulumi_wasm_rust::InputOrOutput<String>,
+        pub disk_path: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The name of the Lightsail Instance to attach to.
         #[builder(into)]
-        pub instance_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub instance_name: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct Disk_attachmentResult {
         /// The name of the Lightsail Disk.
-        pub disk_name: pulumi_wasm_rust::Output<String>,
+        pub disk_name: pulumi_gestalt_rust::Output<String>,
         /// The disk path to expose to the instance.
-        pub disk_path: pulumi_wasm_rust::Output<String>,
+        pub disk_path: pulumi_gestalt_rust::Output<String>,
         /// The name of the Lightsail Instance to attach to.
-        pub instance_name: pulumi_wasm_rust::Output<String>,
+        pub instance_name: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: Disk_attachmentArgs,
     ) -> Disk_attachmentResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let disk_name_binding = args.disk_name.get_output(context).get_inner();
         let disk_path_binding = args.disk_path.get_output(context).get_inner();
@@ -103,13 +103,13 @@ pub mod disk_attachment {
         };
         let o = register_interface::register(context.get_inner(), &request);
         Disk_attachmentResult {
-            disk_name: pulumi_wasm_rust::__private::into_domain(
+            disk_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("diskName"),
             ),
-            disk_path: pulumi_wasm_rust::__private::into_domain(
+            disk_path: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("diskPath"),
             ),
-            instance_name: pulumi_wasm_rust::__private::into_domain(
+            instance_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("instanceName"),
             ),
         }

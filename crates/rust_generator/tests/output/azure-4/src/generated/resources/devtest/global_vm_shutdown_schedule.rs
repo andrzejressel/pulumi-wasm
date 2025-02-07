@@ -88,67 +88,67 @@
 /// The name of the resource within the `resource id` will always follow the format `shutdown-computevm-<VM Name>` where `<VM Name>` is replaced by the name of the target Virtual Machine
 ///
 pub mod global_vm_shutdown_schedule {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct GlobalVMShutdownScheduleArgs {
         /// The time each day when the schedule takes effect. Must match the format HHmm where HH is 00-23 and mm is 00-59 (e.g. 0930, 2300, etc.)
         #[builder(into)]
-        pub daily_recurrence_time: pulumi_wasm_rust::InputOrOutput<String>,
+        pub daily_recurrence_time: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Whether to enable the schedule. Possible values are `true` and `false`. Defaults to `true`.
         #[builder(into, default)]
-        pub enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub enabled: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// The location where the schedule is created. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub location: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub location: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The notification setting of a schedule. A `notification_settings` block as defined below.
         #[builder(into)]
-        pub notification_settings: pulumi_wasm_rust::InputOrOutput<
+        pub notification_settings: pulumi_gestalt_rust::InputOrOutput<
             super::super::types::devtest::GlobalVmShutdownScheduleNotificationSettings,
         >,
         /// A mapping of tags to assign to the resource.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// The time zone ID (e.g. Pacific Standard time). Refer to this guide for a [full list of accepted time zone names](https://jackstromberg.com/2017/01/list-of-time-zones-consumed-by-azure/).
         #[builder(into)]
-        pub timezone: pulumi_wasm_rust::InputOrOutput<String>,
+        pub timezone: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The resource ID of the target ARM-based Virtual Machine. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub virtual_machine_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub virtual_machine_id: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct GlobalVMShutdownScheduleResult {
         /// The time each day when the schedule takes effect. Must match the format HHmm where HH is 00-23 and mm is 00-59 (e.g. 0930, 2300, etc.)
-        pub daily_recurrence_time: pulumi_wasm_rust::Output<String>,
+        pub daily_recurrence_time: pulumi_gestalt_rust::Output<String>,
         /// Whether to enable the schedule. Possible values are `true` and `false`. Defaults to `true`.
-        pub enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub enabled: pulumi_gestalt_rust::Output<Option<bool>>,
         /// The location where the schedule is created. Changing this forces a new resource to be created.
-        pub location: pulumi_wasm_rust::Output<String>,
+        pub location: pulumi_gestalt_rust::Output<String>,
         /// The notification setting of a schedule. A `notification_settings` block as defined below.
-        pub notification_settings: pulumi_wasm_rust::Output<
+        pub notification_settings: pulumi_gestalt_rust::Output<
             super::super::types::devtest::GlobalVmShutdownScheduleNotificationSettings,
         >,
         /// A mapping of tags to assign to the resource.
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// The time zone ID (e.g. Pacific Standard time). Refer to this guide for a [full list of accepted time zone names](https://jackstromberg.com/2017/01/list-of-time-zones-consumed-by-azure/).
-        pub timezone: pulumi_wasm_rust::Output<String>,
+        pub timezone: pulumi_gestalt_rust::Output<String>,
         /// The resource ID of the target ARM-based Virtual Machine. Changing this forces a new resource to be created.
-        pub virtual_machine_id: pulumi_wasm_rust::Output<String>,
+        pub virtual_machine_id: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: GlobalVMShutdownScheduleArgs,
     ) -> GlobalVMShutdownScheduleResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let daily_recurrence_time_binding = args
             .daily_recurrence_time
@@ -204,23 +204,23 @@ pub mod global_vm_shutdown_schedule {
         };
         let o = register_interface::register(context.get_inner(), &request);
         GlobalVMShutdownScheduleResult {
-            daily_recurrence_time: pulumi_wasm_rust::__private::into_domain(
+            daily_recurrence_time: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("dailyRecurrenceTime"),
             ),
-            enabled: pulumi_wasm_rust::__private::into_domain(
+            enabled: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("enabled"),
             ),
-            location: pulumi_wasm_rust::__private::into_domain(
+            location: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("location"),
             ),
-            notification_settings: pulumi_wasm_rust::__private::into_domain(
+            notification_settings: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("notificationSettings"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
-            timezone: pulumi_wasm_rust::__private::into_domain(
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            timezone: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("timezone"),
             ),
-            virtual_machine_id: pulumi_wasm_rust::__private::into_domain(
+            virtual_machine_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("virtualMachineId"),
             ),
         }

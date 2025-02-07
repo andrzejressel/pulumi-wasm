@@ -40,58 +40,58 @@
 /// $ pulumi import aws:licensemanager/licenseConfiguration:LicenseConfiguration example arn:aws:license-manager:eu-west-1:123456789012:license-configuration:lic-0123456789abcdef0123456789abcdef
 /// ```
 pub mod license_configuration {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct LicenseConfigurationArgs {
         /// Description of the license configuration.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub description: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Number of licenses managed by the license configuration.
         #[builder(into, default)]
-        pub license_count: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
+        pub license_count: pulumi_gestalt_rust::InputOrOutput<Option<i32>>,
         /// Sets the number of available licenses as a hard limit.
         #[builder(into, default)]
-        pub license_count_hard_limit: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub license_count_hard_limit: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// Dimension to use to track license inventory. Specify either `vCPU`, `Instance`, `Core` or `Socket`.
         #[builder(into)]
-        pub license_counting_type: pulumi_wasm_rust::InputOrOutput<String>,
+        pub license_counting_type: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Array of configured License Manager rules.
         #[builder(into, default)]
-        pub license_rules: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
+        pub license_rules: pulumi_gestalt_rust::InputOrOutput<Option<Vec<String>>>,
         /// Name of the license configuration.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
     #[allow(dead_code)]
     pub struct LicenseConfigurationResult {
         /// The license configuration ARN.
-        pub arn: pulumi_wasm_rust::Output<String>,
+        pub arn: pulumi_gestalt_rust::Output<String>,
         /// Description of the license configuration.
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_gestalt_rust::Output<Option<String>>,
         /// Number of licenses managed by the license configuration.
-        pub license_count: pulumi_wasm_rust::Output<Option<i32>>,
+        pub license_count: pulumi_gestalt_rust::Output<Option<i32>>,
         /// Sets the number of available licenses as a hard limit.
-        pub license_count_hard_limit: pulumi_wasm_rust::Output<Option<bool>>,
+        pub license_count_hard_limit: pulumi_gestalt_rust::Output<Option<bool>>,
         /// Dimension to use to track license inventory. Specify either `vCPU`, `Instance`, `Core` or `Socket`.
-        pub license_counting_type: pulumi_wasm_rust::Output<String>,
+        pub license_counting_type: pulumi_gestalt_rust::Output<String>,
         /// Array of configured License Manager rules.
-        pub license_rules: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub license_rules: pulumi_gestalt_rust::Output<Option<Vec<String>>>,
         /// Name of the license configuration.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// Account ID of the owner of the license configuration.
-        pub owner_account_id: pulumi_wasm_rust::Output<String>,
+        pub owner_account_id: pulumi_gestalt_rust::Output<String>,
         /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        pub tags_all: pulumi_wasm_rust::Output<
+        pub tags_all: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
     }
@@ -100,11 +100,11 @@ pub mod license_configuration {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: LicenseConfigurationArgs,
     ) -> LicenseConfigurationResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let description_binding = args.description.get_output(context).get_inner();
         let license_count_binding = args.license_count.get_output(context).get_inner();
@@ -156,28 +156,28 @@ pub mod license_configuration {
         };
         let o = register_interface::register(context.get_inner(), &request);
         LicenseConfigurationResult {
-            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
-            description: pulumi_wasm_rust::__private::into_domain(
+            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
+            description: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("description"),
             ),
-            license_count: pulumi_wasm_rust::__private::into_domain(
+            license_count: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("licenseCount"),
             ),
-            license_count_hard_limit: pulumi_wasm_rust::__private::into_domain(
+            license_count_hard_limit: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("licenseCountHardLimit"),
             ),
-            license_counting_type: pulumi_wasm_rust::__private::into_domain(
+            license_counting_type: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("licenseCountingType"),
             ),
-            license_rules: pulumi_wasm_rust::__private::into_domain(
+            license_rules: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("licenseRules"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            owner_account_id: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            owner_account_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("ownerAccountId"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_wasm_rust::__private::into_domain(
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            tags_all: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("tagsAll"),
             ),
         }

@@ -32,68 +32,68 @@
 /// $ pulumi import aws:connect/routingProfile:RoutingProfile example f1288a1f-6193-445a-b47e-af739b2:c1d4e5f6-1b3c-1b3c-1b3c-c1d4e5f6c1d4e5
 /// ```
 pub mod routing_profile {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct RoutingProfileArgs {
         /// Specifies the default outbound queue for the Routing Profile.
         #[builder(into)]
-        pub default_outbound_queue_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub default_outbound_queue_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Specifies the description of the Routing Profile.
         #[builder(into)]
-        pub description: pulumi_wasm_rust::InputOrOutput<String>,
+        pub description: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Specifies the identifier of the hosting Amazon Connect Instance.
         #[builder(into)]
-        pub instance_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub instance_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// One or more `media_concurrencies` blocks that specify the channels that agents can handle in the Contact Control Panel (CCP) for this Routing Profile. The `media_concurrencies` block is documented below.
         #[builder(into)]
-        pub media_concurrencies: pulumi_wasm_rust::InputOrOutput<
+        pub media_concurrencies: pulumi_gestalt_rust::InputOrOutput<
             Vec<super::super::types::connect::RoutingProfileMediaConcurrency>,
         >,
         /// Specifies the name of the Routing Profile.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// One or more `queue_configs` blocks that specify the inbound queues associated with the routing profile. If no queue is added, the agent only can make outbound calls. The `queue_configs` block is documented below.
         #[builder(into, default)]
-        pub queue_configs: pulumi_wasm_rust::InputOrOutput<
+        pub queue_configs: pulumi_gestalt_rust::InputOrOutput<
             Option<Vec<super::super::types::connect::RoutingProfileQueueConfig>>,
         >,
         /// Tags to apply to the Routing Profile. If configured with a provider
         /// `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
     #[allow(dead_code)]
     pub struct RoutingProfileResult {
         /// The Amazon Resource Name (ARN) of the Routing Profile.
-        pub arn: pulumi_wasm_rust::Output<String>,
+        pub arn: pulumi_gestalt_rust::Output<String>,
         /// Specifies the default outbound queue for the Routing Profile.
-        pub default_outbound_queue_id: pulumi_wasm_rust::Output<String>,
+        pub default_outbound_queue_id: pulumi_gestalt_rust::Output<String>,
         /// Specifies the description of the Routing Profile.
-        pub description: pulumi_wasm_rust::Output<String>,
+        pub description: pulumi_gestalt_rust::Output<String>,
         /// Specifies the identifier of the hosting Amazon Connect Instance.
-        pub instance_id: pulumi_wasm_rust::Output<String>,
+        pub instance_id: pulumi_gestalt_rust::Output<String>,
         /// One or more `media_concurrencies` blocks that specify the channels that agents can handle in the Contact Control Panel (CCP) for this Routing Profile. The `media_concurrencies` block is documented below.
-        pub media_concurrencies: pulumi_wasm_rust::Output<
+        pub media_concurrencies: pulumi_gestalt_rust::Output<
             Vec<super::super::types::connect::RoutingProfileMediaConcurrency>,
         >,
         /// Specifies the name of the Routing Profile.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// One or more `queue_configs` blocks that specify the inbound queues associated with the routing profile. If no queue is added, the agent only can make outbound calls. The `queue_configs` block is documented below.
-        pub queue_configs: pulumi_wasm_rust::Output<
+        pub queue_configs: pulumi_gestalt_rust::Output<
             Option<Vec<super::super::types::connect::RoutingProfileQueueConfig>>,
         >,
         /// The identifier for the Routing Profile.
-        pub routing_profile_id: pulumi_wasm_rust::Output<String>,
+        pub routing_profile_id: pulumi_gestalt_rust::Output<String>,
         /// Tags to apply to the Routing Profile. If configured with a provider
         /// `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        pub tags_all: pulumi_wasm_rust::Output<
+        pub tags_all: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
     }
@@ -102,11 +102,11 @@ pub mod routing_profile {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: RoutingProfileArgs,
     ) -> RoutingProfileResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let default_outbound_queue_id_binding = args
             .default_outbound_queue_id
@@ -158,28 +158,28 @@ pub mod routing_profile {
         };
         let o = register_interface::register(context.get_inner(), &request);
         RoutingProfileResult {
-            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
-            default_outbound_queue_id: pulumi_wasm_rust::__private::into_domain(
+            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
+            default_outbound_queue_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("defaultOutboundQueueId"),
             ),
-            description: pulumi_wasm_rust::__private::into_domain(
+            description: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("description"),
             ),
-            instance_id: pulumi_wasm_rust::__private::into_domain(
+            instance_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("instanceId"),
             ),
-            media_concurrencies: pulumi_wasm_rust::__private::into_domain(
+            media_concurrencies: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("mediaConcurrencies"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            queue_configs: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            queue_configs: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("queueConfigs"),
             ),
-            routing_profile_id: pulumi_wasm_rust::__private::into_domain(
+            routing_profile_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("routingProfileId"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_wasm_rust::__private::into_domain(
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            tags_all: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("tagsAll"),
             ),
         }

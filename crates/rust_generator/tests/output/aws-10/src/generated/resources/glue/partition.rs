@@ -21,66 +21,66 @@
 /// $ pulumi import aws:glue/partition:Partition part 123456789012:MyDatabase:MyTable:val1#val2
 /// ```
 pub mod partition {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct PartitionArgs {
         /// ID of the Glue Catalog and database to create the table in. If omitted, this defaults to the AWS Account ID plus the database name.
         #[builder(into, default)]
-        pub catalog_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub catalog_id: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Name of the metadata database where the table metadata resides. For Hive compatibility, this must be all lowercase.
         #[builder(into)]
-        pub database_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub database_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Properties associated with this table, as a list of key-value pairs.
         #[builder(into, default)]
-        pub parameters: pulumi_wasm_rust::InputOrOutput<
+        pub parameters: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// The values that define the partition.
         #[builder(into)]
-        pub partition_values: pulumi_wasm_rust::InputOrOutput<Vec<String>>,
+        pub partition_values: pulumi_gestalt_rust::InputOrOutput<Vec<String>>,
         /// A storage descriptor object containing information about the physical storage of this table. You can refer to the [Glue Developer Guide](https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-catalog-tables.html#aws-glue-api-catalog-tables-StorageDescriptor) for a full explanation of this object.
         #[builder(into, default)]
-        pub storage_descriptor: pulumi_wasm_rust::InputOrOutput<
+        pub storage_descriptor: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::glue::PartitionStorageDescriptor>,
         >,
         #[builder(into)]
-        pub table_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub table_name: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct PartitionResult {
         /// ID of the Glue Catalog and database to create the table in. If omitted, this defaults to the AWS Account ID plus the database name.
-        pub catalog_id: pulumi_wasm_rust::Output<String>,
+        pub catalog_id: pulumi_gestalt_rust::Output<String>,
         /// The time at which the partition was created.
-        pub creation_time: pulumi_wasm_rust::Output<String>,
+        pub creation_time: pulumi_gestalt_rust::Output<String>,
         /// Name of the metadata database where the table metadata resides. For Hive compatibility, this must be all lowercase.
-        pub database_name: pulumi_wasm_rust::Output<String>,
+        pub database_name: pulumi_gestalt_rust::Output<String>,
         /// The last time at which the partition was accessed.
-        pub last_accessed_time: pulumi_wasm_rust::Output<String>,
+        pub last_accessed_time: pulumi_gestalt_rust::Output<String>,
         /// The last time at which column statistics were computed for this partition.
-        pub last_analyzed_time: pulumi_wasm_rust::Output<String>,
+        pub last_analyzed_time: pulumi_gestalt_rust::Output<String>,
         /// Properties associated with this table, as a list of key-value pairs.
-        pub parameters: pulumi_wasm_rust::Output<
+        pub parameters: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// The values that define the partition.
-        pub partition_values: pulumi_wasm_rust::Output<Vec<String>>,
+        pub partition_values: pulumi_gestalt_rust::Output<Vec<String>>,
         /// A storage descriptor object containing information about the physical storage of this table. You can refer to the [Glue Developer Guide](https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-catalog-tables.html#aws-glue-api-catalog-tables-StorageDescriptor) for a full explanation of this object.
-        pub storage_descriptor: pulumi_wasm_rust::Output<
+        pub storage_descriptor: pulumi_gestalt_rust::Output<
             Option<super::super::types::glue::PartitionStorageDescriptor>,
         >,
-        pub table_name: pulumi_wasm_rust::Output<String>,
+        pub table_name: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: PartitionArgs,
     ) -> PartitionResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let catalog_id_binding = args.catalog_id.get_output(context).get_inner();
         let database_name_binding = args.database_name.get_output(context).get_inner();
@@ -127,31 +127,31 @@ pub mod partition {
         };
         let o = register_interface::register(context.get_inner(), &request);
         PartitionResult {
-            catalog_id: pulumi_wasm_rust::__private::into_domain(
+            catalog_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("catalogId"),
             ),
-            creation_time: pulumi_wasm_rust::__private::into_domain(
+            creation_time: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("creationTime"),
             ),
-            database_name: pulumi_wasm_rust::__private::into_domain(
+            database_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("databaseName"),
             ),
-            last_accessed_time: pulumi_wasm_rust::__private::into_domain(
+            last_accessed_time: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("lastAccessedTime"),
             ),
-            last_analyzed_time: pulumi_wasm_rust::__private::into_domain(
+            last_analyzed_time: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("lastAnalyzedTime"),
             ),
-            parameters: pulumi_wasm_rust::__private::into_domain(
+            parameters: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("parameters"),
             ),
-            partition_values: pulumi_wasm_rust::__private::into_domain(
+            partition_values: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("partitionValues"),
             ),
-            storage_descriptor: pulumi_wasm_rust::__private::into_domain(
+            storage_descriptor: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("storageDescriptor"),
             ),
-            table_name: pulumi_wasm_rust::__private::into_domain(
+            table_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("tableName"),
             ),
         }

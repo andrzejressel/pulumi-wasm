@@ -16,82 +16,82 @@
 /// $ pulumi import aws:networkmanager/connectAttachment:ConnectAttachment example attachment-0f8fa60d2238d1bd8
 /// ```
 pub mod connect_attachment {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ConnectAttachmentArgs {
         /// The ID of a core network where you want to create the attachment.
         #[builder(into)]
-        pub core_network_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub core_network_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The Region where the edge is located.
         #[builder(into)]
-        pub edge_location: pulumi_wasm_rust::InputOrOutput<String>,
+        pub edge_location: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Options block. See options for more information.
         ///
         /// The following arguments are optional:
         #[builder(into)]
-        pub options: pulumi_wasm_rust::InputOrOutput<
+        pub options: pulumi_gestalt_rust::InputOrOutput<
             super::super::types::networkmanager::ConnectAttachmentOptions,
         >,
         /// Key-value tags for the attachment. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// The ID of the attachment between the two connections.
         #[builder(into)]
-        pub transport_attachment_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub transport_attachment_id: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct ConnectAttachmentResult {
         /// The ARN of the attachment.
-        pub arn: pulumi_wasm_rust::Output<String>,
-        pub attachment_id: pulumi_wasm_rust::Output<String>,
+        pub arn: pulumi_gestalt_rust::Output<String>,
+        pub attachment_id: pulumi_gestalt_rust::Output<String>,
         /// The policy rule number associated with the attachment.
-        pub attachment_policy_rule_number: pulumi_wasm_rust::Output<i32>,
+        pub attachment_policy_rule_number: pulumi_gestalt_rust::Output<i32>,
         /// The type of attachment.
-        pub attachment_type: pulumi_wasm_rust::Output<String>,
+        pub attachment_type: pulumi_gestalt_rust::Output<String>,
         /// The ARN of a core network.
-        pub core_network_arn: pulumi_wasm_rust::Output<String>,
+        pub core_network_arn: pulumi_gestalt_rust::Output<String>,
         /// The ID of a core network where you want to create the attachment.
-        pub core_network_id: pulumi_wasm_rust::Output<String>,
+        pub core_network_id: pulumi_gestalt_rust::Output<String>,
         /// The Region where the edge is located.
-        pub edge_location: pulumi_wasm_rust::Output<String>,
+        pub edge_location: pulumi_gestalt_rust::Output<String>,
         /// Options block. See options for more information.
         ///
         /// The following arguments are optional:
-        pub options: pulumi_wasm_rust::Output<
+        pub options: pulumi_gestalt_rust::Output<
             super::super::types::networkmanager::ConnectAttachmentOptions,
         >,
         /// The ID of the attachment account owner.
-        pub owner_account_id: pulumi_wasm_rust::Output<String>,
+        pub owner_account_id: pulumi_gestalt_rust::Output<String>,
         /// The attachment resource ARN.
-        pub resource_arn: pulumi_wasm_rust::Output<String>,
+        pub resource_arn: pulumi_gestalt_rust::Output<String>,
         /// The name of the segment attachment.
-        pub segment_name: pulumi_wasm_rust::Output<String>,
+        pub segment_name: pulumi_gestalt_rust::Output<String>,
         /// The state of the attachment.
-        pub state: pulumi_wasm_rust::Output<String>,
+        pub state: pulumi_gestalt_rust::Output<String>,
         /// Key-value tags for the attachment. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        pub tags_all: pulumi_wasm_rust::Output<
+        pub tags_all: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
         /// The ID of the attachment between the two connections.
-        pub transport_attachment_id: pulumi_wasm_rust::Output<String>,
+        pub transport_attachment_id: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: ConnectAttachmentArgs,
     ) -> ConnectAttachmentResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let core_network_id_binding = args
             .core_network_id
@@ -133,43 +133,43 @@ pub mod connect_attachment {
         };
         let o = register_interface::register(context.get_inner(), &request);
         ConnectAttachmentResult {
-            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
-            attachment_id: pulumi_wasm_rust::__private::into_domain(
+            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
+            attachment_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("attachmentId"),
             ),
-            attachment_policy_rule_number: pulumi_wasm_rust::__private::into_domain(
+            attachment_policy_rule_number: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("attachmentPolicyRuleNumber"),
             ),
-            attachment_type: pulumi_wasm_rust::__private::into_domain(
+            attachment_type: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("attachmentType"),
             ),
-            core_network_arn: pulumi_wasm_rust::__private::into_domain(
+            core_network_arn: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("coreNetworkArn"),
             ),
-            core_network_id: pulumi_wasm_rust::__private::into_domain(
+            core_network_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("coreNetworkId"),
             ),
-            edge_location: pulumi_wasm_rust::__private::into_domain(
+            edge_location: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("edgeLocation"),
             ),
-            options: pulumi_wasm_rust::__private::into_domain(
+            options: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("options"),
             ),
-            owner_account_id: pulumi_wasm_rust::__private::into_domain(
+            owner_account_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("ownerAccountId"),
             ),
-            resource_arn: pulumi_wasm_rust::__private::into_domain(
+            resource_arn: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("resourceArn"),
             ),
-            segment_name: pulumi_wasm_rust::__private::into_domain(
+            segment_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("segmentName"),
             ),
-            state: pulumi_wasm_rust::__private::into_domain(o.extract_field("state")),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_wasm_rust::__private::into_domain(
+            state: pulumi_gestalt_rust::__private::into_domain(o.extract_field("state")),
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            tags_all: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("tagsAll"),
             ),
-            transport_attachment_id: pulumi_wasm_rust::__private::into_domain(
+            transport_attachment_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("transportAttachmentId"),
             ),
         }

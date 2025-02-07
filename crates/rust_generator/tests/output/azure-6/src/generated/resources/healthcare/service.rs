@@ -51,108 +51,110 @@
 /// ```
 ///
 pub mod service {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ServiceArgs {
         #[builder(into, default)]
-        pub access_policy_object_ids: pulumi_wasm_rust::InputOrOutput<
+        pub access_policy_object_ids: pulumi_gestalt_rust::InputOrOutput<
             Option<Vec<String>>,
         >,
         /// An `authentication_configuration` block as defined below.
         #[builder(into, default)]
-        pub authentication_configuration: pulumi_wasm_rust::InputOrOutput<
+        pub authentication_configuration: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::healthcare::ServiceAuthenticationConfiguration>,
         >,
         /// Specifies the name of the storage account which the operation configuration information is exported to.
         #[builder(into, default)]
-        pub configuration_export_storage_account_name: pulumi_wasm_rust::InputOrOutput<
+        pub configuration_export_storage_account_name: pulumi_gestalt_rust::InputOrOutput<
             Option<String>,
         >,
         /// A `cors_configuration` block as defined below.
         #[builder(into, default)]
-        pub cors_configuration: pulumi_wasm_rust::InputOrOutput<
+        pub cors_configuration: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::healthcare::ServiceCorsConfiguration>,
         >,
         /// A versionless Key Vault Key ID for CMK encryption of the backing database. Changing this forces a new resource to be created.
         ///
         /// > **Please Note** In order to use a `Custom Key` from Key Vault for encryption you must grant Azure Cosmos DB Service access to your key vault. For instructions on how to configure your Key Vault correctly please refer to the [product documentation](https://docs.microsoft.com/azure/cosmos-db/how-to-setup-cmk#add-an-access-policy-to-your-azure-key-vault-instance)
         #[builder(into, default)]
-        pub cosmosdb_key_vault_key_versionless_id: pulumi_wasm_rust::InputOrOutput<
+        pub cosmosdb_key_vault_key_versionless_id: pulumi_gestalt_rust::InputOrOutput<
             Option<String>,
         >,
         /// The provisioned throughput for the backing database. Range of `400`-`100000`. Defaults to `1000`.
         #[builder(into, default)]
-        pub cosmosdb_throughput: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
+        pub cosmosdb_throughput: pulumi_gestalt_rust::InputOrOutput<Option<i32>>,
         /// An `identity` block as defined below.
         #[builder(into, default)]
-        pub identity: pulumi_wasm_rust::InputOrOutput<
+        pub identity: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::healthcare::ServiceIdentity>,
         >,
         /// The type of the service. Values at time of publication are: `fhir`, `fhir-Stu3` and `fhir-R4`. Default value is `fhir`.
         #[builder(into, default)]
-        pub kind: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub kind: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Specifies the supported Azure Region where the Service should be created. Changing this forces a new resource to be created.
         ///
         /// > **Please Note**: Not all locations support this resource. Some are `West US 2`, `North Central US`, and `UK West`.
         #[builder(into, default)]
-        pub location: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub location: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The name of the service instance. Used for service endpoint, must be unique within the audience. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Whether public network access is enabled or disabled for this service instance. Defaults to `true`.
         #[builder(into, default)]
-        pub public_network_access_enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub public_network_access_enabled: pulumi_gestalt_rust::InputOrOutput<
+            Option<bool>,
+        >,
         /// The name of the Resource Group in which to create the Service. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub resource_group_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub resource_group_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// A mapping of tags to assign to the resource.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
     #[allow(dead_code)]
     pub struct ServiceResult {
-        pub access_policy_object_ids: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub access_policy_object_ids: pulumi_gestalt_rust::Output<Option<Vec<String>>>,
         /// An `authentication_configuration` block as defined below.
-        pub authentication_configuration: pulumi_wasm_rust::Output<
+        pub authentication_configuration: pulumi_gestalt_rust::Output<
             super::super::types::healthcare::ServiceAuthenticationConfiguration,
         >,
         /// Specifies the name of the storage account which the operation configuration information is exported to.
-        pub configuration_export_storage_account_name: pulumi_wasm_rust::Output<
+        pub configuration_export_storage_account_name: pulumi_gestalt_rust::Output<
             Option<String>,
         >,
         /// A `cors_configuration` block as defined below.
-        pub cors_configuration: pulumi_wasm_rust::Output<
+        pub cors_configuration: pulumi_gestalt_rust::Output<
             super::super::types::healthcare::ServiceCorsConfiguration,
         >,
         /// A versionless Key Vault Key ID for CMK encryption of the backing database. Changing this forces a new resource to be created.
         ///
         /// > **Please Note** In order to use a `Custom Key` from Key Vault for encryption you must grant Azure Cosmos DB Service access to your key vault. For instructions on how to configure your Key Vault correctly please refer to the [product documentation](https://docs.microsoft.com/azure/cosmos-db/how-to-setup-cmk#add-an-access-policy-to-your-azure-key-vault-instance)
-        pub cosmosdb_key_vault_key_versionless_id: pulumi_wasm_rust::Output<
+        pub cosmosdb_key_vault_key_versionless_id: pulumi_gestalt_rust::Output<
             Option<String>,
         >,
         /// The provisioned throughput for the backing database. Range of `400`-`100000`. Defaults to `1000`.
-        pub cosmosdb_throughput: pulumi_wasm_rust::Output<Option<i32>>,
+        pub cosmosdb_throughput: pulumi_gestalt_rust::Output<Option<i32>>,
         /// An `identity` block as defined below.
-        pub identity: pulumi_wasm_rust::Output<
+        pub identity: pulumi_gestalt_rust::Output<
             Option<super::super::types::healthcare::ServiceIdentity>,
         >,
         /// The type of the service. Values at time of publication are: `fhir`, `fhir-Stu3` and `fhir-R4`. Default value is `fhir`.
-        pub kind: pulumi_wasm_rust::Output<Option<String>>,
+        pub kind: pulumi_gestalt_rust::Output<Option<String>>,
         /// Specifies the supported Azure Region where the Service should be created. Changing this forces a new resource to be created.
         ///
         /// > **Please Note**: Not all locations support this resource. Some are `West US 2`, `North Central US`, and `UK West`.
-        pub location: pulumi_wasm_rust::Output<String>,
+        pub location: pulumi_gestalt_rust::Output<String>,
         /// The name of the service instance. Used for service endpoint, must be unique within the audience. Changing this forces a new resource to be created.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// Whether public network access is enabled or disabled for this service instance. Defaults to `true`.
-        pub public_network_access_enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub public_network_access_enabled: pulumi_gestalt_rust::Output<Option<bool>>,
         /// The name of the Resource Group in which to create the Service. Changing this forces a new resource to be created.
-        pub resource_group_name: pulumi_wasm_rust::Output<String>,
+        pub resource_group_name: pulumi_gestalt_rust::Output<String>,
         /// A mapping of tags to assign to the resource.
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
@@ -161,11 +163,11 @@ pub mod service {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: ServiceArgs,
     ) -> ServiceResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let access_policy_object_ids_binding = args
             .access_policy_object_ids
@@ -265,39 +267,39 @@ pub mod service {
         };
         let o = register_interface::register(context.get_inner(), &request);
         ServiceResult {
-            access_policy_object_ids: pulumi_wasm_rust::__private::into_domain(
+            access_policy_object_ids: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("accessPolicyObjectIds"),
             ),
-            authentication_configuration: pulumi_wasm_rust::__private::into_domain(
+            authentication_configuration: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("authenticationConfiguration"),
             ),
-            configuration_export_storage_account_name: pulumi_wasm_rust::__private::into_domain(
+            configuration_export_storage_account_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("configurationExportStorageAccountName"),
             ),
-            cors_configuration: pulumi_wasm_rust::__private::into_domain(
+            cors_configuration: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("corsConfiguration"),
             ),
-            cosmosdb_key_vault_key_versionless_id: pulumi_wasm_rust::__private::into_domain(
+            cosmosdb_key_vault_key_versionless_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("cosmosdbKeyVaultKeyVersionlessId"),
             ),
-            cosmosdb_throughput: pulumi_wasm_rust::__private::into_domain(
+            cosmosdb_throughput: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("cosmosdbThroughput"),
             ),
-            identity: pulumi_wasm_rust::__private::into_domain(
+            identity: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("identity"),
             ),
-            kind: pulumi_wasm_rust::__private::into_domain(o.extract_field("kind")),
-            location: pulumi_wasm_rust::__private::into_domain(
+            kind: pulumi_gestalt_rust::__private::into_domain(o.extract_field("kind")),
+            location: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("location"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            public_network_access_enabled: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            public_network_access_enabled: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("publicNetworkAccessEnabled"),
             ),
-            resource_group_name: pulumi_wasm_rust::__private::into_domain(
+            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("resourceGroupName"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
         }
     }
 }

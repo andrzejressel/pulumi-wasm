@@ -71,49 +71,49 @@
 /// ```
 ///
 pub mod web_resource {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct WebResourceArgs {
         /// Container for the address and type of a site for which a verification token will be verified.
         /// Structure is documented below.
         #[builder(into)]
-        pub site: pulumi_wasm_rust::InputOrOutput<
+        pub site: pulumi_gestalt_rust::InputOrOutput<
             super::super::types::siteverification::WebResourceSite,
         >,
         /// The verification method for the Site Verification system to use to verify
         /// this site or domain.
         /// Possible values are: `ANALYTICS`, `DNS_CNAME`, `DNS_TXT`, `FILE`, `META`, `TAG_MANAGER`.
         #[builder(into)]
-        pub verification_method: pulumi_wasm_rust::InputOrOutput<String>,
+        pub verification_method: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct WebResourceResult {
         /// The email addresses of all direct, verified owners of this exact property. Indirect owners —
         /// for example verified owners of the containing domain—are not included in this list.
-        pub owners: pulumi_wasm_rust::Output<Vec<String>>,
+        pub owners: pulumi_gestalt_rust::Output<Vec<String>>,
         /// Container for the address and type of a site for which a verification token will be verified.
         /// Structure is documented below.
-        pub site: pulumi_wasm_rust::Output<
+        pub site: pulumi_gestalt_rust::Output<
             super::super::types::siteverification::WebResourceSite,
         >,
         /// The verification method for the Site Verification system to use to verify
         /// this site or domain.
         /// Possible values are: `ANALYTICS`, `DNS_CNAME`, `DNS_TXT`, `FILE`, `META`, `TAG_MANAGER`.
-        pub verification_method: pulumi_wasm_rust::Output<String>,
+        pub verification_method: pulumi_gestalt_rust::Output<String>,
         /// The string used to identify this web resource.
-        pub web_resource_id: pulumi_wasm_rust::Output<String>,
+        pub web_resource_id: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: WebResourceArgs,
     ) -> WebResourceResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let site_binding = args.site.get_output(context).get_inner();
         let verification_method_binding = args
@@ -137,12 +137,14 @@ pub mod web_resource {
         };
         let o = register_interface::register(context.get_inner(), &request);
         WebResourceResult {
-            owners: pulumi_wasm_rust::__private::into_domain(o.extract_field("owners")),
-            site: pulumi_wasm_rust::__private::into_domain(o.extract_field("site")),
-            verification_method: pulumi_wasm_rust::__private::into_domain(
+            owners: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("owners"),
+            ),
+            site: pulumi_gestalt_rust::__private::into_domain(o.extract_field("site")),
+            verification_method: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("verificationMethod"),
             ),
-            web_resource_id: pulumi_wasm_rust::__private::into_domain(
+            web_resource_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("webResourceId"),
             ),
         }

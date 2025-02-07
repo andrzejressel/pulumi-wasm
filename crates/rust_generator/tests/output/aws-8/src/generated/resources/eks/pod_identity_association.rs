@@ -57,52 +57,52 @@
 /// $ pulumi import aws:eks/podIdentityAssociation:PodIdentityAssociation example example,a-12345678
 /// ```
 pub mod pod_identity_association {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct PodIdentityAssociationArgs {
         /// The name of the cluster to create the association in.
         #[builder(into)]
-        pub cluster_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub cluster_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The name of the Kubernetes namespace inside the cluster to create the association in. The service account and the pods that use the service account must be in this namespace.
         #[builder(into)]
-        pub namespace: pulumi_wasm_rust::InputOrOutput<String>,
+        pub namespace: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The Amazon Resource Name (ARN) of the IAM role to associate with the service account. The EKS Pod Identity agent manages credentials to assume this role for applications in the containers in the pods that use this service account.
         #[builder(into)]
-        pub role_arn: pulumi_wasm_rust::InputOrOutput<String>,
+        pub role_arn: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The name of the Kubernetes service account inside the cluster to associate the IAM credentials with.
         ///
         /// The following arguments are optional:
         #[builder(into)]
-        pub service_account: pulumi_wasm_rust::InputOrOutput<String>,
+        pub service_account: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
     #[allow(dead_code)]
     pub struct PodIdentityAssociationResult {
         /// The Amazon Resource Name (ARN) of the association.
-        pub association_arn: pulumi_wasm_rust::Output<String>,
+        pub association_arn: pulumi_gestalt_rust::Output<String>,
         /// The ID of the association.
-        pub association_id: pulumi_wasm_rust::Output<String>,
+        pub association_id: pulumi_gestalt_rust::Output<String>,
         /// The name of the cluster to create the association in.
-        pub cluster_name: pulumi_wasm_rust::Output<String>,
+        pub cluster_name: pulumi_gestalt_rust::Output<String>,
         /// The name of the Kubernetes namespace inside the cluster to create the association in. The service account and the pods that use the service account must be in this namespace.
-        pub namespace: pulumi_wasm_rust::Output<String>,
+        pub namespace: pulumi_gestalt_rust::Output<String>,
         /// The Amazon Resource Name (ARN) of the IAM role to associate with the service account. The EKS Pod Identity agent manages credentials to assume this role for applications in the containers in the pods that use this service account.
-        pub role_arn: pulumi_wasm_rust::Output<String>,
+        pub role_arn: pulumi_gestalt_rust::Output<String>,
         /// The name of the Kubernetes service account inside the cluster to associate the IAM credentials with.
         ///
         /// The following arguments are optional:
-        pub service_account: pulumi_wasm_rust::Output<String>,
+        pub service_account: pulumi_gestalt_rust::Output<String>,
         /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        pub tags_all: pulumi_wasm_rust::Output<
+        pub tags_all: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
     }
@@ -111,11 +111,11 @@ pub mod pod_identity_association {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: PodIdentityAssociationArgs,
     ) -> PodIdentityAssociationResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let cluster_name_binding = args.cluster_name.get_output(context).get_inner();
         let namespace_binding = args.namespace.get_output(context).get_inner();
@@ -154,26 +154,26 @@ pub mod pod_identity_association {
         };
         let o = register_interface::register(context.get_inner(), &request);
         PodIdentityAssociationResult {
-            association_arn: pulumi_wasm_rust::__private::into_domain(
+            association_arn: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("associationArn"),
             ),
-            association_id: pulumi_wasm_rust::__private::into_domain(
+            association_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("associationId"),
             ),
-            cluster_name: pulumi_wasm_rust::__private::into_domain(
+            cluster_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("clusterName"),
             ),
-            namespace: pulumi_wasm_rust::__private::into_domain(
+            namespace: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("namespace"),
             ),
-            role_arn: pulumi_wasm_rust::__private::into_domain(
+            role_arn: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("roleArn"),
             ),
-            service_account: pulumi_wasm_rust::__private::into_domain(
+            service_account: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("serviceAccount"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_wasm_rust::__private::into_domain(
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            tags_all: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("tagsAll"),
             ),
         }

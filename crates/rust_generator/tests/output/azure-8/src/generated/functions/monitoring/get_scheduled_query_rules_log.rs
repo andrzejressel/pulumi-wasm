@@ -1,49 +1,49 @@
 pub mod get_scheduled_query_rules_log {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct GetScheduledQueryRulesLogArgs {
         /// Specifies the name of the scheduled query rule.
         #[builder(into)]
-        pub name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Specifies the name of the resource group where the scheduled query rule is located.
         #[builder(into)]
-        pub resource_group_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub resource_group_name: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct GetScheduledQueryRulesLogResult {
         /// A list of IDs of Resources referred into query.
-        pub authorized_resource_ids: pulumi_wasm_rust::Output<Vec<String>>,
+        pub authorized_resource_ids: pulumi_gestalt_rust::Output<Vec<String>>,
         /// A `criteria` block as defined below.
-        pub criterias: pulumi_wasm_rust::Output<
+        pub criterias: pulumi_gestalt_rust::Output<
             Vec<
                 super::super::super::types::monitoring::GetScheduledQueryRulesLogCriteria,
             >,
         >,
         /// The resource URI over which log search query is to be run.
-        pub data_source_id: pulumi_wasm_rust::Output<String>,
+        pub data_source_id: pulumi_gestalt_rust::Output<String>,
         /// The description of the scheduled query rule.
-        pub description: pulumi_wasm_rust::Output<String>,
+        pub description: pulumi_gestalt_rust::Output<String>,
         /// Whether this scheduled query rule is enabled.
-        pub enabled: pulumi_wasm_rust::Output<bool>,
+        pub enabled: pulumi_gestalt_rust::Output<bool>,
         /// The provider-assigned unique ID for this managed resource.
-        pub id: pulumi_wasm_rust::Output<String>,
+        pub id: pulumi_gestalt_rust::Output<String>,
         /// Specifies the Azure Region where the resource should exist.
-        pub location: pulumi_wasm_rust::Output<String>,
+        pub location: pulumi_gestalt_rust::Output<String>,
         /// Name of the dimension.
-        pub name: pulumi_wasm_rust::Output<String>,
-        pub resource_group_name: pulumi_wasm_rust::Output<String>,
-        pub tags: pulumi_wasm_rust::Output<std::collections::HashMap<String, String>>,
+        pub name: pulumi_gestalt_rust::Output<String>,
+        pub resource_group_name: pulumi_gestalt_rust::Output<String>,
+        pub tags: pulumi_gestalt_rust::Output<std::collections::HashMap<String, String>>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         args: GetScheduledQueryRulesLogArgs,
     ) -> GetScheduledQueryRulesLogResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let name_binding = args.name.get_output(context).get_inner();
         let resource_group_name_binding = args
@@ -67,30 +67,30 @@ pub mod get_scheduled_query_rules_log {
         };
         let o = register_interface::invoke(context.get_inner(), &request);
         GetScheduledQueryRulesLogResult {
-            authorized_resource_ids: pulumi_wasm_rust::__private::into_domain(
+            authorized_resource_ids: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("authorizedResourceIds"),
             ),
-            criterias: pulumi_wasm_rust::__private::into_domain(
+            criterias: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("criterias"),
             ),
-            data_source_id: pulumi_wasm_rust::__private::into_domain(
+            data_source_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("dataSourceId"),
             ),
-            description: pulumi_wasm_rust::__private::into_domain(
+            description: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("description"),
             ),
-            enabled: pulumi_wasm_rust::__private::into_domain(
+            enabled: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("enabled"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
-            location: pulumi_wasm_rust::__private::into_domain(
+            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
+            location: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("location"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            resource_group_name: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("resourceGroupName"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
         }
     }
 }

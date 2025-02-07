@@ -1,49 +1,49 @@
 pub mod get_configuration_key {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct GetConfigurationKeyArgs {
         /// Specifies the id of the App Configuration.
         #[builder(into)]
-        pub configuration_store_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub configuration_store_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The name of the App Configuration Key.
         #[builder(into)]
-        pub key: pulumi_wasm_rust::InputOrOutput<String>,
+        pub key: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The label of the App Configuration Key.
         #[builder(into, default)]
-        pub label: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub label: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct GetConfigurationKeyResult {
-        pub configuration_store_id: pulumi_wasm_rust::Output<String>,
+        pub configuration_store_id: pulumi_gestalt_rust::Output<String>,
         /// The content type of the App Configuration Key.
-        pub content_type: pulumi_wasm_rust::Output<String>,
+        pub content_type: pulumi_gestalt_rust::Output<String>,
         /// The ETag of the key.
-        pub etag: pulumi_wasm_rust::Output<String>,
+        pub etag: pulumi_gestalt_rust::Output<String>,
         /// The provider-assigned unique ID for this managed resource.
-        pub id: pulumi_wasm_rust::Output<String>,
-        pub key: pulumi_wasm_rust::Output<String>,
-        pub label: pulumi_wasm_rust::Output<Option<String>>,
+        pub id: pulumi_gestalt_rust::Output<String>,
+        pub key: pulumi_gestalt_rust::Output<String>,
+        pub label: pulumi_gestalt_rust::Output<Option<String>>,
         /// Is this App Configuration Key be Locked to prevent changes.
-        pub locked: pulumi_wasm_rust::Output<bool>,
+        pub locked: pulumi_gestalt_rust::Output<bool>,
         /// A mapping of tags assigned to the resource.
-        pub tags: pulumi_wasm_rust::Output<std::collections::HashMap<String, String>>,
+        pub tags: pulumi_gestalt_rust::Output<std::collections::HashMap<String, String>>,
         /// The type of the App Configuration Key. It can either be `kv` (simple [key/value](https://docs.microsoft.com/azure/azure-app-configuration/concept-key-value)) or `vault` (where the value is a reference to a [Key Vault Secret](https://azure.microsoft.com/en-gb/services/key-vault/).
-        pub type_: pulumi_wasm_rust::Output<String>,
+        pub type_: pulumi_gestalt_rust::Output<String>,
         /// The value of the App Configuration Key.
-        pub value: pulumi_wasm_rust::Output<String>,
+        pub value: pulumi_gestalt_rust::Output<String>,
         /// The ID of the vault secret this App Configuration Key refers to, when `type` is `vault`.
-        pub vault_key_reference: pulumi_wasm_rust::Output<String>,
+        pub vault_key_reference: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         args: GetConfigurationKeyArgs,
     ) -> GetConfigurationKeyResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let configuration_store_id_binding = args
             .configuration_store_id
@@ -72,21 +72,23 @@ pub mod get_configuration_key {
         };
         let o = register_interface::invoke(context.get_inner(), &request);
         GetConfigurationKeyResult {
-            configuration_store_id: pulumi_wasm_rust::__private::into_domain(
+            configuration_store_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("configurationStoreId"),
             ),
-            content_type: pulumi_wasm_rust::__private::into_domain(
+            content_type: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("contentType"),
             ),
-            etag: pulumi_wasm_rust::__private::into_domain(o.extract_field("etag")),
-            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
-            key: pulumi_wasm_rust::__private::into_domain(o.extract_field("key")),
-            label: pulumi_wasm_rust::__private::into_domain(o.extract_field("label")),
-            locked: pulumi_wasm_rust::__private::into_domain(o.extract_field("locked")),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
-            type_: pulumi_wasm_rust::__private::into_domain(o.extract_field("type")),
-            value: pulumi_wasm_rust::__private::into_domain(o.extract_field("value")),
-            vault_key_reference: pulumi_wasm_rust::__private::into_domain(
+            etag: pulumi_gestalt_rust::__private::into_domain(o.extract_field("etag")),
+            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
+            key: pulumi_gestalt_rust::__private::into_domain(o.extract_field("key")),
+            label: pulumi_gestalt_rust::__private::into_domain(o.extract_field("label")),
+            locked: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("locked"),
+            ),
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            type_: pulumi_gestalt_rust::__private::into_domain(o.extract_field("type")),
+            value: pulumi_gestalt_rust::__private::into_domain(o.extract_field("value")),
+            vault_key_reference: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("vaultKeyReference"),
             ),
         }

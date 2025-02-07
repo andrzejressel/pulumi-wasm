@@ -55,61 +55,61 @@
 /// ```
 ///
 pub mod cluster_managed_private_endpoint {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ClusterManagedPrivateEndpointArgs {
         /// The name of the Kusto Cluster. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub cluster_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub cluster_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The group id in which the managed private endpoint is created. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub group_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub group_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The name of the Managed Private Endpoints to create. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The ARM resource ID of the resource for which the managed private endpoint is created. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub private_link_resource_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub private_link_resource_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The region of the resource to which the managed private endpoint is created. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub private_link_resource_region: pulumi_wasm_rust::InputOrOutput<
+        pub private_link_resource_region: pulumi_gestalt_rust::InputOrOutput<
             Option<String>,
         >,
         /// The user request message.
         #[builder(into, default)]
-        pub request_message: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub request_message: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Specifies the Resource Group where the Kusto Cluster should exist. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub resource_group_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub resource_group_name: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct ClusterManagedPrivateEndpointResult {
         /// The name of the Kusto Cluster. Changing this forces a new resource to be created.
-        pub cluster_name: pulumi_wasm_rust::Output<String>,
+        pub cluster_name: pulumi_gestalt_rust::Output<String>,
         /// The group id in which the managed private endpoint is created. Changing this forces a new resource to be created.
-        pub group_id: pulumi_wasm_rust::Output<String>,
+        pub group_id: pulumi_gestalt_rust::Output<String>,
         /// The name of the Managed Private Endpoints to create. Changing this forces a new resource to be created.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// The ARM resource ID of the resource for which the managed private endpoint is created. Changing this forces a new resource to be created.
-        pub private_link_resource_id: pulumi_wasm_rust::Output<String>,
+        pub private_link_resource_id: pulumi_gestalt_rust::Output<String>,
         /// The region of the resource to which the managed private endpoint is created. Changing this forces a new resource to be created.
-        pub private_link_resource_region: pulumi_wasm_rust::Output<Option<String>>,
+        pub private_link_resource_region: pulumi_gestalt_rust::Output<Option<String>>,
         /// The user request message.
-        pub request_message: pulumi_wasm_rust::Output<Option<String>>,
+        pub request_message: pulumi_gestalt_rust::Output<Option<String>>,
         /// Specifies the Resource Group where the Kusto Cluster should exist. Changing this forces a new resource to be created.
-        pub resource_group_name: pulumi_wasm_rust::Output<String>,
+        pub resource_group_name: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: ClusterManagedPrivateEndpointArgs,
     ) -> ClusterManagedPrivateEndpointResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let cluster_name_binding = args.cluster_name.get_output(context).get_inner();
         let group_id_binding = args.group_id.get_output(context).get_inner();
@@ -168,23 +168,23 @@ pub mod cluster_managed_private_endpoint {
         };
         let o = register_interface::register(context.get_inner(), &request);
         ClusterManagedPrivateEndpointResult {
-            cluster_name: pulumi_wasm_rust::__private::into_domain(
+            cluster_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("clusterName"),
             ),
-            group_id: pulumi_wasm_rust::__private::into_domain(
+            group_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("groupId"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            private_link_resource_id: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            private_link_resource_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("privateLinkResourceId"),
             ),
-            private_link_resource_region: pulumi_wasm_rust::__private::into_domain(
+            private_link_resource_region: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("privateLinkResourceRegion"),
             ),
-            request_message: pulumi_wasm_rust::__private::into_domain(
+            request_message: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("requestMessage"),
             ),
-            resource_group_name: pulumi_wasm_rust::__private::into_domain(
+            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("resourceGroupName"),
             ),
         }

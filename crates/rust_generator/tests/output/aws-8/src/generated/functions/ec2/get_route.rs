@@ -1,81 +1,87 @@
 pub mod get_route {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct GetRouteArgs {
         /// EC2 Carrier Gateway ID of the Route belonging to the Route Table.
         #[builder(into, default)]
-        pub carrier_gateway_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub carrier_gateway_id: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Core network ARN of the Route belonging to the Route Table.
         #[builder(into, default)]
-        pub core_network_arn: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub core_network_arn: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// CIDR block of the Route belonging to the Route Table.
         #[builder(into, default)]
-        pub destination_cidr_block: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub destination_cidr_block: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// IPv6 CIDR block of the Route belonging to the Route Table.
         #[builder(into, default)]
-        pub destination_ipv6_cidr_block: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub destination_ipv6_cidr_block: pulumi_gestalt_rust::InputOrOutput<
+            Option<String>,
+        >,
         /// ID of a managed prefix list destination of the Route belonging to the Route Table.
         #[builder(into, default)]
-        pub destination_prefix_list_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub destination_prefix_list_id: pulumi_gestalt_rust::InputOrOutput<
+            Option<String>,
+        >,
         /// Egress Only Gateway ID of the Route belonging to the Route Table.
         #[builder(into, default)]
-        pub egress_only_gateway_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub egress_only_gateway_id: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Gateway ID of the Route belonging to the Route Table.
         #[builder(into, default)]
-        pub gateway_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub gateway_id: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Instance ID of the Route belonging to the Route Table.
         #[builder(into, default)]
-        pub instance_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub instance_id: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Local Gateway ID of the Route belonging to the Route Table.
         #[builder(into, default)]
-        pub local_gateway_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub local_gateway_id: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// NAT Gateway ID of the Route belonging to the Route Table.
         #[builder(into, default)]
-        pub nat_gateway_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub nat_gateway_id: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Network Interface ID of the Route belonging to the Route Table.
         #[builder(into, default)]
-        pub network_interface_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub network_interface_id: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// ID of the specific Route Table containing the Route entry.
         ///
         /// The following arguments are optional:
         #[builder(into)]
-        pub route_table_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub route_table_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// EC2 Transit Gateway ID of the Route belonging to the Route Table.
         #[builder(into, default)]
-        pub transit_gateway_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub transit_gateway_id: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// VPC Peering Connection ID of the Route belonging to the Route Table.
         #[builder(into, default)]
-        pub vpc_peering_connection_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub vpc_peering_connection_id: pulumi_gestalt_rust::InputOrOutput<
+            Option<String>,
+        >,
     }
     #[allow(dead_code)]
     pub struct GetRouteResult {
-        pub carrier_gateway_id: pulumi_wasm_rust::Output<String>,
-        pub core_network_arn: pulumi_wasm_rust::Output<String>,
-        pub destination_cidr_block: pulumi_wasm_rust::Output<String>,
-        pub destination_ipv6_cidr_block: pulumi_wasm_rust::Output<String>,
-        pub destination_prefix_list_id: pulumi_wasm_rust::Output<String>,
-        pub egress_only_gateway_id: pulumi_wasm_rust::Output<String>,
-        pub gateway_id: pulumi_wasm_rust::Output<String>,
+        pub carrier_gateway_id: pulumi_gestalt_rust::Output<String>,
+        pub core_network_arn: pulumi_gestalt_rust::Output<String>,
+        pub destination_cidr_block: pulumi_gestalt_rust::Output<String>,
+        pub destination_ipv6_cidr_block: pulumi_gestalt_rust::Output<String>,
+        pub destination_prefix_list_id: pulumi_gestalt_rust::Output<String>,
+        pub egress_only_gateway_id: pulumi_gestalt_rust::Output<String>,
+        pub gateway_id: pulumi_gestalt_rust::Output<String>,
         /// The provider-assigned unique ID for this managed resource.
-        pub id: pulumi_wasm_rust::Output<String>,
-        pub instance_id: pulumi_wasm_rust::Output<String>,
-        pub local_gateway_id: pulumi_wasm_rust::Output<String>,
-        pub nat_gateway_id: pulumi_wasm_rust::Output<String>,
-        pub network_interface_id: pulumi_wasm_rust::Output<String>,
-        pub route_table_id: pulumi_wasm_rust::Output<String>,
-        pub transit_gateway_id: pulumi_wasm_rust::Output<String>,
-        pub vpc_peering_connection_id: pulumi_wasm_rust::Output<String>,
+        pub id: pulumi_gestalt_rust::Output<String>,
+        pub instance_id: pulumi_gestalt_rust::Output<String>,
+        pub local_gateway_id: pulumi_gestalt_rust::Output<String>,
+        pub nat_gateway_id: pulumi_gestalt_rust::Output<String>,
+        pub network_interface_id: pulumi_gestalt_rust::Output<String>,
+        pub route_table_id: pulumi_gestalt_rust::Output<String>,
+        pub transit_gateway_id: pulumi_gestalt_rust::Output<String>,
+        pub vpc_peering_connection_id: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         args: GetRouteArgs,
     ) -> GetRouteResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let carrier_gateway_id_binding = args
             .carrier_gateway_id
@@ -185,47 +191,47 @@ pub mod get_route {
         };
         let o = register_interface::invoke(context.get_inner(), &request);
         GetRouteResult {
-            carrier_gateway_id: pulumi_wasm_rust::__private::into_domain(
+            carrier_gateway_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("carrierGatewayId"),
             ),
-            core_network_arn: pulumi_wasm_rust::__private::into_domain(
+            core_network_arn: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("coreNetworkArn"),
             ),
-            destination_cidr_block: pulumi_wasm_rust::__private::into_domain(
+            destination_cidr_block: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("destinationCidrBlock"),
             ),
-            destination_ipv6_cidr_block: pulumi_wasm_rust::__private::into_domain(
+            destination_ipv6_cidr_block: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("destinationIpv6CidrBlock"),
             ),
-            destination_prefix_list_id: pulumi_wasm_rust::__private::into_domain(
+            destination_prefix_list_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("destinationPrefixListId"),
             ),
-            egress_only_gateway_id: pulumi_wasm_rust::__private::into_domain(
+            egress_only_gateway_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("egressOnlyGatewayId"),
             ),
-            gateway_id: pulumi_wasm_rust::__private::into_domain(
+            gateway_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("gatewayId"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
-            instance_id: pulumi_wasm_rust::__private::into_domain(
+            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
+            instance_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("instanceId"),
             ),
-            local_gateway_id: pulumi_wasm_rust::__private::into_domain(
+            local_gateway_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("localGatewayId"),
             ),
-            nat_gateway_id: pulumi_wasm_rust::__private::into_domain(
+            nat_gateway_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("natGatewayId"),
             ),
-            network_interface_id: pulumi_wasm_rust::__private::into_domain(
+            network_interface_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("networkInterfaceId"),
             ),
-            route_table_id: pulumi_wasm_rust::__private::into_domain(
+            route_table_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("routeTableId"),
             ),
-            transit_gateway_id: pulumi_wasm_rust::__private::into_domain(
+            transit_gateway_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("transitGatewayId"),
             ),
-            vpc_peering_connection_id: pulumi_wasm_rust::__private::into_domain(
+            vpc_peering_connection_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("vpcPeeringConnectionId"),
             ),
         }

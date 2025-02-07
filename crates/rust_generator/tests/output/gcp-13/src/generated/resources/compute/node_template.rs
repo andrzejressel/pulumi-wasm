@@ -15,8 +15,8 @@
 ///
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let template = node_template::create(
@@ -126,7 +126,7 @@
 /// ```
 ///
 pub mod node_template {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct NodeTemplateArgs {
@@ -134,59 +134,59 @@ pub mod node_template {
         /// node template
         /// Structure is documented below.
         #[builder(into, default)]
-        pub accelerators: pulumi_wasm_rust::InputOrOutput<
+        pub accelerators: pulumi_gestalt_rust::InputOrOutput<
             Option<Vec<super::super::types::compute::NodeTemplateAccelerator>>,
         >,
         /// CPU overcommit.
         /// Default value is `NONE`.
         /// Possible values are: `ENABLED`, `NONE`.
         #[builder(into, default)]
-        pub cpu_overcommit_type: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub cpu_overcommit_type: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// An optional textual description of the resource.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub description: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// List of the type, size and count of disks attached to the
         /// node template
         /// Structure is documented below.
         #[builder(into, default)]
-        pub disks: pulumi_wasm_rust::InputOrOutput<
+        pub disks: pulumi_gestalt_rust::InputOrOutput<
             Option<Vec<super::super::types::compute::NodeTemplateDisk>>,
         >,
         /// Name of the resource.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Labels to use for node affinity, which will be used in
         /// instance scheduling.
         #[builder(into, default)]
-        pub node_affinity_labels: pulumi_wasm_rust::InputOrOutput<
+        pub node_affinity_labels: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Node type to use for nodes group that are created from this template.
         /// Only one of nodeTypeFlexibility and nodeType can be specified.
         #[builder(into, default)]
-        pub node_type: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub node_type: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Flexible properties for the desired node type. Node groups that
         /// use this node template will create nodes of a type that matches
         /// these properties. Only one of nodeTypeFlexibility and nodeType can
         /// be specified.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub node_type_flexibility: pulumi_wasm_rust::InputOrOutput<
+        pub node_type_flexibility: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::compute::NodeTemplateNodeTypeFlexibility>,
         >,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub project: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Region where nodes using the node template will be created.
         /// If it is not provided, the provider region is used.
         #[builder(into, default)]
-        pub region: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub region: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The server binding policy for nodes using this template. Determines
         /// where the nodes should restart following a maintenance event.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub server_binding: pulumi_wasm_rust::InputOrOutput<
+        pub server_binding: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::compute::NodeTemplateServerBinding>,
         >,
     }
@@ -195,53 +195,53 @@ pub mod node_template {
         /// List of the type and count of accelerator cards attached to the
         /// node template
         /// Structure is documented below.
-        pub accelerators: pulumi_wasm_rust::Output<
+        pub accelerators: pulumi_gestalt_rust::Output<
             Option<Vec<super::super::types::compute::NodeTemplateAccelerator>>,
         >,
         /// CPU overcommit.
         /// Default value is `NONE`.
         /// Possible values are: `ENABLED`, `NONE`.
-        pub cpu_overcommit_type: pulumi_wasm_rust::Output<Option<String>>,
+        pub cpu_overcommit_type: pulumi_gestalt_rust::Output<Option<String>>,
         /// Creation timestamp in RFC3339 text format.
-        pub creation_timestamp: pulumi_wasm_rust::Output<String>,
+        pub creation_timestamp: pulumi_gestalt_rust::Output<String>,
         /// An optional textual description of the resource.
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_gestalt_rust::Output<Option<String>>,
         /// List of the type, size and count of disks attached to the
         /// node template
         /// Structure is documented below.
-        pub disks: pulumi_wasm_rust::Output<
+        pub disks: pulumi_gestalt_rust::Output<
             Option<Vec<super::super::types::compute::NodeTemplateDisk>>,
         >,
         /// Name of the resource.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// Labels to use for node affinity, which will be used in
         /// instance scheduling.
-        pub node_affinity_labels: pulumi_wasm_rust::Output<
+        pub node_affinity_labels: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Node type to use for nodes group that are created from this template.
         /// Only one of nodeTypeFlexibility and nodeType can be specified.
-        pub node_type: pulumi_wasm_rust::Output<Option<String>>,
+        pub node_type: pulumi_gestalt_rust::Output<Option<String>>,
         /// Flexible properties for the desired node type. Node groups that
         /// use this node template will create nodes of a type that matches
         /// these properties. Only one of nodeTypeFlexibility and nodeType can
         /// be specified.
         /// Structure is documented below.
-        pub node_type_flexibility: pulumi_wasm_rust::Output<
+        pub node_type_flexibility: pulumi_gestalt_rust::Output<
             Option<super::super::types::compute::NodeTemplateNodeTypeFlexibility>,
         >,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
-        pub project: pulumi_wasm_rust::Output<String>,
+        pub project: pulumi_gestalt_rust::Output<String>,
         /// Region where nodes using the node template will be created.
         /// If it is not provided, the provider region is used.
-        pub region: pulumi_wasm_rust::Output<String>,
+        pub region: pulumi_gestalt_rust::Output<String>,
         /// The URI of the created resource.
-        pub self_link: pulumi_wasm_rust::Output<String>,
+        pub self_link: pulumi_gestalt_rust::Output<String>,
         /// The server binding policy for nodes using this template. Determines
         /// where the nodes should restart following a maintenance event.
         /// Structure is documented below.
-        pub server_binding: pulumi_wasm_rust::Output<
+        pub server_binding: pulumi_gestalt_rust::Output<
             super::super::types::compute::NodeTemplateServerBinding,
         >,
     }
@@ -250,11 +250,11 @@ pub mod node_template {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: NodeTemplateArgs,
     ) -> NodeTemplateResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let accelerators_binding = args.accelerators.get_output(context).get_inner();
         let cpu_overcommit_type_binding = args
@@ -329,37 +329,39 @@ pub mod node_template {
         };
         let o = register_interface::register(context.get_inner(), &request);
         NodeTemplateResult {
-            accelerators: pulumi_wasm_rust::__private::into_domain(
+            accelerators: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("accelerators"),
             ),
-            cpu_overcommit_type: pulumi_wasm_rust::__private::into_domain(
+            cpu_overcommit_type: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("cpuOvercommitType"),
             ),
-            creation_timestamp: pulumi_wasm_rust::__private::into_domain(
+            creation_timestamp: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("creationTimestamp"),
             ),
-            description: pulumi_wasm_rust::__private::into_domain(
+            description: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("description"),
             ),
-            disks: pulumi_wasm_rust::__private::into_domain(o.extract_field("disks")),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            node_affinity_labels: pulumi_wasm_rust::__private::into_domain(
+            disks: pulumi_gestalt_rust::__private::into_domain(o.extract_field("disks")),
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            node_affinity_labels: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("nodeAffinityLabels"),
             ),
-            node_type: pulumi_wasm_rust::__private::into_domain(
+            node_type: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("nodeType"),
             ),
-            node_type_flexibility: pulumi_wasm_rust::__private::into_domain(
+            node_type_flexibility: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("nodeTypeFlexibility"),
             ),
-            project: pulumi_wasm_rust::__private::into_domain(
+            project: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("project"),
             ),
-            region: pulumi_wasm_rust::__private::into_domain(o.extract_field("region")),
-            self_link: pulumi_wasm_rust::__private::into_domain(
+            region: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("region"),
+            ),
+            self_link: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("selfLink"),
             ),
-            server_binding: pulumi_wasm_rust::__private::into_domain(
+            server_binding: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("serverBinding"),
             ),
         }

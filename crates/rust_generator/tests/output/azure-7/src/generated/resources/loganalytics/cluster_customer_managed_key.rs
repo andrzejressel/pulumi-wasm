@@ -81,34 +81,34 @@
 /// ```
 ///
 pub mod cluster_customer_managed_key {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ClusterCustomerManagedKeyArgs {
         /// The ID of the Key Vault Key to use for encryption.
         #[builder(into)]
-        pub key_vault_key_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub key_vault_key_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The ID of the Log Analytics Cluster. Changing this forces a new Log Analytics Cluster Customer Managed Key to be created.
         #[builder(into)]
-        pub log_analytics_cluster_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub log_analytics_cluster_id: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct ClusterCustomerManagedKeyResult {
         /// The ID of the Key Vault Key to use for encryption.
-        pub key_vault_key_id: pulumi_wasm_rust::Output<String>,
+        pub key_vault_key_id: pulumi_gestalt_rust::Output<String>,
         /// The ID of the Log Analytics Cluster. Changing this forces a new Log Analytics Cluster Customer Managed Key to be created.
-        pub log_analytics_cluster_id: pulumi_wasm_rust::Output<String>,
+        pub log_analytics_cluster_id: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: ClusterCustomerManagedKeyArgs,
     ) -> ClusterCustomerManagedKeyResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let key_vault_key_id_binding = args
             .key_vault_key_id
@@ -136,10 +136,10 @@ pub mod cluster_customer_managed_key {
         };
         let o = register_interface::register(context.get_inner(), &request);
         ClusterCustomerManagedKeyResult {
-            key_vault_key_id: pulumi_wasm_rust::__private::into_domain(
+            key_vault_key_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("keyVaultKeyId"),
             ),
-            log_analytics_cluster_id: pulumi_wasm_rust::__private::into_domain(
+            log_analytics_cluster_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("logAnalyticsClusterId"),
             ),
         }

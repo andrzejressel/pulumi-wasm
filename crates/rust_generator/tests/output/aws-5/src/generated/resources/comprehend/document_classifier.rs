@@ -5,8 +5,8 @@
 /// ### Basic Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let documents = bucket_objectv_2::create(
@@ -41,48 +41,48 @@
 /// $ pulumi import aws:comprehend/documentClassifier:DocumentClassifier example arn:aws:comprehend:us-west-2:123456789012:document_classifier/example
 /// ```
 pub mod document_classifier {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct DocumentClassifierArgs {
         /// The ARN for an IAM Role which allows Comprehend to read the training and testing data.
         #[builder(into)]
-        pub data_access_role_arn: pulumi_wasm_rust::InputOrOutput<String>,
+        pub data_access_role_arn: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Configuration for the training and testing data.
         /// See the `input_data_config` Configuration Block section below.
         #[builder(into)]
-        pub input_data_config: pulumi_wasm_rust::InputOrOutput<
+        pub input_data_config: pulumi_gestalt_rust::InputOrOutput<
             super::super::types::comprehend::DocumentClassifierInputDataConfig,
         >,
         /// Two-letter language code for the language.
         /// One of `en`, `es`, `fr`, `it`, `de`, or `pt`.
         #[builder(into)]
-        pub language_code: pulumi_wasm_rust::InputOrOutput<String>,
+        pub language_code: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The document classification mode.
         /// One of `MULTI_CLASS` or `MULTI_LABEL`.
         /// `MULTI_CLASS` is also known as "Single Label" in the AWS Console.
         #[builder(into, default)]
-        pub mode: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub mode: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// KMS Key used to encrypt trained Document Classifiers.
         /// Can be a KMS Key ID or a KMS Key ARN.
         #[builder(into, default)]
-        pub model_kms_key_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub model_kms_key_id: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Name for the Document Classifier.
         /// Has a maximum length of 63 characters.
         /// Can contain upper- and lower-case letters, numbers, and hypen (`-`).
         ///
         /// The following arguments are optional:
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Configuration for the output results of training.
         /// See the `output_data_config` Configuration Block section below.
         #[builder(into, default)]
-        pub output_data_config: pulumi_wasm_rust::InputOrOutput<
+        pub output_data_config: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::comprehend::DocumentClassifierOutputDataConfig>,
         >,
         /// A map of tags to assign to the resource. If configured with a provider `default_tags` Configuration Block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Name for the version of the Document Classifier.
@@ -93,62 +93,62 @@ pub mod document_classifier {
         /// Can contain upper- and lower-case letters, numbers, and hypen (`-`).
         /// Conflicts with `version_name_prefix`.
         #[builder(into, default)]
-        pub version_name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub version_name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Creates a unique version name beginning with the specified prefix.
         /// Has a maximum length of 37 characters.
         /// Can contain upper- and lower-case letters, numbers, and hypen (`-`).
         /// Conflicts with `version_name`.
         #[builder(into, default)]
-        pub version_name_prefix: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub version_name_prefix: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// KMS Key used to encrypt storage volumes during job processing.
         /// Can be a KMS Key ID or a KMS Key ARN.
         #[builder(into, default)]
-        pub volume_kms_key_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub volume_kms_key_id: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Configuration parameters for VPC to contain Document Classifier resources.
         /// See the `vpc_config` Configuration Block section below.
         #[builder(into, default)]
-        pub vpc_config: pulumi_wasm_rust::InputOrOutput<
+        pub vpc_config: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::comprehend::DocumentClassifierVpcConfig>,
         >,
     }
     #[allow(dead_code)]
     pub struct DocumentClassifierResult {
         /// ARN of the Document Classifier version.
-        pub arn: pulumi_wasm_rust::Output<String>,
+        pub arn: pulumi_gestalt_rust::Output<String>,
         /// The ARN for an IAM Role which allows Comprehend to read the training and testing data.
-        pub data_access_role_arn: pulumi_wasm_rust::Output<String>,
+        pub data_access_role_arn: pulumi_gestalt_rust::Output<String>,
         /// Configuration for the training and testing data.
         /// See the `input_data_config` Configuration Block section below.
-        pub input_data_config: pulumi_wasm_rust::Output<
+        pub input_data_config: pulumi_gestalt_rust::Output<
             super::super::types::comprehend::DocumentClassifierInputDataConfig,
         >,
         /// Two-letter language code for the language.
         /// One of `en`, `es`, `fr`, `it`, `de`, or `pt`.
-        pub language_code: pulumi_wasm_rust::Output<String>,
+        pub language_code: pulumi_gestalt_rust::Output<String>,
         /// The document classification mode.
         /// One of `MULTI_CLASS` or `MULTI_LABEL`.
         /// `MULTI_CLASS` is also known as "Single Label" in the AWS Console.
-        pub mode: pulumi_wasm_rust::Output<Option<String>>,
+        pub mode: pulumi_gestalt_rust::Output<Option<String>>,
         /// KMS Key used to encrypt trained Document Classifiers.
         /// Can be a KMS Key ID or a KMS Key ARN.
-        pub model_kms_key_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub model_kms_key_id: pulumi_gestalt_rust::Output<Option<String>>,
         /// Name for the Document Classifier.
         /// Has a maximum length of 63 characters.
         /// Can contain upper- and lower-case letters, numbers, and hypen (`-`).
         ///
         /// The following arguments are optional:
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// Configuration for the output results of training.
         /// See the `output_data_config` Configuration Block section below.
-        pub output_data_config: pulumi_wasm_rust::Output<
+        pub output_data_config: pulumi_gestalt_rust::Output<
             super::super::types::comprehend::DocumentClassifierOutputDataConfig,
         >,
         /// A map of tags to assign to the resource. If configured with a provider `default_tags` Configuration Block present, tags with matching keys will overwrite those defined at the provider-level.
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        pub tags_all: pulumi_wasm_rust::Output<
+        pub tags_all: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
         /// Name for the version of the Document Classifier.
@@ -158,18 +158,18 @@ pub mod document_classifier {
         /// Has a maximum length of 63 characters.
         /// Can contain upper- and lower-case letters, numbers, and hypen (`-`).
         /// Conflicts with `version_name_prefix`.
-        pub version_name: pulumi_wasm_rust::Output<String>,
+        pub version_name: pulumi_gestalt_rust::Output<String>,
         /// Creates a unique version name beginning with the specified prefix.
         /// Has a maximum length of 37 characters.
         /// Can contain upper- and lower-case letters, numbers, and hypen (`-`).
         /// Conflicts with `version_name`.
-        pub version_name_prefix: pulumi_wasm_rust::Output<String>,
+        pub version_name_prefix: pulumi_gestalt_rust::Output<String>,
         /// KMS Key used to encrypt storage volumes during job processing.
         /// Can be a KMS Key ID or a KMS Key ARN.
-        pub volume_kms_key_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub volume_kms_key_id: pulumi_gestalt_rust::Output<Option<String>>,
         /// Configuration parameters for VPC to contain Document Classifier resources.
         /// See the `vpc_config` Configuration Block section below.
-        pub vpc_config: pulumi_wasm_rust::Output<
+        pub vpc_config: pulumi_gestalt_rust::Output<
             Option<super::super::types::comprehend::DocumentClassifierVpcConfig>,
         >,
     }
@@ -178,11 +178,11 @@ pub mod document_classifier {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: DocumentClassifierArgs,
     ) -> DocumentClassifierResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let data_access_role_arn_binding = args
             .data_access_role_arn
@@ -271,38 +271,38 @@ pub mod document_classifier {
         };
         let o = register_interface::register(context.get_inner(), &request);
         DocumentClassifierResult {
-            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
-            data_access_role_arn: pulumi_wasm_rust::__private::into_domain(
+            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
+            data_access_role_arn: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("dataAccessRoleArn"),
             ),
-            input_data_config: pulumi_wasm_rust::__private::into_domain(
+            input_data_config: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("inputDataConfig"),
             ),
-            language_code: pulumi_wasm_rust::__private::into_domain(
+            language_code: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("languageCode"),
             ),
-            mode: pulumi_wasm_rust::__private::into_domain(o.extract_field("mode")),
-            model_kms_key_id: pulumi_wasm_rust::__private::into_domain(
+            mode: pulumi_gestalt_rust::__private::into_domain(o.extract_field("mode")),
+            model_kms_key_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("modelKmsKeyId"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            output_data_config: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            output_data_config: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("outputDataConfig"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_wasm_rust::__private::into_domain(
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            tags_all: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("tagsAll"),
             ),
-            version_name: pulumi_wasm_rust::__private::into_domain(
+            version_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("versionName"),
             ),
-            version_name_prefix: pulumi_wasm_rust::__private::into_domain(
+            version_name_prefix: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("versionNamePrefix"),
             ),
-            volume_kms_key_id: pulumi_wasm_rust::__private::into_domain(
+            volume_kms_key_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("volumeKmsKeyId"),
             ),
-            vpc_config: pulumi_wasm_rust::__private::into_domain(
+            vpc_config: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("vpcConfig"),
             ),
         }

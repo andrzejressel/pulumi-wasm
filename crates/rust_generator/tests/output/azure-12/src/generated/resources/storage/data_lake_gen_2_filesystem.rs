@@ -41,71 +41,71 @@
 /// ```
 ///
 pub mod data_lake_gen_2_filesystem {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct DataLakeGen2FilesystemArgs {
         /// One or more `ace` blocks as defined below to specify the entries for the ACL for the path.
         #[builder(into, default)]
-        pub aces: pulumi_wasm_rust::InputOrOutput<
+        pub aces: pulumi_gestalt_rust::InputOrOutput<
             Option<Vec<super::super::types::storage::DataLakeGen2FilesystemAce>>,
         >,
         /// The default encryption scope to use for this filesystem. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub default_encryption_scope: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub default_encryption_scope: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Specifies the Object ID of the Azure Active Directory Group to make the owning group of the root path (i.e. `/`). Possible values also include `$superuser`.
         ///
         /// > **NOTE:** The Storage Account requires `account_kind` to be either `StorageV2` or `BlobStorage`. In addition, `is_hns_enabled` has to be set to `true`.
         #[builder(into, default)]
-        pub group: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub group: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The name of the Data Lake Gen2 File System which should be created within the Storage Account. Must be unique within the storage account the queue is located. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Specifies the Object ID of the Azure Active Directory User to make the owning user of the root path (i.e. `/`). Possible values also include `$superuser`.
         #[builder(into, default)]
-        pub owner: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub owner: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// A mapping of Key to Base64-Encoded Values which should be assigned to this Data Lake Gen2 File System.
         #[builder(into, default)]
-        pub properties: pulumi_wasm_rust::InputOrOutput<
+        pub properties: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Specifies the ID of the Storage Account in which the Data Lake Gen2 File System should exist. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub storage_account_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub storage_account_id: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct DataLakeGen2FilesystemResult {
         /// One or more `ace` blocks as defined below to specify the entries for the ACL for the path.
-        pub aces: pulumi_wasm_rust::Output<
+        pub aces: pulumi_gestalt_rust::Output<
             Vec<super::super::types::storage::DataLakeGen2FilesystemAce>,
         >,
         /// The default encryption scope to use for this filesystem. Changing this forces a new resource to be created.
-        pub default_encryption_scope: pulumi_wasm_rust::Output<String>,
+        pub default_encryption_scope: pulumi_gestalt_rust::Output<String>,
         /// Specifies the Object ID of the Azure Active Directory Group to make the owning group of the root path (i.e. `/`). Possible values also include `$superuser`.
         ///
         /// > **NOTE:** The Storage Account requires `account_kind` to be either `StorageV2` or `BlobStorage`. In addition, `is_hns_enabled` has to be set to `true`.
-        pub group: pulumi_wasm_rust::Output<String>,
+        pub group: pulumi_gestalt_rust::Output<String>,
         /// The name of the Data Lake Gen2 File System which should be created within the Storage Account. Must be unique within the storage account the queue is located. Changing this forces a new resource to be created.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// Specifies the Object ID of the Azure Active Directory User to make the owning user of the root path (i.e. `/`). Possible values also include `$superuser`.
-        pub owner: pulumi_wasm_rust::Output<String>,
+        pub owner: pulumi_gestalt_rust::Output<String>,
         /// A mapping of Key to Base64-Encoded Values which should be assigned to this Data Lake Gen2 File System.
-        pub properties: pulumi_wasm_rust::Output<
+        pub properties: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Specifies the ID of the Storage Account in which the Data Lake Gen2 File System should exist. Changing this forces a new resource to be created.
-        pub storage_account_id: pulumi_wasm_rust::Output<String>,
+        pub storage_account_id: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: DataLakeGen2FilesystemArgs,
     ) -> DataLakeGen2FilesystemResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let aces_binding = args.aces.get_output(context).get_inner();
         let default_encryption_scope_binding = args
@@ -157,17 +157,17 @@ pub mod data_lake_gen_2_filesystem {
         };
         let o = register_interface::register(context.get_inner(), &request);
         DataLakeGen2FilesystemResult {
-            aces: pulumi_wasm_rust::__private::into_domain(o.extract_field("aces")),
-            default_encryption_scope: pulumi_wasm_rust::__private::into_domain(
+            aces: pulumi_gestalt_rust::__private::into_domain(o.extract_field("aces")),
+            default_encryption_scope: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("defaultEncryptionScope"),
             ),
-            group: pulumi_wasm_rust::__private::into_domain(o.extract_field("group")),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            owner: pulumi_wasm_rust::__private::into_domain(o.extract_field("owner")),
-            properties: pulumi_wasm_rust::__private::into_domain(
+            group: pulumi_gestalt_rust::__private::into_domain(o.extract_field("group")),
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            owner: pulumi_gestalt_rust::__private::into_domain(o.extract_field("owner")),
+            properties: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("properties"),
             ),
-            storage_account_id: pulumi_wasm_rust::__private::into_domain(
+            storage_account_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("storageAccountId"),
             ),
         }

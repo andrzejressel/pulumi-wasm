@@ -1,25 +1,25 @@
 pub mod get_launch_paths {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct GetLaunchPathsArgs {
         /// Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). Default value is `en`.
         #[builder(into, default)]
-        pub accept_language: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub accept_language: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Product identifier.
         ///
         /// The following arguments are optional:
         #[builder(into)]
-        pub product_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub product_id: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct GetLaunchPathsResult {
-        pub accept_language: pulumi_wasm_rust::Output<Option<String>>,
+        pub accept_language: pulumi_gestalt_rust::Output<Option<String>>,
         /// The provider-assigned unique ID for this managed resource.
-        pub id: pulumi_wasm_rust::Output<String>,
-        pub product_id: pulumi_wasm_rust::Output<String>,
+        pub id: pulumi_gestalt_rust::Output<String>,
+        pub product_id: pulumi_gestalt_rust::Output<String>,
         /// Block with information about the launch path. See details below.
-        pub summaries: pulumi_wasm_rust::Output<
+        pub summaries: pulumi_gestalt_rust::Output<
             Vec<super::super::super::types::servicecatalog::GetLaunchPathsSummary>,
         >,
     }
@@ -28,10 +28,10 @@ pub mod get_launch_paths {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         args: GetLaunchPathsArgs,
     ) -> GetLaunchPathsResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let accept_language_binding = args
             .accept_language
@@ -54,14 +54,14 @@ pub mod get_launch_paths {
         };
         let o = register_interface::invoke(context.get_inner(), &request);
         GetLaunchPathsResult {
-            accept_language: pulumi_wasm_rust::__private::into_domain(
+            accept_language: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("acceptLanguage"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
-            product_id: pulumi_wasm_rust::__private::into_domain(
+            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
+            product_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("productId"),
             ),
-            summaries: pulumi_wasm_rust::__private::into_domain(
+            summaries: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("summaries"),
             ),
         }

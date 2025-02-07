@@ -3,8 +3,8 @@
 /// ## Example Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let test = resource_group::create(
@@ -36,79 +36,79 @@
 /// ```
 ///
 pub mod elasticsearch {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ElasticsearchArgs {
         /// Specifies the Email Address which should be associated with this Elasticsearch account. Changing this forces a new Elasticsearch to be created.
         #[builder(into)]
-        pub elastic_cloud_email_address: pulumi_wasm_rust::InputOrOutput<String>,
+        pub elastic_cloud_email_address: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The Azure Region where the Elasticsearch resource should exist. Changing this forces a new Elasticsearch to be created.
         #[builder(into, default)]
-        pub location: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub location: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// A `logs` block as defined below.
         #[builder(into, default)]
-        pub logs: pulumi_wasm_rust::InputOrOutput<
+        pub logs: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::elasticcloud::ElasticsearchLogs>,
         >,
         /// Specifies if the Elasticsearch should have monitoring configured? Defaults to `true`. Changing this forces a new Elasticsearch to be created.
         #[builder(into, default)]
-        pub monitoring_enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub monitoring_enabled: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// The name which should be used for this Elasticsearch resource. Changing this forces a new Elasticsearch to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The name of the Resource Group where the Elasticsearch resource should exist. Changing this forces a new Elasticsearch to be created.
         #[builder(into)]
-        pub resource_group_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub resource_group_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Specifies the name of the SKU for this Elasticsearch. Changing this forces a new Elasticsearch to be created.
         ///
         /// > **NOTE:** The SKU depends on the Elasticsearch Plans available for your account and is a combination of PlanID_Term.
         /// Ex: If the plan ID is "planXYZ" and term is "Yearly", the SKU will be "planXYZ_Yearly".
         /// You may find your eligible plans [here](https://portal.azure.com/#view/Microsoft_Azure_Marketplace/GalleryItemDetailsBladeNopdl/id/elastic.ec-azure-pp) or in the online documentation [here](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/elastic.ec-azure-pp?tab=PlansAndPrice) for more details or in case of any issues with the SKU.
         #[builder(into)]
-        pub sku_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub sku_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// A mapping of tags which should be assigned to the Elasticsearch resource.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
     #[allow(dead_code)]
     pub struct ElasticsearchResult {
         /// The ID of the Deployment within Elastic Cloud.
-        pub elastic_cloud_deployment_id: pulumi_wasm_rust::Output<String>,
+        pub elastic_cloud_deployment_id: pulumi_gestalt_rust::Output<String>,
         /// Specifies the Email Address which should be associated with this Elasticsearch account. Changing this forces a new Elasticsearch to be created.
-        pub elastic_cloud_email_address: pulumi_wasm_rust::Output<String>,
+        pub elastic_cloud_email_address: pulumi_gestalt_rust::Output<String>,
         /// The Default URL used for Single Sign On (SSO) to Elastic Cloud.
-        pub elastic_cloud_sso_default_url: pulumi_wasm_rust::Output<String>,
+        pub elastic_cloud_sso_default_url: pulumi_gestalt_rust::Output<String>,
         /// The ID of the User Account within Elastic Cloud.
-        pub elastic_cloud_user_id: pulumi_wasm_rust::Output<String>,
+        pub elastic_cloud_user_id: pulumi_gestalt_rust::Output<String>,
         /// The URL to the Elasticsearch Service associated with this Elasticsearch.
-        pub elasticsearch_service_url: pulumi_wasm_rust::Output<String>,
+        pub elasticsearch_service_url: pulumi_gestalt_rust::Output<String>,
         /// The URL to the Kibana Dashboard associated with this Elasticsearch.
-        pub kibana_service_url: pulumi_wasm_rust::Output<String>,
+        pub kibana_service_url: pulumi_gestalt_rust::Output<String>,
         /// The URI used for SSO to the Kibana Dashboard associated with this Elasticsearch.
-        pub kibana_sso_uri: pulumi_wasm_rust::Output<String>,
+        pub kibana_sso_uri: pulumi_gestalt_rust::Output<String>,
         /// The Azure Region where the Elasticsearch resource should exist. Changing this forces a new Elasticsearch to be created.
-        pub location: pulumi_wasm_rust::Output<String>,
+        pub location: pulumi_gestalt_rust::Output<String>,
         /// A `logs` block as defined below.
-        pub logs: pulumi_wasm_rust::Output<
+        pub logs: pulumi_gestalt_rust::Output<
             Option<super::super::types::elasticcloud::ElasticsearchLogs>,
         >,
         /// Specifies if the Elasticsearch should have monitoring configured? Defaults to `true`. Changing this forces a new Elasticsearch to be created.
-        pub monitoring_enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub monitoring_enabled: pulumi_gestalt_rust::Output<Option<bool>>,
         /// The name which should be used for this Elasticsearch resource. Changing this forces a new Elasticsearch to be created.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// The name of the Resource Group where the Elasticsearch resource should exist. Changing this forces a new Elasticsearch to be created.
-        pub resource_group_name: pulumi_wasm_rust::Output<String>,
+        pub resource_group_name: pulumi_gestalt_rust::Output<String>,
         /// Specifies the name of the SKU for this Elasticsearch. Changing this forces a new Elasticsearch to be created.
         ///
         /// > **NOTE:** The SKU depends on the Elasticsearch Plans available for your account and is a combination of PlanID_Term.
         /// Ex: If the plan ID is "planXYZ" and term is "Yearly", the SKU will be "planXYZ_Yearly".
         /// You may find your eligible plans [here](https://portal.azure.com/#view/Microsoft_Azure_Marketplace/GalleryItemDetailsBladeNopdl/id/elastic.ec-azure-pp) or in the online documentation [here](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/elastic.ec-azure-pp?tab=PlansAndPrice) for more details or in case of any issues with the SKU.
-        pub sku_name: pulumi_wasm_rust::Output<String>,
+        pub sku_name: pulumi_gestalt_rust::Output<String>,
         /// A mapping of tags which should be assigned to the Elasticsearch resource.
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
@@ -117,11 +117,11 @@ pub mod elasticsearch {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: ElasticsearchArgs,
     ) -> ElasticsearchResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let elastic_cloud_email_address_binding = args
             .elastic_cloud_email_address
@@ -181,42 +181,42 @@ pub mod elasticsearch {
         };
         let o = register_interface::register(context.get_inner(), &request);
         ElasticsearchResult {
-            elastic_cloud_deployment_id: pulumi_wasm_rust::__private::into_domain(
+            elastic_cloud_deployment_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("elasticCloudDeploymentId"),
             ),
-            elastic_cloud_email_address: pulumi_wasm_rust::__private::into_domain(
+            elastic_cloud_email_address: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("elasticCloudEmailAddress"),
             ),
-            elastic_cloud_sso_default_url: pulumi_wasm_rust::__private::into_domain(
+            elastic_cloud_sso_default_url: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("elasticCloudSsoDefaultUrl"),
             ),
-            elastic_cloud_user_id: pulumi_wasm_rust::__private::into_domain(
+            elastic_cloud_user_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("elasticCloudUserId"),
             ),
-            elasticsearch_service_url: pulumi_wasm_rust::__private::into_domain(
+            elasticsearch_service_url: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("elasticsearchServiceUrl"),
             ),
-            kibana_service_url: pulumi_wasm_rust::__private::into_domain(
+            kibana_service_url: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("kibanaServiceUrl"),
             ),
-            kibana_sso_uri: pulumi_wasm_rust::__private::into_domain(
+            kibana_sso_uri: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("kibanaSsoUri"),
             ),
-            location: pulumi_wasm_rust::__private::into_domain(
+            location: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("location"),
             ),
-            logs: pulumi_wasm_rust::__private::into_domain(o.extract_field("logs")),
-            monitoring_enabled: pulumi_wasm_rust::__private::into_domain(
+            logs: pulumi_gestalt_rust::__private::into_domain(o.extract_field("logs")),
+            monitoring_enabled: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("monitoringEnabled"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            resource_group_name: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("resourceGroupName"),
             ),
-            sku_name: pulumi_wasm_rust::__private::into_domain(
+            sku_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("skuName"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
         }
     }
 }

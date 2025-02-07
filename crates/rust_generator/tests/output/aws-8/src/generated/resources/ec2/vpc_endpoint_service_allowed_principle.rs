@@ -25,34 +25,34 @@
 ///       arguments: {}
 /// ```
 pub mod vpc_endpoint_service_allowed_principle {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct VpcEndpointServiceAllowedPrincipleArgs {
         /// The ARN of the principal to allow permissions.
         #[builder(into)]
-        pub principal_arn: pulumi_wasm_rust::InputOrOutput<String>,
+        pub principal_arn: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The ID of the VPC endpoint service to allow permission.
         #[builder(into)]
-        pub vpc_endpoint_service_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub vpc_endpoint_service_id: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct VpcEndpointServiceAllowedPrincipleResult {
         /// The ARN of the principal to allow permissions.
-        pub principal_arn: pulumi_wasm_rust::Output<String>,
+        pub principal_arn: pulumi_gestalt_rust::Output<String>,
         /// The ID of the VPC endpoint service to allow permission.
-        pub vpc_endpoint_service_id: pulumi_wasm_rust::Output<String>,
+        pub vpc_endpoint_service_id: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: VpcEndpointServiceAllowedPrincipleArgs,
     ) -> VpcEndpointServiceAllowedPrincipleResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let principal_arn_binding = args.principal_arn.get_output(context).get_inner();
         let vpc_endpoint_service_id_binding = args
@@ -77,10 +77,10 @@ pub mod vpc_endpoint_service_allowed_principle {
         };
         let o = register_interface::register(context.get_inner(), &request);
         VpcEndpointServiceAllowedPrincipleResult {
-            principal_arn: pulumi_wasm_rust::__private::into_domain(
+            principal_arn: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("principalArn"),
             ),
-            vpc_endpoint_service_id: pulumi_wasm_rust::__private::into_domain(
+            vpc_endpoint_service_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("vpcEndpointServiceId"),
             ),
         }

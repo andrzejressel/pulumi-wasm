@@ -30,45 +30,45 @@
 /// $ pulumi import aws:lightsail/disk:Disk test test
 /// ```
 pub mod disk {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct DiskArgs {
         /// The Availability Zone in which to create your disk.
         #[builder(into)]
-        pub availability_zone: pulumi_wasm_rust::InputOrOutput<String>,
+        pub availability_zone: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The name of the disk.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The size of the disk in GB.
         #[builder(into)]
-        pub size_in_gb: pulumi_wasm_rust::InputOrOutput<i32>,
+        pub size_in_gb: pulumi_gestalt_rust::InputOrOutput<i32>,
         /// A map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
     #[allow(dead_code)]
     pub struct DiskResult {
         /// The ARN of the Lightsail disk.
-        pub arn: pulumi_wasm_rust::Output<String>,
+        pub arn: pulumi_gestalt_rust::Output<String>,
         /// The Availability Zone in which to create your disk.
-        pub availability_zone: pulumi_wasm_rust::Output<String>,
+        pub availability_zone: pulumi_gestalt_rust::Output<String>,
         /// The timestamp when the disk was created.
-        pub created_at: pulumi_wasm_rust::Output<String>,
+        pub created_at: pulumi_gestalt_rust::Output<String>,
         /// The name of the disk.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// The size of the disk in GB.
-        pub size_in_gb: pulumi_wasm_rust::Output<i32>,
+        pub size_in_gb: pulumi_gestalt_rust::Output<i32>,
         /// The support code for the disk. Include this code in your email to support when you have questions about a disk in Lightsail. This code enables our support team to look up your Lightsail information more easily.
-        pub support_code: pulumi_wasm_rust::Output<String>,
+        pub support_code: pulumi_gestalt_rust::Output<String>,
         /// A map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        pub tags_all: pulumi_wasm_rust::Output<
+        pub tags_all: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
     }
@@ -77,11 +77,11 @@ pub mod disk {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: DiskArgs,
     ) -> DiskResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let availability_zone_binding = args
             .availability_zone
@@ -115,22 +115,22 @@ pub mod disk {
         };
         let o = register_interface::register(context.get_inner(), &request);
         DiskResult {
-            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
-            availability_zone: pulumi_wasm_rust::__private::into_domain(
+            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
+            availability_zone: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("availabilityZone"),
             ),
-            created_at: pulumi_wasm_rust::__private::into_domain(
+            created_at: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("createdAt"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            size_in_gb: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            size_in_gb: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("sizeInGb"),
             ),
-            support_code: pulumi_wasm_rust::__private::into_domain(
+            support_code: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("supportCode"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_wasm_rust::__private::into_domain(
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            tags_all: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("tagsAll"),
             ),
         }

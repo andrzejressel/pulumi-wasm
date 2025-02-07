@@ -37,132 +37,140 @@
 /// ```
 ///
 pub mod queue {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct QueueArgs {
         /// The ISO 8601 timespan duration of the idle interval after which the Queue is automatically deleted, minimum of 5 minutes.
         #[builder(into, default)]
-        pub auto_delete_on_idle: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub auto_delete_on_idle: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Boolean flag which controls whether server-side batched operations are enabled. Defaults to `true`.
         #[builder(into, default)]
-        pub batched_operations_enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub batched_operations_enabled: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// Boolean flag which controls whether the Queue has dead letter support when a message expires. Defaults to `false`.
         #[builder(into, default)]
-        pub dead_lettering_on_message_expiration: pulumi_wasm_rust::InputOrOutput<
+        pub dead_lettering_on_message_expiration: pulumi_gestalt_rust::InputOrOutput<
             Option<bool>,
         >,
         /// The ISO 8601 timespan duration of the TTL of messages sent to this queue. This is the default value used when TTL is not set on message itself.
         #[builder(into, default)]
-        pub default_message_ttl: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub default_message_ttl: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The ISO 8601 timespan duration during which duplicates can be detected. Defaults to `PT10M` (10 Minutes).
         #[builder(into, default)]
-        pub duplicate_detection_history_time_window: pulumi_wasm_rust::InputOrOutput<
+        pub duplicate_detection_history_time_window: pulumi_gestalt_rust::InputOrOutput<
             Option<String>,
         >,
         /// Boolean flag which controls whether Express Entities are enabled. An express queue holds a message in memory temporarily before writing it to persistent storage. Defaults to `false` for Basic and Standard. For Premium, it MUST be set to `false`.
         ///
         /// > **NOTE:** Service Bus Premium namespaces do not support Express Entities, so `express_enabled` MUST be set to `false`.
         #[builder(into, default)]
-        pub express_enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub express_enabled: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// The name of a Queue or Topic to automatically forward dead lettered messages to.
         #[builder(into, default)]
-        pub forward_dead_lettered_messages_to: pulumi_wasm_rust::InputOrOutput<
+        pub forward_dead_lettered_messages_to: pulumi_gestalt_rust::InputOrOutput<
             Option<String>,
         >,
         /// The name of a Queue or Topic to automatically forward messages to. Please [see the documentation](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-auto-forwarding) for more information.
         #[builder(into, default)]
-        pub forward_to: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub forward_to: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The ISO 8601 timespan duration of a peek-lock; that is, the amount of time that the message is locked for other receivers. Maximum value is 5 minutes. Defaults to `PT1M` (1 Minute).
         #[builder(into, default)]
-        pub lock_duration: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub lock_duration: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Integer value which controls when a message is automatically dead lettered. Defaults to `10`.
         #[builder(into, default)]
-        pub max_delivery_count: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
+        pub max_delivery_count: pulumi_gestalt_rust::InputOrOutput<Option<i32>>,
         /// Integer value which controls the maximum size of a message allowed on the queue for Premium SKU. For supported values see the "Large messages support" section of [this document](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-premium-messaging#large-messages-support-preview).
         #[builder(into, default)]
-        pub max_message_size_in_kilobytes: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
+        pub max_message_size_in_kilobytes: pulumi_gestalt_rust::InputOrOutput<
+            Option<i32>,
+        >,
         /// Integer value which controls the size of memory allocated for the queue. For supported values see the "Queue or topic size" section of [Service Bus Quotas](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-quotas).
         #[builder(into, default)]
-        pub max_size_in_megabytes: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
+        pub max_size_in_megabytes: pulumi_gestalt_rust::InputOrOutput<Option<i32>>,
         /// Specifies the name of the ServiceBus Queue resource. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The ID of the ServiceBus Namespace to create this queue in. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub namespace_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub namespace_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Boolean flag which controls whether to enable the queue to be partitioned across multiple message brokers. Changing this forces a new resource to be created. Defaults to `false` for Basic and Standard.
         ///
         /// > **NOTE:** Partitioning is available at entity creation for all queues and topics in Basic or Standard SKUs. For premium namespace, partitioning is available at namespace creation, and all queues and topics in the partitioned namespace will be partitioned, for the premium namespace that has `premium_messaging_partitions` sets to `1`, the namespace is not partitioned.
         #[builder(into, default)]
-        pub partitioning_enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub partitioning_enabled: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// Boolean flag which controls whether the Queue requires duplicate detection. Changing this forces a new resource to be created. Defaults to `false`.
         #[builder(into, default)]
-        pub requires_duplicate_detection: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub requires_duplicate_detection: pulumi_gestalt_rust::InputOrOutput<
+            Option<bool>,
+        >,
         /// Boolean flag which controls whether the Queue requires sessions. This will allow ordered handling of unbounded sequences of related messages. With sessions enabled a queue can guarantee first-in-first-out delivery of messages. Changing this forces a new resource to be created. Defaults to `false`.
         #[builder(into, default)]
-        pub requires_session: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub requires_session: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// The status of the Queue. Possible values are `Active`, `Creating`, `Deleting`, `Disabled`, `ReceiveDisabled`, `Renaming`, `SendDisabled`, `Unknown`. Note that `Restoring` is not accepted. Defaults to `Active`.
         #[builder(into, default)]
-        pub status: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub status: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct QueueResult {
         /// The ISO 8601 timespan duration of the idle interval after which the Queue is automatically deleted, minimum of 5 minutes.
-        pub auto_delete_on_idle: pulumi_wasm_rust::Output<String>,
+        pub auto_delete_on_idle: pulumi_gestalt_rust::Output<String>,
         /// Boolean flag which controls whether server-side batched operations are enabled. Defaults to `true`.
-        pub batched_operations_enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub batched_operations_enabled: pulumi_gestalt_rust::Output<Option<bool>>,
         /// Boolean flag which controls whether the Queue has dead letter support when a message expires. Defaults to `false`.
-        pub dead_lettering_on_message_expiration: pulumi_wasm_rust::Output<Option<bool>>,
+        pub dead_lettering_on_message_expiration: pulumi_gestalt_rust::Output<
+            Option<bool>,
+        >,
         /// The ISO 8601 timespan duration of the TTL of messages sent to this queue. This is the default value used when TTL is not set on message itself.
-        pub default_message_ttl: pulumi_wasm_rust::Output<String>,
+        pub default_message_ttl: pulumi_gestalt_rust::Output<String>,
         /// The ISO 8601 timespan duration during which duplicates can be detected. Defaults to `PT10M` (10 Minutes).
-        pub duplicate_detection_history_time_window: pulumi_wasm_rust::Output<
+        pub duplicate_detection_history_time_window: pulumi_gestalt_rust::Output<
             Option<String>,
         >,
         /// Boolean flag which controls whether Express Entities are enabled. An express queue holds a message in memory temporarily before writing it to persistent storage. Defaults to `false` for Basic and Standard. For Premium, it MUST be set to `false`.
         ///
         /// > **NOTE:** Service Bus Premium namespaces do not support Express Entities, so `express_enabled` MUST be set to `false`.
-        pub express_enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub express_enabled: pulumi_gestalt_rust::Output<Option<bool>>,
         /// The name of a Queue or Topic to automatically forward dead lettered messages to.
-        pub forward_dead_lettered_messages_to: pulumi_wasm_rust::Output<Option<String>>,
+        pub forward_dead_lettered_messages_to: pulumi_gestalt_rust::Output<
+            Option<String>,
+        >,
         /// The name of a Queue or Topic to automatically forward messages to. Please [see the documentation](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-auto-forwarding) for more information.
-        pub forward_to: pulumi_wasm_rust::Output<Option<String>>,
+        pub forward_to: pulumi_gestalt_rust::Output<Option<String>>,
         /// The ISO 8601 timespan duration of a peek-lock; that is, the amount of time that the message is locked for other receivers. Maximum value is 5 minutes. Defaults to `PT1M` (1 Minute).
-        pub lock_duration: pulumi_wasm_rust::Output<Option<String>>,
+        pub lock_duration: pulumi_gestalt_rust::Output<Option<String>>,
         /// Integer value which controls when a message is automatically dead lettered. Defaults to `10`.
-        pub max_delivery_count: pulumi_wasm_rust::Output<Option<i32>>,
+        pub max_delivery_count: pulumi_gestalt_rust::Output<Option<i32>>,
         /// Integer value which controls the maximum size of a message allowed on the queue for Premium SKU. For supported values see the "Large messages support" section of [this document](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-premium-messaging#large-messages-support-preview).
-        pub max_message_size_in_kilobytes: pulumi_wasm_rust::Output<i32>,
+        pub max_message_size_in_kilobytes: pulumi_gestalt_rust::Output<i32>,
         /// Integer value which controls the size of memory allocated for the queue. For supported values see the "Queue or topic size" section of [Service Bus Quotas](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-quotas).
-        pub max_size_in_megabytes: pulumi_wasm_rust::Output<i32>,
+        pub max_size_in_megabytes: pulumi_gestalt_rust::Output<i32>,
         /// Specifies the name of the ServiceBus Queue resource. Changing this forces a new resource to be created.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// The ID of the ServiceBus Namespace to create this queue in. Changing this forces a new resource to be created.
-        pub namespace_id: pulumi_wasm_rust::Output<String>,
-        pub namespace_name: pulumi_wasm_rust::Output<String>,
+        pub namespace_id: pulumi_gestalt_rust::Output<String>,
+        pub namespace_name: pulumi_gestalt_rust::Output<String>,
         /// Boolean flag which controls whether to enable the queue to be partitioned across multiple message brokers. Changing this forces a new resource to be created. Defaults to `false` for Basic and Standard.
         ///
         /// > **NOTE:** Partitioning is available at entity creation for all queues and topics in Basic or Standard SKUs. For premium namespace, partitioning is available at namespace creation, and all queues and topics in the partitioned namespace will be partitioned, for the premium namespace that has `premium_messaging_partitions` sets to `1`, the namespace is not partitioned.
-        pub partitioning_enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub partitioning_enabled: pulumi_gestalt_rust::Output<Option<bool>>,
         /// Boolean flag which controls whether the Queue requires duplicate detection. Changing this forces a new resource to be created. Defaults to `false`.
-        pub requires_duplicate_detection: pulumi_wasm_rust::Output<Option<bool>>,
+        pub requires_duplicate_detection: pulumi_gestalt_rust::Output<Option<bool>>,
         /// Boolean flag which controls whether the Queue requires sessions. This will allow ordered handling of unbounded sequences of related messages. With sessions enabled a queue can guarantee first-in-first-out delivery of messages. Changing this forces a new resource to be created. Defaults to `false`.
-        pub requires_session: pulumi_wasm_rust::Output<Option<bool>>,
-        pub resource_group_name: pulumi_wasm_rust::Output<String>,
+        pub requires_session: pulumi_gestalt_rust::Output<Option<bool>>,
+        pub resource_group_name: pulumi_gestalt_rust::Output<String>,
         /// The status of the Queue. Possible values are `Active`, `Creating`, `Deleting`, `Disabled`, `ReceiveDisabled`, `Renaming`, `SendDisabled`, `Unknown`. Note that `Restoring` is not accepted. Defaults to `Active`.
-        pub status: pulumi_wasm_rust::Output<Option<String>>,
+        pub status: pulumi_gestalt_rust::Output<Option<String>>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: QueueArgs,
     ) -> QueueResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let auto_delete_on_idle_binding = args
             .auto_delete_on_idle
@@ -302,62 +310,64 @@ pub mod queue {
         };
         let o = register_interface::register(context.get_inner(), &request);
         QueueResult {
-            auto_delete_on_idle: pulumi_wasm_rust::__private::into_domain(
+            auto_delete_on_idle: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("autoDeleteOnIdle"),
             ),
-            batched_operations_enabled: pulumi_wasm_rust::__private::into_domain(
+            batched_operations_enabled: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("batchedOperationsEnabled"),
             ),
-            dead_lettering_on_message_expiration: pulumi_wasm_rust::__private::into_domain(
+            dead_lettering_on_message_expiration: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("deadLetteringOnMessageExpiration"),
             ),
-            default_message_ttl: pulumi_wasm_rust::__private::into_domain(
+            default_message_ttl: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("defaultMessageTtl"),
             ),
-            duplicate_detection_history_time_window: pulumi_wasm_rust::__private::into_domain(
+            duplicate_detection_history_time_window: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("duplicateDetectionHistoryTimeWindow"),
             ),
-            express_enabled: pulumi_wasm_rust::__private::into_domain(
+            express_enabled: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("expressEnabled"),
             ),
-            forward_dead_lettered_messages_to: pulumi_wasm_rust::__private::into_domain(
+            forward_dead_lettered_messages_to: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("forwardDeadLetteredMessagesTo"),
             ),
-            forward_to: pulumi_wasm_rust::__private::into_domain(
+            forward_to: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("forwardTo"),
             ),
-            lock_duration: pulumi_wasm_rust::__private::into_domain(
+            lock_duration: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("lockDuration"),
             ),
-            max_delivery_count: pulumi_wasm_rust::__private::into_domain(
+            max_delivery_count: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("maxDeliveryCount"),
             ),
-            max_message_size_in_kilobytes: pulumi_wasm_rust::__private::into_domain(
+            max_message_size_in_kilobytes: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("maxMessageSizeInKilobytes"),
             ),
-            max_size_in_megabytes: pulumi_wasm_rust::__private::into_domain(
+            max_size_in_megabytes: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("maxSizeInMegabytes"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            namespace_id: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            namespace_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("namespaceId"),
             ),
-            namespace_name: pulumi_wasm_rust::__private::into_domain(
+            namespace_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("namespaceName"),
             ),
-            partitioning_enabled: pulumi_wasm_rust::__private::into_domain(
+            partitioning_enabled: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("partitioningEnabled"),
             ),
-            requires_duplicate_detection: pulumi_wasm_rust::__private::into_domain(
+            requires_duplicate_detection: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("requiresDuplicateDetection"),
             ),
-            requires_session: pulumi_wasm_rust::__private::into_domain(
+            requires_session: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("requiresSession"),
             ),
-            resource_group_name: pulumi_wasm_rust::__private::into_domain(
+            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("resourceGroupName"),
             ),
-            status: pulumi_wasm_rust::__private::into_domain(o.extract_field("status")),
+            status: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("status"),
+            ),
         }
     }
 }

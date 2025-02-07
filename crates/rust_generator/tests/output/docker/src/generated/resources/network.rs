@@ -4,8 +4,8 @@
 /// ## Example Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let privateNetwork = network::create(
@@ -34,8 +34,8 @@
 /// you provide the definition for the resource as follows
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let foo = network::create("foo", NetworkArgs::builder().name("foo").build_struct());
@@ -49,96 +49,100 @@
 /// ```
 ///
 pub mod network {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct NetworkArgs {
         /// Enable manual container attachment to the network.
         #[builder(into, default)]
-        pub attachable: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub attachable: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// Requests daemon to check for networks with same name.
         #[builder(into, default)]
-        pub check_duplicate: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub check_duplicate: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// The driver of the Docker network. Possible values are `bridge`, `host`, `overlay`, `macvlan`. See [network docs](https://docs.docker.com/network/#network-drivers) for more details.
         #[builder(into, default)]
-        pub driver: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub driver: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Create swarm routing-mesh network. Defaults to `false`.
         #[builder(into, default)]
-        pub ingress: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub ingress: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// Whether the network is internal.
         #[builder(into, default)]
-        pub internal: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub internal: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// The IPAM configuration options
         #[builder(into, default)]
-        pub ipam_configs: pulumi_wasm_rust::InputOrOutput<
+        pub ipam_configs: pulumi_gestalt_rust::InputOrOutput<
             Option<Vec<super::types::NetworkIpamConfig>>,
         >,
         /// Driver used by the custom IP scheme of the network. Defaults to `default`
         #[builder(into, default)]
-        pub ipam_driver: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub ipam_driver: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Provide explicit options to the IPAM driver. Valid options vary with `ipam_driver` and refer to that driver's documentation for more details.
         #[builder(into, default)]
-        pub ipam_options: pulumi_wasm_rust::InputOrOutput<
+        pub ipam_options: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Enable IPv6 networking. Defaults to `false`.
         #[builder(into, default)]
-        pub ipv6: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub ipv6: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// User-defined key/value metadata
         #[builder(into, default)]
-        pub labels: pulumi_wasm_rust::InputOrOutput<
+        pub labels: pulumi_gestalt_rust::InputOrOutput<
             Option<Vec<super::types::NetworkLabel>>,
         >,
         /// The name of the Docker network.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Only available with bridge networks. See [bridge options docs](https://docs.docker.com/engine/reference/commandline/network_create/#bridge-driver-options) for more details.
         #[builder(into, default)]
-        pub options: pulumi_wasm_rust::InputOrOutput<
+        pub options: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
     #[allow(dead_code)]
     pub struct NetworkResult {
         /// Enable manual container attachment to the network.
-        pub attachable: pulumi_wasm_rust::Output<Option<bool>>,
+        pub attachable: pulumi_gestalt_rust::Output<Option<bool>>,
         /// Requests daemon to check for networks with same name.
-        pub check_duplicate: pulumi_wasm_rust::Output<Option<bool>>,
+        pub check_duplicate: pulumi_gestalt_rust::Output<Option<bool>>,
         /// The driver of the Docker network. Possible values are `bridge`, `host`, `overlay`, `macvlan`. See [network docs](https://docs.docker.com/network/#network-drivers) for more details.
-        pub driver: pulumi_wasm_rust::Output<String>,
+        pub driver: pulumi_gestalt_rust::Output<String>,
         /// Create swarm routing-mesh network. Defaults to `false`.
-        pub ingress: pulumi_wasm_rust::Output<Option<bool>>,
+        pub ingress: pulumi_gestalt_rust::Output<Option<bool>>,
         /// Whether the network is internal.
-        pub internal: pulumi_wasm_rust::Output<bool>,
+        pub internal: pulumi_gestalt_rust::Output<bool>,
         /// The IPAM configuration options
-        pub ipam_configs: pulumi_wasm_rust::Output<Vec<super::types::NetworkIpamConfig>>,
+        pub ipam_configs: pulumi_gestalt_rust::Output<
+            Vec<super::types::NetworkIpamConfig>,
+        >,
         /// Driver used by the custom IP scheme of the network. Defaults to `default`
-        pub ipam_driver: pulumi_wasm_rust::Output<Option<String>>,
+        pub ipam_driver: pulumi_gestalt_rust::Output<Option<String>>,
         /// Provide explicit options to the IPAM driver. Valid options vary with `ipam_driver` and refer to that driver's documentation for more details.
-        pub ipam_options: pulumi_wasm_rust::Output<
+        pub ipam_options: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Enable IPv6 networking. Defaults to `false`.
-        pub ipv6: pulumi_wasm_rust::Output<Option<bool>>,
+        pub ipv6: pulumi_gestalt_rust::Output<Option<bool>>,
         /// User-defined key/value metadata
-        pub labels: pulumi_wasm_rust::Output<Option<Vec<super::types::NetworkLabel>>>,
+        pub labels: pulumi_gestalt_rust::Output<Option<Vec<super::types::NetworkLabel>>>,
         /// The name of the Docker network.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// Only available with bridge networks. See [bridge options docs](https://docs.docker.com/engine/reference/commandline/network_create/#bridge-driver-options) for more details.
-        pub options: pulumi_wasm_rust::Output<std::collections::HashMap<String, String>>,
+        pub options: pulumi_gestalt_rust::Output<
+            std::collections::HashMap<String, String>,
+        >,
         /// Scope of the network. One of `swarm`, `global`, or `local`.
-        pub scope: pulumi_wasm_rust::Output<String>,
+        pub scope: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: NetworkArgs,
     ) -> NetworkResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let attachable_binding = args.attachable.get_output(context).get_inner();
         let check_duplicate_binding = args
@@ -212,35 +216,39 @@ pub mod network {
         };
         let o = register_interface::register(context.get_inner(), &request);
         NetworkResult {
-            attachable: pulumi_wasm_rust::__private::into_domain(
+            attachable: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("attachable"),
             ),
-            check_duplicate: pulumi_wasm_rust::__private::into_domain(
+            check_duplicate: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("checkDuplicate"),
             ),
-            driver: pulumi_wasm_rust::__private::into_domain(o.extract_field("driver")),
-            ingress: pulumi_wasm_rust::__private::into_domain(
+            driver: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("driver"),
+            ),
+            ingress: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("ingress"),
             ),
-            internal: pulumi_wasm_rust::__private::into_domain(
+            internal: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("internal"),
             ),
-            ipam_configs: pulumi_wasm_rust::__private::into_domain(
+            ipam_configs: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("ipamConfigs"),
             ),
-            ipam_driver: pulumi_wasm_rust::__private::into_domain(
+            ipam_driver: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("ipamDriver"),
             ),
-            ipam_options: pulumi_wasm_rust::__private::into_domain(
+            ipam_options: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("ipamOptions"),
             ),
-            ipv6: pulumi_wasm_rust::__private::into_domain(o.extract_field("ipv6")),
-            labels: pulumi_wasm_rust::__private::into_domain(o.extract_field("labels")),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            options: pulumi_wasm_rust::__private::into_domain(
+            ipv6: pulumi_gestalt_rust::__private::into_domain(o.extract_field("ipv6")),
+            labels: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("labels"),
+            ),
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            options: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("options"),
             ),
-            scope: pulumi_wasm_rust::__private::into_domain(o.extract_field("scope")),
+            scope: pulumi_gestalt_rust::__private::into_domain(o.extract_field("scope")),
         }
     }
 }

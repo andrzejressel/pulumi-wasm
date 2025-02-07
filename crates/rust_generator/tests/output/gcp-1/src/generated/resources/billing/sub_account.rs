@@ -3,8 +3,8 @@
 /// !> **WARNING:** Deleting this resource will not delete or close the billing subaccount.
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let subaccount = sub_account::create(
@@ -30,7 +30,7 @@
 /// ```
 ///
 pub mod sub_account {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct SubAccountArgs {
@@ -38,43 +38,43 @@ pub mod sub_account {
         /// will be changed to "Destroyed" along with a timestamp.  If set to "" this will not occur.
         /// Default is "".
         #[builder(into, default)]
-        pub deletion_policy: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub deletion_policy: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The display name of the billing account.
         #[builder(into)]
-        pub display_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub display_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The name of the master billing account that the subaccount
         /// will be created under in the form `{billing_account_id}` or `billingAccounts/{billing_account_id}`.
         #[builder(into)]
-        pub master_billing_account: pulumi_wasm_rust::InputOrOutput<String>,
+        pub master_billing_account: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct SubAccountResult {
         /// The billing account id.
-        pub billing_account_id: pulumi_wasm_rust::Output<String>,
+        pub billing_account_id: pulumi_gestalt_rust::Output<String>,
         /// If set to "RENAME_ON_DESTROY" the billing account display_name
         /// will be changed to "Destroyed" along with a timestamp.  If set to "" this will not occur.
         /// Default is "".
-        pub deletion_policy: pulumi_wasm_rust::Output<Option<String>>,
+        pub deletion_policy: pulumi_gestalt_rust::Output<Option<String>>,
         /// The display name of the billing account.
-        pub display_name: pulumi_wasm_rust::Output<String>,
+        pub display_name: pulumi_gestalt_rust::Output<String>,
         /// The name of the master billing account that the subaccount
         /// will be created under in the form `{billing_account_id}` or `billingAccounts/{billing_account_id}`.
-        pub master_billing_account: pulumi_wasm_rust::Output<String>,
+        pub master_billing_account: pulumi_gestalt_rust::Output<String>,
         /// The resource name of the billing account in the form `billingAccounts/{billing_account_id}`.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// `true` if the billing account is open, `false` if the billing account is closed.
-        pub open: pulumi_wasm_rust::Output<bool>,
+        pub open: pulumi_gestalt_rust::Output<bool>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: SubAccountArgs,
     ) -> SubAccountResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let deletion_policy_binding = args
             .deletion_policy
@@ -106,20 +106,20 @@ pub mod sub_account {
         };
         let o = register_interface::register(context.get_inner(), &request);
         SubAccountResult {
-            billing_account_id: pulumi_wasm_rust::__private::into_domain(
+            billing_account_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("billingAccountId"),
             ),
-            deletion_policy: pulumi_wasm_rust::__private::into_domain(
+            deletion_policy: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("deletionPolicy"),
             ),
-            display_name: pulumi_wasm_rust::__private::into_domain(
+            display_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("displayName"),
             ),
-            master_billing_account: pulumi_wasm_rust::__private::into_domain(
+            master_billing_account: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("masterBillingAccount"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            open: pulumi_wasm_rust::__private::into_domain(o.extract_field("open")),
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            open: pulumi_gestalt_rust::__private::into_domain(o.extract_field("open")),
         }
     }
 }

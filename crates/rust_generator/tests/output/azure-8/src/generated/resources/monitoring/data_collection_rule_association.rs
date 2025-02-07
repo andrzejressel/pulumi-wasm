@@ -3,8 +3,8 @@
 /// ## Example Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = resource_group::create(
@@ -135,57 +135,59 @@
 /// ```
 ///
 pub mod data_collection_rule_association {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct DataCollectionRuleAssociationArgs {
         /// The ID of the Data Collection Endpoint which will be associated to the target resource.
         #[builder(into, default)]
-        pub data_collection_endpoint_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub data_collection_endpoint_id: pulumi_gestalt_rust::InputOrOutput<
+            Option<String>,
+        >,
         /// The ID of the Data Collection Rule which will be associated to the target resource.
         ///
         /// > **NOTE** Exactly one of `data_collection_endpoint_id` and `data_collection_rule_id` blocks must be specified.
         #[builder(into, default)]
-        pub data_collection_rule_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub data_collection_rule_id: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The description of the Data Collection Rule Association.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub description: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The name which should be used for this Data Collection Rule Association. Changing this forces a new Data Collection Rule Association to be created. Defaults to `configurationAccessEndpoint`.
         ///
         /// > **NOTE** `name` is required when `data_collection_rule_id` is specified. And when `data_collection_endpoint_id` is specified, the `name` is populated with `configurationAccessEndpoint`.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The ID of the Azure Resource which to associate to a Data Collection Rule or a Data Collection Endpoint. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub target_resource_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub target_resource_id: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct DataCollectionRuleAssociationResult {
         /// The ID of the Data Collection Endpoint which will be associated to the target resource.
-        pub data_collection_endpoint_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub data_collection_endpoint_id: pulumi_gestalt_rust::Output<Option<String>>,
         /// The ID of the Data Collection Rule which will be associated to the target resource.
         ///
         /// > **NOTE** Exactly one of `data_collection_endpoint_id` and `data_collection_rule_id` blocks must be specified.
-        pub data_collection_rule_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub data_collection_rule_id: pulumi_gestalt_rust::Output<Option<String>>,
         /// The description of the Data Collection Rule Association.
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_gestalt_rust::Output<Option<String>>,
         /// The name which should be used for this Data Collection Rule Association. Changing this forces a new Data Collection Rule Association to be created. Defaults to `configurationAccessEndpoint`.
         ///
         /// > **NOTE** `name` is required when `data_collection_rule_id` is specified. And when `data_collection_endpoint_id` is specified, the `name` is populated with `configurationAccessEndpoint`.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// The ID of the Azure Resource which to associate to a Data Collection Rule or a Data Collection Endpoint. Changing this forces a new resource to be created.
-        pub target_resource_id: pulumi_wasm_rust::Output<String>,
+        pub target_resource_id: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: DataCollectionRuleAssociationArgs,
     ) -> DataCollectionRuleAssociationResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let data_collection_endpoint_id_binding = args
             .data_collection_endpoint_id
@@ -231,17 +233,17 @@ pub mod data_collection_rule_association {
         };
         let o = register_interface::register(context.get_inner(), &request);
         DataCollectionRuleAssociationResult {
-            data_collection_endpoint_id: pulumi_wasm_rust::__private::into_domain(
+            data_collection_endpoint_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("dataCollectionEndpointId"),
             ),
-            data_collection_rule_id: pulumi_wasm_rust::__private::into_domain(
+            data_collection_rule_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("dataCollectionRuleId"),
             ),
-            description: pulumi_wasm_rust::__private::into_domain(
+            description: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("description"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            target_resource_id: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            target_resource_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("targetResourceId"),
             ),
         }

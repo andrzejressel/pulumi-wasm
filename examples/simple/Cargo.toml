@@ -1,5 +1,5 @@
 [package]
-name = "pulumi_wasm_example_simple"
+name = "pulumi_gestalt_example_simple"
 version.workspace = true
 edition.workspace = true
 
@@ -13,8 +13,8 @@ example_test = []
 
 [dependencies]
 anyhow.workspace = true
-pulumi_wasm_rust.workspace = true
-pulumi_wasm_providers_random.workspace = true
+pulumi_gestalt_rust.workspace = true
+pulumi_gestalt_providers_random.workspace = true
 
 [dev-dependencies]
-pulumi_wasm_examples_common.workspace = true
+pulumi_gestalt_examples_common.workspace = true

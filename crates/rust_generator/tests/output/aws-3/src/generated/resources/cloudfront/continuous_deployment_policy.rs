@@ -79,23 +79,23 @@
 /// $ pulumi import aws:cloudfront/continuousDeploymentPolicy:ContinuousDeploymentPolicy example abcd-1234
 /// ```
 pub mod continuous_deployment_policy {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ContinuousDeploymentPolicyArgs {
         /// Whether this continuous deployment policy is enabled.
         #[builder(into)]
-        pub enabled: pulumi_wasm_rust::InputOrOutput<bool>,
+        pub enabled: pulumi_gestalt_rust::InputOrOutput<bool>,
         /// CloudFront domain name of the staging distribution. See `staging_distribution_dns_names`.
         #[builder(into, default)]
-        pub staging_distribution_dns_names: pulumi_wasm_rust::InputOrOutput<
+        pub staging_distribution_dns_names: pulumi_gestalt_rust::InputOrOutput<
             Option<
                 super::super::types::cloudfront::ContinuousDeploymentPolicyStagingDistributionDnsNames,
             >,
         >,
         /// Parameters for routing production traffic from primary to staging distributions. See `traffic_config`.
         #[builder(into, default)]
-        pub traffic_config: pulumi_wasm_rust::InputOrOutput<
+        pub traffic_config: pulumi_gestalt_rust::InputOrOutput<
             Option<
                 super::super::types::cloudfront::ContinuousDeploymentPolicyTrafficConfig,
             >,
@@ -104,19 +104,19 @@ pub mod continuous_deployment_policy {
     #[allow(dead_code)]
     pub struct ContinuousDeploymentPolicyResult {
         /// Whether this continuous deployment policy is enabled.
-        pub enabled: pulumi_wasm_rust::Output<bool>,
+        pub enabled: pulumi_gestalt_rust::Output<bool>,
         /// Current version of the continuous distribution policy.
-        pub etag: pulumi_wasm_rust::Output<String>,
+        pub etag: pulumi_gestalt_rust::Output<String>,
         /// Date and time the continuous deployment policy was last modified.
-        pub last_modified_time: pulumi_wasm_rust::Output<String>,
+        pub last_modified_time: pulumi_gestalt_rust::Output<String>,
         /// CloudFront domain name of the staging distribution. See `staging_distribution_dns_names`.
-        pub staging_distribution_dns_names: pulumi_wasm_rust::Output<
+        pub staging_distribution_dns_names: pulumi_gestalt_rust::Output<
             Option<
                 super::super::types::cloudfront::ContinuousDeploymentPolicyStagingDistributionDnsNames,
             >,
         >,
         /// Parameters for routing production traffic from primary to staging distributions. See `traffic_config`.
-        pub traffic_config: pulumi_wasm_rust::Output<
+        pub traffic_config: pulumi_gestalt_rust::Output<
             Option<
                 super::super::types::cloudfront::ContinuousDeploymentPolicyTrafficConfig,
             >,
@@ -127,11 +127,11 @@ pub mod continuous_deployment_policy {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: ContinuousDeploymentPolicyArgs,
     ) -> ContinuousDeploymentPolicyResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let enabled_binding = args.enabled.get_output(context).get_inner();
         let staging_distribution_dns_names_binding = args
@@ -161,17 +161,17 @@ pub mod continuous_deployment_policy {
         };
         let o = register_interface::register(context.get_inner(), &request);
         ContinuousDeploymentPolicyResult {
-            enabled: pulumi_wasm_rust::__private::into_domain(
+            enabled: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("enabled"),
             ),
-            etag: pulumi_wasm_rust::__private::into_domain(o.extract_field("etag")),
-            last_modified_time: pulumi_wasm_rust::__private::into_domain(
+            etag: pulumi_gestalt_rust::__private::into_domain(o.extract_field("etag")),
+            last_modified_time: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("lastModifiedTime"),
             ),
-            staging_distribution_dns_names: pulumi_wasm_rust::__private::into_domain(
+            staging_distribution_dns_names: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("stagingDistributionDnsNames"),
             ),
-            traffic_config: pulumi_wasm_rust::__private::into_domain(
+            traffic_config: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("trafficConfig"),
             ),
         }

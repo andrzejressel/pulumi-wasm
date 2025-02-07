@@ -153,8 +153,8 @@
 /// ### Redshift Destination
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let testCluster = cluster::create(
@@ -547,8 +547,8 @@
 /// ### Splunk Destination
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let testStream = firehose_delivery_stream::create(
@@ -582,8 +582,8 @@
 /// ### HTTP Endpoint (e.g., New Relic) Destination
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let testStream = firehose_delivery_stream::create(
@@ -632,8 +632,8 @@
 /// ### Snowflake Destination
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let exampleSnowflakeDestination = firehose_delivery_stream::create(
@@ -678,80 +678,80 @@
 /// Note: Import does not work for stream destination `s3`. Consider using `extended_s3` since `s3` destination is deprecated.
 ///
 pub mod firehose_delivery_stream {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct FirehoseDeliveryStreamArgs {
         /// The Amazon Resource Name (ARN) specifying the Stream
         #[builder(into, default)]
-        pub arn: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub arn: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// This is the destination to where the data is delivered. The only options are `s3` (Deprecated, use `extended_s3` instead), `extended_s3`, `redshift`, `elasticsearch`, `splunk`, `http_endpoint`, `opensearch`, `opensearchserverless` and `snowflake`.
         #[builder(into)]
-        pub destination: pulumi_wasm_rust::InputOrOutput<String>,
+        pub destination: pulumi_gestalt_rust::InputOrOutput<String>,
         #[builder(into, default)]
-        pub destination_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub destination_id: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Configuration options when `destination` is `elasticsearch`. See `elasticsearch_configuration` block below for details.
         #[builder(into, default)]
-        pub elasticsearch_configuration: pulumi_wasm_rust::InputOrOutput<
+        pub elasticsearch_configuration: pulumi_gestalt_rust::InputOrOutput<
             Option<
                 super::super::types::kinesis::FirehoseDeliveryStreamElasticsearchConfiguration,
             >,
         >,
         /// Enhanced configuration options for the s3 destination. See `extended_s3_configuration` block below for details.
         #[builder(into, default)]
-        pub extended_s3_configuration: pulumi_wasm_rust::InputOrOutput<
+        pub extended_s3_configuration: pulumi_gestalt_rust::InputOrOutput<
             Option<
                 super::super::types::kinesis::FirehoseDeliveryStreamExtendedS3Configuration,
             >,
         >,
         /// Configuration options when `destination` is `http_endpoint`. Requires the user to also specify an `s3_configuration` block.  See `http_endpoint_configuration` block below for details.
         #[builder(into, default)]
-        pub http_endpoint_configuration: pulumi_wasm_rust::InputOrOutput<
+        pub http_endpoint_configuration: pulumi_gestalt_rust::InputOrOutput<
             Option<
                 super::super::types::kinesis::FirehoseDeliveryStreamHttpEndpointConfiguration,
             >,
         >,
         /// Configuration options when `destination` is `iceberg`. See `iceberg_configuration` block below for details.
         #[builder(into, default)]
-        pub iceberg_configuration: pulumi_wasm_rust::InputOrOutput<
+        pub iceberg_configuration: pulumi_gestalt_rust::InputOrOutput<
             Option<
                 super::super::types::kinesis::FirehoseDeliveryStreamIcebergConfiguration,
             >,
         >,
         /// The stream and role Amazon Resource Names (ARNs) for a Kinesis data stream used as the source for a delivery stream. See `kinesis_source_configuration` block below for details.
         #[builder(into, default)]
-        pub kinesis_source_configuration: pulumi_wasm_rust::InputOrOutput<
+        pub kinesis_source_configuration: pulumi_gestalt_rust::InputOrOutput<
             Option<
                 super::super::types::kinesis::FirehoseDeliveryStreamKinesisSourceConfiguration,
             >,
         >,
         /// The configuration for the Amazon MSK cluster to be used as the source for a delivery stream. See `msk_source_configuration` block below for details.
         #[builder(into, default)]
-        pub msk_source_configuration: pulumi_wasm_rust::InputOrOutput<
+        pub msk_source_configuration: pulumi_gestalt_rust::InputOrOutput<
             Option<
                 super::super::types::kinesis::FirehoseDeliveryStreamMskSourceConfiguration,
             >,
         >,
         /// A name to identify the stream. This is unique to the AWS account and region the Stream is created in. When using for WAF logging, name must be prefixed with `aws-waf-logs-`. See [AWS Documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-policies.html#waf-policies-logging-config) for more details.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Configuration options when `destination` is `opensearch`. See `opensearch_configuration` block below for details.
         #[builder(into, default)]
-        pub opensearch_configuration: pulumi_wasm_rust::InputOrOutput<
+        pub opensearch_configuration: pulumi_gestalt_rust::InputOrOutput<
             Option<
                 super::super::types::kinesis::FirehoseDeliveryStreamOpensearchConfiguration,
             >,
         >,
         /// Configuration options when `destination` is `opensearchserverless`. See `opensearchserverless_configuration` block below for details.
         #[builder(into, default)]
-        pub opensearchserverless_configuration: pulumi_wasm_rust::InputOrOutput<
+        pub opensearchserverless_configuration: pulumi_gestalt_rust::InputOrOutput<
             Option<
                 super::super::types::kinesis::FirehoseDeliveryStreamOpensearchserverlessConfiguration,
             >,
         >,
         /// Configuration options when `destination` is `redshift`. Requires the user to also specify an `s3_configuration` block. See `redshift_configuration` block below for details.
         #[builder(into, default)]
-        pub redshift_configuration: pulumi_wasm_rust::InputOrOutput<
+        pub redshift_configuration: pulumi_gestalt_rust::InputOrOutput<
             Option<
                 super::super::types::kinesis::FirehoseDeliveryStreamRedshiftConfiguration,
             >,
@@ -760,92 +760,92 @@ pub mod firehose_delivery_stream {
         ///
         /// **NOTE:** Server-side encryption should not be enabled when a kinesis stream is configured as the source of the firehose delivery stream.
         #[builder(into, default)]
-        pub server_side_encryption: pulumi_wasm_rust::InputOrOutput<
+        pub server_side_encryption: pulumi_gestalt_rust::InputOrOutput<
             Option<
                 super::super::types::kinesis::FirehoseDeliveryStreamServerSideEncryption,
             >,
         >,
         /// Configuration options when `destination` is `snowflake`. See `snowflake_configuration` block below for details.
         #[builder(into, default)]
-        pub snowflake_configuration: pulumi_wasm_rust::InputOrOutput<
+        pub snowflake_configuration: pulumi_gestalt_rust::InputOrOutput<
             Option<
                 super::super::types::kinesis::FirehoseDeliveryStreamSnowflakeConfiguration,
             >,
         >,
         /// Configuration options when `destination` is `splunk`. See `splunk_configuration` block below for details.
         #[builder(into, default)]
-        pub splunk_configuration: pulumi_wasm_rust::InputOrOutput<
+        pub splunk_configuration: pulumi_gestalt_rust::InputOrOutput<
             Option<
                 super::super::types::kinesis::FirehoseDeliveryStreamSplunkConfiguration,
             >,
         >,
         /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         #[builder(into, default)]
-        pub version_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub version_id: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct FirehoseDeliveryStreamResult {
         /// The Amazon Resource Name (ARN) specifying the Stream
-        pub arn: pulumi_wasm_rust::Output<String>,
+        pub arn: pulumi_gestalt_rust::Output<String>,
         /// This is the destination to where the data is delivered. The only options are `s3` (Deprecated, use `extended_s3` instead), `extended_s3`, `redshift`, `elasticsearch`, `splunk`, `http_endpoint`, `opensearch`, `opensearchserverless` and `snowflake`.
-        pub destination: pulumi_wasm_rust::Output<String>,
-        pub destination_id: pulumi_wasm_rust::Output<String>,
+        pub destination: pulumi_gestalt_rust::Output<String>,
+        pub destination_id: pulumi_gestalt_rust::Output<String>,
         /// Configuration options when `destination` is `elasticsearch`. See `elasticsearch_configuration` block below for details.
-        pub elasticsearch_configuration: pulumi_wasm_rust::Output<
+        pub elasticsearch_configuration: pulumi_gestalt_rust::Output<
             Option<
                 super::super::types::kinesis::FirehoseDeliveryStreamElasticsearchConfiguration,
             >,
         >,
         /// Enhanced configuration options for the s3 destination. See `extended_s3_configuration` block below for details.
-        pub extended_s3_configuration: pulumi_wasm_rust::Output<
+        pub extended_s3_configuration: pulumi_gestalt_rust::Output<
             Option<
                 super::super::types::kinesis::FirehoseDeliveryStreamExtendedS3Configuration,
             >,
         >,
         /// Configuration options when `destination` is `http_endpoint`. Requires the user to also specify an `s3_configuration` block.  See `http_endpoint_configuration` block below for details.
-        pub http_endpoint_configuration: pulumi_wasm_rust::Output<
+        pub http_endpoint_configuration: pulumi_gestalt_rust::Output<
             Option<
                 super::super::types::kinesis::FirehoseDeliveryStreamHttpEndpointConfiguration,
             >,
         >,
         /// Configuration options when `destination` is `iceberg`. See `iceberg_configuration` block below for details.
-        pub iceberg_configuration: pulumi_wasm_rust::Output<
+        pub iceberg_configuration: pulumi_gestalt_rust::Output<
             Option<
                 super::super::types::kinesis::FirehoseDeliveryStreamIcebergConfiguration,
             >,
         >,
         /// The stream and role Amazon Resource Names (ARNs) for a Kinesis data stream used as the source for a delivery stream. See `kinesis_source_configuration` block below for details.
-        pub kinesis_source_configuration: pulumi_wasm_rust::Output<
+        pub kinesis_source_configuration: pulumi_gestalt_rust::Output<
             Option<
                 super::super::types::kinesis::FirehoseDeliveryStreamKinesisSourceConfiguration,
             >,
         >,
         /// The configuration for the Amazon MSK cluster to be used as the source for a delivery stream. See `msk_source_configuration` block below for details.
-        pub msk_source_configuration: pulumi_wasm_rust::Output<
+        pub msk_source_configuration: pulumi_gestalt_rust::Output<
             Option<
                 super::super::types::kinesis::FirehoseDeliveryStreamMskSourceConfiguration,
             >,
         >,
         /// A name to identify the stream. This is unique to the AWS account and region the Stream is created in. When using for WAF logging, name must be prefixed with `aws-waf-logs-`. See [AWS Documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-policies.html#waf-policies-logging-config) for more details.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// Configuration options when `destination` is `opensearch`. See `opensearch_configuration` block below for details.
-        pub opensearch_configuration: pulumi_wasm_rust::Output<
+        pub opensearch_configuration: pulumi_gestalt_rust::Output<
             Option<
                 super::super::types::kinesis::FirehoseDeliveryStreamOpensearchConfiguration,
             >,
         >,
         /// Configuration options when `destination` is `opensearchserverless`. See `opensearchserverless_configuration` block below for details.
-        pub opensearchserverless_configuration: pulumi_wasm_rust::Output<
+        pub opensearchserverless_configuration: pulumi_gestalt_rust::Output<
             Option<
                 super::super::types::kinesis::FirehoseDeliveryStreamOpensearchserverlessConfiguration,
             >,
         >,
         /// Configuration options when `destination` is `redshift`. Requires the user to also specify an `s3_configuration` block. See `redshift_configuration` block below for details.
-        pub redshift_configuration: pulumi_wasm_rust::Output<
+        pub redshift_configuration: pulumi_gestalt_rust::Output<
             Option<
                 super::super::types::kinesis::FirehoseDeliveryStreamRedshiftConfiguration,
             >,
@@ -853,43 +853,43 @@ pub mod firehose_delivery_stream {
         /// Encrypt at rest options. See `server_side_encryption` block below for details.
         ///
         /// **NOTE:** Server-side encryption should not be enabled when a kinesis stream is configured as the source of the firehose delivery stream.
-        pub server_side_encryption: pulumi_wasm_rust::Output<
+        pub server_side_encryption: pulumi_gestalt_rust::Output<
             Option<
                 super::super::types::kinesis::FirehoseDeliveryStreamServerSideEncryption,
             >,
         >,
         /// Configuration options when `destination` is `snowflake`. See `snowflake_configuration` block below for details.
-        pub snowflake_configuration: pulumi_wasm_rust::Output<
+        pub snowflake_configuration: pulumi_gestalt_rust::Output<
             Option<
                 super::super::types::kinesis::FirehoseDeliveryStreamSnowflakeConfiguration,
             >,
         >,
         /// Configuration options when `destination` is `splunk`. See `splunk_configuration` block below for details.
-        pub splunk_configuration: pulumi_wasm_rust::Output<
+        pub splunk_configuration: pulumi_gestalt_rust::Output<
             Option<
                 super::super::types::kinesis::FirehoseDeliveryStreamSplunkConfiguration,
             >,
         >,
         /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        pub tags_all: pulumi_wasm_rust::Output<
+        pub tags_all: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
-        pub version_id: pulumi_wasm_rust::Output<String>,
+        pub version_id: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: FirehoseDeliveryStreamArgs,
     ) -> FirehoseDeliveryStreamResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let arn_binding = args.arn.get_output(context).get_inner();
         let destination_binding = args.destination.get_output(context).get_inner();
@@ -1026,55 +1026,55 @@ pub mod firehose_delivery_stream {
         };
         let o = register_interface::register(context.get_inner(), &request);
         FirehoseDeliveryStreamResult {
-            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
-            destination: pulumi_wasm_rust::__private::into_domain(
+            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
+            destination: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("destination"),
             ),
-            destination_id: pulumi_wasm_rust::__private::into_domain(
+            destination_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("destinationId"),
             ),
-            elasticsearch_configuration: pulumi_wasm_rust::__private::into_domain(
+            elasticsearch_configuration: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("elasticsearchConfiguration"),
             ),
-            extended_s3_configuration: pulumi_wasm_rust::__private::into_domain(
+            extended_s3_configuration: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("extendedS3Configuration"),
             ),
-            http_endpoint_configuration: pulumi_wasm_rust::__private::into_domain(
+            http_endpoint_configuration: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("httpEndpointConfiguration"),
             ),
-            iceberg_configuration: pulumi_wasm_rust::__private::into_domain(
+            iceberg_configuration: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("icebergConfiguration"),
             ),
-            kinesis_source_configuration: pulumi_wasm_rust::__private::into_domain(
+            kinesis_source_configuration: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("kinesisSourceConfiguration"),
             ),
-            msk_source_configuration: pulumi_wasm_rust::__private::into_domain(
+            msk_source_configuration: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("mskSourceConfiguration"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            opensearch_configuration: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            opensearch_configuration: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("opensearchConfiguration"),
             ),
-            opensearchserverless_configuration: pulumi_wasm_rust::__private::into_domain(
+            opensearchserverless_configuration: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("opensearchserverlessConfiguration"),
             ),
-            redshift_configuration: pulumi_wasm_rust::__private::into_domain(
+            redshift_configuration: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("redshiftConfiguration"),
             ),
-            server_side_encryption: pulumi_wasm_rust::__private::into_domain(
+            server_side_encryption: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("serverSideEncryption"),
             ),
-            snowflake_configuration: pulumi_wasm_rust::__private::into_domain(
+            snowflake_configuration: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("snowflakeConfiguration"),
             ),
-            splunk_configuration: pulumi_wasm_rust::__private::into_domain(
+            splunk_configuration: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("splunkConfiguration"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_wasm_rust::__private::into_domain(
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            tags_all: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("tagsAll"),
             ),
-            version_id: pulumi_wasm_rust::__private::into_domain(
+            version_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("versionId"),
             ),
         }

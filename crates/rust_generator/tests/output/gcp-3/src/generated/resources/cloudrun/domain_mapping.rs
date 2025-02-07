@@ -13,8 +13,8 @@
 ///
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let default = service::create(
@@ -85,49 +85,49 @@
 /// ```
 ///
 pub mod domain_mapping {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct DomainMappingArgs {
         /// The location of the cloud run instance. eg us-central1
         #[builder(into)]
-        pub location: pulumi_wasm_rust::InputOrOutput<String>,
+        pub location: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Metadata associated with this DomainMapping.
         #[builder(into, default)]
-        pub metadata: pulumi_wasm_rust::InputOrOutput<
+        pub metadata: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::cloudrun::DomainMappingMetadata>,
         >,
         /// Name should be a [verified](https://support.google.com/webmasters/answer/9008080) domain
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub project: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The spec for this DomainMapping.
         /// Structure is documented below.
         #[builder(into)]
-        pub spec: pulumi_wasm_rust::InputOrOutput<
+        pub spec: pulumi_gestalt_rust::InputOrOutput<
             super::super::types::cloudrun::DomainMappingSpec,
         >,
     }
     #[allow(dead_code)]
     pub struct DomainMappingResult {
         /// The location of the cloud run instance. eg us-central1
-        pub location: pulumi_wasm_rust::Output<String>,
+        pub location: pulumi_gestalt_rust::Output<String>,
         /// Metadata associated with this DomainMapping.
-        pub metadata: pulumi_wasm_rust::Output<
+        pub metadata: pulumi_gestalt_rust::Output<
             super::super::types::cloudrun::DomainMappingMetadata,
         >,
         /// Name should be a [verified](https://support.google.com/webmasters/answer/9008080) domain
-        pub name: pulumi_wasm_rust::Output<String>,
-        pub project: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
+        pub project: pulumi_gestalt_rust::Output<String>,
         /// The spec for this DomainMapping.
         /// Structure is documented below.
-        pub spec: pulumi_wasm_rust::Output<
+        pub spec: pulumi_gestalt_rust::Output<
             super::super::types::cloudrun::DomainMappingSpec,
         >,
         /// (Output)
         /// Status of the condition, one of True, False, Unknown.
-        pub statuses: pulumi_wasm_rust::Output<
+        pub statuses: pulumi_gestalt_rust::Output<
             Vec<super::super::types::cloudrun::DomainMappingStatus>,
         >,
     }
@@ -136,11 +136,11 @@ pub mod domain_mapping {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: DomainMappingArgs,
     ) -> DomainMappingResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let location_binding = args.location.get_output(context).get_inner();
         let metadata_binding = args.metadata.get_output(context).get_inner();
@@ -176,18 +176,18 @@ pub mod domain_mapping {
         };
         let o = register_interface::register(context.get_inner(), &request);
         DomainMappingResult {
-            location: pulumi_wasm_rust::__private::into_domain(
+            location: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("location"),
             ),
-            metadata: pulumi_wasm_rust::__private::into_domain(
+            metadata: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("metadata"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            project: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            project: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("project"),
             ),
-            spec: pulumi_wasm_rust::__private::into_domain(o.extract_field("spec")),
-            statuses: pulumi_wasm_rust::__private::into_domain(
+            spec: pulumi_gestalt_rust::__private::into_domain(o.extract_field("spec")),
+            statuses: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("statuses"),
             ),
         }

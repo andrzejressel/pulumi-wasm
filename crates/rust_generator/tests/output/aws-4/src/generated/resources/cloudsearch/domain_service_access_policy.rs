@@ -47,34 +47,34 @@
 /// $ pulumi import aws:cloudsearch/domainServiceAccessPolicy:DomainServiceAccessPolicy example example-domain
 /// ```
 pub mod domain_service_access_policy {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct DomainServiceAccessPolicyArgs {
         /// The access rules you want to configure. These rules replace any existing rules. See the [AWS documentation](https://docs.aws.amazon.com/cloudsearch/latest/developerguide/configuring-access.html) for details.
         #[builder(into)]
-        pub access_policy: pulumi_wasm_rust::InputOrOutput<String>,
+        pub access_policy: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The CloudSearch domain name the policy applies to.
         #[builder(into)]
-        pub domain_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub domain_name: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct DomainServiceAccessPolicyResult {
         /// The access rules you want to configure. These rules replace any existing rules. See the [AWS documentation](https://docs.aws.amazon.com/cloudsearch/latest/developerguide/configuring-access.html) for details.
-        pub access_policy: pulumi_wasm_rust::Output<String>,
+        pub access_policy: pulumi_gestalt_rust::Output<String>,
         /// The CloudSearch domain name the policy applies to.
-        pub domain_name: pulumi_wasm_rust::Output<String>,
+        pub domain_name: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: DomainServiceAccessPolicyArgs,
     ) -> DomainServiceAccessPolicyResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let access_policy_binding = args.access_policy.get_output(context).get_inner();
         let domain_name_binding = args.domain_name.get_output(context).get_inner();
@@ -96,10 +96,10 @@ pub mod domain_service_access_policy {
         };
         let o = register_interface::register(context.get_inner(), &request);
         DomainServiceAccessPolicyResult {
-            access_policy: pulumi_wasm_rust::__private::into_domain(
+            access_policy: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("accessPolicy"),
             ),
-            domain_name: pulumi_wasm_rust::__private::into_domain(
+            domain_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("domainName"),
             ),
         }

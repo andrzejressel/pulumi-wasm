@@ -3,8 +3,8 @@
 /// ## Example Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = subnet_cidr_reservation::create(
@@ -26,46 +26,46 @@
 /// $ pulumi import aws:ec2/subnetCidrReservation:SubnetCidrReservation example subnet-01llsxvsxabqiymcz:scr-4mnvz6wb7otksjcs9
 /// ```
 pub mod subnet_cidr_reservation {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct SubnetCidrReservationArgs {
         /// The CIDR block for the reservation.
         #[builder(into)]
-        pub cidr_block: pulumi_wasm_rust::InputOrOutput<String>,
+        pub cidr_block: pulumi_gestalt_rust::InputOrOutput<String>,
         /// A brief description of the reservation.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub description: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The type of reservation to create. Valid values: `explicit`, `prefix`
         #[builder(into)]
-        pub reservation_type: pulumi_wasm_rust::InputOrOutput<String>,
+        pub reservation_type: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The ID of the subnet to create the reservation for.
         #[builder(into)]
-        pub subnet_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub subnet_id: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct SubnetCidrReservationResult {
         /// The CIDR block for the reservation.
-        pub cidr_block: pulumi_wasm_rust::Output<String>,
+        pub cidr_block: pulumi_gestalt_rust::Output<String>,
         /// A brief description of the reservation.
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_gestalt_rust::Output<Option<String>>,
         /// ID of the AWS account that owns this CIDR reservation.
-        pub owner_id: pulumi_wasm_rust::Output<String>,
+        pub owner_id: pulumi_gestalt_rust::Output<String>,
         /// The type of reservation to create. Valid values: `explicit`, `prefix`
-        pub reservation_type: pulumi_wasm_rust::Output<String>,
+        pub reservation_type: pulumi_gestalt_rust::Output<String>,
         /// The ID of the subnet to create the reservation for.
-        pub subnet_id: pulumi_wasm_rust::Output<String>,
+        pub subnet_id: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: SubnetCidrReservationArgs,
     ) -> SubnetCidrReservationResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let cidr_block_binding = args.cidr_block.get_output(context).get_inner();
         let description_binding = args.description.get_output(context).get_inner();
@@ -99,19 +99,19 @@ pub mod subnet_cidr_reservation {
         };
         let o = register_interface::register(context.get_inner(), &request);
         SubnetCidrReservationResult {
-            cidr_block: pulumi_wasm_rust::__private::into_domain(
+            cidr_block: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("cidrBlock"),
             ),
-            description: pulumi_wasm_rust::__private::into_domain(
+            description: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("description"),
             ),
-            owner_id: pulumi_wasm_rust::__private::into_domain(
+            owner_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("ownerId"),
             ),
-            reservation_type: pulumi_wasm_rust::__private::into_domain(
+            reservation_type: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("reservationType"),
             ),
-            subnet_id: pulumi_wasm_rust::__private::into_domain(
+            subnet_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("subnetId"),
             ),
         }

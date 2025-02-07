@@ -116,8 +116,8 @@
 /// ### Bi-Directional Replication
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let east = bucket_v_2::create(
@@ -193,50 +193,50 @@
 /// $ pulumi import aws:s3/bucketReplicationConfig:BucketReplicationConfig replication bucket-name
 /// ```
 pub mod bucket_replication_config {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct BucketReplicationConfigArgs {
         /// Name of the source S3 bucket you want Amazon S3 to monitor.
         #[builder(into)]
-        pub bucket: pulumi_wasm_rust::InputOrOutput<String>,
+        pub bucket: pulumi_gestalt_rust::InputOrOutput<String>,
         /// ARN of the IAM role for Amazon S3 to assume when replicating the objects.
         #[builder(into)]
-        pub role: pulumi_wasm_rust::InputOrOutput<String>,
+        pub role: pulumi_gestalt_rust::InputOrOutput<String>,
         /// List of configuration blocks describing the rules managing the replication. See below.
         #[builder(into)]
-        pub rules: pulumi_wasm_rust::InputOrOutput<
+        pub rules: pulumi_gestalt_rust::InputOrOutput<
             Vec<super::super::types::s3::BucketReplicationConfigRule>,
         >,
         /// Token to allow replication to be enabled on an Object Lock-enabled bucket. You must contact AWS support for the bucket's "Object Lock token".
         /// For more details, see [Using S3 Object Lock with replication](https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-lock-managing.html#object-lock-managing-replication).
         #[builder(into, default)]
-        pub token: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub token: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct BucketReplicationConfigResult {
         /// Name of the source S3 bucket you want Amazon S3 to monitor.
-        pub bucket: pulumi_wasm_rust::Output<String>,
+        pub bucket: pulumi_gestalt_rust::Output<String>,
         /// ARN of the IAM role for Amazon S3 to assume when replicating the objects.
-        pub role: pulumi_wasm_rust::Output<String>,
+        pub role: pulumi_gestalt_rust::Output<String>,
         /// List of configuration blocks describing the rules managing the replication. See below.
-        pub rules: pulumi_wasm_rust::Output<
+        pub rules: pulumi_gestalt_rust::Output<
             Vec<super::super::types::s3::BucketReplicationConfigRule>,
         >,
         /// Token to allow replication to be enabled on an Object Lock-enabled bucket. You must contact AWS support for the bucket's "Object Lock token".
         /// For more details, see [Using S3 Object Lock with replication](https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-lock-managing.html#object-lock-managing-replication).
-        pub token: pulumi_wasm_rust::Output<Option<String>>,
+        pub token: pulumi_gestalt_rust::Output<Option<String>>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: BucketReplicationConfigArgs,
     ) -> BucketReplicationConfigResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let bucket_binding = args.bucket.get_output(context).get_inner();
         let role_binding = args.role.get_output(context).get_inner();
@@ -267,10 +267,12 @@ pub mod bucket_replication_config {
         };
         let o = register_interface::register(context.get_inner(), &request);
         BucketReplicationConfigResult {
-            bucket: pulumi_wasm_rust::__private::into_domain(o.extract_field("bucket")),
-            role: pulumi_wasm_rust::__private::into_domain(o.extract_field("role")),
-            rules: pulumi_wasm_rust::__private::into_domain(o.extract_field("rules")),
-            token: pulumi_wasm_rust::__private::into_domain(o.extract_field("token")),
+            bucket: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("bucket"),
+            ),
+            role: pulumi_gestalt_rust::__private::into_domain(o.extract_field("role")),
+            rules: pulumi_gestalt_rust::__private::into_domain(o.extract_field("rules")),
+            token: pulumi_gestalt_rust::__private::into_domain(o.extract_field("token")),
         }
     }
 }

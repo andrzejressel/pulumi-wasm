@@ -76,7 +76,7 @@
 /// $ pulumi import aws:lex/intent:Intent order_flowers_intent OrderFlowers
 /// ```
 pub mod intent {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct IntentArgs {
@@ -86,27 +86,27 @@ pub mod intent {
         /// application, you can't specify this element. The `follow_up_prompt` and `conclusion_statement` are
         /// mutually exclusive. You can specify only one. Attributes are documented under statement.
         #[builder(into, default)]
-        pub conclusion_statement: pulumi_wasm_rust::InputOrOutput<
+        pub conclusion_statement: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::lex::IntentConclusionStatement>,
         >,
         /// Prompts the user to confirm the intent. This question should
         /// have a yes or no answer. You you must provide both the `rejection_statement` and `confirmation_prompt`,
         /// or neither. Attributes are documented under prompt.
         #[builder(into, default)]
-        pub confirmation_prompt: pulumi_wasm_rust::InputOrOutput<
+        pub confirmation_prompt: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::lex::IntentConfirmationPrompt>,
         >,
         /// Determines if a new slot type version is created when the initial
         /// resource is created and on each update. Defaults to `false`.
         #[builder(into, default)]
-        pub create_version: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub create_version: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// A description of the intent. Must be less than or equal to 200 characters in length.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub description: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Specifies a Lambda function to invoke for each user input. You can
         /// invoke this Lambda function to personalize user interaction. Attributes are documented under code_hook.
         #[builder(into, default)]
-        pub dialog_code_hook: pulumi_wasm_rust::InputOrOutput<
+        pub dialog_code_hook: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::lex::IntentDialogCodeHook>,
         >,
         /// Amazon Lex uses this prompt to solicit additional activity after
@@ -114,129 +114,129 @@ pub mod intent {
         /// user to order a drink. The `follow_up_prompt` field and the `conclusion_statement` field are mutually
         /// exclusive. You can specify only one. Attributes are documented under follow_up_prompt.
         #[builder(into, default)]
-        pub follow_up_prompt: pulumi_wasm_rust::InputOrOutput<
+        pub follow_up_prompt: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::lex::IntentFollowUpPrompt>,
         >,
         /// Describes how the intent is fulfilled. For example, after a
         /// user provides all of the information for a pizza order, `fulfillment_activity` defines how the bot
         /// places an order with a local pizza store. Attributes are documented under fulfillment_activity.
         #[builder(into)]
-        pub fulfillment_activity: pulumi_wasm_rust::InputOrOutput<
+        pub fulfillment_activity: pulumi_gestalt_rust::InputOrOutput<
             super::super::types::lex::IntentFulfillmentActivity,
         >,
         /// The name of the intent, not case sensitive. Must be less than or equal to 100 characters in length.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// A unique identifier for the built-in intent to base this
         /// intent on. To find the signature for an intent, see
         /// [Standard Built-in Intents](https://developer.amazon.com/public/solutions/alexa/alexa-skills-kit/docs/built-in-intent-ref/standard-intents)
         /// in the Alexa Skills Kit.
         #[builder(into, default)]
-        pub parent_intent_signature: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub parent_intent_signature: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// When the user answers "no" to the question defined in
         /// `confirmation_prompt`, Amazon Lex responds with this statement to acknowledge that the intent was
         /// canceled. You must provide both the `rejection_statement` and the `confirmation_prompt`, or neither.
         /// Attributes are documented under statement.
         #[builder(into, default)]
-        pub rejection_statement: pulumi_wasm_rust::InputOrOutput<
+        pub rejection_statement: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::lex::IntentRejectionStatement>,
         >,
         /// An array of utterances (strings) that a user might say to signal
         /// the intent. For example, "I want {PizzaSize} pizza", "Order {Quantity} {PizzaSize} pizzas".
         /// In each utterance, a slot name is enclosed in curly braces. Must have between 1 and 10 items in the list, and each item must be less than or equal to 200 characters in length.
         #[builder(into, default)]
-        pub sample_utterances: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
+        pub sample_utterances: pulumi_gestalt_rust::InputOrOutput<Option<Vec<String>>>,
         /// An list of intent slots. At runtime, Amazon Lex elicits required slot values
         /// from the user using prompts defined in the slots. Attributes are documented under slot.
         #[builder(into, default)]
-        pub slots: pulumi_wasm_rust::InputOrOutput<
+        pub slots: pulumi_gestalt_rust::InputOrOutput<
             Option<Vec<super::super::types::lex::IntentSlot>>,
         >,
     }
     #[allow(dead_code)]
     pub struct IntentResult {
         /// The ARN of the Lex intent.
-        pub arn: pulumi_wasm_rust::Output<String>,
+        pub arn: pulumi_gestalt_rust::Output<String>,
         /// Checksum identifying the version of the intent that was created. The checksum is not
         /// included as an argument because the resource will add it automatically when updating the intent.
-        pub checksum: pulumi_wasm_rust::Output<String>,
+        pub checksum: pulumi_gestalt_rust::Output<String>,
         /// The statement that you want Amazon Lex to convey to the user
         /// after the intent is successfully fulfilled by the Lambda function. This element is relevant only if
         /// you provide a Lambda function in the `fulfillment_activity`. If you return the intent to the client
         /// application, you can't specify this element. The `follow_up_prompt` and `conclusion_statement` are
         /// mutually exclusive. You can specify only one. Attributes are documented under statement.
-        pub conclusion_statement: pulumi_wasm_rust::Output<
+        pub conclusion_statement: pulumi_gestalt_rust::Output<
             Option<super::super::types::lex::IntentConclusionStatement>,
         >,
         /// Prompts the user to confirm the intent. This question should
         /// have a yes or no answer. You you must provide both the `rejection_statement` and `confirmation_prompt`,
         /// or neither. Attributes are documented under prompt.
-        pub confirmation_prompt: pulumi_wasm_rust::Output<
+        pub confirmation_prompt: pulumi_gestalt_rust::Output<
             Option<super::super::types::lex::IntentConfirmationPrompt>,
         >,
         /// Determines if a new slot type version is created when the initial
         /// resource is created and on each update. Defaults to `false`.
-        pub create_version: pulumi_wasm_rust::Output<Option<bool>>,
+        pub create_version: pulumi_gestalt_rust::Output<Option<bool>>,
         /// The date when the intent version was created.
-        pub created_date: pulumi_wasm_rust::Output<String>,
+        pub created_date: pulumi_gestalt_rust::Output<String>,
         /// A description of the intent. Must be less than or equal to 200 characters in length.
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_gestalt_rust::Output<Option<String>>,
         /// Specifies a Lambda function to invoke for each user input. You can
         /// invoke this Lambda function to personalize user interaction. Attributes are documented under code_hook.
-        pub dialog_code_hook: pulumi_wasm_rust::Output<
+        pub dialog_code_hook: pulumi_gestalt_rust::Output<
             Option<super::super::types::lex::IntentDialogCodeHook>,
         >,
         /// Amazon Lex uses this prompt to solicit additional activity after
         /// fulfilling an intent. For example, after the OrderPizza intent is fulfilled, you might prompt the
         /// user to order a drink. The `follow_up_prompt` field and the `conclusion_statement` field are mutually
         /// exclusive. You can specify only one. Attributes are documented under follow_up_prompt.
-        pub follow_up_prompt: pulumi_wasm_rust::Output<
+        pub follow_up_prompt: pulumi_gestalt_rust::Output<
             Option<super::super::types::lex::IntentFollowUpPrompt>,
         >,
         /// Describes how the intent is fulfilled. For example, after a
         /// user provides all of the information for a pizza order, `fulfillment_activity` defines how the bot
         /// places an order with a local pizza store. Attributes are documented under fulfillment_activity.
-        pub fulfillment_activity: pulumi_wasm_rust::Output<
+        pub fulfillment_activity: pulumi_gestalt_rust::Output<
             super::super::types::lex::IntentFulfillmentActivity,
         >,
         /// The date when the $LATEST version of this intent was updated.
-        pub last_updated_date: pulumi_wasm_rust::Output<String>,
+        pub last_updated_date: pulumi_gestalt_rust::Output<String>,
         /// The name of the intent, not case sensitive. Must be less than or equal to 100 characters in length.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// A unique identifier for the built-in intent to base this
         /// intent on. To find the signature for an intent, see
         /// [Standard Built-in Intents](https://developer.amazon.com/public/solutions/alexa/alexa-skills-kit/docs/built-in-intent-ref/standard-intents)
         /// in the Alexa Skills Kit.
-        pub parent_intent_signature: pulumi_wasm_rust::Output<Option<String>>,
+        pub parent_intent_signature: pulumi_gestalt_rust::Output<Option<String>>,
         /// When the user answers "no" to the question defined in
         /// `confirmation_prompt`, Amazon Lex responds with this statement to acknowledge that the intent was
         /// canceled. You must provide both the `rejection_statement` and the `confirmation_prompt`, or neither.
         /// Attributes are documented under statement.
-        pub rejection_statement: pulumi_wasm_rust::Output<
+        pub rejection_statement: pulumi_gestalt_rust::Output<
             Option<super::super::types::lex::IntentRejectionStatement>,
         >,
         /// An array of utterances (strings) that a user might say to signal
         /// the intent. For example, "I want {PizzaSize} pizza", "Order {Quantity} {PizzaSize} pizzas".
         /// In each utterance, a slot name is enclosed in curly braces. Must have between 1 and 10 items in the list, and each item must be less than or equal to 200 characters in length.
-        pub sample_utterances: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub sample_utterances: pulumi_gestalt_rust::Output<Option<Vec<String>>>,
         /// An list of intent slots. At runtime, Amazon Lex elicits required slot values
         /// from the user using prompts defined in the slots. Attributes are documented under slot.
-        pub slots: pulumi_wasm_rust::Output<
+        pub slots: pulumi_gestalt_rust::Output<
             Option<Vec<super::super::types::lex::IntentSlot>>,
         >,
         /// The version of the bot.
-        pub version: pulumi_wasm_rust::Output<String>,
+        pub version: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: IntentArgs,
     ) -> IntentResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let conclusion_statement_binding = args
             .conclusion_statement
@@ -331,49 +331,51 @@ pub mod intent {
         };
         let o = register_interface::register(context.get_inner(), &request);
         IntentResult {
-            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
-            checksum: pulumi_wasm_rust::__private::into_domain(
+            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
+            checksum: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("checksum"),
             ),
-            conclusion_statement: pulumi_wasm_rust::__private::into_domain(
+            conclusion_statement: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("conclusionStatement"),
             ),
-            confirmation_prompt: pulumi_wasm_rust::__private::into_domain(
+            confirmation_prompt: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("confirmationPrompt"),
             ),
-            create_version: pulumi_wasm_rust::__private::into_domain(
+            create_version: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("createVersion"),
             ),
-            created_date: pulumi_wasm_rust::__private::into_domain(
+            created_date: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("createdDate"),
             ),
-            description: pulumi_wasm_rust::__private::into_domain(
+            description: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("description"),
             ),
-            dialog_code_hook: pulumi_wasm_rust::__private::into_domain(
+            dialog_code_hook: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("dialogCodeHook"),
             ),
-            follow_up_prompt: pulumi_wasm_rust::__private::into_domain(
+            follow_up_prompt: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("followUpPrompt"),
             ),
-            fulfillment_activity: pulumi_wasm_rust::__private::into_domain(
+            fulfillment_activity: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("fulfillmentActivity"),
             ),
-            last_updated_date: pulumi_wasm_rust::__private::into_domain(
+            last_updated_date: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("lastUpdatedDate"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            parent_intent_signature: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            parent_intent_signature: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("parentIntentSignature"),
             ),
-            rejection_statement: pulumi_wasm_rust::__private::into_domain(
+            rejection_statement: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("rejectionStatement"),
             ),
-            sample_utterances: pulumi_wasm_rust::__private::into_domain(
+            sample_utterances: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("sampleUtterances"),
             ),
-            slots: pulumi_wasm_rust::__private::into_domain(o.extract_field("slots")),
-            version: pulumi_wasm_rust::__private::into_domain(o.extract_field("version")),
+            slots: pulumi_gestalt_rust::__private::into_domain(o.extract_field("slots")),
+            version: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("version"),
+            ),
         }
     }
 }

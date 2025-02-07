@@ -31,52 +31,52 @@
 /// $ pulumi import aws:ec2/localGatewayRouteTableVpcAssociation:LocalGatewayRouteTableVpcAssociation example lgw-vpc-assoc-1234567890abcdef
 /// ```
 pub mod local_gateway_route_table_vpc_association {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct LocalGatewayRouteTableVpcAssociationArgs {
         /// Identifier of EC2 Local Gateway Route Table.
         #[builder(into)]
-        pub local_gateway_route_table_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub local_gateway_route_table_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Identifier of EC2 VPC.
         ///
         /// The following arguments are optional:
         #[builder(into)]
-        pub vpc_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub vpc_id: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct LocalGatewayRouteTableVpcAssociationResult {
-        pub local_gateway_id: pulumi_wasm_rust::Output<String>,
+        pub local_gateway_id: pulumi_gestalt_rust::Output<String>,
         /// Identifier of EC2 Local Gateway Route Table.
-        pub local_gateway_route_table_id: pulumi_wasm_rust::Output<String>,
+        pub local_gateway_route_table_id: pulumi_gestalt_rust::Output<String>,
         /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        pub tags_all: pulumi_wasm_rust::Output<
+        pub tags_all: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
         /// Identifier of EC2 VPC.
         ///
         /// The following arguments are optional:
-        pub vpc_id: pulumi_wasm_rust::Output<String>,
+        pub vpc_id: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: LocalGatewayRouteTableVpcAssociationArgs,
     ) -> LocalGatewayRouteTableVpcAssociationResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let local_gateway_route_table_id_binding = args
             .local_gateway_route_table_id
@@ -106,17 +106,17 @@ pub mod local_gateway_route_table_vpc_association {
         };
         let o = register_interface::register(context.get_inner(), &request);
         LocalGatewayRouteTableVpcAssociationResult {
-            local_gateway_id: pulumi_wasm_rust::__private::into_domain(
+            local_gateway_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("localGatewayId"),
             ),
-            local_gateway_route_table_id: pulumi_wasm_rust::__private::into_domain(
+            local_gateway_route_table_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("localGatewayRouteTableId"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_wasm_rust::__private::into_domain(
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            tags_all: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("tagsAll"),
             ),
-            vpc_id: pulumi_wasm_rust::__private::into_domain(o.extract_field("vpcId")),
+            vpc_id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("vpcId")),
         }
     }
 }

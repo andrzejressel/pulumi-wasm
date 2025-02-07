@@ -1,19 +1,19 @@
-use pulumi_wasm_core::{Engine, OutputId, PulumiServiceImpl};
+use pulumi_gestalt_core::{Engine, OutputId, PulumiServiceImpl};
 use std::cell::RefCell;
 use std::collections::HashMap;
 use std::rc::Rc;
 
-use crate::bindings::exports::component::pulumi_wasm::output_interface::{
+use crate::bindings::exports::component::pulumi_gestalt::output_interface::{
     GuestOutput, GuestRegisterOutput, Output, RegisterOutput,
 };
-use crate::bindings::exports::component::pulumi_wasm::pulumi_engine::EngineBorrow;
-use crate::bindings::exports::component::pulumi_wasm::register_interface::{
+use crate::bindings::exports::component::pulumi_gestalt::pulumi_engine::EngineBorrow;
+use crate::bindings::exports::component::pulumi_gestalt::register_interface::{
     ObjectField, RegisterResourceRequest, ResourceInvokeRequest,
 };
-use crate::bindings::exports::component::pulumi_wasm::stack_interface::{
+use crate::bindings::exports::component::pulumi_gestalt::stack_interface::{
     FunctionInvocationRequest, FunctionInvocationResult, OutputBorrow,
 };
-use crate::bindings::exports::component::pulumi_wasm::{
+use crate::bindings::exports::component::pulumi_gestalt::{
     output_interface, pulumi_engine, register_interface, stack_interface,
 };
 
@@ -61,7 +61,7 @@ impl pulumi_engine::Guest for Component {
 
 impl stack_interface::Guest for Component {
     fn add_export(name: String, value: OutputBorrow<'_>) {
-        pulumi_wasm_common::setup_logger();
+        pulumi_gestalt_common::setup_logger();
         let rc = value.get::<CustomOutputId>().1.clone();
         let refcell: &RefCell<Engine> = &rc;
         refcell
@@ -73,7 +73,7 @@ impl stack_interface::Guest for Component {
         engine: EngineBorrow<'_>,
         functions: Vec<FunctionInvocationResult>,
     ) -> Vec<FunctionInvocationRequest> {
-        pulumi_wasm_common::setup_logger();
+        pulumi_gestalt_common::setup_logger();
 
         let refcell: &RefCell<Engine> = &engine.get::<LocalPulumiEngine>().0;
 
@@ -114,7 +114,7 @@ impl output_interface::Guest for Component {
             panic!("combine must have at least one output");
         }
         let refcell = &outputs.first().unwrap().get::<CustomOutputId>().1.clone();
-        pulumi_wasm_common::setup_logger();
+        pulumi_gestalt_common::setup_logger();
 
         let output_id = refcell.borrow_mut().create_combine_outputs(
             outputs
@@ -128,7 +128,7 @@ impl output_interface::Guest for Component {
 
 impl register_interface::Guest for Component {
     fn register(engine: EngineBorrow<'_>, request: RegisterResourceRequest<'_>) -> RegisterOutput {
-        pulumi_wasm_common::setup_logger();
+        pulumi_gestalt_common::setup_logger();
         let refcell: &RefCell<Engine> = &engine.get::<LocalPulumiEngine>().0;
 
         let object = request
@@ -153,7 +153,7 @@ impl register_interface::Guest for Component {
     }
 
     fn invoke(engine: EngineBorrow<'_>, request: ResourceInvokeRequest<'_>) -> RegisterOutput {
-        pulumi_wasm_common::setup_logger();
+        pulumi_gestalt_common::setup_logger();
         let refcell: &RefCell<Engine> = &engine.get::<LocalPulumiEngine>().0;
 
         let object = request
@@ -179,7 +179,7 @@ impl register_interface::Guest for Component {
 
 impl GuestOutput for CustomOutputId {
     fn new(engine: EngineBorrow<'_>, value: String, secret: bool) -> CustomOutputId {
-        pulumi_wasm_common::setup_logger();
+        pulumi_gestalt_common::setup_logger();
         let value = serde_json::from_str(&value).unwrap();
         let refcell: &RefCell<Engine> = &engine.get::<LocalPulumiEngine>().0;
 
@@ -188,7 +188,7 @@ impl GuestOutput for CustomOutputId {
     }
 
     fn map(&self, function_name: String) -> Output {
-        pulumi_wasm_common::setup_logger();
+        pulumi_gestalt_common::setup_logger();
         let refcell: &Rc<RefCell<Engine>> = &self.1.clone();
 
         let output_id = refcell

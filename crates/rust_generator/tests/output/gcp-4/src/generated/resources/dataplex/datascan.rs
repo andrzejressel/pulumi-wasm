@@ -13,8 +13,8 @@
 ///
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let basicProfile = datascan::create(
@@ -97,8 +97,8 @@
 ///
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let basicQuality = datascan::create(
@@ -250,124 +250,126 @@
 /// ```
 ///
 pub mod datascan {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct DatascanArgs {
         /// The data source for DataScan.
         /// Structure is documented below.
         #[builder(into)]
-        pub data: pulumi_wasm_rust::InputOrOutput<
+        pub data: pulumi_gestalt_rust::InputOrOutput<
             super::super::types::dataplex::DatascanData,
         >,
         /// DataProfileScan related setting.
         #[builder(into, default)]
-        pub data_profile_spec: pulumi_wasm_rust::InputOrOutput<
+        pub data_profile_spec: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::dataplex::DatascanDataProfileSpec>,
         >,
         /// DataQualityScan related setting.
         #[builder(into, default)]
-        pub data_quality_spec: pulumi_wasm_rust::InputOrOutput<
+        pub data_quality_spec: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::dataplex::DatascanDataQualitySpec>,
         >,
         /// DataScan identifier. Must contain only lowercase letters, numbers and hyphens. Must start with a letter. Must end with a number or a letter.
         #[builder(into)]
-        pub data_scan_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub data_scan_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Description of the scan.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub description: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// User friendly display name.
         #[builder(into, default)]
-        pub display_name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub display_name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// DataScan execution settings.
         /// Structure is documented below.
         #[builder(into)]
-        pub execution_spec: pulumi_wasm_rust::InputOrOutput<
+        pub execution_spec: pulumi_gestalt_rust::InputOrOutput<
             super::super::types::dataplex::DatascanExecutionSpec,
         >,
         /// User-defined labels for the scan. A list of key->value pairs. **Note**: This field is non-authoritative, and will only
         /// manage the labels present in your configuration. Please refer to the field 'effective_labels' for all of the labels
         /// present on the resource.
         #[builder(into, default)]
-        pub labels: pulumi_wasm_rust::InputOrOutput<
+        pub labels: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// The location where the data scan should reside.
         #[builder(into)]
-        pub location: pulumi_wasm_rust::InputOrOutput<String>,
+        pub location: pulumi_gestalt_rust::InputOrOutput<String>,
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub project: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct DatascanResult {
         /// The time when the scan was created.
-        pub create_time: pulumi_wasm_rust::Output<String>,
+        pub create_time: pulumi_gestalt_rust::Output<String>,
         /// The data source for DataScan.
         /// Structure is documented below.
-        pub data: pulumi_wasm_rust::Output<super::super::types::dataplex::DatascanData>,
+        pub data: pulumi_gestalt_rust::Output<
+            super::super::types::dataplex::DatascanData,
+        >,
         /// DataProfileScan related setting.
-        pub data_profile_spec: pulumi_wasm_rust::Output<
+        pub data_profile_spec: pulumi_gestalt_rust::Output<
             Option<super::super::types::dataplex::DatascanDataProfileSpec>,
         >,
         /// DataQualityScan related setting.
-        pub data_quality_spec: pulumi_wasm_rust::Output<
+        pub data_quality_spec: pulumi_gestalt_rust::Output<
             Option<super::super::types::dataplex::DatascanDataQualitySpec>,
         >,
         /// DataScan identifier. Must contain only lowercase letters, numbers and hyphens. Must start with a letter. Must end with a number or a letter.
-        pub data_scan_id: pulumi_wasm_rust::Output<String>,
+        pub data_scan_id: pulumi_gestalt_rust::Output<String>,
         /// Description of the scan.
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_gestalt_rust::Output<Option<String>>,
         /// User friendly display name.
-        pub display_name: pulumi_wasm_rust::Output<Option<String>>,
+        pub display_name: pulumi_gestalt_rust::Output<Option<String>>,
         /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Pulumi, other clients and services.
-        pub effective_labels: pulumi_wasm_rust::Output<
+        pub effective_labels: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
         /// DataScan execution settings.
         /// Structure is documented below.
-        pub execution_spec: pulumi_wasm_rust::Output<
+        pub execution_spec: pulumi_gestalt_rust::Output<
             super::super::types::dataplex::DatascanExecutionSpec,
         >,
         /// Status of the data scan execution.
         /// Structure is documented below.
-        pub execution_statuses: pulumi_wasm_rust::Output<
+        pub execution_statuses: pulumi_gestalt_rust::Output<
             Vec<super::super::types::dataplex::DatascanExecutionStatus>,
         >,
         /// User-defined labels for the scan. A list of key->value pairs. **Note**: This field is non-authoritative, and will only
         /// manage the labels present in your configuration. Please refer to the field 'effective_labels' for all of the labels
         /// present on the resource.
-        pub labels: pulumi_wasm_rust::Output<
+        pub labels: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// The location where the data scan should reside.
-        pub location: pulumi_wasm_rust::Output<String>,
+        pub location: pulumi_gestalt_rust::Output<String>,
         /// The relative resource name of the scan, of the form: projects/{project}/locations/{locationId}/dataScans/{datascan_id}, where project refers to a project_id or project_number and locationId refers to a GCP region.
-        pub name: pulumi_wasm_rust::Output<String>,
-        pub project: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
+        pub project: pulumi_gestalt_rust::Output<String>,
         /// The combination of labels configured directly on the resource
         /// and default labels configured on the provider.
-        pub pulumi_labels: pulumi_wasm_rust::Output<
+        pub pulumi_labels: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
         /// Current state of the DataScan.
-        pub state: pulumi_wasm_rust::Output<String>,
+        pub state: pulumi_gestalt_rust::Output<String>,
         /// The type of DataScan.
-        pub type_: pulumi_wasm_rust::Output<String>,
+        pub type_: pulumi_gestalt_rust::Output<String>,
         /// System generated globally unique ID for the scan. This ID will be different if the scan is deleted and re-created with the same name.
-        pub uid: pulumi_wasm_rust::Output<String>,
+        pub uid: pulumi_gestalt_rust::Output<String>,
         /// The time when the scan was last updated.
-        pub update_time: pulumi_wasm_rust::Output<String>,
+        pub update_time: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: DatascanArgs,
     ) -> DatascanResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let data_binding = args.data.get_output(context).get_inner();
         let data_profile_spec_binding = args
@@ -434,49 +436,51 @@ pub mod datascan {
         };
         let o = register_interface::register(context.get_inner(), &request);
         DatascanResult {
-            create_time: pulumi_wasm_rust::__private::into_domain(
+            create_time: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("createTime"),
             ),
-            data: pulumi_wasm_rust::__private::into_domain(o.extract_field("data")),
-            data_profile_spec: pulumi_wasm_rust::__private::into_domain(
+            data: pulumi_gestalt_rust::__private::into_domain(o.extract_field("data")),
+            data_profile_spec: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("dataProfileSpec"),
             ),
-            data_quality_spec: pulumi_wasm_rust::__private::into_domain(
+            data_quality_spec: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("dataQualitySpec"),
             ),
-            data_scan_id: pulumi_wasm_rust::__private::into_domain(
+            data_scan_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("dataScanId"),
             ),
-            description: pulumi_wasm_rust::__private::into_domain(
+            description: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("description"),
             ),
-            display_name: pulumi_wasm_rust::__private::into_domain(
+            display_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("displayName"),
             ),
-            effective_labels: pulumi_wasm_rust::__private::into_domain(
+            effective_labels: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("effectiveLabels"),
             ),
-            execution_spec: pulumi_wasm_rust::__private::into_domain(
+            execution_spec: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("executionSpec"),
             ),
-            execution_statuses: pulumi_wasm_rust::__private::into_domain(
+            execution_statuses: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("executionStatuses"),
             ),
-            labels: pulumi_wasm_rust::__private::into_domain(o.extract_field("labels")),
-            location: pulumi_wasm_rust::__private::into_domain(
+            labels: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("labels"),
+            ),
+            location: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("location"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            project: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            project: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("project"),
             ),
-            pulumi_labels: pulumi_wasm_rust::__private::into_domain(
+            pulumi_labels: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("pulumiLabels"),
             ),
-            state: pulumi_wasm_rust::__private::into_domain(o.extract_field("state")),
-            type_: pulumi_wasm_rust::__private::into_domain(o.extract_field("type")),
-            uid: pulumi_wasm_rust::__private::into_domain(o.extract_field("uid")),
-            update_time: pulumi_wasm_rust::__private::into_domain(
+            state: pulumi_gestalt_rust::__private::into_domain(o.extract_field("state")),
+            type_: pulumi_gestalt_rust::__private::into_domain(o.extract_field("type")),
+            uid: pulumi_gestalt_rust::__private::into_domain(o.extract_field("uid")),
+            update_time: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("updateTime"),
             ),
         }

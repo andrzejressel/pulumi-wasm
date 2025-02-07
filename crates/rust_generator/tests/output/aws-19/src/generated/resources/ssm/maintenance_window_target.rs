@@ -5,8 +5,8 @@
 /// ### Instance Target
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let target1 = maintenance_window_target::create(
@@ -39,8 +39,8 @@
 /// ### Resource Group Target
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let target1 = maintenance_window_target::create(
@@ -79,60 +79,60 @@
 /// $ pulumi import aws:ssm/maintenanceWindowTarget:MaintenanceWindowTarget example mw-0c50858d01EXAMPLE/23639a0b-ddbc-4bca-9e72-78d96EXAMPLE
 /// ```
 pub mod maintenance_window_target {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct MaintenanceWindowTargetArgs {
         /// The description of the maintenance window target.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub description: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The name of the maintenance window target.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// User-provided value that will be included in any CloudWatch events raised while running tasks for these targets in this Maintenance Window.
         #[builder(into, default)]
-        pub owner_information: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub owner_information: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The type of target being registered with the Maintenance Window. Possible values are `INSTANCE` and `RESOURCE_GROUP`.
         #[builder(into)]
-        pub resource_type: pulumi_wasm_rust::InputOrOutput<String>,
+        pub resource_type: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The targets to register with the maintenance window. In other words, the instances to run commands on when the maintenance window runs. You can specify targets using instance IDs, resource group names, or tags that have been applied to instances. For more information about these examples formats see
         /// (https://docs.aws.amazon.com/systems-manager/latest/userguide/mw-cli-tutorial-targets-examples.html)
         #[builder(into)]
-        pub targets: pulumi_wasm_rust::InputOrOutput<
+        pub targets: pulumi_gestalt_rust::InputOrOutput<
             Vec<super::super::types::ssm::MaintenanceWindowTargetTarget>,
         >,
         /// The Id of the maintenance window to register the target with.
         #[builder(into)]
-        pub window_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub window_id: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct MaintenanceWindowTargetResult {
         /// The description of the maintenance window target.
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_gestalt_rust::Output<Option<String>>,
         /// The name of the maintenance window target.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// User-provided value that will be included in any CloudWatch events raised while running tasks for these targets in this Maintenance Window.
-        pub owner_information: pulumi_wasm_rust::Output<Option<String>>,
+        pub owner_information: pulumi_gestalt_rust::Output<Option<String>>,
         /// The type of target being registered with the Maintenance Window. Possible values are `INSTANCE` and `RESOURCE_GROUP`.
-        pub resource_type: pulumi_wasm_rust::Output<String>,
+        pub resource_type: pulumi_gestalt_rust::Output<String>,
         /// The targets to register with the maintenance window. In other words, the instances to run commands on when the maintenance window runs. You can specify targets using instance IDs, resource group names, or tags that have been applied to instances. For more information about these examples formats see
         /// (https://docs.aws.amazon.com/systems-manager/latest/userguide/mw-cli-tutorial-targets-examples.html)
-        pub targets: pulumi_wasm_rust::Output<
+        pub targets: pulumi_gestalt_rust::Output<
             Vec<super::super::types::ssm::MaintenanceWindowTargetTarget>,
         >,
         /// The Id of the maintenance window to register the target with.
-        pub window_id: pulumi_wasm_rust::Output<String>,
+        pub window_id: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: MaintenanceWindowTargetArgs,
     ) -> MaintenanceWindowTargetResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let description_binding = args.description.get_output(context).get_inner();
         let name_binding = args.name.get_output(context).get_inner();
@@ -176,20 +176,20 @@ pub mod maintenance_window_target {
         };
         let o = register_interface::register(context.get_inner(), &request);
         MaintenanceWindowTargetResult {
-            description: pulumi_wasm_rust::__private::into_domain(
+            description: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("description"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            owner_information: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            owner_information: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("ownerInformation"),
             ),
-            resource_type: pulumi_wasm_rust::__private::into_domain(
+            resource_type: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("resourceType"),
             ),
-            targets: pulumi_wasm_rust::__private::into_domain(
+            targets: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("targets"),
             ),
-            window_id: pulumi_wasm_rust::__private::into_domain(
+            window_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("windowId"),
             ),
         }

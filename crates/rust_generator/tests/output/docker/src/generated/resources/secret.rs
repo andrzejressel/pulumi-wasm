@@ -6,41 +6,41 @@
 /// # Docker secret cannot be imported as the secret data, once set, is never exposed again.
 /// ```
 pub mod secret {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct SecretArgs {
         /// Base64-url-safe-encoded secret data
         #[builder(into)]
-        pub data: pulumi_wasm_rust::InputOrOutput<String>,
+        pub data: pulumi_gestalt_rust::InputOrOutput<String>,
         /// User-defined key/value metadata
         #[builder(into, default)]
-        pub labels: pulumi_wasm_rust::InputOrOutput<
+        pub labels: pulumi_gestalt_rust::InputOrOutput<
             Option<Vec<super::types::SecretLabel>>,
         >,
         /// User-defined name of the secret
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct SecretResult {
         /// Base64-url-safe-encoded secret data
-        pub data: pulumi_wasm_rust::Output<String>,
+        pub data: pulumi_gestalt_rust::Output<String>,
         /// User-defined key/value metadata
-        pub labels: pulumi_wasm_rust::Output<Option<Vec<super::types::SecretLabel>>>,
+        pub labels: pulumi_gestalt_rust::Output<Option<Vec<super::types::SecretLabel>>>,
         /// User-defined name of the secret
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: SecretArgs,
     ) -> SecretResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let data_binding = args.data.get_output(context).get_inner();
         let labels_binding = args.labels.get_output(context).get_inner();
@@ -66,9 +66,11 @@ pub mod secret {
         };
         let o = register_interface::register(context.get_inner(), &request);
         SecretResult {
-            data: pulumi_wasm_rust::__private::into_domain(o.extract_field("data")),
-            labels: pulumi_wasm_rust::__private::into_domain(o.extract_field("labels")),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
+            data: pulumi_gestalt_rust::__private::into_domain(o.extract_field("data")),
+            labels: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("labels"),
+            ),
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
         }
     }
 }

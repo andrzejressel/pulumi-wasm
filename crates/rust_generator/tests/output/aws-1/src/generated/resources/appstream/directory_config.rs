@@ -3,8 +3,8 @@
 /// ## Example Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = directory_config::create(
@@ -31,36 +31,36 @@
 /// $ pulumi import aws:appstream/directoryConfig:DirectoryConfig example directoryNameExample
 /// ```
 pub mod directory_config {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct DirectoryConfigArgs {
         /// Fully qualified name of the directory.
         #[builder(into)]
-        pub directory_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub directory_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Distinguished names of the organizational units for computer accounts.
         #[builder(into)]
-        pub organizational_unit_distinguished_names: pulumi_wasm_rust::InputOrOutput<
+        pub organizational_unit_distinguished_names: pulumi_gestalt_rust::InputOrOutput<
             Vec<String>,
         >,
         /// Configuration block for the name of the directory and organizational unit (OU) to use to join the directory config to a Microsoft Active Directory domain. See `service_account_credentials` below.
         #[builder(into)]
-        pub service_account_credentials: pulumi_wasm_rust::InputOrOutput<
+        pub service_account_credentials: pulumi_gestalt_rust::InputOrOutput<
             super::super::types::appstream::DirectoryConfigServiceAccountCredentials,
         >,
     }
     #[allow(dead_code)]
     pub struct DirectoryConfigResult {
         /// Date and time, in UTC and extended RFC 3339 format, when the directory config was created.
-        pub created_time: pulumi_wasm_rust::Output<String>,
+        pub created_time: pulumi_gestalt_rust::Output<String>,
         /// Fully qualified name of the directory.
-        pub directory_name: pulumi_wasm_rust::Output<String>,
+        pub directory_name: pulumi_gestalt_rust::Output<String>,
         /// Distinguished names of the organizational units for computer accounts.
-        pub organizational_unit_distinguished_names: pulumi_wasm_rust::Output<
+        pub organizational_unit_distinguished_names: pulumi_gestalt_rust::Output<
             Vec<String>,
         >,
         /// Configuration block for the name of the directory and organizational unit (OU) to use to join the directory config to a Microsoft Active Directory domain. See `service_account_credentials` below.
-        pub service_account_credentials: pulumi_wasm_rust::Output<
+        pub service_account_credentials: pulumi_gestalt_rust::Output<
             super::super::types::appstream::DirectoryConfigServiceAccountCredentials,
         >,
     }
@@ -69,11 +69,11 @@ pub mod directory_config {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: DirectoryConfigArgs,
     ) -> DirectoryConfigResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let directory_name_binding = args.directory_name.get_output(context).get_inner();
         let organizational_unit_distinguished_names_binding = args
@@ -105,16 +105,16 @@ pub mod directory_config {
         };
         let o = register_interface::register(context.get_inner(), &request);
         DirectoryConfigResult {
-            created_time: pulumi_wasm_rust::__private::into_domain(
+            created_time: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("createdTime"),
             ),
-            directory_name: pulumi_wasm_rust::__private::into_domain(
+            directory_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("directoryName"),
             ),
-            organizational_unit_distinguished_names: pulumi_wasm_rust::__private::into_domain(
+            organizational_unit_distinguished_names: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("organizationalUnitDistinguishedNames"),
             ),
-            service_account_credentials: pulumi_wasm_rust::__private::into_domain(
+            service_account_credentials: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("serviceAccountCredentials"),
             ),
         }

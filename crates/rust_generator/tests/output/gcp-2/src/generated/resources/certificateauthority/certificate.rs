@@ -479,7 +479,7 @@
 /// ```
 ///
 pub mod certificate {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct CertificateArgs {
@@ -488,18 +488,18 @@ pub mod certificate {
         /// argument `pool` should be set to `projects/my-project/locations/us-central1/caPools/my-pool`, argument `certificate_authority`
         /// should be set to `my-ca`.
         #[builder(into, default)]
-        pub certificate_authority: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub certificate_authority: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The resource name for a CertificateTemplate used to issue this certificate,
         /// in the format `projects/*/locations/*/certificateTemplates/*`. If this is specified,
         /// the caller must have the necessary permission to use this template. If this is
         /// omitted, no template will be used. This template must be in the same location
         /// as the Certificate.
         #[builder(into, default)]
-        pub certificate_template: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub certificate_template: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The config used to create a self-signed X.509 certificate or CSR.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub config: pulumi_wasm_rust::InputOrOutput<
+        pub config: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::certificateauthority::CertificateConfig>,
         >,
         /// Labels with user-defined metadata to apply to this resource.
@@ -507,34 +507,34 @@ pub mod certificate {
         /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
         /// Please refer to the field `effective_labels` for all of the labels present on the resource.
         #[builder(into, default)]
-        pub labels: pulumi_wasm_rust::InputOrOutput<
+        pub labels: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// The desired lifetime of the CA certificate. Used to create the "notBeforeTime" and
         /// "notAfterTime" fields inside an X.509 certificate. A duration in seconds with up to nine
         /// fractional digits, terminated by 's'. Example: "3.5s".
         #[builder(into, default)]
-        pub lifetime: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub lifetime: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Location of the Certificate. A full list of valid locations can be found by
         /// running `gcloud privateca locations list`.
         ///
         ///
         /// - - -
         #[builder(into)]
-        pub location: pulumi_wasm_rust::InputOrOutput<String>,
+        pub location: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The name for this Certificate.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Immutable. A pem-encoded X.509 certificate signing request (CSR).
         #[builder(into, default)]
-        pub pem_csr: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub pem_csr: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The name of the CaPool this Certificate belongs to.
         #[builder(into)]
-        pub pool: pulumi_wasm_rust::InputOrOutput<String>,
+        pub pool: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub project: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct CertificateResult {
@@ -542,10 +542,10 @@ pub mod certificate {
         /// a Certificate Authority with resource name `projects/my-project/locations/us-central1/caPools/my-pool/certificateAuthorities/my-ca`,
         /// argument `pool` should be set to `projects/my-project/locations/us-central1/caPools/my-pool`, argument `certificate_authority`
         /// should be set to `my-ca`.
-        pub certificate_authority: pulumi_wasm_rust::Output<Option<String>>,
+        pub certificate_authority: pulumi_gestalt_rust::Output<Option<String>>,
         /// Output only. Details regarding the revocation of this Certificate. This Certificate is considered revoked if and only if this field is present.
         /// Structure is documented below.
-        pub certificate_descriptions: pulumi_wasm_rust::Output<
+        pub certificate_descriptions: pulumi_gestalt_rust::Output<
             Vec<
                 super::super::types::certificateauthority::CertificateCertificateDescription,
             >,
@@ -555,76 +555,76 @@ pub mod certificate {
         /// the caller must have the necessary permission to use this template. If this is
         /// omitted, no template will be used. This template must be in the same location
         /// as the Certificate.
-        pub certificate_template: pulumi_wasm_rust::Output<Option<String>>,
+        pub certificate_template: pulumi_gestalt_rust::Output<Option<String>>,
         /// The config used to create a self-signed X.509 certificate or CSR.
         /// Structure is documented below.
-        pub config: pulumi_wasm_rust::Output<
+        pub config: pulumi_gestalt_rust::Output<
             Option<super::super::types::certificateauthority::CertificateConfig>,
         >,
         /// The time that this resource was created on the server.
         /// This is in RFC3339 text format.
-        pub create_time: pulumi_wasm_rust::Output<String>,
+        pub create_time: pulumi_gestalt_rust::Output<String>,
         /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Pulumi, other clients and services.
-        pub effective_labels: pulumi_wasm_rust::Output<
+        pub effective_labels: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
         /// The resource name of the issuing CertificateAuthority in the format `projects/*/locations/*/caPools/*/certificateAuthorities/*`.
-        pub issuer_certificate_authority: pulumi_wasm_rust::Output<String>,
+        pub issuer_certificate_authority: pulumi_gestalt_rust::Output<String>,
         /// Labels with user-defined metadata to apply to this resource.
         ///
         /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
         /// Please refer to the field `effective_labels` for all of the labels present on the resource.
-        pub labels: pulumi_wasm_rust::Output<
+        pub labels: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// The desired lifetime of the CA certificate. Used to create the "notBeforeTime" and
         /// "notAfterTime" fields inside an X.509 certificate. A duration in seconds with up to nine
         /// fractional digits, terminated by 's'. Example: "3.5s".
-        pub lifetime: pulumi_wasm_rust::Output<Option<String>>,
+        pub lifetime: pulumi_gestalt_rust::Output<Option<String>>,
         /// Location of the Certificate. A full list of valid locations can be found by
         /// running `gcloud privateca locations list`.
         ///
         ///
         /// - - -
-        pub location: pulumi_wasm_rust::Output<String>,
+        pub location: pulumi_gestalt_rust::Output<String>,
         /// The name for this Certificate.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// Output only. The pem-encoded, signed X.509 certificate.
-        pub pem_certificate: pulumi_wasm_rust::Output<String>,
+        pub pem_certificate: pulumi_gestalt_rust::Output<String>,
         /// The chain that may be used to verify the X.509 certificate. Expected to be in issuer-to-root order according to RFC 5246.
-        pub pem_certificate_chains: pulumi_wasm_rust::Output<Vec<String>>,
+        pub pem_certificate_chains: pulumi_gestalt_rust::Output<Vec<String>>,
         /// Immutable. A pem-encoded X.509 certificate signing request (CSR).
-        pub pem_csr: pulumi_wasm_rust::Output<Option<String>>,
+        pub pem_csr: pulumi_gestalt_rust::Output<Option<String>>,
         /// The name of the CaPool this Certificate belongs to.
-        pub pool: pulumi_wasm_rust::Output<String>,
+        pub pool: pulumi_gestalt_rust::Output<String>,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
-        pub project: pulumi_wasm_rust::Output<String>,
+        pub project: pulumi_gestalt_rust::Output<String>,
         /// The combination of labels configured directly on the resource
         /// and default labels configured on the provider.
-        pub pulumi_labels: pulumi_wasm_rust::Output<
+        pub pulumi_labels: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
         /// Output only. Details regarding the revocation of this Certificate. This Certificate is
         /// considered revoked if and only if this field is present.
         /// Structure is documented below.
-        pub revocation_details: pulumi_wasm_rust::Output<
+        pub revocation_details: pulumi_gestalt_rust::Output<
             Vec<super::super::types::certificateauthority::CertificateRevocationDetail>,
         >,
         /// Output only. The time at which this CertificateAuthority was updated.
         /// This is in RFC3339 text format.
-        pub update_time: pulumi_wasm_rust::Output<String>,
+        pub update_time: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: CertificateArgs,
     ) -> CertificateResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let certificate_authority_binding = args
             .certificate_authority
@@ -691,51 +691,57 @@ pub mod certificate {
         };
         let o = register_interface::register(context.get_inner(), &request);
         CertificateResult {
-            certificate_authority: pulumi_wasm_rust::__private::into_domain(
+            certificate_authority: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("certificateAuthority"),
             ),
-            certificate_descriptions: pulumi_wasm_rust::__private::into_domain(
+            certificate_descriptions: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("certificateDescriptions"),
             ),
-            certificate_template: pulumi_wasm_rust::__private::into_domain(
+            certificate_template: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("certificateTemplate"),
             ),
-            config: pulumi_wasm_rust::__private::into_domain(o.extract_field("config")),
-            create_time: pulumi_wasm_rust::__private::into_domain(
+            config: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("config"),
+            ),
+            create_time: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("createTime"),
             ),
-            effective_labels: pulumi_wasm_rust::__private::into_domain(
+            effective_labels: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("effectiveLabels"),
             ),
-            issuer_certificate_authority: pulumi_wasm_rust::__private::into_domain(
+            issuer_certificate_authority: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("issuerCertificateAuthority"),
             ),
-            labels: pulumi_wasm_rust::__private::into_domain(o.extract_field("labels")),
-            lifetime: pulumi_wasm_rust::__private::into_domain(
+            labels: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("labels"),
+            ),
+            lifetime: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("lifetime"),
             ),
-            location: pulumi_wasm_rust::__private::into_domain(
+            location: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("location"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            pem_certificate: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            pem_certificate: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("pemCertificate"),
             ),
-            pem_certificate_chains: pulumi_wasm_rust::__private::into_domain(
+            pem_certificate_chains: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("pemCertificateChains"),
             ),
-            pem_csr: pulumi_wasm_rust::__private::into_domain(o.extract_field("pemCsr")),
-            pool: pulumi_wasm_rust::__private::into_domain(o.extract_field("pool")),
-            project: pulumi_wasm_rust::__private::into_domain(
+            pem_csr: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("pemCsr"),
+            ),
+            pool: pulumi_gestalt_rust::__private::into_domain(o.extract_field("pool")),
+            project: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("project"),
             ),
-            pulumi_labels: pulumi_wasm_rust::__private::into_domain(
+            pulumi_labels: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("pulumiLabels"),
             ),
-            revocation_details: pulumi_wasm_rust::__private::into_domain(
+            revocation_details: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("revocationDetails"),
             ),
-            update_time: pulumi_wasm_rust::__private::into_domain(
+            update_time: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("updateTime"),
             ),
         }

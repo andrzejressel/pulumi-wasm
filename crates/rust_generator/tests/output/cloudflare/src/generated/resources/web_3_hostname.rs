@@ -1,54 +1,54 @@
 /// Manages Web3 hostnames for IPFS and Ethereum gateways.
 pub mod web_3_hostname {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct Web3HostnameArgs {
         /// An optional description of the hostname.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub description: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// DNSLink value used if the target is ipfs.
         #[builder(into, default)]
-        pub dnslink: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub dnslink: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The hostname that will point to the target gateway via CNAME.
         #[builder(into)]
-        pub name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Target gateway of the hostname.
         #[builder(into)]
-        pub target: pulumi_wasm_rust::InputOrOutput<String>,
+        pub target: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The zone identifier to target for the resource.
         #[builder(into)]
-        pub zone_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub zone_id: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct Web3HostnameResult {
         /// Creation time.
-        pub created_on: pulumi_wasm_rust::Output<String>,
+        pub created_on: pulumi_gestalt_rust::Output<String>,
         /// An optional description of the hostname.
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_gestalt_rust::Output<Option<String>>,
         /// DNSLink value used if the target is ipfs.
-        pub dnslink: pulumi_wasm_rust::Output<Option<String>>,
+        pub dnslink: pulumi_gestalt_rust::Output<Option<String>>,
         /// Last modification time.
-        pub modified_on: pulumi_wasm_rust::Output<String>,
+        pub modified_on: pulumi_gestalt_rust::Output<String>,
         /// The hostname that will point to the target gateway via CNAME.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// Status of the hostname's activation.
-        pub status: pulumi_wasm_rust::Output<String>,
+        pub status: pulumi_gestalt_rust::Output<String>,
         /// Target gateway of the hostname.
-        pub target: pulumi_wasm_rust::Output<String>,
+        pub target: pulumi_gestalt_rust::Output<String>,
         /// The zone identifier to target for the resource.
-        pub zone_id: pulumi_wasm_rust::Output<String>,
+        pub zone_id: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: Web3HostnameArgs,
     ) -> Web3HostnameResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let description_binding = args.description.get_output(context).get_inner();
         let dnslink_binding = args.dnslink.get_output(context).get_inner();
@@ -84,22 +84,28 @@ pub mod web_3_hostname {
         };
         let o = register_interface::register(context.get_inner(), &request);
         Web3HostnameResult {
-            created_on: pulumi_wasm_rust::__private::into_domain(
+            created_on: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("createdOn"),
             ),
-            description: pulumi_wasm_rust::__private::into_domain(
+            description: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("description"),
             ),
-            dnslink: pulumi_wasm_rust::__private::into_domain(
+            dnslink: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("dnslink"),
             ),
-            modified_on: pulumi_wasm_rust::__private::into_domain(
+            modified_on: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("modifiedOn"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            status: pulumi_wasm_rust::__private::into_domain(o.extract_field("status")),
-            target: pulumi_wasm_rust::__private::into_domain(o.extract_field("target")),
-            zone_id: pulumi_wasm_rust::__private::into_domain(o.extract_field("zoneId")),
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            status: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("status"),
+            ),
+            target: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("target"),
+            ),
+            zone_id: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("zoneId"),
+            ),
         }
     }
 }

@@ -44,100 +44,100 @@
 /// $ pulumi import aws:lex/v2modelsBot:V2modelsBot example bot-id-12345678
 /// ```
 pub mod v_2_models_bot {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct V2modelsBotArgs {
         /// Provides information on additional privacy protections Amazon Lex should use with the bot's data. See `data_privacy`
         #[builder(into, default)]
-        pub data_privacies: pulumi_wasm_rust::InputOrOutput<
+        pub data_privacies: pulumi_gestalt_rust::InputOrOutput<
             Option<Vec<super::super::types::lex::V2ModelsBotDataPrivacy>>,
         >,
         /// Description of the bot. It appears in lists to help you identify a particular bot.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub description: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Time, in seconds, that Amazon Lex should keep information about a user's conversation with the bot. You can specify between 60 (1 minute) and 86,400 (24 hours) seconds.
         #[builder(into)]
-        pub idle_session_ttl_in_seconds: pulumi_wasm_rust::InputOrOutput<i32>,
+        pub idle_session_ttl_in_seconds: pulumi_gestalt_rust::InputOrOutput<i32>,
         /// List of bot members in a network to be created. See `bot_members`.
         #[builder(into, default)]
-        pub members: pulumi_wasm_rust::InputOrOutput<
+        pub members: pulumi_gestalt_rust::InputOrOutput<
             Option<Vec<super::super::types::lex::V2ModelsBotMember>>,
         >,
         /// Name of the bot. The bot name must be unique in the account that creates the bot. Type String. Length Constraints: Minimum length of 1. Maximum length of 100.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// ARN of an IAM role that has permission to access the bot.
         ///
         /// The following arguments are optional:
         #[builder(into)]
-        pub role_arn: pulumi_wasm_rust::InputOrOutput<String>,
+        pub role_arn: pulumi_gestalt_rust::InputOrOutput<String>,
         /// List of tags to add to the bot. You can only add tags when you create a bot.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// List of tags to add to the test alias for a bot. You can only add tags when you create a bot.
         #[builder(into, default)]
-        pub test_bot_alias_tags: pulumi_wasm_rust::InputOrOutput<
+        pub test_bot_alias_tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         #[builder(into, default)]
-        pub timeouts: pulumi_wasm_rust::InputOrOutput<
+        pub timeouts: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::lex::V2ModelsBotTimeouts>,
         >,
         /// Type of a bot to create. Possible values are `"Bot"` and `"BotNetwork"`.
         #[builder(into, default)]
-        pub type_: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub type_: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct V2modelsBotResult {
-        pub arn: pulumi_wasm_rust::Output<String>,
+        pub arn: pulumi_gestalt_rust::Output<String>,
         /// Provides information on additional privacy protections Amazon Lex should use with the bot's data. See `data_privacy`
-        pub data_privacies: pulumi_wasm_rust::Output<
+        pub data_privacies: pulumi_gestalt_rust::Output<
             Option<Vec<super::super::types::lex::V2ModelsBotDataPrivacy>>,
         >,
         /// Description of the bot. It appears in lists to help you identify a particular bot.
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_gestalt_rust::Output<Option<String>>,
         /// Time, in seconds, that Amazon Lex should keep information about a user's conversation with the bot. You can specify between 60 (1 minute) and 86,400 (24 hours) seconds.
-        pub idle_session_ttl_in_seconds: pulumi_wasm_rust::Output<i32>,
+        pub idle_session_ttl_in_seconds: pulumi_gestalt_rust::Output<i32>,
         /// List of bot members in a network to be created. See `bot_members`.
-        pub members: pulumi_wasm_rust::Output<
+        pub members: pulumi_gestalt_rust::Output<
             Option<Vec<super::super::types::lex::V2ModelsBotMember>>,
         >,
         /// Name of the bot. The bot name must be unique in the account that creates the bot. Type String. Length Constraints: Minimum length of 1. Maximum length of 100.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// ARN of an IAM role that has permission to access the bot.
         ///
         /// The following arguments are optional:
-        pub role_arn: pulumi_wasm_rust::Output<String>,
+        pub role_arn: pulumi_gestalt_rust::Output<String>,
         /// List of tags to add to the bot. You can only add tags when you create a bot.
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
-        pub tags_all: pulumi_wasm_rust::Output<
+        pub tags_all: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
         /// List of tags to add to the test alias for a bot. You can only add tags when you create a bot.
-        pub test_bot_alias_tags: pulumi_wasm_rust::Output<
+        pub test_bot_alias_tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
-        pub timeouts: pulumi_wasm_rust::Output<
+        pub timeouts: pulumi_gestalt_rust::Output<
             Option<super::super::types::lex::V2ModelsBotTimeouts>,
         >,
         /// Type of a bot to create. Possible values are `"Bot"` and `"BotNetwork"`.
-        pub type_: pulumi_wasm_rust::Output<String>,
+        pub type_: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: V2modelsBotArgs,
     ) -> V2modelsBotResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let data_privacies_binding = args.data_privacies.get_output(context).get_inner();
         let description_binding = args.description.get_output(context).get_inner();
@@ -204,34 +204,34 @@ pub mod v_2_models_bot {
         };
         let o = register_interface::register(context.get_inner(), &request);
         V2modelsBotResult {
-            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
-            data_privacies: pulumi_wasm_rust::__private::into_domain(
+            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
+            data_privacies: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("dataPrivacies"),
             ),
-            description: pulumi_wasm_rust::__private::into_domain(
+            description: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("description"),
             ),
-            idle_session_ttl_in_seconds: pulumi_wasm_rust::__private::into_domain(
+            idle_session_ttl_in_seconds: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("idleSessionTtlInSeconds"),
             ),
-            members: pulumi_wasm_rust::__private::into_domain(
+            members: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("members"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            role_arn: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            role_arn: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("roleArn"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_wasm_rust::__private::into_domain(
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            tags_all: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("tagsAll"),
             ),
-            test_bot_alias_tags: pulumi_wasm_rust::__private::into_domain(
+            test_bot_alias_tags: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("testBotAliasTags"),
             ),
-            timeouts: pulumi_wasm_rust::__private::into_domain(
+            timeouts: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("timeouts"),
             ),
-            type_: pulumi_wasm_rust::__private::into_domain(o.extract_field("type")),
+            type_: pulumi_gestalt_rust::__private::into_domain(o.extract_field("type")),
         }
     }
 }

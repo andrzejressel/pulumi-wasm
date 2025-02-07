@@ -202,100 +202,100 @@
 /// $ pulumi import aws:evidently/launch:Launch example exampleLaunchName:arn:aws:evidently:us-east-1:123456789012:project/exampleProjectName
 /// ```
 pub mod launch {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct LaunchArgs {
         /// Specifies the description of the launch.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub description: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// One or up to five blocks that contain the feature and variations that are to be used for the launch. Detailed below.
         #[builder(into)]
-        pub groups: pulumi_wasm_rust::InputOrOutput<
+        pub groups: pulumi_gestalt_rust::InputOrOutput<
             Vec<super::super::types::evidently::LaunchGroup>,
         >,
         /// One or up to three blocks that define the metrics that will be used to monitor the launch performance. Detailed below.
         #[builder(into, default)]
-        pub metric_monitors: pulumi_wasm_rust::InputOrOutput<
+        pub metric_monitors: pulumi_gestalt_rust::InputOrOutput<
             Option<Vec<super::super::types::evidently::LaunchMetricMonitor>>,
         >,
         /// The name for the new launch. Minimum length of `1`. Maximum length of `127`.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The name or ARN of the project that is to contain the new launch.
         #[builder(into)]
-        pub project: pulumi_wasm_rust::InputOrOutput<String>,
+        pub project: pulumi_gestalt_rust::InputOrOutput<String>,
         /// When Evidently assigns a particular user session to a launch, it must use a randomization ID to determine which variation the user session is served. This randomization ID is a combination of the entity ID and randomizationSalt. If you omit randomizationSalt, Evidently uses the launch name as the randomizationSalt.
         #[builder(into, default)]
-        pub randomization_salt: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub randomization_salt: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// A block that defines the traffic allocation percentages among the feature variations during each step of the launch. Detailed below.
         #[builder(into, default)]
-        pub scheduled_splits_config: pulumi_wasm_rust::InputOrOutput<
+        pub scheduled_splits_config: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::evidently::LaunchScheduledSplitsConfig>,
         >,
         /// Tags to apply to the launch. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
     #[allow(dead_code)]
     pub struct LaunchResult {
         /// The ARN of the launch.
-        pub arn: pulumi_wasm_rust::Output<String>,
+        pub arn: pulumi_gestalt_rust::Output<String>,
         /// The date and time that the launch is created.
-        pub created_time: pulumi_wasm_rust::Output<String>,
+        pub created_time: pulumi_gestalt_rust::Output<String>,
         /// Specifies the description of the launch.
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_gestalt_rust::Output<Option<String>>,
         /// A block that contains information about the start and end times of the launch. Detailed below
-        pub executions: pulumi_wasm_rust::Output<
+        pub executions: pulumi_gestalt_rust::Output<
             Vec<super::super::types::evidently::LaunchExecution>,
         >,
         /// One or up to five blocks that contain the feature and variations that are to be used for the launch. Detailed below.
-        pub groups: pulumi_wasm_rust::Output<
+        pub groups: pulumi_gestalt_rust::Output<
             Vec<super::super::types::evidently::LaunchGroup>,
         >,
         /// The date and time that the launch was most recently updated.
-        pub last_updated_time: pulumi_wasm_rust::Output<String>,
+        pub last_updated_time: pulumi_gestalt_rust::Output<String>,
         /// One or up to three blocks that define the metrics that will be used to monitor the launch performance. Detailed below.
-        pub metric_monitors: pulumi_wasm_rust::Output<
+        pub metric_monitors: pulumi_gestalt_rust::Output<
             Option<Vec<super::super::types::evidently::LaunchMetricMonitor>>,
         >,
         /// The name for the new launch. Minimum length of `1`. Maximum length of `127`.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// The name or ARN of the project that is to contain the new launch.
-        pub project: pulumi_wasm_rust::Output<String>,
+        pub project: pulumi_gestalt_rust::Output<String>,
         /// When Evidently assigns a particular user session to a launch, it must use a randomization ID to determine which variation the user session is served. This randomization ID is a combination of the entity ID and randomizationSalt. If you omit randomizationSalt, Evidently uses the launch name as the randomizationSalt.
-        pub randomization_salt: pulumi_wasm_rust::Output<Option<String>>,
+        pub randomization_salt: pulumi_gestalt_rust::Output<Option<String>>,
         /// A block that defines the traffic allocation percentages among the feature variations during each step of the launch. Detailed below.
-        pub scheduled_splits_config: pulumi_wasm_rust::Output<
+        pub scheduled_splits_config: pulumi_gestalt_rust::Output<
             Option<super::super::types::evidently::LaunchScheduledSplitsConfig>,
         >,
         /// The current state of the launch. Valid values are `CREATED`, `UPDATING`, `RUNNING`, `COMPLETED`, and `CANCELLED`.
-        pub status: pulumi_wasm_rust::Output<String>,
+        pub status: pulumi_gestalt_rust::Output<String>,
         /// If the launch was stopped, this is the string that was entered by the person who stopped the launch, to explain why it was stopped.
-        pub status_reason: pulumi_wasm_rust::Output<String>,
+        pub status_reason: pulumi_gestalt_rust::Output<String>,
         /// Tags to apply to the launch. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        pub tags_all: pulumi_wasm_rust::Output<
+        pub tags_all: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
         /// The type of launch.
-        pub type_: pulumi_wasm_rust::Output<String>,
+        pub type_: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: LaunchArgs,
     ) -> LaunchResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let description_binding = args.description.get_output(context).get_inner();
         let groups_binding = args.groups.get_output(context).get_inner();
@@ -355,42 +355,46 @@ pub mod launch {
         };
         let o = register_interface::register(context.get_inner(), &request);
         LaunchResult {
-            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
-            created_time: pulumi_wasm_rust::__private::into_domain(
+            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
+            created_time: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("createdTime"),
             ),
-            description: pulumi_wasm_rust::__private::into_domain(
+            description: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("description"),
             ),
-            executions: pulumi_wasm_rust::__private::into_domain(
+            executions: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("executions"),
             ),
-            groups: pulumi_wasm_rust::__private::into_domain(o.extract_field("groups")),
-            last_updated_time: pulumi_wasm_rust::__private::into_domain(
+            groups: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("groups"),
+            ),
+            last_updated_time: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("lastUpdatedTime"),
             ),
-            metric_monitors: pulumi_wasm_rust::__private::into_domain(
+            metric_monitors: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("metricMonitors"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            project: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            project: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("project"),
             ),
-            randomization_salt: pulumi_wasm_rust::__private::into_domain(
+            randomization_salt: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("randomizationSalt"),
             ),
-            scheduled_splits_config: pulumi_wasm_rust::__private::into_domain(
+            scheduled_splits_config: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("scheduledSplitsConfig"),
             ),
-            status: pulumi_wasm_rust::__private::into_domain(o.extract_field("status")),
-            status_reason: pulumi_wasm_rust::__private::into_domain(
+            status: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("status"),
+            ),
+            status_reason: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("statusReason"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_wasm_rust::__private::into_domain(
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            tags_all: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("tagsAll"),
             ),
-            type_: pulumi_wasm_rust::__private::into_domain(o.extract_field("type")),
+            type_: pulumi_gestalt_rust::__private::into_domain(o.extract_field("type")),
         }
     }
 }

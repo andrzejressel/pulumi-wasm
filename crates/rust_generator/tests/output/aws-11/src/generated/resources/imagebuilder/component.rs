@@ -5,8 +5,8 @@
 /// ### URI Document
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = component::create(
@@ -31,105 +31,107 @@
 /// Certain resource arguments, such as `uri`, cannot be read via the API and imported into the provider. The provider will display a difference for these arguments the first run after import if declared in the the provider configuration for an imported resource.
 ///
 pub mod component {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ComponentArgs {
         /// Change description of the component.
         #[builder(into, default)]
-        pub change_description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub change_description: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Inline YAML string with data of the component. Exactly one of `data` and `uri` can be specified. the provider will only perform drift detection of its value when present in a configuration.
         #[builder(into, default)]
-        pub data: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub data: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Description of the component.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub description: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Amazon Resource Name (ARN) of the Key Management Service (KMS) Key used to encrypt the component.
         #[builder(into, default)]
-        pub kms_key_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub kms_key_id: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Name of the component.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Platform of the component.
         #[builder(into)]
-        pub platform: pulumi_wasm_rust::InputOrOutput<String>,
+        pub platform: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Whether to retain the old version when the resource is destroyed or replacement is necessary. Defaults to `false`.
         #[builder(into, default)]
-        pub skip_destroy: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub skip_destroy: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// Set of Operating Systems (OS) supported by the component.
         #[builder(into, default)]
-        pub supported_os_versions: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
+        pub supported_os_versions: pulumi_gestalt_rust::InputOrOutput<
+            Option<Vec<String>>,
+        >,
         /// Key-value map of resource tags for the component. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// S3 URI with data of the component. Exactly one of `data` and `uri` can be specified.
         ///
         /// > **NOTE:** Updating `data` or `uri` requires specifying a new `version`. This causes replacement of the resource. The `skip_destroy` argument can be used to retain the old version.
         #[builder(into, default)]
-        pub uri: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub uri: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Version of the component.
         ///
         /// The following attributes are optional:
         #[builder(into)]
-        pub version: pulumi_wasm_rust::InputOrOutput<String>,
+        pub version: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct ComponentResult {
         /// (Required) Amazon Resource Name (ARN) of the component.
-        pub arn: pulumi_wasm_rust::Output<String>,
+        pub arn: pulumi_gestalt_rust::Output<String>,
         /// Change description of the component.
-        pub change_description: pulumi_wasm_rust::Output<Option<String>>,
+        pub change_description: pulumi_gestalt_rust::Output<Option<String>>,
         /// Inline YAML string with data of the component. Exactly one of `data` and `uri` can be specified. the provider will only perform drift detection of its value when present in a configuration.
-        pub data: pulumi_wasm_rust::Output<String>,
+        pub data: pulumi_gestalt_rust::Output<String>,
         /// Date the component was created.
-        pub date_created: pulumi_wasm_rust::Output<String>,
+        pub date_created: pulumi_gestalt_rust::Output<String>,
         /// Description of the component.
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_gestalt_rust::Output<Option<String>>,
         /// Encryption status of the component.
-        pub encrypted: pulumi_wasm_rust::Output<bool>,
+        pub encrypted: pulumi_gestalt_rust::Output<bool>,
         /// Amazon Resource Name (ARN) of the Key Management Service (KMS) Key used to encrypt the component.
-        pub kms_key_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub kms_key_id: pulumi_gestalt_rust::Output<Option<String>>,
         /// Name of the component.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// Owner of the component.
-        pub owner: pulumi_wasm_rust::Output<String>,
+        pub owner: pulumi_gestalt_rust::Output<String>,
         /// Platform of the component.
-        pub platform: pulumi_wasm_rust::Output<String>,
+        pub platform: pulumi_gestalt_rust::Output<String>,
         /// Whether to retain the old version when the resource is destroyed or replacement is necessary. Defaults to `false`.
-        pub skip_destroy: pulumi_wasm_rust::Output<Option<bool>>,
+        pub skip_destroy: pulumi_gestalt_rust::Output<Option<bool>>,
         /// Set of Operating Systems (OS) supported by the component.
-        pub supported_os_versions: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub supported_os_versions: pulumi_gestalt_rust::Output<Option<Vec<String>>>,
         /// Key-value map of resource tags for the component. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        pub tags_all: pulumi_wasm_rust::Output<
+        pub tags_all: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
         /// Type of the component.
-        pub type_: pulumi_wasm_rust::Output<String>,
+        pub type_: pulumi_gestalt_rust::Output<String>,
         /// S3 URI with data of the component. Exactly one of `data` and `uri` can be specified.
         ///
         /// > **NOTE:** Updating `data` or `uri` requires specifying a new `version`. This causes replacement of the resource. The `skip_destroy` argument can be used to retain the old version.
-        pub uri: pulumi_wasm_rust::Output<Option<String>>,
+        pub uri: pulumi_gestalt_rust::Output<Option<String>>,
         /// Version of the component.
         ///
         /// The following attributes are optional:
-        pub version: pulumi_wasm_rust::Output<String>,
+        pub version: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: ComponentArgs,
     ) -> ComponentResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let change_description_binding = args
             .change_description
@@ -201,41 +203,43 @@ pub mod component {
         };
         let o = register_interface::register(context.get_inner(), &request);
         ComponentResult {
-            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
-            change_description: pulumi_wasm_rust::__private::into_domain(
+            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
+            change_description: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("changeDescription"),
             ),
-            data: pulumi_wasm_rust::__private::into_domain(o.extract_field("data")),
-            date_created: pulumi_wasm_rust::__private::into_domain(
+            data: pulumi_gestalt_rust::__private::into_domain(o.extract_field("data")),
+            date_created: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("dateCreated"),
             ),
-            description: pulumi_wasm_rust::__private::into_domain(
+            description: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("description"),
             ),
-            encrypted: pulumi_wasm_rust::__private::into_domain(
+            encrypted: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("encrypted"),
             ),
-            kms_key_id: pulumi_wasm_rust::__private::into_domain(
+            kms_key_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("kmsKeyId"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            owner: pulumi_wasm_rust::__private::into_domain(o.extract_field("owner")),
-            platform: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            owner: pulumi_gestalt_rust::__private::into_domain(o.extract_field("owner")),
+            platform: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("platform"),
             ),
-            skip_destroy: pulumi_wasm_rust::__private::into_domain(
+            skip_destroy: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("skipDestroy"),
             ),
-            supported_os_versions: pulumi_wasm_rust::__private::into_domain(
+            supported_os_versions: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("supportedOsVersions"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_wasm_rust::__private::into_domain(
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            tags_all: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("tagsAll"),
             ),
-            type_: pulumi_wasm_rust::__private::into_domain(o.extract_field("type")),
-            uri: pulumi_wasm_rust::__private::into_domain(o.extract_field("uri")),
-            version: pulumi_wasm_rust::__private::into_domain(o.extract_field("version")),
+            type_: pulumi_gestalt_rust::__private::into_domain(o.extract_field("type")),
+            uri: pulumi_gestalt_rust::__private::into_domain(o.extract_field("uri")),
+            version: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("version"),
+            ),
         }
     }
 }

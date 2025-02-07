@@ -1,5 +1,5 @@
 pub mod get_backup_vault {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct GetBackupVaultArgs {
@@ -7,64 +7,68 @@ pub mod get_backup_vault {
         ///
         /// - - -
         #[builder(into)]
-        pub backup_vault_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub backup_vault_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The location in which the Backup Vault resource belongs.
         #[builder(into)]
-        pub location: pulumi_wasm_rust::InputOrOutput<String>,
+        pub location: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The project in which the resource belongs. If it
         /// is not provided, the provider project is used.
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub project: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct GetBackupVaultResult {
-        pub access_restriction: pulumi_wasm_rust::Output<String>,
-        pub allow_missing: pulumi_wasm_rust::Output<bool>,
-        pub annotations: pulumi_wasm_rust::Output<
+        pub access_restriction: pulumi_gestalt_rust::Output<String>,
+        pub allow_missing: pulumi_gestalt_rust::Output<bool>,
+        pub annotations: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
-        pub backup_count: pulumi_wasm_rust::Output<String>,
-        pub backup_minimum_enforced_retention_duration: pulumi_wasm_rust::Output<String>,
-        pub backup_vault_id: pulumi_wasm_rust::Output<String>,
-        pub create_time: pulumi_wasm_rust::Output<String>,
-        pub deletable: pulumi_wasm_rust::Output<bool>,
-        pub description: pulumi_wasm_rust::Output<String>,
-        pub effective_annotations: pulumi_wasm_rust::Output<
+        pub backup_count: pulumi_gestalt_rust::Output<String>,
+        pub backup_minimum_enforced_retention_duration: pulumi_gestalt_rust::Output<
+            String,
+        >,
+        pub backup_vault_id: pulumi_gestalt_rust::Output<String>,
+        pub create_time: pulumi_gestalt_rust::Output<String>,
+        pub deletable: pulumi_gestalt_rust::Output<bool>,
+        pub description: pulumi_gestalt_rust::Output<String>,
+        pub effective_annotations: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
-        pub effective_labels: pulumi_wasm_rust::Output<
+        pub effective_labels: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
-        pub effective_time: pulumi_wasm_rust::Output<String>,
-        pub etag: pulumi_wasm_rust::Output<String>,
-        pub force_delete: pulumi_wasm_rust::Output<bool>,
-        pub force_update: pulumi_wasm_rust::Output<bool>,
+        pub effective_time: pulumi_gestalt_rust::Output<String>,
+        pub etag: pulumi_gestalt_rust::Output<String>,
+        pub force_delete: pulumi_gestalt_rust::Output<bool>,
+        pub force_update: pulumi_gestalt_rust::Output<bool>,
         /// The provider-assigned unique ID for this managed resource.
-        pub id: pulumi_wasm_rust::Output<String>,
-        pub ignore_backup_plan_references: pulumi_wasm_rust::Output<bool>,
-        pub ignore_inactive_datasources: pulumi_wasm_rust::Output<bool>,
-        pub labels: pulumi_wasm_rust::Output<std::collections::HashMap<String, String>>,
-        pub location: pulumi_wasm_rust::Output<String>,
-        pub name: pulumi_wasm_rust::Output<String>,
-        pub project: pulumi_wasm_rust::Output<Option<String>>,
-        pub pulumi_labels: pulumi_wasm_rust::Output<
+        pub id: pulumi_gestalt_rust::Output<String>,
+        pub ignore_backup_plan_references: pulumi_gestalt_rust::Output<bool>,
+        pub ignore_inactive_datasources: pulumi_gestalt_rust::Output<bool>,
+        pub labels: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
-        pub service_account: pulumi_wasm_rust::Output<String>,
-        pub state: pulumi_wasm_rust::Output<String>,
-        pub total_stored_bytes: pulumi_wasm_rust::Output<String>,
-        pub uid: pulumi_wasm_rust::Output<String>,
-        pub update_time: pulumi_wasm_rust::Output<String>,
+        pub location: pulumi_gestalt_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
+        pub project: pulumi_gestalt_rust::Output<Option<String>>,
+        pub pulumi_labels: pulumi_gestalt_rust::Output<
+            std::collections::HashMap<String, String>,
+        >,
+        pub service_account: pulumi_gestalt_rust::Output<String>,
+        pub state: pulumi_gestalt_rust::Output<String>,
+        pub total_stored_bytes: pulumi_gestalt_rust::Output<String>,
+        pub uid: pulumi_gestalt_rust::Output<String>,
+        pub update_time: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         args: GetBackupVaultArgs,
     ) -> GetBackupVaultResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let backup_vault_id_binding = args
             .backup_vault_id
@@ -92,76 +96,78 @@ pub mod get_backup_vault {
         };
         let o = register_interface::invoke(context.get_inner(), &request);
         GetBackupVaultResult {
-            access_restriction: pulumi_wasm_rust::__private::into_domain(
+            access_restriction: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("accessRestriction"),
             ),
-            allow_missing: pulumi_wasm_rust::__private::into_domain(
+            allow_missing: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("allowMissing"),
             ),
-            annotations: pulumi_wasm_rust::__private::into_domain(
+            annotations: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("annotations"),
             ),
-            backup_count: pulumi_wasm_rust::__private::into_domain(
+            backup_count: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("backupCount"),
             ),
-            backup_minimum_enforced_retention_duration: pulumi_wasm_rust::__private::into_domain(
+            backup_minimum_enforced_retention_duration: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("backupMinimumEnforcedRetentionDuration"),
             ),
-            backup_vault_id: pulumi_wasm_rust::__private::into_domain(
+            backup_vault_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("backupVaultId"),
             ),
-            create_time: pulumi_wasm_rust::__private::into_domain(
+            create_time: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("createTime"),
             ),
-            deletable: pulumi_wasm_rust::__private::into_domain(
+            deletable: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("deletable"),
             ),
-            description: pulumi_wasm_rust::__private::into_domain(
+            description: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("description"),
             ),
-            effective_annotations: pulumi_wasm_rust::__private::into_domain(
+            effective_annotations: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("effectiveAnnotations"),
             ),
-            effective_labels: pulumi_wasm_rust::__private::into_domain(
+            effective_labels: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("effectiveLabels"),
             ),
-            effective_time: pulumi_wasm_rust::__private::into_domain(
+            effective_time: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("effectiveTime"),
             ),
-            etag: pulumi_wasm_rust::__private::into_domain(o.extract_field("etag")),
-            force_delete: pulumi_wasm_rust::__private::into_domain(
+            etag: pulumi_gestalt_rust::__private::into_domain(o.extract_field("etag")),
+            force_delete: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("forceDelete"),
             ),
-            force_update: pulumi_wasm_rust::__private::into_domain(
+            force_update: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("forceUpdate"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
-            ignore_backup_plan_references: pulumi_wasm_rust::__private::into_domain(
+            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
+            ignore_backup_plan_references: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("ignoreBackupPlanReferences"),
             ),
-            ignore_inactive_datasources: pulumi_wasm_rust::__private::into_domain(
+            ignore_inactive_datasources: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("ignoreInactiveDatasources"),
             ),
-            labels: pulumi_wasm_rust::__private::into_domain(o.extract_field("labels")),
-            location: pulumi_wasm_rust::__private::into_domain(
+            labels: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("labels"),
+            ),
+            location: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("location"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            project: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            project: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("project"),
             ),
-            pulumi_labels: pulumi_wasm_rust::__private::into_domain(
+            pulumi_labels: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("pulumiLabels"),
             ),
-            service_account: pulumi_wasm_rust::__private::into_domain(
+            service_account: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("serviceAccount"),
             ),
-            state: pulumi_wasm_rust::__private::into_domain(o.extract_field("state")),
-            total_stored_bytes: pulumi_wasm_rust::__private::into_domain(
+            state: pulumi_gestalt_rust::__private::into_domain(o.extract_field("state")),
+            total_stored_bytes: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("totalStoredBytes"),
             ),
-            uid: pulumi_wasm_rust::__private::into_domain(o.extract_field("uid")),
-            update_time: pulumi_wasm_rust::__private::into_domain(
+            uid: pulumi_gestalt_rust::__private::into_domain(o.extract_field("uid")),
+            update_time: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("updateTime"),
             ),
         }

@@ -11,8 +11,8 @@
 ///
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let basic = branch_rule::create(
@@ -45,8 +45,8 @@
 ///
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let default = branch_rule::create(
@@ -114,100 +114,100 @@
 /// ```
 ///
 pub mod branch_rule {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct BranchRuleArgs {
         /// Determines if allow stale reviews or approvals before merging to the branch.
         #[builder(into, default)]
-        pub allow_stale_reviews: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub allow_stale_reviews: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// The ID for the BranchRule.
         #[builder(into)]
-        pub branch_rule_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub branch_rule_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Determines if the branch rule is disabled or not.
         #[builder(into, default)]
-        pub disabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub disabled: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// The BranchRule matches branches based on the specified regular expression. Use .* to match all branches.
         #[builder(into)]
-        pub include_pattern: pulumi_wasm_rust::InputOrOutput<String>,
+        pub include_pattern: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The location for the Repository.
         #[builder(into)]
-        pub location: pulumi_wasm_rust::InputOrOutput<String>,
+        pub location: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The minimum number of approvals required for the branch rule to be matched.
         #[builder(into, default)]
-        pub minimum_approvals_count: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
+        pub minimum_approvals_count: pulumi_gestalt_rust::InputOrOutput<Option<i32>>,
         /// The minimum number of reviews required for the branch rule to be matched.
         #[builder(into, default)]
-        pub minimum_reviews_count: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
+        pub minimum_reviews_count: pulumi_gestalt_rust::InputOrOutput<Option<i32>>,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub project: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The ID for the Repository.
         ///
         ///
         /// - - -
         #[builder(into)]
-        pub repository_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub repository_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Determines if require comments resolved before merging to the branch.
         #[builder(into, default)]
-        pub require_comments_resolved: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub require_comments_resolved: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// Determines if require linear history before merging to the branch.
         #[builder(into, default)]
-        pub require_linear_history: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub require_linear_history: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// Determines if the branch rule requires a pull request or not.
         #[builder(into, default)]
-        pub require_pull_request: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub require_pull_request: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
     }
     #[allow(dead_code)]
     pub struct BranchRuleResult {
         /// Determines if allow stale reviews or approvals before merging to the branch.
-        pub allow_stale_reviews: pulumi_wasm_rust::Output<Option<bool>>,
+        pub allow_stale_reviews: pulumi_gestalt_rust::Output<Option<bool>>,
         /// The ID for the BranchRule.
-        pub branch_rule_id: pulumi_wasm_rust::Output<String>,
+        pub branch_rule_id: pulumi_gestalt_rust::Output<String>,
         /// Time the BranchRule was created in UTC.
-        pub create_time: pulumi_wasm_rust::Output<String>,
+        pub create_time: pulumi_gestalt_rust::Output<String>,
         /// Determines if the branch rule is disabled or not.
-        pub disabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub disabled: pulumi_gestalt_rust::Output<Option<bool>>,
         /// The BranchRule matches branches based on the specified regular expression. Use .* to match all branches.
-        pub include_pattern: pulumi_wasm_rust::Output<String>,
+        pub include_pattern: pulumi_gestalt_rust::Output<String>,
         /// The location for the Repository.
-        pub location: pulumi_wasm_rust::Output<String>,
+        pub location: pulumi_gestalt_rust::Output<String>,
         /// The minimum number of approvals required for the branch rule to be matched.
-        pub minimum_approvals_count: pulumi_wasm_rust::Output<Option<i32>>,
+        pub minimum_approvals_count: pulumi_gestalt_rust::Output<Option<i32>>,
         /// The minimum number of reviews required for the branch rule to be matched.
-        pub minimum_reviews_count: pulumi_wasm_rust::Output<Option<i32>>,
+        pub minimum_reviews_count: pulumi_gestalt_rust::Output<Option<i32>>,
         /// The resource name for the BranchRule.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
-        pub project: pulumi_wasm_rust::Output<String>,
+        pub project: pulumi_gestalt_rust::Output<String>,
         /// The ID for the Repository.
         ///
         ///
         /// - - -
-        pub repository_id: pulumi_wasm_rust::Output<String>,
+        pub repository_id: pulumi_gestalt_rust::Output<String>,
         /// Determines if require comments resolved before merging to the branch.
-        pub require_comments_resolved: pulumi_wasm_rust::Output<Option<bool>>,
+        pub require_comments_resolved: pulumi_gestalt_rust::Output<Option<bool>>,
         /// Determines if require linear history before merging to the branch.
-        pub require_linear_history: pulumi_wasm_rust::Output<Option<bool>>,
+        pub require_linear_history: pulumi_gestalt_rust::Output<Option<bool>>,
         /// Determines if the branch rule requires a pull request or not.
-        pub require_pull_request: pulumi_wasm_rust::Output<Option<bool>>,
+        pub require_pull_request: pulumi_gestalt_rust::Output<Option<bool>>,
         /// Unique identifier of the BranchRule.
-        pub uid: pulumi_wasm_rust::Output<String>,
+        pub uid: pulumi_gestalt_rust::Output<String>,
         /// Time the BranchRule was updated in UTC.
-        pub update_time: pulumi_wasm_rust::Output<String>,
+        pub update_time: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: BranchRuleArgs,
     ) -> BranchRuleResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let allow_stale_reviews_binding = args
             .allow_stale_reviews
@@ -299,48 +299,48 @@ pub mod branch_rule {
         };
         let o = register_interface::register(context.get_inner(), &request);
         BranchRuleResult {
-            allow_stale_reviews: pulumi_wasm_rust::__private::into_domain(
+            allow_stale_reviews: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("allowStaleReviews"),
             ),
-            branch_rule_id: pulumi_wasm_rust::__private::into_domain(
+            branch_rule_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("branchRuleId"),
             ),
-            create_time: pulumi_wasm_rust::__private::into_domain(
+            create_time: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("createTime"),
             ),
-            disabled: pulumi_wasm_rust::__private::into_domain(
+            disabled: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("disabled"),
             ),
-            include_pattern: pulumi_wasm_rust::__private::into_domain(
+            include_pattern: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("includePattern"),
             ),
-            location: pulumi_wasm_rust::__private::into_domain(
+            location: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("location"),
             ),
-            minimum_approvals_count: pulumi_wasm_rust::__private::into_domain(
+            minimum_approvals_count: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("minimumApprovalsCount"),
             ),
-            minimum_reviews_count: pulumi_wasm_rust::__private::into_domain(
+            minimum_reviews_count: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("minimumReviewsCount"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            project: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            project: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("project"),
             ),
-            repository_id: pulumi_wasm_rust::__private::into_domain(
+            repository_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("repositoryId"),
             ),
-            require_comments_resolved: pulumi_wasm_rust::__private::into_domain(
+            require_comments_resolved: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("requireCommentsResolved"),
             ),
-            require_linear_history: pulumi_wasm_rust::__private::into_domain(
+            require_linear_history: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("requireLinearHistory"),
             ),
-            require_pull_request: pulumi_wasm_rust::__private::into_domain(
+            require_pull_request: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("requirePullRequest"),
             ),
-            uid: pulumi_wasm_rust::__private::into_domain(o.extract_field("uid")),
-            update_time: pulumi_wasm_rust::__private::into_domain(
+            uid: pulumi_gestalt_rust::__private::into_domain(o.extract_field("uid")),
+            update_time: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("updateTime"),
             ),
         }

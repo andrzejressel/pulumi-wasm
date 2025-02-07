@@ -27,54 +27,54 @@
 /// $ pulumi import aws:licensemanager/licenseGrant:LicenseGrant test arn:aws:license-manager::123456789011:grant:g-01d313393d9e443d8664cc054db1e089
 /// ```
 pub mod license_grant {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct LicenseGrantArgs {
         /// A list of the allowed operations for the grant. This is a subset of the allowed operations on the license.
         #[builder(into)]
-        pub allowed_operations: pulumi_wasm_rust::InputOrOutput<Vec<String>>,
+        pub allowed_operations: pulumi_gestalt_rust::InputOrOutput<Vec<String>>,
         /// The ARN of the license to grant.
         #[builder(into)]
-        pub license_arn: pulumi_wasm_rust::InputOrOutput<String>,
+        pub license_arn: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The Name of the grant.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The target account for the grant in the form of the ARN for an account principal of the root user.
         #[builder(into)]
-        pub principal: pulumi_wasm_rust::InputOrOutput<String>,
+        pub principal: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct LicenseGrantResult {
         /// A list of the allowed operations for the grant. This is a subset of the allowed operations on the license.
-        pub allowed_operations: pulumi_wasm_rust::Output<Vec<String>>,
+        pub allowed_operations: pulumi_gestalt_rust::Output<Vec<String>>,
         /// The grant ARN.
-        pub arn: pulumi_wasm_rust::Output<String>,
+        pub arn: pulumi_gestalt_rust::Output<String>,
         /// The home region for the license.
-        pub home_region: pulumi_wasm_rust::Output<String>,
+        pub home_region: pulumi_gestalt_rust::Output<String>,
         /// The ARN of the license to grant.
-        pub license_arn: pulumi_wasm_rust::Output<String>,
+        pub license_arn: pulumi_gestalt_rust::Output<String>,
         /// The Name of the grant.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// The parent ARN.
-        pub parent_arn: pulumi_wasm_rust::Output<String>,
+        pub parent_arn: pulumi_gestalt_rust::Output<String>,
         /// The target account for the grant in the form of the ARN for an account principal of the root user.
-        pub principal: pulumi_wasm_rust::Output<String>,
+        pub principal: pulumi_gestalt_rust::Output<String>,
         /// The grant status.
-        pub status: pulumi_wasm_rust::Output<String>,
+        pub status: pulumi_gestalt_rust::Output<String>,
         /// The grant version.
-        pub version: pulumi_wasm_rust::Output<String>,
+        pub version: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: LicenseGrantArgs,
     ) -> LicenseGrantResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let allowed_operations_binding = args
             .allowed_operations
@@ -108,25 +108,29 @@ pub mod license_grant {
         };
         let o = register_interface::register(context.get_inner(), &request);
         LicenseGrantResult {
-            allowed_operations: pulumi_wasm_rust::__private::into_domain(
+            allowed_operations: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("allowedOperations"),
             ),
-            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
-            home_region: pulumi_wasm_rust::__private::into_domain(
+            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
+            home_region: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("homeRegion"),
             ),
-            license_arn: pulumi_wasm_rust::__private::into_domain(
+            license_arn: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("licenseArn"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            parent_arn: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            parent_arn: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("parentArn"),
             ),
-            principal: pulumi_wasm_rust::__private::into_domain(
+            principal: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("principal"),
             ),
-            status: pulumi_wasm_rust::__private::into_domain(o.extract_field("status")),
-            version: pulumi_wasm_rust::__private::into_domain(o.extract_field("version")),
+            status: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("status"),
+            ),
+            version: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("version"),
+            ),
         }
     }
 }

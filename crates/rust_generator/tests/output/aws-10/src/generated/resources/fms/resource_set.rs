@@ -5,8 +5,8 @@
 /// ### Basic Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = resource_set::create(
@@ -32,39 +32,39 @@
 /// $ pulumi import aws:fms/resourceSet:ResourceSet example resource_set-id-12345678
 /// ```
 pub mod resource_set {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ResourceSetArgs {
         /// Details about the resource set to be created or updated. See `resource_set` Attribute Reference below.
         #[builder(into, default)]
-        pub resource_sets: pulumi_wasm_rust::InputOrOutput<
+        pub resource_sets: pulumi_gestalt_rust::InputOrOutput<
             Option<Vec<super::super::types::fms::ResourceSetResourceSet>>,
         >,
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         #[builder(into, default)]
-        pub timeouts: pulumi_wasm_rust::InputOrOutput<
+        pub timeouts: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::fms::ResourceSetTimeouts>,
         >,
     }
     #[allow(dead_code)]
     pub struct ResourceSetResult {
         /// ARN of the Resource Set.
-        pub arn: pulumi_wasm_rust::Output<String>,
+        pub arn: pulumi_gestalt_rust::Output<String>,
         /// Details about the resource set to be created or updated. See `resource_set` Attribute Reference below.
-        pub resource_sets: pulumi_wasm_rust::Output<
+        pub resource_sets: pulumi_gestalt_rust::Output<
             Option<Vec<super::super::types::fms::ResourceSetResourceSet>>,
         >,
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
-        pub tags_all: pulumi_wasm_rust::Output<
+        pub tags_all: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
-        pub timeouts: pulumi_wasm_rust::Output<
+        pub timeouts: pulumi_gestalt_rust::Output<
             Option<super::super::types::fms::ResourceSetTimeouts>,
         >,
     }
@@ -73,11 +73,11 @@ pub mod resource_set {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: ResourceSetArgs,
     ) -> ResourceSetResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let resource_sets_binding = args.resource_sets.get_output(context).get_inner();
         let tags_binding = args.tags.get_output(context).get_inner();
@@ -103,15 +103,15 @@ pub mod resource_set {
         };
         let o = register_interface::register(context.get_inner(), &request);
         ResourceSetResult {
-            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
-            resource_sets: pulumi_wasm_rust::__private::into_domain(
+            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
+            resource_sets: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("resourceSets"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_wasm_rust::__private::into_domain(
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            tags_all: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("tagsAll"),
             ),
-            timeouts: pulumi_wasm_rust::__private::into_domain(
+            timeouts: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("timeouts"),
             ),
         }

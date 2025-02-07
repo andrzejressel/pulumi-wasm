@@ -1,44 +1,44 @@
 pub mod get_system_topic {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct GetSystemTopicArgs {
         /// The name of the EventGrid System Topic resource.
         #[builder(into)]
-        pub name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The name of the resource group in which the EventGrid System Topic exists.
         #[builder(into)]
-        pub resource_group_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub resource_group_name: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct GetSystemTopicResult {
         /// The provider-assigned unique ID for this managed resource.
-        pub id: pulumi_wasm_rust::Output<String>,
+        pub id: pulumi_gestalt_rust::Output<String>,
         /// An `identity` block as defined below, which contains the Managed Service Identity information for this Event Grid System Topic.
-        pub identities: pulumi_wasm_rust::Output<
+        pub identities: pulumi_gestalt_rust::Output<
             Vec<super::super::super::types::eventgrid::GetSystemTopicIdentity>,
         >,
-        pub location: pulumi_wasm_rust::Output<String>,
+        pub location: pulumi_gestalt_rust::Output<String>,
         /// The Metric ARM Resource ID of the Event Grid System Topic.
-        pub metric_arm_resource_id: pulumi_wasm_rust::Output<String>,
-        pub name: pulumi_wasm_rust::Output<String>,
-        pub resource_group_name: pulumi_wasm_rust::Output<String>,
+        pub metric_arm_resource_id: pulumi_gestalt_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
+        pub resource_group_name: pulumi_gestalt_rust::Output<String>,
         /// The ID of the Event Grid System Topic ARM Source.
-        pub source_arm_resource_id: pulumi_wasm_rust::Output<String>,
+        pub source_arm_resource_id: pulumi_gestalt_rust::Output<String>,
         /// A mapping of tags which are assigned to the Event Grid System Topic.
-        pub tags: pulumi_wasm_rust::Output<std::collections::HashMap<String, String>>,
+        pub tags: pulumi_gestalt_rust::Output<std::collections::HashMap<String, String>>,
         /// The Topic Type of the Event Grid System Topic.
-        pub topic_type: pulumi_wasm_rust::Output<String>,
+        pub topic_type: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         args: GetSystemTopicArgs,
     ) -> GetSystemTopicResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let name_binding = args.name.get_output(context).get_inner();
         let resource_group_name_binding = args
@@ -61,25 +61,25 @@ pub mod get_system_topic {
         };
         let o = register_interface::invoke(context.get_inner(), &request);
         GetSystemTopicResult {
-            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
-            identities: pulumi_wasm_rust::__private::into_domain(
+            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
+            identities: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("identities"),
             ),
-            location: pulumi_wasm_rust::__private::into_domain(
+            location: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("location"),
             ),
-            metric_arm_resource_id: pulumi_wasm_rust::__private::into_domain(
+            metric_arm_resource_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("metricArmResourceId"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            resource_group_name: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("resourceGroupName"),
             ),
-            source_arm_resource_id: pulumi_wasm_rust::__private::into_domain(
+            source_arm_resource_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("sourceArmResourceId"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
-            topic_type: pulumi_wasm_rust::__private::into_domain(
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            topic_type: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("topicType"),
             ),
         }

@@ -152,7 +152,7 @@
 /// ```
 ///
 pub mod frontdoor_route {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct FrontdoorRouteArgs {
@@ -160,108 +160,110 @@ pub mod frontdoor_route {
         ///
         /// > **NOTE:** To disable caching, do not provide the `cache` block in the configuration file.
         #[builder(into, default)]
-        pub cache: pulumi_wasm_rust::InputOrOutput<
+        pub cache: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::cdn::FrontdoorRouteCache>,
         >,
         /// The IDs of the Front Door Custom Domains which are associated with this Front Door Route.
         #[builder(into, default)]
-        pub cdn_frontdoor_custom_domain_ids: pulumi_wasm_rust::InputOrOutput<
+        pub cdn_frontdoor_custom_domain_ids: pulumi_gestalt_rust::InputOrOutput<
             Option<Vec<String>>,
         >,
         /// The resource ID of the Front Door Endpoint where this Front Door Route should exist. Changing this forces a new Front Door Route to be created.
         #[builder(into)]
-        pub cdn_frontdoor_endpoint_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub cdn_frontdoor_endpoint_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The resource ID of the Front Door Origin Group where this Front Door Route should be created.
         #[builder(into)]
-        pub cdn_frontdoor_origin_group_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub cdn_frontdoor_origin_group_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// One or more Front Door Origin resource IDs that this Front Door Route will link to.
         #[builder(into)]
-        pub cdn_frontdoor_origin_ids: pulumi_wasm_rust::InputOrOutput<Vec<String>>,
+        pub cdn_frontdoor_origin_ids: pulumi_gestalt_rust::InputOrOutput<Vec<String>>,
         /// A directory path on the Front Door Origin that can be used to retrieve content (e.g. `contoso.cloudapp.net/originpath`).
         #[builder(into, default)]
-        pub cdn_frontdoor_origin_path: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub cdn_frontdoor_origin_path: pulumi_gestalt_rust::InputOrOutput<
+            Option<String>,
+        >,
         /// A list of the Front Door Rule Set IDs which should be assigned to this Front Door Route.
         #[builder(into, default)]
-        pub cdn_frontdoor_rule_set_ids: pulumi_wasm_rust::InputOrOutput<
+        pub cdn_frontdoor_rule_set_ids: pulumi_gestalt_rust::InputOrOutput<
             Option<Vec<String>>,
         >,
         /// Is this Front Door Route enabled? Possible values are `true` or `false`. Defaults to `true`.
         #[builder(into, default)]
-        pub enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub enabled: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// The Protocol that will be use when forwarding traffic to backends. Possible values are `HttpOnly`, `HttpsOnly` or `MatchRequest`. Defaults to `MatchRequest`.
         #[builder(into, default)]
-        pub forwarding_protocol: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub forwarding_protocol: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Automatically redirect HTTP traffic to HTTPS traffic? Possible values are `true` or `false`. Defaults to `true`.
         ///
         /// > **NOTE:** The `https_redirect_enabled` rule is the first rule that will be executed.
         #[builder(into, default)]
-        pub https_redirect_enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub https_redirect_enabled: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// Should this Front Door Route be linked to the default endpoint? Possible values include `true` or `false`. Defaults to `true`.
         #[builder(into, default)]
-        pub link_to_default_domain: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub link_to_default_domain: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// The name which should be used for this Front Door Route. Valid values must begin with a letter or number, end with a letter or number and may only contain letters, numbers and hyphens with a maximum length of 90 characters. Changing this forces a new Front Door Route to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The route patterns of the rule.
         #[builder(into)]
-        pub patterns_to_matches: pulumi_wasm_rust::InputOrOutput<Vec<String>>,
+        pub patterns_to_matches: pulumi_gestalt_rust::InputOrOutput<Vec<String>>,
         /// One or more Protocols supported by this Front Door Route. Possible values are `Http` or `Https`.
         ///
         /// > **NOTE:** If `https_redirect_enabled` is set to `true` the `supported_protocols` field must contain both `Http` and `Https` values.
         #[builder(into)]
-        pub supported_protocols: pulumi_wasm_rust::InputOrOutput<Vec<String>>,
+        pub supported_protocols: pulumi_gestalt_rust::InputOrOutput<Vec<String>>,
     }
     #[allow(dead_code)]
     pub struct FrontdoorRouteResult {
         /// A `cache` block as defined below.
         ///
         /// > **NOTE:** To disable caching, do not provide the `cache` block in the configuration file.
-        pub cache: pulumi_wasm_rust::Output<
+        pub cache: pulumi_gestalt_rust::Output<
             Option<super::super::types::cdn::FrontdoorRouteCache>,
         >,
         /// The IDs of the Front Door Custom Domains which are associated with this Front Door Route.
-        pub cdn_frontdoor_custom_domain_ids: pulumi_wasm_rust::Output<
+        pub cdn_frontdoor_custom_domain_ids: pulumi_gestalt_rust::Output<
             Option<Vec<String>>,
         >,
         /// The resource ID of the Front Door Endpoint where this Front Door Route should exist. Changing this forces a new Front Door Route to be created.
-        pub cdn_frontdoor_endpoint_id: pulumi_wasm_rust::Output<String>,
+        pub cdn_frontdoor_endpoint_id: pulumi_gestalt_rust::Output<String>,
         /// The resource ID of the Front Door Origin Group where this Front Door Route should be created.
-        pub cdn_frontdoor_origin_group_id: pulumi_wasm_rust::Output<String>,
+        pub cdn_frontdoor_origin_group_id: pulumi_gestalt_rust::Output<String>,
         /// One or more Front Door Origin resource IDs that this Front Door Route will link to.
-        pub cdn_frontdoor_origin_ids: pulumi_wasm_rust::Output<Vec<String>>,
+        pub cdn_frontdoor_origin_ids: pulumi_gestalt_rust::Output<Vec<String>>,
         /// A directory path on the Front Door Origin that can be used to retrieve content (e.g. `contoso.cloudapp.net/originpath`).
-        pub cdn_frontdoor_origin_path: pulumi_wasm_rust::Output<Option<String>>,
+        pub cdn_frontdoor_origin_path: pulumi_gestalt_rust::Output<Option<String>>,
         /// A list of the Front Door Rule Set IDs which should be assigned to this Front Door Route.
-        pub cdn_frontdoor_rule_set_ids: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub cdn_frontdoor_rule_set_ids: pulumi_gestalt_rust::Output<Option<Vec<String>>>,
         /// Is this Front Door Route enabled? Possible values are `true` or `false`. Defaults to `true`.
-        pub enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub enabled: pulumi_gestalt_rust::Output<Option<bool>>,
         /// The Protocol that will be use when forwarding traffic to backends. Possible values are `HttpOnly`, `HttpsOnly` or `MatchRequest`. Defaults to `MatchRequest`.
-        pub forwarding_protocol: pulumi_wasm_rust::Output<Option<String>>,
+        pub forwarding_protocol: pulumi_gestalt_rust::Output<Option<String>>,
         /// Automatically redirect HTTP traffic to HTTPS traffic? Possible values are `true` or `false`. Defaults to `true`.
         ///
         /// > **NOTE:** The `https_redirect_enabled` rule is the first rule that will be executed.
-        pub https_redirect_enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub https_redirect_enabled: pulumi_gestalt_rust::Output<Option<bool>>,
         /// Should this Front Door Route be linked to the default endpoint? Possible values include `true` or `false`. Defaults to `true`.
-        pub link_to_default_domain: pulumi_wasm_rust::Output<Option<bool>>,
+        pub link_to_default_domain: pulumi_gestalt_rust::Output<Option<bool>>,
         /// The name which should be used for this Front Door Route. Valid values must begin with a letter or number, end with a letter or number and may only contain letters, numbers and hyphens with a maximum length of 90 characters. Changing this forces a new Front Door Route to be created.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// The route patterns of the rule.
-        pub patterns_to_matches: pulumi_wasm_rust::Output<Vec<String>>,
+        pub patterns_to_matches: pulumi_gestalt_rust::Output<Vec<String>>,
         /// One or more Protocols supported by this Front Door Route. Possible values are `Http` or `Https`.
         ///
         /// > **NOTE:** If `https_redirect_enabled` is set to `true` the `supported_protocols` field must contain both `Http` and `Https` values.
-        pub supported_protocols: pulumi_wasm_rust::Output<Vec<String>>,
+        pub supported_protocols: pulumi_gestalt_rust::Output<Vec<String>>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: FrontdoorRouteArgs,
     ) -> FrontdoorRouteResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let cache_binding = args.cache.get_output(context).get_inner();
         let cdn_frontdoor_custom_domain_ids_binding = args
@@ -375,42 +377,42 @@ pub mod frontdoor_route {
         };
         let o = register_interface::register(context.get_inner(), &request);
         FrontdoorRouteResult {
-            cache: pulumi_wasm_rust::__private::into_domain(o.extract_field("cache")),
-            cdn_frontdoor_custom_domain_ids: pulumi_wasm_rust::__private::into_domain(
+            cache: pulumi_gestalt_rust::__private::into_domain(o.extract_field("cache")),
+            cdn_frontdoor_custom_domain_ids: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("cdnFrontdoorCustomDomainIds"),
             ),
-            cdn_frontdoor_endpoint_id: pulumi_wasm_rust::__private::into_domain(
+            cdn_frontdoor_endpoint_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("cdnFrontdoorEndpointId"),
             ),
-            cdn_frontdoor_origin_group_id: pulumi_wasm_rust::__private::into_domain(
+            cdn_frontdoor_origin_group_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("cdnFrontdoorOriginGroupId"),
             ),
-            cdn_frontdoor_origin_ids: pulumi_wasm_rust::__private::into_domain(
+            cdn_frontdoor_origin_ids: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("cdnFrontdoorOriginIds"),
             ),
-            cdn_frontdoor_origin_path: pulumi_wasm_rust::__private::into_domain(
+            cdn_frontdoor_origin_path: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("cdnFrontdoorOriginPath"),
             ),
-            cdn_frontdoor_rule_set_ids: pulumi_wasm_rust::__private::into_domain(
+            cdn_frontdoor_rule_set_ids: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("cdnFrontdoorRuleSetIds"),
             ),
-            enabled: pulumi_wasm_rust::__private::into_domain(
+            enabled: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("enabled"),
             ),
-            forwarding_protocol: pulumi_wasm_rust::__private::into_domain(
+            forwarding_protocol: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("forwardingProtocol"),
             ),
-            https_redirect_enabled: pulumi_wasm_rust::__private::into_domain(
+            https_redirect_enabled: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("httpsRedirectEnabled"),
             ),
-            link_to_default_domain: pulumi_wasm_rust::__private::into_domain(
+            link_to_default_domain: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("linkToDefaultDomain"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            patterns_to_matches: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            patterns_to_matches: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("patternsToMatches"),
             ),
-            supported_protocols: pulumi_wasm_rust::__private::into_domain(
+            supported_protocols: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("supportedProtocols"),
             ),
         }

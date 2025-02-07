@@ -1,37 +1,37 @@
 pub mod get_ca_certs {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct GetCaCertsArgs {
         /// The name or self link of the instance.
         #[builder(into)]
-        pub instance: pulumi_wasm_rust::InputOrOutput<String>,
+        pub instance: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The ID of the project in which the resource belongs. If `project` is not provided, the provider project is used.
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub project: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct GetCaCertsResult {
         /// SHA1 fingerprint of the currently active CA certificate.
-        pub active_version: pulumi_wasm_rust::Output<String>,
+        pub active_version: pulumi_gestalt_rust::Output<String>,
         /// A list of server CA certificates for the instance. Each contains:
-        pub certs: pulumi_wasm_rust::Output<
+        pub certs: pulumi_gestalt_rust::Output<
             Vec<super::super::super::types::sql::GetCaCertsCert>,
         >,
         /// The provider-assigned unique ID for this managed resource.
-        pub id: pulumi_wasm_rust::Output<String>,
-        pub instance: pulumi_wasm_rust::Output<String>,
-        pub project: pulumi_wasm_rust::Output<String>,
+        pub id: pulumi_gestalt_rust::Output<String>,
+        pub instance: pulumi_gestalt_rust::Output<String>,
+        pub project: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         args: GetCaCertsArgs,
     ) -> GetCaCertsResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let instance_binding = args.instance.get_output(context).get_inner();
         let project_binding = args.project.get_output(context).get_inner();
@@ -51,15 +51,17 @@ pub mod get_ca_certs {
         };
         let o = register_interface::invoke(context.get_inner(), &request);
         GetCaCertsResult {
-            active_version: pulumi_wasm_rust::__private::into_domain(
+            active_version: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("activeVersion"),
             ),
-            certs: pulumi_wasm_rust::__private::into_domain(o.extract_field("certs")),
-            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
-            instance: pulumi_wasm_rust::__private::into_domain(
+            certs: pulumi_gestalt_rust::__private::into_domain(o.extract_field("certs")),
+            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
+            instance: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("instance"),
             ),
-            project: pulumi_wasm_rust::__private::into_domain(o.extract_field("project")),
+            project: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("project"),
+            ),
         }
     }
 }

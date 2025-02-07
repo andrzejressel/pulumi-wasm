@@ -61,84 +61,86 @@
 /// ```
 ///
 pub mod reference_input_mssql {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ReferenceInputMssqlArgs {
         /// The MS SQL database name where the reference data exists.
         #[builder(into)]
-        pub database: pulumi_wasm_rust::InputOrOutput<String>,
+        pub database: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The query used to retrieve incremental changes in the reference data from the MS SQL database. Cannot be set when `refresh_type` is `Static`.
         #[builder(into, default)]
-        pub delta_snapshot_query: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub delta_snapshot_query: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The query used to retrieve the reference data from the MS SQL database.
         #[builder(into)]
-        pub full_snapshot_query: pulumi_wasm_rust::InputOrOutput<String>,
+        pub full_snapshot_query: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The name of the Reference Input MS SQL data. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The password to connect to the MS SQL database.
         #[builder(into)]
-        pub password: pulumi_wasm_rust::InputOrOutput<String>,
+        pub password: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The frequency in `hh:mm:ss` with which the reference data should be retrieved from the MS SQL database e.g. `00:20:00` for every 20 minutes. Must be set when `refresh_type` is `RefreshPeriodicallyWithFull` or `RefreshPeriodicallyWithDelta`.
         #[builder(into, default)]
-        pub refresh_interval_duration: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub refresh_interval_duration: pulumi_gestalt_rust::InputOrOutput<
+            Option<String>,
+        >,
         /// Defines whether and how the reference data should be refreshed. Accepted values are `Static`, `RefreshPeriodicallyWithFull` and `RefreshPeriodicallyWithDelta`.
         #[builder(into)]
-        pub refresh_type: pulumi_wasm_rust::InputOrOutput<String>,
+        pub refresh_type: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The name of the Resource Group where the Stream Analytics Job should exist. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub resource_group_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub resource_group_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The fully qualified domain name of the MS SQL server.
         #[builder(into)]
-        pub server: pulumi_wasm_rust::InputOrOutput<String>,
+        pub server: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The name of the Stream Analytics Job. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub stream_analytics_job_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub stream_analytics_job_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The name of the table in the Azure SQL database.
         #[builder(into, default)]
-        pub table: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub table: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The username to connect to the MS SQL database.
         #[builder(into)]
-        pub username: pulumi_wasm_rust::InputOrOutput<String>,
+        pub username: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct ReferenceInputMssqlResult {
         /// The MS SQL database name where the reference data exists.
-        pub database: pulumi_wasm_rust::Output<String>,
+        pub database: pulumi_gestalt_rust::Output<String>,
         /// The query used to retrieve incremental changes in the reference data from the MS SQL database. Cannot be set when `refresh_type` is `Static`.
-        pub delta_snapshot_query: pulumi_wasm_rust::Output<Option<String>>,
+        pub delta_snapshot_query: pulumi_gestalt_rust::Output<Option<String>>,
         /// The query used to retrieve the reference data from the MS SQL database.
-        pub full_snapshot_query: pulumi_wasm_rust::Output<String>,
+        pub full_snapshot_query: pulumi_gestalt_rust::Output<String>,
         /// The name of the Reference Input MS SQL data. Changing this forces a new resource to be created.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// The password to connect to the MS SQL database.
-        pub password: pulumi_wasm_rust::Output<String>,
+        pub password: pulumi_gestalt_rust::Output<String>,
         /// The frequency in `hh:mm:ss` with which the reference data should be retrieved from the MS SQL database e.g. `00:20:00` for every 20 minutes. Must be set when `refresh_type` is `RefreshPeriodicallyWithFull` or `RefreshPeriodicallyWithDelta`.
-        pub refresh_interval_duration: pulumi_wasm_rust::Output<Option<String>>,
+        pub refresh_interval_duration: pulumi_gestalt_rust::Output<Option<String>>,
         /// Defines whether and how the reference data should be refreshed. Accepted values are `Static`, `RefreshPeriodicallyWithFull` and `RefreshPeriodicallyWithDelta`.
-        pub refresh_type: pulumi_wasm_rust::Output<String>,
+        pub refresh_type: pulumi_gestalt_rust::Output<String>,
         /// The name of the Resource Group where the Stream Analytics Job should exist. Changing this forces a new resource to be created.
-        pub resource_group_name: pulumi_wasm_rust::Output<String>,
+        pub resource_group_name: pulumi_gestalt_rust::Output<String>,
         /// The fully qualified domain name of the MS SQL server.
-        pub server: pulumi_wasm_rust::Output<String>,
+        pub server: pulumi_gestalt_rust::Output<String>,
         /// The name of the Stream Analytics Job. Changing this forces a new resource to be created.
-        pub stream_analytics_job_name: pulumi_wasm_rust::Output<String>,
+        pub stream_analytics_job_name: pulumi_gestalt_rust::Output<String>,
         /// The name of the table in the Azure SQL database.
-        pub table: pulumi_wasm_rust::Output<Option<String>>,
+        pub table: pulumi_gestalt_rust::Output<Option<String>>,
         /// The username to connect to the MS SQL database.
-        pub username: pulumi_wasm_rust::Output<String>,
+        pub username: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: ReferenceInputMssqlArgs,
     ) -> ReferenceInputMssqlResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let database_binding = args.database.get_output(context).get_inner();
         let delta_snapshot_query_binding = args
@@ -225,34 +227,36 @@ pub mod reference_input_mssql {
         };
         let o = register_interface::register(context.get_inner(), &request);
         ReferenceInputMssqlResult {
-            database: pulumi_wasm_rust::__private::into_domain(
+            database: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("database"),
             ),
-            delta_snapshot_query: pulumi_wasm_rust::__private::into_domain(
+            delta_snapshot_query: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("deltaSnapshotQuery"),
             ),
-            full_snapshot_query: pulumi_wasm_rust::__private::into_domain(
+            full_snapshot_query: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("fullSnapshotQuery"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            password: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            password: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("password"),
             ),
-            refresh_interval_duration: pulumi_wasm_rust::__private::into_domain(
+            refresh_interval_duration: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("refreshIntervalDuration"),
             ),
-            refresh_type: pulumi_wasm_rust::__private::into_domain(
+            refresh_type: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("refreshType"),
             ),
-            resource_group_name: pulumi_wasm_rust::__private::into_domain(
+            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("resourceGroupName"),
             ),
-            server: pulumi_wasm_rust::__private::into_domain(o.extract_field("server")),
-            stream_analytics_job_name: pulumi_wasm_rust::__private::into_domain(
+            server: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("server"),
+            ),
+            stream_analytics_job_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("streamAnalyticsJobName"),
             ),
-            table: pulumi_wasm_rust::__private::into_domain(o.extract_field("table")),
-            username: pulumi_wasm_rust::__private::into_domain(
+            table: pulumi_gestalt_rust::__private::into_domain(o.extract_field("table")),
+            username: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("username"),
             ),
         }

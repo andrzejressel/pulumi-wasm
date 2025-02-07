@@ -41,55 +41,57 @@
 /// $ pulumi import aws:dynamodb/tableReplica:TableReplica example TestTable:us-west-2
 /// ```
 pub mod table_replica {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct TableReplicaArgs {
         /// Whether deletion protection is enabled (true) or disabled (false) on the table replica.
         #[builder(into, default)]
-        pub deletion_protection_enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub deletion_protection_enabled: pulumi_gestalt_rust::InputOrOutput<
+            Option<bool>,
+        >,
         /// ARN of the _main_ or global table which this resource will replicate.
         ///
         /// Optional arguments:
         #[builder(into)]
-        pub global_table_arn: pulumi_wasm_rust::InputOrOutput<String>,
+        pub global_table_arn: pulumi_gestalt_rust::InputOrOutput<String>,
         /// ARN of the CMK that should be used for the AWS KMS encryption. This argument should only be used if the key is different from the default KMS-managed DynamoDB key, `alias/aws/dynamodb`. **Note:** This attribute will _not_ be populated with the ARN of _default_ keys.
         #[builder(into, default)]
-        pub kms_key_arn: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub kms_key_arn: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Whether to enable Point In Time Recovery for the table replica. Default is `false`.
         #[builder(into, default)]
-        pub point_in_time_recovery: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub point_in_time_recovery: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// Storage class of the table replica. Valid values are `STANDARD` and `STANDARD_INFREQUENT_ACCESS`. If not used, the table replica will use the same class as the global table.
         #[builder(into, default)]
-        pub table_class_override: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub table_class_override: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Map of tags to populate on the created table. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
     #[allow(dead_code)]
     pub struct TableReplicaResult {
         /// ARN of the table replica.
-        pub arn: pulumi_wasm_rust::Output<String>,
+        pub arn: pulumi_gestalt_rust::Output<String>,
         /// Whether deletion protection is enabled (true) or disabled (false) on the table replica.
-        pub deletion_protection_enabled: pulumi_wasm_rust::Output<bool>,
+        pub deletion_protection_enabled: pulumi_gestalt_rust::Output<bool>,
         /// ARN of the _main_ or global table which this resource will replicate.
         ///
         /// Optional arguments:
-        pub global_table_arn: pulumi_wasm_rust::Output<String>,
+        pub global_table_arn: pulumi_gestalt_rust::Output<String>,
         /// ARN of the CMK that should be used for the AWS KMS encryption. This argument should only be used if the key is different from the default KMS-managed DynamoDB key, `alias/aws/dynamodb`. **Note:** This attribute will _not_ be populated with the ARN of _default_ keys.
-        pub kms_key_arn: pulumi_wasm_rust::Output<String>,
+        pub kms_key_arn: pulumi_gestalt_rust::Output<String>,
         /// Whether to enable Point In Time Recovery for the table replica. Default is `false`.
-        pub point_in_time_recovery: pulumi_wasm_rust::Output<Option<bool>>,
+        pub point_in_time_recovery: pulumi_gestalt_rust::Output<Option<bool>>,
         /// Storage class of the table replica. Valid values are `STANDARD` and `STANDARD_INFREQUENT_ACCESS`. If not used, the table replica will use the same class as the global table.
-        pub table_class_override: pulumi_wasm_rust::Output<Option<String>>,
+        pub table_class_override: pulumi_gestalt_rust::Output<Option<String>>,
         /// Map of tags to populate on the created table. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        pub tags_all: pulumi_wasm_rust::Output<
+        pub tags_all: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
     }
@@ -98,11 +100,11 @@ pub mod table_replica {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: TableReplicaArgs,
     ) -> TableReplicaResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let deletion_protection_enabled_binding = args
             .deletion_protection_enabled
@@ -155,24 +157,24 @@ pub mod table_replica {
         };
         let o = register_interface::register(context.get_inner(), &request);
         TableReplicaResult {
-            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
-            deletion_protection_enabled: pulumi_wasm_rust::__private::into_domain(
+            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
+            deletion_protection_enabled: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("deletionProtectionEnabled"),
             ),
-            global_table_arn: pulumi_wasm_rust::__private::into_domain(
+            global_table_arn: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("globalTableArn"),
             ),
-            kms_key_arn: pulumi_wasm_rust::__private::into_domain(
+            kms_key_arn: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("kmsKeyArn"),
             ),
-            point_in_time_recovery: pulumi_wasm_rust::__private::into_domain(
+            point_in_time_recovery: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("pointInTimeRecovery"),
             ),
-            table_class_override: pulumi_wasm_rust::__private::into_domain(
+            table_class_override: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("tableClassOverride"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_wasm_rust::__private::into_domain(
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            tags_all: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("tagsAll"),
             ),
         }

@@ -3,8 +3,8 @@
 /// ### CNAME validation
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = resource_group::create(
@@ -46,8 +46,8 @@
 /// ### TXT validation
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = resource_group::create(
@@ -101,41 +101,41 @@
 /// ```
 ///
 pub mod static_site_custom_domain {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct StaticSiteCustomDomainArgs {
         /// The Domain Name which should be associated with this Static Site. Changing this forces a new Static Site Custom Domain to be created.
         #[builder(into)]
-        pub domain_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub domain_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The ID of the Static Site. Changing this forces a new Static Site Custom Domain to be created.
         #[builder(into)]
-        pub static_site_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub static_site_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// One of `cname-delegation` or `dns-txt-token`. Changing this forces a new Static Site Custom Domain to be created.
         #[builder(into, default)]
-        pub validation_type: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub validation_type: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct StaticSiteCustomDomainResult {
         /// The Domain Name which should be associated with this Static Site. Changing this forces a new Static Site Custom Domain to be created.
-        pub domain_name: pulumi_wasm_rust::Output<String>,
+        pub domain_name: pulumi_gestalt_rust::Output<String>,
         /// The ID of the Static Site. Changing this forces a new Static Site Custom Domain to be created.
-        pub static_site_id: pulumi_wasm_rust::Output<String>,
+        pub static_site_id: pulumi_gestalt_rust::Output<String>,
         /// Token to be used with `dns-txt-token` validation.
-        pub validation_token: pulumi_wasm_rust::Output<String>,
+        pub validation_token: pulumi_gestalt_rust::Output<String>,
         /// One of `cname-delegation` or `dns-txt-token`. Changing this forces a new Static Site Custom Domain to be created.
-        pub validation_type: pulumi_wasm_rust::Output<Option<String>>,
+        pub validation_type: pulumi_gestalt_rust::Output<Option<String>>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: StaticSiteCustomDomainArgs,
     ) -> StaticSiteCustomDomainResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let domain_name_binding = args.domain_name.get_output(context).get_inner();
         let static_site_id_binding = args.static_site_id.get_output(context).get_inner();
@@ -165,16 +165,16 @@ pub mod static_site_custom_domain {
         };
         let o = register_interface::register(context.get_inner(), &request);
         StaticSiteCustomDomainResult {
-            domain_name: pulumi_wasm_rust::__private::into_domain(
+            domain_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("domainName"),
             ),
-            static_site_id: pulumi_wasm_rust::__private::into_domain(
+            static_site_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("staticSiteId"),
             ),
-            validation_token: pulumi_wasm_rust::__private::into_domain(
+            validation_token: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("validationToken"),
             ),
-            validation_type: pulumi_wasm_rust::__private::into_domain(
+            validation_type: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("validationType"),
             ),
         }

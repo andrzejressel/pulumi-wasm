@@ -104,69 +104,69 @@
 /// ```
 ///
 pub mod region_resize_request {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct RegionResizeRequestArgs {
         /// An optional description of this resize-request.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub description: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The reference of the regional instance group manager this ResizeRequest is a part of.
         ///
         ///
         /// - - -
         #[builder(into)]
-        pub instance_group_manager: pulumi_wasm_rust::InputOrOutput<String>,
+        pub instance_group_manager: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The name of this resize request. The name must be 1-63 characters long, and comply with RFC1035.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub project: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The reference of the compute region scoping this request.
         #[builder(into)]
-        pub region: pulumi_wasm_rust::InputOrOutput<String>,
+        pub region: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Requested run duration for instances that will be created by this request. At the end of the run duration instances will be deleted.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub requested_run_duration: pulumi_wasm_rust::InputOrOutput<
+        pub requested_run_duration: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::compute::RegionResizeRequestRequestedRunDuration>,
         >,
         /// The number of instances to be created by this resize request. The group's target size will be increased by this number.
         #[builder(into)]
-        pub resize_by: pulumi_wasm_rust::InputOrOutput<i32>,
+        pub resize_by: pulumi_gestalt_rust::InputOrOutput<i32>,
     }
     #[allow(dead_code)]
     pub struct RegionResizeRequestResult {
         /// The creation timestamp for this resize request in RFC3339 text format.
-        pub creation_timestamp: pulumi_wasm_rust::Output<String>,
+        pub creation_timestamp: pulumi_gestalt_rust::Output<String>,
         /// An optional description of this resize-request.
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_gestalt_rust::Output<Option<String>>,
         /// The reference of the regional instance group manager this ResizeRequest is a part of.
         ///
         ///
         /// - - -
-        pub instance_group_manager: pulumi_wasm_rust::Output<String>,
+        pub instance_group_manager: pulumi_gestalt_rust::Output<String>,
         /// The name of this resize request. The name must be 1-63 characters long, and comply with RFC1035.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
-        pub project: pulumi_wasm_rust::Output<String>,
+        pub project: pulumi_gestalt_rust::Output<String>,
         /// The reference of the compute region scoping this request.
-        pub region: pulumi_wasm_rust::Output<String>,
+        pub region: pulumi_gestalt_rust::Output<String>,
         /// Requested run duration for instances that will be created by this request. At the end of the run duration instances will be deleted.
         /// Structure is documented below.
-        pub requested_run_duration: pulumi_wasm_rust::Output<
+        pub requested_run_duration: pulumi_gestalt_rust::Output<
             Option<super::super::types::compute::RegionResizeRequestRequestedRunDuration>,
         >,
         /// The number of instances to be created by this resize request. The group's target size will be increased by this number.
-        pub resize_by: pulumi_wasm_rust::Output<i32>,
+        pub resize_by: pulumi_gestalt_rust::Output<i32>,
         /// Current state of the request.
-        pub state: pulumi_wasm_rust::Output<String>,
+        pub state: pulumi_gestalt_rust::Output<String>,
         /// Status of the request.
         /// Structure is documented below.
-        pub statuses: pulumi_wasm_rust::Output<
+        pub statuses: pulumi_gestalt_rust::Output<
             Vec<super::super::types::compute::RegionResizeRequestStatus>,
         >,
     }
@@ -175,11 +175,11 @@ pub mod region_resize_request {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: RegionResizeRequestArgs,
     ) -> RegionResizeRequestResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let description_binding = args.description.get_output(context).get_inner();
         let instance_group_manager_binding = args
@@ -231,28 +231,30 @@ pub mod region_resize_request {
         };
         let o = register_interface::register(context.get_inner(), &request);
         RegionResizeRequestResult {
-            creation_timestamp: pulumi_wasm_rust::__private::into_domain(
+            creation_timestamp: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("creationTimestamp"),
             ),
-            description: pulumi_wasm_rust::__private::into_domain(
+            description: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("description"),
             ),
-            instance_group_manager: pulumi_wasm_rust::__private::into_domain(
+            instance_group_manager: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("instanceGroupManager"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            project: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            project: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("project"),
             ),
-            region: pulumi_wasm_rust::__private::into_domain(o.extract_field("region")),
-            requested_run_duration: pulumi_wasm_rust::__private::into_domain(
+            region: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("region"),
+            ),
+            requested_run_duration: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("requestedRunDuration"),
             ),
-            resize_by: pulumi_wasm_rust::__private::into_domain(
+            resize_by: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("resizeBy"),
             ),
-            state: pulumi_wasm_rust::__private::into_domain(o.extract_field("state")),
-            statuses: pulumi_wasm_rust::__private::into_domain(
+            state: pulumi_gestalt_rust::__private::into_domain(o.extract_field("state")),
+            statuses: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("statuses"),
             ),
         }

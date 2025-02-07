@@ -11,69 +11,71 @@
 /// $ pulumi import aws:rds/proxyEndpoint:ProxyEndpoint example example/example
 /// ```
 pub mod proxy_endpoint {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ProxyEndpointArgs {
         /// The identifier for the proxy endpoint. An identifier must begin with a letter and must contain only ASCII letters, digits, and hyphens; it can't end with a hyphen or contain two consecutive hyphens.
         #[builder(into)]
-        pub db_proxy_endpoint_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub db_proxy_endpoint_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The name of the DB proxy associated with the DB proxy endpoint that you create.
         #[builder(into)]
-        pub db_proxy_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub db_proxy_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// A mapping of tags to assign to the resource.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Indicates whether the DB proxy endpoint can be used for read/write or read-only operations. The default is `READ_WRITE`. Valid values are `READ_WRITE` and `READ_ONLY`.
         #[builder(into, default)]
-        pub target_role: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub target_role: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// One or more VPC security group IDs to associate with the new proxy.
         #[builder(into, default)]
-        pub vpc_security_group_ids: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
+        pub vpc_security_group_ids: pulumi_gestalt_rust::InputOrOutput<
+            Option<Vec<String>>,
+        >,
         /// One or more VPC subnet IDs to associate with the new proxy.
         #[builder(into)]
-        pub vpc_subnet_ids: pulumi_wasm_rust::InputOrOutput<Vec<String>>,
+        pub vpc_subnet_ids: pulumi_gestalt_rust::InputOrOutput<Vec<String>>,
     }
     #[allow(dead_code)]
     pub struct ProxyEndpointResult {
         /// The Amazon Resource Name (ARN) for the proxy endpoint.
-        pub arn: pulumi_wasm_rust::Output<String>,
+        pub arn: pulumi_gestalt_rust::Output<String>,
         /// The identifier for the proxy endpoint. An identifier must begin with a letter and must contain only ASCII letters, digits, and hyphens; it can't end with a hyphen or contain two consecutive hyphens.
-        pub db_proxy_endpoint_name: pulumi_wasm_rust::Output<String>,
+        pub db_proxy_endpoint_name: pulumi_gestalt_rust::Output<String>,
         /// The name of the DB proxy associated with the DB proxy endpoint that you create.
-        pub db_proxy_name: pulumi_wasm_rust::Output<String>,
+        pub db_proxy_name: pulumi_gestalt_rust::Output<String>,
         /// The endpoint that you can use to connect to the proxy. You include the endpoint value in the connection string for a database client application.
-        pub endpoint: pulumi_wasm_rust::Output<String>,
+        pub endpoint: pulumi_gestalt_rust::Output<String>,
         /// Indicates whether this endpoint is the default endpoint for the associated DB proxy.
-        pub is_default: pulumi_wasm_rust::Output<bool>,
+        pub is_default: pulumi_gestalt_rust::Output<bool>,
         /// A mapping of tags to assign to the resource.
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
-        pub tags_all: pulumi_wasm_rust::Output<
+        pub tags_all: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
         /// Indicates whether the DB proxy endpoint can be used for read/write or read-only operations. The default is `READ_WRITE`. Valid values are `READ_WRITE` and `READ_ONLY`.
-        pub target_role: pulumi_wasm_rust::Output<Option<String>>,
+        pub target_role: pulumi_gestalt_rust::Output<Option<String>>,
         /// The VPC ID of the DB proxy endpoint.
-        pub vpc_id: pulumi_wasm_rust::Output<String>,
+        pub vpc_id: pulumi_gestalt_rust::Output<String>,
         /// One or more VPC security group IDs to associate with the new proxy.
-        pub vpc_security_group_ids: pulumi_wasm_rust::Output<Vec<String>>,
+        pub vpc_security_group_ids: pulumi_gestalt_rust::Output<Vec<String>>,
         /// One or more VPC subnet IDs to associate with the new proxy.
-        pub vpc_subnet_ids: pulumi_wasm_rust::Output<Vec<String>>,
+        pub vpc_subnet_ids: pulumi_gestalt_rust::Output<Vec<String>>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: ProxyEndpointArgs,
     ) -> ProxyEndpointResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let db_proxy_endpoint_name_binding = args
             .db_proxy_endpoint_name
@@ -120,31 +122,33 @@ pub mod proxy_endpoint {
         };
         let o = register_interface::register(context.get_inner(), &request);
         ProxyEndpointResult {
-            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
-            db_proxy_endpoint_name: pulumi_wasm_rust::__private::into_domain(
+            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
+            db_proxy_endpoint_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("dbProxyEndpointName"),
             ),
-            db_proxy_name: pulumi_wasm_rust::__private::into_domain(
+            db_proxy_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("dbProxyName"),
             ),
-            endpoint: pulumi_wasm_rust::__private::into_domain(
+            endpoint: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("endpoint"),
             ),
-            is_default: pulumi_wasm_rust::__private::into_domain(
+            is_default: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("isDefault"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_wasm_rust::__private::into_domain(
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            tags_all: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("tagsAll"),
             ),
-            target_role: pulumi_wasm_rust::__private::into_domain(
+            target_role: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("targetRole"),
             ),
-            vpc_id: pulumi_wasm_rust::__private::into_domain(o.extract_field("vpcId")),
-            vpc_security_group_ids: pulumi_wasm_rust::__private::into_domain(
+            vpc_id: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("vpcId"),
+            ),
+            vpc_security_group_ids: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("vpcSecurityGroupIds"),
             ),
-            vpc_subnet_ids: pulumi_wasm_rust::__private::into_domain(
+            vpc_subnet_ids: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("vpcSubnetIds"),
             ),
         }

@@ -1,141 +1,141 @@
 pub mod get_instance_type {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct GetInstanceTypeArgs {
         /// Instance
         #[builder(into)]
-        pub instance_type: pulumi_wasm_rust::InputOrOutput<String>,
+        pub instance_type: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct GetInstanceTypeResult {
         /// `true` if auto recovery is supported.
-        pub auto_recovery_supported: pulumi_wasm_rust::Output<bool>,
+        pub auto_recovery_supported: pulumi_gestalt_rust::Output<bool>,
         /// `true` if it is a bare metal instance type.
-        pub bare_metal: pulumi_wasm_rust::Output<bool>,
+        pub bare_metal: pulumi_gestalt_rust::Output<bool>,
         /// `true` if the instance type is a burstable performance instance type.
-        pub burstable_performance_supported: pulumi_wasm_rust::Output<bool>,
+        pub burstable_performance_supported: pulumi_gestalt_rust::Output<bool>,
         /// `true`  if the instance type is a current generation.
-        pub current_generation: pulumi_wasm_rust::Output<bool>,
+        pub current_generation: pulumi_gestalt_rust::Output<bool>,
         /// `true` if Dedicated Hosts are supported on the instance type.
-        pub dedicated_hosts_supported: pulumi_wasm_rust::Output<bool>,
+        pub dedicated_hosts_supported: pulumi_gestalt_rust::Output<bool>,
         /// Default number of cores for the instance type.
-        pub default_cores: pulumi_wasm_rust::Output<i32>,
+        pub default_cores: pulumi_gestalt_rust::Output<i32>,
         /// The  default  number of threads per core for the instance type.
-        pub default_threads_per_core: pulumi_wasm_rust::Output<i32>,
+        pub default_threads_per_core: pulumi_gestalt_rust::Output<i32>,
         /// Default number of vCPUs for the instance type.
-        pub default_vcpus: pulumi_wasm_rust::Output<i32>,
+        pub default_vcpus: pulumi_gestalt_rust::Output<i32>,
         /// Indicates whether Amazon EBS encryption is supported.
-        pub ebs_encryption_support: pulumi_wasm_rust::Output<String>,
+        pub ebs_encryption_support: pulumi_gestalt_rust::Output<String>,
         /// Whether non-volatile memory express (NVMe) is supported.
-        pub ebs_nvme_support: pulumi_wasm_rust::Output<String>,
+        pub ebs_nvme_support: pulumi_gestalt_rust::Output<String>,
         /// Indicates that the instance type is Amazon EBS-optimized.
-        pub ebs_optimized_support: pulumi_wasm_rust::Output<String>,
+        pub ebs_optimized_support: pulumi_gestalt_rust::Output<String>,
         /// The baseline bandwidth performance for an EBS-optimized instance type, in Mbps.
-        pub ebs_performance_baseline_bandwidth: pulumi_wasm_rust::Output<i32>,
+        pub ebs_performance_baseline_bandwidth: pulumi_gestalt_rust::Output<i32>,
         /// The baseline input/output storage operations per seconds for an EBS-optimized instance type.
-        pub ebs_performance_baseline_iops: pulumi_wasm_rust::Output<i32>,
+        pub ebs_performance_baseline_iops: pulumi_gestalt_rust::Output<i32>,
         /// The baseline throughput performance for an EBS-optimized instance type, in MBps.
-        pub ebs_performance_baseline_throughput: pulumi_wasm_rust::Output<f64>,
+        pub ebs_performance_baseline_throughput: pulumi_gestalt_rust::Output<f64>,
         /// The maximum bandwidth performance for an EBS-optimized instance type, in Mbps.
-        pub ebs_performance_maximum_bandwidth: pulumi_wasm_rust::Output<i32>,
+        pub ebs_performance_maximum_bandwidth: pulumi_gestalt_rust::Output<i32>,
         /// The maximum input/output storage operations per second for an EBS-optimized instance type.
-        pub ebs_performance_maximum_iops: pulumi_wasm_rust::Output<i32>,
+        pub ebs_performance_maximum_iops: pulumi_gestalt_rust::Output<i32>,
         /// The maximum throughput performance for an EBS-optimized instance type, in MBps.
-        pub ebs_performance_maximum_throughput: pulumi_wasm_rust::Output<f64>,
+        pub ebs_performance_maximum_throughput: pulumi_gestalt_rust::Output<f64>,
         /// Whether Elastic Fabric Adapter (EFA) is supported.
-        pub efa_supported: pulumi_wasm_rust::Output<bool>,
+        pub efa_supported: pulumi_gestalt_rust::Output<bool>,
         /// Whether Elastic Network Adapter (ENA) is supported.
-        pub ena_support: pulumi_wasm_rust::Output<String>,
+        pub ena_support: pulumi_gestalt_rust::Output<String>,
         /// Indicates whether encryption in-transit between instances is supported.
-        pub encryption_in_transit_supported: pulumi_wasm_rust::Output<bool>,
+        pub encryption_in_transit_supported: pulumi_gestalt_rust::Output<bool>,
         /// Describes the FPGA accelerator settings for the instance type.
         /// * `fpgas.#.count` - The count of FPGA accelerators for the instance type.
         /// * `fpgas.#.manufacturer` - The manufacturer of the FPGA accelerator.
         /// * `fpgas.#.memory_size` - The size (in MiB) for the memory available to the FPGA accelerator.
         /// * `fpgas.#.name` - The name of the FPGA accelerator.
-        pub fpgas: pulumi_wasm_rust::Output<
+        pub fpgas: pulumi_gestalt_rust::Output<
             Vec<super::super::super::types::ec2::GetInstanceTypeFpga>,
         >,
         /// `true` if the instance type is eligible for the free tier.
-        pub free_tier_eligible: pulumi_wasm_rust::Output<bool>,
+        pub free_tier_eligible: pulumi_gestalt_rust::Output<bool>,
         /// Describes the GPU accelerators for the instance type.
         /// * `gpus.#.count` - The number of GPUs for the instance type.
         /// * `gpus.#.manufacturer` - The manufacturer of the GPU accelerator.
         /// * `gpus.#.memory_size` - The size (in MiB) for the memory available to the GPU accelerator.
         /// * `gpus.#.name` - The name of the GPU accelerator.
-        pub gpuses: pulumi_wasm_rust::Output<
+        pub gpuses: pulumi_gestalt_rust::Output<
             Vec<super::super::super::types::ec2::GetInstanceTypeGpus>,
         >,
         /// `true` if On-Demand hibernation is supported.
-        pub hibernation_supported: pulumi_wasm_rust::Output<bool>,
+        pub hibernation_supported: pulumi_gestalt_rust::Output<bool>,
         /// Hypervisor used for the instance type.
-        pub hypervisor: pulumi_wasm_rust::Output<String>,
+        pub hypervisor: pulumi_gestalt_rust::Output<String>,
         /// The provider-assigned unique ID for this managed resource.
-        pub id: pulumi_wasm_rust::Output<String>,
+        pub id: pulumi_gestalt_rust::Output<String>,
         /// Describes the Inference accelerators for the instance type.
         /// * `inference_accelerators.#.count` - The number of Inference accelerators for the instance type.
         /// * `inference_accelerators.#.manufacturer` - The manufacturer of the Inference accelerator.
         /// * `inference_accelerators.#.name` - The name of the Inference accelerator.
-        pub inference_accelerators: pulumi_wasm_rust::Output<
+        pub inference_accelerators: pulumi_gestalt_rust::Output<
             Vec<super::super::super::types::ec2::GetInstanceTypeInferenceAccelerator>,
         >,
         /// Describes the disks for the instance type.
         /// * `instance_disks.#.count` - The number of disks with this configuration.
         /// * `instance_disks.#.size` - The size of the disk in GB.
         /// * `instance_disks.#.type` - The type of disk.
-        pub instance_disks: pulumi_wasm_rust::Output<
+        pub instance_disks: pulumi_gestalt_rust::Output<
             Vec<super::super::super::types::ec2::GetInstanceTypeInstanceDisk>,
         >,
         /// `true` if instance storage is supported.
-        pub instance_storage_supported: pulumi_wasm_rust::Output<bool>,
-        pub instance_type: pulumi_wasm_rust::Output<String>,
+        pub instance_storage_supported: pulumi_gestalt_rust::Output<bool>,
+        pub instance_type: pulumi_gestalt_rust::Output<String>,
         /// `true` if IPv6 is supported.
-        pub ipv6_supported: pulumi_wasm_rust::Output<bool>,
+        pub ipv6_supported: pulumi_gestalt_rust::Output<bool>,
         /// The maximum number of IPv4 addresses per network interface.
-        pub maximum_ipv4_addresses_per_interface: pulumi_wasm_rust::Output<i32>,
+        pub maximum_ipv4_addresses_per_interface: pulumi_gestalt_rust::Output<i32>,
         /// The maximum number of IPv6 addresses per network interface.
-        pub maximum_ipv6_addresses_per_interface: pulumi_wasm_rust::Output<i32>,
+        pub maximum_ipv6_addresses_per_interface: pulumi_gestalt_rust::Output<i32>,
         /// The maximum number of physical network cards that can be allocated to the instance.
-        pub maximum_network_cards: pulumi_wasm_rust::Output<i32>,
+        pub maximum_network_cards: pulumi_gestalt_rust::Output<i32>,
         /// The maximum number of network interfaces for the instance type.
-        pub maximum_network_interfaces: pulumi_wasm_rust::Output<i32>,
+        pub maximum_network_interfaces: pulumi_gestalt_rust::Output<i32>,
         /// Size of the instance memory, in MiB.
-        pub memory_size: pulumi_wasm_rust::Output<i32>,
+        pub memory_size: pulumi_gestalt_rust::Output<i32>,
         /// Describes the network performance.
-        pub network_performance: pulumi_wasm_rust::Output<String>,
+        pub network_performance: pulumi_gestalt_rust::Output<String>,
         /// A list of architectures supported by the instance type.
-        pub supported_architectures: pulumi_wasm_rust::Output<Vec<String>>,
+        pub supported_architectures: pulumi_gestalt_rust::Output<Vec<String>>,
         /// A list of supported placement groups types.
-        pub supported_placement_strategies: pulumi_wasm_rust::Output<Vec<String>>,
+        pub supported_placement_strategies: pulumi_gestalt_rust::Output<Vec<String>>,
         /// Indicates the supported root device types.
-        pub supported_root_device_types: pulumi_wasm_rust::Output<Vec<String>>,
+        pub supported_root_device_types: pulumi_gestalt_rust::Output<Vec<String>>,
         /// Indicates whether the instance type is offered for spot or On-Demand.
-        pub supported_usages_classes: pulumi_wasm_rust::Output<Vec<String>>,
+        pub supported_usages_classes: pulumi_gestalt_rust::Output<Vec<String>>,
         /// The supported virtualization types.
-        pub supported_virtualization_types: pulumi_wasm_rust::Output<Vec<String>>,
+        pub supported_virtualization_types: pulumi_gestalt_rust::Output<Vec<String>>,
         /// The speed of the processor, in GHz.
-        pub sustained_clock_speed: pulumi_wasm_rust::Output<f64>,
+        pub sustained_clock_speed: pulumi_gestalt_rust::Output<f64>,
         /// Total memory of all FPGA accelerators for the instance type (in MiB).
-        pub total_fpga_memory: pulumi_wasm_rust::Output<i32>,
+        pub total_fpga_memory: pulumi_gestalt_rust::Output<i32>,
         /// Total size of the memory for the GPU accelerators for the instance type (in MiB).
-        pub total_gpu_memory: pulumi_wasm_rust::Output<i32>,
+        pub total_gpu_memory: pulumi_gestalt_rust::Output<i32>,
         /// The total size of the instance disks, in GB.
-        pub total_instance_storage: pulumi_wasm_rust::Output<i32>,
+        pub total_instance_storage: pulumi_gestalt_rust::Output<i32>,
         /// List of the valid number of cores that can be configured for the instance type.
-        pub valid_cores: pulumi_wasm_rust::Output<Vec<i32>>,
+        pub valid_cores: pulumi_gestalt_rust::Output<Vec<i32>>,
         /// List of the valid number of threads per core that can be configured for the instance type.
-        pub valid_threads_per_cores: pulumi_wasm_rust::Output<Vec<i32>>,
+        pub valid_threads_per_cores: pulumi_gestalt_rust::Output<Vec<i32>>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         args: GetInstanceTypeArgs,
     ) -> GetInstanceTypeResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let instance_type_binding = args.instance_type.get_output(context).get_inner();
         let request = register_interface::ResourceInvokeRequest {
@@ -150,142 +150,144 @@ pub mod get_instance_type {
         };
         let o = register_interface::invoke(context.get_inner(), &request);
         GetInstanceTypeResult {
-            auto_recovery_supported: pulumi_wasm_rust::__private::into_domain(
+            auto_recovery_supported: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("autoRecoverySupported"),
             ),
-            bare_metal: pulumi_wasm_rust::__private::into_domain(
+            bare_metal: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("bareMetal"),
             ),
-            burstable_performance_supported: pulumi_wasm_rust::__private::into_domain(
+            burstable_performance_supported: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("burstablePerformanceSupported"),
             ),
-            current_generation: pulumi_wasm_rust::__private::into_domain(
+            current_generation: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("currentGeneration"),
             ),
-            dedicated_hosts_supported: pulumi_wasm_rust::__private::into_domain(
+            dedicated_hosts_supported: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("dedicatedHostsSupported"),
             ),
-            default_cores: pulumi_wasm_rust::__private::into_domain(
+            default_cores: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("defaultCores"),
             ),
-            default_threads_per_core: pulumi_wasm_rust::__private::into_domain(
+            default_threads_per_core: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("defaultThreadsPerCore"),
             ),
-            default_vcpus: pulumi_wasm_rust::__private::into_domain(
+            default_vcpus: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("defaultVcpus"),
             ),
-            ebs_encryption_support: pulumi_wasm_rust::__private::into_domain(
+            ebs_encryption_support: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("ebsEncryptionSupport"),
             ),
-            ebs_nvme_support: pulumi_wasm_rust::__private::into_domain(
+            ebs_nvme_support: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("ebsNvmeSupport"),
             ),
-            ebs_optimized_support: pulumi_wasm_rust::__private::into_domain(
+            ebs_optimized_support: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("ebsOptimizedSupport"),
             ),
-            ebs_performance_baseline_bandwidth: pulumi_wasm_rust::__private::into_domain(
+            ebs_performance_baseline_bandwidth: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("ebsPerformanceBaselineBandwidth"),
             ),
-            ebs_performance_baseline_iops: pulumi_wasm_rust::__private::into_domain(
+            ebs_performance_baseline_iops: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("ebsPerformanceBaselineIops"),
             ),
-            ebs_performance_baseline_throughput: pulumi_wasm_rust::__private::into_domain(
+            ebs_performance_baseline_throughput: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("ebsPerformanceBaselineThroughput"),
             ),
-            ebs_performance_maximum_bandwidth: pulumi_wasm_rust::__private::into_domain(
+            ebs_performance_maximum_bandwidth: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("ebsPerformanceMaximumBandwidth"),
             ),
-            ebs_performance_maximum_iops: pulumi_wasm_rust::__private::into_domain(
+            ebs_performance_maximum_iops: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("ebsPerformanceMaximumIops"),
             ),
-            ebs_performance_maximum_throughput: pulumi_wasm_rust::__private::into_domain(
+            ebs_performance_maximum_throughput: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("ebsPerformanceMaximumThroughput"),
             ),
-            efa_supported: pulumi_wasm_rust::__private::into_domain(
+            efa_supported: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("efaSupported"),
             ),
-            ena_support: pulumi_wasm_rust::__private::into_domain(
+            ena_support: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("enaSupport"),
             ),
-            encryption_in_transit_supported: pulumi_wasm_rust::__private::into_domain(
+            encryption_in_transit_supported: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("encryptionInTransitSupported"),
             ),
-            fpgas: pulumi_wasm_rust::__private::into_domain(o.extract_field("fpgas")),
-            free_tier_eligible: pulumi_wasm_rust::__private::into_domain(
+            fpgas: pulumi_gestalt_rust::__private::into_domain(o.extract_field("fpgas")),
+            free_tier_eligible: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("freeTierEligible"),
             ),
-            gpuses: pulumi_wasm_rust::__private::into_domain(o.extract_field("gpuses")),
-            hibernation_supported: pulumi_wasm_rust::__private::into_domain(
+            gpuses: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("gpuses"),
+            ),
+            hibernation_supported: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("hibernationSupported"),
             ),
-            hypervisor: pulumi_wasm_rust::__private::into_domain(
+            hypervisor: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("hypervisor"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
-            inference_accelerators: pulumi_wasm_rust::__private::into_domain(
+            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
+            inference_accelerators: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("inferenceAccelerators"),
             ),
-            instance_disks: pulumi_wasm_rust::__private::into_domain(
+            instance_disks: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("instanceDisks"),
             ),
-            instance_storage_supported: pulumi_wasm_rust::__private::into_domain(
+            instance_storage_supported: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("instanceStorageSupported"),
             ),
-            instance_type: pulumi_wasm_rust::__private::into_domain(
+            instance_type: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("instanceType"),
             ),
-            ipv6_supported: pulumi_wasm_rust::__private::into_domain(
+            ipv6_supported: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("ipv6Supported"),
             ),
-            maximum_ipv4_addresses_per_interface: pulumi_wasm_rust::__private::into_domain(
+            maximum_ipv4_addresses_per_interface: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("maximumIpv4AddressesPerInterface"),
             ),
-            maximum_ipv6_addresses_per_interface: pulumi_wasm_rust::__private::into_domain(
+            maximum_ipv6_addresses_per_interface: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("maximumIpv6AddressesPerInterface"),
             ),
-            maximum_network_cards: pulumi_wasm_rust::__private::into_domain(
+            maximum_network_cards: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("maximumNetworkCards"),
             ),
-            maximum_network_interfaces: pulumi_wasm_rust::__private::into_domain(
+            maximum_network_interfaces: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("maximumNetworkInterfaces"),
             ),
-            memory_size: pulumi_wasm_rust::__private::into_domain(
+            memory_size: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("memorySize"),
             ),
-            network_performance: pulumi_wasm_rust::__private::into_domain(
+            network_performance: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("networkPerformance"),
             ),
-            supported_architectures: pulumi_wasm_rust::__private::into_domain(
+            supported_architectures: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("supportedArchitectures"),
             ),
-            supported_placement_strategies: pulumi_wasm_rust::__private::into_domain(
+            supported_placement_strategies: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("supportedPlacementStrategies"),
             ),
-            supported_root_device_types: pulumi_wasm_rust::__private::into_domain(
+            supported_root_device_types: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("supportedRootDeviceTypes"),
             ),
-            supported_usages_classes: pulumi_wasm_rust::__private::into_domain(
+            supported_usages_classes: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("supportedUsagesClasses"),
             ),
-            supported_virtualization_types: pulumi_wasm_rust::__private::into_domain(
+            supported_virtualization_types: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("supportedVirtualizationTypes"),
             ),
-            sustained_clock_speed: pulumi_wasm_rust::__private::into_domain(
+            sustained_clock_speed: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("sustainedClockSpeed"),
             ),
-            total_fpga_memory: pulumi_wasm_rust::__private::into_domain(
+            total_fpga_memory: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("totalFpgaMemory"),
             ),
-            total_gpu_memory: pulumi_wasm_rust::__private::into_domain(
+            total_gpu_memory: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("totalGpuMemory"),
             ),
-            total_instance_storage: pulumi_wasm_rust::__private::into_domain(
+            total_instance_storage: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("totalInstanceStorage"),
             ),
-            valid_cores: pulumi_wasm_rust::__private::into_domain(
+            valid_cores: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("validCores"),
             ),
-            valid_threads_per_cores: pulumi_wasm_rust::__private::into_domain(
+            valid_threads_per_cores: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("validThreadsPerCores"),
             ),
         }

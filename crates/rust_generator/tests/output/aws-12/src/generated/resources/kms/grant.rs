@@ -9,74 +9,76 @@
 /// $ pulumi import aws:kms/grant:Grant test 1234abcd-12ab-34cd-56ef-1234567890ab:abcde1237f76e4ba7987489ac329fbfba6ad343d6f7075dbd1ef191f0120514
 /// ```
 pub mod grant {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct GrantArgs {
         /// A structure that you can use to allow certain operations in the grant only when the desired encryption context is present. For more information about encryption context, see [Encryption Context](http://docs.aws.amazon.com/kms/latest/developerguide/encryption-context.html).
         #[builder(into, default)]
-        pub constraints: pulumi_wasm_rust::InputOrOutput<
+        pub constraints: pulumi_gestalt_rust::InputOrOutput<
             Option<Vec<super::super::types::kms::GrantConstraint>>,
         >,
         /// A list of grant tokens to be used when creating the grant. See [Grant Tokens](http://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#grant_token) for more information about grant tokens.
         #[builder(into, default)]
-        pub grant_creation_tokens: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
+        pub grant_creation_tokens: pulumi_gestalt_rust::InputOrOutput<
+            Option<Vec<String>>,
+        >,
         /// The principal that is given permission to perform the operations that the grant permits in ARN format. Note that due to eventual consistency issues around IAM principals, the providers's state may not always be refreshed to reflect what is true in AWS.
         #[builder(into)]
-        pub grantee_principal: pulumi_wasm_rust::InputOrOutput<String>,
+        pub grantee_principal: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The unique identifier for the customer master key (CMK) that the grant applies to. Specify the key ID or the Amazon Resource Name (ARN) of the CMK. To specify a CMK in a different AWS account, you must use the key ARN.
         #[builder(into)]
-        pub key_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub key_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// A friendly name for identifying the grant.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// A list of operations that the grant permits. The permitted values are: `Decrypt`, `Encrypt`, `GenerateDataKey`, `GenerateDataKeyWithoutPlaintext`, `ReEncryptFrom`, `ReEncryptTo`, `Sign`, `Verify`, `GetPublicKey`, `CreateGrant`, `RetireGrant`, `DescribeKey`, `GenerateDataKeyPair`, or `GenerateDataKeyPairWithoutPlaintext`.
         #[builder(into)]
-        pub operations: pulumi_wasm_rust::InputOrOutput<Vec<String>>,
+        pub operations: pulumi_gestalt_rust::InputOrOutput<Vec<String>>,
         /// If set to false (the default) the grants will be revoked upon deletion, and if set to true the grants will try to be retired upon deletion. Note that retiring grants requires special permissions, hence why we default to revoking grants.
         /// See [RetireGrant](https://docs.aws.amazon.com/kms/latest/APIReference/API_RetireGrant.html) for more information.
         #[builder(into, default)]
-        pub retire_on_delete: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub retire_on_delete: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// The principal that is given permission to retire the grant by using RetireGrant operation in ARN format. Note that due to eventual consistency issues around IAM principals, the providers's state may not always be refreshed to reflect what is true in AWS.
         #[builder(into, default)]
-        pub retiring_principal: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub retiring_principal: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct GrantResult {
         /// A structure that you can use to allow certain operations in the grant only when the desired encryption context is present. For more information about encryption context, see [Encryption Context](http://docs.aws.amazon.com/kms/latest/developerguide/encryption-context.html).
-        pub constraints: pulumi_wasm_rust::Output<
+        pub constraints: pulumi_gestalt_rust::Output<
             Option<Vec<super::super::types::kms::GrantConstraint>>,
         >,
         /// A list of grant tokens to be used when creating the grant. See [Grant Tokens](http://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#grant_token) for more information about grant tokens.
-        pub grant_creation_tokens: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub grant_creation_tokens: pulumi_gestalt_rust::Output<Option<Vec<String>>>,
         /// The unique identifier for the grant.
-        pub grant_id: pulumi_wasm_rust::Output<String>,
+        pub grant_id: pulumi_gestalt_rust::Output<String>,
         /// The grant token for the created grant. For more information, see [Grant Tokens](http://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#grant_token).
-        pub grant_token: pulumi_wasm_rust::Output<String>,
+        pub grant_token: pulumi_gestalt_rust::Output<String>,
         /// The principal that is given permission to perform the operations that the grant permits in ARN format. Note that due to eventual consistency issues around IAM principals, the providers's state may not always be refreshed to reflect what is true in AWS.
-        pub grantee_principal: pulumi_wasm_rust::Output<String>,
+        pub grantee_principal: pulumi_gestalt_rust::Output<String>,
         /// The unique identifier for the customer master key (CMK) that the grant applies to. Specify the key ID or the Amazon Resource Name (ARN) of the CMK. To specify a CMK in a different AWS account, you must use the key ARN.
-        pub key_id: pulumi_wasm_rust::Output<String>,
+        pub key_id: pulumi_gestalt_rust::Output<String>,
         /// A friendly name for identifying the grant.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// A list of operations that the grant permits. The permitted values are: `Decrypt`, `Encrypt`, `GenerateDataKey`, `GenerateDataKeyWithoutPlaintext`, `ReEncryptFrom`, `ReEncryptTo`, `Sign`, `Verify`, `GetPublicKey`, `CreateGrant`, `RetireGrant`, `DescribeKey`, `GenerateDataKeyPair`, or `GenerateDataKeyPairWithoutPlaintext`.
-        pub operations: pulumi_wasm_rust::Output<Vec<String>>,
+        pub operations: pulumi_gestalt_rust::Output<Vec<String>>,
         /// If set to false (the default) the grants will be revoked upon deletion, and if set to true the grants will try to be retired upon deletion. Note that retiring grants requires special permissions, hence why we default to revoking grants.
         /// See [RetireGrant](https://docs.aws.amazon.com/kms/latest/APIReference/API_RetireGrant.html) for more information.
-        pub retire_on_delete: pulumi_wasm_rust::Output<Option<bool>>,
+        pub retire_on_delete: pulumi_gestalt_rust::Output<Option<bool>>,
         /// The principal that is given permission to retire the grant by using RetireGrant operation in ARN format. Note that due to eventual consistency issues around IAM principals, the providers's state may not always be refreshed to reflect what is true in AWS.
-        pub retiring_principal: pulumi_wasm_rust::Output<Option<String>>,
+        pub retiring_principal: pulumi_gestalt_rust::Output<Option<String>>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: GrantArgs,
     ) -> GrantResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let constraints_binding = args.constraints.get_output(context).get_inner();
         let grant_creation_tokens_binding = args
@@ -139,30 +141,32 @@ pub mod grant {
         };
         let o = register_interface::register(context.get_inner(), &request);
         GrantResult {
-            constraints: pulumi_wasm_rust::__private::into_domain(
+            constraints: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("constraints"),
             ),
-            grant_creation_tokens: pulumi_wasm_rust::__private::into_domain(
+            grant_creation_tokens: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("grantCreationTokens"),
             ),
-            grant_id: pulumi_wasm_rust::__private::into_domain(
+            grant_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("grantId"),
             ),
-            grant_token: pulumi_wasm_rust::__private::into_domain(
+            grant_token: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("grantToken"),
             ),
-            grantee_principal: pulumi_wasm_rust::__private::into_domain(
+            grantee_principal: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("granteePrincipal"),
             ),
-            key_id: pulumi_wasm_rust::__private::into_domain(o.extract_field("keyId")),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            operations: pulumi_wasm_rust::__private::into_domain(
+            key_id: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("keyId"),
+            ),
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            operations: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("operations"),
             ),
-            retire_on_delete: pulumi_wasm_rust::__private::into_domain(
+            retire_on_delete: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("retireOnDelete"),
             ),
-            retiring_principal: pulumi_wasm_rust::__private::into_domain(
+            retiring_principal: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("retiringPrincipal"),
             ),
         }

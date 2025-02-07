@@ -3,8 +3,8 @@
 /// ## Example Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = key::create(
@@ -32,8 +32,8 @@
 /// ### With Upstream Repository
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let test = repository::create(
@@ -63,8 +63,8 @@
 /// ### With External Connection
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let test = repository::create(
@@ -97,66 +97,66 @@
 /// $ pulumi import aws:codeartifact/repository:Repository example arn:aws:codeartifact:us-west-2:012345678912:repository/tf-acc-test-6968272603913957763/tf-acc-test-6968272603913957763
 /// ```
 pub mod repository {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct RepositoryArgs {
         /// The description of the repository.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub description: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The domain that contains the created repository.
         #[builder(into)]
-        pub domain: pulumi_wasm_rust::InputOrOutput<String>,
+        pub domain: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The account number of the AWS account that owns the domain.
         #[builder(into, default)]
-        pub domain_owner: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub domain_owner: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// An array of external connections associated with the repository. Only one external connection can be set per repository. see External Connections.
         #[builder(into, default)]
-        pub external_connections: pulumi_wasm_rust::InputOrOutput<
+        pub external_connections: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::codeartifact::RepositoryExternalConnections>,
         >,
         /// The name of the repository to create.
         #[builder(into)]
-        pub repository: pulumi_wasm_rust::InputOrOutput<String>,
+        pub repository: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// A list of upstream repositories to associate with the repository. The order of the upstream repositories in the list determines their priority order when AWS CodeArtifact looks for a requested package version. see Upstream
         #[builder(into, default)]
-        pub upstreams: pulumi_wasm_rust::InputOrOutput<
+        pub upstreams: pulumi_gestalt_rust::InputOrOutput<
             Option<Vec<super::super::types::codeartifact::RepositoryUpstream>>,
         >,
     }
     #[allow(dead_code)]
     pub struct RepositoryResult {
         /// The account number of the AWS account that manages the repository.
-        pub administrator_account: pulumi_wasm_rust::Output<String>,
+        pub administrator_account: pulumi_gestalt_rust::Output<String>,
         /// The ARN of the repository.
-        pub arn: pulumi_wasm_rust::Output<String>,
+        pub arn: pulumi_gestalt_rust::Output<String>,
         /// The description of the repository.
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_gestalt_rust::Output<Option<String>>,
         /// The domain that contains the created repository.
-        pub domain: pulumi_wasm_rust::Output<String>,
+        pub domain: pulumi_gestalt_rust::Output<String>,
         /// The account number of the AWS account that owns the domain.
-        pub domain_owner: pulumi_wasm_rust::Output<String>,
+        pub domain_owner: pulumi_gestalt_rust::Output<String>,
         /// An array of external connections associated with the repository. Only one external connection can be set per repository. see External Connections.
-        pub external_connections: pulumi_wasm_rust::Output<
+        pub external_connections: pulumi_gestalt_rust::Output<
             Option<super::super::types::codeartifact::RepositoryExternalConnections>,
         >,
         /// The name of the repository to create.
-        pub repository: pulumi_wasm_rust::Output<String>,
+        pub repository: pulumi_gestalt_rust::Output<String>,
         /// Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        pub tags_all: pulumi_wasm_rust::Output<
+        pub tags_all: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
         /// A list of upstream repositories to associate with the repository. The order of the upstream repositories in the list determines their priority order when AWS CodeArtifact looks for a requested package version. see Upstream
-        pub upstreams: pulumi_wasm_rust::Output<
+        pub upstreams: pulumi_gestalt_rust::Output<
             Option<Vec<super::super::types::codeartifact::RepositoryUpstream>>,
         >,
     }
@@ -165,11 +165,11 @@ pub mod repository {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: RepositoryArgs,
     ) -> RepositoryResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let description_binding = args.description.get_output(context).get_inner();
         let domain_binding = args.domain.get_output(context).get_inner();
@@ -218,28 +218,30 @@ pub mod repository {
         };
         let o = register_interface::register(context.get_inner(), &request);
         RepositoryResult {
-            administrator_account: pulumi_wasm_rust::__private::into_domain(
+            administrator_account: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("administratorAccount"),
             ),
-            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
-            description: pulumi_wasm_rust::__private::into_domain(
+            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
+            description: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("description"),
             ),
-            domain: pulumi_wasm_rust::__private::into_domain(o.extract_field("domain")),
-            domain_owner: pulumi_wasm_rust::__private::into_domain(
+            domain: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("domain"),
+            ),
+            domain_owner: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("domainOwner"),
             ),
-            external_connections: pulumi_wasm_rust::__private::into_domain(
+            external_connections: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("externalConnections"),
             ),
-            repository: pulumi_wasm_rust::__private::into_domain(
+            repository: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("repository"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_wasm_rust::__private::into_domain(
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            tags_all: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("tagsAll"),
             ),
-            upstreams: pulumi_wasm_rust::__private::into_domain(
+            upstreams: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("upstreams"),
             ),
         }

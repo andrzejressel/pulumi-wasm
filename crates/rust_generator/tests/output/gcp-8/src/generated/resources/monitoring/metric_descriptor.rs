@@ -13,8 +13,8 @@
 ///
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let basic = metric_descriptor::create(
@@ -47,8 +47,8 @@
 ///
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let alertPolicy = alert_policy::create(
@@ -106,46 +106,46 @@
 /// ```
 ///
 pub mod metric_descriptor {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct MetricDescriptorArgs {
         /// A detailed description of the metric, which can be used in documentation.
         #[builder(into)]
-        pub description: pulumi_wasm_rust::InputOrOutput<String>,
+        pub description: pulumi_gestalt_rust::InputOrOutput<String>,
         /// A concise name for the metric, which can be displayed in user interfaces. Use sentence case without an ending period, for example "Request count".
         ///
         ///
         /// - - -
         #[builder(into)]
-        pub display_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub display_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The set of labels that can be used to describe a specific instance of this metric type. In order to delete a label, the entire resource must be deleted, then created with the desired labels.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub labels: pulumi_wasm_rust::InputOrOutput<
+        pub labels: pulumi_gestalt_rust::InputOrOutput<
             Option<Vec<super::super::types::monitoring::MetricDescriptorLabel>>,
         >,
         /// The launch stage of the metric definition.
         /// Possible values are: `LAUNCH_STAGE_UNSPECIFIED`, `UNIMPLEMENTED`, `PRELAUNCH`, `EARLY_ACCESS`, `ALPHA`, `BETA`, `GA`, `DEPRECATED`.
         #[builder(into, default)]
-        pub launch_stage: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub launch_stage: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Metadata which can be used to guide usage of the metric.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub metadata: pulumi_wasm_rust::InputOrOutput<
+        pub metadata: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::monitoring::MetricDescriptorMetadata>,
         >,
         /// Whether the metric records instantaneous values, changes to a value, etc. Some combinations of metricKind and valueType might not be supported.
         /// Possible values are: `METRIC_KIND_UNSPECIFIED`, `GAUGE`, `DELTA`, `CUMULATIVE`.
         #[builder(into)]
-        pub metric_kind: pulumi_wasm_rust::InputOrOutput<String>,
+        pub metric_kind: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub project: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The metric type, including its DNS name prefix. The type is not URL-encoded. All service defined metrics must be prefixed with the service name, in the format of {service name}/{relative metric name}, such as cloudsql.googleapis.com/database/cpu/utilization. The relative metric name must have only upper and lower-case letters, digits, '/' and underscores '_' are allowed. Additionally, the maximum number of characters allowed for the relative_metric_name is 100. All user-defined metric types have the DNS name custom.googleapis.com, external.googleapis.com, or logging.googleapis.com/user/.
         #[builder(into)]
-        pub type_: pulumi_wasm_rust::InputOrOutput<String>,
+        pub type_: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The units in which the metric value is reported. It is only applicable if the
         /// valueType is INT64, DOUBLE, or DISTRIBUTION. The unit defines the representation of
         /// the stored metric values.
@@ -164,46 +164,46 @@ pub mod metric_descriptor {
         /// More info can be found in the API documentation
         /// (https://cloud.google.com/monitoring/api/ref_v3/rest/v3/projects.metricDescriptors).
         #[builder(into, default)]
-        pub unit: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub unit: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Whether the measurement is an integer, a floating-point number, etc. Some combinations of metricKind and valueType might not be supported.
         /// Possible values are: `BOOL`, `INT64`, `DOUBLE`, `STRING`, `DISTRIBUTION`.
         #[builder(into)]
-        pub value_type: pulumi_wasm_rust::InputOrOutput<String>,
+        pub value_type: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct MetricDescriptorResult {
         /// A detailed description of the metric, which can be used in documentation.
-        pub description: pulumi_wasm_rust::Output<String>,
+        pub description: pulumi_gestalt_rust::Output<String>,
         /// A concise name for the metric, which can be displayed in user interfaces. Use sentence case without an ending period, for example "Request count".
         ///
         ///
         /// - - -
-        pub display_name: pulumi_wasm_rust::Output<String>,
+        pub display_name: pulumi_gestalt_rust::Output<String>,
         /// The set of labels that can be used to describe a specific instance of this metric type. In order to delete a label, the entire resource must be deleted, then created with the desired labels.
         /// Structure is documented below.
-        pub labels: pulumi_wasm_rust::Output<
+        pub labels: pulumi_gestalt_rust::Output<
             Option<Vec<super::super::types::monitoring::MetricDescriptorLabel>>,
         >,
         /// The launch stage of the metric definition.
         /// Possible values are: `LAUNCH_STAGE_UNSPECIFIED`, `UNIMPLEMENTED`, `PRELAUNCH`, `EARLY_ACCESS`, `ALPHA`, `BETA`, `GA`, `DEPRECATED`.
-        pub launch_stage: pulumi_wasm_rust::Output<Option<String>>,
+        pub launch_stage: pulumi_gestalt_rust::Output<Option<String>>,
         /// Metadata which can be used to guide usage of the metric.
         /// Structure is documented below.
-        pub metadata: pulumi_wasm_rust::Output<
+        pub metadata: pulumi_gestalt_rust::Output<
             Option<super::super::types::monitoring::MetricDescriptorMetadata>,
         >,
         /// Whether the metric records instantaneous values, changes to a value, etc. Some combinations of metricKind and valueType might not be supported.
         /// Possible values are: `METRIC_KIND_UNSPECIFIED`, `GAUGE`, `DELTA`, `CUMULATIVE`.
-        pub metric_kind: pulumi_wasm_rust::Output<String>,
+        pub metric_kind: pulumi_gestalt_rust::Output<String>,
         /// If present, then a time series, which is identified partially by a metric type and a MonitoredResourceDescriptor, that is associated with this metric type can only be associated with one of the monitored resource types listed here. This field allows time series to be associated with the intersection of this metric type and the monitored resource types in this list.
-        pub monitored_resource_types: pulumi_wasm_rust::Output<Vec<String>>,
+        pub monitored_resource_types: pulumi_gestalt_rust::Output<Vec<String>>,
         /// The resource name of the metric descriptor.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
-        pub project: pulumi_wasm_rust::Output<String>,
+        pub project: pulumi_gestalt_rust::Output<String>,
         /// The metric type, including its DNS name prefix. The type is not URL-encoded. All service defined metrics must be prefixed with the service name, in the format of {service name}/{relative metric name}, such as cloudsql.googleapis.com/database/cpu/utilization. The relative metric name must have only upper and lower-case letters, digits, '/' and underscores '_' are allowed. Additionally, the maximum number of characters allowed for the relative_metric_name is 100. All user-defined metric types have the DNS name custom.googleapis.com, external.googleapis.com, or logging.googleapis.com/user/.
-        pub type_: pulumi_wasm_rust::Output<String>,
+        pub type_: pulumi_gestalt_rust::Output<String>,
         /// The units in which the metric value is reported. It is only applicable if the
         /// valueType is INT64, DOUBLE, or DISTRIBUTION. The unit defines the representation of
         /// the stored metric values.
@@ -221,21 +221,21 @@ pub mod metric_descriptor {
         /// The supported units are a subset of The Unified Code for Units of Measure standard.
         /// More info can be found in the API documentation
         /// (https://cloud.google.com/monitoring/api/ref_v3/rest/v3/projects.metricDescriptors).
-        pub unit: pulumi_wasm_rust::Output<Option<String>>,
+        pub unit: pulumi_gestalt_rust::Output<Option<String>>,
         /// Whether the measurement is an integer, a floating-point number, etc. Some combinations of metricKind and valueType might not be supported.
         /// Possible values are: `BOOL`, `INT64`, `DOUBLE`, `STRING`, `DISTRIBUTION`.
-        pub value_type: pulumi_wasm_rust::Output<String>,
+        pub value_type: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: MetricDescriptorArgs,
     ) -> MetricDescriptorResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let description_binding = args.description.get_output(context).get_inner();
         let display_name_binding = args.display_name.get_output(context).get_inner();
@@ -296,32 +296,34 @@ pub mod metric_descriptor {
         };
         let o = register_interface::register(context.get_inner(), &request);
         MetricDescriptorResult {
-            description: pulumi_wasm_rust::__private::into_domain(
+            description: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("description"),
             ),
-            display_name: pulumi_wasm_rust::__private::into_domain(
+            display_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("displayName"),
             ),
-            labels: pulumi_wasm_rust::__private::into_domain(o.extract_field("labels")),
-            launch_stage: pulumi_wasm_rust::__private::into_domain(
+            labels: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("labels"),
+            ),
+            launch_stage: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("launchStage"),
             ),
-            metadata: pulumi_wasm_rust::__private::into_domain(
+            metadata: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("metadata"),
             ),
-            metric_kind: pulumi_wasm_rust::__private::into_domain(
+            metric_kind: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("metricKind"),
             ),
-            monitored_resource_types: pulumi_wasm_rust::__private::into_domain(
+            monitored_resource_types: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("monitoredResourceTypes"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            project: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            project: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("project"),
             ),
-            type_: pulumi_wasm_rust::__private::into_domain(o.extract_field("type")),
-            unit: pulumi_wasm_rust::__private::into_domain(o.extract_field("unit")),
-            value_type: pulumi_wasm_rust::__private::into_domain(
+            type_: pulumi_gestalt_rust::__private::into_domain(o.extract_field("type")),
+            unit: pulumi_gestalt_rust::__private::into_domain(o.extract_field("unit")),
+            value_type: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("valueType"),
             ),
         }

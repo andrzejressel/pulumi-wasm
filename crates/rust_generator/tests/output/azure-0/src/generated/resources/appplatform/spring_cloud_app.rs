@@ -36,108 +36,108 @@
 /// ```
 ///
 pub mod spring_cloud_app {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct SpringCloudAppArgs {
         /// A JSON object that contains the addon configurations of the Spring Cloud Service.
         #[builder(into, default)]
-        pub addon_json: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub addon_json: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// A `custom_persistent_disk` block as defined below.
         #[builder(into, default)]
-        pub custom_persistent_disks: pulumi_wasm_rust::InputOrOutput<
+        pub custom_persistent_disks: pulumi_gestalt_rust::InputOrOutput<
             Option<
                 Vec<super::super::types::appplatform::SpringCloudAppCustomPersistentDisk>,
             >,
         >,
         /// Is only HTTPS allowed? Defaults to `false`.
         #[builder(into, default)]
-        pub https_only: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub https_only: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// An `identity` block as defined below.
         #[builder(into, default)]
-        pub identity: pulumi_wasm_rust::InputOrOutput<
+        pub identity: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::appplatform::SpringCloudAppIdentity>,
         >,
         /// An `ingress_settings` block as defined below.
         #[builder(into, default)]
-        pub ingress_settings: pulumi_wasm_rust::InputOrOutput<
+        pub ingress_settings: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::appplatform::SpringCloudAppIngressSettings>,
         >,
         /// Does the Spring Cloud Application have public endpoint? Defaults to `false`.
         #[builder(into, default)]
-        pub is_public: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub is_public: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// Specifies the name of the Spring Cloud Application. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// An `persistent_disk` block as defined below.
         #[builder(into, default)]
-        pub persistent_disk: pulumi_wasm_rust::InputOrOutput<
+        pub persistent_disk: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::appplatform::SpringCloudAppPersistentDisk>,
         >,
         /// Should the App in vnet injection instance exposes endpoint which could be accessed from Internet?
         #[builder(into, default)]
-        pub public_endpoint_enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub public_endpoint_enabled: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// Specifies the name of the resource group in which to create the Spring Cloud Application. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub resource_group_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub resource_group_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Specifies the name of the Spring Cloud Service resource. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub service_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub service_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Is End to End TLS Enabled? Defaults to `false`.
         #[builder(into, default)]
-        pub tls_enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub tls_enabled: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
     }
     #[allow(dead_code)]
     pub struct SpringCloudAppResult {
         /// A JSON object that contains the addon configurations of the Spring Cloud Service.
-        pub addon_json: pulumi_wasm_rust::Output<String>,
+        pub addon_json: pulumi_gestalt_rust::Output<String>,
         /// A `custom_persistent_disk` block as defined below.
-        pub custom_persistent_disks: pulumi_wasm_rust::Output<
+        pub custom_persistent_disks: pulumi_gestalt_rust::Output<
             Option<
                 Vec<super::super::types::appplatform::SpringCloudAppCustomPersistentDisk>,
             >,
         >,
         /// The Fully Qualified DNS Name of the Spring Application in the service.
-        pub fqdn: pulumi_wasm_rust::Output<String>,
+        pub fqdn: pulumi_gestalt_rust::Output<String>,
         /// Is only HTTPS allowed? Defaults to `false`.
-        pub https_only: pulumi_wasm_rust::Output<Option<bool>>,
+        pub https_only: pulumi_gestalt_rust::Output<Option<bool>>,
         /// An `identity` block as defined below.
-        pub identity: pulumi_wasm_rust::Output<
+        pub identity: pulumi_gestalt_rust::Output<
             Option<super::super::types::appplatform::SpringCloudAppIdentity>,
         >,
         /// An `ingress_settings` block as defined below.
-        pub ingress_settings: pulumi_wasm_rust::Output<
+        pub ingress_settings: pulumi_gestalt_rust::Output<
             super::super::types::appplatform::SpringCloudAppIngressSettings,
         >,
         /// Does the Spring Cloud Application have public endpoint? Defaults to `false`.
-        pub is_public: pulumi_wasm_rust::Output<Option<bool>>,
+        pub is_public: pulumi_gestalt_rust::Output<Option<bool>>,
         /// Specifies the name of the Spring Cloud Application. Changing this forces a new resource to be created.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// An `persistent_disk` block as defined below.
-        pub persistent_disk: pulumi_wasm_rust::Output<
+        pub persistent_disk: pulumi_gestalt_rust::Output<
             super::super::types::appplatform::SpringCloudAppPersistentDisk,
         >,
         /// Should the App in vnet injection instance exposes endpoint which could be accessed from Internet?
-        pub public_endpoint_enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub public_endpoint_enabled: pulumi_gestalt_rust::Output<Option<bool>>,
         /// Specifies the name of the resource group in which to create the Spring Cloud Application. Changing this forces a new resource to be created.
-        pub resource_group_name: pulumi_wasm_rust::Output<String>,
+        pub resource_group_name: pulumi_gestalt_rust::Output<String>,
         /// Specifies the name of the Spring Cloud Service resource. Changing this forces a new resource to be created.
-        pub service_name: pulumi_wasm_rust::Output<String>,
+        pub service_name: pulumi_gestalt_rust::Output<String>,
         /// Is End to End TLS Enabled? Defaults to `false`.
-        pub tls_enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub tls_enabled: pulumi_gestalt_rust::Output<Option<bool>>,
         /// The public endpoint of the Spring Cloud Application.
-        pub url: pulumi_wasm_rust::Output<String>,
+        pub url: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: SpringCloudAppArgs,
     ) -> SpringCloudAppResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let addon_json_binding = args.addon_json.get_output(context).get_inner();
         let custom_persistent_disks_binding = args
@@ -223,42 +223,42 @@ pub mod spring_cloud_app {
         };
         let o = register_interface::register(context.get_inner(), &request);
         SpringCloudAppResult {
-            addon_json: pulumi_wasm_rust::__private::into_domain(
+            addon_json: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("addonJson"),
             ),
-            custom_persistent_disks: pulumi_wasm_rust::__private::into_domain(
+            custom_persistent_disks: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("customPersistentDisks"),
             ),
-            fqdn: pulumi_wasm_rust::__private::into_domain(o.extract_field("fqdn")),
-            https_only: pulumi_wasm_rust::__private::into_domain(
+            fqdn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("fqdn")),
+            https_only: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("httpsOnly"),
             ),
-            identity: pulumi_wasm_rust::__private::into_domain(
+            identity: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("identity"),
             ),
-            ingress_settings: pulumi_wasm_rust::__private::into_domain(
+            ingress_settings: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("ingressSettings"),
             ),
-            is_public: pulumi_wasm_rust::__private::into_domain(
+            is_public: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("isPublic"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            persistent_disk: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            persistent_disk: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("persistentDisk"),
             ),
-            public_endpoint_enabled: pulumi_wasm_rust::__private::into_domain(
+            public_endpoint_enabled: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("publicEndpointEnabled"),
             ),
-            resource_group_name: pulumi_wasm_rust::__private::into_domain(
+            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("resourceGroupName"),
             ),
-            service_name: pulumi_wasm_rust::__private::into_domain(
+            service_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("serviceName"),
             ),
-            tls_enabled: pulumi_wasm_rust::__private::into_domain(
+            tls_enabled: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("tlsEnabled"),
             ),
-            url: pulumi_wasm_rust::__private::into_domain(o.extract_field("url")),
+            url: pulumi_gestalt_rust::__private::into_domain(o.extract_field("url")),
         }
     }
 }

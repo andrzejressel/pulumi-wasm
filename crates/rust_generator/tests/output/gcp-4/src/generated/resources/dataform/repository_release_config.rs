@@ -88,89 +88,89 @@
 /// ```
 ///
 pub mod repository_release_config {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct RepositoryReleaseConfigArgs {
         /// Optional. If set, fields of codeCompilationConfig override the default compilation settings that are specified in dataform.json.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub code_compilation_config: pulumi_wasm_rust::InputOrOutput<
+        pub code_compilation_config: pulumi_gestalt_rust::InputOrOutput<
             Option<
                 super::super::types::dataform::RepositoryReleaseConfigCodeCompilationConfig,
             >,
         >,
         /// Optional. Optional schedule (in cron format) for automatic creation of compilation results.
         #[builder(into, default)]
-        pub cron_schedule: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub cron_schedule: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Git commit/tag/branch name at which the repository should be compiled. Must exist in the remote repository.
         ///
         ///
         /// - - -
         #[builder(into)]
-        pub git_commitish: pulumi_wasm_rust::InputOrOutput<String>,
+        pub git_commitish: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The release's name.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub project: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// A reference to the region
         #[builder(into, default)]
-        pub region: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub region: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// A reference to the Dataform repository
         #[builder(into, default)]
-        pub repository: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub repository: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Optional. Specifies the time zone to be used when interpreting cronSchedule. Must be a time zone name from the time zone database (https://en.wikipedia.org/wiki/List_of_tz_database_time_zones). If left unspecified, the default is UTC.
         #[builder(into, default)]
-        pub time_zone: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub time_zone: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct RepositoryReleaseConfigResult {
         /// Optional. If set, fields of codeCompilationConfig override the default compilation settings that are specified in dataform.json.
         /// Structure is documented below.
-        pub code_compilation_config: pulumi_wasm_rust::Output<
+        pub code_compilation_config: pulumi_gestalt_rust::Output<
             Option<
                 super::super::types::dataform::RepositoryReleaseConfigCodeCompilationConfig,
             >,
         >,
         /// Optional. Optional schedule (in cron format) for automatic creation of compilation results.
-        pub cron_schedule: pulumi_wasm_rust::Output<Option<String>>,
+        pub cron_schedule: pulumi_gestalt_rust::Output<Option<String>>,
         /// Git commit/tag/branch name at which the repository should be compiled. Must exist in the remote repository.
         ///
         ///
         /// - - -
-        pub git_commitish: pulumi_wasm_rust::Output<String>,
+        pub git_commitish: pulumi_gestalt_rust::Output<String>,
         /// The release's name.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
-        pub project: pulumi_wasm_rust::Output<String>,
+        pub project: pulumi_gestalt_rust::Output<String>,
         /// Records of the 10 most recent scheduled release attempts, ordered in in descending order of releaseTime. Updated whenever automatic creation of a compilation result is triggered by cronSchedule.
         /// Structure is documented below.
-        pub recent_scheduled_release_records: pulumi_wasm_rust::Output<
+        pub recent_scheduled_release_records: pulumi_gestalt_rust::Output<
             Vec<
                 super::super::types::dataform::RepositoryReleaseConfigRecentScheduledReleaseRecord,
             >,
         >,
         /// A reference to the region
-        pub region: pulumi_wasm_rust::Output<Option<String>>,
+        pub region: pulumi_gestalt_rust::Output<Option<String>>,
         /// A reference to the Dataform repository
-        pub repository: pulumi_wasm_rust::Output<Option<String>>,
+        pub repository: pulumi_gestalt_rust::Output<Option<String>>,
         /// Optional. Specifies the time zone to be used when interpreting cronSchedule. Must be a time zone name from the time zone database (https://en.wikipedia.org/wiki/List_of_tz_database_time_zones). If left unspecified, the default is UTC.
-        pub time_zone: pulumi_wasm_rust::Output<Option<String>>,
+        pub time_zone: pulumi_gestalt_rust::Output<Option<String>>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: RepositoryReleaseConfigArgs,
     ) -> RepositoryReleaseConfigResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let code_compilation_config_binding = args
             .code_compilation_config
@@ -224,27 +224,29 @@ pub mod repository_release_config {
         };
         let o = register_interface::register(context.get_inner(), &request);
         RepositoryReleaseConfigResult {
-            code_compilation_config: pulumi_wasm_rust::__private::into_domain(
+            code_compilation_config: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("codeCompilationConfig"),
             ),
-            cron_schedule: pulumi_wasm_rust::__private::into_domain(
+            cron_schedule: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("cronSchedule"),
             ),
-            git_commitish: pulumi_wasm_rust::__private::into_domain(
+            git_commitish: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("gitCommitish"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            project: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            project: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("project"),
             ),
-            recent_scheduled_release_records: pulumi_wasm_rust::__private::into_domain(
+            recent_scheduled_release_records: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("recentScheduledReleaseRecords"),
             ),
-            region: pulumi_wasm_rust::__private::into_domain(o.extract_field("region")),
-            repository: pulumi_wasm_rust::__private::into_domain(
+            region: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("region"),
+            ),
+            repository: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("repository"),
             ),
-            time_zone: pulumi_wasm_rust::__private::into_domain(
+            time_zone: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("timeZone"),
             ),
         }

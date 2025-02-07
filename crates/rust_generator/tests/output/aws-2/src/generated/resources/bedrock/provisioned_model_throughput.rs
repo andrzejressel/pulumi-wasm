@@ -3,8 +3,8 @@
 /// ## Example Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = provisioned_model_throughput::create(
@@ -27,53 +27,53 @@
 /// $ pulumi import aws:bedrock/provisionedModelThroughput:ProvisionedModelThroughput example arn:aws:bedrock:us-west-2:123456789012:provisioned-model/1y5n57gh5y2e
 /// ```
 pub mod provisioned_model_throughput {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ProvisionedModelThroughputArgs {
         /// Commitment duration requested for the Provisioned Throughput. For custom models, you can purchase on-demand Provisioned Throughput by omitting this argument. Valid values: `OneMonth`, `SixMonths`.
         #[builder(into, default)]
-        pub commitment_duration: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub commitment_duration: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// ARN of the model to associate with this Provisioned Throughput.
         #[builder(into)]
-        pub model_arn: pulumi_wasm_rust::InputOrOutput<String>,
+        pub model_arn: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Number of model units to allocate. A model unit delivers a specific throughput level for the specified model.
         #[builder(into)]
-        pub model_units: pulumi_wasm_rust::InputOrOutput<i32>,
+        pub model_units: pulumi_gestalt_rust::InputOrOutput<i32>,
         /// Unique name for this Provisioned Throughput.
         #[builder(into)]
-        pub provisioned_model_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub provisioned_model_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         #[builder(into, default)]
-        pub timeouts: pulumi_wasm_rust::InputOrOutput<
+        pub timeouts: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::bedrock::ProvisionedModelThroughputTimeouts>,
         >,
     }
     #[allow(dead_code)]
     pub struct ProvisionedModelThroughputResult {
         /// Commitment duration requested for the Provisioned Throughput. For custom models, you can purchase on-demand Provisioned Throughput by omitting this argument. Valid values: `OneMonth`, `SixMonths`.
-        pub commitment_duration: pulumi_wasm_rust::Output<Option<String>>,
+        pub commitment_duration: pulumi_gestalt_rust::Output<Option<String>>,
         /// ARN of the model to associate with this Provisioned Throughput.
-        pub model_arn: pulumi_wasm_rust::Output<String>,
+        pub model_arn: pulumi_gestalt_rust::Output<String>,
         /// Number of model units to allocate. A model unit delivers a specific throughput level for the specified model.
-        pub model_units: pulumi_wasm_rust::Output<i32>,
+        pub model_units: pulumi_gestalt_rust::Output<i32>,
         /// The ARN of the Provisioned Throughput.
-        pub provisioned_model_arn: pulumi_wasm_rust::Output<String>,
+        pub provisioned_model_arn: pulumi_gestalt_rust::Output<String>,
         /// Unique name for this Provisioned Throughput.
-        pub provisioned_model_name: pulumi_wasm_rust::Output<String>,
+        pub provisioned_model_name: pulumi_gestalt_rust::Output<String>,
         /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        pub tags_all: pulumi_wasm_rust::Output<
+        pub tags_all: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
-        pub timeouts: pulumi_wasm_rust::Output<
+        pub timeouts: pulumi_gestalt_rust::Output<
             Option<super::super::types::bedrock::ProvisionedModelThroughputTimeouts>,
         >,
     }
@@ -82,11 +82,11 @@ pub mod provisioned_model_throughput {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: ProvisionedModelThroughputArgs,
     ) -> ProvisionedModelThroughputResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let commitment_duration_binding = args
             .commitment_duration
@@ -134,26 +134,26 @@ pub mod provisioned_model_throughput {
         };
         let o = register_interface::register(context.get_inner(), &request);
         ProvisionedModelThroughputResult {
-            commitment_duration: pulumi_wasm_rust::__private::into_domain(
+            commitment_duration: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("commitmentDuration"),
             ),
-            model_arn: pulumi_wasm_rust::__private::into_domain(
+            model_arn: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("modelArn"),
             ),
-            model_units: pulumi_wasm_rust::__private::into_domain(
+            model_units: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("modelUnits"),
             ),
-            provisioned_model_arn: pulumi_wasm_rust::__private::into_domain(
+            provisioned_model_arn: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("provisionedModelArn"),
             ),
-            provisioned_model_name: pulumi_wasm_rust::__private::into_domain(
+            provisioned_model_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("provisionedModelName"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_wasm_rust::__private::into_domain(
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            tags_all: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("tagsAll"),
             ),
-            timeouts: pulumi_wasm_rust::__private::into_domain(
+            timeouts: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("timeouts"),
             ),
         }

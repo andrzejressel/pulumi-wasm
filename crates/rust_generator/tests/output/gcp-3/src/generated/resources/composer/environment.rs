@@ -25,13 +25,13 @@
 /// ```
 ///
 pub mod environment {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct EnvironmentArgs {
         /// Configuration parameters for this environment.
         #[builder(into, default)]
-        pub config: pulumi_wasm_rust::InputOrOutput<
+        pub config: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::composer::EnvironmentConfig>,
         >,
         /// User-defined labels for this environment. The labels map can contain no more than 64 entries. Entries of the labels map
@@ -42,31 +42,31 @@ pub mod environment {
         /// present in your configuration. Please refer to the field 'effective_labels' for all of the labels present on the
         /// resource.
         #[builder(into, default)]
-        pub labels: pulumi_wasm_rust::InputOrOutput<
+        pub labels: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Name of the environment.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The ID of the project in which the resource belongs. If it is not provided, the provider project is used.
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub project: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The location or Compute Engine region for the environment.
         #[builder(into, default)]
-        pub region: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub region: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Configuration options for storage used by Composer environment.
         #[builder(into, default)]
-        pub storage_config: pulumi_wasm_rust::InputOrOutput<
+        pub storage_config: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::composer::EnvironmentStorageConfig>,
         >,
     }
     #[allow(dead_code)]
     pub struct EnvironmentResult {
         /// Configuration parameters for this environment.
-        pub config: pulumi_wasm_rust::Output<
+        pub config: pulumi_gestalt_rust::Output<
             super::super::types::composer::EnvironmentConfig,
         >,
-        pub effective_labels: pulumi_wasm_rust::Output<
+        pub effective_labels: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
         /// User-defined labels for this environment. The labels map can contain no more than 64 entries. Entries of the labels map
@@ -76,21 +76,21 @@ pub mod environment {
         /// and values must be <= 128 bytes in size. **Note**: This field is non-authoritative, and will only manage the labels
         /// present in your configuration. Please refer to the field 'effective_labels' for all of the labels present on the
         /// resource.
-        pub labels: pulumi_wasm_rust::Output<
+        pub labels: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Name of the environment.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// The ID of the project in which the resource belongs. If it is not provided, the provider project is used.
-        pub project: pulumi_wasm_rust::Output<String>,
+        pub project: pulumi_gestalt_rust::Output<String>,
         /// The combination of labels configured directly on the resource and default labels configured on the provider.
-        pub pulumi_labels: pulumi_wasm_rust::Output<
+        pub pulumi_labels: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
         /// The location or Compute Engine region for the environment.
-        pub region: pulumi_wasm_rust::Output<String>,
+        pub region: pulumi_gestalt_rust::Output<String>,
         /// Configuration options for storage used by Composer environment.
-        pub storage_config: pulumi_wasm_rust::Output<
+        pub storage_config: pulumi_gestalt_rust::Output<
             super::super::types::composer::EnvironmentStorageConfig,
         >,
     }
@@ -99,11 +99,11 @@ pub mod environment {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: EnvironmentArgs,
     ) -> EnvironmentResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let config_binding = args.config.get_output(context).get_inner();
         let labels_binding = args.labels.get_output(context).get_inner();
@@ -144,20 +144,26 @@ pub mod environment {
         };
         let o = register_interface::register(context.get_inner(), &request);
         EnvironmentResult {
-            config: pulumi_wasm_rust::__private::into_domain(o.extract_field("config")),
-            effective_labels: pulumi_wasm_rust::__private::into_domain(
+            config: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("config"),
+            ),
+            effective_labels: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("effectiveLabels"),
             ),
-            labels: pulumi_wasm_rust::__private::into_domain(o.extract_field("labels")),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            project: pulumi_wasm_rust::__private::into_domain(
+            labels: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("labels"),
+            ),
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            project: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("project"),
             ),
-            pulumi_labels: pulumi_wasm_rust::__private::into_domain(
+            pulumi_labels: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("pulumiLabels"),
             ),
-            region: pulumi_wasm_rust::__private::into_domain(o.extract_field("region")),
-            storage_config: pulumi_wasm_rust::__private::into_domain(
+            region: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("region"),
+            ),
+            storage_config: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("storageConfig"),
             ),
         }

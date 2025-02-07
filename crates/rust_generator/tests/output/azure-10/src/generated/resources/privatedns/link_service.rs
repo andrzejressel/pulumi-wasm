@@ -85,98 +85,100 @@
 /// ```
 ///
 pub mod link_service {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct LinkServiceArgs {
         /// A list of Subscription UUID/GUID's that will be automatically be able to use this Private Link Service.
         #[builder(into, default)]
-        pub auto_approval_subscription_ids: pulumi_wasm_rust::InputOrOutput<
+        pub auto_approval_subscription_ids: pulumi_gestalt_rust::InputOrOutput<
             Option<Vec<String>>,
         >,
         /// Should the Private Link Service support the Proxy Protocol?
         #[builder(into, default)]
-        pub enable_proxy_protocol: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub enable_proxy_protocol: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// List of FQDNs allowed for the Private Link Service.
         #[builder(into, default)]
-        pub fqdns: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
+        pub fqdns: pulumi_gestalt_rust::InputOrOutput<Option<Vec<String>>>,
         /// A list of Frontend IP Configuration IDs from a Standard Load Balancer, where traffic from the Private Link Service should be routed. You can use Load Balancer Rules to direct this traffic to appropriate backend pools where your applications are running. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub load_balancer_frontend_ip_configuration_ids: pulumi_wasm_rust::InputOrOutput<
+        pub load_balancer_frontend_ip_configuration_ids: pulumi_gestalt_rust::InputOrOutput<
             Vec<String>,
         >,
         /// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub location: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub location: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Specifies the name of this Private Link Service. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// One or more (up to 8) `nat_ip_configuration` block as defined below.
         #[builder(into)]
-        pub nat_ip_configurations: pulumi_wasm_rust::InputOrOutput<
+        pub nat_ip_configurations: pulumi_gestalt_rust::InputOrOutput<
             Vec<super::super::types::privatedns::LinkServiceNatIpConfiguration>,
         >,
         /// The name of the Resource Group where the Private Link Service should exist. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub resource_group_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub resource_group_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// A mapping of tags to assign to the resource.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// A list of Subscription UUID/GUID's that will be able to see this Private Link Service.
         ///
         /// > **NOTE:** If no Subscription IDs are specified then Azure allows every Subscription to see this Private Link Service.
         #[builder(into, default)]
-        pub visibility_subscription_ids: pulumi_wasm_rust::InputOrOutput<
+        pub visibility_subscription_ids: pulumi_gestalt_rust::InputOrOutput<
             Option<Vec<String>>,
         >,
     }
     #[allow(dead_code)]
     pub struct LinkServiceResult {
         /// A globally unique DNS Name for your Private Link Service. You can use this alias to request a connection to your Private Link Service.
-        pub alias: pulumi_wasm_rust::Output<String>,
+        pub alias: pulumi_gestalt_rust::Output<String>,
         /// A list of Subscription UUID/GUID's that will be automatically be able to use this Private Link Service.
-        pub auto_approval_subscription_ids: pulumi_wasm_rust::Output<
+        pub auto_approval_subscription_ids: pulumi_gestalt_rust::Output<
             Option<Vec<String>>,
         >,
         /// Should the Private Link Service support the Proxy Protocol?
-        pub enable_proxy_protocol: pulumi_wasm_rust::Output<Option<bool>>,
+        pub enable_proxy_protocol: pulumi_gestalt_rust::Output<Option<bool>>,
         /// List of FQDNs allowed for the Private Link Service.
-        pub fqdns: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub fqdns: pulumi_gestalt_rust::Output<Option<Vec<String>>>,
         /// A list of Frontend IP Configuration IDs from a Standard Load Balancer, where traffic from the Private Link Service should be routed. You can use Load Balancer Rules to direct this traffic to appropriate backend pools where your applications are running. Changing this forces a new resource to be created.
-        pub load_balancer_frontend_ip_configuration_ids: pulumi_wasm_rust::Output<
+        pub load_balancer_frontend_ip_configuration_ids: pulumi_gestalt_rust::Output<
             Vec<String>,
         >,
         /// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
-        pub location: pulumi_wasm_rust::Output<String>,
+        pub location: pulumi_gestalt_rust::Output<String>,
         /// Specifies the name of this Private Link Service. Changing this forces a new resource to be created.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// One or more (up to 8) `nat_ip_configuration` block as defined below.
-        pub nat_ip_configurations: pulumi_wasm_rust::Output<
+        pub nat_ip_configurations: pulumi_gestalt_rust::Output<
             Vec<super::super::types::privatedns::LinkServiceNatIpConfiguration>,
         >,
         /// The name of the Resource Group where the Private Link Service should exist. Changing this forces a new resource to be created.
-        pub resource_group_name: pulumi_wasm_rust::Output<String>,
+        pub resource_group_name: pulumi_gestalt_rust::Output<String>,
         /// A mapping of tags to assign to the resource.
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// A list of Subscription UUID/GUID's that will be able to see this Private Link Service.
         ///
         /// > **NOTE:** If no Subscription IDs are specified then Azure allows every Subscription to see this Private Link Service.
-        pub visibility_subscription_ids: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub visibility_subscription_ids: pulumi_gestalt_rust::Output<
+            Option<Vec<String>>,
+        >,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: LinkServiceArgs,
     ) -> LinkServiceResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let auto_approval_subscription_ids_binding = args
             .auto_approval_subscription_ids
@@ -255,29 +257,29 @@ pub mod link_service {
         };
         let o = register_interface::register(context.get_inner(), &request);
         LinkServiceResult {
-            alias: pulumi_wasm_rust::__private::into_domain(o.extract_field("alias")),
-            auto_approval_subscription_ids: pulumi_wasm_rust::__private::into_domain(
+            alias: pulumi_gestalt_rust::__private::into_domain(o.extract_field("alias")),
+            auto_approval_subscription_ids: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("autoApprovalSubscriptionIds"),
             ),
-            enable_proxy_protocol: pulumi_wasm_rust::__private::into_domain(
+            enable_proxy_protocol: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("enableProxyProtocol"),
             ),
-            fqdns: pulumi_wasm_rust::__private::into_domain(o.extract_field("fqdns")),
-            load_balancer_frontend_ip_configuration_ids: pulumi_wasm_rust::__private::into_domain(
+            fqdns: pulumi_gestalt_rust::__private::into_domain(o.extract_field("fqdns")),
+            load_balancer_frontend_ip_configuration_ids: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("loadBalancerFrontendIpConfigurationIds"),
             ),
-            location: pulumi_wasm_rust::__private::into_domain(
+            location: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("location"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            nat_ip_configurations: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            nat_ip_configurations: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("natIpConfigurations"),
             ),
-            resource_group_name: pulumi_wasm_rust::__private::into_domain(
+            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("resourceGroupName"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
-            visibility_subscription_ids: pulumi_wasm_rust::__private::into_domain(
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            visibility_subscription_ids: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("visibilitySubscriptionIds"),
             ),
         }

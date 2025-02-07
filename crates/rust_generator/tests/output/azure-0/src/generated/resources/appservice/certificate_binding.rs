@@ -93,45 +93,45 @@
 /// ```
 ///
 pub mod certificate_binding {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct CertificateBindingArgs {
         /// The ID of the certificate to bind to the custom domain. Changing this forces a new App Service Certificate Binding to be created.
         #[builder(into)]
-        pub certificate_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub certificate_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The ID of the Custom Domain/Hostname Binding. Changing this forces a new App Service Certificate Binding to be created.
         #[builder(into)]
-        pub hostname_binding_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub hostname_binding_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The type of certificate binding. Allowed values are `IpBasedEnabled` or `SniEnabled`. Changing this forces a new App Service Certificate Binding to be created.
         #[builder(into)]
-        pub ssl_state: pulumi_wasm_rust::InputOrOutput<String>,
+        pub ssl_state: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct CertificateBindingResult {
         /// The name of the App Service to which the certificate was bound.
-        pub app_service_name: pulumi_wasm_rust::Output<String>,
+        pub app_service_name: pulumi_gestalt_rust::Output<String>,
         /// The ID of the certificate to bind to the custom domain. Changing this forces a new App Service Certificate Binding to be created.
-        pub certificate_id: pulumi_wasm_rust::Output<String>,
+        pub certificate_id: pulumi_gestalt_rust::Output<String>,
         /// The hostname of the bound certificate.
-        pub hostname: pulumi_wasm_rust::Output<String>,
+        pub hostname: pulumi_gestalt_rust::Output<String>,
         /// The ID of the Custom Domain/Hostname Binding. Changing this forces a new App Service Certificate Binding to be created.
-        pub hostname_binding_id: pulumi_wasm_rust::Output<String>,
+        pub hostname_binding_id: pulumi_gestalt_rust::Output<String>,
         /// The type of certificate binding. Allowed values are `IpBasedEnabled` or `SniEnabled`. Changing this forces a new App Service Certificate Binding to be created.
-        pub ssl_state: pulumi_wasm_rust::Output<String>,
+        pub ssl_state: pulumi_gestalt_rust::Output<String>,
         /// The certificate thumbprint.
-        pub thumbprint: pulumi_wasm_rust::Output<String>,
+        pub thumbprint: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: CertificateBindingArgs,
     ) -> CertificateBindingResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let certificate_id_binding = args.certificate_id.get_output(context).get_inner();
         let hostname_binding_id_binding = args
@@ -160,22 +160,22 @@ pub mod certificate_binding {
         };
         let o = register_interface::register(context.get_inner(), &request);
         CertificateBindingResult {
-            app_service_name: pulumi_wasm_rust::__private::into_domain(
+            app_service_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("appServiceName"),
             ),
-            certificate_id: pulumi_wasm_rust::__private::into_domain(
+            certificate_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("certificateId"),
             ),
-            hostname: pulumi_wasm_rust::__private::into_domain(
+            hostname: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("hostname"),
             ),
-            hostname_binding_id: pulumi_wasm_rust::__private::into_domain(
+            hostname_binding_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("hostnameBindingId"),
             ),
-            ssl_state: pulumi_wasm_rust::__private::into_domain(
+            ssl_state: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("sslState"),
             ),
-            thumbprint: pulumi_wasm_rust::__private::into_domain(
+            thumbprint: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("thumbprint"),
             ),
         }

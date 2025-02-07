@@ -2,19 +2,19 @@ pub mod get_directory_buckets {
     #[allow(dead_code)]
     pub struct GetDirectoryBucketsResult {
         /// Bucket ARNs.
-        pub arns: pulumi_wasm_rust::Output<Vec<String>>,
+        pub arns: pulumi_gestalt_rust::Output<Vec<String>>,
         /// Buckets names.
-        pub buckets: pulumi_wasm_rust::Output<Vec<String>>,
-        pub id: pulumi_wasm_rust::Output<String>,
+        pub buckets: pulumi_gestalt_rust::Output<Vec<String>>,
+        pub id: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
     ) -> GetDirectoryBucketsResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:s3/getDirectoryBuckets:getDirectoryBuckets".into(),
@@ -23,11 +23,11 @@ pub mod get_directory_buckets {
         };
         let o = register_interface::invoke(context.get_inner(), &request);
         GetDirectoryBucketsResult {
-            arns: pulumi_wasm_rust::__private::into_domain(o.extract_field("arns")),
-            buckets: pulumi_wasm_rust::__private::into_domain(
+            arns: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arns")),
+            buckets: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("buckets"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
+            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
         }
     }
 }

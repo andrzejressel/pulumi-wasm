@@ -3,8 +3,8 @@
 /// ## Example Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = route_table::create(
@@ -24,48 +24,48 @@
 /// $ pulumi import aws:ec2transitgateway/routeTable:RouteTable example tgw-rtb-12345678
 /// ```
 pub mod route_table {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct RouteTableArgs {
         /// Key-value tags for the EC2 Transit Gateway Route Table. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Identifier of EC2 Transit Gateway.
         #[builder(into)]
-        pub transit_gateway_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub transit_gateway_id: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct RouteTableResult {
         /// EC2 Transit Gateway Route Table Amazon Resource Name (ARN).
-        pub arn: pulumi_wasm_rust::Output<String>,
+        pub arn: pulumi_gestalt_rust::Output<String>,
         /// Boolean whether this is the default association route table for the EC2 Transit Gateway.
-        pub default_association_route_table: pulumi_wasm_rust::Output<bool>,
+        pub default_association_route_table: pulumi_gestalt_rust::Output<bool>,
         /// Boolean whether this is the default propagation route table for the EC2 Transit Gateway.
-        pub default_propagation_route_table: pulumi_wasm_rust::Output<bool>,
+        pub default_propagation_route_table: pulumi_gestalt_rust::Output<bool>,
         /// Key-value tags for the EC2 Transit Gateway Route Table. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        pub tags_all: pulumi_wasm_rust::Output<
+        pub tags_all: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
         /// Identifier of EC2 Transit Gateway.
-        pub transit_gateway_id: pulumi_wasm_rust::Output<String>,
+        pub transit_gateway_id: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: RouteTableArgs,
     ) -> RouteTableResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let tags_binding = args.tags.get_output(context).get_inner();
         let transit_gateway_id_binding = args
@@ -89,18 +89,18 @@ pub mod route_table {
         };
         let o = register_interface::register(context.get_inner(), &request);
         RouteTableResult {
-            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
-            default_association_route_table: pulumi_wasm_rust::__private::into_domain(
+            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
+            default_association_route_table: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("defaultAssociationRouteTable"),
             ),
-            default_propagation_route_table: pulumi_wasm_rust::__private::into_domain(
+            default_propagation_route_table: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("defaultPropagationRouteTable"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_wasm_rust::__private::into_domain(
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            tags_all: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("tagsAll"),
             ),
-            transit_gateway_id: pulumi_wasm_rust::__private::into_domain(
+            transit_gateway_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("transitGatewayId"),
             ),
         }

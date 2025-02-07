@@ -3,8 +3,8 @@
 /// ## Example Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = resource_group::create(
@@ -75,54 +75,54 @@
 /// ```
 ///
 pub mod spring_cloud_app_mysql_association {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct SpringCloudAppMysqlAssociationArgs {
         /// Specifies the name of the MySQL Database which the Spring Cloud App should be associated with.
         #[builder(into)]
-        pub database_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub database_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Specifies the ID of the MySQL Server. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub mysql_server_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub mysql_server_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Specifies the name of the Spring Cloud Application Association. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Specifies the password which should be used when connecting to the MySQL Database from the Spring Cloud App.
         #[builder(into)]
-        pub password: pulumi_wasm_rust::InputOrOutput<String>,
+        pub password: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Specifies the ID of the Spring Cloud Application where this Association is created. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub spring_cloud_app_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub spring_cloud_app_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Specifies the username which should be used when connecting to the MySQL Database from the Spring Cloud App.
         #[builder(into)]
-        pub username: pulumi_wasm_rust::InputOrOutput<String>,
+        pub username: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct SpringCloudAppMysqlAssociationResult {
         /// Specifies the name of the MySQL Database which the Spring Cloud App should be associated with.
-        pub database_name: pulumi_wasm_rust::Output<String>,
+        pub database_name: pulumi_gestalt_rust::Output<String>,
         /// Specifies the ID of the MySQL Server. Changing this forces a new resource to be created.
-        pub mysql_server_id: pulumi_wasm_rust::Output<String>,
+        pub mysql_server_id: pulumi_gestalt_rust::Output<String>,
         /// Specifies the name of the Spring Cloud Application Association. Changing this forces a new resource to be created.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// Specifies the password which should be used when connecting to the MySQL Database from the Spring Cloud App.
-        pub password: pulumi_wasm_rust::Output<String>,
+        pub password: pulumi_gestalt_rust::Output<String>,
         /// Specifies the ID of the Spring Cloud Application where this Association is created. Changing this forces a new resource to be created.
-        pub spring_cloud_app_id: pulumi_wasm_rust::Output<String>,
+        pub spring_cloud_app_id: pulumi_gestalt_rust::Output<String>,
         /// Specifies the username which should be used when connecting to the MySQL Database from the Spring Cloud App.
-        pub username: pulumi_wasm_rust::Output<String>,
+        pub username: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: SpringCloudAppMysqlAssociationArgs,
     ) -> SpringCloudAppMysqlAssociationResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let database_name_binding = args.database_name.get_output(context).get_inner();
         let mysql_server_id_binding = args
@@ -170,20 +170,20 @@ pub mod spring_cloud_app_mysql_association {
         };
         let o = register_interface::register(context.get_inner(), &request);
         SpringCloudAppMysqlAssociationResult {
-            database_name: pulumi_wasm_rust::__private::into_domain(
+            database_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("databaseName"),
             ),
-            mysql_server_id: pulumi_wasm_rust::__private::into_domain(
+            mysql_server_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("mysqlServerId"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            password: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            password: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("password"),
             ),
-            spring_cloud_app_id: pulumi_wasm_rust::__private::into_domain(
+            spring_cloud_app_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("springCloudAppId"),
             ),
-            username: pulumi_wasm_rust::__private::into_domain(
+            username: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("username"),
             ),
         }

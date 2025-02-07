@@ -3,8 +3,8 @@
 /// ## Example Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = resource_group::create(
@@ -56,59 +56,61 @@
 /// ```
 ///
 pub mod storage_insights {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct StorageInsightsArgs {
         /// The names of the blob containers that the workspace should read.
         #[builder(into, default)]
-        pub blob_container_names: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
+        pub blob_container_names: pulumi_gestalt_rust::InputOrOutput<
+            Option<Vec<String>>,
+        >,
         /// The name which should be used for this Log Analytics Storage Insights. Changing this forces a new Log Analytics Storage Insights to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The name of the Resource Group where the Log Analytics Storage Insights should exist. Changing this forces a new Log Analytics Storage Insights to be created.
         #[builder(into)]
-        pub resource_group_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub resource_group_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The ID of the Storage Account used by this Log Analytics Storage Insights.
         #[builder(into)]
-        pub storage_account_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub storage_account_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The storage access key to be used to connect to the storage account.
         #[builder(into)]
-        pub storage_account_key: pulumi_wasm_rust::InputOrOutput<String>,
+        pub storage_account_key: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The names of the Azure tables that the workspace should read.
         #[builder(into, default)]
-        pub table_names: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
+        pub table_names: pulumi_gestalt_rust::InputOrOutput<Option<Vec<String>>>,
         /// The ID of the Log Analytics Workspace within which the Storage Insights should exist. Changing this forces a new Log Analytics Storage Insights to be created.
         #[builder(into)]
-        pub workspace_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub workspace_id: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct StorageInsightsResult {
         /// The names of the blob containers that the workspace should read.
-        pub blob_container_names: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub blob_container_names: pulumi_gestalt_rust::Output<Option<Vec<String>>>,
         /// The name which should be used for this Log Analytics Storage Insights. Changing this forces a new Log Analytics Storage Insights to be created.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// The name of the Resource Group where the Log Analytics Storage Insights should exist. Changing this forces a new Log Analytics Storage Insights to be created.
-        pub resource_group_name: pulumi_wasm_rust::Output<String>,
+        pub resource_group_name: pulumi_gestalt_rust::Output<String>,
         /// The ID of the Storage Account used by this Log Analytics Storage Insights.
-        pub storage_account_id: pulumi_wasm_rust::Output<String>,
+        pub storage_account_id: pulumi_gestalt_rust::Output<String>,
         /// The storage access key to be used to connect to the storage account.
-        pub storage_account_key: pulumi_wasm_rust::Output<String>,
+        pub storage_account_key: pulumi_gestalt_rust::Output<String>,
         /// The names of the Azure tables that the workspace should read.
-        pub table_names: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub table_names: pulumi_gestalt_rust::Output<Option<Vec<String>>>,
         /// The ID of the Log Analytics Workspace within which the Storage Insights should exist. Changing this forces a new Log Analytics Storage Insights to be created.
-        pub workspace_id: pulumi_wasm_rust::Output<String>,
+        pub workspace_id: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: StorageInsightsArgs,
     ) -> StorageInsightsResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let blob_container_names_binding = args
             .blob_container_names
@@ -166,23 +168,23 @@ pub mod storage_insights {
         };
         let o = register_interface::register(context.get_inner(), &request);
         StorageInsightsResult {
-            blob_container_names: pulumi_wasm_rust::__private::into_domain(
+            blob_container_names: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("blobContainerNames"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            resource_group_name: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("resourceGroupName"),
             ),
-            storage_account_id: pulumi_wasm_rust::__private::into_domain(
+            storage_account_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("storageAccountId"),
             ),
-            storage_account_key: pulumi_wasm_rust::__private::into_domain(
+            storage_account_key: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("storageAccountKey"),
             ),
-            table_names: pulumi_wasm_rust::__private::into_domain(
+            table_names: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("tableNames"),
             ),
-            workspace_id: pulumi_wasm_rust::__private::into_domain(
+            workspace_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("workspaceId"),
             ),
         }

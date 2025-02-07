@@ -54,87 +54,87 @@
 /// $ pulumi import aws:quicksight/vpcConnection:VpcConnection example 123456789012,example
 /// ```
 pub mod vpc_connection {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct VpcConnectionArgs {
         /// AWS account ID.
         #[builder(into, default)]
-        pub aws_account_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub aws_account_id: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// A list of IP addresses of DNS resolver endpoints for the VPC connection.
         #[builder(into, default)]
-        pub dns_resolvers: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
+        pub dns_resolvers: pulumi_gestalt_rust::InputOrOutput<Option<Vec<String>>>,
         /// The display name for the VPC connection.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The IAM role to associate with the VPC connection.
         #[builder(into)]
-        pub role_arn: pulumi_wasm_rust::InputOrOutput<String>,
+        pub role_arn: pulumi_gestalt_rust::InputOrOutput<String>,
         /// A list of security group IDs for the VPC connection.
         #[builder(into)]
-        pub security_group_ids: pulumi_wasm_rust::InputOrOutput<Vec<String>>,
+        pub security_group_ids: pulumi_gestalt_rust::InputOrOutput<Vec<String>>,
         /// A list of subnet IDs for the VPC connection.
         ///
         /// The following arguments are optional:
         #[builder(into)]
-        pub subnet_ids: pulumi_wasm_rust::InputOrOutput<Vec<String>>,
+        pub subnet_ids: pulumi_gestalt_rust::InputOrOutput<Vec<String>>,
         /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         #[builder(into, default)]
-        pub timeouts: pulumi_wasm_rust::InputOrOutput<
+        pub timeouts: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::quicksight::VpcConnectionTimeouts>,
         >,
         /// The ID of the VPC connection.
         #[builder(into)]
-        pub vpc_connection_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub vpc_connection_id: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct VpcConnectionResult {
         /// ARN of the VPC connection.
-        pub arn: pulumi_wasm_rust::Output<String>,
+        pub arn: pulumi_gestalt_rust::Output<String>,
         /// The availability status of the VPC connection. Valid values are `AVAILABLE`, `UNAVAILABLE` or `PARTIALLY_AVAILABLE`.
-        pub availability_status: pulumi_wasm_rust::Output<String>,
+        pub availability_status: pulumi_gestalt_rust::Output<String>,
         /// AWS account ID.
-        pub aws_account_id: pulumi_wasm_rust::Output<String>,
+        pub aws_account_id: pulumi_gestalt_rust::Output<String>,
         /// A list of IP addresses of DNS resolver endpoints for the VPC connection.
-        pub dns_resolvers: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub dns_resolvers: pulumi_gestalt_rust::Output<Option<Vec<String>>>,
         /// The display name for the VPC connection.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// The IAM role to associate with the VPC connection.
-        pub role_arn: pulumi_wasm_rust::Output<String>,
+        pub role_arn: pulumi_gestalt_rust::Output<String>,
         /// A list of security group IDs for the VPC connection.
-        pub security_group_ids: pulumi_wasm_rust::Output<Vec<String>>,
+        pub security_group_ids: pulumi_gestalt_rust::Output<Vec<String>>,
         /// A list of subnet IDs for the VPC connection.
         ///
         /// The following arguments are optional:
-        pub subnet_ids: pulumi_wasm_rust::Output<Vec<String>>,
+        pub subnet_ids: pulumi_gestalt_rust::Output<Vec<String>>,
         /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        pub tags_all: pulumi_wasm_rust::Output<
+        pub tags_all: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
-        pub timeouts: pulumi_wasm_rust::Output<
+        pub timeouts: pulumi_gestalt_rust::Output<
             Option<super::super::types::quicksight::VpcConnectionTimeouts>,
         >,
         /// The ID of the VPC connection.
-        pub vpc_connection_id: pulumi_wasm_rust::Output<String>,
+        pub vpc_connection_id: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: VpcConnectionArgs,
     ) -> VpcConnectionResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let aws_account_id_binding = args.aws_account_id.get_output(context).get_inner();
         let dns_resolvers_binding = args.dns_resolvers.get_output(context).get_inner();
@@ -196,34 +196,34 @@ pub mod vpc_connection {
         };
         let o = register_interface::register(context.get_inner(), &request);
         VpcConnectionResult {
-            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
-            availability_status: pulumi_wasm_rust::__private::into_domain(
+            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
+            availability_status: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("availabilityStatus"),
             ),
-            aws_account_id: pulumi_wasm_rust::__private::into_domain(
+            aws_account_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("awsAccountId"),
             ),
-            dns_resolvers: pulumi_wasm_rust::__private::into_domain(
+            dns_resolvers: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("dnsResolvers"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            role_arn: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            role_arn: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("roleArn"),
             ),
-            security_group_ids: pulumi_wasm_rust::__private::into_domain(
+            security_group_ids: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("securityGroupIds"),
             ),
-            subnet_ids: pulumi_wasm_rust::__private::into_domain(
+            subnet_ids: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("subnetIds"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_wasm_rust::__private::into_domain(
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            tags_all: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("tagsAll"),
             ),
-            timeouts: pulumi_wasm_rust::__private::into_domain(
+            timeouts: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("timeouts"),
             ),
-            vpc_connection_id: pulumi_wasm_rust::__private::into_domain(
+            vpc_connection_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("vpcConnectionId"),
             ),
         }

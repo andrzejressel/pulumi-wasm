@@ -41,64 +41,64 @@
 /// $ pulumi import aws:transcribe/vocabulary:Vocabulary example example-name
 /// ```
 pub mod vocabulary {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct VocabularyArgs {
         /// The language code you selected for your vocabulary.
         #[builder(into)]
-        pub language_code: pulumi_wasm_rust::InputOrOutput<String>,
+        pub language_code: pulumi_gestalt_rust::InputOrOutput<String>,
         /// A list of terms to include in the vocabulary. Conflicts with `vocabulary_file_uri`
         #[builder(into, default)]
-        pub phrases: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
+        pub phrases: pulumi_gestalt_rust::InputOrOutput<Option<Vec<String>>>,
         /// A map of tags to assign to the Vocabulary. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// The Amazon S3 location (URI) of the text file that contains your custom vocabulary. Conflicts wth `phrases`.
         #[builder(into, default)]
-        pub vocabulary_file_uri: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub vocabulary_file_uri: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The name of the Vocabulary.
         ///
         /// The following arguments are optional:
         #[builder(into)]
-        pub vocabulary_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub vocabulary_name: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct VocabularyResult {
         /// ARN of the Vocabulary.
-        pub arn: pulumi_wasm_rust::Output<String>,
+        pub arn: pulumi_gestalt_rust::Output<String>,
         /// Generated download URI.
-        pub download_uri: pulumi_wasm_rust::Output<String>,
+        pub download_uri: pulumi_gestalt_rust::Output<String>,
         /// The language code you selected for your vocabulary.
-        pub language_code: pulumi_wasm_rust::Output<String>,
+        pub language_code: pulumi_gestalt_rust::Output<String>,
         /// A list of terms to include in the vocabulary. Conflicts with `vocabulary_file_uri`
-        pub phrases: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub phrases: pulumi_gestalt_rust::Output<Option<Vec<String>>>,
         /// A map of tags to assign to the Vocabulary. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
-        pub tags_all: pulumi_wasm_rust::Output<
+        pub tags_all: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
         /// The Amazon S3 location (URI) of the text file that contains your custom vocabulary. Conflicts wth `phrases`.
-        pub vocabulary_file_uri: pulumi_wasm_rust::Output<String>,
+        pub vocabulary_file_uri: pulumi_gestalt_rust::Output<String>,
         /// The name of the Vocabulary.
         ///
         /// The following arguments are optional:
-        pub vocabulary_name: pulumi_wasm_rust::Output<String>,
+        pub vocabulary_name: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: VocabularyArgs,
     ) -> VocabularyResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let language_code_binding = args.language_code.get_output(context).get_inner();
         let phrases_binding = args.phrases.get_output(context).get_inner();
@@ -140,24 +140,24 @@ pub mod vocabulary {
         };
         let o = register_interface::register(context.get_inner(), &request);
         VocabularyResult {
-            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
-            download_uri: pulumi_wasm_rust::__private::into_domain(
+            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
+            download_uri: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("downloadUri"),
             ),
-            language_code: pulumi_wasm_rust::__private::into_domain(
+            language_code: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("languageCode"),
             ),
-            phrases: pulumi_wasm_rust::__private::into_domain(
+            phrases: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("phrases"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_wasm_rust::__private::into_domain(
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            tags_all: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("tagsAll"),
             ),
-            vocabulary_file_uri: pulumi_wasm_rust::__private::into_domain(
+            vocabulary_file_uri: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("vocabularyFileUri"),
             ),
-            vocabulary_name: pulumi_wasm_rust::__private::into_domain(
+            vocabulary_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("vocabularyName"),
             ),
         }

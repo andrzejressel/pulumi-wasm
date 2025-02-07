@@ -9,8 +9,8 @@
 /// ### Single EIP associated with an instance
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let lb = eip::create(
@@ -48,8 +48,8 @@
 /// ### Attaching an EIP to an Instance with a pre-assigned private ip (VPC Only)
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let bar = eip::create(
@@ -121,41 +121,43 @@
 /// $ pulumi import aws:ec2/eip:Eip bar eipalloc-00a10e96
 /// ```
 pub mod eip {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct EipArgs {
         /// IP address from an EC2 BYOIP pool. This option is only available for VPC EIPs.
         #[builder(into, default)]
-        pub address: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub address: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// User-specified primary or secondary private IP address to associate with the Elastic IP address. If no private IP address is specified, the Elastic IP address is associated with the primary private IP address.
         #[builder(into, default)]
-        pub associate_with_private_ip: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub associate_with_private_ip: pulumi_gestalt_rust::InputOrOutput<
+            Option<String>,
+        >,
         /// ID  of a customer-owned address pool. For more on customer owned IP addressed check out [Customer-owned IP addresses guide](https://docs.aws.amazon.com/outposts/latest/userguide/outposts-networking-components.html#ip-addressing).
         #[builder(into, default)]
-        pub customer_owned_ipv4_pool: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub customer_owned_ipv4_pool: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Indicates if this EIP is for use in VPC (`vpc`).
         #[builder(into, default)]
-        pub domain: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub domain: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// EC2 instance ID.
         #[builder(into, default)]
-        pub instance: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub instance: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The ID of an IPAM pool which has an Amazon-provided or BYOIP public IPv4 CIDR provisioned to it.
         #[builder(into, default)]
-        pub ipam_pool_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub ipam_pool_id: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Location from which the IP address is advertised. Use this parameter to limit the address to this location.
         #[builder(into, default)]
-        pub network_border_group: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub network_border_group: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Network interface ID to associate with.
         #[builder(into, default)]
-        pub network_interface: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub network_interface: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// EC2 IPv4 address pool identifier or `amazon`.
         /// This option is only available for VPC EIPs.
         #[builder(into, default)]
-        pub public_ipv4_pool: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub public_ipv4_pool: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Map of tags to assign to the resource. Tags can only be applied to EIPs in a VPC. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Boolean if the EIP is in a VPC or not. Use `domain` instead.
@@ -166,54 +168,54 @@ pub mod eip {
         /// > **NOTE:** Specifying both `public_ipv4_pool` and `address` won't cause an error but `address` will be used in the
         /// case both options are defined as the api only requires one or the other.
         #[builder(into, default)]
-        pub vpc: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub vpc: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
     }
     #[allow(dead_code)]
     pub struct EipResult {
         /// IP address from an EC2 BYOIP pool. This option is only available for VPC EIPs.
-        pub address: pulumi_wasm_rust::Output<Option<String>>,
+        pub address: pulumi_gestalt_rust::Output<Option<String>>,
         /// ID that AWS assigns to represent the allocation of the Elastic IP address for use with instances in a VPC.
-        pub allocation_id: pulumi_wasm_rust::Output<String>,
-        pub arn: pulumi_wasm_rust::Output<String>,
+        pub allocation_id: pulumi_gestalt_rust::Output<String>,
+        pub arn: pulumi_gestalt_rust::Output<String>,
         /// User-specified primary or secondary private IP address to associate with the Elastic IP address. If no private IP address is specified, the Elastic IP address is associated with the primary private IP address.
-        pub associate_with_private_ip: pulumi_wasm_rust::Output<Option<String>>,
+        pub associate_with_private_ip: pulumi_gestalt_rust::Output<Option<String>>,
         /// ID representing the association of the address with an instance in a VPC.
-        pub association_id: pulumi_wasm_rust::Output<String>,
+        pub association_id: pulumi_gestalt_rust::Output<String>,
         /// Carrier IP address.
-        pub carrier_ip: pulumi_wasm_rust::Output<String>,
+        pub carrier_ip: pulumi_gestalt_rust::Output<String>,
         /// Customer owned IP.
-        pub customer_owned_ip: pulumi_wasm_rust::Output<String>,
+        pub customer_owned_ip: pulumi_gestalt_rust::Output<String>,
         /// ID  of a customer-owned address pool. For more on customer owned IP addressed check out [Customer-owned IP addresses guide](https://docs.aws.amazon.com/outposts/latest/userguide/outposts-networking-components.html#ip-addressing).
-        pub customer_owned_ipv4_pool: pulumi_wasm_rust::Output<Option<String>>,
+        pub customer_owned_ipv4_pool: pulumi_gestalt_rust::Output<Option<String>>,
         /// Indicates if this EIP is for use in VPC (`vpc`).
-        pub domain: pulumi_wasm_rust::Output<String>,
+        pub domain: pulumi_gestalt_rust::Output<String>,
         /// EC2 instance ID.
-        pub instance: pulumi_wasm_rust::Output<String>,
+        pub instance: pulumi_gestalt_rust::Output<String>,
         /// The ID of an IPAM pool which has an Amazon-provided or BYOIP public IPv4 CIDR provisioned to it.
-        pub ipam_pool_id: pulumi_wasm_rust::Output<String>,
+        pub ipam_pool_id: pulumi_gestalt_rust::Output<String>,
         /// Location from which the IP address is advertised. Use this parameter to limit the address to this location.
-        pub network_border_group: pulumi_wasm_rust::Output<String>,
+        pub network_border_group: pulumi_gestalt_rust::Output<String>,
         /// Network interface ID to associate with.
-        pub network_interface: pulumi_wasm_rust::Output<String>,
+        pub network_interface: pulumi_gestalt_rust::Output<String>,
         /// The Private DNS associated with the Elastic IP address (if in VPC).
-        pub private_dns: pulumi_wasm_rust::Output<String>,
+        pub private_dns: pulumi_gestalt_rust::Output<String>,
         /// Contains the private IP address (if in VPC).
-        pub private_ip: pulumi_wasm_rust::Output<String>,
+        pub private_ip: pulumi_gestalt_rust::Output<String>,
         /// The DNS pointer (PTR) record for the IP address.
-        pub ptr_record: pulumi_wasm_rust::Output<String>,
+        pub ptr_record: pulumi_gestalt_rust::Output<String>,
         /// Public DNS associated with the Elastic IP address.
-        pub public_dns: pulumi_wasm_rust::Output<String>,
+        pub public_dns: pulumi_gestalt_rust::Output<String>,
         /// Contains the public IP address.
-        pub public_ip: pulumi_wasm_rust::Output<String>,
+        pub public_ip: pulumi_gestalt_rust::Output<String>,
         /// EC2 IPv4 address pool identifier or `amazon`.
         /// This option is only available for VPC EIPs.
-        pub public_ipv4_pool: pulumi_wasm_rust::Output<String>,
+        pub public_ipv4_pool: pulumi_gestalt_rust::Output<String>,
         /// Map of tags to assign to the resource. Tags can only be applied to EIPs in a VPC. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        pub tags_all: pulumi_wasm_rust::Output<
+        pub tags_all: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
         /// Boolean if the EIP is in a VPC or not. Use `domain` instead.
@@ -223,18 +225,18 @@ pub mod eip {
         ///
         /// > **NOTE:** Specifying both `public_ipv4_pool` and `address` won't cause an error but `address` will be used in the
         /// case both options are defined as the api only requires one or the other.
-        pub vpc: pulumi_wasm_rust::Output<bool>,
+        pub vpc: pulumi_gestalt_rust::Output<bool>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: EipArgs,
     ) -> EipResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let address_binding = args.address.get_output(context).get_inner();
         let associate_with_private_ip_binding = args
@@ -315,64 +317,66 @@ pub mod eip {
         };
         let o = register_interface::register(context.get_inner(), &request);
         EipResult {
-            address: pulumi_wasm_rust::__private::into_domain(
+            address: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("address"),
             ),
-            allocation_id: pulumi_wasm_rust::__private::into_domain(
+            allocation_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("allocationId"),
             ),
-            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
-            associate_with_private_ip: pulumi_wasm_rust::__private::into_domain(
+            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
+            associate_with_private_ip: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("associateWithPrivateIp"),
             ),
-            association_id: pulumi_wasm_rust::__private::into_domain(
+            association_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("associationId"),
             ),
-            carrier_ip: pulumi_wasm_rust::__private::into_domain(
+            carrier_ip: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("carrierIp"),
             ),
-            customer_owned_ip: pulumi_wasm_rust::__private::into_domain(
+            customer_owned_ip: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("customerOwnedIp"),
             ),
-            customer_owned_ipv4_pool: pulumi_wasm_rust::__private::into_domain(
+            customer_owned_ipv4_pool: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("customerOwnedIpv4Pool"),
             ),
-            domain: pulumi_wasm_rust::__private::into_domain(o.extract_field("domain")),
-            instance: pulumi_wasm_rust::__private::into_domain(
+            domain: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("domain"),
+            ),
+            instance: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("instance"),
             ),
-            ipam_pool_id: pulumi_wasm_rust::__private::into_domain(
+            ipam_pool_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("ipamPoolId"),
             ),
-            network_border_group: pulumi_wasm_rust::__private::into_domain(
+            network_border_group: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("networkBorderGroup"),
             ),
-            network_interface: pulumi_wasm_rust::__private::into_domain(
+            network_interface: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("networkInterface"),
             ),
-            private_dns: pulumi_wasm_rust::__private::into_domain(
+            private_dns: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("privateDns"),
             ),
-            private_ip: pulumi_wasm_rust::__private::into_domain(
+            private_ip: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("privateIp"),
             ),
-            ptr_record: pulumi_wasm_rust::__private::into_domain(
+            ptr_record: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("ptrRecord"),
             ),
-            public_dns: pulumi_wasm_rust::__private::into_domain(
+            public_dns: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("publicDns"),
             ),
-            public_ip: pulumi_wasm_rust::__private::into_domain(
+            public_ip: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("publicIp"),
             ),
-            public_ipv4_pool: pulumi_wasm_rust::__private::into_domain(
+            public_ipv4_pool: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("publicIpv4Pool"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_wasm_rust::__private::into_domain(
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            tags_all: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("tagsAll"),
             ),
-            vpc: pulumi_wasm_rust::__private::into_domain(o.extract_field("vpc")),
+            vpc: pulumi_gestalt_rust::__private::into_domain(o.extract_field("vpc")),
         }
     }
 }

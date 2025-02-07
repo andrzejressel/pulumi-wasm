@@ -1,43 +1,43 @@
 pub mod get_network_slice {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct GetNetworkSliceArgs {
         /// The ID of Mobile Network which the Mobile Network Slice belongs to.
         #[builder(into)]
-        pub mobile_network_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub mobile_network_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Specifies the name which should be used for this Mobile Network Slice.
         #[builder(into)]
-        pub name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct GetNetworkSliceResult {
         /// A description of this Mobile Network Slice.
-        pub description: pulumi_wasm_rust::Output<String>,
+        pub description: pulumi_gestalt_rust::Output<String>,
         /// The provider-assigned unique ID for this managed resource.
-        pub id: pulumi_wasm_rust::Output<String>,
+        pub id: pulumi_gestalt_rust::Output<String>,
         /// The Azure Region where the Mobile Network Slice exists.
-        pub location: pulumi_wasm_rust::Output<String>,
-        pub mobile_network_id: pulumi_wasm_rust::Output<String>,
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub location: pulumi_gestalt_rust::Output<String>,
+        pub mobile_network_id: pulumi_gestalt_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// A `single_network_slice_selection_assistance_information` block as defined below. Single-network slice selection assistance information (S-NSSAI).
-        pub single_network_slice_selection_assistance_informations: pulumi_wasm_rust::Output<
+        pub single_network_slice_selection_assistance_informations: pulumi_gestalt_rust::Output<
             Vec<
                 super::super::super::types::mobile::GetNetworkSliceSingleNetworkSliceSelectionAssistanceInformation,
             >,
         >,
         /// A mapping of tags which are assigned to the Mobile Network Slice.
-        pub tags: pulumi_wasm_rust::Output<std::collections::HashMap<String, String>>,
+        pub tags: pulumi_gestalt_rust::Output<std::collections::HashMap<String, String>>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         args: GetNetworkSliceArgs,
     ) -> GetNetworkSliceResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let mobile_network_id_binding = args
             .mobile_network_id
@@ -60,21 +60,21 @@ pub mod get_network_slice {
         };
         let o = register_interface::invoke(context.get_inner(), &request);
         GetNetworkSliceResult {
-            description: pulumi_wasm_rust::__private::into_domain(
+            description: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("description"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
-            location: pulumi_wasm_rust::__private::into_domain(
+            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
+            location: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("location"),
             ),
-            mobile_network_id: pulumi_wasm_rust::__private::into_domain(
+            mobile_network_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("mobileNetworkId"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            single_network_slice_selection_assistance_informations: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            single_network_slice_selection_assistance_informations: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("singleNetworkSliceSelectionAssistanceInformations"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
         }
     }
 }

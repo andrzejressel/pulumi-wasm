@@ -1,47 +1,47 @@
 pub mod get_managed_database {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct GetManagedDatabaseArgs {
         /// The SQL Managed Instance ID.
         #[builder(into)]
-        pub managed_instance_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub managed_instance_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The name of this Azure SQL Azure Managed Database.
         #[builder(into)]
-        pub name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct GetManagedDatabaseResult {
         /// The provider-assigned unique ID for this managed resource.
-        pub id: pulumi_wasm_rust::Output<String>,
+        pub id: pulumi_gestalt_rust::Output<String>,
         /// A `long_term_retention_policy` block as defined below.
-        pub long_term_retention_policies: pulumi_wasm_rust::Output<
+        pub long_term_retention_policies: pulumi_gestalt_rust::Output<
             Vec<
                 super::super::super::types::mssql::GetManagedDatabaseLongTermRetentionPolicy,
             >,
         >,
-        pub managed_instance_id: pulumi_wasm_rust::Output<String>,
+        pub managed_instance_id: pulumi_gestalt_rust::Output<String>,
         /// The name of the Managed Instance.
-        pub managed_instance_name: pulumi_wasm_rust::Output<String>,
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub managed_instance_name: pulumi_gestalt_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// A `point_in_time_restore` block as defined below.
-        pub point_in_time_restores: pulumi_wasm_rust::Output<
+        pub point_in_time_restores: pulumi_gestalt_rust::Output<
             Vec<super::super::super::types::mssql::GetManagedDatabasePointInTimeRestore>,
         >,
         /// The name of the Resource Group where the Azure SQL Azure Managed Instance exists.
-        pub resource_group_name: pulumi_wasm_rust::Output<String>,
+        pub resource_group_name: pulumi_gestalt_rust::Output<String>,
         /// The backup retention period in days. This is how many days Point-in-Time Restore will be supported.
-        pub short_term_retention_days: pulumi_wasm_rust::Output<i32>,
+        pub short_term_retention_days: pulumi_gestalt_rust::Output<i32>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         args: GetManagedDatabaseArgs,
     ) -> GetManagedDatabaseResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let managed_instance_id_binding = args
             .managed_instance_id
@@ -64,24 +64,24 @@ pub mod get_managed_database {
         };
         let o = register_interface::invoke(context.get_inner(), &request);
         GetManagedDatabaseResult {
-            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
-            long_term_retention_policies: pulumi_wasm_rust::__private::into_domain(
+            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
+            long_term_retention_policies: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("longTermRetentionPolicies"),
             ),
-            managed_instance_id: pulumi_wasm_rust::__private::into_domain(
+            managed_instance_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("managedInstanceId"),
             ),
-            managed_instance_name: pulumi_wasm_rust::__private::into_domain(
+            managed_instance_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("managedInstanceName"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            point_in_time_restores: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            point_in_time_restores: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("pointInTimeRestores"),
             ),
-            resource_group_name: pulumi_wasm_rust::__private::into_domain(
+            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("resourceGroupName"),
             ),
-            short_term_retention_days: pulumi_wasm_rust::__private::into_domain(
+            short_term_retention_days: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("shortTermRetentionDays"),
             ),
         }

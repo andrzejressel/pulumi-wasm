@@ -5,8 +5,8 @@
 /// ### Basic Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let test = deployment::create(
@@ -29,42 +29,42 @@
 /// $ pulumi import aws:m2/deployment:Deployment example APPLICATION-ID,DEPLOYMENT-ID
 /// ```
 pub mod deployment {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct DeploymentArgs {
         /// Application to deploy.
         #[builder(into)]
-        pub application_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub application_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Version to application to deploy
         #[builder(into)]
-        pub application_version: pulumi_wasm_rust::InputOrOutput<i32>,
+        pub application_version: pulumi_gestalt_rust::InputOrOutput<i32>,
         /// Environment to deploy application to.
         #[builder(into)]
-        pub environment_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub environment_id: pulumi_gestalt_rust::InputOrOutput<String>,
         #[builder(into, default)]
-        pub force_stop: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub force_stop: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// Start the application once deployed.
         #[builder(into)]
-        pub start: pulumi_wasm_rust::InputOrOutput<bool>,
+        pub start: pulumi_gestalt_rust::InputOrOutput<bool>,
         #[builder(into, default)]
-        pub timeouts: pulumi_wasm_rust::InputOrOutput<
+        pub timeouts: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::m2::DeploymentTimeouts>,
         >,
     }
     #[allow(dead_code)]
     pub struct DeploymentResult {
         /// Application to deploy.
-        pub application_id: pulumi_wasm_rust::Output<String>,
+        pub application_id: pulumi_gestalt_rust::Output<String>,
         /// Version to application to deploy
-        pub application_version: pulumi_wasm_rust::Output<i32>,
-        pub deployment_id: pulumi_wasm_rust::Output<String>,
+        pub application_version: pulumi_gestalt_rust::Output<i32>,
+        pub deployment_id: pulumi_gestalt_rust::Output<String>,
         /// Environment to deploy application to.
-        pub environment_id: pulumi_wasm_rust::Output<String>,
-        pub force_stop: pulumi_wasm_rust::Output<Option<bool>>,
+        pub environment_id: pulumi_gestalt_rust::Output<String>,
+        pub force_stop: pulumi_gestalt_rust::Output<Option<bool>>,
         /// Start the application once deployed.
-        pub start: pulumi_wasm_rust::Output<bool>,
-        pub timeouts: pulumi_wasm_rust::Output<
+        pub start: pulumi_gestalt_rust::Output<bool>,
+        pub timeouts: pulumi_gestalt_rust::Output<
             Option<super::super::types::m2::DeploymentTimeouts>,
         >,
     }
@@ -73,11 +73,11 @@ pub mod deployment {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: DeploymentArgs,
     ) -> DeploymentResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let application_id_binding = args.application_id.get_output(context).get_inner();
         let application_version_binding = args
@@ -121,23 +121,23 @@ pub mod deployment {
         };
         let o = register_interface::register(context.get_inner(), &request);
         DeploymentResult {
-            application_id: pulumi_wasm_rust::__private::into_domain(
+            application_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("applicationId"),
             ),
-            application_version: pulumi_wasm_rust::__private::into_domain(
+            application_version: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("applicationVersion"),
             ),
-            deployment_id: pulumi_wasm_rust::__private::into_domain(
+            deployment_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("deploymentId"),
             ),
-            environment_id: pulumi_wasm_rust::__private::into_domain(
+            environment_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("environmentId"),
             ),
-            force_stop: pulumi_wasm_rust::__private::into_domain(
+            force_stop: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("forceStop"),
             ),
-            start: pulumi_wasm_rust::__private::into_domain(o.extract_field("start")),
-            timeouts: pulumi_wasm_rust::__private::into_domain(
+            start: pulumi_gestalt_rust::__private::into_domain(o.extract_field("start")),
+            timeouts: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("timeouts"),
             ),
         }

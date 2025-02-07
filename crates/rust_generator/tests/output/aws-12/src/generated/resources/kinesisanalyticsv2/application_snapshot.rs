@@ -4,8 +4,8 @@
 /// ## Example Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = application_snapshot::create(
@@ -26,38 +26,38 @@
 /// $ pulumi import aws:kinesisanalyticsv2/applicationSnapshot:ApplicationSnapshot example example-application/example-snapshot
 /// ```
 pub mod application_snapshot {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ApplicationSnapshotArgs {
         /// The name of an existing  Kinesis Analytics v2 Application. Note that the application must be running for a snapshot to be created.
         #[builder(into)]
-        pub application_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub application_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The name of the application snapshot.
         #[builder(into)]
-        pub snapshot_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub snapshot_name: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct ApplicationSnapshotResult {
         /// The name of an existing  Kinesis Analytics v2 Application. Note that the application must be running for a snapshot to be created.
-        pub application_name: pulumi_wasm_rust::Output<String>,
+        pub application_name: pulumi_gestalt_rust::Output<String>,
         /// The current application version ID when the snapshot was created.
-        pub application_version_id: pulumi_wasm_rust::Output<i32>,
+        pub application_version_id: pulumi_gestalt_rust::Output<i32>,
         /// The timestamp of the application snapshot.
-        pub snapshot_creation_timestamp: pulumi_wasm_rust::Output<String>,
+        pub snapshot_creation_timestamp: pulumi_gestalt_rust::Output<String>,
         /// The name of the application snapshot.
-        pub snapshot_name: pulumi_wasm_rust::Output<String>,
+        pub snapshot_name: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: ApplicationSnapshotArgs,
     ) -> ApplicationSnapshotResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let application_name_binding = args
             .application_name
@@ -82,16 +82,16 @@ pub mod application_snapshot {
         };
         let o = register_interface::register(context.get_inner(), &request);
         ApplicationSnapshotResult {
-            application_name: pulumi_wasm_rust::__private::into_domain(
+            application_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("applicationName"),
             ),
-            application_version_id: pulumi_wasm_rust::__private::into_domain(
+            application_version_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("applicationVersionId"),
             ),
-            snapshot_creation_timestamp: pulumi_wasm_rust::__private::into_domain(
+            snapshot_creation_timestamp: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("snapshotCreationTimestamp"),
             ),
-            snapshot_name: pulumi_wasm_rust::__private::into_domain(
+            snapshot_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("snapshotName"),
             ),
         }

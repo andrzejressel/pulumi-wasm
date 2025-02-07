@@ -1,49 +1,49 @@
 pub mod get_reserved_instance_offering {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct GetReservedInstanceOfferingArgs {
         /// DB instance class for the reserved DB instance.
         #[builder(into)]
-        pub db_instance_class: pulumi_wasm_rust::InputOrOutput<String>,
+        pub db_instance_class: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Duration of the reservation in years or seconds. Valid values are `1`, `3`, `31536000`, `94608000`
         #[builder(into)]
-        pub duration: pulumi_wasm_rust::InputOrOutput<i32>,
+        pub duration: pulumi_gestalt_rust::InputOrOutput<i32>,
         /// Whether the reservation applies to Multi-AZ deployments.
         #[builder(into)]
-        pub multi_az: pulumi_wasm_rust::InputOrOutput<bool>,
+        pub multi_az: pulumi_gestalt_rust::InputOrOutput<bool>,
         /// Offering type of this reserved DB instance. Valid values are `No Upfront`, `Partial Upfront`, `All Upfront`.
         #[builder(into)]
-        pub offering_type: pulumi_wasm_rust::InputOrOutput<String>,
+        pub offering_type: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Description of the reserved DB instance.
         #[builder(into)]
-        pub product_description: pulumi_wasm_rust::InputOrOutput<String>,
+        pub product_description: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct GetReservedInstanceOfferingResult {
         /// Currency code for the reserved DB instance.
-        pub currency_code: pulumi_wasm_rust::Output<String>,
-        pub db_instance_class: pulumi_wasm_rust::Output<String>,
-        pub duration: pulumi_wasm_rust::Output<i32>,
+        pub currency_code: pulumi_gestalt_rust::Output<String>,
+        pub db_instance_class: pulumi_gestalt_rust::Output<String>,
+        pub duration: pulumi_gestalt_rust::Output<i32>,
         /// Fixed price charged for this reserved DB instance.
-        pub fixed_price: pulumi_wasm_rust::Output<f64>,
+        pub fixed_price: pulumi_gestalt_rust::Output<f64>,
         /// The provider-assigned unique ID for this managed resource.
-        pub id: pulumi_wasm_rust::Output<String>,
-        pub multi_az: pulumi_wasm_rust::Output<bool>,
+        pub id: pulumi_gestalt_rust::Output<String>,
+        pub multi_az: pulumi_gestalt_rust::Output<bool>,
         /// Unique identifier for the reservation.
-        pub offering_id: pulumi_wasm_rust::Output<String>,
-        pub offering_type: pulumi_wasm_rust::Output<String>,
-        pub product_description: pulumi_wasm_rust::Output<String>,
+        pub offering_id: pulumi_gestalt_rust::Output<String>,
+        pub offering_type: pulumi_gestalt_rust::Output<String>,
+        pub product_description: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         args: GetReservedInstanceOfferingArgs,
     ) -> GetReservedInstanceOfferingResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let db_instance_class_binding = args
             .db_instance_class
@@ -85,29 +85,29 @@ pub mod get_reserved_instance_offering {
         };
         let o = register_interface::invoke(context.get_inner(), &request);
         GetReservedInstanceOfferingResult {
-            currency_code: pulumi_wasm_rust::__private::into_domain(
+            currency_code: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("currencyCode"),
             ),
-            db_instance_class: pulumi_wasm_rust::__private::into_domain(
+            db_instance_class: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("dbInstanceClass"),
             ),
-            duration: pulumi_wasm_rust::__private::into_domain(
+            duration: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("duration"),
             ),
-            fixed_price: pulumi_wasm_rust::__private::into_domain(
+            fixed_price: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("fixedPrice"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
-            multi_az: pulumi_wasm_rust::__private::into_domain(
+            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
+            multi_az: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("multiAz"),
             ),
-            offering_id: pulumi_wasm_rust::__private::into_domain(
+            offering_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("offeringId"),
             ),
-            offering_type: pulumi_wasm_rust::__private::into_domain(
+            offering_type: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("offeringType"),
             ),
-            product_description: pulumi_wasm_rust::__private::into_domain(
+            product_description: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("productDescription"),
             ),
         }

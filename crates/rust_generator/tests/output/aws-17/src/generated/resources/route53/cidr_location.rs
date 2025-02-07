@@ -3,8 +3,8 @@
 /// ## Example Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = cidr_collection::create(
@@ -30,39 +30,39 @@
 /// $ pulumi import aws:route53/cidrLocation:CidrLocation example 9ac32814-3e67-0932-6048-8d779cc6f511,office
 /// ```
 pub mod cidr_location {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct CidrLocationArgs {
         /// CIDR blocks for the location.
         #[builder(into)]
-        pub cidr_blocks: pulumi_wasm_rust::InputOrOutput<Vec<String>>,
+        pub cidr_blocks: pulumi_gestalt_rust::InputOrOutput<Vec<String>>,
         /// The ID of the CIDR collection to update.
         #[builder(into)]
-        pub cidr_collection_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub cidr_collection_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Name for the CIDR location.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct CidrLocationResult {
         /// CIDR blocks for the location.
-        pub cidr_blocks: pulumi_wasm_rust::Output<Vec<String>>,
+        pub cidr_blocks: pulumi_gestalt_rust::Output<Vec<String>>,
         /// The ID of the CIDR collection to update.
-        pub cidr_collection_id: pulumi_wasm_rust::Output<String>,
+        pub cidr_collection_id: pulumi_gestalt_rust::Output<String>,
         /// Name for the CIDR location.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: CidrLocationArgs,
     ) -> CidrLocationResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let cidr_blocks_binding = args.cidr_blocks.get_output(context).get_inner();
         let cidr_collection_id_binding = args
@@ -91,13 +91,13 @@ pub mod cidr_location {
         };
         let o = register_interface::register(context.get_inner(), &request);
         CidrLocationResult {
-            cidr_blocks: pulumi_wasm_rust::__private::into_domain(
+            cidr_blocks: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("cidrBlocks"),
             ),
-            cidr_collection_id: pulumi_wasm_rust::__private::into_domain(
+            cidr_collection_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("cidrCollectionId"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
         }
     }
 }

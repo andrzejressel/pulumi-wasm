@@ -22,21 +22,21 @@
 /// $ pulumi import aws:apprunner/observabilityConfiguration:ObservabilityConfiguration example arn:aws:apprunner:us-east-1:1234567890:observabilityconfiguration/example/1/d75bc7ea55b71e724fe5c23452fe22a1
 /// ```
 pub mod observability_configuration {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ObservabilityConfigurationArgs {
         /// Name of the observability configuration.
         #[builder(into)]
-        pub observability_configuration_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub observability_configuration_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Configuration of the tracing feature within this observability configuration. If you don't specify it, App Runner doesn't enable tracing. See Trace Configuration below for more details.
         #[builder(into, default)]
-        pub trace_configuration: pulumi_wasm_rust::InputOrOutput<
+        pub trace_configuration: pulumi_gestalt_rust::InputOrOutput<
             Option<
                 super::super::types::apprunner::ObservabilityConfigurationTraceConfiguration,
             >,
@@ -45,25 +45,25 @@ pub mod observability_configuration {
     #[allow(dead_code)]
     pub struct ObservabilityConfigurationResult {
         /// ARN of this observability configuration.
-        pub arn: pulumi_wasm_rust::Output<String>,
+        pub arn: pulumi_gestalt_rust::Output<String>,
         /// Whether the observability configuration has the highest `observability_configuration_revision` among all configurations that share the same `observability_configuration_name`.
-        pub latest: pulumi_wasm_rust::Output<bool>,
+        pub latest: pulumi_gestalt_rust::Output<bool>,
         /// Name of the observability configuration.
-        pub observability_configuration_name: pulumi_wasm_rust::Output<String>,
+        pub observability_configuration_name: pulumi_gestalt_rust::Output<String>,
         /// The revision of this observability configuration.
-        pub observability_configuration_revision: pulumi_wasm_rust::Output<i32>,
+        pub observability_configuration_revision: pulumi_gestalt_rust::Output<i32>,
         /// Current state of the observability configuration. An INACTIVE configuration revision has been deleted and can't be used. It is permanently removed some time after deletion.
-        pub status: pulumi_wasm_rust::Output<String>,
+        pub status: pulumi_gestalt_rust::Output<String>,
         /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        pub tags_all: pulumi_wasm_rust::Output<
+        pub tags_all: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
         /// Configuration of the tracing feature within this observability configuration. If you don't specify it, App Runner doesn't enable tracing. See Trace Configuration below for more details.
-        pub trace_configuration: pulumi_wasm_rust::Output<
+        pub trace_configuration: pulumi_gestalt_rust::Output<
             Option<
                 super::super::types::apprunner::ObservabilityConfigurationTraceConfiguration,
             >,
@@ -74,11 +74,11 @@ pub mod observability_configuration {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: ObservabilityConfigurationArgs,
     ) -> ObservabilityConfigurationResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let observability_configuration_name_binding = args
             .observability_configuration_name
@@ -111,20 +111,24 @@ pub mod observability_configuration {
         };
         let o = register_interface::register(context.get_inner(), &request);
         ObservabilityConfigurationResult {
-            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
-            latest: pulumi_wasm_rust::__private::into_domain(o.extract_field("latest")),
-            observability_configuration_name: pulumi_wasm_rust::__private::into_domain(
+            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
+            latest: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("latest"),
+            ),
+            observability_configuration_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("observabilityConfigurationName"),
             ),
-            observability_configuration_revision: pulumi_wasm_rust::__private::into_domain(
+            observability_configuration_revision: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("observabilityConfigurationRevision"),
             ),
-            status: pulumi_wasm_rust::__private::into_domain(o.extract_field("status")),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_wasm_rust::__private::into_domain(
+            status: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("status"),
+            ),
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            tags_all: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("tagsAll"),
             ),
-            trace_configuration: pulumi_wasm_rust::__private::into_domain(
+            trace_configuration: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("traceConfiguration"),
             ),
         }

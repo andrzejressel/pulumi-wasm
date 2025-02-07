@@ -4,8 +4,8 @@
 /// ## Example Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = load_balancer_pool::create(
@@ -56,103 +56,105 @@
 /// ```
 ///
 pub mod load_balancer_pool {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct LoadBalancerPoolArgs {
         /// The account identifier to target for the resource.
         #[builder(into)]
-        pub account_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub account_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// A list of regions (specified by region code) from which to run health checks. Empty means every Cloudflare data center (the default), but requires an Enterprise plan. Region codes can be found [here](https://developers.cloudflare.com/load-balancing/reference/region-mapping-api).
         #[builder(into, default)]
-        pub check_regions: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
+        pub check_regions: pulumi_gestalt_rust::InputOrOutput<Option<Vec<String>>>,
         /// Free text description.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub description: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Whether to enable (the default) this pool. Disabled pools will not receive traffic and are excluded from health checks. Disabling a pool will cause any load balancers using it to failover to the next pool (if any). Defaults to `true`.
         #[builder(into, default)]
-        pub enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub enabled: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// The latitude this pool is physically located at; used for proximity steering.
         #[builder(into, default)]
-        pub latitude: pulumi_wasm_rust::InputOrOutput<Option<f64>>,
+        pub latitude: pulumi_gestalt_rust::InputOrOutput<Option<f64>>,
         /// Setting for controlling load shedding for this pool.
         #[builder(into, default)]
-        pub load_sheddings: pulumi_wasm_rust::InputOrOutput<
+        pub load_sheddings: pulumi_gestalt_rust::InputOrOutput<
             Option<Vec<super::types::LoadBalancerPoolLoadShedding>>,
         >,
         /// The longitude this pool is physically located at; used for proximity steering.
         #[builder(into, default)]
-        pub longitude: pulumi_wasm_rust::InputOrOutput<Option<f64>>,
+        pub longitude: pulumi_gestalt_rust::InputOrOutput<Option<f64>>,
         /// The minimum number of origins that must be healthy for this pool to serve traffic. If the number of healthy origins falls below this number, the pool will be marked unhealthy and we will failover to the next available pool. Defaults to `1`.
         #[builder(into, default)]
-        pub minimum_origins: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
+        pub minimum_origins: pulumi_gestalt_rust::InputOrOutput<Option<i32>>,
         /// The ID of the Monitor to use for health checking origins within this pool.
         #[builder(into, default)]
-        pub monitor: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub monitor: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// A short name (tag) for the pool.
         #[builder(into)]
-        pub name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The email address to send health status notifications to. This can be an individual mailbox or a mailing list. Multiple emails can be supplied as a comma delimited list.
         #[builder(into, default)]
-        pub notification_email: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub notification_email: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Set an origin steering policy to control origin selection within a pool.
         #[builder(into, default)]
-        pub origin_steerings: pulumi_wasm_rust::InputOrOutput<
+        pub origin_steerings: pulumi_gestalt_rust::InputOrOutput<
             Option<Vec<super::types::LoadBalancerPoolOriginSteering>>,
         >,
         /// The list of origins within this pool. Traffic directed at this pool is balanced across all currently healthy origins, provided the pool itself is healthy.
         #[builder(into)]
-        pub origins: pulumi_wasm_rust::InputOrOutput<
+        pub origins: pulumi_gestalt_rust::InputOrOutput<
             Vec<super::types::LoadBalancerPoolOrigin>,
         >,
     }
     #[allow(dead_code)]
     pub struct LoadBalancerPoolResult {
         /// The account identifier to target for the resource.
-        pub account_id: pulumi_wasm_rust::Output<String>,
+        pub account_id: pulumi_gestalt_rust::Output<String>,
         /// A list of regions (specified by region code) from which to run health checks. Empty means every Cloudflare data center (the default), but requires an Enterprise plan. Region codes can be found [here](https://developers.cloudflare.com/load-balancing/reference/region-mapping-api).
-        pub check_regions: pulumi_wasm_rust::Output<Vec<String>>,
+        pub check_regions: pulumi_gestalt_rust::Output<Vec<String>>,
         /// The RFC3339 timestamp of when the load balancer was created.
-        pub created_on: pulumi_wasm_rust::Output<String>,
+        pub created_on: pulumi_gestalt_rust::Output<String>,
         /// Free text description.
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_gestalt_rust::Output<Option<String>>,
         /// Whether to enable (the default) this pool. Disabled pools will not receive traffic and are excluded from health checks. Disabling a pool will cause any load balancers using it to failover to the next pool (if any). Defaults to `true`.
-        pub enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub enabled: pulumi_gestalt_rust::Output<Option<bool>>,
         /// The latitude this pool is physically located at; used for proximity steering.
-        pub latitude: pulumi_wasm_rust::Output<Option<f64>>,
+        pub latitude: pulumi_gestalt_rust::Output<Option<f64>>,
         /// Setting for controlling load shedding for this pool.
-        pub load_sheddings: pulumi_wasm_rust::Output<
+        pub load_sheddings: pulumi_gestalt_rust::Output<
             Option<Vec<super::types::LoadBalancerPoolLoadShedding>>,
         >,
         /// The longitude this pool is physically located at; used for proximity steering.
-        pub longitude: pulumi_wasm_rust::Output<Option<f64>>,
+        pub longitude: pulumi_gestalt_rust::Output<Option<f64>>,
         /// The minimum number of origins that must be healthy for this pool to serve traffic. If the number of healthy origins falls below this number, the pool will be marked unhealthy and we will failover to the next available pool. Defaults to `1`.
-        pub minimum_origins: pulumi_wasm_rust::Output<Option<i32>>,
+        pub minimum_origins: pulumi_gestalt_rust::Output<Option<i32>>,
         /// The RFC3339 timestamp of when the load balancer was last modified.
-        pub modified_on: pulumi_wasm_rust::Output<String>,
+        pub modified_on: pulumi_gestalt_rust::Output<String>,
         /// The ID of the Monitor to use for health checking origins within this pool.
-        pub monitor: pulumi_wasm_rust::Output<Option<String>>,
+        pub monitor: pulumi_gestalt_rust::Output<Option<String>>,
         /// A short name (tag) for the pool.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// The email address to send health status notifications to. This can be an individual mailbox or a mailing list. Multiple emails can be supplied as a comma delimited list.
-        pub notification_email: pulumi_wasm_rust::Output<Option<String>>,
+        pub notification_email: pulumi_gestalt_rust::Output<Option<String>>,
         /// Set an origin steering policy to control origin selection within a pool.
-        pub origin_steerings: pulumi_wasm_rust::Output<
+        pub origin_steerings: pulumi_gestalt_rust::Output<
             Option<Vec<super::types::LoadBalancerPoolOriginSteering>>,
         >,
         /// The list of origins within this pool. Traffic directed at this pool is balanced across all currently healthy origins, provided the pool itself is healthy.
-        pub origins: pulumi_wasm_rust::Output<Vec<super::types::LoadBalancerPoolOrigin>>,
+        pub origins: pulumi_gestalt_rust::Output<
+            Vec<super::types::LoadBalancerPoolOrigin>,
+        >,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: LoadBalancerPoolArgs,
     ) -> LoadBalancerPoolResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let account_id_binding = args.account_id.get_output(context).get_inner();
         let check_regions_binding = args.check_regions.get_output(context).get_inner();
@@ -237,47 +239,49 @@ pub mod load_balancer_pool {
         };
         let o = register_interface::register(context.get_inner(), &request);
         LoadBalancerPoolResult {
-            account_id: pulumi_wasm_rust::__private::into_domain(
+            account_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("accountId"),
             ),
-            check_regions: pulumi_wasm_rust::__private::into_domain(
+            check_regions: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("checkRegions"),
             ),
-            created_on: pulumi_wasm_rust::__private::into_domain(
+            created_on: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("createdOn"),
             ),
-            description: pulumi_wasm_rust::__private::into_domain(
+            description: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("description"),
             ),
-            enabled: pulumi_wasm_rust::__private::into_domain(
+            enabled: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("enabled"),
             ),
-            latitude: pulumi_wasm_rust::__private::into_domain(
+            latitude: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("latitude"),
             ),
-            load_sheddings: pulumi_wasm_rust::__private::into_domain(
+            load_sheddings: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("loadSheddings"),
             ),
-            longitude: pulumi_wasm_rust::__private::into_domain(
+            longitude: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("longitude"),
             ),
-            minimum_origins: pulumi_wasm_rust::__private::into_domain(
+            minimum_origins: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("minimumOrigins"),
             ),
-            modified_on: pulumi_wasm_rust::__private::into_domain(
+            modified_on: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("modifiedOn"),
             ),
-            monitor: pulumi_wasm_rust::__private::into_domain(
+            monitor: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("monitor"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            notification_email: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            notification_email: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("notificationEmail"),
             ),
-            origin_steerings: pulumi_wasm_rust::__private::into_domain(
+            origin_steerings: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("originSteerings"),
             ),
-            origins: pulumi_wasm_rust::__private::into_domain(o.extract_field("origins")),
+            origins: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("origins"),
+            ),
         }
     }
 }

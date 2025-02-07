@@ -3,8 +3,8 @@
 /// ## Example Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = bucket_v_2::create(
@@ -31,63 +31,63 @@
 /// Certain resource arguments, like `encryption_configuration` and `bucket`, do not have an API method for reading the information after creation. If the argument is set in the Pulumi program on an imported resource, Pulumi will always show a difference. To workaround this behavior, either omit the argument from the Pulumi program or use `ignore_changes` to hide the difference. For example:
 ///
 pub mod database {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct DatabaseArgs {
         /// That an Amazon S3 canned ACL should be set to control ownership of stored query results. See ACL Configuration below.
         #[builder(into, default)]
-        pub acl_configuration: pulumi_wasm_rust::InputOrOutput<
+        pub acl_configuration: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::athena::DatabaseAclConfiguration>,
         >,
         /// Name of S3 bucket to save the results of the query execution.
         #[builder(into, default)]
-        pub bucket: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub bucket: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Description of the database.
         #[builder(into, default)]
-        pub comment: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub comment: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Encryption key block AWS Athena uses to decrypt the data in S3, such as an AWS Key Management Service (AWS KMS) key. See Encryption Configuration below.
         #[builder(into, default)]
-        pub encryption_configuration: pulumi_wasm_rust::InputOrOutput<
+        pub encryption_configuration: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::athena::DatabaseEncryptionConfiguration>,
         >,
         /// AWS account ID that you expect to be the owner of the Amazon S3 bucket.
         #[builder(into, default)]
-        pub expected_bucket_owner: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub expected_bucket_owner: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Boolean that indicates all tables should be deleted from the database so that the database can be destroyed without error. The tables are *not* recoverable.
         #[builder(into, default)]
-        pub force_destroy: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub force_destroy: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// Name of the database to create.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Key-value map of custom metadata properties for the database definition.
         #[builder(into, default)]
-        pub properties: pulumi_wasm_rust::InputOrOutput<
+        pub properties: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
     #[allow(dead_code)]
     pub struct DatabaseResult {
         /// That an Amazon S3 canned ACL should be set to control ownership of stored query results. See ACL Configuration below.
-        pub acl_configuration: pulumi_wasm_rust::Output<
+        pub acl_configuration: pulumi_gestalt_rust::Output<
             Option<super::super::types::athena::DatabaseAclConfiguration>,
         >,
         /// Name of S3 bucket to save the results of the query execution.
-        pub bucket: pulumi_wasm_rust::Output<Option<String>>,
+        pub bucket: pulumi_gestalt_rust::Output<Option<String>>,
         /// Description of the database.
-        pub comment: pulumi_wasm_rust::Output<Option<String>>,
+        pub comment: pulumi_gestalt_rust::Output<Option<String>>,
         /// Encryption key block AWS Athena uses to decrypt the data in S3, such as an AWS Key Management Service (AWS KMS) key. See Encryption Configuration below.
-        pub encryption_configuration: pulumi_wasm_rust::Output<
+        pub encryption_configuration: pulumi_gestalt_rust::Output<
             Option<super::super::types::athena::DatabaseEncryptionConfiguration>,
         >,
         /// AWS account ID that you expect to be the owner of the Amazon S3 bucket.
-        pub expected_bucket_owner: pulumi_wasm_rust::Output<Option<String>>,
+        pub expected_bucket_owner: pulumi_gestalt_rust::Output<Option<String>>,
         /// Boolean that indicates all tables should be deleted from the database so that the database can be destroyed without error. The tables are *not* recoverable.
-        pub force_destroy: pulumi_wasm_rust::Output<Option<bool>>,
+        pub force_destroy: pulumi_gestalt_rust::Output<Option<bool>>,
         /// Name of the database to create.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// Key-value map of custom metadata properties for the database definition.
-        pub properties: pulumi_wasm_rust::Output<
+        pub properties: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
@@ -96,11 +96,11 @@ pub mod database {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: DatabaseArgs,
     ) -> DatabaseResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let acl_configuration_binding = args
             .acl_configuration
@@ -160,24 +160,26 @@ pub mod database {
         };
         let o = register_interface::register(context.get_inner(), &request);
         DatabaseResult {
-            acl_configuration: pulumi_wasm_rust::__private::into_domain(
+            acl_configuration: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("aclConfiguration"),
             ),
-            bucket: pulumi_wasm_rust::__private::into_domain(o.extract_field("bucket")),
-            comment: pulumi_wasm_rust::__private::into_domain(
+            bucket: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("bucket"),
+            ),
+            comment: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("comment"),
             ),
-            encryption_configuration: pulumi_wasm_rust::__private::into_domain(
+            encryption_configuration: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("encryptionConfiguration"),
             ),
-            expected_bucket_owner: pulumi_wasm_rust::__private::into_domain(
+            expected_bucket_owner: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("expectedBucketOwner"),
             ),
-            force_destroy: pulumi_wasm_rust::__private::into_domain(
+            force_destroy: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("forceDestroy"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            properties: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            properties: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("properties"),
             ),
         }

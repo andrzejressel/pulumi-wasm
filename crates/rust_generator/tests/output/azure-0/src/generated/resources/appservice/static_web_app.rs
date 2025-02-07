@@ -3,8 +3,8 @@
 /// ## Example Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = resource_group::create(
@@ -34,93 +34,99 @@
 /// ```
 ///
 pub mod static_web_app {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct StaticWebAppArgs {
         /// A key-value pair of App Settings.
         #[builder(into, default)]
-        pub app_settings: pulumi_wasm_rust::InputOrOutput<
+        pub app_settings: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// A `basic_auth` block as defined below.
         #[builder(into, default)]
-        pub basic_auth: pulumi_wasm_rust::InputOrOutput<
+        pub basic_auth: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::appservice::StaticWebAppBasicAuth>,
         >,
         /// Should changes to the configuration file be permitted. Defaults to `true`.
         #[builder(into, default)]
-        pub configuration_file_changes_enabled: pulumi_wasm_rust::InputOrOutput<
+        pub configuration_file_changes_enabled: pulumi_gestalt_rust::InputOrOutput<
             Option<bool>,
         >,
         /// An `identity` block as defined below.
         #[builder(into, default)]
-        pub identity: pulumi_wasm_rust::InputOrOutput<
+        pub identity: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::appservice::StaticWebAppIdentity>,
         >,
         /// The Azure Region where the Static Web App should exist. Changing this forces a new Static Web App to be created.
         #[builder(into, default)]
-        pub location: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub location: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The name which should be used for this Static Web App. Changing this forces a new Static Web App to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Are Preview (Staging) environments enabled. Defaults to `true`.
         #[builder(into, default)]
-        pub preview_environments_enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub preview_environments_enabled: pulumi_gestalt_rust::InputOrOutput<
+            Option<bool>,
+        >,
         /// Should public network access be enabled for the Static Web App. Defaults to `true`.
         #[builder(into, default)]
-        pub public_network_access_enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub public_network_access_enabled: pulumi_gestalt_rust::InputOrOutput<
+            Option<bool>,
+        >,
         /// The name of the Resource Group where the Static Web App should exist. Changing this forces a new Static Web App to be created.
         #[builder(into)]
-        pub resource_group_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub resource_group_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Specifies the SKU size of the Static Web App. Possible values are `Free` or `Standard`. Defaults to `Free`.
         #[builder(into, default)]
-        pub sku_size: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub sku_size: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Specifies the SKU tier of the Static Web App. Possible values are `Free` or `Standard`. Defaults to `Free`.
         #[builder(into, default)]
-        pub sku_tier: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub sku_tier: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// A mapping of tags to assign to the resource.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
     #[allow(dead_code)]
     pub struct StaticWebAppResult {
         /// The API key of this Static Web App, which is used for later interacting with this Static Web App from other clients, e.g. GitHub Action.
-        pub api_key: pulumi_wasm_rust::Output<String>,
+        pub api_key: pulumi_gestalt_rust::Output<String>,
         /// A key-value pair of App Settings.
-        pub app_settings: pulumi_wasm_rust::Output<
+        pub app_settings: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// A `basic_auth` block as defined below.
-        pub basic_auth: pulumi_wasm_rust::Output<
+        pub basic_auth: pulumi_gestalt_rust::Output<
             Option<super::super::types::appservice::StaticWebAppBasicAuth>,
         >,
         /// Should changes to the configuration file be permitted. Defaults to `true`.
-        pub configuration_file_changes_enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub configuration_file_changes_enabled: pulumi_gestalt_rust::Output<
+            Option<bool>,
+        >,
         /// The default host name of the Static Web App.
-        pub default_host_name: pulumi_wasm_rust::Output<String>,
+        pub default_host_name: pulumi_gestalt_rust::Output<String>,
         /// An `identity` block as defined below.
-        pub identity: pulumi_wasm_rust::Output<
+        pub identity: pulumi_gestalt_rust::Output<
             Option<super::super::types::appservice::StaticWebAppIdentity>,
         >,
         /// The Azure Region where the Static Web App should exist. Changing this forces a new Static Web App to be created.
-        pub location: pulumi_wasm_rust::Output<String>,
+        pub location: pulumi_gestalt_rust::Output<String>,
         /// The name which should be used for this Static Web App. Changing this forces a new Static Web App to be created.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// Are Preview (Staging) environments enabled. Defaults to `true`.
-        pub preview_environments_enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub preview_environments_enabled: pulumi_gestalt_rust::Output<Option<bool>>,
         /// Should public network access be enabled for the Static Web App. Defaults to `true`.
-        pub public_network_access_enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub public_network_access_enabled: pulumi_gestalt_rust::Output<Option<bool>>,
         /// The name of the Resource Group where the Static Web App should exist. Changing this forces a new Static Web App to be created.
-        pub resource_group_name: pulumi_wasm_rust::Output<String>,
+        pub resource_group_name: pulumi_gestalt_rust::Output<String>,
         /// Specifies the SKU size of the Static Web App. Possible values are `Free` or `Standard`. Defaults to `Free`.
-        pub sku_size: pulumi_wasm_rust::Output<Option<String>>,
+        pub sku_size: pulumi_gestalt_rust::Output<Option<String>>,
         /// Specifies the SKU tier of the Static Web App. Possible values are `Free` or `Standard`. Defaults to `Free`.
-        pub sku_tier: pulumi_wasm_rust::Output<Option<String>>,
+        pub sku_tier: pulumi_gestalt_rust::Output<Option<String>>,
         /// A mapping of tags to assign to the resource.
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
@@ -129,11 +135,11 @@ pub mod static_web_app {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: StaticWebAppArgs,
     ) -> StaticWebAppResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let app_settings_binding = args.app_settings.get_output(context).get_inner();
         let basic_auth_binding = args.basic_auth.get_output(context).get_inner();
@@ -216,42 +222,44 @@ pub mod static_web_app {
         };
         let o = register_interface::register(context.get_inner(), &request);
         StaticWebAppResult {
-            api_key: pulumi_wasm_rust::__private::into_domain(o.extract_field("apiKey")),
-            app_settings: pulumi_wasm_rust::__private::into_domain(
+            api_key: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("apiKey"),
+            ),
+            app_settings: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("appSettings"),
             ),
-            basic_auth: pulumi_wasm_rust::__private::into_domain(
+            basic_auth: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("basicAuth"),
             ),
-            configuration_file_changes_enabled: pulumi_wasm_rust::__private::into_domain(
+            configuration_file_changes_enabled: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("configurationFileChangesEnabled"),
             ),
-            default_host_name: pulumi_wasm_rust::__private::into_domain(
+            default_host_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("defaultHostName"),
             ),
-            identity: pulumi_wasm_rust::__private::into_domain(
+            identity: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("identity"),
             ),
-            location: pulumi_wasm_rust::__private::into_domain(
+            location: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("location"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            preview_environments_enabled: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            preview_environments_enabled: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("previewEnvironmentsEnabled"),
             ),
-            public_network_access_enabled: pulumi_wasm_rust::__private::into_domain(
+            public_network_access_enabled: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("publicNetworkAccessEnabled"),
             ),
-            resource_group_name: pulumi_wasm_rust::__private::into_domain(
+            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("resourceGroupName"),
             ),
-            sku_size: pulumi_wasm_rust::__private::into_domain(
+            sku_size: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("skuSize"),
             ),
-            sku_tier: pulumi_wasm_rust::__private::into_domain(
+            sku_tier: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("skuTier"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
         }
     }
 }

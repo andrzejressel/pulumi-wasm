@@ -5,8 +5,8 @@
 /// ## Example Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = resource_group::create(
@@ -59,65 +59,65 @@
 /// ```
 ///
 pub mod backend_address_pool {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct BackendAddressPoolArgs {
         /// The ID of the Load Balancer in which to create the Backend Address Pool. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub loadbalancer_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub loadbalancer_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Specifies the name of the Backend Address Pool. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The backend address synchronous mode for the Backend Address Pool. Possible values are `Automatic` and `Manual`. This is required with `virtual_network_id`. Changing this forces a new resource to be created.
         ///
         /// > **NOTE:** The `synchronous_mode` can set only for Load Balancer with `Standard` SKU.
         #[builder(into, default)]
-        pub synchronous_mode: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub synchronous_mode: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// One or more `tunnel_interface` blocks as defined below.
         #[builder(into, default)]
-        pub tunnel_interfaces: pulumi_wasm_rust::InputOrOutput<
+        pub tunnel_interfaces: pulumi_gestalt_rust::InputOrOutput<
             Option<Vec<super::super::types::lb::BackendAddressPoolTunnelInterface>>,
         >,
         /// The ID of the Virtual Network within which the Backend Address Pool should exist.
         #[builder(into, default)]
-        pub virtual_network_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub virtual_network_id: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct BackendAddressPoolResult {
         /// The Backend IP Configurations associated with this Backend Address Pool.
-        pub backend_ip_configurations: pulumi_wasm_rust::Output<Vec<String>>,
+        pub backend_ip_configurations: pulumi_gestalt_rust::Output<Vec<String>>,
         /// An array of the Load Balancing Inbound NAT Rules associated with this Backend Address Pool.
-        pub inbound_nat_rules: pulumi_wasm_rust::Output<Vec<String>>,
+        pub inbound_nat_rules: pulumi_gestalt_rust::Output<Vec<String>>,
         /// The Load Balancing Rules associated with this Backend Address Pool.
-        pub load_balancing_rules: pulumi_wasm_rust::Output<Vec<String>>,
+        pub load_balancing_rules: pulumi_gestalt_rust::Output<Vec<String>>,
         /// The ID of the Load Balancer in which to create the Backend Address Pool. Changing this forces a new resource to be created.
-        pub loadbalancer_id: pulumi_wasm_rust::Output<String>,
+        pub loadbalancer_id: pulumi_gestalt_rust::Output<String>,
         /// Specifies the name of the Backend Address Pool. Changing this forces a new resource to be created.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// An array of the Load Balancing Outbound Rules associated with this Backend Address Pool.
-        pub outbound_rules: pulumi_wasm_rust::Output<Vec<String>>,
+        pub outbound_rules: pulumi_gestalt_rust::Output<Vec<String>>,
         /// The backend address synchronous mode for the Backend Address Pool. Possible values are `Automatic` and `Manual`. This is required with `virtual_network_id`. Changing this forces a new resource to be created.
         ///
         /// > **NOTE:** The `synchronous_mode` can set only for Load Balancer with `Standard` SKU.
-        pub synchronous_mode: pulumi_wasm_rust::Output<Option<String>>,
+        pub synchronous_mode: pulumi_gestalt_rust::Output<Option<String>>,
         /// One or more `tunnel_interface` blocks as defined below.
-        pub tunnel_interfaces: pulumi_wasm_rust::Output<
+        pub tunnel_interfaces: pulumi_gestalt_rust::Output<
             Option<Vec<super::super::types::lb::BackendAddressPoolTunnelInterface>>,
         >,
         /// The ID of the Virtual Network within which the Backend Address Pool should exist.
-        pub virtual_network_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub virtual_network_id: pulumi_gestalt_rust::Output<Option<String>>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: BackendAddressPoolArgs,
     ) -> BackendAddressPoolResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let loadbalancer_id_binding = args
             .loadbalancer_id
@@ -165,29 +165,29 @@ pub mod backend_address_pool {
         };
         let o = register_interface::register(context.get_inner(), &request);
         BackendAddressPoolResult {
-            backend_ip_configurations: pulumi_wasm_rust::__private::into_domain(
+            backend_ip_configurations: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("backendIpConfigurations"),
             ),
-            inbound_nat_rules: pulumi_wasm_rust::__private::into_domain(
+            inbound_nat_rules: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("inboundNatRules"),
             ),
-            load_balancing_rules: pulumi_wasm_rust::__private::into_domain(
+            load_balancing_rules: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("loadBalancingRules"),
             ),
-            loadbalancer_id: pulumi_wasm_rust::__private::into_domain(
+            loadbalancer_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("loadbalancerId"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            outbound_rules: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            outbound_rules: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("outboundRules"),
             ),
-            synchronous_mode: pulumi_wasm_rust::__private::into_domain(
+            synchronous_mode: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("synchronousMode"),
             ),
-            tunnel_interfaces: pulumi_wasm_rust::__private::into_domain(
+            tunnel_interfaces: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("tunnelInterfaces"),
             ),
-            virtual_network_id: pulumi_wasm_rust::__private::into_domain(
+            virtual_network_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("virtualNetworkId"),
             ),
         }

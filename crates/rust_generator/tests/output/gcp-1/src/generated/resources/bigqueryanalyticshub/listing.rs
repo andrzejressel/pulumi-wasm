@@ -13,8 +13,8 @@
 ///
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let listing = data_exchange::create(
@@ -56,8 +56,8 @@
 ///
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let listing = data_exchange::create(
@@ -105,8 +105,8 @@
 ///
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let listing = data_exchange::create(
@@ -198,62 +198,62 @@
 /// ```
 ///
 pub mod listing {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ListingArgs {
         /// Shared dataset i.e. BigQuery dataset source.
         /// Structure is documented below.
         #[builder(into)]
-        pub bigquery_dataset: pulumi_wasm_rust::InputOrOutput<
+        pub bigquery_dataset: pulumi_gestalt_rust::InputOrOutput<
             super::super::types::bigqueryanalyticshub::ListingBigqueryDataset,
         >,
         /// Categories of the listing. Up to two categories are allowed.
         #[builder(into, default)]
-        pub categories: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
+        pub categories: pulumi_gestalt_rust::InputOrOutput<Option<Vec<String>>>,
         /// The ID of the data exchange. Must contain only Unicode letters, numbers (0-9), underscores (_). Should not use characters that require URL-escaping, or characters outside of ASCII, spaces.
         #[builder(into)]
-        pub data_exchange_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub data_exchange_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Details of the data provider who owns the source data.
         #[builder(into, default)]
-        pub data_provider: pulumi_wasm_rust::InputOrOutput<
+        pub data_provider: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::bigqueryanalyticshub::ListingDataProvider>,
         >,
         /// Short description of the listing. The description must not contain Unicode non-characters and C0 and C1 control codes
         /// except tabs (HT), new lines (LF), carriage returns (CR), and page breaks (FF).
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub description: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Human-readable display name of the listing. The display name must contain only Unicode letters, numbers (0-9), underscores (_), dashes (-), spaces ( ), ampersands (&) and can't start or end with spaces.
         #[builder(into)]
-        pub display_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub display_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Documentation describing the listing.
         #[builder(into, default)]
-        pub documentation: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub documentation: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Base64 encoded image representing the listing.
         #[builder(into, default)]
-        pub icon: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub icon: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The ID of the listing. Must contain only Unicode letters, numbers (0-9), underscores (_). Should not use characters that require URL-escaping, or characters outside of ASCII, spaces.
         #[builder(into)]
-        pub listing_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub listing_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The name of the location this data exchange listing.
         #[builder(into)]
-        pub location: pulumi_wasm_rust::InputOrOutput<String>,
+        pub location: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Email or URL of the primary point of contact of the listing.
         #[builder(into, default)]
-        pub primary_contact: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub primary_contact: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub project: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Details of the publisher who owns the listing and who can share the source data.
         #[builder(into, default)]
-        pub publisher: pulumi_wasm_rust::InputOrOutput<
+        pub publisher: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::bigqueryanalyticshub::ListingPublisher>,
         >,
         /// Email or URL of the request access of the listing. Subscribers can use this reference to request access.
         #[builder(into, default)]
-        pub request_access: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub request_access: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// If set, restricted export configuration will be propagated and enforced on the linked dataset.
         #[builder(into, default)]
-        pub restricted_export_config: pulumi_wasm_rust::InputOrOutput<
+        pub restricted_export_config: pulumi_gestalt_rust::InputOrOutput<
             Option<
                 super::super::types::bigqueryanalyticshub::ListingRestrictedExportConfig,
             >,
@@ -263,43 +263,43 @@ pub mod listing {
     pub struct ListingResult {
         /// Shared dataset i.e. BigQuery dataset source.
         /// Structure is documented below.
-        pub bigquery_dataset: pulumi_wasm_rust::Output<
+        pub bigquery_dataset: pulumi_gestalt_rust::Output<
             super::super::types::bigqueryanalyticshub::ListingBigqueryDataset,
         >,
         /// Categories of the listing. Up to two categories are allowed.
-        pub categories: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub categories: pulumi_gestalt_rust::Output<Option<Vec<String>>>,
         /// The ID of the data exchange. Must contain only Unicode letters, numbers (0-9), underscores (_). Should not use characters that require URL-escaping, or characters outside of ASCII, spaces.
-        pub data_exchange_id: pulumi_wasm_rust::Output<String>,
+        pub data_exchange_id: pulumi_gestalt_rust::Output<String>,
         /// Details of the data provider who owns the source data.
-        pub data_provider: pulumi_wasm_rust::Output<
+        pub data_provider: pulumi_gestalt_rust::Output<
             Option<super::super::types::bigqueryanalyticshub::ListingDataProvider>,
         >,
         /// Short description of the listing. The description must not contain Unicode non-characters and C0 and C1 control codes
         /// except tabs (HT), new lines (LF), carriage returns (CR), and page breaks (FF).
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_gestalt_rust::Output<Option<String>>,
         /// Human-readable display name of the listing. The display name must contain only Unicode letters, numbers (0-9), underscores (_), dashes (-), spaces ( ), ampersands (&) and can't start or end with spaces.
-        pub display_name: pulumi_wasm_rust::Output<String>,
+        pub display_name: pulumi_gestalt_rust::Output<String>,
         /// Documentation describing the listing.
-        pub documentation: pulumi_wasm_rust::Output<Option<String>>,
+        pub documentation: pulumi_gestalt_rust::Output<Option<String>>,
         /// Base64 encoded image representing the listing.
-        pub icon: pulumi_wasm_rust::Output<Option<String>>,
+        pub icon: pulumi_gestalt_rust::Output<Option<String>>,
         /// The ID of the listing. Must contain only Unicode letters, numbers (0-9), underscores (_). Should not use characters that require URL-escaping, or characters outside of ASCII, spaces.
-        pub listing_id: pulumi_wasm_rust::Output<String>,
+        pub listing_id: pulumi_gestalt_rust::Output<String>,
         /// The name of the location this data exchange listing.
-        pub location: pulumi_wasm_rust::Output<String>,
+        pub location: pulumi_gestalt_rust::Output<String>,
         /// The resource name of the listing. e.g. "projects/myproject/locations/US/dataExchanges/123/listings/456"
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// Email or URL of the primary point of contact of the listing.
-        pub primary_contact: pulumi_wasm_rust::Output<Option<String>>,
-        pub project: pulumi_wasm_rust::Output<String>,
+        pub primary_contact: pulumi_gestalt_rust::Output<Option<String>>,
+        pub project: pulumi_gestalt_rust::Output<String>,
         /// Details of the publisher who owns the listing and who can share the source data.
-        pub publisher: pulumi_wasm_rust::Output<
+        pub publisher: pulumi_gestalt_rust::Output<
             Option<super::super::types::bigqueryanalyticshub::ListingPublisher>,
         >,
         /// Email or URL of the request access of the listing. Subscribers can use this reference to request access.
-        pub request_access: pulumi_wasm_rust::Output<Option<String>>,
+        pub request_access: pulumi_gestalt_rust::Output<Option<String>>,
         /// If set, restricted export configuration will be propagated and enforced on the linked dataset.
-        pub restricted_export_config: pulumi_wasm_rust::Output<
+        pub restricted_export_config: pulumi_gestalt_rust::Output<
             Option<
                 super::super::types::bigqueryanalyticshub::ListingRestrictedExportConfig,
             >,
@@ -310,11 +310,11 @@ pub mod listing {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: ListingArgs,
     ) -> ListingResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let bigquery_dataset_binding = args
             .bigquery_dataset
@@ -412,48 +412,48 @@ pub mod listing {
         };
         let o = register_interface::register(context.get_inner(), &request);
         ListingResult {
-            bigquery_dataset: pulumi_wasm_rust::__private::into_domain(
+            bigquery_dataset: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("bigqueryDataset"),
             ),
-            categories: pulumi_wasm_rust::__private::into_domain(
+            categories: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("categories"),
             ),
-            data_exchange_id: pulumi_wasm_rust::__private::into_domain(
+            data_exchange_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("dataExchangeId"),
             ),
-            data_provider: pulumi_wasm_rust::__private::into_domain(
+            data_provider: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("dataProvider"),
             ),
-            description: pulumi_wasm_rust::__private::into_domain(
+            description: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("description"),
             ),
-            display_name: pulumi_wasm_rust::__private::into_domain(
+            display_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("displayName"),
             ),
-            documentation: pulumi_wasm_rust::__private::into_domain(
+            documentation: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("documentation"),
             ),
-            icon: pulumi_wasm_rust::__private::into_domain(o.extract_field("icon")),
-            listing_id: pulumi_wasm_rust::__private::into_domain(
+            icon: pulumi_gestalt_rust::__private::into_domain(o.extract_field("icon")),
+            listing_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("listingId"),
             ),
-            location: pulumi_wasm_rust::__private::into_domain(
+            location: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("location"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            primary_contact: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            primary_contact: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("primaryContact"),
             ),
-            project: pulumi_wasm_rust::__private::into_domain(
+            project: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("project"),
             ),
-            publisher: pulumi_wasm_rust::__private::into_domain(
+            publisher: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("publisher"),
             ),
-            request_access: pulumi_wasm_rust::__private::into_domain(
+            request_access: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("requestAccess"),
             ),
-            restricted_export_config: pulumi_wasm_rust::__private::into_domain(
+            restricted_export_config: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("restrictedExportConfig"),
             ),
         }

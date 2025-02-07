@@ -206,88 +206,88 @@
 /// $ pulumi import aws:networkfirewall/ruleGroup:RuleGroup example arn:aws:network-firewall:us-west-1:123456789012:stateful-rulegroup/example
 /// ```
 pub mod rule_group {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct RuleGroupArgs {
         /// The maximum number of operating resources that this rule group can use. For a stateless rule group, the capacity required is the sum of the capacity requirements of the individual rules. For a stateful rule group, the minimum capacity required is the number of individual rules.
         #[builder(into)]
-        pub capacity: pulumi_wasm_rust::InputOrOutput<i32>,
+        pub capacity: pulumi_gestalt_rust::InputOrOutput<i32>,
         /// A friendly description of the rule group.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub description: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// KMS encryption configuration settings. See Encryption Configuration below for details.
         #[builder(into, default)]
-        pub encryption_configuration: pulumi_wasm_rust::InputOrOutput<
+        pub encryption_configuration: pulumi_gestalt_rust::InputOrOutput<
             Option<
                 super::super::types::networkfirewall::RuleGroupEncryptionConfiguration,
             >,
         >,
         /// A friendly name of the rule group.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// A configuration block that defines the rule group rules. Required unless `rules` is specified. See Rule Group below for details.
         #[builder(into, default)]
-        pub rule_group: pulumi_wasm_rust::InputOrOutput<
+        pub rule_group: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::networkfirewall::RuleGroupRuleGroup>,
         >,
         /// The stateful rule group rules specifications in Suricata file format, with one rule per line. Use this to import your existing Suricata compatible rule groups. Required unless `rule_group` is specified.
         #[builder(into, default)]
-        pub rules: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub rules: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// A map of key:value pairs to associate with the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Whether the rule group is stateless (containing stateless rules) or stateful (containing stateful rules). Valid values include: `STATEFUL` or `STATELESS`.
         #[builder(into)]
-        pub type_: pulumi_wasm_rust::InputOrOutput<String>,
+        pub type_: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct RuleGroupResult {
         /// The Amazon Resource Name (ARN) that identifies the rule group.
-        pub arn: pulumi_wasm_rust::Output<String>,
+        pub arn: pulumi_gestalt_rust::Output<String>,
         /// The maximum number of operating resources that this rule group can use. For a stateless rule group, the capacity required is the sum of the capacity requirements of the individual rules. For a stateful rule group, the minimum capacity required is the number of individual rules.
-        pub capacity: pulumi_wasm_rust::Output<i32>,
+        pub capacity: pulumi_gestalt_rust::Output<i32>,
         /// A friendly description of the rule group.
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_gestalt_rust::Output<Option<String>>,
         /// KMS encryption configuration settings. See Encryption Configuration below for details.
-        pub encryption_configuration: pulumi_wasm_rust::Output<
+        pub encryption_configuration: pulumi_gestalt_rust::Output<
             Option<
                 super::super::types::networkfirewall::RuleGroupEncryptionConfiguration,
             >,
         >,
         /// A friendly name of the rule group.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// A configuration block that defines the rule group rules. Required unless `rules` is specified. See Rule Group below for details.
-        pub rule_group: pulumi_wasm_rust::Output<
+        pub rule_group: pulumi_gestalt_rust::Output<
             super::super::types::networkfirewall::RuleGroupRuleGroup,
         >,
         /// The stateful rule group rules specifications in Suricata file format, with one rule per line. Use this to import your existing Suricata compatible rule groups. Required unless `rule_group` is specified.
-        pub rules: pulumi_wasm_rust::Output<Option<String>>,
+        pub rules: pulumi_gestalt_rust::Output<Option<String>>,
         /// A map of key:value pairs to associate with the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        pub tags_all: pulumi_wasm_rust::Output<
+        pub tags_all: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
         /// Whether the rule group is stateless (containing stateless rules) or stateful (containing stateful rules). Valid values include: `STATEFUL` or `STATELESS`.
-        pub type_: pulumi_wasm_rust::Output<String>,
+        pub type_: pulumi_gestalt_rust::Output<String>,
         /// A string token used when updating the rule group.
-        pub update_token: pulumi_wasm_rust::Output<String>,
+        pub update_token: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: RuleGroupArgs,
     ) -> RuleGroupResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let capacity_binding = args.capacity.get_output(context).get_inner();
         let description_binding = args.description.get_output(context).get_inner();
@@ -341,27 +341,27 @@ pub mod rule_group {
         };
         let o = register_interface::register(context.get_inner(), &request);
         RuleGroupResult {
-            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
-            capacity: pulumi_wasm_rust::__private::into_domain(
+            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
+            capacity: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("capacity"),
             ),
-            description: pulumi_wasm_rust::__private::into_domain(
+            description: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("description"),
             ),
-            encryption_configuration: pulumi_wasm_rust::__private::into_domain(
+            encryption_configuration: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("encryptionConfiguration"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            rule_group: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            rule_group: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("ruleGroup"),
             ),
-            rules: pulumi_wasm_rust::__private::into_domain(o.extract_field("rules")),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_wasm_rust::__private::into_domain(
+            rules: pulumi_gestalt_rust::__private::into_domain(o.extract_field("rules")),
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            tags_all: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("tagsAll"),
             ),
-            type_: pulumi_wasm_rust::__private::into_domain(o.extract_field("type")),
-            update_token: pulumi_wasm_rust::__private::into_domain(
+            type_: pulumi_gestalt_rust::__private::into_domain(o.extract_field("type")),
+            update_token: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("updateToken"),
             ),
         }

@@ -104,162 +104,166 @@
 /// ```
 ///
 pub mod job {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct JobArgs {
         /// List of experiments that should be used by the job. An example value is `["enable_stackdriver_agent_metrics"]`.
         #[builder(into, default)]
-        pub additional_experiments: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
+        pub additional_experiments: pulumi_gestalt_rust::InputOrOutput<
+            Option<Vec<String>>,
+        >,
         /// Enable/disable the use of [Streaming Engine](https://cloud.google.com/dataflow/docs/guides/deploying-a-pipeline#streaming-engine) for the job. Note that Streaming Engine is enabled by default for pipelines developed against the Beam SDK for Python v2.21.0 or later when using Python 3.
         #[builder(into, default)]
-        pub enable_streaming_engine: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub enable_streaming_engine: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// The configuration for VM IPs.  Options are `"WORKER_IP_PUBLIC"` or `"WORKER_IP_PRIVATE"`.
         #[builder(into, default)]
-        pub ip_configuration: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub ip_configuration: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The name for the Cloud KMS key for the job. Key format is: `projects/PROJECT_ID/locations/LOCATION/keyRings/KEY_RING/cryptoKeys/KEY`
         #[builder(into, default)]
-        pub kms_key_name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub kms_key_name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// User labels to be specified for the job. Keys and values should follow the restrictions
         /// specified in the [labeling restrictions](https://cloud.google.com/compute/docs/labeling-resources#restrictions) page.
         /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration. Please refer to the field `effective_labels` for all of the labels present on the resource.
         #[builder(into, default)]
-        pub labels: pulumi_wasm_rust::InputOrOutput<
+        pub labels: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// The machine type to use for the job.
         #[builder(into, default)]
-        pub machine_type: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub machine_type: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The number of workers permitted to work on the job.  More workers may improve processing speed at additional cost.
         #[builder(into, default)]
-        pub max_workers: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
+        pub max_workers: pulumi_gestalt_rust::InputOrOutput<Option<i32>>,
         /// A unique name for the resource, required by Dataflow.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The network to which VMs will be assigned. If it is not provided, "default" will be used.
         #[builder(into, default)]
-        pub network: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub network: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// One of "drain" or "cancel".  Specifies behavior of deletion during `pulumi destroy`.  See above note.
         #[builder(into, default)]
-        pub on_delete: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub on_delete: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// **Template specific** Key/Value pairs to be forwarded to the pipeline's options; keys are
         /// case-sensitive based on the language on which the pipeline is coded, mostly Java.
         /// **Note**: do not configure Dataflow options here in parameters.
         #[builder(into, default)]
-        pub parameters: pulumi_wasm_rust::InputOrOutput<
+        pub parameters: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// The project in which the resource belongs. If it is not provided, the provider project is used.
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub project: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The region in which the created job should run.
         #[builder(into, default)]
-        pub region: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub region: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The Service Account email used to create the job. This should be just an email e.g. `myserviceaccount@myproject.iam.gserviceaccount.com`. Do not include any `serviceAccount:` or other prefix.
         #[builder(into, default)]
-        pub service_account_email: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub service_account_email: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// If set to `true`, Pulumi will treat `DRAINING` and `CANCELLING` as terminal states when deleting the resource, and will remove the resource from Pulumi state and move on.  See above note.
         #[builder(into, default)]
-        pub skip_wait_on_job_termination: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub skip_wait_on_job_termination: pulumi_gestalt_rust::InputOrOutput<
+            Option<bool>,
+        >,
         /// The subnetwork to which VMs will be assigned. Should be of the form "regions/REGION/subnetworks/SUBNETWORK". If the [subnetwork is located in a Shared VPC network](https://cloud.google.com/dataflow/docs/guides/specifying-networks#shared), you must use the complete URL. For example `"googleapis.com/compute/v1/projects/PROJECT_ID/regions/REGION/subnetworks/SUBNET_NAME"`
         #[builder(into, default)]
-        pub subnetwork: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub subnetwork: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// A writeable location on GCS for the Dataflow job to dump its temporary data.
         ///
         /// - - -
         #[builder(into)]
-        pub temp_gcs_location: pulumi_wasm_rust::InputOrOutput<String>,
+        pub temp_gcs_location: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The GCS path to the Dataflow job template.
         #[builder(into)]
-        pub template_gcs_path: pulumi_wasm_rust::InputOrOutput<String>,
+        pub template_gcs_path: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Only applicable when updating a pipeline. Map of transform name prefixes of the job to be replaced with the corresponding name prefixes of the new job. This field is not used outside of update.
         #[builder(into, default)]
-        pub transform_name_mapping: pulumi_wasm_rust::InputOrOutput<
+        pub transform_name_mapping: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// The zone in which the created job should run. If it is not provided, the provider zone is used.
         #[builder(into, default)]
-        pub zone: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub zone: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct JobResult {
         /// List of experiments that should be used by the job. An example value is `["enable_stackdriver_agent_metrics"]`.
-        pub additional_experiments: pulumi_wasm_rust::Output<Vec<String>>,
+        pub additional_experiments: pulumi_gestalt_rust::Output<Vec<String>>,
         /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Pulumi, other clients and services.
-        pub effective_labels: pulumi_wasm_rust::Output<
+        pub effective_labels: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
         /// Enable/disable the use of [Streaming Engine](https://cloud.google.com/dataflow/docs/guides/deploying-a-pipeline#streaming-engine) for the job. Note that Streaming Engine is enabled by default for pipelines developed against the Beam SDK for Python v2.21.0 or later when using Python 3.
-        pub enable_streaming_engine: pulumi_wasm_rust::Output<Option<bool>>,
+        pub enable_streaming_engine: pulumi_gestalt_rust::Output<Option<bool>>,
         /// The configuration for VM IPs.  Options are `"WORKER_IP_PUBLIC"` or `"WORKER_IP_PRIVATE"`.
-        pub ip_configuration: pulumi_wasm_rust::Output<Option<String>>,
+        pub ip_configuration: pulumi_gestalt_rust::Output<Option<String>>,
         /// The unique ID of this job.
-        pub job_id: pulumi_wasm_rust::Output<String>,
+        pub job_id: pulumi_gestalt_rust::Output<String>,
         /// The name for the Cloud KMS key for the job. Key format is: `projects/PROJECT_ID/locations/LOCATION/keyRings/KEY_RING/cryptoKeys/KEY`
-        pub kms_key_name: pulumi_wasm_rust::Output<Option<String>>,
+        pub kms_key_name: pulumi_gestalt_rust::Output<Option<String>>,
         /// User labels to be specified for the job. Keys and values should follow the restrictions
         /// specified in the [labeling restrictions](https://cloud.google.com/compute/docs/labeling-resources#restrictions) page.
         /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration. Please refer to the field `effective_labels` for all of the labels present on the resource.
-        pub labels: pulumi_wasm_rust::Output<
+        pub labels: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// The machine type to use for the job.
-        pub machine_type: pulumi_wasm_rust::Output<Option<String>>,
+        pub machine_type: pulumi_gestalt_rust::Output<Option<String>>,
         /// The number of workers permitted to work on the job.  More workers may improve processing speed at additional cost.
-        pub max_workers: pulumi_wasm_rust::Output<Option<i32>>,
+        pub max_workers: pulumi_gestalt_rust::Output<Option<i32>>,
         /// A unique name for the resource, required by Dataflow.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// The network to which VMs will be assigned. If it is not provided, "default" will be used.
-        pub network: pulumi_wasm_rust::Output<Option<String>>,
+        pub network: pulumi_gestalt_rust::Output<Option<String>>,
         /// One of "drain" or "cancel".  Specifies behavior of deletion during `pulumi destroy`.  See above note.
-        pub on_delete: pulumi_wasm_rust::Output<Option<String>>,
+        pub on_delete: pulumi_gestalt_rust::Output<Option<String>>,
         /// **Template specific** Key/Value pairs to be forwarded to the pipeline's options; keys are
         /// case-sensitive based on the language on which the pipeline is coded, mostly Java.
         /// **Note**: do not configure Dataflow options here in parameters.
-        pub parameters: pulumi_wasm_rust::Output<
+        pub parameters: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// The project in which the resource belongs. If it is not provided, the provider project is used.
-        pub project: pulumi_wasm_rust::Output<String>,
+        pub project: pulumi_gestalt_rust::Output<String>,
         /// The combination of labels configured directly on the resource and default labels configured on the provider.
-        pub pulumi_labels: pulumi_wasm_rust::Output<
+        pub pulumi_labels: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
         /// The region in which the created job should run.
-        pub region: pulumi_wasm_rust::Output<Option<String>>,
+        pub region: pulumi_gestalt_rust::Output<Option<String>>,
         /// The Service Account email used to create the job. This should be just an email e.g. `myserviceaccount@myproject.iam.gserviceaccount.com`. Do not include any `serviceAccount:` or other prefix.
-        pub service_account_email: pulumi_wasm_rust::Output<Option<String>>,
+        pub service_account_email: pulumi_gestalt_rust::Output<Option<String>>,
         /// If set to `true`, Pulumi will treat `DRAINING` and `CANCELLING` as terminal states when deleting the resource, and will remove the resource from Pulumi state and move on.  See above note.
-        pub skip_wait_on_job_termination: pulumi_wasm_rust::Output<Option<bool>>,
+        pub skip_wait_on_job_termination: pulumi_gestalt_rust::Output<Option<bool>>,
         /// The current state of the resource, selected from the [JobState enum](https://cloud.google.com/dataflow/docs/reference/rest/v1b3/projects.jobs#Job.JobState)
-        pub state: pulumi_wasm_rust::Output<String>,
+        pub state: pulumi_gestalt_rust::Output<String>,
         /// The subnetwork to which VMs will be assigned. Should be of the form "regions/REGION/subnetworks/SUBNETWORK". If the [subnetwork is located in a Shared VPC network](https://cloud.google.com/dataflow/docs/guides/specifying-networks#shared), you must use the complete URL. For example `"googleapis.com/compute/v1/projects/PROJECT_ID/regions/REGION/subnetworks/SUBNET_NAME"`
-        pub subnetwork: pulumi_wasm_rust::Output<Option<String>>,
+        pub subnetwork: pulumi_gestalt_rust::Output<Option<String>>,
         /// A writeable location on GCS for the Dataflow job to dump its temporary data.
         ///
         /// - - -
-        pub temp_gcs_location: pulumi_wasm_rust::Output<String>,
+        pub temp_gcs_location: pulumi_gestalt_rust::Output<String>,
         /// The GCS path to the Dataflow job template.
-        pub template_gcs_path: pulumi_wasm_rust::Output<String>,
+        pub template_gcs_path: pulumi_gestalt_rust::Output<String>,
         /// Only applicable when updating a pipeline. Map of transform name prefixes of the job to be replaced with the corresponding name prefixes of the new job. This field is not used outside of update.
-        pub transform_name_mapping: pulumi_wasm_rust::Output<
+        pub transform_name_mapping: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// The type of this job, selected from the [JobType enum](https://cloud.google.com/dataflow/docs/reference/rest/v1b3/projects.jobs#Job.JobType)
-        pub type_: pulumi_wasm_rust::Output<String>,
+        pub type_: pulumi_gestalt_rust::Output<String>,
         /// The zone in which the created job should run. If it is not provided, the provider zone is used.
-        pub zone: pulumi_wasm_rust::Output<Option<String>>,
+        pub zone: pulumi_gestalt_rust::Output<Option<String>>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: JobArgs,
     ) -> JobResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let additional_experiments_binding = args
             .additional_experiments
@@ -394,67 +398,73 @@ pub mod job {
         };
         let o = register_interface::register(context.get_inner(), &request);
         JobResult {
-            additional_experiments: pulumi_wasm_rust::__private::into_domain(
+            additional_experiments: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("additionalExperiments"),
             ),
-            effective_labels: pulumi_wasm_rust::__private::into_domain(
+            effective_labels: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("effectiveLabels"),
             ),
-            enable_streaming_engine: pulumi_wasm_rust::__private::into_domain(
+            enable_streaming_engine: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("enableStreamingEngine"),
             ),
-            ip_configuration: pulumi_wasm_rust::__private::into_domain(
+            ip_configuration: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("ipConfiguration"),
             ),
-            job_id: pulumi_wasm_rust::__private::into_domain(o.extract_field("jobId")),
-            kms_key_name: pulumi_wasm_rust::__private::into_domain(
+            job_id: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("jobId"),
+            ),
+            kms_key_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("kmsKeyName"),
             ),
-            labels: pulumi_wasm_rust::__private::into_domain(o.extract_field("labels")),
-            machine_type: pulumi_wasm_rust::__private::into_domain(
+            labels: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("labels"),
+            ),
+            machine_type: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("machineType"),
             ),
-            max_workers: pulumi_wasm_rust::__private::into_domain(
+            max_workers: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("maxWorkers"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            network: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            network: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("network"),
             ),
-            on_delete: pulumi_wasm_rust::__private::into_domain(
+            on_delete: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("onDelete"),
             ),
-            parameters: pulumi_wasm_rust::__private::into_domain(
+            parameters: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("parameters"),
             ),
-            project: pulumi_wasm_rust::__private::into_domain(
+            project: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("project"),
             ),
-            pulumi_labels: pulumi_wasm_rust::__private::into_domain(
+            pulumi_labels: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("pulumiLabels"),
             ),
-            region: pulumi_wasm_rust::__private::into_domain(o.extract_field("region")),
-            service_account_email: pulumi_wasm_rust::__private::into_domain(
+            region: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("region"),
+            ),
+            service_account_email: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("serviceAccountEmail"),
             ),
-            skip_wait_on_job_termination: pulumi_wasm_rust::__private::into_domain(
+            skip_wait_on_job_termination: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("skipWaitOnJobTermination"),
             ),
-            state: pulumi_wasm_rust::__private::into_domain(o.extract_field("state")),
-            subnetwork: pulumi_wasm_rust::__private::into_domain(
+            state: pulumi_gestalt_rust::__private::into_domain(o.extract_field("state")),
+            subnetwork: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("subnetwork"),
             ),
-            temp_gcs_location: pulumi_wasm_rust::__private::into_domain(
+            temp_gcs_location: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("tempGcsLocation"),
             ),
-            template_gcs_path: pulumi_wasm_rust::__private::into_domain(
+            template_gcs_path: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("templateGcsPath"),
             ),
-            transform_name_mapping: pulumi_wasm_rust::__private::into_domain(
+            transform_name_mapping: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("transformNameMapping"),
             ),
-            type_: pulumi_wasm_rust::__private::into_domain(o.extract_field("type")),
-            zone: pulumi_wasm_rust::__private::into_domain(o.extract_field("zone")),
+            type_: pulumi_gestalt_rust::__private::into_domain(o.extract_field("type")),
+            zone: pulumi_gestalt_rust::__private::into_domain(o.extract_field("zone")),
         }
     }
 }

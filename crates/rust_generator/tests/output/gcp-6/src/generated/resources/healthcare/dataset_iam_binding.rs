@@ -31,8 +31,8 @@
 /// ## gcp.healthcare.DatasetIamBinding
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let dataset = dataset_iam_binding::create(
@@ -49,8 +49,8 @@
 /// ## gcp.healthcare.DatasetIamMember
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let dataset = dataset_iam_member::create(
@@ -67,8 +67,8 @@
 /// ## gcp.healthcare.DatasetIamBinding
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let dataset = dataset_iam_binding::create(
@@ -85,8 +85,8 @@
 /// ## gcp.healthcare.DatasetIamMember
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let dataset = dataset_iam_member::create(
@@ -127,12 +127,12 @@
 /// ```
 ///
 pub mod dataset_iam_binding {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct DatasetIamBindingArgs {
         #[builder(into, default)]
-        pub condition: pulumi_wasm_rust::InputOrOutput<
+        pub condition: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::healthcare::DatasetIamBindingCondition>,
         >,
         /// The dataset ID, in the form
@@ -140,7 +140,7 @@ pub mod dataset_iam_binding {
         /// `{location_name}/{dataset_name}`. In the second form, the provider's
         /// project setting will be used as a fallback.
         #[builder(into)]
-        pub dataset_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub dataset_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Identities that will be granted the privilege in `role`.
         /// Each entry can have one of the following values:
         /// * **allUsers**: A special identifier that represents anyone who is on the internet; with or without a Google account.
@@ -150,25 +150,25 @@ pub mod dataset_iam_binding {
         /// * **group:{emailid}**: An email address that represents a Google group. For example, admins@example.com.
         /// * **domain:{domain}**: A G Suite domain (primary, instead of alias) name that represents all the users of that domain. For example, google.com or example.com.
         #[builder(into)]
-        pub members: pulumi_wasm_rust::InputOrOutput<Vec<String>>,
+        pub members: pulumi_gestalt_rust::InputOrOutput<Vec<String>>,
         /// The role that should be applied. Only one
         /// `gcp.healthcare.DatasetIamBinding` can be used per role. Note that custom roles must be of the format
         /// `[projects|organizations]/{parent-name}/roles/{role-name}`.
         #[builder(into)]
-        pub role: pulumi_wasm_rust::InputOrOutput<String>,
+        pub role: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct DatasetIamBindingResult {
-        pub condition: pulumi_wasm_rust::Output<
+        pub condition: pulumi_gestalt_rust::Output<
             Option<super::super::types::healthcare::DatasetIamBindingCondition>,
         >,
         /// The dataset ID, in the form
         /// `{project_id}/{location_name}/{dataset_name}` or
         /// `{location_name}/{dataset_name}`. In the second form, the provider's
         /// project setting will be used as a fallback.
-        pub dataset_id: pulumi_wasm_rust::Output<String>,
+        pub dataset_id: pulumi_gestalt_rust::Output<String>,
         /// (Computed) The etag of the dataset's IAM policy.
-        pub etag: pulumi_wasm_rust::Output<String>,
+        pub etag: pulumi_gestalt_rust::Output<String>,
         /// Identities that will be granted the privilege in `role`.
         /// Each entry can have one of the following values:
         /// * **allUsers**: A special identifier that represents anyone who is on the internet; with or without a Google account.
@@ -177,22 +177,22 @@ pub mod dataset_iam_binding {
         /// * **serviceAccount:{emailid}**: An email address that represents a service account. For example, my-other-app@appspot.gserviceaccount.com.
         /// * **group:{emailid}**: An email address that represents a Google group. For example, admins@example.com.
         /// * **domain:{domain}**: A G Suite domain (primary, instead of alias) name that represents all the users of that domain. For example, google.com or example.com.
-        pub members: pulumi_wasm_rust::Output<Vec<String>>,
+        pub members: pulumi_gestalt_rust::Output<Vec<String>>,
         /// The role that should be applied. Only one
         /// `gcp.healthcare.DatasetIamBinding` can be used per role. Note that custom roles must be of the format
         /// `[projects|organizations]/{parent-name}/roles/{role-name}`.
-        pub role: pulumi_wasm_rust::Output<String>,
+        pub role: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: DatasetIamBindingArgs,
     ) -> DatasetIamBindingResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let condition_binding = args.condition.get_output(context).get_inner();
         let dataset_id_binding = args.dataset_id.get_output(context).get_inner();
@@ -223,17 +223,17 @@ pub mod dataset_iam_binding {
         };
         let o = register_interface::register(context.get_inner(), &request);
         DatasetIamBindingResult {
-            condition: pulumi_wasm_rust::__private::into_domain(
+            condition: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("condition"),
             ),
-            dataset_id: pulumi_wasm_rust::__private::into_domain(
+            dataset_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("datasetId"),
             ),
-            etag: pulumi_wasm_rust::__private::into_domain(o.extract_field("etag")),
-            members: pulumi_wasm_rust::__private::into_domain(
+            etag: pulumi_gestalt_rust::__private::into_domain(o.extract_field("etag")),
+            members: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("members"),
             ),
-            role: pulumi_wasm_rust::__private::into_domain(o.extract_field("role")),
+            role: pulumi_gestalt_rust::__private::into_domain(o.extract_field("role")),
         }
     }
 }

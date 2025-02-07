@@ -3,8 +3,8 @@
 /// ## Example Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = resource_group::create(
@@ -38,150 +38,158 @@
 /// ```
 ///
 pub mod postgresql_cluster {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct PostgresqlClusterArgs {
         /// The password of the administrator login. This is required when `source_resource_id` is not set.
         #[builder(into, default)]
-        pub administrator_login_password: pulumi_wasm_rust::InputOrOutput<
+        pub administrator_login_password: pulumi_gestalt_rust::InputOrOutput<
             Option<String>,
         >,
         /// The citus extension version on the Azure Cosmos DB for PostgreSQL Cluster. Possible values are `8.3`, `9.0`, `9.1`, `9.2`, `9.3`, `9.4`, `9.5`, `10.0`, `10.1`, `10.2`, `11.0`, `11.1`, `11.2`, `11.3` and `12.1`.
         #[builder(into, default)]
-        pub citus_version: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub citus_version: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Is public access enabled on coordinator? Defaults to `true`.
         #[builder(into, default)]
-        pub coordinator_public_ip_access_enabled: pulumi_wasm_rust::InputOrOutput<
+        pub coordinator_public_ip_access_enabled: pulumi_gestalt_rust::InputOrOutput<
             Option<bool>,
         >,
         /// The edition of the coordinator server. Possible values are `BurstableGeneralPurpose`, `BurstableMemoryOptimized`, `GeneralPurpose` and `MemoryOptimized`. Defaults to `GeneralPurpose`.
         #[builder(into, default)]
-        pub coordinator_server_edition: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub coordinator_server_edition: pulumi_gestalt_rust::InputOrOutput<
+            Option<String>,
+        >,
         /// The coordinator storage allowed for the Azure Cosmos DB for PostgreSQL Cluster. Possible values are `32768`, `65536`, `131072`, `262144`, `524288`, `1048576`, `2097152`, `4194304`, `8388608`, `16777216`, and `33554432`.
         ///
         /// > **NOTE:** More information on [the types of compute resources available for CosmosDB can be found in the product documentation](https://learn.microsoft.com/azure/cosmos-db/postgresql/resources-compute)
         #[builder(into, default)]
-        pub coordinator_storage_quota_in_mb: pulumi_wasm_rust::InputOrOutput<
+        pub coordinator_storage_quota_in_mb: pulumi_gestalt_rust::InputOrOutput<
             Option<i32>,
         >,
         /// The coordinator vCore count for the Azure Cosmos DB for PostgreSQL Cluster. Possible values are `1`, `2`, `4`, `8`, `16`, `32`, `64` and `96`.
         #[builder(into, default)]
-        pub coordinator_vcore_count: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
+        pub coordinator_vcore_count: pulumi_gestalt_rust::InputOrOutput<Option<i32>>,
         /// Is high availability enabled for the Azure Cosmos DB for PostgreSQL cluster? Defaults to `false`.
         #[builder(into, default)]
-        pub ha_enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub ha_enabled: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// The Azure Region where the Azure Cosmos DB for PostgreSQL Cluster should exist. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub location: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub location: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// A `maintenance_window` block as defined below.
         #[builder(into, default)]
-        pub maintenance_window: pulumi_wasm_rust::InputOrOutput<
+        pub maintenance_window: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::cosmosdb::PostgresqlClusterMaintenanceWindow>,
         >,
         /// The name which should be used for this Azure Cosmos DB for PostgreSQL Cluster. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The worker node count of the Azure Cosmos DB for PostgreSQL Cluster. Possible value is between `0` and `20` except `1`.
         #[builder(into)]
-        pub node_count: pulumi_wasm_rust::InputOrOutput<i32>,
+        pub node_count: pulumi_gestalt_rust::InputOrOutput<i32>,
         /// Is public access enabled on worker nodes. Defaults to `false`.
         #[builder(into, default)]
-        pub node_public_ip_access_enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub node_public_ip_access_enabled: pulumi_gestalt_rust::InputOrOutput<
+            Option<bool>,
+        >,
         /// The edition of the node server. Possible values are `BurstableGeneralPurpose`, `BurstableMemoryOptimized`, `GeneralPurpose` and `MemoryOptimized`. Defaults to `MemoryOptimized`.
         #[builder(into, default)]
-        pub node_server_edition: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub node_server_edition: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The storage quota in MB on each worker node. Possible values are `32768`, `65536`, `131072`, `262144`, `524288`, `1048576`, `2097152`, `4194304`, `8388608` and `16777216`.
         #[builder(into, default)]
-        pub node_storage_quota_in_mb: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
+        pub node_storage_quota_in_mb: pulumi_gestalt_rust::InputOrOutput<Option<i32>>,
         /// The vCores count on each worker node. Possible values are `1`, `2`, `4`, `8`, `16`, `32`, `64`, `96` and `104`.
         #[builder(into, default)]
-        pub node_vcores: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
+        pub node_vcores: pulumi_gestalt_rust::InputOrOutput<Option<i32>>,
         /// The date and time in UTC (ISO8601 format) for the Azure Cosmos DB for PostgreSQL cluster restore. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub point_in_time_in_utc: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub point_in_time_in_utc: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The preferred primary availability zone for the Azure Cosmos DB for PostgreSQL cluster.
         #[builder(into, default)]
-        pub preferred_primary_zone: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub preferred_primary_zone: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The name of the Resource Group where the Azure Cosmos DB for PostgreSQL Cluster should exist. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub resource_group_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub resource_group_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Is shards on coordinator enabled for the Azure Cosmos DB for PostgreSQL cluster.
         #[builder(into, default)]
-        pub shards_on_coordinator_enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub shards_on_coordinator_enabled: pulumi_gestalt_rust::InputOrOutput<
+            Option<bool>,
+        >,
         /// The Azure region of the source Azure Cosmos DB for PostgreSQL cluster for read replica clusters. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub source_location: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub source_location: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The resource ID of the source Azure Cosmos DB for PostgreSQL cluster for read replica clusters. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub source_resource_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub source_resource_id: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The major PostgreSQL version on the Azure Cosmos DB for PostgreSQL cluster. Possible values are `11`, `12`, `13`, `14`, `15` and `16`.
         #[builder(into, default)]
-        pub sql_version: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub sql_version: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// A mapping of tags which should be assigned to the Azure Cosmos DB for PostgreSQL Cluster.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
     #[allow(dead_code)]
     pub struct PostgresqlClusterResult {
         /// The password of the administrator login. This is required when `source_resource_id` is not set.
-        pub administrator_login_password: pulumi_wasm_rust::Output<Option<String>>,
+        pub administrator_login_password: pulumi_gestalt_rust::Output<Option<String>>,
         /// The citus extension version on the Azure Cosmos DB for PostgreSQL Cluster. Possible values are `8.3`, `9.0`, `9.1`, `9.2`, `9.3`, `9.4`, `9.5`, `10.0`, `10.1`, `10.2`, `11.0`, `11.1`, `11.2`, `11.3` and `12.1`.
-        pub citus_version: pulumi_wasm_rust::Output<String>,
+        pub citus_version: pulumi_gestalt_rust::Output<String>,
         /// Is public access enabled on coordinator? Defaults to `true`.
-        pub coordinator_public_ip_access_enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub coordinator_public_ip_access_enabled: pulumi_gestalt_rust::Output<
+            Option<bool>,
+        >,
         /// The edition of the coordinator server. Possible values are `BurstableGeneralPurpose`, `BurstableMemoryOptimized`, `GeneralPurpose` and `MemoryOptimized`. Defaults to `GeneralPurpose`.
-        pub coordinator_server_edition: pulumi_wasm_rust::Output<Option<String>>,
+        pub coordinator_server_edition: pulumi_gestalt_rust::Output<Option<String>>,
         /// The coordinator storage allowed for the Azure Cosmos DB for PostgreSQL Cluster. Possible values are `32768`, `65536`, `131072`, `262144`, `524288`, `1048576`, `2097152`, `4194304`, `8388608`, `16777216`, and `33554432`.
         ///
         /// > **NOTE:** More information on [the types of compute resources available for CosmosDB can be found in the product documentation](https://learn.microsoft.com/azure/cosmos-db/postgresql/resources-compute)
-        pub coordinator_storage_quota_in_mb: pulumi_wasm_rust::Output<Option<i32>>,
+        pub coordinator_storage_quota_in_mb: pulumi_gestalt_rust::Output<Option<i32>>,
         /// The coordinator vCore count for the Azure Cosmos DB for PostgreSQL Cluster. Possible values are `1`, `2`, `4`, `8`, `16`, `32`, `64` and `96`.
-        pub coordinator_vcore_count: pulumi_wasm_rust::Output<Option<i32>>,
+        pub coordinator_vcore_count: pulumi_gestalt_rust::Output<Option<i32>>,
         /// The earliest restore point time (ISO8601 format) for the Azure Cosmos DB for PostgreSQL Cluster.
-        pub earliest_restore_time: pulumi_wasm_rust::Output<String>,
+        pub earliest_restore_time: pulumi_gestalt_rust::Output<String>,
         /// Is high availability enabled for the Azure Cosmos DB for PostgreSQL cluster? Defaults to `false`.
-        pub ha_enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub ha_enabled: pulumi_gestalt_rust::Output<Option<bool>>,
         /// The Azure Region where the Azure Cosmos DB for PostgreSQL Cluster should exist. Changing this forces a new resource to be created.
-        pub location: pulumi_wasm_rust::Output<String>,
+        pub location: pulumi_gestalt_rust::Output<String>,
         /// A `maintenance_window` block as defined below.
-        pub maintenance_window: pulumi_wasm_rust::Output<
+        pub maintenance_window: pulumi_gestalt_rust::Output<
             Option<super::super::types::cosmosdb::PostgresqlClusterMaintenanceWindow>,
         >,
         /// The name which should be used for this Azure Cosmos DB for PostgreSQL Cluster. Changing this forces a new resource to be created.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// The worker node count of the Azure Cosmos DB for PostgreSQL Cluster. Possible value is between `0` and `20` except `1`.
-        pub node_count: pulumi_wasm_rust::Output<i32>,
+        pub node_count: pulumi_gestalt_rust::Output<i32>,
         /// Is public access enabled on worker nodes. Defaults to `false`.
-        pub node_public_ip_access_enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub node_public_ip_access_enabled: pulumi_gestalt_rust::Output<Option<bool>>,
         /// The edition of the node server. Possible values are `BurstableGeneralPurpose`, `BurstableMemoryOptimized`, `GeneralPurpose` and `MemoryOptimized`. Defaults to `MemoryOptimized`.
-        pub node_server_edition: pulumi_wasm_rust::Output<Option<String>>,
+        pub node_server_edition: pulumi_gestalt_rust::Output<Option<String>>,
         /// The storage quota in MB on each worker node. Possible values are `32768`, `65536`, `131072`, `262144`, `524288`, `1048576`, `2097152`, `4194304`, `8388608` and `16777216`.
-        pub node_storage_quota_in_mb: pulumi_wasm_rust::Output<i32>,
+        pub node_storage_quota_in_mb: pulumi_gestalt_rust::Output<i32>,
         /// The vCores count on each worker node. Possible values are `1`, `2`, `4`, `8`, `16`, `32`, `64`, `96` and `104`.
-        pub node_vcores: pulumi_wasm_rust::Output<i32>,
+        pub node_vcores: pulumi_gestalt_rust::Output<i32>,
         /// The date and time in UTC (ISO8601 format) for the Azure Cosmos DB for PostgreSQL cluster restore. Changing this forces a new resource to be created.
-        pub point_in_time_in_utc: pulumi_wasm_rust::Output<Option<String>>,
+        pub point_in_time_in_utc: pulumi_gestalt_rust::Output<Option<String>>,
         /// The preferred primary availability zone for the Azure Cosmos DB for PostgreSQL cluster.
-        pub preferred_primary_zone: pulumi_wasm_rust::Output<Option<String>>,
+        pub preferred_primary_zone: pulumi_gestalt_rust::Output<Option<String>>,
         /// The name of the Resource Group where the Azure Cosmos DB for PostgreSQL Cluster should exist. Changing this forces a new resource to be created.
-        pub resource_group_name: pulumi_wasm_rust::Output<String>,
+        pub resource_group_name: pulumi_gestalt_rust::Output<String>,
         /// A `servers` block as defined below.
-        pub servers: pulumi_wasm_rust::Output<
+        pub servers: pulumi_gestalt_rust::Output<
             Vec<super::super::types::cosmosdb::PostgresqlClusterServer>,
         >,
         /// Is shards on coordinator enabled for the Azure Cosmos DB for PostgreSQL cluster.
-        pub shards_on_coordinator_enabled: pulumi_wasm_rust::Output<bool>,
+        pub shards_on_coordinator_enabled: pulumi_gestalt_rust::Output<bool>,
         /// The Azure region of the source Azure Cosmos DB for PostgreSQL cluster for read replica clusters. Changing this forces a new resource to be created.
-        pub source_location: pulumi_wasm_rust::Output<Option<String>>,
+        pub source_location: pulumi_gestalt_rust::Output<Option<String>>,
         /// The resource ID of the source Azure Cosmos DB for PostgreSQL cluster for read replica clusters. Changing this forces a new resource to be created.
-        pub source_resource_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub source_resource_id: pulumi_gestalt_rust::Output<Option<String>>,
         /// The major PostgreSQL version on the Azure Cosmos DB for PostgreSQL cluster. Possible values are `11`, `12`, `13`, `14`, `15` and `16`.
-        pub sql_version: pulumi_wasm_rust::Output<String>,
+        pub sql_version: pulumi_gestalt_rust::Output<String>,
         /// A mapping of tags which should be assigned to the Azure Cosmos DB for PostgreSQL Cluster.
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
@@ -190,11 +198,11 @@ pub mod postgresql_cluster {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: PostgresqlClusterArgs,
     ) -> PostgresqlClusterResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let administrator_login_password_binding = args
             .administrator_login_password
@@ -365,77 +373,77 @@ pub mod postgresql_cluster {
         };
         let o = register_interface::register(context.get_inner(), &request);
         PostgresqlClusterResult {
-            administrator_login_password: pulumi_wasm_rust::__private::into_domain(
+            administrator_login_password: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("administratorLoginPassword"),
             ),
-            citus_version: pulumi_wasm_rust::__private::into_domain(
+            citus_version: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("citusVersion"),
             ),
-            coordinator_public_ip_access_enabled: pulumi_wasm_rust::__private::into_domain(
+            coordinator_public_ip_access_enabled: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("coordinatorPublicIpAccessEnabled"),
             ),
-            coordinator_server_edition: pulumi_wasm_rust::__private::into_domain(
+            coordinator_server_edition: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("coordinatorServerEdition"),
             ),
-            coordinator_storage_quota_in_mb: pulumi_wasm_rust::__private::into_domain(
+            coordinator_storage_quota_in_mb: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("coordinatorStorageQuotaInMb"),
             ),
-            coordinator_vcore_count: pulumi_wasm_rust::__private::into_domain(
+            coordinator_vcore_count: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("coordinatorVcoreCount"),
             ),
-            earliest_restore_time: pulumi_wasm_rust::__private::into_domain(
+            earliest_restore_time: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("earliestRestoreTime"),
             ),
-            ha_enabled: pulumi_wasm_rust::__private::into_domain(
+            ha_enabled: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("haEnabled"),
             ),
-            location: pulumi_wasm_rust::__private::into_domain(
+            location: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("location"),
             ),
-            maintenance_window: pulumi_wasm_rust::__private::into_domain(
+            maintenance_window: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("maintenanceWindow"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            node_count: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            node_count: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("nodeCount"),
             ),
-            node_public_ip_access_enabled: pulumi_wasm_rust::__private::into_domain(
+            node_public_ip_access_enabled: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("nodePublicIpAccessEnabled"),
             ),
-            node_server_edition: pulumi_wasm_rust::__private::into_domain(
+            node_server_edition: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("nodeServerEdition"),
             ),
-            node_storage_quota_in_mb: pulumi_wasm_rust::__private::into_domain(
+            node_storage_quota_in_mb: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("nodeStorageQuotaInMb"),
             ),
-            node_vcores: pulumi_wasm_rust::__private::into_domain(
+            node_vcores: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("nodeVcores"),
             ),
-            point_in_time_in_utc: pulumi_wasm_rust::__private::into_domain(
+            point_in_time_in_utc: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("pointInTimeInUtc"),
             ),
-            preferred_primary_zone: pulumi_wasm_rust::__private::into_domain(
+            preferred_primary_zone: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("preferredPrimaryZone"),
             ),
-            resource_group_name: pulumi_wasm_rust::__private::into_domain(
+            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("resourceGroupName"),
             ),
-            servers: pulumi_wasm_rust::__private::into_domain(
+            servers: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("servers"),
             ),
-            shards_on_coordinator_enabled: pulumi_wasm_rust::__private::into_domain(
+            shards_on_coordinator_enabled: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("shardsOnCoordinatorEnabled"),
             ),
-            source_location: pulumi_wasm_rust::__private::into_domain(
+            source_location: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("sourceLocation"),
             ),
-            source_resource_id: pulumi_wasm_rust::__private::into_domain(
+            source_resource_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("sourceResourceId"),
             ),
-            sql_version: pulumi_wasm_rust::__private::into_domain(
+            sql_version: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("sqlVersion"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
         }
     }
 }

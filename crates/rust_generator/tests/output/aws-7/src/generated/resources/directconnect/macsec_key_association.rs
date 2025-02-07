@@ -47,52 +47,52 @@
 ///         name: directconnect!prod/us-east-1/directconnect/0123456789abcdef0123456789abcdef0123456789abcdef0123456789abcdef
 /// ```
 pub mod macsec_key_association {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct MacsecKeyAssociationArgs {
         /// The MAC Security (MACsec) CAK to associate with the dedicated connection. The valid values are 64 hexadecimal characters (0-9, A-E). Required if using `ckn`.
         #[builder(into, default)]
-        pub cak: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub cak: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The MAC Security (MACsec) CKN to associate with the dedicated connection. The valid values are 64 hexadecimal characters (0-9, A-E). Required if using `cak`.
         #[builder(into, default)]
-        pub ckn: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub ckn: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The ID of the dedicated Direct Connect connection. The connection must be a dedicated connection in the `AVAILABLE` state.
         #[builder(into)]
-        pub connection_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub connection_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The Amazon Resource Name (ARN) of the MAC Security (MACsec) secret key to associate with the dedicated connection.
         ///
         /// > **Note:** `ckn` and `cak` are mutually exclusive with `secret_arn` - these arguments cannot be used together. If you use `ckn` and `cak`, you should not use `secret_arn`. If you use the `secret_arn` argument to reference an existing MAC Security (MACSec) secret key, you should not use `ckn` or `cak`.
         #[builder(into, default)]
-        pub secret_arn: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub secret_arn: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct MacsecKeyAssociationResult {
         /// The MAC Security (MACsec) CAK to associate with the dedicated connection. The valid values are 64 hexadecimal characters (0-9, A-E). Required if using `ckn`.
-        pub cak: pulumi_wasm_rust::Output<Option<String>>,
+        pub cak: pulumi_gestalt_rust::Output<Option<String>>,
         /// The MAC Security (MACsec) CKN to associate with the dedicated connection. The valid values are 64 hexadecimal characters (0-9, A-E). Required if using `cak`.
-        pub ckn: pulumi_wasm_rust::Output<String>,
+        pub ckn: pulumi_gestalt_rust::Output<String>,
         /// The ID of the dedicated Direct Connect connection. The connection must be a dedicated connection in the `AVAILABLE` state.
-        pub connection_id: pulumi_wasm_rust::Output<String>,
+        pub connection_id: pulumi_gestalt_rust::Output<String>,
         /// The Amazon Resource Name (ARN) of the MAC Security (MACsec) secret key to associate with the dedicated connection.
         ///
         /// > **Note:** `ckn` and `cak` are mutually exclusive with `secret_arn` - these arguments cannot be used together. If you use `ckn` and `cak`, you should not use `secret_arn`. If you use the `secret_arn` argument to reference an existing MAC Security (MACSec) secret key, you should not use `ckn` or `cak`.
-        pub secret_arn: pulumi_wasm_rust::Output<String>,
+        pub secret_arn: pulumi_gestalt_rust::Output<String>,
         /// The date in UTC format that the MAC Security (MACsec) secret key takes effect.
-        pub start_on: pulumi_wasm_rust::Output<String>,
+        pub start_on: pulumi_gestalt_rust::Output<String>,
         /// The state of the MAC Security (MACsec) secret key. The possible values are: associating, associated, disassociating, disassociated. See [MacSecKey](https://docs.aws.amazon.com/directconnect/latest/APIReference/API_MacSecKey.html#DX-Type-MacSecKey-state) for descriptions of each state.
-        pub state: pulumi_wasm_rust::Output<String>,
+        pub state: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: MacsecKeyAssociationArgs,
     ) -> MacsecKeyAssociationResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let cak_binding = args.cak.get_output(context).get_inner();
         let ckn_binding = args.ckn.get_output(context).get_inner();
@@ -123,18 +123,18 @@ pub mod macsec_key_association {
         };
         let o = register_interface::register(context.get_inner(), &request);
         MacsecKeyAssociationResult {
-            cak: pulumi_wasm_rust::__private::into_domain(o.extract_field("cak")),
-            ckn: pulumi_wasm_rust::__private::into_domain(o.extract_field("ckn")),
-            connection_id: pulumi_wasm_rust::__private::into_domain(
+            cak: pulumi_gestalt_rust::__private::into_domain(o.extract_field("cak")),
+            ckn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("ckn")),
+            connection_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("connectionId"),
             ),
-            secret_arn: pulumi_wasm_rust::__private::into_domain(
+            secret_arn: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("secretArn"),
             ),
-            start_on: pulumi_wasm_rust::__private::into_domain(
+            start_on: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("startOn"),
             ),
-            state: pulumi_wasm_rust::__private::into_domain(o.extract_field("state")),
+            state: pulumi_gestalt_rust::__private::into_domain(o.extract_field("state")),
         }
     }
 }

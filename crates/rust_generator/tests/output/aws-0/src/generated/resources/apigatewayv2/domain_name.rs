@@ -9,8 +9,8 @@
 /// ### Basic
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = domain_name::create(
@@ -32,8 +32,8 @@
 /// ### Associated Route 53 Resource Record
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = domain_name::create(
@@ -76,51 +76,51 @@
 /// $ pulumi import aws:apigatewayv2/domainName:DomainName example ws-api.example.com
 /// ```
 pub mod domain_name {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct DomainNameArgs {
         /// Domain name. Must be between 1 and 512 characters in length.
         #[builder(into)]
-        pub domain_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub domain_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Domain name configuration. See below.
         #[builder(into)]
-        pub domain_name_configuration: pulumi_wasm_rust::InputOrOutput<
+        pub domain_name_configuration: pulumi_gestalt_rust::InputOrOutput<
             super::super::types::apigatewayv2::DomainNameDomainNameConfiguration,
         >,
         /// Mutual TLS authentication configuration for the domain name.
         #[builder(into, default)]
-        pub mutual_tls_authentication: pulumi_wasm_rust::InputOrOutput<
+        pub mutual_tls_authentication: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::apigatewayv2::DomainNameMutualTlsAuthentication>,
         >,
         /// Map of tags to assign to the domain name. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
     #[allow(dead_code)]
     pub struct DomainNameResult {
         /// [API mapping selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-mapping-selection-expressions) for the domain name.
-        pub api_mapping_selection_expression: pulumi_wasm_rust::Output<String>,
+        pub api_mapping_selection_expression: pulumi_gestalt_rust::Output<String>,
         /// ARN of the domain name.
-        pub arn: pulumi_wasm_rust::Output<String>,
+        pub arn: pulumi_gestalt_rust::Output<String>,
         /// Domain name. Must be between 1 and 512 characters in length.
-        pub domain_name: pulumi_wasm_rust::Output<String>,
+        pub domain_name: pulumi_gestalt_rust::Output<String>,
         /// Domain name configuration. See below.
-        pub domain_name_configuration: pulumi_wasm_rust::Output<
+        pub domain_name_configuration: pulumi_gestalt_rust::Output<
             super::super::types::apigatewayv2::DomainNameDomainNameConfiguration,
         >,
         /// Mutual TLS authentication configuration for the domain name.
-        pub mutual_tls_authentication: pulumi_wasm_rust::Output<
+        pub mutual_tls_authentication: pulumi_gestalt_rust::Output<
             Option<super::super::types::apigatewayv2::DomainNameMutualTlsAuthentication>,
         >,
         /// Map of tags to assign to the domain name. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        pub tags_all: pulumi_wasm_rust::Output<
+        pub tags_all: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
     }
@@ -129,11 +129,11 @@ pub mod domain_name {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: DomainNameArgs,
     ) -> DomainNameResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let domain_name_binding = args.domain_name.get_output(context).get_inner();
         let domain_name_configuration_binding = args
@@ -170,21 +170,21 @@ pub mod domain_name {
         };
         let o = register_interface::register(context.get_inner(), &request);
         DomainNameResult {
-            api_mapping_selection_expression: pulumi_wasm_rust::__private::into_domain(
+            api_mapping_selection_expression: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("apiMappingSelectionExpression"),
             ),
-            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
-            domain_name: pulumi_wasm_rust::__private::into_domain(
+            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
+            domain_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("domainName"),
             ),
-            domain_name_configuration: pulumi_wasm_rust::__private::into_domain(
+            domain_name_configuration: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("domainNameConfiguration"),
             ),
-            mutual_tls_authentication: pulumi_wasm_rust::__private::into_domain(
+            mutual_tls_authentication: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("mutualTlsAuthentication"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_wasm_rust::__private::into_domain(
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            tags_all: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("tagsAll"),
             ),
         }

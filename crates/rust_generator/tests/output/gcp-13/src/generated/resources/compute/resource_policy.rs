@@ -11,8 +11,8 @@
 ///
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let foo = resource_policy::create(
@@ -66,8 +66,8 @@
 ///
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let baz = resource_policy::create(
@@ -89,8 +89,8 @@
 ///
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let baz = resource_policy::create(
@@ -113,8 +113,8 @@
 ///
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let hourly = resource_policy::create(
@@ -172,8 +172,8 @@
 ///
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let cgroup = resource_policy::create(
@@ -222,17 +222,17 @@
 /// ```
 ///
 pub mod resource_policy {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ResourcePolicyArgs {
         /// An optional description of this resource. Provide this property when you create the resource.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub description: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Replication consistency group for asynchronous disk replication.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub disk_consistency_group_policy: pulumi_wasm_rust::InputOrOutput<
+        pub disk_consistency_group_policy: pulumi_gestalt_rust::InputOrOutput<
             Option<
                 super::super::types::compute::ResourcePolicyDiskConsistencyGroupPolicy,
             >,
@@ -240,13 +240,13 @@ pub mod resource_policy {
         /// Resource policy for instances used for placement configuration.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub group_placement_policy: pulumi_wasm_rust::InputOrOutput<
+        pub group_placement_policy: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::compute::ResourcePolicyGroupPlacementPolicy>,
         >,
         /// Resource policy for scheduling instance operations.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub instance_schedule_policy: pulumi_wasm_rust::InputOrOutput<
+        pub instance_schedule_policy: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::compute::ResourcePolicyInstanceSchedulePolicy>,
         >,
         /// The name of the resource, provided by the client when initially creating
@@ -260,40 +260,40 @@ pub mod resource_policy {
         ///
         /// - - -
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub project: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Region where resource policy resides.
         #[builder(into, default)]
-        pub region: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub region: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Policy for creating snapshots of persistent disks.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub snapshot_schedule_policy: pulumi_wasm_rust::InputOrOutput<
+        pub snapshot_schedule_policy: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::compute::ResourcePolicySnapshotSchedulePolicy>,
         >,
     }
     #[allow(dead_code)]
     pub struct ResourcePolicyResult {
         /// An optional description of this resource. Provide this property when you create the resource.
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_gestalt_rust::Output<Option<String>>,
         /// Replication consistency group for asynchronous disk replication.
         /// Structure is documented below.
-        pub disk_consistency_group_policy: pulumi_wasm_rust::Output<
+        pub disk_consistency_group_policy: pulumi_gestalt_rust::Output<
             Option<
                 super::super::types::compute::ResourcePolicyDiskConsistencyGroupPolicy,
             >,
         >,
         /// Resource policy for instances used for placement configuration.
         /// Structure is documented below.
-        pub group_placement_policy: pulumi_wasm_rust::Output<
+        pub group_placement_policy: pulumi_gestalt_rust::Output<
             Option<super::super::types::compute::ResourcePolicyGroupPlacementPolicy>,
         >,
         /// Resource policy for scheduling instance operations.
         /// Structure is documented below.
-        pub instance_schedule_policy: pulumi_wasm_rust::Output<
+        pub instance_schedule_policy: pulumi_gestalt_rust::Output<
             Option<super::super::types::compute::ResourcePolicyInstanceSchedulePolicy>,
         >,
         /// The name of the resource, provided by the client when initially creating
@@ -306,17 +306,17 @@ pub mod resource_policy {
         ///
         ///
         /// - - -
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
-        pub project: pulumi_wasm_rust::Output<String>,
+        pub project: pulumi_gestalt_rust::Output<String>,
         /// Region where resource policy resides.
-        pub region: pulumi_wasm_rust::Output<String>,
+        pub region: pulumi_gestalt_rust::Output<String>,
         /// The URI of the created resource.
-        pub self_link: pulumi_wasm_rust::Output<String>,
+        pub self_link: pulumi_gestalt_rust::Output<String>,
         /// Policy for creating snapshots of persistent disks.
         /// Structure is documented below.
-        pub snapshot_schedule_policy: pulumi_wasm_rust::Output<
+        pub snapshot_schedule_policy: pulumi_gestalt_rust::Output<
             Option<super::super::types::compute::ResourcePolicySnapshotSchedulePolicy>,
         >,
     }
@@ -325,11 +325,11 @@ pub mod resource_policy {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: ResourcePolicyArgs,
     ) -> ResourcePolicyResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let description_binding = args.description.get_output(context).get_inner();
         let disk_consistency_group_policy_binding = args
@@ -392,27 +392,29 @@ pub mod resource_policy {
         };
         let o = register_interface::register(context.get_inner(), &request);
         ResourcePolicyResult {
-            description: pulumi_wasm_rust::__private::into_domain(
+            description: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("description"),
             ),
-            disk_consistency_group_policy: pulumi_wasm_rust::__private::into_domain(
+            disk_consistency_group_policy: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("diskConsistencyGroupPolicy"),
             ),
-            group_placement_policy: pulumi_wasm_rust::__private::into_domain(
+            group_placement_policy: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("groupPlacementPolicy"),
             ),
-            instance_schedule_policy: pulumi_wasm_rust::__private::into_domain(
+            instance_schedule_policy: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("instanceSchedulePolicy"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            project: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            project: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("project"),
             ),
-            region: pulumi_wasm_rust::__private::into_domain(o.extract_field("region")),
-            self_link: pulumi_wasm_rust::__private::into_domain(
+            region: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("region"),
+            ),
+            self_link: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("selfLink"),
             ),
-            snapshot_schedule_policy: pulumi_wasm_rust::__private::into_domain(
+            snapshot_schedule_policy: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("snapshotSchedulePolicy"),
             ),
         }

@@ -3,8 +3,8 @@
 /// ## Example Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = resource_group::create(
@@ -46,33 +46,33 @@
 /// ```
 ///
 pub mod cluster {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ClusterArgs {
         /// A List of one or more features which should be enabled, such as `DnsService`.
         #[builder(into, default)]
-        pub add_on_features: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
+        pub add_on_features: pulumi_gestalt_rust::InputOrOutput<Option<Vec<String>>>,
         /// An `azure_active_directory` block as defined below.
         #[builder(into, default)]
-        pub azure_active_directory: pulumi_wasm_rust::InputOrOutput<
+        pub azure_active_directory: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::servicefabric::ClusterAzureActiveDirectory>,
         >,
         /// A `certificate` block as defined below. Conflicts with `certificate_common_names`.
         #[builder(into, default)]
-        pub certificate: pulumi_wasm_rust::InputOrOutput<
+        pub certificate: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::servicefabric::ClusterCertificate>,
         >,
         /// A `certificate_common_names` block as defined below. Conflicts with `certificate`.
         #[builder(into, default)]
-        pub certificate_common_names: pulumi_wasm_rust::InputOrOutput<
+        pub certificate_common_names: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::servicefabric::ClusterCertificateCommonNames>,
         >,
         /// A `client_certificate_common_name` block as defined below.
         ///
         /// > **NOTE:** If Client Certificates are enabled then at a Certificate must be configured on the cluster.
         #[builder(into, default)]
-        pub client_certificate_common_names: pulumi_wasm_rust::InputOrOutput<
+        pub client_certificate_common_names: pulumi_gestalt_rust::InputOrOutput<
             Option<
                 Vec<
                     super::super::types::servicefabric::ClusterClientCertificateCommonName,
@@ -81,7 +81,7 @@ pub mod cluster {
         >,
         /// One or more `client_certificate_thumbprint` blocks as defined below.
         #[builder(into, default)]
-        pub client_certificate_thumbprints: pulumi_wasm_rust::InputOrOutput<
+        pub client_certificate_thumbprints: pulumi_gestalt_rust::InputOrOutput<
             Option<
                 Vec<
                     super::super::types::servicefabric::ClusterClientCertificateThumbprint,
@@ -90,96 +90,96 @@ pub mod cluster {
         >,
         /// Required if Upgrade Mode set to `Manual`, Specifies the Version of the Cluster Code of the cluster.
         #[builder(into, default)]
-        pub cluster_code_version: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub cluster_code_version: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// A `diagnostics_config` block as defined below.
         #[builder(into, default)]
-        pub diagnostics_config: pulumi_wasm_rust::InputOrOutput<
+        pub diagnostics_config: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::servicefabric::ClusterDiagnosticsConfig>,
         >,
         /// One or more `fabric_settings` blocks as defined below.
         #[builder(into, default)]
-        pub fabric_settings: pulumi_wasm_rust::InputOrOutput<
+        pub fabric_settings: pulumi_gestalt_rust::InputOrOutput<
             Option<Vec<super::super::types::servicefabric::ClusterFabricSetting>>,
         >,
         /// Specifies the Azure Region where the Service Fabric Cluster should exist. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub location: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub location: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Specifies the Management Endpoint of the cluster such as `http://example.com`. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub management_endpoint: pulumi_wasm_rust::InputOrOutput<String>,
+        pub management_endpoint: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The name of the Service Fabric Cluster. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// One or more `node_type` blocks as defined below.
         #[builder(into)]
-        pub node_types: pulumi_wasm_rust::InputOrOutput<
+        pub node_types: pulumi_gestalt_rust::InputOrOutput<
             Vec<super::super::types::servicefabric::ClusterNodeType>,
         >,
         /// Specifies the Reliability Level of the Cluster. Possible values include `None`, `Bronze`, `Silver`, `Gold` and `Platinum`.
         ///
         /// > **NOTE:** The Reliability Level of the Cluster depends on the number of nodes in the Cluster: `Platinum` requires at least 9 VM's, `Gold` requires at least 7 VM's, `Silver` requires at least 5 VM's, `Bronze` requires at least 3 VM's.
         #[builder(into)]
-        pub reliability_level: pulumi_wasm_rust::InputOrOutput<String>,
+        pub reliability_level: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The name of the Resource Group in which the Service Fabric Cluster exists. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub resource_group_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub resource_group_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// A `reverse_proxy_certificate` block as defined below. Conflicts with `reverse_proxy_certificate_common_names`.
         #[builder(into, default)]
-        pub reverse_proxy_certificate: pulumi_wasm_rust::InputOrOutput<
+        pub reverse_proxy_certificate: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::servicefabric::ClusterReverseProxyCertificate>,
         >,
         /// A `reverse_proxy_certificate_common_names` block as defined below. Conflicts with `reverse_proxy_certificate`.
         #[builder(into, default)]
-        pub reverse_proxy_certificate_common_names: pulumi_wasm_rust::InputOrOutput<
+        pub reverse_proxy_certificate_common_names: pulumi_gestalt_rust::InputOrOutput<
             Option<
                 super::super::types::servicefabric::ClusterReverseProxyCertificateCommonNames,
             >,
         >,
         /// Specifies the logical grouping of VMs in upgrade domains. Possible values are `Hierarchical` or `Parallel`.
         #[builder(into, default)]
-        pub service_fabric_zonal_upgrade_mode: pulumi_wasm_rust::InputOrOutput<
+        pub service_fabric_zonal_upgrade_mode: pulumi_gestalt_rust::InputOrOutput<
             Option<String>,
         >,
         /// A mapping of tags to assign to the resource.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Specifies the Upgrade Mode of the cluster. Possible values are `Automatic` or `Manual`.
         #[builder(into)]
-        pub upgrade_mode: pulumi_wasm_rust::InputOrOutput<String>,
+        pub upgrade_mode: pulumi_gestalt_rust::InputOrOutput<String>,
         /// A `upgrade_policy` block as defined below.
         #[builder(into, default)]
-        pub upgrade_policy: pulumi_wasm_rust::InputOrOutput<
+        pub upgrade_policy: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::servicefabric::ClusterUpgradePolicy>,
         >,
         /// Specifies the Image expected for the Service Fabric Cluster, such as `Windows`. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub vm_image: pulumi_wasm_rust::InputOrOutput<String>,
+        pub vm_image: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Specifies the upgrade mode for the virtual machine scale set updates that happen in all availability zones at once. Possible values are `Hierarchical` or `Parallel`.
         #[builder(into, default)]
-        pub vmss_zonal_upgrade_mode: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub vmss_zonal_upgrade_mode: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct ClusterResult {
         /// A List of one or more features which should be enabled, such as `DnsService`.
-        pub add_on_features: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub add_on_features: pulumi_gestalt_rust::Output<Option<Vec<String>>>,
         /// An `azure_active_directory` block as defined below.
-        pub azure_active_directory: pulumi_wasm_rust::Output<
+        pub azure_active_directory: pulumi_gestalt_rust::Output<
             Option<super::super::types::servicefabric::ClusterAzureActiveDirectory>,
         >,
         /// A `certificate` block as defined below. Conflicts with `certificate_common_names`.
-        pub certificate: pulumi_wasm_rust::Output<
+        pub certificate: pulumi_gestalt_rust::Output<
             Option<super::super::types::servicefabric::ClusterCertificate>,
         >,
         /// A `certificate_common_names` block as defined below. Conflicts with `certificate`.
-        pub certificate_common_names: pulumi_wasm_rust::Output<
+        pub certificate_common_names: pulumi_gestalt_rust::Output<
             Option<super::super::types::servicefabric::ClusterCertificateCommonNames>,
         >,
         /// A `client_certificate_common_name` block as defined below.
         ///
         /// > **NOTE:** If Client Certificates are enabled then at a Certificate must be configured on the cluster.
-        pub client_certificate_common_names: pulumi_wasm_rust::Output<
+        pub client_certificate_common_names: pulumi_gestalt_rust::Output<
             Option<
                 Vec<
                     super::super::types::servicefabric::ClusterClientCertificateCommonName,
@@ -187,7 +187,7 @@ pub mod cluster {
             >,
         >,
         /// One or more `client_certificate_thumbprint` blocks as defined below.
-        pub client_certificate_thumbprints: pulumi_wasm_rust::Output<
+        pub client_certificate_thumbprints: pulumi_gestalt_rust::Output<
             Option<
                 Vec<
                     super::super::types::servicefabric::ClusterClientCertificateThumbprint,
@@ -195,70 +195,72 @@ pub mod cluster {
             >,
         >,
         /// Required if Upgrade Mode set to `Manual`, Specifies the Version of the Cluster Code of the cluster.
-        pub cluster_code_version: pulumi_wasm_rust::Output<String>,
+        pub cluster_code_version: pulumi_gestalt_rust::Output<String>,
         /// The Cluster Endpoint for this Service Fabric Cluster.
-        pub cluster_endpoint: pulumi_wasm_rust::Output<String>,
+        pub cluster_endpoint: pulumi_gestalt_rust::Output<String>,
         /// A `diagnostics_config` block as defined below.
-        pub diagnostics_config: pulumi_wasm_rust::Output<
+        pub diagnostics_config: pulumi_gestalt_rust::Output<
             Option<super::super::types::servicefabric::ClusterDiagnosticsConfig>,
         >,
         /// One or more `fabric_settings` blocks as defined below.
-        pub fabric_settings: pulumi_wasm_rust::Output<
+        pub fabric_settings: pulumi_gestalt_rust::Output<
             Option<Vec<super::super::types::servicefabric::ClusterFabricSetting>>,
         >,
         /// Specifies the Azure Region where the Service Fabric Cluster should exist. Changing this forces a new resource to be created.
-        pub location: pulumi_wasm_rust::Output<String>,
+        pub location: pulumi_gestalt_rust::Output<String>,
         /// Specifies the Management Endpoint of the cluster such as `http://example.com`. Changing this forces a new resource to be created.
-        pub management_endpoint: pulumi_wasm_rust::Output<String>,
+        pub management_endpoint: pulumi_gestalt_rust::Output<String>,
         /// The name of the Service Fabric Cluster. Changing this forces a new resource to be created.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// One or more `node_type` blocks as defined below.
-        pub node_types: pulumi_wasm_rust::Output<
+        pub node_types: pulumi_gestalt_rust::Output<
             Vec<super::super::types::servicefabric::ClusterNodeType>,
         >,
         /// Specifies the Reliability Level of the Cluster. Possible values include `None`, `Bronze`, `Silver`, `Gold` and `Platinum`.
         ///
         /// > **NOTE:** The Reliability Level of the Cluster depends on the number of nodes in the Cluster: `Platinum` requires at least 9 VM's, `Gold` requires at least 7 VM's, `Silver` requires at least 5 VM's, `Bronze` requires at least 3 VM's.
-        pub reliability_level: pulumi_wasm_rust::Output<String>,
+        pub reliability_level: pulumi_gestalt_rust::Output<String>,
         /// The name of the Resource Group in which the Service Fabric Cluster exists. Changing this forces a new resource to be created.
-        pub resource_group_name: pulumi_wasm_rust::Output<String>,
+        pub resource_group_name: pulumi_gestalt_rust::Output<String>,
         /// A `reverse_proxy_certificate` block as defined below. Conflicts with `reverse_proxy_certificate_common_names`.
-        pub reverse_proxy_certificate: pulumi_wasm_rust::Output<
+        pub reverse_proxy_certificate: pulumi_gestalt_rust::Output<
             Option<super::super::types::servicefabric::ClusterReverseProxyCertificate>,
         >,
         /// A `reverse_proxy_certificate_common_names` block as defined below. Conflicts with `reverse_proxy_certificate`.
-        pub reverse_proxy_certificate_common_names: pulumi_wasm_rust::Output<
+        pub reverse_proxy_certificate_common_names: pulumi_gestalt_rust::Output<
             Option<
                 super::super::types::servicefabric::ClusterReverseProxyCertificateCommonNames,
             >,
         >,
         /// Specifies the logical grouping of VMs in upgrade domains. Possible values are `Hierarchical` or `Parallel`.
-        pub service_fabric_zonal_upgrade_mode: pulumi_wasm_rust::Output<Option<String>>,
+        pub service_fabric_zonal_upgrade_mode: pulumi_gestalt_rust::Output<
+            Option<String>,
+        >,
         /// A mapping of tags to assign to the resource.
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Specifies the Upgrade Mode of the cluster. Possible values are `Automatic` or `Manual`.
-        pub upgrade_mode: pulumi_wasm_rust::Output<String>,
+        pub upgrade_mode: pulumi_gestalt_rust::Output<String>,
         /// A `upgrade_policy` block as defined below.
-        pub upgrade_policy: pulumi_wasm_rust::Output<
+        pub upgrade_policy: pulumi_gestalt_rust::Output<
             Option<super::super::types::servicefabric::ClusterUpgradePolicy>,
         >,
         /// Specifies the Image expected for the Service Fabric Cluster, such as `Windows`. Changing this forces a new resource to be created.
-        pub vm_image: pulumi_wasm_rust::Output<String>,
+        pub vm_image: pulumi_gestalt_rust::Output<String>,
         /// Specifies the upgrade mode for the virtual machine scale set updates that happen in all availability zones at once. Possible values are `Hierarchical` or `Parallel`.
-        pub vmss_zonal_upgrade_mode: pulumi_wasm_rust::Output<Option<String>>,
+        pub vmss_zonal_upgrade_mode: pulumi_gestalt_rust::Output<Option<String>>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: ClusterArgs,
     ) -> ClusterResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let add_on_features_binding = args
             .add_on_features
@@ -429,72 +431,72 @@ pub mod cluster {
         };
         let o = register_interface::register(context.get_inner(), &request);
         ClusterResult {
-            add_on_features: pulumi_wasm_rust::__private::into_domain(
+            add_on_features: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("addOnFeatures"),
             ),
-            azure_active_directory: pulumi_wasm_rust::__private::into_domain(
+            azure_active_directory: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("azureActiveDirectory"),
             ),
-            certificate: pulumi_wasm_rust::__private::into_domain(
+            certificate: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("certificate"),
             ),
-            certificate_common_names: pulumi_wasm_rust::__private::into_domain(
+            certificate_common_names: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("certificateCommonNames"),
             ),
-            client_certificate_common_names: pulumi_wasm_rust::__private::into_domain(
+            client_certificate_common_names: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("clientCertificateCommonNames"),
             ),
-            client_certificate_thumbprints: pulumi_wasm_rust::__private::into_domain(
+            client_certificate_thumbprints: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("clientCertificateThumbprints"),
             ),
-            cluster_code_version: pulumi_wasm_rust::__private::into_domain(
+            cluster_code_version: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("clusterCodeVersion"),
             ),
-            cluster_endpoint: pulumi_wasm_rust::__private::into_domain(
+            cluster_endpoint: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("clusterEndpoint"),
             ),
-            diagnostics_config: pulumi_wasm_rust::__private::into_domain(
+            diagnostics_config: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("diagnosticsConfig"),
             ),
-            fabric_settings: pulumi_wasm_rust::__private::into_domain(
+            fabric_settings: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("fabricSettings"),
             ),
-            location: pulumi_wasm_rust::__private::into_domain(
+            location: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("location"),
             ),
-            management_endpoint: pulumi_wasm_rust::__private::into_domain(
+            management_endpoint: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("managementEndpoint"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            node_types: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            node_types: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("nodeTypes"),
             ),
-            reliability_level: pulumi_wasm_rust::__private::into_domain(
+            reliability_level: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("reliabilityLevel"),
             ),
-            resource_group_name: pulumi_wasm_rust::__private::into_domain(
+            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("resourceGroupName"),
             ),
-            reverse_proxy_certificate: pulumi_wasm_rust::__private::into_domain(
+            reverse_proxy_certificate: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("reverseProxyCertificate"),
             ),
-            reverse_proxy_certificate_common_names: pulumi_wasm_rust::__private::into_domain(
+            reverse_proxy_certificate_common_names: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("reverseProxyCertificateCommonNames"),
             ),
-            service_fabric_zonal_upgrade_mode: pulumi_wasm_rust::__private::into_domain(
+            service_fabric_zonal_upgrade_mode: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("serviceFabricZonalUpgradeMode"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
-            upgrade_mode: pulumi_wasm_rust::__private::into_domain(
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            upgrade_mode: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("upgradeMode"),
             ),
-            upgrade_policy: pulumi_wasm_rust::__private::into_domain(
+            upgrade_policy: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("upgradePolicy"),
             ),
-            vm_image: pulumi_wasm_rust::__private::into_domain(
+            vm_image: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("vmImage"),
             ),
-            vmss_zonal_upgrade_mode: pulumi_wasm_rust::__private::into_domain(
+            vmss_zonal_upgrade_mode: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("vmssZonalUpgradeMode"),
             ),
         }

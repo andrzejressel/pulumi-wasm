@@ -39,8 +39,8 @@
 ///
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let dataset = dataset::create(
@@ -72,8 +72,8 @@
 ///
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let dataset = dataset::create(
@@ -119,7 +119,7 @@
 /// ```
 ///
 pub mod hl_7_store {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct Hl7StoreArgs {
@@ -129,7 +129,7 @@ pub mod hl_7_store {
         ///
         /// - - -
         #[builder(into)]
-        pub dataset: pulumi_wasm_rust::InputOrOutput<String>,
+        pub dataset: pulumi_gestalt_rust::InputOrOutput<String>,
         /// User-supplied key-value pairs used to organize HL7v2 stores.
         /// Label keys must be between 1 and 63 characters long, have a UTF-8 encoding of maximum 128 bytes, and must
         /// conform to the following PCRE regular expression: [\p{Ll}\p{Lo}][\p{Ll}\p{Lo}\p{N}_-]{0,62}
@@ -142,20 +142,20 @@ pub mod hl_7_store {
         /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
         /// Please refer to the field `effective_labels` for all of the labels present on the resource.
         #[builder(into, default)]
-        pub labels: pulumi_wasm_rust::InputOrOutput<
+        pub labels: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// The resource name for the Hl7V2Store.
         /// ** Changing this property may recreate the Hl7v2 store (removing all data) **
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// (Optional, Deprecated)
         /// A nested object resource.
         /// Structure is documented below.
         ///
         /// > **Warning:** `notification_config` is deprecated and will be removed in a future major release. Use `notification_configs` instead.
         #[builder(into, default)]
-        pub notification_config: pulumi_wasm_rust::InputOrOutput<
+        pub notification_config: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::healthcare::Hl7StoreNotificationConfig>,
         >,
         /// A list of notification configs. Each configuration uses a filter to determine whether to publish a
@@ -163,18 +163,18 @@ pub mod hl_7_store {
         /// is sent as part of the notification. Supplied by the client.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub notification_configs: pulumi_wasm_rust::InputOrOutput<
+        pub notification_configs: pulumi_gestalt_rust::InputOrOutput<
             Option<Vec<super::super::types::healthcare::Hl7StoreNotificationConfigs>>,
         >,
         /// A nested object resource.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub parser_config: pulumi_wasm_rust::InputOrOutput<
+        pub parser_config: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::healthcare::Hl7StoreParserConfig>,
         >,
         /// Determines whether duplicate messages are allowed.
         #[builder(into, default)]
-        pub reject_duplicate_message: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub reject_duplicate_message: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
     }
     #[allow(dead_code)]
     pub struct Hl7StoreResult {
@@ -183,9 +183,9 @@ pub mod hl_7_store {
         ///
         ///
         /// - - -
-        pub dataset: pulumi_wasm_rust::Output<String>,
+        pub dataset: pulumi_gestalt_rust::Output<String>,
         /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Pulumi, other clients and services.
-        pub effective_labels: pulumi_wasm_rust::Output<
+        pub effective_labels: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
         /// User-supplied key-value pairs used to organize HL7v2 stores.
@@ -199,52 +199,52 @@ pub mod hl_7_store {
         ///
         /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
         /// Please refer to the field `effective_labels` for all of the labels present on the resource.
-        pub labels: pulumi_wasm_rust::Output<
+        pub labels: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// The resource name for the Hl7V2Store.
         /// ** Changing this property may recreate the Hl7v2 store (removing all data) **
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// (Optional, Deprecated)
         /// A nested object resource.
         /// Structure is documented below.
         ///
         /// > **Warning:** `notification_config` is deprecated and will be removed in a future major release. Use `notification_configs` instead.
-        pub notification_config: pulumi_wasm_rust::Output<
+        pub notification_config: pulumi_gestalt_rust::Output<
             Option<super::super::types::healthcare::Hl7StoreNotificationConfig>,
         >,
         /// A list of notification configs. Each configuration uses a filter to determine whether to publish a
         /// message (both Ingest & Create) on the corresponding notification destination. Only the message name
         /// is sent as part of the notification. Supplied by the client.
         /// Structure is documented below.
-        pub notification_configs: pulumi_wasm_rust::Output<
+        pub notification_configs: pulumi_gestalt_rust::Output<
             Option<Vec<super::super::types::healthcare::Hl7StoreNotificationConfigs>>,
         >,
         /// A nested object resource.
         /// Structure is documented below.
-        pub parser_config: pulumi_wasm_rust::Output<
+        pub parser_config: pulumi_gestalt_rust::Output<
             super::super::types::healthcare::Hl7StoreParserConfig,
         >,
         /// The combination of labels configured directly on the resource
         /// and default labels configured on the provider.
-        pub pulumi_labels: pulumi_wasm_rust::Output<
+        pub pulumi_labels: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
         /// Determines whether duplicate messages are allowed.
-        pub reject_duplicate_message: pulumi_wasm_rust::Output<Option<bool>>,
+        pub reject_duplicate_message: pulumi_gestalt_rust::Output<Option<bool>>,
         /// The fully qualified name of this dataset
-        pub self_link: pulumi_wasm_rust::Output<String>,
+        pub self_link: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: Hl7StoreArgs,
     ) -> Hl7StoreResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let dataset_binding = args.dataset.get_output(context).get_inner();
         let labels_binding = args.labels.get_output(context).get_inner();
@@ -299,30 +299,32 @@ pub mod hl_7_store {
         };
         let o = register_interface::register(context.get_inner(), &request);
         Hl7StoreResult {
-            dataset: pulumi_wasm_rust::__private::into_domain(
+            dataset: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("dataset"),
             ),
-            effective_labels: pulumi_wasm_rust::__private::into_domain(
+            effective_labels: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("effectiveLabels"),
             ),
-            labels: pulumi_wasm_rust::__private::into_domain(o.extract_field("labels")),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            notification_config: pulumi_wasm_rust::__private::into_domain(
+            labels: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("labels"),
+            ),
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            notification_config: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("notificationConfig"),
             ),
-            notification_configs: pulumi_wasm_rust::__private::into_domain(
+            notification_configs: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("notificationConfigs"),
             ),
-            parser_config: pulumi_wasm_rust::__private::into_domain(
+            parser_config: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("parserConfig"),
             ),
-            pulumi_labels: pulumi_wasm_rust::__private::into_domain(
+            pulumi_labels: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("pulumiLabels"),
             ),
-            reject_duplicate_message: pulumi_wasm_rust::__private::into_domain(
+            reject_duplicate_message: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("rejectDuplicateMessage"),
             ),
-            self_link: pulumi_wasm_rust::__private::into_domain(
+            self_link: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("selfLink"),
             ),
         }

@@ -9,8 +9,8 @@
 /// ### DynamoDB Table Autoscaling
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let dynamodbTableReadTarget = target::create(
@@ -29,8 +29,8 @@
 /// ### DynamoDB Index Autoscaling
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let dynamodbIndexReadTarget = target::create(
@@ -49,8 +49,8 @@
 /// ### ECS Service Autoscaling
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let ecsTarget = target::create(
@@ -69,8 +69,8 @@
 /// ### Aurora Read Replica Autoscaling
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let replicas = target::create(
@@ -89,8 +89,8 @@
 /// ### Suppressing `tags_all` Differences For Older Resources
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let ecsTarget = target::create(
@@ -109,8 +109,8 @@
 /// ### MSK / Kafka Autoscaling
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let mskTarget = target::create(
@@ -134,65 +134,65 @@
 /// $ pulumi import aws:appautoscaling/target:Target test-target service-namespace/resource-id/scalable-dimension
 /// ```
 pub mod target {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct TargetArgs {
         /// Max capacity of the scalable target.
         #[builder(into)]
-        pub max_capacity: pulumi_wasm_rust::InputOrOutput<i32>,
+        pub max_capacity: pulumi_gestalt_rust::InputOrOutput<i32>,
         /// Min capacity of the scalable target.
         #[builder(into)]
-        pub min_capacity: pulumi_wasm_rust::InputOrOutput<i32>,
+        pub min_capacity: pulumi_gestalt_rust::InputOrOutput<i32>,
         /// Resource type and unique identifier string for the resource associated with the scaling policy. Documentation can be found in the `ResourceId` parameter at: [AWS Application Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/application/APIReference/API_RegisterScalableTarget.html#API_RegisterScalableTarget_RequestParameters)
         #[builder(into)]
-        pub resource_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub resource_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// ARN of the IAM role that allows Application AutoScaling to modify your scalable target on your behalf. This defaults to an IAM Service-Linked Role for most services and custom IAM Roles are ignored by the API for those namespaces. See the [AWS Application Auto Scaling documentation](https://docs.aws.amazon.com/autoscaling/application/userguide/security_iam_service-with-iam.html#security_iam_service-with-iam-roles) for more information about how this service interacts with IAM.
         #[builder(into, default)]
-        pub role_arn: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub role_arn: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Scalable dimension of the scalable target. Documentation can be found in the `ScalableDimension` parameter at: [AWS Application Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/application/APIReference/API_RegisterScalableTarget.html#API_RegisterScalableTarget_RequestParameters)
         #[builder(into)]
-        pub scalable_dimension: pulumi_wasm_rust::InputOrOutput<String>,
+        pub scalable_dimension: pulumi_gestalt_rust::InputOrOutput<String>,
         /// AWS service namespace of the scalable target. Documentation can be found in the `ServiceNamespace` parameter at: [AWS Application Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/application/APIReference/API_RegisterScalableTarget.html#API_RegisterScalableTarget_RequestParameters)
         #[builder(into)]
-        pub service_namespace: pulumi_wasm_rust::InputOrOutput<String>,
+        pub service_namespace: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Specifies whether the scaling activities for a scalable target are in a suspended state.
         #[builder(into, default)]
-        pub suspended_state: pulumi_wasm_rust::InputOrOutput<
+        pub suspended_state: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::appautoscaling::TargetSuspendedState>,
         >,
         /// Map of tags to assign to the scalable target. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
     #[allow(dead_code)]
     pub struct TargetResult {
         /// The ARN of the scalable target.
-        pub arn: pulumi_wasm_rust::Output<String>,
+        pub arn: pulumi_gestalt_rust::Output<String>,
         /// Max capacity of the scalable target.
-        pub max_capacity: pulumi_wasm_rust::Output<i32>,
+        pub max_capacity: pulumi_gestalt_rust::Output<i32>,
         /// Min capacity of the scalable target.
-        pub min_capacity: pulumi_wasm_rust::Output<i32>,
+        pub min_capacity: pulumi_gestalt_rust::Output<i32>,
         /// Resource type and unique identifier string for the resource associated with the scaling policy. Documentation can be found in the `ResourceId` parameter at: [AWS Application Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/application/APIReference/API_RegisterScalableTarget.html#API_RegisterScalableTarget_RequestParameters)
-        pub resource_id: pulumi_wasm_rust::Output<String>,
+        pub resource_id: pulumi_gestalt_rust::Output<String>,
         /// ARN of the IAM role that allows Application AutoScaling to modify your scalable target on your behalf. This defaults to an IAM Service-Linked Role for most services and custom IAM Roles are ignored by the API for those namespaces. See the [AWS Application Auto Scaling documentation](https://docs.aws.amazon.com/autoscaling/application/userguide/security_iam_service-with-iam.html#security_iam_service-with-iam-roles) for more information about how this service interacts with IAM.
-        pub role_arn: pulumi_wasm_rust::Output<String>,
+        pub role_arn: pulumi_gestalt_rust::Output<String>,
         /// Scalable dimension of the scalable target. Documentation can be found in the `ScalableDimension` parameter at: [AWS Application Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/application/APIReference/API_RegisterScalableTarget.html#API_RegisterScalableTarget_RequestParameters)
-        pub scalable_dimension: pulumi_wasm_rust::Output<String>,
+        pub scalable_dimension: pulumi_gestalt_rust::Output<String>,
         /// AWS service namespace of the scalable target. Documentation can be found in the `ServiceNamespace` parameter at: [AWS Application Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/application/APIReference/API_RegisterScalableTarget.html#API_RegisterScalableTarget_RequestParameters)
-        pub service_namespace: pulumi_wasm_rust::Output<String>,
+        pub service_namespace: pulumi_gestalt_rust::Output<String>,
         /// Specifies whether the scaling activities for a scalable target are in a suspended state.
-        pub suspended_state: pulumi_wasm_rust::Output<
+        pub suspended_state: pulumi_gestalt_rust::Output<
             super::super::types::appautoscaling::TargetSuspendedState,
         >,
         /// Map of tags to assign to the scalable target. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        pub tags_all: pulumi_wasm_rust::Output<
+        pub tags_all: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
     }
@@ -201,11 +201,11 @@ pub mod target {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: TargetArgs,
     ) -> TargetResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let max_capacity_binding = args.max_capacity.get_output(context).get_inner();
         let min_capacity_binding = args.min_capacity.get_output(context).get_inner();
@@ -265,30 +265,30 @@ pub mod target {
         };
         let o = register_interface::register(context.get_inner(), &request);
         TargetResult {
-            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
-            max_capacity: pulumi_wasm_rust::__private::into_domain(
+            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
+            max_capacity: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("maxCapacity"),
             ),
-            min_capacity: pulumi_wasm_rust::__private::into_domain(
+            min_capacity: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("minCapacity"),
             ),
-            resource_id: pulumi_wasm_rust::__private::into_domain(
+            resource_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("resourceId"),
             ),
-            role_arn: pulumi_wasm_rust::__private::into_domain(
+            role_arn: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("roleArn"),
             ),
-            scalable_dimension: pulumi_wasm_rust::__private::into_domain(
+            scalable_dimension: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("scalableDimension"),
             ),
-            service_namespace: pulumi_wasm_rust::__private::into_domain(
+            service_namespace: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("serviceNamespace"),
             ),
-            suspended_state: pulumi_wasm_rust::__private::into_domain(
+            suspended_state: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("suspendedState"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_wasm_rust::__private::into_domain(
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            tags_all: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("tagsAll"),
             ),
         }

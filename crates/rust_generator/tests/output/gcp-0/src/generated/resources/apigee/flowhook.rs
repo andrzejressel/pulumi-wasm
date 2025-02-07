@@ -26,54 +26,54 @@
 /// ```
 ///
 pub mod flowhook {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct FlowhookArgs {
         /// Flag that specifies whether execution should continue if the flow hook throws an exception. Set to true to continue execution. Set to false to stop execution if the flow hook throws an exception. Defaults to true.
         #[builder(into, default)]
-        pub continue_on_error: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub continue_on_error: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// Description of the flow hook.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub description: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The resource ID of the environment.
         #[builder(into)]
-        pub environment: pulumi_wasm_rust::InputOrOutput<String>,
+        pub environment: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Where in the API call flow the flow hook is invoked. Must be one of PreProxyFlowHook, PostProxyFlowHook, PreTargetFlowHook, or PostTargetFlowHook.
         #[builder(into)]
-        pub flow_hook_point: pulumi_wasm_rust::InputOrOutput<String>,
+        pub flow_hook_point: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The Apigee Organization associated with the environment
         #[builder(into)]
-        pub org_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub org_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Id of the Sharedflow attaching to a flowhook point.
         #[builder(into)]
-        pub sharedflow: pulumi_wasm_rust::InputOrOutput<String>,
+        pub sharedflow: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct FlowhookResult {
         /// Flag that specifies whether execution should continue if the flow hook throws an exception. Set to true to continue execution. Set to false to stop execution if the flow hook throws an exception. Defaults to true.
-        pub continue_on_error: pulumi_wasm_rust::Output<Option<bool>>,
+        pub continue_on_error: pulumi_gestalt_rust::Output<Option<bool>>,
         /// Description of the flow hook.
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_gestalt_rust::Output<Option<String>>,
         /// The resource ID of the environment.
-        pub environment: pulumi_wasm_rust::Output<String>,
+        pub environment: pulumi_gestalt_rust::Output<String>,
         /// Where in the API call flow the flow hook is invoked. Must be one of PreProxyFlowHook, PostProxyFlowHook, PreTargetFlowHook, or PostTargetFlowHook.
-        pub flow_hook_point: pulumi_wasm_rust::Output<String>,
+        pub flow_hook_point: pulumi_gestalt_rust::Output<String>,
         /// The Apigee Organization associated with the environment
-        pub org_id: pulumi_wasm_rust::Output<String>,
+        pub org_id: pulumi_gestalt_rust::Output<String>,
         /// Id of the Sharedflow attaching to a flowhook point.
-        pub sharedflow: pulumi_wasm_rust::Output<String>,
+        pub sharedflow: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: FlowhookArgs,
     ) -> FlowhookResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let continue_on_error_binding = args
             .continue_on_error
@@ -120,20 +120,22 @@ pub mod flowhook {
         };
         let o = register_interface::register(context.get_inner(), &request);
         FlowhookResult {
-            continue_on_error: pulumi_wasm_rust::__private::into_domain(
+            continue_on_error: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("continueOnError"),
             ),
-            description: pulumi_wasm_rust::__private::into_domain(
+            description: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("description"),
             ),
-            environment: pulumi_wasm_rust::__private::into_domain(
+            environment: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("environment"),
             ),
-            flow_hook_point: pulumi_wasm_rust::__private::into_domain(
+            flow_hook_point: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("flowHookPoint"),
             ),
-            org_id: pulumi_wasm_rust::__private::into_domain(o.extract_field("orgId")),
-            sharedflow: pulumi_wasm_rust::__private::into_domain(
+            org_id: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("orgId"),
+            ),
+            sharedflow: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("sharedflow"),
             ),
         }

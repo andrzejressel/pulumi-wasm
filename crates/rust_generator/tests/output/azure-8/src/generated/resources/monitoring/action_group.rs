@@ -95,18 +95,18 @@
 /// ```
 ///
 pub mod action_group {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ActionGroupArgs {
         /// One or more `arm_role_receiver` blocks as defined below.
         #[builder(into, default)]
-        pub arm_role_receivers: pulumi_wasm_rust::InputOrOutput<
+        pub arm_role_receivers: pulumi_gestalt_rust::InputOrOutput<
             Option<Vec<super::super::types::monitoring::ActionGroupArmRoleReceiver>>,
         >,
         /// One or more `automation_runbook_receiver` blocks as defined below.
         #[builder(into, default)]
-        pub automation_runbook_receivers: pulumi_wasm_rust::InputOrOutput<
+        pub automation_runbook_receivers: pulumi_gestalt_rust::InputOrOutput<
             Option<
                 Vec<
                     super::super::types::monitoring::ActionGroupAutomationRunbookReceiver,
@@ -115,80 +115,80 @@ pub mod action_group {
         >,
         /// One or more `azure_app_push_receiver` blocks as defined below.
         #[builder(into, default)]
-        pub azure_app_push_receivers: pulumi_wasm_rust::InputOrOutput<
+        pub azure_app_push_receivers: pulumi_gestalt_rust::InputOrOutput<
             Option<Vec<super::super::types::monitoring::ActionGroupAzureAppPushReceiver>>,
         >,
         /// One or more `azure_function_receiver` blocks as defined below.
         #[builder(into, default)]
-        pub azure_function_receivers: pulumi_wasm_rust::InputOrOutput<
+        pub azure_function_receivers: pulumi_gestalt_rust::InputOrOutput<
             Option<
                 Vec<super::super::types::monitoring::ActionGroupAzureFunctionReceiver>,
             >,
         >,
         /// One or more `email_receiver` blocks as defined below.
         #[builder(into, default)]
-        pub email_receivers: pulumi_wasm_rust::InputOrOutput<
+        pub email_receivers: pulumi_gestalt_rust::InputOrOutput<
             Option<Vec<super::super::types::monitoring::ActionGroupEmailReceiver>>,
         >,
         /// Whether this action group is enabled. If an action group is not enabled, then none of its receivers will receive communications. Defaults to `true`.
         #[builder(into, default)]
-        pub enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub enabled: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// One or more `event_hub_receiver` blocks as defined below.
         #[builder(into, default)]
-        pub event_hub_receivers: pulumi_wasm_rust::InputOrOutput<
+        pub event_hub_receivers: pulumi_gestalt_rust::InputOrOutput<
             Option<Vec<super::super::types::monitoring::ActionGroupEventHubReceiver>>,
         >,
         /// One or more `itsm_receiver` blocks as defined below.
         #[builder(into, default)]
-        pub itsm_receivers: pulumi_wasm_rust::InputOrOutput<
+        pub itsm_receivers: pulumi_gestalt_rust::InputOrOutput<
             Option<Vec<super::super::types::monitoring::ActionGroupItsmReceiver>>,
         >,
         /// The Azure Region where the Action Group should exist. Changing this forces a new Action Group to be created. Defaults to `global`.
         #[builder(into, default)]
-        pub location: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub location: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// One or more `logic_app_receiver` blocks as defined below.
         #[builder(into, default)]
-        pub logic_app_receivers: pulumi_wasm_rust::InputOrOutput<
+        pub logic_app_receivers: pulumi_gestalt_rust::InputOrOutput<
             Option<Vec<super::super::types::monitoring::ActionGroupLogicAppReceiver>>,
         >,
         /// The name of the Action Group. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The name of the resource group in which to create the Action Group instance. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub resource_group_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub resource_group_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The short name of the action group. This will be used in SMS messages.
         #[builder(into)]
-        pub short_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub short_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// One or more `sms_receiver` blocks as defined below.
         #[builder(into, default)]
-        pub sms_receivers: pulumi_wasm_rust::InputOrOutput<
+        pub sms_receivers: pulumi_gestalt_rust::InputOrOutput<
             Option<Vec<super::super::types::monitoring::ActionGroupSmsReceiver>>,
         >,
         /// A mapping of tags to assign to the resource.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// One or more `voice_receiver` blocks as defined below.
         #[builder(into, default)]
-        pub voice_receivers: pulumi_wasm_rust::InputOrOutput<
+        pub voice_receivers: pulumi_gestalt_rust::InputOrOutput<
             Option<Vec<super::super::types::monitoring::ActionGroupVoiceReceiver>>,
         >,
         /// One or more `webhook_receiver` blocks as defined below.
         #[builder(into, default)]
-        pub webhook_receivers: pulumi_wasm_rust::InputOrOutput<
+        pub webhook_receivers: pulumi_gestalt_rust::InputOrOutput<
             Option<Vec<super::super::types::monitoring::ActionGroupWebhookReceiver>>,
         >,
     }
     #[allow(dead_code)]
     pub struct ActionGroupResult {
         /// One or more `arm_role_receiver` blocks as defined below.
-        pub arm_role_receivers: pulumi_wasm_rust::Output<
+        pub arm_role_receivers: pulumi_gestalt_rust::Output<
             Option<Vec<super::super::types::monitoring::ActionGroupArmRoleReceiver>>,
         >,
         /// One or more `automation_runbook_receiver` blocks as defined below.
-        pub automation_runbook_receivers: pulumi_wasm_rust::Output<
+        pub automation_runbook_receivers: pulumi_gestalt_rust::Output<
             Option<
                 Vec<
                     super::super::types::monitoring::ActionGroupAutomationRunbookReceiver,
@@ -196,55 +196,55 @@ pub mod action_group {
             >,
         >,
         /// One or more `azure_app_push_receiver` blocks as defined below.
-        pub azure_app_push_receivers: pulumi_wasm_rust::Output<
+        pub azure_app_push_receivers: pulumi_gestalt_rust::Output<
             Option<Vec<super::super::types::monitoring::ActionGroupAzureAppPushReceiver>>,
         >,
         /// One or more `azure_function_receiver` blocks as defined below.
-        pub azure_function_receivers: pulumi_wasm_rust::Output<
+        pub azure_function_receivers: pulumi_gestalt_rust::Output<
             Option<
                 Vec<super::super::types::monitoring::ActionGroupAzureFunctionReceiver>,
             >,
         >,
         /// One or more `email_receiver` blocks as defined below.
-        pub email_receivers: pulumi_wasm_rust::Output<
+        pub email_receivers: pulumi_gestalt_rust::Output<
             Option<Vec<super::super::types::monitoring::ActionGroupEmailReceiver>>,
         >,
         /// Whether this action group is enabled. If an action group is not enabled, then none of its receivers will receive communications. Defaults to `true`.
-        pub enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub enabled: pulumi_gestalt_rust::Output<Option<bool>>,
         /// One or more `event_hub_receiver` blocks as defined below.
-        pub event_hub_receivers: pulumi_wasm_rust::Output<
+        pub event_hub_receivers: pulumi_gestalt_rust::Output<
             Option<Vec<super::super::types::monitoring::ActionGroupEventHubReceiver>>,
         >,
         /// One or more `itsm_receiver` blocks as defined below.
-        pub itsm_receivers: pulumi_wasm_rust::Output<
+        pub itsm_receivers: pulumi_gestalt_rust::Output<
             Option<Vec<super::super::types::monitoring::ActionGroupItsmReceiver>>,
         >,
         /// The Azure Region where the Action Group should exist. Changing this forces a new Action Group to be created. Defaults to `global`.
-        pub location: pulumi_wasm_rust::Output<String>,
+        pub location: pulumi_gestalt_rust::Output<String>,
         /// One or more `logic_app_receiver` blocks as defined below.
-        pub logic_app_receivers: pulumi_wasm_rust::Output<
+        pub logic_app_receivers: pulumi_gestalt_rust::Output<
             Option<Vec<super::super::types::monitoring::ActionGroupLogicAppReceiver>>,
         >,
         /// The name of the Action Group. Changing this forces a new resource to be created.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// The name of the resource group in which to create the Action Group instance. Changing this forces a new resource to be created.
-        pub resource_group_name: pulumi_wasm_rust::Output<String>,
+        pub resource_group_name: pulumi_gestalt_rust::Output<String>,
         /// The short name of the action group. This will be used in SMS messages.
-        pub short_name: pulumi_wasm_rust::Output<String>,
+        pub short_name: pulumi_gestalt_rust::Output<String>,
         /// One or more `sms_receiver` blocks as defined below.
-        pub sms_receivers: pulumi_wasm_rust::Output<
+        pub sms_receivers: pulumi_gestalt_rust::Output<
             Option<Vec<super::super::types::monitoring::ActionGroupSmsReceiver>>,
         >,
         /// A mapping of tags to assign to the resource.
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// One or more `voice_receiver` blocks as defined below.
-        pub voice_receivers: pulumi_wasm_rust::Output<
+        pub voice_receivers: pulumi_gestalt_rust::Output<
             Option<Vec<super::super::types::monitoring::ActionGroupVoiceReceiver>>,
         >,
         /// One or more `webhook_receiver` blocks as defined below.
-        pub webhook_receivers: pulumi_wasm_rust::Output<
+        pub webhook_receivers: pulumi_gestalt_rust::Output<
             Option<Vec<super::super::types::monitoring::ActionGroupWebhookReceiver>>,
         >,
     }
@@ -253,11 +253,11 @@ pub mod action_group {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: ActionGroupArgs,
     ) -> ActionGroupResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let arm_role_receivers_binding = args
             .arm_role_receivers
@@ -383,51 +383,51 @@ pub mod action_group {
         };
         let o = register_interface::register(context.get_inner(), &request);
         ActionGroupResult {
-            arm_role_receivers: pulumi_wasm_rust::__private::into_domain(
+            arm_role_receivers: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("armRoleReceivers"),
             ),
-            automation_runbook_receivers: pulumi_wasm_rust::__private::into_domain(
+            automation_runbook_receivers: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("automationRunbookReceivers"),
             ),
-            azure_app_push_receivers: pulumi_wasm_rust::__private::into_domain(
+            azure_app_push_receivers: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("azureAppPushReceivers"),
             ),
-            azure_function_receivers: pulumi_wasm_rust::__private::into_domain(
+            azure_function_receivers: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("azureFunctionReceivers"),
             ),
-            email_receivers: pulumi_wasm_rust::__private::into_domain(
+            email_receivers: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("emailReceivers"),
             ),
-            enabled: pulumi_wasm_rust::__private::into_domain(
+            enabled: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("enabled"),
             ),
-            event_hub_receivers: pulumi_wasm_rust::__private::into_domain(
+            event_hub_receivers: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("eventHubReceivers"),
             ),
-            itsm_receivers: pulumi_wasm_rust::__private::into_domain(
+            itsm_receivers: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("itsmReceivers"),
             ),
-            location: pulumi_wasm_rust::__private::into_domain(
+            location: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("location"),
             ),
-            logic_app_receivers: pulumi_wasm_rust::__private::into_domain(
+            logic_app_receivers: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("logicAppReceivers"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            resource_group_name: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("resourceGroupName"),
             ),
-            short_name: pulumi_wasm_rust::__private::into_domain(
+            short_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("shortName"),
             ),
-            sms_receivers: pulumi_wasm_rust::__private::into_domain(
+            sms_receivers: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("smsReceivers"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
-            voice_receivers: pulumi_wasm_rust::__private::into_domain(
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            voice_receivers: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("voiceReceivers"),
             ),
-            webhook_receivers: pulumi_wasm_rust::__private::into_domain(
+            webhook_receivers: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("webhookReceivers"),
             ),
         }

@@ -64,71 +64,71 @@
 /// ```
 ///
 pub mod watcher {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct WatcherArgs {
         /// The ID of Automation Account to manage this Watcher. Changing this forces a new Watcher to be created.
         #[builder(into)]
-        pub automation_account_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub automation_account_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// A description of this Automation Watcher.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub description: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// A string of etag assigned to this Automation Watcher.
         #[builder(into, default)]
-        pub etag: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub etag: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Specify the frequency at which the watcher is invoked.
         #[builder(into)]
-        pub execution_frequency_in_seconds: pulumi_wasm_rust::InputOrOutput<i32>,
+        pub execution_frequency_in_seconds: pulumi_gestalt_rust::InputOrOutput<i32>,
         /// The Azure Region where the Automation Watcher should exist. Changing this forces a new Automation Watcher to be created.
         #[builder(into, default)]
-        pub location: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub location: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The name which should be used for this Automation Watcher. Changing this forces a new Automation Watcher to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Specify the name of an existing runbook this watcher is attached to. Changing this forces a new Automation to be created.
         #[builder(into)]
-        pub script_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub script_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Specifies a list of key-vaule parameters. Changing this forces a new Automation watcher to be created.
         #[builder(into, default)]
-        pub script_parameters: pulumi_wasm_rust::InputOrOutput<
+        pub script_parameters: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Specify the name of the Hybrid work group the watcher will run on.
         #[builder(into)]
-        pub script_run_on: pulumi_wasm_rust::InputOrOutput<String>,
+        pub script_run_on: pulumi_gestalt_rust::InputOrOutput<String>,
         /// A mapping of tags which should be assigned to the Automation Watcher.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
     #[allow(dead_code)]
     pub struct WatcherResult {
         /// The ID of Automation Account to manage this Watcher. Changing this forces a new Watcher to be created.
-        pub automation_account_id: pulumi_wasm_rust::Output<String>,
+        pub automation_account_id: pulumi_gestalt_rust::Output<String>,
         /// A description of this Automation Watcher.
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_gestalt_rust::Output<Option<String>>,
         /// A string of etag assigned to this Automation Watcher.
-        pub etag: pulumi_wasm_rust::Output<Option<String>>,
+        pub etag: pulumi_gestalt_rust::Output<Option<String>>,
         /// Specify the frequency at which the watcher is invoked.
-        pub execution_frequency_in_seconds: pulumi_wasm_rust::Output<i32>,
+        pub execution_frequency_in_seconds: pulumi_gestalt_rust::Output<i32>,
         /// The Azure Region where the Automation Watcher should exist. Changing this forces a new Automation Watcher to be created.
-        pub location: pulumi_wasm_rust::Output<String>,
+        pub location: pulumi_gestalt_rust::Output<String>,
         /// The name which should be used for this Automation Watcher. Changing this forces a new Automation Watcher to be created.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// Specify the name of an existing runbook this watcher is attached to. Changing this forces a new Automation to be created.
-        pub script_name: pulumi_wasm_rust::Output<String>,
+        pub script_name: pulumi_gestalt_rust::Output<String>,
         /// Specifies a list of key-vaule parameters. Changing this forces a new Automation watcher to be created.
-        pub script_parameters: pulumi_wasm_rust::Output<
+        pub script_parameters: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Specify the name of the Hybrid work group the watcher will run on.
-        pub script_run_on: pulumi_wasm_rust::Output<String>,
+        pub script_run_on: pulumi_gestalt_rust::Output<String>,
         /// The current status of the Automation Watcher.
-        pub status: pulumi_wasm_rust::Output<String>,
+        pub status: pulumi_gestalt_rust::Output<String>,
         /// A mapping of tags which should be assigned to the Automation Watcher.
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
@@ -137,11 +137,11 @@ pub mod watcher {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: WatcherArgs,
     ) -> WatcherResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let automation_account_id_binding = args
             .automation_account_id
@@ -211,31 +211,33 @@ pub mod watcher {
         };
         let o = register_interface::register(context.get_inner(), &request);
         WatcherResult {
-            automation_account_id: pulumi_wasm_rust::__private::into_domain(
+            automation_account_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("automationAccountId"),
             ),
-            description: pulumi_wasm_rust::__private::into_domain(
+            description: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("description"),
             ),
-            etag: pulumi_wasm_rust::__private::into_domain(o.extract_field("etag")),
-            execution_frequency_in_seconds: pulumi_wasm_rust::__private::into_domain(
+            etag: pulumi_gestalt_rust::__private::into_domain(o.extract_field("etag")),
+            execution_frequency_in_seconds: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("executionFrequencyInSeconds"),
             ),
-            location: pulumi_wasm_rust::__private::into_domain(
+            location: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("location"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            script_name: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            script_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("scriptName"),
             ),
-            script_parameters: pulumi_wasm_rust::__private::into_domain(
+            script_parameters: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("scriptParameters"),
             ),
-            script_run_on: pulumi_wasm_rust::__private::into_domain(
+            script_run_on: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("scriptRunOn"),
             ),
-            status: pulumi_wasm_rust::__private::into_domain(o.extract_field("status")),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
+            status: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("status"),
+            ),
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
         }
     }
 }

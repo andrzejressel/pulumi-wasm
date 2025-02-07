@@ -14,8 +14,8 @@
 ///
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let basicExample = auth_config::create(
@@ -69,14 +69,14 @@
 /// ```
 ///
 pub mod auth_config {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct AuthConfigArgs {
         /// Raw client certificate
         /// Structure is documented below.
         #[builder(into, default)]
-        pub client_certificate: pulumi_wasm_rust::InputOrOutput<
+        pub client_certificate: pulumi_gestalt_rust::InputOrOutput<
             Option<
                 super::super::types::applicationintegration::AuthConfigClientCertificate,
             >,
@@ -84,21 +84,21 @@ pub mod auth_config {
         /// Raw auth credentials.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub decrypted_credential: pulumi_wasm_rust::InputOrOutput<
+        pub decrypted_credential: pulumi_gestalt_rust::InputOrOutput<
             Option<
                 super::super::types::applicationintegration::AuthConfigDecryptedCredential,
             >,
         >,
         /// A description of the auth config.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub description: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The name of the auth config.
         #[builder(into)]
-        pub display_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub display_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// User can define the time to receive notification after which the auth config becomes invalid. Support up to 30 days. Support granularity in hours.
         /// A duration in seconds with up to nine fractional digits, ending with 's'. Example: "3.5s".
         #[builder(into, default)]
-        pub expiry_notification_durations: pulumi_wasm_rust::InputOrOutput<
+        pub expiry_notification_durations: pulumi_gestalt_rust::InputOrOutput<
             Option<Vec<String>>,
         >,
         /// Location in which client needs to be provisioned.
@@ -106,94 +106,96 @@ pub mod auth_config {
         ///
         /// - - -
         #[builder(into)]
-        pub location: pulumi_wasm_rust::InputOrOutput<String>,
+        pub location: pulumi_gestalt_rust::InputOrOutput<String>,
         /// User provided expiry time to override. For the example of Salesforce, username/password credentials can be valid for 6 months depending on the instance settings.
         /// A timestamp in RFC3339 UTC "Zulu" format, with nanosecond resolution and up to nine fractional digits. Examples: "2014-10-02T15:01:23Z" and "2014-10-02T15:01:23.045123456Z".
         #[builder(into, default)]
-        pub override_valid_time: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub override_valid_time: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub project: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The visibility of the auth config.
         /// Possible values are: `PRIVATE`, `CLIENT_VISIBLE`.
         #[builder(into, default)]
-        pub visibility: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub visibility: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct AuthConfigResult {
         /// Certificate id for client certificate.
-        pub certificate_id: pulumi_wasm_rust::Output<String>,
+        pub certificate_id: pulumi_gestalt_rust::Output<String>,
         /// Raw client certificate
         /// Structure is documented below.
-        pub client_certificate: pulumi_wasm_rust::Output<
+        pub client_certificate: pulumi_gestalt_rust::Output<
             Option<
                 super::super::types::applicationintegration::AuthConfigClientCertificate,
             >,
         >,
         /// The timestamp when the auth config is created.
         /// A timestamp in RFC3339 UTC "Zulu" format, with nanosecond resolution and up to nine fractional digits. Examples: "2014-10-02T15:01:23Z" and "2014-10-02T15:01:23.045123456Z".
-        pub create_time: pulumi_wasm_rust::Output<String>,
+        pub create_time: pulumi_gestalt_rust::Output<String>,
         /// The creator's email address. Generated based on the End User Credentials/LOAS role of the user making the call.
-        pub creator_email: pulumi_wasm_rust::Output<String>,
+        pub creator_email: pulumi_gestalt_rust::Output<String>,
         /// Credential type of the encrypted credential.
-        pub credential_type: pulumi_wasm_rust::Output<String>,
+        pub credential_type: pulumi_gestalt_rust::Output<String>,
         /// Raw auth credentials.
         /// Structure is documented below.
-        pub decrypted_credential: pulumi_wasm_rust::Output<
+        pub decrypted_credential: pulumi_gestalt_rust::Output<
             Option<
                 super::super::types::applicationintegration::AuthConfigDecryptedCredential,
             >,
         >,
         /// A description of the auth config.
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_gestalt_rust::Output<Option<String>>,
         /// The name of the auth config.
-        pub display_name: pulumi_wasm_rust::Output<String>,
+        pub display_name: pulumi_gestalt_rust::Output<String>,
         /// Auth credential encrypted by Cloud KMS. Can be decrypted as Credential with proper KMS key.
         /// A base64-encoded string.
-        pub encrypted_credential: pulumi_wasm_rust::Output<String>,
+        pub encrypted_credential: pulumi_gestalt_rust::Output<String>,
         /// User can define the time to receive notification after which the auth config becomes invalid. Support up to 30 days. Support granularity in hours.
         /// A duration in seconds with up to nine fractional digits, ending with 's'. Example: "3.5s".
-        pub expiry_notification_durations: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub expiry_notification_durations: pulumi_gestalt_rust::Output<
+            Option<Vec<String>>,
+        >,
         /// The last modifier's email address. Generated based on the End User Credentials/LOAS role of the user making the call.
-        pub last_modifier_email: pulumi_wasm_rust::Output<String>,
+        pub last_modifier_email: pulumi_gestalt_rust::Output<String>,
         /// Location in which client needs to be provisioned.
         ///
         ///
         /// - - -
-        pub location: pulumi_wasm_rust::Output<String>,
+        pub location: pulumi_gestalt_rust::Output<String>,
         /// Resource name of the auth config.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// User provided expiry time to override. For the example of Salesforce, username/password credentials can be valid for 6 months depending on the instance settings.
         /// A timestamp in RFC3339 UTC "Zulu" format, with nanosecond resolution and up to nine fractional digits. Examples: "2014-10-02T15:01:23Z" and "2014-10-02T15:01:23.045123456Z".
-        pub override_valid_time: pulumi_wasm_rust::Output<Option<String>>,
+        pub override_valid_time: pulumi_gestalt_rust::Output<Option<String>>,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
-        pub project: pulumi_wasm_rust::Output<String>,
+        pub project: pulumi_gestalt_rust::Output<String>,
         /// The reason / details of the current status.
-        pub reason: pulumi_wasm_rust::Output<String>,
+        pub reason: pulumi_gestalt_rust::Output<String>,
         /// The status of the auth config.
-        pub state: pulumi_wasm_rust::Output<String>,
+        pub state: pulumi_gestalt_rust::Output<String>,
         /// The timestamp when the auth config is modified.
         /// A timestamp in RFC3339 UTC "Zulu" format, with nanosecond resolution and up to nine fractional digits. Examples: "2014-10-02T15:01:23Z" and "2014-10-02T15:01:23.045123456Z".
-        pub update_time: pulumi_wasm_rust::Output<String>,
+        pub update_time: pulumi_gestalt_rust::Output<String>,
         /// The time until the auth config is valid. Empty or max value is considered the auth config won't expire.
         /// A timestamp in RFC3339 UTC "Zulu" format, with nanosecond resolution and up to nine fractional digits. Examples: "2014-10-02T15:01:23Z" and "2014-10-02T15:01:23.045123456Z".
-        pub valid_time: pulumi_wasm_rust::Output<String>,
+        pub valid_time: pulumi_gestalt_rust::Output<String>,
         /// The visibility of the auth config.
         /// Possible values are: `PRIVATE`, `CLIENT_VISIBLE`.
-        pub visibility: pulumi_wasm_rust::Output<Option<String>>,
+        pub visibility: pulumi_gestalt_rust::Output<Option<String>>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: AuthConfigArgs,
     ) -> AuthConfigResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let client_certificate_binding = args
             .client_certificate
@@ -261,58 +263,60 @@ pub mod auth_config {
         };
         let o = register_interface::register(context.get_inner(), &request);
         AuthConfigResult {
-            certificate_id: pulumi_wasm_rust::__private::into_domain(
+            certificate_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("certificateId"),
             ),
-            client_certificate: pulumi_wasm_rust::__private::into_domain(
+            client_certificate: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("clientCertificate"),
             ),
-            create_time: pulumi_wasm_rust::__private::into_domain(
+            create_time: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("createTime"),
             ),
-            creator_email: pulumi_wasm_rust::__private::into_domain(
+            creator_email: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("creatorEmail"),
             ),
-            credential_type: pulumi_wasm_rust::__private::into_domain(
+            credential_type: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("credentialType"),
             ),
-            decrypted_credential: pulumi_wasm_rust::__private::into_domain(
+            decrypted_credential: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("decryptedCredential"),
             ),
-            description: pulumi_wasm_rust::__private::into_domain(
+            description: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("description"),
             ),
-            display_name: pulumi_wasm_rust::__private::into_domain(
+            display_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("displayName"),
             ),
-            encrypted_credential: pulumi_wasm_rust::__private::into_domain(
+            encrypted_credential: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("encryptedCredential"),
             ),
-            expiry_notification_durations: pulumi_wasm_rust::__private::into_domain(
+            expiry_notification_durations: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("expiryNotificationDurations"),
             ),
-            last_modifier_email: pulumi_wasm_rust::__private::into_domain(
+            last_modifier_email: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("lastModifierEmail"),
             ),
-            location: pulumi_wasm_rust::__private::into_domain(
+            location: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("location"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            override_valid_time: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            override_valid_time: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("overrideValidTime"),
             ),
-            project: pulumi_wasm_rust::__private::into_domain(
+            project: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("project"),
             ),
-            reason: pulumi_wasm_rust::__private::into_domain(o.extract_field("reason")),
-            state: pulumi_wasm_rust::__private::into_domain(o.extract_field("state")),
-            update_time: pulumi_wasm_rust::__private::into_domain(
+            reason: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("reason"),
+            ),
+            state: pulumi_gestalt_rust::__private::into_domain(o.extract_field("state")),
+            update_time: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("updateTime"),
             ),
-            valid_time: pulumi_wasm_rust::__private::into_domain(
+            valid_time: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("validTime"),
             ),
-            visibility: pulumi_wasm_rust::__private::into_domain(
+            visibility: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("visibility"),
             ),
         }

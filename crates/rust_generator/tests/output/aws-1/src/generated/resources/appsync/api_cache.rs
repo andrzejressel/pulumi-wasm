@@ -3,8 +3,8 @@
 /// ## Example Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = graph_ql_api::create(
@@ -34,54 +34,54 @@
 /// $ pulumi import aws:appsync/apiCache:ApiCache example xxxxx
 /// ```
 pub mod api_cache {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ApiCacheArgs {
         /// Caching behavior. Valid values are `FULL_REQUEST_CACHING` and `PER_RESOLVER_CACHING`.
         #[builder(into)]
-        pub api_caching_behavior: pulumi_wasm_rust::InputOrOutput<String>,
+        pub api_caching_behavior: pulumi_gestalt_rust::InputOrOutput<String>,
         /// GraphQL API ID.
         #[builder(into)]
-        pub api_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub api_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// At-rest encryption flag for cache. You cannot update this setting after creation.
         #[builder(into, default)]
-        pub at_rest_encryption_enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub at_rest_encryption_enabled: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// Transit encryption flag when connecting to cache. You cannot update this setting after creation.
         #[builder(into, default)]
-        pub transit_encryption_enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub transit_encryption_enabled: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// TTL in seconds for cache entries.
         #[builder(into)]
-        pub ttl: pulumi_wasm_rust::InputOrOutput<i32>,
+        pub ttl: pulumi_gestalt_rust::InputOrOutput<i32>,
         /// Cache instance type. Valid values are `SMALL`, `MEDIUM`, `LARGE`, `XLARGE`, `LARGE_2X`, `LARGE_4X`, `LARGE_8X`, `LARGE_12X`, `T2_SMALL`, `T2_MEDIUM`, `R4_LARGE`, `R4_XLARGE`, `R4_2XLARGE`, `R4_4XLARGE`, `R4_8XLARGE`.
         #[builder(into)]
-        pub type_: pulumi_wasm_rust::InputOrOutput<String>,
+        pub type_: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct ApiCacheResult {
         /// Caching behavior. Valid values are `FULL_REQUEST_CACHING` and `PER_RESOLVER_CACHING`.
-        pub api_caching_behavior: pulumi_wasm_rust::Output<String>,
+        pub api_caching_behavior: pulumi_gestalt_rust::Output<String>,
         /// GraphQL API ID.
-        pub api_id: pulumi_wasm_rust::Output<String>,
+        pub api_id: pulumi_gestalt_rust::Output<String>,
         /// At-rest encryption flag for cache. You cannot update this setting after creation.
-        pub at_rest_encryption_enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub at_rest_encryption_enabled: pulumi_gestalt_rust::Output<Option<bool>>,
         /// Transit encryption flag when connecting to cache. You cannot update this setting after creation.
-        pub transit_encryption_enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub transit_encryption_enabled: pulumi_gestalt_rust::Output<Option<bool>>,
         /// TTL in seconds for cache entries.
-        pub ttl: pulumi_wasm_rust::Output<i32>,
+        pub ttl: pulumi_gestalt_rust::Output<i32>,
         /// Cache instance type. Valid values are `SMALL`, `MEDIUM`, `LARGE`, `XLARGE`, `LARGE_2X`, `LARGE_4X`, `LARGE_8X`, `LARGE_12X`, `T2_SMALL`, `T2_MEDIUM`, `R4_LARGE`, `R4_XLARGE`, `R4_2XLARGE`, `R4_4XLARGE`, `R4_8XLARGE`.
-        pub type_: pulumi_wasm_rust::Output<String>,
+        pub type_: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: ApiCacheArgs,
     ) -> ApiCacheResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let api_caching_behavior_binding = args
             .api_caching_behavior
@@ -131,18 +131,20 @@ pub mod api_cache {
         };
         let o = register_interface::register(context.get_inner(), &request);
         ApiCacheResult {
-            api_caching_behavior: pulumi_wasm_rust::__private::into_domain(
+            api_caching_behavior: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("apiCachingBehavior"),
             ),
-            api_id: pulumi_wasm_rust::__private::into_domain(o.extract_field("apiId")),
-            at_rest_encryption_enabled: pulumi_wasm_rust::__private::into_domain(
+            api_id: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("apiId"),
+            ),
+            at_rest_encryption_enabled: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("atRestEncryptionEnabled"),
             ),
-            transit_encryption_enabled: pulumi_wasm_rust::__private::into_domain(
+            transit_encryption_enabled: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("transitEncryptionEnabled"),
             ),
-            ttl: pulumi_wasm_rust::__private::into_domain(o.extract_field("ttl")),
-            type_: pulumi_wasm_rust::__private::into_domain(o.extract_field("type")),
+            ttl: pulumi_gestalt_rust::__private::into_domain(o.extract_field("ttl")),
+            type_: pulumi_gestalt_rust::__private::into_domain(o.extract_field("type")),
         }
     }
 }

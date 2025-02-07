@@ -5,8 +5,8 @@
 /// ## Example Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let creds = zero_trust_dlp_profile::create(
@@ -70,72 +70,72 @@
 /// ```
 ///
 pub mod zero_trust_dlp_profile {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ZeroTrustDlpProfileArgs {
         /// The account identifier to target for the resource. **Modifying this attribute will force creation of a new resource.**
         #[builder(into)]
-        pub account_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub account_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Related DLP policies will trigger when the match count exceeds the number set.
         #[builder(into)]
-        pub allowed_match_count: pulumi_wasm_rust::InputOrOutput<i32>,
+        pub allowed_match_count: pulumi_gestalt_rust::InputOrOutput<i32>,
         /// Scan the context of predefined entries to only return matches surrounded by keywords.
         #[builder(into, default)]
-        pub context_awareness: pulumi_wasm_rust::InputOrOutput<
+        pub context_awareness: pulumi_gestalt_rust::InputOrOutput<
             Option<super::types::ZeroTrustDlpProfileContextAwareness>,
         >,
         /// Brief summary of the profile and its intended use.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub description: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// List of entries to apply to the profile.
         #[builder(into)]
-        pub entries: pulumi_wasm_rust::InputOrOutput<
+        pub entries: pulumi_gestalt_rust::InputOrOutput<
             Vec<super::types::ZeroTrustDlpProfileEntry>,
         >,
         /// Name of the profile. **Modifying this attribute will force creation of a new resource.**
         #[builder(into)]
-        pub name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// If true, scan images via OCR to determine if any text present matches filters.
         #[builder(into, default)]
-        pub ocr_enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub ocr_enabled: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// The type of the profile. Available values: `custom`, `predefined`. **Modifying this attribute will force creation of a new resource.**
         #[builder(into)]
-        pub type_: pulumi_wasm_rust::InputOrOutput<String>,
+        pub type_: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct ZeroTrustDlpProfileResult {
         /// The account identifier to target for the resource. **Modifying this attribute will force creation of a new resource.**
-        pub account_id: pulumi_wasm_rust::Output<String>,
+        pub account_id: pulumi_gestalt_rust::Output<String>,
         /// Related DLP policies will trigger when the match count exceeds the number set.
-        pub allowed_match_count: pulumi_wasm_rust::Output<i32>,
+        pub allowed_match_count: pulumi_gestalt_rust::Output<i32>,
         /// Scan the context of predefined entries to only return matches surrounded by keywords.
-        pub context_awareness: pulumi_wasm_rust::Output<
+        pub context_awareness: pulumi_gestalt_rust::Output<
             super::types::ZeroTrustDlpProfileContextAwareness,
         >,
         /// Brief summary of the profile and its intended use.
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_gestalt_rust::Output<Option<String>>,
         /// List of entries to apply to the profile.
-        pub entries: pulumi_wasm_rust::Output<
+        pub entries: pulumi_gestalt_rust::Output<
             Vec<super::types::ZeroTrustDlpProfileEntry>,
         >,
         /// Name of the profile. **Modifying this attribute will force creation of a new resource.**
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// If true, scan images via OCR to determine if any text present matches filters.
-        pub ocr_enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub ocr_enabled: pulumi_gestalt_rust::Output<Option<bool>>,
         /// The type of the profile. Available values: `custom`, `predefined`. **Modifying this attribute will force creation of a new resource.**
-        pub type_: pulumi_wasm_rust::Output<String>,
+        pub type_: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: ZeroTrustDlpProfileArgs,
     ) -> ZeroTrustDlpProfileResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let account_id_binding = args.account_id.get_output(context).get_inner();
         let allowed_match_count_binding = args
@@ -192,26 +192,26 @@ pub mod zero_trust_dlp_profile {
         };
         let o = register_interface::register(context.get_inner(), &request);
         ZeroTrustDlpProfileResult {
-            account_id: pulumi_wasm_rust::__private::into_domain(
+            account_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("accountId"),
             ),
-            allowed_match_count: pulumi_wasm_rust::__private::into_domain(
+            allowed_match_count: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("allowedMatchCount"),
             ),
-            context_awareness: pulumi_wasm_rust::__private::into_domain(
+            context_awareness: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("contextAwareness"),
             ),
-            description: pulumi_wasm_rust::__private::into_domain(
+            description: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("description"),
             ),
-            entries: pulumi_wasm_rust::__private::into_domain(
+            entries: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("entries"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            ocr_enabled: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            ocr_enabled: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("ocrEnabled"),
             ),
-            type_: pulumi_wasm_rust::__private::into_domain(o.extract_field("type")),
+            type_: pulumi_gestalt_rust::__private::into_domain(o.extract_field("type")),
         }
     }
 }

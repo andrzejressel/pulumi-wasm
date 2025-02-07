@@ -5,12 +5,12 @@ package executors
 import (
 	"fmt"
 
-	"github.com/andrzejressel/pulumi-wasm/pulumi-language-wasm/fsys"
+	"github.com/andrzejressel/pulumi-gestalt/pulumi-language-gestalt/fsys"
 )
 
-// WasmExecutor abstracts interactions with a wasm project, ability to build, run
-// wasm code, and detect plugin dependencies.
-type WasmExecutor struct {
+// GestaltExecutor abstracts interactions with a gestalt project, ability to build, run
+// gestalt code, and detect plugin dependencies.
+type GestaltExecutor struct {
 	// User-friendly name of the executor.
 	Name string
 
@@ -20,7 +20,7 @@ type WasmExecutor struct {
 	// Optional dir to run the command in.
 	Dir string
 
-	// Command to run the Wasm code - the main entrypoint.
+	// Command to run the Gestalt code - the main entrypoint.
 	RunArgs []string
 
 	// Command args to resolve dependencies and build; this will
@@ -28,15 +28,15 @@ type WasmExecutor struct {
 	BuildArgs []string
 
 	// Command to autodetect and print Pulumi plugins depended on
-	// by the Wasm program.
+	// by the Gestalt program.
 	PluginArgs []string
 
 	// Command to print the version of the command.
 	VersionArgs []string
 }
 
-// WasmExecutorOptions contains information used to pick an executor.
-type WasmExecutorOptions struct {
+// GestaltExecutorOptions contains information used to pick an executor.
+type GestaltExecutorOptions struct {
 	// Current working directory. Abstract to enable testing.
 	WD fsys.ParentFS
 
@@ -49,16 +49,16 @@ type WasmExecutorOptions struct {
 	UseExecutor string
 }
 
-type wasmExecutorFactory interface {
-	// NewWasmExecutor tries configuring an executor from the given options.
+type gestaltExecutorFactory interface {
+	// NewGestaltExecutor tries configuring an executor from the given options.
 	// May return nil if options are not-applicable.
-	NewWasmExecutor(WasmExecutorOptions) (*WasmExecutor, error)
+	NewGestaltExecutor(GestaltExecutorOptions) (*GestaltExecutor, error)
 }
 
-func NewWasmExecutor(opts WasmExecutorOptions) (*WasmExecutor, error) {
-	e, err := combineWasmExecutorFactories(
+func NewGestaltExecutor(opts GestaltExecutorOptions) (*GestaltExecutor, error) {
+	e, err := combineGestaltExecutorFactories(
 		&justfile{},
-	).NewWasmExecutor(opts)
+	).NewGestaltExecutor(opts)
 	if err != nil {
 		return nil, err
 	}
@@ -68,11 +68,11 @@ func NewWasmExecutor(opts WasmExecutorOptions) (*WasmExecutor, error) {
 	return e, nil
 }
 
-type combinedWasmExecutorFactory []wasmExecutorFactory
+type combinedGestaltExecutorFactory []gestaltExecutorFactory
 
-func (c combinedWasmExecutorFactory) NewWasmExecutor(opts WasmExecutorOptions) (*WasmExecutor, error) {
+func (c combinedGestaltExecutorFactory) NewGestaltExecutor(opts GestaltExecutorOptions) (*GestaltExecutor, error) {
 	for _, v := range c {
-		e, err := v.NewWasmExecutor(opts)
+		e, err := v.NewGestaltExecutor(opts)
 		if err != nil {
 			return nil, err
 		}
@@ -83,6 +83,6 @@ func (c combinedWasmExecutorFactory) NewWasmExecutor(opts WasmExecutorOptions) (
 	return nil, nil
 }
 
-func combineWasmExecutorFactories(variations ...wasmExecutorFactory) wasmExecutorFactory {
-	return combinedWasmExecutorFactory(variations)
+func combineGestaltExecutorFactories(variations ...gestaltExecutorFactory) gestaltExecutorFactory {
+	return combinedGestaltExecutorFactory(variations)
 }

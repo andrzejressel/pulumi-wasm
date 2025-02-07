@@ -30,80 +30,80 @@
 /// $ pulumi import aws:bedrock/inferenceProfile:InferenceProfile example inference_profile-id-12345678
 /// ```
 pub mod inference_profile {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct InferenceProfileArgs {
         /// The description of the inference profile.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub description: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The source of the model this inference profile will track metrics and cost for. See `model_source`.
         ///
         /// The following arguments are optional:
         #[builder(into, default)]
-        pub model_source: pulumi_wasm_rust::InputOrOutput<
+        pub model_source: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::bedrock::InferenceProfileModelSource>,
         >,
         /// The name of the inference profile.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Key-value mapping of resource tags for the inference profile.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         #[builder(into, default)]
-        pub timeouts: pulumi_wasm_rust::InputOrOutput<
+        pub timeouts: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::bedrock::InferenceProfileTimeouts>,
         >,
     }
     #[allow(dead_code)]
     pub struct InferenceProfileResult {
         /// The Amazon Resource Name (ARN) of the inference profile.
-        pub arn: pulumi_wasm_rust::Output<String>,
+        pub arn: pulumi_gestalt_rust::Output<String>,
         /// The time at which the inference profile was created.
-        pub created_at: pulumi_wasm_rust::Output<String>,
+        pub created_at: pulumi_gestalt_rust::Output<String>,
         /// The description of the inference profile.
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_gestalt_rust::Output<Option<String>>,
         /// The source of the model this inference profile will track metrics and cost for. See `model_source`.
         ///
         /// The following arguments are optional:
-        pub model_source: pulumi_wasm_rust::Output<
+        pub model_source: pulumi_gestalt_rust::Output<
             Option<super::super::types::bedrock::InferenceProfileModelSource>,
         >,
         /// A list of information about each model in the inference profile. See `models`.
-        pub models: pulumi_wasm_rust::Output<
+        pub models: pulumi_gestalt_rust::Output<
             Vec<super::super::types::bedrock::InferenceProfileModel>,
         >,
         /// The name of the inference profile.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// The status of the inference profile. `ACTIVE` means that the inference profile is available to use.
-        pub status: pulumi_wasm_rust::Output<String>,
+        pub status: pulumi_gestalt_rust::Output<String>,
         /// Key-value mapping of resource tags for the inference profile.
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
-        pub tags_all: pulumi_wasm_rust::Output<
+        pub tags_all: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
-        pub timeouts: pulumi_wasm_rust::Output<
+        pub timeouts: pulumi_gestalt_rust::Output<
             Option<super::super::types::bedrock::InferenceProfileTimeouts>,
         >,
         /// The type of the inference profile. `SYSTEM_DEFINED` means that the inference profile is defined by Amazon Bedrock. `APPLICATION` means that the inference profile is defined by the user.
-        pub type_: pulumi_wasm_rust::Output<String>,
+        pub type_: pulumi_gestalt_rust::Output<String>,
         /// The time at which the inference profile was last updated.
-        pub updated_at: pulumi_wasm_rust::Output<String>,
+        pub updated_at: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: InferenceProfileArgs,
     ) -> InferenceProfileResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let description_binding = args.description.get_output(context).get_inner();
         let model_source_binding = args.model_source.get_output(context).get_inner();
@@ -139,28 +139,32 @@ pub mod inference_profile {
         };
         let o = register_interface::register(context.get_inner(), &request);
         InferenceProfileResult {
-            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
-            created_at: pulumi_wasm_rust::__private::into_domain(
+            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
+            created_at: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("createdAt"),
             ),
-            description: pulumi_wasm_rust::__private::into_domain(
+            description: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("description"),
             ),
-            model_source: pulumi_wasm_rust::__private::into_domain(
+            model_source: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("modelSource"),
             ),
-            models: pulumi_wasm_rust::__private::into_domain(o.extract_field("models")),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            status: pulumi_wasm_rust::__private::into_domain(o.extract_field("status")),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_wasm_rust::__private::into_domain(
+            models: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("models"),
+            ),
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            status: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("status"),
+            ),
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            tags_all: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("tagsAll"),
             ),
-            timeouts: pulumi_wasm_rust::__private::into_domain(
+            timeouts: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("timeouts"),
             ),
-            type_: pulumi_wasm_rust::__private::into_domain(o.extract_field("type")),
-            updated_at: pulumi_wasm_rust::__private::into_domain(
+            type_: pulumi_gestalt_rust::__private::into_domain(o.extract_field("type")),
+            updated_at: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("updatedAt"),
             ),
         }

@@ -73,49 +73,49 @@
 /// $ pulumi import aws:cloudwatch/logAccountPolicy:LogAccountPolicy example "my-account-policy:SUBSCRIPTION_FILTER_POLICY"
 /// ```
 pub mod log_account_policy {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct LogAccountPolicyArgs {
         /// Text of the account policy. Refer to the [AWS docs](https://docs.aws.amazon.com/cli/latest/reference/logs/put-account-policy.html) for more information.
         #[builder(into)]
-        pub policy_document: pulumi_wasm_rust::InputOrOutput<String>,
+        pub policy_document: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Name of the account policy.
         #[builder(into)]
-        pub policy_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub policy_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Type of account policy. One of `DATA_PROTECTION_POLICY`, `SUBSCRIPTION_FILTER_POLICY`, `FIELD_INDEX_POLICY` or `TRANSFORMER_POLICY`. You can have one account policy per type in an account.
         #[builder(into)]
-        pub policy_type: pulumi_wasm_rust::InputOrOutput<String>,
+        pub policy_type: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Currently defaults to and only accepts the value: `ALL`.
         #[builder(into, default)]
-        pub scope: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub scope: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Criteria for applying a subscription filter policy to a selection of log groups. The only allowable criteria selector is `LogGroupName NOT IN []`.
         #[builder(into, default)]
-        pub selection_criteria: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub selection_criteria: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct LogAccountPolicyResult {
         /// Text of the account policy. Refer to the [AWS docs](https://docs.aws.amazon.com/cli/latest/reference/logs/put-account-policy.html) for more information.
-        pub policy_document: pulumi_wasm_rust::Output<String>,
+        pub policy_document: pulumi_gestalt_rust::Output<String>,
         /// Name of the account policy.
-        pub policy_name: pulumi_wasm_rust::Output<String>,
+        pub policy_name: pulumi_gestalt_rust::Output<String>,
         /// Type of account policy. One of `DATA_PROTECTION_POLICY`, `SUBSCRIPTION_FILTER_POLICY`, `FIELD_INDEX_POLICY` or `TRANSFORMER_POLICY`. You can have one account policy per type in an account.
-        pub policy_type: pulumi_wasm_rust::Output<String>,
+        pub policy_type: pulumi_gestalt_rust::Output<String>,
         /// Currently defaults to and only accepts the value: `ALL`.
-        pub scope: pulumi_wasm_rust::Output<Option<String>>,
+        pub scope: pulumi_gestalt_rust::Output<Option<String>>,
         /// Criteria for applying a subscription filter policy to a selection of log groups. The only allowable criteria selector is `LogGroupName NOT IN []`.
-        pub selection_criteria: pulumi_wasm_rust::Output<Option<String>>,
+        pub selection_criteria: pulumi_gestalt_rust::Output<Option<String>>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: LogAccountPolicyArgs,
     ) -> LogAccountPolicyResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let policy_document_binding = args
             .policy_document
@@ -157,17 +157,17 @@ pub mod log_account_policy {
         };
         let o = register_interface::register(context.get_inner(), &request);
         LogAccountPolicyResult {
-            policy_document: pulumi_wasm_rust::__private::into_domain(
+            policy_document: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("policyDocument"),
             ),
-            policy_name: pulumi_wasm_rust::__private::into_domain(
+            policy_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("policyName"),
             ),
-            policy_type: pulumi_wasm_rust::__private::into_domain(
+            policy_type: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("policyType"),
             ),
-            scope: pulumi_wasm_rust::__private::into_domain(o.extract_field("scope")),
-            selection_criteria: pulumi_wasm_rust::__private::into_domain(
+            scope: pulumi_gestalt_rust::__private::into_domain(o.extract_field("scope")),
+            selection_criteria: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("selectionCriteria"),
             ),
         }

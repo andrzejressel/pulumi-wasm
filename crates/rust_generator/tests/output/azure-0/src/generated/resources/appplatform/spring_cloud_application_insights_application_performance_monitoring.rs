@@ -5,8 +5,8 @@
 /// ## Example Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = resource_group::create(
@@ -59,64 +59,66 @@
 /// ```
 ///
 pub mod spring_cloud_application_insights_application_performance_monitoring {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct SpringCloudApplicationInsightsApplicationPerformanceMonitoringArgs {
         /// The instrumentation key used to push data to Application Insights.
         #[builder(into, default)]
-        pub connection_string: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub connection_string: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Specifies whether the Spring Cloud Application Performance Monitoring resource for Application Insights is enabled globally. Defaults to `false`.
         #[builder(into, default)]
-        pub globally_enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub globally_enabled: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// The name which should be used for this Spring Cloud Application Performance Monitoring resource for Application Insights. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Specifies the cloud role instance.
         #[builder(into, default)]
-        pub role_instance: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub role_instance: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Specifies the cloud role name used to label the component on the application map.
         #[builder(into, default)]
-        pub role_name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub role_name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Specifies the percentage for fixed-percentage sampling.
         #[builder(into, default)]
-        pub sampling_percentage: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
+        pub sampling_percentage: pulumi_gestalt_rust::InputOrOutput<Option<i32>>,
         /// Specifies the number of requests per second for the rate-limited sampling.
         #[builder(into, default)]
-        pub sampling_requests_per_second: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
+        pub sampling_requests_per_second: pulumi_gestalt_rust::InputOrOutput<
+            Option<i32>,
+        >,
         /// The ID of the Spring Cloud Service. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub spring_cloud_service_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub spring_cloud_service_id: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct SpringCloudApplicationInsightsApplicationPerformanceMonitoringResult {
         /// The instrumentation key used to push data to Application Insights.
-        pub connection_string: pulumi_wasm_rust::Output<Option<String>>,
+        pub connection_string: pulumi_gestalt_rust::Output<Option<String>>,
         /// Specifies whether the Spring Cloud Application Performance Monitoring resource for Application Insights is enabled globally. Defaults to `false`.
-        pub globally_enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub globally_enabled: pulumi_gestalt_rust::Output<Option<bool>>,
         /// The name which should be used for this Spring Cloud Application Performance Monitoring resource for Application Insights. Changing this forces a new resource to be created.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// Specifies the cloud role instance.
-        pub role_instance: pulumi_wasm_rust::Output<Option<String>>,
+        pub role_instance: pulumi_gestalt_rust::Output<Option<String>>,
         /// Specifies the cloud role name used to label the component on the application map.
-        pub role_name: pulumi_wasm_rust::Output<Option<String>>,
+        pub role_name: pulumi_gestalt_rust::Output<Option<String>>,
         /// Specifies the percentage for fixed-percentage sampling.
-        pub sampling_percentage: pulumi_wasm_rust::Output<Option<i32>>,
+        pub sampling_percentage: pulumi_gestalt_rust::Output<Option<i32>>,
         /// Specifies the number of requests per second for the rate-limited sampling.
-        pub sampling_requests_per_second: pulumi_wasm_rust::Output<Option<i32>>,
+        pub sampling_requests_per_second: pulumi_gestalt_rust::Output<Option<i32>>,
         /// The ID of the Spring Cloud Service. Changing this forces a new resource to be created.
-        pub spring_cloud_service_id: pulumi_wasm_rust::Output<String>,
+        pub spring_cloud_service_id: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: SpringCloudApplicationInsightsApplicationPerformanceMonitoringArgs,
     ) -> SpringCloudApplicationInsightsApplicationPerformanceMonitoringResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let connection_string_binding = args
             .connection_string
@@ -183,26 +185,26 @@ pub mod spring_cloud_application_insights_application_performance_monitoring {
         };
         let o = register_interface::register(context.get_inner(), &request);
         SpringCloudApplicationInsightsApplicationPerformanceMonitoringResult {
-            connection_string: pulumi_wasm_rust::__private::into_domain(
+            connection_string: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("connectionString"),
             ),
-            globally_enabled: pulumi_wasm_rust::__private::into_domain(
+            globally_enabled: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("globallyEnabled"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            role_instance: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            role_instance: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("roleInstance"),
             ),
-            role_name: pulumi_wasm_rust::__private::into_domain(
+            role_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("roleName"),
             ),
-            sampling_percentage: pulumi_wasm_rust::__private::into_domain(
+            sampling_percentage: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("samplingPercentage"),
             ),
-            sampling_requests_per_second: pulumi_wasm_rust::__private::into_domain(
+            sampling_requests_per_second: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("samplingRequestsPerSecond"),
             ),
-            spring_cloud_service_id: pulumi_wasm_rust::__private::into_domain(
+            spring_cloud_service_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("springCloudServiceId"),
             ),
         }

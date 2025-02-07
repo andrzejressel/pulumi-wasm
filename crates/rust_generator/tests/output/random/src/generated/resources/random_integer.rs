@@ -35,50 +35,50 @@
 ///
 ///
 pub mod random_integer {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct RandomIntegerArgs {
         /// Arbitrary map of values that, when changed, will trigger recreation of resource. See the main provider documentation for more information.
         #[builder(into, default)]
-        pub keepers: pulumi_wasm_rust::InputOrOutput<
+        pub keepers: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// The maximum inclusive value of the range.
         #[builder(into)]
-        pub max: pulumi_wasm_rust::InputOrOutput<i32>,
+        pub max: pulumi_gestalt_rust::InputOrOutput<i32>,
         /// The minimum inclusive value of the range.
         #[builder(into)]
-        pub min: pulumi_wasm_rust::InputOrOutput<i32>,
+        pub min: pulumi_gestalt_rust::InputOrOutput<i32>,
         /// A custom seed to always produce the same value.
         #[builder(into, default)]
-        pub seed: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub seed: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct RandomIntegerResult {
         /// Arbitrary map of values that, when changed, will trigger recreation of resource. See the main provider documentation for more information.
-        pub keepers: pulumi_wasm_rust::Output<
+        pub keepers: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// The maximum inclusive value of the range.
-        pub max: pulumi_wasm_rust::Output<i32>,
+        pub max: pulumi_gestalt_rust::Output<i32>,
         /// The minimum inclusive value of the range.
-        pub min: pulumi_wasm_rust::Output<i32>,
+        pub min: pulumi_gestalt_rust::Output<i32>,
         /// The random integer result.
-        pub result: pulumi_wasm_rust::Output<i32>,
+        pub result: pulumi_gestalt_rust::Output<i32>,
         /// A custom seed to always produce the same value.
-        pub seed: pulumi_wasm_rust::Output<Option<String>>,
+        pub seed: pulumi_gestalt_rust::Output<Option<String>>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: RandomIntegerArgs,
     ) -> RandomIntegerResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let keepers_binding = args.keepers.get_output(context).get_inner();
         let max_binding = args.max.get_output(context).get_inner();
@@ -109,13 +109,15 @@ pub mod random_integer {
         };
         let o = register_interface::register(context.get_inner(), &request);
         RandomIntegerResult {
-            keepers: pulumi_wasm_rust::__private::into_domain(
+            keepers: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("keepers"),
             ),
-            max: pulumi_wasm_rust::__private::into_domain(o.extract_field("max")),
-            min: pulumi_wasm_rust::__private::into_domain(o.extract_field("min")),
-            result: pulumi_wasm_rust::__private::into_domain(o.extract_field("result")),
-            seed: pulumi_wasm_rust::__private::into_domain(o.extract_field("seed")),
+            max: pulumi_gestalt_rust::__private::into_domain(o.extract_field("max")),
+            min: pulumi_gestalt_rust::__private::into_domain(o.extract_field("min")),
+            result: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("result"),
+            ),
+            seed: pulumi_gestalt_rust::__private::into_domain(o.extract_field("seed")),
         }
     }
 }

@@ -29,158 +29,164 @@
 /// $ pulumi import aws:opsworks/stack:Stack bar 00000000-0000-0000-0000-000000000000
 /// ```
 pub mod stack {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct StackArgs {
         /// If set to `"LATEST"`, OpsWorks will automatically install the latest version.
         #[builder(into, default)]
-        pub agent_version: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub agent_version: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// If `manage_berkshelf` is enabled, the version of Berkshelf to use.
         #[builder(into, default)]
-        pub berkshelf_version: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub berkshelf_version: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Color to paint next to the stack's resources in the OpsWorks console.
         #[builder(into, default)]
-        pub color: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub color: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Name of the configuration manager to use. Defaults to "Chef".
         #[builder(into, default)]
-        pub configuration_manager_name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub configuration_manager_name: pulumi_gestalt_rust::InputOrOutput<
+            Option<String>,
+        >,
         /// Version of the configuration manager to use. Defaults to "11.4".
         #[builder(into, default)]
-        pub configuration_manager_version: pulumi_wasm_rust::InputOrOutput<
+        pub configuration_manager_version: pulumi_gestalt_rust::InputOrOutput<
             Option<String>,
         >,
         /// When `use_custom_cookbooks` is set, provide this sub-object as described below.
         #[builder(into, default)]
-        pub custom_cookbooks_sources: pulumi_wasm_rust::InputOrOutput<
+        pub custom_cookbooks_sources: pulumi_gestalt_rust::InputOrOutput<
             Option<Vec<super::super::types::opsworks::StackCustomCookbooksSource>>,
         >,
         /// Custom JSON attributes to apply to the entire stack.
         #[builder(into, default)]
-        pub custom_json: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub custom_json: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Name of the availability zone where instances will be created by default.
         /// Cannot be set when `vpc_id` is set.
         #[builder(into, default)]
-        pub default_availability_zone: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub default_availability_zone: pulumi_gestalt_rust::InputOrOutput<
+            Option<String>,
+        >,
         /// The ARN of an IAM Instance Profile that created instances will have by default.
         #[builder(into)]
-        pub default_instance_profile_arn: pulumi_wasm_rust::InputOrOutput<String>,
+        pub default_instance_profile_arn: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Name of OS that will be installed on instances by default.
         #[builder(into, default)]
-        pub default_os: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub default_os: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Name of the type of root device instances will have by default.
         #[builder(into, default)]
-        pub default_root_device_type: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub default_root_device_type: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Name of the SSH keypair that instances will have by default.
         #[builder(into, default)]
-        pub default_ssh_key_name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub default_ssh_key_name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// ID of the subnet in which instances will be created by default.
         /// Required if `vpc_id` is set to a VPC other than the default VPC, and forbidden if it isn't.
         #[builder(into, default)]
-        pub default_subnet_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub default_subnet_id: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Keyword representing the naming scheme that will be used for instance hostnames within this stack.
         #[builder(into, default)]
-        pub hostname_theme: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub hostname_theme: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Boolean value controlling whether Opsworks will run Berkshelf for this stack.
         #[builder(into, default)]
-        pub manage_berkshelf: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub manage_berkshelf: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// The name of the stack.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The name of the region where the stack will exist.
         #[builder(into)]
-        pub region: pulumi_wasm_rust::InputOrOutput<String>,
+        pub region: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The ARN of an IAM role that the OpsWorks service will act as.
         #[builder(into)]
-        pub service_role_arn: pulumi_wasm_rust::InputOrOutput<String>,
+        pub service_role_arn: pulumi_gestalt_rust::InputOrOutput<String>,
         /// A map of tags to assign to the resource.
         /// If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Boolean value controlling whether the custom cookbook settings are enabled.
         #[builder(into, default)]
-        pub use_custom_cookbooks: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub use_custom_cookbooks: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// Boolean value controlling whether the standard OpsWorks security groups apply to created instances.
         #[builder(into, default)]
-        pub use_opsworks_security_groups: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub use_opsworks_security_groups: pulumi_gestalt_rust::InputOrOutput<
+            Option<bool>,
+        >,
         /// ID of the VPC that this stack belongs to.
         /// Defaults to the region's default VPC.
         #[builder(into, default)]
-        pub vpc_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub vpc_id: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct StackResult {
         /// If set to `"LATEST"`, OpsWorks will automatically install the latest version.
-        pub agent_version: pulumi_wasm_rust::Output<String>,
-        pub arn: pulumi_wasm_rust::Output<String>,
+        pub agent_version: pulumi_gestalt_rust::Output<String>,
+        pub arn: pulumi_gestalt_rust::Output<String>,
         /// If `manage_berkshelf` is enabled, the version of Berkshelf to use.
-        pub berkshelf_version: pulumi_wasm_rust::Output<Option<String>>,
+        pub berkshelf_version: pulumi_gestalt_rust::Output<Option<String>>,
         /// Color to paint next to the stack's resources in the OpsWorks console.
-        pub color: pulumi_wasm_rust::Output<Option<String>>,
+        pub color: pulumi_gestalt_rust::Output<Option<String>>,
         /// Name of the configuration manager to use. Defaults to "Chef".
-        pub configuration_manager_name: pulumi_wasm_rust::Output<Option<String>>,
+        pub configuration_manager_name: pulumi_gestalt_rust::Output<Option<String>>,
         /// Version of the configuration manager to use. Defaults to "11.4".
-        pub configuration_manager_version: pulumi_wasm_rust::Output<Option<String>>,
+        pub configuration_manager_version: pulumi_gestalt_rust::Output<Option<String>>,
         /// When `use_custom_cookbooks` is set, provide this sub-object as described below.
-        pub custom_cookbooks_sources: pulumi_wasm_rust::Output<
+        pub custom_cookbooks_sources: pulumi_gestalt_rust::Output<
             Vec<super::super::types::opsworks::StackCustomCookbooksSource>,
         >,
         /// Custom JSON attributes to apply to the entire stack.
-        pub custom_json: pulumi_wasm_rust::Output<Option<String>>,
+        pub custom_json: pulumi_gestalt_rust::Output<Option<String>>,
         /// Name of the availability zone where instances will be created by default.
         /// Cannot be set when `vpc_id` is set.
-        pub default_availability_zone: pulumi_wasm_rust::Output<String>,
+        pub default_availability_zone: pulumi_gestalt_rust::Output<String>,
         /// The ARN of an IAM Instance Profile that created instances will have by default.
-        pub default_instance_profile_arn: pulumi_wasm_rust::Output<String>,
+        pub default_instance_profile_arn: pulumi_gestalt_rust::Output<String>,
         /// Name of OS that will be installed on instances by default.
-        pub default_os: pulumi_wasm_rust::Output<Option<String>>,
+        pub default_os: pulumi_gestalt_rust::Output<Option<String>>,
         /// Name of the type of root device instances will have by default.
-        pub default_root_device_type: pulumi_wasm_rust::Output<Option<String>>,
+        pub default_root_device_type: pulumi_gestalt_rust::Output<Option<String>>,
         /// Name of the SSH keypair that instances will have by default.
-        pub default_ssh_key_name: pulumi_wasm_rust::Output<Option<String>>,
+        pub default_ssh_key_name: pulumi_gestalt_rust::Output<Option<String>>,
         /// ID of the subnet in which instances will be created by default.
         /// Required if `vpc_id` is set to a VPC other than the default VPC, and forbidden if it isn't.
-        pub default_subnet_id: pulumi_wasm_rust::Output<String>,
+        pub default_subnet_id: pulumi_gestalt_rust::Output<String>,
         /// Keyword representing the naming scheme that will be used for instance hostnames within this stack.
-        pub hostname_theme: pulumi_wasm_rust::Output<Option<String>>,
+        pub hostname_theme: pulumi_gestalt_rust::Output<Option<String>>,
         /// Boolean value controlling whether Opsworks will run Berkshelf for this stack.
-        pub manage_berkshelf: pulumi_wasm_rust::Output<Option<bool>>,
+        pub manage_berkshelf: pulumi_gestalt_rust::Output<Option<bool>>,
         /// The name of the stack.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// The name of the region where the stack will exist.
-        pub region: pulumi_wasm_rust::Output<String>,
+        pub region: pulumi_gestalt_rust::Output<String>,
         /// The ARN of an IAM role that the OpsWorks service will act as.
-        pub service_role_arn: pulumi_wasm_rust::Output<String>,
-        pub stack_endpoint: pulumi_wasm_rust::Output<String>,
+        pub service_role_arn: pulumi_gestalt_rust::Output<String>,
+        pub stack_endpoint: pulumi_gestalt_rust::Output<String>,
         /// A map of tags to assign to the resource.
         /// If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        pub tags_all: pulumi_wasm_rust::Output<
+        pub tags_all: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
         /// Boolean value controlling whether the custom cookbook settings are enabled.
-        pub use_custom_cookbooks: pulumi_wasm_rust::Output<Option<bool>>,
+        pub use_custom_cookbooks: pulumi_gestalt_rust::Output<Option<bool>>,
         /// Boolean value controlling whether the standard OpsWorks security groups apply to created instances.
-        pub use_opsworks_security_groups: pulumi_wasm_rust::Output<Option<bool>>,
+        pub use_opsworks_security_groups: pulumi_gestalt_rust::Output<Option<bool>>,
         /// ID of the VPC that this stack belongs to.
         /// Defaults to the region's default VPC.
-        pub vpc_id: pulumi_wasm_rust::Output<String>,
+        pub vpc_id: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: StackArgs,
     ) -> StackResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let agent_version_binding = args.agent_version.get_output(context).get_inner();
         let berkshelf_version_binding = args
@@ -340,69 +346,71 @@ pub mod stack {
         };
         let o = register_interface::register(context.get_inner(), &request);
         StackResult {
-            agent_version: pulumi_wasm_rust::__private::into_domain(
+            agent_version: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("agentVersion"),
             ),
-            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
-            berkshelf_version: pulumi_wasm_rust::__private::into_domain(
+            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
+            berkshelf_version: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("berkshelfVersion"),
             ),
-            color: pulumi_wasm_rust::__private::into_domain(o.extract_field("color")),
-            configuration_manager_name: pulumi_wasm_rust::__private::into_domain(
+            color: pulumi_gestalt_rust::__private::into_domain(o.extract_field("color")),
+            configuration_manager_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("configurationManagerName"),
             ),
-            configuration_manager_version: pulumi_wasm_rust::__private::into_domain(
+            configuration_manager_version: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("configurationManagerVersion"),
             ),
-            custom_cookbooks_sources: pulumi_wasm_rust::__private::into_domain(
+            custom_cookbooks_sources: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("customCookbooksSources"),
             ),
-            custom_json: pulumi_wasm_rust::__private::into_domain(
+            custom_json: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("customJson"),
             ),
-            default_availability_zone: pulumi_wasm_rust::__private::into_domain(
+            default_availability_zone: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("defaultAvailabilityZone"),
             ),
-            default_instance_profile_arn: pulumi_wasm_rust::__private::into_domain(
+            default_instance_profile_arn: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("defaultInstanceProfileArn"),
             ),
-            default_os: pulumi_wasm_rust::__private::into_domain(
+            default_os: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("defaultOs"),
             ),
-            default_root_device_type: pulumi_wasm_rust::__private::into_domain(
+            default_root_device_type: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("defaultRootDeviceType"),
             ),
-            default_ssh_key_name: pulumi_wasm_rust::__private::into_domain(
+            default_ssh_key_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("defaultSshKeyName"),
             ),
-            default_subnet_id: pulumi_wasm_rust::__private::into_domain(
+            default_subnet_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("defaultSubnetId"),
             ),
-            hostname_theme: pulumi_wasm_rust::__private::into_domain(
+            hostname_theme: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("hostnameTheme"),
             ),
-            manage_berkshelf: pulumi_wasm_rust::__private::into_domain(
+            manage_berkshelf: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("manageBerkshelf"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            region: pulumi_wasm_rust::__private::into_domain(o.extract_field("region")),
-            service_role_arn: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            region: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("region"),
+            ),
+            service_role_arn: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("serviceRoleArn"),
             ),
-            stack_endpoint: pulumi_wasm_rust::__private::into_domain(
+            stack_endpoint: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("stackEndpoint"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_wasm_rust::__private::into_domain(
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            tags_all: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("tagsAll"),
             ),
-            use_custom_cookbooks: pulumi_wasm_rust::__private::into_domain(
+            use_custom_cookbooks: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("useCustomCookbooks"),
             ),
-            use_opsworks_security_groups: pulumi_wasm_rust::__private::into_domain(
+            use_opsworks_security_groups: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("useOpsworksSecurityGroups"),
             ),
-            vpc_id: pulumi_wasm_rust::__private::into_domain(o.extract_field("vpcId")),
+            vpc_id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("vpcId")),
         }
     }
 }

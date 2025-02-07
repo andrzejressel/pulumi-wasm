@@ -1,54 +1,54 @@
 pub mod get_coip_pool {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct GetCoipPoolArgs {
         #[builder(into, default)]
-        pub filters: pulumi_wasm_rust::InputOrOutput<
+        pub filters: pulumi_gestalt_rust::InputOrOutput<
             Option<Vec<super::super::super::types::ec2::GetCoipPoolFilter>>,
         >,
         /// Local Gateway Route Table Id assigned to desired COIP Pool
         #[builder(into, default)]
-        pub local_gateway_route_table_id: pulumi_wasm_rust::InputOrOutput<
+        pub local_gateway_route_table_id: pulumi_gestalt_rust::InputOrOutput<
             Option<String>,
         >,
         /// ID of the specific COIP Pool to retrieve.
         #[builder(into, default)]
-        pub pool_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub pool_id: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Mapping of tags, each pair of which must exactly match
         /// a pair on the desired COIP Pool.
         ///
         /// More complex filters can be expressed using one or more `filter` sub-blocks,
         /// which take the following arguments:
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
     #[allow(dead_code)]
     pub struct GetCoipPoolResult {
         /// ARN of the COIP pool
-        pub arn: pulumi_wasm_rust::Output<String>,
-        pub filters: pulumi_wasm_rust::Output<
+        pub arn: pulumi_gestalt_rust::Output<String>,
+        pub filters: pulumi_gestalt_rust::Output<
             Option<Vec<super::super::super::types::ec2::GetCoipPoolFilter>>,
         >,
         /// The provider-assigned unique ID for this managed resource.
-        pub id: pulumi_wasm_rust::Output<String>,
-        pub local_gateway_route_table_id: pulumi_wasm_rust::Output<String>,
+        pub id: pulumi_gestalt_rust::Output<String>,
+        pub local_gateway_route_table_id: pulumi_gestalt_rust::Output<String>,
         /// Set of CIDR blocks in pool
-        pub pool_cidrs: pulumi_wasm_rust::Output<Vec<String>>,
-        pub pool_id: pulumi_wasm_rust::Output<String>,
-        pub tags: pulumi_wasm_rust::Output<std::collections::HashMap<String, String>>,
+        pub pool_cidrs: pulumi_gestalt_rust::Output<Vec<String>>,
+        pub pool_id: pulumi_gestalt_rust::Output<String>,
+        pub tags: pulumi_gestalt_rust::Output<std::collections::HashMap<String, String>>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         args: GetCoipPoolArgs,
     ) -> GetCoipPoolResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let filters_binding = args.filters.get_output(context).get_inner();
         let local_gateway_route_table_id_binding = args
@@ -81,19 +81,21 @@ pub mod get_coip_pool {
         };
         let o = register_interface::invoke(context.get_inner(), &request);
         GetCoipPoolResult {
-            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
-            filters: pulumi_wasm_rust::__private::into_domain(
+            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
+            filters: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("filters"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
-            local_gateway_route_table_id: pulumi_wasm_rust::__private::into_domain(
+            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
+            local_gateway_route_table_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("localGatewayRouteTableId"),
             ),
-            pool_cidrs: pulumi_wasm_rust::__private::into_domain(
+            pool_cidrs: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("poolCidrs"),
             ),
-            pool_id: pulumi_wasm_rust::__private::into_domain(o.extract_field("poolId")),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
+            pool_id: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("poolId"),
+            ),
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
         }
     }
 }

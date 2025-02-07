@@ -4,8 +4,8 @@
 ///
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let basic = database_instance::create(
@@ -22,8 +22,8 @@
 ///
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let full = database_instance::create(
@@ -125,28 +125,28 @@
 /// ```
 ///
 pub mod database_instance {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct DatabaseInstanceArgs {
         /// The intended database state. Possible values: ACTIVE, DISABLED.
         #[builder(into, default)]
-        pub desired_state: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub desired_state: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The globally unique identifier of the Firebase Realtime Database instance.
         /// Instance IDs cannot be reused after deletion.
         ///
         ///
         /// - - -
         #[builder(into)]
-        pub instance_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub instance_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub project: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// A reference to the region where the Firebase Realtime database resides.
         /// Check all [available regions](https://firebase.google.com/docs/projects/locations#rtdb-locations)
         #[builder(into)]
-        pub region: pulumi_wasm_rust::InputOrOutput<String>,
+        pub region: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The database type.
         /// Each project can create one default Firebase Realtime Database, which cannot be deleted once created.
         /// Creating user Databases is only available for projects on the Blaze plan.
@@ -154,52 +154,52 @@ pub mod database_instance {
         /// Default value is `USER_DATABASE`.
         /// Possible values are: `DEFAULT_DATABASE`, `USER_DATABASE`.
         #[builder(into, default)]
-        pub type_: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub type_: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct DatabaseInstanceResult {
         /// The database URL in the form of https://{instance-id}.firebaseio.com for us-central1 instances
         /// or https://{instance-id}.{region}.firebasedatabase.app in other regions.
-        pub database_url: pulumi_wasm_rust::Output<String>,
+        pub database_url: pulumi_gestalt_rust::Output<String>,
         /// The intended database state. Possible values: ACTIVE, DISABLED.
-        pub desired_state: pulumi_wasm_rust::Output<Option<String>>,
+        pub desired_state: pulumi_gestalt_rust::Output<Option<String>>,
         /// The globally unique identifier of the Firebase Realtime Database instance.
         /// Instance IDs cannot be reused after deletion.
         ///
         ///
         /// - - -
-        pub instance_id: pulumi_wasm_rust::Output<String>,
+        pub instance_id: pulumi_gestalt_rust::Output<String>,
         /// The fully-qualified resource name of the Firebase Realtime Database, in
         /// the format: projects/PROJECT_NUMBER/locations/REGION_IDENTIFIER/instances/INSTANCE_ID
         /// PROJECT_NUMBER: The Firebase project's [`ProjectNumber`](https://firebase.google.com/docs/reference/firebase-management/rest/v1beta1/projects#FirebaseProject.FIELDS.project_number)
         /// Learn more about using project identifiers in Google's [AIP 2510 standard](https://google.aip.dev/cloud/2510).
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
-        pub project: pulumi_wasm_rust::Output<String>,
+        pub project: pulumi_gestalt_rust::Output<String>,
         /// A reference to the region where the Firebase Realtime database resides.
         /// Check all [available regions](https://firebase.google.com/docs/projects/locations#rtdb-locations)
-        pub region: pulumi_wasm_rust::Output<String>,
+        pub region: pulumi_gestalt_rust::Output<String>,
         /// The current database state. Set desired_state to :DISABLED to disable the database and :ACTIVE to reenable the database
-        pub state: pulumi_wasm_rust::Output<String>,
+        pub state: pulumi_gestalt_rust::Output<String>,
         /// The database type.
         /// Each project can create one default Firebase Realtime Database, which cannot be deleted once created.
         /// Creating user Databases is only available for projects on the Blaze plan.
         /// Projects can be upgraded using the Cloud Billing API https://cloud.google.com/billing/reference/rest/v1/projects/updateBillingInfo.
         /// Default value is `USER_DATABASE`.
         /// Possible values are: `DEFAULT_DATABASE`, `USER_DATABASE`.
-        pub type_: pulumi_wasm_rust::Output<Option<String>>,
+        pub type_: pulumi_gestalt_rust::Output<Option<String>>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: DatabaseInstanceArgs,
     ) -> DatabaseInstanceResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let desired_state_binding = args.desired_state.get_output(context).get_inner();
         let instance_id_binding = args.instance_id.get_output(context).get_inner();
@@ -235,22 +235,24 @@ pub mod database_instance {
         };
         let o = register_interface::register(context.get_inner(), &request);
         DatabaseInstanceResult {
-            database_url: pulumi_wasm_rust::__private::into_domain(
+            database_url: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("databaseUrl"),
             ),
-            desired_state: pulumi_wasm_rust::__private::into_domain(
+            desired_state: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("desiredState"),
             ),
-            instance_id: pulumi_wasm_rust::__private::into_domain(
+            instance_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("instanceId"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            project: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            project: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("project"),
             ),
-            region: pulumi_wasm_rust::__private::into_domain(o.extract_field("region")),
-            state: pulumi_wasm_rust::__private::into_domain(o.extract_field("state")),
-            type_: pulumi_wasm_rust::__private::into_domain(o.extract_field("type")),
+            region: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("region"),
+            ),
+            state: pulumi_gestalt_rust::__private::into_domain(o.extract_field("state")),
+            type_: pulumi_gestalt_rust::__private::into_domain(o.extract_field("type")),
         }
     }
 }

@@ -4,8 +4,8 @@
 ///
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let default = service_lb_policies::create(
@@ -71,111 +71,111 @@
 /// ```
 ///
 pub mod service_lb_policies {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ServiceLbPoliciesArgs {
         /// Option to specify if an unhealthy MIG/NEG should be considered for global load balancing and traffic routing.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub auto_capacity_drain: pulumi_wasm_rust::InputOrOutput<
+        pub auto_capacity_drain: pulumi_gestalt_rust::InputOrOutput<
             Option<
                 super::super::types::networkservices::ServiceLbPoliciesAutoCapacityDrain,
             >,
         >,
         /// A free-text description of the resource. Max length 1024 characters.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub description: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Option to specify health based failover behavior. This is not related to Network load balancer FailoverPolicy.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub failover_config: pulumi_wasm_rust::InputOrOutput<
+        pub failover_config: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::networkservices::ServiceLbPoliciesFailoverConfig>,
         >,
         /// Set of label tags associated with the ServiceLbPolicy resource.
         /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
         /// Please refer to the field `effective_labels` for all of the labels present on the resource.
         #[builder(into, default)]
-        pub labels: pulumi_wasm_rust::InputOrOutput<
+        pub labels: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// The type of load balancing algorithm to be used. The default behavior is WATERFALL_BY_REGION.
         /// Possible values are: `SPRAY_TO_REGION`, `SPRAY_TO_WORLD`, `WATERFALL_BY_REGION`, `WATERFALL_BY_ZONE`.
         #[builder(into, default)]
-        pub load_balancing_algorithm: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub load_balancing_algorithm: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The location of the service lb policy.
         ///
         ///
         /// - - -
         #[builder(into)]
-        pub location: pulumi_wasm_rust::InputOrOutput<String>,
+        pub location: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Name of the ServiceLbPolicy resource. It matches pattern `projects/{project}/locations/{location}/serviceLbPolicies/{service_lb_policy_name}`.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub project: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct ServiceLbPoliciesResult {
         /// Option to specify if an unhealthy MIG/NEG should be considered for global load balancing and traffic routing.
         /// Structure is documented below.
-        pub auto_capacity_drain: pulumi_wasm_rust::Output<
+        pub auto_capacity_drain: pulumi_gestalt_rust::Output<
             Option<
                 super::super::types::networkservices::ServiceLbPoliciesAutoCapacityDrain,
             >,
         >,
         /// Time the ServiceLbPolicy was created in UTC.
-        pub create_time: pulumi_wasm_rust::Output<String>,
+        pub create_time: pulumi_gestalt_rust::Output<String>,
         /// A free-text description of the resource. Max length 1024 characters.
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_gestalt_rust::Output<Option<String>>,
         /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Pulumi, other clients and services.
-        pub effective_labels: pulumi_wasm_rust::Output<
+        pub effective_labels: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
         /// Option to specify health based failover behavior. This is not related to Network load balancer FailoverPolicy.
         /// Structure is documented below.
-        pub failover_config: pulumi_wasm_rust::Output<
+        pub failover_config: pulumi_gestalt_rust::Output<
             Option<super::super::types::networkservices::ServiceLbPoliciesFailoverConfig>,
         >,
         /// Set of label tags associated with the ServiceLbPolicy resource.
         /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
         /// Please refer to the field `effective_labels` for all of the labels present on the resource.
-        pub labels: pulumi_wasm_rust::Output<
+        pub labels: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// The type of load balancing algorithm to be used. The default behavior is WATERFALL_BY_REGION.
         /// Possible values are: `SPRAY_TO_REGION`, `SPRAY_TO_WORLD`, `WATERFALL_BY_REGION`, `WATERFALL_BY_ZONE`.
-        pub load_balancing_algorithm: pulumi_wasm_rust::Output<Option<String>>,
+        pub load_balancing_algorithm: pulumi_gestalt_rust::Output<Option<String>>,
         /// The location of the service lb policy.
         ///
         ///
         /// - - -
-        pub location: pulumi_wasm_rust::Output<String>,
+        pub location: pulumi_gestalt_rust::Output<String>,
         /// Name of the ServiceLbPolicy resource. It matches pattern `projects/{project}/locations/{location}/serviceLbPolicies/{service_lb_policy_name}`.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
-        pub project: pulumi_wasm_rust::Output<String>,
+        pub project: pulumi_gestalt_rust::Output<String>,
         /// The combination of labels configured directly on the resource
         /// and default labels configured on the provider.
-        pub pulumi_labels: pulumi_wasm_rust::Output<
+        pub pulumi_labels: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
         /// Time the ServiceLbPolicy was updated in UTC.
-        pub update_time: pulumi_wasm_rust::Output<String>,
+        pub update_time: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: ServiceLbPoliciesArgs,
     ) -> ServiceLbPoliciesResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let auto_capacity_drain_binding = args
             .auto_capacity_drain
@@ -235,36 +235,38 @@ pub mod service_lb_policies {
         };
         let o = register_interface::register(context.get_inner(), &request);
         ServiceLbPoliciesResult {
-            auto_capacity_drain: pulumi_wasm_rust::__private::into_domain(
+            auto_capacity_drain: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("autoCapacityDrain"),
             ),
-            create_time: pulumi_wasm_rust::__private::into_domain(
+            create_time: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("createTime"),
             ),
-            description: pulumi_wasm_rust::__private::into_domain(
+            description: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("description"),
             ),
-            effective_labels: pulumi_wasm_rust::__private::into_domain(
+            effective_labels: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("effectiveLabels"),
             ),
-            failover_config: pulumi_wasm_rust::__private::into_domain(
+            failover_config: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("failoverConfig"),
             ),
-            labels: pulumi_wasm_rust::__private::into_domain(o.extract_field("labels")),
-            load_balancing_algorithm: pulumi_wasm_rust::__private::into_domain(
+            labels: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("labels"),
+            ),
+            load_balancing_algorithm: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("loadBalancingAlgorithm"),
             ),
-            location: pulumi_wasm_rust::__private::into_domain(
+            location: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("location"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            project: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            project: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("project"),
             ),
-            pulumi_labels: pulumi_wasm_rust::__private::into_domain(
+            pulumi_labels: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("pulumiLabels"),
             ),
-            update_time: pulumi_wasm_rust::__private::into_domain(
+            update_time: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("updateTime"),
             ),
         }

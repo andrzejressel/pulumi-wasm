@@ -74,8 +74,8 @@
 /// ### Blue Green Deployments with ECS
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = application::create(
@@ -151,8 +151,8 @@
 /// ### Blue Green Deployments with Servers and Classic ELB
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = application::create(
@@ -214,69 +214,69 @@
 /// $ pulumi import aws:codedeploy/deploymentGroup:DeploymentGroup example my-application:my-deployment-group
 /// ```
 pub mod deployment_group {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct DeploymentGroupArgs {
         /// Configuration block of alarms associated with the deployment group (documented below).
         #[builder(into, default)]
-        pub alarm_configuration: pulumi_wasm_rust::InputOrOutput<
+        pub alarm_configuration: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::codedeploy::DeploymentGroupAlarmConfiguration>,
         >,
         /// The name of the application.
         #[builder(into)]
-        pub app_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub app_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Configuration block of the automatic rollback configuration associated with the deployment group (documented below).
         #[builder(into, default)]
-        pub auto_rollback_configuration: pulumi_wasm_rust::InputOrOutput<
+        pub auto_rollback_configuration: pulumi_gestalt_rust::InputOrOutput<
             Option<
                 super::super::types::codedeploy::DeploymentGroupAutoRollbackConfiguration,
             >,
         >,
         /// Autoscaling groups associated with the deployment group.
         #[builder(into, default)]
-        pub autoscaling_groups: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
+        pub autoscaling_groups: pulumi_gestalt_rust::InputOrOutput<Option<Vec<String>>>,
         /// Configuration block of the blue/green deployment options for a deployment group (documented below).
         #[builder(into, default)]
-        pub blue_green_deployment_config: pulumi_wasm_rust::InputOrOutput<
+        pub blue_green_deployment_config: pulumi_gestalt_rust::InputOrOutput<
             Option<
                 super::super::types::codedeploy::DeploymentGroupBlueGreenDeploymentConfig,
             >,
         >,
         /// The name of the group's deployment config. The default is "CodeDeployDefault.OneAtATime".
         #[builder(into, default)]
-        pub deployment_config_name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub deployment_config_name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The name of the deployment group.
         #[builder(into)]
-        pub deployment_group_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub deployment_group_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Configuration block of the type of deployment, either in-place or blue/green, you want to run and whether to route deployment traffic behind a load balancer (documented below).
         #[builder(into, default)]
-        pub deployment_style: pulumi_wasm_rust::InputOrOutput<
+        pub deployment_style: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::codedeploy::DeploymentGroupDeploymentStyle>,
         >,
         /// Tag filters associated with the deployment group. See the AWS docs for details.
         #[builder(into, default)]
-        pub ec2_tag_filters: pulumi_wasm_rust::InputOrOutput<
+        pub ec2_tag_filters: pulumi_gestalt_rust::InputOrOutput<
             Option<Vec<super::super::types::codedeploy::DeploymentGroupEc2TagFilter>>,
         >,
         /// Configuration block(s) of Tag filters associated with the deployment group, which are also referred to as tag groups (documented below). See the AWS docs for details.
         #[builder(into, default)]
-        pub ec2_tag_sets: pulumi_wasm_rust::InputOrOutput<
+        pub ec2_tag_sets: pulumi_gestalt_rust::InputOrOutput<
             Option<Vec<super::super::types::codedeploy::DeploymentGroupEc2TagSet>>,
         >,
         /// Configuration block(s) of the ECS services for a deployment group (documented below).
         #[builder(into, default)]
-        pub ecs_service: pulumi_wasm_rust::InputOrOutput<
+        pub ecs_service: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::codedeploy::DeploymentGroupEcsService>,
         >,
         /// Single configuration block of the load balancer to use in a blue/green deployment (documented below).
         #[builder(into, default)]
-        pub load_balancer_info: pulumi_wasm_rust::InputOrOutput<
+        pub load_balancer_info: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::codedeploy::DeploymentGroupLoadBalancerInfo>,
         >,
         /// On premise tag filters associated with the group. See the AWS docs for details.
         #[builder(into, default)]
-        pub on_premises_instance_tag_filters: pulumi_wasm_rust::InputOrOutput<
+        pub on_premises_instance_tag_filters: pulumi_gestalt_rust::InputOrOutput<
             Option<
                 Vec<
                     super::super::types::codedeploy::DeploymentGroupOnPremisesInstanceTagFilter,
@@ -285,21 +285,23 @@ pub mod deployment_group {
         >,
         /// Configuration block of Indicates what happens when new Amazon EC2 instances are launched mid-deployment and do not receive the deployed application revision. Valid values are `UPDATE` and `IGNORE`. Defaults to `UPDATE`.
         #[builder(into, default)]
-        pub outdated_instances_strategy: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub outdated_instances_strategy: pulumi_gestalt_rust::InputOrOutput<
+            Option<String>,
+        >,
         /// The service role ARN that allows deployments.
         #[builder(into)]
-        pub service_role_arn: pulumi_wasm_rust::InputOrOutput<String>,
+        pub service_role_arn: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Indicates whether the deployment group was configured to have CodeDeploy install a termination hook into an Auto Scaling group.
         #[builder(into, default)]
-        pub termination_hook_enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub termination_hook_enabled: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// Configuration block(s) of the triggers for the deployment group (documented below).
         #[builder(into, default)]
-        pub trigger_configurations: pulumi_wasm_rust::InputOrOutput<
+        pub trigger_configurations: pulumi_gestalt_rust::InputOrOutput<
             Option<
                 Vec<super::super::types::codedeploy::DeploymentGroupTriggerConfiguration>,
             >,
@@ -308,55 +310,55 @@ pub mod deployment_group {
     #[allow(dead_code)]
     pub struct DeploymentGroupResult {
         /// Configuration block of alarms associated with the deployment group (documented below).
-        pub alarm_configuration: pulumi_wasm_rust::Output<
+        pub alarm_configuration: pulumi_gestalt_rust::Output<
             Option<super::super::types::codedeploy::DeploymentGroupAlarmConfiguration>,
         >,
         /// The name of the application.
-        pub app_name: pulumi_wasm_rust::Output<String>,
+        pub app_name: pulumi_gestalt_rust::Output<String>,
         /// The ARN of the CodeDeploy deployment group.
-        pub arn: pulumi_wasm_rust::Output<String>,
+        pub arn: pulumi_gestalt_rust::Output<String>,
         /// Configuration block of the automatic rollback configuration associated with the deployment group (documented below).
-        pub auto_rollback_configuration: pulumi_wasm_rust::Output<
+        pub auto_rollback_configuration: pulumi_gestalt_rust::Output<
             Option<
                 super::super::types::codedeploy::DeploymentGroupAutoRollbackConfiguration,
             >,
         >,
         /// Autoscaling groups associated with the deployment group.
-        pub autoscaling_groups: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub autoscaling_groups: pulumi_gestalt_rust::Output<Option<Vec<String>>>,
         /// Configuration block of the blue/green deployment options for a deployment group (documented below).
-        pub blue_green_deployment_config: pulumi_wasm_rust::Output<
+        pub blue_green_deployment_config: pulumi_gestalt_rust::Output<
             super::super::types::codedeploy::DeploymentGroupBlueGreenDeploymentConfig,
         >,
         /// The destination platform type for the deployment.
-        pub compute_platform: pulumi_wasm_rust::Output<String>,
+        pub compute_platform: pulumi_gestalt_rust::Output<String>,
         /// The name of the group's deployment config. The default is "CodeDeployDefault.OneAtATime".
-        pub deployment_config_name: pulumi_wasm_rust::Output<Option<String>>,
+        pub deployment_config_name: pulumi_gestalt_rust::Output<Option<String>>,
         /// The ID of the CodeDeploy deployment group.
-        pub deployment_group_id: pulumi_wasm_rust::Output<String>,
+        pub deployment_group_id: pulumi_gestalt_rust::Output<String>,
         /// The name of the deployment group.
-        pub deployment_group_name: pulumi_wasm_rust::Output<String>,
+        pub deployment_group_name: pulumi_gestalt_rust::Output<String>,
         /// Configuration block of the type of deployment, either in-place or blue/green, you want to run and whether to route deployment traffic behind a load balancer (documented below).
-        pub deployment_style: pulumi_wasm_rust::Output<
+        pub deployment_style: pulumi_gestalt_rust::Output<
             Option<super::super::types::codedeploy::DeploymentGroupDeploymentStyle>,
         >,
         /// Tag filters associated with the deployment group. See the AWS docs for details.
-        pub ec2_tag_filters: pulumi_wasm_rust::Output<
+        pub ec2_tag_filters: pulumi_gestalt_rust::Output<
             Option<Vec<super::super::types::codedeploy::DeploymentGroupEc2TagFilter>>,
         >,
         /// Configuration block(s) of Tag filters associated with the deployment group, which are also referred to as tag groups (documented below). See the AWS docs for details.
-        pub ec2_tag_sets: pulumi_wasm_rust::Output<
+        pub ec2_tag_sets: pulumi_gestalt_rust::Output<
             Option<Vec<super::super::types::codedeploy::DeploymentGroupEc2TagSet>>,
         >,
         /// Configuration block(s) of the ECS services for a deployment group (documented below).
-        pub ecs_service: pulumi_wasm_rust::Output<
+        pub ecs_service: pulumi_gestalt_rust::Output<
             Option<super::super::types::codedeploy::DeploymentGroupEcsService>,
         >,
         /// Single configuration block of the load balancer to use in a blue/green deployment (documented below).
-        pub load_balancer_info: pulumi_wasm_rust::Output<
+        pub load_balancer_info: pulumi_gestalt_rust::Output<
             Option<super::super::types::codedeploy::DeploymentGroupLoadBalancerInfo>,
         >,
         /// On premise tag filters associated with the group. See the AWS docs for details.
-        pub on_premises_instance_tag_filters: pulumi_wasm_rust::Output<
+        pub on_premises_instance_tag_filters: pulumi_gestalt_rust::Output<
             Option<
                 Vec<
                     super::super::types::codedeploy::DeploymentGroupOnPremisesInstanceTagFilter,
@@ -364,21 +366,21 @@ pub mod deployment_group {
             >,
         >,
         /// Configuration block of Indicates what happens when new Amazon EC2 instances are launched mid-deployment and do not receive the deployed application revision. Valid values are `UPDATE` and `IGNORE`. Defaults to `UPDATE`.
-        pub outdated_instances_strategy: pulumi_wasm_rust::Output<Option<String>>,
+        pub outdated_instances_strategy: pulumi_gestalt_rust::Output<Option<String>>,
         /// The service role ARN that allows deployments.
-        pub service_role_arn: pulumi_wasm_rust::Output<String>,
+        pub service_role_arn: pulumi_gestalt_rust::Output<String>,
         /// Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        pub tags_all: pulumi_wasm_rust::Output<
+        pub tags_all: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
         /// Indicates whether the deployment group was configured to have CodeDeploy install a termination hook into an Auto Scaling group.
-        pub termination_hook_enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub termination_hook_enabled: pulumi_gestalt_rust::Output<Option<bool>>,
         /// Configuration block(s) of the triggers for the deployment group (documented below).
-        pub trigger_configurations: pulumi_wasm_rust::Output<
+        pub trigger_configurations: pulumi_gestalt_rust::Output<
             Option<
                 Vec<super::super::types::codedeploy::DeploymentGroupTriggerConfiguration>,
             >,
@@ -389,11 +391,11 @@ pub mod deployment_group {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: DeploymentGroupArgs,
     ) -> DeploymentGroupResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let alarm_configuration_binding = args
             .alarm_configuration
@@ -536,66 +538,66 @@ pub mod deployment_group {
         };
         let o = register_interface::register(context.get_inner(), &request);
         DeploymentGroupResult {
-            alarm_configuration: pulumi_wasm_rust::__private::into_domain(
+            alarm_configuration: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("alarmConfiguration"),
             ),
-            app_name: pulumi_wasm_rust::__private::into_domain(
+            app_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("appName"),
             ),
-            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
-            auto_rollback_configuration: pulumi_wasm_rust::__private::into_domain(
+            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
+            auto_rollback_configuration: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("autoRollbackConfiguration"),
             ),
-            autoscaling_groups: pulumi_wasm_rust::__private::into_domain(
+            autoscaling_groups: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("autoscalingGroups"),
             ),
-            blue_green_deployment_config: pulumi_wasm_rust::__private::into_domain(
+            blue_green_deployment_config: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("blueGreenDeploymentConfig"),
             ),
-            compute_platform: pulumi_wasm_rust::__private::into_domain(
+            compute_platform: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("computePlatform"),
             ),
-            deployment_config_name: pulumi_wasm_rust::__private::into_domain(
+            deployment_config_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("deploymentConfigName"),
             ),
-            deployment_group_id: pulumi_wasm_rust::__private::into_domain(
+            deployment_group_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("deploymentGroupId"),
             ),
-            deployment_group_name: pulumi_wasm_rust::__private::into_domain(
+            deployment_group_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("deploymentGroupName"),
             ),
-            deployment_style: pulumi_wasm_rust::__private::into_domain(
+            deployment_style: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("deploymentStyle"),
             ),
-            ec2_tag_filters: pulumi_wasm_rust::__private::into_domain(
+            ec2_tag_filters: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("ec2TagFilters"),
             ),
-            ec2_tag_sets: pulumi_wasm_rust::__private::into_domain(
+            ec2_tag_sets: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("ec2TagSets"),
             ),
-            ecs_service: pulumi_wasm_rust::__private::into_domain(
+            ecs_service: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("ecsService"),
             ),
-            load_balancer_info: pulumi_wasm_rust::__private::into_domain(
+            load_balancer_info: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("loadBalancerInfo"),
             ),
-            on_premises_instance_tag_filters: pulumi_wasm_rust::__private::into_domain(
+            on_premises_instance_tag_filters: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("onPremisesInstanceTagFilters"),
             ),
-            outdated_instances_strategy: pulumi_wasm_rust::__private::into_domain(
+            outdated_instances_strategy: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("outdatedInstancesStrategy"),
             ),
-            service_role_arn: pulumi_wasm_rust::__private::into_domain(
+            service_role_arn: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("serviceRoleArn"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_wasm_rust::__private::into_domain(
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            tags_all: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("tagsAll"),
             ),
-            termination_hook_enabled: pulumi_wasm_rust::__private::into_domain(
+            termination_hook_enabled: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("terminationHookEnabled"),
             ),
-            trigger_configurations: pulumi_wasm_rust::__private::into_domain(
+            trigger_configurations: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("triggerConfigurations"),
             ),
         }

@@ -5,8 +5,8 @@
 /// ### Trust Store With Revocations
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let test = trust_store::create(
@@ -36,48 +36,48 @@
 /// $ pulumi import aws:lb/trustStoreRevocation:TrustStoreRevocation example arn:aws:elasticloadbalancing:us-west-2:187416307283:truststore/my-trust-store/20cfe21448b66314,6
 /// ```
 pub mod trust_store_revocation {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct TrustStoreRevocationArgs {
         /// S3 Bucket name holding the client certificate CA bundle.
         #[builder(into)]
-        pub revocations_s3_bucket: pulumi_wasm_rust::InputOrOutput<String>,
+        pub revocations_s3_bucket: pulumi_gestalt_rust::InputOrOutput<String>,
         /// S3 object key holding the client certificate CA bundle.
         #[builder(into)]
-        pub revocations_s3_key: pulumi_wasm_rust::InputOrOutput<String>,
+        pub revocations_s3_key: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Version Id of CA bundle S3 bucket object, if versioned, defaults to latest if omitted.
         #[builder(into, default)]
-        pub revocations_s3_object_version: pulumi_wasm_rust::InputOrOutput<
+        pub revocations_s3_object_version: pulumi_gestalt_rust::InputOrOutput<
             Option<String>,
         >,
         /// Trust Store ARN.
         #[builder(into)]
-        pub trust_store_arn: pulumi_wasm_rust::InputOrOutput<String>,
+        pub trust_store_arn: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct TrustStoreRevocationResult {
         /// AWS assigned RevocationId, (number).
-        pub revocation_id: pulumi_wasm_rust::Output<i32>,
+        pub revocation_id: pulumi_gestalt_rust::Output<i32>,
         /// S3 Bucket name holding the client certificate CA bundle.
-        pub revocations_s3_bucket: pulumi_wasm_rust::Output<String>,
+        pub revocations_s3_bucket: pulumi_gestalt_rust::Output<String>,
         /// S3 object key holding the client certificate CA bundle.
-        pub revocations_s3_key: pulumi_wasm_rust::Output<String>,
+        pub revocations_s3_key: pulumi_gestalt_rust::Output<String>,
         /// Version Id of CA bundle S3 bucket object, if versioned, defaults to latest if omitted.
-        pub revocations_s3_object_version: pulumi_wasm_rust::Output<Option<String>>,
+        pub revocations_s3_object_version: pulumi_gestalt_rust::Output<Option<String>>,
         /// Trust Store ARN.
-        pub trust_store_arn: pulumi_wasm_rust::Output<String>,
+        pub trust_store_arn: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: TrustStoreRevocationArgs,
     ) -> TrustStoreRevocationResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let revocations_s3_bucket_binding = args
             .revocations_s3_bucket
@@ -120,19 +120,19 @@ pub mod trust_store_revocation {
         };
         let o = register_interface::register(context.get_inner(), &request);
         TrustStoreRevocationResult {
-            revocation_id: pulumi_wasm_rust::__private::into_domain(
+            revocation_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("revocationId"),
             ),
-            revocations_s3_bucket: pulumi_wasm_rust::__private::into_domain(
+            revocations_s3_bucket: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("revocationsS3Bucket"),
             ),
-            revocations_s3_key: pulumi_wasm_rust::__private::into_domain(
+            revocations_s3_key: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("revocationsS3Key"),
             ),
-            revocations_s3_object_version: pulumi_wasm_rust::__private::into_domain(
+            revocations_s3_object_version: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("revocationsS3ObjectVersion"),
             ),
-            trust_store_arn: pulumi_wasm_rust::__private::into_domain(
+            trust_store_arn: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("trustStoreArn"),
             ),
         }

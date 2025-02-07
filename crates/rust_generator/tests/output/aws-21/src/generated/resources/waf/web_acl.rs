@@ -50,8 +50,8 @@
 /// > *NOTE:* The Kinesis Firehose Delivery Stream name must begin with `aws-waf-logs-` and be located in `us-east-1` region. See the [AWS WAF Developer Guide](https://docs.aws.amazon.com/waf/latest/developerguide/logging.html) for more information about enabling WAF logging.
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = web_acl::create(
@@ -87,63 +87,63 @@
 /// $ pulumi import aws:waf/webAcl:WebAcl main 0c8e583e-18f3-4c13-9e2a-67c4805d2f94
 /// ```
 pub mod web_acl {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct WebAclArgs {
         /// Configuration block with action that you want AWS WAF to take when a request doesn't match the criteria in any of the rules that are associated with the web ACL. Detailed below.
         #[builder(into)]
-        pub default_action: pulumi_wasm_rust::InputOrOutput<
+        pub default_action: pulumi_gestalt_rust::InputOrOutput<
             super::super::types::waf::WebAclDefaultAction,
         >,
         /// Configuration block to enable WAF logging. Detailed below.
         #[builder(into, default)]
-        pub logging_configuration: pulumi_wasm_rust::InputOrOutput<
+        pub logging_configuration: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::waf::WebAclLoggingConfiguration>,
         >,
         /// The name or description for the Amazon CloudWatch metric of this web ACL.
         #[builder(into)]
-        pub metric_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub metric_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The name or description of the web ACL.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Configuration blocks containing rules to associate with the web ACL and the settings for each rule. Detailed below.
         #[builder(into, default)]
-        pub rules: pulumi_wasm_rust::InputOrOutput<
+        pub rules: pulumi_gestalt_rust::InputOrOutput<
             Option<Vec<super::super::types::waf::WebAclRule>>,
         >,
         /// Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
     #[allow(dead_code)]
     pub struct WebAclResult {
         /// The ARN of the WAF WebACL.
-        pub arn: pulumi_wasm_rust::Output<String>,
+        pub arn: pulumi_gestalt_rust::Output<String>,
         /// Configuration block with action that you want AWS WAF to take when a request doesn't match the criteria in any of the rules that are associated with the web ACL. Detailed below.
-        pub default_action: pulumi_wasm_rust::Output<
+        pub default_action: pulumi_gestalt_rust::Output<
             super::super::types::waf::WebAclDefaultAction,
         >,
         /// Configuration block to enable WAF logging. Detailed below.
-        pub logging_configuration: pulumi_wasm_rust::Output<
+        pub logging_configuration: pulumi_gestalt_rust::Output<
             Option<super::super::types::waf::WebAclLoggingConfiguration>,
         >,
         /// The name or description for the Amazon CloudWatch metric of this web ACL.
-        pub metric_name: pulumi_wasm_rust::Output<String>,
+        pub metric_name: pulumi_gestalt_rust::Output<String>,
         /// The name or description of the web ACL.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// Configuration blocks containing rules to associate with the web ACL and the settings for each rule. Detailed below.
-        pub rules: pulumi_wasm_rust::Output<
+        pub rules: pulumi_gestalt_rust::Output<
             Option<Vec<super::super::types::waf::WebAclRule>>,
         >,
         /// Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        pub tags_all: pulumi_wasm_rust::Output<
+        pub tags_all: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
     }
@@ -152,11 +152,11 @@ pub mod web_acl {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: WebAclArgs,
     ) -> WebAclResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let default_action_binding = args.default_action.get_output(context).get_inner();
         let logging_configuration_binding = args
@@ -200,20 +200,20 @@ pub mod web_acl {
         };
         let o = register_interface::register(context.get_inner(), &request);
         WebAclResult {
-            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
-            default_action: pulumi_wasm_rust::__private::into_domain(
+            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
+            default_action: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("defaultAction"),
             ),
-            logging_configuration: pulumi_wasm_rust::__private::into_domain(
+            logging_configuration: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("loggingConfiguration"),
             ),
-            metric_name: pulumi_wasm_rust::__private::into_domain(
+            metric_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("metricName"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            rules: pulumi_wasm_rust::__private::into_domain(o.extract_field("rules")),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            rules: pulumi_gestalt_rust::__private::into_domain(o.extract_field("rules")),
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            tags_all: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("tagsAll"),
             ),
         }

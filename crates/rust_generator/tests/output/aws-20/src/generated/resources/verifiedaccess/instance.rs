@@ -17,8 +17,8 @@
 /// ### With `fips_enabled`
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = instance::create(
@@ -36,41 +36,41 @@
 /// $ pulumi import aws:verifiedaccess/instance:Instance example vai-1234567890abcdef0
 /// ```
 pub mod instance {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct InstanceArgs {
         /// A description for the AWS Verified Access Instance.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub description: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Enable or disable support for Federal Information Processing Standards (FIPS) on the AWS Verified Access Instance.
         #[builder(into, default)]
-        pub fips_enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub fips_enabled: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
     #[allow(dead_code)]
     pub struct InstanceResult {
         /// The time that the Verified Access Instance was created.
-        pub creation_time: pulumi_wasm_rust::Output<String>,
+        pub creation_time: pulumi_gestalt_rust::Output<String>,
         /// A description for the AWS Verified Access Instance.
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_gestalt_rust::Output<Option<String>>,
         /// Enable or disable support for Federal Information Processing Standards (FIPS) on the AWS Verified Access Instance.
-        pub fips_enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub fips_enabled: pulumi_gestalt_rust::Output<Option<bool>>,
         /// The time that the Verified Access Instance was last updated.
-        pub last_updated_time: pulumi_wasm_rust::Output<String>,
+        pub last_updated_time: pulumi_gestalt_rust::Output<String>,
         /// Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
-        pub tags_all: pulumi_wasm_rust::Output<
+        pub tags_all: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
         /// One or more blocks of providing information about the AWS Verified Access Trust Providers. See verified_access_trust_providers below for details.One or more blocks
-        pub verified_access_trust_providers: pulumi_wasm_rust::Output<
+        pub verified_access_trust_providers: pulumi_gestalt_rust::Output<
             Vec<super::super::types::verifiedaccess::InstanceVerifiedAccessTrustProvider>,
         >,
     }
@@ -79,11 +79,11 @@ pub mod instance {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: InstanceArgs,
     ) -> InstanceResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let description_binding = args.description.get_output(context).get_inner();
         let fips_enabled_binding = args.fips_enabled.get_output(context).get_inner();
@@ -109,23 +109,23 @@ pub mod instance {
         };
         let o = register_interface::register(context.get_inner(), &request);
         InstanceResult {
-            creation_time: pulumi_wasm_rust::__private::into_domain(
+            creation_time: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("creationTime"),
             ),
-            description: pulumi_wasm_rust::__private::into_domain(
+            description: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("description"),
             ),
-            fips_enabled: pulumi_wasm_rust::__private::into_domain(
+            fips_enabled: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("fipsEnabled"),
             ),
-            last_updated_time: pulumi_wasm_rust::__private::into_domain(
+            last_updated_time: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("lastUpdatedTime"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_wasm_rust::__private::into_domain(
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            tags_all: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("tagsAll"),
             ),
-            verified_access_trust_providers: pulumi_wasm_rust::__private::into_domain(
+            verified_access_trust_providers: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("verifiedAccessTrustProviders"),
             ),
         }

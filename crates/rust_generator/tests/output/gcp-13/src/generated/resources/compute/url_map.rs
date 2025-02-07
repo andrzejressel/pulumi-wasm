@@ -77,8 +77,8 @@
 ///
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let default = health_check::create(
@@ -159,8 +159,8 @@
 ///
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let default = health_check::create(
@@ -320,8 +320,8 @@
 ///
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let default = health_check::create(
@@ -598,8 +598,8 @@
 ///
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let default = http_health_check::create(
@@ -709,7 +709,7 @@
 /// ```
 ///
 pub mod url_map {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct URLMapArgs {
@@ -723,7 +723,7 @@ pub mod url_map {
         /// defaultCustomErrorResponsePolicy is supported only for global external Application Load Balancers.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub default_custom_error_response_policy: pulumi_wasm_rust::InputOrOutput<
+        pub default_custom_error_response_policy: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::compute::UrlMapDefaultCustomErrorResponsePolicy>,
         >,
         /// defaultRouteAction takes effect when none of the hostRules match. The load balancer performs advanced routing actions
@@ -733,36 +733,36 @@ pub mod url_map {
         /// Only one of defaultRouteAction or defaultUrlRedirect must be set.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub default_route_action: pulumi_wasm_rust::InputOrOutput<
+        pub default_route_action: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::compute::UrlMapDefaultRouteAction>,
         >,
         /// The backend service or backend bucket to use when none of the given rules match.
         #[builder(into, default)]
-        pub default_service: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub default_service: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// When none of the specified hostRules match, the request is redirected to a URL specified
         /// by defaultUrlRedirect. If defaultUrlRedirect is specified, defaultService or
         /// defaultRouteAction must not be set.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub default_url_redirect: pulumi_wasm_rust::InputOrOutput<
+        pub default_url_redirect: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::compute::UrlMapDefaultUrlRedirect>,
         >,
         /// An optional description of this resource. Provide this property when you create
         /// the resource.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub description: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Specifies changes to request and response headers that need to take effect for
         /// the selected backendService. The headerAction specified here take effect after
         /// headerAction specified under pathMatcher.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub header_action: pulumi_wasm_rust::InputOrOutput<
+        pub header_action: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::compute::UrlMapHeaderAction>,
         >,
         /// The list of HostRules to use against the URL.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub host_rules: pulumi_wasm_rust::InputOrOutput<
+        pub host_rules: pulumi_gestalt_rust::InputOrOutput<
             Option<Vec<super::super::types::compute::UrlMapHostRule>>,
         >,
         /// Name of the resource. Provided by the client when the resource is created. The
@@ -775,30 +775,30 @@ pub mod url_map {
         ///
         /// - - -
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The list of named PathMatchers to use against the URL.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub path_matchers: pulumi_wasm_rust::InputOrOutput<
+        pub path_matchers: pulumi_gestalt_rust::InputOrOutput<
             Option<Vec<super::super::types::compute::UrlMapPathMatcher>>,
         >,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub project: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The list of expected URL mapping tests. Request to update this UrlMap will
         /// succeed only if all of the test cases pass. You can specify a maximum of 100
         /// tests per UrlMap.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub tests: pulumi_wasm_rust::InputOrOutput<
+        pub tests: pulumi_gestalt_rust::InputOrOutput<
             Option<Vec<super::super::types::compute::UrlMapTest>>,
         >,
     }
     #[allow(dead_code)]
     pub struct URLMapResult {
         /// Creation timestamp in RFC3339 text format.
-        pub creation_timestamp: pulumi_wasm_rust::Output<String>,
+        pub creation_timestamp: pulumi_gestalt_rust::Output<String>,
         /// defaultCustomErrorResponsePolicy specifies how the Load Balancer returns error responses when BackendService or BackendBucket responds with an error.
         /// This policy takes effect at the PathMatcher level and applies only when no policy has been defined for the error code at lower levels like RouteRule and PathRule within this PathMatcher. If an error code does not have a policy defined in defaultCustomErrorResponsePolicy, then a policy defined for the error code in UrlMap.defaultCustomErrorResponsePolicy takes effect.
         /// For example, consider a UrlMap with the following configuration:
@@ -808,7 +808,7 @@ pub mod url_map {
         /// When used in conjunction with pathMatcher.defaultRouteAction.retryPolicy, retries take precedence. Only once all retries are exhausted, the defaultCustomErrorResponsePolicy is applied. While attempting a retry, if load balancer is successful in reaching the service, the defaultCustomErrorResponsePolicy is ignored and the response from the service is returned to the client.
         /// defaultCustomErrorResponsePolicy is supported only for global external Application Load Balancers.
         /// Structure is documented below.
-        pub default_custom_error_response_policy: pulumi_wasm_rust::Output<
+        pub default_custom_error_response_policy: pulumi_gestalt_rust::Output<
             Option<super::super::types::compute::UrlMapDefaultCustomErrorResponsePolicy>,
         >,
         /// defaultRouteAction takes effect when none of the hostRules match. The load balancer performs advanced routing actions
@@ -817,38 +817,38 @@ pub mod url_map {
         /// is set, defaultRouteAction cannot contain any weightedBackendServices.
         /// Only one of defaultRouteAction or defaultUrlRedirect must be set.
         /// Structure is documented below.
-        pub default_route_action: pulumi_wasm_rust::Output<
+        pub default_route_action: pulumi_gestalt_rust::Output<
             Option<super::super::types::compute::UrlMapDefaultRouteAction>,
         >,
         /// The backend service or backend bucket to use when none of the given rules match.
-        pub default_service: pulumi_wasm_rust::Output<Option<String>>,
+        pub default_service: pulumi_gestalt_rust::Output<Option<String>>,
         /// When none of the specified hostRules match, the request is redirected to a URL specified
         /// by defaultUrlRedirect. If defaultUrlRedirect is specified, defaultService or
         /// defaultRouteAction must not be set.
         /// Structure is documented below.
-        pub default_url_redirect: pulumi_wasm_rust::Output<
+        pub default_url_redirect: pulumi_gestalt_rust::Output<
             Option<super::super::types::compute::UrlMapDefaultUrlRedirect>,
         >,
         /// An optional description of this resource. Provide this property when you create
         /// the resource.
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_gestalt_rust::Output<Option<String>>,
         /// Fingerprint of this resource. A hash of the contents stored in this object. This
         /// field is used in optimistic locking.
-        pub fingerprint: pulumi_wasm_rust::Output<String>,
+        pub fingerprint: pulumi_gestalt_rust::Output<String>,
         /// Specifies changes to request and response headers that need to take effect for
         /// the selected backendService. The headerAction specified here take effect after
         /// headerAction specified under pathMatcher.
         /// Structure is documented below.
-        pub header_action: pulumi_wasm_rust::Output<
+        pub header_action: pulumi_gestalt_rust::Output<
             Option<super::super::types::compute::UrlMapHeaderAction>,
         >,
         /// The list of HostRules to use against the URL.
         /// Structure is documented below.
-        pub host_rules: pulumi_wasm_rust::Output<
+        pub host_rules: pulumi_gestalt_rust::Output<
             Option<Vec<super::super::types::compute::UrlMapHostRule>>,
         >,
         /// The unique identifier for the resource.
-        pub map_id: pulumi_wasm_rust::Output<i32>,
+        pub map_id: pulumi_gestalt_rust::Output<i32>,
         /// Name of the resource. Provided by the client when the resource is created. The
         /// name must be 1-63 characters long, and comply with RFC1035. Specifically, the
         /// name must be 1-63 characters long and match the regular expression
@@ -858,22 +858,22 @@ pub mod url_map {
         ///
         ///
         /// - - -
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// The list of named PathMatchers to use against the URL.
         /// Structure is documented below.
-        pub path_matchers: pulumi_wasm_rust::Output<
+        pub path_matchers: pulumi_gestalt_rust::Output<
             Option<Vec<super::super::types::compute::UrlMapPathMatcher>>,
         >,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
-        pub project: pulumi_wasm_rust::Output<String>,
+        pub project: pulumi_gestalt_rust::Output<String>,
         /// The URI of the created resource.
-        pub self_link: pulumi_wasm_rust::Output<String>,
+        pub self_link: pulumi_gestalt_rust::Output<String>,
         /// The list of expected URL mapping tests. Request to update this UrlMap will
         /// succeed only if all of the test cases pass. You can specify a maximum of 100
         /// tests per UrlMap.
         /// Structure is documented below.
-        pub tests: pulumi_wasm_rust::Output<
+        pub tests: pulumi_gestalt_rust::Output<
             Option<Vec<super::super::types::compute::UrlMapTest>>,
         >,
     }
@@ -882,11 +882,11 @@ pub mod url_map {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: URLMapArgs,
     ) -> URLMapResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let default_custom_error_response_policy_binding = args
             .default_custom_error_response_policy
@@ -964,45 +964,47 @@ pub mod url_map {
         };
         let o = register_interface::register(context.get_inner(), &request);
         URLMapResult {
-            creation_timestamp: pulumi_wasm_rust::__private::into_domain(
+            creation_timestamp: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("creationTimestamp"),
             ),
-            default_custom_error_response_policy: pulumi_wasm_rust::__private::into_domain(
+            default_custom_error_response_policy: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("defaultCustomErrorResponsePolicy"),
             ),
-            default_route_action: pulumi_wasm_rust::__private::into_domain(
+            default_route_action: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("defaultRouteAction"),
             ),
-            default_service: pulumi_wasm_rust::__private::into_domain(
+            default_service: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("defaultService"),
             ),
-            default_url_redirect: pulumi_wasm_rust::__private::into_domain(
+            default_url_redirect: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("defaultUrlRedirect"),
             ),
-            description: pulumi_wasm_rust::__private::into_domain(
+            description: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("description"),
             ),
-            fingerprint: pulumi_wasm_rust::__private::into_domain(
+            fingerprint: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("fingerprint"),
             ),
-            header_action: pulumi_wasm_rust::__private::into_domain(
+            header_action: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("headerAction"),
             ),
-            host_rules: pulumi_wasm_rust::__private::into_domain(
+            host_rules: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("hostRules"),
             ),
-            map_id: pulumi_wasm_rust::__private::into_domain(o.extract_field("mapId")),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            path_matchers: pulumi_wasm_rust::__private::into_domain(
+            map_id: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("mapId"),
+            ),
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            path_matchers: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("pathMatchers"),
             ),
-            project: pulumi_wasm_rust::__private::into_domain(
+            project: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("project"),
             ),
-            self_link: pulumi_wasm_rust::__private::into_domain(
+            self_link: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("selfLink"),
             ),
-            tests: pulumi_wasm_rust::__private::into_domain(o.extract_field("tests")),
+            tests: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tests")),
         }
     }
 }

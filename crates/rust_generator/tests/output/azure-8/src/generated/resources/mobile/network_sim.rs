@@ -3,8 +3,8 @@
 /// ## Example Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = resource_group::create(
@@ -95,81 +95,85 @@
 /// ```
 ///
 pub mod network_sim {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct NetworkSimArgs {
         /// The Ki value for the SIM.
         #[builder(into)]
-        pub authentication_key: pulumi_wasm_rust::InputOrOutput<String>,
+        pub authentication_key: pulumi_gestalt_rust::InputOrOutput<String>,
         /// An optional free-form text field that can be used to record the device type this SIM is associated with, for example `Video camera`. The Azure portal allows SIMs to be grouped and filtered based on this value.
         #[builder(into, default)]
-        pub device_type: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub device_type: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The integrated circuit card ID (ICCID) for the SIM. Changing this forces a new Mobile Network Sim to be created.
         #[builder(into)]
-        pub integrated_circuit_card_identifier: pulumi_wasm_rust::InputOrOutput<String>,
+        pub integrated_circuit_card_identifier: pulumi_gestalt_rust::InputOrOutput<
+            String,
+        >,
         /// The international mobile subscriber identity (IMSI) for the SIM. Changing this forces a new Mobile Network Sim to be created.
         #[builder(into)]
-        pub international_mobile_subscriber_identity: pulumi_wasm_rust::InputOrOutput<
+        pub international_mobile_subscriber_identity: pulumi_gestalt_rust::InputOrOutput<
             String,
         >,
         /// The ID of the Mobile Network which the Mobile Network Sim belongs to. Changing this forces a new Mobile Network Sim to be created.
         #[builder(into)]
-        pub mobile_network_sim_group_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub mobile_network_sim_group_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The name which should be used for this Mobile Network Sim. Changing this forces a new Mobile Network Sim to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The Opc value for the SIM.
         #[builder(into)]
-        pub operator_key_code: pulumi_wasm_rust::InputOrOutput<String>,
+        pub operator_key_code: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The ID of SIM policy used by this SIM.
         #[builder(into, default)]
-        pub sim_policy_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub sim_policy_id: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// A `static_ip_configuration` block as defined below.
         #[builder(into, default)]
-        pub static_ip_configurations: pulumi_wasm_rust::InputOrOutput<
+        pub static_ip_configurations: pulumi_gestalt_rust::InputOrOutput<
             Option<Vec<super::super::types::mobile::NetworkSimStaticIpConfiguration>>,
         >,
     }
     #[allow(dead_code)]
     pub struct NetworkSimResult {
         /// The Ki value for the SIM.
-        pub authentication_key: pulumi_wasm_rust::Output<String>,
+        pub authentication_key: pulumi_gestalt_rust::Output<String>,
         /// An optional free-form text field that can be used to record the device type this SIM is associated with, for example `Video camera`. The Azure portal allows SIMs to be grouped and filtered based on this value.
-        pub device_type: pulumi_wasm_rust::Output<Option<String>>,
+        pub device_type: pulumi_gestalt_rust::Output<Option<String>>,
         /// The integrated circuit card ID (ICCID) for the SIM. Changing this forces a new Mobile Network Sim to be created.
-        pub integrated_circuit_card_identifier: pulumi_wasm_rust::Output<String>,
+        pub integrated_circuit_card_identifier: pulumi_gestalt_rust::Output<String>,
         /// The international mobile subscriber identity (IMSI) for the SIM. Changing this forces a new Mobile Network Sim to be created.
-        pub international_mobile_subscriber_identity: pulumi_wasm_rust::Output<String>,
+        pub international_mobile_subscriber_identity: pulumi_gestalt_rust::Output<
+            String,
+        >,
         /// The ID of the Mobile Network which the Mobile Network Sim belongs to. Changing this forces a new Mobile Network Sim to be created.
-        pub mobile_network_sim_group_id: pulumi_wasm_rust::Output<String>,
+        pub mobile_network_sim_group_id: pulumi_gestalt_rust::Output<String>,
         /// The name which should be used for this Mobile Network Sim. Changing this forces a new Mobile Network Sim to be created.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// The Opc value for the SIM.
-        pub operator_key_code: pulumi_wasm_rust::Output<String>,
+        pub operator_key_code: pulumi_gestalt_rust::Output<String>,
         /// The ID of SIM policy used by this SIM.
-        pub sim_policy_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub sim_policy_id: pulumi_gestalt_rust::Output<Option<String>>,
         /// The state of the SIM resource.
-        pub sim_state: pulumi_wasm_rust::Output<String>,
+        pub sim_state: pulumi_gestalt_rust::Output<String>,
         /// A `static_ip_configuration` block as defined below.
-        pub static_ip_configurations: pulumi_wasm_rust::Output<
+        pub static_ip_configurations: pulumi_gestalt_rust::Output<
             Option<Vec<super::super::types::mobile::NetworkSimStaticIpConfiguration>>,
         >,
         /// The public key fingerprint of the SIM vendor who provided this SIM, if any.
-        pub vendor_key_fingerprint: pulumi_wasm_rust::Output<String>,
+        pub vendor_key_fingerprint: pulumi_gestalt_rust::Output<String>,
         /// The name of the SIM vendor who provided this SIM, if any.
-        pub vendor_name: pulumi_wasm_rust::Output<String>,
+        pub vendor_name: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: NetworkSimArgs,
     ) -> NetworkSimResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let authentication_key_binding = args
             .authentication_key
@@ -243,38 +247,38 @@ pub mod network_sim {
         };
         let o = register_interface::register(context.get_inner(), &request);
         NetworkSimResult {
-            authentication_key: pulumi_wasm_rust::__private::into_domain(
+            authentication_key: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("authenticationKey"),
             ),
-            device_type: pulumi_wasm_rust::__private::into_domain(
+            device_type: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("deviceType"),
             ),
-            integrated_circuit_card_identifier: pulumi_wasm_rust::__private::into_domain(
+            integrated_circuit_card_identifier: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("integratedCircuitCardIdentifier"),
             ),
-            international_mobile_subscriber_identity: pulumi_wasm_rust::__private::into_domain(
+            international_mobile_subscriber_identity: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("internationalMobileSubscriberIdentity"),
             ),
-            mobile_network_sim_group_id: pulumi_wasm_rust::__private::into_domain(
+            mobile_network_sim_group_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("mobileNetworkSimGroupId"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            operator_key_code: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            operator_key_code: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("operatorKeyCode"),
             ),
-            sim_policy_id: pulumi_wasm_rust::__private::into_domain(
+            sim_policy_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("simPolicyId"),
             ),
-            sim_state: pulumi_wasm_rust::__private::into_domain(
+            sim_state: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("simState"),
             ),
-            static_ip_configurations: pulumi_wasm_rust::__private::into_domain(
+            static_ip_configurations: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("staticIpConfigurations"),
             ),
-            vendor_key_fingerprint: pulumi_wasm_rust::__private::into_domain(
+            vendor_key_fingerprint: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("vendorKeyFingerprint"),
             ),
-            vendor_name: pulumi_wasm_rust::__private::into_domain(
+            vendor_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("vendorName"),
             ),
         }

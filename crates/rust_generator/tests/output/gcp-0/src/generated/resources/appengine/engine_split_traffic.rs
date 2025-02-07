@@ -91,35 +91,35 @@
 /// ```
 ///
 pub mod engine_split_traffic {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct EngineSplitTrafficArgs {
         /// If set to true traffic will be migrated to this version.
         #[builder(into, default)]
-        pub migrate_traffic: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub migrate_traffic: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub project: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The name of the service these settings apply to.
         #[builder(into)]
-        pub service: pulumi_wasm_rust::InputOrOutput<String>,
+        pub service: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Mapping that defines fractional HTTP traffic diversion to different versions within the service.
         /// Structure is documented below.
         #[builder(into)]
-        pub split: pulumi_wasm_rust::InputOrOutput<
+        pub split: pulumi_gestalt_rust::InputOrOutput<
             super::super::types::appengine::EngineSplitTrafficSplit,
         >,
     }
     #[allow(dead_code)]
     pub struct EngineSplitTrafficResult {
         /// If set to true traffic will be migrated to this version.
-        pub migrate_traffic: pulumi_wasm_rust::Output<Option<bool>>,
-        pub project: pulumi_wasm_rust::Output<String>,
+        pub migrate_traffic: pulumi_gestalt_rust::Output<Option<bool>>,
+        pub project: pulumi_gestalt_rust::Output<String>,
         /// The name of the service these settings apply to.
-        pub service: pulumi_wasm_rust::Output<String>,
+        pub service: pulumi_gestalt_rust::Output<String>,
         /// Mapping that defines fractional HTTP traffic diversion to different versions within the service.
         /// Structure is documented below.
-        pub split: pulumi_wasm_rust::Output<
+        pub split: pulumi_gestalt_rust::Output<
             super::super::types::appengine::EngineSplitTrafficSplit,
         >,
     }
@@ -128,11 +128,11 @@ pub mod engine_split_traffic {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: EngineSplitTrafficArgs,
     ) -> EngineSplitTrafficResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let migrate_traffic_binding = args
             .migrate_traffic
@@ -166,16 +166,16 @@ pub mod engine_split_traffic {
         };
         let o = register_interface::register(context.get_inner(), &request);
         EngineSplitTrafficResult {
-            migrate_traffic: pulumi_wasm_rust::__private::into_domain(
+            migrate_traffic: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("migrateTraffic"),
             ),
-            project: pulumi_wasm_rust::__private::into_domain(
+            project: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("project"),
             ),
-            service: pulumi_wasm_rust::__private::into_domain(
+            service: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("service"),
             ),
-            split: pulumi_wasm_rust::__private::into_domain(o.extract_field("split")),
+            split: pulumi_gestalt_rust::__private::into_domain(o.extract_field("split")),
         }
     }
 }

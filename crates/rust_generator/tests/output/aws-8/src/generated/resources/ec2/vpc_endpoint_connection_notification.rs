@@ -51,7 +51,7 @@
 /// $ pulumi import aws:ec2/vpcEndpointConnectionNotification:VpcEndpointConnectionNotification foo vpce-nfn-09e6ed3b4efba2263
 /// ```
 pub mod vpc_endpoint_connection_notification {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct VpcEndpointConnectionNotificationArgs {
@@ -59,44 +59,44 @@ pub mod vpc_endpoint_connection_notification {
         ///
         /// > **NOTE:** One of `vpc_endpoint_service_id` or `vpc_endpoint_id` must be specified.
         #[builder(into)]
-        pub connection_events: pulumi_wasm_rust::InputOrOutput<Vec<String>>,
+        pub connection_events: pulumi_gestalt_rust::InputOrOutput<Vec<String>>,
         /// The ARN of the SNS topic for the notifications.
         #[builder(into)]
-        pub connection_notification_arn: pulumi_wasm_rust::InputOrOutput<String>,
+        pub connection_notification_arn: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The ID of the VPC Endpoint to receive notifications for.
         #[builder(into, default)]
-        pub vpc_endpoint_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub vpc_endpoint_id: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The ID of the VPC Endpoint Service to receive notifications for.
         #[builder(into, default)]
-        pub vpc_endpoint_service_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub vpc_endpoint_service_id: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct VpcEndpointConnectionNotificationResult {
         /// One or more endpoint [events](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateVpcEndpointConnectionNotification.html#API_CreateVpcEndpointConnectionNotification_RequestParameters) for which to receive notifications.
         ///
         /// > **NOTE:** One of `vpc_endpoint_service_id` or `vpc_endpoint_id` must be specified.
-        pub connection_events: pulumi_wasm_rust::Output<Vec<String>>,
+        pub connection_events: pulumi_gestalt_rust::Output<Vec<String>>,
         /// The ARN of the SNS topic for the notifications.
-        pub connection_notification_arn: pulumi_wasm_rust::Output<String>,
+        pub connection_notification_arn: pulumi_gestalt_rust::Output<String>,
         /// The type of notification.
-        pub notification_type: pulumi_wasm_rust::Output<String>,
+        pub notification_type: pulumi_gestalt_rust::Output<String>,
         /// The state of the notification.
-        pub state: pulumi_wasm_rust::Output<String>,
+        pub state: pulumi_gestalt_rust::Output<String>,
         /// The ID of the VPC Endpoint to receive notifications for.
-        pub vpc_endpoint_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub vpc_endpoint_id: pulumi_gestalt_rust::Output<Option<String>>,
         /// The ID of the VPC Endpoint Service to receive notifications for.
-        pub vpc_endpoint_service_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub vpc_endpoint_service_id: pulumi_gestalt_rust::Output<Option<String>>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: VpcEndpointConnectionNotificationArgs,
     ) -> VpcEndpointConnectionNotificationResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let connection_events_binding = args
             .connection_events
@@ -140,20 +140,20 @@ pub mod vpc_endpoint_connection_notification {
         };
         let o = register_interface::register(context.get_inner(), &request);
         VpcEndpointConnectionNotificationResult {
-            connection_events: pulumi_wasm_rust::__private::into_domain(
+            connection_events: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("connectionEvents"),
             ),
-            connection_notification_arn: pulumi_wasm_rust::__private::into_domain(
+            connection_notification_arn: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("connectionNotificationArn"),
             ),
-            notification_type: pulumi_wasm_rust::__private::into_domain(
+            notification_type: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("notificationType"),
             ),
-            state: pulumi_wasm_rust::__private::into_domain(o.extract_field("state")),
-            vpc_endpoint_id: pulumi_wasm_rust::__private::into_domain(
+            state: pulumi_gestalt_rust::__private::into_domain(o.extract_field("state")),
+            vpc_endpoint_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("vpcEndpointId"),
             ),
-            vpc_endpoint_service_id: pulumi_wasm_rust::__private::into_domain(
+            vpc_endpoint_service_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("vpcEndpointServiceId"),
             ),
         }

@@ -1,7 +1,7 @@
-use pulumi_wasm_providers_random::random_string;
-use pulumi_wasm_providers_random::random_string::RandomStringArgs;
-use pulumi_wasm_rust::{add_export, pulumi_main};
-use pulumi_wasm_rust::{Output, PulumiContext};
+use pulumi_gestalt_providers_random::random_string;
+use pulumi_gestalt_providers_random::random_string::RandomStringArgs;
+use pulumi_gestalt_rust::{add_export, pulumi_main};
+use pulumi_gestalt_rust::{Output, PulumiContext};
 
 pulumi_main!();
 

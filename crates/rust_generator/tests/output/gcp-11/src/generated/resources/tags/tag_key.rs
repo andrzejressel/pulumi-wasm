@@ -13,8 +13,8 @@
 ///
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let key = tag_key::create(
@@ -47,25 +47,25 @@
 /// ```
 ///
 pub mod tag_key {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct TagKeyArgs {
         /// User-assigned description of the TagKey. Must not exceed 256 characters.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub description: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Input only. The resource name of the new TagKey's parent. Must be of the form organizations/{org_id} or projects/{project_id_or_number}.
         #[builder(into)]
-        pub parent: pulumi_wasm_rust::InputOrOutput<String>,
+        pub parent: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Optional. A purpose cannot be changed once set.
         /// A purpose denotes that this Tag is intended for use in policies of a specific policy engine, and will involve that policy engine in management operations involving this Tag.
         /// Possible values are: `GCE_FIREWALL`.
         #[builder(into, default)]
-        pub purpose: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub purpose: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Optional. Purpose data cannot be changed once set.
         /// Purpose data corresponds to the policy system that the tag is intended for. For example, the GCE_FIREWALL purpose expects data in the following format: `network = "<project-name>/<vpc-name>"`.
         #[builder(into, default)]
-        pub purpose_data: pulumi_wasm_rust::InputOrOutput<
+        pub purpose_data: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Input only. The user friendly name for a TagKey. The short name should be unique for TagKeys within the same tag namespace.
@@ -74,28 +74,28 @@ pub mod tag_key {
         ///
         /// - - -
         #[builder(into)]
-        pub short_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub short_name: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct TagKeyResult {
         /// Output only. Creation time.
         /// A timestamp in RFC3339 UTC "Zulu" format, with nanosecond resolution and up to nine fractional digits. Examples: "2014-10-02T15:01:23Z" and "2014-10-02T15:01:23.045123456Z".
-        pub create_time: pulumi_wasm_rust::Output<String>,
+        pub create_time: pulumi_gestalt_rust::Output<String>,
         /// User-assigned description of the TagKey. Must not exceed 256 characters.
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_gestalt_rust::Output<Option<String>>,
         /// The generated numeric id for the TagKey.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// Output only. Namespaced name of the TagKey.
-        pub namespaced_name: pulumi_wasm_rust::Output<String>,
+        pub namespaced_name: pulumi_gestalt_rust::Output<String>,
         /// Input only. The resource name of the new TagKey's parent. Must be of the form organizations/{org_id} or projects/{project_id_or_number}.
-        pub parent: pulumi_wasm_rust::Output<String>,
+        pub parent: pulumi_gestalt_rust::Output<String>,
         /// Optional. A purpose cannot be changed once set.
         /// A purpose denotes that this Tag is intended for use in policies of a specific policy engine, and will involve that policy engine in management operations involving this Tag.
         /// Possible values are: `GCE_FIREWALL`.
-        pub purpose: pulumi_wasm_rust::Output<Option<String>>,
+        pub purpose: pulumi_gestalt_rust::Output<Option<String>>,
         /// Optional. Purpose data cannot be changed once set.
         /// Purpose data corresponds to the policy system that the tag is intended for. For example, the GCE_FIREWALL purpose expects data in the following format: `network = "<project-name>/<vpc-name>"`.
-        pub purpose_data: pulumi_wasm_rust::Output<
+        pub purpose_data: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Input only. The user friendly name for a TagKey. The short name should be unique for TagKeys within the same tag namespace.
@@ -103,21 +103,21 @@ pub mod tag_key {
         ///
         ///
         /// - - -
-        pub short_name: pulumi_wasm_rust::Output<String>,
+        pub short_name: pulumi_gestalt_rust::Output<String>,
         /// Output only. Update time.
         /// A timestamp in RFC3339 UTC "Zulu" format, with nanosecond resolution and up to nine fractional digits. Examples: "2014-10-02T15:01:23Z" and "2014-10-02T15:01:23.045123456Z".
-        pub update_time: pulumi_wasm_rust::Output<String>,
+        pub update_time: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: TagKeyArgs,
     ) -> TagKeyResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let description_binding = args.description.get_output(context).get_inner();
         let parent_binding = args.parent.get_output(context).get_inner();
@@ -153,27 +153,29 @@ pub mod tag_key {
         };
         let o = register_interface::register(context.get_inner(), &request);
         TagKeyResult {
-            create_time: pulumi_wasm_rust::__private::into_domain(
+            create_time: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("createTime"),
             ),
-            description: pulumi_wasm_rust::__private::into_domain(
+            description: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("description"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            namespaced_name: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            namespaced_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("namespacedName"),
             ),
-            parent: pulumi_wasm_rust::__private::into_domain(o.extract_field("parent")),
-            purpose: pulumi_wasm_rust::__private::into_domain(
+            parent: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("parent"),
+            ),
+            purpose: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("purpose"),
             ),
-            purpose_data: pulumi_wasm_rust::__private::into_domain(
+            purpose_data: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("purposeData"),
             ),
-            short_name: pulumi_wasm_rust::__private::into_domain(
+            short_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("shortName"),
             ),
-            update_time: pulumi_wasm_rust::__private::into_domain(
+            update_time: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("updateTime"),
             ),
         }

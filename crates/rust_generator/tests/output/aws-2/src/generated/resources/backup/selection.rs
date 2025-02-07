@@ -44,8 +44,8 @@
 /// ### Selecting Backups By Tag
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = selection::create(
@@ -68,8 +68,8 @@
 /// ### Selecting Backups By Conditions
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = selection::create(
@@ -101,8 +101,8 @@
 /// ### Selecting Backups By Resource
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = selection::create(
@@ -125,8 +125,8 @@
 /// ### Selecting Backups By Not Resource
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = selection::create(
@@ -154,54 +154,54 @@
 /// $ pulumi import aws:backup/selection:Selection example plan-id|selection-id
 /// ```
 pub mod selection {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct SelectionArgs {
         /// A list of conditions that you define to assign resources to your backup plans using tags.
         #[builder(into, default)]
-        pub conditions: pulumi_wasm_rust::InputOrOutput<
+        pub conditions: pulumi_gestalt_rust::InputOrOutput<
             Option<Vec<super::super::types::backup::SelectionCondition>>,
         >,
         /// The ARN of the IAM role that AWS Backup uses to authenticate when restoring and backing up the target resource. See the [AWS Backup Developer Guide](https://docs.aws.amazon.com/aws-backup/latest/devguide/access-control.html#managed-policies) for additional information about using AWS managed policies or creating custom policies attached to the IAM role.
         #[builder(into)]
-        pub iam_role_arn: pulumi_wasm_rust::InputOrOutput<String>,
+        pub iam_role_arn: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The display name of a resource selection document.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// An array of strings that either contain Amazon Resource Names (ARNs) or match patterns of resources to exclude from a backup plan.
         #[builder(into, default)]
-        pub not_resources: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
+        pub not_resources: pulumi_gestalt_rust::InputOrOutput<Option<Vec<String>>>,
         /// The backup plan ID to be associated with the selection of resources.
         #[builder(into)]
-        pub plan_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub plan_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// An array of strings that either contain Amazon Resource Names (ARNs) or match patterns of resources to assign to a backup plan.
         #[builder(into, default)]
-        pub resources: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
+        pub resources: pulumi_gestalt_rust::InputOrOutput<Option<Vec<String>>>,
         /// Tag-based conditions used to specify a set of resources to assign to a backup plan.
         #[builder(into, default)]
-        pub selection_tags: pulumi_wasm_rust::InputOrOutput<
+        pub selection_tags: pulumi_gestalt_rust::InputOrOutput<
             Option<Vec<super::super::types::backup::SelectionSelectionTag>>,
         >,
     }
     #[allow(dead_code)]
     pub struct SelectionResult {
         /// A list of conditions that you define to assign resources to your backup plans using tags.
-        pub conditions: pulumi_wasm_rust::Output<
+        pub conditions: pulumi_gestalt_rust::Output<
             Vec<super::super::types::backup::SelectionCondition>,
         >,
         /// The ARN of the IAM role that AWS Backup uses to authenticate when restoring and backing up the target resource. See the [AWS Backup Developer Guide](https://docs.aws.amazon.com/aws-backup/latest/devguide/access-control.html#managed-policies) for additional information about using AWS managed policies or creating custom policies attached to the IAM role.
-        pub iam_role_arn: pulumi_wasm_rust::Output<String>,
+        pub iam_role_arn: pulumi_gestalt_rust::Output<String>,
         /// The display name of a resource selection document.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// An array of strings that either contain Amazon Resource Names (ARNs) or match patterns of resources to exclude from a backup plan.
-        pub not_resources: pulumi_wasm_rust::Output<Vec<String>>,
+        pub not_resources: pulumi_gestalt_rust::Output<Vec<String>>,
         /// The backup plan ID to be associated with the selection of resources.
-        pub plan_id: pulumi_wasm_rust::Output<String>,
+        pub plan_id: pulumi_gestalt_rust::Output<String>,
         /// An array of strings that either contain Amazon Resource Names (ARNs) or match patterns of resources to assign to a backup plan.
-        pub resources: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub resources: pulumi_gestalt_rust::Output<Option<Vec<String>>>,
         /// Tag-based conditions used to specify a set of resources to assign to a backup plan.
-        pub selection_tags: pulumi_wasm_rust::Output<
+        pub selection_tags: pulumi_gestalt_rust::Output<
             Option<Vec<super::super::types::backup::SelectionSelectionTag>>,
         >,
     }
@@ -210,11 +210,11 @@ pub mod selection {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: SelectionArgs,
     ) -> SelectionResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let conditions_binding = args.conditions.get_output(context).get_inner();
         let iam_role_arn_binding = args.iam_role_arn.get_output(context).get_inner();
@@ -260,21 +260,23 @@ pub mod selection {
         };
         let o = register_interface::register(context.get_inner(), &request);
         SelectionResult {
-            conditions: pulumi_wasm_rust::__private::into_domain(
+            conditions: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("conditions"),
             ),
-            iam_role_arn: pulumi_wasm_rust::__private::into_domain(
+            iam_role_arn: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("iamRoleArn"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            not_resources: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            not_resources: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("notResources"),
             ),
-            plan_id: pulumi_wasm_rust::__private::into_domain(o.extract_field("planId")),
-            resources: pulumi_wasm_rust::__private::into_domain(
+            plan_id: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("planId"),
+            ),
+            resources: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("resources"),
             ),
-            selection_tags: pulumi_wasm_rust::__private::into_domain(
+            selection_tags: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("selectionTags"),
             ),
         }

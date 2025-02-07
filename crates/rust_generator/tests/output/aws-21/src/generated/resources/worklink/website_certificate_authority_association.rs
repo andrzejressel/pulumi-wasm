@@ -30,41 +30,41 @@
 /// $ pulumi import aws:worklink/websiteCertificateAuthorityAssociation:WebsiteCertificateAuthorityAssociation example arn:aws:worklink::123456789012:fleet/example,abcdefghijk
 /// ```
 pub mod website_certificate_authority_association {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct WebsiteCertificateAuthorityAssociationArgs {
         /// The root certificate of the Certificate Authority.
         #[builder(into)]
-        pub certificate: pulumi_wasm_rust::InputOrOutput<String>,
+        pub certificate: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The certificate name to display.
         #[builder(into, default)]
-        pub display_name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub display_name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The ARN of the fleet.
         #[builder(into)]
-        pub fleet_arn: pulumi_wasm_rust::InputOrOutput<String>,
+        pub fleet_arn: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct WebsiteCertificateAuthorityAssociationResult {
         /// The root certificate of the Certificate Authority.
-        pub certificate: pulumi_wasm_rust::Output<String>,
+        pub certificate: pulumi_gestalt_rust::Output<String>,
         /// The certificate name to display.
-        pub display_name: pulumi_wasm_rust::Output<Option<String>>,
+        pub display_name: pulumi_gestalt_rust::Output<Option<String>>,
         /// The ARN of the fleet.
-        pub fleet_arn: pulumi_wasm_rust::Output<String>,
+        pub fleet_arn: pulumi_gestalt_rust::Output<String>,
         /// A unique identifier for the Certificate Authority.
-        pub website_ca_id: pulumi_wasm_rust::Output<String>,
+        pub website_ca_id: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: WebsiteCertificateAuthorityAssociationArgs,
     ) -> WebsiteCertificateAuthorityAssociationResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let certificate_binding = args.certificate.get_output(context).get_inner();
         let display_name_binding = args.display_name.get_output(context).get_inner();
@@ -91,16 +91,16 @@ pub mod website_certificate_authority_association {
         };
         let o = register_interface::register(context.get_inner(), &request);
         WebsiteCertificateAuthorityAssociationResult {
-            certificate: pulumi_wasm_rust::__private::into_domain(
+            certificate: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("certificate"),
             ),
-            display_name: pulumi_wasm_rust::__private::into_domain(
+            display_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("displayName"),
             ),
-            fleet_arn: pulumi_wasm_rust::__private::into_domain(
+            fleet_arn: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("fleetArn"),
             ),
-            website_ca_id: pulumi_wasm_rust::__private::into_domain(
+            website_ca_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("websiteCaId"),
             ),
         }

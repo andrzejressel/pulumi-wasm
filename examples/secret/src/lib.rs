@@ -1,6 +1,6 @@
 use anyhow::Error;
-use pulumi_wasm_providers_random::random_bytes;
-use pulumi_wasm_rust::{add_export, pulumi_combine, pulumi_main, Output, PulumiContext};
+use pulumi_gestalt_providers_random::random_bytes;
+use pulumi_gestalt_rust::{add_export, pulumi_combine, pulumi_main, Output, PulumiContext};
 
 pulumi_main!();
 

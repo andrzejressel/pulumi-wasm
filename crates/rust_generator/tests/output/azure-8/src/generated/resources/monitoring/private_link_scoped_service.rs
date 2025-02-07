@@ -3,8 +3,8 @@
 /// ## Example Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = resource_group::create(
@@ -51,44 +51,44 @@
 /// ```
 ///
 pub mod private_link_scoped_service {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct PrivateLinkScopedServiceArgs {
         /// The ID of the linked resource. It must be the Log Analytics workspace or the Application Insights component or the Data Collection endpoint. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub linked_resource_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub linked_resource_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The name of the Azure Monitor Private Link Scoped Service. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The name of the Resource Group where the Azure Monitor Private Link Scoped Service should exist. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub resource_group_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub resource_group_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The name of the Azure Monitor Private Link Scope. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub scope_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub scope_name: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct PrivateLinkScopedServiceResult {
         /// The ID of the linked resource. It must be the Log Analytics workspace or the Application Insights component or the Data Collection endpoint. Changing this forces a new resource to be created.
-        pub linked_resource_id: pulumi_wasm_rust::Output<String>,
+        pub linked_resource_id: pulumi_gestalt_rust::Output<String>,
         /// The name of the Azure Monitor Private Link Scoped Service. Changing this forces a new resource to be created.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// The name of the Resource Group where the Azure Monitor Private Link Scoped Service should exist. Changing this forces a new resource to be created.
-        pub resource_group_name: pulumi_wasm_rust::Output<String>,
+        pub resource_group_name: pulumi_gestalt_rust::Output<String>,
         /// The name of the Azure Monitor Private Link Scope. Changing this forces a new resource to be created.
-        pub scope_name: pulumi_wasm_rust::Output<String>,
+        pub scope_name: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: PrivateLinkScopedServiceArgs,
     ) -> PrivateLinkScopedServiceResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let linked_resource_id_binding = args
             .linked_resource_id
@@ -126,14 +126,14 @@ pub mod private_link_scoped_service {
         };
         let o = register_interface::register(context.get_inner(), &request);
         PrivateLinkScopedServiceResult {
-            linked_resource_id: pulumi_wasm_rust::__private::into_domain(
+            linked_resource_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("linkedResourceId"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            resource_group_name: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("resourceGroupName"),
             ),
-            scope_name: pulumi_wasm_rust::__private::into_domain(
+            scope_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("scopeName"),
             ),
         }

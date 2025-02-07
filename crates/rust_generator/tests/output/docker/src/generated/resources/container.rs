@@ -4,8 +4,8 @@
 /// ## Example Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let ubuntuContainer = container::create(
@@ -38,8 +38,8 @@
 /// you provide the definition for the resource as follows
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let foo = container::create(
@@ -64,402 +64,404 @@
 /// ```
 ///
 pub mod container {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ContainerArgs {
         /// If `true` attach to the container after its creation and waits the end of its execution. Defaults to `false`.
         #[builder(into, default)]
-        pub attach: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub attach: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// Add or drop certrain linux capabilities.
         #[builder(into, default)]
-        pub capabilities: pulumi_wasm_rust::InputOrOutput<
+        pub capabilities: pulumi_gestalt_rust::InputOrOutput<
             Option<super::types::ContainerCapabilities>,
         >,
         /// Cgroup namespace mode to use for the container. Possible values are: `private`, `host`.
         #[builder(into, default)]
-        pub cgroupns_mode: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub cgroupns_mode: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The command to use to start the container. For example, to run `/usr/bin/myprogram -f baz.conf` set the command to be `["/usr/bin/myprogram","-f","baz.con"]`.
         #[builder(into, default)]
-        pub command: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
+        pub command: pulumi_gestalt_rust::InputOrOutput<Option<Vec<String>>>,
         /// The total number of milliseconds to wait for the container to reach status 'running'
         #[builder(into, default)]
-        pub container_read_refresh_timeout_milliseconds: pulumi_wasm_rust::InputOrOutput<
+        pub container_read_refresh_timeout_milliseconds: pulumi_gestalt_rust::InputOrOutput<
             Option<i32>,
         >,
         /// A comma-separated list or hyphen-separated range of CPUs a container can use, e.g. `0-1`.
         #[builder(into, default)]
-        pub cpu_set: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub cpu_set: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// CPU shares (relative weight) for the container.
         #[builder(into, default)]
-        pub cpu_shares: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
+        pub cpu_shares: pulumi_gestalt_rust::InputOrOutput<Option<i32>>,
         /// If defined will attempt to stop the container before destroying. Container will be destroyed after `n` seconds or on successful stop.
         #[builder(into, default)]
-        pub destroy_grace_seconds: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
+        pub destroy_grace_seconds: pulumi_gestalt_rust::InputOrOutput<Option<i32>>,
         /// Bind devices to the container.
         #[builder(into, default)]
-        pub devices: pulumi_wasm_rust::InputOrOutput<
+        pub devices: pulumi_gestalt_rust::InputOrOutput<
             Option<Vec<super::types::ContainerDevice>>,
         >,
         /// DNS servers to use.
         #[builder(into, default)]
-        pub dns: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
+        pub dns: pulumi_gestalt_rust::InputOrOutput<Option<Vec<String>>>,
         /// DNS options used by the DNS provider(s), see `resolv.conf` documentation for valid list of options.
         #[builder(into, default)]
-        pub dns_opts: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
+        pub dns_opts: pulumi_gestalt_rust::InputOrOutput<Option<Vec<String>>>,
         /// DNS search domains that are used when bare unqualified hostnames are used inside of the container.
         #[builder(into, default)]
-        pub dns_searches: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
+        pub dns_searches: pulumi_gestalt_rust::InputOrOutput<Option<Vec<String>>>,
         /// Domain name of the container.
         #[builder(into, default)]
-        pub domainname: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub domainname: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The command to use as the Entrypoint for the container. The Entrypoint allows you to configure a container to run as an executable. For example, to run `/usr/bin/myprogram` when starting a container, set the entrypoint to be `"/usr/bin/myprogra"]`.
         #[builder(into, default)]
-        pub entrypoints: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
+        pub entrypoints: pulumi_gestalt_rust::InputOrOutput<Option<Vec<String>>>,
         /// Environment variables to set in the form of `KEY=VALUE`, e.g. `DEBUG=0`
         #[builder(into, default)]
-        pub envs: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
+        pub envs: pulumi_gestalt_rust::InputOrOutput<Option<Vec<String>>>,
         /// GPU devices to add to the container. Currently, only the value `all` is supported. Passing any other value will result in unexpected behavior.
         #[builder(into, default)]
-        pub gpus: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub gpus: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Additional groups for the container user
         #[builder(into, default)]
-        pub group_adds: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
+        pub group_adds: pulumi_gestalt_rust::InputOrOutput<Option<Vec<String>>>,
         /// A test to perform to check that the container is healthy
         #[builder(into, default)]
-        pub healthcheck: pulumi_wasm_rust::InputOrOutput<
+        pub healthcheck: pulumi_gestalt_rust::InputOrOutput<
             Option<super::types::ContainerHealthcheck>,
         >,
         /// Hostname of the container.
         #[builder(into, default)]
-        pub hostname: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub hostname: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Hostname to add
         #[builder(into, default)]
-        pub hosts: pulumi_wasm_rust::InputOrOutput<
+        pub hosts: pulumi_gestalt_rust::InputOrOutput<
             Option<Vec<super::types::ContainerHost>>,
         >,
         /// The ID of the image to back this container. The easiest way to get this value is to use the `docker.RemoteImage` resource as is shown in the example.
         #[builder(into)]
-        pub image: pulumi_wasm_rust::InputOrOutput<String>,
+        pub image: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Configured whether an init process should be injected for this container. If unset this will default to the `dockerd` defaults.
         #[builder(into, default)]
-        pub init: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub init: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// IPC sharing mode for the container. Possible values are: `none`, `private`, `shareable`, `container:<name|id>` or `host`.
         #[builder(into, default)]
-        pub ipc_mode: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub ipc_mode: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// User-defined key/value metadata.
         #[builder(into, default)]
-        pub labels: pulumi_wasm_rust::InputOrOutput<
+        pub labels: pulumi_gestalt_rust::InputOrOutput<
             Option<Vec<super::types::ContainerLabel>>,
         >,
         /// The logging driver to use for the container.
         #[builder(into, default)]
-        pub log_driver: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub log_driver: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Key/value pairs to use as options for the logging driver.
         #[builder(into, default)]
-        pub log_opts: pulumi_wasm_rust::InputOrOutput<
+        pub log_opts: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Save the container logs (`attach` must be enabled). Defaults to `false`.
         #[builder(into, default)]
-        pub logs: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub logs: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// The maximum amount of times to an attempt a restart when `restart` is set to 'on-failure'.
         #[builder(into, default)]
-        pub max_retry_count: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
+        pub max_retry_count: pulumi_gestalt_rust::InputOrOutput<Option<i32>>,
         /// The memory limit for the container in MBs.
         #[builder(into, default)]
-        pub memory: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
+        pub memory: pulumi_gestalt_rust::InputOrOutput<Option<i32>>,
         /// The total memory limit (memory + swap) for the container in MBs. This setting may compute to `-1` after `pulumi up` if the target host doesn't support memory swap, when that is the case docker will use a soft limitation.
         #[builder(into, default)]
-        pub memory_swap: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
+        pub memory_swap: pulumi_gestalt_rust::InputOrOutput<Option<i32>>,
         /// Specification for mounts to be added to containers created as part of the service.
         #[builder(into, default)]
-        pub mounts: pulumi_wasm_rust::InputOrOutput<
+        pub mounts: pulumi_gestalt_rust::InputOrOutput<
             Option<Vec<super::types::ContainerMount>>,
         >,
         /// If `true`, then the Docker container will be kept running. If `false`, then as long as the container exists, Terraform
         /// assumes it is successful. Defaults to `true`.
         #[builder(into, default)]
-        pub must_run: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub must_run: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// The name or id of the network to use. You can use `name` or `id` attribute from a `docker.Network` resource.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Network mode of the container.
         #[builder(into, default)]
-        pub network_mode: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub network_mode: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The networks the container is attached to
         #[builder(into, default)]
-        pub networks_advanced: pulumi_wasm_rust::InputOrOutput<
+        pub networks_advanced: pulumi_gestalt_rust::InputOrOutput<
             Option<Vec<super::types::ContainerNetworksAdvanced>>,
         >,
         /// he PID (Process) Namespace mode for the container. Either `container:<name|id>` or `host`.
         #[builder(into, default)]
-        pub pid_mode: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub pid_mode: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Publish a container's port(s) to the host.
         #[builder(into, default)]
-        pub ports: pulumi_wasm_rust::InputOrOutput<
+        pub ports: pulumi_gestalt_rust::InputOrOutput<
             Option<Vec<super::types::ContainerPort>>,
         >,
         /// If `true`, the container runs in privileged mode.
         #[builder(into, default)]
-        pub privileged: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub privileged: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// Publish all ports of the container.
         #[builder(into, default)]
-        pub publish_all_ports: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub publish_all_ports: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// Whether the mount should be read-only.
         #[builder(into, default)]
-        pub read_only: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub read_only: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// If `true`, it will remove anonymous volumes associated with the container. Defaults to `true`.
         #[builder(into, default)]
-        pub remove_volumes: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub remove_volumes: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// The restart policy for the container. Must be one of 'no', 'on-failure', 'always', 'unless-stopped'. Defaults to `no`.
         #[builder(into, default)]
-        pub restart: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub restart: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// If `true`, then the container will be automatically removed when it exits. Defaults to `false`.
         #[builder(into, default)]
-        pub rm: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub rm: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// Runtime to use for the container.
         #[builder(into, default)]
-        pub runtime: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub runtime: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// List of string values to customize labels for MLS systems, such as SELinux. See https://docs.docker.com/engine/reference/run/#security-configuration.
         #[builder(into, default)]
-        pub security_opts: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
+        pub security_opts: pulumi_gestalt_rust::InputOrOutput<Option<Vec<String>>>,
         /// Size of `/dev/shm` in MBs.
         #[builder(into, default)]
-        pub shm_size: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
+        pub shm_size: pulumi_gestalt_rust::InputOrOutput<Option<i32>>,
         /// If `true`, then the Docker container will be started after creation. If `false`, then the container is only created. Defaults to `true`.
         #[builder(into, default)]
-        pub start: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub start: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// If `true`, keep STDIN open even if not attached (`docker run -i`). Defaults to `false`.
         #[builder(into, default)]
-        pub stdin_open: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub stdin_open: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// Signal to stop a container (default `SIGTERM`).
         #[builder(into, default)]
-        pub stop_signal: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub stop_signal: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Timeout (in seconds) to stop a container.
         #[builder(into, default)]
-        pub stop_timeout: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
+        pub stop_timeout: pulumi_gestalt_rust::InputOrOutput<Option<i32>>,
         /// Key/value pairs for the storage driver options, e.g. `size`: `120G`
         #[builder(into, default)]
-        pub storage_opts: pulumi_wasm_rust::InputOrOutput<
+        pub storage_opts: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// A map of kernel parameters (sysctls) to set in the container.
         #[builder(into, default)]
-        pub sysctls: pulumi_wasm_rust::InputOrOutput<
+        pub sysctls: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// A map of container directories which should be replaced by `tmpfs mounts`, and their corresponding mount options.
         #[builder(into, default)]
-        pub tmpfs: pulumi_wasm_rust::InputOrOutput<
+        pub tmpfs: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// If `true`, allocate a pseudo-tty (`docker run -t`). Defaults to `false`.
         #[builder(into, default)]
-        pub tty: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub tty: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// Ulimit options to add.
         #[builder(into, default)]
-        pub ulimits: pulumi_wasm_rust::InputOrOutput<
+        pub ulimits: pulumi_gestalt_rust::InputOrOutput<
             Option<Vec<super::types::ContainerUlimit>>,
         >,
         /// Specifies files to upload to the container before starting it. Only one of `content` or `content_base64` can be set and at least one of them has to be set.
         #[builder(into, default)]
-        pub uploads: pulumi_wasm_rust::InputOrOutput<
+        pub uploads: pulumi_gestalt_rust::InputOrOutput<
             Option<Vec<super::types::ContainerUpload>>,
         >,
         /// User used for run the first process. Format is `user` or `user:group` which user and group can be passed literraly or by name.
         #[builder(into, default)]
-        pub user: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub user: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Sets the usernamespace mode for the container when usernamespace remapping option is enabled.
         #[builder(into, default)]
-        pub userns_mode: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub userns_mode: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Spec for mounting volumes in the container.
         #[builder(into, default)]
-        pub volumes: pulumi_wasm_rust::InputOrOutput<
+        pub volumes: pulumi_gestalt_rust::InputOrOutput<
             Option<Vec<super::types::ContainerVolume>>,
         >,
         /// If `true`, then the Docker container is waited for being healthy state after creation. If `false`, then the container health state is not checked. Defaults to `false`.
         #[builder(into, default)]
-        pub wait: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub wait: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// The timeout in seconds to wait the container to be healthy after creation. Defaults to `60`.
         #[builder(into, default)]
-        pub wait_timeout: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
+        pub wait_timeout: pulumi_gestalt_rust::InputOrOutput<Option<i32>>,
         /// The working directory for commands to run in.
         #[builder(into, default)]
-        pub working_dir: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub working_dir: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct ContainerResult {
         /// If `true` attach to the container after its creation and waits the end of its execution. Defaults to `false`.
-        pub attach: pulumi_wasm_rust::Output<Option<bool>>,
+        pub attach: pulumi_gestalt_rust::Output<Option<bool>>,
         /// The network bridge of the container as read from its NetworkSettings.
-        pub bridge: pulumi_wasm_rust::Output<String>,
+        pub bridge: pulumi_gestalt_rust::Output<String>,
         /// Add or drop certrain linux capabilities.
-        pub capabilities: pulumi_wasm_rust::Output<
+        pub capabilities: pulumi_gestalt_rust::Output<
             Option<super::types::ContainerCapabilities>,
         >,
         /// Cgroup namespace mode to use for the container. Possible values are: `private`, `host`.
-        pub cgroupns_mode: pulumi_wasm_rust::Output<Option<String>>,
+        pub cgroupns_mode: pulumi_gestalt_rust::Output<Option<String>>,
         /// The command to use to start the container. For example, to run `/usr/bin/myprogram -f baz.conf` set the command to be `["/usr/bin/myprogram","-f","baz.con"]`.
-        pub command: pulumi_wasm_rust::Output<Vec<String>>,
+        pub command: pulumi_gestalt_rust::Output<Vec<String>>,
         /// The logs of the container if its execution is done (`attach` must be disabled).
-        pub container_logs: pulumi_wasm_rust::Output<Option<String>>,
+        pub container_logs: pulumi_gestalt_rust::Output<Option<String>>,
         /// The total number of milliseconds to wait for the container to reach status 'running'
-        pub container_read_refresh_timeout_milliseconds: pulumi_wasm_rust::Output<
+        pub container_read_refresh_timeout_milliseconds: pulumi_gestalt_rust::Output<
             Option<i32>,
         >,
         /// A comma-separated list or hyphen-separated range of CPUs a container can use, e.g. `0-1`.
-        pub cpu_set: pulumi_wasm_rust::Output<Option<String>>,
+        pub cpu_set: pulumi_gestalt_rust::Output<Option<String>>,
         /// CPU shares (relative weight) for the container.
-        pub cpu_shares: pulumi_wasm_rust::Output<Option<i32>>,
+        pub cpu_shares: pulumi_gestalt_rust::Output<Option<i32>>,
         /// If defined will attempt to stop the container before destroying. Container will be destroyed after `n` seconds or on successful stop.
-        pub destroy_grace_seconds: pulumi_wasm_rust::Output<Option<i32>>,
+        pub destroy_grace_seconds: pulumi_gestalt_rust::Output<Option<i32>>,
         /// Bind devices to the container.
-        pub devices: pulumi_wasm_rust::Output<
+        pub devices: pulumi_gestalt_rust::Output<
             Option<Vec<super::types::ContainerDevice>>,
         >,
         /// DNS servers to use.
-        pub dns: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub dns: pulumi_gestalt_rust::Output<Option<Vec<String>>>,
         /// DNS options used by the DNS provider(s), see `resolv.conf` documentation for valid list of options.
-        pub dns_opts: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub dns_opts: pulumi_gestalt_rust::Output<Option<Vec<String>>>,
         /// DNS search domains that are used when bare unqualified hostnames are used inside of the container.
-        pub dns_searches: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub dns_searches: pulumi_gestalt_rust::Output<Option<Vec<String>>>,
         /// Domain name of the container.
-        pub domainname: pulumi_wasm_rust::Output<Option<String>>,
+        pub domainname: pulumi_gestalt_rust::Output<Option<String>>,
         /// The command to use as the Entrypoint for the container. The Entrypoint allows you to configure a container to run as an executable. For example, to run `/usr/bin/myprogram` when starting a container, set the entrypoint to be `"/usr/bin/myprogra"]`.
-        pub entrypoints: pulumi_wasm_rust::Output<Vec<String>>,
+        pub entrypoints: pulumi_gestalt_rust::Output<Vec<String>>,
         /// Environment variables to set in the form of `KEY=VALUE`, e.g. `DEBUG=0`
-        pub envs: pulumi_wasm_rust::Output<Vec<String>>,
+        pub envs: pulumi_gestalt_rust::Output<Vec<String>>,
         /// The exit code of the container if its execution is done (`must_run` must be disabled).
-        pub exit_code: pulumi_wasm_rust::Output<i32>,
+        pub exit_code: pulumi_gestalt_rust::Output<i32>,
         /// GPU devices to add to the container. Currently, only the value `all` is supported. Passing any other value will result in unexpected behavior.
-        pub gpus: pulumi_wasm_rust::Output<Option<String>>,
+        pub gpus: pulumi_gestalt_rust::Output<Option<String>>,
         /// Additional groups for the container user
-        pub group_adds: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub group_adds: pulumi_gestalt_rust::Output<Option<Vec<String>>>,
         /// A test to perform to check that the container is healthy
-        pub healthcheck: pulumi_wasm_rust::Output<
+        pub healthcheck: pulumi_gestalt_rust::Output<
             Option<super::types::ContainerHealthcheck>,
         >,
         /// Hostname of the container.
-        pub hostname: pulumi_wasm_rust::Output<String>,
+        pub hostname: pulumi_gestalt_rust::Output<String>,
         /// Hostname to add
-        pub hosts: pulumi_wasm_rust::Output<Option<Vec<super::types::ContainerHost>>>,
+        pub hosts: pulumi_gestalt_rust::Output<Option<Vec<super::types::ContainerHost>>>,
         /// The ID of the image to back this container. The easiest way to get this value is to use the `docker.RemoteImage` resource as is shown in the example.
-        pub image: pulumi_wasm_rust::Output<String>,
+        pub image: pulumi_gestalt_rust::Output<String>,
         /// Configured whether an init process should be injected for this container. If unset this will default to the `dockerd` defaults.
-        pub init: pulumi_wasm_rust::Output<bool>,
+        pub init: pulumi_gestalt_rust::Output<bool>,
         /// IPC sharing mode for the container. Possible values are: `none`, `private`, `shareable`, `container:<name|id>` or `host`.
-        pub ipc_mode: pulumi_wasm_rust::Output<String>,
+        pub ipc_mode: pulumi_gestalt_rust::Output<String>,
         /// User-defined key/value metadata.
-        pub labels: pulumi_wasm_rust::Output<Vec<super::types::ContainerLabel>>,
+        pub labels: pulumi_gestalt_rust::Output<Vec<super::types::ContainerLabel>>,
         /// The logging driver to use for the container.
-        pub log_driver: pulumi_wasm_rust::Output<String>,
+        pub log_driver: pulumi_gestalt_rust::Output<String>,
         /// Key/value pairs to use as options for the logging driver.
-        pub log_opts: pulumi_wasm_rust::Output<
+        pub log_opts: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Save the container logs (`attach` must be enabled). Defaults to `false`.
-        pub logs: pulumi_wasm_rust::Output<Option<bool>>,
+        pub logs: pulumi_gestalt_rust::Output<Option<bool>>,
         /// The maximum amount of times to an attempt a restart when `restart` is set to 'on-failure'.
-        pub max_retry_count: pulumi_wasm_rust::Output<Option<i32>>,
+        pub max_retry_count: pulumi_gestalt_rust::Output<Option<i32>>,
         /// The memory limit for the container in MBs.
-        pub memory: pulumi_wasm_rust::Output<Option<i32>>,
+        pub memory: pulumi_gestalt_rust::Output<Option<i32>>,
         /// The total memory limit (memory + swap) for the container in MBs. This setting may compute to `-1` after `pulumi up` if the target host doesn't support memory swap, when that is the case docker will use a soft limitation.
-        pub memory_swap: pulumi_wasm_rust::Output<Option<i32>>,
+        pub memory_swap: pulumi_gestalt_rust::Output<Option<i32>>,
         /// Specification for mounts to be added to containers created as part of the service.
-        pub mounts: pulumi_wasm_rust::Output<Option<Vec<super::types::ContainerMount>>>,
+        pub mounts: pulumi_gestalt_rust::Output<
+            Option<Vec<super::types::ContainerMount>>,
+        >,
         /// If `true`, then the Docker container will be kept running. If `false`, then as long as the container exists, Terraform
         /// assumes it is successful. Defaults to `true`.
-        pub must_run: pulumi_wasm_rust::Output<Option<bool>>,
+        pub must_run: pulumi_gestalt_rust::Output<Option<bool>>,
         /// The name or id of the network to use. You can use `name` or `id` attribute from a `docker.Network` resource.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// The data of the networks the container is connected to.
-        pub network_datas: pulumi_wasm_rust::Output<
+        pub network_datas: pulumi_gestalt_rust::Output<
             Vec<super::types::ContainerNetworkData>,
         >,
         /// Network mode of the container.
-        pub network_mode: pulumi_wasm_rust::Output<Option<String>>,
+        pub network_mode: pulumi_gestalt_rust::Output<Option<String>>,
         /// The networks the container is attached to
-        pub networks_advanced: pulumi_wasm_rust::Output<
+        pub networks_advanced: pulumi_gestalt_rust::Output<
             Option<Vec<super::types::ContainerNetworksAdvanced>>,
         >,
         /// he PID (Process) Namespace mode for the container. Either `container:<name|id>` or `host`.
-        pub pid_mode: pulumi_wasm_rust::Output<Option<String>>,
+        pub pid_mode: pulumi_gestalt_rust::Output<Option<String>>,
         /// Publish a container's port(s) to the host.
-        pub ports: pulumi_wasm_rust::Output<Option<Vec<super::types::ContainerPort>>>,
+        pub ports: pulumi_gestalt_rust::Output<Option<Vec<super::types::ContainerPort>>>,
         /// If `true`, the container runs in privileged mode.
-        pub privileged: pulumi_wasm_rust::Output<Option<bool>>,
+        pub privileged: pulumi_gestalt_rust::Output<Option<bool>>,
         /// Publish all ports of the container.
-        pub publish_all_ports: pulumi_wasm_rust::Output<Option<bool>>,
+        pub publish_all_ports: pulumi_gestalt_rust::Output<Option<bool>>,
         /// Whether the mount should be read-only.
-        pub read_only: pulumi_wasm_rust::Output<Option<bool>>,
+        pub read_only: pulumi_gestalt_rust::Output<Option<bool>>,
         /// If `true`, it will remove anonymous volumes associated with the container. Defaults to `true`.
-        pub remove_volumes: pulumi_wasm_rust::Output<Option<bool>>,
+        pub remove_volumes: pulumi_gestalt_rust::Output<Option<bool>>,
         /// The restart policy for the container. Must be one of 'no', 'on-failure', 'always', 'unless-stopped'. Defaults to `no`.
-        pub restart: pulumi_wasm_rust::Output<Option<String>>,
+        pub restart: pulumi_gestalt_rust::Output<Option<String>>,
         /// If `true`, then the container will be automatically removed when it exits. Defaults to `false`.
-        pub rm: pulumi_wasm_rust::Output<Option<bool>>,
+        pub rm: pulumi_gestalt_rust::Output<Option<bool>>,
         /// Runtime to use for the container.
-        pub runtime: pulumi_wasm_rust::Output<String>,
+        pub runtime: pulumi_gestalt_rust::Output<String>,
         /// List of string values to customize labels for MLS systems, such as SELinux. See https://docs.docker.com/engine/reference/run/#security-configuration.
-        pub security_opts: pulumi_wasm_rust::Output<Vec<String>>,
+        pub security_opts: pulumi_gestalt_rust::Output<Vec<String>>,
         /// Size of `/dev/shm` in MBs.
-        pub shm_size: pulumi_wasm_rust::Output<i32>,
+        pub shm_size: pulumi_gestalt_rust::Output<i32>,
         /// If `true`, then the Docker container will be started after creation. If `false`, then the container is only created. Defaults to `true`.
-        pub start: pulumi_wasm_rust::Output<Option<bool>>,
+        pub start: pulumi_gestalt_rust::Output<Option<bool>>,
         /// If `true`, keep STDIN open even if not attached (`docker run -i`). Defaults to `false`.
-        pub stdin_open: pulumi_wasm_rust::Output<Option<bool>>,
+        pub stdin_open: pulumi_gestalt_rust::Output<Option<bool>>,
         /// Signal to stop a container (default `SIGTERM`).
-        pub stop_signal: pulumi_wasm_rust::Output<String>,
+        pub stop_signal: pulumi_gestalt_rust::Output<String>,
         /// Timeout (in seconds) to stop a container.
-        pub stop_timeout: pulumi_wasm_rust::Output<i32>,
+        pub stop_timeout: pulumi_gestalt_rust::Output<i32>,
         /// Key/value pairs for the storage driver options, e.g. `size`: `120G`
-        pub storage_opts: pulumi_wasm_rust::Output<
+        pub storage_opts: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// A map of kernel parameters (sysctls) to set in the container.
-        pub sysctls: pulumi_wasm_rust::Output<
+        pub sysctls: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// A map of container directories which should be replaced by `tmpfs mounts`, and their corresponding mount options.
-        pub tmpfs: pulumi_wasm_rust::Output<
+        pub tmpfs: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// If `true`, allocate a pseudo-tty (`docker run -t`). Defaults to `false`.
-        pub tty: pulumi_wasm_rust::Output<Option<bool>>,
+        pub tty: pulumi_gestalt_rust::Output<Option<bool>>,
         /// Ulimit options to add.
-        pub ulimits: pulumi_wasm_rust::Output<
+        pub ulimits: pulumi_gestalt_rust::Output<
             Option<Vec<super::types::ContainerUlimit>>,
         >,
         /// Specifies files to upload to the container before starting it. Only one of `content` or `content_base64` can be set and at least one of them has to be set.
-        pub uploads: pulumi_wasm_rust::Output<
+        pub uploads: pulumi_gestalt_rust::Output<
             Option<Vec<super::types::ContainerUpload>>,
         >,
         /// User used for run the first process. Format is `user` or `user:group` which user and group can be passed literraly or by name.
-        pub user: pulumi_wasm_rust::Output<Option<String>>,
+        pub user: pulumi_gestalt_rust::Output<Option<String>>,
         /// Sets the usernamespace mode for the container when usernamespace remapping option is enabled.
-        pub userns_mode: pulumi_wasm_rust::Output<Option<String>>,
+        pub userns_mode: pulumi_gestalt_rust::Output<Option<String>>,
         /// Spec for mounting volumes in the container.
-        pub volumes: pulumi_wasm_rust::Output<
+        pub volumes: pulumi_gestalt_rust::Output<
             Option<Vec<super::types::ContainerVolume>>,
         >,
         /// If `true`, then the Docker container is waited for being healthy state after creation. If `false`, then the container health state is not checked. Defaults to `false`.
-        pub wait: pulumi_wasm_rust::Output<Option<bool>>,
+        pub wait: pulumi_gestalt_rust::Output<Option<bool>>,
         /// The timeout in seconds to wait the container to be healthy after creation. Defaults to `60`.
-        pub wait_timeout: pulumi_wasm_rust::Output<Option<i32>>,
+        pub wait_timeout: pulumi_gestalt_rust::Output<Option<i32>>,
         /// The working directory for commands to run in.
-        pub working_dir: pulumi_wasm_rust::Output<Option<String>>,
+        pub working_dir: pulumi_gestalt_rust::Output<Option<String>>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: ContainerArgs,
     ) -> ContainerResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let attach_binding = args.attach.get_output(context).get_inner();
         let capabilities_binding = args.capabilities.get_output(context).get_inner();
@@ -795,160 +797,172 @@ pub mod container {
         };
         let o = register_interface::register(context.get_inner(), &request);
         ContainerResult {
-            attach: pulumi_wasm_rust::__private::into_domain(o.extract_field("attach")),
-            bridge: pulumi_wasm_rust::__private::into_domain(o.extract_field("bridge")),
-            capabilities: pulumi_wasm_rust::__private::into_domain(
+            attach: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("attach"),
+            ),
+            bridge: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("bridge"),
+            ),
+            capabilities: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("capabilities"),
             ),
-            cgroupns_mode: pulumi_wasm_rust::__private::into_domain(
+            cgroupns_mode: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("cgroupnsMode"),
             ),
-            command: pulumi_wasm_rust::__private::into_domain(
+            command: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("command"),
             ),
-            container_logs: pulumi_wasm_rust::__private::into_domain(
+            container_logs: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("containerLogs"),
             ),
-            container_read_refresh_timeout_milliseconds: pulumi_wasm_rust::__private::into_domain(
+            container_read_refresh_timeout_milliseconds: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("containerReadRefreshTimeoutMilliseconds"),
             ),
-            cpu_set: pulumi_wasm_rust::__private::into_domain(o.extract_field("cpuSet")),
-            cpu_shares: pulumi_wasm_rust::__private::into_domain(
+            cpu_set: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("cpuSet"),
+            ),
+            cpu_shares: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("cpuShares"),
             ),
-            destroy_grace_seconds: pulumi_wasm_rust::__private::into_domain(
+            destroy_grace_seconds: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("destroyGraceSeconds"),
             ),
-            devices: pulumi_wasm_rust::__private::into_domain(
+            devices: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("devices"),
             ),
-            dns: pulumi_wasm_rust::__private::into_domain(o.extract_field("dns")),
-            dns_opts: pulumi_wasm_rust::__private::into_domain(
+            dns: pulumi_gestalt_rust::__private::into_domain(o.extract_field("dns")),
+            dns_opts: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("dnsOpts"),
             ),
-            dns_searches: pulumi_wasm_rust::__private::into_domain(
+            dns_searches: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("dnsSearches"),
             ),
-            domainname: pulumi_wasm_rust::__private::into_domain(
+            domainname: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("domainname"),
             ),
-            entrypoints: pulumi_wasm_rust::__private::into_domain(
+            entrypoints: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("entrypoints"),
             ),
-            envs: pulumi_wasm_rust::__private::into_domain(o.extract_field("envs")),
-            exit_code: pulumi_wasm_rust::__private::into_domain(
+            envs: pulumi_gestalt_rust::__private::into_domain(o.extract_field("envs")),
+            exit_code: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("exitCode"),
             ),
-            gpus: pulumi_wasm_rust::__private::into_domain(o.extract_field("gpus")),
-            group_adds: pulumi_wasm_rust::__private::into_domain(
+            gpus: pulumi_gestalt_rust::__private::into_domain(o.extract_field("gpus")),
+            group_adds: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("groupAdds"),
             ),
-            healthcheck: pulumi_wasm_rust::__private::into_domain(
+            healthcheck: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("healthcheck"),
             ),
-            hostname: pulumi_wasm_rust::__private::into_domain(
+            hostname: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("hostname"),
             ),
-            hosts: pulumi_wasm_rust::__private::into_domain(o.extract_field("hosts")),
-            image: pulumi_wasm_rust::__private::into_domain(o.extract_field("image")),
-            init: pulumi_wasm_rust::__private::into_domain(o.extract_field("init")),
-            ipc_mode: pulumi_wasm_rust::__private::into_domain(
+            hosts: pulumi_gestalt_rust::__private::into_domain(o.extract_field("hosts")),
+            image: pulumi_gestalt_rust::__private::into_domain(o.extract_field("image")),
+            init: pulumi_gestalt_rust::__private::into_domain(o.extract_field("init")),
+            ipc_mode: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("ipcMode"),
             ),
-            labels: pulumi_wasm_rust::__private::into_domain(o.extract_field("labels")),
-            log_driver: pulumi_wasm_rust::__private::into_domain(
+            labels: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("labels"),
+            ),
+            log_driver: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("logDriver"),
             ),
-            log_opts: pulumi_wasm_rust::__private::into_domain(
+            log_opts: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("logOpts"),
             ),
-            logs: pulumi_wasm_rust::__private::into_domain(o.extract_field("logs")),
-            max_retry_count: pulumi_wasm_rust::__private::into_domain(
+            logs: pulumi_gestalt_rust::__private::into_domain(o.extract_field("logs")),
+            max_retry_count: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("maxRetryCount"),
             ),
-            memory: pulumi_wasm_rust::__private::into_domain(o.extract_field("memory")),
-            memory_swap: pulumi_wasm_rust::__private::into_domain(
+            memory: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("memory"),
+            ),
+            memory_swap: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("memorySwap"),
             ),
-            mounts: pulumi_wasm_rust::__private::into_domain(o.extract_field("mounts")),
-            must_run: pulumi_wasm_rust::__private::into_domain(
+            mounts: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("mounts"),
+            ),
+            must_run: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("mustRun"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            network_datas: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            network_datas: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("networkDatas"),
             ),
-            network_mode: pulumi_wasm_rust::__private::into_domain(
+            network_mode: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("networkMode"),
             ),
-            networks_advanced: pulumi_wasm_rust::__private::into_domain(
+            networks_advanced: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("networksAdvanced"),
             ),
-            pid_mode: pulumi_wasm_rust::__private::into_domain(
+            pid_mode: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("pidMode"),
             ),
-            ports: pulumi_wasm_rust::__private::into_domain(o.extract_field("ports")),
-            privileged: pulumi_wasm_rust::__private::into_domain(
+            ports: pulumi_gestalt_rust::__private::into_domain(o.extract_field("ports")),
+            privileged: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("privileged"),
             ),
-            publish_all_ports: pulumi_wasm_rust::__private::into_domain(
+            publish_all_ports: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("publishAllPorts"),
             ),
-            read_only: pulumi_wasm_rust::__private::into_domain(
+            read_only: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("readOnly"),
             ),
-            remove_volumes: pulumi_wasm_rust::__private::into_domain(
+            remove_volumes: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("removeVolumes"),
             ),
-            restart: pulumi_wasm_rust::__private::into_domain(
+            restart: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("restart"),
             ),
-            rm: pulumi_wasm_rust::__private::into_domain(o.extract_field("rm")),
-            runtime: pulumi_wasm_rust::__private::into_domain(
+            rm: pulumi_gestalt_rust::__private::into_domain(o.extract_field("rm")),
+            runtime: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("runtime"),
             ),
-            security_opts: pulumi_wasm_rust::__private::into_domain(
+            security_opts: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("securityOpts"),
             ),
-            shm_size: pulumi_wasm_rust::__private::into_domain(
+            shm_size: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("shmSize"),
             ),
-            start: pulumi_wasm_rust::__private::into_domain(o.extract_field("start")),
-            stdin_open: pulumi_wasm_rust::__private::into_domain(
+            start: pulumi_gestalt_rust::__private::into_domain(o.extract_field("start")),
+            stdin_open: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("stdinOpen"),
             ),
-            stop_signal: pulumi_wasm_rust::__private::into_domain(
+            stop_signal: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("stopSignal"),
             ),
-            stop_timeout: pulumi_wasm_rust::__private::into_domain(
+            stop_timeout: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("stopTimeout"),
             ),
-            storage_opts: pulumi_wasm_rust::__private::into_domain(
+            storage_opts: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("storageOpts"),
             ),
-            sysctls: pulumi_wasm_rust::__private::into_domain(
+            sysctls: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("sysctls"),
             ),
-            tmpfs: pulumi_wasm_rust::__private::into_domain(o.extract_field("tmpfs")),
-            tty: pulumi_wasm_rust::__private::into_domain(o.extract_field("tty")),
-            ulimits: pulumi_wasm_rust::__private::into_domain(
+            tmpfs: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tmpfs")),
+            tty: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tty")),
+            ulimits: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("ulimits"),
             ),
-            uploads: pulumi_wasm_rust::__private::into_domain(
+            uploads: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("uploads"),
             ),
-            user: pulumi_wasm_rust::__private::into_domain(o.extract_field("user")),
-            userns_mode: pulumi_wasm_rust::__private::into_domain(
+            user: pulumi_gestalt_rust::__private::into_domain(o.extract_field("user")),
+            userns_mode: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("usernsMode"),
             ),
-            volumes: pulumi_wasm_rust::__private::into_domain(
+            volumes: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("volumes"),
             ),
-            wait: pulumi_wasm_rust::__private::into_domain(o.extract_field("wait")),
-            wait_timeout: pulumi_wasm_rust::__private::into_domain(
+            wait: pulumi_gestalt_rust::__private::into_domain(o.extract_field("wait")),
+            wait_timeout: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("waitTimeout"),
             ),
-            working_dir: pulumi_wasm_rust::__private::into_domain(
+            working_dir: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("workingDir"),
             ),
         }

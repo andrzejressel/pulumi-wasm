@@ -1,19 +1,19 @@
 pub mod get_group_memberships {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct GetGroupMembershipsArgs {
         /// The parent Group resource under which to lookup the Membership names. Must be of the form groups/{group_id}.
         #[builder(into)]
-        pub group: pulumi_wasm_rust::InputOrOutput<String>,
+        pub group: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct GetGroupMembershipsResult {
-        pub group: pulumi_wasm_rust::Output<String>,
+        pub group: pulumi_gestalt_rust::Output<String>,
         /// The provider-assigned unique ID for this managed resource.
-        pub id: pulumi_wasm_rust::Output<String>,
+        pub id: pulumi_gestalt_rust::Output<String>,
         /// The list of memberships under the given group. Structure is documented below.
-        pub memberships: pulumi_wasm_rust::Output<
+        pub memberships: pulumi_gestalt_rust::Output<
             Vec<super::super::super::types::cloudidentity::GetGroupMembershipsMembership>,
         >,
     }
@@ -22,10 +22,10 @@ pub mod get_group_memberships {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         args: GetGroupMembershipsArgs,
     ) -> GetGroupMembershipsResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let group_binding = args.group.get_output(context).get_inner();
         let request = register_interface::ResourceInvokeRequest {
@@ -40,9 +40,9 @@ pub mod get_group_memberships {
         };
         let o = register_interface::invoke(context.get_inner(), &request);
         GetGroupMembershipsResult {
-            group: pulumi_wasm_rust::__private::into_domain(o.extract_field("group")),
-            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
-            memberships: pulumi_wasm_rust::__private::into_domain(
+            group: pulumi_gestalt_rust::__private::into_domain(o.extract_field("group")),
+            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
+            memberships: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("memberships"),
             ),
         }

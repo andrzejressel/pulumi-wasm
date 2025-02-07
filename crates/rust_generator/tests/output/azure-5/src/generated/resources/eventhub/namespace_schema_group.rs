@@ -1,8 +1,8 @@
 /// ## Example Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = resource_group::create(
@@ -42,44 +42,44 @@
 /// ```
 ///
 pub mod namespace_schema_group {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct NamespaceSchemaGroupArgs {
         /// Specifies the name of this schema group. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Specifies the ID of the EventHub Namespace. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub namespace_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub namespace_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Specifies the compatibility of this schema group. Possible values are `None`, `Backward`, `Forward`. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub schema_compatibility: pulumi_wasm_rust::InputOrOutput<String>,
+        pub schema_compatibility: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Specifies the Type of this schema group. Possible values are `Avro`, `Unknown`. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub schema_type: pulumi_wasm_rust::InputOrOutput<String>,
+        pub schema_type: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct NamespaceSchemaGroupResult {
         /// Specifies the name of this schema group. Changing this forces a new resource to be created.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// Specifies the ID of the EventHub Namespace. Changing this forces a new resource to be created.
-        pub namespace_id: pulumi_wasm_rust::Output<String>,
+        pub namespace_id: pulumi_gestalt_rust::Output<String>,
         /// Specifies the compatibility of this schema group. Possible values are `None`, `Backward`, `Forward`. Changing this forces a new resource to be created.
-        pub schema_compatibility: pulumi_wasm_rust::Output<String>,
+        pub schema_compatibility: pulumi_gestalt_rust::Output<String>,
         /// Specifies the Type of this schema group. Possible values are `Avro`, `Unknown`. Changing this forces a new resource to be created.
-        pub schema_type: pulumi_wasm_rust::Output<String>,
+        pub schema_type: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: NamespaceSchemaGroupArgs,
     ) -> NamespaceSchemaGroupResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let name_binding = args.name.get_output(context).get_inner();
         let namespace_id_binding = args.namespace_id.get_output(context).get_inner();
@@ -113,14 +113,14 @@ pub mod namespace_schema_group {
         };
         let o = register_interface::register(context.get_inner(), &request);
         NamespaceSchemaGroupResult {
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            namespace_id: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            namespace_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("namespaceId"),
             ),
-            schema_compatibility: pulumi_wasm_rust::__private::into_domain(
+            schema_compatibility: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("schemaCompatibility"),
             ),
-            schema_type: pulumi_wasm_rust::__private::into_domain(
+            schema_type: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("schemaType"),
             ),
         }

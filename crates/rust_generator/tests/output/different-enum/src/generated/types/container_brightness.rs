@@ -5,7 +5,7 @@ pub enum ContainerBrightness {
     One,
 }
 
-impl pulumi_wasm_rust::__private::serde::Serialize for ContainerBrightness {
+impl pulumi_gestalt_rust::__private::serde::Serialize for ContainerBrightness {
     fn serialize<S>(&self, serializer: S) -> Result<S::Ok, S::Error>
     where
         S: serde::Serializer,
@@ -18,7 +18,7 @@ impl pulumi_wasm_rust::__private::serde::Serialize for ContainerBrightness {
     }
 }
 
-impl<'de> pulumi_wasm_rust::__private::serde::Deserialize<'de> for ContainerBrightness {
+impl<'de> pulumi_gestalt_rust::__private::serde::Deserialize<'de> for ContainerBrightness {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
         D: serde::Deserializer<'de>,

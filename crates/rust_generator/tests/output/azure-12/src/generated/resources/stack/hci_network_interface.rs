@@ -57,63 +57,63 @@
 /// ```
 ///
 pub mod hci_network_interface {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct HciNetworkInterfaceArgs {
         /// The ID of the Custom Location where the Azure Stack HCI Network Interface should exist. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub custom_location_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub custom_location_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// A list of IPv4 addresses of DNS servers available to VMs deployed in the Network Interface. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub dns_servers: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
+        pub dns_servers: pulumi_gestalt_rust::InputOrOutput<Option<Vec<String>>>,
         /// An `ip_configuration` block as defined below. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub ip_configuration: pulumi_wasm_rust::InputOrOutput<
+        pub ip_configuration: pulumi_gestalt_rust::InputOrOutput<
             super::super::types::stack::HciNetworkInterfaceIpConfiguration,
         >,
         /// The Azure Region where the Azure Stack HCI Network Interface should exist. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub location: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub location: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The MAC address of the Network Interface. Changing this forces a new resource to be created.
         ///
         /// > **Note:** If `mac_address` is not specified, it will be assigned by the server. If you experience a diff you may need to add this to `ignore_changes`.
         #[builder(into, default)]
-        pub mac_address: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub mac_address: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The name which should be used for this Azure Stack HCI Network Interface. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The name of the Resource Group where the Azure Stack HCI Network Interface should exist. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub resource_group_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub resource_group_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// A mapping of tags which should be assigned to the Azure Stack HCI Network Interface.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
     #[allow(dead_code)]
     pub struct HciNetworkInterfaceResult {
         /// The ID of the Custom Location where the Azure Stack HCI Network Interface should exist. Changing this forces a new resource to be created.
-        pub custom_location_id: pulumi_wasm_rust::Output<String>,
+        pub custom_location_id: pulumi_gestalt_rust::Output<String>,
         /// A list of IPv4 addresses of DNS servers available to VMs deployed in the Network Interface. Changing this forces a new resource to be created.
-        pub dns_servers: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub dns_servers: pulumi_gestalt_rust::Output<Option<Vec<String>>>,
         /// An `ip_configuration` block as defined below. Changing this forces a new resource to be created.
-        pub ip_configuration: pulumi_wasm_rust::Output<
+        pub ip_configuration: pulumi_gestalt_rust::Output<
             super::super::types::stack::HciNetworkInterfaceIpConfiguration,
         >,
         /// The Azure Region where the Azure Stack HCI Network Interface should exist. Changing this forces a new resource to be created.
-        pub location: pulumi_wasm_rust::Output<String>,
+        pub location: pulumi_gestalt_rust::Output<String>,
         /// The MAC address of the Network Interface. Changing this forces a new resource to be created.
         ///
         /// > **Note:** If `mac_address` is not specified, it will be assigned by the server. If you experience a diff you may need to add this to `ignore_changes`.
-        pub mac_address: pulumi_wasm_rust::Output<Option<String>>,
+        pub mac_address: pulumi_gestalt_rust::Output<Option<String>>,
         /// The name which should be used for this Azure Stack HCI Network Interface. Changing this forces a new resource to be created.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// The name of the Resource Group where the Azure Stack HCI Network Interface should exist. Changing this forces a new resource to be created.
-        pub resource_group_name: pulumi_wasm_rust::Output<String>,
+        pub resource_group_name: pulumi_gestalt_rust::Output<String>,
         /// A mapping of tags which should be assigned to the Azure Stack HCI Network Interface.
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
@@ -122,11 +122,11 @@ pub mod hci_network_interface {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: HciNetworkInterfaceArgs,
     ) -> HciNetworkInterfaceResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let custom_location_id_binding = args
             .custom_location_id
@@ -186,26 +186,26 @@ pub mod hci_network_interface {
         };
         let o = register_interface::register(context.get_inner(), &request);
         HciNetworkInterfaceResult {
-            custom_location_id: pulumi_wasm_rust::__private::into_domain(
+            custom_location_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("customLocationId"),
             ),
-            dns_servers: pulumi_wasm_rust::__private::into_domain(
+            dns_servers: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("dnsServers"),
             ),
-            ip_configuration: pulumi_wasm_rust::__private::into_domain(
+            ip_configuration: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("ipConfiguration"),
             ),
-            location: pulumi_wasm_rust::__private::into_domain(
+            location: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("location"),
             ),
-            mac_address: pulumi_wasm_rust::__private::into_domain(
+            mac_address: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("macAddress"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            resource_group_name: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("resourceGroupName"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
         }
     }
 }

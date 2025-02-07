@@ -140,8 +140,8 @@
 /// ### S3 Logging
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = flow_log::create(
@@ -163,8 +163,8 @@
 /// ### S3 Logging in Apache Parquet format with per-hour partitions
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = flow_log::create(
@@ -197,121 +197,123 @@
 /// $ pulumi import aws:ec2/flowLog:FlowLog test_flow_log fl-1a2b3c4d
 /// ```
 pub mod flow_log {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct FlowLogArgs {
         /// ARN of the IAM role that allows Amazon EC2 to publish flow logs across accounts.
         #[builder(into, default)]
-        pub deliver_cross_account_role: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub deliver_cross_account_role: pulumi_gestalt_rust::InputOrOutput<
+            Option<String>,
+        >,
         /// Describes the destination options for a flow log. More details below.
         #[builder(into, default)]
-        pub destination_options: pulumi_wasm_rust::InputOrOutput<
+        pub destination_options: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::ec2::FlowLogDestinationOptions>,
         >,
         /// Elastic Network Interface ID to attach to
         #[builder(into, default)]
-        pub eni_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub eni_id: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The ARN for the IAM role that's used to post flow logs to a CloudWatch Logs log group
         #[builder(into, default)]
-        pub iam_role_arn: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub iam_role_arn: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The ARN of the logging destination. Either `log_destination` or `log_group_name` must be set.
         #[builder(into, default)]
-        pub log_destination: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub log_destination: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The type of the logging destination. Valid values: `cloud-watch-logs`, `s3`, `kinesis-data-firehose`. Default: `cloud-watch-logs`.
         #[builder(into, default)]
-        pub log_destination_type: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub log_destination_type: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The fields to include in the flow log record. Accepted format example: `"$${interface-id} $${srcaddr} $${dstaddr} $${srcport} $${dstport}"`.
         #[builder(into, default)]
-        pub log_format: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub log_format: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// **Deprecated:** Use `log_destination` instead. The name of the CloudWatch log group. Either `log_group_name` or `log_destination` must be set.
         #[builder(into, default)]
-        pub log_group_name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub log_group_name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The maximum interval of time
         /// during which a flow of packets is captured and aggregated into a flow
         /// log record. Valid Values: `60` seconds (1 minute) or `600` seconds (10
         /// minutes). Default: `600`. When `transit_gateway_id` or `transit_gateway_attachment_id` is specified, `max_aggregation_interval` *must* be 60 seconds (1 minute).
         #[builder(into, default)]
-        pub max_aggregation_interval: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
+        pub max_aggregation_interval: pulumi_gestalt_rust::InputOrOutput<Option<i32>>,
         /// Subnet ID to attach to
         #[builder(into, default)]
-        pub subnet_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub subnet_id: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// The type of traffic to capture. Valid values: `ACCEPT`,`REJECT`, `ALL`.
         #[builder(into, default)]
-        pub traffic_type: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub traffic_type: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Transit Gateway Attachment ID to attach to
         #[builder(into, default)]
-        pub transit_gateway_attachment_id: pulumi_wasm_rust::InputOrOutput<
+        pub transit_gateway_attachment_id: pulumi_gestalt_rust::InputOrOutput<
             Option<String>,
         >,
         /// Transit Gateway ID to attach to
         #[builder(into, default)]
-        pub transit_gateway_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub transit_gateway_id: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// VPC ID to attach to
         #[builder(into, default)]
-        pub vpc_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub vpc_id: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct FlowLogResult {
         /// The ARN of the Flow Log.
-        pub arn: pulumi_wasm_rust::Output<String>,
+        pub arn: pulumi_gestalt_rust::Output<String>,
         /// ARN of the IAM role that allows Amazon EC2 to publish flow logs across accounts.
-        pub deliver_cross_account_role: pulumi_wasm_rust::Output<Option<String>>,
+        pub deliver_cross_account_role: pulumi_gestalt_rust::Output<Option<String>>,
         /// Describes the destination options for a flow log. More details below.
-        pub destination_options: pulumi_wasm_rust::Output<
+        pub destination_options: pulumi_gestalt_rust::Output<
             Option<super::super::types::ec2::FlowLogDestinationOptions>,
         >,
         /// Elastic Network Interface ID to attach to
-        pub eni_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub eni_id: pulumi_gestalt_rust::Output<Option<String>>,
         /// The ARN for the IAM role that's used to post flow logs to a CloudWatch Logs log group
-        pub iam_role_arn: pulumi_wasm_rust::Output<Option<String>>,
+        pub iam_role_arn: pulumi_gestalt_rust::Output<Option<String>>,
         /// The ARN of the logging destination. Either `log_destination` or `log_group_name` must be set.
-        pub log_destination: pulumi_wasm_rust::Output<String>,
+        pub log_destination: pulumi_gestalt_rust::Output<String>,
         /// The type of the logging destination. Valid values: `cloud-watch-logs`, `s3`, `kinesis-data-firehose`. Default: `cloud-watch-logs`.
-        pub log_destination_type: pulumi_wasm_rust::Output<Option<String>>,
+        pub log_destination_type: pulumi_gestalt_rust::Output<Option<String>>,
         /// The fields to include in the flow log record. Accepted format example: `"$${interface-id} $${srcaddr} $${dstaddr} $${srcport} $${dstport}"`.
-        pub log_format: pulumi_wasm_rust::Output<String>,
+        pub log_format: pulumi_gestalt_rust::Output<String>,
         /// **Deprecated:** Use `log_destination` instead. The name of the CloudWatch log group. Either `log_group_name` or `log_destination` must be set.
-        pub log_group_name: pulumi_wasm_rust::Output<String>,
+        pub log_group_name: pulumi_gestalt_rust::Output<String>,
         /// The maximum interval of time
         /// during which a flow of packets is captured and aggregated into a flow
         /// log record. Valid Values: `60` seconds (1 minute) or `600` seconds (10
         /// minutes). Default: `600`. When `transit_gateway_id` or `transit_gateway_attachment_id` is specified, `max_aggregation_interval` *must* be 60 seconds (1 minute).
-        pub max_aggregation_interval: pulumi_wasm_rust::Output<Option<i32>>,
+        pub max_aggregation_interval: pulumi_gestalt_rust::Output<Option<i32>>,
         /// Subnet ID to attach to
-        pub subnet_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub subnet_id: pulumi_gestalt_rust::Output<Option<String>>,
         /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        pub tags_all: pulumi_wasm_rust::Output<
+        pub tags_all: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
         /// The type of traffic to capture. Valid values: `ACCEPT`,`REJECT`, `ALL`.
-        pub traffic_type: pulumi_wasm_rust::Output<Option<String>>,
+        pub traffic_type: pulumi_gestalt_rust::Output<Option<String>>,
         /// Transit Gateway Attachment ID to attach to
-        pub transit_gateway_attachment_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub transit_gateway_attachment_id: pulumi_gestalt_rust::Output<Option<String>>,
         /// Transit Gateway ID to attach to
-        pub transit_gateway_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub transit_gateway_id: pulumi_gestalt_rust::Output<Option<String>>,
         /// VPC ID to attach to
-        pub vpc_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub vpc_id: pulumi_gestalt_rust::Output<Option<String>>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: FlowLogArgs,
     ) -> FlowLogResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let deliver_cross_account_role_binding = args
             .deliver_cross_account_role
@@ -418,49 +420,51 @@ pub mod flow_log {
         };
         let o = register_interface::register(context.get_inner(), &request);
         FlowLogResult {
-            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
-            deliver_cross_account_role: pulumi_wasm_rust::__private::into_domain(
+            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
+            deliver_cross_account_role: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("deliverCrossAccountRole"),
             ),
-            destination_options: pulumi_wasm_rust::__private::into_domain(
+            destination_options: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("destinationOptions"),
             ),
-            eni_id: pulumi_wasm_rust::__private::into_domain(o.extract_field("eniId")),
-            iam_role_arn: pulumi_wasm_rust::__private::into_domain(
+            eni_id: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("eniId"),
+            ),
+            iam_role_arn: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("iamRoleArn"),
             ),
-            log_destination: pulumi_wasm_rust::__private::into_domain(
+            log_destination: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("logDestination"),
             ),
-            log_destination_type: pulumi_wasm_rust::__private::into_domain(
+            log_destination_type: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("logDestinationType"),
             ),
-            log_format: pulumi_wasm_rust::__private::into_domain(
+            log_format: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("logFormat"),
             ),
-            log_group_name: pulumi_wasm_rust::__private::into_domain(
+            log_group_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("logGroupName"),
             ),
-            max_aggregation_interval: pulumi_wasm_rust::__private::into_domain(
+            max_aggregation_interval: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("maxAggregationInterval"),
             ),
-            subnet_id: pulumi_wasm_rust::__private::into_domain(
+            subnet_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("subnetId"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_wasm_rust::__private::into_domain(
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            tags_all: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("tagsAll"),
             ),
-            traffic_type: pulumi_wasm_rust::__private::into_domain(
+            traffic_type: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("trafficType"),
             ),
-            transit_gateway_attachment_id: pulumi_wasm_rust::__private::into_domain(
+            transit_gateway_attachment_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("transitGatewayAttachmentId"),
             ),
-            transit_gateway_id: pulumi_wasm_rust::__private::into_domain(
+            transit_gateway_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("transitGatewayId"),
             ),
-            vpc_id: pulumi_wasm_rust::__private::into_domain(o.extract_field("vpcId")),
+            vpc_id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("vpcId")),
         }
     }
 }

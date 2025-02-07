@@ -33,87 +33,91 @@
 /// ```
 ///
 pub mod provider {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ProviderArgs {
         /// The Azure Region where the Attestation Provider should exist. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub location: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub location: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The name which should be used for this Attestation Provider. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Specifies the base64 URI Encoded RFC 7519 JWT that should be used for the Attestation Policy.
         #[builder(into, default)]
-        pub open_enclave_policy_base64: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub open_enclave_policy_base64: pulumi_gestalt_rust::InputOrOutput<
+            Option<String>,
+        >,
         /// A valid X.509 certificate (Section 4 of [RFC4648](https://tools.ietf.org/html/rfc4648)). Changing this forces a new resource to be created.
         ///
         /// > **NOTE:** If the `policy_signing_certificate_data` argument contains more than one valid X.509 certificate only the first certificate will be used.
         #[builder(into, default)]
-        pub policy_signing_certificate_data: pulumi_wasm_rust::InputOrOutput<
+        pub policy_signing_certificate_data: pulumi_gestalt_rust::InputOrOutput<
             Option<String>,
         >,
         /// The name of the Resource Group where the attestation provider should exist. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub resource_group_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub resource_group_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Specifies the base64 URI Encoded RFC 7519 JWT that should be used for the Attestation Policy.
         ///
         /// > [More information on the JWT Policies can be found in this article on `learn.microsoft.com`](https://learn.microsoft.com/azure/attestation/author-sign-policy).
         #[builder(into, default)]
-        pub sev_snp_policy_base64: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub sev_snp_policy_base64: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Specifies the base64 URI Encoded RFC 7519 JWT that should be used for the Attestation Policy.
         #[builder(into, default)]
-        pub sgx_enclave_policy_base64: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub sgx_enclave_policy_base64: pulumi_gestalt_rust::InputOrOutput<
+            Option<String>,
+        >,
         /// A mapping of tags which should be assigned to the Attestation Provider.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Specifies the base64 URI Encoded RFC 7519 JWT that should be used for the Attestation Policy.
         #[builder(into, default)]
-        pub tpm_policy_base64: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub tpm_policy_base64: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct ProviderResult {
         /// The URI of the Attestation Service.
-        pub attestation_uri: pulumi_wasm_rust::Output<String>,
+        pub attestation_uri: pulumi_gestalt_rust::Output<String>,
         /// The Azure Region where the Attestation Provider should exist. Changing this forces a new resource to be created.
-        pub location: pulumi_wasm_rust::Output<String>,
+        pub location: pulumi_gestalt_rust::Output<String>,
         /// The name which should be used for this Attestation Provider. Changing this forces a new resource to be created.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// Specifies the base64 URI Encoded RFC 7519 JWT that should be used for the Attestation Policy.
-        pub open_enclave_policy_base64: pulumi_wasm_rust::Output<Option<String>>,
+        pub open_enclave_policy_base64: pulumi_gestalt_rust::Output<Option<String>>,
         /// A valid X.509 certificate (Section 4 of [RFC4648](https://tools.ietf.org/html/rfc4648)). Changing this forces a new resource to be created.
         ///
         /// > **NOTE:** If the `policy_signing_certificate_data` argument contains more than one valid X.509 certificate only the first certificate will be used.
-        pub policy_signing_certificate_data: pulumi_wasm_rust::Output<Option<String>>,
+        pub policy_signing_certificate_data: pulumi_gestalt_rust::Output<Option<String>>,
         /// The name of the Resource Group where the attestation provider should exist. Changing this forces a new resource to be created.
-        pub resource_group_name: pulumi_wasm_rust::Output<String>,
+        pub resource_group_name: pulumi_gestalt_rust::Output<String>,
         /// Specifies the base64 URI Encoded RFC 7519 JWT that should be used for the Attestation Policy.
         ///
         /// > [More information on the JWT Policies can be found in this article on `learn.microsoft.com`](https://learn.microsoft.com/azure/attestation/author-sign-policy).
-        pub sev_snp_policy_base64: pulumi_wasm_rust::Output<Option<String>>,
+        pub sev_snp_policy_base64: pulumi_gestalt_rust::Output<Option<String>>,
         /// Specifies the base64 URI Encoded RFC 7519 JWT that should be used for the Attestation Policy.
-        pub sgx_enclave_policy_base64: pulumi_wasm_rust::Output<Option<String>>,
+        pub sgx_enclave_policy_base64: pulumi_gestalt_rust::Output<Option<String>>,
         /// A mapping of tags which should be assigned to the Attestation Provider.
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Specifies the base64 URI Encoded RFC 7519 JWT that should be used for the Attestation Policy.
-        pub tpm_policy_base64: pulumi_wasm_rust::Output<Option<String>>,
+        pub tpm_policy_base64: pulumi_gestalt_rust::Output<Option<String>>,
         /// Trust model used for the Attestation Service.
-        pub trust_model: pulumi_wasm_rust::Output<String>,
+        pub trust_model: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: ProviderArgs,
     ) -> ProviderResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let location_binding = args.location.get_output(context).get_inner();
         let name_binding = args.name.get_output(context).get_inner();
@@ -187,33 +191,33 @@ pub mod provider {
         };
         let o = register_interface::register(context.get_inner(), &request);
         ProviderResult {
-            attestation_uri: pulumi_wasm_rust::__private::into_domain(
+            attestation_uri: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("attestationUri"),
             ),
-            location: pulumi_wasm_rust::__private::into_domain(
+            location: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("location"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            open_enclave_policy_base64: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            open_enclave_policy_base64: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("openEnclavePolicyBase64"),
             ),
-            policy_signing_certificate_data: pulumi_wasm_rust::__private::into_domain(
+            policy_signing_certificate_data: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("policySigningCertificateData"),
             ),
-            resource_group_name: pulumi_wasm_rust::__private::into_domain(
+            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("resourceGroupName"),
             ),
-            sev_snp_policy_base64: pulumi_wasm_rust::__private::into_domain(
+            sev_snp_policy_base64: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("sevSnpPolicyBase64"),
             ),
-            sgx_enclave_policy_base64: pulumi_wasm_rust::__private::into_domain(
+            sgx_enclave_policy_base64: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("sgxEnclavePolicyBase64"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
-            tpm_policy_base64: pulumi_wasm_rust::__private::into_domain(
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            tpm_policy_base64: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("tpmPolicyBase64"),
             ),
-            trust_model: pulumi_wasm_rust::__private::into_domain(
+            trust_model: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("trustModel"),
             ),
         }

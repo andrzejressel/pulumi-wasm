@@ -111,105 +111,105 @@
 /// ```
 ///
 pub mod autonomous_database {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct AutonomousDatabaseArgs {
         /// The password for the default ADMIN user.
         #[builder(into, default)]
-        pub admin_password: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub admin_password: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The ID of the Autonomous Database to create. This value is restricted
         /// to (^a-z?$) and must be a maximum of 63
         /// characters in length. The value must start with a letter and end with
         /// a letter or a number.
         #[builder(into)]
-        pub autonomous_database_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub autonomous_database_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The subnet CIDR range for the Autonmous Database.
         #[builder(into)]
-        pub cidr: pulumi_wasm_rust::InputOrOutput<String>,
+        pub cidr: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The name of the Autonomous Database. The database name must be unique in
         /// the project. The name must begin with a letter and can
         /// contain a maximum of 30 alphanumeric characters.
         #[builder(into)]
-        pub database: pulumi_wasm_rust::InputOrOutput<String>,
+        pub database: pulumi_gestalt_rust::InputOrOutput<String>,
         #[builder(into, default)]
-        pub deletion_protection: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub deletion_protection: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// The display name for the Autonomous Database. The name does not have to be unique within your project.
         #[builder(into, default)]
-        pub display_name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub display_name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The labels or tags associated with the Autonomous Database. **Note**: This field is non-authoritative, and will only
         /// manage the labels present in your configuration. Please refer to the field 'effective_labels' for all of the labels
         /// present on the resource.
         #[builder(into, default)]
-        pub labels: pulumi_wasm_rust::InputOrOutput<
+        pub labels: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Resource ID segment making up resource `name`. See documentation for resource type `oracledatabase.googleapis.com/AutonomousDatabaseBackup`.
         #[builder(into)]
-        pub location: pulumi_wasm_rust::InputOrOutput<String>,
+        pub location: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The name of the VPC network used by the Autonomous Database.
         /// Format: projects/{project}/global/networks/{network}
         #[builder(into)]
-        pub network: pulumi_wasm_rust::InputOrOutput<String>,
+        pub network: pulumi_gestalt_rust::InputOrOutput<String>,
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub project: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The properties of an Autonomous Database.
         /// Structure is documented below.
         #[builder(into)]
-        pub properties: pulumi_wasm_rust::InputOrOutput<
+        pub properties: pulumi_gestalt_rust::InputOrOutput<
             super::super::types::oracledatabase::AutonomousDatabaseProperties,
         >,
     }
     #[allow(dead_code)]
     pub struct AutonomousDatabaseResult {
         /// The password for the default ADMIN user.
-        pub admin_password: pulumi_wasm_rust::Output<Option<String>>,
+        pub admin_password: pulumi_gestalt_rust::Output<Option<String>>,
         /// The ID of the Autonomous Database to create. This value is restricted
         /// to (^a-z?$) and must be a maximum of 63
         /// characters in length. The value must start with a letter and end with
         /// a letter or a number.
-        pub autonomous_database_id: pulumi_wasm_rust::Output<String>,
+        pub autonomous_database_id: pulumi_gestalt_rust::Output<String>,
         /// The subnet CIDR range for the Autonmous Database.
-        pub cidr: pulumi_wasm_rust::Output<String>,
+        pub cidr: pulumi_gestalt_rust::Output<String>,
         /// The date and time that the Autonomous Database was created.
-        pub create_time: pulumi_wasm_rust::Output<String>,
+        pub create_time: pulumi_gestalt_rust::Output<String>,
         /// The name of the Autonomous Database. The database name must be unique in
         /// the project. The name must begin with a letter and can
         /// contain a maximum of 30 alphanumeric characters.
-        pub database: pulumi_wasm_rust::Output<String>,
-        pub deletion_protection: pulumi_wasm_rust::Output<Option<bool>>,
+        pub database: pulumi_gestalt_rust::Output<String>,
+        pub deletion_protection: pulumi_gestalt_rust::Output<Option<bool>>,
         /// The display name for the Autonomous Database. The name does not have to be unique within your project.
-        pub display_name: pulumi_wasm_rust::Output<String>,
+        pub display_name: pulumi_gestalt_rust::Output<String>,
         /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Pulumi, other clients and services.
-        pub effective_labels: pulumi_wasm_rust::Output<
+        pub effective_labels: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
         /// The ID of the subscription entitlement associated with the Autonomous
         /// Database.
-        pub entitlement_id: pulumi_wasm_rust::Output<String>,
+        pub entitlement_id: pulumi_gestalt_rust::Output<String>,
         /// The labels or tags associated with the Autonomous Database. **Note**: This field is non-authoritative, and will only
         /// manage the labels present in your configuration. Please refer to the field 'effective_labels' for all of the labels
         /// present on the resource.
-        pub labels: pulumi_wasm_rust::Output<
+        pub labels: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Resource ID segment making up resource `name`. See documentation for resource type `oracledatabase.googleapis.com/AutonomousDatabaseBackup`.
-        pub location: pulumi_wasm_rust::Output<String>,
+        pub location: pulumi_gestalt_rust::Output<String>,
         /// Identifier. The name of the Autonomous Database resource in the following format:
         /// projects/{project}/locations/{region}/autonomousDatabases/{autonomous_database}
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// The name of the VPC network used by the Autonomous Database.
         /// Format: projects/{project}/global/networks/{network}
-        pub network: pulumi_wasm_rust::Output<String>,
-        pub project: pulumi_wasm_rust::Output<String>,
+        pub network: pulumi_gestalt_rust::Output<String>,
+        pub project: pulumi_gestalt_rust::Output<String>,
         /// The properties of an Autonomous Database.
         /// Structure is documented below.
-        pub properties: pulumi_wasm_rust::Output<
+        pub properties: pulumi_gestalt_rust::Output<
             super::super::types::oracledatabase::AutonomousDatabaseProperties,
         >,
         /// The combination of labels configured directly on the resource
         /// and default labels configured on the provider.
-        pub pulumi_labels: pulumi_wasm_rust::Output<
+        pub pulumi_labels: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
     }
@@ -218,11 +218,11 @@ pub mod autonomous_database {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: AutonomousDatabaseArgs,
     ) -> AutonomousDatabaseResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let admin_password_binding = args.admin_password.get_output(context).get_inner();
         let autonomous_database_id_binding = args
@@ -294,46 +294,48 @@ pub mod autonomous_database {
         };
         let o = register_interface::register(context.get_inner(), &request);
         AutonomousDatabaseResult {
-            admin_password: pulumi_wasm_rust::__private::into_domain(
+            admin_password: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("adminPassword"),
             ),
-            autonomous_database_id: pulumi_wasm_rust::__private::into_domain(
+            autonomous_database_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("autonomousDatabaseId"),
             ),
-            cidr: pulumi_wasm_rust::__private::into_domain(o.extract_field("cidr")),
-            create_time: pulumi_wasm_rust::__private::into_domain(
+            cidr: pulumi_gestalt_rust::__private::into_domain(o.extract_field("cidr")),
+            create_time: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("createTime"),
             ),
-            database: pulumi_wasm_rust::__private::into_domain(
+            database: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("database"),
             ),
-            deletion_protection: pulumi_wasm_rust::__private::into_domain(
+            deletion_protection: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("deletionProtection"),
             ),
-            display_name: pulumi_wasm_rust::__private::into_domain(
+            display_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("displayName"),
             ),
-            effective_labels: pulumi_wasm_rust::__private::into_domain(
+            effective_labels: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("effectiveLabels"),
             ),
-            entitlement_id: pulumi_wasm_rust::__private::into_domain(
+            entitlement_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("entitlementId"),
             ),
-            labels: pulumi_wasm_rust::__private::into_domain(o.extract_field("labels")),
-            location: pulumi_wasm_rust::__private::into_domain(
+            labels: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("labels"),
+            ),
+            location: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("location"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            network: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            network: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("network"),
             ),
-            project: pulumi_wasm_rust::__private::into_domain(
+            project: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("project"),
             ),
-            properties: pulumi_wasm_rust::__private::into_domain(
+            properties: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("properties"),
             ),
-            pulumi_labels: pulumi_wasm_rust::__private::into_domain(
+            pulumi_labels: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("pulumiLabels"),
             ),
         }

@@ -59,7 +59,7 @@
 /// ```
 ///
 pub mod generic_service {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct GenericServiceArgs {
@@ -68,23 +68,23 @@ pub mod generic_service {
         /// https://cloud.google.com/stackdriver/docs/solutions/slo-monitoring/api/api-structures#basic-svc-w-basic-sli
         /// Structure is documented below.
         #[builder(into, default)]
-        pub basic_service: pulumi_wasm_rust::InputOrOutput<
+        pub basic_service: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::monitoring::GenericServiceBasicService>,
         >,
         /// Name used for UI elements listing this Service.
         #[builder(into, default)]
-        pub display_name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub display_name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub project: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// An optional service ID to use. If not given, the server will generate a
         /// service ID.
         ///
         ///
         /// - - -
         #[builder(into)]
-        pub service_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub service_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Labels which have been used to annotate the service. Label keys must start
         /// with a letter. Label keys and values may contain lowercase letters,
         /// numbers, underscores, and dashes. Label keys and values have a maximum
@@ -92,7 +92,7 @@ pub mod generic_service {
         /// label entries may be stored. For labels which do not have a semantic value,
         /// the empty string may be supplied for the label value.
         #[builder(into, default)]
-        pub user_labels: pulumi_wasm_rust::InputOrOutput<
+        pub user_labels: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
@@ -102,26 +102,26 @@ pub mod generic_service {
         /// Valid values of service types and services labels are described at
         /// https://cloud.google.com/stackdriver/docs/solutions/slo-monitoring/api/api-structures#basic-svc-w-basic-sli
         /// Structure is documented below.
-        pub basic_service: pulumi_wasm_rust::Output<
+        pub basic_service: pulumi_gestalt_rust::Output<
             Option<super::super::types::monitoring::GenericServiceBasicService>,
         >,
         /// Name used for UI elements listing this Service.
-        pub display_name: pulumi_wasm_rust::Output<Option<String>>,
+        pub display_name: pulumi_gestalt_rust::Output<Option<String>>,
         /// The full resource name for this service. The syntax is:
         /// projects/[PROJECT_ID]/services/[SERVICE_ID].
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
-        pub project: pulumi_wasm_rust::Output<String>,
+        pub project: pulumi_gestalt_rust::Output<String>,
         /// An optional service ID to use. If not given, the server will generate a
         /// service ID.
         ///
         ///
         /// - - -
-        pub service_id: pulumi_wasm_rust::Output<String>,
+        pub service_id: pulumi_gestalt_rust::Output<String>,
         /// Configuration for how to query telemetry on a Service.
         /// Structure is documented below.
-        pub telemetries: pulumi_wasm_rust::Output<
+        pub telemetries: pulumi_gestalt_rust::Output<
             Vec<super::super::types::monitoring::GenericServiceTelemetry>,
         >,
         /// Labels which have been used to annotate the service. Label keys must start
@@ -130,7 +130,7 @@ pub mod generic_service {
         /// length of 63 characters, and must be less than 128 bytes in size. Up to 64
         /// label entries may be stored. For labels which do not have a semantic value,
         /// the empty string may be supplied for the label value.
-        pub user_labels: pulumi_wasm_rust::Output<
+        pub user_labels: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
@@ -139,11 +139,11 @@ pub mod generic_service {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: GenericServiceArgs,
     ) -> GenericServiceResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let basic_service_binding = args.basic_service.get_output(context).get_inner();
         let display_name_binding = args.display_name.get_output(context).get_inner();
@@ -179,23 +179,23 @@ pub mod generic_service {
         };
         let o = register_interface::register(context.get_inner(), &request);
         GenericServiceResult {
-            basic_service: pulumi_wasm_rust::__private::into_domain(
+            basic_service: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("basicService"),
             ),
-            display_name: pulumi_wasm_rust::__private::into_domain(
+            display_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("displayName"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            project: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            project: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("project"),
             ),
-            service_id: pulumi_wasm_rust::__private::into_domain(
+            service_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("serviceId"),
             ),
-            telemetries: pulumi_wasm_rust::__private::into_domain(
+            telemetries: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("telemetries"),
             ),
-            user_labels: pulumi_wasm_rust::__private::into_domain(
+            user_labels: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("userLabels"),
             ),
         }

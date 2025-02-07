@@ -4,8 +4,8 @@
 ///
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let default = hosting_site::create(
@@ -64,7 +64,7 @@
 /// ```
 ///
 pub mod hosting_channel {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct HostingChannelArgs {
@@ -73,31 +73,31 @@ pub mod hosting_channel {
         ///
         /// - - -
         #[builder(into)]
-        pub channel_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub channel_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The time at which the channel will be automatically deleted. If null, the channel
         /// will not be automatically deleted. This field is present in the output whether it's
         /// set directly or via the `ttl` field.
         #[builder(into, default)]
-        pub expire_time: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub expire_time: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Text labels used for extra metadata and/or filtering
         /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
         /// Please refer to the field `effective_labels` for all of the labels present on the resource.
         #[builder(into, default)]
-        pub labels: pulumi_wasm_rust::InputOrOutput<
+        pub labels: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// The number of previous releases to retain on the channel for rollback or other
         /// purposes. Must be a number between 1-100. Defaults to 10 for new channels.
         #[builder(into, default)]
-        pub retained_release_count: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
+        pub retained_release_count: pulumi_gestalt_rust::InputOrOutput<Option<i32>>,
         /// Required. The ID of the site in which to create this channel.
         #[builder(into)]
-        pub site_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub site_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Input only. A time-to-live for this channel. Sets `expire_time` to the provided
         /// duration past the time of the request. A duration in seconds with up to nine fractional
         /// digits, terminated by 's'. Example: "86400s" (one day).
         #[builder(into, default)]
-        pub ttl: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub ttl: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct HostingChannelResult {
@@ -105,49 +105,49 @@ pub mod hosting_channel {
         ///
         ///
         /// - - -
-        pub channel_id: pulumi_wasm_rust::Output<String>,
+        pub channel_id: pulumi_gestalt_rust::Output<String>,
         /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Pulumi, other clients and services.
-        pub effective_labels: pulumi_wasm_rust::Output<
+        pub effective_labels: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
         /// The time at which the channel will be automatically deleted. If null, the channel
         /// will not be automatically deleted. This field is present in the output whether it's
         /// set directly or via the `ttl` field.
-        pub expire_time: pulumi_wasm_rust::Output<String>,
+        pub expire_time: pulumi_gestalt_rust::Output<String>,
         /// Text labels used for extra metadata and/or filtering
         /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
         /// Please refer to the field `effective_labels` for all of the labels present on the resource.
-        pub labels: pulumi_wasm_rust::Output<
+        pub labels: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// The fully-qualified resource name for the channel, in the format:
         /// sites/SITE_ID/channels/CHANNEL_ID
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// The combination of labels configured directly on the resource
         /// and default labels configured on the provider.
-        pub pulumi_labels: pulumi_wasm_rust::Output<
+        pub pulumi_labels: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
         /// The number of previous releases to retain on the channel for rollback or other
         /// purposes. Must be a number between 1-100. Defaults to 10 for new channels.
-        pub retained_release_count: pulumi_wasm_rust::Output<i32>,
+        pub retained_release_count: pulumi_gestalt_rust::Output<i32>,
         /// Required. The ID of the site in which to create this channel.
-        pub site_id: pulumi_wasm_rust::Output<String>,
+        pub site_id: pulumi_gestalt_rust::Output<String>,
         /// Input only. A time-to-live for this channel. Sets `expire_time` to the provided
         /// duration past the time of the request. A duration in seconds with up to nine fractional
         /// digits, terminated by 's'. Example: "86400s" (one day).
-        pub ttl: pulumi_wasm_rust::Output<Option<String>>,
+        pub ttl: pulumi_gestalt_rust::Output<Option<String>>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: HostingChannelArgs,
     ) -> HostingChannelResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let channel_id_binding = args.channel_id.get_output(context).get_inner();
         let expire_time_binding = args.expire_time.get_output(context).get_inner();
@@ -191,25 +191,29 @@ pub mod hosting_channel {
         };
         let o = register_interface::register(context.get_inner(), &request);
         HostingChannelResult {
-            channel_id: pulumi_wasm_rust::__private::into_domain(
+            channel_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("channelId"),
             ),
-            effective_labels: pulumi_wasm_rust::__private::into_domain(
+            effective_labels: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("effectiveLabels"),
             ),
-            expire_time: pulumi_wasm_rust::__private::into_domain(
+            expire_time: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("expireTime"),
             ),
-            labels: pulumi_wasm_rust::__private::into_domain(o.extract_field("labels")),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            pulumi_labels: pulumi_wasm_rust::__private::into_domain(
+            labels: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("labels"),
+            ),
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            pulumi_labels: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("pulumiLabels"),
             ),
-            retained_release_count: pulumi_wasm_rust::__private::into_domain(
+            retained_release_count: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("retainedReleaseCount"),
             ),
-            site_id: pulumi_wasm_rust::__private::into_domain(o.extract_field("siteId")),
-            ttl: pulumi_wasm_rust::__private::into_domain(o.extract_field("ttl")),
+            site_id: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("siteId"),
+            ),
+            ttl: pulumi_gestalt_rust::__private::into_domain(o.extract_field("ttl")),
         }
     }
 }

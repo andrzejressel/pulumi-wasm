@@ -1,8 +1,8 @@
 /// ## Example Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = resource_group::create(
@@ -50,77 +50,77 @@
 /// ```
 ///
 pub mod share_file {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ShareFileArgs {
         /// Sets the file’s Content-Disposition header.
         #[builder(into, default)]
-        pub content_disposition: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub content_disposition: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Specifies which content encodings have been applied to the file.
         #[builder(into, default)]
-        pub content_encoding: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub content_encoding: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         #[builder(into, default)]
-        pub content_md5: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub content_md5: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The content type of the share file. Defaults to `application/octet-stream`.
         #[builder(into, default)]
-        pub content_type: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub content_type: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// A mapping of metadata to assign to this file.
         #[builder(into, default)]
-        pub metadata: pulumi_wasm_rust::InputOrOutput<
+        pub metadata: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// The name (or path) of the File that should be created within this File Share. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The storage share directory that you would like the file placed into. Changing this forces a new resource to be created. Defaults to `""`.
         #[builder(into, default)]
-        pub path: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub path: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// An absolute path to a file on the local system. Changing this forces a new resource to be created.
         ///
         /// > **Note** The file specified with `source` can not be empty.
         #[builder(into, default)]
-        pub source: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub source: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The Storage Share ID in which this file will be placed into. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub storage_share_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub storage_share_id: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct ShareFileResult {
         /// Sets the file’s Content-Disposition header.
-        pub content_disposition: pulumi_wasm_rust::Output<Option<String>>,
+        pub content_disposition: pulumi_gestalt_rust::Output<Option<String>>,
         /// Specifies which content encodings have been applied to the file.
-        pub content_encoding: pulumi_wasm_rust::Output<Option<String>>,
+        pub content_encoding: pulumi_gestalt_rust::Output<Option<String>>,
         /// The length in bytes of the file content
-        pub content_length: pulumi_wasm_rust::Output<i32>,
-        pub content_md5: pulumi_wasm_rust::Output<Option<String>>,
+        pub content_length: pulumi_gestalt_rust::Output<i32>,
+        pub content_md5: pulumi_gestalt_rust::Output<Option<String>>,
         /// The content type of the share file. Defaults to `application/octet-stream`.
-        pub content_type: pulumi_wasm_rust::Output<Option<String>>,
+        pub content_type: pulumi_gestalt_rust::Output<Option<String>>,
         /// A mapping of metadata to assign to this file.
-        pub metadata: pulumi_wasm_rust::Output<
+        pub metadata: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// The name (or path) of the File that should be created within this File Share. Changing this forces a new resource to be created.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// The storage share directory that you would like the file placed into. Changing this forces a new resource to be created. Defaults to `""`.
-        pub path: pulumi_wasm_rust::Output<Option<String>>,
+        pub path: pulumi_gestalt_rust::Output<Option<String>>,
         /// An absolute path to a file on the local system. Changing this forces a new resource to be created.
         ///
         /// > **Note** The file specified with `source` can not be empty.
-        pub source: pulumi_wasm_rust::Output<Option<String>>,
+        pub source: pulumi_gestalt_rust::Output<Option<String>>,
         /// The Storage Share ID in which this file will be placed into. Changing this forces a new resource to be created.
-        pub storage_share_id: pulumi_wasm_rust::Output<String>,
+        pub storage_share_id: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: ShareFileArgs,
     ) -> ShareFileResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let content_disposition_binding = args
             .content_disposition
@@ -185,28 +185,30 @@ pub mod share_file {
         };
         let o = register_interface::register(context.get_inner(), &request);
         ShareFileResult {
-            content_disposition: pulumi_wasm_rust::__private::into_domain(
+            content_disposition: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("contentDisposition"),
             ),
-            content_encoding: pulumi_wasm_rust::__private::into_domain(
+            content_encoding: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("contentEncoding"),
             ),
-            content_length: pulumi_wasm_rust::__private::into_domain(
+            content_length: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("contentLength"),
             ),
-            content_md5: pulumi_wasm_rust::__private::into_domain(
+            content_md5: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("contentMd5"),
             ),
-            content_type: pulumi_wasm_rust::__private::into_domain(
+            content_type: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("contentType"),
             ),
-            metadata: pulumi_wasm_rust::__private::into_domain(
+            metadata: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("metadata"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            path: pulumi_wasm_rust::__private::into_domain(o.extract_field("path")),
-            source: pulumi_wasm_rust::__private::into_domain(o.extract_field("source")),
-            storage_share_id: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            path: pulumi_gestalt_rust::__private::into_domain(o.extract_field("path")),
+            source: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("source"),
+            ),
+            storage_share_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("storageShareId"),
             ),
         }

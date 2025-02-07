@@ -156,7 +156,7 @@
 /// ```
 ///
 pub mod attached_cluster {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct AttachedClusterArgs {
@@ -167,52 +167,52 @@ pub mod attached_cluster {
         /// non-authoritative, and will only manage the annotations present in your configuration. Please refer to the field
         /// 'effective_annotations' for all of the annotations present on the resource.
         #[builder(into, default)]
-        pub annotations: pulumi_wasm_rust::InputOrOutput<
+        pub annotations: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Configuration related to the cluster RBAC settings.
         #[builder(into, default)]
-        pub authorization: pulumi_wasm_rust::InputOrOutput<
+        pub authorization: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::container::AttachedClusterAuthorization>,
         >,
         /// Binary Authorization configuration.
         #[builder(into, default)]
-        pub binary_authorization: pulumi_wasm_rust::InputOrOutput<
+        pub binary_authorization: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::container::AttachedClusterBinaryAuthorization>,
         >,
         /// Policy to determine what flags to send on delete. Possible values: DELETE, DELETE_IGNORE_ERRORS
         #[builder(into, default)]
-        pub deletion_policy: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub deletion_policy: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// A human readable description of this attached cluster. Cannot be longer than 255 UTF-8 encoded bytes.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub description: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The Kubernetes distribution of the underlying attached cluster. Supported values:
         /// "eks", "aks", "generic". The generic distribution provides the ability to register
         /// or migrate any CNCF conformant cluster.
         #[builder(into)]
-        pub distribution: pulumi_wasm_rust::InputOrOutput<String>,
+        pub distribution: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Fleet configuration.
         /// Structure is documented below.
         #[builder(into)]
-        pub fleet: pulumi_wasm_rust::InputOrOutput<
+        pub fleet: pulumi_gestalt_rust::InputOrOutput<
             super::super::types::container::AttachedClusterFleet,
         >,
         /// The location for the resource
         #[builder(into)]
-        pub location: pulumi_wasm_rust::InputOrOutput<String>,
+        pub location: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Logging configuration.
         #[builder(into, default)]
-        pub logging_config: pulumi_wasm_rust::InputOrOutput<
+        pub logging_config: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::container::AttachedClusterLoggingConfig>,
         >,
         /// Monitoring configuration.
         #[builder(into, default)]
-        pub monitoring_config: pulumi_wasm_rust::InputOrOutput<
+        pub monitoring_config: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::container::AttachedClusterMonitoringConfig>,
         >,
         /// The name of this resource.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// OIDC discovery information of the target cluster.
         /// Kubernetes Service Account (KSA) tokens are JWT tokens signed by the cluster
         /// API server. This fields indicates how GCP services
@@ -224,22 +224,22 @@ pub mod attached_cluster {
         /// `issuer_url` and `jwks`.
         /// Structure is documented below.
         #[builder(into)]
-        pub oidc_config: pulumi_wasm_rust::InputOrOutput<
+        pub oidc_config: pulumi_gestalt_rust::InputOrOutput<
             super::super::types::container::AttachedClusterOidcConfig,
         >,
         /// The platform version for the cluster (e.g. `1.23.0-gke.1`).
         #[builder(into)]
-        pub platform_version: pulumi_wasm_rust::InputOrOutput<String>,
+        pub platform_version: pulumi_gestalt_rust::InputOrOutput<String>,
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub project: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Support for proxy configuration.
         #[builder(into, default)]
-        pub proxy_config: pulumi_wasm_rust::InputOrOutput<
+        pub proxy_config: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::container::AttachedClusterProxyConfig>,
         >,
         /// Enable/Disable Security Posture API features for the cluster.
         #[builder(into, default)]
-        pub security_posture_config: pulumi_wasm_rust::InputOrOutput<
+        pub security_posture_config: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::container::AttachedClusterSecurityPostureConfig>,
         >,
     }
@@ -251,58 +251,58 @@ pub mod attached_cluster {
         /// alphanumerics, with dashes (-), underscores (_), dots (.), and alphanumerics between. **Note**: This field is
         /// non-authoritative, and will only manage the annotations present in your configuration. Please refer to the field
         /// 'effective_annotations' for all of the annotations present on the resource.
-        pub annotations: pulumi_wasm_rust::Output<
+        pub annotations: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Configuration related to the cluster RBAC settings.
-        pub authorization: pulumi_wasm_rust::Output<
+        pub authorization: pulumi_gestalt_rust::Output<
             Option<super::super::types::container::AttachedClusterAuthorization>,
         >,
         /// Binary Authorization configuration.
-        pub binary_authorization: pulumi_wasm_rust::Output<
+        pub binary_authorization: pulumi_gestalt_rust::Output<
             super::super::types::container::AttachedClusterBinaryAuthorization,
         >,
         /// Output only. The region where this cluster runs.
         /// For EKS clusters, this is an AWS region. For AKS clusters,
         /// this is an Azure region.
-        pub cluster_region: pulumi_wasm_rust::Output<String>,
+        pub cluster_region: pulumi_gestalt_rust::Output<String>,
         /// Output only. The time at which this cluster was created.
-        pub create_time: pulumi_wasm_rust::Output<String>,
+        pub create_time: pulumi_gestalt_rust::Output<String>,
         /// Policy to determine what flags to send on delete. Possible values: DELETE, DELETE_IGNORE_ERRORS
-        pub deletion_policy: pulumi_wasm_rust::Output<Option<String>>,
+        pub deletion_policy: pulumi_gestalt_rust::Output<Option<String>>,
         /// A human readable description of this attached cluster. Cannot be longer than 255 UTF-8 encoded bytes.
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_gestalt_rust::Output<Option<String>>,
         /// The Kubernetes distribution of the underlying attached cluster. Supported values:
         /// "eks", "aks", "generic". The generic distribution provides the ability to register
         /// or migrate any CNCF conformant cluster.
-        pub distribution: pulumi_wasm_rust::Output<String>,
-        pub effective_annotations: pulumi_wasm_rust::Output<
+        pub distribution: pulumi_gestalt_rust::Output<String>,
+        pub effective_annotations: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
         /// A set of errors found in the cluster.
         /// Structure is documented below.
-        pub errors: pulumi_wasm_rust::Output<
+        pub errors: pulumi_gestalt_rust::Output<
             Vec<super::super::types::container::AttachedClusterError>,
         >,
         /// Fleet configuration.
         /// Structure is documented below.
-        pub fleet: pulumi_wasm_rust::Output<
+        pub fleet: pulumi_gestalt_rust::Output<
             super::super::types::container::AttachedClusterFleet,
         >,
         /// The Kubernetes version of the cluster.
-        pub kubernetes_version: pulumi_wasm_rust::Output<String>,
+        pub kubernetes_version: pulumi_gestalt_rust::Output<String>,
         /// The location for the resource
-        pub location: pulumi_wasm_rust::Output<String>,
+        pub location: pulumi_gestalt_rust::Output<String>,
         /// Logging configuration.
-        pub logging_config: pulumi_wasm_rust::Output<
+        pub logging_config: pulumi_gestalt_rust::Output<
             Option<super::super::types::container::AttachedClusterLoggingConfig>,
         >,
         /// Monitoring configuration.
-        pub monitoring_config: pulumi_wasm_rust::Output<
+        pub monitoring_config: pulumi_gestalt_rust::Output<
             super::super::types::container::AttachedClusterMonitoringConfig,
         >,
         /// The name of this resource.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// OIDC discovery information of the target cluster.
         /// Kubernetes Service Account (KSA) tokens are JWT tokens signed by the cluster
         /// API server. This fields indicates how GCP services
@@ -313,33 +313,33 @@ pub mod attached_cluster {
         /// while clusters with private issuers need to provide both
         /// `issuer_url` and `jwks`.
         /// Structure is documented below.
-        pub oidc_config: pulumi_wasm_rust::Output<
+        pub oidc_config: pulumi_gestalt_rust::Output<
             super::super::types::container::AttachedClusterOidcConfig,
         >,
         /// The platform version for the cluster (e.g. `1.23.0-gke.1`).
-        pub platform_version: pulumi_wasm_rust::Output<String>,
-        pub project: pulumi_wasm_rust::Output<String>,
+        pub platform_version: pulumi_gestalt_rust::Output<String>,
+        pub project: pulumi_gestalt_rust::Output<String>,
         /// Support for proxy configuration.
-        pub proxy_config: pulumi_wasm_rust::Output<
+        pub proxy_config: pulumi_gestalt_rust::Output<
             Option<super::super::types::container::AttachedClusterProxyConfig>,
         >,
         /// If set, there are currently changes in flight to the cluster.
-        pub reconciling: pulumi_wasm_rust::Output<bool>,
+        pub reconciling: pulumi_gestalt_rust::Output<bool>,
         /// Enable/Disable Security Posture API features for the cluster.
-        pub security_posture_config: pulumi_wasm_rust::Output<
+        pub security_posture_config: pulumi_gestalt_rust::Output<
             super::super::types::container::AttachedClusterSecurityPostureConfig,
         >,
         /// The current state of the cluster. Possible values:
         /// STATE_UNSPECIFIED, PROVISIONING, RUNNING, RECONCILING, STOPPING, ERROR,
         /// DEGRADED
-        pub state: pulumi_wasm_rust::Output<String>,
+        pub state: pulumi_gestalt_rust::Output<String>,
         /// A globally unique identifier for the cluster.
-        pub uid: pulumi_wasm_rust::Output<String>,
+        pub uid: pulumi_gestalt_rust::Output<String>,
         /// The time at which this cluster was last updated.
-        pub update_time: pulumi_wasm_rust::Output<String>,
+        pub update_time: pulumi_gestalt_rust::Output<String>,
         /// Workload Identity settings.
         /// Structure is documented below.
-        pub workload_identity_configs: pulumi_wasm_rust::Output<
+        pub workload_identity_configs: pulumi_gestalt_rust::Output<
             Vec<super::super::types::container::AttachedClusterWorkloadIdentityConfig>,
         >,
     }
@@ -348,11 +348,11 @@ pub mod attached_cluster {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: AttachedClusterArgs,
     ) -> AttachedClusterResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let annotations_binding = args.annotations.get_output(context).get_inner();
         let authorization_binding = args.authorization.get_output(context).get_inner();
@@ -458,72 +458,74 @@ pub mod attached_cluster {
         };
         let o = register_interface::register(context.get_inner(), &request);
         AttachedClusterResult {
-            annotations: pulumi_wasm_rust::__private::into_domain(
+            annotations: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("annotations"),
             ),
-            authorization: pulumi_wasm_rust::__private::into_domain(
+            authorization: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("authorization"),
             ),
-            binary_authorization: pulumi_wasm_rust::__private::into_domain(
+            binary_authorization: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("binaryAuthorization"),
             ),
-            cluster_region: pulumi_wasm_rust::__private::into_domain(
+            cluster_region: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("clusterRegion"),
             ),
-            create_time: pulumi_wasm_rust::__private::into_domain(
+            create_time: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("createTime"),
             ),
-            deletion_policy: pulumi_wasm_rust::__private::into_domain(
+            deletion_policy: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("deletionPolicy"),
             ),
-            description: pulumi_wasm_rust::__private::into_domain(
+            description: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("description"),
             ),
-            distribution: pulumi_wasm_rust::__private::into_domain(
+            distribution: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("distribution"),
             ),
-            effective_annotations: pulumi_wasm_rust::__private::into_domain(
+            effective_annotations: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("effectiveAnnotations"),
             ),
-            errors: pulumi_wasm_rust::__private::into_domain(o.extract_field("errors")),
-            fleet: pulumi_wasm_rust::__private::into_domain(o.extract_field("fleet")),
-            kubernetes_version: pulumi_wasm_rust::__private::into_domain(
+            errors: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("errors"),
+            ),
+            fleet: pulumi_gestalt_rust::__private::into_domain(o.extract_field("fleet")),
+            kubernetes_version: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("kubernetesVersion"),
             ),
-            location: pulumi_wasm_rust::__private::into_domain(
+            location: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("location"),
             ),
-            logging_config: pulumi_wasm_rust::__private::into_domain(
+            logging_config: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("loggingConfig"),
             ),
-            monitoring_config: pulumi_wasm_rust::__private::into_domain(
+            monitoring_config: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("monitoringConfig"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            oidc_config: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            oidc_config: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("oidcConfig"),
             ),
-            platform_version: pulumi_wasm_rust::__private::into_domain(
+            platform_version: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("platformVersion"),
             ),
-            project: pulumi_wasm_rust::__private::into_domain(
+            project: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("project"),
             ),
-            proxy_config: pulumi_wasm_rust::__private::into_domain(
+            proxy_config: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("proxyConfig"),
             ),
-            reconciling: pulumi_wasm_rust::__private::into_domain(
+            reconciling: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("reconciling"),
             ),
-            security_posture_config: pulumi_wasm_rust::__private::into_domain(
+            security_posture_config: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("securityPostureConfig"),
             ),
-            state: pulumi_wasm_rust::__private::into_domain(o.extract_field("state")),
-            uid: pulumi_wasm_rust::__private::into_domain(o.extract_field("uid")),
-            update_time: pulumi_wasm_rust::__private::into_domain(
+            state: pulumi_gestalt_rust::__private::into_domain(o.extract_field("state")),
+            uid: pulumi_gestalt_rust::__private::into_domain(o.extract_field("uid")),
+            update_time: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("updateTime"),
             ),
-            workload_identity_configs: pulumi_wasm_rust::__private::into_domain(
+            workload_identity_configs: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("workloadIdentityConfigs"),
             ),
         }

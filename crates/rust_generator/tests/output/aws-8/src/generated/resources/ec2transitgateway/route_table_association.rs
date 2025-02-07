@@ -3,8 +3,8 @@
 /// ## Example Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = route_table_association::create(
@@ -29,43 +29,45 @@
 /// $ pulumi import aws:ec2transitgateway/routeTableAssociation:RouteTableAssociation example tgw-rtb-12345678_tgw-attach-87654321
 /// ```
 pub mod route_table_association {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct RouteTableAssociationArgs {
         /// Boolean whether the Gateway Attachment should remove any current Route Table association before associating with the specified Route Table. Default value: `false`. This argument is intended for use with EC2 Transit Gateways shared into the current account, otherwise the `transit_gateway_default_route_table_association` argument of the `aws.ec2transitgateway.VpcAttachment` resource should be used.
         #[builder(into, default)]
-        pub replace_existing_association: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub replace_existing_association: pulumi_gestalt_rust::InputOrOutput<
+            Option<bool>,
+        >,
         /// Identifier of EC2 Transit Gateway Attachment.
         #[builder(into)]
-        pub transit_gateway_attachment_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub transit_gateway_attachment_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Identifier of EC2 Transit Gateway Route Table.
         #[builder(into)]
-        pub transit_gateway_route_table_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub transit_gateway_route_table_id: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct RouteTableAssociationResult {
         /// Boolean whether the Gateway Attachment should remove any current Route Table association before associating with the specified Route Table. Default value: `false`. This argument is intended for use with EC2 Transit Gateways shared into the current account, otherwise the `transit_gateway_default_route_table_association` argument of the `aws.ec2transitgateway.VpcAttachment` resource should be used.
-        pub replace_existing_association: pulumi_wasm_rust::Output<Option<bool>>,
+        pub replace_existing_association: pulumi_gestalt_rust::Output<Option<bool>>,
         /// Identifier of the resource
-        pub resource_id: pulumi_wasm_rust::Output<String>,
+        pub resource_id: pulumi_gestalt_rust::Output<String>,
         /// Type of the resource
-        pub resource_type: pulumi_wasm_rust::Output<String>,
+        pub resource_type: pulumi_gestalt_rust::Output<String>,
         /// Identifier of EC2 Transit Gateway Attachment.
-        pub transit_gateway_attachment_id: pulumi_wasm_rust::Output<String>,
+        pub transit_gateway_attachment_id: pulumi_gestalt_rust::Output<String>,
         /// Identifier of EC2 Transit Gateway Route Table.
-        pub transit_gateway_route_table_id: pulumi_wasm_rust::Output<String>,
+        pub transit_gateway_route_table_id: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: RouteTableAssociationArgs,
     ) -> RouteTableAssociationResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let replace_existing_association_binding = args
             .replace_existing_association
@@ -101,19 +103,19 @@ pub mod route_table_association {
         };
         let o = register_interface::register(context.get_inner(), &request);
         RouteTableAssociationResult {
-            replace_existing_association: pulumi_wasm_rust::__private::into_domain(
+            replace_existing_association: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("replaceExistingAssociation"),
             ),
-            resource_id: pulumi_wasm_rust::__private::into_domain(
+            resource_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("resourceId"),
             ),
-            resource_type: pulumi_wasm_rust::__private::into_domain(
+            resource_type: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("resourceType"),
             ),
-            transit_gateway_attachment_id: pulumi_wasm_rust::__private::into_domain(
+            transit_gateway_attachment_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("transitGatewayAttachmentId"),
             ),
-            transit_gateway_route_table_id: pulumi_wasm_rust::__private::into_domain(
+            transit_gateway_route_table_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("transitGatewayRouteTableId"),
             ),
         }

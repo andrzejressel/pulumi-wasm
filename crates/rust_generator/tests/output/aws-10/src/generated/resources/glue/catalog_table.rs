@@ -5,8 +5,8 @@
 /// ### Basic Table
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let awsGlueCatalogTable = catalog_table::create(
@@ -66,129 +66,129 @@
 /// $ pulumi import aws:glue/catalogTable:CatalogTable MyTable 123456789012:MyDatabase:MyTable
 /// ```
 pub mod catalog_table {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct CatalogTableArgs {
         /// ID of the Glue Catalog and database to create the table in. If omitted, this defaults to the AWS Account ID plus the database name.
         #[builder(into, default)]
-        pub catalog_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub catalog_id: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Name of the metadata database where the table metadata resides. For Hive compatibility, this must be all lowercase.
         ///
         /// The follow arguments are optional:
         #[builder(into)]
-        pub database_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub database_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Description of the table.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub description: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Name of the table. For Hive compatibility, this must be entirely lowercase.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Configuration block for open table formats. See `open_table_format_input` below.
         #[builder(into, default)]
-        pub open_table_format_input: pulumi_wasm_rust::InputOrOutput<
+        pub open_table_format_input: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::glue::CatalogTableOpenTableFormatInput>,
         >,
         /// Owner of the table.
         #[builder(into, default)]
-        pub owner: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub owner: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Properties associated with this table, as a list of key-value pairs.
         #[builder(into, default)]
-        pub parameters: pulumi_wasm_rust::InputOrOutput<
+        pub parameters: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Configuration block for a maximum of 3 partition indexes. See `partition_index` below.
         #[builder(into, default)]
-        pub partition_indices: pulumi_wasm_rust::InputOrOutput<
+        pub partition_indices: pulumi_gestalt_rust::InputOrOutput<
             Option<Vec<super::super::types::glue::CatalogTablePartitionIndex>>,
         >,
         /// Configuration block of columns by which the table is partitioned. Only primitive types are supported as partition keys. See `partition_keys` below.
         #[builder(into, default)]
-        pub partition_keys: pulumi_wasm_rust::InputOrOutput<
+        pub partition_keys: pulumi_gestalt_rust::InputOrOutput<
             Option<Vec<super::super::types::glue::CatalogTablePartitionKey>>,
         >,
         /// Retention time for this table.
         #[builder(into, default)]
-        pub retention: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
+        pub retention: pulumi_gestalt_rust::InputOrOutput<Option<i32>>,
         /// Configuration block for information about the physical storage of this table. For more information, refer to the [Glue Developer Guide](https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-catalog-tables.html#aws-glue-api-catalog-tables-StorageDescriptor). See `storage_descriptor` below.
         #[builder(into, default)]
-        pub storage_descriptor: pulumi_wasm_rust::InputOrOutput<
+        pub storage_descriptor: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::glue::CatalogTableStorageDescriptor>,
         >,
         /// Type of this table (EXTERNAL_TABLE, VIRTUAL_VIEW, etc.). While optional, some Athena DDL queries such as `ALTER TABLE` and `SHOW CREATE TABLE` will fail if this argument is empty.
         #[builder(into, default)]
-        pub table_type: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub table_type: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Configuration block of a target table for resource linking. See `target_table` below.
         #[builder(into, default)]
-        pub target_table: pulumi_wasm_rust::InputOrOutput<
+        pub target_table: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::glue::CatalogTableTargetTable>,
         >,
         /// If the table is a view, the expanded text of the view; otherwise null.
         #[builder(into, default)]
-        pub view_expanded_text: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub view_expanded_text: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// If the table is a view, the original text of the view; otherwise null.
         #[builder(into, default)]
-        pub view_original_text: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub view_original_text: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct CatalogTableResult {
         /// The ARN of the Glue Table.
-        pub arn: pulumi_wasm_rust::Output<String>,
+        pub arn: pulumi_gestalt_rust::Output<String>,
         /// ID of the Glue Catalog and database to create the table in. If omitted, this defaults to the AWS Account ID plus the database name.
-        pub catalog_id: pulumi_wasm_rust::Output<String>,
+        pub catalog_id: pulumi_gestalt_rust::Output<String>,
         /// Name of the metadata database where the table metadata resides. For Hive compatibility, this must be all lowercase.
         ///
         /// The follow arguments are optional:
-        pub database_name: pulumi_wasm_rust::Output<String>,
+        pub database_name: pulumi_gestalt_rust::Output<String>,
         /// Description of the table.
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_gestalt_rust::Output<Option<String>>,
         /// Name of the table. For Hive compatibility, this must be entirely lowercase.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// Configuration block for open table formats. See `open_table_format_input` below.
-        pub open_table_format_input: pulumi_wasm_rust::Output<
+        pub open_table_format_input: pulumi_gestalt_rust::Output<
             Option<super::super::types::glue::CatalogTableOpenTableFormatInput>,
         >,
         /// Owner of the table.
-        pub owner: pulumi_wasm_rust::Output<Option<String>>,
+        pub owner: pulumi_gestalt_rust::Output<Option<String>>,
         /// Properties associated with this table, as a list of key-value pairs.
-        pub parameters: pulumi_wasm_rust::Output<
+        pub parameters: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Configuration block for a maximum of 3 partition indexes. See `partition_index` below.
-        pub partition_indices: pulumi_wasm_rust::Output<
+        pub partition_indices: pulumi_gestalt_rust::Output<
             Vec<super::super::types::glue::CatalogTablePartitionIndex>,
         >,
         /// Configuration block of columns by which the table is partitioned. Only primitive types are supported as partition keys. See `partition_keys` below.
-        pub partition_keys: pulumi_wasm_rust::Output<
+        pub partition_keys: pulumi_gestalt_rust::Output<
             Option<Vec<super::super::types::glue::CatalogTablePartitionKey>>,
         >,
         /// Retention time for this table.
-        pub retention: pulumi_wasm_rust::Output<Option<i32>>,
+        pub retention: pulumi_gestalt_rust::Output<Option<i32>>,
         /// Configuration block for information about the physical storage of this table. For more information, refer to the [Glue Developer Guide](https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-catalog-tables.html#aws-glue-api-catalog-tables-StorageDescriptor). See `storage_descriptor` below.
-        pub storage_descriptor: pulumi_wasm_rust::Output<
+        pub storage_descriptor: pulumi_gestalt_rust::Output<
             Option<super::super::types::glue::CatalogTableStorageDescriptor>,
         >,
         /// Type of this table (EXTERNAL_TABLE, VIRTUAL_VIEW, etc.). While optional, some Athena DDL queries such as `ALTER TABLE` and `SHOW CREATE TABLE` will fail if this argument is empty.
-        pub table_type: pulumi_wasm_rust::Output<Option<String>>,
+        pub table_type: pulumi_gestalt_rust::Output<Option<String>>,
         /// Configuration block of a target table for resource linking. See `target_table` below.
-        pub target_table: pulumi_wasm_rust::Output<
+        pub target_table: pulumi_gestalt_rust::Output<
             Option<super::super::types::glue::CatalogTableTargetTable>,
         >,
         /// If the table is a view, the expanded text of the view; otherwise null.
-        pub view_expanded_text: pulumi_wasm_rust::Output<Option<String>>,
+        pub view_expanded_text: pulumi_gestalt_rust::Output<Option<String>>,
         /// If the table is a view, the original text of the view; otherwise null.
-        pub view_original_text: pulumi_wasm_rust::Output<Option<String>>,
+        pub view_original_text: pulumi_gestalt_rust::Output<Option<String>>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: CatalogTableArgs,
     ) -> CatalogTableResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let catalog_id_binding = args.catalog_id.get_output(context).get_inner();
         let database_name_binding = args.database_name.get_output(context).get_inner();
@@ -289,46 +289,46 @@ pub mod catalog_table {
         };
         let o = register_interface::register(context.get_inner(), &request);
         CatalogTableResult {
-            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
-            catalog_id: pulumi_wasm_rust::__private::into_domain(
+            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
+            catalog_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("catalogId"),
             ),
-            database_name: pulumi_wasm_rust::__private::into_domain(
+            database_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("databaseName"),
             ),
-            description: pulumi_wasm_rust::__private::into_domain(
+            description: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("description"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            open_table_format_input: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            open_table_format_input: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("openTableFormatInput"),
             ),
-            owner: pulumi_wasm_rust::__private::into_domain(o.extract_field("owner")),
-            parameters: pulumi_wasm_rust::__private::into_domain(
+            owner: pulumi_gestalt_rust::__private::into_domain(o.extract_field("owner")),
+            parameters: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("parameters"),
             ),
-            partition_indices: pulumi_wasm_rust::__private::into_domain(
+            partition_indices: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("partitionIndices"),
             ),
-            partition_keys: pulumi_wasm_rust::__private::into_domain(
+            partition_keys: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("partitionKeys"),
             ),
-            retention: pulumi_wasm_rust::__private::into_domain(
+            retention: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("retention"),
             ),
-            storage_descriptor: pulumi_wasm_rust::__private::into_domain(
+            storage_descriptor: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("storageDescriptor"),
             ),
-            table_type: pulumi_wasm_rust::__private::into_domain(
+            table_type: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("tableType"),
             ),
-            target_table: pulumi_wasm_rust::__private::into_domain(
+            target_table: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("targetTable"),
             ),
-            view_expanded_text: pulumi_wasm_rust::__private::into_domain(
+            view_expanded_text: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("viewExpandedText"),
             ),
-            view_original_text: pulumi_wasm_rust::__private::into_domain(
+            view_original_text: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("viewOriginalText"),
             ),
         }

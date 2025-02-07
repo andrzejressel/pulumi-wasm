@@ -22,8 +22,8 @@
 /// Add a Region to a replication set. (You can add only one Region at a time.)
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let replicationSetName = replication_set::create(
@@ -44,8 +44,8 @@
 /// Delete a Region from a replication set. (You can delete only one Region at a time.)
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let replicationSetName = replication_set::create(
@@ -86,40 +86,40 @@
 /// $ pulumi import aws:ssmincidents/replicationSet:ReplicationSet replicationSetName import
 /// ```
 pub mod replication_set {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ReplicationSetArgs {
         #[builder(into)]
-        pub regions: pulumi_wasm_rust::InputOrOutput<
+        pub regions: pulumi_gestalt_rust::InputOrOutput<
             Vec<super::super::types::ssmincidents::ReplicationSetRegion>,
         >,
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
     #[allow(dead_code)]
     pub struct ReplicationSetResult {
         /// The ARN of the replication set.
-        pub arn: pulumi_wasm_rust::Output<String>,
+        pub arn: pulumi_gestalt_rust::Output<String>,
         /// The ARN of the user who created the replication set.
-        pub created_by: pulumi_wasm_rust::Output<String>,
+        pub created_by: pulumi_gestalt_rust::Output<String>,
         /// If `true`, the last region in a replication set cannot be deleted.
-        pub deletion_protected: pulumi_wasm_rust::Output<bool>,
+        pub deletion_protected: pulumi_gestalt_rust::Output<bool>,
         /// A timestamp showing when the replication set was last modified.
-        pub last_modified_by: pulumi_wasm_rust::Output<String>,
-        pub regions: pulumi_wasm_rust::Output<
+        pub last_modified_by: pulumi_gestalt_rust::Output<String>,
+        pub regions: pulumi_gestalt_rust::Output<
             Vec<super::super::types::ssmincidents::ReplicationSetRegion>,
         >,
         /// The current status of the Region.
         /// * Valid Values: `ACTIVE` | `CREATING` | `UPDATING` | `DELETING` | `FAILED`
-        pub status: pulumi_wasm_rust::Output<String>,
-        pub tags: pulumi_wasm_rust::Output<
+        pub status: pulumi_gestalt_rust::Output<String>,
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        pub tags_all: pulumi_wasm_rust::Output<
+        pub tags_all: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
     }
@@ -128,11 +128,11 @@ pub mod replication_set {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: ReplicationSetArgs,
     ) -> ReplicationSetResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let regions_binding = args.regions.get_output(context).get_inner();
         let tags_binding = args.tags.get_output(context).get_inner();
@@ -153,22 +153,24 @@ pub mod replication_set {
         };
         let o = register_interface::register(context.get_inner(), &request);
         ReplicationSetResult {
-            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
-            created_by: pulumi_wasm_rust::__private::into_domain(
+            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
+            created_by: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("createdBy"),
             ),
-            deletion_protected: pulumi_wasm_rust::__private::into_domain(
+            deletion_protected: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("deletionProtected"),
             ),
-            last_modified_by: pulumi_wasm_rust::__private::into_domain(
+            last_modified_by: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("lastModifiedBy"),
             ),
-            regions: pulumi_wasm_rust::__private::into_domain(
+            regions: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("regions"),
             ),
-            status: pulumi_wasm_rust::__private::into_domain(o.extract_field("status")),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_wasm_rust::__private::into_domain(
+            status: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("status"),
+            ),
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            tags_all: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("tagsAll"),
             ),
         }

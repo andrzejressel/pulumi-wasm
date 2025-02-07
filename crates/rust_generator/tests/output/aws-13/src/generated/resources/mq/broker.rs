@@ -57,8 +57,8 @@
 /// ### Cross-Region Data Replication
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = broker::create(
@@ -116,173 +116,175 @@
 /// $ pulumi import aws:mq/broker:Broker example a1b2c3d4-d5f6-7777-8888-9999aaaabbbbcccc
 /// ```
 pub mod broker {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct BrokerArgs {
         /// Specifies whether any broker modifications are applied immediately, or during the next maintenance window. Default is `false`.
         #[builder(into, default)]
-        pub apply_immediately: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub apply_immediately: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// Authentication strategy used to secure the broker. Valid values are `simple` and `ldap`. `ldap` is not supported for `engine_type` `RabbitMQ`.
         #[builder(into, default)]
-        pub authentication_strategy: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub authentication_strategy: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Whether to automatically upgrade to new minor versions of brokers as Amazon MQ makes releases available.
         #[builder(into, default)]
-        pub auto_minor_version_upgrade: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub auto_minor_version_upgrade: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// Name of the broker.
         #[builder(into, default)]
-        pub broker_name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub broker_name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Configuration block for broker configuration. Applies to `engine_type` of `ActiveMQ` and `RabbitMQ` only. Detailed below.
         #[builder(into, default)]
-        pub configuration: pulumi_wasm_rust::InputOrOutput<
+        pub configuration: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::mq::BrokerConfiguration>,
         >,
         /// Defines whether this broker is a part of a data replication pair. Valid values are `CRDR` and `NONE`.
         #[builder(into, default)]
-        pub data_replication_mode: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub data_replication_mode: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The Amazon Resource Name (ARN) of the primary broker that is used to replicate data from in a data replication pair, and is applied to the replica broker. Must be set when `data_replication_mode` is `CRDR`.
         #[builder(into, default)]
-        pub data_replication_primary_broker_arn: pulumi_wasm_rust::InputOrOutput<
+        pub data_replication_primary_broker_arn: pulumi_gestalt_rust::InputOrOutput<
             Option<String>,
         >,
         /// Deployment mode of the broker. Valid values are `SINGLE_INSTANCE`, `ACTIVE_STANDBY_MULTI_AZ`, and `CLUSTER_MULTI_AZ`. Default is `SINGLE_INSTANCE`.
         #[builder(into, default)]
-        pub deployment_mode: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub deployment_mode: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Configuration block containing encryption options. Detailed below.
         #[builder(into, default)]
-        pub encryption_options: pulumi_wasm_rust::InputOrOutput<
+        pub encryption_options: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::mq::BrokerEncryptionOptions>,
         >,
         /// Type of broker engine. Valid values are `ActiveMQ` and `RabbitMQ`.
         #[builder(into)]
-        pub engine_type: pulumi_wasm_rust::InputOrOutput<String>,
+        pub engine_type: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Version of the broker engine. See the [AmazonMQ Broker Engine docs](https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/broker-engine.html) for supported versions. For example, `5.17.6`.
         #[builder(into)]
-        pub engine_version: pulumi_wasm_rust::InputOrOutput<String>,
+        pub engine_version: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Broker's instance type. For example, `mq.t3.micro`, `mq.m5.large`.
         #[builder(into)]
-        pub host_instance_type: pulumi_wasm_rust::InputOrOutput<String>,
+        pub host_instance_type: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Configuration block for the LDAP server used to authenticate and authorize connections to the broker. Not supported for `engine_type` `RabbitMQ`. Detailed below. (Currently, AWS may not process changes to LDAP server metadata.)
         #[builder(into, default)]
-        pub ldap_server_metadata: pulumi_wasm_rust::InputOrOutput<
+        pub ldap_server_metadata: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::mq::BrokerLdapServerMetadata>,
         >,
         /// Configuration block for the logging configuration of the broker. Detailed below.
         #[builder(into, default)]
-        pub logs: pulumi_wasm_rust::InputOrOutput<
+        pub logs: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::mq::BrokerLogs>,
         >,
         /// Configuration block for the maintenance window start time. Detailed below.
         #[builder(into, default)]
-        pub maintenance_window_start_time: pulumi_wasm_rust::InputOrOutput<
+        pub maintenance_window_start_time: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::mq::BrokerMaintenanceWindowStartTime>,
         >,
         /// Whether to enable connections from applications outside of the VPC that hosts the broker's subnets.
         #[builder(into, default)]
-        pub publicly_accessible: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub publicly_accessible: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// List of security group IDs assigned to the broker.
         #[builder(into, default)]
-        pub security_groups: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
+        pub security_groups: pulumi_gestalt_rust::InputOrOutput<Option<Vec<String>>>,
         /// Storage type of the broker. For `engine_type` `ActiveMQ`, the valid values are `efs` and `ebs`, and the AWS-default is `efs`. For `engine_type` `RabbitMQ`, only `ebs` is supported. When using `ebs`, only the `mq.m5` broker instance type family is supported.
         #[builder(into, default)]
-        pub storage_type: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub storage_type: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// List of subnet IDs in which to launch the broker. A `SINGLE_INSTANCE` deployment requires one subnet. An `ACTIVE_STANDBY_MULTI_AZ` deployment requires multiple subnets.
         #[builder(into, default)]
-        pub subnet_ids: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
+        pub subnet_ids: pulumi_gestalt_rust::InputOrOutput<Option<Vec<String>>>,
         /// Map of tags to assign to the broker. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Configuration block for broker users. For `engine_type` of `RabbitMQ`, Amazon MQ does not return broker users preventing this resource from making user updates and drift detection. Detailed below.
         ///
         /// The following arguments are optional:
         #[builder(into)]
-        pub users: pulumi_wasm_rust::InputOrOutput<
+        pub users: pulumi_gestalt_rust::InputOrOutput<
             Vec<super::super::types::mq::BrokerUser>,
         >,
     }
     #[allow(dead_code)]
     pub struct BrokerResult {
         /// Specifies whether any broker modifications are applied immediately, or during the next maintenance window. Default is `false`.
-        pub apply_immediately: pulumi_wasm_rust::Output<Option<bool>>,
+        pub apply_immediately: pulumi_gestalt_rust::Output<Option<bool>>,
         /// ARN of the broker.
-        pub arn: pulumi_wasm_rust::Output<String>,
+        pub arn: pulumi_gestalt_rust::Output<String>,
         /// Authentication strategy used to secure the broker. Valid values are `simple` and `ldap`. `ldap` is not supported for `engine_type` `RabbitMQ`.
-        pub authentication_strategy: pulumi_wasm_rust::Output<String>,
+        pub authentication_strategy: pulumi_gestalt_rust::Output<String>,
         /// Whether to automatically upgrade to new minor versions of brokers as Amazon MQ makes releases available.
-        pub auto_minor_version_upgrade: pulumi_wasm_rust::Output<Option<bool>>,
+        pub auto_minor_version_upgrade: pulumi_gestalt_rust::Output<Option<bool>>,
         /// Name of the broker.
-        pub broker_name: pulumi_wasm_rust::Output<String>,
+        pub broker_name: pulumi_gestalt_rust::Output<String>,
         /// Configuration block for broker configuration. Applies to `engine_type` of `ActiveMQ` and `RabbitMQ` only. Detailed below.
-        pub configuration: pulumi_wasm_rust::Output<
+        pub configuration: pulumi_gestalt_rust::Output<
             super::super::types::mq::BrokerConfiguration,
         >,
         /// Defines whether this broker is a part of a data replication pair. Valid values are `CRDR` and `NONE`.
-        pub data_replication_mode: pulumi_wasm_rust::Output<String>,
+        pub data_replication_mode: pulumi_gestalt_rust::Output<String>,
         /// The Amazon Resource Name (ARN) of the primary broker that is used to replicate data from in a data replication pair, and is applied to the replica broker. Must be set when `data_replication_mode` is `CRDR`.
-        pub data_replication_primary_broker_arn: pulumi_wasm_rust::Output<
+        pub data_replication_primary_broker_arn: pulumi_gestalt_rust::Output<
             Option<String>,
         >,
         /// Deployment mode of the broker. Valid values are `SINGLE_INSTANCE`, `ACTIVE_STANDBY_MULTI_AZ`, and `CLUSTER_MULTI_AZ`. Default is `SINGLE_INSTANCE`.
-        pub deployment_mode: pulumi_wasm_rust::Output<Option<String>>,
+        pub deployment_mode: pulumi_gestalt_rust::Output<Option<String>>,
         /// Configuration block containing encryption options. Detailed below.
-        pub encryption_options: pulumi_wasm_rust::Output<
+        pub encryption_options: pulumi_gestalt_rust::Output<
             Option<super::super::types::mq::BrokerEncryptionOptions>,
         >,
         /// Type of broker engine. Valid values are `ActiveMQ` and `RabbitMQ`.
-        pub engine_type: pulumi_wasm_rust::Output<String>,
+        pub engine_type: pulumi_gestalt_rust::Output<String>,
         /// Version of the broker engine. See the [AmazonMQ Broker Engine docs](https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/broker-engine.html) for supported versions. For example, `5.17.6`.
-        pub engine_version: pulumi_wasm_rust::Output<String>,
+        pub engine_version: pulumi_gestalt_rust::Output<String>,
         /// Broker's instance type. For example, `mq.t3.micro`, `mq.m5.large`.
-        pub host_instance_type: pulumi_wasm_rust::Output<String>,
+        pub host_instance_type: pulumi_gestalt_rust::Output<String>,
         /// List of information about allocated brokers (both active & standby).
-        pub instances: pulumi_wasm_rust::Output<
+        pub instances: pulumi_gestalt_rust::Output<
             Vec<super::super::types::mq::BrokerInstance>,
         >,
         /// Configuration block for the LDAP server used to authenticate and authorize connections to the broker. Not supported for `engine_type` `RabbitMQ`. Detailed below. (Currently, AWS may not process changes to LDAP server metadata.)
-        pub ldap_server_metadata: pulumi_wasm_rust::Output<
+        pub ldap_server_metadata: pulumi_gestalt_rust::Output<
             Option<super::super::types::mq::BrokerLdapServerMetadata>,
         >,
         /// Configuration block for the logging configuration of the broker. Detailed below.
-        pub logs: pulumi_wasm_rust::Output<Option<super::super::types::mq::BrokerLogs>>,
+        pub logs: pulumi_gestalt_rust::Output<
+            Option<super::super::types::mq::BrokerLogs>,
+        >,
         /// Configuration block for the maintenance window start time. Detailed below.
-        pub maintenance_window_start_time: pulumi_wasm_rust::Output<
+        pub maintenance_window_start_time: pulumi_gestalt_rust::Output<
             super::super::types::mq::BrokerMaintenanceWindowStartTime,
         >,
         /// (Optional) The data replication mode that will be applied after reboot.
-        pub pending_data_replication_mode: pulumi_wasm_rust::Output<String>,
+        pub pending_data_replication_mode: pulumi_gestalt_rust::Output<String>,
         /// Whether to enable connections from applications outside of the VPC that hosts the broker's subnets.
-        pub publicly_accessible: pulumi_wasm_rust::Output<Option<bool>>,
+        pub publicly_accessible: pulumi_gestalt_rust::Output<Option<bool>>,
         /// List of security group IDs assigned to the broker.
-        pub security_groups: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub security_groups: pulumi_gestalt_rust::Output<Option<Vec<String>>>,
         /// Storage type of the broker. For `engine_type` `ActiveMQ`, the valid values are `efs` and `ebs`, and the AWS-default is `efs`. For `engine_type` `RabbitMQ`, only `ebs` is supported. When using `ebs`, only the `mq.m5` broker instance type family is supported.
-        pub storage_type: pulumi_wasm_rust::Output<String>,
+        pub storage_type: pulumi_gestalt_rust::Output<String>,
         /// List of subnet IDs in which to launch the broker. A `SINGLE_INSTANCE` deployment requires one subnet. An `ACTIVE_STANDBY_MULTI_AZ` deployment requires multiple subnets.
-        pub subnet_ids: pulumi_wasm_rust::Output<Vec<String>>,
+        pub subnet_ids: pulumi_gestalt_rust::Output<Vec<String>>,
         /// Map of tags to assign to the broker. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        pub tags_all: pulumi_wasm_rust::Output<
+        pub tags_all: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
         /// Configuration block for broker users. For `engine_type` of `RabbitMQ`, Amazon MQ does not return broker users preventing this resource from making user updates and drift detection. Detailed below.
         ///
         /// The following arguments are optional:
-        pub users: pulumi_wasm_rust::Output<Vec<super::super::types::mq::BrokerUser>>,
+        pub users: pulumi_gestalt_rust::Output<Vec<super::super::types::mq::BrokerUser>>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: BrokerArgs,
     ) -> BrokerResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let apply_immediately_binding = args
             .apply_immediately
@@ -434,73 +436,73 @@ pub mod broker {
         };
         let o = register_interface::register(context.get_inner(), &request);
         BrokerResult {
-            apply_immediately: pulumi_wasm_rust::__private::into_domain(
+            apply_immediately: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("applyImmediately"),
             ),
-            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
-            authentication_strategy: pulumi_wasm_rust::__private::into_domain(
+            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
+            authentication_strategy: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("authenticationStrategy"),
             ),
-            auto_minor_version_upgrade: pulumi_wasm_rust::__private::into_domain(
+            auto_minor_version_upgrade: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("autoMinorVersionUpgrade"),
             ),
-            broker_name: pulumi_wasm_rust::__private::into_domain(
+            broker_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("brokerName"),
             ),
-            configuration: pulumi_wasm_rust::__private::into_domain(
+            configuration: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("configuration"),
             ),
-            data_replication_mode: pulumi_wasm_rust::__private::into_domain(
+            data_replication_mode: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("dataReplicationMode"),
             ),
-            data_replication_primary_broker_arn: pulumi_wasm_rust::__private::into_domain(
+            data_replication_primary_broker_arn: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("dataReplicationPrimaryBrokerArn"),
             ),
-            deployment_mode: pulumi_wasm_rust::__private::into_domain(
+            deployment_mode: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("deploymentMode"),
             ),
-            encryption_options: pulumi_wasm_rust::__private::into_domain(
+            encryption_options: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("encryptionOptions"),
             ),
-            engine_type: pulumi_wasm_rust::__private::into_domain(
+            engine_type: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("engineType"),
             ),
-            engine_version: pulumi_wasm_rust::__private::into_domain(
+            engine_version: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("engineVersion"),
             ),
-            host_instance_type: pulumi_wasm_rust::__private::into_domain(
+            host_instance_type: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("hostInstanceType"),
             ),
-            instances: pulumi_wasm_rust::__private::into_domain(
+            instances: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("instances"),
             ),
-            ldap_server_metadata: pulumi_wasm_rust::__private::into_domain(
+            ldap_server_metadata: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("ldapServerMetadata"),
             ),
-            logs: pulumi_wasm_rust::__private::into_domain(o.extract_field("logs")),
-            maintenance_window_start_time: pulumi_wasm_rust::__private::into_domain(
+            logs: pulumi_gestalt_rust::__private::into_domain(o.extract_field("logs")),
+            maintenance_window_start_time: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("maintenanceWindowStartTime"),
             ),
-            pending_data_replication_mode: pulumi_wasm_rust::__private::into_domain(
+            pending_data_replication_mode: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("pendingDataReplicationMode"),
             ),
-            publicly_accessible: pulumi_wasm_rust::__private::into_domain(
+            publicly_accessible: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("publiclyAccessible"),
             ),
-            security_groups: pulumi_wasm_rust::__private::into_domain(
+            security_groups: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("securityGroups"),
             ),
-            storage_type: pulumi_wasm_rust::__private::into_domain(
+            storage_type: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("storageType"),
             ),
-            subnet_ids: pulumi_wasm_rust::__private::into_domain(
+            subnet_ids: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("subnetIds"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_wasm_rust::__private::into_domain(
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            tags_all: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("tagsAll"),
             ),
-            users: pulumi_wasm_rust::__private::into_domain(o.extract_field("users")),
+            users: pulumi_gestalt_rust::__private::into_domain(o.extract_field("users")),
         }
     }
 }

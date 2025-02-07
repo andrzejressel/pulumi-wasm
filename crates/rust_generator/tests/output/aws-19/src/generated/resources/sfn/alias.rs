@@ -5,8 +5,8 @@
 /// ### Basic Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let mySfnAlias = alias::create(
@@ -48,34 +48,34 @@
 /// $ pulumi import aws:sfn/alias:Alias foo arn:aws:states:us-east-1:123456789098:stateMachine:myStateMachine:foo
 /// ```
 pub mod alias {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct AliasArgs {
         /// Description of the alias.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub description: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Name for the alias you are creating.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The StateMachine alias' route configuration settings. Fields documented below
         #[builder(into)]
-        pub routing_configurations: pulumi_wasm_rust::InputOrOutput<
+        pub routing_configurations: pulumi_gestalt_rust::InputOrOutput<
             Vec<super::super::types::sfn::AliasRoutingConfiguration>,
         >,
     }
     #[allow(dead_code)]
     pub struct AliasResult {
         /// The Amazon Resource Name (ARN) identifying your state machine alias.
-        pub arn: pulumi_wasm_rust::Output<String>,
+        pub arn: pulumi_gestalt_rust::Output<String>,
         /// The date the state machine alias was created.
-        pub creation_date: pulumi_wasm_rust::Output<String>,
+        pub creation_date: pulumi_gestalt_rust::Output<String>,
         /// Description of the alias.
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_gestalt_rust::Output<Option<String>>,
         /// Name for the alias you are creating.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// The StateMachine alias' route configuration settings. Fields documented below
-        pub routing_configurations: pulumi_wasm_rust::Output<
+        pub routing_configurations: pulumi_gestalt_rust::Output<
             Vec<super::super::types::sfn::AliasRoutingConfiguration>,
         >,
     }
@@ -84,11 +84,11 @@ pub mod alias {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: AliasArgs,
     ) -> AliasResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let description_binding = args.description.get_output(context).get_inner();
         let name_binding = args.name.get_output(context).get_inner();
@@ -117,15 +117,15 @@ pub mod alias {
         };
         let o = register_interface::register(context.get_inner(), &request);
         AliasResult {
-            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
-            creation_date: pulumi_wasm_rust::__private::into_domain(
+            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
+            creation_date: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("creationDate"),
             ),
-            description: pulumi_wasm_rust::__private::into_domain(
+            description: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("description"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            routing_configurations: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            routing_configurations: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("routingConfigurations"),
             ),
         }

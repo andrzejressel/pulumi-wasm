@@ -1,7 +1,7 @@
 use anyhow::Error;
-use pulumi_wasm_providers_random::random_string;
-use pulumi_wasm_providers_random::random_string::RandomStringArgs;
-use pulumi_wasm_rust::{pulumi_main, PulumiContext};
+use pulumi_gestalt_providers_random::random_string;
+use pulumi_gestalt_providers_random::random_string::RandomStringArgs;
+use pulumi_gestalt_rust::{pulumi_main, PulumiContext};
 
 pulumi_main!();
 

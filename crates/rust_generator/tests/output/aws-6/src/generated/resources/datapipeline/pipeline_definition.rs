@@ -3,8 +3,8 @@
 /// ## Example Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let default = pipeline::create(
@@ -56,55 +56,55 @@
 /// $ pulumi import aws:datapipeline/pipelineDefinition:PipelineDefinition example df-1234567890
 /// ```
 pub mod pipeline_definition {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct PipelineDefinitionArgs {
         /// Configuration block for the parameter objects used in the pipeline definition. See below
         #[builder(into, default)]
-        pub parameter_objects: pulumi_wasm_rust::InputOrOutput<
+        pub parameter_objects: pulumi_gestalt_rust::InputOrOutput<
             Option<
                 Vec<super::super::types::datapipeline::PipelineDefinitionParameterObject>,
             >,
         >,
         /// Configuration block for the parameter values used in the pipeline definition. See below
         #[builder(into, default)]
-        pub parameter_values: pulumi_wasm_rust::InputOrOutput<
+        pub parameter_values: pulumi_gestalt_rust::InputOrOutput<
             Option<
                 Vec<super::super::types::datapipeline::PipelineDefinitionParameterValue>,
             >,
         >,
         /// ID of the pipeline.
         #[builder(into)]
-        pub pipeline_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub pipeline_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Configuration block for the objects that define the pipeline. See below
         ///
         /// The following arguments are optional:
         #[builder(into)]
-        pub pipeline_objects: pulumi_wasm_rust::InputOrOutput<
+        pub pipeline_objects: pulumi_gestalt_rust::InputOrOutput<
             Vec<super::super::types::datapipeline::PipelineDefinitionPipelineObject>,
         >,
     }
     #[allow(dead_code)]
     pub struct PipelineDefinitionResult {
         /// Configuration block for the parameter objects used in the pipeline definition. See below
-        pub parameter_objects: pulumi_wasm_rust::Output<
+        pub parameter_objects: pulumi_gestalt_rust::Output<
             Option<
                 Vec<super::super::types::datapipeline::PipelineDefinitionParameterObject>,
             >,
         >,
         /// Configuration block for the parameter values used in the pipeline definition. See below
-        pub parameter_values: pulumi_wasm_rust::Output<
+        pub parameter_values: pulumi_gestalt_rust::Output<
             Option<
                 Vec<super::super::types::datapipeline::PipelineDefinitionParameterValue>,
             >,
         >,
         /// ID of the pipeline.
-        pub pipeline_id: pulumi_wasm_rust::Output<String>,
+        pub pipeline_id: pulumi_gestalt_rust::Output<String>,
         /// Configuration block for the objects that define the pipeline. See below
         ///
         /// The following arguments are optional:
-        pub pipeline_objects: pulumi_wasm_rust::Output<
+        pub pipeline_objects: pulumi_gestalt_rust::Output<
             Vec<super::super::types::datapipeline::PipelineDefinitionPipelineObject>,
         >,
     }
@@ -113,11 +113,11 @@ pub mod pipeline_definition {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: PipelineDefinitionArgs,
     ) -> PipelineDefinitionResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let parameter_objects_binding = args
             .parameter_objects
@@ -157,16 +157,16 @@ pub mod pipeline_definition {
         };
         let o = register_interface::register(context.get_inner(), &request);
         PipelineDefinitionResult {
-            parameter_objects: pulumi_wasm_rust::__private::into_domain(
+            parameter_objects: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("parameterObjects"),
             ),
-            parameter_values: pulumi_wasm_rust::__private::into_domain(
+            parameter_values: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("parameterValues"),
             ),
-            pipeline_id: pulumi_wasm_rust::__private::into_domain(
+            pipeline_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("pipelineId"),
             ),
-            pipeline_objects: pulumi_wasm_rust::__private::into_domain(
+            pipeline_objects: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("pipelineObjects"),
             ),
         }

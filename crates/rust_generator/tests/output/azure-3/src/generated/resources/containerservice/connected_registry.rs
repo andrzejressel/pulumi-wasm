@@ -3,8 +3,8 @@
 /// ## Example Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = resource_group::create(
@@ -72,96 +72,96 @@
 /// ```
 ///
 pub mod connected_registry {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ConnectedRegistryArgs {
         /// Should the log auditing be enabled?
         #[builder(into, default)]
-        pub audit_log_enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub audit_log_enabled: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// Specifies a list of IDs of Container Registry Tokens, which are meant to be used by the clients to connect to the Connected Registry.
         #[builder(into, default)]
-        pub client_token_ids: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
+        pub client_token_ids: pulumi_gestalt_rust::InputOrOutput<Option<Vec<String>>>,
         /// The ID of the Container Registry that this Connected Registry will reside in. Changing this forces a new Container Connected Registry to be created.
         ///
         /// > If `parent_registry_id` is not specified, the Connected Registry will be connected to the Container Registry identified by `container_registry_id`.
         #[builder(into)]
-        pub container_registry_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub container_registry_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The verbosity of the logs. Possible values are `None`, `Debug`, `Information`, `Warning` and `Error`. Defaults to `None`.
         #[builder(into, default)]
-        pub log_level: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub log_level: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The mode of the Connected Registry. Possible values are `Mirror`, `ReadOnly`, `ReadWrite` and `Registry`. Changing this forces a new Container Connected Registry to be created. Defaults to `ReadWrite`.
         #[builder(into, default)]
-        pub mode: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub mode: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The name which should be used for this Container Connected Registry. Changing this forces a new Container Connected Registry to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// One or more `notification` blocks as defined below.
         #[builder(into, default)]
-        pub notifications: pulumi_wasm_rust::InputOrOutput<
+        pub notifications: pulumi_gestalt_rust::InputOrOutput<
             Option<
                 Vec<super::super::types::containerservice::ConnectedRegistryNotification>,
             >,
         >,
         /// The ID of the parent registry. This can be either a Container Registry ID or a Connected Registry ID. Changing this forces a new Container Connected Registry to be created.
         #[builder(into, default)]
-        pub parent_registry_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub parent_registry_id: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The period of time (in form of ISO8601) for which a message is available to sync before it is expired. Allowed range is from `P1D` to `P90D`. Defaults to `P1D`.
         #[builder(into, default)]
-        pub sync_message_ttl: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub sync_message_ttl: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The cron expression indicating the schedule that the Connected Registry will sync with its parent. Defaults to `* * * * *`.
         #[builder(into, default)]
-        pub sync_schedule: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub sync_schedule: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The ID of the Container Registry Token which is used for synchronizing the Connected Registry. Changing this forces a new Container Connected Registry to be created.
         #[builder(into)]
-        pub sync_token_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub sync_token_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The time window (in form of ISO8601) during which sync is enabled for each schedule occurrence. Allowed range is from `PT3H` to `P7D`.
         #[builder(into, default)]
-        pub sync_window: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub sync_window: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct ConnectedRegistryResult {
         /// Should the log auditing be enabled?
-        pub audit_log_enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub audit_log_enabled: pulumi_gestalt_rust::Output<Option<bool>>,
         /// Specifies a list of IDs of Container Registry Tokens, which are meant to be used by the clients to connect to the Connected Registry.
-        pub client_token_ids: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub client_token_ids: pulumi_gestalt_rust::Output<Option<Vec<String>>>,
         /// The ID of the Container Registry that this Connected Registry will reside in. Changing this forces a new Container Connected Registry to be created.
         ///
         /// > If `parent_registry_id` is not specified, the Connected Registry will be connected to the Container Registry identified by `container_registry_id`.
-        pub container_registry_id: pulumi_wasm_rust::Output<String>,
+        pub container_registry_id: pulumi_gestalt_rust::Output<String>,
         /// The verbosity of the logs. Possible values are `None`, `Debug`, `Information`, `Warning` and `Error`. Defaults to `None`.
-        pub log_level: pulumi_wasm_rust::Output<Option<String>>,
+        pub log_level: pulumi_gestalt_rust::Output<Option<String>>,
         /// The mode of the Connected Registry. Possible values are `Mirror`, `ReadOnly`, `ReadWrite` and `Registry`. Changing this forces a new Container Connected Registry to be created. Defaults to `ReadWrite`.
-        pub mode: pulumi_wasm_rust::Output<Option<String>>,
+        pub mode: pulumi_gestalt_rust::Output<Option<String>>,
         /// The name which should be used for this Container Connected Registry. Changing this forces a new Container Connected Registry to be created.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// One or more `notification` blocks as defined below.
-        pub notifications: pulumi_wasm_rust::Output<
+        pub notifications: pulumi_gestalt_rust::Output<
             Option<
                 Vec<super::super::types::containerservice::ConnectedRegistryNotification>,
             >,
         >,
         /// The ID of the parent registry. This can be either a Container Registry ID or a Connected Registry ID. Changing this forces a new Container Connected Registry to be created.
-        pub parent_registry_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub parent_registry_id: pulumi_gestalt_rust::Output<Option<String>>,
         /// The period of time (in form of ISO8601) for which a message is available to sync before it is expired. Allowed range is from `P1D` to `P90D`. Defaults to `P1D`.
-        pub sync_message_ttl: pulumi_wasm_rust::Output<Option<String>>,
+        pub sync_message_ttl: pulumi_gestalt_rust::Output<Option<String>>,
         /// The cron expression indicating the schedule that the Connected Registry will sync with its parent. Defaults to `* * * * *`.
-        pub sync_schedule: pulumi_wasm_rust::Output<Option<String>>,
+        pub sync_schedule: pulumi_gestalt_rust::Output<Option<String>>,
         /// The ID of the Container Registry Token which is used for synchronizing the Connected Registry. Changing this forces a new Container Connected Registry to be created.
-        pub sync_token_id: pulumi_wasm_rust::Output<String>,
+        pub sync_token_id: pulumi_gestalt_rust::Output<String>,
         /// The time window (in form of ISO8601) during which sync is enabled for each schedule occurrence. Allowed range is from `PT3H` to `P7D`.
-        pub sync_window: pulumi_wasm_rust::Output<Option<String>>,
+        pub sync_window: pulumi_gestalt_rust::Output<Option<String>>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: ConnectedRegistryArgs,
     ) -> ConnectedRegistryResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let audit_log_enabled_binding = args
             .audit_log_enabled
@@ -247,36 +247,36 @@ pub mod connected_registry {
         };
         let o = register_interface::register(context.get_inner(), &request);
         ConnectedRegistryResult {
-            audit_log_enabled: pulumi_wasm_rust::__private::into_domain(
+            audit_log_enabled: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("auditLogEnabled"),
             ),
-            client_token_ids: pulumi_wasm_rust::__private::into_domain(
+            client_token_ids: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("clientTokenIds"),
             ),
-            container_registry_id: pulumi_wasm_rust::__private::into_domain(
+            container_registry_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("containerRegistryId"),
             ),
-            log_level: pulumi_wasm_rust::__private::into_domain(
+            log_level: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("logLevel"),
             ),
-            mode: pulumi_wasm_rust::__private::into_domain(o.extract_field("mode")),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            notifications: pulumi_wasm_rust::__private::into_domain(
+            mode: pulumi_gestalt_rust::__private::into_domain(o.extract_field("mode")),
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            notifications: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("notifications"),
             ),
-            parent_registry_id: pulumi_wasm_rust::__private::into_domain(
+            parent_registry_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("parentRegistryId"),
             ),
-            sync_message_ttl: pulumi_wasm_rust::__private::into_domain(
+            sync_message_ttl: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("syncMessageTtl"),
             ),
-            sync_schedule: pulumi_wasm_rust::__private::into_domain(
+            sync_schedule: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("syncSchedule"),
             ),
-            sync_token_id: pulumi_wasm_rust::__private::into_domain(
+            sync_token_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("syncTokenId"),
             ),
-            sync_window: pulumi_wasm_rust::__private::into_domain(
+            sync_window: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("syncWindow"),
             ),
         }

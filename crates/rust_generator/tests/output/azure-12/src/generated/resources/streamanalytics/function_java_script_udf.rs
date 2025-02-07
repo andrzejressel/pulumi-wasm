@@ -42,62 +42,62 @@
 /// ```
 ///
 pub mod function_java_script_udf {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct FunctionJavaScriptUDFArgs {
         /// One or more `input` blocks as defined below.
         #[builder(into)]
-        pub inputs: pulumi_wasm_rust::InputOrOutput<
+        pub inputs: pulumi_gestalt_rust::InputOrOutput<
             Vec<super::super::types::streamanalytics::FunctionJavaScriptUdfInput>,
         >,
         /// The name of the JavaScript UDF Function. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// An `output` blocks as defined below.
         #[builder(into)]
-        pub output: pulumi_wasm_rust::InputOrOutput<
+        pub output: pulumi_gestalt_rust::InputOrOutput<
             super::super::types::streamanalytics::FunctionJavaScriptUdfOutput,
         >,
         /// The name of the Resource Group where the Stream Analytics Job exists. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub resource_group_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub resource_group_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The JavaScript of this UDF Function.
         #[builder(into)]
-        pub script: pulumi_wasm_rust::InputOrOutput<String>,
+        pub script: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The name of the Stream Analytics Job where this Function should be created. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub stream_analytics_job_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub stream_analytics_job_name: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct FunctionJavaScriptUDFResult {
         /// One or more `input` blocks as defined below.
-        pub inputs: pulumi_wasm_rust::Output<
+        pub inputs: pulumi_gestalt_rust::Output<
             Vec<super::super::types::streamanalytics::FunctionJavaScriptUdfInput>,
         >,
         /// The name of the JavaScript UDF Function. Changing this forces a new resource to be created.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// An `output` blocks as defined below.
-        pub output: pulumi_wasm_rust::Output<
+        pub output: pulumi_gestalt_rust::Output<
             super::super::types::streamanalytics::FunctionJavaScriptUdfOutput,
         >,
         /// The name of the Resource Group where the Stream Analytics Job exists. Changing this forces a new resource to be created.
-        pub resource_group_name: pulumi_wasm_rust::Output<String>,
+        pub resource_group_name: pulumi_gestalt_rust::Output<String>,
         /// The JavaScript of this UDF Function.
-        pub script: pulumi_wasm_rust::Output<String>,
+        pub script: pulumi_gestalt_rust::Output<String>,
         /// The name of the Stream Analytics Job where this Function should be created. Changing this forces a new resource to be created.
-        pub stream_analytics_job_name: pulumi_wasm_rust::Output<String>,
+        pub stream_analytics_job_name: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: FunctionJavaScriptUDFArgs,
     ) -> FunctionJavaScriptUDFResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let inputs_binding = args.inputs.get_output(context).get_inner();
         let name_binding = args.name.get_output(context).get_inner();
@@ -145,14 +145,20 @@ pub mod function_java_script_udf {
         };
         let o = register_interface::register(context.get_inner(), &request);
         FunctionJavaScriptUDFResult {
-            inputs: pulumi_wasm_rust::__private::into_domain(o.extract_field("inputs")),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            output: pulumi_wasm_rust::__private::into_domain(o.extract_field("output")),
-            resource_group_name: pulumi_wasm_rust::__private::into_domain(
+            inputs: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("inputs"),
+            ),
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            output: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("output"),
+            ),
+            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("resourceGroupName"),
             ),
-            script: pulumi_wasm_rust::__private::into_domain(o.extract_field("script")),
-            stream_analytics_job_name: pulumi_wasm_rust::__private::into_domain(
+            script: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("script"),
+            ),
+            stream_analytics_job_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("streamAnalyticsJobName"),
             ),
         }

@@ -1,47 +1,49 @@
 pub mod get_autonomous_database {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct GetAutonomousDatabaseArgs {
         /// The ID of the AutonomousDatabase.
         #[builder(into)]
-        pub autonomous_database_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub autonomous_database_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The location of the resource.
         ///
         /// - - -
         #[builder(into)]
-        pub location: pulumi_wasm_rust::InputOrOutput<String>,
+        pub location: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The project to which the resource belongs. If it
         /// is not provided, the provider project is used.
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub project: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct GetAutonomousDatabaseResult {
-        pub admin_password: pulumi_wasm_rust::Output<String>,
-        pub autonomous_database_id: pulumi_wasm_rust::Output<String>,
-        pub cidr: pulumi_wasm_rust::Output<String>,
-        pub create_time: pulumi_wasm_rust::Output<String>,
-        pub database: pulumi_wasm_rust::Output<String>,
-        pub deletion_protection: pulumi_wasm_rust::Output<bool>,
-        pub display_name: pulumi_wasm_rust::Output<String>,
-        pub effective_labels: pulumi_wasm_rust::Output<
+        pub admin_password: pulumi_gestalt_rust::Output<String>,
+        pub autonomous_database_id: pulumi_gestalt_rust::Output<String>,
+        pub cidr: pulumi_gestalt_rust::Output<String>,
+        pub create_time: pulumi_gestalt_rust::Output<String>,
+        pub database: pulumi_gestalt_rust::Output<String>,
+        pub deletion_protection: pulumi_gestalt_rust::Output<bool>,
+        pub display_name: pulumi_gestalt_rust::Output<String>,
+        pub effective_labels: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
-        pub entitlement_id: pulumi_wasm_rust::Output<String>,
+        pub entitlement_id: pulumi_gestalt_rust::Output<String>,
         /// The provider-assigned unique ID for this managed resource.
-        pub id: pulumi_wasm_rust::Output<String>,
-        pub labels: pulumi_wasm_rust::Output<std::collections::HashMap<String, String>>,
-        pub location: pulumi_wasm_rust::Output<String>,
-        pub name: pulumi_wasm_rust::Output<String>,
-        pub network: pulumi_wasm_rust::Output<String>,
-        pub project: pulumi_wasm_rust::Output<Option<String>>,
-        pub properties: pulumi_wasm_rust::Output<
+        pub id: pulumi_gestalt_rust::Output<String>,
+        pub labels: pulumi_gestalt_rust::Output<
+            std::collections::HashMap<String, String>,
+        >,
+        pub location: pulumi_gestalt_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
+        pub network: pulumi_gestalt_rust::Output<String>,
+        pub project: pulumi_gestalt_rust::Output<Option<String>>,
+        pub properties: pulumi_gestalt_rust::Output<
             Vec<
                 super::super::super::types::oracledatabase::GetAutonomousDatabaseProperty,
             >,
         >,
-        pub pulumi_labels: pulumi_wasm_rust::Output<
+        pub pulumi_labels: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
     }
@@ -50,10 +52,10 @@ pub mod get_autonomous_database {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         args: GetAutonomousDatabaseArgs,
     ) -> GetAutonomousDatabaseResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let autonomous_database_id_binding = args
             .autonomous_database_id
@@ -82,47 +84,49 @@ pub mod get_autonomous_database {
         };
         let o = register_interface::invoke(context.get_inner(), &request);
         GetAutonomousDatabaseResult {
-            admin_password: pulumi_wasm_rust::__private::into_domain(
+            admin_password: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("adminPassword"),
             ),
-            autonomous_database_id: pulumi_wasm_rust::__private::into_domain(
+            autonomous_database_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("autonomousDatabaseId"),
             ),
-            cidr: pulumi_wasm_rust::__private::into_domain(o.extract_field("cidr")),
-            create_time: pulumi_wasm_rust::__private::into_domain(
+            cidr: pulumi_gestalt_rust::__private::into_domain(o.extract_field("cidr")),
+            create_time: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("createTime"),
             ),
-            database: pulumi_wasm_rust::__private::into_domain(
+            database: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("database"),
             ),
-            deletion_protection: pulumi_wasm_rust::__private::into_domain(
+            deletion_protection: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("deletionProtection"),
             ),
-            display_name: pulumi_wasm_rust::__private::into_domain(
+            display_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("displayName"),
             ),
-            effective_labels: pulumi_wasm_rust::__private::into_domain(
+            effective_labels: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("effectiveLabels"),
             ),
-            entitlement_id: pulumi_wasm_rust::__private::into_domain(
+            entitlement_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("entitlementId"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
-            labels: pulumi_wasm_rust::__private::into_domain(o.extract_field("labels")),
-            location: pulumi_wasm_rust::__private::into_domain(
+            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
+            labels: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("labels"),
+            ),
+            location: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("location"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            network: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            network: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("network"),
             ),
-            project: pulumi_wasm_rust::__private::into_domain(
+            project: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("project"),
             ),
-            properties: pulumi_wasm_rust::__private::into_domain(
+            properties: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("properties"),
             ),
-            pulumi_labels: pulumi_wasm_rust::__private::into_domain(
+            pulumi_labels: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("pulumiLabels"),
             ),
         }

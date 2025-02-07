@@ -41,55 +41,55 @@
 /// ```
 ///
 pub mod python_3_package {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct Python3PackageArgs {
         /// The name of the automation account in which the Python3 Package is created. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub automation_account_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub automation_account_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The URL of the python package. Changing this forces a new Automation Python3 Package to be created.
         #[builder(into)]
-        pub content_uri: pulumi_wasm_rust::InputOrOutput<String>,
+        pub content_uri: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Specify the version of the python3 package. The value should meet the system.version class format like `1.1.1`. Changing this forces a new Automation Python3 Package to be created.
         #[builder(into, default)]
-        pub content_version: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub content_version: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Specify the hash algorithm used to hash the content of the python3 package. Changing this forces a new Automation Python3 Package to be created.
         #[builder(into, default)]
-        pub hash_algorithm: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub hash_algorithm: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Specity the hash value of the content. Changing this forces a new Automation Python3 Package to be created.
         #[builder(into, default)]
-        pub hash_value: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub hash_value: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The name which should be used for this Automation Python3 Package. Changing this forces a new Automation Python3 Package to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The name of the resource group in which the Python3 Package is created. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub resource_group_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub resource_group_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// A mapping of tags which should be assigned to the Automation Python3 Package.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
     #[allow(dead_code)]
     pub struct Python3PackageResult {
         /// The name of the automation account in which the Python3 Package is created. Changing this forces a new resource to be created.
-        pub automation_account_name: pulumi_wasm_rust::Output<String>,
+        pub automation_account_name: pulumi_gestalt_rust::Output<String>,
         /// The URL of the python package. Changing this forces a new Automation Python3 Package to be created.
-        pub content_uri: pulumi_wasm_rust::Output<String>,
+        pub content_uri: pulumi_gestalt_rust::Output<String>,
         /// Specify the version of the python3 package. The value should meet the system.version class format like `1.1.1`. Changing this forces a new Automation Python3 Package to be created.
-        pub content_version: pulumi_wasm_rust::Output<Option<String>>,
+        pub content_version: pulumi_gestalt_rust::Output<Option<String>>,
         /// Specify the hash algorithm used to hash the content of the python3 package. Changing this forces a new Automation Python3 Package to be created.
-        pub hash_algorithm: pulumi_wasm_rust::Output<Option<String>>,
+        pub hash_algorithm: pulumi_gestalt_rust::Output<Option<String>>,
         /// Specity the hash value of the content. Changing this forces a new Automation Python3 Package to be created.
-        pub hash_value: pulumi_wasm_rust::Output<Option<String>>,
+        pub hash_value: pulumi_gestalt_rust::Output<Option<String>>,
         /// The name which should be used for this Automation Python3 Package. Changing this forces a new Automation Python3 Package to be created.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// The name of the resource group in which the Python3 Package is created. Changing this forces a new resource to be created.
-        pub resource_group_name: pulumi_wasm_rust::Output<String>,
+        pub resource_group_name: pulumi_gestalt_rust::Output<String>,
         /// A mapping of tags which should be assigned to the Automation Python3 Package.
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
@@ -98,11 +98,11 @@ pub mod python_3_package {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: Python3PackageArgs,
     ) -> Python3PackageResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let automation_account_name_binding = args
             .automation_account_name
@@ -162,26 +162,26 @@ pub mod python_3_package {
         };
         let o = register_interface::register(context.get_inner(), &request);
         Python3PackageResult {
-            automation_account_name: pulumi_wasm_rust::__private::into_domain(
+            automation_account_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("automationAccountName"),
             ),
-            content_uri: pulumi_wasm_rust::__private::into_domain(
+            content_uri: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("contentUri"),
             ),
-            content_version: pulumi_wasm_rust::__private::into_domain(
+            content_version: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("contentVersion"),
             ),
-            hash_algorithm: pulumi_wasm_rust::__private::into_domain(
+            hash_algorithm: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("hashAlgorithm"),
             ),
-            hash_value: pulumi_wasm_rust::__private::into_domain(
+            hash_value: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("hashValue"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            resource_group_name: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("resourceGroupName"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
         }
     }
 }

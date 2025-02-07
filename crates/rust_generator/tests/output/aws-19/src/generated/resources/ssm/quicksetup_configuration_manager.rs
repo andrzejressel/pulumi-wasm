@@ -13,64 +13,64 @@
 /// $ pulumi import aws:ssm/quicksetupConfigurationManager:QuicksetupConfigurationManager example arn:aws:ssm-quicksetup:us-east-1:012345678901:configuration-manager/abcd-1234
 /// ```
 pub mod quicksetup_configuration_manager {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct QuicksetupConfigurationManagerArgs {
         /// Definition of the Quick Setup configuration that the configuration manager deploys. See `configuration_definition` below.
         #[builder(into, default)]
-        pub configuration_definition: pulumi_wasm_rust::InputOrOutput<
+        pub configuration_definition: pulumi_gestalt_rust::InputOrOutput<
             Option<
                 super::super::types::ssm::QuicksetupConfigurationManagerConfigurationDefinition,
             >,
         >,
         /// Description of the configuration manager.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub description: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Configuration manager name.
         ///
         /// The following arguments are optional:
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         #[builder(into, default)]
-        pub timeouts: pulumi_wasm_rust::InputOrOutput<
+        pub timeouts: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::ssm::QuicksetupConfigurationManagerTimeouts>,
         >,
     }
     #[allow(dead_code)]
     pub struct QuicksetupConfigurationManagerResult {
         /// Definition of the Quick Setup configuration that the configuration manager deploys. See `configuration_definition` below.
-        pub configuration_definition: pulumi_wasm_rust::Output<
+        pub configuration_definition: pulumi_gestalt_rust::Output<
             Option<
                 super::super::types::ssm::QuicksetupConfigurationManagerConfigurationDefinition,
             >,
         >,
         /// Description of the configuration manager.
-        pub description: pulumi_wasm_rust::Output<String>,
+        pub description: pulumi_gestalt_rust::Output<String>,
         /// ARN of the Configuration Manager.
-        pub manager_arn: pulumi_wasm_rust::Output<String>,
+        pub manager_arn: pulumi_gestalt_rust::Output<String>,
         /// Configuration manager name.
         ///
         /// The following arguments are optional:
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// A summary of the state of the configuration manager. This includes deployment statuses, association statuses, drift statuses, health checks, and more. See `status_summaries` below.
-        pub status_summaries: pulumi_wasm_rust::Output<
+        pub status_summaries: pulumi_gestalt_rust::Output<
             Vec<super::super::types::ssm::QuicksetupConfigurationManagerStatusSummary>,
         >,
         /// Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        pub tags_all: pulumi_wasm_rust::Output<
+        pub tags_all: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
-        pub timeouts: pulumi_wasm_rust::Output<
+        pub timeouts: pulumi_gestalt_rust::Output<
             Option<super::super::types::ssm::QuicksetupConfigurationManagerTimeouts>,
         >,
     }
@@ -79,11 +79,11 @@ pub mod quicksetup_configuration_manager {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: QuicksetupConfigurationManagerArgs,
     ) -> QuicksetupConfigurationManagerResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let configuration_definition_binding = args
             .configuration_definition
@@ -123,24 +123,24 @@ pub mod quicksetup_configuration_manager {
         };
         let o = register_interface::register(context.get_inner(), &request);
         QuicksetupConfigurationManagerResult {
-            configuration_definition: pulumi_wasm_rust::__private::into_domain(
+            configuration_definition: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("configurationDefinition"),
             ),
-            description: pulumi_wasm_rust::__private::into_domain(
+            description: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("description"),
             ),
-            manager_arn: pulumi_wasm_rust::__private::into_domain(
+            manager_arn: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("managerArn"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            status_summaries: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            status_summaries: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("statusSummaries"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_wasm_rust::__private::into_domain(
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            tags_all: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("tagsAll"),
             ),
-            timeouts: pulumi_wasm_rust::__private::into_domain(
+            timeouts: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("timeouts"),
             ),
         }

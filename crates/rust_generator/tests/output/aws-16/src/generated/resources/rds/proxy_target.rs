@@ -63,7 +63,7 @@
 /// $ pulumi import aws:rds/proxyTarget:ProxyTarget example example-proxy/default/TRACKED_CLUSTER/example-cluster
 /// ```
 pub mod proxy_target {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ProxyTargetArgs {
@@ -71,52 +71,52 @@ pub mod proxy_target {
         ///
         /// **NOTE:** Either `db_instance_identifier` or `db_cluster_identifier` should be specified and both should not be specified together
         #[builder(into, default)]
-        pub db_cluster_identifier: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub db_cluster_identifier: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// DB instance identifier.
         #[builder(into, default)]
-        pub db_instance_identifier: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub db_instance_identifier: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The name of the DB proxy.
         #[builder(into)]
-        pub db_proxy_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub db_proxy_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The name of the target group.
         #[builder(into)]
-        pub target_group_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub target_group_name: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct ProxyTargetResult {
         /// DB cluster identifier.
         ///
         /// **NOTE:** Either `db_instance_identifier` or `db_cluster_identifier` should be specified and both should not be specified together
-        pub db_cluster_identifier: pulumi_wasm_rust::Output<Option<String>>,
+        pub db_cluster_identifier: pulumi_gestalt_rust::Output<Option<String>>,
         /// DB instance identifier.
-        pub db_instance_identifier: pulumi_wasm_rust::Output<Option<String>>,
+        pub db_instance_identifier: pulumi_gestalt_rust::Output<Option<String>>,
         /// The name of the DB proxy.
-        pub db_proxy_name: pulumi_wasm_rust::Output<String>,
+        pub db_proxy_name: pulumi_gestalt_rust::Output<String>,
         /// Hostname for the target RDS DB Instance. Only returned for `RDS_INSTANCE` type.
-        pub endpoint: pulumi_wasm_rust::Output<String>,
+        pub endpoint: pulumi_gestalt_rust::Output<String>,
         /// Port for the target RDS DB Instance or Aurora DB Cluster.
-        pub port: pulumi_wasm_rust::Output<i32>,
+        pub port: pulumi_gestalt_rust::Output<i32>,
         /// Identifier representing the DB Instance or DB Cluster target.
-        pub rds_resource_id: pulumi_wasm_rust::Output<String>,
+        pub rds_resource_id: pulumi_gestalt_rust::Output<String>,
         /// Amazon Resource Name (ARN) for the DB instance or DB cluster. Currently not returned by the RDS API.
-        pub target_arn: pulumi_wasm_rust::Output<String>,
+        pub target_arn: pulumi_gestalt_rust::Output<String>,
         /// The name of the target group.
-        pub target_group_name: pulumi_wasm_rust::Output<String>,
+        pub target_group_name: pulumi_gestalt_rust::Output<String>,
         /// DB Cluster identifier for the DB Instance target. Not returned unless manually importing an `RDS_INSTANCE` target that is part of a DB Cluster.
-        pub tracked_cluster_id: pulumi_wasm_rust::Output<String>,
+        pub tracked_cluster_id: pulumi_gestalt_rust::Output<String>,
         /// Type of targetE.g., `RDS_INSTANCE` or `TRACKED_CLUSTER`
-        pub type_: pulumi_wasm_rust::Output<String>,
+        pub type_: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: ProxyTargetArgs,
     ) -> ProxyTargetResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let db_cluster_identifier_binding = args
             .db_cluster_identifier
@@ -156,32 +156,32 @@ pub mod proxy_target {
         };
         let o = register_interface::register(context.get_inner(), &request);
         ProxyTargetResult {
-            db_cluster_identifier: pulumi_wasm_rust::__private::into_domain(
+            db_cluster_identifier: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("dbClusterIdentifier"),
             ),
-            db_instance_identifier: pulumi_wasm_rust::__private::into_domain(
+            db_instance_identifier: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("dbInstanceIdentifier"),
             ),
-            db_proxy_name: pulumi_wasm_rust::__private::into_domain(
+            db_proxy_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("dbProxyName"),
             ),
-            endpoint: pulumi_wasm_rust::__private::into_domain(
+            endpoint: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("endpoint"),
             ),
-            port: pulumi_wasm_rust::__private::into_domain(o.extract_field("port")),
-            rds_resource_id: pulumi_wasm_rust::__private::into_domain(
+            port: pulumi_gestalt_rust::__private::into_domain(o.extract_field("port")),
+            rds_resource_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("rdsResourceId"),
             ),
-            target_arn: pulumi_wasm_rust::__private::into_domain(
+            target_arn: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("targetArn"),
             ),
-            target_group_name: pulumi_wasm_rust::__private::into_domain(
+            target_group_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("targetGroupName"),
             ),
-            tracked_cluster_id: pulumi_wasm_rust::__private::into_domain(
+            tracked_cluster_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("trackedClusterId"),
             ),
-            type_: pulumi_wasm_rust::__private::into_domain(o.extract_field("type")),
+            type_: pulumi_gestalt_rust::__private::into_domain(o.extract_field("type")),
         }
     }
 }

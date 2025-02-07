@@ -55,52 +55,54 @@
 /// ```
 ///
 pub mod namespace_disaster_recovery_config {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct NamespaceDisasterRecoveryConfigArgs {
         /// The Shared access policies used to access the connection string for the alias.
         #[builder(into, default)]
-        pub alias_authorization_rule_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub alias_authorization_rule_id: pulumi_gestalt_rust::InputOrOutput<
+            Option<String>,
+        >,
         /// Specifies the name of the Disaster Recovery Config. This is the alias DNS name that will be created. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The ID of the Service Bus Namespace to replicate to.
         #[builder(into)]
-        pub partner_namespace_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub partner_namespace_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The ID of the primary Service Bus Namespace to replicate. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub primary_namespace_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub primary_namespace_id: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct NamespaceDisasterRecoveryConfigResult {
         /// The Shared access policies used to access the connection string for the alias.
-        pub alias_authorization_rule_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub alias_authorization_rule_id: pulumi_gestalt_rust::Output<Option<String>>,
         /// The primary access key for the authorization rule `RootManageSharedAccessKey`.
-        pub default_primary_key: pulumi_wasm_rust::Output<String>,
+        pub default_primary_key: pulumi_gestalt_rust::Output<String>,
         /// The secondary access key for the authorization rule `RootManageSharedAccessKey`.
-        pub default_secondary_key: pulumi_wasm_rust::Output<String>,
+        pub default_secondary_key: pulumi_gestalt_rust::Output<String>,
         /// Specifies the name of the Disaster Recovery Config. This is the alias DNS name that will be created. Changing this forces a new resource to be created.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// The ID of the Service Bus Namespace to replicate to.
-        pub partner_namespace_id: pulumi_wasm_rust::Output<String>,
+        pub partner_namespace_id: pulumi_gestalt_rust::Output<String>,
         /// The alias Primary Connection String for the ServiceBus Namespace.
-        pub primary_connection_string_alias: pulumi_wasm_rust::Output<String>,
+        pub primary_connection_string_alias: pulumi_gestalt_rust::Output<String>,
         /// The ID of the primary Service Bus Namespace to replicate. Changing this forces a new resource to be created.
-        pub primary_namespace_id: pulumi_wasm_rust::Output<String>,
+        pub primary_namespace_id: pulumi_gestalt_rust::Output<String>,
         /// The alias Secondary Connection String for the ServiceBus Namespace
-        pub secondary_connection_string_alias: pulumi_wasm_rust::Output<String>,
+        pub secondary_connection_string_alias: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: NamespaceDisasterRecoveryConfigArgs,
     ) -> NamespaceDisasterRecoveryConfigResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let alias_authorization_rule_id_binding = args
             .alias_authorization_rule_id
@@ -141,26 +143,26 @@ pub mod namespace_disaster_recovery_config {
         };
         let o = register_interface::register(context.get_inner(), &request);
         NamespaceDisasterRecoveryConfigResult {
-            alias_authorization_rule_id: pulumi_wasm_rust::__private::into_domain(
+            alias_authorization_rule_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("aliasAuthorizationRuleId"),
             ),
-            default_primary_key: pulumi_wasm_rust::__private::into_domain(
+            default_primary_key: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("defaultPrimaryKey"),
             ),
-            default_secondary_key: pulumi_wasm_rust::__private::into_domain(
+            default_secondary_key: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("defaultSecondaryKey"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            partner_namespace_id: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            partner_namespace_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("partnerNamespaceId"),
             ),
-            primary_connection_string_alias: pulumi_wasm_rust::__private::into_domain(
+            primary_connection_string_alias: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("primaryConnectionStringAlias"),
             ),
-            primary_namespace_id: pulumi_wasm_rust::__private::into_domain(
+            primary_namespace_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("primaryNamespaceId"),
             ),
-            secondary_connection_string_alias: pulumi_wasm_rust::__private::into_domain(
+            secondary_connection_string_alias: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("secondaryConnectionStringAlias"),
             ),
         }

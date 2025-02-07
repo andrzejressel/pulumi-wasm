@@ -110,14 +110,14 @@
 /// ```
 ///
 pub mod cluster {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ClusterArgs {
         /// Configuration of the autoscaling applied to this cluster
         /// Structure is documented below.
         #[builder(into, default)]
-        pub autoscaling_settings: pulumi_wasm_rust::InputOrOutput<
+        pub autoscaling_settings: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::vmwareengine::ClusterAutoscalingSettings>,
         >,
         /// The ID of the Cluster.
@@ -125,60 +125,60 @@ pub mod cluster {
         ///
         /// - - -
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The map of cluster node types in this cluster,
         /// where the key is canonical identifier of the node type (corresponds to the NodeType).
         /// Structure is documented below.
         #[builder(into, default)]
-        pub node_type_configs: pulumi_wasm_rust::InputOrOutput<
+        pub node_type_configs: pulumi_gestalt_rust::InputOrOutput<
             Option<Vec<super::super::types::vmwareengine::ClusterNodeTypeConfig>>,
         >,
         /// The resource name of the private cloud to create a new cluster in.
         /// Resource names are schemeless URIs that follow the conventions in https://cloud.google.com/apis/design/resource_names.
         /// For example: projects/my-project/locations/us-west1-a/privateClouds/my-cloud
         #[builder(into)]
-        pub parent: pulumi_wasm_rust::InputOrOutput<String>,
+        pub parent: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct ClusterResult {
         /// Configuration of the autoscaling applied to this cluster
         /// Structure is documented below.
-        pub autoscaling_settings: pulumi_wasm_rust::Output<
+        pub autoscaling_settings: pulumi_gestalt_rust::Output<
             Option<super::super::types::vmwareengine::ClusterAutoscalingSettings>,
         >,
         /// True if the cluster is a management cluster; false otherwise.
         /// There can only be one management cluster in a private cloud and it has to be the first one.
-        pub management: pulumi_wasm_rust::Output<bool>,
+        pub management: pulumi_gestalt_rust::Output<bool>,
         /// The ID of the Cluster.
         ///
         ///
         /// - - -
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// The map of cluster node types in this cluster,
         /// where the key is canonical identifier of the node type (corresponds to the NodeType).
         /// Structure is documented below.
-        pub node_type_configs: pulumi_wasm_rust::Output<
+        pub node_type_configs: pulumi_gestalt_rust::Output<
             Option<Vec<super::super::types::vmwareengine::ClusterNodeTypeConfig>>,
         >,
         /// The resource name of the private cloud to create a new cluster in.
         /// Resource names are schemeless URIs that follow the conventions in https://cloud.google.com/apis/design/resource_names.
         /// For example: projects/my-project/locations/us-west1-a/privateClouds/my-cloud
-        pub parent: pulumi_wasm_rust::Output<String>,
+        pub parent: pulumi_gestalt_rust::Output<String>,
         /// State of the Cluster.
-        pub state: pulumi_wasm_rust::Output<String>,
+        pub state: pulumi_gestalt_rust::Output<String>,
         /// System-generated unique identifier for the resource.
-        pub uid: pulumi_wasm_rust::Output<String>,
+        pub uid: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: ClusterArgs,
     ) -> ClusterResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let autoscaling_settings_binding = args
             .autoscaling_settings
@@ -215,19 +215,21 @@ pub mod cluster {
         };
         let o = register_interface::register(context.get_inner(), &request);
         ClusterResult {
-            autoscaling_settings: pulumi_wasm_rust::__private::into_domain(
+            autoscaling_settings: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("autoscalingSettings"),
             ),
-            management: pulumi_wasm_rust::__private::into_domain(
+            management: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("management"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            node_type_configs: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            node_type_configs: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("nodeTypeConfigs"),
             ),
-            parent: pulumi_wasm_rust::__private::into_domain(o.extract_field("parent")),
-            state: pulumi_wasm_rust::__private::into_domain(o.extract_field("state")),
-            uid: pulumi_wasm_rust::__private::into_domain(o.extract_field("uid")),
+            parent: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("parent"),
+            ),
+            state: pulumi_gestalt_rust::__private::into_domain(o.extract_field("state")),
+            uid: pulumi_gestalt_rust::__private::into_domain(o.extract_field("uid")),
         }
     }
 }

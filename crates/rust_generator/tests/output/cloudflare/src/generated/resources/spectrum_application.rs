@@ -31,99 +31,103 @@
 /// ```
 ///
 pub mod spectrum_application {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct SpectrumApplicationArgs {
         /// Enables Argo Smart Routing.
         #[builder(into, default)]
-        pub argo_smart_routing: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub argo_smart_routing: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// The name and type of DNS record for the Spectrum application.
         #[builder(into)]
-        pub dns: pulumi_wasm_rust::InputOrOutput<super::types::SpectrumApplicationDns>,
+        pub dns: pulumi_gestalt_rust::InputOrOutput<
+            super::types::SpectrumApplicationDns,
+        >,
         /// The anycast edge IP configuration for the hostname of this application.
         #[builder(into, default)]
-        pub edge_ips: pulumi_wasm_rust::InputOrOutput<
+        pub edge_ips: pulumi_gestalt_rust::InputOrOutput<
             Option<super::types::SpectrumApplicationEdgeIps>,
         >,
         /// Enables the IP Firewall for this application.
         #[builder(into, default)]
-        pub ip_firewall: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub ip_firewall: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// A list of destination addresses to the origin. e.g. `tcp://192.0.2.1:22`.
         #[builder(into, default)]
-        pub origin_directs: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
+        pub origin_directs: pulumi_gestalt_rust::InputOrOutput<Option<Vec<String>>>,
         /// A destination DNS addresses to the origin.
         #[builder(into, default)]
-        pub origin_dns: pulumi_wasm_rust::InputOrOutput<
+        pub origin_dns: pulumi_gestalt_rust::InputOrOutput<
             Option<super::types::SpectrumApplicationOriginDns>,
         >,
         /// Origin port to proxy traffice to. Conflicts with `origin_port_range`.
         #[builder(into, default)]
-        pub origin_port: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
+        pub origin_port: pulumi_gestalt_rust::InputOrOutput<Option<i32>>,
         /// Origin port range to proxy traffice to. When using a range, the protocol field must also specify a range, e.g. `tcp/22-23`. Conflicts with `origin_port`.
         #[builder(into, default)]
-        pub origin_port_range: pulumi_wasm_rust::InputOrOutput<
+        pub origin_port_range: pulumi_gestalt_rust::InputOrOutput<
             Option<super::types::SpectrumApplicationOriginPortRange>,
         >,
         /// The port configuration at Cloudflare's edge. e.g. `tcp/22`.
         #[builder(into)]
-        pub protocol: pulumi_wasm_rust::InputOrOutput<String>,
+        pub protocol: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Enables a proxy protocol to the origin. Available values: `off`, `v1`, `v2`, `simple`.
         #[builder(into, default)]
-        pub proxy_protocol: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub proxy_protocol: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// TLS configuration option for Cloudflare to connect to your origin. Available values: `off`, `flexible`, `full`, `strict`.
         #[builder(into, default)]
-        pub tls: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub tls: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Sets application type. Available values: `direct`, `http`, `https`.
         #[builder(into, default)]
-        pub traffic_type: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub traffic_type: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The zone identifier to target for the resource.
         #[builder(into)]
-        pub zone_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub zone_id: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct SpectrumApplicationResult {
         /// Enables Argo Smart Routing.
-        pub argo_smart_routing: pulumi_wasm_rust::Output<bool>,
+        pub argo_smart_routing: pulumi_gestalt_rust::Output<bool>,
         /// The name and type of DNS record for the Spectrum application.
-        pub dns: pulumi_wasm_rust::Output<super::types::SpectrumApplicationDns>,
+        pub dns: pulumi_gestalt_rust::Output<super::types::SpectrumApplicationDns>,
         /// The anycast edge IP configuration for the hostname of this application.
-        pub edge_ips: pulumi_wasm_rust::Output<super::types::SpectrumApplicationEdgeIps>,
+        pub edge_ips: pulumi_gestalt_rust::Output<
+            super::types::SpectrumApplicationEdgeIps,
+        >,
         /// Enables the IP Firewall for this application.
-        pub ip_firewall: pulumi_wasm_rust::Output<bool>,
+        pub ip_firewall: pulumi_gestalt_rust::Output<bool>,
         /// A list of destination addresses to the origin. e.g. `tcp://192.0.2.1:22`.
-        pub origin_directs: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub origin_directs: pulumi_gestalt_rust::Output<Option<Vec<String>>>,
         /// A destination DNS addresses to the origin.
-        pub origin_dns: pulumi_wasm_rust::Output<
+        pub origin_dns: pulumi_gestalt_rust::Output<
             Option<super::types::SpectrumApplicationOriginDns>,
         >,
         /// Origin port to proxy traffice to. Conflicts with `origin_port_range`.
-        pub origin_port: pulumi_wasm_rust::Output<Option<i32>>,
+        pub origin_port: pulumi_gestalt_rust::Output<Option<i32>>,
         /// Origin port range to proxy traffice to. When using a range, the protocol field must also specify a range, e.g. `tcp/22-23`. Conflicts with `origin_port`.
-        pub origin_port_range: pulumi_wasm_rust::Output<
+        pub origin_port_range: pulumi_gestalt_rust::Output<
             Option<super::types::SpectrumApplicationOriginPortRange>,
         >,
         /// The port configuration at Cloudflare's edge. e.g. `tcp/22`.
-        pub protocol: pulumi_wasm_rust::Output<String>,
+        pub protocol: pulumi_gestalt_rust::Output<String>,
         /// Enables a proxy protocol to the origin. Available values: `off`, `v1`, `v2`, `simple`.
-        pub proxy_protocol: pulumi_wasm_rust::Output<String>,
+        pub proxy_protocol: pulumi_gestalt_rust::Output<String>,
         /// TLS configuration option for Cloudflare to connect to your origin. Available values: `off`, `flexible`, `full`, `strict`.
-        pub tls: pulumi_wasm_rust::Output<String>,
+        pub tls: pulumi_gestalt_rust::Output<String>,
         /// Sets application type. Available values: `direct`, `http`, `https`.
-        pub traffic_type: pulumi_wasm_rust::Output<String>,
+        pub traffic_type: pulumi_gestalt_rust::Output<String>,
         /// The zone identifier to target for the resource.
-        pub zone_id: pulumi_wasm_rust::Output<String>,
+        pub zone_id: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: SpectrumApplicationArgs,
     ) -> SpectrumApplicationResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let argo_smart_routing_binding = args
             .argo_smart_routing
@@ -205,39 +209,41 @@ pub mod spectrum_application {
         };
         let o = register_interface::register(context.get_inner(), &request);
         SpectrumApplicationResult {
-            argo_smart_routing: pulumi_wasm_rust::__private::into_domain(
+            argo_smart_routing: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("argoSmartRouting"),
             ),
-            dns: pulumi_wasm_rust::__private::into_domain(o.extract_field("dns")),
-            edge_ips: pulumi_wasm_rust::__private::into_domain(
+            dns: pulumi_gestalt_rust::__private::into_domain(o.extract_field("dns")),
+            edge_ips: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("edgeIps"),
             ),
-            ip_firewall: pulumi_wasm_rust::__private::into_domain(
+            ip_firewall: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("ipFirewall"),
             ),
-            origin_directs: pulumi_wasm_rust::__private::into_domain(
+            origin_directs: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("originDirects"),
             ),
-            origin_dns: pulumi_wasm_rust::__private::into_domain(
+            origin_dns: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("originDns"),
             ),
-            origin_port: pulumi_wasm_rust::__private::into_domain(
+            origin_port: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("originPort"),
             ),
-            origin_port_range: pulumi_wasm_rust::__private::into_domain(
+            origin_port_range: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("originPortRange"),
             ),
-            protocol: pulumi_wasm_rust::__private::into_domain(
+            protocol: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("protocol"),
             ),
-            proxy_protocol: pulumi_wasm_rust::__private::into_domain(
+            proxy_protocol: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("proxyProtocol"),
             ),
-            tls: pulumi_wasm_rust::__private::into_domain(o.extract_field("tls")),
-            traffic_type: pulumi_wasm_rust::__private::into_domain(
+            tls: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tls")),
+            traffic_type: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("trafficType"),
             ),
-            zone_id: pulumi_wasm_rust::__private::into_domain(o.extract_field("zoneId")),
+            zone_id: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("zoneId"),
+            ),
         }
     }
 }

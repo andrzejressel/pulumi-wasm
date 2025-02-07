@@ -66,62 +66,62 @@
 /// ```
 ///
 pub mod backup_instance_blog_storage {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct BackupInstanceBlogStorageArgs {
         /// The ID of the Backup Policy.
         #[builder(into)]
-        pub backup_policy_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub backup_policy_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The location of the source Storage Account. Changing this forces a new Backup Instance Blob Storage to be created.
         #[builder(into, default)]
-        pub location: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub location: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The name which should be used for this Backup Instance Blob Storage. Changing this forces a new Backup Instance Blob Storage to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The list of the container names of the source Storage Account.
         ///
         /// > **Note:** The `storage_account_container_names` should be specified in the vaulted backup policy/operational and vaulted hybrid backup policy. Removing the `storage_account_container_names` will force a new resource to be created since it can't be removed once specified.
         #[builder(into, default)]
-        pub storage_account_container_names: pulumi_wasm_rust::InputOrOutput<
+        pub storage_account_container_names: pulumi_gestalt_rust::InputOrOutput<
             Option<Vec<String>>,
         >,
         /// The ID of the source Storage Account. Changing this forces a new Backup Instance Blob Storage to be created.
         #[builder(into)]
-        pub storage_account_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub storage_account_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The ID of the Backup Vault within which the Backup Instance Blob Storage should exist. Changing this forces a new Backup Instance Blob Storage to be created.
         #[builder(into)]
-        pub vault_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub vault_id: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct BackupInstanceBlogStorageResult {
         /// The ID of the Backup Policy.
-        pub backup_policy_id: pulumi_wasm_rust::Output<String>,
+        pub backup_policy_id: pulumi_gestalt_rust::Output<String>,
         /// The location of the source Storage Account. Changing this forces a new Backup Instance Blob Storage to be created.
-        pub location: pulumi_wasm_rust::Output<String>,
+        pub location: pulumi_gestalt_rust::Output<String>,
         /// The name which should be used for this Backup Instance Blob Storage. Changing this forces a new Backup Instance Blob Storage to be created.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// The list of the container names of the source Storage Account.
         ///
         /// > **Note:** The `storage_account_container_names` should be specified in the vaulted backup policy/operational and vaulted hybrid backup policy. Removing the `storage_account_container_names` will force a new resource to be created since it can't be removed once specified.
-        pub storage_account_container_names: pulumi_wasm_rust::Output<
+        pub storage_account_container_names: pulumi_gestalt_rust::Output<
             Option<Vec<String>>,
         >,
         /// The ID of the source Storage Account. Changing this forces a new Backup Instance Blob Storage to be created.
-        pub storage_account_id: pulumi_wasm_rust::Output<String>,
+        pub storage_account_id: pulumi_gestalt_rust::Output<String>,
         /// The ID of the Backup Vault within which the Backup Instance Blob Storage should exist. Changing this forces a new Backup Instance Blob Storage to be created.
-        pub vault_id: pulumi_wasm_rust::Output<String>,
+        pub vault_id: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: BackupInstanceBlogStorageArgs,
     ) -> BackupInstanceBlogStorageResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let backup_policy_id_binding = args
             .backup_policy_id
@@ -172,20 +172,20 @@ pub mod backup_instance_blog_storage {
         };
         let o = register_interface::register(context.get_inner(), &request);
         BackupInstanceBlogStorageResult {
-            backup_policy_id: pulumi_wasm_rust::__private::into_domain(
+            backup_policy_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("backupPolicyId"),
             ),
-            location: pulumi_wasm_rust::__private::into_domain(
+            location: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("location"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            storage_account_container_names: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            storage_account_container_names: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("storageAccountContainerNames"),
             ),
-            storage_account_id: pulumi_wasm_rust::__private::into_domain(
+            storage_account_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("storageAccountId"),
             ),
-            vault_id: pulumi_wasm_rust::__private::into_domain(
+            vault_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("vaultId"),
             ),
         }

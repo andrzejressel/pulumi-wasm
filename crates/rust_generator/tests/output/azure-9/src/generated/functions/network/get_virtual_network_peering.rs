@@ -1,45 +1,45 @@
 pub mod get_virtual_network_peering {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct GetVirtualNetworkPeeringArgs {
         /// The name of this virtual network peering.
         #[builder(into)]
-        pub name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The resource ID of the virtual network.
         #[builder(into)]
-        pub virtual_network_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub virtual_network_id: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct GetVirtualNetworkPeeringResult {
         /// Controls if forwarded traffic from VMs in the remote virtual network is allowed.
-        pub allow_forwarded_traffic: pulumi_wasm_rust::Output<bool>,
+        pub allow_forwarded_traffic: pulumi_gestalt_rust::Output<bool>,
         /// Controls gatewayLinks can be used in the remote virtual network’s link to the local virtual network.
-        pub allow_gateway_transit: pulumi_wasm_rust::Output<bool>,
+        pub allow_gateway_transit: pulumi_gestalt_rust::Output<bool>,
         /// Controls if the traffic from the local virtual network can reach the remote virtual network.
-        pub allow_virtual_network_access: pulumi_wasm_rust::Output<bool>,
+        pub allow_virtual_network_access: pulumi_gestalt_rust::Output<bool>,
         /// The provider-assigned unique ID for this managed resource.
-        pub id: pulumi_wasm_rust::Output<String>,
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub id: pulumi_gestalt_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// Specifies whether only IPv6 address space is peered for Subnet peering.
-        pub only_ipv6_peering_enabled: pulumi_wasm_rust::Output<bool>,
+        pub only_ipv6_peering_enabled: pulumi_gestalt_rust::Output<bool>,
         /// Specifies whether complete Virtual Network address space is peered.
-        pub peer_complete_virtual_networks_enabled: pulumi_wasm_rust::Output<bool>,
+        pub peer_complete_virtual_networks_enabled: pulumi_gestalt_rust::Output<bool>,
         /// The full Azure resource ID of the remote virtual network.
-        pub remote_virtual_network_id: pulumi_wasm_rust::Output<String>,
+        pub remote_virtual_network_id: pulumi_gestalt_rust::Output<String>,
         /// Controls if remote gateways can be used on the local virtual network.
-        pub use_remote_gateways: pulumi_wasm_rust::Output<bool>,
-        pub virtual_network_id: pulumi_wasm_rust::Output<String>,
+        pub use_remote_gateways: pulumi_gestalt_rust::Output<bool>,
+        pub virtual_network_id: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         args: GetVirtualNetworkPeeringArgs,
     ) -> GetVirtualNetworkPeeringResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let name_binding = args.name.get_output(context).get_inner();
         let virtual_network_id_binding = args
@@ -63,30 +63,30 @@ pub mod get_virtual_network_peering {
         };
         let o = register_interface::invoke(context.get_inner(), &request);
         GetVirtualNetworkPeeringResult {
-            allow_forwarded_traffic: pulumi_wasm_rust::__private::into_domain(
+            allow_forwarded_traffic: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("allowForwardedTraffic"),
             ),
-            allow_gateway_transit: pulumi_wasm_rust::__private::into_domain(
+            allow_gateway_transit: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("allowGatewayTransit"),
             ),
-            allow_virtual_network_access: pulumi_wasm_rust::__private::into_domain(
+            allow_virtual_network_access: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("allowVirtualNetworkAccess"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            only_ipv6_peering_enabled: pulumi_wasm_rust::__private::into_domain(
+            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            only_ipv6_peering_enabled: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("onlyIpv6PeeringEnabled"),
             ),
-            peer_complete_virtual_networks_enabled: pulumi_wasm_rust::__private::into_domain(
+            peer_complete_virtual_networks_enabled: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("peerCompleteVirtualNetworksEnabled"),
             ),
-            remote_virtual_network_id: pulumi_wasm_rust::__private::into_domain(
+            remote_virtual_network_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("remoteVirtualNetworkId"),
             ),
-            use_remote_gateways: pulumi_wasm_rust::__private::into_domain(
+            use_remote_gateways: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("useRemoteGateways"),
             ),
-            virtual_network_id: pulumi_wasm_rust::__private::into_domain(
+            virtual_network_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("virtualNetworkId"),
             ),
         }

@@ -3,8 +3,8 @@
 /// ## Example Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = resource_group::create(
@@ -52,59 +52,59 @@
 /// ```
 ///
 pub mod watchlist {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct WatchlistArgs {
         /// The default duration in ISO8601 duration form of this Sentinel Watchlist. Changing this forces a new Sentinel Watchlist to be created.
         #[builder(into, default)]
-        pub default_duration: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub default_duration: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The description of this Sentinel Watchlist. Changing this forces a new Sentinel Watchlist to be created.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub description: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The display name of this Sentinel Watchlist. Changing this forces a new Sentinel Watchlist to be created.
         #[builder(into)]
-        pub display_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub display_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The key used to optimize query performance when using Watchlist for joins with other data. Changing this forces a new Sentinel Watchlist to be created.
         #[builder(into)]
-        pub item_search_key: pulumi_wasm_rust::InputOrOutput<String>,
+        pub item_search_key: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Specifies a list of labels related to this Sentinel Watchlist. Changing this forces a new Sentinel Watchlist to be created.
         #[builder(into, default)]
-        pub labels: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
+        pub labels: pulumi_gestalt_rust::InputOrOutput<Option<Vec<String>>>,
         /// The ID of the Log Analytics Workspace where this Sentinel Watchlist resides in. Changing this forces a new Sentinel Watchlist to be created.
         #[builder(into)]
-        pub log_analytics_workspace_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub log_analytics_workspace_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The name which should be used for this Sentinel Watchlist. Changing this forces a new Sentinel Watchlist to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct WatchlistResult {
         /// The default duration in ISO8601 duration form of this Sentinel Watchlist. Changing this forces a new Sentinel Watchlist to be created.
-        pub default_duration: pulumi_wasm_rust::Output<Option<String>>,
+        pub default_duration: pulumi_gestalt_rust::Output<Option<String>>,
         /// The description of this Sentinel Watchlist. Changing this forces a new Sentinel Watchlist to be created.
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_gestalt_rust::Output<Option<String>>,
         /// The display name of this Sentinel Watchlist. Changing this forces a new Sentinel Watchlist to be created.
-        pub display_name: pulumi_wasm_rust::Output<String>,
+        pub display_name: pulumi_gestalt_rust::Output<String>,
         /// The key used to optimize query performance when using Watchlist for joins with other data. Changing this forces a new Sentinel Watchlist to be created.
-        pub item_search_key: pulumi_wasm_rust::Output<String>,
+        pub item_search_key: pulumi_gestalt_rust::Output<String>,
         /// Specifies a list of labels related to this Sentinel Watchlist. Changing this forces a new Sentinel Watchlist to be created.
-        pub labels: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub labels: pulumi_gestalt_rust::Output<Option<Vec<String>>>,
         /// The ID of the Log Analytics Workspace where this Sentinel Watchlist resides in. Changing this forces a new Sentinel Watchlist to be created.
-        pub log_analytics_workspace_id: pulumi_wasm_rust::Output<String>,
+        pub log_analytics_workspace_id: pulumi_gestalt_rust::Output<String>,
         /// The name which should be used for this Sentinel Watchlist. Changing this forces a new Sentinel Watchlist to be created.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: WatchlistArgs,
     ) -> WatchlistResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let default_duration_binding = args
             .default_duration
@@ -159,23 +159,25 @@ pub mod watchlist {
         };
         let o = register_interface::register(context.get_inner(), &request);
         WatchlistResult {
-            default_duration: pulumi_wasm_rust::__private::into_domain(
+            default_duration: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("defaultDuration"),
             ),
-            description: pulumi_wasm_rust::__private::into_domain(
+            description: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("description"),
             ),
-            display_name: pulumi_wasm_rust::__private::into_domain(
+            display_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("displayName"),
             ),
-            item_search_key: pulumi_wasm_rust::__private::into_domain(
+            item_search_key: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("itemSearchKey"),
             ),
-            labels: pulumi_wasm_rust::__private::into_domain(o.extract_field("labels")),
-            log_analytics_workspace_id: pulumi_wasm_rust::__private::into_domain(
+            labels: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("labels"),
+            ),
+            log_analytics_workspace_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("logAnalyticsWorkspaceId"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
         }
     }
 }

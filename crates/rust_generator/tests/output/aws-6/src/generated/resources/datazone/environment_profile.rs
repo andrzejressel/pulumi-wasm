@@ -110,65 +110,65 @@
 /// $ pulumi import aws:datazone/environmentProfile:EnvironmentProfile example environment_profile-id-12345678,domain-id-12345678
 /// ```
 pub mod environment_profile {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct EnvironmentProfileArgs {
         /// Id of the AWS account being used.
         #[builder(into, default)]
-        pub aws_account_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub aws_account_id: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Desired region for environment profile.
         #[builder(into)]
-        pub aws_account_region: pulumi_wasm_rust::InputOrOutput<String>,
+        pub aws_account_region: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Description of environment profile.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub description: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Domain Identifier for environment profile.
         #[builder(into)]
-        pub domain_identifier: pulumi_wasm_rust::InputOrOutput<String>,
+        pub domain_identifier: pulumi_gestalt_rust::InputOrOutput<String>,
         /// ID of the blueprint which the environment will be created with.
         #[builder(into)]
-        pub environment_blueprint_identifier: pulumi_wasm_rust::InputOrOutput<String>,
+        pub environment_blueprint_identifier: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Name of the environment profile.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Project identifier for environment profile.
         ///
         /// The following arguments are optional:
         #[builder(into)]
-        pub project_identifier: pulumi_wasm_rust::InputOrOutput<String>,
+        pub project_identifier: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Array of user parameters of the environment profile with the following attributes:
         #[builder(into, default)]
-        pub user_parameters: pulumi_wasm_rust::InputOrOutput<
+        pub user_parameters: pulumi_gestalt_rust::InputOrOutput<
             Option<Vec<super::super::types::datazone::EnvironmentProfileUserParameter>>,
         >,
     }
     #[allow(dead_code)]
     pub struct EnvironmentProfileResult {
         /// Id of the AWS account being used.
-        pub aws_account_id: pulumi_wasm_rust::Output<String>,
+        pub aws_account_id: pulumi_gestalt_rust::Output<String>,
         /// Desired region for environment profile.
-        pub aws_account_region: pulumi_wasm_rust::Output<String>,
+        pub aws_account_region: pulumi_gestalt_rust::Output<String>,
         /// Creation time of environment profile.
-        pub created_at: pulumi_wasm_rust::Output<String>,
+        pub created_at: pulumi_gestalt_rust::Output<String>,
         /// Creator of environment profile.
-        pub created_by: pulumi_wasm_rust::Output<String>,
+        pub created_by: pulumi_gestalt_rust::Output<String>,
         /// Description of environment profile.
-        pub description: pulumi_wasm_rust::Output<String>,
+        pub description: pulumi_gestalt_rust::Output<String>,
         /// Domain Identifier for environment profile.
-        pub domain_identifier: pulumi_wasm_rust::Output<String>,
+        pub domain_identifier: pulumi_gestalt_rust::Output<String>,
         /// ID of the blueprint which the environment will be created with.
-        pub environment_blueprint_identifier: pulumi_wasm_rust::Output<String>,
+        pub environment_blueprint_identifier: pulumi_gestalt_rust::Output<String>,
         /// Name of the environment profile.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// Project identifier for environment profile.
         ///
         /// The following arguments are optional:
-        pub project_identifier: pulumi_wasm_rust::Output<String>,
+        pub project_identifier: pulumi_gestalt_rust::Output<String>,
         /// Time of last update to environment profile.
-        pub updated_at: pulumi_wasm_rust::Output<String>,
+        pub updated_at: pulumi_gestalt_rust::Output<String>,
         /// Array of user parameters of the environment profile with the following attributes:
-        pub user_parameters: pulumi_wasm_rust::Output<
+        pub user_parameters: pulumi_gestalt_rust::Output<
             Option<Vec<super::super::types::datazone::EnvironmentProfileUserParameter>>,
         >,
     }
@@ -177,11 +177,11 @@ pub mod environment_profile {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: EnvironmentProfileArgs,
     ) -> EnvironmentProfileResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let aws_account_id_binding = args.aws_account_id.get_output(context).get_inner();
         let aws_account_region_binding = args
@@ -247,35 +247,35 @@ pub mod environment_profile {
         };
         let o = register_interface::register(context.get_inner(), &request);
         EnvironmentProfileResult {
-            aws_account_id: pulumi_wasm_rust::__private::into_domain(
+            aws_account_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("awsAccountId"),
             ),
-            aws_account_region: pulumi_wasm_rust::__private::into_domain(
+            aws_account_region: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("awsAccountRegion"),
             ),
-            created_at: pulumi_wasm_rust::__private::into_domain(
+            created_at: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("createdAt"),
             ),
-            created_by: pulumi_wasm_rust::__private::into_domain(
+            created_by: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("createdBy"),
             ),
-            description: pulumi_wasm_rust::__private::into_domain(
+            description: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("description"),
             ),
-            domain_identifier: pulumi_wasm_rust::__private::into_domain(
+            domain_identifier: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("domainIdentifier"),
             ),
-            environment_blueprint_identifier: pulumi_wasm_rust::__private::into_domain(
+            environment_blueprint_identifier: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("environmentBlueprintIdentifier"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            project_identifier: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            project_identifier: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("projectIdentifier"),
             ),
-            updated_at: pulumi_wasm_rust::__private::into_domain(
+            updated_at: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("updatedAt"),
             ),
-            user_parameters: pulumi_wasm_rust::__private::into_domain(
+            user_parameters: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("userParameters"),
             ),
         }

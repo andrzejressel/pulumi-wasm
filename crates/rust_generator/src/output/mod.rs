@@ -219,7 +219,7 @@ pub(crate) fn get_register_interface(element_id: &ElementId) -> String {
         "self::".to_string()
     };
     format!(
-        "{}bindings::component::pulumi_wasm::register_interface",
+        "{}bindings::component::pulumi_gestalt::register_interface",
         prefix
     )
 }

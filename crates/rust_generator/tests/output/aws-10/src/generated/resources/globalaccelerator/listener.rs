@@ -3,8 +3,8 @@
 /// ## Example Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = accelerator::create(
@@ -46,48 +46,48 @@
 /// $ pulumi import aws:globalaccelerator/listener:Listener example arn:aws:globalaccelerator::111111111111:accelerator/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/listener/xxxxxxxx
 /// ```
 pub mod listener {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ListenerArgs {
         /// The Amazon Resource Name (ARN) of your accelerator.
         #[builder(into)]
-        pub accelerator_arn: pulumi_wasm_rust::InputOrOutput<String>,
+        pub accelerator_arn: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Direct all requests from a user to the same endpoint. Valid values are `NONE`, `SOURCE_IP`. Default: `NONE`. If `NONE`, Global Accelerator uses the "five-tuple" properties of source IP address, source port, destination IP address, destination port, and protocol to select the hash value. If `SOURCE_IP`, Global Accelerator uses the "two-tuple" properties of source (client) IP address and destination IP address to select the hash value.
         #[builder(into, default)]
-        pub client_affinity: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub client_affinity: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The list of port ranges for the connections from clients to the accelerator. Fields documented below.
         #[builder(into)]
-        pub port_ranges: pulumi_wasm_rust::InputOrOutput<
+        pub port_ranges: pulumi_gestalt_rust::InputOrOutput<
             Vec<super::super::types::globalaccelerator::ListenerPortRange>,
         >,
         /// The protocol for the connections from clients to the accelerator. Valid values are `TCP`, `UDP`.
         #[builder(into)]
-        pub protocol: pulumi_wasm_rust::InputOrOutput<String>,
+        pub protocol: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct ListenerResult {
         /// The Amazon Resource Name (ARN) of your accelerator.
-        pub accelerator_arn: pulumi_wasm_rust::Output<String>,
+        pub accelerator_arn: pulumi_gestalt_rust::Output<String>,
         /// Direct all requests from a user to the same endpoint. Valid values are `NONE`, `SOURCE_IP`. Default: `NONE`. If `NONE`, Global Accelerator uses the "five-tuple" properties of source IP address, source port, destination IP address, destination port, and protocol to select the hash value. If `SOURCE_IP`, Global Accelerator uses the "two-tuple" properties of source (client) IP address and destination IP address to select the hash value.
-        pub client_affinity: pulumi_wasm_rust::Output<Option<String>>,
+        pub client_affinity: pulumi_gestalt_rust::Output<Option<String>>,
         /// The list of port ranges for the connections from clients to the accelerator. Fields documented below.
-        pub port_ranges: pulumi_wasm_rust::Output<
+        pub port_ranges: pulumi_gestalt_rust::Output<
             Vec<super::super::types::globalaccelerator::ListenerPortRange>,
         >,
         /// The protocol for the connections from clients to the accelerator. Valid values are `TCP`, `UDP`.
-        pub protocol: pulumi_wasm_rust::Output<String>,
+        pub protocol: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: ListenerArgs,
     ) -> ListenerResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let accelerator_arn_binding = args
             .accelerator_arn
@@ -124,16 +124,16 @@ pub mod listener {
         };
         let o = register_interface::register(context.get_inner(), &request);
         ListenerResult {
-            accelerator_arn: pulumi_wasm_rust::__private::into_domain(
+            accelerator_arn: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("acceleratorArn"),
             ),
-            client_affinity: pulumi_wasm_rust::__private::into_domain(
+            client_affinity: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("clientAffinity"),
             ),
-            port_ranges: pulumi_wasm_rust::__private::into_domain(
+            port_ranges: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("portRanges"),
             ),
-            protocol: pulumi_wasm_rust::__private::into_domain(
+            protocol: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("protocol"),
             ),
         }

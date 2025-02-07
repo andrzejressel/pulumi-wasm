@@ -1,46 +1,46 @@
 pub mod get_network_service {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct GetNetworkServiceArgs {
         /// Specifies the ID of the Mobile Network Service.
         #[builder(into)]
-        pub mobile_network_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub mobile_network_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Specifies the name which should be used for this Mobile Network Service.
         #[builder(into)]
-        pub name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct GetNetworkServiceResult {
         /// The provider-assigned unique ID for this managed resource.
-        pub id: pulumi_wasm_rust::Output<String>,
+        pub id: pulumi_gestalt_rust::Output<String>,
         /// The Azure Region where the Mobile Network Service should exist.
-        pub location: pulumi_wasm_rust::Output<String>,
-        pub mobile_network_id: pulumi_wasm_rust::Output<String>,
+        pub location: pulumi_gestalt_rust::Output<String>,
+        pub mobile_network_id: pulumi_gestalt_rust::Output<String>,
         /// The name of the data flow template. This must be unique within the parent data flow policy rule.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// A `pcc_rule` block as defined below. The set of PCC Rules that make up this service.
-        pub pcc_rules: pulumi_wasm_rust::Output<
+        pub pcc_rules: pulumi_gestalt_rust::Output<
             Vec<super::super::super::types::mobile::GetNetworkServicePccRule>,
         >,
         /// A precedence value that is used to decide between services when identifying the QoS values to use for a particular SIM. A lower value means a higher priority.
-        pub service_precedence: pulumi_wasm_rust::Output<i32>,
+        pub service_precedence: pulumi_gestalt_rust::Output<i32>,
         /// A `service_qos_policy` block as defined below. The QoS policy to use for packets matching this service.
-        pub service_qos_policies: pulumi_wasm_rust::Output<
+        pub service_qos_policies: pulumi_gestalt_rust::Output<
             Vec<super::super::super::types::mobile::GetNetworkServiceServiceQosPolicy>,
         >,
         /// A mapping of tags which should be assigned to the Mobile Network Service.
-        pub tags: pulumi_wasm_rust::Output<std::collections::HashMap<String, String>>,
+        pub tags: pulumi_gestalt_rust::Output<std::collections::HashMap<String, String>>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         args: GetNetworkServiceArgs,
     ) -> GetNetworkServiceResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let mobile_network_id_binding = args
             .mobile_network_id
@@ -63,24 +63,24 @@ pub mod get_network_service {
         };
         let o = register_interface::invoke(context.get_inner(), &request);
         GetNetworkServiceResult {
-            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
-            location: pulumi_wasm_rust::__private::into_domain(
+            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
+            location: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("location"),
             ),
-            mobile_network_id: pulumi_wasm_rust::__private::into_domain(
+            mobile_network_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("mobileNetworkId"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            pcc_rules: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            pcc_rules: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("pccRules"),
             ),
-            service_precedence: pulumi_wasm_rust::__private::into_domain(
+            service_precedence: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("servicePrecedence"),
             ),
-            service_qos_policies: pulumi_wasm_rust::__private::into_domain(
+            service_qos_policies: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("serviceQosPolicies"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
         }
     }
 }

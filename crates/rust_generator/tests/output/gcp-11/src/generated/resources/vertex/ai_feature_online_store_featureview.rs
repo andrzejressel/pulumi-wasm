@@ -451,25 +451,25 @@
 /// ```
 ///
 pub mod ai_feature_online_store_featureview {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct AiFeatureOnlineStoreFeatureviewArgs {
         /// Configures how data is supposed to be extracted from a BigQuery source to be loaded onto the FeatureOnlineStore.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub big_query_source: pulumi_wasm_rust::InputOrOutput<
+        pub big_query_source: pulumi_gestalt_rust::InputOrOutput<
             Option<
                 super::super::types::vertex::AiFeatureOnlineStoreFeatureviewBigQuerySource,
             >,
         >,
         /// The name of the FeatureOnlineStore to use for the featureview.
         #[builder(into)]
-        pub feature_online_store: pulumi_wasm_rust::InputOrOutput<String>,
+        pub feature_online_store: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Configures the features from a Feature Registry source that need to be loaded onto the FeatureOnlineStore.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub feature_registry_source: pulumi_wasm_rust::InputOrOutput<
+        pub feature_registry_source: pulumi_gestalt_rust::InputOrOutput<
             Option<
                 super::super::types::vertex::AiFeatureOnlineStoreFeatureviewFeatureRegistrySource,
             >,
@@ -479,26 +479,26 @@ pub mod ai_feature_online_store_featureview {
         /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
         /// Please refer to the field `effective_labels` for all of the labels present on the resource.
         #[builder(into, default)]
-        pub labels: pulumi_wasm_rust::InputOrOutput<
+        pub labels: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Name of the FeatureView. This value may be up to 60 characters, and valid characters are [a-z0-9_]. The first character cannot be a number.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub project: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The region for the resource. It should be the same as the featureonlinestore region.
         ///
         ///
         /// - - -
         #[builder(into)]
-        pub region: pulumi_wasm_rust::InputOrOutput<String>,
+        pub region: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Configures when data is to be synced/updated for this FeatureView. At the end of the sync the latest featureValues for each entityId of this FeatureView are made ready for online serving.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub sync_config: pulumi_wasm_rust::InputOrOutput<
+        pub sync_config: pulumi_gestalt_rust::InputOrOutput<
             Option<
                 super::super::types::vertex::AiFeatureOnlineStoreFeatureviewSyncConfig,
             >,
@@ -506,7 +506,7 @@ pub mod ai_feature_online_store_featureview {
         /// Configuration for vector search. It contains the required configurations to create an index from source data, so that approximate nearest neighbor (a.k.a ANN) algorithms search can be performed during online serving.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub vector_search_config: pulumi_wasm_rust::InputOrOutput<
+        pub vector_search_config: pulumi_gestalt_rust::InputOrOutput<
             Option<
                 super::super::types::vertex::AiFeatureOnlineStoreFeatureviewVectorSearchConfig,
             >,
@@ -516,22 +516,22 @@ pub mod ai_feature_online_store_featureview {
     pub struct AiFeatureOnlineStoreFeatureviewResult {
         /// Configures how data is supposed to be extracted from a BigQuery source to be loaded onto the FeatureOnlineStore.
         /// Structure is documented below.
-        pub big_query_source: pulumi_wasm_rust::Output<
+        pub big_query_source: pulumi_gestalt_rust::Output<
             Option<
                 super::super::types::vertex::AiFeatureOnlineStoreFeatureviewBigQuerySource,
             >,
         >,
         /// The timestamp of when the featureOnlinestore was created in RFC3339 UTC "Zulu" format, with nanosecond resolution and up to nine fractional digits.
-        pub create_time: pulumi_wasm_rust::Output<String>,
+        pub create_time: pulumi_gestalt_rust::Output<String>,
         /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Pulumi, other clients and services.
-        pub effective_labels: pulumi_wasm_rust::Output<
+        pub effective_labels: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
         /// The name of the FeatureOnlineStore to use for the featureview.
-        pub feature_online_store: pulumi_wasm_rust::Output<String>,
+        pub feature_online_store: pulumi_gestalt_rust::Output<String>,
         /// Configures the features from a Feature Registry source that need to be loaded onto the FeatureOnlineStore.
         /// Structure is documented below.
-        pub feature_registry_source: pulumi_wasm_rust::Output<
+        pub feature_registry_source: pulumi_gestalt_rust::Output<
             Option<
                 super::super::types::vertex::AiFeatureOnlineStoreFeatureviewFeatureRegistrySource,
             >,
@@ -540,36 +540,36 @@ pub mod ai_feature_online_store_featureview {
         ///
         /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
         /// Please refer to the field `effective_labels` for all of the labels present on the resource.
-        pub labels: pulumi_wasm_rust::Output<
+        pub labels: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Name of the FeatureView. This value may be up to 60 characters, and valid characters are [a-z0-9_]. The first character cannot be a number.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
-        pub project: pulumi_wasm_rust::Output<String>,
+        pub project: pulumi_gestalt_rust::Output<String>,
         /// The combination of labels configured directly on the resource
         /// and default labels configured on the provider.
-        pub pulumi_labels: pulumi_wasm_rust::Output<
+        pub pulumi_labels: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
         /// The region for the resource. It should be the same as the featureonlinestore region.
         ///
         ///
         /// - - -
-        pub region: pulumi_wasm_rust::Output<String>,
+        pub region: pulumi_gestalt_rust::Output<String>,
         /// Configures when data is to be synced/updated for this FeatureView. At the end of the sync the latest featureValues for each entityId of this FeatureView are made ready for online serving.
         /// Structure is documented below.
-        pub sync_config: pulumi_wasm_rust::Output<
+        pub sync_config: pulumi_gestalt_rust::Output<
             Option<
                 super::super::types::vertex::AiFeatureOnlineStoreFeatureviewSyncConfig,
             >,
         >,
         /// The timestamp of when the featureOnlinestore was last updated in RFC3339 UTC "Zulu" format, with nanosecond resolution and up to nine fractional digits.
-        pub update_time: pulumi_wasm_rust::Output<String>,
+        pub update_time: pulumi_gestalt_rust::Output<String>,
         /// Configuration for vector search. It contains the required configurations to create an index from source data, so that approximate nearest neighbor (a.k.a ANN) algorithms search can be performed during online serving.
         /// Structure is documented below.
-        pub vector_search_config: pulumi_wasm_rust::Output<
+        pub vector_search_config: pulumi_gestalt_rust::Output<
             Option<
                 super::super::types::vertex::AiFeatureOnlineStoreFeatureviewVectorSearchConfig,
             >,
@@ -580,11 +580,11 @@ pub mod ai_feature_online_store_featureview {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: AiFeatureOnlineStoreFeatureviewArgs,
     ) -> AiFeatureOnlineStoreFeatureviewResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let big_query_source_binding = args
             .big_query_source
@@ -653,37 +653,41 @@ pub mod ai_feature_online_store_featureview {
         };
         let o = register_interface::register(context.get_inner(), &request);
         AiFeatureOnlineStoreFeatureviewResult {
-            big_query_source: pulumi_wasm_rust::__private::into_domain(
+            big_query_source: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("bigQuerySource"),
             ),
-            create_time: pulumi_wasm_rust::__private::into_domain(
+            create_time: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("createTime"),
             ),
-            effective_labels: pulumi_wasm_rust::__private::into_domain(
+            effective_labels: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("effectiveLabels"),
             ),
-            feature_online_store: pulumi_wasm_rust::__private::into_domain(
+            feature_online_store: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("featureOnlineStore"),
             ),
-            feature_registry_source: pulumi_wasm_rust::__private::into_domain(
+            feature_registry_source: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("featureRegistrySource"),
             ),
-            labels: pulumi_wasm_rust::__private::into_domain(o.extract_field("labels")),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            project: pulumi_wasm_rust::__private::into_domain(
+            labels: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("labels"),
+            ),
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            project: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("project"),
             ),
-            pulumi_labels: pulumi_wasm_rust::__private::into_domain(
+            pulumi_labels: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("pulumiLabels"),
             ),
-            region: pulumi_wasm_rust::__private::into_domain(o.extract_field("region")),
-            sync_config: pulumi_wasm_rust::__private::into_domain(
+            region: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("region"),
+            ),
+            sync_config: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("syncConfig"),
             ),
-            update_time: pulumi_wasm_rust::__private::into_domain(
+            update_time: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("updateTime"),
             ),
-            vector_search_config: pulumi_wasm_rust::__private::into_domain(
+            vector_search_config: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("vectorSearchConfig"),
             ),
         }

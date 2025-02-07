@@ -200,87 +200,87 @@
 /// ```
 ///
 pub mod certifiate {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct CertifiateArgs {
         /// A `certificate` block as defined below, used to Import an existing certificate. Changing this will create a new version of the Key Vault Certificate.
         #[builder(into, default)]
-        pub certificate: pulumi_wasm_rust::InputOrOutput<
+        pub certificate: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::keyvault::CertifiateCertificate>,
         >,
         /// A `certificate_policy` block as defined below. Changing this (except the `lifetime_action` field) will create a new version of the Key Vault Certificate.
         ///
         /// > **NOTE:** When creating a Key Vault Certificate, at least one of `certificate` or `certificate_policy` is required. Provide `certificate` to import an existing certificate, `certificate_policy` to generate a new certificate.
         #[builder(into, default)]
-        pub certificate_policy: pulumi_wasm_rust::InputOrOutput<
+        pub certificate_policy: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::keyvault::CertifiateCertificatePolicy>,
         >,
         /// The ID of the Key Vault where the Certificate should be created. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub key_vault_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub key_vault_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Specifies the name of the Key Vault Certificate. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// A mapping of tags to assign to the resource.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
     #[allow(dead_code)]
     pub struct CertifiateResult {
         /// A `certificate` block as defined below, used to Import an existing certificate. Changing this will create a new version of the Key Vault Certificate.
-        pub certificate: pulumi_wasm_rust::Output<
+        pub certificate: pulumi_gestalt_rust::Output<
             Option<super::super::types::keyvault::CertifiateCertificate>,
         >,
         /// A `certificate_attribute` block as defined below.
-        pub certificate_attributes: pulumi_wasm_rust::Output<
+        pub certificate_attributes: pulumi_gestalt_rust::Output<
             Vec<super::super::types::keyvault::CertifiateCertificateAttribute>,
         >,
         /// The raw Key Vault Certificate data represented as a hexadecimal string.
-        pub certificate_data: pulumi_wasm_rust::Output<String>,
+        pub certificate_data: pulumi_gestalt_rust::Output<String>,
         /// The Base64 encoded Key Vault Certificate data.
-        pub certificate_data_base64: pulumi_wasm_rust::Output<String>,
+        pub certificate_data_base64: pulumi_gestalt_rust::Output<String>,
         /// A `certificate_policy` block as defined below. Changing this (except the `lifetime_action` field) will create a new version of the Key Vault Certificate.
         ///
         /// > **NOTE:** When creating a Key Vault Certificate, at least one of `certificate` or `certificate_policy` is required. Provide `certificate` to import an existing certificate, `certificate_policy` to generate a new certificate.
-        pub certificate_policy: pulumi_wasm_rust::Output<
+        pub certificate_policy: pulumi_gestalt_rust::Output<
             super::super::types::keyvault::CertifiateCertificatePolicy,
         >,
         /// The ID of the Key Vault where the Certificate should be created. Changing this forces a new resource to be created.
-        pub key_vault_id: pulumi_wasm_rust::Output<String>,
+        pub key_vault_id: pulumi_gestalt_rust::Output<String>,
         /// Specifies the name of the Key Vault Certificate. Changing this forces a new resource to be created.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// The (Versioned) ID for this Key Vault Certificate. This property points to a specific version of a Key Vault Certificate, as such using this won't auto-rotate values if used in other Azure Services.
-        pub resource_manager_id: pulumi_wasm_rust::Output<String>,
+        pub resource_manager_id: pulumi_gestalt_rust::Output<String>,
         /// The Versionless ID of the Key Vault Certificate. This property allows other Azure Services (that support it) to auto-rotate their value when the Key Vault Certificate is updated.
-        pub resource_manager_versionless_id: pulumi_wasm_rust::Output<String>,
+        pub resource_manager_versionless_id: pulumi_gestalt_rust::Output<String>,
         /// The ID of the associated Key Vault Secret.
-        pub secret_id: pulumi_wasm_rust::Output<String>,
+        pub secret_id: pulumi_gestalt_rust::Output<String>,
         /// A mapping of tags to assign to the resource.
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// The X509 Thumbprint of the Key Vault Certificate represented as a hexadecimal string.
-        pub thumbprint: pulumi_wasm_rust::Output<String>,
+        pub thumbprint: pulumi_gestalt_rust::Output<String>,
         /// The current version of the Key Vault Certificate.
-        pub version: pulumi_wasm_rust::Output<String>,
+        pub version: pulumi_gestalt_rust::Output<String>,
         /// The Base ID of the Key Vault Certificate.
-        pub versionless_id: pulumi_wasm_rust::Output<String>,
+        pub versionless_id: pulumi_gestalt_rust::Output<String>,
         /// The Base ID of the Key Vault Secret.
-        pub versionless_secret_id: pulumi_wasm_rust::Output<String>,
+        pub versionless_secret_id: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: CertifiateArgs,
     ) -> CertifiateResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let certificate_binding = args.certificate.get_output(context).get_inner();
         let certificate_policy_binding = args
@@ -319,45 +319,45 @@ pub mod certifiate {
         };
         let o = register_interface::register(context.get_inner(), &request);
         CertifiateResult {
-            certificate: pulumi_wasm_rust::__private::into_domain(
+            certificate: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("certificate"),
             ),
-            certificate_attributes: pulumi_wasm_rust::__private::into_domain(
+            certificate_attributes: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("certificateAttributes"),
             ),
-            certificate_data: pulumi_wasm_rust::__private::into_domain(
+            certificate_data: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("certificateData"),
             ),
-            certificate_data_base64: pulumi_wasm_rust::__private::into_domain(
+            certificate_data_base64: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("certificateDataBase64"),
             ),
-            certificate_policy: pulumi_wasm_rust::__private::into_domain(
+            certificate_policy: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("certificatePolicy"),
             ),
-            key_vault_id: pulumi_wasm_rust::__private::into_domain(
+            key_vault_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("keyVaultId"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            resource_manager_id: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            resource_manager_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("resourceManagerId"),
             ),
-            resource_manager_versionless_id: pulumi_wasm_rust::__private::into_domain(
+            resource_manager_versionless_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("resourceManagerVersionlessId"),
             ),
-            secret_id: pulumi_wasm_rust::__private::into_domain(
+            secret_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("secretId"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
-            thumbprint: pulumi_wasm_rust::__private::into_domain(
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            thumbprint: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("thumbprint"),
             ),
-            version: pulumi_wasm_rust::__private::into_domain(
+            version: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("version"),
             ),
-            versionless_id: pulumi_wasm_rust::__private::into_domain(
+            versionless_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("versionlessId"),
             ),
-            versionless_secret_id: pulumi_wasm_rust::__private::into_domain(
+            versionless_secret_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("versionlessSecretId"),
             ),
         }

@@ -88,7 +88,7 @@
 /// ```
 ///
 pub mod custom_certificate {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct CustomCertificateArgs {
@@ -96,41 +96,41 @@ pub mod custom_certificate {
         ///
         /// > **Note:** Self assigned certificate is not supported and the provisioning status will fail.
         #[builder(into)]
-        pub custom_certificate_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub custom_certificate_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The name of the Web PubSub Custom Certificate. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The Web PubSub ID of the Web PubSub Custom Certificate. Changing this forces a new resource to be created.
         ///
         /// > **Note:** custom certificate is only available for Web PubSub Premium tier. Please enable managed identity in the corresponding Web PubSub Service and give the managed identity access to the key vault, the required permission is Get Certificate and Secret.
         #[builder(into)]
-        pub web_pubsub_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub web_pubsub_id: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct CustomCertificateResult {
         /// The certificate version of the Web PubSub Custom Certificate.
-        pub certificate_version: pulumi_wasm_rust::Output<String>,
+        pub certificate_version: pulumi_gestalt_rust::Output<String>,
         /// The certificate ID of the Web PubSub Custom Certificate. Changing this forces a new resource to be created.
         ///
         /// > **Note:** Self assigned certificate is not supported and the provisioning status will fail.
-        pub custom_certificate_id: pulumi_wasm_rust::Output<String>,
+        pub custom_certificate_id: pulumi_gestalt_rust::Output<String>,
         /// The name of the Web PubSub Custom Certificate. Changing this forces a new resource to be created.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// The Web PubSub ID of the Web PubSub Custom Certificate. Changing this forces a new resource to be created.
         ///
         /// > **Note:** custom certificate is only available for Web PubSub Premium tier. Please enable managed identity in the corresponding Web PubSub Service and give the managed identity access to the key vault, the required permission is Get Certificate and Secret.
-        pub web_pubsub_id: pulumi_wasm_rust::Output<String>,
+        pub web_pubsub_id: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: CustomCertificateArgs,
     ) -> CustomCertificateResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let custom_certificate_id_binding = args
             .custom_certificate_id
@@ -159,14 +159,14 @@ pub mod custom_certificate {
         };
         let o = register_interface::register(context.get_inner(), &request);
         CustomCertificateResult {
-            certificate_version: pulumi_wasm_rust::__private::into_domain(
+            certificate_version: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("certificateVersion"),
             ),
-            custom_certificate_id: pulumi_wasm_rust::__private::into_domain(
+            custom_certificate_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("customCertificateId"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            web_pubsub_id: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            web_pubsub_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("webPubsubId"),
             ),
         }

@@ -5,8 +5,8 @@
 /// ### Basic Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = fast_snapshot_restore::create(
@@ -27,30 +27,30 @@
 /// $ pulumi import aws:ebs/fastSnapshotRestore:FastSnapshotRestore example us-west-2a,snap-abcdef123456
 /// ```
 pub mod fast_snapshot_restore {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct FastSnapshotRestoreArgs {
         /// Availability zone in which to enable fast snapshot restores.
         #[builder(into)]
-        pub availability_zone: pulumi_wasm_rust::InputOrOutput<String>,
+        pub availability_zone: pulumi_gestalt_rust::InputOrOutput<String>,
         /// ID of the snapshot.
         #[builder(into)]
-        pub snapshot_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub snapshot_id: pulumi_gestalt_rust::InputOrOutput<String>,
         #[builder(into, default)]
-        pub timeouts: pulumi_wasm_rust::InputOrOutput<
+        pub timeouts: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::ebs::FastSnapshotRestoreTimeouts>,
         >,
     }
     #[allow(dead_code)]
     pub struct FastSnapshotRestoreResult {
         /// Availability zone in which to enable fast snapshot restores.
-        pub availability_zone: pulumi_wasm_rust::Output<String>,
+        pub availability_zone: pulumi_gestalt_rust::Output<String>,
         /// ID of the snapshot.
-        pub snapshot_id: pulumi_wasm_rust::Output<String>,
+        pub snapshot_id: pulumi_gestalt_rust::Output<String>,
         /// State of fast snapshot restores. Valid values are `enabling`, `optimizing`, `enabled`, `disabling`, `disabled`.
-        pub state: pulumi_wasm_rust::Output<String>,
-        pub timeouts: pulumi_wasm_rust::Output<
+        pub state: pulumi_gestalt_rust::Output<String>,
+        pub timeouts: pulumi_gestalt_rust::Output<
             Option<super::super::types::ebs::FastSnapshotRestoreTimeouts>,
         >,
     }
@@ -59,11 +59,11 @@ pub mod fast_snapshot_restore {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: FastSnapshotRestoreArgs,
     ) -> FastSnapshotRestoreResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let availability_zone_binding = args
             .availability_zone
@@ -92,14 +92,14 @@ pub mod fast_snapshot_restore {
         };
         let o = register_interface::register(context.get_inner(), &request);
         FastSnapshotRestoreResult {
-            availability_zone: pulumi_wasm_rust::__private::into_domain(
+            availability_zone: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("availabilityZone"),
             ),
-            snapshot_id: pulumi_wasm_rust::__private::into_domain(
+            snapshot_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("snapshotId"),
             ),
-            state: pulumi_wasm_rust::__private::into_domain(o.extract_field("state")),
-            timeouts: pulumi_wasm_rust::__private::into_domain(
+            state: pulumi_gestalt_rust::__private::into_domain(o.extract_field("state")),
+            timeouts: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("timeouts"),
             ),
         }

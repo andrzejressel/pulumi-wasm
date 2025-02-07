@@ -20,8 +20,8 @@
 ///
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let basic = field::create(
@@ -62,8 +62,8 @@
 ///
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let database = database::create(
@@ -94,8 +94,8 @@
 ///
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let database = database::create(
@@ -147,70 +147,70 @@
 /// ```
 ///
 pub mod field {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct FieldArgs {
         /// The id of the collection group to configure.
         #[builder(into)]
-        pub collection: pulumi_wasm_rust::InputOrOutput<String>,
+        pub collection: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The Firestore database id. Defaults to `"(default)"`.
         #[builder(into, default)]
-        pub database: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub database: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The id of the field to configure.
         ///
         ///
         /// - - -
         #[builder(into)]
-        pub field: pulumi_wasm_rust::InputOrOutput<String>,
+        pub field: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The single field index configuration for this field.
         /// Creating an index configuration for this field will override any inherited configuration with the
         /// indexes specified. Configuring the index configuration with an empty block disables all indexes on
         /// the field.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub index_config: pulumi_wasm_rust::InputOrOutput<
+        pub index_config: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::firestore::FieldIndexConfig>,
         >,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub project: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The TTL configuration for this Field. If set to an empty block (i.e. `ttl_config {}`), a TTL policy is configured based on the field. If unset, a TTL policy is not configured (or will be disabled upon updating the resource).
         /// Structure is documented below.
         #[builder(into, default)]
-        pub ttl_config: pulumi_wasm_rust::InputOrOutput<
+        pub ttl_config: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::firestore::FieldTtlConfig>,
         >,
     }
     #[allow(dead_code)]
     pub struct FieldResult {
         /// The id of the collection group to configure.
-        pub collection: pulumi_wasm_rust::Output<String>,
+        pub collection: pulumi_gestalt_rust::Output<String>,
         /// The Firestore database id. Defaults to `"(default)"`.
-        pub database: pulumi_wasm_rust::Output<Option<String>>,
+        pub database: pulumi_gestalt_rust::Output<Option<String>>,
         /// The id of the field to configure.
         ///
         ///
         /// - - -
-        pub field: pulumi_wasm_rust::Output<String>,
+        pub field: pulumi_gestalt_rust::Output<String>,
         /// The single field index configuration for this field.
         /// Creating an index configuration for this field will override any inherited configuration with the
         /// indexes specified. Configuring the index configuration with an empty block disables all indexes on
         /// the field.
         /// Structure is documented below.
-        pub index_config: pulumi_wasm_rust::Output<
+        pub index_config: pulumi_gestalt_rust::Output<
             Option<super::super::types::firestore::FieldIndexConfig>,
         >,
         /// The name of this field. Format:
         /// `projects/{{project}}/databases/{{database}}/collectionGroups/{{collection}}/fields/{{field}}`
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
-        pub project: pulumi_wasm_rust::Output<String>,
+        pub project: pulumi_gestalt_rust::Output<String>,
         /// The TTL configuration for this Field. If set to an empty block (i.e. `ttl_config {}`), a TTL policy is configured based on the field. If unset, a TTL policy is not configured (or will be disabled upon updating the resource).
         /// Structure is documented below.
-        pub ttl_config: pulumi_wasm_rust::Output<
+        pub ttl_config: pulumi_gestalt_rust::Output<
             Option<super::super::types::firestore::FieldTtlConfig>,
         >,
     }
@@ -219,11 +219,11 @@ pub mod field {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: FieldArgs,
     ) -> FieldResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let collection_binding = args.collection.get_output(context).get_inner();
         let database_binding = args.database.get_output(context).get_inner();
@@ -264,21 +264,21 @@ pub mod field {
         };
         let o = register_interface::register(context.get_inner(), &request);
         FieldResult {
-            collection: pulumi_wasm_rust::__private::into_domain(
+            collection: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("collection"),
             ),
-            database: pulumi_wasm_rust::__private::into_domain(
+            database: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("database"),
             ),
-            field: pulumi_wasm_rust::__private::into_domain(o.extract_field("field")),
-            index_config: pulumi_wasm_rust::__private::into_domain(
+            field: pulumi_gestalt_rust::__private::into_domain(o.extract_field("field")),
+            index_config: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("indexConfig"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            project: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            project: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("project"),
             ),
-            ttl_config: pulumi_wasm_rust::__private::into_domain(
+            ttl_config: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("ttlConfig"),
             ),
         }

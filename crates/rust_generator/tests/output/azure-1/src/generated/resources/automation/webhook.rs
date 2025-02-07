@@ -54,73 +54,73 @@
 /// ```
 ///
 pub mod webhook {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct WebhookArgs {
         /// The name of the automation account in which the Webhook is created. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub automation_account_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub automation_account_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Controls if Webhook is enabled. Defaults to `true`.
         #[builder(into, default)]
-        pub enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub enabled: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// Timestamp when the webhook expires. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub expiry_time: pulumi_wasm_rust::InputOrOutput<String>,
+        pub expiry_time: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Specifies the name of the Webhook. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Map of input parameters passed to runbook.
         #[builder(into, default)]
-        pub parameters: pulumi_wasm_rust::InputOrOutput<
+        pub parameters: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// The name of the resource group in which the Webhook is created. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub resource_group_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub resource_group_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Name of the hybrid worker group the Webhook job will run on.
         #[builder(into, default)]
-        pub run_on_worker_group: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub run_on_worker_group: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Name of the Automation Runbook to execute by Webhook.
         #[builder(into)]
-        pub runbook_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub runbook_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// URI to initiate the webhook. Can be generated using [Generate URI API](https://docs.microsoft.com/rest/api/automation/webhook/generate-uri). By default, new URI is generated on each new resource creation. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub uri: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub uri: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct WebhookResult {
         /// The name of the automation account in which the Webhook is created. Changing this forces a new resource to be created.
-        pub automation_account_name: pulumi_wasm_rust::Output<String>,
+        pub automation_account_name: pulumi_gestalt_rust::Output<String>,
         /// Controls if Webhook is enabled. Defaults to `true`.
-        pub enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub enabled: pulumi_gestalt_rust::Output<Option<bool>>,
         /// Timestamp when the webhook expires. Changing this forces a new resource to be created.
-        pub expiry_time: pulumi_wasm_rust::Output<String>,
+        pub expiry_time: pulumi_gestalt_rust::Output<String>,
         /// Specifies the name of the Webhook. Changing this forces a new resource to be created.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// Map of input parameters passed to runbook.
-        pub parameters: pulumi_wasm_rust::Output<
+        pub parameters: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// The name of the resource group in which the Webhook is created. Changing this forces a new resource to be created.
-        pub resource_group_name: pulumi_wasm_rust::Output<String>,
+        pub resource_group_name: pulumi_gestalt_rust::Output<String>,
         /// Name of the hybrid worker group the Webhook job will run on.
-        pub run_on_worker_group: pulumi_wasm_rust::Output<Option<String>>,
+        pub run_on_worker_group: pulumi_gestalt_rust::Output<Option<String>>,
         /// Name of the Automation Runbook to execute by Webhook.
-        pub runbook_name: pulumi_wasm_rust::Output<String>,
+        pub runbook_name: pulumi_gestalt_rust::Output<String>,
         /// URI to initiate the webhook. Can be generated using [Generate URI API](https://docs.microsoft.com/rest/api/automation/webhook/generate-uri). By default, new URI is generated on each new resource creation. Changing this forces a new resource to be created.
-        pub uri: pulumi_wasm_rust::Output<String>,
+        pub uri: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: WebhookArgs,
     ) -> WebhookResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let automation_account_name_binding = args
             .automation_account_name
@@ -185,29 +185,29 @@ pub mod webhook {
         };
         let o = register_interface::register(context.get_inner(), &request);
         WebhookResult {
-            automation_account_name: pulumi_wasm_rust::__private::into_domain(
+            automation_account_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("automationAccountName"),
             ),
-            enabled: pulumi_wasm_rust::__private::into_domain(
+            enabled: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("enabled"),
             ),
-            expiry_time: pulumi_wasm_rust::__private::into_domain(
+            expiry_time: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("expiryTime"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            parameters: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            parameters: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("parameters"),
             ),
-            resource_group_name: pulumi_wasm_rust::__private::into_domain(
+            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("resourceGroupName"),
             ),
-            run_on_worker_group: pulumi_wasm_rust::__private::into_domain(
+            run_on_worker_group: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("runOnWorkerGroup"),
             ),
-            runbook_name: pulumi_wasm_rust::__private::into_domain(
+            runbook_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("runbookName"),
             ),
-            uri: pulumi_wasm_rust::__private::into_domain(o.extract_field("uri")),
+            uri: pulumi_gestalt_rust::__private::into_domain(o.extract_field("uri")),
         }
     }
 }

@@ -1,53 +1,53 @@
 pub mod get_slot_type {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct GetSlotTypeArgs {
         /// Name of the slot type. The name is case sensitive.
         #[builder(into)]
-        pub name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Version of the slot type.
         #[builder(into, default)]
-        pub version: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub version: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct GetSlotTypeResult {
         /// Checksum identifying the version of the slot type that was created. The checksum is
         /// not included as an argument because the resource will add it automatically when updating the slot type.
-        pub checksum: pulumi_wasm_rust::Output<String>,
+        pub checksum: pulumi_gestalt_rust::Output<String>,
         /// Date when the slot type version was created.
-        pub created_date: pulumi_wasm_rust::Output<String>,
+        pub created_date: pulumi_gestalt_rust::Output<String>,
         /// Description of the slot type.
-        pub description: pulumi_wasm_rust::Output<String>,
+        pub description: pulumi_gestalt_rust::Output<String>,
         /// Set of EnumerationValue objects that defines the values that
         /// the slot type can take. Each value can have a set of synonyms, which are additional values that help
         /// train the machine learning model about the values that it resolves for a slot.
-        pub enumeration_values: pulumi_wasm_rust::Output<
+        pub enumeration_values: pulumi_gestalt_rust::Output<
             Vec<super::super::super::types::lex::GetSlotTypeEnumerationValue>,
         >,
         /// The provider-assigned unique ID for this managed resource.
-        pub id: pulumi_wasm_rust::Output<String>,
+        pub id: pulumi_gestalt_rust::Output<String>,
         /// Date when the $LATEST version of this slot type was updated.
-        pub last_updated_date: pulumi_wasm_rust::Output<String>,
+        pub last_updated_date: pulumi_gestalt_rust::Output<String>,
         /// Name of the slot type. The name is not case sensitive.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// Determines the slot resolution strategy that Amazon Lex
         /// uses to return slot type values. `ORIGINAL_VALUE` returns the value entered by the user if the user
         /// value is similar to the slot value. `TOP_RESOLUTION` returns the first value in the resolution list
         /// if there is a resolution list for the slot, otherwise null is returned.
-        pub value_selection_strategy: pulumi_wasm_rust::Output<String>,
+        pub value_selection_strategy: pulumi_gestalt_rust::Output<String>,
         /// Version of the slot type.
-        pub version: pulumi_wasm_rust::Output<Option<String>>,
+        pub version: pulumi_gestalt_rust::Output<Option<String>>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         args: GetSlotTypeArgs,
     ) -> GetSlotTypeResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let name_binding = args.name.get_output(context).get_inner();
         let version_binding = args.version.get_output(context).get_inner();
@@ -67,27 +67,29 @@ pub mod get_slot_type {
         };
         let o = register_interface::invoke(context.get_inner(), &request);
         GetSlotTypeResult {
-            checksum: pulumi_wasm_rust::__private::into_domain(
+            checksum: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("checksum"),
             ),
-            created_date: pulumi_wasm_rust::__private::into_domain(
+            created_date: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("createdDate"),
             ),
-            description: pulumi_wasm_rust::__private::into_domain(
+            description: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("description"),
             ),
-            enumeration_values: pulumi_wasm_rust::__private::into_domain(
+            enumeration_values: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("enumerationValues"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
-            last_updated_date: pulumi_wasm_rust::__private::into_domain(
+            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
+            last_updated_date: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("lastUpdatedDate"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            value_selection_strategy: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            value_selection_strategy: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("valueSelectionStrategy"),
             ),
-            version: pulumi_wasm_rust::__private::into_domain(o.extract_field("version")),
+            version: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("version"),
+            ),
         }
     }
 }

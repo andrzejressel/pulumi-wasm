@@ -1,5 +1,5 @@
 pub mod get_sink {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct GetSinkArgs {
@@ -11,41 +11,41 @@ pub mod get_sink {
         /// -  `billingAccounts/[BILLING_ACCOUNT_ID]/sinks/[SINK_NAME]`
         /// - `folders/[FOLDER_ID]/sinks/[SINK_NAME]`
         #[builder(into)]
-        pub id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub id: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct GetSinkResult {
         /// Options that affect sinks exporting data to BigQuery. Structure is documented below.
-        pub bigquery_options: pulumi_wasm_rust::Output<
+        pub bigquery_options: pulumi_gestalt_rust::Output<
             Vec<super::super::super::types::logging::GetSinkBigqueryOption>,
         >,
         /// A description of this exclusion.
-        pub description: pulumi_wasm_rust::Output<String>,
+        pub description: pulumi_gestalt_rust::Output<String>,
         /// The destination of the sink (or, in other words, where logs are written to).
-        pub destination: pulumi_wasm_rust::Output<String>,
+        pub destination: pulumi_gestalt_rust::Output<String>,
         /// Whether this exclusion is disabled and it does not exclude any log entries.
-        pub disabled: pulumi_wasm_rust::Output<bool>,
+        pub disabled: pulumi_gestalt_rust::Output<bool>,
         /// Log entries that match any of the exclusion filters are not exported. Structure is documented below.
-        pub exclusions: pulumi_wasm_rust::Output<
+        pub exclusions: pulumi_gestalt_rust::Output<
             Vec<super::super::super::types::logging::GetSinkExclusion>,
         >,
         /// An advanced logs filter that matches the log entries to be excluded.
-        pub filter: pulumi_wasm_rust::Output<String>,
-        pub id: pulumi_wasm_rust::Output<String>,
+        pub filter: pulumi_gestalt_rust::Output<String>,
+        pub id: pulumi_gestalt_rust::Output<String>,
         /// A client-assigned identifier, such as `load-balancer-exclusion`.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// The identity associated with this sink. This identity must be granted write access to the configured `destination`.
-        pub writer_identity: pulumi_wasm_rust::Output<String>,
+        pub writer_identity: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         args: GetSinkArgs,
     ) -> GetSinkResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let id_binding = args.id.get_output(context).get_inner();
         let request = register_interface::ResourceInvokeRequest {
@@ -60,25 +60,27 @@ pub mod get_sink {
         };
         let o = register_interface::invoke(context.get_inner(), &request);
         GetSinkResult {
-            bigquery_options: pulumi_wasm_rust::__private::into_domain(
+            bigquery_options: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("bigqueryOptions"),
             ),
-            description: pulumi_wasm_rust::__private::into_domain(
+            description: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("description"),
             ),
-            destination: pulumi_wasm_rust::__private::into_domain(
+            destination: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("destination"),
             ),
-            disabled: pulumi_wasm_rust::__private::into_domain(
+            disabled: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("disabled"),
             ),
-            exclusions: pulumi_wasm_rust::__private::into_domain(
+            exclusions: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("exclusions"),
             ),
-            filter: pulumi_wasm_rust::__private::into_domain(o.extract_field("filter")),
-            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            writer_identity: pulumi_wasm_rust::__private::into_domain(
+            filter: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("filter"),
+            ),
+            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            writer_identity: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("writerIdentity"),
             ),
         }

@@ -108,94 +108,94 @@
 /// ```
 ///
 pub mod private_cloud {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct PrivateCloudArgs {
         /// The number of hours to delay this request. You can set this value to an hour between 0 to 8, where setting it to 0
         /// starts the deletion request immediately. If no value is set, a default value is set at the API Level.
         #[builder(into, default)]
-        pub deletion_delay_hours: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
+        pub deletion_delay_hours: pulumi_gestalt_rust::InputOrOutput<Option<i32>>,
         /// User-provided description for this private cloud.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub description: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The location where the PrivateCloud should reside.
         #[builder(into)]
-        pub location: pulumi_wasm_rust::InputOrOutput<String>,
+        pub location: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The management cluster for this private cloud. This used for creating and managing the default cluster.
         /// Structure is documented below.
         #[builder(into)]
-        pub management_cluster: pulumi_wasm_rust::InputOrOutput<
+        pub management_cluster: pulumi_gestalt_rust::InputOrOutput<
             super::super::types::vmwareengine::PrivateCloudManagementCluster,
         >,
         /// The ID of the PrivateCloud.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Network configuration in the consumer project with which the peering has to be done.
         /// Structure is documented below.
         #[builder(into)]
-        pub network_config: pulumi_wasm_rust::InputOrOutput<
+        pub network_config: pulumi_gestalt_rust::InputOrOutput<
             super::super::types::vmwareengine::PrivateCloudNetworkConfig,
         >,
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub project: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// While set true, deletion_delay_hours value will be sent in the request even for zero value of the field. This field is
         /// only useful for setting 0 value to the deletion_delay_hours field. It can be used both alone and together with
         /// deletion_delay_hours.
         #[builder(into, default)]
-        pub send_deletion_delay_hours_if_zero: pulumi_wasm_rust::InputOrOutput<
+        pub send_deletion_delay_hours_if_zero: pulumi_gestalt_rust::InputOrOutput<
             Option<bool>,
         >,
         /// Initial type of the private cloud. Possible values: ["STANDARD", "TIME_LIMITED", "STRETCHED"]
         #[builder(into, default)]
-        pub type_: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub type_: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct PrivateCloudResult {
         /// The number of hours to delay this request. You can set this value to an hour between 0 to 8, where setting it to 0
         /// starts the deletion request immediately. If no value is set, a default value is set at the API Level.
-        pub deletion_delay_hours: pulumi_wasm_rust::Output<Option<i32>>,
+        pub deletion_delay_hours: pulumi_gestalt_rust::Output<Option<i32>>,
         /// User-provided description for this private cloud.
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_gestalt_rust::Output<Option<String>>,
         /// Details about a HCX Cloud Manager appliance.
         /// Structure is documented below.
-        pub hcxes: pulumi_wasm_rust::Output<
+        pub hcxes: pulumi_gestalt_rust::Output<
             Vec<super::super::types::vmwareengine::PrivateCloudHcx>,
         >,
         /// The location where the PrivateCloud should reside.
-        pub location: pulumi_wasm_rust::Output<String>,
+        pub location: pulumi_gestalt_rust::Output<String>,
         /// The management cluster for this private cloud. This used for creating and managing the default cluster.
         /// Structure is documented below.
-        pub management_cluster: pulumi_wasm_rust::Output<
+        pub management_cluster: pulumi_gestalt_rust::Output<
             super::super::types::vmwareengine::PrivateCloudManagementCluster,
         >,
         /// The ID of the PrivateCloud.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// Network configuration in the consumer project with which the peering has to be done.
         /// Structure is documented below.
-        pub network_config: pulumi_wasm_rust::Output<
+        pub network_config: pulumi_gestalt_rust::Output<
             super::super::types::vmwareengine::PrivateCloudNetworkConfig,
         >,
         /// Details about a NSX Manager appliance.
         /// Structure is documented below.
-        pub nsxes: pulumi_wasm_rust::Output<
+        pub nsxes: pulumi_gestalt_rust::Output<
             Vec<super::super::types::vmwareengine::PrivateCloudNsx>,
         >,
-        pub project: pulumi_wasm_rust::Output<String>,
+        pub project: pulumi_gestalt_rust::Output<String>,
         /// While set true, deletion_delay_hours value will be sent in the request even for zero value of the field. This field is
         /// only useful for setting 0 value to the deletion_delay_hours field. It can be used both alone and together with
         /// deletion_delay_hours.
-        pub send_deletion_delay_hours_if_zero: pulumi_wasm_rust::Output<Option<bool>>,
+        pub send_deletion_delay_hours_if_zero: pulumi_gestalt_rust::Output<Option<bool>>,
         /// State of the appliance.
         /// Possible values are: `ACTIVE`, `CREATING`.
-        pub state: pulumi_wasm_rust::Output<String>,
+        pub state: pulumi_gestalt_rust::Output<String>,
         /// Initial type of the private cloud. Possible values: ["STANDARD", "TIME_LIMITED", "STRETCHED"]
-        pub type_: pulumi_wasm_rust::Output<Option<String>>,
+        pub type_: pulumi_gestalt_rust::Output<Option<String>>,
         /// System-generated unique identifier for the resource.
-        pub uid: pulumi_wasm_rust::Output<String>,
+        pub uid: pulumi_gestalt_rust::Output<String>,
         /// Details about a vCenter Server management appliance.
         /// Structure is documented below.
-        pub vcenters: pulumi_wasm_rust::Output<
+        pub vcenters: pulumi_gestalt_rust::Output<
             Vec<super::super::types::vmwareengine::PrivateCloudVcenter>,
         >,
     }
@@ -204,11 +204,11 @@ pub mod private_cloud {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: PrivateCloudArgs,
     ) -> PrivateCloudResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let deletion_delay_hours_binding = args
             .deletion_delay_hours
@@ -273,34 +273,34 @@ pub mod private_cloud {
         };
         let o = register_interface::register(context.get_inner(), &request);
         PrivateCloudResult {
-            deletion_delay_hours: pulumi_wasm_rust::__private::into_domain(
+            deletion_delay_hours: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("deletionDelayHours"),
             ),
-            description: pulumi_wasm_rust::__private::into_domain(
+            description: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("description"),
             ),
-            hcxes: pulumi_wasm_rust::__private::into_domain(o.extract_field("hcxes")),
-            location: pulumi_wasm_rust::__private::into_domain(
+            hcxes: pulumi_gestalt_rust::__private::into_domain(o.extract_field("hcxes")),
+            location: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("location"),
             ),
-            management_cluster: pulumi_wasm_rust::__private::into_domain(
+            management_cluster: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("managementCluster"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            network_config: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            network_config: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("networkConfig"),
             ),
-            nsxes: pulumi_wasm_rust::__private::into_domain(o.extract_field("nsxes")),
-            project: pulumi_wasm_rust::__private::into_domain(
+            nsxes: pulumi_gestalt_rust::__private::into_domain(o.extract_field("nsxes")),
+            project: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("project"),
             ),
-            send_deletion_delay_hours_if_zero: pulumi_wasm_rust::__private::into_domain(
+            send_deletion_delay_hours_if_zero: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("sendDeletionDelayHoursIfZero"),
             ),
-            state: pulumi_wasm_rust::__private::into_domain(o.extract_field("state")),
-            type_: pulumi_wasm_rust::__private::into_domain(o.extract_field("type")),
-            uid: pulumi_wasm_rust::__private::into_domain(o.extract_field("uid")),
-            vcenters: pulumi_wasm_rust::__private::into_domain(
+            state: pulumi_gestalt_rust::__private::into_domain(o.extract_field("state")),
+            type_: pulumi_gestalt_rust::__private::into_domain(o.extract_field("type")),
+            uid: pulumi_gestalt_rust::__private::into_domain(o.extract_field("uid")),
+            vcenters: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("vcenters"),
             ),
         }

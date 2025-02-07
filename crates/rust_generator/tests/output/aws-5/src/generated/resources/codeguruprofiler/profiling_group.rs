@@ -5,8 +5,8 @@
 /// ### Basic Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = profiling_group::create(
@@ -32,53 +32,53 @@
 /// $ pulumi import aws:codeguruprofiler/profilingGroup:ProfilingGroup example profiling_group-name-12345678
 /// ```
 pub mod profiling_group {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ProfilingGroupArgs {
         /// Specifies whether profiling is enabled or disabled for the created profiling. See Agent Orchestration Config for more details.
         #[builder(into, default)]
-        pub agent_orchestration_config: pulumi_wasm_rust::InputOrOutput<
+        pub agent_orchestration_config: pulumi_gestalt_rust::InputOrOutput<
             Option<
                 super::super::types::codeguruprofiler::ProfilingGroupAgentOrchestrationConfig,
             >,
         >,
         /// Compute platform of the profiling group.
         #[builder(into, default)]
-        pub compute_platform: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub compute_platform: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Name of the profiling group.
         ///
         /// The following arguments are optional:
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
     #[allow(dead_code)]
     pub struct ProfilingGroupResult {
         /// Specifies whether profiling is enabled or disabled for the created profiling. See Agent Orchestration Config for more details.
-        pub agent_orchestration_config: pulumi_wasm_rust::Output<
+        pub agent_orchestration_config: pulumi_gestalt_rust::Output<
             Option<
                 super::super::types::codeguruprofiler::ProfilingGroupAgentOrchestrationConfig,
             >,
         >,
         /// ARN of the profiling group.
-        pub arn: pulumi_wasm_rust::Output<String>,
+        pub arn: pulumi_gestalt_rust::Output<String>,
         /// Compute platform of the profiling group.
-        pub compute_platform: pulumi_wasm_rust::Output<String>,
+        pub compute_platform: pulumi_gestalt_rust::Output<String>,
         /// Name of the profiling group.
         ///
         /// The following arguments are optional:
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        pub tags_all: pulumi_wasm_rust::Output<
+        pub tags_all: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
     }
@@ -87,11 +87,11 @@ pub mod profiling_group {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: ProfilingGroupArgs,
     ) -> ProfilingGroupResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let agent_orchestration_config_binding = args
             .agent_orchestration_config
@@ -128,16 +128,16 @@ pub mod profiling_group {
         };
         let o = register_interface::register(context.get_inner(), &request);
         ProfilingGroupResult {
-            agent_orchestration_config: pulumi_wasm_rust::__private::into_domain(
+            agent_orchestration_config: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("agentOrchestrationConfig"),
             ),
-            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
-            compute_platform: pulumi_wasm_rust::__private::into_domain(
+            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
+            compute_platform: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("computePlatform"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            tags_all: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("tagsAll"),
             ),
         }

@@ -126,8 +126,8 @@
 /// Using a Private Endpoint pointing to an *owned* Azure service, with proper DNS configuration:
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = resource_group::create(
@@ -226,86 +226,86 @@
 /// ```
 ///
 pub mod endpoint {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct EndpointArgs {
         /// The custom name of the network interface attached to the private endpoint. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub custom_network_interface_name: pulumi_wasm_rust::InputOrOutput<
+        pub custom_network_interface_name: pulumi_gestalt_rust::InputOrOutput<
             Option<String>,
         >,
         /// One or more `ip_configuration` blocks as defined below. This allows a static IP address to be set for this Private Endpoint, otherwise an address is dynamically allocated from the Subnet.
         #[builder(into, default)]
-        pub ip_configurations: pulumi_wasm_rust::InputOrOutput<
+        pub ip_configurations: pulumi_gestalt_rust::InputOrOutput<
             Option<Vec<super::super::types::privatelink::EndpointIpConfiguration>>,
         >,
         /// The supported Azure location where the resource exists. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub location: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub location: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Specifies the Name of the Private Endpoint. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// A `private_dns_zone_group` block as defined below.
         #[builder(into, default)]
-        pub private_dns_zone_group: pulumi_wasm_rust::InputOrOutput<
+        pub private_dns_zone_group: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::privatelink::EndpointPrivateDnsZoneGroup>,
         >,
         /// A `private_service_connection` block as defined below.
         #[builder(into)]
-        pub private_service_connection: pulumi_wasm_rust::InputOrOutput<
+        pub private_service_connection: pulumi_gestalt_rust::InputOrOutput<
             super::super::types::privatelink::EndpointPrivateServiceConnection,
         >,
         /// Specifies the Name of the Resource Group within which the Private Endpoint should exist. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub resource_group_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub resource_group_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The ID of the Subnet from which Private IP Addresses will be allocated for this Private Endpoint. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub subnet_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub subnet_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// A mapping of tags to assign to the resource.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
     #[allow(dead_code)]
     pub struct EndpointResult {
         /// A `custom_dns_configs` block as defined below.
-        pub custom_dns_configs: pulumi_wasm_rust::Output<
+        pub custom_dns_configs: pulumi_gestalt_rust::Output<
             Vec<super::super::types::privatelink::EndpointCustomDnsConfig>,
         >,
         /// The custom name of the network interface attached to the private endpoint. Changing this forces a new resource to be created.
-        pub custom_network_interface_name: pulumi_wasm_rust::Output<Option<String>>,
+        pub custom_network_interface_name: pulumi_gestalt_rust::Output<Option<String>>,
         /// One or more `ip_configuration` blocks as defined below. This allows a static IP address to be set for this Private Endpoint, otherwise an address is dynamically allocated from the Subnet.
-        pub ip_configurations: pulumi_wasm_rust::Output<
+        pub ip_configurations: pulumi_gestalt_rust::Output<
             Option<Vec<super::super::types::privatelink::EndpointIpConfiguration>>,
         >,
         /// The supported Azure location where the resource exists. Changing this forces a new resource to be created.
-        pub location: pulumi_wasm_rust::Output<String>,
+        pub location: pulumi_gestalt_rust::Output<String>,
         /// Specifies the Name of the Private Endpoint. Changing this forces a new resource to be created.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// A `network_interface` block as defined below.
-        pub network_interfaces: pulumi_wasm_rust::Output<
+        pub network_interfaces: pulumi_gestalt_rust::Output<
             Vec<super::super::types::privatelink::EndpointNetworkInterface>,
         >,
         /// A `private_dns_zone_configs` block as defined below.
-        pub private_dns_zone_configs: pulumi_wasm_rust::Output<
+        pub private_dns_zone_configs: pulumi_gestalt_rust::Output<
             Vec<super::super::types::privatelink::EndpointPrivateDnsZoneConfig>,
         >,
         /// A `private_dns_zone_group` block as defined below.
-        pub private_dns_zone_group: pulumi_wasm_rust::Output<
+        pub private_dns_zone_group: pulumi_gestalt_rust::Output<
             Option<super::super::types::privatelink::EndpointPrivateDnsZoneGroup>,
         >,
         /// A `private_service_connection` block as defined below.
-        pub private_service_connection: pulumi_wasm_rust::Output<
+        pub private_service_connection: pulumi_gestalt_rust::Output<
             super::super::types::privatelink::EndpointPrivateServiceConnection,
         >,
         /// Specifies the Name of the Resource Group within which the Private Endpoint should exist. Changing this forces a new resource to be created.
-        pub resource_group_name: pulumi_wasm_rust::Output<String>,
+        pub resource_group_name: pulumi_gestalt_rust::Output<String>,
         /// The ID of the Subnet from which Private IP Addresses will be allocated for this Private Endpoint. Changing this forces a new resource to be created.
-        pub subnet_id: pulumi_wasm_rust::Output<String>,
+        pub subnet_id: pulumi_gestalt_rust::Output<String>,
         /// A mapping of tags to assign to the resource.
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
@@ -314,11 +314,11 @@ pub mod endpoint {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: EndpointArgs,
     ) -> EndpointResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let custom_network_interface_name_binding = args
             .custom_network_interface_name
@@ -389,38 +389,38 @@ pub mod endpoint {
         };
         let o = register_interface::register(context.get_inner(), &request);
         EndpointResult {
-            custom_dns_configs: pulumi_wasm_rust::__private::into_domain(
+            custom_dns_configs: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("customDnsConfigs"),
             ),
-            custom_network_interface_name: pulumi_wasm_rust::__private::into_domain(
+            custom_network_interface_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("customNetworkInterfaceName"),
             ),
-            ip_configurations: pulumi_wasm_rust::__private::into_domain(
+            ip_configurations: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("ipConfigurations"),
             ),
-            location: pulumi_wasm_rust::__private::into_domain(
+            location: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("location"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            network_interfaces: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            network_interfaces: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("networkInterfaces"),
             ),
-            private_dns_zone_configs: pulumi_wasm_rust::__private::into_domain(
+            private_dns_zone_configs: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("privateDnsZoneConfigs"),
             ),
-            private_dns_zone_group: pulumi_wasm_rust::__private::into_domain(
+            private_dns_zone_group: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("privateDnsZoneGroup"),
             ),
-            private_service_connection: pulumi_wasm_rust::__private::into_domain(
+            private_service_connection: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("privateServiceConnection"),
             ),
-            resource_group_name: pulumi_wasm_rust::__private::into_domain(
+            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("resourceGroupName"),
             ),
-            subnet_id: pulumi_wasm_rust::__private::into_domain(
+            subnet_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("subnetId"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
         }
     }
 }

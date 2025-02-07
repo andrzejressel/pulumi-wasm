@@ -6,8 +6,8 @@
 /// ### Basic Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let test = ontap_storage_virtual_machine::create(
@@ -25,8 +25,8 @@
 /// Additional information for using AWS Directory Service with ONTAP File Systems can be found in the [FSx ONTAP Guide](https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/self-managed-AD.html).
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let test = ontap_storage_virtual_machine::create(
@@ -62,80 +62,82 @@
 /// Certain resource arguments, like `svm_admin_password` and the `self_managed_active_directory` configuation block `password`, do not have a FSx API method for reading the information after creation. If these arguments are set in the Pulumi program on an imported resource, Pulumi will always show a difference. To workaround this behavior, either omit the argument from the Pulumi program or use `ignore_changes` to hide the difference. For example:
 ///
 pub mod ontap_storage_virtual_machine {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct OntapStorageVirtualMachineArgs {
         /// Configuration block that Amazon FSx uses to join the FSx ONTAP Storage Virtual Machine(SVM) to your Microsoft Active Directory (AD) directory. Detailed below.
         #[builder(into, default)]
-        pub active_directory_configuration: pulumi_wasm_rust::InputOrOutput<
+        pub active_directory_configuration: pulumi_gestalt_rust::InputOrOutput<
             Option<
                 super::super::types::fsx::OntapStorageVirtualMachineActiveDirectoryConfiguration,
             >,
         >,
         /// The ID of the Amazon FSx ONTAP File System that this SVM will be created on.
         #[builder(into)]
-        pub file_system_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub file_system_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The name of the SVM. You can use a maximum of 47 alphanumeric characters, plus the underscore (_) special character.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Specifies the root volume security style, Valid values are `UNIX`, `NTFS`, and `MIXED`. All volumes created under this SVM will inherit the root security style unless the security style is specified on the volume. Default value is `UNIX`.
         #[builder(into, default)]
-        pub root_volume_security_style: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub root_volume_security_style: pulumi_gestalt_rust::InputOrOutput<
+            Option<String>,
+        >,
         /// Specifies the password to use when logging on to the SVM using a secure shell (SSH) connection to the SVM's management endpoint. Doing so enables you to manage the SVM using the NetApp ONTAP CLI or REST API. If you do not specify a password, you can still use the file system's fsxadmin user to manage the SVM.
         #[builder(into, default)]
-        pub svm_admin_password: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub svm_admin_password: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// A map of tags to assign to the storage virtual machine. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
     #[allow(dead_code)]
     pub struct OntapStorageVirtualMachineResult {
         /// Configuration block that Amazon FSx uses to join the FSx ONTAP Storage Virtual Machine(SVM) to your Microsoft Active Directory (AD) directory. Detailed below.
-        pub active_directory_configuration: pulumi_wasm_rust::Output<
+        pub active_directory_configuration: pulumi_gestalt_rust::Output<
             Option<
                 super::super::types::fsx::OntapStorageVirtualMachineActiveDirectoryConfiguration,
             >,
         >,
         /// Amazon Resource Name of the storage virtual machine.
-        pub arn: pulumi_wasm_rust::Output<String>,
+        pub arn: pulumi_gestalt_rust::Output<String>,
         /// The endpoints that are used to access data or to manage the storage virtual machine using the NetApp ONTAP CLI, REST API, or NetApp SnapMirror. See Endpoints below.
-        pub endpoints: pulumi_wasm_rust::Output<
+        pub endpoints: pulumi_gestalt_rust::Output<
             Vec<super::super::types::fsx::OntapStorageVirtualMachineEndpoint>,
         >,
         /// The ID of the Amazon FSx ONTAP File System that this SVM will be created on.
-        pub file_system_id: pulumi_wasm_rust::Output<String>,
+        pub file_system_id: pulumi_gestalt_rust::Output<String>,
         /// The name of the SVM. You can use a maximum of 47 alphanumeric characters, plus the underscore (_) special character.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// Specifies the root volume security style, Valid values are `UNIX`, `NTFS`, and `MIXED`. All volumes created under this SVM will inherit the root security style unless the security style is specified on the volume. Default value is `UNIX`.
-        pub root_volume_security_style: pulumi_wasm_rust::Output<Option<String>>,
+        pub root_volume_security_style: pulumi_gestalt_rust::Output<Option<String>>,
         /// Describes the SVM's subtype, e.g. `DEFAULT`
-        pub subtype: pulumi_wasm_rust::Output<String>,
+        pub subtype: pulumi_gestalt_rust::Output<String>,
         /// Specifies the password to use when logging on to the SVM using a secure shell (SSH) connection to the SVM's management endpoint. Doing so enables you to manage the SVM using the NetApp ONTAP CLI or REST API. If you do not specify a password, you can still use the file system's fsxadmin user to manage the SVM.
-        pub svm_admin_password: pulumi_wasm_rust::Output<Option<String>>,
+        pub svm_admin_password: pulumi_gestalt_rust::Output<Option<String>>,
         /// A map of tags to assign to the storage virtual machine. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        pub tags_all: pulumi_wasm_rust::Output<
+        pub tags_all: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
         /// The SVM's UUID (universally unique identifier).
-        pub uuid: pulumi_wasm_rust::Output<String>,
+        pub uuid: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: OntapStorageVirtualMachineArgs,
     ) -> OntapStorageVirtualMachineResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let active_directory_configuration_binding = args
             .active_directory_configuration
@@ -186,31 +188,31 @@ pub mod ontap_storage_virtual_machine {
         };
         let o = register_interface::register(context.get_inner(), &request);
         OntapStorageVirtualMachineResult {
-            active_directory_configuration: pulumi_wasm_rust::__private::into_domain(
+            active_directory_configuration: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("activeDirectoryConfiguration"),
             ),
-            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
-            endpoints: pulumi_wasm_rust::__private::into_domain(
+            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
+            endpoints: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("endpoints"),
             ),
-            file_system_id: pulumi_wasm_rust::__private::into_domain(
+            file_system_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("fileSystemId"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            root_volume_security_style: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            root_volume_security_style: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("rootVolumeSecurityStyle"),
             ),
-            subtype: pulumi_wasm_rust::__private::into_domain(
+            subtype: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("subtype"),
             ),
-            svm_admin_password: pulumi_wasm_rust::__private::into_domain(
+            svm_admin_password: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("svmAdminPassword"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_wasm_rust::__private::into_domain(
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            tags_all: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("tagsAll"),
             ),
-            uuid: pulumi_wasm_rust::__private::into_domain(o.extract_field("uuid")),
+            uuid: pulumi_gestalt_rust::__private::into_domain(o.extract_field("uuid")),
         }
     }
 }

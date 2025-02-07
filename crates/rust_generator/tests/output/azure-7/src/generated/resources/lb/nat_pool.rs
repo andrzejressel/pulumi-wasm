@@ -7,8 +7,8 @@
 /// ## Example Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = resource_group::create(
@@ -67,80 +67,80 @@
 /// ```
 ///
 pub mod nat_pool {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct NatPoolArgs {
         /// The port used for the internal endpoint. Possible values range between 1 and 65535, inclusive.
         #[builder(into)]
-        pub backend_port: pulumi_wasm_rust::InputOrOutput<i32>,
+        pub backend_port: pulumi_gestalt_rust::InputOrOutput<i32>,
         /// Are the floating IPs enabled for this Load Balancer Rule? A floating IP is reassigned to a secondary server in case the primary server fails. Required to configure a SQL AlwaysOn Availability Group.
         #[builder(into, default)]
-        pub floating_ip_enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub floating_ip_enabled: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// The name of the frontend IP configuration exposing this rule.
         #[builder(into)]
-        pub frontend_ip_configuration_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub frontend_ip_configuration_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The last port number in the range of external ports that will be used to provide Inbound NAT to NICs associated with this Load Balancer. Possible values range between 1 and 65534, inclusive.
         #[builder(into)]
-        pub frontend_port_end: pulumi_wasm_rust::InputOrOutput<i32>,
+        pub frontend_port_end: pulumi_gestalt_rust::InputOrOutput<i32>,
         /// The first port number in the range of external ports that will be used to provide Inbound NAT to NICs associated with this Load Balancer. Possible values range between 1 and 65534, inclusive.
         #[builder(into)]
-        pub frontend_port_start: pulumi_wasm_rust::InputOrOutput<i32>,
+        pub frontend_port_start: pulumi_gestalt_rust::InputOrOutput<i32>,
         /// Specifies the idle timeout in minutes for TCP connections. Valid values are between `4` and `30`. Defaults to `4`.
         #[builder(into, default)]
-        pub idle_timeout_in_minutes: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
+        pub idle_timeout_in_minutes: pulumi_gestalt_rust::InputOrOutput<Option<i32>>,
         /// The ID of the Load Balancer in which to create the NAT pool. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub loadbalancer_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub loadbalancer_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Specifies the name of the NAT pool. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The transport protocol for the external endpoint. Possible values are `All`, `Tcp` and `Udp`.
         #[builder(into)]
-        pub protocol: pulumi_wasm_rust::InputOrOutput<String>,
+        pub protocol: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The name of the resource group in which to create the resource. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub resource_group_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub resource_group_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Is TCP Reset enabled for this Load Balancer Rule?
         #[builder(into, default)]
-        pub tcp_reset_enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub tcp_reset_enabled: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
     }
     #[allow(dead_code)]
     pub struct NatPoolResult {
         /// The port used for the internal endpoint. Possible values range between 1 and 65535, inclusive.
-        pub backend_port: pulumi_wasm_rust::Output<i32>,
+        pub backend_port: pulumi_gestalt_rust::Output<i32>,
         /// Are the floating IPs enabled for this Load Balancer Rule? A floating IP is reassigned to a secondary server in case the primary server fails. Required to configure a SQL AlwaysOn Availability Group.
-        pub floating_ip_enabled: pulumi_wasm_rust::Output<Option<bool>>,
-        pub frontend_ip_configuration_id: pulumi_wasm_rust::Output<String>,
+        pub floating_ip_enabled: pulumi_gestalt_rust::Output<Option<bool>>,
+        pub frontend_ip_configuration_id: pulumi_gestalt_rust::Output<String>,
         /// The name of the frontend IP configuration exposing this rule.
-        pub frontend_ip_configuration_name: pulumi_wasm_rust::Output<String>,
+        pub frontend_ip_configuration_name: pulumi_gestalt_rust::Output<String>,
         /// The last port number in the range of external ports that will be used to provide Inbound NAT to NICs associated with this Load Balancer. Possible values range between 1 and 65534, inclusive.
-        pub frontend_port_end: pulumi_wasm_rust::Output<i32>,
+        pub frontend_port_end: pulumi_gestalt_rust::Output<i32>,
         /// The first port number in the range of external ports that will be used to provide Inbound NAT to NICs associated with this Load Balancer. Possible values range between 1 and 65534, inclusive.
-        pub frontend_port_start: pulumi_wasm_rust::Output<i32>,
+        pub frontend_port_start: pulumi_gestalt_rust::Output<i32>,
         /// Specifies the idle timeout in minutes for TCP connections. Valid values are between `4` and `30`. Defaults to `4`.
-        pub idle_timeout_in_minutes: pulumi_wasm_rust::Output<Option<i32>>,
+        pub idle_timeout_in_minutes: pulumi_gestalt_rust::Output<Option<i32>>,
         /// The ID of the Load Balancer in which to create the NAT pool. Changing this forces a new resource to be created.
-        pub loadbalancer_id: pulumi_wasm_rust::Output<String>,
+        pub loadbalancer_id: pulumi_gestalt_rust::Output<String>,
         /// Specifies the name of the NAT pool. Changing this forces a new resource to be created.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// The transport protocol for the external endpoint. Possible values are `All`, `Tcp` and `Udp`.
-        pub protocol: pulumi_wasm_rust::Output<String>,
+        pub protocol: pulumi_gestalt_rust::Output<String>,
         /// The name of the resource group in which to create the resource. Changing this forces a new resource to be created.
-        pub resource_group_name: pulumi_wasm_rust::Output<String>,
+        pub resource_group_name: pulumi_gestalt_rust::Output<String>,
         /// Is TCP Reset enabled for this Load Balancer Rule?
-        pub tcp_reset_enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub tcp_reset_enabled: pulumi_gestalt_rust::Output<Option<bool>>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: NatPoolArgs,
     ) -> NatPoolResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let backend_port_binding = args.backend_port.get_output(context).get_inner();
         let floating_ip_enabled_binding = args
@@ -230,38 +230,38 @@ pub mod nat_pool {
         };
         let o = register_interface::register(context.get_inner(), &request);
         NatPoolResult {
-            backend_port: pulumi_wasm_rust::__private::into_domain(
+            backend_port: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("backendPort"),
             ),
-            floating_ip_enabled: pulumi_wasm_rust::__private::into_domain(
+            floating_ip_enabled: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("floatingIpEnabled"),
             ),
-            frontend_ip_configuration_id: pulumi_wasm_rust::__private::into_domain(
+            frontend_ip_configuration_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("frontendIpConfigurationId"),
             ),
-            frontend_ip_configuration_name: pulumi_wasm_rust::__private::into_domain(
+            frontend_ip_configuration_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("frontendIpConfigurationName"),
             ),
-            frontend_port_end: pulumi_wasm_rust::__private::into_domain(
+            frontend_port_end: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("frontendPortEnd"),
             ),
-            frontend_port_start: pulumi_wasm_rust::__private::into_domain(
+            frontend_port_start: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("frontendPortStart"),
             ),
-            idle_timeout_in_minutes: pulumi_wasm_rust::__private::into_domain(
+            idle_timeout_in_minutes: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("idleTimeoutInMinutes"),
             ),
-            loadbalancer_id: pulumi_wasm_rust::__private::into_domain(
+            loadbalancer_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("loadbalancerId"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            protocol: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            protocol: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("protocol"),
             ),
-            resource_group_name: pulumi_wasm_rust::__private::into_domain(
+            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("resourceGroupName"),
             ),
-            tcp_reset_enabled: pulumi_wasm_rust::__private::into_domain(
+            tcp_reset_enabled: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("tcpResetEnabled"),
             ),
         }

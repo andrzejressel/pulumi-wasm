@@ -54,7 +54,7 @@
 /// ```
 ///
 pub mod domain_trust {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct DomainTrustArgs {
@@ -64,32 +64,32 @@ pub mod domain_trust {
         ///
         /// - - -
         #[builder(into)]
-        pub domain: pulumi_wasm_rust::InputOrOutput<String>,
+        pub domain: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub project: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Whether the trusted side has forest/domain wide access or selective access to an approved set of resources.
         #[builder(into, default)]
-        pub selective_authentication: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub selective_authentication: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// The target DNS server IP addresses which can resolve the remote domain involved in the trust.
         #[builder(into)]
-        pub target_dns_ip_addresses: pulumi_wasm_rust::InputOrOutput<Vec<String>>,
+        pub target_dns_ip_addresses: pulumi_gestalt_rust::InputOrOutput<Vec<String>>,
         /// The fully qualified target domain name which will be in trust with the current domain.
         #[builder(into)]
-        pub target_domain_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub target_domain_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The trust direction, which decides if the current domain is trusted, trusting, or both.
         /// Possible values are: `INBOUND`, `OUTBOUND`, `BIDIRECTIONAL`.
         #[builder(into)]
-        pub trust_direction: pulumi_wasm_rust::InputOrOutput<String>,
+        pub trust_direction: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The trust secret used for the handshake with the target domain. This will not be stored.
         /// **Note**: This property is sensitive and will not be displayed in the plan.
         #[builder(into)]
-        pub trust_handshake_secret: pulumi_wasm_rust::InputOrOutput<String>,
+        pub trust_handshake_secret: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The type of trust represented by the trust resource.
         /// Possible values are: `FOREST`, `EXTERNAL`.
         #[builder(into)]
-        pub trust_type: pulumi_wasm_rust::InputOrOutput<String>,
+        pub trust_type: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct DomainTrustResult {
@@ -98,36 +98,36 @@ pub mod domain_trust {
         ///
         ///
         /// - - -
-        pub domain: pulumi_wasm_rust::Output<String>,
+        pub domain: pulumi_gestalt_rust::Output<String>,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
-        pub project: pulumi_wasm_rust::Output<String>,
+        pub project: pulumi_gestalt_rust::Output<String>,
         /// Whether the trusted side has forest/domain wide access or selective access to an approved set of resources.
-        pub selective_authentication: pulumi_wasm_rust::Output<Option<bool>>,
+        pub selective_authentication: pulumi_gestalt_rust::Output<Option<bool>>,
         /// The target DNS server IP addresses which can resolve the remote domain involved in the trust.
-        pub target_dns_ip_addresses: pulumi_wasm_rust::Output<Vec<String>>,
+        pub target_dns_ip_addresses: pulumi_gestalt_rust::Output<Vec<String>>,
         /// The fully qualified target domain name which will be in trust with the current domain.
-        pub target_domain_name: pulumi_wasm_rust::Output<String>,
+        pub target_domain_name: pulumi_gestalt_rust::Output<String>,
         /// The trust direction, which decides if the current domain is trusted, trusting, or both.
         /// Possible values are: `INBOUND`, `OUTBOUND`, `BIDIRECTIONAL`.
-        pub trust_direction: pulumi_wasm_rust::Output<String>,
+        pub trust_direction: pulumi_gestalt_rust::Output<String>,
         /// The trust secret used for the handshake with the target domain. This will not be stored.
         /// **Note**: This property is sensitive and will not be displayed in the plan.
-        pub trust_handshake_secret: pulumi_wasm_rust::Output<String>,
+        pub trust_handshake_secret: pulumi_gestalt_rust::Output<String>,
         /// The type of trust represented by the trust resource.
         /// Possible values are: `FOREST`, `EXTERNAL`.
-        pub trust_type: pulumi_wasm_rust::Output<String>,
+        pub trust_type: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: DomainTrustArgs,
     ) -> DomainTrustResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let domain_binding = args.domain.get_output(context).get_inner();
         let project_binding = args.project.get_output(context).get_inner();
@@ -193,26 +193,28 @@ pub mod domain_trust {
         };
         let o = register_interface::register(context.get_inner(), &request);
         DomainTrustResult {
-            domain: pulumi_wasm_rust::__private::into_domain(o.extract_field("domain")),
-            project: pulumi_wasm_rust::__private::into_domain(
+            domain: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("domain"),
+            ),
+            project: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("project"),
             ),
-            selective_authentication: pulumi_wasm_rust::__private::into_domain(
+            selective_authentication: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("selectiveAuthentication"),
             ),
-            target_dns_ip_addresses: pulumi_wasm_rust::__private::into_domain(
+            target_dns_ip_addresses: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("targetDnsIpAddresses"),
             ),
-            target_domain_name: pulumi_wasm_rust::__private::into_domain(
+            target_domain_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("targetDomainName"),
             ),
-            trust_direction: pulumi_wasm_rust::__private::into_domain(
+            trust_direction: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("trustDirection"),
             ),
-            trust_handshake_secret: pulumi_wasm_rust::__private::into_domain(
+            trust_handshake_secret: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("trustHandshakeSecret"),
             ),
-            trust_type: pulumi_wasm_rust::__private::into_domain(
+            trust_type: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("trustType"),
             ),
         }

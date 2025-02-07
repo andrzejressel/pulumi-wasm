@@ -1,4 +1,4 @@
-use pulumi_wasm_wit::client_bindings::component::pulumi_wasm::pulumi_engine::Engine as WitEngine;
+use pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::pulumi_engine::Engine as WitEngine;
 
 pub struct PulumiContext {
     pub(crate) wit_engine: WitEngine,

@@ -5,8 +5,8 @@
 /// ### CloudWatch Destination
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = configuration_set::create(
@@ -66,8 +66,8 @@
 /// ### Kinesis Firehose Destination
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = configuration_set::create(
@@ -101,8 +101,8 @@
 /// ### Pinpoint Destination
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = configuration_set::create(
@@ -133,8 +133,8 @@
 /// ### SNS Destination
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = configuration_set::create(
@@ -170,43 +170,43 @@
 /// $ pulumi import aws:sesv2/configurationSetEventDestination:ConfigurationSetEventDestination example example_configuration_set|example_event_destination
 /// ```
 pub mod configuration_set_event_destination {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ConfigurationSetEventDestinationArgs {
         /// The name of the configuration set.
         #[builder(into)]
-        pub configuration_set_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub configuration_set_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// A name that identifies the event destination within the configuration set.
         #[builder(into)]
-        pub event_destination: pulumi_wasm_rust::InputOrOutput<
+        pub event_destination: pulumi_gestalt_rust::InputOrOutput<
             super::super::types::sesv2::ConfigurationSetEventDestinationEventDestination,
         >,
         /// An object that defines the event destination. See `event_destination` Block for details.
         #[builder(into)]
-        pub event_destination_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub event_destination_name: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct ConfigurationSetEventDestinationResult {
         /// The name of the configuration set.
-        pub configuration_set_name: pulumi_wasm_rust::Output<String>,
+        pub configuration_set_name: pulumi_gestalt_rust::Output<String>,
         /// A name that identifies the event destination within the configuration set.
-        pub event_destination: pulumi_wasm_rust::Output<
+        pub event_destination: pulumi_gestalt_rust::Output<
             super::super::types::sesv2::ConfigurationSetEventDestinationEventDestination,
         >,
         /// An object that defines the event destination. See `event_destination` Block for details.
-        pub event_destination_name: pulumi_wasm_rust::Output<String>,
+        pub event_destination_name: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: ConfigurationSetEventDestinationArgs,
     ) -> ConfigurationSetEventDestinationResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let configuration_set_name_binding = args
             .configuration_set_name
@@ -242,13 +242,13 @@ pub mod configuration_set_event_destination {
         };
         let o = register_interface::register(context.get_inner(), &request);
         ConfigurationSetEventDestinationResult {
-            configuration_set_name: pulumi_wasm_rust::__private::into_domain(
+            configuration_set_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("configurationSetName"),
             ),
-            event_destination: pulumi_wasm_rust::__private::into_domain(
+            event_destination: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("eventDestination"),
             ),
-            event_destination_name: pulumi_wasm_rust::__private::into_domain(
+            event_destination_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("eventDestinationName"),
             ),
         }

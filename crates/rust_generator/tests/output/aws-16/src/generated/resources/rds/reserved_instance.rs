@@ -34,84 +34,84 @@
 /// $ pulumi import aws:rds/reservedInstance:ReservedInstance reservation_instance CustomReservationID
 /// ```
 pub mod reserved_instance {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ReservedInstanceArgs {
         /// Number of instances to reserve. Default value is `1`.
         #[builder(into, default)]
-        pub instance_count: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
+        pub instance_count: pulumi_gestalt_rust::InputOrOutput<Option<i32>>,
         /// ID of the Reserved DB instance offering to purchase. To determine an `offering_id`, see the `aws.rds.getReservedInstanceOffering` data source.
         ///
         /// The following arguments are optional:
         #[builder(into)]
-        pub offering_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub offering_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Customer-specified identifier to track this reservation.
         #[builder(into, default)]
-        pub reservation_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub reservation_id: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Map of tags to assign to the DB reservation. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
     #[allow(dead_code)]
     pub struct ReservedInstanceResult {
         /// ARN for the reserved DB instance.
-        pub arn: pulumi_wasm_rust::Output<String>,
+        pub arn: pulumi_gestalt_rust::Output<String>,
         /// Currency code for the reserved DB instance.
-        pub currency_code: pulumi_wasm_rust::Output<String>,
+        pub currency_code: pulumi_gestalt_rust::Output<String>,
         /// DB instance class for the reserved DB instance.
-        pub db_instance_class: pulumi_wasm_rust::Output<String>,
+        pub db_instance_class: pulumi_gestalt_rust::Output<String>,
         /// Duration of the reservation in seconds.
-        pub duration: pulumi_wasm_rust::Output<i32>,
+        pub duration: pulumi_gestalt_rust::Output<i32>,
         /// Fixed price charged for this reserved DB instance.
-        pub fixed_price: pulumi_wasm_rust::Output<f64>,
+        pub fixed_price: pulumi_gestalt_rust::Output<f64>,
         /// Number of instances to reserve. Default value is `1`.
-        pub instance_count: pulumi_wasm_rust::Output<Option<i32>>,
+        pub instance_count: pulumi_gestalt_rust::Output<Option<i32>>,
         /// Unique identifier for the lease associated with the reserved DB instance. Amazon Web Services Support might request the lease ID for an issue related to a reserved DB instance.
-        pub lease_id: pulumi_wasm_rust::Output<String>,
+        pub lease_id: pulumi_gestalt_rust::Output<String>,
         /// Whether the reservation applies to Multi-AZ deployments.
-        pub multi_az: pulumi_wasm_rust::Output<bool>,
+        pub multi_az: pulumi_gestalt_rust::Output<bool>,
         /// ID of the Reserved DB instance offering to purchase. To determine an `offering_id`, see the `aws.rds.getReservedInstanceOffering` data source.
         ///
         /// The following arguments are optional:
-        pub offering_id: pulumi_wasm_rust::Output<String>,
+        pub offering_id: pulumi_gestalt_rust::Output<String>,
         /// Offering type of this reserved DB instance.
-        pub offering_type: pulumi_wasm_rust::Output<String>,
+        pub offering_type: pulumi_gestalt_rust::Output<String>,
         /// Description of the reserved DB instance.
-        pub product_description: pulumi_wasm_rust::Output<String>,
+        pub product_description: pulumi_gestalt_rust::Output<String>,
         /// Recurring price charged to run this reserved DB instance.
-        pub recurring_charges: pulumi_wasm_rust::Output<
+        pub recurring_charges: pulumi_gestalt_rust::Output<
             Vec<super::super::types::rds::ReservedInstanceRecurringCharge>,
         >,
         /// Customer-specified identifier to track this reservation.
-        pub reservation_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub reservation_id: pulumi_gestalt_rust::Output<Option<String>>,
         /// Time the reservation started.
-        pub start_time: pulumi_wasm_rust::Output<String>,
+        pub start_time: pulumi_gestalt_rust::Output<String>,
         /// State of the reserved DB instance.
-        pub state: pulumi_wasm_rust::Output<String>,
+        pub state: pulumi_gestalt_rust::Output<String>,
         /// Map of tags to assign to the DB reservation. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        pub tags_all: pulumi_wasm_rust::Output<
+        pub tags_all: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
         /// Hourly price charged for this reserved DB instance.
-        pub usage_price: pulumi_wasm_rust::Output<f64>,
+        pub usage_price: pulumi_gestalt_rust::Output<f64>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: ReservedInstanceArgs,
     ) -> ReservedInstanceResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let instance_count_binding = args.instance_count.get_output(context).get_inner();
         let offering_id_binding = args.offering_id.get_output(context).get_inner();
@@ -142,52 +142,52 @@ pub mod reserved_instance {
         };
         let o = register_interface::register(context.get_inner(), &request);
         ReservedInstanceResult {
-            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
-            currency_code: pulumi_wasm_rust::__private::into_domain(
+            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
+            currency_code: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("currencyCode"),
             ),
-            db_instance_class: pulumi_wasm_rust::__private::into_domain(
+            db_instance_class: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("dbInstanceClass"),
             ),
-            duration: pulumi_wasm_rust::__private::into_domain(
+            duration: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("duration"),
             ),
-            fixed_price: pulumi_wasm_rust::__private::into_domain(
+            fixed_price: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("fixedPrice"),
             ),
-            instance_count: pulumi_wasm_rust::__private::into_domain(
+            instance_count: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("instanceCount"),
             ),
-            lease_id: pulumi_wasm_rust::__private::into_domain(
+            lease_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("leaseId"),
             ),
-            multi_az: pulumi_wasm_rust::__private::into_domain(
+            multi_az: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("multiAz"),
             ),
-            offering_id: pulumi_wasm_rust::__private::into_domain(
+            offering_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("offeringId"),
             ),
-            offering_type: pulumi_wasm_rust::__private::into_domain(
+            offering_type: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("offeringType"),
             ),
-            product_description: pulumi_wasm_rust::__private::into_domain(
+            product_description: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("productDescription"),
             ),
-            recurring_charges: pulumi_wasm_rust::__private::into_domain(
+            recurring_charges: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("recurringCharges"),
             ),
-            reservation_id: pulumi_wasm_rust::__private::into_domain(
+            reservation_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("reservationId"),
             ),
-            start_time: pulumi_wasm_rust::__private::into_domain(
+            start_time: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("startTime"),
             ),
-            state: pulumi_wasm_rust::__private::into_domain(o.extract_field("state")),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_wasm_rust::__private::into_domain(
+            state: pulumi_gestalt_rust::__private::into_domain(o.extract_field("state")),
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            tags_all: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("tagsAll"),
             ),
-            usage_price: pulumi_wasm_rust::__private::into_domain(
+            usage_price: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("usagePrice"),
             ),
         }

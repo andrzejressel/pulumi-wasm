@@ -3,8 +3,8 @@
 /// ## Example Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = cluster_snapshot::create(
@@ -25,58 +25,58 @@
 /// $ pulumi import aws:neptune/clusterSnapshot:ClusterSnapshot example my-cluster-snapshot
 /// ```
 pub mod cluster_snapshot {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ClusterSnapshotArgs {
         /// The DB Cluster Identifier from which to take the snapshot.
         #[builder(into)]
-        pub db_cluster_identifier: pulumi_wasm_rust::InputOrOutput<String>,
+        pub db_cluster_identifier: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The Identifier for the snapshot.
         #[builder(into)]
-        pub db_cluster_snapshot_identifier: pulumi_wasm_rust::InputOrOutput<String>,
+        pub db_cluster_snapshot_identifier: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct ClusterSnapshotResult {
         /// Specifies the allocated storage size in gigabytes (GB).
-        pub allocated_storage: pulumi_wasm_rust::Output<i32>,
+        pub allocated_storage: pulumi_gestalt_rust::Output<i32>,
         /// List of EC2 Availability Zones that instances in the DB cluster snapshot can be restored in.
-        pub availability_zones: pulumi_wasm_rust::Output<Vec<String>>,
+        pub availability_zones: pulumi_gestalt_rust::Output<Vec<String>>,
         /// The DB Cluster Identifier from which to take the snapshot.
-        pub db_cluster_identifier: pulumi_wasm_rust::Output<String>,
+        pub db_cluster_identifier: pulumi_gestalt_rust::Output<String>,
         /// The Amazon Resource Name (ARN) for the DB Cluster Snapshot.
-        pub db_cluster_snapshot_arn: pulumi_wasm_rust::Output<String>,
+        pub db_cluster_snapshot_arn: pulumi_gestalt_rust::Output<String>,
         /// The Identifier for the snapshot.
-        pub db_cluster_snapshot_identifier: pulumi_wasm_rust::Output<String>,
+        pub db_cluster_snapshot_identifier: pulumi_gestalt_rust::Output<String>,
         /// Specifies the name of the database engine.
-        pub engine: pulumi_wasm_rust::Output<String>,
+        pub engine: pulumi_gestalt_rust::Output<String>,
         /// Version of the database engine for this DB cluster snapshot.
-        pub engine_version: pulumi_wasm_rust::Output<String>,
+        pub engine_version: pulumi_gestalt_rust::Output<String>,
         /// If storage_encrypted is true, the AWS KMS key identifier for the encrypted DB cluster snapshot.
-        pub kms_key_id: pulumi_wasm_rust::Output<String>,
+        pub kms_key_id: pulumi_gestalt_rust::Output<String>,
         /// License model information for the restored DB cluster.
-        pub license_model: pulumi_wasm_rust::Output<String>,
+        pub license_model: pulumi_gestalt_rust::Output<String>,
         /// Port that the DB cluster was listening on at the time of the snapshot.
-        pub port: pulumi_wasm_rust::Output<i32>,
-        pub snapshot_type: pulumi_wasm_rust::Output<String>,
-        pub source_db_cluster_snapshot_arn: pulumi_wasm_rust::Output<String>,
+        pub port: pulumi_gestalt_rust::Output<i32>,
+        pub snapshot_type: pulumi_gestalt_rust::Output<String>,
+        pub source_db_cluster_snapshot_arn: pulumi_gestalt_rust::Output<String>,
         /// The status of this DB Cluster Snapshot.
-        pub status: pulumi_wasm_rust::Output<String>,
+        pub status: pulumi_gestalt_rust::Output<String>,
         /// Specifies whether the DB cluster snapshot is encrypted.
-        pub storage_encrypted: pulumi_wasm_rust::Output<bool>,
+        pub storage_encrypted: pulumi_gestalt_rust::Output<bool>,
         /// The VPC ID associated with the DB cluster snapshot.
-        pub vpc_id: pulumi_wasm_rust::Output<String>,
+        pub vpc_id: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: ClusterSnapshotArgs,
     ) -> ClusterSnapshotResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let db_cluster_identifier_binding = args
             .db_cluster_identifier
@@ -103,43 +103,47 @@ pub mod cluster_snapshot {
         };
         let o = register_interface::register(context.get_inner(), &request);
         ClusterSnapshotResult {
-            allocated_storage: pulumi_wasm_rust::__private::into_domain(
+            allocated_storage: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("allocatedStorage"),
             ),
-            availability_zones: pulumi_wasm_rust::__private::into_domain(
+            availability_zones: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("availabilityZones"),
             ),
-            db_cluster_identifier: pulumi_wasm_rust::__private::into_domain(
+            db_cluster_identifier: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("dbClusterIdentifier"),
             ),
-            db_cluster_snapshot_arn: pulumi_wasm_rust::__private::into_domain(
+            db_cluster_snapshot_arn: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("dbClusterSnapshotArn"),
             ),
-            db_cluster_snapshot_identifier: pulumi_wasm_rust::__private::into_domain(
+            db_cluster_snapshot_identifier: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("dbClusterSnapshotIdentifier"),
             ),
-            engine: pulumi_wasm_rust::__private::into_domain(o.extract_field("engine")),
-            engine_version: pulumi_wasm_rust::__private::into_domain(
+            engine: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("engine"),
+            ),
+            engine_version: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("engineVersion"),
             ),
-            kms_key_id: pulumi_wasm_rust::__private::into_domain(
+            kms_key_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("kmsKeyId"),
             ),
-            license_model: pulumi_wasm_rust::__private::into_domain(
+            license_model: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("licenseModel"),
             ),
-            port: pulumi_wasm_rust::__private::into_domain(o.extract_field("port")),
-            snapshot_type: pulumi_wasm_rust::__private::into_domain(
+            port: pulumi_gestalt_rust::__private::into_domain(o.extract_field("port")),
+            snapshot_type: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("snapshotType"),
             ),
-            source_db_cluster_snapshot_arn: pulumi_wasm_rust::__private::into_domain(
+            source_db_cluster_snapshot_arn: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("sourceDbClusterSnapshotArn"),
             ),
-            status: pulumi_wasm_rust::__private::into_domain(o.extract_field("status")),
-            storage_encrypted: pulumi_wasm_rust::__private::into_domain(
+            status: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("status"),
+            ),
+            storage_encrypted: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("storageEncrypted"),
             ),
-            vpc_id: pulumi_wasm_rust::__private::into_domain(o.extract_field("vpcId")),
+            vpc_id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("vpcId")),
         }
     }
 }

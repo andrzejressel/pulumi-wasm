@@ -3,8 +3,8 @@
 /// ## Example Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = graph::create("example", GraphArgs::builder().build_struct());
@@ -29,60 +29,60 @@
 /// $ pulumi import aws:detective/member:Member example arn:aws:detective:us-east-1:123456789101:graph:231684d34gh74g4bae1dbc7bd807d02d/123456789012
 /// ```
 pub mod member {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct MemberArgs {
         /// AWS account ID for the account.
         #[builder(into)]
-        pub account_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub account_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// If set to true, then the root user of the invited account will _not_ receive an email notification. This notification is in addition to an alert that the root user receives in AWS Personal Health Dashboard. By default, this is set to `false`.
         #[builder(into, default)]
-        pub disable_email_notification: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub disable_email_notification: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// Email address for the account.
         #[builder(into)]
-        pub email_address: pulumi_wasm_rust::InputOrOutput<String>,
+        pub email_address: pulumi_gestalt_rust::InputOrOutput<String>,
         /// ARN of the behavior graph to invite the member accounts to contribute their data to.
         #[builder(into)]
-        pub graph_arn: pulumi_wasm_rust::InputOrOutput<String>,
+        pub graph_arn: pulumi_gestalt_rust::InputOrOutput<String>,
         /// A custom message to include in the invitation. Amazon Detective adds this message to the standard content that it sends for an invitation.
         #[builder(into, default)]
-        pub message: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub message: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct MemberResult {
         /// AWS account ID for the account.
-        pub account_id: pulumi_wasm_rust::Output<String>,
+        pub account_id: pulumi_gestalt_rust::Output<String>,
         /// AWS account ID for the administrator account.
-        pub administrator_id: pulumi_wasm_rust::Output<String>,
+        pub administrator_id: pulumi_gestalt_rust::Output<String>,
         /// If set to true, then the root user of the invited account will _not_ receive an email notification. This notification is in addition to an alert that the root user receives in AWS Personal Health Dashboard. By default, this is set to `false`.
-        pub disable_email_notification: pulumi_wasm_rust::Output<Option<bool>>,
-        pub disabled_reason: pulumi_wasm_rust::Output<String>,
+        pub disable_email_notification: pulumi_gestalt_rust::Output<Option<bool>>,
+        pub disabled_reason: pulumi_gestalt_rust::Output<String>,
         /// Email address for the account.
-        pub email_address: pulumi_wasm_rust::Output<String>,
+        pub email_address: pulumi_gestalt_rust::Output<String>,
         /// ARN of the behavior graph to invite the member accounts to contribute their data to.
-        pub graph_arn: pulumi_wasm_rust::Output<String>,
+        pub graph_arn: pulumi_gestalt_rust::Output<String>,
         /// Date and time, in UTC and extended RFC 3339 format, when an Amazon Detective membership invitation was last sent to the account.
-        pub invited_time: pulumi_wasm_rust::Output<String>,
+        pub invited_time: pulumi_gestalt_rust::Output<String>,
         /// A custom message to include in the invitation. Amazon Detective adds this message to the standard content that it sends for an invitation.
-        pub message: pulumi_wasm_rust::Output<Option<String>>,
+        pub message: pulumi_gestalt_rust::Output<Option<String>>,
         /// Current membership status of the member account.
-        pub status: pulumi_wasm_rust::Output<String>,
+        pub status: pulumi_gestalt_rust::Output<String>,
         /// Date and time, in UTC and extended RFC 3339 format, of the most recent change to the member account's status.
-        pub updated_time: pulumi_wasm_rust::Output<String>,
+        pub updated_time: pulumi_gestalt_rust::Output<String>,
         /// Data volume in bytes per day for the member account.
-        pub volume_usage_in_bytes: pulumi_wasm_rust::Output<String>,
+        pub volume_usage_in_bytes: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: MemberArgs,
     ) -> MemberResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let account_id_binding = args.account_id.get_output(context).get_inner();
         let disable_email_notification_binding = args
@@ -121,35 +121,37 @@ pub mod member {
         };
         let o = register_interface::register(context.get_inner(), &request);
         MemberResult {
-            account_id: pulumi_wasm_rust::__private::into_domain(
+            account_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("accountId"),
             ),
-            administrator_id: pulumi_wasm_rust::__private::into_domain(
+            administrator_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("administratorId"),
             ),
-            disable_email_notification: pulumi_wasm_rust::__private::into_domain(
+            disable_email_notification: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("disableEmailNotification"),
             ),
-            disabled_reason: pulumi_wasm_rust::__private::into_domain(
+            disabled_reason: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("disabledReason"),
             ),
-            email_address: pulumi_wasm_rust::__private::into_domain(
+            email_address: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("emailAddress"),
             ),
-            graph_arn: pulumi_wasm_rust::__private::into_domain(
+            graph_arn: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("graphArn"),
             ),
-            invited_time: pulumi_wasm_rust::__private::into_domain(
+            invited_time: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("invitedTime"),
             ),
-            message: pulumi_wasm_rust::__private::into_domain(
+            message: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("message"),
             ),
-            status: pulumi_wasm_rust::__private::into_domain(o.extract_field("status")),
-            updated_time: pulumi_wasm_rust::__private::into_domain(
+            status: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("status"),
+            ),
+            updated_time: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("updatedTime"),
             ),
-            volume_usage_in_bytes: pulumi_wasm_rust::__private::into_domain(
+            volume_usage_in_bytes: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("volumeUsageInBytes"),
             ),
         }

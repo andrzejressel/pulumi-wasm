@@ -3,8 +3,8 @@
 /// ## Example Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = resource_group::create(
@@ -69,69 +69,71 @@
 /// ```
 ///
 pub mod tag_rule {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct TagRuleArgs {
         /// Whether activity logs from Azure resources should be sent for the Monitor resource. Defaults to `false`.
         #[builder(into, default)]
-        pub activity_log_enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub activity_log_enabled: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// Whether Azure Active Directory logs should be sent for the Monitor resource. Defaults to `false`.
         #[builder(into, default)]
-        pub azure_active_directory_log_enabled: pulumi_wasm_rust::InputOrOutput<
+        pub azure_active_directory_log_enabled: pulumi_gestalt_rust::InputOrOutput<
             Option<bool>,
         >,
         /// A `log_tag_filter` block as defined below.
         #[builder(into, default)]
-        pub log_tag_filters: pulumi_wasm_rust::InputOrOutput<
+        pub log_tag_filters: pulumi_gestalt_rust::InputOrOutput<
             Option<Vec<super::super::types::newrelic::TagRuleLogTagFilter>>,
         >,
         /// Whether metrics should be sent for the Monitor resource. Defaults to `false`.
         #[builder(into, default)]
-        pub metric_enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub metric_enabled: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// A `metric_tag_filter` block as defined below.
         #[builder(into, default)]
-        pub metric_tag_filters: pulumi_wasm_rust::InputOrOutput<
+        pub metric_tag_filters: pulumi_gestalt_rust::InputOrOutput<
             Option<Vec<super::super::types::newrelic::TagRuleMetricTagFilter>>,
         >,
         /// Specifies the ID of the New Relic Monitor this Tag Rule should be created within. Changing this forces a new Azure Native New Relic Tag Rule to be created.
         #[builder(into)]
-        pub monitor_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub monitor_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Whether subscription logs should be sent for the Monitor resource. Defaults to `false`.
         #[builder(into, default)]
-        pub subscription_log_enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub subscription_log_enabled: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
     }
     #[allow(dead_code)]
     pub struct TagRuleResult {
         /// Whether activity logs from Azure resources should be sent for the Monitor resource. Defaults to `false`.
-        pub activity_log_enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub activity_log_enabled: pulumi_gestalt_rust::Output<Option<bool>>,
         /// Whether Azure Active Directory logs should be sent for the Monitor resource. Defaults to `false`.
-        pub azure_active_directory_log_enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub azure_active_directory_log_enabled: pulumi_gestalt_rust::Output<
+            Option<bool>,
+        >,
         /// A `log_tag_filter` block as defined below.
-        pub log_tag_filters: pulumi_wasm_rust::Output<
+        pub log_tag_filters: pulumi_gestalt_rust::Output<
             Option<Vec<super::super::types::newrelic::TagRuleLogTagFilter>>,
         >,
         /// Whether metrics should be sent for the Monitor resource. Defaults to `false`.
-        pub metric_enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub metric_enabled: pulumi_gestalt_rust::Output<Option<bool>>,
         /// A `metric_tag_filter` block as defined below.
-        pub metric_tag_filters: pulumi_wasm_rust::Output<
+        pub metric_tag_filters: pulumi_gestalt_rust::Output<
             Option<Vec<super::super::types::newrelic::TagRuleMetricTagFilter>>,
         >,
         /// Specifies the ID of the New Relic Monitor this Tag Rule should be created within. Changing this forces a new Azure Native New Relic Tag Rule to be created.
-        pub monitor_id: pulumi_wasm_rust::Output<String>,
+        pub monitor_id: pulumi_gestalt_rust::Output<String>,
         /// Whether subscription logs should be sent for the Monitor resource. Defaults to `false`.
-        pub subscription_log_enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub subscription_log_enabled: pulumi_gestalt_rust::Output<Option<bool>>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: TagRuleArgs,
     ) -> TagRuleResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let activity_log_enabled_binding = args
             .activity_log_enabled
@@ -192,25 +194,25 @@ pub mod tag_rule {
         };
         let o = register_interface::register(context.get_inner(), &request);
         TagRuleResult {
-            activity_log_enabled: pulumi_wasm_rust::__private::into_domain(
+            activity_log_enabled: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("activityLogEnabled"),
             ),
-            azure_active_directory_log_enabled: pulumi_wasm_rust::__private::into_domain(
+            azure_active_directory_log_enabled: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("azureActiveDirectoryLogEnabled"),
             ),
-            log_tag_filters: pulumi_wasm_rust::__private::into_domain(
+            log_tag_filters: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("logTagFilters"),
             ),
-            metric_enabled: pulumi_wasm_rust::__private::into_domain(
+            metric_enabled: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("metricEnabled"),
             ),
-            metric_tag_filters: pulumi_wasm_rust::__private::into_domain(
+            metric_tag_filters: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("metricTagFilters"),
             ),
-            monitor_id: pulumi_wasm_rust::__private::into_domain(
+            monitor_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("monitorId"),
             ),
-            subscription_log_enabled: pulumi_wasm_rust::__private::into_domain(
+            subscription_log_enabled: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("subscriptionLogEnabled"),
             ),
         }

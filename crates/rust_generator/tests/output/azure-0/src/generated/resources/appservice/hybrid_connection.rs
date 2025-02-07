@@ -7,8 +7,8 @@
 /// This example provisions an App Service, a Relay Hybrid Connection, and a Service Bus using their outputs to create the App Service Hybrid Connection.
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = resource_group::create(
@@ -77,63 +77,63 @@
 /// ```
 ///
 pub mod hybrid_connection {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct HybridConnectionArgs {
         /// Specifies the name of the App Service. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub app_service_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub app_service_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The hostname of the endpoint.
         #[builder(into)]
-        pub hostname: pulumi_wasm_rust::InputOrOutput<String>,
+        pub hostname: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The port of the endpoint.
         #[builder(into)]
-        pub port: pulumi_wasm_rust::InputOrOutput<i32>,
+        pub port: pulumi_gestalt_rust::InputOrOutput<i32>,
         /// The ID of the Service Bus Relay. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub relay_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub relay_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The name of the resource group in which to create the App Service. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub resource_group_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub resource_group_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The name of the Service Bus key which has Send permissions. Defaults to `RootManageSharedAccessKey`.
         #[builder(into, default)]
-        pub send_key_name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub send_key_name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct HybridConnectionResult {
         /// Specifies the name of the App Service. Changing this forces a new resource to be created.
-        pub app_service_name: pulumi_wasm_rust::Output<String>,
+        pub app_service_name: pulumi_gestalt_rust::Output<String>,
         /// The hostname of the endpoint.
-        pub hostname: pulumi_wasm_rust::Output<String>,
+        pub hostname: pulumi_gestalt_rust::Output<String>,
         /// The name of the Relay Namespace.
-        pub namespace_name: pulumi_wasm_rust::Output<String>,
+        pub namespace_name: pulumi_gestalt_rust::Output<String>,
         /// The port of the endpoint.
-        pub port: pulumi_wasm_rust::Output<i32>,
+        pub port: pulumi_gestalt_rust::Output<i32>,
         /// The ID of the Service Bus Relay. Changing this forces a new resource to be created.
-        pub relay_id: pulumi_wasm_rust::Output<String>,
-        pub relay_name: pulumi_wasm_rust::Output<String>,
+        pub relay_id: pulumi_gestalt_rust::Output<String>,
+        pub relay_name: pulumi_gestalt_rust::Output<String>,
         /// The name of the resource group in which to create the App Service. Changing this forces a new resource to be created.
-        pub resource_group_name: pulumi_wasm_rust::Output<String>,
+        pub resource_group_name: pulumi_gestalt_rust::Output<String>,
         /// The name of the Service Bus key which has Send permissions. Defaults to `RootManageSharedAccessKey`.
-        pub send_key_name: pulumi_wasm_rust::Output<Option<String>>,
+        pub send_key_name: pulumi_gestalt_rust::Output<Option<String>>,
         /// The value of the Service Bus Primary Access key.
-        pub send_key_value: pulumi_wasm_rust::Output<String>,
+        pub send_key_value: pulumi_gestalt_rust::Output<String>,
         /// The name of the Service Bus namespace.
-        pub service_bus_namespace: pulumi_wasm_rust::Output<String>,
+        pub service_bus_namespace: pulumi_gestalt_rust::Output<String>,
         /// The suffix for the service bus endpoint.
-        pub service_bus_suffix: pulumi_wasm_rust::Output<String>,
+        pub service_bus_suffix: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: HybridConnectionArgs,
     ) -> HybridConnectionResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let app_service_name_binding = args
             .app_service_name
@@ -180,35 +180,35 @@ pub mod hybrid_connection {
         };
         let o = register_interface::register(context.get_inner(), &request);
         HybridConnectionResult {
-            app_service_name: pulumi_wasm_rust::__private::into_domain(
+            app_service_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("appServiceName"),
             ),
-            hostname: pulumi_wasm_rust::__private::into_domain(
+            hostname: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("hostname"),
             ),
-            namespace_name: pulumi_wasm_rust::__private::into_domain(
+            namespace_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("namespaceName"),
             ),
-            port: pulumi_wasm_rust::__private::into_domain(o.extract_field("port")),
-            relay_id: pulumi_wasm_rust::__private::into_domain(
+            port: pulumi_gestalt_rust::__private::into_domain(o.extract_field("port")),
+            relay_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("relayId"),
             ),
-            relay_name: pulumi_wasm_rust::__private::into_domain(
+            relay_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("relayName"),
             ),
-            resource_group_name: pulumi_wasm_rust::__private::into_domain(
+            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("resourceGroupName"),
             ),
-            send_key_name: pulumi_wasm_rust::__private::into_domain(
+            send_key_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("sendKeyName"),
             ),
-            send_key_value: pulumi_wasm_rust::__private::into_domain(
+            send_key_value: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("sendKeyValue"),
             ),
-            service_bus_namespace: pulumi_wasm_rust::__private::into_domain(
+            service_bus_namespace: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("serviceBusNamespace"),
             ),
-            service_bus_suffix: pulumi_wasm_rust::__private::into_domain(
+            service_bus_suffix: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("serviceBusSuffix"),
             ),
         }

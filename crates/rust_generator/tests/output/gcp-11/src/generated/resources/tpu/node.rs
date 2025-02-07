@@ -106,13 +106,13 @@
 /// ```
 ///
 pub mod node {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct NodeArgs {
         /// The type of hardware accelerators associated with this node.
         #[builder(into)]
-        pub accelerator_type: pulumi_wasm_rust::InputOrOutput<String>,
+        pub accelerator_type: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The CIDR block that the TPU node will use when selecting an IP
         /// address. This CIDR block must be a /29 block; the Compute Engine
         /// networks API forbids a smaller block, and using a larger block would
@@ -122,34 +122,34 @@ pub mod node {
         /// subnetworks in the user's provided network, or the provided network
         /// is peered with another network that is using that CIDR block.
         #[builder(into, default)]
-        pub cidr_block: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub cidr_block: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The user-supplied description of the TPU. Maximum of 512 characters.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub description: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Resource labels to represent user provided metadata.
         /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
         /// Please refer to the field `effective_labels` for all of the labels present on the resource.
         #[builder(into, default)]
-        pub labels: pulumi_wasm_rust::InputOrOutput<
+        pub labels: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// The immutable name of the TPU.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The name of a network to peer the TPU node to. It must be a
         /// preexisting Compute Engine network inside of the project on which
         /// this API has been activated. If none is provided, "default" will be
         /// used.
         #[builder(into, default)]
-        pub network: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub network: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub project: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Sets the scheduling options for this TPU instance.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub scheduling_config: pulumi_wasm_rust::InputOrOutput<
+        pub scheduling_config: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::tpu::NodeSchedulingConfig>,
         >,
         /// The version of Tensorflow running in the Node.
@@ -157,21 +157,21 @@ pub mod node {
         ///
         /// - - -
         #[builder(into)]
-        pub tensorflow_version: pulumi_wasm_rust::InputOrOutput<String>,
+        pub tensorflow_version: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Whether the VPC peering for the node is set up through Service Networking API.
         /// The VPC Peering should be set up before provisioning the node. If this field is set,
         /// cidr_block field should not be specified. If the network that you want to peer the
         /// TPU Node to is a Shared VPC network, the node must be created with this this field enabled.
         #[builder(into, default)]
-        pub use_service_networking: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub use_service_networking: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// The GCP location for the TPU. If it is not provided, the provider zone is used.
         #[builder(into, default)]
-        pub zone: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub zone: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct NodeResult {
         /// The type of hardware accelerators associated with this node.
-        pub accelerator_type: pulumi_wasm_rust::Output<String>,
+        pub accelerator_type: pulumi_gestalt_rust::Output<String>,
         /// The CIDR block that the TPU node will use when selecting an IP
         /// address. This CIDR block must be a /29 block; the Compute Engine
         /// networks API forbids a smaller block, and using a larger block would
@@ -180,74 +180,74 @@ pub mod node {
         /// currently existing TPU node, the CIDR block conflicts with any
         /// subnetworks in the user's provided network, or the provided network
         /// is peered with another network that is using that CIDR block.
-        pub cidr_block: pulumi_wasm_rust::Output<String>,
+        pub cidr_block: pulumi_gestalt_rust::Output<String>,
         /// The user-supplied description of the TPU. Maximum of 512 characters.
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_gestalt_rust::Output<Option<String>>,
         /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Pulumi, other clients and services.
-        pub effective_labels: pulumi_wasm_rust::Output<
+        pub effective_labels: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
         /// Resource labels to represent user provided metadata.
         /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
         /// Please refer to the field `effective_labels` for all of the labels present on the resource.
-        pub labels: pulumi_wasm_rust::Output<
+        pub labels: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// The immutable name of the TPU.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// The name of a network to peer the TPU node to. It must be a
         /// preexisting Compute Engine network inside of the project on which
         /// this API has been activated. If none is provided, "default" will be
         /// used.
-        pub network: pulumi_wasm_rust::Output<String>,
+        pub network: pulumi_gestalt_rust::Output<String>,
         /// The network endpoints where TPU workers can be accessed and sent work.
         /// It is recommended that Tensorflow clients of the node first reach out
         /// to the first (index 0) entry.
         /// Structure is documented below.
-        pub network_endpoints: pulumi_wasm_rust::Output<
+        pub network_endpoints: pulumi_gestalt_rust::Output<
             Vec<super::super::types::tpu::NodeNetworkEndpoint>,
         >,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
-        pub project: pulumi_wasm_rust::Output<String>,
+        pub project: pulumi_gestalt_rust::Output<String>,
         /// The combination of labels configured directly on the resource
         /// and default labels configured on the provider.
-        pub pulumi_labels: pulumi_wasm_rust::Output<
+        pub pulumi_labels: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
         /// Sets the scheduling options for this TPU instance.
         /// Structure is documented below.
-        pub scheduling_config: pulumi_wasm_rust::Output<
+        pub scheduling_config: pulumi_gestalt_rust::Output<
             Option<super::super::types::tpu::NodeSchedulingConfig>,
         >,
         /// The service account used to run the tensor flow services within the
         /// node. To share resources, including Google Cloud Storage data, with
         /// the Tensorflow job running in the Node, this account must have
         /// permissions to that data.
-        pub service_account: pulumi_wasm_rust::Output<String>,
+        pub service_account: pulumi_gestalt_rust::Output<String>,
         /// The version of Tensorflow running in the Node.
         ///
         ///
         /// - - -
-        pub tensorflow_version: pulumi_wasm_rust::Output<String>,
+        pub tensorflow_version: pulumi_gestalt_rust::Output<String>,
         /// Whether the VPC peering for the node is set up through Service Networking API.
         /// The VPC Peering should be set up before provisioning the node. If this field is set,
         /// cidr_block field should not be specified. If the network that you want to peer the
         /// TPU Node to is a Shared VPC network, the node must be created with this this field enabled.
-        pub use_service_networking: pulumi_wasm_rust::Output<Option<bool>>,
+        pub use_service_networking: pulumi_gestalt_rust::Output<Option<bool>>,
         /// The GCP location for the TPU. If it is not provided, the provider zone is used.
-        pub zone: pulumi_wasm_rust::Output<String>,
+        pub zone: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: NodeArgs,
     ) -> NodeResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let accelerator_type_binding = args
             .accelerator_type
@@ -325,45 +325,47 @@ pub mod node {
         };
         let o = register_interface::register(context.get_inner(), &request);
         NodeResult {
-            accelerator_type: pulumi_wasm_rust::__private::into_domain(
+            accelerator_type: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("acceleratorType"),
             ),
-            cidr_block: pulumi_wasm_rust::__private::into_domain(
+            cidr_block: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("cidrBlock"),
             ),
-            description: pulumi_wasm_rust::__private::into_domain(
+            description: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("description"),
             ),
-            effective_labels: pulumi_wasm_rust::__private::into_domain(
+            effective_labels: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("effectiveLabels"),
             ),
-            labels: pulumi_wasm_rust::__private::into_domain(o.extract_field("labels")),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            network: pulumi_wasm_rust::__private::into_domain(
+            labels: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("labels"),
+            ),
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            network: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("network"),
             ),
-            network_endpoints: pulumi_wasm_rust::__private::into_domain(
+            network_endpoints: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("networkEndpoints"),
             ),
-            project: pulumi_wasm_rust::__private::into_domain(
+            project: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("project"),
             ),
-            pulumi_labels: pulumi_wasm_rust::__private::into_domain(
+            pulumi_labels: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("pulumiLabels"),
             ),
-            scheduling_config: pulumi_wasm_rust::__private::into_domain(
+            scheduling_config: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("schedulingConfig"),
             ),
-            service_account: pulumi_wasm_rust::__private::into_domain(
+            service_account: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("serviceAccount"),
             ),
-            tensorflow_version: pulumi_wasm_rust::__private::into_domain(
+            tensorflow_version: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("tensorflowVersion"),
             ),
-            use_service_networking: pulumi_wasm_rust::__private::into_domain(
+            use_service_networking: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("useServiceNetworking"),
             ),
-            zone: pulumi_wasm_rust::__private::into_domain(o.extract_field("zone")),
+            zone: pulumi_gestalt_rust::__private::into_domain(o.extract_field("zone")),
         }
     }
 }

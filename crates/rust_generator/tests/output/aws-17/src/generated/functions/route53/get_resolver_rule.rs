@@ -1,57 +1,57 @@
 pub mod get_resolver_rule {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct GetResolverRuleArgs {
         /// Domain name the desired resolver rule forwards DNS queries for. Conflicts with `resolver_rule_id`.
         #[builder(into, default)]
-        pub domain_name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub domain_name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Friendly name of the desired resolver rule. Conflicts with `resolver_rule_id`.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// ID of the outbound resolver endpoint of the desired resolver rule. Conflicts with `resolver_rule_id`.
         #[builder(into, default)]
-        pub resolver_endpoint_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub resolver_endpoint_id: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// ID of the desired resolver rule. Conflicts with `domain_name`, `name`, `resolver_endpoint_id` and `rule_type`.
         #[builder(into, default)]
-        pub resolver_rule_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub resolver_rule_id: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Rule type of the desired resolver rule. Valid values are `FORWARD`, `SYSTEM` and `RECURSIVE`. Conflicts with `resolver_rule_id`.
         #[builder(into, default)]
-        pub rule_type: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub rule_type: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Map of tags assigned to the resolver rule.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
     #[allow(dead_code)]
     pub struct GetResolverRuleResult {
         /// ARN (Amazon Resource Name) for the resolver rule.
-        pub arn: pulumi_wasm_rust::Output<String>,
-        pub domain_name: pulumi_wasm_rust::Output<String>,
+        pub arn: pulumi_gestalt_rust::Output<String>,
+        pub domain_name: pulumi_gestalt_rust::Output<String>,
         /// The provider-assigned unique ID for this managed resource.
-        pub id: pulumi_wasm_rust::Output<String>,
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub id: pulumi_gestalt_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// When a rule is shared with another AWS account, the account ID of the account that the rule is shared with.
-        pub owner_id: pulumi_wasm_rust::Output<String>,
-        pub resolver_endpoint_id: pulumi_wasm_rust::Output<String>,
-        pub resolver_rule_id: pulumi_wasm_rust::Output<String>,
-        pub rule_type: pulumi_wasm_rust::Output<String>,
+        pub owner_id: pulumi_gestalt_rust::Output<String>,
+        pub resolver_endpoint_id: pulumi_gestalt_rust::Output<String>,
+        pub resolver_rule_id: pulumi_gestalt_rust::Output<String>,
+        pub rule_type: pulumi_gestalt_rust::Output<String>,
         /// Whether the rules is shared and, if so, whether the current account is sharing the rule with another account, or another account is sharing the rule with the current account.
         /// Values are `NOT_SHARED`, `SHARED_BY_ME` or `SHARED_WITH_ME`
-        pub share_status: pulumi_wasm_rust::Output<String>,
+        pub share_status: pulumi_gestalt_rust::Output<String>,
         /// Map of tags assigned to the resolver rule.
-        pub tags: pulumi_wasm_rust::Output<std::collections::HashMap<String, String>>,
+        pub tags: pulumi_gestalt_rust::Output<std::collections::HashMap<String, String>>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         args: GetResolverRuleArgs,
     ) -> GetResolverRuleResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let domain_name_binding = args.domain_name.get_output(context).get_inner();
         let name_binding = args.name.get_output(context).get_inner();
@@ -97,28 +97,28 @@ pub mod get_resolver_rule {
         };
         let o = register_interface::invoke(context.get_inner(), &request);
         GetResolverRuleResult {
-            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
-            domain_name: pulumi_wasm_rust::__private::into_domain(
+            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
+            domain_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("domainName"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            owner_id: pulumi_wasm_rust::__private::into_domain(
+            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            owner_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("ownerId"),
             ),
-            resolver_endpoint_id: pulumi_wasm_rust::__private::into_domain(
+            resolver_endpoint_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("resolverEndpointId"),
             ),
-            resolver_rule_id: pulumi_wasm_rust::__private::into_domain(
+            resolver_rule_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("resolverRuleId"),
             ),
-            rule_type: pulumi_wasm_rust::__private::into_domain(
+            rule_type: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("ruleType"),
             ),
-            share_status: pulumi_wasm_rust::__private::into_domain(
+            share_status: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("shareStatus"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
         }
     }
 }

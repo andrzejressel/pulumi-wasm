@@ -41,135 +41,137 @@
 /// ```
 ///
 pub mod account {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct AccountArgs {
         /// Specifies the allowed authentication mode for the Batch account. Possible values include `AAD`, `SharedKey` or `TaskAuthenticationToken`.
         #[builder(into, default)]
-        pub allowed_authentication_modes: pulumi_wasm_rust::InputOrOutput<
+        pub allowed_authentication_modes: pulumi_gestalt_rust::InputOrOutput<
             Option<Vec<String>>,
         >,
         /// Specifies if customer managed key encryption should be used to encrypt batch account data. One `encryption` block as defined below.
         #[builder(into, default)]
-        pub encryption: pulumi_wasm_rust::InputOrOutput<
+        pub encryption: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::batch::AccountEncryption>,
         >,
         /// An `identity` block as defined below.
         #[builder(into, default)]
-        pub identity: pulumi_wasm_rust::InputOrOutput<
+        pub identity: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::batch::AccountIdentity>,
         >,
         /// A `key_vault_reference` block, as defined below, that describes the Azure KeyVault reference to use when deploying the Azure Batch account using the `UserSubscription` pool allocation mode.
         #[builder(into, default)]
-        pub key_vault_reference: pulumi_wasm_rust::InputOrOutput<
+        pub key_vault_reference: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::batch::AccountKeyVaultReference>,
         >,
         /// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub location: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub location: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Specifies the name of the Batch account. Only lowercase Alphanumeric characters allowed. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// A `network_profile` block as defined below.
         #[builder(into, default)]
-        pub network_profile: pulumi_wasm_rust::InputOrOutput<
+        pub network_profile: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::batch::AccountNetworkProfile>,
         >,
         /// Specifies the mode to use for pool allocation. Possible values are `BatchService` or `UserSubscription`. Defaults to `BatchService`.
         #[builder(into, default)]
-        pub pool_allocation_mode: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub pool_allocation_mode: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Whether public network access is allowed for this server. Defaults to `true`.
         ///
         /// > **NOTE:** When using `UserSubscription` mode, an Azure KeyVault reference has to be specified. See `key_vault_reference` below.
         ///
         /// > **NOTE:** When using `UserSubscription` mode, the `Microsoft Azure Batch` service principal has to have `Contributor` role on your subscription scope, as documented [here](https://docs.microsoft.com/azure/batch/batch-account-create-portal#additional-configuration-for-user-subscription-mode).
         #[builder(into, default)]
-        pub public_network_access_enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub public_network_access_enabled: pulumi_gestalt_rust::InputOrOutput<
+            Option<bool>,
+        >,
         /// The name of the resource group in which to create the Batch account. Changing this forces a new resource to be created.
         ///
         /// > **NOTE:** To work around [a bug in the Azure API](https://github.com/Azure/azure-rest-api-specs/issues/5574) this property is currently treated as case-insensitive. A future version of this provider will require that the casing is correct.
         #[builder(into)]
-        pub resource_group_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub resource_group_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Specifies the storage account authentication mode. Possible values include `StorageKeys`, `BatchAccountManagedIdentity`.
         ///
         /// > **NOTE:** When using `BatchAccountManagedIdentity` mod, the `identity.type` must set to `UserAssigned` or `SystemAssigned`.
         #[builder(into, default)]
-        pub storage_account_authentication_mode: pulumi_wasm_rust::InputOrOutput<
+        pub storage_account_authentication_mode: pulumi_gestalt_rust::InputOrOutput<
             Option<String>,
         >,
         /// Specifies the storage account to use for the Batch account. If not specified, Azure Batch will manage the storage.
         ///
         /// > **NOTE:** When using `storage_account_id`, the `storage_account_authentication_mode` must be specified as well.
         #[builder(into, default)]
-        pub storage_account_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub storage_account_id: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Specifies the user assigned identity for the storage account.
         #[builder(into, default)]
-        pub storage_account_node_identity: pulumi_wasm_rust::InputOrOutput<
+        pub storage_account_node_identity: pulumi_gestalt_rust::InputOrOutput<
             Option<String>,
         >,
         /// A mapping of tags to assign to the resource.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
     #[allow(dead_code)]
     pub struct AccountResult {
         /// The account endpoint used to interact with the Batch service.
-        pub account_endpoint: pulumi_wasm_rust::Output<String>,
+        pub account_endpoint: pulumi_gestalt_rust::Output<String>,
         /// Specifies the allowed authentication mode for the Batch account. Possible values include `AAD`, `SharedKey` or `TaskAuthenticationToken`.
-        pub allowed_authentication_modes: pulumi_wasm_rust::Output<Vec<String>>,
+        pub allowed_authentication_modes: pulumi_gestalt_rust::Output<Vec<String>>,
         /// Specifies if customer managed key encryption should be used to encrypt batch account data. One `encryption` block as defined below.
-        pub encryption: pulumi_wasm_rust::Output<
+        pub encryption: pulumi_gestalt_rust::Output<
             Option<super::super::types::batch::AccountEncryption>,
         >,
         /// An `identity` block as defined below.
-        pub identity: pulumi_wasm_rust::Output<
+        pub identity: pulumi_gestalt_rust::Output<
             Option<super::super::types::batch::AccountIdentity>,
         >,
         /// A `key_vault_reference` block, as defined below, that describes the Azure KeyVault reference to use when deploying the Azure Batch account using the `UserSubscription` pool allocation mode.
-        pub key_vault_reference: pulumi_wasm_rust::Output<
+        pub key_vault_reference: pulumi_gestalt_rust::Output<
             Option<super::super::types::batch::AccountKeyVaultReference>,
         >,
         /// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
-        pub location: pulumi_wasm_rust::Output<String>,
+        pub location: pulumi_gestalt_rust::Output<String>,
         /// Specifies the name of the Batch account. Only lowercase Alphanumeric characters allowed. Changing this forces a new resource to be created.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// A `network_profile` block as defined below.
-        pub network_profile: pulumi_wasm_rust::Output<
+        pub network_profile: pulumi_gestalt_rust::Output<
             Option<super::super::types::batch::AccountNetworkProfile>,
         >,
         /// Specifies the mode to use for pool allocation. Possible values are `BatchService` or `UserSubscription`. Defaults to `BatchService`.
-        pub pool_allocation_mode: pulumi_wasm_rust::Output<Option<String>>,
+        pub pool_allocation_mode: pulumi_gestalt_rust::Output<Option<String>>,
         /// The Batch account primary access key.
-        pub primary_access_key: pulumi_wasm_rust::Output<String>,
+        pub primary_access_key: pulumi_gestalt_rust::Output<String>,
         /// Whether public network access is allowed for this server. Defaults to `true`.
         ///
         /// > **NOTE:** When using `UserSubscription` mode, an Azure KeyVault reference has to be specified. See `key_vault_reference` below.
         ///
         /// > **NOTE:** When using `UserSubscription` mode, the `Microsoft Azure Batch` service principal has to have `Contributor` role on your subscription scope, as documented [here](https://docs.microsoft.com/azure/batch/batch-account-create-portal#additional-configuration-for-user-subscription-mode).
-        pub public_network_access_enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub public_network_access_enabled: pulumi_gestalt_rust::Output<Option<bool>>,
         /// The name of the resource group in which to create the Batch account. Changing this forces a new resource to be created.
         ///
         /// > **NOTE:** To work around [a bug in the Azure API](https://github.com/Azure/azure-rest-api-specs/issues/5574) this property is currently treated as case-insensitive. A future version of this provider will require that the casing is correct.
-        pub resource_group_name: pulumi_wasm_rust::Output<String>,
+        pub resource_group_name: pulumi_gestalt_rust::Output<String>,
         /// The Batch account secondary access key.
-        pub secondary_access_key: pulumi_wasm_rust::Output<String>,
+        pub secondary_access_key: pulumi_gestalt_rust::Output<String>,
         /// Specifies the storage account authentication mode. Possible values include `StorageKeys`, `BatchAccountManagedIdentity`.
         ///
         /// > **NOTE:** When using `BatchAccountManagedIdentity` mod, the `identity.type` must set to `UserAssigned` or `SystemAssigned`.
-        pub storage_account_authentication_mode: pulumi_wasm_rust::Output<
+        pub storage_account_authentication_mode: pulumi_gestalt_rust::Output<
             Option<String>,
         >,
         /// Specifies the storage account to use for the Batch account. If not specified, Azure Batch will manage the storage.
         ///
         /// > **NOTE:** When using `storage_account_id`, the `storage_account_authentication_mode` must be specified as well.
-        pub storage_account_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub storage_account_id: pulumi_gestalt_rust::Output<Option<String>>,
         /// Specifies the user assigned identity for the storage account.
-        pub storage_account_node_identity: pulumi_wasm_rust::Output<Option<String>>,
+        pub storage_account_node_identity: pulumi_gestalt_rust::Output<Option<String>>,
         /// A mapping of tags to assign to the resource.
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
@@ -178,11 +180,11 @@ pub mod account {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: AccountArgs,
     ) -> AccountResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let allowed_authentication_modes_binding = args
             .allowed_authentication_modes
@@ -290,53 +292,53 @@ pub mod account {
         };
         let o = register_interface::register(context.get_inner(), &request);
         AccountResult {
-            account_endpoint: pulumi_wasm_rust::__private::into_domain(
+            account_endpoint: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("accountEndpoint"),
             ),
-            allowed_authentication_modes: pulumi_wasm_rust::__private::into_domain(
+            allowed_authentication_modes: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("allowedAuthenticationModes"),
             ),
-            encryption: pulumi_wasm_rust::__private::into_domain(
+            encryption: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("encryption"),
             ),
-            identity: pulumi_wasm_rust::__private::into_domain(
+            identity: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("identity"),
             ),
-            key_vault_reference: pulumi_wasm_rust::__private::into_domain(
+            key_vault_reference: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("keyVaultReference"),
             ),
-            location: pulumi_wasm_rust::__private::into_domain(
+            location: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("location"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            network_profile: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            network_profile: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("networkProfile"),
             ),
-            pool_allocation_mode: pulumi_wasm_rust::__private::into_domain(
+            pool_allocation_mode: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("poolAllocationMode"),
             ),
-            primary_access_key: pulumi_wasm_rust::__private::into_domain(
+            primary_access_key: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("primaryAccessKey"),
             ),
-            public_network_access_enabled: pulumi_wasm_rust::__private::into_domain(
+            public_network_access_enabled: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("publicNetworkAccessEnabled"),
             ),
-            resource_group_name: pulumi_wasm_rust::__private::into_domain(
+            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("resourceGroupName"),
             ),
-            secondary_access_key: pulumi_wasm_rust::__private::into_domain(
+            secondary_access_key: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("secondaryAccessKey"),
             ),
-            storage_account_authentication_mode: pulumi_wasm_rust::__private::into_domain(
+            storage_account_authentication_mode: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("storageAccountAuthenticationMode"),
             ),
-            storage_account_id: pulumi_wasm_rust::__private::into_domain(
+            storage_account_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("storageAccountId"),
             ),
-            storage_account_node_identity: pulumi_wasm_rust::__private::into_domain(
+            storage_account_node_identity: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("storageAccountNodeIdentity"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
         }
     }
 }

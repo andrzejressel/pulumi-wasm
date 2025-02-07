@@ -79,59 +79,59 @@
 /// ```
 ///
 pub mod network_mapping {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct NetworkMappingArgs {
         /// The name of the network mapping. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The name of the vault that should be updated. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub recovery_vault_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub recovery_vault_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Name of the resource group where the vault that should be updated is located. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub resource_group_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub resource_group_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The id of the primary network. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub source_network_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub source_network_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Specifies the ASR fabric where mapping should be created. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub source_recovery_fabric_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub source_recovery_fabric_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The id of the recovery network. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub target_network_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub target_network_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The Azure Site Recovery fabric object corresponding to the recovery Azure region. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub target_recovery_fabric_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub target_recovery_fabric_name: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct NetworkMappingResult {
         /// The name of the network mapping. Changing this forces a new resource to be created.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// The name of the vault that should be updated. Changing this forces a new resource to be created.
-        pub recovery_vault_name: pulumi_wasm_rust::Output<String>,
+        pub recovery_vault_name: pulumi_gestalt_rust::Output<String>,
         /// Name of the resource group where the vault that should be updated is located. Changing this forces a new resource to be created.
-        pub resource_group_name: pulumi_wasm_rust::Output<String>,
+        pub resource_group_name: pulumi_gestalt_rust::Output<String>,
         /// The id of the primary network. Changing this forces a new resource to be created.
-        pub source_network_id: pulumi_wasm_rust::Output<String>,
+        pub source_network_id: pulumi_gestalt_rust::Output<String>,
         /// Specifies the ASR fabric where mapping should be created. Changing this forces a new resource to be created.
-        pub source_recovery_fabric_name: pulumi_wasm_rust::Output<String>,
+        pub source_recovery_fabric_name: pulumi_gestalt_rust::Output<String>,
         /// The id of the recovery network. Changing this forces a new resource to be created.
-        pub target_network_id: pulumi_wasm_rust::Output<String>,
+        pub target_network_id: pulumi_gestalt_rust::Output<String>,
         /// The Azure Site Recovery fabric object corresponding to the recovery Azure region. Changing this forces a new resource to be created.
-        pub target_recovery_fabric_name: pulumi_wasm_rust::Output<String>,
+        pub target_recovery_fabric_name: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: NetworkMappingArgs,
     ) -> NetworkMappingResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let name_binding = args.name.get_output(context).get_inner();
         let recovery_vault_name_binding = args
@@ -195,23 +195,23 @@ pub mod network_mapping {
         };
         let o = register_interface::register(context.get_inner(), &request);
         NetworkMappingResult {
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            recovery_vault_name: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            recovery_vault_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("recoveryVaultName"),
             ),
-            resource_group_name: pulumi_wasm_rust::__private::into_domain(
+            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("resourceGroupName"),
             ),
-            source_network_id: pulumi_wasm_rust::__private::into_domain(
+            source_network_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("sourceNetworkId"),
             ),
-            source_recovery_fabric_name: pulumi_wasm_rust::__private::into_domain(
+            source_recovery_fabric_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("sourceRecoveryFabricName"),
             ),
-            target_network_id: pulumi_wasm_rust::__private::into_domain(
+            target_network_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("targetNetworkId"),
             ),
-            target_recovery_fabric_name: pulumi_wasm_rust::__private::into_domain(
+            target_recovery_fabric_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("targetRecoveryFabricName"),
             ),
         }

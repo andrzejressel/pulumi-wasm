@@ -31,109 +31,115 @@
 /// ```
 ///
 pub mod event_hub_namespace {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct EventHubNamespaceArgs {
         /// Is Auto Inflate enabled for the EventHub Namespace?
         #[builder(into, default)]
-        pub auto_inflate_enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub auto_inflate_enabled: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// Specifies the Capacity / Throughput Units for a `Standard` SKU namespace. Default capacity has a maximum of `2`, but can be increased in blocks of 2 on a committed purchase basis. Defaults to `1`.
         #[builder(into, default)]
-        pub capacity: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
+        pub capacity: pulumi_gestalt_rust::InputOrOutput<Option<i32>>,
         /// Specifies the ID of the EventHub Dedicated Cluster where this Namespace should created. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub dedicated_cluster_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub dedicated_cluster_id: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// An `identity` block as defined below.
         #[builder(into, default)]
-        pub identity: pulumi_wasm_rust::InputOrOutput<
+        pub identity: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::eventhub::EventHubNamespaceIdentity>,
         >,
         /// Is SAS authentication enabled for the EventHub Namespace? Defaults to `true`.
         #[builder(into, default)]
-        pub local_authentication_enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub local_authentication_enabled: pulumi_gestalt_rust::InputOrOutput<
+            Option<bool>,
+        >,
         /// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub location: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub location: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Specifies the maximum number of throughput units when Auto Inflate is Enabled. Valid values range from `1` - `20`.
         #[builder(into, default)]
-        pub maximum_throughput_units: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
+        pub maximum_throughput_units: pulumi_gestalt_rust::InputOrOutput<Option<i32>>,
         /// The minimum supported TLS version for this EventHub Namespace. Valid values are: `1.0`, `1.1` and `1.2`. Defaults to `1.2`.
         ///
         /// > **Note** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
         #[builder(into, default)]
-        pub minimum_tls_version: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub minimum_tls_version: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Specifies the name of the EventHub Namespace resource. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// A `network_rulesets` block as defined below.
         #[builder(into, default)]
-        pub network_rulesets: pulumi_wasm_rust::InputOrOutput<
+        pub network_rulesets: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::eventhub::EventHubNamespaceNetworkRulesets>,
         >,
         /// Is public network access enabled for the EventHub Namespace? Defaults to `true`.
         #[builder(into, default)]
-        pub public_network_access_enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub public_network_access_enabled: pulumi_gestalt_rust::InputOrOutput<
+            Option<bool>,
+        >,
         /// The name of the resource group in which to create the namespace. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub resource_group_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub resource_group_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Defines which tier to use. Valid options are `Basic`, `Standard`, and `Premium`. Please note that setting this field to `Premium` will force the creation of a new resource.
         #[builder(into)]
-        pub sku: pulumi_wasm_rust::InputOrOutput<String>,
+        pub sku: pulumi_gestalt_rust::InputOrOutput<String>,
         /// A mapping of tags to assign to the resource.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
     #[allow(dead_code)]
     pub struct EventHubNamespaceResult {
         /// Is Auto Inflate enabled for the EventHub Namespace?
-        pub auto_inflate_enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub auto_inflate_enabled: pulumi_gestalt_rust::Output<Option<bool>>,
         /// Specifies the Capacity / Throughput Units for a `Standard` SKU namespace. Default capacity has a maximum of `2`, but can be increased in blocks of 2 on a committed purchase basis. Defaults to `1`.
-        pub capacity: pulumi_wasm_rust::Output<Option<i32>>,
+        pub capacity: pulumi_gestalt_rust::Output<Option<i32>>,
         /// Specifies the ID of the EventHub Dedicated Cluster where this Namespace should created. Changing this forces a new resource to be created.
-        pub dedicated_cluster_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub dedicated_cluster_id: pulumi_gestalt_rust::Output<Option<String>>,
         /// The primary connection string for the authorization rule `RootManageSharedAccessKey`.
-        pub default_primary_connection_string: pulumi_wasm_rust::Output<String>,
+        pub default_primary_connection_string: pulumi_gestalt_rust::Output<String>,
         /// The alias of the primary connection string for the authorization rule `RootManageSharedAccessKey`, which is generated when disaster recovery is enabled.
-        pub default_primary_connection_string_alias: pulumi_wasm_rust::Output<String>,
+        pub default_primary_connection_string_alias: pulumi_gestalt_rust::Output<String>,
         /// The primary access key for the authorization rule `RootManageSharedAccessKey`.
-        pub default_primary_key: pulumi_wasm_rust::Output<String>,
+        pub default_primary_key: pulumi_gestalt_rust::Output<String>,
         /// The secondary connection string for the authorization rule `RootManageSharedAccessKey`.
-        pub default_secondary_connection_string: pulumi_wasm_rust::Output<String>,
+        pub default_secondary_connection_string: pulumi_gestalt_rust::Output<String>,
         /// The alias of the secondary connection string for the authorization rule `RootManageSharedAccessKey`, which is generated when disaster recovery is enabled.
-        pub default_secondary_connection_string_alias: pulumi_wasm_rust::Output<String>,
+        pub default_secondary_connection_string_alias: pulumi_gestalt_rust::Output<
+            String,
+        >,
         /// The secondary access key for the authorization rule `RootManageSharedAccessKey`.
-        pub default_secondary_key: pulumi_wasm_rust::Output<String>,
+        pub default_secondary_key: pulumi_gestalt_rust::Output<String>,
         /// An `identity` block as defined below.
-        pub identity: pulumi_wasm_rust::Output<
+        pub identity: pulumi_gestalt_rust::Output<
             Option<super::super::types::eventhub::EventHubNamespaceIdentity>,
         >,
         /// Is SAS authentication enabled for the EventHub Namespace? Defaults to `true`.
-        pub local_authentication_enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub local_authentication_enabled: pulumi_gestalt_rust::Output<Option<bool>>,
         /// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
-        pub location: pulumi_wasm_rust::Output<String>,
+        pub location: pulumi_gestalt_rust::Output<String>,
         /// Specifies the maximum number of throughput units when Auto Inflate is Enabled. Valid values range from `1` - `20`.
-        pub maximum_throughput_units: pulumi_wasm_rust::Output<Option<i32>>,
+        pub maximum_throughput_units: pulumi_gestalt_rust::Output<Option<i32>>,
         /// The minimum supported TLS version for this EventHub Namespace. Valid values are: `1.0`, `1.1` and `1.2`. Defaults to `1.2`.
         ///
         /// > **Note** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
-        pub minimum_tls_version: pulumi_wasm_rust::Output<Option<String>>,
+        pub minimum_tls_version: pulumi_gestalt_rust::Output<Option<String>>,
         /// Specifies the name of the EventHub Namespace resource. Changing this forces a new resource to be created.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// A `network_rulesets` block as defined below.
-        pub network_rulesets: pulumi_wasm_rust::Output<
+        pub network_rulesets: pulumi_gestalt_rust::Output<
             super::super::types::eventhub::EventHubNamespaceNetworkRulesets,
         >,
         /// Is public network access enabled for the EventHub Namespace? Defaults to `true`.
-        pub public_network_access_enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub public_network_access_enabled: pulumi_gestalt_rust::Output<Option<bool>>,
         /// The name of the resource group in which to create the namespace. Changing this forces a new resource to be created.
-        pub resource_group_name: pulumi_wasm_rust::Output<String>,
+        pub resource_group_name: pulumi_gestalt_rust::Output<String>,
         /// Defines which tier to use. Valid options are `Basic`, `Standard`, and `Premium`. Please note that setting this field to `Premium` will force the creation of a new resource.
-        pub sku: pulumi_wasm_rust::Output<String>,
+        pub sku: pulumi_gestalt_rust::Output<String>,
         /// A mapping of tags to assign to the resource.
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
@@ -142,11 +148,11 @@ pub mod event_hub_namespace {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: EventHubNamespaceArgs,
     ) -> EventHubNamespaceResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let auto_inflate_enabled_binding = args
             .auto_inflate_enabled
@@ -251,60 +257,60 @@ pub mod event_hub_namespace {
         };
         let o = register_interface::register(context.get_inner(), &request);
         EventHubNamespaceResult {
-            auto_inflate_enabled: pulumi_wasm_rust::__private::into_domain(
+            auto_inflate_enabled: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("autoInflateEnabled"),
             ),
-            capacity: pulumi_wasm_rust::__private::into_domain(
+            capacity: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("capacity"),
             ),
-            dedicated_cluster_id: pulumi_wasm_rust::__private::into_domain(
+            dedicated_cluster_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("dedicatedClusterId"),
             ),
-            default_primary_connection_string: pulumi_wasm_rust::__private::into_domain(
+            default_primary_connection_string: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("defaultPrimaryConnectionString"),
             ),
-            default_primary_connection_string_alias: pulumi_wasm_rust::__private::into_domain(
+            default_primary_connection_string_alias: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("defaultPrimaryConnectionStringAlias"),
             ),
-            default_primary_key: pulumi_wasm_rust::__private::into_domain(
+            default_primary_key: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("defaultPrimaryKey"),
             ),
-            default_secondary_connection_string: pulumi_wasm_rust::__private::into_domain(
+            default_secondary_connection_string: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("defaultSecondaryConnectionString"),
             ),
-            default_secondary_connection_string_alias: pulumi_wasm_rust::__private::into_domain(
+            default_secondary_connection_string_alias: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("defaultSecondaryConnectionStringAlias"),
             ),
-            default_secondary_key: pulumi_wasm_rust::__private::into_domain(
+            default_secondary_key: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("defaultSecondaryKey"),
             ),
-            identity: pulumi_wasm_rust::__private::into_domain(
+            identity: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("identity"),
             ),
-            local_authentication_enabled: pulumi_wasm_rust::__private::into_domain(
+            local_authentication_enabled: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("localAuthenticationEnabled"),
             ),
-            location: pulumi_wasm_rust::__private::into_domain(
+            location: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("location"),
             ),
-            maximum_throughput_units: pulumi_wasm_rust::__private::into_domain(
+            maximum_throughput_units: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("maximumThroughputUnits"),
             ),
-            minimum_tls_version: pulumi_wasm_rust::__private::into_domain(
+            minimum_tls_version: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("minimumTlsVersion"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            network_rulesets: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            network_rulesets: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("networkRulesets"),
             ),
-            public_network_access_enabled: pulumi_wasm_rust::__private::into_domain(
+            public_network_access_enabled: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("publicNetworkAccessEnabled"),
             ),
-            resource_group_name: pulumi_wasm_rust::__private::into_domain(
+            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("resourceGroupName"),
             ),
-            sku: pulumi_wasm_rust::__private::into_domain(o.extract_field("sku")),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
+            sku: pulumi_gestalt_rust::__private::into_domain(o.extract_field("sku")),
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
         }
     }
 }

@@ -3,8 +3,8 @@
 /// ## Example Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let config = iam_audit_config::create(
@@ -33,45 +33,45 @@
 /// ```
 ///
 pub mod iam_audit_config {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct IamAuditConfigArgs {
         /// The configuration for logging of each type of permission.  This can be specified multiple times.  Structure is documented below.
         #[builder(into)]
-        pub audit_log_configs: pulumi_wasm_rust::InputOrOutput<
+        pub audit_log_configs: pulumi_gestalt_rust::InputOrOutput<
             Vec<super::super::types::organizations::IamAuditConfigAuditLogConfig>,
         >,
         /// The numeric ID of the organization in which you want to manage the audit logging config.
         #[builder(into)]
-        pub org_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub org_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Service which will be enabled for audit logging.  The special value `allServices` covers all services.  Note that if there are google\_organization\_iam\_audit\_config resources covering both `allServices` and a specific service then the union of the two AuditConfigs is used for that service: the `log_types` specified in each `audit_log_config` are enabled, and the `exempted_members` in each `audit_log_config` are exempted.
         #[builder(into)]
-        pub service: pulumi_wasm_rust::InputOrOutput<String>,
+        pub service: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct IamAuditConfigResult {
         /// The configuration for logging of each type of permission.  This can be specified multiple times.  Structure is documented below.
-        pub audit_log_configs: pulumi_wasm_rust::Output<
+        pub audit_log_configs: pulumi_gestalt_rust::Output<
             Vec<super::super::types::organizations::IamAuditConfigAuditLogConfig>,
         >,
         /// The etag of iam policy
-        pub etag: pulumi_wasm_rust::Output<String>,
+        pub etag: pulumi_gestalt_rust::Output<String>,
         /// The numeric ID of the organization in which you want to manage the audit logging config.
-        pub org_id: pulumi_wasm_rust::Output<String>,
+        pub org_id: pulumi_gestalt_rust::Output<String>,
         /// Service which will be enabled for audit logging.  The special value `allServices` covers all services.  Note that if there are google\_organization\_iam\_audit\_config resources covering both `allServices` and a specific service then the union of the two AuditConfigs is used for that service: the `log_types` specified in each `audit_log_config` are enabled, and the `exempted_members` in each `audit_log_config` are exempted.
-        pub service: pulumi_wasm_rust::Output<String>,
+        pub service: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: IamAuditConfigArgs,
     ) -> IamAuditConfigResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let audit_log_configs_binding = args
             .audit_log_configs
@@ -100,12 +100,16 @@ pub mod iam_audit_config {
         };
         let o = register_interface::register(context.get_inner(), &request);
         IamAuditConfigResult {
-            audit_log_configs: pulumi_wasm_rust::__private::into_domain(
+            audit_log_configs: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("auditLogConfigs"),
             ),
-            etag: pulumi_wasm_rust::__private::into_domain(o.extract_field("etag")),
-            org_id: pulumi_wasm_rust::__private::into_domain(o.extract_field("orgId")),
-            service: pulumi_wasm_rust::__private::into_domain(o.extract_field("service")),
+            etag: pulumi_gestalt_rust::__private::into_domain(o.extract_field("etag")),
+            org_id: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("orgId"),
+            ),
+            service: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("service"),
+            ),
         }
     }
 }

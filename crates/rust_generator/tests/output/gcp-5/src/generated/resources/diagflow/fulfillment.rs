@@ -51,7 +51,7 @@
 /// ```
 ///
 pub mod fulfillment {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct FulfillmentArgs {
@@ -60,26 +60,26 @@ pub mod fulfillment {
         ///
         /// - - -
         #[builder(into)]
-        pub display_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub display_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Whether fulfillment is enabled.
         #[builder(into, default)]
-        pub enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub enabled: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// The field defines whether the fulfillment is enabled for certain features.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub features: pulumi_wasm_rust::InputOrOutput<
+        pub features: pulumi_gestalt_rust::InputOrOutput<
             Option<Vec<super::super::types::diagflow::FulfillmentFeature>>,
         >,
         /// Represents configuration for a generic web service. Dialogflow supports two mechanisms for authentications: - Basic authentication with username and password. - Authentication with additional authentication headers.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub generic_web_service: pulumi_wasm_rust::InputOrOutput<
+        pub generic_web_service: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::diagflow::FulfillmentGenericWebService>,
         >,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub project: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct FulfillmentResult {
@@ -87,36 +87,36 @@ pub mod fulfillment {
         ///
         ///
         /// - - -
-        pub display_name: pulumi_wasm_rust::Output<String>,
+        pub display_name: pulumi_gestalt_rust::Output<String>,
         /// Whether fulfillment is enabled.
-        pub enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub enabled: pulumi_gestalt_rust::Output<Option<bool>>,
         /// The field defines whether the fulfillment is enabled for certain features.
         /// Structure is documented below.
-        pub features: pulumi_wasm_rust::Output<
+        pub features: pulumi_gestalt_rust::Output<
             Option<Vec<super::super::types::diagflow::FulfillmentFeature>>,
         >,
         /// Represents configuration for a generic web service. Dialogflow supports two mechanisms for authentications: - Basic authentication with username and password. - Authentication with additional authentication headers.
         /// Structure is documented below.
-        pub generic_web_service: pulumi_wasm_rust::Output<
+        pub generic_web_service: pulumi_gestalt_rust::Output<
             Option<super::super::types::diagflow::FulfillmentGenericWebService>,
         >,
         /// The unique identifier of the fulfillment.
         /// Format: projects/<Project ID>/agent/fulfillment - projects/<Project ID>/locations/<Location ID>/agent/fulfillment
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
-        pub project: pulumi_wasm_rust::Output<String>,
+        pub project: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: FulfillmentArgs,
     ) -> FulfillmentResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let display_name_binding = args.display_name.get_output(context).get_inner();
         let enabled_binding = args.enabled.get_output(context).get_inner();
@@ -155,20 +155,22 @@ pub mod fulfillment {
         };
         let o = register_interface::register(context.get_inner(), &request);
         FulfillmentResult {
-            display_name: pulumi_wasm_rust::__private::into_domain(
+            display_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("displayName"),
             ),
-            enabled: pulumi_wasm_rust::__private::into_domain(
+            enabled: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("enabled"),
             ),
-            features: pulumi_wasm_rust::__private::into_domain(
+            features: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("features"),
             ),
-            generic_web_service: pulumi_wasm_rust::__private::into_domain(
+            generic_web_service: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("genericWebService"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            project: pulumi_wasm_rust::__private::into_domain(o.extract_field("project")),
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            project: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("project"),
+            ),
         }
     }
 }

@@ -10,8 +10,8 @@
 /// ### Basic Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = user::create(
@@ -35,118 +35,120 @@
 /// $ pulumi import aws:identitystore/user:User example d-9c6705e95c/065212b4-9061-703b-5876-13a517ae2a7c
 /// ```
 pub mod user {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct UserArgs {
         /// Details about the user's address. At most 1 address is allowed. Detailed below.
         #[builder(into, default)]
-        pub addresses: pulumi_wasm_rust::InputOrOutput<
+        pub addresses: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::identitystore::UserAddresses>,
         >,
         /// The name that is typically displayed when the user is referenced.
         #[builder(into)]
-        pub display_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub display_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Details about the user's email. At most 1 email is allowed. Detailed below.
         #[builder(into, default)]
-        pub emails: pulumi_wasm_rust::InputOrOutput<
+        pub emails: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::identitystore::UserEmails>,
         >,
         /// The globally unique identifier for the identity store that this user is in.
         #[builder(into)]
-        pub identity_store_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub identity_store_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The user's geographical region or location.
         #[builder(into, default)]
-        pub locale: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub locale: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Details about the user's full name. Detailed below.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<
+        pub name: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::identitystore::UserName>,
         >,
         /// An alternate name for the user.
         #[builder(into, default)]
-        pub nickname: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub nickname: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Details about the user's phone number. At most 1 phone number is allowed. Detailed below.
         #[builder(into, default)]
-        pub phone_numbers: pulumi_wasm_rust::InputOrOutput<
+        pub phone_numbers: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::identitystore::UserPhoneNumbers>,
         >,
         /// The preferred language of the user.
         #[builder(into, default)]
-        pub preferred_language: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub preferred_language: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// An URL that may be associated with the user.
         #[builder(into, default)]
-        pub profile_url: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub profile_url: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The user's time zone.
         #[builder(into, default)]
-        pub timezone: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub timezone: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The user's title.
         #[builder(into, default)]
-        pub title: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub title: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// A unique string used to identify the user. This value can consist of letters, accented characters, symbols, numbers, and punctuation. This value is specified at the time the user is created and stored as an attribute of the user object in the identity store. The limit is 128 characters.
         ///
         /// The following arguments are optional:
         #[builder(into)]
-        pub user_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub user_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The user type.
         #[builder(into, default)]
-        pub user_type: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub user_type: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct UserResult {
         /// Details about the user's address. At most 1 address is allowed. Detailed below.
-        pub addresses: pulumi_wasm_rust::Output<
+        pub addresses: pulumi_gestalt_rust::Output<
             Option<super::super::types::identitystore::UserAddresses>,
         >,
         /// The name that is typically displayed when the user is referenced.
-        pub display_name: pulumi_wasm_rust::Output<String>,
+        pub display_name: pulumi_gestalt_rust::Output<String>,
         /// Details about the user's email. At most 1 email is allowed. Detailed below.
-        pub emails: pulumi_wasm_rust::Output<
+        pub emails: pulumi_gestalt_rust::Output<
             Option<super::super::types::identitystore::UserEmails>,
         >,
         /// A list of identifiers issued to this resource by an external identity provider.
-        pub external_ids: pulumi_wasm_rust::Output<
+        pub external_ids: pulumi_gestalt_rust::Output<
             Vec<super::super::types::identitystore::UserExternalId>,
         >,
         /// The globally unique identifier for the identity store that this user is in.
-        pub identity_store_id: pulumi_wasm_rust::Output<String>,
+        pub identity_store_id: pulumi_gestalt_rust::Output<String>,
         /// The user's geographical region or location.
-        pub locale: pulumi_wasm_rust::Output<Option<String>>,
+        pub locale: pulumi_gestalt_rust::Output<Option<String>>,
         /// Details about the user's full name. Detailed below.
-        pub name: pulumi_wasm_rust::Output<super::super::types::identitystore::UserName>,
+        pub name: pulumi_gestalt_rust::Output<
+            super::super::types::identitystore::UserName,
+        >,
         /// An alternate name for the user.
-        pub nickname: pulumi_wasm_rust::Output<Option<String>>,
+        pub nickname: pulumi_gestalt_rust::Output<Option<String>>,
         /// Details about the user's phone number. At most 1 phone number is allowed. Detailed below.
-        pub phone_numbers: pulumi_wasm_rust::Output<
+        pub phone_numbers: pulumi_gestalt_rust::Output<
             Option<super::super::types::identitystore::UserPhoneNumbers>,
         >,
         /// The preferred language of the user.
-        pub preferred_language: pulumi_wasm_rust::Output<Option<String>>,
+        pub preferred_language: pulumi_gestalt_rust::Output<Option<String>>,
         /// An URL that may be associated with the user.
-        pub profile_url: pulumi_wasm_rust::Output<Option<String>>,
+        pub profile_url: pulumi_gestalt_rust::Output<Option<String>>,
         /// The user's time zone.
-        pub timezone: pulumi_wasm_rust::Output<Option<String>>,
+        pub timezone: pulumi_gestalt_rust::Output<Option<String>>,
         /// The user's title.
-        pub title: pulumi_wasm_rust::Output<Option<String>>,
+        pub title: pulumi_gestalt_rust::Output<Option<String>>,
         /// The identifier for this user in the identity store.
-        pub user_id: pulumi_wasm_rust::Output<String>,
+        pub user_id: pulumi_gestalt_rust::Output<String>,
         /// A unique string used to identify the user. This value can consist of letters, accented characters, symbols, numbers, and punctuation. This value is specified at the time the user is created and stored as an attribute of the user object in the identity store. The limit is 128 characters.
         ///
         /// The following arguments are optional:
-        pub user_name: pulumi_wasm_rust::Output<String>,
+        pub user_name: pulumi_gestalt_rust::Output<String>,
         /// The user type.
-        pub user_type: pulumi_wasm_rust::Output<Option<String>>,
+        pub user_type: pulumi_gestalt_rust::Output<Option<String>>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: UserArgs,
     ) -> UserResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let addresses_binding = args.addresses.get_output(context).get_inner();
         let display_name_binding = args.display_name.get_output(context).get_inner();
@@ -233,42 +235,48 @@ pub mod user {
         };
         let o = register_interface::register(context.get_inner(), &request);
         UserResult {
-            addresses: pulumi_wasm_rust::__private::into_domain(
+            addresses: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("addresses"),
             ),
-            display_name: pulumi_wasm_rust::__private::into_domain(
+            display_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("displayName"),
             ),
-            emails: pulumi_wasm_rust::__private::into_domain(o.extract_field("emails")),
-            external_ids: pulumi_wasm_rust::__private::into_domain(
+            emails: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("emails"),
+            ),
+            external_ids: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("externalIds"),
             ),
-            identity_store_id: pulumi_wasm_rust::__private::into_domain(
+            identity_store_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("identityStoreId"),
             ),
-            locale: pulumi_wasm_rust::__private::into_domain(o.extract_field("locale")),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            nickname: pulumi_wasm_rust::__private::into_domain(
+            locale: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("locale"),
+            ),
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            nickname: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("nickname"),
             ),
-            phone_numbers: pulumi_wasm_rust::__private::into_domain(
+            phone_numbers: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("phoneNumbers"),
             ),
-            preferred_language: pulumi_wasm_rust::__private::into_domain(
+            preferred_language: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("preferredLanguage"),
             ),
-            profile_url: pulumi_wasm_rust::__private::into_domain(
+            profile_url: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("profileUrl"),
             ),
-            timezone: pulumi_wasm_rust::__private::into_domain(
+            timezone: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("timezone"),
             ),
-            title: pulumi_wasm_rust::__private::into_domain(o.extract_field("title")),
-            user_id: pulumi_wasm_rust::__private::into_domain(o.extract_field("userId")),
-            user_name: pulumi_wasm_rust::__private::into_domain(
+            title: pulumi_gestalt_rust::__private::into_domain(o.extract_field("title")),
+            user_id: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("userId"),
+            ),
+            user_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("userName"),
             ),
-            user_type: pulumi_wasm_rust::__private::into_domain(
+            user_type: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("userType"),
             ),
         }

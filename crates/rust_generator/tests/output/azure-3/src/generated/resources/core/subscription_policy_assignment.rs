@@ -46,38 +46,38 @@
 /// ```
 ///
 pub mod subscription_policy_assignment {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct SubscriptionPolicyAssignmentArgs {
         /// A description which should be used for this Policy Assignment.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub description: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The Display Name for this Policy Assignment.
         #[builder(into, default)]
-        pub display_name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub display_name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Specifies if this Policy should be enforced or not? Defaults to `true`.
         #[builder(into, default)]
-        pub enforce: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub enforce: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// An `identity` block as defined below.
         ///
         /// > **Note:** The `location` field must also be specified when `identity` is specified.
         #[builder(into, default)]
-        pub identity: pulumi_wasm_rust::InputOrOutput<
+        pub identity: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::core::SubscriptionPolicyAssignmentIdentity>,
         >,
         /// The Azure Region where the Policy Assignment should exist. Changing this forces a new Policy Assignment to be created.
         #[builder(into, default)]
-        pub location: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub location: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// A JSON mapping of any Metadata for this Policy.
         #[builder(into, default)]
-        pub metadata: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub metadata: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The name which should be used for this Policy Assignment. Changing this forces a new Policy Assignment to be created. Cannot exceed 64 characters in length.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// One or more `non_compliance_message` blocks as defined below.
         #[builder(into, default)]
-        pub non_compliance_messages: pulumi_wasm_rust::InputOrOutput<
+        pub non_compliance_messages: pulumi_gestalt_rust::InputOrOutput<
             Option<
                 Vec<
                     super::super::types::core::SubscriptionPolicyAssignmentNonComplianceMessage,
@@ -86,21 +86,21 @@ pub mod subscription_policy_assignment {
         >,
         /// Specifies a list of Resource Scopes (for example a Subscription, or a Resource Group) within this Management Group which are excluded from this Policy.
         #[builder(into, default)]
-        pub not_scopes: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
+        pub not_scopes: pulumi_gestalt_rust::InputOrOutput<Option<Vec<String>>>,
         /// One or more `overrides` blocks as defined below. More detail about `overrides` and `resource_selectors` see [policy assignment structure](https://learn.microsoft.com/en-us/azure/governance/policy/concepts/assignment-structure#resource-selectors-preview)
         #[builder(into, default)]
-        pub overrides: pulumi_wasm_rust::InputOrOutput<
+        pub overrides: pulumi_gestalt_rust::InputOrOutput<
             Option<Vec<super::super::types::core::SubscriptionPolicyAssignmentOverride>>,
         >,
         /// A JSON mapping of any Parameters for this Policy.
         #[builder(into, default)]
-        pub parameters: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub parameters: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The ID of the Policy Definition or Policy Definition Set. Changing this forces a new Policy Assignment to be created.
         #[builder(into)]
-        pub policy_definition_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub policy_definition_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// One or more `resource_selectors` blocks as defined below to filter polices by resource properties.
         #[builder(into, default)]
-        pub resource_selectors: pulumi_wasm_rust::InputOrOutput<
+        pub resource_selectors: pulumi_gestalt_rust::InputOrOutput<
             Option<
                 Vec<
                     super::super::types::core::SubscriptionPolicyAssignmentResourceSelector,
@@ -109,30 +109,30 @@ pub mod subscription_policy_assignment {
         >,
         /// The ID of the Subscription where this Policy Assignment should be created. Changing this forces a new Policy Assignment to be created.
         #[builder(into)]
-        pub subscription_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub subscription_id: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct SubscriptionPolicyAssignmentResult {
         /// A description which should be used for this Policy Assignment.
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_gestalt_rust::Output<Option<String>>,
         /// The Display Name for this Policy Assignment.
-        pub display_name: pulumi_wasm_rust::Output<Option<String>>,
+        pub display_name: pulumi_gestalt_rust::Output<Option<String>>,
         /// Specifies if this Policy should be enforced or not? Defaults to `true`.
-        pub enforce: pulumi_wasm_rust::Output<Option<bool>>,
+        pub enforce: pulumi_gestalt_rust::Output<Option<bool>>,
         /// An `identity` block as defined below.
         ///
         /// > **Note:** The `location` field must also be specified when `identity` is specified.
-        pub identity: pulumi_wasm_rust::Output<
+        pub identity: pulumi_gestalt_rust::Output<
             Option<super::super::types::core::SubscriptionPolicyAssignmentIdentity>,
         >,
         /// The Azure Region where the Policy Assignment should exist. Changing this forces a new Policy Assignment to be created.
-        pub location: pulumi_wasm_rust::Output<String>,
+        pub location: pulumi_gestalt_rust::Output<String>,
         /// A JSON mapping of any Metadata for this Policy.
-        pub metadata: pulumi_wasm_rust::Output<String>,
+        pub metadata: pulumi_gestalt_rust::Output<String>,
         /// The name which should be used for this Policy Assignment. Changing this forces a new Policy Assignment to be created. Cannot exceed 64 characters in length.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// One or more `non_compliance_message` blocks as defined below.
-        pub non_compliance_messages: pulumi_wasm_rust::Output<
+        pub non_compliance_messages: pulumi_gestalt_rust::Output<
             Option<
                 Vec<
                     super::super::types::core::SubscriptionPolicyAssignmentNonComplianceMessage,
@@ -140,17 +140,17 @@ pub mod subscription_policy_assignment {
             >,
         >,
         /// Specifies a list of Resource Scopes (for example a Subscription, or a Resource Group) within this Management Group which are excluded from this Policy.
-        pub not_scopes: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub not_scopes: pulumi_gestalt_rust::Output<Option<Vec<String>>>,
         /// One or more `overrides` blocks as defined below. More detail about `overrides` and `resource_selectors` see [policy assignment structure](https://learn.microsoft.com/en-us/azure/governance/policy/concepts/assignment-structure#resource-selectors-preview)
-        pub overrides: pulumi_wasm_rust::Output<
+        pub overrides: pulumi_gestalt_rust::Output<
             Option<Vec<super::super::types::core::SubscriptionPolicyAssignmentOverride>>,
         >,
         /// A JSON mapping of any Parameters for this Policy.
-        pub parameters: pulumi_wasm_rust::Output<Option<String>>,
+        pub parameters: pulumi_gestalt_rust::Output<Option<String>>,
         /// The ID of the Policy Definition or Policy Definition Set. Changing this forces a new Policy Assignment to be created.
-        pub policy_definition_id: pulumi_wasm_rust::Output<String>,
+        pub policy_definition_id: pulumi_gestalt_rust::Output<String>,
         /// One or more `resource_selectors` blocks as defined below to filter polices by resource properties.
-        pub resource_selectors: pulumi_wasm_rust::Output<
+        pub resource_selectors: pulumi_gestalt_rust::Output<
             Option<
                 Vec<
                     super::super::types::core::SubscriptionPolicyAssignmentResourceSelector,
@@ -158,18 +158,18 @@ pub mod subscription_policy_assignment {
             >,
         >,
         /// The ID of the Subscription where this Policy Assignment should be created. Changing this forces a new Policy Assignment to be created.
-        pub subscription_id: pulumi_wasm_rust::Output<String>,
+        pub subscription_id: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: SubscriptionPolicyAssignmentArgs,
     ) -> SubscriptionPolicyAssignmentResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let description_binding = args.description.get_output(context).get_inner();
         let display_name_binding = args.display_name.get_output(context).get_inner();
@@ -263,44 +263,44 @@ pub mod subscription_policy_assignment {
         };
         let o = register_interface::register(context.get_inner(), &request);
         SubscriptionPolicyAssignmentResult {
-            description: pulumi_wasm_rust::__private::into_domain(
+            description: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("description"),
             ),
-            display_name: pulumi_wasm_rust::__private::into_domain(
+            display_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("displayName"),
             ),
-            enforce: pulumi_wasm_rust::__private::into_domain(
+            enforce: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("enforce"),
             ),
-            identity: pulumi_wasm_rust::__private::into_domain(
+            identity: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("identity"),
             ),
-            location: pulumi_wasm_rust::__private::into_domain(
+            location: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("location"),
             ),
-            metadata: pulumi_wasm_rust::__private::into_domain(
+            metadata: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("metadata"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            non_compliance_messages: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            non_compliance_messages: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("nonComplianceMessages"),
             ),
-            not_scopes: pulumi_wasm_rust::__private::into_domain(
+            not_scopes: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("notScopes"),
             ),
-            overrides: pulumi_wasm_rust::__private::into_domain(
+            overrides: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("overrides"),
             ),
-            parameters: pulumi_wasm_rust::__private::into_domain(
+            parameters: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("parameters"),
             ),
-            policy_definition_id: pulumi_wasm_rust::__private::into_domain(
+            policy_definition_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("policyDefinitionId"),
             ),
-            resource_selectors: pulumi_wasm_rust::__private::into_domain(
+            resource_selectors: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("resourceSelectors"),
             ),
-            subscription_id: pulumi_wasm_rust::__private::into_domain(
+            subscription_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("subscriptionId"),
             ),
         }

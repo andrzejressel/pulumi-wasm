@@ -117,101 +117,103 @@
 /// ```
 ///
 pub mod virtual_network_peering {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct VirtualNetworkPeeringArgs {
         /// Controls if forwarded traffic from VMs in the remote virtual network is allowed. Defaults to `false`.
         #[builder(into, default)]
-        pub allow_forwarded_traffic: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub allow_forwarded_traffic: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// Controls gatewayLinks can be used in the remote virtual network’s link to the local virtual network. Defaults to `false`.
         #[builder(into, default)]
-        pub allow_gateway_transit: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub allow_gateway_transit: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// Controls if the traffic from the local virtual network can reach the remote virtual network. Defaults to `true`.
         #[builder(into, default)]
-        pub allow_virtual_network_access: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub allow_virtual_network_access: pulumi_gestalt_rust::InputOrOutput<
+            Option<bool>,
+        >,
         /// A list of local Subnet names that are Subnet peered with remote Virtual Network.
         #[builder(into, default)]
-        pub local_subnet_names: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
+        pub local_subnet_names: pulumi_gestalt_rust::InputOrOutput<Option<Vec<String>>>,
         /// The name of the virtual network peering. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Specifies whether only IPv6 address space is peered for Subnet peering. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub only_ipv6_peering_enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub only_ipv6_peering_enabled: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// Specifies whether complete Virtual Network address space is peered. Defaults to `true`. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub peer_complete_virtual_networks_enabled: pulumi_wasm_rust::InputOrOutput<
+        pub peer_complete_virtual_networks_enabled: pulumi_gestalt_rust::InputOrOutput<
             Option<bool>,
         >,
         /// A list of remote Subnet names from remote Virtual Network that are Subnet peered.
         #[builder(into, default)]
-        pub remote_subnet_names: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
+        pub remote_subnet_names: pulumi_gestalt_rust::InputOrOutput<Option<Vec<String>>>,
         /// The full Azure resource ID of the remote virtual network. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub remote_virtual_network_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub remote_virtual_network_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The name of the resource group in which to create the virtual network peering. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub resource_group_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub resource_group_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// A mapping of key values pairs that can be used to sync network routes from the remote virtual network to the local virtual network. See the trigger example for an example on how to set it up.
         #[builder(into, default)]
-        pub triggers: pulumi_wasm_rust::InputOrOutput<
+        pub triggers: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Controls if remote gateways can be used on the local virtual network. If the flag is set to `true`, and `allow_gateway_transit` on the remote peering is also `true`, virtual network will use gateways of remote virtual network for transit. Only one peering can have this flag set to `true`. This flag cannot be set if virtual network already has a gateway. Defaults to `false`.
         ///
         /// > **NOTE:** `use_remote_gateways` must be set to `false` if using Global Virtual Network Peerings.
         #[builder(into, default)]
-        pub use_remote_gateways: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub use_remote_gateways: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// The name of the virtual network. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub virtual_network_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub virtual_network_name: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct VirtualNetworkPeeringResult {
         /// Controls if forwarded traffic from VMs in the remote virtual network is allowed. Defaults to `false`.
-        pub allow_forwarded_traffic: pulumi_wasm_rust::Output<Option<bool>>,
+        pub allow_forwarded_traffic: pulumi_gestalt_rust::Output<Option<bool>>,
         /// Controls gatewayLinks can be used in the remote virtual network’s link to the local virtual network. Defaults to `false`.
-        pub allow_gateway_transit: pulumi_wasm_rust::Output<Option<bool>>,
+        pub allow_gateway_transit: pulumi_gestalt_rust::Output<Option<bool>>,
         /// Controls if the traffic from the local virtual network can reach the remote virtual network. Defaults to `true`.
-        pub allow_virtual_network_access: pulumi_wasm_rust::Output<Option<bool>>,
+        pub allow_virtual_network_access: pulumi_gestalt_rust::Output<Option<bool>>,
         /// A list of local Subnet names that are Subnet peered with remote Virtual Network.
-        pub local_subnet_names: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub local_subnet_names: pulumi_gestalt_rust::Output<Option<Vec<String>>>,
         /// The name of the virtual network peering. Changing this forces a new resource to be created.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// Specifies whether only IPv6 address space is peered for Subnet peering. Changing this forces a new resource to be created.
-        pub only_ipv6_peering_enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub only_ipv6_peering_enabled: pulumi_gestalt_rust::Output<Option<bool>>,
         /// Specifies whether complete Virtual Network address space is peered. Defaults to `true`. Changing this forces a new resource to be created.
-        pub peer_complete_virtual_networks_enabled: pulumi_wasm_rust::Output<
+        pub peer_complete_virtual_networks_enabled: pulumi_gestalt_rust::Output<
             Option<bool>,
         >,
         /// A list of remote Subnet names from remote Virtual Network that are Subnet peered.
-        pub remote_subnet_names: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub remote_subnet_names: pulumi_gestalt_rust::Output<Option<Vec<String>>>,
         /// The full Azure resource ID of the remote virtual network. Changing this forces a new resource to be created.
-        pub remote_virtual_network_id: pulumi_wasm_rust::Output<String>,
+        pub remote_virtual_network_id: pulumi_gestalt_rust::Output<String>,
         /// The name of the resource group in which to create the virtual network peering. Changing this forces a new resource to be created.
-        pub resource_group_name: pulumi_wasm_rust::Output<String>,
+        pub resource_group_name: pulumi_gestalt_rust::Output<String>,
         /// A mapping of key values pairs that can be used to sync network routes from the remote virtual network to the local virtual network. See the trigger example for an example on how to set it up.
-        pub triggers: pulumi_wasm_rust::Output<
+        pub triggers: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Controls if remote gateways can be used on the local virtual network. If the flag is set to `true`, and `allow_gateway_transit` on the remote peering is also `true`, virtual network will use gateways of remote virtual network for transit. Only one peering can have this flag set to `true`. This flag cannot be set if virtual network already has a gateway. Defaults to `false`.
         ///
         /// > **NOTE:** `use_remote_gateways` must be set to `false` if using Global Virtual Network Peerings.
-        pub use_remote_gateways: pulumi_wasm_rust::Output<Option<bool>>,
+        pub use_remote_gateways: pulumi_gestalt_rust::Output<Option<bool>>,
         /// The name of the virtual network. Changing this forces a new resource to be created.
-        pub virtual_network_name: pulumi_wasm_rust::Output<String>,
+        pub virtual_network_name: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: VirtualNetworkPeeringArgs,
     ) -> VirtualNetworkPeeringResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let allow_forwarded_traffic_binding = args
             .allow_forwarded_traffic
@@ -320,41 +322,41 @@ pub mod virtual_network_peering {
         };
         let o = register_interface::register(context.get_inner(), &request);
         VirtualNetworkPeeringResult {
-            allow_forwarded_traffic: pulumi_wasm_rust::__private::into_domain(
+            allow_forwarded_traffic: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("allowForwardedTraffic"),
             ),
-            allow_gateway_transit: pulumi_wasm_rust::__private::into_domain(
+            allow_gateway_transit: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("allowGatewayTransit"),
             ),
-            allow_virtual_network_access: pulumi_wasm_rust::__private::into_domain(
+            allow_virtual_network_access: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("allowVirtualNetworkAccess"),
             ),
-            local_subnet_names: pulumi_wasm_rust::__private::into_domain(
+            local_subnet_names: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("localSubnetNames"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            only_ipv6_peering_enabled: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            only_ipv6_peering_enabled: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("onlyIpv6PeeringEnabled"),
             ),
-            peer_complete_virtual_networks_enabled: pulumi_wasm_rust::__private::into_domain(
+            peer_complete_virtual_networks_enabled: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("peerCompleteVirtualNetworksEnabled"),
             ),
-            remote_subnet_names: pulumi_wasm_rust::__private::into_domain(
+            remote_subnet_names: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("remoteSubnetNames"),
             ),
-            remote_virtual_network_id: pulumi_wasm_rust::__private::into_domain(
+            remote_virtual_network_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("remoteVirtualNetworkId"),
             ),
-            resource_group_name: pulumi_wasm_rust::__private::into_domain(
+            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("resourceGroupName"),
             ),
-            triggers: pulumi_wasm_rust::__private::into_domain(
+            triggers: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("triggers"),
             ),
-            use_remote_gateways: pulumi_wasm_rust::__private::into_domain(
+            use_remote_gateways: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("useRemoteGateways"),
             ),
-            virtual_network_name: pulumi_wasm_rust::__private::into_domain(
+            virtual_network_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("virtualNetworkName"),
             ),
         }

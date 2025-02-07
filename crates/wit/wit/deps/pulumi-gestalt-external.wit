@@ -1,4 +1,4 @@
-package component:pulumi-wasm-external@0.0.0-STABLE-DEV;
+package component:pulumi-gestalt-external@0.0.0-STABLE-DEV;
 
 interface external-world {
     register-resource-outputs: func(request: list<u8>);

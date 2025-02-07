@@ -25,79 +25,79 @@
 /// ```
 ///
 pub mod repository_group {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct RepositoryGroupArgs {
         /// Required. Id of the Code Repository Index.
         #[builder(into)]
-        pub code_repository_index: pulumi_wasm_rust::InputOrOutput<String>,
+        pub code_repository_index: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Optional. Labels as key value pairs **Note**: This field is non-authoritative, and will only manage the labels present
         /// in your configuration. Please refer to the field 'effective_labels' for all of the labels present on the resource.
         #[builder(into, default)]
-        pub labels: pulumi_wasm_rust::InputOrOutput<
+        pub labels: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// The location of the Code Repository Index, for example `us-central1`.
         #[builder(into)]
-        pub location: pulumi_wasm_rust::InputOrOutput<String>,
+        pub location: pulumi_gestalt_rust::InputOrOutput<String>,
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub project: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Required. List of repositories to group
         /// Structure is documented below.
         #[builder(into)]
-        pub repositories: pulumi_wasm_rust::InputOrOutput<
+        pub repositories: pulumi_gestalt_rust::InputOrOutput<
             Vec<super::super::types::gemini::RepositoryGroupRepository>,
         >,
         /// Required. Id of the Repository Group.
         #[builder(into)]
-        pub repository_group_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub repository_group_id: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct RepositoryGroupResult {
         /// Required. Id of the Code Repository Index.
-        pub code_repository_index: pulumi_wasm_rust::Output<String>,
+        pub code_repository_index: pulumi_gestalt_rust::Output<String>,
         /// Output only. Create time stamp
-        pub create_time: pulumi_wasm_rust::Output<String>,
+        pub create_time: pulumi_gestalt_rust::Output<String>,
         /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Pulumi, other clients and services.
-        pub effective_labels: pulumi_wasm_rust::Output<
+        pub effective_labels: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
         /// Optional. Labels as key value pairs **Note**: This field is non-authoritative, and will only manage the labels present
         /// in your configuration. Please refer to the field 'effective_labels' for all of the labels present on the resource.
-        pub labels: pulumi_wasm_rust::Output<
+        pub labels: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// The location of the Code Repository Index, for example `us-central1`.
-        pub location: pulumi_wasm_rust::Output<String>,
+        pub location: pulumi_gestalt_rust::Output<String>,
         /// Immutable. Identifier. name of resource
-        pub name: pulumi_wasm_rust::Output<String>,
-        pub project: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
+        pub project: pulumi_gestalt_rust::Output<String>,
         /// The combination of labels configured directly on the resource
         /// and default labels configured on the provider.
-        pub pulumi_labels: pulumi_wasm_rust::Output<
+        pub pulumi_labels: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
         /// Required. List of repositories to group
         /// Structure is documented below.
-        pub repositories: pulumi_wasm_rust::Output<
+        pub repositories: pulumi_gestalt_rust::Output<
             Vec<super::super::types::gemini::RepositoryGroupRepository>,
         >,
         /// Required. Id of the Repository Group.
-        pub repository_group_id: pulumi_wasm_rust::Output<String>,
+        pub repository_group_id: pulumi_gestalt_rust::Output<String>,
         /// Output only. Update time stamp
-        pub update_time: pulumi_wasm_rust::Output<String>,
+        pub update_time: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: RepositoryGroupArgs,
     ) -> RepositoryGroupResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let code_repository_index_binding = args
             .code_repository_index
@@ -144,33 +144,35 @@ pub mod repository_group {
         };
         let o = register_interface::register(context.get_inner(), &request);
         RepositoryGroupResult {
-            code_repository_index: pulumi_wasm_rust::__private::into_domain(
+            code_repository_index: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("codeRepositoryIndex"),
             ),
-            create_time: pulumi_wasm_rust::__private::into_domain(
+            create_time: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("createTime"),
             ),
-            effective_labels: pulumi_wasm_rust::__private::into_domain(
+            effective_labels: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("effectiveLabels"),
             ),
-            labels: pulumi_wasm_rust::__private::into_domain(o.extract_field("labels")),
-            location: pulumi_wasm_rust::__private::into_domain(
+            labels: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("labels"),
+            ),
+            location: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("location"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            project: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            project: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("project"),
             ),
-            pulumi_labels: pulumi_wasm_rust::__private::into_domain(
+            pulumi_labels: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("pulumiLabels"),
             ),
-            repositories: pulumi_wasm_rust::__private::into_domain(
+            repositories: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("repositories"),
             ),
-            repository_group_id: pulumi_wasm_rust::__private::into_domain(
+            repository_group_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("repositoryGroupId"),
             ),
-            update_time: pulumi_wasm_rust::__private::into_domain(
+            update_time: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("updateTime"),
             ),
         }

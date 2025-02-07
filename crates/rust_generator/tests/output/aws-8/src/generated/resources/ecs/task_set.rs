@@ -5,8 +5,8 @@
 /// ## Example Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = task_set::create(
@@ -32,8 +32,8 @@
 /// You can utilize the generic resource lifecycle configuration block with `ignore_changes` to create an ECS service with an initial count of running instances, then ignore any changes to that count caused externally (e.g. Application Autoscaling).
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = task_set::create(
@@ -53,137 +53,139 @@
 /// $ pulumi import aws:ecs/taskSet:TaskSet example ecs-svc/7177320696926227436,arn:aws:ecs:us-west-2:123456789101:service/example/example-1234567890,arn:aws:ecs:us-west-2:123456789101:cluster/example
 /// ```
 pub mod task_set {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct TaskSetArgs {
         /// The capacity provider strategy to use for the service. Can be one or more.  Defined below.
         #[builder(into, default)]
-        pub capacity_provider_strategies: pulumi_wasm_rust::InputOrOutput<
+        pub capacity_provider_strategies: pulumi_gestalt_rust::InputOrOutput<
             Option<Vec<super::super::types::ecs::TaskSetCapacityProviderStrategy>>,
         >,
         /// The short name or ARN of the cluster that hosts the service to create the task set in.
         #[builder(into)]
-        pub cluster: pulumi_wasm_rust::InputOrOutput<String>,
+        pub cluster: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The external ID associated with the task set.
         #[builder(into, default)]
-        pub external_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub external_id: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Whether to allow deleting the task set without waiting for scaling down to 0. You can force a task set to delete even if it's in the process of scaling a resource. Normally, the provider drains all the tasks before deleting the task set. This bypasses that behavior and potentially leaves resources dangling.
         #[builder(into, default)]
-        pub force_delete: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub force_delete: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// The launch type on which to run your service. The valid values are `EC2`, `FARGATE`, and `EXTERNAL`. Defaults to `EC2`.
         #[builder(into, default)]
-        pub launch_type: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub launch_type: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Details on load balancers that are used with a task set. Detailed below.
         #[builder(into, default)]
-        pub load_balancers: pulumi_wasm_rust::InputOrOutput<
+        pub load_balancers: pulumi_gestalt_rust::InputOrOutput<
             Option<Vec<super::super::types::ecs::TaskSetLoadBalancer>>,
         >,
         /// The network configuration for the service. This parameter is required for task definitions that use the `awsvpc` network mode to receive their own Elastic Network Interface, and it is not supported for other network modes. Detailed below.
         #[builder(into, default)]
-        pub network_configuration: pulumi_wasm_rust::InputOrOutput<
+        pub network_configuration: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::ecs::TaskSetNetworkConfiguration>,
         >,
         /// The platform version on which to run your service. Only applicable for `launch_type` set to `FARGATE`. Defaults to `LATEST`. More information about Fargate platform versions can be found in the [AWS ECS User Guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html).
         #[builder(into, default)]
-        pub platform_version: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub platform_version: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// A floating-point percentage of the desired number of tasks to place and keep running in the task set. Detailed below.
         #[builder(into, default)]
-        pub scale: pulumi_wasm_rust::InputOrOutput<
+        pub scale: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::ecs::TaskSetScale>,
         >,
         /// The short name or ARN of the ECS service.
         #[builder(into)]
-        pub service: pulumi_wasm_rust::InputOrOutput<String>,
+        pub service: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The service discovery registries for the service. The maximum number of `service_registries` blocks is `1`. Detailed below.
         #[builder(into, default)]
-        pub service_registries: pulumi_wasm_rust::InputOrOutput<
+        pub service_registries: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::ecs::TaskSetServiceRegistries>,
         >,
         /// A map of tags to assign to the file system. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level. If you have set `copy_tags_to_backups` to true, and you specify one or more tags, no existing file system tags are copied from the file system to the backup.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// The family and revision (`family:revision`) or full ARN of the task definition that you want to run in your service.
         ///
         /// The following arguments are optional:
         #[builder(into)]
-        pub task_definition: pulumi_wasm_rust::InputOrOutput<String>,
+        pub task_definition: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Whether the provider should wait until the task set has reached `STEADY_STATE`.
         #[builder(into, default)]
-        pub wait_until_stable: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub wait_until_stable: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// Wait timeout for task set to reach `STEADY_STATE`. Valid time units include `ns`, `us` (or `µs`), `ms`, `s`, `m`, and `h`. Default `10m`.
         #[builder(into, default)]
-        pub wait_until_stable_timeout: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub wait_until_stable_timeout: pulumi_gestalt_rust::InputOrOutput<
+            Option<String>,
+        >,
     }
     #[allow(dead_code)]
     pub struct TaskSetResult {
         /// The Amazon Resource Name (ARN) that identifies the task set.
-        pub arn: pulumi_wasm_rust::Output<String>,
+        pub arn: pulumi_gestalt_rust::Output<String>,
         /// The capacity provider strategy to use for the service. Can be one or more.  Defined below.
-        pub capacity_provider_strategies: pulumi_wasm_rust::Output<
+        pub capacity_provider_strategies: pulumi_gestalt_rust::Output<
             Option<Vec<super::super::types::ecs::TaskSetCapacityProviderStrategy>>,
         >,
         /// The short name or ARN of the cluster that hosts the service to create the task set in.
-        pub cluster: pulumi_wasm_rust::Output<String>,
+        pub cluster: pulumi_gestalt_rust::Output<String>,
         /// The external ID associated with the task set.
-        pub external_id: pulumi_wasm_rust::Output<String>,
+        pub external_id: pulumi_gestalt_rust::Output<String>,
         /// Whether to allow deleting the task set without waiting for scaling down to 0. You can force a task set to delete even if it's in the process of scaling a resource. Normally, the provider drains all the tasks before deleting the task set. This bypasses that behavior and potentially leaves resources dangling.
-        pub force_delete: pulumi_wasm_rust::Output<Option<bool>>,
+        pub force_delete: pulumi_gestalt_rust::Output<Option<bool>>,
         /// The launch type on which to run your service. The valid values are `EC2`, `FARGATE`, and `EXTERNAL`. Defaults to `EC2`.
-        pub launch_type: pulumi_wasm_rust::Output<String>,
+        pub launch_type: pulumi_gestalt_rust::Output<String>,
         /// Details on load balancers that are used with a task set. Detailed below.
-        pub load_balancers: pulumi_wasm_rust::Output<
+        pub load_balancers: pulumi_gestalt_rust::Output<
             Option<Vec<super::super::types::ecs::TaskSetLoadBalancer>>,
         >,
         /// The network configuration for the service. This parameter is required for task definitions that use the `awsvpc` network mode to receive their own Elastic Network Interface, and it is not supported for other network modes. Detailed below.
-        pub network_configuration: pulumi_wasm_rust::Output<
+        pub network_configuration: pulumi_gestalt_rust::Output<
             Option<super::super::types::ecs::TaskSetNetworkConfiguration>,
         >,
         /// The platform version on which to run your service. Only applicable for `launch_type` set to `FARGATE`. Defaults to `LATEST`. More information about Fargate platform versions can be found in the [AWS ECS User Guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html).
-        pub platform_version: pulumi_wasm_rust::Output<String>,
+        pub platform_version: pulumi_gestalt_rust::Output<String>,
         /// A floating-point percentage of the desired number of tasks to place and keep running in the task set. Detailed below.
-        pub scale: pulumi_wasm_rust::Output<super::super::types::ecs::TaskSetScale>,
+        pub scale: pulumi_gestalt_rust::Output<super::super::types::ecs::TaskSetScale>,
         /// The short name or ARN of the ECS service.
-        pub service: pulumi_wasm_rust::Output<String>,
+        pub service: pulumi_gestalt_rust::Output<String>,
         /// The service discovery registries for the service. The maximum number of `service_registries` blocks is `1`. Detailed below.
-        pub service_registries: pulumi_wasm_rust::Output<
+        pub service_registries: pulumi_gestalt_rust::Output<
             Option<super::super::types::ecs::TaskSetServiceRegistries>,
         >,
         /// The stability status. This indicates whether the task set has reached a steady state.
-        pub stability_status: pulumi_wasm_rust::Output<String>,
+        pub stability_status: pulumi_gestalt_rust::Output<String>,
         /// The status of the task set.
-        pub status: pulumi_wasm_rust::Output<String>,
+        pub status: pulumi_gestalt_rust::Output<String>,
         /// A map of tags to assign to the file system. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level. If you have set `copy_tags_to_backups` to true, and you specify one or more tags, no existing file system tags are copied from the file system to the backup.
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        pub tags_all: pulumi_wasm_rust::Output<
+        pub tags_all: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
         /// The family and revision (`family:revision`) or full ARN of the task definition that you want to run in your service.
         ///
         /// The following arguments are optional:
-        pub task_definition: pulumi_wasm_rust::Output<String>,
+        pub task_definition: pulumi_gestalt_rust::Output<String>,
         /// The ID of the task set.
-        pub task_set_id: pulumi_wasm_rust::Output<String>,
+        pub task_set_id: pulumi_gestalt_rust::Output<String>,
         /// Whether the provider should wait until the task set has reached `STEADY_STATE`.
-        pub wait_until_stable: pulumi_wasm_rust::Output<Option<bool>>,
+        pub wait_until_stable: pulumi_gestalt_rust::Output<Option<bool>>,
         /// Wait timeout for task set to reach `STEADY_STATE`. Valid time units include `ns`, `us` (or `µs`), `ms`, `s`, `m`, and `h`. Default `10m`.
-        pub wait_until_stable_timeout: pulumi_wasm_rust::Output<Option<String>>,
+        pub wait_until_stable_timeout: pulumi_gestalt_rust::Output<Option<String>>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: TaskSetArgs,
     ) -> TaskSetResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let capacity_provider_strategies_binding = args
             .capacity_provider_strategies
@@ -290,56 +292,58 @@ pub mod task_set {
         };
         let o = register_interface::register(context.get_inner(), &request);
         TaskSetResult {
-            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
-            capacity_provider_strategies: pulumi_wasm_rust::__private::into_domain(
+            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
+            capacity_provider_strategies: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("capacityProviderStrategies"),
             ),
-            cluster: pulumi_wasm_rust::__private::into_domain(
+            cluster: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("cluster"),
             ),
-            external_id: pulumi_wasm_rust::__private::into_domain(
+            external_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("externalId"),
             ),
-            force_delete: pulumi_wasm_rust::__private::into_domain(
+            force_delete: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("forceDelete"),
             ),
-            launch_type: pulumi_wasm_rust::__private::into_domain(
+            launch_type: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("launchType"),
             ),
-            load_balancers: pulumi_wasm_rust::__private::into_domain(
+            load_balancers: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("loadBalancers"),
             ),
-            network_configuration: pulumi_wasm_rust::__private::into_domain(
+            network_configuration: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("networkConfiguration"),
             ),
-            platform_version: pulumi_wasm_rust::__private::into_domain(
+            platform_version: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("platformVersion"),
             ),
-            scale: pulumi_wasm_rust::__private::into_domain(o.extract_field("scale")),
-            service: pulumi_wasm_rust::__private::into_domain(
+            scale: pulumi_gestalt_rust::__private::into_domain(o.extract_field("scale")),
+            service: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("service"),
             ),
-            service_registries: pulumi_wasm_rust::__private::into_domain(
+            service_registries: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("serviceRegistries"),
             ),
-            stability_status: pulumi_wasm_rust::__private::into_domain(
+            stability_status: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("stabilityStatus"),
             ),
-            status: pulumi_wasm_rust::__private::into_domain(o.extract_field("status")),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_wasm_rust::__private::into_domain(
+            status: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("status"),
+            ),
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            tags_all: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("tagsAll"),
             ),
-            task_definition: pulumi_wasm_rust::__private::into_domain(
+            task_definition: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("taskDefinition"),
             ),
-            task_set_id: pulumi_wasm_rust::__private::into_domain(
+            task_set_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("taskSetId"),
             ),
-            wait_until_stable: pulumi_wasm_rust::__private::into_domain(
+            wait_until_stable: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("waitUntilStable"),
             ),
-            wait_until_stable_timeout: pulumi_wasm_rust::__private::into_domain(
+            wait_until_stable_timeout: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("waitUntilStableTimeout"),
             ),
         }

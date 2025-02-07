@@ -79,52 +79,52 @@
 /// ```
 ///
 pub mod managed_private_endpoint {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ManagedPrivateEndpointArgs {
         /// Specifies the name which should be used for this Managed Private Endpoint. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Specifies the sub resource name which the Synapse Private Endpoint is able to connect to. Changing this forces a new resource to be created.
         ///
         /// > **NOTE:** Possible values are listed in [documentation](https://docs.microsoft.com/azure/private-link/private-endpoint-overview#dns-configuration).
         #[builder(into)]
-        pub subresource_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub subresource_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The ID of the Synapse Workspace on which to create the Managed Private Endpoint. Changing this forces a new resource to be created.
         ///
         /// > **NOTE:** A Synapse firewall rule including local IP is needed for managing current resource.
         #[builder(into)]
-        pub synapse_workspace_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub synapse_workspace_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The ID of the Private Link Enabled Remote Resource which this Synapse Private Endpoint should be connected to. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub target_resource_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub target_resource_id: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct ManagedPrivateEndpointResult {
         /// Specifies the name which should be used for this Managed Private Endpoint. Changing this forces a new resource to be created.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// Specifies the sub resource name which the Synapse Private Endpoint is able to connect to. Changing this forces a new resource to be created.
         ///
         /// > **NOTE:** Possible values are listed in [documentation](https://docs.microsoft.com/azure/private-link/private-endpoint-overview#dns-configuration).
-        pub subresource_name: pulumi_wasm_rust::Output<String>,
+        pub subresource_name: pulumi_gestalt_rust::Output<String>,
         /// The ID of the Synapse Workspace on which to create the Managed Private Endpoint. Changing this forces a new resource to be created.
         ///
         /// > **NOTE:** A Synapse firewall rule including local IP is needed for managing current resource.
-        pub synapse_workspace_id: pulumi_wasm_rust::Output<String>,
+        pub synapse_workspace_id: pulumi_gestalt_rust::Output<String>,
         /// The ID of the Private Link Enabled Remote Resource which this Synapse Private Endpoint should be connected to. Changing this forces a new resource to be created.
-        pub target_resource_id: pulumi_wasm_rust::Output<String>,
+        pub target_resource_id: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: ManagedPrivateEndpointArgs,
     ) -> ManagedPrivateEndpointResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let name_binding = args.name.get_output(context).get_inner();
         let subresource_name_binding = args
@@ -164,14 +164,14 @@ pub mod managed_private_endpoint {
         };
         let o = register_interface::register(context.get_inner(), &request);
         ManagedPrivateEndpointResult {
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            subresource_name: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            subresource_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("subresourceName"),
             ),
-            synapse_workspace_id: pulumi_wasm_rust::__private::into_domain(
+            synapse_workspace_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("synapseWorkspaceId"),
             ),
-            target_resource_id: pulumi_wasm_rust::__private::into_domain(
+            target_resource_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("targetResourceId"),
             ),
         }

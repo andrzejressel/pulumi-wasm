@@ -1,55 +1,55 @@
 pub mod get_response_plan {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct GetResponsePlanArgs {
         /// The Amazon Resource Name (ARN) of the response plan.
         #[builder(into)]
-        pub arn: pulumi_wasm_rust::InputOrOutput<String>,
+        pub arn: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The tags applied to the response plan.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
     #[allow(dead_code)]
     pub struct GetResponsePlanResult {
         /// (Optional) The actions that the response plan starts at the beginning of an incident.
-        pub actions: pulumi_wasm_rust::Output<
+        pub actions: pulumi_gestalt_rust::Output<
             Vec<super::super::super::types::ssmincidents::GetResponsePlanAction>,
         >,
-        pub arn: pulumi_wasm_rust::Output<String>,
+        pub arn: pulumi_gestalt_rust::Output<String>,
         /// The Chatbot chat channel used for collaboration during an incident.
-        pub chat_channels: pulumi_wasm_rust::Output<Vec<String>>,
+        pub chat_channels: pulumi_gestalt_rust::Output<Vec<String>>,
         /// The long format of the response plan name. This field can contain spaces.
-        pub display_name: pulumi_wasm_rust::Output<String>,
+        pub display_name: pulumi_gestalt_rust::Output<String>,
         /// The Amazon Resource Name (ARN) for the contacts and escalation plans that the response plan engages during an incident.
-        pub engagements: pulumi_wasm_rust::Output<Vec<String>>,
+        pub engagements: pulumi_gestalt_rust::Output<Vec<String>>,
         /// The provider-assigned unique ID for this managed resource.
-        pub id: pulumi_wasm_rust::Output<String>,
-        pub incident_templates: pulumi_wasm_rust::Output<
+        pub id: pulumi_gestalt_rust::Output<String>,
+        pub incident_templates: pulumi_gestalt_rust::Output<
             Vec<
                 super::super::super::types::ssmincidents::GetResponsePlanIncidentTemplate,
             >,
         >,
         /// Information about third-party services integrated into the response plan. The following values are supported:
-        pub integrations: pulumi_wasm_rust::Output<
+        pub integrations: pulumi_gestalt_rust::Output<
             Vec<super::super::super::types::ssmincidents::GetResponsePlanIntegration>,
         >,
         /// The name of the PagerDuty configuration.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// The tags applied to the response plan.
-        pub tags: pulumi_wasm_rust::Output<std::collections::HashMap<String, String>>,
+        pub tags: pulumi_gestalt_rust::Output<std::collections::HashMap<String, String>>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         args: GetResponsePlanArgs,
     ) -> GetResponsePlanResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let arn_binding = args.arn.get_output(context).get_inner();
         let tags_binding = args.tags.get_output(context).get_inner();
@@ -69,28 +69,28 @@ pub mod get_response_plan {
         };
         let o = register_interface::invoke(context.get_inner(), &request);
         GetResponsePlanResult {
-            actions: pulumi_wasm_rust::__private::into_domain(
+            actions: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("actions"),
             ),
-            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
-            chat_channels: pulumi_wasm_rust::__private::into_domain(
+            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
+            chat_channels: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("chatChannels"),
             ),
-            display_name: pulumi_wasm_rust::__private::into_domain(
+            display_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("displayName"),
             ),
-            engagements: pulumi_wasm_rust::__private::into_domain(
+            engagements: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("engagements"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
-            incident_templates: pulumi_wasm_rust::__private::into_domain(
+            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
+            incident_templates: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("incidentTemplates"),
             ),
-            integrations: pulumi_wasm_rust::__private::into_domain(
+            integrations: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("integrations"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
         }
     }
 }

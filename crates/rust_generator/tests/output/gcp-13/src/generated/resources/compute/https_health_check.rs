@@ -20,8 +20,8 @@
 ///
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let default = https_health_check::create(
@@ -61,27 +61,27 @@
 /// ```
 ///
 pub mod https_health_check {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct HttpsHealthCheckArgs {
         /// How often (in seconds) to send a health check. The default value is 5
         /// seconds.
         #[builder(into, default)]
-        pub check_interval_sec: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
+        pub check_interval_sec: pulumi_gestalt_rust::InputOrOutput<Option<i32>>,
         /// An optional description of this resource. Provide this property when
         /// you create the resource.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub description: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// A so-far unhealthy instance will be marked healthy after this many
         /// consecutive successes. The default value is 2.
         #[builder(into, default)]
-        pub healthy_threshold: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
+        pub healthy_threshold: pulumi_gestalt_rust::InputOrOutput<Option<i32>>,
         /// The value of the host header in the HTTPS health check request. If
         /// left empty (default value), the public IP on behalf of which this
         /// health check is performed will be used.
         #[builder(into, default)]
-        pub host: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub host: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Name of the resource. Provided by the client when the resource is
         /// created. The name must be 1-63 characters long, and comply with
         /// RFC1035.  Specifically, the name must be 1-63 characters long and
@@ -93,46 +93,46 @@ pub mod https_health_check {
         ///
         /// - - -
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The TCP port number for the HTTPS health check request.
         /// The default value is 443.
         #[builder(into, default)]
-        pub port: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
+        pub port: pulumi_gestalt_rust::InputOrOutput<Option<i32>>,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub project: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The request path of the HTTPS health check request.
         /// The default value is /.
         #[builder(into, default)]
-        pub request_path: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub request_path: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// How long (in seconds) to wait before claiming failure.
         /// The default value is 5 seconds.  It is invalid for timeoutSec to have
         /// greater value than checkIntervalSec.
         #[builder(into, default)]
-        pub timeout_sec: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
+        pub timeout_sec: pulumi_gestalt_rust::InputOrOutput<Option<i32>>,
         /// A so-far healthy instance will be marked unhealthy after this many
         /// consecutive failures. The default value is 2.
         #[builder(into, default)]
-        pub unhealthy_threshold: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
+        pub unhealthy_threshold: pulumi_gestalt_rust::InputOrOutput<Option<i32>>,
     }
     #[allow(dead_code)]
     pub struct HttpsHealthCheckResult {
         /// How often (in seconds) to send a health check. The default value is 5
         /// seconds.
-        pub check_interval_sec: pulumi_wasm_rust::Output<Option<i32>>,
+        pub check_interval_sec: pulumi_gestalt_rust::Output<Option<i32>>,
         /// Creation timestamp in RFC3339 text format.
-        pub creation_timestamp: pulumi_wasm_rust::Output<String>,
+        pub creation_timestamp: pulumi_gestalt_rust::Output<String>,
         /// An optional description of this resource. Provide this property when
         /// you create the resource.
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_gestalt_rust::Output<Option<String>>,
         /// A so-far unhealthy instance will be marked healthy after this many
         /// consecutive successes. The default value is 2.
-        pub healthy_threshold: pulumi_wasm_rust::Output<Option<i32>>,
+        pub healthy_threshold: pulumi_gestalt_rust::Output<Option<i32>>,
         /// The value of the host header in the HTTPS health check request. If
         /// left empty (default value), the public IP on behalf of which this
         /// health check is performed will be used.
-        pub host: pulumi_wasm_rust::Output<Option<String>>,
+        pub host: pulumi_gestalt_rust::Output<Option<String>>,
         /// Name of the resource. Provided by the client when the resource is
         /// created. The name must be 1-63 characters long, and comply with
         /// RFC1035.  Specifically, the name must be 1-63 characters long and
@@ -143,36 +143,36 @@ pub mod https_health_check {
         ///
         ///
         /// - - -
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// The TCP port number for the HTTPS health check request.
         /// The default value is 443.
-        pub port: pulumi_wasm_rust::Output<Option<i32>>,
+        pub port: pulumi_gestalt_rust::Output<Option<i32>>,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
-        pub project: pulumi_wasm_rust::Output<String>,
+        pub project: pulumi_gestalt_rust::Output<String>,
         /// The request path of the HTTPS health check request.
         /// The default value is /.
-        pub request_path: pulumi_wasm_rust::Output<Option<String>>,
+        pub request_path: pulumi_gestalt_rust::Output<Option<String>>,
         /// The URI of the created resource.
-        pub self_link: pulumi_wasm_rust::Output<String>,
+        pub self_link: pulumi_gestalt_rust::Output<String>,
         /// How long (in seconds) to wait before claiming failure.
         /// The default value is 5 seconds.  It is invalid for timeoutSec to have
         /// greater value than checkIntervalSec.
-        pub timeout_sec: pulumi_wasm_rust::Output<Option<i32>>,
+        pub timeout_sec: pulumi_gestalt_rust::Output<Option<i32>>,
         /// A so-far healthy instance will be marked unhealthy after this many
         /// consecutive failures. The default value is 2.
-        pub unhealthy_threshold: pulumi_wasm_rust::Output<Option<i32>>,
+        pub unhealthy_threshold: pulumi_gestalt_rust::Output<Option<i32>>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: HttpsHealthCheckArgs,
     ) -> HttpsHealthCheckResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let check_interval_sec_binding = args
             .check_interval_sec
@@ -242,34 +242,34 @@ pub mod https_health_check {
         };
         let o = register_interface::register(context.get_inner(), &request);
         HttpsHealthCheckResult {
-            check_interval_sec: pulumi_wasm_rust::__private::into_domain(
+            check_interval_sec: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("checkIntervalSec"),
             ),
-            creation_timestamp: pulumi_wasm_rust::__private::into_domain(
+            creation_timestamp: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("creationTimestamp"),
             ),
-            description: pulumi_wasm_rust::__private::into_domain(
+            description: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("description"),
             ),
-            healthy_threshold: pulumi_wasm_rust::__private::into_domain(
+            healthy_threshold: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("healthyThreshold"),
             ),
-            host: pulumi_wasm_rust::__private::into_domain(o.extract_field("host")),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            port: pulumi_wasm_rust::__private::into_domain(o.extract_field("port")),
-            project: pulumi_wasm_rust::__private::into_domain(
+            host: pulumi_gestalt_rust::__private::into_domain(o.extract_field("host")),
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            port: pulumi_gestalt_rust::__private::into_domain(o.extract_field("port")),
+            project: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("project"),
             ),
-            request_path: pulumi_wasm_rust::__private::into_domain(
+            request_path: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("requestPath"),
             ),
-            self_link: pulumi_wasm_rust::__private::into_domain(
+            self_link: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("selfLink"),
             ),
-            timeout_sec: pulumi_wasm_rust::__private::into_domain(
+            timeout_sec: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("timeoutSec"),
             ),
-            unhealthy_threshold: pulumi_wasm_rust::__private::into_domain(
+            unhealthy_threshold: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("unhealthyThreshold"),
             ),
         }

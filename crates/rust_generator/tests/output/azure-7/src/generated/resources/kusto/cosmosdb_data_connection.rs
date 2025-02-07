@@ -135,64 +135,64 @@
 /// ```
 ///
 pub mod cosmosdb_data_connection {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct CosmosdbDataConnectionArgs {
         /// The name of an existing container in the Cosmos DB database. Changing this forces a new Kusto Cosmos DB Connection to be created.
         #[builder(into)]
-        pub cosmosdb_container_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub cosmosdb_container_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The name of the database in the Kusto cluster. Changing this forces a new Kusto Cosmos DB Connection to be created.
         #[builder(into)]
-        pub kusto_database_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub kusto_database_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The Azure Region where the Data Explorer should exist. Changing this forces a new Kusto Cosmos DB Connection to be created.
         #[builder(into, default)]
-        pub location: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub location: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The resource ID of a managed system or user-assigned identity. The identity is used to authenticate with Cosmos DB. Changing this forces a new Kusto Cosmos DB Connection to be created.
         #[builder(into)]
-        pub managed_identity_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub managed_identity_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The name of an existing mapping rule to use when ingesting the retrieved data. Changing this forces a new Kusto Cosmos DB Connection to be created.
         #[builder(into, default)]
-        pub mapping_rule_name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub mapping_rule_name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The name of the data connection. Changing this forces a new Kusto Cosmos DB Connection to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// If defined, the data connection retrieves Cosmos DB documents created or updated after the specified retrieval start date. Changing this forces a new Kusto Cosmos DB Connection to be created.
         #[builder(into, default)]
-        pub retrieval_start_date: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub retrieval_start_date: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The case-sensitive name of the existing target table in your cluster. Retrieved data is ingested into this table. Changing this forces a new Kusto Cosmos DB Connection to be created.
         #[builder(into)]
-        pub table_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub table_name: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct CosmosdbDataConnectionResult {
         /// The name of an existing container in the Cosmos DB database. Changing this forces a new Kusto Cosmos DB Connection to be created.
-        pub cosmosdb_container_id: pulumi_wasm_rust::Output<String>,
+        pub cosmosdb_container_id: pulumi_gestalt_rust::Output<String>,
         /// The name of the database in the Kusto cluster. Changing this forces a new Kusto Cosmos DB Connection to be created.
-        pub kusto_database_id: pulumi_wasm_rust::Output<String>,
+        pub kusto_database_id: pulumi_gestalt_rust::Output<String>,
         /// The Azure Region where the Data Explorer should exist. Changing this forces a new Kusto Cosmos DB Connection to be created.
-        pub location: pulumi_wasm_rust::Output<String>,
+        pub location: pulumi_gestalt_rust::Output<String>,
         /// The resource ID of a managed system or user-assigned identity. The identity is used to authenticate with Cosmos DB. Changing this forces a new Kusto Cosmos DB Connection to be created.
-        pub managed_identity_id: pulumi_wasm_rust::Output<String>,
+        pub managed_identity_id: pulumi_gestalt_rust::Output<String>,
         /// The name of an existing mapping rule to use when ingesting the retrieved data. Changing this forces a new Kusto Cosmos DB Connection to be created.
-        pub mapping_rule_name: pulumi_wasm_rust::Output<Option<String>>,
+        pub mapping_rule_name: pulumi_gestalt_rust::Output<Option<String>>,
         /// The name of the data connection. Changing this forces a new Kusto Cosmos DB Connection to be created.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// If defined, the data connection retrieves Cosmos DB documents created or updated after the specified retrieval start date. Changing this forces a new Kusto Cosmos DB Connection to be created.
-        pub retrieval_start_date: pulumi_wasm_rust::Output<Option<String>>,
+        pub retrieval_start_date: pulumi_gestalt_rust::Output<Option<String>>,
         /// The case-sensitive name of the existing target table in your cluster. Retrieved data is ingested into this table. Changing this forces a new Kusto Cosmos DB Connection to be created.
-        pub table_name: pulumi_wasm_rust::Output<String>,
+        pub table_name: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: CosmosdbDataConnectionArgs,
     ) -> CosmosdbDataConnectionResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let cosmosdb_container_id_binding = args
             .cosmosdb_container_id
@@ -258,26 +258,26 @@ pub mod cosmosdb_data_connection {
         };
         let o = register_interface::register(context.get_inner(), &request);
         CosmosdbDataConnectionResult {
-            cosmosdb_container_id: pulumi_wasm_rust::__private::into_domain(
+            cosmosdb_container_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("cosmosdbContainerId"),
             ),
-            kusto_database_id: pulumi_wasm_rust::__private::into_domain(
+            kusto_database_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("kustoDatabaseId"),
             ),
-            location: pulumi_wasm_rust::__private::into_domain(
+            location: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("location"),
             ),
-            managed_identity_id: pulumi_wasm_rust::__private::into_domain(
+            managed_identity_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("managedIdentityId"),
             ),
-            mapping_rule_name: pulumi_wasm_rust::__private::into_domain(
+            mapping_rule_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("mappingRuleName"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            retrieval_start_date: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            retrieval_start_date: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("retrievalStartDate"),
             ),
-            table_name: pulumi_wasm_rust::__private::into_domain(
+            table_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("tableName"),
             ),
         }

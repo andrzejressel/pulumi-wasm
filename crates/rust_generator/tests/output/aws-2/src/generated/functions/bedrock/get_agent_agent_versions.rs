@@ -1,14 +1,14 @@
 pub mod get_agent_agent_versions {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct GetAgentAgentVersionsArgs {
         /// Unique identifier of the agent.
         #[builder(into)]
-        pub agent_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub agent_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// List of objects, each of which contains information about a version of the agent. See Agent Version Summaries
         #[builder(into, default)]
-        pub agent_version_summaries: pulumi_wasm_rust::InputOrOutput<
+        pub agent_version_summaries: pulumi_gestalt_rust::InputOrOutput<
             Option<
                 Vec<
                     super::super::super::types::bedrock::GetAgentAgentVersionsAgentVersionSummary,
@@ -18,9 +18,9 @@ pub mod get_agent_agent_versions {
     }
     #[allow(dead_code)]
     pub struct GetAgentAgentVersionsResult {
-        pub agent_id: pulumi_wasm_rust::Output<String>,
+        pub agent_id: pulumi_gestalt_rust::Output<String>,
         /// List of objects, each of which contains information about a version of the agent. See Agent Version Summaries
-        pub agent_version_summaries: pulumi_wasm_rust::Output<
+        pub agent_version_summaries: pulumi_gestalt_rust::Output<
             Option<
                 Vec<
                     super::super::super::types::bedrock::GetAgentAgentVersionsAgentVersionSummary,
@@ -28,17 +28,17 @@ pub mod get_agent_agent_versions {
             >,
         >,
         /// The provider-assigned unique ID for this managed resource.
-        pub id: pulumi_wasm_rust::Output<String>,
+        pub id: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         args: GetAgentAgentVersionsArgs,
     ) -> GetAgentAgentVersionsResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let agent_id_binding = args.agent_id.get_output(context).get_inner();
         let agent_version_summaries_binding = args
@@ -61,13 +61,13 @@ pub mod get_agent_agent_versions {
         };
         let o = register_interface::invoke(context.get_inner(), &request);
         GetAgentAgentVersionsResult {
-            agent_id: pulumi_wasm_rust::__private::into_domain(
+            agent_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("agentId"),
             ),
-            agent_version_summaries: pulumi_wasm_rust::__private::into_domain(
+            agent_version_summaries: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("agentVersionSummaries"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
+            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
         }
     }
 }

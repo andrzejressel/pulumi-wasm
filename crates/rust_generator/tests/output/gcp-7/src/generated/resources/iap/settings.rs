@@ -99,20 +99,20 @@
 /// ```
 ///
 pub mod settings {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct SettingsArgs {
         /// Top level wrapper for all access related setting in IAP.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub access_settings: pulumi_wasm_rust::InputOrOutput<
+        pub access_settings: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::iap::SettingsAccessSettings>,
         >,
         /// Top level wrapper for all application related settings in IAP.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub application_settings: pulumi_wasm_rust::InputOrOutput<
+        pub application_settings: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::iap::SettingsApplicationSettings>,
         >,
         /// The resource name of the IAP protected resource. Name can have below resources:
@@ -131,18 +131,18 @@ pub mod settings {
         ///
         /// - - -
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct SettingsResult {
         /// Top level wrapper for all access related setting in IAP.
         /// Structure is documented below.
-        pub access_settings: pulumi_wasm_rust::Output<
+        pub access_settings: pulumi_gestalt_rust::Output<
             Option<super::super::types::iap::SettingsAccessSettings>,
         >,
         /// Top level wrapper for all application related settings in IAP.
         /// Structure is documented below.
-        pub application_settings: pulumi_wasm_rust::Output<
+        pub application_settings: pulumi_gestalt_rust::Output<
             Option<super::super::types::iap::SettingsApplicationSettings>,
         >,
         /// The resource name of the IAP protected resource. Name can have below resources:
@@ -160,18 +160,18 @@ pub mod settings {
         ///
         ///
         /// - - -
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: SettingsArgs,
     ) -> SettingsResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let access_settings_binding = args
             .access_settings
@@ -203,13 +203,13 @@ pub mod settings {
         };
         let o = register_interface::register(context.get_inner(), &request);
         SettingsResult {
-            access_settings: pulumi_wasm_rust::__private::into_domain(
+            access_settings: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("accessSettings"),
             ),
-            application_settings: pulumi_wasm_rust::__private::into_domain(
+            application_settings: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("applicationSettings"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
         }
     }
 }

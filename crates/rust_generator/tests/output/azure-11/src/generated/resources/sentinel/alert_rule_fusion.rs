@@ -3,8 +3,8 @@
 /// ## Example Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = resource_group::create(
@@ -50,38 +50,38 @@
 /// ```
 ///
 pub mod alert_rule_fusion {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct AlertRuleFusionArgs {
         /// The GUID of the alert rule template which is used for this Sentinel Fusion Alert Rule. Changing this forces a new Sentinel Fusion Alert Rule to be created.
         #[builder(into)]
-        pub alert_rule_template_guid: pulumi_wasm_rust::InputOrOutput<String>,
+        pub alert_rule_template_guid: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Should this Sentinel Fusion Alert Rule be enabled? Defaults to `true`.
         #[builder(into, default)]
-        pub enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub enabled: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// The ID of the Log Analytics Workspace this Sentinel Fusion Alert Rule belongs to. Changing this forces a new Sentinel Fusion Alert Rule to be created.
         #[builder(into)]
-        pub log_analytics_workspace_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub log_analytics_workspace_id: pulumi_gestalt_rust::InputOrOutput<String>,
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// One or more `source` blocks as defined below.
         #[builder(into, default)]
-        pub sources: pulumi_wasm_rust::InputOrOutput<
+        pub sources: pulumi_gestalt_rust::InputOrOutput<
             Option<Vec<super::super::types::sentinel::AlertRuleFusionSource>>,
         >,
     }
     #[allow(dead_code)]
     pub struct AlertRuleFusionResult {
         /// The GUID of the alert rule template which is used for this Sentinel Fusion Alert Rule. Changing this forces a new Sentinel Fusion Alert Rule to be created.
-        pub alert_rule_template_guid: pulumi_wasm_rust::Output<String>,
+        pub alert_rule_template_guid: pulumi_gestalt_rust::Output<String>,
         /// Should this Sentinel Fusion Alert Rule be enabled? Defaults to `true`.
-        pub enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub enabled: pulumi_gestalt_rust::Output<Option<bool>>,
         /// The ID of the Log Analytics Workspace this Sentinel Fusion Alert Rule belongs to. Changing this forces a new Sentinel Fusion Alert Rule to be created.
-        pub log_analytics_workspace_id: pulumi_wasm_rust::Output<String>,
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub log_analytics_workspace_id: pulumi_gestalt_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// One or more `source` blocks as defined below.
-        pub sources: pulumi_wasm_rust::Output<
+        pub sources: pulumi_gestalt_rust::Output<
             Vec<super::super::types::sentinel::AlertRuleFusionSource>,
         >,
     }
@@ -90,11 +90,11 @@ pub mod alert_rule_fusion {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: AlertRuleFusionArgs,
     ) -> AlertRuleFusionResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let alert_rule_template_guid_binding = args
             .alert_rule_template_guid
@@ -136,17 +136,19 @@ pub mod alert_rule_fusion {
         };
         let o = register_interface::register(context.get_inner(), &request);
         AlertRuleFusionResult {
-            alert_rule_template_guid: pulumi_wasm_rust::__private::into_domain(
+            alert_rule_template_guid: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("alertRuleTemplateGuid"),
             ),
-            enabled: pulumi_wasm_rust::__private::into_domain(
+            enabled: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("enabled"),
             ),
-            log_analytics_workspace_id: pulumi_wasm_rust::__private::into_domain(
+            log_analytics_workspace_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("logAnalyticsWorkspaceId"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            sources: pulumi_wasm_rust::__private::into_domain(o.extract_field("sources")),
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            sources: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("sources"),
+            ),
         }
     }
 }

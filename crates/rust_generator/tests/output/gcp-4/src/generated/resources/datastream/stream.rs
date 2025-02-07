@@ -176,8 +176,8 @@
 ///
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let default = stream::create(
@@ -295,8 +295,8 @@
 ///
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let destination = connection_profile::create(
@@ -417,8 +417,8 @@
 ///
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let db = database::create(
@@ -551,8 +551,8 @@
 ///
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let db = database::create(
@@ -971,129 +971,129 @@
 /// ```
 ///
 pub mod stream {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct StreamArgs {
         /// Backfill strategy to automatically backfill the Stream's objects. Specific objects can be excluded.
         #[builder(into, default)]
-        pub backfill_all: pulumi_wasm_rust::InputOrOutput<
+        pub backfill_all: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::datastream::StreamBackfillAll>,
         >,
         /// Backfill strategy to disable automatic backfill for the Stream's objects.
         #[builder(into, default)]
-        pub backfill_none: pulumi_wasm_rust::InputOrOutput<
+        pub backfill_none: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::datastream::StreamBackfillNone>,
         >,
         /// Create the stream without validating it.
         #[builder(into, default)]
-        pub create_without_validation: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub create_without_validation: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// A reference to a KMS encryption key. If provided, it will be used to encrypt the data. If left blank, data will be
         /// encrypted using an internal Stream-specific encryption key provisioned through KMS.
         #[builder(into, default)]
-        pub customer_managed_encryption_key: pulumi_wasm_rust::InputOrOutput<
+        pub customer_managed_encryption_key: pulumi_gestalt_rust::InputOrOutput<
             Option<String>,
         >,
         /// Desired state of the Stream. Set this field to 'RUNNING' to start the stream, 'NOT_STARTED' to create the stream without
         /// starting and 'PAUSED' to pause the stream from a 'RUNNING' state. Possible values: NOT_STARTED, RUNNING, PAUSED.
         /// Default: NOT_STARTED
         #[builder(into, default)]
-        pub desired_state: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub desired_state: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Destination connection profile configuration.
         /// Structure is documented below.
         #[builder(into)]
-        pub destination_config: pulumi_wasm_rust::InputOrOutput<
+        pub destination_config: pulumi_gestalt_rust::InputOrOutput<
             super::super::types::datastream::StreamDestinationConfig,
         >,
         /// Display name.
         #[builder(into)]
-        pub display_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub display_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Labels. **Note**: This field is non-authoritative, and will only manage the labels present in your configuration. Please
         /// refer to the field 'effective_labels' for all of the labels present on the resource.
         #[builder(into, default)]
-        pub labels: pulumi_wasm_rust::InputOrOutput<
+        pub labels: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// The name of the location this stream is located in.
         #[builder(into)]
-        pub location: pulumi_wasm_rust::InputOrOutput<String>,
+        pub location: pulumi_gestalt_rust::InputOrOutput<String>,
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub project: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Source connection profile configuration.
         /// Structure is documented below.
         #[builder(into)]
-        pub source_config: pulumi_wasm_rust::InputOrOutput<
+        pub source_config: pulumi_gestalt_rust::InputOrOutput<
             super::super::types::datastream::StreamSourceConfig,
         >,
         /// The stream identifier.
         #[builder(into)]
-        pub stream_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub stream_id: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct StreamResult {
         /// Backfill strategy to automatically backfill the Stream's objects. Specific objects can be excluded.
-        pub backfill_all: pulumi_wasm_rust::Output<
+        pub backfill_all: pulumi_gestalt_rust::Output<
             Option<super::super::types::datastream::StreamBackfillAll>,
         >,
         /// Backfill strategy to disable automatic backfill for the Stream's objects.
-        pub backfill_none: pulumi_wasm_rust::Output<
+        pub backfill_none: pulumi_gestalt_rust::Output<
             Option<super::super::types::datastream::StreamBackfillNone>,
         >,
         /// Create the stream without validating it.
-        pub create_without_validation: pulumi_wasm_rust::Output<Option<bool>>,
+        pub create_without_validation: pulumi_gestalt_rust::Output<Option<bool>>,
         /// A reference to a KMS encryption key. If provided, it will be used to encrypt the data. If left blank, data will be
         /// encrypted using an internal Stream-specific encryption key provisioned through KMS.
-        pub customer_managed_encryption_key: pulumi_wasm_rust::Output<Option<String>>,
+        pub customer_managed_encryption_key: pulumi_gestalt_rust::Output<Option<String>>,
         /// Desired state of the Stream. Set this field to 'RUNNING' to start the stream, 'NOT_STARTED' to create the stream without
         /// starting and 'PAUSED' to pause the stream from a 'RUNNING' state. Possible values: NOT_STARTED, RUNNING, PAUSED.
         /// Default: NOT_STARTED
-        pub desired_state: pulumi_wasm_rust::Output<Option<String>>,
+        pub desired_state: pulumi_gestalt_rust::Output<Option<String>>,
         /// Destination connection profile configuration.
         /// Structure is documented below.
-        pub destination_config: pulumi_wasm_rust::Output<
+        pub destination_config: pulumi_gestalt_rust::Output<
             super::super::types::datastream::StreamDestinationConfig,
         >,
         /// Display name.
-        pub display_name: pulumi_wasm_rust::Output<String>,
+        pub display_name: pulumi_gestalt_rust::Output<String>,
         /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Pulumi, other clients and services.
-        pub effective_labels: pulumi_wasm_rust::Output<
+        pub effective_labels: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
         /// Labels. **Note**: This field is non-authoritative, and will only manage the labels present in your configuration. Please
         /// refer to the field 'effective_labels' for all of the labels present on the resource.
-        pub labels: pulumi_wasm_rust::Output<
+        pub labels: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// The name of the location this stream is located in.
-        pub location: pulumi_wasm_rust::Output<String>,
+        pub location: pulumi_gestalt_rust::Output<String>,
         /// The stream's name.
-        pub name: pulumi_wasm_rust::Output<String>,
-        pub project: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
+        pub project: pulumi_gestalt_rust::Output<String>,
         /// The combination of labels configured directly on the resource
         /// and default labels configured on the provider.
-        pub pulumi_labels: pulumi_wasm_rust::Output<
+        pub pulumi_labels: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
         /// Source connection profile configuration.
         /// Structure is documented below.
-        pub source_config: pulumi_wasm_rust::Output<
+        pub source_config: pulumi_gestalt_rust::Output<
             super::super::types::datastream::StreamSourceConfig,
         >,
         /// The state of the stream.
-        pub state: pulumi_wasm_rust::Output<String>,
+        pub state: pulumi_gestalt_rust::Output<String>,
         /// The stream identifier.
-        pub stream_id: pulumi_wasm_rust::Output<String>,
+        pub stream_id: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: StreamArgs,
     ) -> StreamResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let backfill_all_binding = args.backfill_all.get_output(context).get_inner();
         let backfill_none_binding = args.backfill_none.get_output(context).get_inner();
@@ -1173,46 +1173,48 @@ pub mod stream {
         };
         let o = register_interface::register(context.get_inner(), &request);
         StreamResult {
-            backfill_all: pulumi_wasm_rust::__private::into_domain(
+            backfill_all: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("backfillAll"),
             ),
-            backfill_none: pulumi_wasm_rust::__private::into_domain(
+            backfill_none: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("backfillNone"),
             ),
-            create_without_validation: pulumi_wasm_rust::__private::into_domain(
+            create_without_validation: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("createWithoutValidation"),
             ),
-            customer_managed_encryption_key: pulumi_wasm_rust::__private::into_domain(
+            customer_managed_encryption_key: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("customerManagedEncryptionKey"),
             ),
-            desired_state: pulumi_wasm_rust::__private::into_domain(
+            desired_state: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("desiredState"),
             ),
-            destination_config: pulumi_wasm_rust::__private::into_domain(
+            destination_config: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("destinationConfig"),
             ),
-            display_name: pulumi_wasm_rust::__private::into_domain(
+            display_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("displayName"),
             ),
-            effective_labels: pulumi_wasm_rust::__private::into_domain(
+            effective_labels: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("effectiveLabels"),
             ),
-            labels: pulumi_wasm_rust::__private::into_domain(o.extract_field("labels")),
-            location: pulumi_wasm_rust::__private::into_domain(
+            labels: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("labels"),
+            ),
+            location: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("location"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            project: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            project: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("project"),
             ),
-            pulumi_labels: pulumi_wasm_rust::__private::into_domain(
+            pulumi_labels: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("pulumiLabels"),
             ),
-            source_config: pulumi_wasm_rust::__private::into_domain(
+            source_config: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("sourceConfig"),
             ),
-            state: pulumi_wasm_rust::__private::into_domain(o.extract_field("state")),
-            stream_id: pulumi_wasm_rust::__private::into_domain(
+            state: pulumi_gestalt_rust::__private::into_domain(o.extract_field("state")),
+            stream_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("streamId"),
             ),
         }

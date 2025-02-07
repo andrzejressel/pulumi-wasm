@@ -39,78 +39,78 @@
 /// ```
 ///
 pub mod event_hub {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct EventHubArgs {
         /// A `capture_description` block as defined below.
         #[builder(into, default)]
-        pub capture_description: pulumi_wasm_rust::InputOrOutput<
+        pub capture_description: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::eventhub::EventHubCaptureDescription>,
         >,
         /// Specifies the number of days to retain the events for this Event Hub.
         ///
         /// > **Note:** When using a dedicated Event Hubs cluster, maximum value of `message_retention` is 90 days. When using a shared parent EventHub Namespace, maximum value is 7 days; or 1 day when using a Basic SKU for the shared parent EventHub Namespace.
         #[builder(into)]
-        pub message_retention: pulumi_wasm_rust::InputOrOutput<i32>,
+        pub message_retention: pulumi_gestalt_rust::InputOrOutput<i32>,
         /// Specifies the name of the EventHub resource. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Specifies the ID of the EventHub Namespace. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub namespace_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub namespace_id: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         #[builder(into, default)]
-        pub namespace_name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub namespace_name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Specifies the current number of shards on the Event Hub.
         ///
         /// > **Note:** `partition_count` cannot be changed unless Eventhub Namespace SKU is `Premium` and cannot be decreased.
         ///
         /// > **Note:** When using a dedicated Event Hubs cluster, maximum value of `partition_count` is 1024. When using a shared parent EventHub Namespace, maximum value is 32.
         #[builder(into)]
-        pub partition_count: pulumi_wasm_rust::InputOrOutput<i32>,
+        pub partition_count: pulumi_gestalt_rust::InputOrOutput<i32>,
         #[builder(into, default)]
-        pub resource_group_name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub resource_group_name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Specifies the status of the Event Hub resource. Possible values are `Active`, `Disabled` and `SendDisabled`. Defaults to `Active`.
         #[builder(into, default)]
-        pub status: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub status: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct EventHubResult {
         /// A `capture_description` block as defined below.
-        pub capture_description: pulumi_wasm_rust::Output<
+        pub capture_description: pulumi_gestalt_rust::Output<
             Option<super::super::types::eventhub::EventHubCaptureDescription>,
         >,
         /// Specifies the number of days to retain the events for this Event Hub.
         ///
         /// > **Note:** When using a dedicated Event Hubs cluster, maximum value of `message_retention` is 90 days. When using a shared parent EventHub Namespace, maximum value is 7 days; or 1 day when using a Basic SKU for the shared parent EventHub Namespace.
-        pub message_retention: pulumi_wasm_rust::Output<i32>,
+        pub message_retention: pulumi_gestalt_rust::Output<i32>,
         /// Specifies the name of the EventHub resource. Changing this forces a new resource to be created.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// Specifies the ID of the EventHub Namespace. Changing this forces a new resource to be created.
-        pub namespace_id: pulumi_wasm_rust::Output<String>,
-        pub namespace_name: pulumi_wasm_rust::Output<String>,
+        pub namespace_id: pulumi_gestalt_rust::Output<String>,
+        pub namespace_name: pulumi_gestalt_rust::Output<String>,
         /// Specifies the current number of shards on the Event Hub.
         ///
         /// > **Note:** `partition_count` cannot be changed unless Eventhub Namespace SKU is `Premium` and cannot be decreased.
         ///
         /// > **Note:** When using a dedicated Event Hubs cluster, maximum value of `partition_count` is 1024. When using a shared parent EventHub Namespace, maximum value is 32.
-        pub partition_count: pulumi_wasm_rust::Output<i32>,
+        pub partition_count: pulumi_gestalt_rust::Output<i32>,
         /// The identifiers for partitions created for Event Hubs.
-        pub partition_ids: pulumi_wasm_rust::Output<Vec<String>>,
-        pub resource_group_name: pulumi_wasm_rust::Output<String>,
+        pub partition_ids: pulumi_gestalt_rust::Output<Vec<String>>,
+        pub resource_group_name: pulumi_gestalt_rust::Output<String>,
         /// Specifies the status of the Event Hub resource. Possible values are `Active`, `Disabled` and `SendDisabled`. Defaults to `Active`.
-        pub status: pulumi_wasm_rust::Output<Option<String>>,
+        pub status: pulumi_gestalt_rust::Output<Option<String>>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: EventHubArgs,
     ) -> EventHubResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let capture_description_binding = args
             .capture_description
@@ -173,29 +173,31 @@ pub mod event_hub {
         };
         let o = register_interface::register(context.get_inner(), &request);
         EventHubResult {
-            capture_description: pulumi_wasm_rust::__private::into_domain(
+            capture_description: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("captureDescription"),
             ),
-            message_retention: pulumi_wasm_rust::__private::into_domain(
+            message_retention: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("messageRetention"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            namespace_id: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            namespace_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("namespaceId"),
             ),
-            namespace_name: pulumi_wasm_rust::__private::into_domain(
+            namespace_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("namespaceName"),
             ),
-            partition_count: pulumi_wasm_rust::__private::into_domain(
+            partition_count: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("partitionCount"),
             ),
-            partition_ids: pulumi_wasm_rust::__private::into_domain(
+            partition_ids: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("partitionIds"),
             ),
-            resource_group_name: pulumi_wasm_rust::__private::into_domain(
+            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("resourceGroupName"),
             ),
-            status: pulumi_wasm_rust::__private::into_domain(o.extract_field("status")),
+            status: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("status"),
+            ),
         }
     }
 }

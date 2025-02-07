@@ -1,37 +1,37 @@
 pub mod get_job_iam_policy {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct GetJobIamPolicyArgs {
         /// The name or relative resource id of the job to manage IAM policies for.
         #[builder(into)]
-        pub job_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub job_id: pulumi_gestalt_rust::InputOrOutput<String>,
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub project: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         #[builder(into, default)]
-        pub region: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub region: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct GetJobIamPolicyResult {
         /// (Computed) The etag of the IAM policy.
-        pub etag: pulumi_wasm_rust::Output<String>,
+        pub etag: pulumi_gestalt_rust::Output<String>,
         /// The provider-assigned unique ID for this managed resource.
-        pub id: pulumi_wasm_rust::Output<String>,
-        pub job_id: pulumi_wasm_rust::Output<String>,
+        pub id: pulumi_gestalt_rust::Output<String>,
+        pub job_id: pulumi_gestalt_rust::Output<String>,
         /// (Computed) The policy data
-        pub policy_data: pulumi_wasm_rust::Output<String>,
-        pub project: pulumi_wasm_rust::Output<String>,
-        pub region: pulumi_wasm_rust::Output<String>,
+        pub policy_data: pulumi_gestalt_rust::Output<String>,
+        pub project: pulumi_gestalt_rust::Output<String>,
+        pub region: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         args: GetJobIamPolicyArgs,
     ) -> GetJobIamPolicyResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let job_id_binding = args.job_id.get_output(context).get_inner();
         let project_binding = args.project.get_output(context).get_inner();
@@ -56,16 +56,20 @@ pub mod get_job_iam_policy {
         };
         let o = register_interface::invoke(context.get_inner(), &request);
         GetJobIamPolicyResult {
-            etag: pulumi_wasm_rust::__private::into_domain(o.extract_field("etag")),
-            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
-            job_id: pulumi_wasm_rust::__private::into_domain(o.extract_field("jobId")),
-            policy_data: pulumi_wasm_rust::__private::into_domain(
+            etag: pulumi_gestalt_rust::__private::into_domain(o.extract_field("etag")),
+            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
+            job_id: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("jobId"),
+            ),
+            policy_data: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("policyData"),
             ),
-            project: pulumi_wasm_rust::__private::into_domain(
+            project: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("project"),
             ),
-            region: pulumi_wasm_rust::__private::into_domain(o.extract_field("region")),
+            region: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("region"),
+            ),
         }
     }
 }

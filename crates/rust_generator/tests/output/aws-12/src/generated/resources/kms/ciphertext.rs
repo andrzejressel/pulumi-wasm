@@ -6,8 +6,8 @@
 /// ## Example Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let oauth = ciphertext::create(
@@ -26,45 +26,45 @@
 /// }
 /// ```
 pub mod ciphertext {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct CiphertextArgs {
         /// An optional mapping that makes up the encryption context.
         #[builder(into, default)]
-        pub context: pulumi_wasm_rust::InputOrOutput<
+        pub context: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Globally unique key ID for the customer master key.
         #[builder(into)]
-        pub key_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub key_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Data to be encrypted. Note that this may show up in logs, and it will be stored in the state file.
         #[builder(into)]
-        pub plaintext: pulumi_wasm_rust::InputOrOutput<String>,
+        pub plaintext: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct CiphertextResult {
         /// Base64 encoded ciphertext
-        pub ciphertext_blob: pulumi_wasm_rust::Output<String>,
+        pub ciphertext_blob: pulumi_gestalt_rust::Output<String>,
         /// An optional mapping that makes up the encryption context.
-        pub context: pulumi_wasm_rust::Output<
+        pub context: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Globally unique key ID for the customer master key.
-        pub key_id: pulumi_wasm_rust::Output<String>,
+        pub key_id: pulumi_gestalt_rust::Output<String>,
         /// Data to be encrypted. Note that this may show up in logs, and it will be stored in the state file.
-        pub plaintext: pulumi_wasm_rust::Output<String>,
+        pub plaintext: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: CiphertextArgs,
     ) -> CiphertextResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let context_binding = args.context.get_output(context).get_inner();
         let key_id_binding = args.key_id.get_output(context).get_inner();
@@ -90,14 +90,16 @@ pub mod ciphertext {
         };
         let o = register_interface::register(context.get_inner(), &request);
         CiphertextResult {
-            ciphertext_blob: pulumi_wasm_rust::__private::into_domain(
+            ciphertext_blob: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("ciphertextBlob"),
             ),
-            context: pulumi_wasm_rust::__private::into_domain(
+            context: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("context"),
             ),
-            key_id: pulumi_wasm_rust::__private::into_domain(o.extract_field("keyId")),
-            plaintext: pulumi_wasm_rust::__private::into_domain(
+            key_id: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("keyId"),
+            ),
+            plaintext: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("plaintext"),
             ),
         }

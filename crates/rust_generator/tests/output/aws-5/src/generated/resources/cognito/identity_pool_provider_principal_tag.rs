@@ -8,48 +8,48 @@
 /// $ pulumi import aws:cognito/identityPoolProviderPrincipalTag:IdentityPoolProviderPrincipalTag example us-west-2_abc123:CorpAD
 /// ```
 pub mod identity_pool_provider_principal_tag {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct IdentityPoolProviderPrincipalTagArgs {
         /// An identity pool ID.
         #[builder(into)]
-        pub identity_pool_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub identity_pool_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The name of the identity provider.
         #[builder(into)]
-        pub identity_provider_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub identity_provider_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// String to string map of variables.
         #[builder(into, default)]
-        pub principal_tags: pulumi_wasm_rust::InputOrOutput<
+        pub principal_tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// use default (username and clientID) attribute mappings.
         #[builder(into, default)]
-        pub use_defaults: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub use_defaults: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
     }
     #[allow(dead_code)]
     pub struct IdentityPoolProviderPrincipalTagResult {
         /// An identity pool ID.
-        pub identity_pool_id: pulumi_wasm_rust::Output<String>,
+        pub identity_pool_id: pulumi_gestalt_rust::Output<String>,
         /// The name of the identity provider.
-        pub identity_provider_name: pulumi_wasm_rust::Output<String>,
+        pub identity_provider_name: pulumi_gestalt_rust::Output<String>,
         /// String to string map of variables.
-        pub principal_tags: pulumi_wasm_rust::Output<
+        pub principal_tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// use default (username and clientID) attribute mappings.
-        pub use_defaults: pulumi_wasm_rust::Output<Option<bool>>,
+        pub use_defaults: pulumi_gestalt_rust::Output<Option<bool>>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: IdentityPoolProviderPrincipalTagArgs,
     ) -> IdentityPoolProviderPrincipalTagResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let identity_pool_id_binding = args
             .identity_pool_id
@@ -87,16 +87,16 @@ pub mod identity_pool_provider_principal_tag {
         };
         let o = register_interface::register(context.get_inner(), &request);
         IdentityPoolProviderPrincipalTagResult {
-            identity_pool_id: pulumi_wasm_rust::__private::into_domain(
+            identity_pool_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("identityPoolId"),
             ),
-            identity_provider_name: pulumi_wasm_rust::__private::into_domain(
+            identity_provider_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("identityProviderName"),
             ),
-            principal_tags: pulumi_wasm_rust::__private::into_domain(
+            principal_tags: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("principalTags"),
             ),
-            use_defaults: pulumi_wasm_rust::__private::into_domain(
+            use_defaults: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("useDefaults"),
             ),
         }

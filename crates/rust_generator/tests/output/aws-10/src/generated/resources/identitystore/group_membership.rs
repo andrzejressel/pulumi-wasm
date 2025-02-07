@@ -43,41 +43,41 @@
 /// $ pulumi import aws:identitystore/groupMembership:GroupMembership example d-0000000000/00000000-0000-0000-0000-000000000000
 /// ```
 pub mod group_membership {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct GroupMembershipArgs {
         /// The identifier for a group in the Identity Store.
         #[builder(into)]
-        pub group_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub group_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Identity Store ID associated with the Single Sign-On Instance.
         #[builder(into)]
-        pub identity_store_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub identity_store_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The identifier for a user in the Identity Store.
         #[builder(into)]
-        pub member_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub member_id: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct GroupMembershipResult {
         /// The identifier for a group in the Identity Store.
-        pub group_id: pulumi_wasm_rust::Output<String>,
+        pub group_id: pulumi_gestalt_rust::Output<String>,
         /// Identity Store ID associated with the Single Sign-On Instance.
-        pub identity_store_id: pulumi_wasm_rust::Output<String>,
+        pub identity_store_id: pulumi_gestalt_rust::Output<String>,
         /// The identifier for a user in the Identity Store.
-        pub member_id: pulumi_wasm_rust::Output<String>,
+        pub member_id: pulumi_gestalt_rust::Output<String>,
         /// The identifier of the newly created group membership in the Identity Store.
-        pub membership_id: pulumi_wasm_rust::Output<String>,
+        pub membership_id: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: GroupMembershipArgs,
     ) -> GroupMembershipResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let group_id_binding = args.group_id.get_output(context).get_inner();
         let identity_store_id_binding = args
@@ -106,16 +106,16 @@ pub mod group_membership {
         };
         let o = register_interface::register(context.get_inner(), &request);
         GroupMembershipResult {
-            group_id: pulumi_wasm_rust::__private::into_domain(
+            group_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("groupId"),
             ),
-            identity_store_id: pulumi_wasm_rust::__private::into_domain(
+            identity_store_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("identityStoreId"),
             ),
-            member_id: pulumi_wasm_rust::__private::into_domain(
+            member_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("memberId"),
             ),
-            membership_id: pulumi_wasm_rust::__private::into_domain(
+            membership_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("membershipId"),
             ),
         }

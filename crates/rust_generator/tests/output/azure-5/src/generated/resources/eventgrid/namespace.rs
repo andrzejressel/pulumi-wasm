@@ -29,46 +29,46 @@
 /// ```
 ///
 pub mod namespace {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct NamespaceArgs {
         /// Specifies the Capacity / Throughput Units for an Eventgrid Namespace. Valid values can be between `1` and `40`.
         #[builder(into, default)]
-        pub capacity: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
+        pub capacity: pulumi_gestalt_rust::InputOrOutput<Option<i32>>,
         /// An `identity` block as defined below.
         #[builder(into, default)]
-        pub identity: pulumi_wasm_rust::InputOrOutput<
+        pub identity: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::eventgrid::NamespaceIdentity>,
         >,
         /// One or more `inbound_ip_rule` blocks as defined below.
         #[builder(into, default)]
-        pub inbound_ip_rules: pulumi_wasm_rust::InputOrOutput<
+        pub inbound_ip_rules: pulumi_gestalt_rust::InputOrOutput<
             Option<Vec<super::super::types::eventgrid::NamespaceInboundIpRule>>,
         >,
         /// Specifies the supported Azure location where the resource should exist. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub location: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub location: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Specifies the name of the Event Grid Namespace resource. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Whether or not public network access is allowed for this server. Defaults to `Enabled`.
         #[builder(into, default)]
-        pub public_network_access: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub public_network_access: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The name of the resource group in which the Event Grid Namespace should exist. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub resource_group_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub resource_group_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Defines which tier to use. The only possible value is `Standard`. Defaults to `Standard`.
         #[builder(into, default)]
-        pub sku: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub sku: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// A mapping of tags to assign to the resource.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// A `topic_spaces_configuration` block as defined below.
         #[builder(into, default)]
-        pub topic_spaces_configurations: pulumi_wasm_rust::InputOrOutput<
+        pub topic_spaces_configurations: pulumi_gestalt_rust::InputOrOutput<
             Option<
                 Vec<super::super::types::eventgrid::NamespaceTopicSpacesConfiguration>,
             >,
@@ -77,31 +77,31 @@ pub mod namespace {
     #[allow(dead_code)]
     pub struct NamespaceResult {
         /// Specifies the Capacity / Throughput Units for an Eventgrid Namespace. Valid values can be between `1` and `40`.
-        pub capacity: pulumi_wasm_rust::Output<Option<i32>>,
+        pub capacity: pulumi_gestalt_rust::Output<Option<i32>>,
         /// An `identity` block as defined below.
-        pub identity: pulumi_wasm_rust::Output<
+        pub identity: pulumi_gestalt_rust::Output<
             Option<super::super::types::eventgrid::NamespaceIdentity>,
         >,
         /// One or more `inbound_ip_rule` blocks as defined below.
-        pub inbound_ip_rules: pulumi_wasm_rust::Output<
+        pub inbound_ip_rules: pulumi_gestalt_rust::Output<
             Option<Vec<super::super::types::eventgrid::NamespaceInboundIpRule>>,
         >,
         /// Specifies the supported Azure location where the resource should exist. Changing this forces a new resource to be created.
-        pub location: pulumi_wasm_rust::Output<String>,
+        pub location: pulumi_gestalt_rust::Output<String>,
         /// Specifies the name of the Event Grid Namespace resource. Changing this forces a new resource to be created.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// Whether or not public network access is allowed for this server. Defaults to `Enabled`.
-        pub public_network_access: pulumi_wasm_rust::Output<Option<String>>,
+        pub public_network_access: pulumi_gestalt_rust::Output<Option<String>>,
         /// The name of the resource group in which the Event Grid Namespace should exist. Changing this forces a new resource to be created.
-        pub resource_group_name: pulumi_wasm_rust::Output<String>,
+        pub resource_group_name: pulumi_gestalt_rust::Output<String>,
         /// Defines which tier to use. The only possible value is `Standard`. Defaults to `Standard`.
-        pub sku: pulumi_wasm_rust::Output<Option<String>>,
+        pub sku: pulumi_gestalt_rust::Output<Option<String>>,
         /// A mapping of tags to assign to the resource.
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// A `topic_spaces_configuration` block as defined below.
-        pub topic_spaces_configurations: pulumi_wasm_rust::Output<
+        pub topic_spaces_configurations: pulumi_gestalt_rust::Output<
             Option<
                 Vec<super::super::types::eventgrid::NamespaceTopicSpacesConfiguration>,
             >,
@@ -112,11 +112,11 @@ pub mod namespace {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: NamespaceArgs,
     ) -> NamespaceResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let capacity_binding = args.capacity.get_output(context).get_inner();
         let identity_binding = args.identity.get_output(context).get_inner();
@@ -189,28 +189,28 @@ pub mod namespace {
         };
         let o = register_interface::register(context.get_inner(), &request);
         NamespaceResult {
-            capacity: pulumi_wasm_rust::__private::into_domain(
+            capacity: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("capacity"),
             ),
-            identity: pulumi_wasm_rust::__private::into_domain(
+            identity: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("identity"),
             ),
-            inbound_ip_rules: pulumi_wasm_rust::__private::into_domain(
+            inbound_ip_rules: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("inboundIpRules"),
             ),
-            location: pulumi_wasm_rust::__private::into_domain(
+            location: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("location"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            public_network_access: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            public_network_access: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("publicNetworkAccess"),
             ),
-            resource_group_name: pulumi_wasm_rust::__private::into_domain(
+            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("resourceGroupName"),
             ),
-            sku: pulumi_wasm_rust::__private::into_domain(o.extract_field("sku")),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
-            topic_spaces_configurations: pulumi_wasm_rust::__private::into_domain(
+            sku: pulumi_gestalt_rust::__private::into_domain(o.extract_field("sku")),
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            topic_spaces_configurations: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("topicSpacesConfigurations"),
             ),
         }

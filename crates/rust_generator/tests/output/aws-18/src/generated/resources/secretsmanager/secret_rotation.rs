@@ -5,8 +5,8 @@
 /// ### Basic
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = secret_rotation::create(
@@ -40,50 +40,50 @@
 /// $ pulumi import aws:secretsmanager/secretRotation:SecretRotation example arn:aws:secretsmanager:us-east-1:123456789012:secret:example-123456
 /// ```
 pub mod secret_rotation {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct SecretRotationArgs {
         /// Specifies whether to rotate the secret immediately or wait until the next scheduled rotation window. The rotation schedule is defined in `rotation_rules`. For secrets that use a Lambda rotation function to rotate, if you don't immediately rotate the secret, Secrets Manager tests the rotation configuration by running the testSecret step (https://docs.aws.amazon.com/secretsmanager/latest/userguide/rotate-secrets_how.html) of the Lambda rotation function. The test creates an AWSPENDING version of the secret and then removes it. Defaults to `true`.
         #[builder(into, default)]
-        pub rotate_immediately: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub rotate_immediately: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// Specifies the ARN of the Lambda function that can rotate the secret. Must be supplied if the secret is not managed by AWS.
         #[builder(into, default)]
-        pub rotation_lambda_arn: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub rotation_lambda_arn: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// A structure that defines the rotation configuration for this secret. Defined below.
         #[builder(into)]
-        pub rotation_rules: pulumi_wasm_rust::InputOrOutput<
+        pub rotation_rules: pulumi_gestalt_rust::InputOrOutput<
             super::super::types::secretsmanager::SecretRotationRotationRules,
         >,
         /// Specifies the secret to which you want to add a new version. You can specify either the Amazon Resource Name (ARN) or the friendly name of the secret. The secret must already exist.
         #[builder(into)]
-        pub secret_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub secret_id: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct SecretRotationResult {
         /// Specifies whether to rotate the secret immediately or wait until the next scheduled rotation window. The rotation schedule is defined in `rotation_rules`. For secrets that use a Lambda rotation function to rotate, if you don't immediately rotate the secret, Secrets Manager tests the rotation configuration by running the testSecret step (https://docs.aws.amazon.com/secretsmanager/latest/userguide/rotate-secrets_how.html) of the Lambda rotation function. The test creates an AWSPENDING version of the secret and then removes it. Defaults to `true`.
-        pub rotate_immediately: pulumi_wasm_rust::Output<Option<bool>>,
+        pub rotate_immediately: pulumi_gestalt_rust::Output<Option<bool>>,
         /// Specifies whether automatic rotation is enabled for this secret.
-        pub rotation_enabled: pulumi_wasm_rust::Output<bool>,
+        pub rotation_enabled: pulumi_gestalt_rust::Output<bool>,
         /// Specifies the ARN of the Lambda function that can rotate the secret. Must be supplied if the secret is not managed by AWS.
-        pub rotation_lambda_arn: pulumi_wasm_rust::Output<Option<String>>,
+        pub rotation_lambda_arn: pulumi_gestalt_rust::Output<Option<String>>,
         /// A structure that defines the rotation configuration for this secret. Defined below.
-        pub rotation_rules: pulumi_wasm_rust::Output<
+        pub rotation_rules: pulumi_gestalt_rust::Output<
             super::super::types::secretsmanager::SecretRotationRotationRules,
         >,
         /// Specifies the secret to which you want to add a new version. You can specify either the Amazon Resource Name (ARN) or the friendly name of the secret. The secret must already exist.
-        pub secret_id: pulumi_wasm_rust::Output<String>,
+        pub secret_id: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: SecretRotationArgs,
     ) -> SecretRotationResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let rotate_immediately_binding = args
             .rotate_immediately
@@ -120,19 +120,19 @@ pub mod secret_rotation {
         };
         let o = register_interface::register(context.get_inner(), &request);
         SecretRotationResult {
-            rotate_immediately: pulumi_wasm_rust::__private::into_domain(
+            rotate_immediately: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("rotateImmediately"),
             ),
-            rotation_enabled: pulumi_wasm_rust::__private::into_domain(
+            rotation_enabled: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("rotationEnabled"),
             ),
-            rotation_lambda_arn: pulumi_wasm_rust::__private::into_domain(
+            rotation_lambda_arn: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("rotationLambdaArn"),
             ),
-            rotation_rules: pulumi_wasm_rust::__private::into_domain(
+            rotation_rules: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("rotationRules"),
             ),
-            secret_id: pulumi_wasm_rust::__private::into_domain(
+            secret_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("secretId"),
             ),
         }

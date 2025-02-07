@@ -84,49 +84,49 @@
 /// ```
 ///
 pub mod resolver_forwarding_rule {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ResolverForwardingRuleArgs {
         /// Specifies the ID of the Private DNS Resolver Forwarding Ruleset. Changing this forces a new Private DNS Resolver Forwarding Rule to be created.
         #[builder(into)]
-        pub dns_forwarding_ruleset_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub dns_forwarding_ruleset_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Specifies the domain name for the Private DNS Resolver Forwarding Rule. Changing this forces a new Private DNS Resolver Forwarding Rule to be created.
         #[builder(into)]
-        pub domain_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub domain_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Specifies the state of the Private DNS Resolver Forwarding Rule. Defaults to `true`.
         #[builder(into, default)]
-        pub enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub enabled: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// Metadata attached to the Private DNS Resolver Forwarding Rule.
         #[builder(into, default)]
-        pub metadata: pulumi_wasm_rust::InputOrOutput<
+        pub metadata: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Specifies the name which should be used for this Private DNS Resolver Forwarding Rule. Changing this forces a new Private DNS Resolver Forwarding Rule to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Can be specified multiple times to define multiple target DNS servers. Each `target_dns_servers` block as defined below.
         #[builder(into)]
-        pub target_dns_servers: pulumi_wasm_rust::InputOrOutput<
+        pub target_dns_servers: pulumi_gestalt_rust::InputOrOutput<
             Vec<super::super::types::privatedns::ResolverForwardingRuleTargetDnsServer>,
         >,
     }
     #[allow(dead_code)]
     pub struct ResolverForwardingRuleResult {
         /// Specifies the ID of the Private DNS Resolver Forwarding Ruleset. Changing this forces a new Private DNS Resolver Forwarding Rule to be created.
-        pub dns_forwarding_ruleset_id: pulumi_wasm_rust::Output<String>,
+        pub dns_forwarding_ruleset_id: pulumi_gestalt_rust::Output<String>,
         /// Specifies the domain name for the Private DNS Resolver Forwarding Rule. Changing this forces a new Private DNS Resolver Forwarding Rule to be created.
-        pub domain_name: pulumi_wasm_rust::Output<String>,
+        pub domain_name: pulumi_gestalt_rust::Output<String>,
         /// Specifies the state of the Private DNS Resolver Forwarding Rule. Defaults to `true`.
-        pub enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub enabled: pulumi_gestalt_rust::Output<Option<bool>>,
         /// Metadata attached to the Private DNS Resolver Forwarding Rule.
-        pub metadata: pulumi_wasm_rust::Output<
+        pub metadata: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Specifies the name which should be used for this Private DNS Resolver Forwarding Rule. Changing this forces a new Private DNS Resolver Forwarding Rule to be created.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// Can be specified multiple times to define multiple target DNS servers. Each `target_dns_servers` block as defined below.
-        pub target_dns_servers: pulumi_wasm_rust::Output<
+        pub target_dns_servers: pulumi_gestalt_rust::Output<
             Vec<super::super::types::privatedns::ResolverForwardingRuleTargetDnsServer>,
         >,
     }
@@ -135,11 +135,11 @@ pub mod resolver_forwarding_rule {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: ResolverForwardingRuleArgs,
     ) -> ResolverForwardingRuleResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let dns_forwarding_ruleset_id_binding = args
             .dns_forwarding_ruleset_id
@@ -187,20 +187,20 @@ pub mod resolver_forwarding_rule {
         };
         let o = register_interface::register(context.get_inner(), &request);
         ResolverForwardingRuleResult {
-            dns_forwarding_ruleset_id: pulumi_wasm_rust::__private::into_domain(
+            dns_forwarding_ruleset_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("dnsForwardingRulesetId"),
             ),
-            domain_name: pulumi_wasm_rust::__private::into_domain(
+            domain_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("domainName"),
             ),
-            enabled: pulumi_wasm_rust::__private::into_domain(
+            enabled: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("enabled"),
             ),
-            metadata: pulumi_wasm_rust::__private::into_domain(
+            metadata: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("metadata"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            target_dns_servers: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            target_dns_servers: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("targetDnsServers"),
             ),
         }

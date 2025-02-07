@@ -24,37 +24,37 @@
 /// $ pulumi import aws:lightsail/bucketAccessKey:BucketAccessKey test example-bucket,AKIAIOSFODNN7EXAMPLE
 /// ```
 pub mod bucket_access_key {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct BucketAccessKeyArgs {
         /// The name of the bucket that the new access key will belong to, and grant access to.
         #[builder(into)]
-        pub bucket_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub bucket_name: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct BucketAccessKeyResult {
         /// The ID of the access key.
-        pub access_key_id: pulumi_wasm_rust::Output<String>,
+        pub access_key_id: pulumi_gestalt_rust::Output<String>,
         /// The name of the bucket that the new access key will belong to, and grant access to.
-        pub bucket_name: pulumi_wasm_rust::Output<String>,
+        pub bucket_name: pulumi_gestalt_rust::Output<String>,
         /// The timestamp when the access key was created.
-        pub created_at: pulumi_wasm_rust::Output<String>,
+        pub created_at: pulumi_gestalt_rust::Output<String>,
         /// The secret access key used to sign requests. This attribute is not available for imported resources. Note that this will be written to the state file.
-        pub secret_access_key: pulumi_wasm_rust::Output<String>,
+        pub secret_access_key: pulumi_gestalt_rust::Output<String>,
         /// The status of the access key.
-        pub status: pulumi_wasm_rust::Output<String>,
+        pub status: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: BucketAccessKeyArgs,
     ) -> BucketAccessKeyResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let bucket_name_binding = args.bucket_name.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
@@ -70,19 +70,21 @@ pub mod bucket_access_key {
         };
         let o = register_interface::register(context.get_inner(), &request);
         BucketAccessKeyResult {
-            access_key_id: pulumi_wasm_rust::__private::into_domain(
+            access_key_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("accessKeyId"),
             ),
-            bucket_name: pulumi_wasm_rust::__private::into_domain(
+            bucket_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("bucketName"),
             ),
-            created_at: pulumi_wasm_rust::__private::into_domain(
+            created_at: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("createdAt"),
             ),
-            secret_access_key: pulumi_wasm_rust::__private::into_domain(
+            secret_access_key: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("secretAccessKey"),
             ),
-            status: pulumi_wasm_rust::__private::into_domain(o.extract_field("status")),
+            status: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("status"),
+            ),
         }
     }
 }

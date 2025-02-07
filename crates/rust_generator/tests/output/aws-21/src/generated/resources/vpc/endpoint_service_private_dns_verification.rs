@@ -11,8 +11,8 @@
 /// ### Basic Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = endpoint_service_private_dns_verification::create(
@@ -29,7 +29,7 @@
 /// You cannot import this resource.
 ///
 pub mod endpoint_service_private_dns_verification {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct EndpointServicePrivateDnsVerificationArgs {
@@ -37,41 +37,41 @@ pub mod endpoint_service_private_dns_verification {
         ///
         /// The following arguments are optional:
         #[builder(into)]
-        pub service_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub service_id: pulumi_gestalt_rust::InputOrOutput<String>,
         #[builder(into, default)]
-        pub timeouts: pulumi_wasm_rust::InputOrOutput<
+        pub timeouts: pulumi_gestalt_rust::InputOrOutput<
             Option<
                 super::super::types::vpc::EndpointServicePrivateDnsVerificationTimeouts,
             >,
         >,
         /// Whether to wait until the endpoint service returns a `Verified` status for the configured private DNS name.
         #[builder(into, default)]
-        pub wait_for_verification: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub wait_for_verification: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
     }
     #[allow(dead_code)]
     pub struct EndpointServicePrivateDnsVerificationResult {
         /// ID of the endpoint service.
         ///
         /// The following arguments are optional:
-        pub service_id: pulumi_wasm_rust::Output<String>,
-        pub timeouts: pulumi_wasm_rust::Output<
+        pub service_id: pulumi_gestalt_rust::Output<String>,
+        pub timeouts: pulumi_gestalt_rust::Output<
             Option<
                 super::super::types::vpc::EndpointServicePrivateDnsVerificationTimeouts,
             >,
         >,
         /// Whether to wait until the endpoint service returns a `Verified` status for the configured private DNS name.
-        pub wait_for_verification: pulumi_wasm_rust::Output<Option<bool>>,
+        pub wait_for_verification: pulumi_gestalt_rust::Output<Option<bool>>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: EndpointServicePrivateDnsVerificationArgs,
     ) -> EndpointServicePrivateDnsVerificationResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let service_id_binding = args.service_id.get_output(context).get_inner();
         let timeouts_binding = args.timeouts.get_output(context).get_inner();
@@ -101,13 +101,13 @@ pub mod endpoint_service_private_dns_verification {
         };
         let o = register_interface::register(context.get_inner(), &request);
         EndpointServicePrivateDnsVerificationResult {
-            service_id: pulumi_wasm_rust::__private::into_domain(
+            service_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("serviceId"),
             ),
-            timeouts: pulumi_wasm_rust::__private::into_domain(
+            timeouts: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("timeouts"),
             ),
-            wait_for_verification: pulumi_wasm_rust::__private::into_domain(
+            wait_for_verification: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("waitForVerification"),
             ),
         }

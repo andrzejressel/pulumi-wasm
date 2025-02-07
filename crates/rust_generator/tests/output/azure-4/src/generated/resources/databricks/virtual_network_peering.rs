@@ -55,83 +55,87 @@
 /// ```
 ///
 pub mod virtual_network_peering {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct VirtualNetworkPeeringArgs {
         /// Can the forwarded traffic from the VMs in the local virtual network be forwarded to the remote virtual network? Defaults to `false`.
         #[builder(into, default)]
-        pub allow_forwarded_traffic: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub allow_forwarded_traffic: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// Can the gateway links be used in the remote virtual network to link to the Databricks virtual network? Defaults to `false`.
         #[builder(into, default)]
-        pub allow_gateway_transit: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub allow_gateway_transit: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// Can the VMs in the local virtual network space access the VMs in the remote virtual network space? Defaults to `true`.
         #[builder(into, default)]
-        pub allow_virtual_network_access: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub allow_virtual_network_access: pulumi_gestalt_rust::InputOrOutput<
+            Option<bool>,
+        >,
         /// Specifies the name of the Databricks Virtual Network Peering resource. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// A list of address blocks reserved for the remote virtual network in CIDR notation. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub remote_address_space_prefixes: pulumi_wasm_rust::InputOrOutput<Vec<String>>,
+        pub remote_address_space_prefixes: pulumi_gestalt_rust::InputOrOutput<
+            Vec<String>,
+        >,
         /// The ID of the remote virtual network. Changing this forces a new resource to be created.
         ///
         /// > **NOTE:** The remote virtual network should be in the same region as the databricks workspace. Please see the [product documentation](https://learn.microsoft.com/azure/databricks/administration-guide/cloud-configurations/azure/vnet-peering) for more information.
         #[builder(into)]
-        pub remote_virtual_network_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub remote_virtual_network_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The name of the Resource Group in which the Databricks Virtual Network Peering should exist. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub resource_group_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub resource_group_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Can remote gateways be used on the Databricks virtual network? Defaults to `false`.
         ///
         /// > **NOTE:** If the `use_remote_gateways` is set to `true`, and `allow_gateway_transit` on the remote peering is also `true`, the virtual network will use the gateways of the remote virtual network for transit. Only one peering can have this flag set to `true`. `use_remote_gateways` cannot be set if the virtual network already has a gateway.
         #[builder(into, default)]
-        pub use_remote_gateways: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub use_remote_gateways: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// The ID of the Databricks Workspace that this Databricks Virtual Network Peering is bound. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub workspace_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub workspace_id: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct VirtualNetworkPeeringResult {
         /// A list of address blocks reserved for this virtual network in CIDR notation.
-        pub address_space_prefixes: pulumi_wasm_rust::Output<Vec<String>>,
+        pub address_space_prefixes: pulumi_gestalt_rust::Output<Vec<String>>,
         /// Can the forwarded traffic from the VMs in the local virtual network be forwarded to the remote virtual network? Defaults to `false`.
-        pub allow_forwarded_traffic: pulumi_wasm_rust::Output<Option<bool>>,
+        pub allow_forwarded_traffic: pulumi_gestalt_rust::Output<Option<bool>>,
         /// Can the gateway links be used in the remote virtual network to link to the Databricks virtual network? Defaults to `false`.
-        pub allow_gateway_transit: pulumi_wasm_rust::Output<Option<bool>>,
+        pub allow_gateway_transit: pulumi_gestalt_rust::Output<Option<bool>>,
         /// Can the VMs in the local virtual network space access the VMs in the remote virtual network space? Defaults to `true`.
-        pub allow_virtual_network_access: pulumi_wasm_rust::Output<Option<bool>>,
+        pub allow_virtual_network_access: pulumi_gestalt_rust::Output<Option<bool>>,
         /// Specifies the name of the Databricks Virtual Network Peering resource. Changing this forces a new resource to be created.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// A list of address blocks reserved for the remote virtual network in CIDR notation. Changing this forces a new resource to be created.
-        pub remote_address_space_prefixes: pulumi_wasm_rust::Output<Vec<String>>,
+        pub remote_address_space_prefixes: pulumi_gestalt_rust::Output<Vec<String>>,
         /// The ID of the remote virtual network. Changing this forces a new resource to be created.
         ///
         /// > **NOTE:** The remote virtual network should be in the same region as the databricks workspace. Please see the [product documentation](https://learn.microsoft.com/azure/databricks/administration-guide/cloud-configurations/azure/vnet-peering) for more information.
-        pub remote_virtual_network_id: pulumi_wasm_rust::Output<String>,
+        pub remote_virtual_network_id: pulumi_gestalt_rust::Output<String>,
         /// The name of the Resource Group in which the Databricks Virtual Network Peering should exist. Changing this forces a new resource to be created.
-        pub resource_group_name: pulumi_wasm_rust::Output<String>,
+        pub resource_group_name: pulumi_gestalt_rust::Output<String>,
         /// Can remote gateways be used on the Databricks virtual network? Defaults to `false`.
         ///
         /// > **NOTE:** If the `use_remote_gateways` is set to `true`, and `allow_gateway_transit` on the remote peering is also `true`, the virtual network will use the gateways of the remote virtual network for transit. Only one peering can have this flag set to `true`. `use_remote_gateways` cannot be set if the virtual network already has a gateway.
-        pub use_remote_gateways: pulumi_wasm_rust::Output<Option<bool>>,
+        pub use_remote_gateways: pulumi_gestalt_rust::Output<Option<bool>>,
         /// The ID of the internal Virtual Network used by the DataBricks Workspace.
         ///
         /// > **NOTE:** The `virtual_network_id` field is the value you must supply to the `azure.network.VirtualNetworkPeering` resources `remote_virtual_network_id` field to successfully peer the Databricks Virtual Network with the remote virtual network.
-        pub virtual_network_id: pulumi_wasm_rust::Output<String>,
+        pub virtual_network_id: pulumi_gestalt_rust::Output<String>,
         /// The ID of the Databricks Workspace that this Databricks Virtual Network Peering is bound. Changing this forces a new resource to be created.
-        pub workspace_id: pulumi_wasm_rust::Output<String>,
+        pub workspace_id: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: VirtualNetworkPeeringArgs,
     ) -> VirtualNetworkPeeringResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let allow_forwarded_traffic_binding = args
             .allow_forwarded_traffic
@@ -208,35 +212,35 @@ pub mod virtual_network_peering {
         };
         let o = register_interface::register(context.get_inner(), &request);
         VirtualNetworkPeeringResult {
-            address_space_prefixes: pulumi_wasm_rust::__private::into_domain(
+            address_space_prefixes: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("addressSpacePrefixes"),
             ),
-            allow_forwarded_traffic: pulumi_wasm_rust::__private::into_domain(
+            allow_forwarded_traffic: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("allowForwardedTraffic"),
             ),
-            allow_gateway_transit: pulumi_wasm_rust::__private::into_domain(
+            allow_gateway_transit: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("allowGatewayTransit"),
             ),
-            allow_virtual_network_access: pulumi_wasm_rust::__private::into_domain(
+            allow_virtual_network_access: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("allowVirtualNetworkAccess"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            remote_address_space_prefixes: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            remote_address_space_prefixes: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("remoteAddressSpacePrefixes"),
             ),
-            remote_virtual_network_id: pulumi_wasm_rust::__private::into_domain(
+            remote_virtual_network_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("remoteVirtualNetworkId"),
             ),
-            resource_group_name: pulumi_wasm_rust::__private::into_domain(
+            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("resourceGroupName"),
             ),
-            use_remote_gateways: pulumi_wasm_rust::__private::into_domain(
+            use_remote_gateways: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("useRemoteGateways"),
             ),
-            virtual_network_id: pulumi_wasm_rust::__private::into_domain(
+            virtual_network_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("virtualNetworkId"),
             ),
-            workspace_id: pulumi_wasm_rust::__private::into_domain(
+            workspace_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("workspaceId"),
             ),
         }

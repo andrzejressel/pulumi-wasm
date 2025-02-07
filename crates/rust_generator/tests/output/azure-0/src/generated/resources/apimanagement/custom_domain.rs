@@ -88,61 +88,61 @@
 /// ```
 ///
 pub mod custom_domain {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct CustomDomainArgs {
         /// The ID of the API Management service for which to configure Custom Domains. Changing this forces a new API Management Custom Domain resource to be created.
         #[builder(into)]
-        pub api_management_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub api_management_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// One or more `developer_portal` blocks as defined below.
         #[builder(into, default)]
-        pub developer_portals: pulumi_wasm_rust::InputOrOutput<
+        pub developer_portals: pulumi_gestalt_rust::InputOrOutput<
             Option<Vec<super::super::types::apimanagement::CustomDomainDeveloperPortal>>,
         >,
         /// One or more `gateway` blocks as defined below.
         #[builder(into, default)]
-        pub gateways: pulumi_wasm_rust::InputOrOutput<
+        pub gateways: pulumi_gestalt_rust::InputOrOutput<
             Option<Vec<super::super::types::apimanagement::CustomDomainGateway>>,
         >,
         /// One or more `management` blocks as defined below.
         #[builder(into, default)]
-        pub managements: pulumi_wasm_rust::InputOrOutput<
+        pub managements: pulumi_gestalt_rust::InputOrOutput<
             Option<Vec<super::super::types::apimanagement::CustomDomainManagement>>,
         >,
         /// One or more `portal` blocks as defined below.
         #[builder(into, default)]
-        pub portals: pulumi_wasm_rust::InputOrOutput<
+        pub portals: pulumi_gestalt_rust::InputOrOutput<
             Option<Vec<super::super::types::apimanagement::CustomDomainPortal>>,
         >,
         /// One or more `scm` blocks as defined below.
         #[builder(into, default)]
-        pub scms: pulumi_wasm_rust::InputOrOutput<
+        pub scms: pulumi_gestalt_rust::InputOrOutput<
             Option<Vec<super::super::types::apimanagement::CustomDomainScm>>,
         >,
     }
     #[allow(dead_code)]
     pub struct CustomDomainResult {
         /// The ID of the API Management service for which to configure Custom Domains. Changing this forces a new API Management Custom Domain resource to be created.
-        pub api_management_id: pulumi_wasm_rust::Output<String>,
+        pub api_management_id: pulumi_gestalt_rust::Output<String>,
         /// One or more `developer_portal` blocks as defined below.
-        pub developer_portals: pulumi_wasm_rust::Output<
+        pub developer_portals: pulumi_gestalt_rust::Output<
             Option<Vec<super::super::types::apimanagement::CustomDomainDeveloperPortal>>,
         >,
         /// One or more `gateway` blocks as defined below.
-        pub gateways: pulumi_wasm_rust::Output<
+        pub gateways: pulumi_gestalt_rust::Output<
             Option<Vec<super::super::types::apimanagement::CustomDomainGateway>>,
         >,
         /// One or more `management` blocks as defined below.
-        pub managements: pulumi_wasm_rust::Output<
+        pub managements: pulumi_gestalt_rust::Output<
             Option<Vec<super::super::types::apimanagement::CustomDomainManagement>>,
         >,
         /// One or more `portal` blocks as defined below.
-        pub portals: pulumi_wasm_rust::Output<
+        pub portals: pulumi_gestalt_rust::Output<
             Option<Vec<super::super::types::apimanagement::CustomDomainPortal>>,
         >,
         /// One or more `scm` blocks as defined below.
-        pub scms: pulumi_wasm_rust::Output<
+        pub scms: pulumi_gestalt_rust::Output<
             Option<Vec<super::super::types::apimanagement::CustomDomainScm>>,
         >,
     }
@@ -151,11 +151,11 @@ pub mod custom_domain {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: CustomDomainArgs,
     ) -> CustomDomainResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let api_management_id_binding = args
             .api_management_id
@@ -202,22 +202,22 @@ pub mod custom_domain {
         };
         let o = register_interface::register(context.get_inner(), &request);
         CustomDomainResult {
-            api_management_id: pulumi_wasm_rust::__private::into_domain(
+            api_management_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("apiManagementId"),
             ),
-            developer_portals: pulumi_wasm_rust::__private::into_domain(
+            developer_portals: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("developerPortals"),
             ),
-            gateways: pulumi_wasm_rust::__private::into_domain(
+            gateways: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("gateways"),
             ),
-            managements: pulumi_wasm_rust::__private::into_domain(
+            managements: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("managements"),
             ),
-            portals: pulumi_wasm_rust::__private::into_domain(
+            portals: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("portals"),
             ),
-            scms: pulumi_wasm_rust::__private::into_domain(o.extract_field("scms")),
+            scms: pulumi_gestalt_rust::__private::into_domain(o.extract_field("scms")),
         }
     }
 }

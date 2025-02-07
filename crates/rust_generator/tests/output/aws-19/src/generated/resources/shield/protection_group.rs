@@ -7,8 +7,8 @@
 /// ### Create protection group for all resources
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = protection_group::create(
@@ -62,8 +62,8 @@
 /// ### Create protection group for a type of resource
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = protection_group::create(
@@ -86,51 +86,51 @@
 /// $ pulumi import aws:shield/protectionGroup:ProtectionGroup example example
 /// ```
 pub mod protection_group {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ProtectionGroupArgs {
         /// Defines how AWS Shield combines resource data for the group in order to detect, mitigate, and report events.
         #[builder(into)]
-        pub aggregation: pulumi_wasm_rust::InputOrOutput<String>,
+        pub aggregation: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The Amazon Resource Names (ARNs) of the resources to include in the protection group. You must set this when you set `pattern` to ARBITRARY and you must not set it for any other `pattern` setting.
         #[builder(into, default)]
-        pub members: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
+        pub members: pulumi_gestalt_rust::InputOrOutput<Option<Vec<String>>>,
         /// The criteria to use to choose the protected resources for inclusion in the group.
         #[builder(into)]
-        pub pattern: pulumi_wasm_rust::InputOrOutput<String>,
+        pub pattern: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The name of the protection group.
         #[builder(into)]
-        pub protection_group_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub protection_group_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The resource type to include in the protection group. You must set this when you set `pattern` to BY_RESOURCE_TYPE and you must not set it for any other `pattern` setting.
         #[builder(into, default)]
-        pub resource_type: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub resource_type: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
     #[allow(dead_code)]
     pub struct ProtectionGroupResult {
         /// Defines how AWS Shield combines resource data for the group in order to detect, mitigate, and report events.
-        pub aggregation: pulumi_wasm_rust::Output<String>,
+        pub aggregation: pulumi_gestalt_rust::Output<String>,
         /// The Amazon Resource Names (ARNs) of the resources to include in the protection group. You must set this when you set `pattern` to ARBITRARY and you must not set it for any other `pattern` setting.
-        pub members: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub members: pulumi_gestalt_rust::Output<Option<Vec<String>>>,
         /// The criteria to use to choose the protected resources for inclusion in the group.
-        pub pattern: pulumi_wasm_rust::Output<String>,
+        pub pattern: pulumi_gestalt_rust::Output<String>,
         /// The ARN (Amazon Resource Name) of the protection group.
-        pub protection_group_arn: pulumi_wasm_rust::Output<String>,
+        pub protection_group_arn: pulumi_gestalt_rust::Output<String>,
         /// The name of the protection group.
-        pub protection_group_id: pulumi_wasm_rust::Output<String>,
+        pub protection_group_id: pulumi_gestalt_rust::Output<String>,
         /// The resource type to include in the protection group. You must set this when you set `pattern` to BY_RESOURCE_TYPE and you must not set it for any other `pattern` setting.
-        pub resource_type: pulumi_wasm_rust::Output<Option<String>>,
+        pub resource_type: pulumi_gestalt_rust::Output<Option<String>>,
         /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        pub tags_all: pulumi_wasm_rust::Output<
+        pub tags_all: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
     }
@@ -139,11 +139,11 @@ pub mod protection_group {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: ProtectionGroupArgs,
     ) -> ProtectionGroupResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let aggregation_binding = args.aggregation.get_output(context).get_inner();
         let members_binding = args.members.get_output(context).get_inner();
@@ -187,26 +187,26 @@ pub mod protection_group {
         };
         let o = register_interface::register(context.get_inner(), &request);
         ProtectionGroupResult {
-            aggregation: pulumi_wasm_rust::__private::into_domain(
+            aggregation: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("aggregation"),
             ),
-            members: pulumi_wasm_rust::__private::into_domain(
+            members: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("members"),
             ),
-            pattern: pulumi_wasm_rust::__private::into_domain(
+            pattern: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("pattern"),
             ),
-            protection_group_arn: pulumi_wasm_rust::__private::into_domain(
+            protection_group_arn: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("protectionGroupArn"),
             ),
-            protection_group_id: pulumi_wasm_rust::__private::into_domain(
+            protection_group_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("protectionGroupId"),
             ),
-            resource_type: pulumi_wasm_rust::__private::into_domain(
+            resource_type: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("resourceType"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_wasm_rust::__private::into_domain(
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            tags_all: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("tagsAll"),
             ),
         }

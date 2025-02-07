@@ -5,8 +5,8 @@
 /// ## Example Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = project::create(
@@ -31,99 +31,99 @@
 /// $ pulumi import aws:devicefarm/networkProfile:NetworkProfile example arn:aws:devicefarm:us-west-2:123456789012:networkprofile:4fa784c7-ccb4-4dbf-ba4f-02198320daa1
 /// ```
 pub mod network_profile {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct NetworkProfileArgs {
         /// The description of the network profile.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub description: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The data throughput rate in bits per second, as an integer from `0` to `104857600`. Default value is `104857600`.
         #[builder(into, default)]
-        pub downlink_bandwidth_bits: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
+        pub downlink_bandwidth_bits: pulumi_gestalt_rust::InputOrOutput<Option<i32>>,
         /// Delay time for all packets to destination in milliseconds as an integer from `0` to `2000`.
         #[builder(into, default)]
-        pub downlink_delay_ms: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
+        pub downlink_delay_ms: pulumi_gestalt_rust::InputOrOutput<Option<i32>>,
         /// Time variation in the delay of received packets in milliseconds as an integer from `0` to `2000`.
         #[builder(into, default)]
-        pub downlink_jitter_ms: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
+        pub downlink_jitter_ms: pulumi_gestalt_rust::InputOrOutput<Option<i32>>,
         /// Proportion of received packets that fail to arrive from `0` to `100` percent.
         #[builder(into, default)]
-        pub downlink_loss_percent: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
+        pub downlink_loss_percent: pulumi_gestalt_rust::InputOrOutput<Option<i32>>,
         /// The name for the network profile.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The ARN of the project for the network profile.
         #[builder(into)]
-        pub project_arn: pulumi_wasm_rust::InputOrOutput<String>,
+        pub project_arn: pulumi_gestalt_rust::InputOrOutput<String>,
         /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// The type of network profile to create. Valid values are listed are `PRIVATE` and `CURATED`.
         #[builder(into, default)]
-        pub type_: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub type_: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The data throughput rate in bits per second, as an integer from `0` to `104857600`. Default value is `104857600`.
         #[builder(into, default)]
-        pub uplink_bandwidth_bits: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
+        pub uplink_bandwidth_bits: pulumi_gestalt_rust::InputOrOutput<Option<i32>>,
         /// Delay time for all packets to destination in milliseconds as an integer from `0` to `2000`.
         #[builder(into, default)]
-        pub uplink_delay_ms: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
+        pub uplink_delay_ms: pulumi_gestalt_rust::InputOrOutput<Option<i32>>,
         /// Time variation in the delay of received packets in milliseconds as an integer from `0` to `2000`.
         #[builder(into, default)]
-        pub uplink_jitter_ms: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
+        pub uplink_jitter_ms: pulumi_gestalt_rust::InputOrOutput<Option<i32>>,
         /// Proportion of received packets that fail to arrive from `0` to `100` percent.
         #[builder(into, default)]
-        pub uplink_loss_percent: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
+        pub uplink_loss_percent: pulumi_gestalt_rust::InputOrOutput<Option<i32>>,
     }
     #[allow(dead_code)]
     pub struct NetworkProfileResult {
         /// The Amazon Resource Name of this network profile.
-        pub arn: pulumi_wasm_rust::Output<String>,
+        pub arn: pulumi_gestalt_rust::Output<String>,
         /// The description of the network profile.
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_gestalt_rust::Output<Option<String>>,
         /// The data throughput rate in bits per second, as an integer from `0` to `104857600`. Default value is `104857600`.
-        pub downlink_bandwidth_bits: pulumi_wasm_rust::Output<Option<i32>>,
+        pub downlink_bandwidth_bits: pulumi_gestalt_rust::Output<Option<i32>>,
         /// Delay time for all packets to destination in milliseconds as an integer from `0` to `2000`.
-        pub downlink_delay_ms: pulumi_wasm_rust::Output<Option<i32>>,
+        pub downlink_delay_ms: pulumi_gestalt_rust::Output<Option<i32>>,
         /// Time variation in the delay of received packets in milliseconds as an integer from `0` to `2000`.
-        pub downlink_jitter_ms: pulumi_wasm_rust::Output<Option<i32>>,
+        pub downlink_jitter_ms: pulumi_gestalt_rust::Output<Option<i32>>,
         /// Proportion of received packets that fail to arrive from `0` to `100` percent.
-        pub downlink_loss_percent: pulumi_wasm_rust::Output<Option<i32>>,
+        pub downlink_loss_percent: pulumi_gestalt_rust::Output<Option<i32>>,
         /// The name for the network profile.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// The ARN of the project for the network profile.
-        pub project_arn: pulumi_wasm_rust::Output<String>,
+        pub project_arn: pulumi_gestalt_rust::Output<String>,
         /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        pub tags_all: pulumi_wasm_rust::Output<
+        pub tags_all: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
         /// The type of network profile to create. Valid values are listed are `PRIVATE` and `CURATED`.
-        pub type_: pulumi_wasm_rust::Output<Option<String>>,
+        pub type_: pulumi_gestalt_rust::Output<Option<String>>,
         /// The data throughput rate in bits per second, as an integer from `0` to `104857600`. Default value is `104857600`.
-        pub uplink_bandwidth_bits: pulumi_wasm_rust::Output<Option<i32>>,
+        pub uplink_bandwidth_bits: pulumi_gestalt_rust::Output<Option<i32>>,
         /// Delay time for all packets to destination in milliseconds as an integer from `0` to `2000`.
-        pub uplink_delay_ms: pulumi_wasm_rust::Output<Option<i32>>,
+        pub uplink_delay_ms: pulumi_gestalt_rust::Output<Option<i32>>,
         /// Time variation in the delay of received packets in milliseconds as an integer from `0` to `2000`.
-        pub uplink_jitter_ms: pulumi_wasm_rust::Output<Option<i32>>,
+        pub uplink_jitter_ms: pulumi_gestalt_rust::Output<Option<i32>>,
         /// Proportion of received packets that fail to arrive from `0` to `100` percent.
-        pub uplink_loss_percent: pulumi_wasm_rust::Output<Option<i32>>,
+        pub uplink_loss_percent: pulumi_gestalt_rust::Output<Option<i32>>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: NetworkProfileArgs,
     ) -> NetworkProfileResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let description_binding = args.description.get_output(context).get_inner();
         let downlink_bandwidth_bits_binding = args
@@ -223,41 +223,41 @@ pub mod network_profile {
         };
         let o = register_interface::register(context.get_inner(), &request);
         NetworkProfileResult {
-            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
-            description: pulumi_wasm_rust::__private::into_domain(
+            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
+            description: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("description"),
             ),
-            downlink_bandwidth_bits: pulumi_wasm_rust::__private::into_domain(
+            downlink_bandwidth_bits: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("downlinkBandwidthBits"),
             ),
-            downlink_delay_ms: pulumi_wasm_rust::__private::into_domain(
+            downlink_delay_ms: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("downlinkDelayMs"),
             ),
-            downlink_jitter_ms: pulumi_wasm_rust::__private::into_domain(
+            downlink_jitter_ms: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("downlinkJitterMs"),
             ),
-            downlink_loss_percent: pulumi_wasm_rust::__private::into_domain(
+            downlink_loss_percent: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("downlinkLossPercent"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            project_arn: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            project_arn: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("projectArn"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_wasm_rust::__private::into_domain(
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            tags_all: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("tagsAll"),
             ),
-            type_: pulumi_wasm_rust::__private::into_domain(o.extract_field("type")),
-            uplink_bandwidth_bits: pulumi_wasm_rust::__private::into_domain(
+            type_: pulumi_gestalt_rust::__private::into_domain(o.extract_field("type")),
+            uplink_bandwidth_bits: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("uplinkBandwidthBits"),
             ),
-            uplink_delay_ms: pulumi_wasm_rust::__private::into_domain(
+            uplink_delay_ms: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("uplinkDelayMs"),
             ),
-            uplink_jitter_ms: pulumi_wasm_rust::__private::into_domain(
+            uplink_jitter_ms: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("uplinkJitterMs"),
             ),
-            uplink_loss_percent: pulumi_wasm_rust::__private::into_domain(
+            uplink_loss_percent: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("uplinkLossPercent"),
             ),
         }

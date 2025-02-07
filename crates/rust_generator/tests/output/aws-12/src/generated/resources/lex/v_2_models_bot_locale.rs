@@ -5,8 +5,8 @@
 /// ### Basic Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = v_2_models_bot_locale::create(
@@ -24,8 +24,8 @@
 /// ### Voice Settings
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = v_2_models_bot_locale::create(
@@ -54,61 +54,61 @@
 /// $ pulumi import aws:lex/v2modelsBotLocale:V2modelsBotLocale example en_US,abcd-12345678,1
 /// ```
 pub mod v_2_models_bot_locale {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct V2modelsBotLocaleArgs {
         /// Identifier of the bot to create the locale for.
         #[builder(into)]
-        pub bot_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub bot_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Version of the bot to create the locale for. This can only be the draft version of the bot.
         #[builder(into)]
-        pub bot_version: pulumi_wasm_rust::InputOrOutput<String>,
+        pub bot_version: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Description of the bot locale. Use this to help identify the bot locale in lists.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub description: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Identifier of the language and locale that the bot will be used in. The string must match one of the supported locales. All of the intents, slot types, and slots used in the bot must have the same locale. For more information, see Supported languages (https://docs.aws.amazon.com/lexv2/latest/dg/how-languages.html)
         #[builder(into)]
-        pub locale_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub locale_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Determines the threshold where Amazon Lex will insert the AMAZON.FallbackIntent, AMAZON.KendraSearchIntent, or both when returning alternative intents.
         ///
         /// The following arguments are optional:
         #[builder(into)]
-        pub n_lu_intent_confidence_threshold: pulumi_wasm_rust::InputOrOutput<f64>,
+        pub n_lu_intent_confidence_threshold: pulumi_gestalt_rust::InputOrOutput<f64>,
         /// Specified locale name.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         #[builder(into, default)]
-        pub timeouts: pulumi_wasm_rust::InputOrOutput<
+        pub timeouts: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::lex::V2ModelsBotLocaleTimeouts>,
         >,
         /// Amazon Polly voice ID that Amazon Lex uses for voice interaction with the user. See `voice_settings`.
         #[builder(into, default)]
-        pub voice_settings: pulumi_wasm_rust::InputOrOutput<
+        pub voice_settings: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::lex::V2ModelsBotLocaleVoiceSettings>,
         >,
     }
     #[allow(dead_code)]
     pub struct V2modelsBotLocaleResult {
         /// Identifier of the bot to create the locale for.
-        pub bot_id: pulumi_wasm_rust::Output<String>,
+        pub bot_id: pulumi_gestalt_rust::Output<String>,
         /// Version of the bot to create the locale for. This can only be the draft version of the bot.
-        pub bot_version: pulumi_wasm_rust::Output<String>,
+        pub bot_version: pulumi_gestalt_rust::Output<String>,
         /// Description of the bot locale. Use this to help identify the bot locale in lists.
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_gestalt_rust::Output<Option<String>>,
         /// Identifier of the language and locale that the bot will be used in. The string must match one of the supported locales. All of the intents, slot types, and slots used in the bot must have the same locale. For more information, see Supported languages (https://docs.aws.amazon.com/lexv2/latest/dg/how-languages.html)
-        pub locale_id: pulumi_wasm_rust::Output<String>,
+        pub locale_id: pulumi_gestalt_rust::Output<String>,
         /// Determines the threshold where Amazon Lex will insert the AMAZON.FallbackIntent, AMAZON.KendraSearchIntent, or both when returning alternative intents.
         ///
         /// The following arguments are optional:
-        pub n_lu_intent_confidence_threshold: pulumi_wasm_rust::Output<f64>,
+        pub n_lu_intent_confidence_threshold: pulumi_gestalt_rust::Output<f64>,
         /// Specified locale name.
-        pub name: pulumi_wasm_rust::Output<String>,
-        pub timeouts: pulumi_wasm_rust::Output<
+        pub name: pulumi_gestalt_rust::Output<String>,
+        pub timeouts: pulumi_gestalt_rust::Output<
             Option<super::super::types::lex::V2ModelsBotLocaleTimeouts>,
         >,
         /// Amazon Polly voice ID that Amazon Lex uses for voice interaction with the user. See `voice_settings`.
-        pub voice_settings: pulumi_wasm_rust::Output<
+        pub voice_settings: pulumi_gestalt_rust::Output<
             Option<super::super::types::lex::V2ModelsBotLocaleVoiceSettings>,
         >,
     }
@@ -117,11 +117,11 @@ pub mod v_2_models_bot_locale {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: V2modelsBotLocaleArgs,
     ) -> V2modelsBotLocaleResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let bot_id_binding = args.bot_id.get_output(context).get_inner();
         let bot_version_binding = args.bot_version.get_output(context).get_inner();
@@ -175,24 +175,26 @@ pub mod v_2_models_bot_locale {
         };
         let o = register_interface::register(context.get_inner(), &request);
         V2modelsBotLocaleResult {
-            bot_id: pulumi_wasm_rust::__private::into_domain(o.extract_field("botId")),
-            bot_version: pulumi_wasm_rust::__private::into_domain(
+            bot_id: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("botId"),
+            ),
+            bot_version: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("botVersion"),
             ),
-            description: pulumi_wasm_rust::__private::into_domain(
+            description: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("description"),
             ),
-            locale_id: pulumi_wasm_rust::__private::into_domain(
+            locale_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("localeId"),
             ),
-            n_lu_intent_confidence_threshold: pulumi_wasm_rust::__private::into_domain(
+            n_lu_intent_confidence_threshold: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("nLuIntentConfidenceThreshold"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            timeouts: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            timeouts: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("timeouts"),
             ),
-            voice_settings: pulumi_wasm_rust::__private::into_domain(
+            voice_settings: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("voiceSettings"),
             ),
         }

@@ -1,60 +1,60 @@
 pub mod get_network_insights_path {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct GetNetworkInsightsPathArgs {
         /// Configuration block(s) for filtering. Detailed below.
         #[builder(into, default)]
-        pub filters: pulumi_wasm_rust::InputOrOutput<
+        pub filters: pulumi_gestalt_rust::InputOrOutput<
             Option<Vec<super::super::super::types::ec2::GetNetworkInsightsPathFilter>>,
         >,
         /// ID of the Network Insights Path to select.
         #[builder(into, default)]
-        pub network_insights_path_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub network_insights_path_id: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Map of tags assigned to the resource.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
     #[allow(dead_code)]
     pub struct GetNetworkInsightsPathResult {
         /// ARN of the selected Network Insights Path.
-        pub arn: pulumi_wasm_rust::Output<String>,
+        pub arn: pulumi_gestalt_rust::Output<String>,
         /// AWS resource that is the destination of the path.
-        pub destination: pulumi_wasm_rust::Output<String>,
+        pub destination: pulumi_gestalt_rust::Output<String>,
         /// ARN of the destination.
-        pub destination_arn: pulumi_wasm_rust::Output<String>,
+        pub destination_arn: pulumi_gestalt_rust::Output<String>,
         /// IP address of the AWS resource that is the destination of the path.
-        pub destination_ip: pulumi_wasm_rust::Output<String>,
+        pub destination_ip: pulumi_gestalt_rust::Output<String>,
         /// Destination port.
-        pub destination_port: pulumi_wasm_rust::Output<i32>,
-        pub filters: pulumi_wasm_rust::Output<
+        pub destination_port: pulumi_gestalt_rust::Output<i32>,
+        pub filters: pulumi_gestalt_rust::Output<
             Option<Vec<super::super::super::types::ec2::GetNetworkInsightsPathFilter>>,
         >,
         /// The provider-assigned unique ID for this managed resource.
-        pub id: pulumi_wasm_rust::Output<String>,
-        pub network_insights_path_id: pulumi_wasm_rust::Output<String>,
+        pub id: pulumi_gestalt_rust::Output<String>,
+        pub network_insights_path_id: pulumi_gestalt_rust::Output<String>,
         /// Protocol.
-        pub protocol: pulumi_wasm_rust::Output<String>,
+        pub protocol: pulumi_gestalt_rust::Output<String>,
         /// AWS resource that is the source of the path.
-        pub source: pulumi_wasm_rust::Output<String>,
+        pub source: pulumi_gestalt_rust::Output<String>,
         /// ARN of the source.
-        pub source_arn: pulumi_wasm_rust::Output<String>,
+        pub source_arn: pulumi_gestalt_rust::Output<String>,
         /// IP address of the AWS resource that is the source of the path.
-        pub source_ip: pulumi_wasm_rust::Output<String>,
+        pub source_ip: pulumi_gestalt_rust::Output<String>,
         /// Map of tags assigned to the resource.
-        pub tags: pulumi_wasm_rust::Output<std::collections::HashMap<String, String>>,
+        pub tags: pulumi_gestalt_rust::Output<std::collections::HashMap<String, String>>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         args: GetNetworkInsightsPathArgs,
     ) -> GetNetworkInsightsPathResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let filters_binding = args.filters.get_output(context).get_inner();
         let network_insights_path_id_binding = args
@@ -82,37 +82,39 @@ pub mod get_network_insights_path {
         };
         let o = register_interface::invoke(context.get_inner(), &request);
         GetNetworkInsightsPathResult {
-            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
-            destination: pulumi_wasm_rust::__private::into_domain(
+            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
+            destination: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("destination"),
             ),
-            destination_arn: pulumi_wasm_rust::__private::into_domain(
+            destination_arn: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("destinationArn"),
             ),
-            destination_ip: pulumi_wasm_rust::__private::into_domain(
+            destination_ip: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("destinationIp"),
             ),
-            destination_port: pulumi_wasm_rust::__private::into_domain(
+            destination_port: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("destinationPort"),
             ),
-            filters: pulumi_wasm_rust::__private::into_domain(
+            filters: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("filters"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
-            network_insights_path_id: pulumi_wasm_rust::__private::into_domain(
+            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
+            network_insights_path_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("networkInsightsPathId"),
             ),
-            protocol: pulumi_wasm_rust::__private::into_domain(
+            protocol: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("protocol"),
             ),
-            source: pulumi_wasm_rust::__private::into_domain(o.extract_field("source")),
-            source_arn: pulumi_wasm_rust::__private::into_domain(
+            source: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("source"),
+            ),
+            source_arn: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("sourceArn"),
             ),
-            source_ip: pulumi_wasm_rust::__private::into_domain(
+            source_ip: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("sourceIp"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
         }
     }
 }

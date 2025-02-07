@@ -4,8 +4,8 @@
 ///
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let default = backend_service::create(
@@ -163,72 +163,72 @@
 /// ```
 ///
 pub mod tls_route {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct TlsRouteArgs {
         /// A free-text description of the resource. Max length 1024 characters.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub description: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Gateways defines a list of gateways this TlsRoute is attached to, as one of the routing rules to route the requests
         /// served by the gateway. Each gateway reference should match the pattern:
         /// projects/*/locations/global/gateways/<gateway_name>
         #[builder(into, default)]
-        pub gateways: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
+        pub gateways: pulumi_gestalt_rust::InputOrOutput<Option<Vec<String>>>,
         /// Meshes defines a list of meshes this TlsRoute is attached to, as one of the routing rules to route the requests served
         /// by the mesh. Each mesh reference should match the pattern: projects/*/locations/global/meshes/<mesh_name> The attached
         /// Mesh should be of a type SIDECAR
         #[builder(into, default)]
-        pub meshes: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
+        pub meshes: pulumi_gestalt_rust::InputOrOutput<Option<Vec<String>>>,
         /// Name of the TlsRoute resource.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub project: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Rules that define how traffic is routed and handled.
         /// Structure is documented below.
         #[builder(into)]
-        pub rules: pulumi_wasm_rust::InputOrOutput<
+        pub rules: pulumi_gestalt_rust::InputOrOutput<
             Vec<super::super::types::networkservices::TlsRouteRule>,
         >,
     }
     #[allow(dead_code)]
     pub struct TlsRouteResult {
         /// Time the TlsRoute was created in UTC.
-        pub create_time: pulumi_wasm_rust::Output<String>,
+        pub create_time: pulumi_gestalt_rust::Output<String>,
         /// A free-text description of the resource. Max length 1024 characters.
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_gestalt_rust::Output<Option<String>>,
         /// Gateways defines a list of gateways this TlsRoute is attached to, as one of the routing rules to route the requests
         /// served by the gateway. Each gateway reference should match the pattern:
         /// projects/*/locations/global/gateways/<gateway_name>
-        pub gateways: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub gateways: pulumi_gestalt_rust::Output<Option<Vec<String>>>,
         /// Meshes defines a list of meshes this TlsRoute is attached to, as one of the routing rules to route the requests served
         /// by the mesh. Each mesh reference should match the pattern: projects/*/locations/global/meshes/<mesh_name> The attached
         /// Mesh should be of a type SIDECAR
-        pub meshes: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub meshes: pulumi_gestalt_rust::Output<Option<Vec<String>>>,
         /// Name of the TlsRoute resource.
-        pub name: pulumi_wasm_rust::Output<String>,
-        pub project: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
+        pub project: pulumi_gestalt_rust::Output<String>,
         /// Rules that define how traffic is routed and handled.
         /// Structure is documented below.
-        pub rules: pulumi_wasm_rust::Output<
+        pub rules: pulumi_gestalt_rust::Output<
             Vec<super::super::types::networkservices::TlsRouteRule>,
         >,
         /// Server-defined URL of this resource.
-        pub self_link: pulumi_wasm_rust::Output<String>,
+        pub self_link: pulumi_gestalt_rust::Output<String>,
         /// Time the TlsRoute was updated in UTC.
-        pub update_time: pulumi_wasm_rust::Output<String>,
+        pub update_time: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: TlsRouteArgs,
     ) -> TlsRouteResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let description_binding = args.description.get_output(context).get_inner();
         let gateways_binding = args.gateways.get_output(context).get_inner();
@@ -269,25 +269,27 @@ pub mod tls_route {
         };
         let o = register_interface::register(context.get_inner(), &request);
         TlsRouteResult {
-            create_time: pulumi_wasm_rust::__private::into_domain(
+            create_time: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("createTime"),
             ),
-            description: pulumi_wasm_rust::__private::into_domain(
+            description: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("description"),
             ),
-            gateways: pulumi_wasm_rust::__private::into_domain(
+            gateways: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("gateways"),
             ),
-            meshes: pulumi_wasm_rust::__private::into_domain(o.extract_field("meshes")),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            project: pulumi_wasm_rust::__private::into_domain(
+            meshes: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("meshes"),
+            ),
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            project: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("project"),
             ),
-            rules: pulumi_wasm_rust::__private::into_domain(o.extract_field("rules")),
-            self_link: pulumi_wasm_rust::__private::into_domain(
+            rules: pulumi_gestalt_rust::__private::into_domain(o.extract_field("rules")),
+            self_link: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("selfLink"),
             ),
-            update_time: pulumi_wasm_rust::__private::into_domain(
+            update_time: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("updateTime"),
             ),
         }

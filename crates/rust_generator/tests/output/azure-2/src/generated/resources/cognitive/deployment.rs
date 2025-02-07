@@ -3,8 +3,8 @@
 /// ## Example Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = resource_group::create(
@@ -51,65 +51,67 @@
 /// ```
 ///
 pub mod deployment {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct DeploymentArgs {
         /// The ID of the Cognitive Services Account. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub cognitive_account_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub cognitive_account_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Whether dynamic throttling is enabled.
         #[builder(into, default)]
-        pub dynamic_throttling_enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub dynamic_throttling_enabled: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// A `model` block as defined below. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub model: pulumi_wasm_rust::InputOrOutput<
+        pub model: pulumi_gestalt_rust::InputOrOutput<
             super::super::types::cognitive::DeploymentModel,
         >,
         /// The name of the Cognitive Services Account Deployment. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The name of RAI policy.
         #[builder(into, default)]
-        pub rai_policy_name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub rai_policy_name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// A `sku` block as defined below.
         #[builder(into)]
-        pub sku: pulumi_wasm_rust::InputOrOutput<
+        pub sku: pulumi_gestalt_rust::InputOrOutput<
             super::super::types::cognitive::DeploymentSku,
         >,
         /// Deployment model version upgrade option. Possible values are `OnceNewDefaultVersionAvailable`, `OnceCurrentVersionExpired`, and `NoAutoUpgrade`. Defaults to `OnceNewDefaultVersionAvailable`.
         #[builder(into, default)]
-        pub version_upgrade_option: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub version_upgrade_option: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct DeploymentResult {
         /// The ID of the Cognitive Services Account. Changing this forces a new resource to be created.
-        pub cognitive_account_id: pulumi_wasm_rust::Output<String>,
+        pub cognitive_account_id: pulumi_gestalt_rust::Output<String>,
         /// Whether dynamic throttling is enabled.
-        pub dynamic_throttling_enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub dynamic_throttling_enabled: pulumi_gestalt_rust::Output<Option<bool>>,
         /// A `model` block as defined below. Changing this forces a new resource to be created.
-        pub model: pulumi_wasm_rust::Output<
+        pub model: pulumi_gestalt_rust::Output<
             super::super::types::cognitive::DeploymentModel,
         >,
         /// The name of the Cognitive Services Account Deployment. Changing this forces a new resource to be created.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// The name of RAI policy.
-        pub rai_policy_name: pulumi_wasm_rust::Output<Option<String>>,
+        pub rai_policy_name: pulumi_gestalt_rust::Output<Option<String>>,
         /// A `sku` block as defined below.
-        pub sku: pulumi_wasm_rust::Output<super::super::types::cognitive::DeploymentSku>,
+        pub sku: pulumi_gestalt_rust::Output<
+            super::super::types::cognitive::DeploymentSku,
+        >,
         /// Deployment model version upgrade option. Possible values are `OnceNewDefaultVersionAvailable`, `OnceCurrentVersionExpired`, and `NoAutoUpgrade`. Defaults to `OnceNewDefaultVersionAvailable`.
-        pub version_upgrade_option: pulumi_wasm_rust::Output<Option<String>>,
+        pub version_upgrade_option: pulumi_gestalt_rust::Output<Option<String>>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: DeploymentArgs,
     ) -> DeploymentResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let cognitive_account_id_binding = args
             .cognitive_account_id
@@ -167,19 +169,19 @@ pub mod deployment {
         };
         let o = register_interface::register(context.get_inner(), &request);
         DeploymentResult {
-            cognitive_account_id: pulumi_wasm_rust::__private::into_domain(
+            cognitive_account_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("cognitiveAccountId"),
             ),
-            dynamic_throttling_enabled: pulumi_wasm_rust::__private::into_domain(
+            dynamic_throttling_enabled: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("dynamicThrottlingEnabled"),
             ),
-            model: pulumi_wasm_rust::__private::into_domain(o.extract_field("model")),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            rai_policy_name: pulumi_wasm_rust::__private::into_domain(
+            model: pulumi_gestalt_rust::__private::into_domain(o.extract_field("model")),
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            rai_policy_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("raiPolicyName"),
             ),
-            sku: pulumi_wasm_rust::__private::into_domain(o.extract_field("sku")),
-            version_upgrade_option: pulumi_wasm_rust::__private::into_domain(
+            sku: pulumi_gestalt_rust::__private::into_domain(o.extract_field("sku")),
+            version_upgrade_option: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("versionUpgradeOption"),
             ),
         }

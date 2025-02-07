@@ -57,34 +57,34 @@
 /// ```
 ///
 pub mod token_password {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct TokenPasswordArgs {
         /// The ID of the Container Registry Token that this Container Registry Token Password resides in. Changing this forces a new Container Registry Token Password to be created.
         #[builder(into)]
-        pub container_registry_token_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub container_registry_token_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// One `password` block as defined below.
         #[builder(into)]
-        pub password1: pulumi_wasm_rust::InputOrOutput<
+        pub password1: pulumi_gestalt_rust::InputOrOutput<
             super::super::types::containerservice::TokenPasswordPassword1,
         >,
         /// One `password` block as defined below.
         #[builder(into, default)]
-        pub password2: pulumi_wasm_rust::InputOrOutput<
+        pub password2: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::containerservice::TokenPasswordPassword2>,
         >,
     }
     #[allow(dead_code)]
     pub struct TokenPasswordResult {
         /// The ID of the Container Registry Token that this Container Registry Token Password resides in. Changing this forces a new Container Registry Token Password to be created.
-        pub container_registry_token_id: pulumi_wasm_rust::Output<String>,
+        pub container_registry_token_id: pulumi_gestalt_rust::Output<String>,
         /// One `password` block as defined below.
-        pub password1: pulumi_wasm_rust::Output<
+        pub password1: pulumi_gestalt_rust::Output<
             super::super::types::containerservice::TokenPasswordPassword1,
         >,
         /// One `password` block as defined below.
-        pub password2: pulumi_wasm_rust::Output<
+        pub password2: pulumi_gestalt_rust::Output<
             Option<super::super::types::containerservice::TokenPasswordPassword2>,
         >,
     }
@@ -93,11 +93,11 @@ pub mod token_password {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: TokenPasswordArgs,
     ) -> TokenPasswordResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let container_registry_token_id_binding = args
             .container_registry_token_id
@@ -126,13 +126,13 @@ pub mod token_password {
         };
         let o = register_interface::register(context.get_inner(), &request);
         TokenPasswordResult {
-            container_registry_token_id: pulumi_wasm_rust::__private::into_domain(
+            container_registry_token_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("containerRegistryTokenId"),
             ),
-            password1: pulumi_wasm_rust::__private::into_domain(
+            password1: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("password1"),
             ),
-            password2: pulumi_wasm_rust::__private::into_domain(
+            password2: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("password2"),
             ),
         }

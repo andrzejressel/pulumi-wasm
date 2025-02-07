@@ -57,39 +57,39 @@
 /// ```
 ///
 pub mod security_device_group {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct SecurityDeviceGroupArgs {
         /// an `allow_rule` blocks as defined below.
         #[builder(into, default)]
-        pub allow_rule: pulumi_wasm_rust::InputOrOutput<
+        pub allow_rule: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::iot::SecurityDeviceGroupAllowRule>,
         >,
         /// The ID of the IoT Hub which to link the Security Device Group to. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub iothub_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub iothub_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Specifies the name of the Device Security Group. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// One or more `range_rule` blocks as defined below.
         #[builder(into, default)]
-        pub range_rules: pulumi_wasm_rust::InputOrOutput<
+        pub range_rules: pulumi_gestalt_rust::InputOrOutput<
             Option<Vec<super::super::types::iot::SecurityDeviceGroupRangeRule>>,
         >,
     }
     #[allow(dead_code)]
     pub struct SecurityDeviceGroupResult {
         /// an `allow_rule` blocks as defined below.
-        pub allow_rule: pulumi_wasm_rust::Output<
+        pub allow_rule: pulumi_gestalt_rust::Output<
             Option<super::super::types::iot::SecurityDeviceGroupAllowRule>,
         >,
         /// The ID of the IoT Hub which to link the Security Device Group to. Changing this forces a new resource to be created.
-        pub iothub_id: pulumi_wasm_rust::Output<String>,
+        pub iothub_id: pulumi_gestalt_rust::Output<String>,
         /// Specifies the name of the Device Security Group. Changing this forces a new resource to be created.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// One or more `range_rule` blocks as defined below.
-        pub range_rules: pulumi_wasm_rust::Output<
+        pub range_rules: pulumi_gestalt_rust::Output<
             Option<Vec<super::super::types::iot::SecurityDeviceGroupRangeRule>>,
         >,
     }
@@ -98,11 +98,11 @@ pub mod security_device_group {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: SecurityDeviceGroupArgs,
     ) -> SecurityDeviceGroupResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let allow_rule_binding = args.allow_rule.get_output(context).get_inner();
         let iothub_id_binding = args.iothub_id.get_output(context).get_inner();
@@ -133,14 +133,14 @@ pub mod security_device_group {
         };
         let o = register_interface::register(context.get_inner(), &request);
         SecurityDeviceGroupResult {
-            allow_rule: pulumi_wasm_rust::__private::into_domain(
+            allow_rule: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("allowRule"),
             ),
-            iothub_id: pulumi_wasm_rust::__private::into_domain(
+            iothub_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("iothubId"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            range_rules: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            range_rules: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("rangeRules"),
             ),
         }

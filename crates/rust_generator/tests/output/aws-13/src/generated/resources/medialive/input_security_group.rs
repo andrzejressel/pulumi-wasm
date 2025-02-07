@@ -23,40 +23,40 @@
 /// $ pulumi import aws:medialive/inputSecurityGroup:InputSecurityGroup example 123456
 /// ```
 pub mod input_security_group {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct InputSecurityGroupArgs {
         /// A map of tags to assign to the InputSecurityGroup. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Whitelist rules. See Whitelist Rules for more details.
         ///
         /// The following arguments are optional:
         #[builder(into)]
-        pub whitelist_rules: pulumi_wasm_rust::InputOrOutput<
+        pub whitelist_rules: pulumi_gestalt_rust::InputOrOutput<
             Vec<super::super::types::medialive::InputSecurityGroupWhitelistRule>,
         >,
     }
     #[allow(dead_code)]
     pub struct InputSecurityGroupResult {
         /// ARN of the InputSecurityGroup.
-        pub arn: pulumi_wasm_rust::Output<String>,
+        pub arn: pulumi_gestalt_rust::Output<String>,
         /// The list of inputs currently using this InputSecurityGroup.
-        pub inputs: pulumi_wasm_rust::Output<Vec<String>>,
+        pub inputs: pulumi_gestalt_rust::Output<Vec<String>>,
         /// A map of tags to assign to the InputSecurityGroup. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
-        pub tags_all: pulumi_wasm_rust::Output<
+        pub tags_all: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
         /// Whitelist rules. See Whitelist Rules for more details.
         ///
         /// The following arguments are optional:
-        pub whitelist_rules: pulumi_wasm_rust::Output<
+        pub whitelist_rules: pulumi_gestalt_rust::Output<
             Vec<super::super::types::medialive::InputSecurityGroupWhitelistRule>,
         >,
     }
@@ -65,11 +65,11 @@ pub mod input_security_group {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: InputSecurityGroupArgs,
     ) -> InputSecurityGroupResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let tags_binding = args.tags.get_output(context).get_inner();
         let whitelist_rules_binding = args
@@ -93,13 +93,15 @@ pub mod input_security_group {
         };
         let o = register_interface::register(context.get_inner(), &request);
         InputSecurityGroupResult {
-            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
-            inputs: pulumi_wasm_rust::__private::into_domain(o.extract_field("inputs")),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_wasm_rust::__private::into_domain(
+            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
+            inputs: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("inputs"),
+            ),
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            tags_all: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("tagsAll"),
             ),
-            whitelist_rules: pulumi_wasm_rust::__private::into_domain(
+            whitelist_rules: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("whitelistRules"),
             ),
         }

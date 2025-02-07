@@ -28,56 +28,56 @@
 /// $ pulumi import aws:dms/eventSubscription:EventSubscription test my-awesome-event-subscription
 /// ```
 pub mod event_subscription {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct EventSubscriptionArgs {
         /// Whether the event subscription should be enabled.
         #[builder(into, default)]
-        pub enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub enabled: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// List of event categories to listen for, see `DescribeEventCategories` for a canonical list.
         #[builder(into)]
-        pub event_categories: pulumi_wasm_rust::InputOrOutput<Vec<String>>,
+        pub event_categories: pulumi_gestalt_rust::InputOrOutput<Vec<String>>,
         /// Name of event subscription.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// SNS topic arn to send events on.
         #[builder(into)]
-        pub sns_topic_arn: pulumi_wasm_rust::InputOrOutput<String>,
+        pub sns_topic_arn: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Ids of sources to listen to. If you don't specify a value, notifications are provided for all sources.
         #[builder(into, default)]
-        pub source_ids: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
+        pub source_ids: pulumi_gestalt_rust::InputOrOutput<Option<Vec<String>>>,
         /// Type of source for events. Valid values: `replication-instance` or `replication-task`
         #[builder(into)]
-        pub source_type: pulumi_wasm_rust::InputOrOutput<String>,
+        pub source_type: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Map of resource tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
     #[allow(dead_code)]
     pub struct EventSubscriptionResult {
         /// Amazon Resource Name (ARN) of the DMS Event Subscription.
-        pub arn: pulumi_wasm_rust::Output<String>,
+        pub arn: pulumi_gestalt_rust::Output<String>,
         /// Whether the event subscription should be enabled.
-        pub enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub enabled: pulumi_gestalt_rust::Output<Option<bool>>,
         /// List of event categories to listen for, see `DescribeEventCategories` for a canonical list.
-        pub event_categories: pulumi_wasm_rust::Output<Vec<String>>,
+        pub event_categories: pulumi_gestalt_rust::Output<Vec<String>>,
         /// Name of event subscription.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// SNS topic arn to send events on.
-        pub sns_topic_arn: pulumi_wasm_rust::Output<String>,
+        pub sns_topic_arn: pulumi_gestalt_rust::Output<String>,
         /// Ids of sources to listen to. If you don't specify a value, notifications are provided for all sources.
-        pub source_ids: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub source_ids: pulumi_gestalt_rust::Output<Option<Vec<String>>>,
         /// Type of source for events. Valid values: `replication-instance` or `replication-task`
-        pub source_type: pulumi_wasm_rust::Output<String>,
+        pub source_type: pulumi_gestalt_rust::Output<String>,
         /// Map of resource tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        pub tags_all: pulumi_wasm_rust::Output<
+        pub tags_all: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
     }
@@ -86,11 +86,11 @@ pub mod event_subscription {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: EventSubscriptionArgs,
     ) -> EventSubscriptionResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let enabled_binding = args.enabled.get_output(context).get_inner();
         let event_categories_binding = args
@@ -139,25 +139,25 @@ pub mod event_subscription {
         };
         let o = register_interface::register(context.get_inner(), &request);
         EventSubscriptionResult {
-            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
-            enabled: pulumi_wasm_rust::__private::into_domain(
+            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
+            enabled: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("enabled"),
             ),
-            event_categories: pulumi_wasm_rust::__private::into_domain(
+            event_categories: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("eventCategories"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            sns_topic_arn: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            sns_topic_arn: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("snsTopicArn"),
             ),
-            source_ids: pulumi_wasm_rust::__private::into_domain(
+            source_ids: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("sourceIds"),
             ),
-            source_type: pulumi_wasm_rust::__private::into_domain(
+            source_type: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("sourceType"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_wasm_rust::__private::into_domain(
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            tags_all: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("tagsAll"),
             ),
         }

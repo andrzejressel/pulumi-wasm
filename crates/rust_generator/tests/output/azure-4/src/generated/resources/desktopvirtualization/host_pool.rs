@@ -3,8 +3,8 @@
 /// ## Example Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = resource_group::create(
@@ -55,133 +55,135 @@
 /// ```
 ///
 pub mod host_pool {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct HostPoolArgs {
         /// A valid custom RDP properties string for the Virtual Desktop Host Pool, available properties can be [found in this article](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/clients/rdp-files).
         #[builder(into, default)]
-        pub custom_rdp_properties: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub custom_rdp_properties: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// A description for the Virtual Desktop Host Pool.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub description: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// A friendly name for the Virtual Desktop Host Pool.
         #[builder(into, default)]
-        pub friendly_name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub friendly_name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// `BreadthFirst` load balancing distributes new user sessions across all available session hosts in the host pool. Possible values are `BreadthFirst`, `DepthFirst` and `Persistent`.
         /// `DepthFirst` load balancing distributes new user sessions to an available session host with the highest number of connections but has not reached its maximum session limit threshold.
         /// `Persistent` should be used if the host pool type is `Personal`
         #[builder(into)]
-        pub load_balancer_type: pulumi_wasm_rust::InputOrOutput<String>,
+        pub load_balancer_type: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The location/region where the Virtual Desktop Host Pool is located. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub location: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub location: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// A valid integer value from 0 to 999999 for the maximum number of users that have concurrent sessions on a session host.
         /// Should only be set if the `type` of your Virtual Desktop Host Pool is `Pooled`.
         #[builder(into, default)]
-        pub maximum_sessions_allowed: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
+        pub maximum_sessions_allowed: pulumi_gestalt_rust::InputOrOutput<Option<i32>>,
         /// The name of the Virtual Desktop Host Pool. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// `Automatic` assignment – The service will select an available host and assign it to an user. Possible values are `Automatic` and `Direct`. `Direct` Assignment – Admin selects a specific host to assign to an user. Changing this forces a new resource to be created.
         ///
         /// > **NOTE:** `personal_desktop_assignment_type` is required if the `type` of your Virtual Desktop Host Pool is `Personal`
         #[builder(into, default)]
-        pub personal_desktop_assignment_type: pulumi_wasm_rust::InputOrOutput<
+        pub personal_desktop_assignment_type: pulumi_gestalt_rust::InputOrOutput<
             Option<String>,
         >,
         /// Option to specify the preferred Application Group type for the Virtual Desktop Host Pool. Valid options are `None`, `Desktop` or `RailApplications`. Default is `Desktop`.
         #[builder(into, default)]
-        pub preferred_app_group_type: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub preferred_app_group_type: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Whether public network access is allowed for the Virtual Desktop Host Pool. Possible values are `Enabled`, `Disabled`, `EnabledForClientsOnly` and `EnabledForSessionHostsOnly`. Defaults to `Enabled`.
         #[builder(into, default)]
-        pub public_network_access: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub public_network_access: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The name of the resource group in which to create the Virtual Desktop Host Pool. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub resource_group_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub resource_group_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// A `scheduled_agent_updates` block as defined below. This enables control of when Agent Updates will be applied to Session Hosts.
         #[builder(into, default)]
-        pub scheduled_agent_updates: pulumi_wasm_rust::InputOrOutput<
+        pub scheduled_agent_updates: pulumi_gestalt_rust::InputOrOutput<
             Option<
                 super::super::types::desktopvirtualization::HostPoolScheduledAgentUpdates,
             >,
         >,
         /// Enables or disables the Start VM on Connection Feature. Defaults to `false`.
         #[builder(into, default)]
-        pub start_vm_on_connect: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub start_vm_on_connect: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// A mapping of tags to assign to the resource.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// The type of the Virtual Desktop Host Pool. Valid options are `Personal` or `Pooled`. Changing the type forces a new resource to be created.
         #[builder(into)]
-        pub type_: pulumi_wasm_rust::InputOrOutput<String>,
+        pub type_: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Allows you to test service changes before they are deployed to production. Defaults to `false`.
         #[builder(into, default)]
-        pub validate_environment: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub validate_environment: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// A VM template for session hosts configuration within hostpool. This is a JSON string.
         #[builder(into, default)]
-        pub vm_template: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub vm_template: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct HostPoolResult {
         /// A valid custom RDP properties string for the Virtual Desktop Host Pool, available properties can be [found in this article](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/clients/rdp-files).
-        pub custom_rdp_properties: pulumi_wasm_rust::Output<Option<String>>,
+        pub custom_rdp_properties: pulumi_gestalt_rust::Output<Option<String>>,
         /// A description for the Virtual Desktop Host Pool.
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_gestalt_rust::Output<Option<String>>,
         /// A friendly name for the Virtual Desktop Host Pool.
-        pub friendly_name: pulumi_wasm_rust::Output<Option<String>>,
+        pub friendly_name: pulumi_gestalt_rust::Output<Option<String>>,
         /// `BreadthFirst` load balancing distributes new user sessions across all available session hosts in the host pool. Possible values are `BreadthFirst`, `DepthFirst` and `Persistent`.
         /// `DepthFirst` load balancing distributes new user sessions to an available session host with the highest number of connections but has not reached its maximum session limit threshold.
         /// `Persistent` should be used if the host pool type is `Personal`
-        pub load_balancer_type: pulumi_wasm_rust::Output<String>,
+        pub load_balancer_type: pulumi_gestalt_rust::Output<String>,
         /// The location/region where the Virtual Desktop Host Pool is located. Changing this forces a new resource to be created.
-        pub location: pulumi_wasm_rust::Output<String>,
+        pub location: pulumi_gestalt_rust::Output<String>,
         /// A valid integer value from 0 to 999999 for the maximum number of users that have concurrent sessions on a session host.
         /// Should only be set if the `type` of your Virtual Desktop Host Pool is `Pooled`.
-        pub maximum_sessions_allowed: pulumi_wasm_rust::Output<Option<i32>>,
+        pub maximum_sessions_allowed: pulumi_gestalt_rust::Output<Option<i32>>,
         /// The name of the Virtual Desktop Host Pool. Changing this forces a new resource to be created.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// `Automatic` assignment – The service will select an available host and assign it to an user. Possible values are `Automatic` and `Direct`. `Direct` Assignment – Admin selects a specific host to assign to an user. Changing this forces a new resource to be created.
         ///
         /// > **NOTE:** `personal_desktop_assignment_type` is required if the `type` of your Virtual Desktop Host Pool is `Personal`
-        pub personal_desktop_assignment_type: pulumi_wasm_rust::Output<Option<String>>,
+        pub personal_desktop_assignment_type: pulumi_gestalt_rust::Output<
+            Option<String>,
+        >,
         /// Option to specify the preferred Application Group type for the Virtual Desktop Host Pool. Valid options are `None`, `Desktop` or `RailApplications`. Default is `Desktop`.
-        pub preferred_app_group_type: pulumi_wasm_rust::Output<Option<String>>,
+        pub preferred_app_group_type: pulumi_gestalt_rust::Output<Option<String>>,
         /// Whether public network access is allowed for the Virtual Desktop Host Pool. Possible values are `Enabled`, `Disabled`, `EnabledForClientsOnly` and `EnabledForSessionHostsOnly`. Defaults to `Enabled`.
-        pub public_network_access: pulumi_wasm_rust::Output<Option<String>>,
+        pub public_network_access: pulumi_gestalt_rust::Output<Option<String>>,
         /// The name of the resource group in which to create the Virtual Desktop Host Pool. Changing this forces a new resource to be created.
-        pub resource_group_name: pulumi_wasm_rust::Output<String>,
+        pub resource_group_name: pulumi_gestalt_rust::Output<String>,
         /// A `scheduled_agent_updates` block as defined below. This enables control of when Agent Updates will be applied to Session Hosts.
-        pub scheduled_agent_updates: pulumi_wasm_rust::Output<
+        pub scheduled_agent_updates: pulumi_gestalt_rust::Output<
             Option<
                 super::super::types::desktopvirtualization::HostPoolScheduledAgentUpdates,
             >,
         >,
         /// Enables or disables the Start VM on Connection Feature. Defaults to `false`.
-        pub start_vm_on_connect: pulumi_wasm_rust::Output<Option<bool>>,
+        pub start_vm_on_connect: pulumi_gestalt_rust::Output<Option<bool>>,
         /// A mapping of tags to assign to the resource.
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// The type of the Virtual Desktop Host Pool. Valid options are `Personal` or `Pooled`. Changing the type forces a new resource to be created.
-        pub type_: pulumi_wasm_rust::Output<String>,
+        pub type_: pulumi_gestalt_rust::Output<String>,
         /// Allows you to test service changes before they are deployed to production. Defaults to `false`.
-        pub validate_environment: pulumi_wasm_rust::Output<Option<bool>>,
+        pub validate_environment: pulumi_gestalt_rust::Output<Option<bool>>,
         /// A VM template for session hosts configuration within hostpool. This is a JSON string.
-        pub vm_template: pulumi_wasm_rust::Output<Option<String>>,
+        pub vm_template: pulumi_gestalt_rust::Output<Option<String>>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: HostPoolArgs,
     ) -> HostPoolResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let custom_rdp_properties_binding = args
             .custom_rdp_properties
@@ -307,49 +309,49 @@ pub mod host_pool {
         };
         let o = register_interface::register(context.get_inner(), &request);
         HostPoolResult {
-            custom_rdp_properties: pulumi_wasm_rust::__private::into_domain(
+            custom_rdp_properties: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("customRdpProperties"),
             ),
-            description: pulumi_wasm_rust::__private::into_domain(
+            description: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("description"),
             ),
-            friendly_name: pulumi_wasm_rust::__private::into_domain(
+            friendly_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("friendlyName"),
             ),
-            load_balancer_type: pulumi_wasm_rust::__private::into_domain(
+            load_balancer_type: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("loadBalancerType"),
             ),
-            location: pulumi_wasm_rust::__private::into_domain(
+            location: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("location"),
             ),
-            maximum_sessions_allowed: pulumi_wasm_rust::__private::into_domain(
+            maximum_sessions_allowed: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("maximumSessionsAllowed"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            personal_desktop_assignment_type: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            personal_desktop_assignment_type: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("personalDesktopAssignmentType"),
             ),
-            preferred_app_group_type: pulumi_wasm_rust::__private::into_domain(
+            preferred_app_group_type: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("preferredAppGroupType"),
             ),
-            public_network_access: pulumi_wasm_rust::__private::into_domain(
+            public_network_access: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("publicNetworkAccess"),
             ),
-            resource_group_name: pulumi_wasm_rust::__private::into_domain(
+            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("resourceGroupName"),
             ),
-            scheduled_agent_updates: pulumi_wasm_rust::__private::into_domain(
+            scheduled_agent_updates: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("scheduledAgentUpdates"),
             ),
-            start_vm_on_connect: pulumi_wasm_rust::__private::into_domain(
+            start_vm_on_connect: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("startVmOnConnect"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
-            type_: pulumi_wasm_rust::__private::into_domain(o.extract_field("type")),
-            validate_environment: pulumi_wasm_rust::__private::into_domain(
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            type_: pulumi_gestalt_rust::__private::into_domain(o.extract_field("type")),
+            validate_environment: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("validateEnvironment"),
             ),
-            vm_template: pulumi_wasm_rust::__private::into_domain(
+            vm_template: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("vmTemplate"),
             ),
         }

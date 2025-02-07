@@ -3,8 +3,8 @@
 /// ## Example Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = resource_group::create(
@@ -96,193 +96,195 @@
 /// ```
 ///
 pub mod spark_cluster {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct SparkClusterArgs {
         /// Specifies the Version of HDInsights which should be used for this Cluster. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub cluster_version: pulumi_wasm_rust::InputOrOutput<String>,
+        pub cluster_version: pulumi_gestalt_rust::InputOrOutput<String>,
         /// A `component_version` block as defined below.
         #[builder(into)]
-        pub component_version: pulumi_wasm_rust::InputOrOutput<
+        pub component_version: pulumi_gestalt_rust::InputOrOutput<
             super::super::types::hdinsight::SparkClusterComponentVersion,
         >,
         /// A `compute_isolation` block as defined below.
         #[builder(into, default)]
-        pub compute_isolation: pulumi_wasm_rust::InputOrOutput<
+        pub compute_isolation: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::hdinsight::SparkClusterComputeIsolation>,
         >,
         /// One or more `disk_encryption` block as defined below.
         #[builder(into, default)]
-        pub disk_encryptions: pulumi_wasm_rust::InputOrOutput<
+        pub disk_encryptions: pulumi_gestalt_rust::InputOrOutput<
             Option<Vec<super::super::types::hdinsight::SparkClusterDiskEncryption>>,
         >,
         /// Whether encryption in transit is enabled for this Cluster. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub encryption_in_transit_enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub encryption_in_transit_enabled: pulumi_gestalt_rust::InputOrOutput<
+            Option<bool>,
+        >,
         /// An `extension` block as defined below.
         #[builder(into, default)]
-        pub extension: pulumi_wasm_rust::InputOrOutput<
+        pub extension: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::hdinsight::SparkClusterExtension>,
         >,
         /// A `gateway` block as defined below.
         #[builder(into)]
-        pub gateway: pulumi_wasm_rust::InputOrOutput<
+        pub gateway: pulumi_gestalt_rust::InputOrOutput<
             super::super::types::hdinsight::SparkClusterGateway,
         >,
         /// Specifies the Azure Region which this HDInsight Spark Cluster should exist. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub location: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub location: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// A `metastores` block as defined below.
         #[builder(into, default)]
-        pub metastores: pulumi_wasm_rust::InputOrOutput<
+        pub metastores: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::hdinsight::SparkClusterMetastores>,
         >,
         /// A `monitor` block as defined below.
         #[builder(into, default)]
-        pub monitor: pulumi_wasm_rust::InputOrOutput<
+        pub monitor: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::hdinsight::SparkClusterMonitor>,
         >,
         /// Specifies the name for this HDInsight Spark Cluster. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// A `network` block as defined below.
         #[builder(into, default)]
-        pub network: pulumi_wasm_rust::InputOrOutput<
+        pub network: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::hdinsight::SparkClusterNetwork>,
         >,
         /// A `private_link_configuration` block as defined below.
         #[builder(into, default)]
-        pub private_link_configuration: pulumi_wasm_rust::InputOrOutput<
+        pub private_link_configuration: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::hdinsight::SparkClusterPrivateLinkConfiguration>,
         >,
         /// Specifies the name of the Resource Group in which this HDInsight Spark Cluster should exist. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub resource_group_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub resource_group_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// A `roles` block as defined below.
         #[builder(into)]
-        pub roles: pulumi_wasm_rust::InputOrOutput<
+        pub roles: pulumi_gestalt_rust::InputOrOutput<
             super::super::types::hdinsight::SparkClusterRoles,
         >,
         /// A `security_profile` block as defined below. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub security_profile: pulumi_wasm_rust::InputOrOutput<
+        pub security_profile: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::hdinsight::SparkClusterSecurityProfile>,
         >,
         /// A `storage_account_gen2` block as defined below.
         #[builder(into, default)]
-        pub storage_account_gen2: pulumi_wasm_rust::InputOrOutput<
+        pub storage_account_gen2: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::hdinsight::SparkClusterStorageAccountGen2>,
         >,
         /// One or more `storage_account` block as defined below.
         #[builder(into, default)]
-        pub storage_accounts: pulumi_wasm_rust::InputOrOutput<
+        pub storage_accounts: pulumi_gestalt_rust::InputOrOutput<
             Option<Vec<super::super::types::hdinsight::SparkClusterStorageAccount>>,
         >,
         /// A map of Tags which should be assigned to this HDInsight Spark Cluster.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Specifies the Tier which should be used for this HDInsight Spark Cluster. Possible values are `Standard` or `Premium`. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub tier: pulumi_wasm_rust::InputOrOutput<String>,
+        pub tier: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The minimal supported TLS version. Possible values are 1.0, 1.1 or 1.2. Changing this forces a new resource to be created.
         ///
         /// > **NOTE:** Starting on June 30, 2020, Azure HDInsight will enforce TLS 1.2 or later versions for all HTTPS connections. For more information, see [Azure HDInsight TLS 1.2 Enforcement](https://azure.microsoft.com/en-us/updates/azure-hdinsight-tls-12-enforcement/).
         #[builder(into, default)]
-        pub tls_min_version: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub tls_min_version: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct SparkClusterResult {
         /// Specifies the Version of HDInsights which should be used for this Cluster. Changing this forces a new resource to be created.
-        pub cluster_version: pulumi_wasm_rust::Output<String>,
+        pub cluster_version: pulumi_gestalt_rust::Output<String>,
         /// A `component_version` block as defined below.
-        pub component_version: pulumi_wasm_rust::Output<
+        pub component_version: pulumi_gestalt_rust::Output<
             super::super::types::hdinsight::SparkClusterComponentVersion,
         >,
         /// A `compute_isolation` block as defined below.
-        pub compute_isolation: pulumi_wasm_rust::Output<
+        pub compute_isolation: pulumi_gestalt_rust::Output<
             Option<super::super::types::hdinsight::SparkClusterComputeIsolation>,
         >,
         /// One or more `disk_encryption` block as defined below.
-        pub disk_encryptions: pulumi_wasm_rust::Output<
+        pub disk_encryptions: pulumi_gestalt_rust::Output<
             Option<Vec<super::super::types::hdinsight::SparkClusterDiskEncryption>>,
         >,
         /// Whether encryption in transit is enabled for this Cluster. Changing this forces a new resource to be created.
-        pub encryption_in_transit_enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub encryption_in_transit_enabled: pulumi_gestalt_rust::Output<Option<bool>>,
         /// An `extension` block as defined below.
-        pub extension: pulumi_wasm_rust::Output<
+        pub extension: pulumi_gestalt_rust::Output<
             Option<super::super::types::hdinsight::SparkClusterExtension>,
         >,
         /// A `gateway` block as defined below.
-        pub gateway: pulumi_wasm_rust::Output<
+        pub gateway: pulumi_gestalt_rust::Output<
             super::super::types::hdinsight::SparkClusterGateway,
         >,
         /// The HTTPS Connectivity Endpoint for this HDInsight Spark Cluster.
-        pub https_endpoint: pulumi_wasm_rust::Output<String>,
+        pub https_endpoint: pulumi_gestalt_rust::Output<String>,
         /// Specifies the Azure Region which this HDInsight Spark Cluster should exist. Changing this forces a new resource to be created.
-        pub location: pulumi_wasm_rust::Output<String>,
+        pub location: pulumi_gestalt_rust::Output<String>,
         /// A `metastores` block as defined below.
-        pub metastores: pulumi_wasm_rust::Output<
+        pub metastores: pulumi_gestalt_rust::Output<
             Option<super::super::types::hdinsight::SparkClusterMetastores>,
         >,
         /// A `monitor` block as defined below.
-        pub monitor: pulumi_wasm_rust::Output<
+        pub monitor: pulumi_gestalt_rust::Output<
             Option<super::super::types::hdinsight::SparkClusterMonitor>,
         >,
         /// Specifies the name for this HDInsight Spark Cluster. Changing this forces a new resource to be created.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// A `network` block as defined below.
-        pub network: pulumi_wasm_rust::Output<
+        pub network: pulumi_gestalt_rust::Output<
             Option<super::super::types::hdinsight::SparkClusterNetwork>,
         >,
         /// A `private_link_configuration` block as defined below.
-        pub private_link_configuration: pulumi_wasm_rust::Output<
+        pub private_link_configuration: pulumi_gestalt_rust::Output<
             Option<super::super::types::hdinsight::SparkClusterPrivateLinkConfiguration>,
         >,
         /// Specifies the name of the Resource Group in which this HDInsight Spark Cluster should exist. Changing this forces a new resource to be created.
-        pub resource_group_name: pulumi_wasm_rust::Output<String>,
+        pub resource_group_name: pulumi_gestalt_rust::Output<String>,
         /// A `roles` block as defined below.
-        pub roles: pulumi_wasm_rust::Output<
+        pub roles: pulumi_gestalt_rust::Output<
             super::super::types::hdinsight::SparkClusterRoles,
         >,
         /// A `security_profile` block as defined below. Changing this forces a new resource to be created.
-        pub security_profile: pulumi_wasm_rust::Output<
+        pub security_profile: pulumi_gestalt_rust::Output<
             Option<super::super::types::hdinsight::SparkClusterSecurityProfile>,
         >,
         /// The SSH Connectivity Endpoint for this HDInsight Spark Cluster.
-        pub ssh_endpoint: pulumi_wasm_rust::Output<String>,
+        pub ssh_endpoint: pulumi_gestalt_rust::Output<String>,
         /// A `storage_account_gen2` block as defined below.
-        pub storage_account_gen2: pulumi_wasm_rust::Output<
+        pub storage_account_gen2: pulumi_gestalt_rust::Output<
             Option<super::super::types::hdinsight::SparkClusterStorageAccountGen2>,
         >,
         /// One or more `storage_account` block as defined below.
-        pub storage_accounts: pulumi_wasm_rust::Output<
+        pub storage_accounts: pulumi_gestalt_rust::Output<
             Option<Vec<super::super::types::hdinsight::SparkClusterStorageAccount>>,
         >,
         /// A map of Tags which should be assigned to this HDInsight Spark Cluster.
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Specifies the Tier which should be used for this HDInsight Spark Cluster. Possible values are `Standard` or `Premium`. Changing this forces a new resource to be created.
-        pub tier: pulumi_wasm_rust::Output<String>,
+        pub tier: pulumi_gestalt_rust::Output<String>,
         /// The minimal supported TLS version. Possible values are 1.0, 1.1 or 1.2. Changing this forces a new resource to be created.
         ///
         /// > **NOTE:** Starting on June 30, 2020, Azure HDInsight will enforce TLS 1.2 or later versions for all HTTPS connections. For more information, see [Azure HDInsight TLS 1.2 Enforcement](https://azure.microsoft.com/en-us/updates/azure-hdinsight-tls-12-enforcement/).
-        pub tls_min_version: pulumi_wasm_rust::Output<Option<String>>,
+        pub tls_min_version: pulumi_gestalt_rust::Output<Option<String>>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: SparkClusterArgs,
     ) -> SparkClusterResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let cluster_version_binding = args
             .cluster_version
@@ -431,65 +433,65 @@ pub mod spark_cluster {
         };
         let o = register_interface::register(context.get_inner(), &request);
         SparkClusterResult {
-            cluster_version: pulumi_wasm_rust::__private::into_domain(
+            cluster_version: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("clusterVersion"),
             ),
-            component_version: pulumi_wasm_rust::__private::into_domain(
+            component_version: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("componentVersion"),
             ),
-            compute_isolation: pulumi_wasm_rust::__private::into_domain(
+            compute_isolation: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("computeIsolation"),
             ),
-            disk_encryptions: pulumi_wasm_rust::__private::into_domain(
+            disk_encryptions: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("diskEncryptions"),
             ),
-            encryption_in_transit_enabled: pulumi_wasm_rust::__private::into_domain(
+            encryption_in_transit_enabled: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("encryptionInTransitEnabled"),
             ),
-            extension: pulumi_wasm_rust::__private::into_domain(
+            extension: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("extension"),
             ),
-            gateway: pulumi_wasm_rust::__private::into_domain(
+            gateway: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("gateway"),
             ),
-            https_endpoint: pulumi_wasm_rust::__private::into_domain(
+            https_endpoint: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("httpsEndpoint"),
             ),
-            location: pulumi_wasm_rust::__private::into_domain(
+            location: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("location"),
             ),
-            metastores: pulumi_wasm_rust::__private::into_domain(
+            metastores: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("metastores"),
             ),
-            monitor: pulumi_wasm_rust::__private::into_domain(
+            monitor: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("monitor"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            network: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            network: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("network"),
             ),
-            private_link_configuration: pulumi_wasm_rust::__private::into_domain(
+            private_link_configuration: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("privateLinkConfiguration"),
             ),
-            resource_group_name: pulumi_wasm_rust::__private::into_domain(
+            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("resourceGroupName"),
             ),
-            roles: pulumi_wasm_rust::__private::into_domain(o.extract_field("roles")),
-            security_profile: pulumi_wasm_rust::__private::into_domain(
+            roles: pulumi_gestalt_rust::__private::into_domain(o.extract_field("roles")),
+            security_profile: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("securityProfile"),
             ),
-            ssh_endpoint: pulumi_wasm_rust::__private::into_domain(
+            ssh_endpoint: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("sshEndpoint"),
             ),
-            storage_account_gen2: pulumi_wasm_rust::__private::into_domain(
+            storage_account_gen2: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("storageAccountGen2"),
             ),
-            storage_accounts: pulumi_wasm_rust::__private::into_domain(
+            storage_accounts: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("storageAccounts"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
-            tier: pulumi_wasm_rust::__private::into_domain(o.extract_field("tier")),
-            tls_min_version: pulumi_wasm_rust::__private::into_domain(
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            tier: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tier")),
+            tls_min_version: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("tlsMinVersion"),
             ),
         }

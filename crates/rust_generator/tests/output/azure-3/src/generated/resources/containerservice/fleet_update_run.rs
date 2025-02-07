@@ -66,44 +66,44 @@
 /// ```
 ///
 pub mod fleet_update_run {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct FleetUpdateRunArgs {
         /// The ID of the Fleet Update Strategy. Only one of `fleet_update_strategy_id` or `stage` can be specified.
         #[builder(into, default)]
-        pub fleet_update_strategy_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub fleet_update_strategy_id: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The ID of the Fleet Manager. Changing this forces a new Kubernetes Fleet Update Run to be created.
         #[builder(into)]
-        pub kubernetes_fleet_manager_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub kubernetes_fleet_manager_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// A `managed_cluster_update` block as defined below.
         #[builder(into)]
-        pub managed_cluster_update: pulumi_wasm_rust::InputOrOutput<
+        pub managed_cluster_update: pulumi_gestalt_rust::InputOrOutput<
             super::super::types::containerservice::FleetUpdateRunManagedClusterUpdate,
         >,
         /// The name which should be used for this Kubernetes Fleet Update Run. Changing this forces a new Kubernetes Fleet Update Run to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// One or more `stage` blocks as defined below. Only one of `stage` or `fleet_update_strategy_id` can be specified.
         #[builder(into, default)]
-        pub stages: pulumi_wasm_rust::InputOrOutput<
+        pub stages: pulumi_gestalt_rust::InputOrOutput<
             Option<Vec<super::super::types::containerservice::FleetUpdateRunStage>>,
         >,
     }
     #[allow(dead_code)]
     pub struct FleetUpdateRunResult {
         /// The ID of the Fleet Update Strategy. Only one of `fleet_update_strategy_id` or `stage` can be specified.
-        pub fleet_update_strategy_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub fleet_update_strategy_id: pulumi_gestalt_rust::Output<Option<String>>,
         /// The ID of the Fleet Manager. Changing this forces a new Kubernetes Fleet Update Run to be created.
-        pub kubernetes_fleet_manager_id: pulumi_wasm_rust::Output<String>,
+        pub kubernetes_fleet_manager_id: pulumi_gestalt_rust::Output<String>,
         /// A `managed_cluster_update` block as defined below.
-        pub managed_cluster_update: pulumi_wasm_rust::Output<
+        pub managed_cluster_update: pulumi_gestalt_rust::Output<
             super::super::types::containerservice::FleetUpdateRunManagedClusterUpdate,
         >,
         /// The name which should be used for this Kubernetes Fleet Update Run. Changing this forces a new Kubernetes Fleet Update Run to be created.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// One or more `stage` blocks as defined below. Only one of `stage` or `fleet_update_strategy_id` can be specified.
-        pub stages: pulumi_wasm_rust::Output<
+        pub stages: pulumi_gestalt_rust::Output<
             Option<Vec<super::super::types::containerservice::FleetUpdateRunStage>>,
         >,
     }
@@ -112,11 +112,11 @@ pub mod fleet_update_run {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: FleetUpdateRunArgs,
     ) -> FleetUpdateRunResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let fleet_update_strategy_id_binding = args
             .fleet_update_strategy_id
@@ -161,17 +161,19 @@ pub mod fleet_update_run {
         };
         let o = register_interface::register(context.get_inner(), &request);
         FleetUpdateRunResult {
-            fleet_update_strategy_id: pulumi_wasm_rust::__private::into_domain(
+            fleet_update_strategy_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("fleetUpdateStrategyId"),
             ),
-            kubernetes_fleet_manager_id: pulumi_wasm_rust::__private::into_domain(
+            kubernetes_fleet_manager_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("kubernetesFleetManagerId"),
             ),
-            managed_cluster_update: pulumi_wasm_rust::__private::into_domain(
+            managed_cluster_update: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("managedClusterUpdate"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            stages: pulumi_wasm_rust::__private::into_domain(o.extract_field("stages")),
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            stages: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("stages"),
+            ),
         }
     }
 }

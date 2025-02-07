@@ -39,83 +39,83 @@
 /// ```
 ///
 pub mod definition {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct DefinitionArgs {
         /// One or more `authorization` block defined below.
         #[builder(into, default)]
-        pub authorizations: pulumi_wasm_rust::InputOrOutput<
+        pub authorizations: pulumi_gestalt_rust::InputOrOutput<
             Option<Vec<super::super::types::managedapplication::DefinitionAuthorization>>,
         >,
         /// Specifies the `createUiDefinition` JSON for the backing template with `Microsoft.Solutions/applications` resource.
         #[builder(into, default)]
-        pub create_ui_definition: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub create_ui_definition: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Specifies the managed application definition description.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub description: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Specifies the managed application definition display name.
         #[builder(into)]
-        pub display_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub display_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub location: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub location: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Specifies the managed application lock level. Valid values include `CanNotDelete`, `None`, `ReadOnly`. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub lock_level: pulumi_wasm_rust::InputOrOutput<String>,
+        pub lock_level: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Specifies the inline main template JSON which has resources to be provisioned.
         #[builder(into, default)]
-        pub main_template: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub main_template: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Specifies the name of the Managed Application Definition. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Is the package enabled? Defaults to `true`.
         #[builder(into, default)]
-        pub package_enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub package_enabled: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// Specifies the managed application definition package file Uri.
         #[builder(into, default)]
-        pub package_file_uri: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub package_file_uri: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The name of the Resource Group where the Managed Application Definition should exist. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub resource_group_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub resource_group_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// A mapping of tags to assign to the resource.
         ///
         /// > **NOTE:** If either `create_ui_definition` or `main_template` is set they both must be set.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
     #[allow(dead_code)]
     pub struct DefinitionResult {
         /// One or more `authorization` block defined below.
-        pub authorizations: pulumi_wasm_rust::Output<
+        pub authorizations: pulumi_gestalt_rust::Output<
             Option<Vec<super::super::types::managedapplication::DefinitionAuthorization>>,
         >,
         /// Specifies the `createUiDefinition` JSON for the backing template with `Microsoft.Solutions/applications` resource.
-        pub create_ui_definition: pulumi_wasm_rust::Output<Option<String>>,
+        pub create_ui_definition: pulumi_gestalt_rust::Output<Option<String>>,
         /// Specifies the managed application definition description.
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_gestalt_rust::Output<Option<String>>,
         /// Specifies the managed application definition display name.
-        pub display_name: pulumi_wasm_rust::Output<String>,
+        pub display_name: pulumi_gestalt_rust::Output<String>,
         /// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
-        pub location: pulumi_wasm_rust::Output<String>,
+        pub location: pulumi_gestalt_rust::Output<String>,
         /// Specifies the managed application lock level. Valid values include `CanNotDelete`, `None`, `ReadOnly`. Changing this forces a new resource to be created.
-        pub lock_level: pulumi_wasm_rust::Output<String>,
+        pub lock_level: pulumi_gestalt_rust::Output<String>,
         /// Specifies the inline main template JSON which has resources to be provisioned.
-        pub main_template: pulumi_wasm_rust::Output<Option<String>>,
+        pub main_template: pulumi_gestalt_rust::Output<Option<String>>,
         /// Specifies the name of the Managed Application Definition. Changing this forces a new resource to be created.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// Is the package enabled? Defaults to `true`.
-        pub package_enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub package_enabled: pulumi_gestalt_rust::Output<Option<bool>>,
         /// Specifies the managed application definition package file Uri.
-        pub package_file_uri: pulumi_wasm_rust::Output<Option<String>>,
+        pub package_file_uri: pulumi_gestalt_rust::Output<Option<String>>,
         /// The name of the Resource Group where the Managed Application Definition should exist. Changing this forces a new resource to be created.
-        pub resource_group_name: pulumi_wasm_rust::Output<String>,
+        pub resource_group_name: pulumi_gestalt_rust::Output<String>,
         /// A mapping of tags to assign to the resource.
         ///
         /// > **NOTE:** If either `create_ui_definition` or `main_template` is set they both must be set.
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
@@ -124,11 +124,11 @@ pub mod definition {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: DefinitionArgs,
     ) -> DefinitionResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let authorizations_binding = args.authorizations.get_output(context).get_inner();
         let create_ui_definition_binding = args
@@ -211,38 +211,38 @@ pub mod definition {
         };
         let o = register_interface::register(context.get_inner(), &request);
         DefinitionResult {
-            authorizations: pulumi_wasm_rust::__private::into_domain(
+            authorizations: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("authorizations"),
             ),
-            create_ui_definition: pulumi_wasm_rust::__private::into_domain(
+            create_ui_definition: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("createUiDefinition"),
             ),
-            description: pulumi_wasm_rust::__private::into_domain(
+            description: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("description"),
             ),
-            display_name: pulumi_wasm_rust::__private::into_domain(
+            display_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("displayName"),
             ),
-            location: pulumi_wasm_rust::__private::into_domain(
+            location: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("location"),
             ),
-            lock_level: pulumi_wasm_rust::__private::into_domain(
+            lock_level: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("lockLevel"),
             ),
-            main_template: pulumi_wasm_rust::__private::into_domain(
+            main_template: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("mainTemplate"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            package_enabled: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            package_enabled: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("packageEnabled"),
             ),
-            package_file_uri: pulumi_wasm_rust::__private::into_domain(
+            package_file_uri: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("packageFileUri"),
             ),
-            resource_group_name: pulumi_wasm_rust::__private::into_domain(
+            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("resourceGroupName"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
         }
     }
 }

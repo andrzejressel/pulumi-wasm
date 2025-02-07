@@ -3,8 +3,8 @@
 /// ## Example Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let test = repository::create(
@@ -20,8 +20,8 @@
 /// ### AWS KMS Customer Managed Keys (CMK)
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let test = repository::create(
@@ -47,52 +47,52 @@
 /// $ pulumi import aws:codecommit/repository:Repository imported ExistingRepo
 /// ```
 pub mod repository {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct RepositoryArgs {
         /// The default branch of the repository. The branch specified here needs to exist.
         #[builder(into, default)]
-        pub default_branch: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub default_branch: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The description of the repository. This needs to be less than 1000 characters
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub description: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The ARN of the encryption key. If no key is specified, the default `aws/codecommit` Amazon Web Services managed key is used.
         #[builder(into, default)]
-        pub kms_key_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub kms_key_id: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The name for the repository. This needs to be less than 100 characters.
         #[builder(into)]
-        pub repository_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub repository_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
     #[allow(dead_code)]
     pub struct RepositoryResult {
         /// The ARN of the repository
-        pub arn: pulumi_wasm_rust::Output<String>,
+        pub arn: pulumi_gestalt_rust::Output<String>,
         /// The URL to use for cloning the repository over HTTPS.
-        pub clone_url_http: pulumi_wasm_rust::Output<String>,
+        pub clone_url_http: pulumi_gestalt_rust::Output<String>,
         /// The URL to use for cloning the repository over SSH.
-        pub clone_url_ssh: pulumi_wasm_rust::Output<String>,
+        pub clone_url_ssh: pulumi_gestalt_rust::Output<String>,
         /// The default branch of the repository. The branch specified here needs to exist.
-        pub default_branch: pulumi_wasm_rust::Output<Option<String>>,
+        pub default_branch: pulumi_gestalt_rust::Output<Option<String>>,
         /// The description of the repository. This needs to be less than 1000 characters
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_gestalt_rust::Output<Option<String>>,
         /// The ARN of the encryption key. If no key is specified, the default `aws/codecommit` Amazon Web Services managed key is used.
-        pub kms_key_id: pulumi_wasm_rust::Output<String>,
+        pub kms_key_id: pulumi_gestalt_rust::Output<String>,
         /// The ID of the repository
-        pub repository_id: pulumi_wasm_rust::Output<String>,
+        pub repository_id: pulumi_gestalt_rust::Output<String>,
         /// The name for the repository. This needs to be less than 100 characters.
-        pub repository_name: pulumi_wasm_rust::Output<String>,
+        pub repository_name: pulumi_gestalt_rust::Output<String>,
         /// Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        pub tags_all: pulumi_wasm_rust::Output<
+        pub tags_all: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
     }
@@ -101,11 +101,11 @@ pub mod repository {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: RepositoryArgs,
     ) -> RepositoryResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let default_branch_binding = args.default_branch.get_output(context).get_inner();
         let description_binding = args.description.get_output(context).get_inner();
@@ -144,30 +144,30 @@ pub mod repository {
         };
         let o = register_interface::register(context.get_inner(), &request);
         RepositoryResult {
-            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
-            clone_url_http: pulumi_wasm_rust::__private::into_domain(
+            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
+            clone_url_http: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("cloneUrlHttp"),
             ),
-            clone_url_ssh: pulumi_wasm_rust::__private::into_domain(
+            clone_url_ssh: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("cloneUrlSsh"),
             ),
-            default_branch: pulumi_wasm_rust::__private::into_domain(
+            default_branch: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("defaultBranch"),
             ),
-            description: pulumi_wasm_rust::__private::into_domain(
+            description: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("description"),
             ),
-            kms_key_id: pulumi_wasm_rust::__private::into_domain(
+            kms_key_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("kmsKeyId"),
             ),
-            repository_id: pulumi_wasm_rust::__private::into_domain(
+            repository_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("repositoryId"),
             ),
-            repository_name: pulumi_wasm_rust::__private::into_domain(
+            repository_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("repositoryName"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_wasm_rust::__private::into_domain(
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            tags_all: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("tagsAll"),
             ),
         }

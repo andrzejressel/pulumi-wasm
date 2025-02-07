@@ -50,49 +50,49 @@
 /// $ pulumi import aws:directconnect/hostedTransitVirtualInterfaceAcceptor:HostedTransitVirtualInterfaceAcceptor test dxvif-33cc44dd
 /// ```
 pub mod hosted_transit_virtual_interface_acceptor {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct HostedTransitVirtualInterfaceAcceptorArgs {
         /// The ID of the Direct Connect gateway to which to connect the virtual interface.
         #[builder(into)]
-        pub dx_gateway_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub dx_gateway_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// The ID of the Direct Connect virtual interface to accept.
         #[builder(into)]
-        pub virtual_interface_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub virtual_interface_id: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct HostedTransitVirtualInterfaceAcceptorResult {
         /// The ARN of the virtual interface.
-        pub arn: pulumi_wasm_rust::Output<String>,
+        pub arn: pulumi_gestalt_rust::Output<String>,
         /// The ID of the Direct Connect gateway to which to connect the virtual interface.
-        pub dx_gateway_id: pulumi_wasm_rust::Output<String>,
+        pub dx_gateway_id: pulumi_gestalt_rust::Output<String>,
         /// A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        pub tags_all: pulumi_wasm_rust::Output<
+        pub tags_all: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
         /// The ID of the Direct Connect virtual interface to accept.
-        pub virtual_interface_id: pulumi_wasm_rust::Output<String>,
+        pub virtual_interface_id: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: HostedTransitVirtualInterfaceAcceptorArgs,
     ) -> HostedTransitVirtualInterfaceAcceptorResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let dx_gateway_id_binding = args.dx_gateway_id.get_output(context).get_inner();
         let tags_binding = args.tags.get_output(context).get_inner();
@@ -122,15 +122,15 @@ pub mod hosted_transit_virtual_interface_acceptor {
         };
         let o = register_interface::register(context.get_inner(), &request);
         HostedTransitVirtualInterfaceAcceptorResult {
-            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
-            dx_gateway_id: pulumi_wasm_rust::__private::into_domain(
+            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
+            dx_gateway_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("dxGatewayId"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_wasm_rust::__private::into_domain(
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            tags_all: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("tagsAll"),
             ),
-            virtual_interface_id: pulumi_wasm_rust::__private::into_domain(
+            virtual_interface_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("virtualInterfaceId"),
             ),
         }

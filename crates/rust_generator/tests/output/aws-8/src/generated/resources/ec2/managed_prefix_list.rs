@@ -41,67 +41,67 @@
 /// $ pulumi import aws:ec2/managedPrefixList:ManagedPrefixList default pl-0570a1d2d725c16be
 /// ```
 pub mod managed_prefix_list {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ManagedPrefixListArgs {
         /// Address family (`IPv4` or `IPv6`) of this prefix list.
         #[builder(into)]
-        pub address_family: pulumi_wasm_rust::InputOrOutput<String>,
+        pub address_family: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Configuration block for prefix list entry. Detailed below. Different entries may have overlapping CIDR blocks, but a particular CIDR should not be duplicated.
         #[builder(into, default)]
-        pub entries: pulumi_wasm_rust::InputOrOutput<
+        pub entries: pulumi_gestalt_rust::InputOrOutput<
             Option<Vec<super::super::types::ec2::ManagedPrefixListEntry>>,
         >,
         /// Maximum number of entries that this prefix list can contain.
         #[builder(into)]
-        pub max_entries: pulumi_wasm_rust::InputOrOutput<i32>,
+        pub max_entries: pulumi_gestalt_rust::InputOrOutput<i32>,
         /// Name of this resource. The name must not start with `com.amazonaws`.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Map of tags to assign to this resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
     #[allow(dead_code)]
     pub struct ManagedPrefixListResult {
         /// Address family (`IPv4` or `IPv6`) of this prefix list.
-        pub address_family: pulumi_wasm_rust::Output<String>,
+        pub address_family: pulumi_gestalt_rust::Output<String>,
         /// ARN of the prefix list.
-        pub arn: pulumi_wasm_rust::Output<String>,
+        pub arn: pulumi_gestalt_rust::Output<String>,
         /// Configuration block for prefix list entry. Detailed below. Different entries may have overlapping CIDR blocks, but a particular CIDR should not be duplicated.
-        pub entries: pulumi_wasm_rust::Output<
+        pub entries: pulumi_gestalt_rust::Output<
             Vec<super::super::types::ec2::ManagedPrefixListEntry>,
         >,
         /// Maximum number of entries that this prefix list can contain.
-        pub max_entries: pulumi_wasm_rust::Output<i32>,
+        pub max_entries: pulumi_gestalt_rust::Output<i32>,
         /// Name of this resource. The name must not start with `com.amazonaws`.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// ID of the AWS account that owns this prefix list.
-        pub owner_id: pulumi_wasm_rust::Output<String>,
+        pub owner_id: pulumi_gestalt_rust::Output<String>,
         /// Map of tags to assign to this resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        pub tags_all: pulumi_wasm_rust::Output<
+        pub tags_all: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
         /// Latest version of this prefix list.
-        pub version: pulumi_wasm_rust::Output<i32>,
+        pub version: pulumi_gestalt_rust::Output<i32>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: ManagedPrefixListArgs,
     ) -> ManagedPrefixListResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let address_family_binding = args.address_family.get_output(context).get_inner();
         let entries_binding = args.entries.get_output(context).get_inner();
@@ -137,25 +137,27 @@ pub mod managed_prefix_list {
         };
         let o = register_interface::register(context.get_inner(), &request);
         ManagedPrefixListResult {
-            address_family: pulumi_wasm_rust::__private::into_domain(
+            address_family: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("addressFamily"),
             ),
-            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
-            entries: pulumi_wasm_rust::__private::into_domain(
+            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
+            entries: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("entries"),
             ),
-            max_entries: pulumi_wasm_rust::__private::into_domain(
+            max_entries: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("maxEntries"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            owner_id: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            owner_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("ownerId"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_wasm_rust::__private::into_domain(
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            tags_all: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("tagsAll"),
             ),
-            version: pulumi_wasm_rust::__private::into_domain(o.extract_field("version")),
+            version: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("version"),
+            ),
         }
     }
 }

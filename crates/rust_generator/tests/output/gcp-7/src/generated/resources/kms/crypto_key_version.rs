@@ -47,7 +47,7 @@
 /// ```
 ///
 pub mod crypto_key_version {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct CryptoKeyVersionArgs {
@@ -57,11 +57,11 @@ pub mod crypto_key_version {
         ///
         /// - - -
         #[builder(into)]
-        pub crypto_key: pulumi_wasm_rust::InputOrOutput<String>,
+        pub crypto_key: pulumi_gestalt_rust::InputOrOutput<String>,
         /// ExternalProtectionLevelOptions stores a group of additional fields for configuring a CryptoKeyVersion that are specific to the EXTERNAL protection level and EXTERNAL_VPC protection levels.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub external_protection_level_options: pulumi_wasm_rust::InputOrOutput<
+        pub external_protection_level_options: pulumi_gestalt_rust::InputOrOutput<
             Option<
                 super::super::types::kms::CryptoKeyVersionExternalProtectionLevelOptions,
             >,
@@ -69,16 +69,16 @@ pub mod crypto_key_version {
         /// The current state of the CryptoKeyVersion.
         /// Possible values are: `PENDING_GENERATION`, `ENABLED`, `DISABLED`, `DESTROYED`, `DESTROY_SCHEDULED`, `PENDING_IMPORT`, `IMPORT_FAILED`.
         #[builder(into, default)]
-        pub state: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub state: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct CryptoKeyVersionResult {
         /// The CryptoKeyVersionAlgorithm that this CryptoKeyVersion supports.
-        pub algorithm: pulumi_wasm_rust::Output<String>,
+        pub algorithm: pulumi_gestalt_rust::Output<String>,
         /// Statement that was generated and signed by the HSM at key creation time. Use this statement to verify attributes of the key as stored on the HSM, independently of Google.
         /// Only provided for key versions with protectionLevel HSM.
         /// Structure is documented below.
-        pub attestations: pulumi_wasm_rust::Output<
+        pub attestations: pulumi_gestalt_rust::Output<
             Vec<super::super::types::kms::CryptoKeyVersionAttestation>,
         >,
         /// The name of the cryptoKey associated with the CryptoKeyVersions.
@@ -86,34 +86,34 @@ pub mod crypto_key_version {
         ///
         ///
         /// - - -
-        pub crypto_key: pulumi_wasm_rust::Output<String>,
+        pub crypto_key: pulumi_gestalt_rust::Output<String>,
         /// ExternalProtectionLevelOptions stores a group of additional fields for configuring a CryptoKeyVersion that are specific to the EXTERNAL protection level and EXTERNAL_VPC protection levels.
         /// Structure is documented below.
-        pub external_protection_level_options: pulumi_wasm_rust::Output<
+        pub external_protection_level_options: pulumi_gestalt_rust::Output<
             Option<
                 super::super::types::kms::CryptoKeyVersionExternalProtectionLevelOptions,
             >,
         >,
         /// The time this CryptoKeyVersion key material was generated
-        pub generate_time: pulumi_wasm_rust::Output<String>,
+        pub generate_time: pulumi_gestalt_rust::Output<String>,
         /// The resource name for this CryptoKeyVersion.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// The ProtectionLevel describing how crypto operations are performed with this CryptoKeyVersion.
-        pub protection_level: pulumi_wasm_rust::Output<String>,
+        pub protection_level: pulumi_gestalt_rust::Output<String>,
         /// The current state of the CryptoKeyVersion.
         /// Possible values are: `PENDING_GENERATION`, `ENABLED`, `DISABLED`, `DESTROYED`, `DESTROY_SCHEDULED`, `PENDING_IMPORT`, `IMPORT_FAILED`.
-        pub state: pulumi_wasm_rust::Output<String>,
+        pub state: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: CryptoKeyVersionArgs,
     ) -> CryptoKeyVersionResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let crypto_key_binding = args.crypto_key.get_output(context).get_inner();
         let external_protection_level_options_binding = args
@@ -142,26 +142,26 @@ pub mod crypto_key_version {
         };
         let o = register_interface::register(context.get_inner(), &request);
         CryptoKeyVersionResult {
-            algorithm: pulumi_wasm_rust::__private::into_domain(
+            algorithm: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("algorithm"),
             ),
-            attestations: pulumi_wasm_rust::__private::into_domain(
+            attestations: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("attestations"),
             ),
-            crypto_key: pulumi_wasm_rust::__private::into_domain(
+            crypto_key: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("cryptoKey"),
             ),
-            external_protection_level_options: pulumi_wasm_rust::__private::into_domain(
+            external_protection_level_options: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("externalProtectionLevelOptions"),
             ),
-            generate_time: pulumi_wasm_rust::__private::into_domain(
+            generate_time: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("generateTime"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            protection_level: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            protection_level: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("protectionLevel"),
             ),
-            state: pulumi_wasm_rust::__private::into_domain(o.extract_field("state")),
+            state: pulumi_gestalt_rust::__private::into_domain(o.extract_field("state")),
         }
     }
 }

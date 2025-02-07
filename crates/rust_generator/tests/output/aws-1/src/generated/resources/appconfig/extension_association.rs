@@ -62,47 +62,47 @@
 /// $ pulumi import aws:appconfig/extensionAssociation:ExtensionAssociation example 71rxuzt
 /// ```
 pub mod extension_association {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ExtensionAssociationArgs {
         /// The ARN of the extension defined in the association.
         #[builder(into)]
-        pub extension_arn: pulumi_wasm_rust::InputOrOutput<String>,
+        pub extension_arn: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The parameter names and values defined for the association.
         #[builder(into, default)]
-        pub parameters: pulumi_wasm_rust::InputOrOutput<
+        pub parameters: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// The ARN of the application, configuration profile, or environment to associate with the extension.
         #[builder(into)]
-        pub resource_arn: pulumi_wasm_rust::InputOrOutput<String>,
+        pub resource_arn: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct ExtensionAssociationResult {
         /// ARN of the AppConfig Extension Association.
-        pub arn: pulumi_wasm_rust::Output<String>,
+        pub arn: pulumi_gestalt_rust::Output<String>,
         /// The ARN of the extension defined in the association.
-        pub extension_arn: pulumi_wasm_rust::Output<String>,
+        pub extension_arn: pulumi_gestalt_rust::Output<String>,
         /// The version number for the extension defined in the association.
-        pub extension_version: pulumi_wasm_rust::Output<i32>,
+        pub extension_version: pulumi_gestalt_rust::Output<i32>,
         /// The parameter names and values defined for the association.
-        pub parameters: pulumi_wasm_rust::Output<
+        pub parameters: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// The ARN of the application, configuration profile, or environment to associate with the extension.
-        pub resource_arn: pulumi_wasm_rust::Output<String>,
+        pub resource_arn: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: ExtensionAssociationArgs,
     ) -> ExtensionAssociationResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let extension_arn_binding = args.extension_arn.get_output(context).get_inner();
         let parameters_binding = args.parameters.get_output(context).get_inner();
@@ -128,17 +128,17 @@ pub mod extension_association {
         };
         let o = register_interface::register(context.get_inner(), &request);
         ExtensionAssociationResult {
-            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
-            extension_arn: pulumi_wasm_rust::__private::into_domain(
+            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
+            extension_arn: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("extensionArn"),
             ),
-            extension_version: pulumi_wasm_rust::__private::into_domain(
+            extension_version: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("extensionVersion"),
             ),
-            parameters: pulumi_wasm_rust::__private::into_domain(
+            parameters: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("parameters"),
             ),
-            resource_arn: pulumi_wasm_rust::__private::into_domain(
+            resource_arn: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("resourceArn"),
             ),
         }

@@ -92,13 +92,13 @@
 /// ```
 ///
 pub mod application_gateway {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ApplicationGatewayArgs {
         /// One or more `authentication_certificate` blocks as defined below.
         #[builder(into, default)]
-        pub authentication_certificates: pulumi_wasm_rust::InputOrOutput<
+        pub authentication_certificates: pulumi_gestalt_rust::InputOrOutput<
             Option<
                 Vec<
                     super::super::types::network::ApplicationGatewayAuthenticationCertificate,
@@ -107,24 +107,24 @@ pub mod application_gateway {
         >,
         /// An `autoscale_configuration` block as defined below.
         #[builder(into, default)]
-        pub autoscale_configuration: pulumi_wasm_rust::InputOrOutput<
+        pub autoscale_configuration: pulumi_gestalt_rust::InputOrOutput<
             Option<
                 super::super::types::network::ApplicationGatewayAutoscaleConfiguration,
             >,
         >,
         /// One or more `backend_address_pool` blocks as defined below.
         #[builder(into)]
-        pub backend_address_pools: pulumi_wasm_rust::InputOrOutput<
+        pub backend_address_pools: pulumi_gestalt_rust::InputOrOutput<
             Vec<super::super::types::network::ApplicationGatewayBackendAddressPool>,
         >,
         /// One or more `backend_http_settings` blocks as defined below.
         #[builder(into)]
-        pub backend_http_settings: pulumi_wasm_rust::InputOrOutput<
+        pub backend_http_settings: pulumi_gestalt_rust::InputOrOutput<
             Vec<super::super::types::network::ApplicationGatewayBackendHttpSetting>,
         >,
         /// One or more `custom_error_configuration` blocks as defined below.
         #[builder(into, default)]
-        pub custom_error_configurations: pulumi_wasm_rust::InputOrOutput<
+        pub custom_error_configurations: pulumi_gestalt_rust::InputOrOutput<
             Option<
                 Vec<
                     super::super::types::network::ApplicationGatewayCustomErrorConfiguration,
@@ -133,57 +133,57 @@ pub mod application_gateway {
         >,
         /// Is HTTP2 enabled on the application gateway resource? Defaults to `false`.
         #[builder(into, default)]
-        pub enable_http2: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub enable_http2: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// Is FIPS enabled on the Application Gateway?
         #[builder(into, default)]
-        pub fips_enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub fips_enabled: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// The ID of the Web Application Firewall Policy.
         #[builder(into, default)]
-        pub firewall_policy_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub firewall_policy_id: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Is the Firewall Policy associated with the Application Gateway?
         #[builder(into, default)]
-        pub force_firewall_policy_association: pulumi_wasm_rust::InputOrOutput<
+        pub force_firewall_policy_association: pulumi_gestalt_rust::InputOrOutput<
             Option<bool>,
         >,
         /// One or more `frontend_ip_configuration` blocks as defined below.
         #[builder(into)]
-        pub frontend_ip_configurations: pulumi_wasm_rust::InputOrOutput<
+        pub frontend_ip_configurations: pulumi_gestalt_rust::InputOrOutput<
             Vec<super::super::types::network::ApplicationGatewayFrontendIpConfiguration>,
         >,
         /// One or more `frontend_port` blocks as defined below.
         #[builder(into)]
-        pub frontend_ports: pulumi_wasm_rust::InputOrOutput<
+        pub frontend_ports: pulumi_gestalt_rust::InputOrOutput<
             Vec<super::super::types::network::ApplicationGatewayFrontendPort>,
         >,
         /// One or more `gateway_ip_configuration` blocks as defined below.
         #[builder(into)]
-        pub gateway_ip_configurations: pulumi_wasm_rust::InputOrOutput<
+        pub gateway_ip_configurations: pulumi_gestalt_rust::InputOrOutput<
             Vec<super::super::types::network::ApplicationGatewayGatewayIpConfiguration>,
         >,
         /// A `global` block as defined below.
         #[builder(into, default)]
-        pub global: pulumi_wasm_rust::InputOrOutput<
+        pub global: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::network::ApplicationGatewayGlobal>,
         >,
         /// One or more `http_listener` blocks as defined below.
         #[builder(into)]
-        pub http_listeners: pulumi_wasm_rust::InputOrOutput<
+        pub http_listeners: pulumi_gestalt_rust::InputOrOutput<
             Vec<super::super::types::network::ApplicationGatewayHttpListener>,
         >,
         /// An `identity` block as defined below.
         #[builder(into, default)]
-        pub identity: pulumi_wasm_rust::InputOrOutput<
+        pub identity: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::network::ApplicationGatewayIdentity>,
         >,
         /// The Azure region where the Application Gateway should exist. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub location: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub location: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The name of the Application Gateway. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// One or more `private_link_configuration` blocks as defined below.
         #[builder(into, default)]
-        pub private_link_configurations: pulumi_wasm_rust::InputOrOutput<
+        pub private_link_configurations: pulumi_gestalt_rust::InputOrOutput<
             Option<
                 Vec<
                     super::super::types::network::ApplicationGatewayPrivateLinkConfiguration,
@@ -192,12 +192,12 @@ pub mod application_gateway {
         >,
         /// One or more `probe` blocks as defined below.
         #[builder(into, default)]
-        pub probes: pulumi_wasm_rust::InputOrOutput<
+        pub probes: pulumi_gestalt_rust::InputOrOutput<
             Option<Vec<super::super::types::network::ApplicationGatewayProbe>>,
         >,
         /// One or more `redirect_configuration` blocks as defined below.
         #[builder(into, default)]
-        pub redirect_configurations: pulumi_wasm_rust::InputOrOutput<
+        pub redirect_configurations: pulumi_gestalt_rust::InputOrOutput<
             Option<
                 Vec<
                     super::super::types::network::ApplicationGatewayRedirectConfiguration,
@@ -206,45 +206,45 @@ pub mod application_gateway {
         >,
         /// One or more `request_routing_rule` blocks as defined below.
         #[builder(into)]
-        pub request_routing_rules: pulumi_wasm_rust::InputOrOutput<
+        pub request_routing_rules: pulumi_gestalt_rust::InputOrOutput<
             Vec<super::super::types::network::ApplicationGatewayRequestRoutingRule>,
         >,
         /// The name of the resource group in which to the Application Gateway should exist. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub resource_group_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub resource_group_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// One or more `rewrite_rule_set` blocks as defined below. Only valid for v2 WAF and Standard SKUs.
         #[builder(into, default)]
-        pub rewrite_rule_sets: pulumi_wasm_rust::InputOrOutput<
+        pub rewrite_rule_sets: pulumi_gestalt_rust::InputOrOutput<
             Option<Vec<super::super::types::network::ApplicationGatewayRewriteRuleSet>>,
         >,
         /// A `sku` block as defined below.
         #[builder(into)]
-        pub sku: pulumi_wasm_rust::InputOrOutput<
+        pub sku: pulumi_gestalt_rust::InputOrOutput<
             super::super::types::network::ApplicationGatewaySku,
         >,
         /// One or more `ssl_certificate` blocks as defined below.
         #[builder(into, default)]
-        pub ssl_certificates: pulumi_wasm_rust::InputOrOutput<
+        pub ssl_certificates: pulumi_gestalt_rust::InputOrOutput<
             Option<Vec<super::super::types::network::ApplicationGatewaySslCertificate>>,
         >,
         /// a `ssl_policy` block as defined below.
         #[builder(into, default)]
-        pub ssl_policy: pulumi_wasm_rust::InputOrOutput<
+        pub ssl_policy: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::network::ApplicationGatewaySslPolicy>,
         >,
         /// One or more `ssl_profile` blocks as defined below.
         #[builder(into, default)]
-        pub ssl_profiles: pulumi_wasm_rust::InputOrOutput<
+        pub ssl_profiles: pulumi_gestalt_rust::InputOrOutput<
             Option<Vec<super::super::types::network::ApplicationGatewaySslProfile>>,
         >,
         /// A mapping of tags to assign to the resource.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// One or more `trusted_client_certificate` blocks as defined below.
         #[builder(into, default)]
-        pub trusted_client_certificates: pulumi_wasm_rust::InputOrOutput<
+        pub trusted_client_certificates: pulumi_gestalt_rust::InputOrOutput<
             Option<
                 Vec<
                     super::super::types::network::ApplicationGatewayTrustedClientCertificate,
@@ -253,7 +253,7 @@ pub mod application_gateway {
         >,
         /// One or more `trusted_root_certificate` blocks as defined below.
         #[builder(into, default)]
-        pub trusted_root_certificates: pulumi_wasm_rust::InputOrOutput<
+        pub trusted_root_certificates: pulumi_gestalt_rust::InputOrOutput<
             Option<
                 Vec<
                     super::super::types::network::ApplicationGatewayTrustedRootCertificate,
@@ -262,24 +262,24 @@ pub mod application_gateway {
         >,
         /// One or more `url_path_map` blocks as defined below.
         #[builder(into, default)]
-        pub url_path_maps: pulumi_wasm_rust::InputOrOutput<
+        pub url_path_maps: pulumi_gestalt_rust::InputOrOutput<
             Option<Vec<super::super::types::network::ApplicationGatewayUrlPathMap>>,
         >,
         /// A `waf_configuration` block as defined below.
         #[builder(into, default)]
-        pub waf_configuration: pulumi_wasm_rust::InputOrOutput<
+        pub waf_configuration: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::network::ApplicationGatewayWafConfiguration>,
         >,
         /// Specifies a list of Availability Zones in which this Application Gateway should be located. Changing this forces a new Application Gateway to be created.
         ///
         /// > **Please Note**: Availability Zones are not supported in all regions at this time, please check the [official documentation](https://docs.microsoft.com/azure/availability-zones/az-overview) for more information. They are also only supported for [v2 SKUs](https://docs.microsoft.com/azure/application-gateway/application-gateway-autoscaling-zone-redundant)
         #[builder(into, default)]
-        pub zones: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
+        pub zones: pulumi_gestalt_rust::InputOrOutput<Option<Vec<String>>>,
     }
     #[allow(dead_code)]
     pub struct ApplicationGatewayResult {
         /// One or more `authentication_certificate` blocks as defined below.
-        pub authentication_certificates: pulumi_wasm_rust::Output<
+        pub authentication_certificates: pulumi_gestalt_rust::Output<
             Option<
                 Vec<
                     super::super::types::network::ApplicationGatewayAuthenticationCertificate,
@@ -287,21 +287,21 @@ pub mod application_gateway {
             >,
         >,
         /// An `autoscale_configuration` block as defined below.
-        pub autoscale_configuration: pulumi_wasm_rust::Output<
+        pub autoscale_configuration: pulumi_gestalt_rust::Output<
             Option<
                 super::super::types::network::ApplicationGatewayAutoscaleConfiguration,
             >,
         >,
         /// One or more `backend_address_pool` blocks as defined below.
-        pub backend_address_pools: pulumi_wasm_rust::Output<
+        pub backend_address_pools: pulumi_gestalt_rust::Output<
             Vec<super::super::types::network::ApplicationGatewayBackendAddressPool>,
         >,
         /// One or more `backend_http_settings` blocks as defined below.
-        pub backend_http_settings: pulumi_wasm_rust::Output<
+        pub backend_http_settings: pulumi_gestalt_rust::Output<
             Vec<super::super::types::network::ApplicationGatewayBackendHttpSetting>,
         >,
         /// One or more `custom_error_configuration` blocks as defined below.
-        pub custom_error_configurations: pulumi_wasm_rust::Output<
+        pub custom_error_configurations: pulumi_gestalt_rust::Output<
             Option<
                 Vec<
                     super::super::types::network::ApplicationGatewayCustomErrorConfiguration,
@@ -309,49 +309,49 @@ pub mod application_gateway {
             >,
         >,
         /// Is HTTP2 enabled on the application gateway resource? Defaults to `false`.
-        pub enable_http2: pulumi_wasm_rust::Output<Option<bool>>,
+        pub enable_http2: pulumi_gestalt_rust::Output<Option<bool>>,
         /// Is FIPS enabled on the Application Gateway?
-        pub fips_enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub fips_enabled: pulumi_gestalt_rust::Output<Option<bool>>,
         /// The ID of the Web Application Firewall Policy.
-        pub firewall_policy_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub firewall_policy_id: pulumi_gestalt_rust::Output<Option<String>>,
         /// Is the Firewall Policy associated with the Application Gateway?
-        pub force_firewall_policy_association: pulumi_wasm_rust::Output<Option<bool>>,
+        pub force_firewall_policy_association: pulumi_gestalt_rust::Output<Option<bool>>,
         /// One or more `frontend_ip_configuration` blocks as defined below.
-        pub frontend_ip_configurations: pulumi_wasm_rust::Output<
+        pub frontend_ip_configurations: pulumi_gestalt_rust::Output<
             Vec<super::super::types::network::ApplicationGatewayFrontendIpConfiguration>,
         >,
         /// One or more `frontend_port` blocks as defined below.
-        pub frontend_ports: pulumi_wasm_rust::Output<
+        pub frontend_ports: pulumi_gestalt_rust::Output<
             Vec<super::super::types::network::ApplicationGatewayFrontendPort>,
         >,
         /// One or more `gateway_ip_configuration` blocks as defined below.
-        pub gateway_ip_configurations: pulumi_wasm_rust::Output<
+        pub gateway_ip_configurations: pulumi_gestalt_rust::Output<
             Vec<super::super::types::network::ApplicationGatewayGatewayIpConfiguration>,
         >,
         /// A `global` block as defined below.
-        pub global: pulumi_wasm_rust::Output<
+        pub global: pulumi_gestalt_rust::Output<
             Option<super::super::types::network::ApplicationGatewayGlobal>,
         >,
         /// One or more `http_listener` blocks as defined below.
-        pub http_listeners: pulumi_wasm_rust::Output<
+        pub http_listeners: pulumi_gestalt_rust::Output<
             Vec<super::super::types::network::ApplicationGatewayHttpListener>,
         >,
         /// An `identity` block as defined below.
-        pub identity: pulumi_wasm_rust::Output<
+        pub identity: pulumi_gestalt_rust::Output<
             Option<super::super::types::network::ApplicationGatewayIdentity>,
         >,
         /// The Azure region where the Application Gateway should exist. Changing this forces a new resource to be created.
-        pub location: pulumi_wasm_rust::Output<String>,
+        pub location: pulumi_gestalt_rust::Output<String>,
         /// The name of the Application Gateway. Changing this forces a new resource to be created.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// A list of `private_endpoint_connection` blocks as defined below.
-        pub private_endpoint_connections: pulumi_wasm_rust::Output<
+        pub private_endpoint_connections: pulumi_gestalt_rust::Output<
             Vec<
                 super::super::types::network::ApplicationGatewayPrivateEndpointConnection,
             >,
         >,
         /// One or more `private_link_configuration` blocks as defined below.
-        pub private_link_configurations: pulumi_wasm_rust::Output<
+        pub private_link_configurations: pulumi_gestalt_rust::Output<
             Option<
                 Vec<
                     super::super::types::network::ApplicationGatewayPrivateLinkConfiguration,
@@ -359,11 +359,11 @@ pub mod application_gateway {
             >,
         >,
         /// One or more `probe` blocks as defined below.
-        pub probes: pulumi_wasm_rust::Output<
+        pub probes: pulumi_gestalt_rust::Output<
             Option<Vec<super::super::types::network::ApplicationGatewayProbe>>,
         >,
         /// One or more `redirect_configuration` blocks as defined below.
-        pub redirect_configurations: pulumi_wasm_rust::Output<
+        pub redirect_configurations: pulumi_gestalt_rust::Output<
             Option<
                 Vec<
                     super::super::types::network::ApplicationGatewayRedirectConfiguration,
@@ -371,37 +371,37 @@ pub mod application_gateway {
             >,
         >,
         /// One or more `request_routing_rule` blocks as defined below.
-        pub request_routing_rules: pulumi_wasm_rust::Output<
+        pub request_routing_rules: pulumi_gestalt_rust::Output<
             Vec<super::super::types::network::ApplicationGatewayRequestRoutingRule>,
         >,
         /// The name of the resource group in which to the Application Gateway should exist. Changing this forces a new resource to be created.
-        pub resource_group_name: pulumi_wasm_rust::Output<String>,
+        pub resource_group_name: pulumi_gestalt_rust::Output<String>,
         /// One or more `rewrite_rule_set` blocks as defined below. Only valid for v2 WAF and Standard SKUs.
-        pub rewrite_rule_sets: pulumi_wasm_rust::Output<
+        pub rewrite_rule_sets: pulumi_gestalt_rust::Output<
             Option<Vec<super::super::types::network::ApplicationGatewayRewriteRuleSet>>,
         >,
         /// A `sku` block as defined below.
-        pub sku: pulumi_wasm_rust::Output<
+        pub sku: pulumi_gestalt_rust::Output<
             super::super::types::network::ApplicationGatewaySku,
         >,
         /// One or more `ssl_certificate` blocks as defined below.
-        pub ssl_certificates: pulumi_wasm_rust::Output<
+        pub ssl_certificates: pulumi_gestalt_rust::Output<
             Option<Vec<super::super::types::network::ApplicationGatewaySslCertificate>>,
         >,
         /// a `ssl_policy` block as defined below.
-        pub ssl_policy: pulumi_wasm_rust::Output<
+        pub ssl_policy: pulumi_gestalt_rust::Output<
             super::super::types::network::ApplicationGatewaySslPolicy,
         >,
         /// One or more `ssl_profile` blocks as defined below.
-        pub ssl_profiles: pulumi_wasm_rust::Output<
+        pub ssl_profiles: pulumi_gestalt_rust::Output<
             Option<Vec<super::super::types::network::ApplicationGatewaySslProfile>>,
         >,
         /// A mapping of tags to assign to the resource.
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// One or more `trusted_client_certificate` blocks as defined below.
-        pub trusted_client_certificates: pulumi_wasm_rust::Output<
+        pub trusted_client_certificates: pulumi_gestalt_rust::Output<
             Option<
                 Vec<
                     super::super::types::network::ApplicationGatewayTrustedClientCertificate,
@@ -409,7 +409,7 @@ pub mod application_gateway {
             >,
         >,
         /// One or more `trusted_root_certificate` blocks as defined below.
-        pub trusted_root_certificates: pulumi_wasm_rust::Output<
+        pub trusted_root_certificates: pulumi_gestalt_rust::Output<
             Option<
                 Vec<
                     super::super::types::network::ApplicationGatewayTrustedRootCertificate,
@@ -417,28 +417,28 @@ pub mod application_gateway {
             >,
         >,
         /// One or more `url_path_map` blocks as defined below.
-        pub url_path_maps: pulumi_wasm_rust::Output<
+        pub url_path_maps: pulumi_gestalt_rust::Output<
             Option<Vec<super::super::types::network::ApplicationGatewayUrlPathMap>>,
         >,
         /// A `waf_configuration` block as defined below.
-        pub waf_configuration: pulumi_wasm_rust::Output<
+        pub waf_configuration: pulumi_gestalt_rust::Output<
             Option<super::super::types::network::ApplicationGatewayWafConfiguration>,
         >,
         /// Specifies a list of Availability Zones in which this Application Gateway should be located. Changing this forces a new Application Gateway to be created.
         ///
         /// > **Please Note**: Availability Zones are not supported in all regions at this time, please check the [official documentation](https://docs.microsoft.com/azure/availability-zones/az-overview) for more information. They are also only supported for [v2 SKUs](https://docs.microsoft.com/azure/application-gateway/application-gateway-autoscaling-zone-redundant)
-        pub zones: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub zones: pulumi_gestalt_rust::Output<Option<Vec<String>>>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: ApplicationGatewayArgs,
     ) -> ApplicationGatewayResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let authentication_certificates_binding = args
             .authentication_certificates
@@ -668,96 +668,100 @@ pub mod application_gateway {
         };
         let o = register_interface::register(context.get_inner(), &request);
         ApplicationGatewayResult {
-            authentication_certificates: pulumi_wasm_rust::__private::into_domain(
+            authentication_certificates: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("authenticationCertificates"),
             ),
-            autoscale_configuration: pulumi_wasm_rust::__private::into_domain(
+            autoscale_configuration: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("autoscaleConfiguration"),
             ),
-            backend_address_pools: pulumi_wasm_rust::__private::into_domain(
+            backend_address_pools: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("backendAddressPools"),
             ),
-            backend_http_settings: pulumi_wasm_rust::__private::into_domain(
+            backend_http_settings: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("backendHttpSettings"),
             ),
-            custom_error_configurations: pulumi_wasm_rust::__private::into_domain(
+            custom_error_configurations: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("customErrorConfigurations"),
             ),
-            enable_http2: pulumi_wasm_rust::__private::into_domain(
+            enable_http2: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("enableHttp2"),
             ),
-            fips_enabled: pulumi_wasm_rust::__private::into_domain(
+            fips_enabled: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("fipsEnabled"),
             ),
-            firewall_policy_id: pulumi_wasm_rust::__private::into_domain(
+            firewall_policy_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("firewallPolicyId"),
             ),
-            force_firewall_policy_association: pulumi_wasm_rust::__private::into_domain(
+            force_firewall_policy_association: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("forceFirewallPolicyAssociation"),
             ),
-            frontend_ip_configurations: pulumi_wasm_rust::__private::into_domain(
+            frontend_ip_configurations: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("frontendIpConfigurations"),
             ),
-            frontend_ports: pulumi_wasm_rust::__private::into_domain(
+            frontend_ports: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("frontendPorts"),
             ),
-            gateway_ip_configurations: pulumi_wasm_rust::__private::into_domain(
+            gateway_ip_configurations: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("gatewayIpConfigurations"),
             ),
-            global: pulumi_wasm_rust::__private::into_domain(o.extract_field("global")),
-            http_listeners: pulumi_wasm_rust::__private::into_domain(
+            global: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("global"),
+            ),
+            http_listeners: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("httpListeners"),
             ),
-            identity: pulumi_wasm_rust::__private::into_domain(
+            identity: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("identity"),
             ),
-            location: pulumi_wasm_rust::__private::into_domain(
+            location: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("location"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            private_endpoint_connections: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            private_endpoint_connections: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("privateEndpointConnections"),
             ),
-            private_link_configurations: pulumi_wasm_rust::__private::into_domain(
+            private_link_configurations: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("privateLinkConfigurations"),
             ),
-            probes: pulumi_wasm_rust::__private::into_domain(o.extract_field("probes")),
-            redirect_configurations: pulumi_wasm_rust::__private::into_domain(
+            probes: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("probes"),
+            ),
+            redirect_configurations: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("redirectConfigurations"),
             ),
-            request_routing_rules: pulumi_wasm_rust::__private::into_domain(
+            request_routing_rules: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("requestRoutingRules"),
             ),
-            resource_group_name: pulumi_wasm_rust::__private::into_domain(
+            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("resourceGroupName"),
             ),
-            rewrite_rule_sets: pulumi_wasm_rust::__private::into_domain(
+            rewrite_rule_sets: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("rewriteRuleSets"),
             ),
-            sku: pulumi_wasm_rust::__private::into_domain(o.extract_field("sku")),
-            ssl_certificates: pulumi_wasm_rust::__private::into_domain(
+            sku: pulumi_gestalt_rust::__private::into_domain(o.extract_field("sku")),
+            ssl_certificates: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("sslCertificates"),
             ),
-            ssl_policy: pulumi_wasm_rust::__private::into_domain(
+            ssl_policy: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("sslPolicy"),
             ),
-            ssl_profiles: pulumi_wasm_rust::__private::into_domain(
+            ssl_profiles: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("sslProfiles"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
-            trusted_client_certificates: pulumi_wasm_rust::__private::into_domain(
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            trusted_client_certificates: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("trustedClientCertificates"),
             ),
-            trusted_root_certificates: pulumi_wasm_rust::__private::into_domain(
+            trusted_root_certificates: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("trustedRootCertificates"),
             ),
-            url_path_maps: pulumi_wasm_rust::__private::into_domain(
+            url_path_maps: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("urlPathMaps"),
             ),
-            waf_configuration: pulumi_wasm_rust::__private::into_domain(
+            waf_configuration: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("wafConfiguration"),
             ),
-            zones: pulumi_wasm_rust::__private::into_domain(o.extract_field("zones")),
+            zones: pulumi_gestalt_rust::__private::into_domain(o.extract_field("zones")),
         }
     }
 }

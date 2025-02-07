@@ -72,48 +72,48 @@
 /// ```
 ///
 pub mod endpoint_custom_domain {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct EndpointCustomDomainArgs {
         /// The ID of the CDN Endpoint. Changing this forces a new CDN Endpoint Custom Domain to be created.
         #[builder(into)]
-        pub cdn_endpoint_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub cdn_endpoint_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// A `cdn_managed_https` block as defined below.
         #[builder(into, default)]
-        pub cdn_managed_https: pulumi_wasm_rust::InputOrOutput<
+        pub cdn_managed_https: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::cdn::EndpointCustomDomainCdnManagedHttps>,
         >,
         /// The host name of the custom domain. Changing this forces a new CDN Endpoint Custom Domain to be created.
         #[builder(into)]
-        pub host_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub host_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The name which should be used for this CDN Endpoint Custom Domain. Changing this forces a new CDN Endpoint Custom Domain to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// A `user_managed_https` block as defined below.
         ///
         /// > **NOTE** Only one of `cdn_managed_https` and `user_managed_https` can be specified.
         #[builder(into, default)]
-        pub user_managed_https: pulumi_wasm_rust::InputOrOutput<
+        pub user_managed_https: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::cdn::EndpointCustomDomainUserManagedHttps>,
         >,
     }
     #[allow(dead_code)]
     pub struct EndpointCustomDomainResult {
         /// The ID of the CDN Endpoint. Changing this forces a new CDN Endpoint Custom Domain to be created.
-        pub cdn_endpoint_id: pulumi_wasm_rust::Output<String>,
+        pub cdn_endpoint_id: pulumi_gestalt_rust::Output<String>,
         /// A `cdn_managed_https` block as defined below.
-        pub cdn_managed_https: pulumi_wasm_rust::Output<
+        pub cdn_managed_https: pulumi_gestalt_rust::Output<
             Option<super::super::types::cdn::EndpointCustomDomainCdnManagedHttps>,
         >,
         /// The host name of the custom domain. Changing this forces a new CDN Endpoint Custom Domain to be created.
-        pub host_name: pulumi_wasm_rust::Output<String>,
+        pub host_name: pulumi_gestalt_rust::Output<String>,
         /// The name which should be used for this CDN Endpoint Custom Domain. Changing this forces a new CDN Endpoint Custom Domain to be created.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// A `user_managed_https` block as defined below.
         ///
         /// > **NOTE** Only one of `cdn_managed_https` and `user_managed_https` can be specified.
-        pub user_managed_https: pulumi_wasm_rust::Output<
+        pub user_managed_https: pulumi_gestalt_rust::Output<
             Option<super::super::types::cdn::EndpointCustomDomainUserManagedHttps>,
         >,
     }
@@ -122,11 +122,11 @@ pub mod endpoint_custom_domain {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: EndpointCustomDomainArgs,
     ) -> EndpointCustomDomainResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let cdn_endpoint_id_binding = args
             .cdn_endpoint_id
@@ -171,17 +171,17 @@ pub mod endpoint_custom_domain {
         };
         let o = register_interface::register(context.get_inner(), &request);
         EndpointCustomDomainResult {
-            cdn_endpoint_id: pulumi_wasm_rust::__private::into_domain(
+            cdn_endpoint_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("cdnEndpointId"),
             ),
-            cdn_managed_https: pulumi_wasm_rust::__private::into_domain(
+            cdn_managed_https: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("cdnManagedHttps"),
             ),
-            host_name: pulumi_wasm_rust::__private::into_domain(
+            host_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("hostName"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            user_managed_https: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            user_managed_https: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("userManagedHttps"),
             ),
         }

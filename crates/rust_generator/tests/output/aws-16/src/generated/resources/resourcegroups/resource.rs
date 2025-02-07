@@ -5,8 +5,8 @@
 /// ### Basic Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = dedicated_host::create(
@@ -40,36 +40,36 @@
 /// $ pulumi import aws:resourcegroups/resource:Resource example arn:aws:resource-groups:us-west-2:012345678901:group/example,arn:aws:lambda:us-west-2:012345678901:function:example
 /// ```
 pub mod resource {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ResourceArgs {
         /// Name or ARN of the resource group to add resources to.
         #[builder(into)]
-        pub group_arn: pulumi_wasm_rust::InputOrOutput<String>,
+        pub group_arn: pulumi_gestalt_rust::InputOrOutput<String>,
         /// ARN of the resource to be added to the group.
         #[builder(into)]
-        pub resource_arn: pulumi_wasm_rust::InputOrOutput<String>,
+        pub resource_arn: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct ResourceResult {
         /// Name or ARN of the resource group to add resources to.
-        pub group_arn: pulumi_wasm_rust::Output<String>,
+        pub group_arn: pulumi_gestalt_rust::Output<String>,
         /// ARN of the resource to be added to the group.
-        pub resource_arn: pulumi_wasm_rust::Output<String>,
+        pub resource_arn: pulumi_gestalt_rust::Output<String>,
         /// The resource type of a resource, such as `AWS::EC2::Instance`.
-        pub resource_type: pulumi_wasm_rust::Output<String>,
+        pub resource_type: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: ResourceArgs,
     ) -> ResourceResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let group_arn_binding = args.group_arn.get_output(context).get_inner();
         let resource_arn_binding = args.resource_arn.get_output(context).get_inner();
@@ -90,13 +90,13 @@ pub mod resource {
         };
         let o = register_interface::register(context.get_inner(), &request);
         ResourceResult {
-            group_arn: pulumi_wasm_rust::__private::into_domain(
+            group_arn: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("groupArn"),
             ),
-            resource_arn: pulumi_wasm_rust::__private::into_domain(
+            resource_arn: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("resourceArn"),
             ),
-            resource_type: pulumi_wasm_rust::__private::into_domain(
+            resource_type: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("resourceType"),
             ),
         }

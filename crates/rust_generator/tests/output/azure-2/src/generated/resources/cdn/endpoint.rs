@@ -5,8 +5,8 @@
 /// ## Example Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = resource_group::create(
@@ -52,131 +52,133 @@
 /// ```
 ///
 pub mod endpoint {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct EndpointArgs {
         /// An array of strings that indicates a content types on which compression will be applied. The value for the elements should be MIME types.
         #[builder(into, default)]
-        pub content_types_to_compresses: pulumi_wasm_rust::InputOrOutput<
+        pub content_types_to_compresses: pulumi_gestalt_rust::InputOrOutput<
             Option<Vec<String>>,
         >,
         /// Rules for the rules engine. An endpoint can contain up until 4 of those rules that consist of conditions and actions. A `delivery_rule` blocks as defined below.
         #[builder(into, default)]
-        pub delivery_rules: pulumi_wasm_rust::InputOrOutput<
+        pub delivery_rules: pulumi_gestalt_rust::InputOrOutput<
             Option<Vec<super::super::types::cdn::EndpointDeliveryRule>>,
         >,
         /// A set of Geo Filters for this CDN Endpoint. Each `geo_filter` block supports fields documented below.
         #[builder(into, default)]
-        pub geo_filters: pulumi_wasm_rust::InputOrOutput<
+        pub geo_filters: pulumi_gestalt_rust::InputOrOutput<
             Option<Vec<super::super::types::cdn::EndpointGeoFilter>>,
         >,
         /// Actions that are valid for all resources regardless of any conditions. A `global_delivery_rule` block as defined below.
         #[builder(into, default)]
-        pub global_delivery_rule: pulumi_wasm_rust::InputOrOutput<
+        pub global_delivery_rule: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::cdn::EndpointGlobalDeliveryRule>,
         >,
         /// Indicates whether compression is to be enabled.
         #[builder(into, default)]
-        pub is_compression_enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub is_compression_enabled: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// Specifies if http allowed. Defaults to `true`.
         #[builder(into, default)]
-        pub is_http_allowed: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub is_http_allowed: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// Specifies if https allowed. Defaults to `true`.
         #[builder(into, default)]
-        pub is_https_allowed: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub is_https_allowed: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub location: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub location: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Specifies the name of the CDN Endpoint. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// What types of optimization should this CDN Endpoint optimize for? Possible values include `DynamicSiteAcceleration`, `GeneralMediaStreaming`, `GeneralWebDelivery`, `LargeFileDownload` and `VideoOnDemandMediaStreaming`.
         #[builder(into, default)]
-        pub optimization_type: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub optimization_type: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The host header CDN provider will send along with content requests to origins.
         #[builder(into, default)]
-        pub origin_host_header: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub origin_host_header: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The path used at for origin requests.
         #[builder(into, default)]
-        pub origin_path: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub origin_path: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The set of origins of the CDN endpoint. When multiple origins exist, the first origin will be used as primary and rest will be used as failover options. Each `origin` block supports fields documented below. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub origins: pulumi_wasm_rust::InputOrOutput<
+        pub origins: pulumi_gestalt_rust::InputOrOutput<
             Vec<super::super::types::cdn::EndpointOrigin>,
         >,
         /// the path to a file hosted on the origin which helps accelerate delivery of the dynamic content and calculate the most optimal routes for the CDN. This is relative to the `origin_path`.
         ///
         /// > **NOTE:** `global_delivery_rule` and `delivery_rule` are currently only available for `Microsoft_Standard` CDN profiles.
         #[builder(into, default)]
-        pub probe_path: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub probe_path: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The CDN Profile to which to attach the CDN Endpoint. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub profile_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub profile_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Sets query string caching behavior. Allowed values are `IgnoreQueryString`, `BypassCaching` and `UseQueryString`. `NotSet` value can be used for `Premium Verizon` CDN profile. Defaults to `IgnoreQueryString`.
         #[builder(into, default)]
-        pub querystring_caching_behaviour: pulumi_wasm_rust::InputOrOutput<
+        pub querystring_caching_behaviour: pulumi_gestalt_rust::InputOrOutput<
             Option<String>,
         >,
         /// The name of the resource group in which to create the CDN Endpoint. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub resource_group_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub resource_group_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// A mapping of tags to assign to the resource.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
     #[allow(dead_code)]
     pub struct EndpointResult {
         /// An array of strings that indicates a content types on which compression will be applied. The value for the elements should be MIME types.
-        pub content_types_to_compresses: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub content_types_to_compresses: pulumi_gestalt_rust::Output<
+            Option<Vec<String>>,
+        >,
         /// Rules for the rules engine. An endpoint can contain up until 4 of those rules that consist of conditions and actions. A `delivery_rule` blocks as defined below.
-        pub delivery_rules: pulumi_wasm_rust::Output<
+        pub delivery_rules: pulumi_gestalt_rust::Output<
             Option<Vec<super::super::types::cdn::EndpointDeliveryRule>>,
         >,
         /// The Fully Qualified Domain Name of the CDN Endpoint.
-        pub fqdn: pulumi_wasm_rust::Output<String>,
+        pub fqdn: pulumi_gestalt_rust::Output<String>,
         /// A set of Geo Filters for this CDN Endpoint. Each `geo_filter` block supports fields documented below.
-        pub geo_filters: pulumi_wasm_rust::Output<
+        pub geo_filters: pulumi_gestalt_rust::Output<
             Option<Vec<super::super::types::cdn::EndpointGeoFilter>>,
         >,
         /// Actions that are valid for all resources regardless of any conditions. A `global_delivery_rule` block as defined below.
-        pub global_delivery_rule: pulumi_wasm_rust::Output<
+        pub global_delivery_rule: pulumi_gestalt_rust::Output<
             Option<super::super::types::cdn::EndpointGlobalDeliveryRule>,
         >,
         /// Indicates whether compression is to be enabled.
-        pub is_compression_enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub is_compression_enabled: pulumi_gestalt_rust::Output<Option<bool>>,
         /// Specifies if http allowed. Defaults to `true`.
-        pub is_http_allowed: pulumi_wasm_rust::Output<Option<bool>>,
+        pub is_http_allowed: pulumi_gestalt_rust::Output<Option<bool>>,
         /// Specifies if https allowed. Defaults to `true`.
-        pub is_https_allowed: pulumi_wasm_rust::Output<Option<bool>>,
+        pub is_https_allowed: pulumi_gestalt_rust::Output<Option<bool>>,
         /// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
-        pub location: pulumi_wasm_rust::Output<String>,
+        pub location: pulumi_gestalt_rust::Output<String>,
         /// Specifies the name of the CDN Endpoint. Changing this forces a new resource to be created.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// What types of optimization should this CDN Endpoint optimize for? Possible values include `DynamicSiteAcceleration`, `GeneralMediaStreaming`, `GeneralWebDelivery`, `LargeFileDownload` and `VideoOnDemandMediaStreaming`.
-        pub optimization_type: pulumi_wasm_rust::Output<Option<String>>,
+        pub optimization_type: pulumi_gestalt_rust::Output<Option<String>>,
         /// The host header CDN provider will send along with content requests to origins.
-        pub origin_host_header: pulumi_wasm_rust::Output<Option<String>>,
+        pub origin_host_header: pulumi_gestalt_rust::Output<Option<String>>,
         /// The path used at for origin requests.
-        pub origin_path: pulumi_wasm_rust::Output<Option<String>>,
+        pub origin_path: pulumi_gestalt_rust::Output<Option<String>>,
         /// The set of origins of the CDN endpoint. When multiple origins exist, the first origin will be used as primary and rest will be used as failover options. Each `origin` block supports fields documented below. Changing this forces a new resource to be created.
-        pub origins: pulumi_wasm_rust::Output<
+        pub origins: pulumi_gestalt_rust::Output<
             Vec<super::super::types::cdn::EndpointOrigin>,
         >,
         /// the path to a file hosted on the origin which helps accelerate delivery of the dynamic content and calculate the most optimal routes for the CDN. This is relative to the `origin_path`.
         ///
         /// > **NOTE:** `global_delivery_rule` and `delivery_rule` are currently only available for `Microsoft_Standard` CDN profiles.
-        pub probe_path: pulumi_wasm_rust::Output<Option<String>>,
+        pub probe_path: pulumi_gestalt_rust::Output<Option<String>>,
         /// The CDN Profile to which to attach the CDN Endpoint. Changing this forces a new resource to be created.
-        pub profile_name: pulumi_wasm_rust::Output<String>,
+        pub profile_name: pulumi_gestalt_rust::Output<String>,
         /// Sets query string caching behavior. Allowed values are `IgnoreQueryString`, `BypassCaching` and `UseQueryString`. `NotSet` value can be used for `Premium Verizon` CDN profile. Defaults to `IgnoreQueryString`.
-        pub querystring_caching_behaviour: pulumi_wasm_rust::Output<Option<String>>,
+        pub querystring_caching_behaviour: pulumi_gestalt_rust::Output<Option<String>>,
         /// The name of the resource group in which to create the CDN Endpoint. Changing this forces a new resource to be created.
-        pub resource_group_name: pulumi_wasm_rust::Output<String>,
+        pub resource_group_name: pulumi_gestalt_rust::Output<String>,
         /// A mapping of tags to assign to the resource.
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
@@ -185,11 +187,11 @@ pub mod endpoint {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: EndpointArgs,
     ) -> EndpointResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let content_types_to_compresses_binding = args
             .content_types_to_compresses
@@ -317,57 +319,57 @@ pub mod endpoint {
         };
         let o = register_interface::register(context.get_inner(), &request);
         EndpointResult {
-            content_types_to_compresses: pulumi_wasm_rust::__private::into_domain(
+            content_types_to_compresses: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("contentTypesToCompresses"),
             ),
-            delivery_rules: pulumi_wasm_rust::__private::into_domain(
+            delivery_rules: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("deliveryRules"),
             ),
-            fqdn: pulumi_wasm_rust::__private::into_domain(o.extract_field("fqdn")),
-            geo_filters: pulumi_wasm_rust::__private::into_domain(
+            fqdn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("fqdn")),
+            geo_filters: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("geoFilters"),
             ),
-            global_delivery_rule: pulumi_wasm_rust::__private::into_domain(
+            global_delivery_rule: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("globalDeliveryRule"),
             ),
-            is_compression_enabled: pulumi_wasm_rust::__private::into_domain(
+            is_compression_enabled: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("isCompressionEnabled"),
             ),
-            is_http_allowed: pulumi_wasm_rust::__private::into_domain(
+            is_http_allowed: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("isHttpAllowed"),
             ),
-            is_https_allowed: pulumi_wasm_rust::__private::into_domain(
+            is_https_allowed: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("isHttpsAllowed"),
             ),
-            location: pulumi_wasm_rust::__private::into_domain(
+            location: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("location"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            optimization_type: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            optimization_type: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("optimizationType"),
             ),
-            origin_host_header: pulumi_wasm_rust::__private::into_domain(
+            origin_host_header: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("originHostHeader"),
             ),
-            origin_path: pulumi_wasm_rust::__private::into_domain(
+            origin_path: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("originPath"),
             ),
-            origins: pulumi_wasm_rust::__private::into_domain(
+            origins: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("origins"),
             ),
-            probe_path: pulumi_wasm_rust::__private::into_domain(
+            probe_path: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("probePath"),
             ),
-            profile_name: pulumi_wasm_rust::__private::into_domain(
+            profile_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("profileName"),
             ),
-            querystring_caching_behaviour: pulumi_wasm_rust::__private::into_domain(
+            querystring_caching_behaviour: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("querystringCachingBehaviour"),
             ),
-            resource_group_name: pulumi_wasm_rust::__private::into_domain(
+            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("resourceGroupName"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
         }
     }
 }

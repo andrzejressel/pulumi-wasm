@@ -13,8 +13,8 @@
 ///
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let cloudArmorTierConfig = project_cloud_armor_tier::create(
@@ -29,8 +29,8 @@
 ///
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let cloudArmorTierConfig = project_cloud_armor_tier::create(
@@ -79,7 +79,7 @@
 /// ```
 ///
 pub mod project_cloud_armor_tier {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ProjectCloudArmorTierArgs {
@@ -89,11 +89,11 @@ pub mod project_cloud_armor_tier {
         ///
         /// - - -
         #[builder(into)]
-        pub cloud_armor_tier: pulumi_wasm_rust::InputOrOutput<String>,
+        pub cloud_armor_tier: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub project: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct ProjectCloudArmorTierResult {
@@ -102,21 +102,21 @@ pub mod project_cloud_armor_tier {
         ///
         ///
         /// - - -
-        pub cloud_armor_tier: pulumi_wasm_rust::Output<String>,
+        pub cloud_armor_tier: pulumi_gestalt_rust::Output<String>,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
-        pub project: pulumi_wasm_rust::Output<String>,
+        pub project: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: ProjectCloudArmorTierArgs,
     ) -> ProjectCloudArmorTierResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let cloud_armor_tier_binding = args
             .cloud_armor_tier
@@ -140,10 +140,12 @@ pub mod project_cloud_armor_tier {
         };
         let o = register_interface::register(context.get_inner(), &request);
         ProjectCloudArmorTierResult {
-            cloud_armor_tier: pulumi_wasm_rust::__private::into_domain(
+            cloud_armor_tier: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("cloudArmorTier"),
             ),
-            project: pulumi_wasm_rust::__private::into_domain(o.extract_field("project")),
+            project: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("project"),
+            ),
         }
     }
 }

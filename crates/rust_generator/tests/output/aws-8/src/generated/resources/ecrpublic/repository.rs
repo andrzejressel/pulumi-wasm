@@ -36,47 +36,47 @@
 /// $ pulumi import aws:ecrpublic/repository:Repository example example
 /// ```
 pub mod repository {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct RepositoryArgs {
         /// Catalog data configuration for the repository. See below for schema.
         #[builder(into, default)]
-        pub catalog_data: pulumi_wasm_rust::InputOrOutput<
+        pub catalog_data: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::ecrpublic::RepositoryCatalogData>,
         >,
         #[builder(into, default)]
-        pub force_destroy: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub force_destroy: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// Name of the repository.
         #[builder(into)]
-        pub repository_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub repository_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
     #[allow(dead_code)]
     pub struct RepositoryResult {
         /// Full ARN of the repository.
-        pub arn: pulumi_wasm_rust::Output<String>,
+        pub arn: pulumi_gestalt_rust::Output<String>,
         /// Catalog data configuration for the repository. See below for schema.
-        pub catalog_data: pulumi_wasm_rust::Output<
+        pub catalog_data: pulumi_gestalt_rust::Output<
             Option<super::super::types::ecrpublic::RepositoryCatalogData>,
         >,
-        pub force_destroy: pulumi_wasm_rust::Output<Option<bool>>,
+        pub force_destroy: pulumi_gestalt_rust::Output<Option<bool>>,
         /// The registry ID where the repository was created.
-        pub registry_id: pulumi_wasm_rust::Output<String>,
+        pub registry_id: pulumi_gestalt_rust::Output<String>,
         /// Name of the repository.
-        pub repository_name: pulumi_wasm_rust::Output<String>,
+        pub repository_name: pulumi_gestalt_rust::Output<String>,
         /// The URI of the repository.
-        pub repository_uri: pulumi_wasm_rust::Output<String>,
+        pub repository_uri: pulumi_gestalt_rust::Output<String>,
         /// Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        pub tags_all: pulumi_wasm_rust::Output<
+        pub tags_all: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
     }
@@ -85,11 +85,11 @@ pub mod repository {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: RepositoryArgs,
     ) -> RepositoryResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let catalog_data_binding = args.catalog_data.get_output(context).get_inner();
         let force_destroy_binding = args.force_destroy.get_output(context).get_inner();
@@ -123,24 +123,24 @@ pub mod repository {
         };
         let o = register_interface::register(context.get_inner(), &request);
         RepositoryResult {
-            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
-            catalog_data: pulumi_wasm_rust::__private::into_domain(
+            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
+            catalog_data: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("catalogData"),
             ),
-            force_destroy: pulumi_wasm_rust::__private::into_domain(
+            force_destroy: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("forceDestroy"),
             ),
-            registry_id: pulumi_wasm_rust::__private::into_domain(
+            registry_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("registryId"),
             ),
-            repository_name: pulumi_wasm_rust::__private::into_domain(
+            repository_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("repositoryName"),
             ),
-            repository_uri: pulumi_wasm_rust::__private::into_domain(
+            repository_uri: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("repositoryUri"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_wasm_rust::__private::into_domain(
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            tags_all: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("tagsAll"),
             ),
         }

@@ -25,94 +25,98 @@
 /// $ pulumi import aws:chatbot/slackChannelConfiguration:SlackChannelConfiguration example arn:aws:chatbot::123456789012:chat-configuration/slack-channel/min-slaka-kanal
 /// ```
 pub mod slack_channel_configuration {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct SlackChannelConfigurationArgs {
         /// Name of the Slack channel configuration.
         #[builder(into)]
-        pub configuration_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub configuration_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// List of IAM policy ARNs that are applied as channel guardrails. The AWS managed `AdministratorAccess` policy is applied by default if this is not set.
         #[builder(into, default)]
-        pub guardrail_policy_arns: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
+        pub guardrail_policy_arns: pulumi_gestalt_rust::InputOrOutput<
+            Option<Vec<String>>,
+        >,
         /// User-defined role that AWS Chatbot assumes. This is not the service-linked role.
         #[builder(into)]
-        pub iam_role_arn: pulumi_wasm_rust::InputOrOutput<String>,
+        pub iam_role_arn: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Logging levels include `ERROR`, `INFO`, or `NONE`.
         #[builder(into, default)]
-        pub logging_level: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub logging_level: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// ID of the Slack channel. For example, `C07EZ1ABC23`.
         #[builder(into)]
-        pub slack_channel_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub slack_channel_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// ID of the Slack workspace authorized with AWS Chatbot. For example, `T07EA123LEP`.
         ///
         /// The following arguments are optional:
         #[builder(into)]
-        pub slack_team_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub slack_team_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// ARNs of the SNS topics that deliver notifications to AWS Chatbot.
         #[builder(into, default)]
-        pub sns_topic_arns: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
+        pub sns_topic_arns: pulumi_gestalt_rust::InputOrOutput<Option<Vec<String>>>,
         /// Map of tags assigned to the resource.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         #[builder(into, default)]
-        pub timeouts: pulumi_wasm_rust::InputOrOutput<
+        pub timeouts: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::chatbot::SlackChannelConfigurationTimeouts>,
         >,
         /// Enables use of a user role requirement in your chat configuration.
         #[builder(into, default)]
-        pub user_authorization_required: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub user_authorization_required: pulumi_gestalt_rust::InputOrOutput<
+            Option<bool>,
+        >,
     }
     #[allow(dead_code)]
     pub struct SlackChannelConfigurationResult {
         /// ARN of the Slack channel configuration.
-        pub chat_configuration_arn: pulumi_wasm_rust::Output<String>,
+        pub chat_configuration_arn: pulumi_gestalt_rust::Output<String>,
         /// Name of the Slack channel configuration.
-        pub configuration_name: pulumi_wasm_rust::Output<String>,
+        pub configuration_name: pulumi_gestalt_rust::Output<String>,
         /// List of IAM policy ARNs that are applied as channel guardrails. The AWS managed `AdministratorAccess` policy is applied by default if this is not set.
-        pub guardrail_policy_arns: pulumi_wasm_rust::Output<Vec<String>>,
+        pub guardrail_policy_arns: pulumi_gestalt_rust::Output<Vec<String>>,
         /// User-defined role that AWS Chatbot assumes. This is not the service-linked role.
-        pub iam_role_arn: pulumi_wasm_rust::Output<String>,
+        pub iam_role_arn: pulumi_gestalt_rust::Output<String>,
         /// Logging levels include `ERROR`, `INFO`, or `NONE`.
-        pub logging_level: pulumi_wasm_rust::Output<String>,
+        pub logging_level: pulumi_gestalt_rust::Output<String>,
         /// ID of the Slack channel. For example, `C07EZ1ABC23`.
-        pub slack_channel_id: pulumi_wasm_rust::Output<String>,
+        pub slack_channel_id: pulumi_gestalt_rust::Output<String>,
         /// Name of the Slack channel.
-        pub slack_channel_name: pulumi_wasm_rust::Output<String>,
+        pub slack_channel_name: pulumi_gestalt_rust::Output<String>,
         /// ID of the Slack workspace authorized with AWS Chatbot. For example, `T07EA123LEP`.
         ///
         /// The following arguments are optional:
-        pub slack_team_id: pulumi_wasm_rust::Output<String>,
+        pub slack_team_id: pulumi_gestalt_rust::Output<String>,
         /// Name of the Slack team.
-        pub slack_team_name: pulumi_wasm_rust::Output<String>,
+        pub slack_team_name: pulumi_gestalt_rust::Output<String>,
         /// ARNs of the SNS topics that deliver notifications to AWS Chatbot.
-        pub sns_topic_arns: pulumi_wasm_rust::Output<Vec<String>>,
+        pub sns_topic_arns: pulumi_gestalt_rust::Output<Vec<String>>,
         /// Map of tags assigned to the resource.
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        pub tags_all: pulumi_wasm_rust::Output<
+        pub tags_all: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
-        pub timeouts: pulumi_wasm_rust::Output<
+        pub timeouts: pulumi_gestalt_rust::Output<
             Option<super::super::types::chatbot::SlackChannelConfigurationTimeouts>,
         >,
         /// Enables use of a user role requirement in your chat configuration.
-        pub user_authorization_required: pulumi_wasm_rust::Output<bool>,
+        pub user_authorization_required: pulumi_gestalt_rust::Output<bool>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: SlackChannelConfigurationArgs,
     ) -> SlackChannelConfigurationResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let configuration_name_binding = args
             .configuration_name
@@ -186,44 +190,44 @@ pub mod slack_channel_configuration {
         };
         let o = register_interface::register(context.get_inner(), &request);
         SlackChannelConfigurationResult {
-            chat_configuration_arn: pulumi_wasm_rust::__private::into_domain(
+            chat_configuration_arn: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("chatConfigurationArn"),
             ),
-            configuration_name: pulumi_wasm_rust::__private::into_domain(
+            configuration_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("configurationName"),
             ),
-            guardrail_policy_arns: pulumi_wasm_rust::__private::into_domain(
+            guardrail_policy_arns: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("guardrailPolicyArns"),
             ),
-            iam_role_arn: pulumi_wasm_rust::__private::into_domain(
+            iam_role_arn: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("iamRoleArn"),
             ),
-            logging_level: pulumi_wasm_rust::__private::into_domain(
+            logging_level: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("loggingLevel"),
             ),
-            slack_channel_id: pulumi_wasm_rust::__private::into_domain(
+            slack_channel_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("slackChannelId"),
             ),
-            slack_channel_name: pulumi_wasm_rust::__private::into_domain(
+            slack_channel_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("slackChannelName"),
             ),
-            slack_team_id: pulumi_wasm_rust::__private::into_domain(
+            slack_team_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("slackTeamId"),
             ),
-            slack_team_name: pulumi_wasm_rust::__private::into_domain(
+            slack_team_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("slackTeamName"),
             ),
-            sns_topic_arns: pulumi_wasm_rust::__private::into_domain(
+            sns_topic_arns: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("snsTopicArns"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_wasm_rust::__private::into_domain(
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            tags_all: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("tagsAll"),
             ),
-            timeouts: pulumi_wasm_rust::__private::into_domain(
+            timeouts: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("timeouts"),
             ),
-            user_authorization_required: pulumi_wasm_rust::__private::into_domain(
+            user_authorization_required: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("userAuthorizationRequired"),
             ),
         }

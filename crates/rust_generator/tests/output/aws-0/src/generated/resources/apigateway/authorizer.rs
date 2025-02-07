@@ -94,77 +94,77 @@
 /// $ pulumi import aws:apigateway/authorizer:Authorizer authorizer 12345abcde/example
 /// ```
 pub mod authorizer {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct AuthorizerArgs {
         /// Credentials required for the authorizer. To specify an IAM Role for API Gateway to assume, use the IAM Role ARN.
         #[builder(into, default)]
-        pub authorizer_credentials: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub authorizer_credentials: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// TTL of cached authorizer results in seconds. Defaults to `300`.
         #[builder(into, default)]
-        pub authorizer_result_ttl_in_seconds: pulumi_wasm_rust::InputOrOutput<
+        pub authorizer_result_ttl_in_seconds: pulumi_gestalt_rust::InputOrOutput<
             Option<i32>,
         >,
         /// Authorizer's Uniform Resource Identifier (URI). This must be a well-formed Lambda function URI in the form of `arn:aws:apigateway:{region}:lambda:path/{service_api}`,
         /// e.g., `arn:aws:apigateway:us-west-2:lambda:path/2015-03-31/functions/arn:aws:lambda:us-west-2:012345678912:function:my-function/invocations`
         #[builder(into, default)]
-        pub authorizer_uri: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub authorizer_uri: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Source of the identity in an incoming request. Defaults to `method.request.header.Authorization`. For `REQUEST` type, this may be a comma-separated list of values, including headers, query string parameters and stage variables - e.g., `"method.request.header.SomeHeaderName,method.request.querystring.SomeQueryStringName,stageVariables.SomeStageVariableName"`
         #[builder(into, default)]
-        pub identity_source: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub identity_source: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Validation expression for the incoming identity. For `TOKEN` type, this value should be a regular expression. The incoming token from the client is matched against this expression, and will proceed if the token matches. If the token doesn't match, the client receives a 401 Unauthorized response.
         #[builder(into, default)]
-        pub identity_validation_expression: pulumi_wasm_rust::InputOrOutput<
+        pub identity_validation_expression: pulumi_gestalt_rust::InputOrOutput<
             Option<String>,
         >,
         /// Name of the authorizer
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// List of the Amazon Cognito user pool ARNs. Each element is of this format: `arn:aws:cognito-idp:{region}:{account_id}:userpool/{user_pool_id}`.
         #[builder(into, default)]
-        pub provider_arns: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
+        pub provider_arns: pulumi_gestalt_rust::InputOrOutput<Option<Vec<String>>>,
         /// ID of the associated REST API
         #[builder(into)]
-        pub rest_api: pulumi_wasm_rust::InputOrOutput<String>,
+        pub rest_api: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Type of the authorizer. Possible values are `TOKEN` for a Lambda function using a single authorization token submitted in a custom header, `REQUEST` for a Lambda function using incoming request parameters, or `COGNITO_USER_POOLS` for using an Amazon Cognito user pool. Defaults to `TOKEN`.
         #[builder(into, default)]
-        pub type_: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub type_: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct AuthorizerResult {
         /// ARN of the API Gateway Authorizer
-        pub arn: pulumi_wasm_rust::Output<String>,
+        pub arn: pulumi_gestalt_rust::Output<String>,
         /// Credentials required for the authorizer. To specify an IAM Role for API Gateway to assume, use the IAM Role ARN.
-        pub authorizer_credentials: pulumi_wasm_rust::Output<Option<String>>,
+        pub authorizer_credentials: pulumi_gestalt_rust::Output<Option<String>>,
         /// TTL of cached authorizer results in seconds. Defaults to `300`.
-        pub authorizer_result_ttl_in_seconds: pulumi_wasm_rust::Output<Option<i32>>,
+        pub authorizer_result_ttl_in_seconds: pulumi_gestalt_rust::Output<Option<i32>>,
         /// Authorizer's Uniform Resource Identifier (URI). This must be a well-formed Lambda function URI in the form of `arn:aws:apigateway:{region}:lambda:path/{service_api}`,
         /// e.g., `arn:aws:apigateway:us-west-2:lambda:path/2015-03-31/functions/arn:aws:lambda:us-west-2:012345678912:function:my-function/invocations`
-        pub authorizer_uri: pulumi_wasm_rust::Output<Option<String>>,
+        pub authorizer_uri: pulumi_gestalt_rust::Output<Option<String>>,
         /// Source of the identity in an incoming request. Defaults to `method.request.header.Authorization`. For `REQUEST` type, this may be a comma-separated list of values, including headers, query string parameters and stage variables - e.g., `"method.request.header.SomeHeaderName,method.request.querystring.SomeQueryStringName,stageVariables.SomeStageVariableName"`
-        pub identity_source: pulumi_wasm_rust::Output<Option<String>>,
+        pub identity_source: pulumi_gestalt_rust::Output<Option<String>>,
         /// Validation expression for the incoming identity. For `TOKEN` type, this value should be a regular expression. The incoming token from the client is matched against this expression, and will proceed if the token matches. If the token doesn't match, the client receives a 401 Unauthorized response.
-        pub identity_validation_expression: pulumi_wasm_rust::Output<Option<String>>,
+        pub identity_validation_expression: pulumi_gestalt_rust::Output<Option<String>>,
         /// Name of the authorizer
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// List of the Amazon Cognito user pool ARNs. Each element is of this format: `arn:aws:cognito-idp:{region}:{account_id}:userpool/{user_pool_id}`.
-        pub provider_arns: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub provider_arns: pulumi_gestalt_rust::Output<Option<Vec<String>>>,
         /// ID of the associated REST API
-        pub rest_api: pulumi_wasm_rust::Output<String>,
+        pub rest_api: pulumi_gestalt_rust::Output<String>,
         /// Type of the authorizer. Possible values are `TOKEN` for a Lambda function using a single authorization token submitted in a custom header, `REQUEST` for a Lambda function using incoming request parameters, or `COGNITO_USER_POOLS` for using an Amazon Cognito user pool. Defaults to `TOKEN`.
-        pub type_: pulumi_wasm_rust::Output<Option<String>>,
+        pub type_: pulumi_gestalt_rust::Output<Option<String>>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: AuthorizerArgs,
     ) -> AuthorizerResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let authorizer_credentials_binding = args
             .authorizer_credentials
@@ -232,30 +232,30 @@ pub mod authorizer {
         };
         let o = register_interface::register(context.get_inner(), &request);
         AuthorizerResult {
-            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
-            authorizer_credentials: pulumi_wasm_rust::__private::into_domain(
+            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
+            authorizer_credentials: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("authorizerCredentials"),
             ),
-            authorizer_result_ttl_in_seconds: pulumi_wasm_rust::__private::into_domain(
+            authorizer_result_ttl_in_seconds: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("authorizerResultTtlInSeconds"),
             ),
-            authorizer_uri: pulumi_wasm_rust::__private::into_domain(
+            authorizer_uri: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("authorizerUri"),
             ),
-            identity_source: pulumi_wasm_rust::__private::into_domain(
+            identity_source: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("identitySource"),
             ),
-            identity_validation_expression: pulumi_wasm_rust::__private::into_domain(
+            identity_validation_expression: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("identityValidationExpression"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            provider_arns: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            provider_arns: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("providerArns"),
             ),
-            rest_api: pulumi_wasm_rust::__private::into_domain(
+            rest_api: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("restApi"),
             ),
-            type_: pulumi_wasm_rust::__private::into_domain(o.extract_field("type")),
+            type_: pulumi_gestalt_rust::__private::into_domain(o.extract_field("type")),
         }
     }
 }

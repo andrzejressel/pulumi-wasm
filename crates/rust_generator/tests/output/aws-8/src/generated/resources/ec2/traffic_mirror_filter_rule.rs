@@ -6,8 +6,8 @@
 /// To create a basic traffic mirror session
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let filter = traffic_mirror_filter::create(
@@ -65,88 +65,88 @@
 /// $ pulumi import aws:ec2/trafficMirrorFilterRule:TrafficMirrorFilterRule rule tmf-0fbb93ddf38198f64:tmfr-05a458f06445d0aee
 /// ```
 pub mod traffic_mirror_filter_rule {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct TrafficMirrorFilterRuleArgs {
         /// Description of the traffic mirror filter rule.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub description: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Destination CIDR block to assign to the Traffic Mirror rule.
         #[builder(into)]
-        pub destination_cidr_block: pulumi_wasm_rust::InputOrOutput<String>,
+        pub destination_cidr_block: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Destination port range. Supported only when the protocol is set to TCP(6) or UDP(17). See Traffic mirror port range documented below
         #[builder(into, default)]
-        pub destination_port_range: pulumi_wasm_rust::InputOrOutput<
+        pub destination_port_range: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::ec2::TrafficMirrorFilterRuleDestinationPortRange>,
         >,
         /// Protocol number, for example 17 (UDP), to assign to the Traffic Mirror rule. For information about the protocol value, see [Protocol Numbers](https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml) on the Internet Assigned Numbers Authority (IANA) website.
         #[builder(into, default)]
-        pub protocol: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
+        pub protocol: pulumi_gestalt_rust::InputOrOutput<Option<i32>>,
         /// Action to take (accept | reject) on the filtered traffic. Valid values are `accept` and `reject`
         #[builder(into)]
-        pub rule_action: pulumi_wasm_rust::InputOrOutput<String>,
+        pub rule_action: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Number of the Traffic Mirror rule. This number must be unique for each Traffic Mirror rule in a given direction. The rules are processed in ascending order by rule number.
         #[builder(into)]
-        pub rule_number: pulumi_wasm_rust::InputOrOutput<i32>,
+        pub rule_number: pulumi_gestalt_rust::InputOrOutput<i32>,
         /// Source CIDR block to assign to the Traffic Mirror rule.
         #[builder(into)]
-        pub source_cidr_block: pulumi_wasm_rust::InputOrOutput<String>,
+        pub source_cidr_block: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Source port range. Supported only when the protocol is set to TCP(6) or UDP(17). See Traffic mirror port range documented below
         #[builder(into, default)]
-        pub source_port_range: pulumi_wasm_rust::InputOrOutput<
+        pub source_port_range: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::ec2::TrafficMirrorFilterRuleSourcePortRange>,
         >,
         /// Direction of traffic to be captured. Valid values are `ingress` and `egress`
         ///
         /// Traffic mirror port range support following attributes:
         #[builder(into)]
-        pub traffic_direction: pulumi_wasm_rust::InputOrOutput<String>,
+        pub traffic_direction: pulumi_gestalt_rust::InputOrOutput<String>,
         /// ID of the traffic mirror filter to which this rule should be added
         #[builder(into)]
-        pub traffic_mirror_filter_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub traffic_mirror_filter_id: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct TrafficMirrorFilterRuleResult {
         /// ARN of the traffic mirror filter rule.
-        pub arn: pulumi_wasm_rust::Output<String>,
+        pub arn: pulumi_gestalt_rust::Output<String>,
         /// Description of the traffic mirror filter rule.
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_gestalt_rust::Output<Option<String>>,
         /// Destination CIDR block to assign to the Traffic Mirror rule.
-        pub destination_cidr_block: pulumi_wasm_rust::Output<String>,
+        pub destination_cidr_block: pulumi_gestalt_rust::Output<String>,
         /// Destination port range. Supported only when the protocol is set to TCP(6) or UDP(17). See Traffic mirror port range documented below
-        pub destination_port_range: pulumi_wasm_rust::Output<
+        pub destination_port_range: pulumi_gestalt_rust::Output<
             Option<super::super::types::ec2::TrafficMirrorFilterRuleDestinationPortRange>,
         >,
         /// Protocol number, for example 17 (UDP), to assign to the Traffic Mirror rule. For information about the protocol value, see [Protocol Numbers](https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml) on the Internet Assigned Numbers Authority (IANA) website.
-        pub protocol: pulumi_wasm_rust::Output<Option<i32>>,
+        pub protocol: pulumi_gestalt_rust::Output<Option<i32>>,
         /// Action to take (accept | reject) on the filtered traffic. Valid values are `accept` and `reject`
-        pub rule_action: pulumi_wasm_rust::Output<String>,
+        pub rule_action: pulumi_gestalt_rust::Output<String>,
         /// Number of the Traffic Mirror rule. This number must be unique for each Traffic Mirror rule in a given direction. The rules are processed in ascending order by rule number.
-        pub rule_number: pulumi_wasm_rust::Output<i32>,
+        pub rule_number: pulumi_gestalt_rust::Output<i32>,
         /// Source CIDR block to assign to the Traffic Mirror rule.
-        pub source_cidr_block: pulumi_wasm_rust::Output<String>,
+        pub source_cidr_block: pulumi_gestalt_rust::Output<String>,
         /// Source port range. Supported only when the protocol is set to TCP(6) or UDP(17). See Traffic mirror port range documented below
-        pub source_port_range: pulumi_wasm_rust::Output<
+        pub source_port_range: pulumi_gestalt_rust::Output<
             Option<super::super::types::ec2::TrafficMirrorFilterRuleSourcePortRange>,
         >,
         /// Direction of traffic to be captured. Valid values are `ingress` and `egress`
         ///
         /// Traffic mirror port range support following attributes:
-        pub traffic_direction: pulumi_wasm_rust::Output<String>,
+        pub traffic_direction: pulumi_gestalt_rust::Output<String>,
         /// ID of the traffic mirror filter to which this rule should be added
-        pub traffic_mirror_filter_id: pulumi_wasm_rust::Output<String>,
+        pub traffic_mirror_filter_id: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: TrafficMirrorFilterRuleArgs,
     ) -> TrafficMirrorFilterRuleResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let description_binding = args.description.get_output(context).get_inner();
         let destination_cidr_block_binding = args
@@ -225,35 +225,35 @@ pub mod traffic_mirror_filter_rule {
         };
         let o = register_interface::register(context.get_inner(), &request);
         TrafficMirrorFilterRuleResult {
-            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
-            description: pulumi_wasm_rust::__private::into_domain(
+            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
+            description: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("description"),
             ),
-            destination_cidr_block: pulumi_wasm_rust::__private::into_domain(
+            destination_cidr_block: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("destinationCidrBlock"),
             ),
-            destination_port_range: pulumi_wasm_rust::__private::into_domain(
+            destination_port_range: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("destinationPortRange"),
             ),
-            protocol: pulumi_wasm_rust::__private::into_domain(
+            protocol: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("protocol"),
             ),
-            rule_action: pulumi_wasm_rust::__private::into_domain(
+            rule_action: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("ruleAction"),
             ),
-            rule_number: pulumi_wasm_rust::__private::into_domain(
+            rule_number: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("ruleNumber"),
             ),
-            source_cidr_block: pulumi_wasm_rust::__private::into_domain(
+            source_cidr_block: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("sourceCidrBlock"),
             ),
-            source_port_range: pulumi_wasm_rust::__private::into_domain(
+            source_port_range: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("sourcePortRange"),
             ),
-            traffic_direction: pulumi_wasm_rust::__private::into_domain(
+            traffic_direction: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("trafficDirection"),
             ),
-            traffic_mirror_filter_id: pulumi_wasm_rust::__private::into_domain(
+            traffic_mirror_filter_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("trafficMirrorFilterId"),
             ),
         }

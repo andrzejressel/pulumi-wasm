@@ -90,35 +90,35 @@
 /// ```
 ///
 pub mod restore_point {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct RestorePointArgs {
         /// Is Crash Consistent the Consistency Mode of the Virtual Machine Restore Point. Defaults to `false`. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub crash_consistency_mode_enabled: pulumi_wasm_rust::InputOrOutput<
+        pub crash_consistency_mode_enabled: pulumi_gestalt_rust::InputOrOutput<
             Option<bool>,
         >,
         /// A list of disks that will be excluded from the Virtual Machine Restore Point. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub excluded_disks: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
+        pub excluded_disks: pulumi_gestalt_rust::InputOrOutput<Option<Vec<String>>>,
         /// Specifies the name of the Virtual Machine Restore Point. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         #[builder(into)]
-        pub virtual_machine_restore_point_collection_id: pulumi_wasm_rust::InputOrOutput<
+        pub virtual_machine_restore_point_collection_id: pulumi_gestalt_rust::InputOrOutput<
             String,
         >,
     }
     #[allow(dead_code)]
     pub struct RestorePointResult {
         /// Is Crash Consistent the Consistency Mode of the Virtual Machine Restore Point. Defaults to `false`. Changing this forces a new resource to be created.
-        pub crash_consistency_mode_enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub crash_consistency_mode_enabled: pulumi_gestalt_rust::Output<Option<bool>>,
         /// A list of disks that will be excluded from the Virtual Machine Restore Point. Changing this forces a new resource to be created.
-        pub excluded_disks: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub excluded_disks: pulumi_gestalt_rust::Output<Option<Vec<String>>>,
         /// Specifies the name of the Virtual Machine Restore Point. Changing this forces a new resource to be created.
-        pub name: pulumi_wasm_rust::Output<String>,
-        pub virtual_machine_restore_point_collection_id: pulumi_wasm_rust::Output<
+        pub name: pulumi_gestalt_rust::Output<String>,
+        pub virtual_machine_restore_point_collection_id: pulumi_gestalt_rust::Output<
             String,
         >,
     }
@@ -127,11 +127,11 @@ pub mod restore_point {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: RestorePointArgs,
     ) -> RestorePointResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let crash_consistency_mode_enabled_binding = args
             .crash_consistency_mode_enabled
@@ -168,14 +168,14 @@ pub mod restore_point {
         };
         let o = register_interface::register(context.get_inner(), &request);
         RestorePointResult {
-            crash_consistency_mode_enabled: pulumi_wasm_rust::__private::into_domain(
+            crash_consistency_mode_enabled: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("crashConsistencyModeEnabled"),
             ),
-            excluded_disks: pulumi_wasm_rust::__private::into_domain(
+            excluded_disks: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("excludedDisks"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            virtual_machine_restore_point_collection_id: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            virtual_machine_restore_point_collection_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("virtualMachineRestorePointCollectionId"),
             ),
         }

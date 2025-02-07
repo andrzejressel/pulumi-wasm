@@ -42,7 +42,7 @@
 /// ```
 ///
 pub mod shared_image_version {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct SharedImageVersionArgs {
@@ -52,61 +52,61 @@ pub mod shared_image_version {
         ///
         /// > **NOTE:** `blob_uri` and `storage_account_id` must be specified together
         #[builder(into, default)]
-        pub blob_uri: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub blob_uri: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Specifies whether this Shared Image Version can be deleted from the Azure Regions this is replicated to. Defaults to `false`. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub deletion_of_replicated_locations_enabled: pulumi_wasm_rust::InputOrOutput<
+        pub deletion_of_replicated_locations_enabled: pulumi_gestalt_rust::InputOrOutput<
             Option<bool>,
         >,
         /// The end of life date in RFC3339 format of the Image Version.
         #[builder(into, default)]
-        pub end_of_life_date: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub end_of_life_date: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Should this Image Version be excluded from the `latest` filter? If set to `true` this Image Version won't be returned for the `latest` version. Defaults to `false`.
         #[builder(into, default)]
-        pub exclude_from_latest: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub exclude_from_latest: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// The name of the Shared Image Gallery in which the Shared Image exists. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub gallery_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub gallery_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The name of the Shared Image within the Shared Image Gallery in which this Version should be created. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub image_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub image_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The Azure Region in which the Shared Image Gallery exists. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub location: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub location: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The ID of the Managed Image or Virtual Machine ID which should be used for this Shared Image Version. Changing this forces a new resource to be created.
         ///
         /// > **NOTE:** The ID can be sourced from the `azure.compute.Image` data source or resource
         ///
         /// > **NOTE:** You must specify exact one of `blob_uri`, `managed_image_id` and `os_disk_snapshot_id`.
         #[builder(into, default)]
-        pub managed_image_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub managed_image_id: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The version number for this Image Version, such as `1.0.0`. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The ID of the OS disk snapshot which should be used for this Shared Image Version. Changing this forces a new resource to be created.
         ///
         /// > **NOTE:** You must specify exact one of `blob_uri`, `managed_image_id` and `os_disk_snapshot_id`.
         #[builder(into, default)]
-        pub os_disk_snapshot_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub os_disk_snapshot_id: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Mode to be used for replication. Possible values are `Full` and `Shallow`. Defaults to `Full`. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub replication_mode: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub replication_mode: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The name of the Resource Group in which the Shared Image Gallery exists. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub resource_group_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub resource_group_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The ID of the Storage Account where the Blob exists. Changing this forces a new resource to be created.
         ///
         /// > **NOTE:** `blob_uri` and `storage_account_id` must be specified together
         #[builder(into, default)]
-        pub storage_account_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub storage_account_id: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// A collection of tags which should be applied to this resource.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// One or more `target_region` blocks as documented below.
         #[builder(into)]
-        pub target_regions: pulumi_wasm_rust::InputOrOutput<
+        pub target_regions: pulumi_gestalt_rust::InputOrOutput<
             Vec<super::super::types::compute::SharedImageVersionTargetRegion>,
         >,
     }
@@ -117,47 +117,47 @@ pub mod shared_image_version {
         /// > **NOTE:** You must specify exact one of `blob_uri`, `managed_image_id` and `os_disk_snapshot_id`.
         ///
         /// > **NOTE:** `blob_uri` and `storage_account_id` must be specified together
-        pub blob_uri: pulumi_wasm_rust::Output<Option<String>>,
+        pub blob_uri: pulumi_gestalt_rust::Output<Option<String>>,
         /// Specifies whether this Shared Image Version can be deleted from the Azure Regions this is replicated to. Defaults to `false`. Changing this forces a new resource to be created.
-        pub deletion_of_replicated_locations_enabled: pulumi_wasm_rust::Output<
+        pub deletion_of_replicated_locations_enabled: pulumi_gestalt_rust::Output<
             Option<bool>,
         >,
         /// The end of life date in RFC3339 format of the Image Version.
-        pub end_of_life_date: pulumi_wasm_rust::Output<Option<String>>,
+        pub end_of_life_date: pulumi_gestalt_rust::Output<Option<String>>,
         /// Should this Image Version be excluded from the `latest` filter? If set to `true` this Image Version won't be returned for the `latest` version. Defaults to `false`.
-        pub exclude_from_latest: pulumi_wasm_rust::Output<Option<bool>>,
+        pub exclude_from_latest: pulumi_gestalt_rust::Output<Option<bool>>,
         /// The name of the Shared Image Gallery in which the Shared Image exists. Changing this forces a new resource to be created.
-        pub gallery_name: pulumi_wasm_rust::Output<String>,
+        pub gallery_name: pulumi_gestalt_rust::Output<String>,
         /// The name of the Shared Image within the Shared Image Gallery in which this Version should be created. Changing this forces a new resource to be created.
-        pub image_name: pulumi_wasm_rust::Output<String>,
+        pub image_name: pulumi_gestalt_rust::Output<String>,
         /// The Azure Region in which the Shared Image Gallery exists. Changing this forces a new resource to be created.
-        pub location: pulumi_wasm_rust::Output<String>,
+        pub location: pulumi_gestalt_rust::Output<String>,
         /// The ID of the Managed Image or Virtual Machine ID which should be used for this Shared Image Version. Changing this forces a new resource to be created.
         ///
         /// > **NOTE:** The ID can be sourced from the `azure.compute.Image` data source or resource
         ///
         /// > **NOTE:** You must specify exact one of `blob_uri`, `managed_image_id` and `os_disk_snapshot_id`.
-        pub managed_image_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub managed_image_id: pulumi_gestalt_rust::Output<Option<String>>,
         /// The version number for this Image Version, such as `1.0.0`. Changing this forces a new resource to be created.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// The ID of the OS disk snapshot which should be used for this Shared Image Version. Changing this forces a new resource to be created.
         ///
         /// > **NOTE:** You must specify exact one of `blob_uri`, `managed_image_id` and `os_disk_snapshot_id`.
-        pub os_disk_snapshot_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub os_disk_snapshot_id: pulumi_gestalt_rust::Output<Option<String>>,
         /// Mode to be used for replication. Possible values are `Full` and `Shallow`. Defaults to `Full`. Changing this forces a new resource to be created.
-        pub replication_mode: pulumi_wasm_rust::Output<Option<String>>,
+        pub replication_mode: pulumi_gestalt_rust::Output<Option<String>>,
         /// The name of the Resource Group in which the Shared Image Gallery exists. Changing this forces a new resource to be created.
-        pub resource_group_name: pulumi_wasm_rust::Output<String>,
+        pub resource_group_name: pulumi_gestalt_rust::Output<String>,
         /// The ID of the Storage Account where the Blob exists. Changing this forces a new resource to be created.
         ///
         /// > **NOTE:** `blob_uri` and `storage_account_id` must be specified together
-        pub storage_account_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub storage_account_id: pulumi_gestalt_rust::Output<Option<String>>,
         /// A collection of tags which should be applied to this resource.
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// One or more `target_region` blocks as documented below.
-        pub target_regions: pulumi_wasm_rust::Output<
+        pub target_regions: pulumi_gestalt_rust::Output<
             Vec<super::super::types::compute::SharedImageVersionTargetRegion>,
         >,
     }
@@ -166,11 +166,11 @@ pub mod shared_image_version {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: SharedImageVersionArgs,
     ) -> SharedImageVersionResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let blob_uri_binding = args.blob_uri.get_output(context).get_inner();
         let deletion_of_replicated_locations_enabled_binding = args
@@ -280,45 +280,45 @@ pub mod shared_image_version {
         };
         let o = register_interface::register(context.get_inner(), &request);
         SharedImageVersionResult {
-            blob_uri: pulumi_wasm_rust::__private::into_domain(
+            blob_uri: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("blobUri"),
             ),
-            deletion_of_replicated_locations_enabled: pulumi_wasm_rust::__private::into_domain(
+            deletion_of_replicated_locations_enabled: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("deletionOfReplicatedLocationsEnabled"),
             ),
-            end_of_life_date: pulumi_wasm_rust::__private::into_domain(
+            end_of_life_date: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("endOfLifeDate"),
             ),
-            exclude_from_latest: pulumi_wasm_rust::__private::into_domain(
+            exclude_from_latest: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("excludeFromLatest"),
             ),
-            gallery_name: pulumi_wasm_rust::__private::into_domain(
+            gallery_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("galleryName"),
             ),
-            image_name: pulumi_wasm_rust::__private::into_domain(
+            image_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("imageName"),
             ),
-            location: pulumi_wasm_rust::__private::into_domain(
+            location: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("location"),
             ),
-            managed_image_id: pulumi_wasm_rust::__private::into_domain(
+            managed_image_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("managedImageId"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            os_disk_snapshot_id: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            os_disk_snapshot_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("osDiskSnapshotId"),
             ),
-            replication_mode: pulumi_wasm_rust::__private::into_domain(
+            replication_mode: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("replicationMode"),
             ),
-            resource_group_name: pulumi_wasm_rust::__private::into_domain(
+            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("resourceGroupName"),
             ),
-            storage_account_id: pulumi_wasm_rust::__private::into_domain(
+            storage_account_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("storageAccountId"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
-            target_regions: pulumi_wasm_rust::__private::into_domain(
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            target_regions: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("targetRegions"),
             ),
         }

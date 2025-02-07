@@ -353,85 +353,85 @@
 /// ```
 ///
 pub mod autoscale_setting {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct AutoscaleSettingArgs {
         /// Specifies whether automatic scaling is enabled for the target resource. Defaults to `true`.
         #[builder(into, default)]
-        pub enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub enabled: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// Specifies the supported Azure location where the AutoScale Setting should exist. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub location: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub location: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The name of the AutoScale Setting. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Specifies a `notification` block as defined below.
         #[builder(into, default)]
-        pub notification: pulumi_wasm_rust::InputOrOutput<
+        pub notification: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::monitoring::AutoscaleSettingNotification>,
         >,
         /// A `predictive` block as defined below.
         #[builder(into, default)]
-        pub predictive: pulumi_wasm_rust::InputOrOutput<
+        pub predictive: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::monitoring::AutoscaleSettingPredictive>,
         >,
         /// Specifies one or more (up to 20) `profile` blocks as defined below.
         #[builder(into)]
-        pub profiles: pulumi_wasm_rust::InputOrOutput<
+        pub profiles: pulumi_gestalt_rust::InputOrOutput<
             Vec<super::super::types::monitoring::AutoscaleSettingProfile>,
         >,
         /// The name of the Resource Group in the AutoScale Setting should be created. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub resource_group_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub resource_group_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// A mapping of tags to assign to the resource.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Specifies the resource ID of the resource that the autoscale setting should be added to. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub target_resource_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub target_resource_id: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct AutoscaleSettingResult {
         /// Specifies whether automatic scaling is enabled for the target resource. Defaults to `true`.
-        pub enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub enabled: pulumi_gestalt_rust::Output<Option<bool>>,
         /// Specifies the supported Azure location where the AutoScale Setting should exist. Changing this forces a new resource to be created.
-        pub location: pulumi_wasm_rust::Output<String>,
+        pub location: pulumi_gestalt_rust::Output<String>,
         /// The name of the AutoScale Setting. Changing this forces a new resource to be created.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// Specifies a `notification` block as defined below.
-        pub notification: pulumi_wasm_rust::Output<
+        pub notification: pulumi_gestalt_rust::Output<
             Option<super::super::types::monitoring::AutoscaleSettingNotification>,
         >,
         /// A `predictive` block as defined below.
-        pub predictive: pulumi_wasm_rust::Output<
+        pub predictive: pulumi_gestalt_rust::Output<
             Option<super::super::types::monitoring::AutoscaleSettingPredictive>,
         >,
         /// Specifies one or more (up to 20) `profile` blocks as defined below.
-        pub profiles: pulumi_wasm_rust::Output<
+        pub profiles: pulumi_gestalt_rust::Output<
             Vec<super::super::types::monitoring::AutoscaleSettingProfile>,
         >,
         /// The name of the Resource Group in the AutoScale Setting should be created. Changing this forces a new resource to be created.
-        pub resource_group_name: pulumi_wasm_rust::Output<String>,
+        pub resource_group_name: pulumi_gestalt_rust::Output<String>,
         /// A mapping of tags to assign to the resource.
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Specifies the resource ID of the resource that the autoscale setting should be added to. Changing this forces a new resource to be created.
-        pub target_resource_id: pulumi_wasm_rust::Output<String>,
+        pub target_resource_id: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: AutoscaleSettingArgs,
     ) -> AutoscaleSettingResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let enabled_binding = args.enabled.get_output(context).get_inner();
         let location_binding = args.location.get_output(context).get_inner();
@@ -493,27 +493,27 @@ pub mod autoscale_setting {
         };
         let o = register_interface::register(context.get_inner(), &request);
         AutoscaleSettingResult {
-            enabled: pulumi_wasm_rust::__private::into_domain(
+            enabled: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("enabled"),
             ),
-            location: pulumi_wasm_rust::__private::into_domain(
+            location: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("location"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            notification: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            notification: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("notification"),
             ),
-            predictive: pulumi_wasm_rust::__private::into_domain(
+            predictive: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("predictive"),
             ),
-            profiles: pulumi_wasm_rust::__private::into_domain(
+            profiles: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("profiles"),
             ),
-            resource_group_name: pulumi_wasm_rust::__private::into_domain(
+            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("resourceGroupName"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
-            target_resource_id: pulumi_wasm_rust::__private::into_domain(
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            target_resource_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("targetResourceId"),
             ),
         }

@@ -8,8 +8,8 @@
 /// The example below creates a CloudFront response headers policy.
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = response_headers_policy::create(
@@ -46,8 +46,8 @@
 /// The example below creates a CloudFront response headers policy with a custom headers config.
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = response_headers_policy::create(
@@ -76,8 +76,8 @@
 /// The example below creates a CloudFront response headers policy with a custom headers config, remove headers config and server timing headers config.
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = response_headers_policy::create(
@@ -124,48 +124,48 @@
 /// $ pulumi import aws:cloudfront/responseHeadersPolicy:ResponseHeadersPolicy policy 658327ea-f89d-4fab-a63d-7e88639e58f9
 /// ```
 pub mod response_headers_policy {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ResponseHeadersPolicyArgs {
         /// A comment to describe the response headers policy. The comment cannot be longer than 128 characters.
         #[builder(into, default)]
-        pub comment: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub comment: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// A configuration for a set of HTTP response headers that are used for Cross-Origin Resource Sharing (CORS). See Cors Config for more information.
         #[builder(into, default)]
-        pub cors_config: pulumi_wasm_rust::InputOrOutput<
+        pub cors_config: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::cloudfront::ResponseHeadersPolicyCorsConfig>,
         >,
         /// Object that contains an attribute `items` that contains a list of custom headers. See Custom Header for more information.
         #[builder(into, default)]
-        pub custom_headers_config: pulumi_wasm_rust::InputOrOutput<
+        pub custom_headers_config: pulumi_gestalt_rust::InputOrOutput<
             Option<
                 super::super::types::cloudfront::ResponseHeadersPolicyCustomHeadersConfig,
             >,
         >,
         /// The current version of the response headers policy.
         #[builder(into, default)]
-        pub etag: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub etag: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// A unique name to identify the response headers policy.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// A configuration for a set of HTTP headers to remove from the HTTP response. Object that contains an attribute `items` that contains a list of headers. See Remove Header for more information.
         #[builder(into, default)]
-        pub remove_headers_config: pulumi_wasm_rust::InputOrOutput<
+        pub remove_headers_config: pulumi_gestalt_rust::InputOrOutput<
             Option<
                 super::super::types::cloudfront::ResponseHeadersPolicyRemoveHeadersConfig,
             >,
         >,
         /// A configuration for a set of security-related HTTP response headers. See Security Headers Config for more information.
         #[builder(into, default)]
-        pub security_headers_config: pulumi_wasm_rust::InputOrOutput<
+        pub security_headers_config: pulumi_gestalt_rust::InputOrOutput<
             Option<
                 super::super::types::cloudfront::ResponseHeadersPolicySecurityHeadersConfig,
             >,
         >,
         /// A configuration for enabling the Server-Timing header in HTTP responses sent from CloudFront. See Server Timing Headers Config for more information.
         #[builder(into, default)]
-        pub server_timing_headers_config: pulumi_wasm_rust::InputOrOutput<
+        pub server_timing_headers_config: pulumi_gestalt_rust::InputOrOutput<
             Option<
                 super::super::types::cloudfront::ResponseHeadersPolicyServerTimingHeadersConfig,
             >,
@@ -174,35 +174,35 @@ pub mod response_headers_policy {
     #[allow(dead_code)]
     pub struct ResponseHeadersPolicyResult {
         /// A comment to describe the response headers policy. The comment cannot be longer than 128 characters.
-        pub comment: pulumi_wasm_rust::Output<Option<String>>,
+        pub comment: pulumi_gestalt_rust::Output<Option<String>>,
         /// A configuration for a set of HTTP response headers that are used for Cross-Origin Resource Sharing (CORS). See Cors Config for more information.
-        pub cors_config: pulumi_wasm_rust::Output<
+        pub cors_config: pulumi_gestalt_rust::Output<
             Option<super::super::types::cloudfront::ResponseHeadersPolicyCorsConfig>,
         >,
         /// Object that contains an attribute `items` that contains a list of custom headers. See Custom Header for more information.
-        pub custom_headers_config: pulumi_wasm_rust::Output<
+        pub custom_headers_config: pulumi_gestalt_rust::Output<
             Option<
                 super::super::types::cloudfront::ResponseHeadersPolicyCustomHeadersConfig,
             >,
         >,
         /// The current version of the response headers policy.
-        pub etag: pulumi_wasm_rust::Output<String>,
+        pub etag: pulumi_gestalt_rust::Output<String>,
         /// A unique name to identify the response headers policy.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// A configuration for a set of HTTP headers to remove from the HTTP response. Object that contains an attribute `items` that contains a list of headers. See Remove Header for more information.
-        pub remove_headers_config: pulumi_wasm_rust::Output<
+        pub remove_headers_config: pulumi_gestalt_rust::Output<
             Option<
                 super::super::types::cloudfront::ResponseHeadersPolicyRemoveHeadersConfig,
             >,
         >,
         /// A configuration for a set of security-related HTTP response headers. See Security Headers Config for more information.
-        pub security_headers_config: pulumi_wasm_rust::Output<
+        pub security_headers_config: pulumi_gestalt_rust::Output<
             Option<
                 super::super::types::cloudfront::ResponseHeadersPolicySecurityHeadersConfig,
             >,
         >,
         /// A configuration for enabling the Server-Timing header in HTTP responses sent from CloudFront. See Server Timing Headers Config for more information.
-        pub server_timing_headers_config: pulumi_wasm_rust::Output<
+        pub server_timing_headers_config: pulumi_gestalt_rust::Output<
             Option<
                 super::super::types::cloudfront::ResponseHeadersPolicyServerTimingHeadersConfig,
             >,
@@ -213,11 +213,11 @@ pub mod response_headers_policy {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: ResponseHeadersPolicyArgs,
     ) -> ResponseHeadersPolicyResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let comment_binding = args.comment.get_output(context).get_inner();
         let cors_config_binding = args.cors_config.get_output(context).get_inner();
@@ -280,24 +280,24 @@ pub mod response_headers_policy {
         };
         let o = register_interface::register(context.get_inner(), &request);
         ResponseHeadersPolicyResult {
-            comment: pulumi_wasm_rust::__private::into_domain(
+            comment: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("comment"),
             ),
-            cors_config: pulumi_wasm_rust::__private::into_domain(
+            cors_config: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("corsConfig"),
             ),
-            custom_headers_config: pulumi_wasm_rust::__private::into_domain(
+            custom_headers_config: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("customHeadersConfig"),
             ),
-            etag: pulumi_wasm_rust::__private::into_domain(o.extract_field("etag")),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            remove_headers_config: pulumi_wasm_rust::__private::into_domain(
+            etag: pulumi_gestalt_rust::__private::into_domain(o.extract_field("etag")),
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            remove_headers_config: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("removeHeadersConfig"),
             ),
-            security_headers_config: pulumi_wasm_rust::__private::into_domain(
+            security_headers_config: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("securityHeadersConfig"),
             ),
-            server_timing_headers_config: pulumi_wasm_rust::__private::into_domain(
+            server_timing_headers_config: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("serverTimingHeadersConfig"),
             ),
         }

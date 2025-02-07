@@ -33,39 +33,39 @@
 /// ```
 ///
 pub mod account {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct AccountArgs {
         /// If `kind` is `TextAnalytics` this specifies the ID of the Search service.
         #[builder(into, default)]
-        pub custom_question_answering_search_service_id: pulumi_wasm_rust::InputOrOutput<
+        pub custom_question_answering_search_service_id: pulumi_gestalt_rust::InputOrOutput<
             Option<String>,
         >,
         /// If `kind` is `TextAnalytics` this specifies the key of the Search service.
         ///
         /// > **NOTE:** `custom_question_answering_search_service_id` and `custom_question_answering_search_service_key` are used for [Custom Question Answering, the renamed version of QnA Maker](https://docs.microsoft.com/azure/cognitive-services/qnamaker/custom-question-answering), while `qna_runtime_endpoint` is used for [the old version of QnA Maker](https://docs.microsoft.com/azure/cognitive-services/qnamaker/overview/overview)
         #[builder(into, default)]
-        pub custom_question_answering_search_service_key: pulumi_wasm_rust::InputOrOutput<
+        pub custom_question_answering_search_service_key: pulumi_gestalt_rust::InputOrOutput<
             Option<String>,
         >,
         /// The subdomain name used for token-based authentication. This property is required when `network_acls` is specified. This property is also required when using the OpenAI service with libraries which assume the Azure OpenAI endpoint is a subdomain on `https://openai.azure.com/`, eg. `https://<custom_subdomain_name>.openai.azure.com/`.  Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub custom_subdomain_name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub custom_subdomain_name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// A `customer_managed_key` block as documented below.
         #[builder(into, default)]
-        pub customer_managed_key: pulumi_wasm_rust::InputOrOutput<
+        pub customer_managed_key: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::cognitive::AccountCustomerManagedKey>,
         >,
         /// Whether to enable the dynamic throttling for this Cognitive Service Account.
         #[builder(into, default)]
-        pub dynamic_throttling_enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub dynamic_throttling_enabled: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// List of FQDNs allowed for the Cognitive Account.
         #[builder(into, default)]
-        pub fqdns: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
+        pub fqdns: pulumi_gestalt_rust::InputOrOutput<Option<Vec<String>>>,
         /// An `identity` block as defined below.
         #[builder(into, default)]
-        pub identity: pulumi_wasm_rust::InputOrOutput<
+        pub identity: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::cognitive::AccountIdentity>,
         >,
         /// Specifies the type of Cognitive Service Account that should be created. Possible values are `Academic`, `AnomalyDetector`, `Bing.Autosuggest`, `Bing.Autosuggest.v7`, `Bing.CustomSearch`, `Bing.Search`, `Bing.Search.v7`, `Bing.Speech`, `Bing.SpellCheck`, `Bing.SpellCheck.v7`, `CognitiveServices`, `ComputerVision`, `ContentModerator`, `ContentSafety`, `CustomSpeech`, `CustomVision.Prediction`, `CustomVision.Training`, `Emotion`, `Face`, `FormRecognizer`, `ImmersiveReader`, `LUIS`, `LUIS.Authoring`, `MetricsAdvisor`, `OpenAI`, `Personalizer`, `QnAMaker`, `Recommendations`, `SpeakerRecognition`, `Speech`, `SpeechServices`, `SpeechTranslation`, `TextAnalytics`, `TextTranslation` and `WebLM`. Changing this forces a new resource to be created.
@@ -74,99 +74,101 @@ pub mod account {
         ///
         /// > **NOTE:** You must create your first Face, Text Analytics, or Computer Vision resources from the Azure portal to review and acknowledge the terms and conditions. In Azure Portal, the checkbox to accept terms and conditions is only displayed when a US region is selected. More information on [Prerequisites](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account-cli?tabs=windows#prerequisites).
         #[builder(into)]
-        pub kind: pulumi_wasm_rust::InputOrOutput<String>,
+        pub kind: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Whether local authentication methods is enabled for the Cognitive Account. Defaults to `true`.
         #[builder(into, default)]
-        pub local_auth_enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub local_auth_enabled: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub location: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub location: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The Azure AD Client ID (Application ID). This attribute is only set when kind is `MetricsAdvisor`. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub metrics_advisor_aad_client_id: pulumi_wasm_rust::InputOrOutput<
+        pub metrics_advisor_aad_client_id: pulumi_gestalt_rust::InputOrOutput<
             Option<String>,
         >,
         /// The Azure AD Tenant ID. This attribute is only set when kind is `MetricsAdvisor`. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub metrics_advisor_aad_tenant_id: pulumi_wasm_rust::InputOrOutput<
+        pub metrics_advisor_aad_tenant_id: pulumi_gestalt_rust::InputOrOutput<
             Option<String>,
         >,
         /// The super user of Metrics Advisor. This attribute is only set when kind is `MetricsAdvisor`. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub metrics_advisor_super_user_name: pulumi_wasm_rust::InputOrOutput<
+        pub metrics_advisor_super_user_name: pulumi_gestalt_rust::InputOrOutput<
             Option<String>,
         >,
         /// The website name of Metrics Advisor. This attribute is only set when kind is `MetricsAdvisor`. Changing this forces a new resource to be created.
         ///
         /// > **NOTE:** This URL is mandatory if the `kind` is set to `QnAMaker`.
         #[builder(into, default)]
-        pub metrics_advisor_website_name: pulumi_wasm_rust::InputOrOutput<
+        pub metrics_advisor_website_name: pulumi_gestalt_rust::InputOrOutput<
             Option<String>,
         >,
         /// Specifies the name of the Cognitive Service Account. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// A `network_acls` block as defined below. When this property is specified, `custom_subdomain_name` is also required to be set.
         #[builder(into, default)]
-        pub network_acls: pulumi_wasm_rust::InputOrOutput<
+        pub network_acls: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::cognitive::AccountNetworkAcls>,
         >,
         /// Whether outbound network access is restricted for the Cognitive Account. Defaults to `false`.
         #[builder(into, default)]
-        pub outbound_network_access_restricted: pulumi_wasm_rust::InputOrOutput<
+        pub outbound_network_access_restricted: pulumi_gestalt_rust::InputOrOutput<
             Option<bool>,
         >,
         /// Whether public network access is allowed for the Cognitive Account. Defaults to `true`.
         #[builder(into, default)]
-        pub public_network_access_enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub public_network_access_enabled: pulumi_gestalt_rust::InputOrOutput<
+            Option<bool>,
+        >,
         /// A URL to link a QnAMaker cognitive account to a QnA runtime.
         #[builder(into, default)]
-        pub qna_runtime_endpoint: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub qna_runtime_endpoint: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The name of the resource group in which the Cognitive Service Account is created. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub resource_group_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub resource_group_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Specifies the SKU Name for this Cognitive Service Account. Possible values are `F0`, `F1`, `S0`, `S`, `S1`, `S2`, `S3`, `S4`, `S5`, `S6`, `P0`, `P1`, `P2`, `E0` and `DC0`.
         ///
         /// > **NOTE:** SKU `DC0` is the commitment tier for Cognitive Services containers running in disconnected environments. You must obtain approval from Microsoft by submitting the [request form](https://aka.ms/csdisconnectedcontainers) first, before you can use this SKU. More information on [Purchase a commitment plan to use containers in disconnected environments](https://learn.microsoft.com/en-us/azure/cognitive-services/containers/disconnected-containers?tabs=stt#purchase-a-commitment-plan-to-use-containers-in-disconnected-environments).
         #[builder(into)]
-        pub sku_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub sku_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// A `storage` block as defined below.
         #[builder(into, default)]
-        pub storages: pulumi_wasm_rust::InputOrOutput<
+        pub storages: pulumi_gestalt_rust::InputOrOutput<
             Option<Vec<super::super::types::cognitive::AccountStorage>>,
         >,
         /// A mapping of tags to assign to the resource.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
     #[allow(dead_code)]
     pub struct AccountResult {
         /// If `kind` is `TextAnalytics` this specifies the ID of the Search service.
-        pub custom_question_answering_search_service_id: pulumi_wasm_rust::Output<
+        pub custom_question_answering_search_service_id: pulumi_gestalt_rust::Output<
             Option<String>,
         >,
         /// If `kind` is `TextAnalytics` this specifies the key of the Search service.
         ///
         /// > **NOTE:** `custom_question_answering_search_service_id` and `custom_question_answering_search_service_key` are used for [Custom Question Answering, the renamed version of QnA Maker](https://docs.microsoft.com/azure/cognitive-services/qnamaker/custom-question-answering), while `qna_runtime_endpoint` is used for [the old version of QnA Maker](https://docs.microsoft.com/azure/cognitive-services/qnamaker/overview/overview)
-        pub custom_question_answering_search_service_key: pulumi_wasm_rust::Output<
+        pub custom_question_answering_search_service_key: pulumi_gestalt_rust::Output<
             Option<String>,
         >,
         /// The subdomain name used for token-based authentication. This property is required when `network_acls` is specified. This property is also required when using the OpenAI service with libraries which assume the Azure OpenAI endpoint is a subdomain on `https://openai.azure.com/`, eg. `https://<custom_subdomain_name>.openai.azure.com/`.  Changing this forces a new resource to be created.
-        pub custom_subdomain_name: pulumi_wasm_rust::Output<Option<String>>,
+        pub custom_subdomain_name: pulumi_gestalt_rust::Output<Option<String>>,
         /// A `customer_managed_key` block as documented below.
-        pub customer_managed_key: pulumi_wasm_rust::Output<
+        pub customer_managed_key: pulumi_gestalt_rust::Output<
             Option<super::super::types::cognitive::AccountCustomerManagedKey>,
         >,
         /// Whether to enable the dynamic throttling for this Cognitive Service Account.
-        pub dynamic_throttling_enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub dynamic_throttling_enabled: pulumi_gestalt_rust::Output<Option<bool>>,
         /// The endpoint used to connect to the Cognitive Service Account.
-        pub endpoint: pulumi_wasm_rust::Output<String>,
+        pub endpoint: pulumi_gestalt_rust::Output<String>,
         /// List of FQDNs allowed for the Cognitive Account.
-        pub fqdns: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub fqdns: pulumi_gestalt_rust::Output<Option<Vec<String>>>,
         /// An `identity` block as defined below.
-        pub identity: pulumi_wasm_rust::Output<
+        pub identity: pulumi_gestalt_rust::Output<
             Option<super::super::types::cognitive::AccountIdentity>,
         >,
         /// Specifies the type of Cognitive Service Account that should be created. Possible values are `Academic`, `AnomalyDetector`, `Bing.Autosuggest`, `Bing.Autosuggest.v7`, `Bing.CustomSearch`, `Bing.Search`, `Bing.Search.v7`, `Bing.Speech`, `Bing.SpellCheck`, `Bing.SpellCheck.v7`, `CognitiveServices`, `ComputerVision`, `ContentModerator`, `ContentSafety`, `CustomSpeech`, `CustomVision.Prediction`, `CustomVision.Training`, `Emotion`, `Face`, `FormRecognizer`, `ImmersiveReader`, `LUIS`, `LUIS.Authoring`, `MetricsAdvisor`, `OpenAI`, `Personalizer`, `QnAMaker`, `Recommendations`, `SpeakerRecognition`, `Speech`, `SpeechServices`, `SpeechTranslation`, `TextAnalytics`, `TextTranslation` and `WebLM`. Changing this forces a new resource to be created.
@@ -174,49 +176,51 @@ pub mod account {
         /// > **NOTE:** New Bing Search resources cannot be created as their APIs are moving from Cognitive Services Platform to new surface area under Microsoft.com. Starting from October 30, 2020, existing instances of Bing Search APIs provisioned via Cognitive Services will be continuously supported for next 3 years or till the end of respective Enterprise Agreement, whichever happens first.
         ///
         /// > **NOTE:** You must create your first Face, Text Analytics, or Computer Vision resources from the Azure portal to review and acknowledge the terms and conditions. In Azure Portal, the checkbox to accept terms and conditions is only displayed when a US region is selected. More information on [Prerequisites](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account-cli?tabs=windows#prerequisites).
-        pub kind: pulumi_wasm_rust::Output<String>,
+        pub kind: pulumi_gestalt_rust::Output<String>,
         /// Whether local authentication methods is enabled for the Cognitive Account. Defaults to `true`.
-        pub local_auth_enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub local_auth_enabled: pulumi_gestalt_rust::Output<Option<bool>>,
         /// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
-        pub location: pulumi_wasm_rust::Output<String>,
+        pub location: pulumi_gestalt_rust::Output<String>,
         /// The Azure AD Client ID (Application ID). This attribute is only set when kind is `MetricsAdvisor`. Changing this forces a new resource to be created.
-        pub metrics_advisor_aad_client_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub metrics_advisor_aad_client_id: pulumi_gestalt_rust::Output<Option<String>>,
         /// The Azure AD Tenant ID. This attribute is only set when kind is `MetricsAdvisor`. Changing this forces a new resource to be created.
-        pub metrics_advisor_aad_tenant_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub metrics_advisor_aad_tenant_id: pulumi_gestalt_rust::Output<Option<String>>,
         /// The super user of Metrics Advisor. This attribute is only set when kind is `MetricsAdvisor`. Changing this forces a new resource to be created.
-        pub metrics_advisor_super_user_name: pulumi_wasm_rust::Output<Option<String>>,
+        pub metrics_advisor_super_user_name: pulumi_gestalt_rust::Output<Option<String>>,
         /// The website name of Metrics Advisor. This attribute is only set when kind is `MetricsAdvisor`. Changing this forces a new resource to be created.
         ///
         /// > **NOTE:** This URL is mandatory if the `kind` is set to `QnAMaker`.
-        pub metrics_advisor_website_name: pulumi_wasm_rust::Output<Option<String>>,
+        pub metrics_advisor_website_name: pulumi_gestalt_rust::Output<Option<String>>,
         /// Specifies the name of the Cognitive Service Account. Changing this forces a new resource to be created.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// A `network_acls` block as defined below. When this property is specified, `custom_subdomain_name` is also required to be set.
-        pub network_acls: pulumi_wasm_rust::Output<
+        pub network_acls: pulumi_gestalt_rust::Output<
             Option<super::super::types::cognitive::AccountNetworkAcls>,
         >,
         /// Whether outbound network access is restricted for the Cognitive Account. Defaults to `false`.
-        pub outbound_network_access_restricted: pulumi_wasm_rust::Output<Option<bool>>,
+        pub outbound_network_access_restricted: pulumi_gestalt_rust::Output<
+            Option<bool>,
+        >,
         /// A primary access key which can be used to connect to the Cognitive Service Account.
-        pub primary_access_key: pulumi_wasm_rust::Output<String>,
+        pub primary_access_key: pulumi_gestalt_rust::Output<String>,
         /// Whether public network access is allowed for the Cognitive Account. Defaults to `true`.
-        pub public_network_access_enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub public_network_access_enabled: pulumi_gestalt_rust::Output<Option<bool>>,
         /// A URL to link a QnAMaker cognitive account to a QnA runtime.
-        pub qna_runtime_endpoint: pulumi_wasm_rust::Output<Option<String>>,
+        pub qna_runtime_endpoint: pulumi_gestalt_rust::Output<Option<String>>,
         /// The name of the resource group in which the Cognitive Service Account is created. Changing this forces a new resource to be created.
-        pub resource_group_name: pulumi_wasm_rust::Output<String>,
+        pub resource_group_name: pulumi_gestalt_rust::Output<String>,
         /// The secondary access key which can be used to connect to the Cognitive Service Account.
-        pub secondary_access_key: pulumi_wasm_rust::Output<String>,
+        pub secondary_access_key: pulumi_gestalt_rust::Output<String>,
         /// Specifies the SKU Name for this Cognitive Service Account. Possible values are `F0`, `F1`, `S0`, `S`, `S1`, `S2`, `S3`, `S4`, `S5`, `S6`, `P0`, `P1`, `P2`, `E0` and `DC0`.
         ///
         /// > **NOTE:** SKU `DC0` is the commitment tier for Cognitive Services containers running in disconnected environments. You must obtain approval from Microsoft by submitting the [request form](https://aka.ms/csdisconnectedcontainers) first, before you can use this SKU. More information on [Purchase a commitment plan to use containers in disconnected environments](https://learn.microsoft.com/en-us/azure/cognitive-services/containers/disconnected-containers?tabs=stt#purchase-a-commitment-plan-to-use-containers-in-disconnected-environments).
-        pub sku_name: pulumi_wasm_rust::Output<String>,
+        pub sku_name: pulumi_gestalt_rust::Output<String>,
         /// A `storage` block as defined below.
-        pub storages: pulumi_wasm_rust::Output<
+        pub storages: pulumi_gestalt_rust::Output<
             Option<Vec<super::super::types::cognitive::AccountStorage>>,
         >,
         /// A mapping of tags to assign to the resource.
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
@@ -225,11 +229,11 @@ pub mod account {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: AccountArgs,
     ) -> AccountResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let custom_question_answering_search_service_id_binding = args
             .custom_question_answering_search_service_id
@@ -397,76 +401,76 @@ pub mod account {
         };
         let o = register_interface::register(context.get_inner(), &request);
         AccountResult {
-            custom_question_answering_search_service_id: pulumi_wasm_rust::__private::into_domain(
+            custom_question_answering_search_service_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("customQuestionAnsweringSearchServiceId"),
             ),
-            custom_question_answering_search_service_key: pulumi_wasm_rust::__private::into_domain(
+            custom_question_answering_search_service_key: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("customQuestionAnsweringSearchServiceKey"),
             ),
-            custom_subdomain_name: pulumi_wasm_rust::__private::into_domain(
+            custom_subdomain_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("customSubdomainName"),
             ),
-            customer_managed_key: pulumi_wasm_rust::__private::into_domain(
+            customer_managed_key: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("customerManagedKey"),
             ),
-            dynamic_throttling_enabled: pulumi_wasm_rust::__private::into_domain(
+            dynamic_throttling_enabled: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("dynamicThrottlingEnabled"),
             ),
-            endpoint: pulumi_wasm_rust::__private::into_domain(
+            endpoint: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("endpoint"),
             ),
-            fqdns: pulumi_wasm_rust::__private::into_domain(o.extract_field("fqdns")),
-            identity: pulumi_wasm_rust::__private::into_domain(
+            fqdns: pulumi_gestalt_rust::__private::into_domain(o.extract_field("fqdns")),
+            identity: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("identity"),
             ),
-            kind: pulumi_wasm_rust::__private::into_domain(o.extract_field("kind")),
-            local_auth_enabled: pulumi_wasm_rust::__private::into_domain(
+            kind: pulumi_gestalt_rust::__private::into_domain(o.extract_field("kind")),
+            local_auth_enabled: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("localAuthEnabled"),
             ),
-            location: pulumi_wasm_rust::__private::into_domain(
+            location: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("location"),
             ),
-            metrics_advisor_aad_client_id: pulumi_wasm_rust::__private::into_domain(
+            metrics_advisor_aad_client_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("metricsAdvisorAadClientId"),
             ),
-            metrics_advisor_aad_tenant_id: pulumi_wasm_rust::__private::into_domain(
+            metrics_advisor_aad_tenant_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("metricsAdvisorAadTenantId"),
             ),
-            metrics_advisor_super_user_name: pulumi_wasm_rust::__private::into_domain(
+            metrics_advisor_super_user_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("metricsAdvisorSuperUserName"),
             ),
-            metrics_advisor_website_name: pulumi_wasm_rust::__private::into_domain(
+            metrics_advisor_website_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("metricsAdvisorWebsiteName"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            network_acls: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            network_acls: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("networkAcls"),
             ),
-            outbound_network_access_restricted: pulumi_wasm_rust::__private::into_domain(
+            outbound_network_access_restricted: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("outboundNetworkAccessRestricted"),
             ),
-            primary_access_key: pulumi_wasm_rust::__private::into_domain(
+            primary_access_key: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("primaryAccessKey"),
             ),
-            public_network_access_enabled: pulumi_wasm_rust::__private::into_domain(
+            public_network_access_enabled: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("publicNetworkAccessEnabled"),
             ),
-            qna_runtime_endpoint: pulumi_wasm_rust::__private::into_domain(
+            qna_runtime_endpoint: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("qnaRuntimeEndpoint"),
             ),
-            resource_group_name: pulumi_wasm_rust::__private::into_domain(
+            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("resourceGroupName"),
             ),
-            secondary_access_key: pulumi_wasm_rust::__private::into_domain(
+            secondary_access_key: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("secondaryAccessKey"),
             ),
-            sku_name: pulumi_wasm_rust::__private::into_domain(
+            sku_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("skuName"),
             ),
-            storages: pulumi_wasm_rust::__private::into_domain(
+            storages: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("storages"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
         }
     }
 }

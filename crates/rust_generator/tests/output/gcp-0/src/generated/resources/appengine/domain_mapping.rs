@@ -13,8 +13,8 @@
 ///
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let domainMapping = domain_mapping::create(
@@ -56,7 +56,7 @@
 /// ```
 ///
 pub mod domain_mapping {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct DomainMappingArgs {
@@ -65,21 +65,21 @@ pub mod domain_mapping {
         ///
         /// - - -
         #[builder(into)]
-        pub domain_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub domain_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Whether the domain creation should override any existing mappings for this domain.
         /// By default, overrides are rejected.
         /// Default value is `STRICT`.
         /// Possible values are: `STRICT`, `OVERRIDE`.
         #[builder(into, default)]
-        pub override_strategy: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub override_strategy: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub project: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// SSL configuration for this domain. If unconfigured, this domain will not serve with SSL.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub ssl_settings: pulumi_wasm_rust::InputOrOutput<
+        pub ssl_settings: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::appengine::DomainMappingSslSettings>,
         >,
     }
@@ -89,26 +89,26 @@ pub mod domain_mapping {
         ///
         ///
         /// - - -
-        pub domain_name: pulumi_wasm_rust::Output<String>,
+        pub domain_name: pulumi_gestalt_rust::Output<String>,
         /// Relative name of the object affected by this record. Only applicable for CNAME records. Example: 'www'.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// Whether the domain creation should override any existing mappings for this domain.
         /// By default, overrides are rejected.
         /// Default value is `STRICT`.
         /// Possible values are: `STRICT`, `OVERRIDE`.
-        pub override_strategy: pulumi_wasm_rust::Output<Option<String>>,
+        pub override_strategy: pulumi_gestalt_rust::Output<Option<String>>,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
-        pub project: pulumi_wasm_rust::Output<String>,
+        pub project: pulumi_gestalt_rust::Output<String>,
         /// The resource records required to configure this domain mapping. These records must be added to the domain's DNS
         /// configuration in order to serve the application via this domain mapping.
         /// Structure is documented below.
-        pub resource_records: pulumi_wasm_rust::Output<
+        pub resource_records: pulumi_gestalt_rust::Output<
             Vec<super::super::types::appengine::DomainMappingResourceRecord>,
         >,
         /// SSL configuration for this domain. If unconfigured, this domain will not serve with SSL.
         /// Structure is documented below.
-        pub ssl_settings: pulumi_wasm_rust::Output<
+        pub ssl_settings: pulumi_gestalt_rust::Output<
             super::super::types::appengine::DomainMappingSslSettings,
         >,
     }
@@ -117,11 +117,11 @@ pub mod domain_mapping {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: DomainMappingArgs,
     ) -> DomainMappingResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let domain_name_binding = args.domain_name.get_output(context).get_inner();
         let override_strategy_binding = args
@@ -155,20 +155,20 @@ pub mod domain_mapping {
         };
         let o = register_interface::register(context.get_inner(), &request);
         DomainMappingResult {
-            domain_name: pulumi_wasm_rust::__private::into_domain(
+            domain_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("domainName"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            override_strategy: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            override_strategy: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("overrideStrategy"),
             ),
-            project: pulumi_wasm_rust::__private::into_domain(
+            project: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("project"),
             ),
-            resource_records: pulumi_wasm_rust::__private::into_domain(
+            resource_records: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("resourceRecords"),
             ),
-            ssl_settings: pulumi_wasm_rust::__private::into_domain(
+            ssl_settings: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("sslSettings"),
             ),
         }

@@ -41,94 +41,94 @@
 /// ```
 ///
 pub mod kubernetes_cluster_extension {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct KubernetesClusterExtensionArgs {
         /// Specifies the Cluster ID. Changing this forces a new Kubernetes Cluster Extension to be created.
         #[builder(into)]
-        pub cluster_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub cluster_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Configuration settings that are sensitive, as name-value pairs for configuring this extension.
         #[builder(into, default)]
-        pub configuration_protected_settings: pulumi_wasm_rust::InputOrOutput<
+        pub configuration_protected_settings: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Configuration settings, as name-value pairs for configuring this extension.
         #[builder(into, default)]
-        pub configuration_settings: pulumi_wasm_rust::InputOrOutput<
+        pub configuration_settings: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Specifies the type of extension. It must be one of the extension types registered with Microsoft.KubernetesConfiguration by the Extension publisher. For more information, please refer to [Available Extensions for AKS](https://learn.microsoft.com/en-us/azure/aks/cluster-extensions?tabs=azure-cli#currently-available-extensions). Changing this forces a new Kubernetes Cluster Extension to be created.
         #[builder(into)]
-        pub extension_type: pulumi_wasm_rust::InputOrOutput<String>,
+        pub extension_type: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Specifies the name which should be used for this Kubernetes Cluster Extension. Changing this forces a new Kubernetes Cluster Extension to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// A `plan` block as defined below. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub plan: pulumi_wasm_rust::InputOrOutput<
+        pub plan: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::containerservice::KubernetesClusterExtensionPlan>,
         >,
         /// Namespace where the extension release must be placed for a cluster scoped extension. If this namespace does not exist, it will be created. Changing this forces a new Kubernetes Cluster Extension to be created.
         #[builder(into, default)]
-        pub release_namespace: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub release_namespace: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The release train used by this extension. Possible values include but are not limited to `Stable`, `Preview`. Changing this forces a new Kubernetes Cluster Extension to be created.
         #[builder(into, default)]
-        pub release_train: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub release_train: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Namespace where the extension will be created for a namespace scoped extension. If this namespace does not exist, it will be created. Changing this forces a new Kubernetes Cluster Extension to be created.
         #[builder(into, default)]
-        pub target_namespace: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub target_namespace: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// User-specified version that the extension should pin to. If it is not set, Azure will use the latest version and auto upgrade it. Changing this forces a new Kubernetes Cluster Extension to be created.
         #[builder(into, default)]
-        pub version: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub version: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct KubernetesClusterExtensionResult {
         /// An `aks_assigned_identity` block as defined below.
-        pub aks_assigned_identities: pulumi_wasm_rust::Output<
+        pub aks_assigned_identities: pulumi_gestalt_rust::Output<
             Vec<
                 super::super::types::containerservice::KubernetesClusterExtensionAksAssignedIdentity,
             >,
         >,
         /// Specifies the Cluster ID. Changing this forces a new Kubernetes Cluster Extension to be created.
-        pub cluster_id: pulumi_wasm_rust::Output<String>,
+        pub cluster_id: pulumi_gestalt_rust::Output<String>,
         /// Configuration settings that are sensitive, as name-value pairs for configuring this extension.
-        pub configuration_protected_settings: pulumi_wasm_rust::Output<
+        pub configuration_protected_settings: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Configuration settings, as name-value pairs for configuring this extension.
-        pub configuration_settings: pulumi_wasm_rust::Output<
+        pub configuration_settings: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// The current version of the extension.
-        pub current_version: pulumi_wasm_rust::Output<String>,
+        pub current_version: pulumi_gestalt_rust::Output<String>,
         /// Specifies the type of extension. It must be one of the extension types registered with Microsoft.KubernetesConfiguration by the Extension publisher. For more information, please refer to [Available Extensions for AKS](https://learn.microsoft.com/en-us/azure/aks/cluster-extensions?tabs=azure-cli#currently-available-extensions). Changing this forces a new Kubernetes Cluster Extension to be created.
-        pub extension_type: pulumi_wasm_rust::Output<String>,
+        pub extension_type: pulumi_gestalt_rust::Output<String>,
         /// Specifies the name which should be used for this Kubernetes Cluster Extension. Changing this forces a new Kubernetes Cluster Extension to be created.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// A `plan` block as defined below. Changing this forces a new resource to be created.
-        pub plan: pulumi_wasm_rust::Output<
+        pub plan: pulumi_gestalt_rust::Output<
             Option<super::super::types::containerservice::KubernetesClusterExtensionPlan>,
         >,
         /// Namespace where the extension release must be placed for a cluster scoped extension. If this namespace does not exist, it will be created. Changing this forces a new Kubernetes Cluster Extension to be created.
-        pub release_namespace: pulumi_wasm_rust::Output<String>,
+        pub release_namespace: pulumi_gestalt_rust::Output<String>,
         /// The release train used by this extension. Possible values include but are not limited to `Stable`, `Preview`. Changing this forces a new Kubernetes Cluster Extension to be created.
-        pub release_train: pulumi_wasm_rust::Output<String>,
+        pub release_train: pulumi_gestalt_rust::Output<String>,
         /// Namespace where the extension will be created for a namespace scoped extension. If this namespace does not exist, it will be created. Changing this forces a new Kubernetes Cluster Extension to be created.
-        pub target_namespace: pulumi_wasm_rust::Output<String>,
+        pub target_namespace: pulumi_gestalt_rust::Output<String>,
         /// User-specified version that the extension should pin to. If it is not set, Azure will use the latest version and auto upgrade it. Changing this forces a new Kubernetes Cluster Extension to be created.
-        pub version: pulumi_wasm_rust::Output<Option<String>>,
+        pub version: pulumi_gestalt_rust::Output<Option<String>>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: KubernetesClusterExtensionArgs,
     ) -> KubernetesClusterExtensionResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let cluster_id_binding = args.cluster_id.get_output(context).get_inner();
         let configuration_protected_settings_binding = args
@@ -202,36 +202,38 @@ pub mod kubernetes_cluster_extension {
         };
         let o = register_interface::register(context.get_inner(), &request);
         KubernetesClusterExtensionResult {
-            aks_assigned_identities: pulumi_wasm_rust::__private::into_domain(
+            aks_assigned_identities: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("aksAssignedIdentities"),
             ),
-            cluster_id: pulumi_wasm_rust::__private::into_domain(
+            cluster_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("clusterId"),
             ),
-            configuration_protected_settings: pulumi_wasm_rust::__private::into_domain(
+            configuration_protected_settings: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("configurationProtectedSettings"),
             ),
-            configuration_settings: pulumi_wasm_rust::__private::into_domain(
+            configuration_settings: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("configurationSettings"),
             ),
-            current_version: pulumi_wasm_rust::__private::into_domain(
+            current_version: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("currentVersion"),
             ),
-            extension_type: pulumi_wasm_rust::__private::into_domain(
+            extension_type: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("extensionType"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            plan: pulumi_wasm_rust::__private::into_domain(o.extract_field("plan")),
-            release_namespace: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            plan: pulumi_gestalt_rust::__private::into_domain(o.extract_field("plan")),
+            release_namespace: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("releaseNamespace"),
             ),
-            release_train: pulumi_wasm_rust::__private::into_domain(
+            release_train: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("releaseTrain"),
             ),
-            target_namespace: pulumi_wasm_rust::__private::into_domain(
+            target_namespace: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("targetNamespace"),
             ),
-            version: pulumi_wasm_rust::__private::into_domain(o.extract_field("version")),
+            version: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("version"),
+            ),
         }
     }
 }

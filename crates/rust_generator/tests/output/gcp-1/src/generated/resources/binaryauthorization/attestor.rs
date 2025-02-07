@@ -13,8 +13,8 @@
 ///
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let attestor = attestor::create(
@@ -121,48 +121,48 @@
 /// ```
 ///
 pub mod attestor {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct AttestorArgs {
         /// A Container Analysis ATTESTATION_AUTHORITY Note, created by the user.
         /// Structure is documented below.
         #[builder(into)]
-        pub attestation_authority_note: pulumi_wasm_rust::InputOrOutput<
+        pub attestation_authority_note: pulumi_gestalt_rust::InputOrOutput<
             super::super::types::binaryauthorization::AttestorAttestationAuthorityNote,
         >,
         /// A descriptive comment. This field may be updated. The field may be displayed in chooser dialogs.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub description: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The resource name.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub project: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct AttestorResult {
         /// A Container Analysis ATTESTATION_AUTHORITY Note, created by the user.
         /// Structure is documented below.
-        pub attestation_authority_note: pulumi_wasm_rust::Output<
+        pub attestation_authority_note: pulumi_gestalt_rust::Output<
             super::super::types::binaryauthorization::AttestorAttestationAuthorityNote,
         >,
         /// A descriptive comment. This field may be updated. The field may be displayed in chooser dialogs.
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_gestalt_rust::Output<Option<String>>,
         /// The resource name.
-        pub name: pulumi_wasm_rust::Output<String>,
-        pub project: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
+        pub project: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: AttestorArgs,
     ) -> AttestorResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let attestation_authority_note_binding = args
             .attestation_authority_note
@@ -196,14 +196,16 @@ pub mod attestor {
         };
         let o = register_interface::register(context.get_inner(), &request);
         AttestorResult {
-            attestation_authority_note: pulumi_wasm_rust::__private::into_domain(
+            attestation_authority_note: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("attestationAuthorityNote"),
             ),
-            description: pulumi_wasm_rust::__private::into_domain(
+            description: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("description"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            project: pulumi_wasm_rust::__private::into_domain(o.extract_field("project")),
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            project: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("project"),
+            ),
         }
     }
 }

@@ -29,60 +29,60 @@
 /// ```
 ///
 pub mod lab {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct LabArgs {
         /// Specifies the supported Azure location where the Dev Test Lab should exist. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub location: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub location: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Specifies the name of the Dev Test Lab. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The name of the resource group under which the Dev Test Lab resource has to be created. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub resource_group_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub resource_group_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// A mapping of tags to assign to the resource.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
     #[allow(dead_code)]
     pub struct LabResult {
         /// The ID of the Storage Account used for Artifact Storage.
-        pub artifacts_storage_account_id: pulumi_wasm_rust::Output<String>,
+        pub artifacts_storage_account_id: pulumi_gestalt_rust::Output<String>,
         /// The ID of the Default Premium Storage Account for this Dev Test Lab.
-        pub default_premium_storage_account_id: pulumi_wasm_rust::Output<String>,
+        pub default_premium_storage_account_id: pulumi_gestalt_rust::Output<String>,
         /// The ID of the Default Storage Account for this Dev Test Lab.
-        pub default_storage_account_id: pulumi_wasm_rust::Output<String>,
+        pub default_storage_account_id: pulumi_gestalt_rust::Output<String>,
         /// The ID of the Key used for this Dev Test Lab.
-        pub key_vault_id: pulumi_wasm_rust::Output<String>,
+        pub key_vault_id: pulumi_gestalt_rust::Output<String>,
         /// Specifies the supported Azure location where the Dev Test Lab should exist. Changing this forces a new resource to be created.
-        pub location: pulumi_wasm_rust::Output<String>,
+        pub location: pulumi_gestalt_rust::Output<String>,
         /// Specifies the name of the Dev Test Lab. Changing this forces a new resource to be created.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// The ID of the Storage Account used for Storage of Premium Data Disk.
-        pub premium_data_disk_storage_account_id: pulumi_wasm_rust::Output<String>,
+        pub premium_data_disk_storage_account_id: pulumi_gestalt_rust::Output<String>,
         /// The name of the resource group under which the Dev Test Lab resource has to be created. Changing this forces a new resource to be created.
-        pub resource_group_name: pulumi_wasm_rust::Output<String>,
+        pub resource_group_name: pulumi_gestalt_rust::Output<String>,
         /// A mapping of tags to assign to the resource.
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// The unique immutable identifier of the Dev Test Lab.
-        pub unique_identifier: pulumi_wasm_rust::Output<String>,
+        pub unique_identifier: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: LabArgs,
     ) -> LabResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let location_binding = args.location.get_output(context).get_inner();
         let name_binding = args.name.get_output(context).get_inner();
@@ -116,30 +116,30 @@ pub mod lab {
         };
         let o = register_interface::register(context.get_inner(), &request);
         LabResult {
-            artifacts_storage_account_id: pulumi_wasm_rust::__private::into_domain(
+            artifacts_storage_account_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("artifactsStorageAccountId"),
             ),
-            default_premium_storage_account_id: pulumi_wasm_rust::__private::into_domain(
+            default_premium_storage_account_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("defaultPremiumStorageAccountId"),
             ),
-            default_storage_account_id: pulumi_wasm_rust::__private::into_domain(
+            default_storage_account_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("defaultStorageAccountId"),
             ),
-            key_vault_id: pulumi_wasm_rust::__private::into_domain(
+            key_vault_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("keyVaultId"),
             ),
-            location: pulumi_wasm_rust::__private::into_domain(
+            location: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("location"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            premium_data_disk_storage_account_id: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            premium_data_disk_storage_account_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("premiumDataDiskStorageAccountId"),
             ),
-            resource_group_name: pulumi_wasm_rust::__private::into_domain(
+            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("resourceGroupName"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
-            unique_identifier: pulumi_wasm_rust::__private::into_domain(
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            unique_identifier: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("uniqueIdentifier"),
             ),
         }

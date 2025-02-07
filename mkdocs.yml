@@ -1,5 +1,5 @@
 site_name: Pulumi Wasm
-repo_url: https://github.com/andrzejressel/pulumi-wasm
+repo_url: https://github.com/andrzejressel/pulumi-gestalt
 theme:
   palette:
     scheme: slate
@@ -12,7 +12,7 @@ theme:
 nav:
   - index.md
   - crates.md
-  - rustdoc: "/pulumi-wasm/rust-docs/pulumi_wasm_rust/index.html"
+  - rustdoc: "/pulumi-gestalt/rust-docs/pulumi_gestalt_rust/index.html"
   - Internal:
       - Internal/Output.md
       - Internal/Serialization formats.md

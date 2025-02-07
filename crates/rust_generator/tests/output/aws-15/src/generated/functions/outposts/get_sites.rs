@@ -2,16 +2,16 @@ pub mod get_sites {
     #[allow(dead_code)]
     pub struct GetSitesResult {
         /// The provider-assigned unique ID for this managed resource.
-        pub id: pulumi_wasm_rust::Output<String>,
+        pub id: pulumi_gestalt_rust::Output<String>,
         /// Set of Outposts Site identifiers.
-        pub ids: pulumi_wasm_rust::Output<Vec<String>>,
+        pub ids: pulumi_gestalt_rust::Output<Vec<String>>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn invoke(context: &pulumi_wasm_rust::PulumiContext) -> GetSitesResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+    pub fn invoke(context: &pulumi_gestalt_rust::PulumiContext) -> GetSitesResult {
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:outposts/getSites:getSites".into(),
@@ -20,8 +20,8 @@ pub mod get_sites {
         };
         let o = register_interface::invoke(context.get_inner(), &request);
         GetSitesResult {
-            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
-            ids: pulumi_wasm_rust::__private::into_domain(o.extract_field("ids")),
+            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
+            ids: pulumi_gestalt_rust::__private::into_domain(o.extract_field("ids")),
         }
     }
 }

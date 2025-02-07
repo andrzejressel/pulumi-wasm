@@ -25,8 +25,8 @@
 ///
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let bucket = bucket::create(
@@ -57,13 +57,13 @@
 /// ```
 ///
 pub mod default_object_access_control {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct DefaultObjectAccessControlArgs {
         /// The name of the bucket.
         #[builder(into)]
-        pub bucket: pulumi_wasm_rust::InputOrOutput<String>,
+        pub bucket: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The entity holding the permission, in one of the following forms:
         /// * user-{{userId}}
         /// * user-{{email}} (such as "user-liz@example.com")
@@ -74,26 +74,26 @@ pub mod default_object_access_control {
         /// * allUsers
         /// * allAuthenticatedUsers
         #[builder(into)]
-        pub entity: pulumi_wasm_rust::InputOrOutput<String>,
+        pub entity: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The name of the object, if applied to an object.
         #[builder(into, default)]
-        pub object: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub object: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The access permission for the entity.
         /// Possible values are: `OWNER`, `READER`.
         ///
         ///
         /// - - -
         #[builder(into)]
-        pub role: pulumi_wasm_rust::InputOrOutput<String>,
+        pub role: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct DefaultObjectAccessControlResult {
         /// The name of the bucket.
-        pub bucket: pulumi_wasm_rust::Output<String>,
+        pub bucket: pulumi_gestalt_rust::Output<String>,
         /// The domain associated with the entity.
-        pub domain: pulumi_wasm_rust::Output<String>,
+        pub domain: pulumi_gestalt_rust::Output<String>,
         /// The email address associated with the entity.
-        pub email: pulumi_wasm_rust::Output<String>,
+        pub email: pulumi_gestalt_rust::Output<String>,
         /// The entity holding the permission, in one of the following forms:
         /// * user-{{userId}}
         /// * user-{{email}} (such as "user-liz@example.com")
@@ -103,16 +103,16 @@ pub mod default_object_access_control {
         /// * project-team-{{projectId}}
         /// * allUsers
         /// * allAuthenticatedUsers
-        pub entity: pulumi_wasm_rust::Output<String>,
+        pub entity: pulumi_gestalt_rust::Output<String>,
         /// The ID for the entity
-        pub entity_id: pulumi_wasm_rust::Output<String>,
+        pub entity_id: pulumi_gestalt_rust::Output<String>,
         /// The content generation of the object, if applied to an object.
-        pub generation: pulumi_wasm_rust::Output<i32>,
+        pub generation: pulumi_gestalt_rust::Output<i32>,
         /// The name of the object, if applied to an object.
-        pub object: pulumi_wasm_rust::Output<Option<String>>,
+        pub object: pulumi_gestalt_rust::Output<Option<String>>,
         /// The project team associated with the entity
         /// Structure is documented below.
-        pub project_teams: pulumi_wasm_rust::Output<
+        pub project_teams: pulumi_gestalt_rust::Output<
             Vec<super::super::types::storage::DefaultObjectAccessControlProjectTeam>,
         >,
         /// The access permission for the entity.
@@ -120,18 +120,18 @@ pub mod default_object_access_control {
         ///
         ///
         /// - - -
-        pub role: pulumi_wasm_rust::Output<String>,
+        pub role: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: DefaultObjectAccessControlArgs,
     ) -> DefaultObjectAccessControlResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let bucket_binding = args.bucket.get_output(context).get_inner();
         let entity_binding = args.entity.get_output(context).get_inner();
@@ -163,21 +163,29 @@ pub mod default_object_access_control {
         };
         let o = register_interface::register(context.get_inner(), &request);
         DefaultObjectAccessControlResult {
-            bucket: pulumi_wasm_rust::__private::into_domain(o.extract_field("bucket")),
-            domain: pulumi_wasm_rust::__private::into_domain(o.extract_field("domain")),
-            email: pulumi_wasm_rust::__private::into_domain(o.extract_field("email")),
-            entity: pulumi_wasm_rust::__private::into_domain(o.extract_field("entity")),
-            entity_id: pulumi_wasm_rust::__private::into_domain(
+            bucket: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("bucket"),
+            ),
+            domain: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("domain"),
+            ),
+            email: pulumi_gestalt_rust::__private::into_domain(o.extract_field("email")),
+            entity: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("entity"),
+            ),
+            entity_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("entityId"),
             ),
-            generation: pulumi_wasm_rust::__private::into_domain(
+            generation: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("generation"),
             ),
-            object: pulumi_wasm_rust::__private::into_domain(o.extract_field("object")),
-            project_teams: pulumi_wasm_rust::__private::into_domain(
+            object: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("object"),
+            ),
+            project_teams: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("projectTeams"),
             ),
-            role: pulumi_wasm_rust::__private::into_domain(o.extract_field("role")),
+            role: pulumi_gestalt_rust::__private::into_domain(o.extract_field("role")),
         }
     }
 }

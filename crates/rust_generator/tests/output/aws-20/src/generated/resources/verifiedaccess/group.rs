@@ -5,8 +5,8 @@
 /// ### Basic Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = group::create(
@@ -21,8 +21,8 @@
 /// ### Usage with KMS Key
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let test = group::create(
@@ -47,76 +47,76 @@
 /// }
 /// ```
 pub mod group {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct GroupArgs {
         /// Description of the verified access group.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub description: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The policy document that is associated with this resource.
         #[builder(into, default)]
-        pub policy_document: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub policy_document: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Configuration block to use KMS keys for server-side encryption.
         #[builder(into, default)]
-        pub sse_configuration: pulumi_wasm_rust::InputOrOutput<
+        pub sse_configuration: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::verifiedaccess::GroupSseConfiguration>,
         >,
         /// Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// The id of the verified access instance this group is associated with.
         ///
         /// The following arguments are optional:
         #[builder(into)]
-        pub verifiedaccess_instance_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub verifiedaccess_instance_id: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct GroupResult {
         /// Timestamp when the access group was created.
-        pub creation_time: pulumi_wasm_rust::Output<String>,
+        pub creation_time: pulumi_gestalt_rust::Output<String>,
         /// Timestamp when the access group was deleted.
-        pub deletion_time: pulumi_wasm_rust::Output<String>,
+        pub deletion_time: pulumi_gestalt_rust::Output<String>,
         /// Description of the verified access group.
-        pub description: pulumi_wasm_rust::Output<String>,
+        pub description: pulumi_gestalt_rust::Output<String>,
         /// Timestamp when the access group was last updated.
-        pub last_updated_time: pulumi_wasm_rust::Output<String>,
+        pub last_updated_time: pulumi_gestalt_rust::Output<String>,
         /// AWS account number owning this resource.
-        pub owner: pulumi_wasm_rust::Output<String>,
+        pub owner: pulumi_gestalt_rust::Output<String>,
         /// The policy document that is associated with this resource.
-        pub policy_document: pulumi_wasm_rust::Output<Option<String>>,
+        pub policy_document: pulumi_gestalt_rust::Output<Option<String>>,
         /// Configuration block to use KMS keys for server-side encryption.
-        pub sse_configuration: pulumi_wasm_rust::Output<
+        pub sse_configuration: pulumi_gestalt_rust::Output<
             super::super::types::verifiedaccess::GroupSseConfiguration,
         >,
         /// Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
-        pub tags_all: pulumi_wasm_rust::Output<
+        pub tags_all: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
         /// ARN of this verified acess group.
-        pub verifiedaccess_group_arn: pulumi_wasm_rust::Output<String>,
+        pub verifiedaccess_group_arn: pulumi_gestalt_rust::Output<String>,
         /// ID of this verified access group.
-        pub verifiedaccess_group_id: pulumi_wasm_rust::Output<String>,
+        pub verifiedaccess_group_id: pulumi_gestalt_rust::Output<String>,
         /// The id of the verified access instance this group is associated with.
         ///
         /// The following arguments are optional:
-        pub verifiedaccess_instance_id: pulumi_wasm_rust::Output<String>,
+        pub verifiedaccess_instance_id: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: GroupArgs,
     ) -> GroupResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let description_binding = args.description.get_output(context).get_inner();
         let policy_document_binding = args
@@ -161,36 +161,36 @@ pub mod group {
         };
         let o = register_interface::register(context.get_inner(), &request);
         GroupResult {
-            creation_time: pulumi_wasm_rust::__private::into_domain(
+            creation_time: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("creationTime"),
             ),
-            deletion_time: pulumi_wasm_rust::__private::into_domain(
+            deletion_time: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("deletionTime"),
             ),
-            description: pulumi_wasm_rust::__private::into_domain(
+            description: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("description"),
             ),
-            last_updated_time: pulumi_wasm_rust::__private::into_domain(
+            last_updated_time: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("lastUpdatedTime"),
             ),
-            owner: pulumi_wasm_rust::__private::into_domain(o.extract_field("owner")),
-            policy_document: pulumi_wasm_rust::__private::into_domain(
+            owner: pulumi_gestalt_rust::__private::into_domain(o.extract_field("owner")),
+            policy_document: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("policyDocument"),
             ),
-            sse_configuration: pulumi_wasm_rust::__private::into_domain(
+            sse_configuration: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("sseConfiguration"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_wasm_rust::__private::into_domain(
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            tags_all: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("tagsAll"),
             ),
-            verifiedaccess_group_arn: pulumi_wasm_rust::__private::into_domain(
+            verifiedaccess_group_arn: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("verifiedaccessGroupArn"),
             ),
-            verifiedaccess_group_id: pulumi_wasm_rust::__private::into_domain(
+            verifiedaccess_group_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("verifiedaccessGroupId"),
             ),
-            verifiedaccess_instance_id: pulumi_wasm_rust::__private::into_domain(
+            verifiedaccess_instance_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("verifiedaccessInstanceId"),
             ),
         }

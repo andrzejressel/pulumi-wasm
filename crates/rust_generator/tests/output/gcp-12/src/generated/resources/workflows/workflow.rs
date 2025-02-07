@@ -67,7 +67,7 @@
 /// This resource does not support import.
 ///
 pub mod workflow {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct WorkflowArgs {
@@ -76,38 +76,38 @@ pub mod workflow {
         /// the execution level takes precedence.
         /// Possible values are: `CALL_LOG_LEVEL_UNSPECIFIED`, `LOG_ALL_CALLS`, `LOG_ERRORS_ONLY`, `LOG_NONE`.
         #[builder(into, default)]
-        pub call_log_level: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub call_log_level: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The KMS key used to encrypt workflow and execution data.
         /// Format: projects/{project}/locations/{location}/keyRings/{keyRing}/cryptoKeys/{cryptoKey}
         #[builder(into, default)]
-        pub crypto_key_name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub crypto_key_name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         #[builder(into, default)]
-        pub deletion_protection: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub deletion_protection: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// Description of the workflow provided by the user. Must be at most 1000 unicode characters long.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub description: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// A set of key/value label pairs to assign to this Workflow.
         ///
         /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
         /// Please refer to the field `effective_labels` for all of the labels present on the resource.
         #[builder(into, default)]
-        pub labels: pulumi_wasm_rust::InputOrOutput<
+        pub labels: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Name of the Workflow.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Creates a unique name beginning with the
         /// specified prefix. If this and name are unspecified, a random value is chosen for the name.
         #[builder(into, default)]
-        pub name_prefix: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name_prefix: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub project: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The region of the workflow.
         #[builder(into, default)]
-        pub region: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub region: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Name of the service account associated with the latest workflow version. This service
         /// account represents the identity of the workflow and determines what permissions the workflow has.
         /// Format: projects/{project}/serviceAccounts/{account} or {account}.
@@ -116,13 +116,13 @@ pub mod workflow {
         /// If not provided, workflow will use the project's default service account.
         /// Modifying this field for an existing workflow results in a new workflow revision.
         #[builder(into, default)]
-        pub service_account: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub service_account: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Workflow code to be executed. The size limit is 128KB.
         #[builder(into, default)]
-        pub source_contents: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub source_contents: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// User-defined environment variables associated with this workflow revision. This map has a maximum length of 20. Each string can take up to 4KiB. Keys cannot be empty strings and cannot start with “GOOGLE” or “WORKFLOWS".
         #[builder(into, default)]
-        pub user_env_vars: pulumi_wasm_rust::InputOrOutput<
+        pub user_env_vars: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
@@ -132,43 +132,43 @@ pub mod workflow {
         /// executions of this workflow. If both the workflow and the execution specify a logging level,
         /// the execution level takes precedence.
         /// Possible values are: `CALL_LOG_LEVEL_UNSPECIFIED`, `LOG_ALL_CALLS`, `LOG_ERRORS_ONLY`, `LOG_NONE`.
-        pub call_log_level: pulumi_wasm_rust::Output<Option<String>>,
+        pub call_log_level: pulumi_gestalt_rust::Output<Option<String>>,
         /// The timestamp of when the workflow was created in RFC3339 UTC "Zulu" format, with nanosecond resolution and up to nine fractional digits.
-        pub create_time: pulumi_wasm_rust::Output<String>,
+        pub create_time: pulumi_gestalt_rust::Output<String>,
         /// The KMS key used to encrypt workflow and execution data.
         /// Format: projects/{project}/locations/{location}/keyRings/{keyRing}/cryptoKeys/{cryptoKey}
-        pub crypto_key_name: pulumi_wasm_rust::Output<Option<String>>,
-        pub deletion_protection: pulumi_wasm_rust::Output<Option<bool>>,
+        pub crypto_key_name: pulumi_gestalt_rust::Output<Option<String>>,
+        pub deletion_protection: pulumi_gestalt_rust::Output<Option<bool>>,
         /// Description of the workflow provided by the user. Must be at most 1000 unicode characters long.
-        pub description: pulumi_wasm_rust::Output<String>,
+        pub description: pulumi_gestalt_rust::Output<String>,
         /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Pulumi, other clients and services.
-        pub effective_labels: pulumi_wasm_rust::Output<
+        pub effective_labels: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
         /// A set of key/value label pairs to assign to this Workflow.
         ///
         /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
         /// Please refer to the field `effective_labels` for all of the labels present on the resource.
-        pub labels: pulumi_wasm_rust::Output<
+        pub labels: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Name of the Workflow.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// Creates a unique name beginning with the
         /// specified prefix. If this and name are unspecified, a random value is chosen for the name.
-        pub name_prefix: pulumi_wasm_rust::Output<String>,
+        pub name_prefix: pulumi_gestalt_rust::Output<String>,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
-        pub project: pulumi_wasm_rust::Output<String>,
+        pub project: pulumi_gestalt_rust::Output<String>,
         /// The combination of labels configured directly on the resource
         /// and default labels configured on the provider.
-        pub pulumi_labels: pulumi_wasm_rust::Output<
+        pub pulumi_labels: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
         /// The region of the workflow.
-        pub region: pulumi_wasm_rust::Output<Option<String>>,
+        pub region: pulumi_gestalt_rust::Output<Option<String>>,
         /// The revision of the workflow. A new one is generated if the service account or source contents is changed.
-        pub revision_id: pulumi_wasm_rust::Output<String>,
+        pub revision_id: pulumi_gestalt_rust::Output<String>,
         /// Name of the service account associated with the latest workflow version. This service
         /// account represents the identity of the workflow and determines what permissions the workflow has.
         /// Format: projects/{project}/serviceAccounts/{account} or {account}.
@@ -176,15 +176,15 @@ pub mod workflow {
         /// The {account} value can be the email address or the unique_id of the service account.
         /// If not provided, workflow will use the project's default service account.
         /// Modifying this field for an existing workflow results in a new workflow revision.
-        pub service_account: pulumi_wasm_rust::Output<String>,
+        pub service_account: pulumi_gestalt_rust::Output<String>,
         /// Workflow code to be executed. The size limit is 128KB.
-        pub source_contents: pulumi_wasm_rust::Output<Option<String>>,
+        pub source_contents: pulumi_gestalt_rust::Output<Option<String>>,
         /// State of the workflow deployment.
-        pub state: pulumi_wasm_rust::Output<String>,
+        pub state: pulumi_gestalt_rust::Output<String>,
         /// The timestamp of when the workflow was last updated in RFC3339 UTC "Zulu" format, with nanosecond resolution and up to nine fractional digits.
-        pub update_time: pulumi_wasm_rust::Output<String>,
+        pub update_time: pulumi_gestalt_rust::Output<String>,
         /// User-defined environment variables associated with this workflow revision. This map has a maximum length of 20. Each string can take up to 4KiB. Keys cannot be empty strings and cannot start with “GOOGLE” or “WORKFLOWS".
-        pub user_env_vars: pulumi_wasm_rust::Output<
+        pub user_env_vars: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
@@ -193,11 +193,11 @@ pub mod workflow {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: WorkflowArgs,
     ) -> WorkflowResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let call_log_level_binding = args.call_log_level.get_output(context).get_inner();
         let crypto_key_name_binding = args
@@ -280,50 +280,54 @@ pub mod workflow {
         };
         let o = register_interface::register(context.get_inner(), &request);
         WorkflowResult {
-            call_log_level: pulumi_wasm_rust::__private::into_domain(
+            call_log_level: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("callLogLevel"),
             ),
-            create_time: pulumi_wasm_rust::__private::into_domain(
+            create_time: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("createTime"),
             ),
-            crypto_key_name: pulumi_wasm_rust::__private::into_domain(
+            crypto_key_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("cryptoKeyName"),
             ),
-            deletion_protection: pulumi_wasm_rust::__private::into_domain(
+            deletion_protection: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("deletionProtection"),
             ),
-            description: pulumi_wasm_rust::__private::into_domain(
+            description: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("description"),
             ),
-            effective_labels: pulumi_wasm_rust::__private::into_domain(
+            effective_labels: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("effectiveLabels"),
             ),
-            labels: pulumi_wasm_rust::__private::into_domain(o.extract_field("labels")),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            name_prefix: pulumi_wasm_rust::__private::into_domain(
+            labels: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("labels"),
+            ),
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            name_prefix: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("namePrefix"),
             ),
-            project: pulumi_wasm_rust::__private::into_domain(
+            project: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("project"),
             ),
-            pulumi_labels: pulumi_wasm_rust::__private::into_domain(
+            pulumi_labels: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("pulumiLabels"),
             ),
-            region: pulumi_wasm_rust::__private::into_domain(o.extract_field("region")),
-            revision_id: pulumi_wasm_rust::__private::into_domain(
+            region: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("region"),
+            ),
+            revision_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("revisionId"),
             ),
-            service_account: pulumi_wasm_rust::__private::into_domain(
+            service_account: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("serviceAccount"),
             ),
-            source_contents: pulumi_wasm_rust::__private::into_domain(
+            source_contents: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("sourceContents"),
             ),
-            state: pulumi_wasm_rust::__private::into_domain(o.extract_field("state")),
-            update_time: pulumi_wasm_rust::__private::into_domain(
+            state: pulumi_gestalt_rust::__private::into_domain(o.extract_field("state")),
+            update_time: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("updateTime"),
             ),
-            user_env_vars: pulumi_wasm_rust::__private::into_domain(
+            user_env_vars: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("userEnvVars"),
             ),
         }

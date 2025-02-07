@@ -56,8 +56,8 @@
 ///
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let primary = policy::create(
@@ -174,29 +174,29 @@
 /// ```
 ///
 pub mod policy {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct PolicyArgs {
         /// Dry-run policy. Audit-only policy, can be used to monitor how the policy would have impacted the existing and future resources if it's enforced.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub dry_run_spec: pulumi_wasm_rust::InputOrOutput<
+        pub dry_run_spec: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::orgpolicy::PolicyDryRunSpec>,
         >,
         /// Immutable. The resource name of the Policy. Must be one of the following forms, where constraint_name is the name of the constraint which this Policy configures: * `projects/{project_number}/policies/{constraint_name}` * `folders/{folder_id}/policies/{constraint_name}` * `organizations/{organization_id}/policies/{constraint_name}` For example, "projects/123/policies/compute.disableSerialPortAccess". Note: `projects/{project_id}/policies/{constraint_name}` is also an acceptable name for API requests, but responses will return the name using the equivalent project number.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The parent of the resource.
         ///
         ///
         /// - - -
         #[builder(into)]
-        pub parent: pulumi_wasm_rust::InputOrOutput<String>,
+        pub parent: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Basic information about the Organization Policy.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub spec: pulumi_wasm_rust::InputOrOutput<
+        pub spec: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::orgpolicy::PolicySpec>,
         >,
     }
@@ -204,21 +204,21 @@ pub mod policy {
     pub struct PolicyResult {
         /// Dry-run policy. Audit-only policy, can be used to monitor how the policy would have impacted the existing and future resources if it's enforced.
         /// Structure is documented below.
-        pub dry_run_spec: pulumi_wasm_rust::Output<
+        pub dry_run_spec: pulumi_gestalt_rust::Output<
             Option<super::super::types::orgpolicy::PolicyDryRunSpec>,
         >,
         /// Optional. An opaque tag indicating the current state of the policy, used for concurrency control. This 'etag' is computed by the server based on the value of other fields, and may be sent on update and delete requests to ensure the client has an up-to-date value before proceeding.
-        pub etag: pulumi_wasm_rust::Output<String>,
+        pub etag: pulumi_gestalt_rust::Output<String>,
         /// Immutable. The resource name of the Policy. Must be one of the following forms, where constraint_name is the name of the constraint which this Policy configures: * `projects/{project_number}/policies/{constraint_name}` * `folders/{folder_id}/policies/{constraint_name}` * `organizations/{organization_id}/policies/{constraint_name}` For example, "projects/123/policies/compute.disableSerialPortAccess". Note: `projects/{project_id}/policies/{constraint_name}` is also an acceptable name for API requests, but responses will return the name using the equivalent project number.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// The parent of the resource.
         ///
         ///
         /// - - -
-        pub parent: pulumi_wasm_rust::Output<String>,
+        pub parent: pulumi_gestalt_rust::Output<String>,
         /// Basic information about the Organization Policy.
         /// Structure is documented below.
-        pub spec: pulumi_wasm_rust::Output<
+        pub spec: pulumi_gestalt_rust::Output<
             Option<super::super::types::orgpolicy::PolicySpec>,
         >,
     }
@@ -227,11 +227,11 @@ pub mod policy {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: PolicyArgs,
     ) -> PolicyResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let dry_run_spec_binding = args.dry_run_spec.get_output(context).get_inner();
         let name_binding = args.name.get_output(context).get_inner();
@@ -262,13 +262,15 @@ pub mod policy {
         };
         let o = register_interface::register(context.get_inner(), &request);
         PolicyResult {
-            dry_run_spec: pulumi_wasm_rust::__private::into_domain(
+            dry_run_spec: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("dryRunSpec"),
             ),
-            etag: pulumi_wasm_rust::__private::into_domain(o.extract_field("etag")),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            parent: pulumi_wasm_rust::__private::into_domain(o.extract_field("parent")),
-            spec: pulumi_wasm_rust::__private::into_domain(o.extract_field("spec")),
+            etag: pulumi_gestalt_rust::__private::into_domain(o.extract_field("etag")),
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            parent: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("parent"),
+            ),
+            spec: pulumi_gestalt_rust::__private::into_domain(o.extract_field("spec")),
         }
     }
 }

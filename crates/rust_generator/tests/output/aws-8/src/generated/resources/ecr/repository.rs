@@ -3,8 +3,8 @@
 /// ## Example Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let foo = repository::create(
@@ -30,65 +30,65 @@
 /// $ pulumi import aws:ecr/repository:Repository service test-service
 /// ```
 pub mod repository {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct RepositoryArgs {
         /// Encryption configuration for the repository. See below for schema.
         #[builder(into, default)]
-        pub encryption_configurations: pulumi_wasm_rust::InputOrOutput<
+        pub encryption_configurations: pulumi_gestalt_rust::InputOrOutput<
             Option<Vec<super::super::types::ecr::RepositoryEncryptionConfiguration>>,
         >,
         /// If `true`, will delete the repository even if it contains images.
         /// Defaults to `false`.
         #[builder(into, default)]
-        pub force_delete: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub force_delete: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// Configuration block that defines image scanning configuration for the repository. By default, image scanning must be manually triggered. See the [ECR User Guide](https://docs.aws.amazon.com/AmazonECR/latest/userguide/image-scanning.html) for more information about image scanning.
         #[builder(into, default)]
-        pub image_scanning_configuration: pulumi_wasm_rust::InputOrOutput<
+        pub image_scanning_configuration: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::ecr::RepositoryImageScanningConfiguration>,
         >,
         /// The tag mutability setting for the repository. Must be one of: `MUTABLE` or `IMMUTABLE`. Defaults to `MUTABLE`.
         #[builder(into, default)]
-        pub image_tag_mutability: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub image_tag_mutability: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Name of the repository.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
     #[allow(dead_code)]
     pub struct RepositoryResult {
         /// Full ARN of the repository.
-        pub arn: pulumi_wasm_rust::Output<String>,
+        pub arn: pulumi_gestalt_rust::Output<String>,
         /// Encryption configuration for the repository. See below for schema.
-        pub encryption_configurations: pulumi_wasm_rust::Output<
+        pub encryption_configurations: pulumi_gestalt_rust::Output<
             Option<Vec<super::super::types::ecr::RepositoryEncryptionConfiguration>>,
         >,
         /// If `true`, will delete the repository even if it contains images.
         /// Defaults to `false`.
-        pub force_delete: pulumi_wasm_rust::Output<Option<bool>>,
+        pub force_delete: pulumi_gestalt_rust::Output<Option<bool>>,
         /// Configuration block that defines image scanning configuration for the repository. By default, image scanning must be manually triggered. See the [ECR User Guide](https://docs.aws.amazon.com/AmazonECR/latest/userguide/image-scanning.html) for more information about image scanning.
-        pub image_scanning_configuration: pulumi_wasm_rust::Output<
+        pub image_scanning_configuration: pulumi_gestalt_rust::Output<
             Option<super::super::types::ecr::RepositoryImageScanningConfiguration>,
         >,
         /// The tag mutability setting for the repository. Must be one of: `MUTABLE` or `IMMUTABLE`. Defaults to `MUTABLE`.
-        pub image_tag_mutability: pulumi_wasm_rust::Output<Option<String>>,
+        pub image_tag_mutability: pulumi_gestalt_rust::Output<Option<String>>,
         /// Name of the repository.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// The registry ID where the repository was created.
-        pub registry_id: pulumi_wasm_rust::Output<String>,
+        pub registry_id: pulumi_gestalt_rust::Output<String>,
         /// The URL of the repository (in the form `aws_account_id.dkr.ecr.region.amazonaws.com/repositoryName`).
-        pub repository_url: pulumi_wasm_rust::Output<String>,
+        pub repository_url: pulumi_gestalt_rust::Output<String>,
         /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        pub tags_all: pulumi_wasm_rust::Output<
+        pub tags_all: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
     }
@@ -97,11 +97,11 @@ pub mod repository {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: RepositoryArgs,
     ) -> RepositoryResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let encryption_configurations_binding = args
             .encryption_configurations
@@ -151,28 +151,28 @@ pub mod repository {
         };
         let o = register_interface::register(context.get_inner(), &request);
         RepositoryResult {
-            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
-            encryption_configurations: pulumi_wasm_rust::__private::into_domain(
+            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
+            encryption_configurations: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("encryptionConfigurations"),
             ),
-            force_delete: pulumi_wasm_rust::__private::into_domain(
+            force_delete: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("forceDelete"),
             ),
-            image_scanning_configuration: pulumi_wasm_rust::__private::into_domain(
+            image_scanning_configuration: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("imageScanningConfiguration"),
             ),
-            image_tag_mutability: pulumi_wasm_rust::__private::into_domain(
+            image_tag_mutability: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("imageTagMutability"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            registry_id: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            registry_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("registryId"),
             ),
-            repository_url: pulumi_wasm_rust::__private::into_domain(
+            repository_url: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("repositoryUrl"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_wasm_rust::__private::into_domain(
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            tags_all: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("tagsAll"),
             ),
         }

@@ -3,8 +3,8 @@
 /// ## Example Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = resource_group::create(
@@ -84,188 +84,192 @@
 /// ```
 ///
 pub mod flexible_server {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct FlexibleServerArgs {
         /// The Administrator login for the MySQL Flexible Server. Required when `create_mode` is `Default`. Changing this forces a new MySQL Flexible Server to be created.
         #[builder(into, default)]
-        pub administrator_login: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub administrator_login: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The Password associated with the `administrator_login` for the MySQL Flexible Server. Required when `create_mode` is `Default`.
         #[builder(into, default)]
-        pub administrator_password: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub administrator_password: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The backup retention days for the MySQL Flexible Server. Possible values are between `1` and `35` days. Defaults to `7`.
         #[builder(into, default)]
-        pub backup_retention_days: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
+        pub backup_retention_days: pulumi_gestalt_rust::InputOrOutput<Option<i32>>,
         /// The creation mode which can be used to restore or replicate existing servers. Possible values are `Default`, `PointInTimeRestore`, `GeoRestore`, and `Replica`. Changing this forces a new MySQL Flexible Server to be created.
         ///
         /// > **NOTE:** Creating a `GeoRestore` server requires the source server with `geo_redundant_backup_enabled` enabled.
         ///
         /// > **NOTE:** When a server is first created it may not be immediately available for `geo restore` or `replica`. It may take a few minutes to several hours for the necessary metadata to be populated. Please see the [Geo Restore](https://learn.microsoft.com/azure/mysql/single-server/how-to-restore-server-portal#geo-restore) and the [Replica](https://learn.microsoft.com/azure/mysql/flexible-server/concepts-read-replicas#create-a-replica) for more information.
         #[builder(into, default)]
-        pub create_mode: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub create_mode: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// A `customer_managed_key` block as defined below.
         ///
         /// > **NOTE:** `identity` is required when `customer_managed_key` is specified.
         #[builder(into, default)]
-        pub customer_managed_key: pulumi_wasm_rust::InputOrOutput<
+        pub customer_managed_key: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::mysql::FlexibleServerCustomerManagedKey>,
         >,
         /// The ID of the virtual network subnet to create the MySQL Flexible Server. Changing this forces a new MySQL Flexible Server to be created.
         #[builder(into, default)]
-        pub delegated_subnet_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub delegated_subnet_id: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Should geo redundant backup enabled? Defaults to `false`. Changing this forces a new MySQL Flexible Server to be created.
         #[builder(into, default)]
-        pub geo_redundant_backup_enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub geo_redundant_backup_enabled: pulumi_gestalt_rust::InputOrOutput<
+            Option<bool>,
+        >,
         /// A `high_availability` block as defined below.
         #[builder(into, default)]
-        pub high_availability: pulumi_wasm_rust::InputOrOutput<
+        pub high_availability: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::mysql::FlexibleServerHighAvailability>,
         >,
         /// An `identity` block as defined below.
         #[builder(into, default)]
-        pub identity: pulumi_wasm_rust::InputOrOutput<
+        pub identity: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::mysql::FlexibleServerIdentity>,
         >,
         /// The Azure Region where the MySQL Flexible Server should exist. Changing this forces a new MySQL Flexible Server to be created.
         #[builder(into, default)]
-        pub location: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub location: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// A `maintenance_window` block as defined below.
         #[builder(into, default)]
-        pub maintenance_window: pulumi_wasm_rust::InputOrOutput<
+        pub maintenance_window: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::mysql::FlexibleServerMaintenanceWindow>,
         >,
         /// The name which should be used for this MySQL Flexible Server. Changing this forces a new MySQL Flexible Server to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The point in time to restore from `creation_source_server_id` when `create_mode` is `PointInTimeRestore`. Changing this forces a new MySQL Flexible Server to be created.
         #[builder(into, default)]
-        pub point_in_time_restore_time_in_utc: pulumi_wasm_rust::InputOrOutput<
+        pub point_in_time_restore_time_in_utc: pulumi_gestalt_rust::InputOrOutput<
             Option<String>,
         >,
         /// The ID of the private DNS zone to create the MySQL Flexible Server. Changing this forces a new MySQL Flexible Server to be created.
         ///
         /// > **NOTE:** The `private_dns_zone_id` is required when setting a `delegated_subnet_id`. The `azure.privatedns.Zone` should end with suffix `.mysql.database.azure.com`.
         #[builder(into, default)]
-        pub private_dns_zone_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub private_dns_zone_id: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The replication role. Possible value is `None`.
         ///
         /// > **NOTE:** The `replication_role` cannot be set while creating and only can be updated from `Replica` to `None`.
         #[builder(into, default)]
-        pub replication_role: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub replication_role: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The name of the Resource Group where the MySQL Flexible Server should exist. Changing this forces a new MySQL Flexible Server to be created.
         #[builder(into)]
-        pub resource_group_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub resource_group_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The SKU Name for the MySQL Flexible Server.
         ///
         /// > **NOTE:** `sku_name` should start with SKU tier `B (Burstable)`, `GP (General Purpose)`, `MO (Memory Optimized)` like `B_Standard_B1s`.
         #[builder(into, default)]
-        pub sku_name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub sku_name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The resource ID of the source MySQL Flexible Server to be restored. Required when `create_mode` is `PointInTimeRestore`, `GeoRestore`, and `Replica`. Changing this forces a new MySQL Flexible Server to be created.
         #[builder(into, default)]
-        pub source_server_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub source_server_id: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// A `storage` block as defined below.
         #[builder(into, default)]
-        pub storage: pulumi_wasm_rust::InputOrOutput<
+        pub storage: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::mysql::FlexibleServerStorage>,
         >,
         /// A mapping of tags which should be assigned to the MySQL Flexible Server.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// The version of the MySQL Flexible Server to use. Possible values are `5.7`, and `8.0.21`. Changing this forces a new MySQL Flexible Server to be created.
         #[builder(into, default)]
-        pub version: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub version: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         #[builder(into, default)]
-        pub zone: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub zone: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct FlexibleServerResult {
         /// The Administrator login for the MySQL Flexible Server. Required when `create_mode` is `Default`. Changing this forces a new MySQL Flexible Server to be created.
-        pub administrator_login: pulumi_wasm_rust::Output<String>,
+        pub administrator_login: pulumi_gestalt_rust::Output<String>,
         /// The Password associated with the `administrator_login` for the MySQL Flexible Server. Required when `create_mode` is `Default`.
-        pub administrator_password: pulumi_wasm_rust::Output<Option<String>>,
+        pub administrator_password: pulumi_gestalt_rust::Output<Option<String>>,
         /// The backup retention days for the MySQL Flexible Server. Possible values are between `1` and `35` days. Defaults to `7`.
-        pub backup_retention_days: pulumi_wasm_rust::Output<Option<i32>>,
+        pub backup_retention_days: pulumi_gestalt_rust::Output<Option<i32>>,
         /// The creation mode which can be used to restore or replicate existing servers. Possible values are `Default`, `PointInTimeRestore`, `GeoRestore`, and `Replica`. Changing this forces a new MySQL Flexible Server to be created.
         ///
         /// > **NOTE:** Creating a `GeoRestore` server requires the source server with `geo_redundant_backup_enabled` enabled.
         ///
         /// > **NOTE:** When a server is first created it may not be immediately available for `geo restore` or `replica`. It may take a few minutes to several hours for the necessary metadata to be populated. Please see the [Geo Restore](https://learn.microsoft.com/azure/mysql/single-server/how-to-restore-server-portal#geo-restore) and the [Replica](https://learn.microsoft.com/azure/mysql/flexible-server/concepts-read-replicas#create-a-replica) for more information.
-        pub create_mode: pulumi_wasm_rust::Output<Option<String>>,
+        pub create_mode: pulumi_gestalt_rust::Output<Option<String>>,
         /// A `customer_managed_key` block as defined below.
         ///
         /// > **NOTE:** `identity` is required when `customer_managed_key` is specified.
-        pub customer_managed_key: pulumi_wasm_rust::Output<
+        pub customer_managed_key: pulumi_gestalt_rust::Output<
             Option<super::super::types::mysql::FlexibleServerCustomerManagedKey>,
         >,
         /// The ID of the virtual network subnet to create the MySQL Flexible Server. Changing this forces a new MySQL Flexible Server to be created.
-        pub delegated_subnet_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub delegated_subnet_id: pulumi_gestalt_rust::Output<Option<String>>,
         /// The fully qualified domain name of the MySQL Flexible Server.
-        pub fqdn: pulumi_wasm_rust::Output<String>,
+        pub fqdn: pulumi_gestalt_rust::Output<String>,
         /// Should geo redundant backup enabled? Defaults to `false`. Changing this forces a new MySQL Flexible Server to be created.
-        pub geo_redundant_backup_enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub geo_redundant_backup_enabled: pulumi_gestalt_rust::Output<Option<bool>>,
         /// A `high_availability` block as defined below.
-        pub high_availability: pulumi_wasm_rust::Output<
+        pub high_availability: pulumi_gestalt_rust::Output<
             Option<super::super::types::mysql::FlexibleServerHighAvailability>,
         >,
         /// An `identity` block as defined below.
-        pub identity: pulumi_wasm_rust::Output<
+        pub identity: pulumi_gestalt_rust::Output<
             Option<super::super::types::mysql::FlexibleServerIdentity>,
         >,
         /// The Azure Region where the MySQL Flexible Server should exist. Changing this forces a new MySQL Flexible Server to be created.
-        pub location: pulumi_wasm_rust::Output<String>,
+        pub location: pulumi_gestalt_rust::Output<String>,
         /// A `maintenance_window` block as defined below.
-        pub maintenance_window: pulumi_wasm_rust::Output<
+        pub maintenance_window: pulumi_gestalt_rust::Output<
             Option<super::super::types::mysql::FlexibleServerMaintenanceWindow>,
         >,
         /// The name which should be used for this MySQL Flexible Server. Changing this forces a new MySQL Flexible Server to be created.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// The point in time to restore from `creation_source_server_id` when `create_mode` is `PointInTimeRestore`. Changing this forces a new MySQL Flexible Server to be created.
-        pub point_in_time_restore_time_in_utc: pulumi_wasm_rust::Output<Option<String>>,
+        pub point_in_time_restore_time_in_utc: pulumi_gestalt_rust::Output<
+            Option<String>,
+        >,
         /// The ID of the private DNS zone to create the MySQL Flexible Server. Changing this forces a new MySQL Flexible Server to be created.
         ///
         /// > **NOTE:** The `private_dns_zone_id` is required when setting a `delegated_subnet_id`. The `azure.privatedns.Zone` should end with suffix `.mysql.database.azure.com`.
-        pub private_dns_zone_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub private_dns_zone_id: pulumi_gestalt_rust::Output<Option<String>>,
         /// Is the public network access enabled?
-        pub public_network_access_enabled: pulumi_wasm_rust::Output<bool>,
+        pub public_network_access_enabled: pulumi_gestalt_rust::Output<bool>,
         /// The maximum number of replicas that a primary MySQL Flexible Server can have.
-        pub replica_capacity: pulumi_wasm_rust::Output<i32>,
+        pub replica_capacity: pulumi_gestalt_rust::Output<i32>,
         /// The replication role. Possible value is `None`.
         ///
         /// > **NOTE:** The `replication_role` cannot be set while creating and only can be updated from `Replica` to `None`.
-        pub replication_role: pulumi_wasm_rust::Output<String>,
+        pub replication_role: pulumi_gestalt_rust::Output<String>,
         /// The name of the Resource Group where the MySQL Flexible Server should exist. Changing this forces a new MySQL Flexible Server to be created.
-        pub resource_group_name: pulumi_wasm_rust::Output<String>,
+        pub resource_group_name: pulumi_gestalt_rust::Output<String>,
         /// The SKU Name for the MySQL Flexible Server.
         ///
         /// > **NOTE:** `sku_name` should start with SKU tier `B (Burstable)`, `GP (General Purpose)`, `MO (Memory Optimized)` like `B_Standard_B1s`.
-        pub sku_name: pulumi_wasm_rust::Output<String>,
+        pub sku_name: pulumi_gestalt_rust::Output<String>,
         /// The resource ID of the source MySQL Flexible Server to be restored. Required when `create_mode` is `PointInTimeRestore`, `GeoRestore`, and `Replica`. Changing this forces a new MySQL Flexible Server to be created.
-        pub source_server_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub source_server_id: pulumi_gestalt_rust::Output<Option<String>>,
         /// A `storage` block as defined below.
-        pub storage: pulumi_wasm_rust::Output<
+        pub storage: pulumi_gestalt_rust::Output<
             super::super::types::mysql::FlexibleServerStorage,
         >,
         /// A mapping of tags which should be assigned to the MySQL Flexible Server.
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// The version of the MySQL Flexible Server to use. Possible values are `5.7`, and `8.0.21`. Changing this forces a new MySQL Flexible Server to be created.
-        pub version: pulumi_wasm_rust::Output<String>,
-        pub zone: pulumi_wasm_rust::Output<Option<String>>,
+        pub version: pulumi_gestalt_rust::Output<String>,
+        pub zone: pulumi_gestalt_rust::Output<Option<String>>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: FlexibleServerArgs,
     ) -> FlexibleServerResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let administrator_login_binding = args
             .administrator_login
@@ -425,73 +429,73 @@ pub mod flexible_server {
         };
         let o = register_interface::register(context.get_inner(), &request);
         FlexibleServerResult {
-            administrator_login: pulumi_wasm_rust::__private::into_domain(
+            administrator_login: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("administratorLogin"),
             ),
-            administrator_password: pulumi_wasm_rust::__private::into_domain(
+            administrator_password: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("administratorPassword"),
             ),
-            backup_retention_days: pulumi_wasm_rust::__private::into_domain(
+            backup_retention_days: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("backupRetentionDays"),
             ),
-            create_mode: pulumi_wasm_rust::__private::into_domain(
+            create_mode: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("createMode"),
             ),
-            customer_managed_key: pulumi_wasm_rust::__private::into_domain(
+            customer_managed_key: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("customerManagedKey"),
             ),
-            delegated_subnet_id: pulumi_wasm_rust::__private::into_domain(
+            delegated_subnet_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("delegatedSubnetId"),
             ),
-            fqdn: pulumi_wasm_rust::__private::into_domain(o.extract_field("fqdn")),
-            geo_redundant_backup_enabled: pulumi_wasm_rust::__private::into_domain(
+            fqdn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("fqdn")),
+            geo_redundant_backup_enabled: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("geoRedundantBackupEnabled"),
             ),
-            high_availability: pulumi_wasm_rust::__private::into_domain(
+            high_availability: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("highAvailability"),
             ),
-            identity: pulumi_wasm_rust::__private::into_domain(
+            identity: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("identity"),
             ),
-            location: pulumi_wasm_rust::__private::into_domain(
+            location: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("location"),
             ),
-            maintenance_window: pulumi_wasm_rust::__private::into_domain(
+            maintenance_window: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("maintenanceWindow"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            point_in_time_restore_time_in_utc: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            point_in_time_restore_time_in_utc: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("pointInTimeRestoreTimeInUtc"),
             ),
-            private_dns_zone_id: pulumi_wasm_rust::__private::into_domain(
+            private_dns_zone_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("privateDnsZoneId"),
             ),
-            public_network_access_enabled: pulumi_wasm_rust::__private::into_domain(
+            public_network_access_enabled: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("publicNetworkAccessEnabled"),
             ),
-            replica_capacity: pulumi_wasm_rust::__private::into_domain(
+            replica_capacity: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("replicaCapacity"),
             ),
-            replication_role: pulumi_wasm_rust::__private::into_domain(
+            replication_role: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("replicationRole"),
             ),
-            resource_group_name: pulumi_wasm_rust::__private::into_domain(
+            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("resourceGroupName"),
             ),
-            sku_name: pulumi_wasm_rust::__private::into_domain(
+            sku_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("skuName"),
             ),
-            source_server_id: pulumi_wasm_rust::__private::into_domain(
+            source_server_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("sourceServerId"),
             ),
-            storage: pulumi_wasm_rust::__private::into_domain(
+            storage: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("storage"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
-            version: pulumi_wasm_rust::__private::into_domain(
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            version: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("version"),
             ),
-            zone: pulumi_wasm_rust::__private::into_domain(o.extract_field("zone")),
+            zone: pulumi_gestalt_rust::__private::into_domain(o.extract_field("zone")),
         }
     }
 }

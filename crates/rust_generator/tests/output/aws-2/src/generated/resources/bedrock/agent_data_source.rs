@@ -25,43 +25,43 @@
 /// $ pulumi import aws:bedrock/agentDataSource:AgentDataSource example GWCMFMQF6T,EMDPPAYPZI
 /// ```
 pub mod agent_data_source {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct AgentDataSourceArgs {
         /// Data deletion policy for a data source. Valid values: `RETAIN`, `DELETE`.
         #[builder(into, default)]
-        pub data_deletion_policy: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub data_deletion_policy: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Details about how the data source is stored. See `data_source_configuration` block for details.
         #[builder(into, default)]
-        pub data_source_configuration: pulumi_wasm_rust::InputOrOutput<
+        pub data_source_configuration: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::bedrock::AgentDataSourceDataSourceConfiguration>,
         >,
         /// Description of the data source.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub description: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Unique identifier of the knowledge base to which the data source belongs.
         #[builder(into)]
-        pub knowledge_base_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub knowledge_base_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Name of the data source.
         ///
         /// The following arguments are optional:
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Details about the configuration of the server-side encryption. See `server_side_encryption_configuration` block for details.
         #[builder(into, default)]
-        pub server_side_encryption_configuration: pulumi_wasm_rust::InputOrOutput<
+        pub server_side_encryption_configuration: pulumi_gestalt_rust::InputOrOutput<
             Option<
                 super::super::types::bedrock::AgentDataSourceServerSideEncryptionConfiguration,
             >,
         >,
         #[builder(into, default)]
-        pub timeouts: pulumi_wasm_rust::InputOrOutput<
+        pub timeouts: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::bedrock::AgentDataSourceTimeouts>,
         >,
         /// Details about the configuration of the server-side encryption. See `vector_ingestion_configuration` block for details.
         #[builder(into, default)]
-        pub vector_ingestion_configuration: pulumi_wasm_rust::InputOrOutput<
+        pub vector_ingestion_configuration: pulumi_gestalt_rust::InputOrOutput<
             Option<
                 super::super::types::bedrock::AgentDataSourceVectorIngestionConfiguration,
             >,
@@ -70,32 +70,32 @@ pub mod agent_data_source {
     #[allow(dead_code)]
     pub struct AgentDataSourceResult {
         /// Data deletion policy for a data source. Valid values: `RETAIN`, `DELETE`.
-        pub data_deletion_policy: pulumi_wasm_rust::Output<String>,
+        pub data_deletion_policy: pulumi_gestalt_rust::Output<String>,
         /// Details about how the data source is stored. See `data_source_configuration` block for details.
-        pub data_source_configuration: pulumi_wasm_rust::Output<
+        pub data_source_configuration: pulumi_gestalt_rust::Output<
             Option<super::super::types::bedrock::AgentDataSourceDataSourceConfiguration>,
         >,
         /// Unique identifier of the data source.
-        pub data_source_id: pulumi_wasm_rust::Output<String>,
+        pub data_source_id: pulumi_gestalt_rust::Output<String>,
         /// Description of the data source.
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_gestalt_rust::Output<Option<String>>,
         /// Unique identifier of the knowledge base to which the data source belongs.
-        pub knowledge_base_id: pulumi_wasm_rust::Output<String>,
+        pub knowledge_base_id: pulumi_gestalt_rust::Output<String>,
         /// Name of the data source.
         ///
         /// The following arguments are optional:
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// Details about the configuration of the server-side encryption. See `server_side_encryption_configuration` block for details.
-        pub server_side_encryption_configuration: pulumi_wasm_rust::Output<
+        pub server_side_encryption_configuration: pulumi_gestalt_rust::Output<
             Option<
                 super::super::types::bedrock::AgentDataSourceServerSideEncryptionConfiguration,
             >,
         >,
-        pub timeouts: pulumi_wasm_rust::Output<
+        pub timeouts: pulumi_gestalt_rust::Output<
             Option<super::super::types::bedrock::AgentDataSourceTimeouts>,
         >,
         /// Details about the configuration of the server-side encryption. See `vector_ingestion_configuration` block for details.
-        pub vector_ingestion_configuration: pulumi_wasm_rust::Output<
+        pub vector_ingestion_configuration: pulumi_gestalt_rust::Output<
             Option<
                 super::super::types::bedrock::AgentDataSourceVectorIngestionConfiguration,
             >,
@@ -106,11 +106,11 @@ pub mod agent_data_source {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: AgentDataSourceArgs,
     ) -> AgentDataSourceResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let data_deletion_policy_binding = args
             .data_deletion_policy
@@ -176,29 +176,29 @@ pub mod agent_data_source {
         };
         let o = register_interface::register(context.get_inner(), &request);
         AgentDataSourceResult {
-            data_deletion_policy: pulumi_wasm_rust::__private::into_domain(
+            data_deletion_policy: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("dataDeletionPolicy"),
             ),
-            data_source_configuration: pulumi_wasm_rust::__private::into_domain(
+            data_source_configuration: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("dataSourceConfiguration"),
             ),
-            data_source_id: pulumi_wasm_rust::__private::into_domain(
+            data_source_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("dataSourceId"),
             ),
-            description: pulumi_wasm_rust::__private::into_domain(
+            description: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("description"),
             ),
-            knowledge_base_id: pulumi_wasm_rust::__private::into_domain(
+            knowledge_base_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("knowledgeBaseId"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            server_side_encryption_configuration: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            server_side_encryption_configuration: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("serverSideEncryptionConfiguration"),
             ),
-            timeouts: pulumi_wasm_rust::__private::into_domain(
+            timeouts: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("timeouts"),
             ),
-            vector_ingestion_configuration: pulumi_wasm_rust::__private::into_domain(
+            vector_ingestion_configuration: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("vectorIngestionConfiguration"),
             ),
         }

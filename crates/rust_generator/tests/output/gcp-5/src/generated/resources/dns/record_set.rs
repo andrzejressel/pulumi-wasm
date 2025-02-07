@@ -3,8 +3,8 @@
 /// ### Binding a DNS name to the ephemeral IP of a new instance:
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let frontend = record_set::create(
@@ -56,8 +56,8 @@
 /// ### Adding an A record
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let a = record_set::create(
@@ -83,8 +83,8 @@
 /// ### Adding an MX record
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let mx = record_set::create(
@@ -118,8 +118,8 @@
 /// Quotes (`""`) must be added around your `rrdatas` for a SPF record. Otherwise `rrdatas` string gets split on spaces.
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let prod = managed_zone::create(
@@ -151,8 +151,8 @@
 ///  The list of `rrdatas` should only contain a single string corresponding to the Canonical Name intended.
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let cname = record_set::create(
@@ -179,8 +179,8 @@
 /// ### Geolocation
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let geo = record_set::create(
@@ -210,8 +210,8 @@
 /// ### Failover
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let a = record_set::create(
@@ -316,73 +316,73 @@
 /// Note: The record name must include the trailing dot at the end.
 ///
 pub mod record_set {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct RecordSetArgs {
         /// The name of the zone in which this record set will
         /// reside.
         #[builder(into)]
-        pub managed_zone: pulumi_wasm_rust::InputOrOutput<String>,
+        pub managed_zone: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The DNS name this record set will apply to.
         #[builder(into)]
-        pub name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The ID of the project in which the resource belongs. If it
         /// is not provided, the provider project is used.
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub project: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The configuration for steering traffic based on query.
         /// Now you can specify either Weighted Round Robin(WRR) type or Geolocation(GEO) type.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub routing_policy: pulumi_wasm_rust::InputOrOutput<
+        pub routing_policy: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::dns::RecordSetRoutingPolicy>,
         >,
         #[builder(into, default)]
-        pub rrdatas: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
+        pub rrdatas: pulumi_gestalt_rust::InputOrOutput<Option<Vec<String>>>,
         /// The time-to-live of this record set (seconds).
         #[builder(into, default)]
-        pub ttl: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
+        pub ttl: pulumi_gestalt_rust::InputOrOutput<Option<i32>>,
         /// The DNS record set type.
         ///
         /// - - -
         #[builder(into)]
-        pub type_: pulumi_wasm_rust::InputOrOutput<String>,
+        pub type_: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct RecordSetResult {
         /// The name of the zone in which this record set will
         /// reside.
-        pub managed_zone: pulumi_wasm_rust::Output<String>,
+        pub managed_zone: pulumi_gestalt_rust::Output<String>,
         /// The DNS name this record set will apply to.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// The ID of the project in which the resource belongs. If it
         /// is not provided, the provider project is used.
-        pub project: pulumi_wasm_rust::Output<String>,
+        pub project: pulumi_gestalt_rust::Output<String>,
         /// The configuration for steering traffic based on query.
         /// Now you can specify either Weighted Round Robin(WRR) type or Geolocation(GEO) type.
         /// Structure is documented below.
-        pub routing_policy: pulumi_wasm_rust::Output<
+        pub routing_policy: pulumi_gestalt_rust::Output<
             Option<super::super::types::dns::RecordSetRoutingPolicy>,
         >,
-        pub rrdatas: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub rrdatas: pulumi_gestalt_rust::Output<Option<Vec<String>>>,
         /// The time-to-live of this record set (seconds).
-        pub ttl: pulumi_wasm_rust::Output<Option<i32>>,
+        pub ttl: pulumi_gestalt_rust::Output<Option<i32>>,
         /// The DNS record set type.
         ///
         /// - - -
-        pub type_: pulumi_wasm_rust::Output<String>,
+        pub type_: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: RecordSetArgs,
     ) -> RecordSetResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let managed_zone_binding = args.managed_zone.get_output(context).get_inner();
         let name_binding = args.name.get_output(context).get_inner();
@@ -428,21 +428,21 @@ pub mod record_set {
         };
         let o = register_interface::register(context.get_inner(), &request);
         RecordSetResult {
-            managed_zone: pulumi_wasm_rust::__private::into_domain(
+            managed_zone: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("managedZone"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            project: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            project: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("project"),
             ),
-            routing_policy: pulumi_wasm_rust::__private::into_domain(
+            routing_policy: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("routingPolicy"),
             ),
-            rrdatas: pulumi_wasm_rust::__private::into_domain(
+            rrdatas: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("rrdatas"),
             ),
-            ttl: pulumi_wasm_rust::__private::into_domain(o.extract_field("ttl")),
-            type_: pulumi_wasm_rust::__private::into_domain(o.extract_field("type")),
+            ttl: pulumi_gestalt_rust::__private::into_domain(o.extract_field("ttl")),
+            type_: pulumi_gestalt_rust::__private::into_domain(o.extract_field("type")),
         }
     }
 }

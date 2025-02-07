@@ -138,133 +138,135 @@
 /// $ pulumi import aws:amplify/branch:Branch master d2ypk4k47z8u6/master
 /// ```
 pub mod branch {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct BranchArgs {
         /// Unique ID for an Amplify app.
         #[builder(into)]
-        pub app_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub app_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// ARN for a backend environment that is part of an Amplify app.
         #[builder(into, default)]
-        pub backend_environment_arn: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub backend_environment_arn: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Basic authorization credentials for the branch.
         #[builder(into, default)]
-        pub basic_auth_credentials: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub basic_auth_credentials: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Name for the branch.
         #[builder(into)]
-        pub branch_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub branch_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Description for the branch.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub description: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Display name for a branch. This is used as the default domain prefix.
         #[builder(into, default)]
-        pub display_name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub display_name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Enables auto building for the branch.
         #[builder(into, default)]
-        pub enable_auto_build: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub enable_auto_build: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// Enables basic authorization for the branch.
         #[builder(into, default)]
-        pub enable_basic_auth: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub enable_basic_auth: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// Enables notifications for the branch.
         #[builder(into, default)]
-        pub enable_notification: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub enable_notification: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// Enables performance mode for the branch.
         #[builder(into, default)]
-        pub enable_performance_mode: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub enable_performance_mode: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// Enables pull request previews for this branch.
         #[builder(into, default)]
-        pub enable_pull_request_preview: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub enable_pull_request_preview: pulumi_gestalt_rust::InputOrOutput<
+            Option<bool>,
+        >,
         /// Environment variables for the branch.
         #[builder(into, default)]
-        pub environment_variables: pulumi_wasm_rust::InputOrOutput<
+        pub environment_variables: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Framework for the branch.
         #[builder(into, default)]
-        pub framework: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub framework: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Amplify environment name for the pull request.
         #[builder(into, default)]
-        pub pull_request_environment_name: pulumi_wasm_rust::InputOrOutput<
+        pub pull_request_environment_name: pulumi_gestalt_rust::InputOrOutput<
             Option<String>,
         >,
         /// Describes the current stage for the branch. Valid values: `PRODUCTION`, `BETA`, `DEVELOPMENT`, `EXPERIMENTAL`, `PULL_REQUEST`.
         #[builder(into, default)]
-        pub stage: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub stage: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Content Time To Live (TTL) for the website in seconds.
         #[builder(into, default)]
-        pub ttl: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub ttl: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct BranchResult {
         /// Unique ID for an Amplify app.
-        pub app_id: pulumi_wasm_rust::Output<String>,
+        pub app_id: pulumi_gestalt_rust::Output<String>,
         /// ARN for the branch.
-        pub arn: pulumi_wasm_rust::Output<String>,
+        pub arn: pulumi_gestalt_rust::Output<String>,
         /// A list of custom resources that are linked to this branch.
-        pub associated_resources: pulumi_wasm_rust::Output<Vec<String>>,
+        pub associated_resources: pulumi_gestalt_rust::Output<Vec<String>>,
         /// ARN for a backend environment that is part of an Amplify app.
-        pub backend_environment_arn: pulumi_wasm_rust::Output<Option<String>>,
+        pub backend_environment_arn: pulumi_gestalt_rust::Output<Option<String>>,
         /// Basic authorization credentials for the branch.
-        pub basic_auth_credentials: pulumi_wasm_rust::Output<Option<String>>,
+        pub basic_auth_credentials: pulumi_gestalt_rust::Output<Option<String>>,
         /// Name for the branch.
-        pub branch_name: pulumi_wasm_rust::Output<String>,
+        pub branch_name: pulumi_gestalt_rust::Output<String>,
         /// Custom domains for the branch.
-        pub custom_domains: pulumi_wasm_rust::Output<Vec<String>>,
+        pub custom_domains: pulumi_gestalt_rust::Output<Vec<String>>,
         /// Description for the branch.
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_gestalt_rust::Output<Option<String>>,
         /// Destination branch if the branch is a pull request branch.
-        pub destination_branch: pulumi_wasm_rust::Output<String>,
+        pub destination_branch: pulumi_gestalt_rust::Output<String>,
         /// Display name for a branch. This is used as the default domain prefix.
-        pub display_name: pulumi_wasm_rust::Output<String>,
+        pub display_name: pulumi_gestalt_rust::Output<String>,
         /// Enables auto building for the branch.
-        pub enable_auto_build: pulumi_wasm_rust::Output<Option<bool>>,
+        pub enable_auto_build: pulumi_gestalt_rust::Output<Option<bool>>,
         /// Enables basic authorization for the branch.
-        pub enable_basic_auth: pulumi_wasm_rust::Output<Option<bool>>,
+        pub enable_basic_auth: pulumi_gestalt_rust::Output<Option<bool>>,
         /// Enables notifications for the branch.
-        pub enable_notification: pulumi_wasm_rust::Output<Option<bool>>,
+        pub enable_notification: pulumi_gestalt_rust::Output<Option<bool>>,
         /// Enables performance mode for the branch.
-        pub enable_performance_mode: pulumi_wasm_rust::Output<Option<bool>>,
+        pub enable_performance_mode: pulumi_gestalt_rust::Output<Option<bool>>,
         /// Enables pull request previews for this branch.
-        pub enable_pull_request_preview: pulumi_wasm_rust::Output<Option<bool>>,
+        pub enable_pull_request_preview: pulumi_gestalt_rust::Output<Option<bool>>,
         /// Environment variables for the branch.
-        pub environment_variables: pulumi_wasm_rust::Output<
+        pub environment_variables: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Framework for the branch.
-        pub framework: pulumi_wasm_rust::Output<Option<String>>,
+        pub framework: pulumi_gestalt_rust::Output<Option<String>>,
         /// Amplify environment name for the pull request.
-        pub pull_request_environment_name: pulumi_wasm_rust::Output<Option<String>>,
+        pub pull_request_environment_name: pulumi_gestalt_rust::Output<Option<String>>,
         /// Source branch if the branch is a pull request branch.
-        pub source_branch: pulumi_wasm_rust::Output<String>,
+        pub source_branch: pulumi_gestalt_rust::Output<String>,
         /// Describes the current stage for the branch. Valid values: `PRODUCTION`, `BETA`, `DEVELOPMENT`, `EXPERIMENTAL`, `PULL_REQUEST`.
-        pub stage: pulumi_wasm_rust::Output<Option<String>>,
+        pub stage: pulumi_gestalt_rust::Output<Option<String>>,
         /// Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        pub tags_all: pulumi_wasm_rust::Output<
+        pub tags_all: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
         /// Content Time To Live (TTL) for the website in seconds.
-        pub ttl: pulumi_wasm_rust::Output<Option<String>>,
+        pub ttl: pulumi_gestalt_rust::Output<Option<String>>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: BranchArgs,
     ) -> BranchResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let app_id_binding = args.app_id.get_output(context).get_inner();
         let backend_environment_arn_binding = args
@@ -387,65 +389,67 @@ pub mod branch {
         };
         let o = register_interface::register(context.get_inner(), &request);
         BranchResult {
-            app_id: pulumi_wasm_rust::__private::into_domain(o.extract_field("appId")),
-            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
-            associated_resources: pulumi_wasm_rust::__private::into_domain(
+            app_id: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("appId"),
+            ),
+            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
+            associated_resources: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("associatedResources"),
             ),
-            backend_environment_arn: pulumi_wasm_rust::__private::into_domain(
+            backend_environment_arn: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("backendEnvironmentArn"),
             ),
-            basic_auth_credentials: pulumi_wasm_rust::__private::into_domain(
+            basic_auth_credentials: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("basicAuthCredentials"),
             ),
-            branch_name: pulumi_wasm_rust::__private::into_domain(
+            branch_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("branchName"),
             ),
-            custom_domains: pulumi_wasm_rust::__private::into_domain(
+            custom_domains: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("customDomains"),
             ),
-            description: pulumi_wasm_rust::__private::into_domain(
+            description: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("description"),
             ),
-            destination_branch: pulumi_wasm_rust::__private::into_domain(
+            destination_branch: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("destinationBranch"),
             ),
-            display_name: pulumi_wasm_rust::__private::into_domain(
+            display_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("displayName"),
             ),
-            enable_auto_build: pulumi_wasm_rust::__private::into_domain(
+            enable_auto_build: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("enableAutoBuild"),
             ),
-            enable_basic_auth: pulumi_wasm_rust::__private::into_domain(
+            enable_basic_auth: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("enableBasicAuth"),
             ),
-            enable_notification: pulumi_wasm_rust::__private::into_domain(
+            enable_notification: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("enableNotification"),
             ),
-            enable_performance_mode: pulumi_wasm_rust::__private::into_domain(
+            enable_performance_mode: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("enablePerformanceMode"),
             ),
-            enable_pull_request_preview: pulumi_wasm_rust::__private::into_domain(
+            enable_pull_request_preview: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("enablePullRequestPreview"),
             ),
-            environment_variables: pulumi_wasm_rust::__private::into_domain(
+            environment_variables: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("environmentVariables"),
             ),
-            framework: pulumi_wasm_rust::__private::into_domain(
+            framework: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("framework"),
             ),
-            pull_request_environment_name: pulumi_wasm_rust::__private::into_domain(
+            pull_request_environment_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("pullRequestEnvironmentName"),
             ),
-            source_branch: pulumi_wasm_rust::__private::into_domain(
+            source_branch: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("sourceBranch"),
             ),
-            stage: pulumi_wasm_rust::__private::into_domain(o.extract_field("stage")),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_wasm_rust::__private::into_domain(
+            stage: pulumi_gestalt_rust::__private::into_domain(o.extract_field("stage")),
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            tags_all: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("tagsAll"),
             ),
-            ttl: pulumi_wasm_rust::__private::into_domain(o.extract_field("ttl")),
+            ttl: pulumi_gestalt_rust::__private::into_domain(o.extract_field("ttl")),
         }
     }
 }

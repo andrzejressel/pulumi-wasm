@@ -1,40 +1,40 @@
 pub mod get_dns_zone {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct GetDnsZoneArgs {
         /// The name of the Private DNS Zone.
         #[builder(into)]
-        pub name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The Name of the Resource Group where the Private DNS Zone exists.
         /// If the Name of the Resource Group is not provided, the first Private DNS Zone from the list of Private
         /// DNS Zones in your subscription that matches `name` will be returned.
         #[builder(into, default)]
-        pub resource_group_name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub resource_group_name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// A mapping of tags for the zone.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
     #[allow(dead_code)]
     pub struct GetDnsZoneResult {
         /// The provider-assigned unique ID for this managed resource.
-        pub id: pulumi_wasm_rust::Output<String>,
+        pub id: pulumi_gestalt_rust::Output<String>,
         /// Maximum number of recordsets that can be created in this Private Zone.
-        pub max_number_of_record_sets: pulumi_wasm_rust::Output<i32>,
+        pub max_number_of_record_sets: pulumi_gestalt_rust::Output<i32>,
         /// Maximum number of Virtual Networks that can be linked to this Private Zone.
-        pub max_number_of_virtual_network_links: pulumi_wasm_rust::Output<i32>,
+        pub max_number_of_virtual_network_links: pulumi_gestalt_rust::Output<i32>,
         /// Maximum number of Virtual Networks that can be linked to this Private Zone with registration enabled.
-        pub max_number_of_virtual_network_links_with_registration: pulumi_wasm_rust::Output<
+        pub max_number_of_virtual_network_links_with_registration: pulumi_gestalt_rust::Output<
             i32,
         >,
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// The number of recordsets currently in the zone.
-        pub number_of_record_sets: pulumi_wasm_rust::Output<i32>,
-        pub resource_group_name: pulumi_wasm_rust::Output<String>,
+        pub number_of_record_sets: pulumi_gestalt_rust::Output<i32>,
+        pub resource_group_name: pulumi_gestalt_rust::Output<String>,
         /// A mapping of tags for the zone.
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
@@ -43,10 +43,10 @@ pub mod get_dns_zone {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         args: GetDnsZoneArgs,
     ) -> GetDnsZoneResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let name_binding = args.name.get_output(context).get_inner();
         let resource_group_name_binding = args
@@ -74,24 +74,24 @@ pub mod get_dns_zone {
         };
         let o = register_interface::invoke(context.get_inner(), &request);
         GetDnsZoneResult {
-            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
-            max_number_of_record_sets: pulumi_wasm_rust::__private::into_domain(
+            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
+            max_number_of_record_sets: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("maxNumberOfRecordSets"),
             ),
-            max_number_of_virtual_network_links: pulumi_wasm_rust::__private::into_domain(
+            max_number_of_virtual_network_links: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("maxNumberOfVirtualNetworkLinks"),
             ),
-            max_number_of_virtual_network_links_with_registration: pulumi_wasm_rust::__private::into_domain(
+            max_number_of_virtual_network_links_with_registration: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("maxNumberOfVirtualNetworkLinksWithRegistration"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            number_of_record_sets: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            number_of_record_sets: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("numberOfRecordSets"),
             ),
-            resource_group_name: pulumi_wasm_rust::__private::into_domain(
+            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("resourceGroupName"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
         }
     }
 }

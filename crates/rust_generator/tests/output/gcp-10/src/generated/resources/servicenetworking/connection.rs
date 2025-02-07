@@ -6,8 +6,8 @@
 /// ## Example Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let default = connection::create(
@@ -63,57 +63,57 @@
 /// ```
 ///
 pub mod connection {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ConnectionArgs {
         #[builder(into, default)]
-        pub deletion_policy: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub deletion_policy: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Name of VPC network connected with service producers using VPC peering.
         #[builder(into)]
-        pub network: pulumi_wasm_rust::InputOrOutput<String>,
+        pub network: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Named IP address range(s) of PEERING type reserved for
         /// this service provider. Note that invoking this method with a different range when connection
         /// is already established will not reallocate already provisioned service producer subnetworks.
         #[builder(into)]
-        pub reserved_peering_ranges: pulumi_wasm_rust::InputOrOutput<Vec<String>>,
+        pub reserved_peering_ranges: pulumi_gestalt_rust::InputOrOutput<Vec<String>>,
         /// Provider peering service that is managing peering connectivity for a
         /// service provider organization. For Google services that support this functionality it is
         /// 'servicenetworking.googleapis.com'.
         #[builder(into)]
-        pub service: pulumi_wasm_rust::InputOrOutput<String>,
+        pub service: pulumi_gestalt_rust::InputOrOutput<String>,
         /// When set to true, enforce an update of the reserved peering ranges on the existing service networking connection in case of a new connection creation failure.
         #[builder(into, default)]
-        pub update_on_creation_fail: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub update_on_creation_fail: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
     }
     #[allow(dead_code)]
     pub struct ConnectionResult {
-        pub deletion_policy: pulumi_wasm_rust::Output<Option<String>>,
+        pub deletion_policy: pulumi_gestalt_rust::Output<Option<String>>,
         /// Name of VPC network connected with service producers using VPC peering.
-        pub network: pulumi_wasm_rust::Output<String>,
+        pub network: pulumi_gestalt_rust::Output<String>,
         /// (Computed) The name of the VPC Network Peering connection that was created by the service producer.
-        pub peering: pulumi_wasm_rust::Output<String>,
+        pub peering: pulumi_gestalt_rust::Output<String>,
         /// Named IP address range(s) of PEERING type reserved for
         /// this service provider. Note that invoking this method with a different range when connection
         /// is already established will not reallocate already provisioned service producer subnetworks.
-        pub reserved_peering_ranges: pulumi_wasm_rust::Output<Vec<String>>,
+        pub reserved_peering_ranges: pulumi_gestalt_rust::Output<Vec<String>>,
         /// Provider peering service that is managing peering connectivity for a
         /// service provider organization. For Google services that support this functionality it is
         /// 'servicenetworking.googleapis.com'.
-        pub service: pulumi_wasm_rust::Output<String>,
+        pub service: pulumi_gestalt_rust::Output<String>,
         /// When set to true, enforce an update of the reserved peering ranges on the existing service networking connection in case of a new connection creation failure.
-        pub update_on_creation_fail: pulumi_wasm_rust::Output<Option<bool>>,
+        pub update_on_creation_fail: pulumi_gestalt_rust::Output<Option<bool>>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: ConnectionArgs,
     ) -> ConnectionResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let deletion_policy_binding = args
             .deletion_policy
@@ -158,22 +158,22 @@ pub mod connection {
         };
         let o = register_interface::register(context.get_inner(), &request);
         ConnectionResult {
-            deletion_policy: pulumi_wasm_rust::__private::into_domain(
+            deletion_policy: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("deletionPolicy"),
             ),
-            network: pulumi_wasm_rust::__private::into_domain(
+            network: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("network"),
             ),
-            peering: pulumi_wasm_rust::__private::into_domain(
+            peering: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("peering"),
             ),
-            reserved_peering_ranges: pulumi_wasm_rust::__private::into_domain(
+            reserved_peering_ranges: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("reservedPeeringRanges"),
             ),
-            service: pulumi_wasm_rust::__private::into_domain(
+            service: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("service"),
             ),
-            update_on_creation_fail: pulumi_wasm_rust::__private::into_domain(
+            update_on_creation_fail: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("updateOnCreationFail"),
             ),
         }

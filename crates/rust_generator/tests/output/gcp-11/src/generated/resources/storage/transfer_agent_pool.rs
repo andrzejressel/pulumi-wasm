@@ -64,19 +64,19 @@
 /// ```
 ///
 pub mod transfer_agent_pool {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct TransferAgentPoolArgs {
         /// Specifies the bandwidth limit details. If this field is unspecified, the default value is set as 'No Limit'.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub bandwidth_limit: pulumi_wasm_rust::InputOrOutput<
+        pub bandwidth_limit: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::storage::TransferAgentPoolBandwidthLimit>,
         >,
         /// Specifies the client-specified AgentPool description.
         #[builder(into, default)]
-        pub display_name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub display_name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The ID of the agent pool to create.
         /// The agentPoolId must meet the following requirements:
         /// * Length of 128 characters or less.
@@ -89,21 +89,21 @@ pub mod transfer_agent_pool {
         ///
         /// - - -
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub project: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct TransferAgentPoolResult {
         /// Specifies the bandwidth limit details. If this field is unspecified, the default value is set as 'No Limit'.
         /// Structure is documented below.
-        pub bandwidth_limit: pulumi_wasm_rust::Output<
+        pub bandwidth_limit: pulumi_gestalt_rust::Output<
             Option<super::super::types::storage::TransferAgentPoolBandwidthLimit>,
         >,
         /// Specifies the client-specified AgentPool description.
-        pub display_name: pulumi_wasm_rust::Output<Option<String>>,
+        pub display_name: pulumi_gestalt_rust::Output<Option<String>>,
         /// The ID of the agent pool to create.
         /// The agentPoolId must meet the following requirements:
         /// * Length of 128 characters or less.
@@ -115,23 +115,23 @@ pub mod transfer_agent_pool {
         ///
         ///
         /// - - -
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
-        pub project: pulumi_wasm_rust::Output<String>,
+        pub project: pulumi_gestalt_rust::Output<String>,
         /// Specifies the state of the AgentPool.
-        pub state: pulumi_wasm_rust::Output<String>,
+        pub state: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: TransferAgentPoolArgs,
     ) -> TransferAgentPoolResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let bandwidth_limit_binding = args
             .bandwidth_limit
@@ -165,17 +165,17 @@ pub mod transfer_agent_pool {
         };
         let o = register_interface::register(context.get_inner(), &request);
         TransferAgentPoolResult {
-            bandwidth_limit: pulumi_wasm_rust::__private::into_domain(
+            bandwidth_limit: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("bandwidthLimit"),
             ),
-            display_name: pulumi_wasm_rust::__private::into_domain(
+            display_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("displayName"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            project: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            project: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("project"),
             ),
-            state: pulumi_wasm_rust::__private::into_domain(o.extract_field("state")),
+            state: pulumi_gestalt_rust::__private::into_domain(o.extract_field("state")),
         }
     }
 }

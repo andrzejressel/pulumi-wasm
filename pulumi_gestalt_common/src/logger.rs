@@ -1,6 +1,6 @@
 use crate::bindings_logger;
-use crate::bindings_logger::component::pulumi_wasm_external::log::Content;
-use bindings_logger::component::pulumi_wasm_external;
+use crate::bindings_logger::component::pulumi_gestalt_external::log::Content;
+use bindings_logger::component::pulumi_gestalt_external;
 use log::kv::{Source, VisitSource};
 use log::{Level, Log, Metadata, Record};
 use std::collections::HashMap;
@@ -24,11 +24,11 @@ impl Log for Logger {
 
             let content = Content {
                 level: match level {
-                    Level::Error => pulumi_wasm_external::log::Level::Error,
-                    Level::Warn => pulumi_wasm_external::log::Level::Warn,
-                    Level::Info => pulumi_wasm_external::log::Level::Info,
-                    Level::Debug => pulumi_wasm_external::log::Level::Debug,
-                    Level::Trace => pulumi_wasm_external::log::Level::Trace,
+                    Level::Error => pulumi_gestalt_external::log::Level::Error,
+                    Level::Warn => pulumi_gestalt_external::log::Level::Warn,
+                    Level::Info => pulumi_gestalt_external::log::Level::Info,
+                    Level::Debug => pulumi_gestalt_external::log::Level::Debug,
+                    Level::Trace => pulumi_gestalt_external::log::Level::Trace,
                 },
                 target: target.to_string(),
                 args,
@@ -38,7 +38,7 @@ impl Log for Logger {
                 key_values: key_values.into_iter().collect(),
             };
 
-            pulumi_wasm_external::log::log(&content);
+            pulumi_gestalt_external::log::log(&content);
         }
     }
 

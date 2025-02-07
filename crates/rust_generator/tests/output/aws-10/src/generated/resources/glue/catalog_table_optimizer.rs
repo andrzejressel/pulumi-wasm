@@ -5,8 +5,8 @@
 /// ### Compaction Optimizer
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = catalog_table_optimizer::create(
@@ -30,8 +30,8 @@
 /// ### Snapshot Retention Optimizer
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = catalog_table_optimizer::create(
@@ -66,8 +66,8 @@
 /// ### Orphan File Deletion Optimizer
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = catalog_table_optimizer::create(
@@ -106,53 +106,53 @@
 /// $ pulumi import aws:glue/catalogTableOptimizer:CatalogTableOptimizer example 123456789012,example_database,example_table,compaction
 /// ```
 pub mod catalog_table_optimizer {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct CatalogTableOptimizerArgs {
         /// The Catalog ID of the table.
         #[builder(into)]
-        pub catalog_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub catalog_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// A configuration block that defines the table optimizer settings. See Configuration for additional details.
         #[builder(into, default)]
-        pub configuration: pulumi_wasm_rust::InputOrOutput<
+        pub configuration: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::glue::CatalogTableOptimizerConfiguration>,
         >,
         /// The name of the database in the catalog in which the table resides.
         #[builder(into)]
-        pub database_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub database_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The name of the table.
         #[builder(into)]
-        pub table_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub table_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The type of table optimizer. Valid values are `compaction`, `retention`, and `orphan_file_deletion`.
         #[builder(into)]
-        pub type_: pulumi_wasm_rust::InputOrOutput<String>,
+        pub type_: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct CatalogTableOptimizerResult {
         /// The Catalog ID of the table.
-        pub catalog_id: pulumi_wasm_rust::Output<String>,
+        pub catalog_id: pulumi_gestalt_rust::Output<String>,
         /// A configuration block that defines the table optimizer settings. See Configuration for additional details.
-        pub configuration: pulumi_wasm_rust::Output<
+        pub configuration: pulumi_gestalt_rust::Output<
             Option<super::super::types::glue::CatalogTableOptimizerConfiguration>,
         >,
         /// The name of the database in the catalog in which the table resides.
-        pub database_name: pulumi_wasm_rust::Output<String>,
+        pub database_name: pulumi_gestalt_rust::Output<String>,
         /// The name of the table.
-        pub table_name: pulumi_wasm_rust::Output<String>,
+        pub table_name: pulumi_gestalt_rust::Output<String>,
         /// The type of table optimizer. Valid values are `compaction`, `retention`, and `orphan_file_deletion`.
-        pub type_: pulumi_wasm_rust::Output<String>,
+        pub type_: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: CatalogTableOptimizerArgs,
     ) -> CatalogTableOptimizerResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let catalog_id_binding = args.catalog_id.get_output(context).get_inner();
         let configuration_binding = args.configuration.get_output(context).get_inner();
@@ -188,19 +188,19 @@ pub mod catalog_table_optimizer {
         };
         let o = register_interface::register(context.get_inner(), &request);
         CatalogTableOptimizerResult {
-            catalog_id: pulumi_wasm_rust::__private::into_domain(
+            catalog_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("catalogId"),
             ),
-            configuration: pulumi_wasm_rust::__private::into_domain(
+            configuration: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("configuration"),
             ),
-            database_name: pulumi_wasm_rust::__private::into_domain(
+            database_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("databaseName"),
             ),
-            table_name: pulumi_wasm_rust::__private::into_domain(
+            table_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("tableName"),
             ),
-            type_: pulumi_wasm_rust::__private::into_domain(o.extract_field("type")),
+            type_: pulumi_gestalt_rust::__private::into_domain(o.extract_field("type")),
         }
     }
 }

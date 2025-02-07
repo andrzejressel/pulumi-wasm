@@ -42,34 +42,34 @@
 /// ```
 ///
 pub mod gateway_api {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct GatewayApiArgs {
         /// The Identifier of the API Management API within the API Management Service. Changing this forces a new API Management Gateway API to be created.
         #[builder(into)]
-        pub api_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub api_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The Identifier for the API Management Gateway. Changing this forces a new API Management Gateway API to be created.
         #[builder(into)]
-        pub gateway_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub gateway_id: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct GatewayApiResult {
         /// The Identifier of the API Management API within the API Management Service. Changing this forces a new API Management Gateway API to be created.
-        pub api_id: pulumi_wasm_rust::Output<String>,
+        pub api_id: pulumi_gestalt_rust::Output<String>,
         /// The Identifier for the API Management Gateway. Changing this forces a new API Management Gateway API to be created.
-        pub gateway_id: pulumi_wasm_rust::Output<String>,
+        pub gateway_id: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: GatewayApiArgs,
     ) -> GatewayApiResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let api_id_binding = args.api_id.get_output(context).get_inner();
         let gateway_id_binding = args.gateway_id.get_output(context).get_inner();
@@ -90,8 +90,10 @@ pub mod gateway_api {
         };
         let o = register_interface::register(context.get_inner(), &request);
         GatewayApiResult {
-            api_id: pulumi_wasm_rust::__private::into_domain(o.extract_field("apiId")),
-            gateway_id: pulumi_wasm_rust::__private::into_domain(
+            api_id: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("apiId"),
+            ),
+            gateway_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("gatewayId"),
             ),
         }

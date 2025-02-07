@@ -3,8 +3,8 @@
 /// ## Example Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = indexing_configuration::create(
@@ -43,20 +43,20 @@
 /// }
 /// ```
 pub mod indexing_configuration {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct IndexingConfigurationArgs {
         /// Thing group indexing configuration. See below.
         #[builder(into, default)]
-        pub thing_group_indexing_configuration: pulumi_wasm_rust::InputOrOutput<
+        pub thing_group_indexing_configuration: pulumi_gestalt_rust::InputOrOutput<
             Option<
                 super::super::types::iot::IndexingConfigurationThingGroupIndexingConfiguration,
             >,
         >,
         /// Thing indexing configuration. See below.
         #[builder(into, default)]
-        pub thing_indexing_configuration: pulumi_wasm_rust::InputOrOutput<
+        pub thing_indexing_configuration: pulumi_gestalt_rust::InputOrOutput<
             Option<
                 super::super::types::iot::IndexingConfigurationThingIndexingConfiguration,
             >,
@@ -65,11 +65,11 @@ pub mod indexing_configuration {
     #[allow(dead_code)]
     pub struct IndexingConfigurationResult {
         /// Thing group indexing configuration. See below.
-        pub thing_group_indexing_configuration: pulumi_wasm_rust::Output<
+        pub thing_group_indexing_configuration: pulumi_gestalt_rust::Output<
             super::super::types::iot::IndexingConfigurationThingGroupIndexingConfiguration,
         >,
         /// Thing indexing configuration. See below.
-        pub thing_indexing_configuration: pulumi_wasm_rust::Output<
+        pub thing_indexing_configuration: pulumi_gestalt_rust::Output<
             super::super::types::iot::IndexingConfigurationThingIndexingConfiguration,
         >,
     }
@@ -78,11 +78,11 @@ pub mod indexing_configuration {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: IndexingConfigurationArgs,
     ) -> IndexingConfigurationResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let thing_group_indexing_configuration_binding = args
             .thing_group_indexing_configuration
@@ -109,10 +109,10 @@ pub mod indexing_configuration {
         };
         let o = register_interface::register(context.get_inner(), &request);
         IndexingConfigurationResult {
-            thing_group_indexing_configuration: pulumi_wasm_rust::__private::into_domain(
+            thing_group_indexing_configuration: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("thingGroupIndexingConfiguration"),
             ),
-            thing_indexing_configuration: pulumi_wasm_rust::__private::into_domain(
+            thing_indexing_configuration: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("thingIndexingConfiguration"),
             ),
         }

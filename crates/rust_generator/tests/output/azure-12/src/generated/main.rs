@@ -399,9 +399,9 @@ pub mod types {
 #[doc(hidden)]
 pub mod constants {}
 mod bindings {
-    pulumi_wasm_rust::__private::wit_bindgen::generate!(
+    pulumi_gestalt_rust::__private::wit_bindgen::generate!(
         { inline :
-        r"package component:pulumi-wasm@0.0.0-DEV;
+        r"package component:pulumi-gestalt@0.0.0-DEV;
 
 world world-azure {
     import output-interface;
@@ -453,12 +453,12 @@ interface register-interface {
 
     invoke: func(engine: borrow<engine>, request: resource-invoke-request) -> register-output;
 }",
-        with : { "component:pulumi-wasm/output-interface@0.0.0-DEV" :
-        pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::output_interface
+        with : { "component:pulumi-gestalt/output-interface@0.0.0-DEV" :
+        pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::output_interface
         } }
     );
 }
-#[link_section = "pulumi_wasm_provider::azure"]
+#[link_section = "pulumi_gestalt_provider::azure"]
 #[no_mangle]
 #[cfg(target_arch = "wasm32")]
 static PULUMI_WASM_PROVIDER_AZURE: [u8; 45] = *b"{\"version\":\"6.14.0\",\"pluginDownloadURL\":null}";

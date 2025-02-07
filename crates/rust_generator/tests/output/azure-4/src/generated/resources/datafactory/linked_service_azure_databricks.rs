@@ -64,8 +64,8 @@
 /// ### With Access Token & Existing Cluster
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let atLinked = linked_service_azure_databricks::create(
@@ -112,113 +112,115 @@
 /// ```
 ///
 pub mod linked_service_azure_databricks {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct LinkedServiceAzureDatabricksArgs {
         /// Authenticate to ADB via an access token.
         #[builder(into, default)]
-        pub access_token: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub access_token: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The domain URL of the databricks instance.
         #[builder(into)]
-        pub adb_domain: pulumi_wasm_rust::InputOrOutput<String>,
+        pub adb_domain: pulumi_gestalt_rust::InputOrOutput<String>,
         /// A map of additional properties to associate with the Data Factory Linked Service.
         #[builder(into, default)]
-        pub additional_properties: pulumi_wasm_rust::InputOrOutput<
+        pub additional_properties: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// List of tags that can be used for describing the Data Factory Linked Service.
         #[builder(into, default)]
-        pub annotations: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
+        pub annotations: pulumi_gestalt_rust::InputOrOutput<Option<Vec<String>>>,
         /// The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
         #[builder(into)]
-        pub data_factory_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub data_factory_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The description for the Data Factory Linked Service.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub description: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The cluster_id of an existing cluster within the linked ADB instance.
         #[builder(into, default)]
-        pub existing_cluster_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub existing_cluster_id: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Leverages an instance pool within the linked ADB instance as one `instance_pool` block defined below.
         #[builder(into, default)]
-        pub instance_pool: pulumi_wasm_rust::InputOrOutput<
+        pub instance_pool: pulumi_gestalt_rust::InputOrOutput<
             Option<
                 super::super::types::datafactory::LinkedServiceAzureDatabricksInstancePool,
             >,
         >,
         /// The integration runtime reference to associate with the Data Factory Linked Service.
         #[builder(into, default)]
-        pub integration_runtime_name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub integration_runtime_name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Authenticate to ADB via Azure Key Vault Linked Service as defined in the `key_vault_password` block below.
         #[builder(into, default)]
-        pub key_vault_password: pulumi_wasm_rust::InputOrOutput<
+        pub key_vault_password: pulumi_gestalt_rust::InputOrOutput<
             Option<
                 super::super::types::datafactory::LinkedServiceAzureDatabricksKeyVaultPassword,
             >,
         >,
         /// Authenticate to ADB via managed service identity.
         #[builder(into, default)]
-        pub msi_work_space_resource_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub msi_work_space_resource_id: pulumi_gestalt_rust::InputOrOutput<
+            Option<String>,
+        >,
         /// Specifies the name of the Data Factory Linked Service. Changing this forces a new resource to be created. Must be unique within a data factory. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Creates new clusters within the linked ADB instance as defined in the `new_cluster_config` block below.
         #[builder(into, default)]
-        pub new_cluster_config: pulumi_wasm_rust::InputOrOutput<
+        pub new_cluster_config: pulumi_gestalt_rust::InputOrOutput<
             Option<
                 super::super::types::datafactory::LinkedServiceAzureDatabricksNewClusterConfig,
             >,
         >,
         /// A map of parameters to associate with the Data Factory Linked Service.
         #[builder(into, default)]
-        pub parameters: pulumi_wasm_rust::InputOrOutput<
+        pub parameters: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
     #[allow(dead_code)]
     pub struct LinkedServiceAzureDatabricksResult {
         /// Authenticate to ADB via an access token.
-        pub access_token: pulumi_wasm_rust::Output<Option<String>>,
+        pub access_token: pulumi_gestalt_rust::Output<Option<String>>,
         /// The domain URL of the databricks instance.
-        pub adb_domain: pulumi_wasm_rust::Output<String>,
+        pub adb_domain: pulumi_gestalt_rust::Output<String>,
         /// A map of additional properties to associate with the Data Factory Linked Service.
-        pub additional_properties: pulumi_wasm_rust::Output<
+        pub additional_properties: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// List of tags that can be used for describing the Data Factory Linked Service.
-        pub annotations: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub annotations: pulumi_gestalt_rust::Output<Option<Vec<String>>>,
         /// The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
-        pub data_factory_id: pulumi_wasm_rust::Output<String>,
+        pub data_factory_id: pulumi_gestalt_rust::Output<String>,
         /// The description for the Data Factory Linked Service.
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_gestalt_rust::Output<Option<String>>,
         /// The cluster_id of an existing cluster within the linked ADB instance.
-        pub existing_cluster_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub existing_cluster_id: pulumi_gestalt_rust::Output<Option<String>>,
         /// Leverages an instance pool within the linked ADB instance as one `instance_pool` block defined below.
-        pub instance_pool: pulumi_wasm_rust::Output<
+        pub instance_pool: pulumi_gestalt_rust::Output<
             Option<
                 super::super::types::datafactory::LinkedServiceAzureDatabricksInstancePool,
             >,
         >,
         /// The integration runtime reference to associate with the Data Factory Linked Service.
-        pub integration_runtime_name: pulumi_wasm_rust::Output<Option<String>>,
+        pub integration_runtime_name: pulumi_gestalt_rust::Output<Option<String>>,
         /// Authenticate to ADB via Azure Key Vault Linked Service as defined in the `key_vault_password` block below.
-        pub key_vault_password: pulumi_wasm_rust::Output<
+        pub key_vault_password: pulumi_gestalt_rust::Output<
             Option<
                 super::super::types::datafactory::LinkedServiceAzureDatabricksKeyVaultPassword,
             >,
         >,
         /// Authenticate to ADB via managed service identity.
-        pub msi_work_space_resource_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub msi_work_space_resource_id: pulumi_gestalt_rust::Output<Option<String>>,
         /// Specifies the name of the Data Factory Linked Service. Changing this forces a new resource to be created. Must be unique within a data factory. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// Creates new clusters within the linked ADB instance as defined in the `new_cluster_config` block below.
-        pub new_cluster_config: pulumi_wasm_rust::Output<
+        pub new_cluster_config: pulumi_gestalt_rust::Output<
             Option<
                 super::super::types::datafactory::LinkedServiceAzureDatabricksNewClusterConfig,
             >,
         >,
         /// A map of parameters to associate with the Data Factory Linked Service.
-        pub parameters: pulumi_wasm_rust::Output<
+        pub parameters: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
@@ -227,11 +229,11 @@ pub mod linked_service_azure_databricks {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: LinkedServiceAzureDatabricksArgs,
     ) -> LinkedServiceAzureDatabricksResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let access_token_binding = args.access_token.get_output(context).get_inner();
         let adb_domain_binding = args.adb_domain.get_output(context).get_inner();
@@ -334,44 +336,44 @@ pub mod linked_service_azure_databricks {
         };
         let o = register_interface::register(context.get_inner(), &request);
         LinkedServiceAzureDatabricksResult {
-            access_token: pulumi_wasm_rust::__private::into_domain(
+            access_token: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("accessToken"),
             ),
-            adb_domain: pulumi_wasm_rust::__private::into_domain(
+            adb_domain: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("adbDomain"),
             ),
-            additional_properties: pulumi_wasm_rust::__private::into_domain(
+            additional_properties: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("additionalProperties"),
             ),
-            annotations: pulumi_wasm_rust::__private::into_domain(
+            annotations: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("annotations"),
             ),
-            data_factory_id: pulumi_wasm_rust::__private::into_domain(
+            data_factory_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("dataFactoryId"),
             ),
-            description: pulumi_wasm_rust::__private::into_domain(
+            description: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("description"),
             ),
-            existing_cluster_id: pulumi_wasm_rust::__private::into_domain(
+            existing_cluster_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("existingClusterId"),
             ),
-            instance_pool: pulumi_wasm_rust::__private::into_domain(
+            instance_pool: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("instancePool"),
             ),
-            integration_runtime_name: pulumi_wasm_rust::__private::into_domain(
+            integration_runtime_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("integrationRuntimeName"),
             ),
-            key_vault_password: pulumi_wasm_rust::__private::into_domain(
+            key_vault_password: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("keyVaultPassword"),
             ),
-            msi_work_space_resource_id: pulumi_wasm_rust::__private::into_domain(
+            msi_work_space_resource_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("msiWorkSpaceResourceId"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            new_cluster_config: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            new_cluster_config: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("newClusterConfig"),
             ),
-            parameters: pulumi_wasm_rust::__private::into_domain(
+            parameters: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("parameters"),
             ),
         }

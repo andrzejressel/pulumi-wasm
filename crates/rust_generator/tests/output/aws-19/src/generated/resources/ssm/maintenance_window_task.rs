@@ -121,100 +121,100 @@
 /// $ pulumi import aws:ssm/maintenanceWindowTask:MaintenanceWindowTask task <window_id>/<window_task_id>
 /// ```
 pub mod maintenance_window_task {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct MaintenanceWindowTaskArgs {
         /// Indicates whether tasks should continue to run after the cutoff time specified in the maintenance windows is reached. Valid values are `CONTINUE_TASK` and `CANCEL_TASK`.
         #[builder(into, default)]
-        pub cutoff_behavior: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub cutoff_behavior: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The description of the maintenance window task.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub description: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The maximum number of targets this task can be run for in parallel.
         #[builder(into, default)]
-        pub max_concurrency: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub max_concurrency: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The maximum number of errors allowed before this task stops being scheduled.
         #[builder(into, default)]
-        pub max_errors: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub max_errors: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The name of the maintenance window task.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The priority of the task in the Maintenance Window, the lower the number the higher the priority. Tasks in a Maintenance Window are scheduled in priority order with tasks that have the same priority scheduled in parallel.
         #[builder(into, default)]
-        pub priority: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
+        pub priority: pulumi_gestalt_rust::InputOrOutput<Option<i32>>,
         /// The role that should be assumed when executing the task. If a role is not provided, Systems Manager uses your account's service-linked role. If no service-linked role for Systems Manager exists in your account, it is created for you.
         #[builder(into, default)]
-        pub service_role_arn: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub service_role_arn: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The targets (either instances or window target ids). Instances are specified using Key=InstanceIds,Values=instanceid1,instanceid2. Window target ids are specified using Key=WindowTargetIds,Values=window target id1, window target id2.
         #[builder(into, default)]
-        pub targets: pulumi_wasm_rust::InputOrOutput<
+        pub targets: pulumi_gestalt_rust::InputOrOutput<
             Option<Vec<super::super::types::ssm::MaintenanceWindowTaskTarget>>,
         >,
         /// The ARN of the task to execute.
         #[builder(into)]
-        pub task_arn: pulumi_wasm_rust::InputOrOutput<String>,
+        pub task_arn: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Configuration block with parameters for task execution.
         #[builder(into, default)]
-        pub task_invocation_parameters: pulumi_wasm_rust::InputOrOutput<
+        pub task_invocation_parameters: pulumi_gestalt_rust::InputOrOutput<
             Option<
                 super::super::types::ssm::MaintenanceWindowTaskTaskInvocationParameters,
             >,
         >,
         /// The type of task being registered. Valid values: `AUTOMATION`, `LAMBDA`, `RUN_COMMAND` or `STEP_FUNCTIONS`.
         #[builder(into)]
-        pub task_type: pulumi_wasm_rust::InputOrOutput<String>,
+        pub task_type: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The Id of the maintenance window to register the task with.
         #[builder(into)]
-        pub window_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub window_id: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct MaintenanceWindowTaskResult {
         /// The ARN of the maintenance window task.
-        pub arn: pulumi_wasm_rust::Output<String>,
+        pub arn: pulumi_gestalt_rust::Output<String>,
         /// Indicates whether tasks should continue to run after the cutoff time specified in the maintenance windows is reached. Valid values are `CONTINUE_TASK` and `CANCEL_TASK`.
-        pub cutoff_behavior: pulumi_wasm_rust::Output<Option<String>>,
+        pub cutoff_behavior: pulumi_gestalt_rust::Output<Option<String>>,
         /// The description of the maintenance window task.
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_gestalt_rust::Output<Option<String>>,
         /// The maximum number of targets this task can be run for in parallel.
-        pub max_concurrency: pulumi_wasm_rust::Output<String>,
+        pub max_concurrency: pulumi_gestalt_rust::Output<String>,
         /// The maximum number of errors allowed before this task stops being scheduled.
-        pub max_errors: pulumi_wasm_rust::Output<String>,
+        pub max_errors: pulumi_gestalt_rust::Output<String>,
         /// The name of the maintenance window task.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// The priority of the task in the Maintenance Window, the lower the number the higher the priority. Tasks in a Maintenance Window are scheduled in priority order with tasks that have the same priority scheduled in parallel.
-        pub priority: pulumi_wasm_rust::Output<Option<i32>>,
+        pub priority: pulumi_gestalt_rust::Output<Option<i32>>,
         /// The role that should be assumed when executing the task. If a role is not provided, Systems Manager uses your account's service-linked role. If no service-linked role for Systems Manager exists in your account, it is created for you.
-        pub service_role_arn: pulumi_wasm_rust::Output<String>,
+        pub service_role_arn: pulumi_gestalt_rust::Output<String>,
         /// The targets (either instances or window target ids). Instances are specified using Key=InstanceIds,Values=instanceid1,instanceid2. Window target ids are specified using Key=WindowTargetIds,Values=window target id1, window target id2.
-        pub targets: pulumi_wasm_rust::Output<
+        pub targets: pulumi_gestalt_rust::Output<
             Option<Vec<super::super::types::ssm::MaintenanceWindowTaskTarget>>,
         >,
         /// The ARN of the task to execute.
-        pub task_arn: pulumi_wasm_rust::Output<String>,
+        pub task_arn: pulumi_gestalt_rust::Output<String>,
         /// Configuration block with parameters for task execution.
-        pub task_invocation_parameters: pulumi_wasm_rust::Output<
+        pub task_invocation_parameters: pulumi_gestalt_rust::Output<
             Option<
                 super::super::types::ssm::MaintenanceWindowTaskTaskInvocationParameters,
             >,
         >,
         /// The type of task being registered. Valid values: `AUTOMATION`, `LAMBDA`, `RUN_COMMAND` or `STEP_FUNCTIONS`.
-        pub task_type: pulumi_wasm_rust::Output<String>,
+        pub task_type: pulumi_gestalt_rust::Output<String>,
         /// The Id of the maintenance window to register the task with.
-        pub window_id: pulumi_wasm_rust::Output<String>,
+        pub window_id: pulumi_gestalt_rust::Output<String>,
         /// The ID of the maintenance window task.
-        pub window_task_id: pulumi_wasm_rust::Output<String>,
+        pub window_task_id: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: MaintenanceWindowTaskArgs,
     ) -> MaintenanceWindowTaskResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let cutoff_behavior_binding = args
             .cutoff_behavior
@@ -297,42 +297,42 @@ pub mod maintenance_window_task {
         };
         let o = register_interface::register(context.get_inner(), &request);
         MaintenanceWindowTaskResult {
-            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
-            cutoff_behavior: pulumi_wasm_rust::__private::into_domain(
+            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
+            cutoff_behavior: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("cutoffBehavior"),
             ),
-            description: pulumi_wasm_rust::__private::into_domain(
+            description: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("description"),
             ),
-            max_concurrency: pulumi_wasm_rust::__private::into_domain(
+            max_concurrency: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("maxConcurrency"),
             ),
-            max_errors: pulumi_wasm_rust::__private::into_domain(
+            max_errors: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("maxErrors"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            priority: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            priority: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("priority"),
             ),
-            service_role_arn: pulumi_wasm_rust::__private::into_domain(
+            service_role_arn: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("serviceRoleArn"),
             ),
-            targets: pulumi_wasm_rust::__private::into_domain(
+            targets: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("targets"),
             ),
-            task_arn: pulumi_wasm_rust::__private::into_domain(
+            task_arn: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("taskArn"),
             ),
-            task_invocation_parameters: pulumi_wasm_rust::__private::into_domain(
+            task_invocation_parameters: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("taskInvocationParameters"),
             ),
-            task_type: pulumi_wasm_rust::__private::into_domain(
+            task_type: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("taskType"),
             ),
-            window_id: pulumi_wasm_rust::__private::into_domain(
+            window_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("windowId"),
             ),
-            window_task_id: pulumi_wasm_rust::__private::into_domain(
+            window_task_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("windowTaskId"),
             ),
         }

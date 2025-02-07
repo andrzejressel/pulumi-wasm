@@ -1,34 +1,34 @@
 pub mod get_volume_group_sap_hana {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct GetVolumeGroupSapHanaArgs {
         /// Name of the account where the application volume group belong to.
         #[builder(into)]
-        pub account_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub account_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The name of this Application Volume Group for SAP HANA application.
         #[builder(into)]
-        pub name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The name of the Resource Group where the Application Volume Group exists.
         #[builder(into)]
-        pub resource_group_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub resource_group_name: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct GetVolumeGroupSapHanaResult {
-        pub account_name: pulumi_wasm_rust::Output<String>,
+        pub account_name: pulumi_gestalt_rust::Output<String>,
         /// The application identifier.
-        pub application_identifier: pulumi_wasm_rust::Output<String>,
+        pub application_identifier: pulumi_gestalt_rust::Output<String>,
         /// Volume group description.
-        pub group_description: pulumi_wasm_rust::Output<String>,
+        pub group_description: pulumi_gestalt_rust::Output<String>,
         /// The provider-assigned unique ID for this managed resource.
-        pub id: pulumi_wasm_rust::Output<String>,
+        pub id: pulumi_gestalt_rust::Output<String>,
         /// The Azure Region where the Application Volume Group exists.
-        pub location: pulumi_wasm_rust::Output<String>,
+        pub location: pulumi_gestalt_rust::Output<String>,
         /// The name of this volume.
-        pub name: pulumi_wasm_rust::Output<String>,
-        pub resource_group_name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
+        pub resource_group_name: pulumi_gestalt_rust::Output<String>,
         /// A `volume` block as defined below.
-        pub volumes: pulumi_wasm_rust::Output<
+        pub volumes: pulumi_gestalt_rust::Output<
             Vec<super::super::super::types::netapp::GetVolumeGroupSapHanaVolume>,
         >,
     }
@@ -37,10 +37,10 @@ pub mod get_volume_group_sap_hana {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         args: GetVolumeGroupSapHanaArgs,
     ) -> GetVolumeGroupSapHanaResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let account_name_binding = args.account_name.get_output(context).get_inner();
         let name_binding = args.name.get_output(context).get_inner();
@@ -68,24 +68,26 @@ pub mod get_volume_group_sap_hana {
         };
         let o = register_interface::invoke(context.get_inner(), &request);
         GetVolumeGroupSapHanaResult {
-            account_name: pulumi_wasm_rust::__private::into_domain(
+            account_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("accountName"),
             ),
-            application_identifier: pulumi_wasm_rust::__private::into_domain(
+            application_identifier: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("applicationIdentifier"),
             ),
-            group_description: pulumi_wasm_rust::__private::into_domain(
+            group_description: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("groupDescription"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
-            location: pulumi_wasm_rust::__private::into_domain(
+            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
+            location: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("location"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            resource_group_name: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("resourceGroupName"),
             ),
-            volumes: pulumi_wasm_rust::__private::into_domain(o.extract_field("volumes")),
+            volumes: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("volumes"),
+            ),
         }
     }
 }

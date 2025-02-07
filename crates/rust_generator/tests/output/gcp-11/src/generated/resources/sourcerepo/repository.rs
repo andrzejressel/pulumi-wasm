@@ -63,66 +63,68 @@
 /// ```
 ///
 pub mod repository {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct RepositoryArgs {
         /// If set to true, skip repository creation if a repository with the same name already exists.
         #[builder(into, default)]
-        pub create_ignore_already_exists: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub create_ignore_already_exists: pulumi_gestalt_rust::InputOrOutput<
+            Option<bool>,
+        >,
         /// Resource name of the repository, of the form `{{repo}}`.
         /// The repo name may contain slashes. eg, `name/with/slash`
         ///
         ///
         /// - - -
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub project: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// How this repository publishes a change in the repository through Cloud Pub/Sub.
         /// Keyed by the topic names.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub pubsub_configs: pulumi_wasm_rust::InputOrOutput<
+        pub pubsub_configs: pulumi_gestalt_rust::InputOrOutput<
             Option<Vec<super::super::types::sourcerepo::RepositoryPubsubConfig>>,
         >,
     }
     #[allow(dead_code)]
     pub struct RepositoryResult {
         /// If set to true, skip repository creation if a repository with the same name already exists.
-        pub create_ignore_already_exists: pulumi_wasm_rust::Output<Option<bool>>,
+        pub create_ignore_already_exists: pulumi_gestalt_rust::Output<Option<bool>>,
         /// Resource name of the repository, of the form `{{repo}}`.
         /// The repo name may contain slashes. eg, `name/with/slash`
         ///
         ///
         /// - - -
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
-        pub project: pulumi_wasm_rust::Output<String>,
+        pub project: pulumi_gestalt_rust::Output<String>,
         /// How this repository publishes a change in the repository through Cloud Pub/Sub.
         /// Keyed by the topic names.
         /// Structure is documented below.
-        pub pubsub_configs: pulumi_wasm_rust::Output<
+        pub pubsub_configs: pulumi_gestalt_rust::Output<
             Option<Vec<super::super::types::sourcerepo::RepositoryPubsubConfig>>,
         >,
         /// The disk usage of the repo, in bytes.
-        pub size: pulumi_wasm_rust::Output<i32>,
+        pub size: pulumi_gestalt_rust::Output<i32>,
         /// URL to clone the repository from Google Cloud Source Repositories.
-        pub url: pulumi_wasm_rust::Output<String>,
+        pub url: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: RepositoryArgs,
     ) -> RepositoryResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let create_ignore_already_exists_binding = args
             .create_ignore_already_exists
@@ -156,18 +158,18 @@ pub mod repository {
         };
         let o = register_interface::register(context.get_inner(), &request);
         RepositoryResult {
-            create_ignore_already_exists: pulumi_wasm_rust::__private::into_domain(
+            create_ignore_already_exists: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("createIgnoreAlreadyExists"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            project: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            project: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("project"),
             ),
-            pubsub_configs: pulumi_wasm_rust::__private::into_domain(
+            pubsub_configs: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("pubsubConfigs"),
             ),
-            size: pulumi_wasm_rust::__private::into_domain(o.extract_field("size")),
-            url: pulumi_wasm_rust::__private::into_domain(o.extract_field("url")),
+            size: pulumi_gestalt_rust::__private::into_domain(o.extract_field("size")),
+            url: pulumi_gestalt_rust::__private::into_domain(o.extract_field("url")),
         }
     }
 }

@@ -3,8 +3,8 @@
 /// ## Example Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = resource_group::create(
@@ -95,66 +95,66 @@
 /// ```
 ///
 pub mod policy {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct PolicyArgs {
         /// One or more `custom_rules` blocks as defined below.
         #[builder(into, default)]
-        pub custom_rules: pulumi_wasm_rust::InputOrOutput<
+        pub custom_rules: pulumi_gestalt_rust::InputOrOutput<
             Option<Vec<super::super::types::waf::PolicyCustomRule>>,
         >,
         /// Resource location. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub location: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub location: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// A `managed_rules` blocks as defined below.
         #[builder(into)]
-        pub managed_rules: pulumi_wasm_rust::InputOrOutput<
+        pub managed_rules: pulumi_gestalt_rust::InputOrOutput<
             super::super::types::waf::PolicyManagedRules,
         >,
         /// The name of the policy. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// A `policy_settings` block as defined below.
         #[builder(into, default)]
-        pub policy_settings: pulumi_wasm_rust::InputOrOutput<
+        pub policy_settings: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::waf::PolicyPolicySettings>,
         >,
         /// The name of the resource group. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub resource_group_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub resource_group_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// A mapping of tags to assign to the Web Application Firewall Policy.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
     #[allow(dead_code)]
     pub struct PolicyResult {
         /// One or more `custom_rules` blocks as defined below.
-        pub custom_rules: pulumi_wasm_rust::Output<
+        pub custom_rules: pulumi_gestalt_rust::Output<
             Option<Vec<super::super::types::waf::PolicyCustomRule>>,
         >,
         /// A list of HTTP Listener IDs from an `azure.network.ApplicationGateway`.
-        pub http_listener_ids: pulumi_wasm_rust::Output<Vec<String>>,
+        pub http_listener_ids: pulumi_gestalt_rust::Output<Vec<String>>,
         /// Resource location. Changing this forces a new resource to be created.
-        pub location: pulumi_wasm_rust::Output<String>,
+        pub location: pulumi_gestalt_rust::Output<String>,
         /// A `managed_rules` blocks as defined below.
-        pub managed_rules: pulumi_wasm_rust::Output<
+        pub managed_rules: pulumi_gestalt_rust::Output<
             super::super::types::waf::PolicyManagedRules,
         >,
         /// The name of the policy. Changing this forces a new resource to be created.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// A list of URL Path Map Path Rule IDs from an `azure.network.ApplicationGateway`.
-        pub path_based_rule_ids: pulumi_wasm_rust::Output<Vec<String>>,
+        pub path_based_rule_ids: pulumi_gestalt_rust::Output<Vec<String>>,
         /// A `policy_settings` block as defined below.
-        pub policy_settings: pulumi_wasm_rust::Output<
+        pub policy_settings: pulumi_gestalt_rust::Output<
             Option<super::super::types::waf::PolicyPolicySettings>,
         >,
         /// The name of the resource group. Changing this forces a new resource to be created.
-        pub resource_group_name: pulumi_wasm_rust::Output<String>,
+        pub resource_group_name: pulumi_gestalt_rust::Output<String>,
         /// A mapping of tags to assign to the Web Application Firewall Policy.
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
@@ -163,11 +163,11 @@ pub mod policy {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: PolicyArgs,
     ) -> PolicyResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let custom_rules_binding = args.custom_rules.get_output(context).get_inner();
         let location_binding = args.location.get_output(context).get_inner();
@@ -219,29 +219,29 @@ pub mod policy {
         };
         let o = register_interface::register(context.get_inner(), &request);
         PolicyResult {
-            custom_rules: pulumi_wasm_rust::__private::into_domain(
+            custom_rules: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("customRules"),
             ),
-            http_listener_ids: pulumi_wasm_rust::__private::into_domain(
+            http_listener_ids: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("httpListenerIds"),
             ),
-            location: pulumi_wasm_rust::__private::into_domain(
+            location: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("location"),
             ),
-            managed_rules: pulumi_wasm_rust::__private::into_domain(
+            managed_rules: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("managedRules"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            path_based_rule_ids: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            path_based_rule_ids: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("pathBasedRuleIds"),
             ),
-            policy_settings: pulumi_wasm_rust::__private::into_domain(
+            policy_settings: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("policySettings"),
             ),
-            resource_group_name: pulumi_wasm_rust::__private::into_domain(
+            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("resourceGroupName"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
         }
     }
 }

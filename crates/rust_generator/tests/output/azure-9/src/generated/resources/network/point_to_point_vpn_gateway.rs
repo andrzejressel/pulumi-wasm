@@ -3,8 +3,8 @@
 /// ## Example Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = resource_group::create(
@@ -81,88 +81,90 @@
 /// ```
 ///
 pub mod point_to_point_vpn_gateway {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct PointToPointVpnGatewayArgs {
         /// A `connection_configuration` block as defined below.
         #[builder(into)]
-        pub connection_configurations: pulumi_wasm_rust::InputOrOutput<
+        pub connection_configurations: pulumi_gestalt_rust::InputOrOutput<
             Vec<
                 super::super::types::network::PointToPointVpnGatewayConnectionConfiguration,
             >,
         >,
         /// A list of IP Addresses of DNS Servers for the Point-to-Site VPN Gateway.
         #[builder(into, default)]
-        pub dns_servers: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
+        pub dns_servers: pulumi_gestalt_rust::InputOrOutput<Option<Vec<String>>>,
         /// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub location: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub location: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Specifies the name of the Point-to-Site VPN Gateway. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The name of the resource group in which to create the Point-to-Site VPN Gateway. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub resource_group_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub resource_group_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Is the Routing Preference for the Public IP Interface of the VPN Gateway enabled? Defaults to `false`. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub routing_preference_internet_enabled: pulumi_wasm_rust::InputOrOutput<
+        pub routing_preference_internet_enabled: pulumi_gestalt_rust::InputOrOutput<
             Option<bool>,
         >,
         /// The [Scale Unit](https://docs.microsoft.com/azure/virtual-wan/virtual-wan-faq#what-is-a-virtual-wan-gateway-scale-unit) for this Point-to-Site VPN Gateway.
         #[builder(into)]
-        pub scale_unit: pulumi_wasm_rust::InputOrOutput<i32>,
+        pub scale_unit: pulumi_gestalt_rust::InputOrOutput<i32>,
         /// A mapping of tags to assign to the Point-to-Site VPN Gateway.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// The ID of the Virtual Hub where this Point-to-Site VPN Gateway should exist. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub virtual_hub_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub virtual_hub_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The ID of the VPN Server Configuration which this Point-to-Site VPN Gateway should use. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub vpn_server_configuration_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub vpn_server_configuration_id: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct PointToPointVpnGatewayResult {
         /// A `connection_configuration` block as defined below.
-        pub connection_configurations: pulumi_wasm_rust::Output<
+        pub connection_configurations: pulumi_gestalt_rust::Output<
             Vec<
                 super::super::types::network::PointToPointVpnGatewayConnectionConfiguration,
             >,
         >,
         /// A list of IP Addresses of DNS Servers for the Point-to-Site VPN Gateway.
-        pub dns_servers: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub dns_servers: pulumi_gestalt_rust::Output<Option<Vec<String>>>,
         /// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
-        pub location: pulumi_wasm_rust::Output<String>,
+        pub location: pulumi_gestalt_rust::Output<String>,
         /// Specifies the name of the Point-to-Site VPN Gateway. Changing this forces a new resource to be created.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// The name of the resource group in which to create the Point-to-Site VPN Gateway. Changing this forces a new resource to be created.
-        pub resource_group_name: pulumi_wasm_rust::Output<String>,
+        pub resource_group_name: pulumi_gestalt_rust::Output<String>,
         /// Is the Routing Preference for the Public IP Interface of the VPN Gateway enabled? Defaults to `false`. Changing this forces a new resource to be created.
-        pub routing_preference_internet_enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub routing_preference_internet_enabled: pulumi_gestalt_rust::Output<
+            Option<bool>,
+        >,
         /// The [Scale Unit](https://docs.microsoft.com/azure/virtual-wan/virtual-wan-faq#what-is-a-virtual-wan-gateway-scale-unit) for this Point-to-Site VPN Gateway.
-        pub scale_unit: pulumi_wasm_rust::Output<i32>,
+        pub scale_unit: pulumi_gestalt_rust::Output<i32>,
         /// A mapping of tags to assign to the Point-to-Site VPN Gateway.
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// The ID of the Virtual Hub where this Point-to-Site VPN Gateway should exist. Changing this forces a new resource to be created.
-        pub virtual_hub_id: pulumi_wasm_rust::Output<String>,
+        pub virtual_hub_id: pulumi_gestalt_rust::Output<String>,
         /// The ID of the VPN Server Configuration which this Point-to-Site VPN Gateway should use. Changing this forces a new resource to be created.
-        pub vpn_server_configuration_id: pulumi_wasm_rust::Output<String>,
+        pub vpn_server_configuration_id: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: PointToPointVpnGatewayArgs,
     ) -> PointToPointVpnGatewayResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let connection_configurations_binding = args
             .connection_configurations
@@ -235,30 +237,30 @@ pub mod point_to_point_vpn_gateway {
         };
         let o = register_interface::register(context.get_inner(), &request);
         PointToPointVpnGatewayResult {
-            connection_configurations: pulumi_wasm_rust::__private::into_domain(
+            connection_configurations: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("connectionConfigurations"),
             ),
-            dns_servers: pulumi_wasm_rust::__private::into_domain(
+            dns_servers: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("dnsServers"),
             ),
-            location: pulumi_wasm_rust::__private::into_domain(
+            location: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("location"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            resource_group_name: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("resourceGroupName"),
             ),
-            routing_preference_internet_enabled: pulumi_wasm_rust::__private::into_domain(
+            routing_preference_internet_enabled: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("routingPreferenceInternetEnabled"),
             ),
-            scale_unit: pulumi_wasm_rust::__private::into_domain(
+            scale_unit: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("scaleUnit"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
-            virtual_hub_id: pulumi_wasm_rust::__private::into_domain(
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            virtual_hub_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("virtualHubId"),
             ),
-            vpn_server_configuration_id: pulumi_wasm_rust::__private::into_domain(
+            vpn_server_configuration_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("vpnServerConfigurationId"),
             ),
         }

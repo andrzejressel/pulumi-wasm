@@ -3,8 +3,8 @@
 /// ## Example Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = resource_group::create(
@@ -44,92 +44,92 @@
 /// ```
 ///
 pub mod virtual_hub {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct VirtualHubArgs {
         /// The Address Prefix which should be used for this Virtual Hub. Changing this forces a new resource to be created. [The address prefix subnet cannot be smaller than a `/24`. Azure recommends using a `/23`](https://docs.microsoft.com/azure/virtual-wan/virtual-wan-faq#what-is-the-recommended-hub-address-space-during-hub-creation).
         #[builder(into, default)]
-        pub address_prefix: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub address_prefix: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The hub routing preference. Possible values are `ExpressRoute`, `ASPath` and `VpnGateway`. Defaults to `ExpressRoute`.
         #[builder(into, default)]
-        pub hub_routing_preference: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub hub_routing_preference: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Specifies the supported Azure location where the Virtual Hub should exist. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub location: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub location: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The name of the Virtual Hub. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Specifies the name of the Resource Group where the Virtual Hub should exist. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub resource_group_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub resource_group_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// One or more `route` blocks as defined below.
         #[builder(into, default)]
-        pub routes: pulumi_wasm_rust::InputOrOutput<
+        pub routes: pulumi_gestalt_rust::InputOrOutput<
             Option<Vec<super::super::types::network::VirtualHubRoute>>,
         >,
         /// The SKU of the Virtual Hub. Possible values are `Basic` and `Standard`. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub sku: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub sku: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// A mapping of tags to assign to the Virtual Hub.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Minimum instance capacity for the scaling configuration of the Virtual Hub Router. Defaults to `2`.
         #[builder(into, default)]
-        pub virtual_router_auto_scale_min_capacity: pulumi_wasm_rust::InputOrOutput<
+        pub virtual_router_auto_scale_min_capacity: pulumi_gestalt_rust::InputOrOutput<
             Option<i32>,
         >,
         /// The ID of a Virtual WAN within which the Virtual Hub should be created. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub virtual_wan_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub virtual_wan_id: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct VirtualHubResult {
         /// The Address Prefix which should be used for this Virtual Hub. Changing this forces a new resource to be created. [The address prefix subnet cannot be smaller than a `/24`. Azure recommends using a `/23`](https://docs.microsoft.com/azure/virtual-wan/virtual-wan-faq#what-is-the-recommended-hub-address-space-during-hub-creation).
-        pub address_prefix: pulumi_wasm_rust::Output<Option<String>>,
+        pub address_prefix: pulumi_gestalt_rust::Output<Option<String>>,
         /// The ID of the default Route Table in the Virtual Hub.
-        pub default_route_table_id: pulumi_wasm_rust::Output<String>,
+        pub default_route_table_id: pulumi_gestalt_rust::Output<String>,
         /// The hub routing preference. Possible values are `ExpressRoute`, `ASPath` and `VpnGateway`. Defaults to `ExpressRoute`.
-        pub hub_routing_preference: pulumi_wasm_rust::Output<Option<String>>,
+        pub hub_routing_preference: pulumi_gestalt_rust::Output<Option<String>>,
         /// Specifies the supported Azure location where the Virtual Hub should exist. Changing this forces a new resource to be created.
-        pub location: pulumi_wasm_rust::Output<String>,
+        pub location: pulumi_gestalt_rust::Output<String>,
         /// The name of the Virtual Hub. Changing this forces a new resource to be created.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// Specifies the name of the Resource Group where the Virtual Hub should exist. Changing this forces a new resource to be created.
-        pub resource_group_name: pulumi_wasm_rust::Output<String>,
+        pub resource_group_name: pulumi_gestalt_rust::Output<String>,
         /// One or more `route` blocks as defined below.
-        pub routes: pulumi_wasm_rust::Output<
+        pub routes: pulumi_gestalt_rust::Output<
             Option<Vec<super::super::types::network::VirtualHubRoute>>,
         >,
         /// The SKU of the Virtual Hub. Possible values are `Basic` and `Standard`. Changing this forces a new resource to be created.
-        pub sku: pulumi_wasm_rust::Output<Option<String>>,
+        pub sku: pulumi_gestalt_rust::Output<Option<String>>,
         /// A mapping of tags to assign to the Virtual Hub.
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// The Autonomous System Number of the Virtual Hub BGP router.
-        pub virtual_router_asn: pulumi_wasm_rust::Output<i32>,
+        pub virtual_router_asn: pulumi_gestalt_rust::Output<i32>,
         /// Minimum instance capacity for the scaling configuration of the Virtual Hub Router. Defaults to `2`.
-        pub virtual_router_auto_scale_min_capacity: pulumi_wasm_rust::Output<
+        pub virtual_router_auto_scale_min_capacity: pulumi_gestalt_rust::Output<
             Option<i32>,
         >,
         /// The IP addresses of the Virtual Hub BGP router.
-        pub virtual_router_ips: pulumi_wasm_rust::Output<Vec<String>>,
+        pub virtual_router_ips: pulumi_gestalt_rust::Output<Vec<String>>,
         /// The ID of a Virtual WAN within which the Virtual Hub should be created. Changing this forces a new resource to be created.
-        pub virtual_wan_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub virtual_wan_id: pulumi_gestalt_rust::Output<Option<String>>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: VirtualHubArgs,
     ) -> VirtualHubResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let address_prefix_binding = args.address_prefix.get_output(context).get_inner();
         let hub_routing_preference_binding = args
@@ -199,35 +199,37 @@ pub mod virtual_hub {
         };
         let o = register_interface::register(context.get_inner(), &request);
         VirtualHubResult {
-            address_prefix: pulumi_wasm_rust::__private::into_domain(
+            address_prefix: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("addressPrefix"),
             ),
-            default_route_table_id: pulumi_wasm_rust::__private::into_domain(
+            default_route_table_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("defaultRouteTableId"),
             ),
-            hub_routing_preference: pulumi_wasm_rust::__private::into_domain(
+            hub_routing_preference: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("hubRoutingPreference"),
             ),
-            location: pulumi_wasm_rust::__private::into_domain(
+            location: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("location"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            resource_group_name: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("resourceGroupName"),
             ),
-            routes: pulumi_wasm_rust::__private::into_domain(o.extract_field("routes")),
-            sku: pulumi_wasm_rust::__private::into_domain(o.extract_field("sku")),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
-            virtual_router_asn: pulumi_wasm_rust::__private::into_domain(
+            routes: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("routes"),
+            ),
+            sku: pulumi_gestalt_rust::__private::into_domain(o.extract_field("sku")),
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            virtual_router_asn: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("virtualRouterAsn"),
             ),
-            virtual_router_auto_scale_min_capacity: pulumi_wasm_rust::__private::into_domain(
+            virtual_router_auto_scale_min_capacity: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("virtualRouterAutoScaleMinCapacity"),
             ),
-            virtual_router_ips: pulumi_wasm_rust::__private::into_domain(
+            virtual_router_ips: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("virtualRouterIps"),
             ),
-            virtual_wan_id: pulumi_wasm_rust::__private::into_domain(
+            virtual_wan_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("virtualWanId"),
             ),
         }

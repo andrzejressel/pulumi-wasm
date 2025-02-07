@@ -1,53 +1,53 @@
 pub mod get_directory {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct GetDirectoryArgs {
         /// ID of the directory.
         #[builder(into)]
-        pub directory_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub directory_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// A map of tags assigned to the directory/connector.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
     #[allow(dead_code)]
     pub struct GetDirectoryResult {
         /// Access URL for the directory/connector, such as http://alias.awsapps.com.
-        pub access_url: pulumi_wasm_rust::Output<String>,
+        pub access_url: pulumi_gestalt_rust::Output<String>,
         /// Alias for the directory/connector, such as `d-991708b282.awsapps.com`.
-        pub alias: pulumi_wasm_rust::Output<String>,
-        pub connect_settings: pulumi_wasm_rust::Output<
+        pub alias: pulumi_gestalt_rust::Output<String>,
+        pub connect_settings: pulumi_gestalt_rust::Output<
             Vec<super::super::super::types::directoryservice::GetDirectoryConnectSetting>,
         >,
         /// Textual description for the directory/connector.
-        pub description: pulumi_wasm_rust::Output<String>,
-        pub directory_id: pulumi_wasm_rust::Output<String>,
+        pub description: pulumi_gestalt_rust::Output<String>,
+        pub directory_id: pulumi_gestalt_rust::Output<String>,
         /// List of IP addresses of the DNS servers for the directory/connector.
-        pub dns_ip_addresses: pulumi_wasm_rust::Output<Vec<String>>,
+        pub dns_ip_addresses: pulumi_gestalt_rust::Output<Vec<String>>,
         /// (for `MicrosoftAD`) Microsoft AD edition (`Standard` or `Enterprise`).
-        pub edition: pulumi_wasm_rust::Output<String>,
+        pub edition: pulumi_gestalt_rust::Output<String>,
         /// Directory/connector single-sign on status.
-        pub enable_sso: pulumi_wasm_rust::Output<bool>,
+        pub enable_sso: pulumi_gestalt_rust::Output<bool>,
         /// The provider-assigned unique ID for this managed resource.
-        pub id: pulumi_wasm_rust::Output<String>,
+        pub id: pulumi_gestalt_rust::Output<String>,
         /// Fully qualified name for the directory/connector.
-        pub name: pulumi_wasm_rust::Output<String>,
-        pub radius_settings: pulumi_wasm_rust::Output<
+        pub name: pulumi_gestalt_rust::Output<String>,
+        pub radius_settings: pulumi_gestalt_rust::Output<
             Vec<super::super::super::types::directoryservice::GetDirectoryRadiusSetting>,
         >,
         /// ID of the security group created by the directory/connector.
-        pub security_group_id: pulumi_wasm_rust::Output<String>,
+        pub security_group_id: pulumi_gestalt_rust::Output<String>,
         /// Short name of the directory/connector, such as `CORP`.
-        pub short_name: pulumi_wasm_rust::Output<String>,
+        pub short_name: pulumi_gestalt_rust::Output<String>,
         /// (for `SimpleAD` and `ADConnector`) Size of the directory/connector (`Small` or `Large`).
-        pub size: pulumi_wasm_rust::Output<String>,
+        pub size: pulumi_gestalt_rust::Output<String>,
         /// A map of tags assigned to the directory/connector.
-        pub tags: pulumi_wasm_rust::Output<std::collections::HashMap<String, String>>,
+        pub tags: pulumi_gestalt_rust::Output<std::collections::HashMap<String, String>>,
         /// Directory type (`SimpleAD`, `ADConnector` or `MicrosoftAD`).
-        pub type_: pulumi_wasm_rust::Output<String>,
-        pub vpc_settings: pulumi_wasm_rust::Output<
+        pub type_: pulumi_gestalt_rust::Output<String>,
+        pub vpc_settings: pulumi_gestalt_rust::Output<
             Vec<super::super::super::types::directoryservice::GetDirectoryVpcSetting>,
         >,
     }
@@ -56,10 +56,10 @@ pub mod get_directory {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         args: GetDirectoryArgs,
     ) -> GetDirectoryResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let directory_id_binding = args.directory_id.get_output(context).get_inner();
         let tags_binding = args.tags.get_output(context).get_inner();
@@ -79,43 +79,43 @@ pub mod get_directory {
         };
         let o = register_interface::invoke(context.get_inner(), &request);
         GetDirectoryResult {
-            access_url: pulumi_wasm_rust::__private::into_domain(
+            access_url: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("accessUrl"),
             ),
-            alias: pulumi_wasm_rust::__private::into_domain(o.extract_field("alias")),
-            connect_settings: pulumi_wasm_rust::__private::into_domain(
+            alias: pulumi_gestalt_rust::__private::into_domain(o.extract_field("alias")),
+            connect_settings: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("connectSettings"),
             ),
-            description: pulumi_wasm_rust::__private::into_domain(
+            description: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("description"),
             ),
-            directory_id: pulumi_wasm_rust::__private::into_domain(
+            directory_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("directoryId"),
             ),
-            dns_ip_addresses: pulumi_wasm_rust::__private::into_domain(
+            dns_ip_addresses: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("dnsIpAddresses"),
             ),
-            edition: pulumi_wasm_rust::__private::into_domain(
+            edition: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("edition"),
             ),
-            enable_sso: pulumi_wasm_rust::__private::into_domain(
+            enable_sso: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("enableSso"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            radius_settings: pulumi_wasm_rust::__private::into_domain(
+            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            radius_settings: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("radiusSettings"),
             ),
-            security_group_id: pulumi_wasm_rust::__private::into_domain(
+            security_group_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("securityGroupId"),
             ),
-            short_name: pulumi_wasm_rust::__private::into_domain(
+            short_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("shortName"),
             ),
-            size: pulumi_wasm_rust::__private::into_domain(o.extract_field("size")),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
-            type_: pulumi_wasm_rust::__private::into_domain(o.extract_field("type")),
-            vpc_settings: pulumi_wasm_rust::__private::into_domain(
+            size: pulumi_gestalt_rust::__private::into_domain(o.extract_field("size")),
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            type_: pulumi_gestalt_rust::__private::into_domain(o.extract_field("type")),
+            vpc_settings: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("vpcSettings"),
             ),
         }

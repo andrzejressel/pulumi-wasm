@@ -9,47 +9,47 @@
 /// $ pulumi import aws:pinpoint/gcmChannel:GcmChannel gcm application-id
 /// ```
 pub mod gcm_channel {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct GcmChannelArgs {
         /// Platform credential API key from Google.
         #[builder(into, default)]
-        pub api_key: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub api_key: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The application ID.
         #[builder(into)]
-        pub application_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub application_id: pulumi_gestalt_rust::InputOrOutput<String>,
         #[builder(into, default)]
-        pub default_authentication_method: pulumi_wasm_rust::InputOrOutput<
+        pub default_authentication_method: pulumi_gestalt_rust::InputOrOutput<
             Option<String>,
         >,
         /// Whether the channel is enabled or disabled. Defaults to `true`.
         #[builder(into, default)]
-        pub enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub enabled: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         #[builder(into, default)]
-        pub service_json: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub service_json: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct GcmChannelResult {
         /// Platform credential API key from Google.
-        pub api_key: pulumi_wasm_rust::Output<Option<String>>,
+        pub api_key: pulumi_gestalt_rust::Output<Option<String>>,
         /// The application ID.
-        pub application_id: pulumi_wasm_rust::Output<String>,
-        pub default_authentication_method: pulumi_wasm_rust::Output<Option<String>>,
+        pub application_id: pulumi_gestalt_rust::Output<String>,
+        pub default_authentication_method: pulumi_gestalt_rust::Output<Option<String>>,
         /// Whether the channel is enabled or disabled. Defaults to `true`.
-        pub enabled: pulumi_wasm_rust::Output<Option<bool>>,
-        pub service_json: pulumi_wasm_rust::Output<Option<String>>,
+        pub enabled: pulumi_gestalt_rust::Output<Option<bool>>,
+        pub service_json: pulumi_gestalt_rust::Output<Option<String>>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: GcmChannelArgs,
     ) -> GcmChannelResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let api_key_binding = args.api_key.get_output(context).get_inner();
         let application_id_binding = args.application_id.get_output(context).get_inner();
@@ -88,17 +88,19 @@ pub mod gcm_channel {
         };
         let o = register_interface::register(context.get_inner(), &request);
         GcmChannelResult {
-            api_key: pulumi_wasm_rust::__private::into_domain(o.extract_field("apiKey")),
-            application_id: pulumi_wasm_rust::__private::into_domain(
+            api_key: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("apiKey"),
+            ),
+            application_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("applicationId"),
             ),
-            default_authentication_method: pulumi_wasm_rust::__private::into_domain(
+            default_authentication_method: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("defaultAuthenticationMethod"),
             ),
-            enabled: pulumi_wasm_rust::__private::into_domain(
+            enabled: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("enabled"),
             ),
-            service_json: pulumi_wasm_rust::__private::into_domain(
+            service_json: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("serviceJson"),
             ),
         }

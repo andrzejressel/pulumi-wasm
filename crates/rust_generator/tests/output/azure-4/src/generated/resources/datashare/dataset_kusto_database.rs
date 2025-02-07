@@ -71,43 +71,43 @@
 /// ```
 ///
 pub mod dataset_kusto_database {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct DatasetKustoDatabaseArgs {
         /// The resource ID of the Kusto Cluster Database to be shared with the receiver. Changing this forces a new Data Share Kusto Database Dataset to be created.
         #[builder(into)]
-        pub kusto_database_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub kusto_database_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The name which should be used for this Data Share Kusto Database Dataset. Changing this forces a new Data Share Kusto Database Dataset to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The resource ID of the Data Share where this Data Share Kusto Database Dataset should be created. Changing this forces a new Data Share Kusto Database Dataset to be created.
         #[builder(into)]
-        pub share_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub share_id: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct DatasetKustoDatabaseResult {
         /// The name of the Data Share Dataset.
-        pub display_name: pulumi_wasm_rust::Output<String>,
+        pub display_name: pulumi_gestalt_rust::Output<String>,
         /// The location of the Kusto Cluster.
-        pub kusto_cluster_location: pulumi_wasm_rust::Output<String>,
+        pub kusto_cluster_location: pulumi_gestalt_rust::Output<String>,
         /// The resource ID of the Kusto Cluster Database to be shared with the receiver. Changing this forces a new Data Share Kusto Database Dataset to be created.
-        pub kusto_database_id: pulumi_wasm_rust::Output<String>,
+        pub kusto_database_id: pulumi_gestalt_rust::Output<String>,
         /// The name which should be used for this Data Share Kusto Database Dataset. Changing this forces a new Data Share Kusto Database Dataset to be created.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// The resource ID of the Data Share where this Data Share Kusto Database Dataset should be created. Changing this forces a new Data Share Kusto Database Dataset to be created.
-        pub share_id: pulumi_wasm_rust::Output<String>,
+        pub share_id: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: DatasetKustoDatabaseArgs,
     ) -> DatasetKustoDatabaseResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let kusto_database_id_binding = args
             .kusto_database_id
@@ -136,17 +136,17 @@ pub mod dataset_kusto_database {
         };
         let o = register_interface::register(context.get_inner(), &request);
         DatasetKustoDatabaseResult {
-            display_name: pulumi_wasm_rust::__private::into_domain(
+            display_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("displayName"),
             ),
-            kusto_cluster_location: pulumi_wasm_rust::__private::into_domain(
+            kusto_cluster_location: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("kustoClusterLocation"),
             ),
-            kusto_database_id: pulumi_wasm_rust::__private::into_domain(
+            kusto_database_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("kustoDatabaseId"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            share_id: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            share_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("shareId"),
             ),
         }

@@ -99,95 +99,97 @@
 /// ```
 ///
 pub mod assignment {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct AssignmentArgs {
         /// An `identity` block as defined below.
         #[builder(into)]
-        pub identity: pulumi_wasm_rust::InputOrOutput<
+        pub identity: pulumi_gestalt_rust::InputOrOutput<
             super::super::types::blueprint::AssignmentIdentity,
         >,
         /// The Azure location of the Assignment. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub location: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub location: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// a list of up to 200 actions that are permitted to bypass the locks applied by the Blueprint.
         #[builder(into, default)]
-        pub lock_exclude_actions: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
+        pub lock_exclude_actions: pulumi_gestalt_rust::InputOrOutput<
+            Option<Vec<String>>,
+        >,
         /// a list of up to 5 Principal IDs that are permitted to bypass the locks applied by the Blueprint.
         #[builder(into, default)]
-        pub lock_exclude_principals: pulumi_wasm_rust::InputOrOutput<
+        pub lock_exclude_principals: pulumi_gestalt_rust::InputOrOutput<
             Option<Vec<String>>,
         >,
         /// The locking mode of the Blueprint Assignment. One of `None` (Default), `AllResourcesReadOnly`, or `AllResourcesDoNotDelete`. Defaults to `None`.
         #[builder(into, default)]
-        pub lock_mode: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub lock_mode: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The name of the Blueprint Assignment. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// a JSON string to supply Blueprint Assignment parameter values.
         ///
         /// > **NOTE:** Improperly formatted JSON, or missing values required by a Blueprint will cause the assignment to fail.
         #[builder(into, default)]
-        pub parameter_values: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub parameter_values: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// a JSON string to supply the Blueprint Resource Group information.
         ///
         /// > **NOTE:** Improperly formatted JSON, or missing values required by a Blueprint will cause the assignment to fail.
         #[builder(into, default)]
-        pub resource_groups: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub resource_groups: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The Subscription ID the Blueprint Published Version is to be applied to. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub target_subscription_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub target_subscription_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The ID of the Published Version of the blueprint to be assigned.
         #[builder(into)]
-        pub version_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub version_id: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct AssignmentResult {
         /// The name of the blueprint assigned
-        pub blueprint_name: pulumi_wasm_rust::Output<String>,
+        pub blueprint_name: pulumi_gestalt_rust::Output<String>,
         /// The Description on the Blueprint
-        pub description: pulumi_wasm_rust::Output<String>,
+        pub description: pulumi_gestalt_rust::Output<String>,
         /// The display name of the blueprint
-        pub display_name: pulumi_wasm_rust::Output<String>,
+        pub display_name: pulumi_gestalt_rust::Output<String>,
         /// An `identity` block as defined below.
-        pub identity: pulumi_wasm_rust::Output<
+        pub identity: pulumi_gestalt_rust::Output<
             super::super::types::blueprint::AssignmentIdentity,
         >,
         /// The Azure location of the Assignment. Changing this forces a new resource to be created.
-        pub location: pulumi_wasm_rust::Output<String>,
+        pub location: pulumi_gestalt_rust::Output<String>,
         /// a list of up to 200 actions that are permitted to bypass the locks applied by the Blueprint.
-        pub lock_exclude_actions: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub lock_exclude_actions: pulumi_gestalt_rust::Output<Option<Vec<String>>>,
         /// a list of up to 5 Principal IDs that are permitted to bypass the locks applied by the Blueprint.
-        pub lock_exclude_principals: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub lock_exclude_principals: pulumi_gestalt_rust::Output<Option<Vec<String>>>,
         /// The locking mode of the Blueprint Assignment. One of `None` (Default), `AllResourcesReadOnly`, or `AllResourcesDoNotDelete`. Defaults to `None`.
-        pub lock_mode: pulumi_wasm_rust::Output<Option<String>>,
+        pub lock_mode: pulumi_gestalt_rust::Output<Option<String>>,
         /// The name of the Blueprint Assignment. Changing this forces a new resource to be created.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// a JSON string to supply Blueprint Assignment parameter values.
         ///
         /// > **NOTE:** Improperly formatted JSON, or missing values required by a Blueprint will cause the assignment to fail.
-        pub parameter_values: pulumi_wasm_rust::Output<Option<String>>,
+        pub parameter_values: pulumi_gestalt_rust::Output<Option<String>>,
         /// a JSON string to supply the Blueprint Resource Group information.
         ///
         /// > **NOTE:** Improperly formatted JSON, or missing values required by a Blueprint will cause the assignment to fail.
-        pub resource_groups: pulumi_wasm_rust::Output<Option<String>>,
+        pub resource_groups: pulumi_gestalt_rust::Output<Option<String>>,
         /// The Subscription ID the Blueprint Published Version is to be applied to. Changing this forces a new resource to be created.
-        pub target_subscription_id: pulumi_wasm_rust::Output<String>,
-        pub type_: pulumi_wasm_rust::Output<String>,
+        pub target_subscription_id: pulumi_gestalt_rust::Output<String>,
+        pub type_: pulumi_gestalt_rust::Output<String>,
         /// The ID of the Published Version of the blueprint to be assigned.
-        pub version_id: pulumi_wasm_rust::Output<String>,
+        pub version_id: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: AssignmentArgs,
     ) -> AssignmentResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let identity_binding = args.identity.get_output(context).get_inner();
         let location_binding = args.location.get_output(context).get_inner();
@@ -263,42 +265,42 @@ pub mod assignment {
         };
         let o = register_interface::register(context.get_inner(), &request);
         AssignmentResult {
-            blueprint_name: pulumi_wasm_rust::__private::into_domain(
+            blueprint_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("blueprintName"),
             ),
-            description: pulumi_wasm_rust::__private::into_domain(
+            description: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("description"),
             ),
-            display_name: pulumi_wasm_rust::__private::into_domain(
+            display_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("displayName"),
             ),
-            identity: pulumi_wasm_rust::__private::into_domain(
+            identity: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("identity"),
             ),
-            location: pulumi_wasm_rust::__private::into_domain(
+            location: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("location"),
             ),
-            lock_exclude_actions: pulumi_wasm_rust::__private::into_domain(
+            lock_exclude_actions: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("lockExcludeActions"),
             ),
-            lock_exclude_principals: pulumi_wasm_rust::__private::into_domain(
+            lock_exclude_principals: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("lockExcludePrincipals"),
             ),
-            lock_mode: pulumi_wasm_rust::__private::into_domain(
+            lock_mode: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("lockMode"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            parameter_values: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            parameter_values: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("parameterValues"),
             ),
-            resource_groups: pulumi_wasm_rust::__private::into_domain(
+            resource_groups: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("resourceGroups"),
             ),
-            target_subscription_id: pulumi_wasm_rust::__private::into_domain(
+            target_subscription_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("targetSubscriptionId"),
             ),
-            type_: pulumi_wasm_rust::__private::into_domain(o.extract_field("type")),
-            version_id: pulumi_wasm_rust::__private::into_domain(
+            type_: pulumi_gestalt_rust::__private::into_domain(o.extract_field("type")),
+            version_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("versionId"),
             ),
         }

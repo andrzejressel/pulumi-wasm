@@ -1,47 +1,47 @@
 pub mod get_snapshot {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct GetSnapshotArgs {
         /// Specifies the name of the Snapshot.
         #[builder(into)]
-        pub name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Specifies the name of the resource group the Snapshot is located in.
         #[builder(into)]
-        pub resource_group_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub resource_group_name: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct GetSnapshotResult {
-        pub creation_option: pulumi_wasm_rust::Output<String>,
+        pub creation_option: pulumi_gestalt_rust::Output<String>,
         /// The size of the Snapshotted Disk in GB.
-        pub disk_size_gb: pulumi_wasm_rust::Output<i32>,
-        pub encryption_settings: pulumi_wasm_rust::Output<
+        pub disk_size_gb: pulumi_gestalt_rust::Output<i32>,
+        pub encryption_settings: pulumi_gestalt_rust::Output<
             Vec<super::super::super::types::compute::GetSnapshotEncryptionSetting>,
         >,
         /// The provider-assigned unique ID for this managed resource.
-        pub id: pulumi_wasm_rust::Output<String>,
-        pub name: pulumi_wasm_rust::Output<String>,
-        pub os_type: pulumi_wasm_rust::Output<String>,
-        pub resource_group_name: pulumi_wasm_rust::Output<String>,
+        pub id: pulumi_gestalt_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
+        pub os_type: pulumi_gestalt_rust::Output<String>,
+        pub resource_group_name: pulumi_gestalt_rust::Output<String>,
         /// The reference to an existing snapshot.
-        pub source_resource_id: pulumi_wasm_rust::Output<String>,
+        pub source_resource_id: pulumi_gestalt_rust::Output<String>,
         /// The URI to a Managed or Unmanaged Disk.
-        pub source_uri: pulumi_wasm_rust::Output<String>,
+        pub source_uri: pulumi_gestalt_rust::Output<String>,
         /// The ID of an storage account.
-        pub storage_account_id: pulumi_wasm_rust::Output<String>,
-        pub time_created: pulumi_wasm_rust::Output<String>,
+        pub storage_account_id: pulumi_gestalt_rust::Output<String>,
+        pub time_created: pulumi_gestalt_rust::Output<String>,
         /// Whether Trusted Launch is enabled for the Snapshot.
-        pub trusted_launch_enabled: pulumi_wasm_rust::Output<bool>,
+        pub trusted_launch_enabled: pulumi_gestalt_rust::Output<bool>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         args: GetSnapshotArgs,
     ) -> GetSnapshotResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let name_binding = args.name.get_output(context).get_inner();
         let resource_group_name_binding = args
@@ -64,34 +64,36 @@ pub mod get_snapshot {
         };
         let o = register_interface::invoke(context.get_inner(), &request);
         GetSnapshotResult {
-            creation_option: pulumi_wasm_rust::__private::into_domain(
+            creation_option: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("creationOption"),
             ),
-            disk_size_gb: pulumi_wasm_rust::__private::into_domain(
+            disk_size_gb: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("diskSizeGb"),
             ),
-            encryption_settings: pulumi_wasm_rust::__private::into_domain(
+            encryption_settings: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("encryptionSettings"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            os_type: pulumi_wasm_rust::__private::into_domain(o.extract_field("osType")),
-            resource_group_name: pulumi_wasm_rust::__private::into_domain(
+            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            os_type: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("osType"),
+            ),
+            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("resourceGroupName"),
             ),
-            source_resource_id: pulumi_wasm_rust::__private::into_domain(
+            source_resource_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("sourceResourceId"),
             ),
-            source_uri: pulumi_wasm_rust::__private::into_domain(
+            source_uri: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("sourceUri"),
             ),
-            storage_account_id: pulumi_wasm_rust::__private::into_domain(
+            storage_account_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("storageAccountId"),
             ),
-            time_created: pulumi_wasm_rust::__private::into_domain(
+            time_created: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("timeCreated"),
             ),
-            trusted_launch_enabled: pulumi_wasm_rust::__private::into_domain(
+            trusted_launch_enabled: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("trustedLaunchEnabled"),
             ),
         }

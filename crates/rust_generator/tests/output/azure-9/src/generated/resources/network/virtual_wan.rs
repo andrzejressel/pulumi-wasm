@@ -3,8 +3,8 @@
 /// ## Example Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = resource_group::create(
@@ -34,72 +34,74 @@
 /// ```
 ///
 pub mod virtual_wan {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct VirtualWanArgs {
         /// Boolean flag to specify whether branch to branch traffic is allowed. Defaults to `true`.
         #[builder(into, default)]
-        pub allow_branch_to_branch_traffic: pulumi_wasm_rust::InputOrOutput<
+        pub allow_branch_to_branch_traffic: pulumi_gestalt_rust::InputOrOutput<
             Option<bool>,
         >,
         /// Boolean flag to specify whether VPN encryption is disabled. Defaults to `false`.
         #[builder(into, default)]
-        pub disable_vpn_encryption: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub disable_vpn_encryption: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub location: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub location: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Specifies the name of the Virtual WAN. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Specifies the Office365 local breakout category. Possible values include: `Optimize`, `OptimizeAndAllow`, `All`, `None`. Defaults to `None`.
         #[builder(into, default)]
-        pub office365_local_breakout_category: pulumi_wasm_rust::InputOrOutput<
+        pub office365_local_breakout_category: pulumi_gestalt_rust::InputOrOutput<
             Option<String>,
         >,
         /// The name of the resource group in which to create the Virtual WAN. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub resource_group_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub resource_group_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// A mapping of tags to assign to the Virtual WAN.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Specifies the Virtual WAN type. Possible Values include: `Basic` and `Standard`. Defaults to `Standard`.
         #[builder(into, default)]
-        pub type_: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub type_: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct VirtualWanResult {
         /// Boolean flag to specify whether branch to branch traffic is allowed. Defaults to `true`.
-        pub allow_branch_to_branch_traffic: pulumi_wasm_rust::Output<Option<bool>>,
+        pub allow_branch_to_branch_traffic: pulumi_gestalt_rust::Output<Option<bool>>,
         /// Boolean flag to specify whether VPN encryption is disabled. Defaults to `false`.
-        pub disable_vpn_encryption: pulumi_wasm_rust::Output<Option<bool>>,
+        pub disable_vpn_encryption: pulumi_gestalt_rust::Output<Option<bool>>,
         /// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
-        pub location: pulumi_wasm_rust::Output<String>,
+        pub location: pulumi_gestalt_rust::Output<String>,
         /// Specifies the name of the Virtual WAN. Changing this forces a new resource to be created.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// Specifies the Office365 local breakout category. Possible values include: `Optimize`, `OptimizeAndAllow`, `All`, `None`. Defaults to `None`.
-        pub office365_local_breakout_category: pulumi_wasm_rust::Output<Option<String>>,
+        pub office365_local_breakout_category: pulumi_gestalt_rust::Output<
+            Option<String>,
+        >,
         /// The name of the resource group in which to create the Virtual WAN. Changing this forces a new resource to be created.
-        pub resource_group_name: pulumi_wasm_rust::Output<String>,
+        pub resource_group_name: pulumi_gestalt_rust::Output<String>,
         /// A mapping of tags to assign to the Virtual WAN.
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Specifies the Virtual WAN type. Possible Values include: `Basic` and `Standard`. Defaults to `Standard`.
-        pub type_: pulumi_wasm_rust::Output<Option<String>>,
+        pub type_: pulumi_gestalt_rust::Output<Option<String>>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: VirtualWanArgs,
     ) -> VirtualWanResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let allow_branch_to_branch_traffic_binding = args
             .allow_branch_to_branch_traffic
@@ -162,24 +164,24 @@ pub mod virtual_wan {
         };
         let o = register_interface::register(context.get_inner(), &request);
         VirtualWanResult {
-            allow_branch_to_branch_traffic: pulumi_wasm_rust::__private::into_domain(
+            allow_branch_to_branch_traffic: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("allowBranchToBranchTraffic"),
             ),
-            disable_vpn_encryption: pulumi_wasm_rust::__private::into_domain(
+            disable_vpn_encryption: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("disableVpnEncryption"),
             ),
-            location: pulumi_wasm_rust::__private::into_domain(
+            location: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("location"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            office365_local_breakout_category: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            office365_local_breakout_category: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("office365LocalBreakoutCategory"),
             ),
-            resource_group_name: pulumi_wasm_rust::__private::into_domain(
+            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("resourceGroupName"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
-            type_: pulumi_wasm_rust::__private::into_domain(o.extract_field("type")),
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            type_: pulumi_gestalt_rust::__private::into_domain(o.extract_field("type")),
         }
     }
 }

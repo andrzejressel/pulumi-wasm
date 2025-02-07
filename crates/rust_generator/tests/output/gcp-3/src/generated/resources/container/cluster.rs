@@ -17,8 +17,8 @@
 /// ### With A Separately Managed Node Pool (Recommended)
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let default = account::create(
@@ -90,8 +90,8 @@
 /// ### Autopilot
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let default = account::create(
@@ -145,32 +145,32 @@
 /// - `remove_default_node_pool`
 ///
 pub mod cluster {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ClusterArgs {
         /// The configuration for addons supported by GKE.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub addons_config: pulumi_wasm_rust::InputOrOutput<
+        pub addons_config: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::container::ClusterAddonsConfig>,
         >,
         /// Enable NET_ADMIN for the cluster. Defaults to
         /// `false`. This field should only be enabled for Autopilot clusters (`enable_autopilot`
         /// set to `true`).
         #[builder(into, default)]
-        pub allow_net_admin: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub allow_net_admin: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// Configuration for the
         /// [Google Groups for GKE](https://cloud.google.com/kubernetes-engine/docs/how-to/role-based-access-control#groups-setup-gsuite) feature.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub authenticator_groups_config: pulumi_wasm_rust::InputOrOutput<
+        pub authenticator_groups_config: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::container::ClusterAuthenticatorGroupsConfig>,
         >,
         /// Configuration options for the Binary
         /// Authorization feature. Structure is documented below.
         #[builder(into, default)]
-        pub binary_authorization: pulumi_wasm_rust::InputOrOutput<
+        pub binary_authorization: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::container::ClusterBinaryAuthorization>,
         >,
         /// Per-cluster configuration of Node Auto-Provisioning with Cluster Autoscaler to
@@ -179,7 +179,7 @@ pub mod cluster {
         /// [guide to using Node Auto-Provisioning](https://cloud.google.com/kubernetes-engine/docs/how-to/node-auto-provisioning)
         /// for more details. Structure is documented below.
         #[builder(into, default)]
-        pub cluster_autoscaling: pulumi_wasm_rust::InputOrOutput<
+        pub cluster_autoscaling: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::container::ClusterClusterAutoscaling>,
         >,
         /// The IP address range of the Kubernetes pods
@@ -187,59 +187,59 @@ pub mod cluster {
         /// automatically chosen or specify a `/14` block in `10.0.0.0/8`. This field will
         /// default a new cluster to routes-based, where `ip_allocation_policy` is not defined.
         #[builder(into, default)]
-        pub cluster_ipv4_cidr: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub cluster_ipv4_cidr: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Configuration for
         /// [ClusterTelemetry](https://cloud.google.com/monitoring/kubernetes-engine/installing#controlling_the_collection_of_application_logs) feature,
         /// Structure is documented below.
         #[builder(into, default)]
-        pub cluster_telemetry: pulumi_wasm_rust::InputOrOutput<
+        pub cluster_telemetry: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::container::ClusterClusterTelemetry>,
         >,
         /// Configuration for [Confidential Nodes](https://cloud.google.com/kubernetes-engine/docs/how-to/confidential-gke-nodes) feature. Structure is documented below documented below.
         #[builder(into, default)]
-        pub confidential_nodes: pulumi_wasm_rust::InputOrOutput<
+        pub confidential_nodes: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::container::ClusterConfidentialNodes>,
         >,
         /// Configuration for all of the cluster's control plane endpoints.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub control_plane_endpoints_config: pulumi_wasm_rust::InputOrOutput<
+        pub control_plane_endpoints_config: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::container::ClusterControlPlaneEndpointsConfig>,
         >,
         /// Configuration for the
         /// [Cost Allocation](https://cloud.google.com/kubernetes-engine/docs/how-to/cost-allocations) feature.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub cost_management_config: pulumi_wasm_rust::InputOrOutput<
+        pub cost_management_config: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::container::ClusterCostManagementConfig>,
         >,
         /// Structure is documented below.
         #[builder(into, default)]
-        pub database_encryption: pulumi_wasm_rust::InputOrOutput<
+        pub database_encryption: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::container::ClusterDatabaseEncryption>,
         >,
         /// The desired datapath provider for this cluster. This is set to `LEGACY_DATAPATH` by default, which uses the IPTables-based kube-proxy implementation. Set to `ADVANCED_DATAPATH` to enable Dataplane v2.
         #[builder(into, default)]
-        pub datapath_provider: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub datapath_provider: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The default maximum number of pods
         /// per node in this cluster. This doesn't work on "routes-based" clusters, clusters
         /// that don't have IP Aliasing enabled. See the [official documentation](https://cloud.google.com/kubernetes-engine/docs/how-to/flexible-pod-cidr)
         /// for more information.
         #[builder(into, default)]
-        pub default_max_pods_per_node: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
+        pub default_max_pods_per_node: pulumi_gestalt_rust::InputOrOutput<Option<i32>>,
         /// [GKE SNAT](https://cloud.google.com/kubernetes-engine/docs/how-to/ip-masquerade-agent#how_ipmasq_works) DefaultSnatStatus contains the desired state of whether default sNAT should be disabled on the cluster, [API doc](https://cloud.google.com/kubernetes-engine/docs/reference/rest/v1beta1/projects.locations.clusters#networkconfig). Structure is documented below
         #[builder(into, default)]
-        pub default_snat_status: pulumi_wasm_rust::InputOrOutput<
+        pub default_snat_status: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::container::ClusterDefaultSnatStatus>,
         >,
         #[builder(into, default)]
-        pub deletion_protection: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub deletion_protection: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// Description of the cluster.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub description: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Configuration for [Using Cloud DNS for GKE](https://cloud.google.com/kubernetes-engine/docs/how-to/cloud-dns). Structure is documented below.
         #[builder(into, default)]
-        pub dns_config: pulumi_wasm_rust::InputOrOutput<
+        pub dns_config: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::container::ClusterDnsConfig>,
         >,
         /// Enable Autopilot for this cluster. Defaults to `false`.
@@ -247,69 +247,71 @@ pub mod cluster {
         /// See the [official documentation](https://cloud.google.com/kubernetes-engine/docs/concepts/autopilot-overview#comparison)
         /// for available features.
         #[builder(into, default)]
-        pub enable_autopilot: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub enable_autopilot: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// Whether CiliumClusterWideNetworkPolicy is enabled on this cluster. Defaults to false.
         #[builder(into, default)]
-        pub enable_cilium_clusterwide_network_policy: pulumi_wasm_rust::InputOrOutput<
+        pub enable_cilium_clusterwide_network_policy: pulumi_gestalt_rust::InputOrOutput<
             Option<bool>,
         >,
         /// Whether FQDN Network Policy is enabled on this cluster. Users who enable this feature for existing Standard clusters must restart the GKE Dataplane V2 `anetd` DaemonSet after enabling it. See the [Enable FQDN Network Policy in an existing cluster](https://cloud.google.com/kubernetes-engine/docs/how-to/fqdn-network-policies#enable_fqdn_network_policy_in_an_existing_cluster) for more information.
         #[builder(into, default)]
-        pub enable_fqdn_network_policy: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub enable_fqdn_network_policy: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// Whether Intra-node visibility is enabled for this cluster. This makes same node pod to pod traffic visible for VPC network.
         #[builder(into, default)]
-        pub enable_intranode_visibility: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub enable_intranode_visibility: pulumi_gestalt_rust::InputOrOutput<
+            Option<bool>,
+        >,
         /// Configuration for Kubernetes Beta APIs.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub enable_k8s_beta_apis: pulumi_wasm_rust::InputOrOutput<
+        pub enable_k8s_beta_apis: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::container::ClusterEnableK8SBetaApis>,
         >,
         /// Whether to enable Kubernetes Alpha features for
         /// this cluster. Note that when this option is enabled, the cluster cannot be upgraded
         /// and will be automatically deleted after 30 days.
         #[builder(into, default)]
-        pub enable_kubernetes_alpha: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub enable_kubernetes_alpha: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// Whether L4ILB Subsetting is enabled for this cluster.
         #[builder(into, default)]
-        pub enable_l4_ilb_subsetting: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub enable_l4_ilb_subsetting: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// Whether the ABAC authorizer is enabled for this cluster.
         /// When enabled, identities in the system, including service accounts, nodes, and controllers,
         /// will have statically granted permissions beyond those provided by the RBAC configuration or IAM.
         /// Defaults to `false`
         #[builder(into, default)]
-        pub enable_legacy_abac: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub enable_legacy_abac: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// Whether multi-networking is enabled for this cluster.
         #[builder(into, default)]
-        pub enable_multi_networking: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub enable_multi_networking: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// Enable Shielded Nodes features on all nodes in this cluster.  Defaults to `true`.
         #[builder(into, default)]
-        pub enable_shielded_nodes: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub enable_shielded_nodes: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// Whether to enable Cloud TPU resources in this cluster.
         /// See the [official documentation](https://cloud.google.com/tpu/docs/kubernetes-engine-setup).
         #[builder(into, default)]
-        pub enable_tpu: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub enable_tpu: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// Configuration for [Enterprise edition].(https://cloud.google.com/kubernetes-engine/enterprise/docs/concepts/gke-editions). Structure is documented below.
         ///
         ///
         /// <a name="nested_default_snat_status"></a>The `default_snat_status` block supports
         #[builder(into, default)]
-        pub enterprise_config: pulumi_wasm_rust::InputOrOutput<
+        pub enterprise_config: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::container::ClusterEnterpriseConfig>,
         >,
         /// Fleet configuration for the cluster. Structure is documented below.
         #[builder(into, default)]
-        pub fleet: pulumi_wasm_rust::InputOrOutput<
+        pub fleet: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::container::ClusterFleet>,
         >,
         /// Configuration for [GKE Gateway API controller](https://cloud.google.com/kubernetes-engine/docs/concepts/gateway-api). Structure is documented below.
         #[builder(into, default)]
-        pub gateway_api_config: pulumi_wasm_rust::InputOrOutput<
+        pub gateway_api_config: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::container::ClusterGatewayApiConfig>,
         >,
         /// . Structure is documented below.
         #[builder(into, default)]
-        pub identity_service_config: pulumi_wasm_rust::InputOrOutput<
+        pub identity_service_config: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::container::ClusterIdentityServiceConfig>,
         >,
         /// The number of nodes to create in this
@@ -319,12 +321,12 @@ pub mod cluster {
         /// set this to a value of at least `1`, alongside setting
         /// `remove_default_node_pool` to `true`.
         #[builder(into, default)]
-        pub initial_node_count: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
+        pub initial_node_count: pulumi_gestalt_rust::InputOrOutput<Option<i32>>,
         /// Configuration of cluster IP allocation for
         /// VPC-native clusters. If this block is unset during creation, it will be set by the GKE backend.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub ip_allocation_policy: pulumi_wasm_rust::InputOrOutput<
+        pub ip_allocation_policy: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::container::ClusterIpAllocationPolicy>,
         >,
         /// The location (region or zone) in which the cluster
@@ -334,22 +336,22 @@ pub mod cluster {
         /// cluster will be a regional cluster with multiple masters spread across zones in
         /// the region, and with default node locations in those zones as well
         #[builder(into, default)]
-        pub location: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub location: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Logging configuration for the cluster.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub logging_config: pulumi_wasm_rust::InputOrOutput<
+        pub logging_config: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::container::ClusterLoggingConfig>,
         >,
         /// The logging service that the cluster should
         /// write logs to. Available options include `logging.googleapis.com`(Legacy Stackdriver),
         /// `logging.googleapis.com/kubernetes`(Stackdriver Kubernetes Engine Logging), and `none`. Defaults to `logging.googleapis.com/kubernetes`
         #[builder(into, default)]
-        pub logging_service: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub logging_service: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The maintenance policy to use for the cluster. Structure is
         /// documented below.
         #[builder(into, default)]
-        pub maintenance_policy: pulumi_wasm_rust::InputOrOutput<
+        pub maintenance_policy: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::container::ClusterMaintenancePolicy>,
         >,
         /// The authentication information for accessing the
@@ -359,7 +361,7 @@ pub mod cluster {
         /// `container.clusters.getCredentials` permission.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub master_auth: pulumi_wasm_rust::InputOrOutput<
+        pub master_auth: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::container::ClusterMasterAuth>,
         >,
         /// The desired
@@ -368,12 +370,12 @@ pub mod cluster {
         /// the cluster node IPs, which GKE automatically whitelists).
         /// Structure is documented below.
         #[builder(into, default)]
-        pub master_authorized_networks_config: pulumi_wasm_rust::InputOrOutput<
+        pub master_authorized_networks_config: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::container::ClusterMasterAuthorizedNetworksConfig>,
         >,
         /// Structure is documented below.
         #[builder(into, default)]
-        pub mesh_certificates: pulumi_wasm_rust::InputOrOutput<
+        pub mesh_certificates: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::container::ClusterMeshCertificates>,
         >,
         /// The minimum version of the master. GKE
@@ -390,11 +392,11 @@ pub mod cluster {
         /// to the datasource. A region can have a different set of supported versions than its corresponding zones, and not all zones in a
         /// region are guaranteed to support the same version.
         #[builder(into, default)]
-        pub min_master_version: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub min_master_version: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Monitoring configuration for the cluster.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub monitoring_config: pulumi_wasm_rust::InputOrOutput<
+        pub monitoring_config: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::container::ClusterMonitoringConfig>,
         >,
         /// The monitoring service that the cluster
@@ -405,36 +407,36 @@ pub mod cluster {
         /// `monitoring.googleapis.com`(Legacy Stackdriver), `monitoring.googleapis.com/kubernetes`(Stackdriver Kubernetes Engine Monitoring), and `none`.
         /// Defaults to `monitoring.googleapis.com/kubernetes`
         #[builder(into, default)]
-        pub monitoring_service: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub monitoring_service: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The name of the cluster, unique within the project and
         /// location.
         ///
         /// - - -
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The name or self_link of the Google Compute Engine
         /// network to which the cluster is connected. For Shared VPC, set this to the self link of the
         /// shared network.
         #[builder(into, default)]
-        pub network: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub network: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Configuration options for the
         /// [NetworkPolicy](https://kubernetes.io/docs/concepts/services-networking/networkpolicies/)
         /// feature. Structure is documented below.
         #[builder(into, default)]
-        pub network_policy: pulumi_wasm_rust::InputOrOutput<
+        pub network_policy: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::container::ClusterNetworkPolicy>,
         >,
         /// Determines whether alias IPs or routes will be used for pod IPs in the cluster.
         /// Options are `VPC_NATIVE` or `ROUTES`. `VPC_NATIVE` enables [IP aliasing](https://cloud.google.com/kubernetes-engine/docs/how-to/ip-aliases). Newly created clusters will default to `VPC_NATIVE`.
         #[builder(into, default)]
-        pub networking_mode: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub networking_mode: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Parameters used in creating the default node pool.
         /// Generally, this field should not be used at the same time as a
         /// `gcp.container.NodePool` or a `node_pool` block; this configuration
         /// manages the default node pool, which isn't recommended to be used.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub node_config: pulumi_wasm_rust::InputOrOutput<
+        pub node_config: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::container::ClusterNodeConfig>,
         >,
         /// The list of zones in which the cluster's nodes
@@ -449,17 +451,17 @@ pub mod cluster {
         /// in multiple zones in the region. For that reason, regional clusters should be
         /// preferred.
         #[builder(into, default)]
-        pub node_locations: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
+        pub node_locations: pulumi_gestalt_rust::InputOrOutput<Option<Vec<String>>>,
         /// Node pool configs that apply to auto-provisioned node pools in
         /// [autopilot](https://cloud.google.com/kubernetes-engine/docs/concepts/autopilot-overview#comparison) clusters and
         /// [node auto-provisioning](https://cloud.google.com/kubernetes-engine/docs/how-to/node-auto-provisioning)-enabled clusters. Structure is documented below.
         #[builder(into, default)]
-        pub node_pool_auto_config: pulumi_wasm_rust::InputOrOutput<
+        pub node_pool_auto_config: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::container::ClusterNodePoolAutoConfig>,
         >,
         /// Default NodePool settings for the entire cluster. These settings are overridden if specified on the specific NodePool object. Structure is documented below.
         #[builder(into, default)]
-        pub node_pool_defaults: pulumi_wasm_rust::InputOrOutput<
+        pub node_pool_defaults: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::container::ClusterNodePoolDefaults>,
         >,
         /// List of node pools associated with this cluster.
@@ -469,7 +471,7 @@ pub mod cluster {
         /// to say "these are the _only_ node pools associated with this cluster", use the
         /// gcp.container.NodePool resource instead of this property.
         #[builder(into, default)]
-        pub node_pools: pulumi_wasm_rust::InputOrOutput<
+        pub node_pools: pulumi_gestalt_rust::InputOrOutput<
             Option<Vec<super::super::types::container::ClusterNodePool>>,
         >,
         /// The Kubernetes version on the nodes. Must either be unset
@@ -481,35 +483,37 @@ pub mod cluster {
         /// `version_prefix` field to approximate fuzzy versions.
         /// To update nodes in other node pools, use the `version` attribute on the node pool.
         #[builder(into, default)]
-        pub node_version: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub node_version: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Configuration for the [cluster upgrade notifications](https://cloud.google.com/kubernetes-engine/docs/how-to/cluster-upgrade-notifications) feature. Structure is documented below.
         #[builder(into, default)]
-        pub notification_config: pulumi_wasm_rust::InputOrOutput<
+        pub notification_config: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::container::ClusterNotificationConfig>,
         >,
         /// Configuration for the
         /// [PodSecurityPolicy](https://cloud.google.com/kubernetes-engine/docs/how-to/pod-security-policies) feature.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub pod_security_policy_config: pulumi_wasm_rust::InputOrOutput<
+        pub pod_security_policy_config: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::container::ClusterPodSecurityPolicyConfig>,
         >,
         /// Configuration for [private clusters](https://cloud.google.com/kubernetes-engine/docs/how-to/private-clusters),
         /// clusters with private nodes. Structure is documented below.
         #[builder(into, default)]
-        pub private_cluster_config: pulumi_wasm_rust::InputOrOutput<
+        pub private_cluster_config: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::container::ClusterPrivateClusterConfig>,
         >,
         /// The desired state of IPv6 connectivity to Google Services. By default, no private IPv6 access to or from Google Services (all access will be via IPv4).
         #[builder(into, default)]
-        pub private_ipv6_google_access: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub private_ipv6_google_access: pulumi_gestalt_rust::InputOrOutput<
+            Option<String>,
+        >,
         /// The ID of the project in which the resource belongs. If it
         /// is not provided, the provider project is used.
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub project: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Enable/Disable Protect API features for the cluster. Structure is documented below.
         #[builder(into, default)]
-        pub protect_config: pulumi_wasm_rust::InputOrOutput<
+        pub protect_config: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::container::ClusterProtectConfig>,
         >,
         /// Configuration options for the [Release channel](https://cloud.google.com/kubernetes-engine/docs/concepts/release-channels)
@@ -522,7 +526,7 @@ pub mod cluster {
         /// release channel, but will not unenroll it. Instead, use the `"UNSPECIFIED"`
         /// channel. Structure is documented below.
         #[builder(into, default)]
-        pub release_channel: pulumi_wasm_rust::InputOrOutput<
+        pub release_channel: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::container::ClusterReleaseChannel>,
         >,
         /// If `true`, deletes the default node
@@ -530,69 +534,69 @@ pub mod cluster {
         /// resources with no default node pool, this should be set to `true`, alongside
         /// setting `initial_node_count` to at least `1`.
         #[builder(into, default)]
-        pub remove_default_node_pool: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub remove_default_node_pool: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// The GCE resource labels (a map of key/value pairs) to be applied to the cluster.
         ///
         /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
         /// Please refer to the field 'effective_labels' for all of the labels present on the resource.
         #[builder(into, default)]
-        pub resource_labels: pulumi_wasm_rust::InputOrOutput<
+        pub resource_labels: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Configuration for the
         /// [ResourceUsageExportConfig](https://cloud.google.com/kubernetes-engine/docs/how-to/cluster-usage-metering) feature.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub resource_usage_export_config: pulumi_wasm_rust::InputOrOutput<
+        pub resource_usage_export_config: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::container::ClusterResourceUsageExportConfig>,
         >,
         /// Configuration for the
         /// [SecretManagerConfig](https://cloud.google.com/secret-manager/docs/secret-manager-managed-csi-component) feature.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub secret_manager_config: pulumi_wasm_rust::InputOrOutput<
+        pub secret_manager_config: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::container::ClusterSecretManagerConfig>,
         >,
         /// Enable/Disable Security Posture API features for the cluster. Structure is documented below.
         #[builder(into, default)]
-        pub security_posture_config: pulumi_wasm_rust::InputOrOutput<
+        pub security_posture_config: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::container::ClusterSecurityPostureConfig>,
         >,
         /// Structure is documented below.
         #[builder(into, default)]
-        pub service_external_ips_config: pulumi_wasm_rust::InputOrOutput<
+        pub service_external_ips_config: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::container::ClusterServiceExternalIpsConfig>,
         >,
         /// The name or self_link of the Google Compute Engine
         /// subnetwork in which the cluster's instances are launched.
         #[builder(into, default)]
-        pub subnetwork: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub subnetwork: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// TPU configuration for the cluster.
         #[builder(into, default)]
-        pub tpu_config: pulumi_wasm_rust::InputOrOutput<
+        pub tpu_config: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::container::ClusterTpuConfig>,
         >,
         /// The custom keys configuration of the cluster.
         #[builder(into, default)]
-        pub user_managed_keys_config: pulumi_wasm_rust::InputOrOutput<
+        pub user_managed_keys_config: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::container::ClusterUserManagedKeysConfig>,
         >,
         /// Vertical Pod Autoscaling automatically adjusts the resources of pods controlled by it.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub vertical_pod_autoscaling: pulumi_wasm_rust::InputOrOutput<
+        pub vertical_pod_autoscaling: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::container::ClusterVerticalPodAutoscaling>,
         >,
         /// Configuration for [direct-path (via ALTS) with workload identity.](https://cloud.google.com/kubernetes-engine/docs/reference/rest/v1beta1/projects.locations.clusters#workloadaltsconfig). Structure is documented below.
         #[builder(into, default)]
-        pub workload_alts_config: pulumi_wasm_rust::InputOrOutput<
+        pub workload_alts_config: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::container::ClusterWorkloadAltsConfig>,
         >,
         /// Workload Identity allows Kubernetes service accounts to act as a user-managed
         /// [Google IAM Service Account](https://cloud.google.com/iam/docs/service-accounts#user-managed_service_accounts).
         /// Structure is documented below.
         #[builder(into, default)]
-        pub workload_identity_config: pulumi_wasm_rust::InputOrOutput<
+        pub workload_identity_config: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::container::ClusterWorkloadIdentityConfig>,
         >,
     }
@@ -600,22 +604,22 @@ pub mod cluster {
     pub struct ClusterResult {
         /// The configuration for addons supported by GKE.
         /// Structure is documented below.
-        pub addons_config: pulumi_wasm_rust::Output<
+        pub addons_config: pulumi_gestalt_rust::Output<
             super::super::types::container::ClusterAddonsConfig,
         >,
         /// Enable NET_ADMIN for the cluster. Defaults to
         /// `false`. This field should only be enabled for Autopilot clusters (`enable_autopilot`
         /// set to `true`).
-        pub allow_net_admin: pulumi_wasm_rust::Output<Option<bool>>,
+        pub allow_net_admin: pulumi_gestalt_rust::Output<Option<bool>>,
         /// Configuration for the
         /// [Google Groups for GKE](https://cloud.google.com/kubernetes-engine/docs/how-to/role-based-access-control#groups-setup-gsuite) feature.
         /// Structure is documented below.
-        pub authenticator_groups_config: pulumi_wasm_rust::Output<
+        pub authenticator_groups_config: pulumi_gestalt_rust::Output<
             super::super::types::container::ClusterAuthenticatorGroupsConfig,
         >,
         /// Configuration options for the Binary
         /// Authorization feature. Structure is documented below.
-        pub binary_authorization: pulumi_wasm_rust::Output<
+        pub binary_authorization: pulumi_gestalt_rust::Output<
             Option<super::super::types::container::ClusterBinaryAuthorization>,
         >,
         /// Per-cluster configuration of Node Auto-Provisioning with Cluster Autoscaler to
@@ -623,116 +627,116 @@ pub mod cluster {
         /// on the current needs of the cluster's workload. See the
         /// [guide to using Node Auto-Provisioning](https://cloud.google.com/kubernetes-engine/docs/how-to/node-auto-provisioning)
         /// for more details. Structure is documented below.
-        pub cluster_autoscaling: pulumi_wasm_rust::Output<
+        pub cluster_autoscaling: pulumi_gestalt_rust::Output<
             super::super::types::container::ClusterClusterAutoscaling,
         >,
         /// The IP address range of the Kubernetes pods
         /// in this cluster in CIDR notation (e.g. `10.96.0.0/14`). Leave blank to have one
         /// automatically chosen or specify a `/14` block in `10.0.0.0/8`. This field will
         /// default a new cluster to routes-based, where `ip_allocation_policy` is not defined.
-        pub cluster_ipv4_cidr: pulumi_wasm_rust::Output<String>,
+        pub cluster_ipv4_cidr: pulumi_gestalt_rust::Output<String>,
         /// Configuration for
         /// [ClusterTelemetry](https://cloud.google.com/monitoring/kubernetes-engine/installing#controlling_the_collection_of_application_logs) feature,
         /// Structure is documented below.
-        pub cluster_telemetry: pulumi_wasm_rust::Output<
+        pub cluster_telemetry: pulumi_gestalt_rust::Output<
             super::super::types::container::ClusterClusterTelemetry,
         >,
         /// Configuration for [Confidential Nodes](https://cloud.google.com/kubernetes-engine/docs/how-to/confidential-gke-nodes) feature. Structure is documented below documented below.
-        pub confidential_nodes: pulumi_wasm_rust::Output<
+        pub confidential_nodes: pulumi_gestalt_rust::Output<
             super::super::types::container::ClusterConfidentialNodes,
         >,
         /// Configuration for all of the cluster's control plane endpoints.
         /// Structure is documented below.
-        pub control_plane_endpoints_config: pulumi_wasm_rust::Output<
+        pub control_plane_endpoints_config: pulumi_gestalt_rust::Output<
             super::super::types::container::ClusterControlPlaneEndpointsConfig,
         >,
         /// Configuration for the
         /// [Cost Allocation](https://cloud.google.com/kubernetes-engine/docs/how-to/cost-allocations) feature.
         /// Structure is documented below.
-        pub cost_management_config: pulumi_wasm_rust::Output<
+        pub cost_management_config: pulumi_gestalt_rust::Output<
             super::super::types::container::ClusterCostManagementConfig,
         >,
         /// Structure is documented below.
-        pub database_encryption: pulumi_wasm_rust::Output<
+        pub database_encryption: pulumi_gestalt_rust::Output<
             super::super::types::container::ClusterDatabaseEncryption,
         >,
         /// The desired datapath provider for this cluster. This is set to `LEGACY_DATAPATH` by default, which uses the IPTables-based kube-proxy implementation. Set to `ADVANCED_DATAPATH` to enable Dataplane v2.
-        pub datapath_provider: pulumi_wasm_rust::Output<String>,
+        pub datapath_provider: pulumi_gestalt_rust::Output<String>,
         /// The default maximum number of pods
         /// per node in this cluster. This doesn't work on "routes-based" clusters, clusters
         /// that don't have IP Aliasing enabled. See the [official documentation](https://cloud.google.com/kubernetes-engine/docs/how-to/flexible-pod-cidr)
         /// for more information.
-        pub default_max_pods_per_node: pulumi_wasm_rust::Output<i32>,
+        pub default_max_pods_per_node: pulumi_gestalt_rust::Output<i32>,
         /// [GKE SNAT](https://cloud.google.com/kubernetes-engine/docs/how-to/ip-masquerade-agent#how_ipmasq_works) DefaultSnatStatus contains the desired state of whether default sNAT should be disabled on the cluster, [API doc](https://cloud.google.com/kubernetes-engine/docs/reference/rest/v1beta1/projects.locations.clusters#networkconfig). Structure is documented below
-        pub default_snat_status: pulumi_wasm_rust::Output<
+        pub default_snat_status: pulumi_gestalt_rust::Output<
             super::super::types::container::ClusterDefaultSnatStatus,
         >,
-        pub deletion_protection: pulumi_wasm_rust::Output<Option<bool>>,
+        pub deletion_protection: pulumi_gestalt_rust::Output<Option<bool>>,
         /// Description of the cluster.
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_gestalt_rust::Output<Option<String>>,
         /// Configuration for [Using Cloud DNS for GKE](https://cloud.google.com/kubernetes-engine/docs/how-to/cloud-dns). Structure is documented below.
-        pub dns_config: pulumi_wasm_rust::Output<
+        pub dns_config: pulumi_gestalt_rust::Output<
             Option<super::super::types::container::ClusterDnsConfig>,
         >,
         /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Pulumi, other clients and services.
-        pub effective_labels: pulumi_wasm_rust::Output<
+        pub effective_labels: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
         /// Enable Autopilot for this cluster. Defaults to `false`.
         /// Note that when this option is enabled, certain features of Standard GKE are not available.
         /// See the [official documentation](https://cloud.google.com/kubernetes-engine/docs/concepts/autopilot-overview#comparison)
         /// for available features.
-        pub enable_autopilot: pulumi_wasm_rust::Output<Option<bool>>,
+        pub enable_autopilot: pulumi_gestalt_rust::Output<Option<bool>>,
         /// Whether CiliumClusterWideNetworkPolicy is enabled on this cluster. Defaults to false.
-        pub enable_cilium_clusterwide_network_policy: pulumi_wasm_rust::Output<
+        pub enable_cilium_clusterwide_network_policy: pulumi_gestalt_rust::Output<
             Option<bool>,
         >,
         /// Whether FQDN Network Policy is enabled on this cluster. Users who enable this feature for existing Standard clusters must restart the GKE Dataplane V2 `anetd` DaemonSet after enabling it. See the [Enable FQDN Network Policy in an existing cluster](https://cloud.google.com/kubernetes-engine/docs/how-to/fqdn-network-policies#enable_fqdn_network_policy_in_an_existing_cluster) for more information.
-        pub enable_fqdn_network_policy: pulumi_wasm_rust::Output<Option<bool>>,
+        pub enable_fqdn_network_policy: pulumi_gestalt_rust::Output<Option<bool>>,
         /// Whether Intra-node visibility is enabled for this cluster. This makes same node pod to pod traffic visible for VPC network.
-        pub enable_intranode_visibility: pulumi_wasm_rust::Output<bool>,
+        pub enable_intranode_visibility: pulumi_gestalt_rust::Output<bool>,
         /// Configuration for Kubernetes Beta APIs.
         /// Structure is documented below.
-        pub enable_k8s_beta_apis: pulumi_wasm_rust::Output<
+        pub enable_k8s_beta_apis: pulumi_gestalt_rust::Output<
             Option<super::super::types::container::ClusterEnableK8SBetaApis>,
         >,
         /// Whether to enable Kubernetes Alpha features for
         /// this cluster. Note that when this option is enabled, the cluster cannot be upgraded
         /// and will be automatically deleted after 30 days.
-        pub enable_kubernetes_alpha: pulumi_wasm_rust::Output<Option<bool>>,
+        pub enable_kubernetes_alpha: pulumi_gestalt_rust::Output<Option<bool>>,
         /// Whether L4ILB Subsetting is enabled for this cluster.
-        pub enable_l4_ilb_subsetting: pulumi_wasm_rust::Output<Option<bool>>,
+        pub enable_l4_ilb_subsetting: pulumi_gestalt_rust::Output<Option<bool>>,
         /// Whether the ABAC authorizer is enabled for this cluster.
         /// When enabled, identities in the system, including service accounts, nodes, and controllers,
         /// will have statically granted permissions beyond those provided by the RBAC configuration or IAM.
         /// Defaults to `false`
-        pub enable_legacy_abac: pulumi_wasm_rust::Output<Option<bool>>,
+        pub enable_legacy_abac: pulumi_gestalt_rust::Output<Option<bool>>,
         /// Whether multi-networking is enabled for this cluster.
-        pub enable_multi_networking: pulumi_wasm_rust::Output<Option<bool>>,
+        pub enable_multi_networking: pulumi_gestalt_rust::Output<Option<bool>>,
         /// Enable Shielded Nodes features on all nodes in this cluster.  Defaults to `true`.
-        pub enable_shielded_nodes: pulumi_wasm_rust::Output<Option<bool>>,
+        pub enable_shielded_nodes: pulumi_gestalt_rust::Output<Option<bool>>,
         /// Whether to enable Cloud TPU resources in this cluster.
         /// See the [official documentation](https://cloud.google.com/tpu/docs/kubernetes-engine-setup).
-        pub enable_tpu: pulumi_wasm_rust::Output<bool>,
+        pub enable_tpu: pulumi_gestalt_rust::Output<bool>,
         /// The IP address of this cluster's Kubernetes master.
-        pub endpoint: pulumi_wasm_rust::Output<String>,
+        pub endpoint: pulumi_gestalt_rust::Output<String>,
         /// Configuration for [Enterprise edition].(https://cloud.google.com/kubernetes-engine/enterprise/docs/concepts/gke-editions). Structure is documented below.
         ///
         ///
         /// <a name="nested_default_snat_status"></a>The `default_snat_status` block supports
-        pub enterprise_config: pulumi_wasm_rust::Output<
+        pub enterprise_config: pulumi_gestalt_rust::Output<
             super::super::types::container::ClusterEnterpriseConfig,
         >,
         /// Fleet configuration for the cluster. Structure is documented below.
-        pub fleet: pulumi_wasm_rust::Output<
+        pub fleet: pulumi_gestalt_rust::Output<
             Option<super::super::types::container::ClusterFleet>,
         >,
         /// Configuration for [GKE Gateway API controller](https://cloud.google.com/kubernetes-engine/docs/concepts/gateway-api). Structure is documented below.
-        pub gateway_api_config: pulumi_wasm_rust::Output<
+        pub gateway_api_config: pulumi_gestalt_rust::Output<
             super::super::types::container::ClusterGatewayApiConfig,
         >,
         /// . Structure is documented below.
-        pub identity_service_config: pulumi_wasm_rust::Output<
+        pub identity_service_config: pulumi_gestalt_rust::Output<
             super::super::types::container::ClusterIdentityServiceConfig,
         >,
         /// The number of nodes to create in this
@@ -741,34 +745,34 @@ pub mod cluster {
         /// `gcp.container.NodePool` objects with no default node pool, you'll need to
         /// set this to a value of at least `1`, alongside setting
         /// `remove_default_node_pool` to `true`.
-        pub initial_node_count: pulumi_wasm_rust::Output<Option<i32>>,
+        pub initial_node_count: pulumi_gestalt_rust::Output<Option<i32>>,
         /// Configuration of cluster IP allocation for
         /// VPC-native clusters. If this block is unset during creation, it will be set by the GKE backend.
         /// Structure is documented below.
-        pub ip_allocation_policy: pulumi_wasm_rust::Output<
+        pub ip_allocation_policy: pulumi_gestalt_rust::Output<
             super::super::types::container::ClusterIpAllocationPolicy,
         >,
         /// The fingerprint of the set of labels for this cluster.
-        pub label_fingerprint: pulumi_wasm_rust::Output<String>,
+        pub label_fingerprint: pulumi_gestalt_rust::Output<String>,
         /// The location (region or zone) in which the cluster
         /// master will be created, as well as the default node location. If you specify a
         /// zone (such as `us-central1-a`), the cluster will be a zonal cluster with a
         /// single cluster master. If you specify a region (such as `us-west1`), the
         /// cluster will be a regional cluster with multiple masters spread across zones in
         /// the region, and with default node locations in those zones as well
-        pub location: pulumi_wasm_rust::Output<String>,
+        pub location: pulumi_gestalt_rust::Output<String>,
         /// Logging configuration for the cluster.
         /// Structure is documented below.
-        pub logging_config: pulumi_wasm_rust::Output<
+        pub logging_config: pulumi_gestalt_rust::Output<
             super::super::types::container::ClusterLoggingConfig,
         >,
         /// The logging service that the cluster should
         /// write logs to. Available options include `logging.googleapis.com`(Legacy Stackdriver),
         /// `logging.googleapis.com/kubernetes`(Stackdriver Kubernetes Engine Logging), and `none`. Defaults to `logging.googleapis.com/kubernetes`
-        pub logging_service: pulumi_wasm_rust::Output<String>,
+        pub logging_service: pulumi_gestalt_rust::Output<String>,
         /// The maintenance policy to use for the cluster. Structure is
         /// documented below.
-        pub maintenance_policy: pulumi_wasm_rust::Output<
+        pub maintenance_policy: pulumi_gestalt_rust::Output<
             Option<super::super::types::container::ClusterMaintenancePolicy>,
         >,
         /// The authentication information for accessing the
@@ -777,7 +781,7 @@ pub mod cluster {
         /// you see an unexpected diff unsetting your client cert, ensure you have the
         /// `container.clusters.getCredentials` permission.
         /// Structure is documented below.
-        pub master_auth: pulumi_wasm_rust::Output<
+        pub master_auth: pulumi_gestalt_rust::Output<
             super::super::types::container::ClusterMasterAuth,
         >,
         /// The desired
@@ -785,15 +789,15 @@ pub mod cluster {
         /// nested `cidr_blocks` attribute to disallow external access (except
         /// the cluster node IPs, which GKE automatically whitelists).
         /// Structure is documented below.
-        pub master_authorized_networks_config: pulumi_wasm_rust::Output<
+        pub master_authorized_networks_config: pulumi_gestalt_rust::Output<
             super::super::types::container::ClusterMasterAuthorizedNetworksConfig,
         >,
         /// The current version of the master in the cluster. This may
         /// be different than the `min_master_version` set in the config if the master
         /// has been updated by GKE.
-        pub master_version: pulumi_wasm_rust::Output<String>,
+        pub master_version: pulumi_gestalt_rust::Output<String>,
         /// Structure is documented below.
-        pub mesh_certificates: pulumi_wasm_rust::Output<
+        pub mesh_certificates: pulumi_gestalt_rust::Output<
             super::super::types::container::ClusterMeshCertificates,
         >,
         /// The minimum version of the master. GKE
@@ -809,10 +813,10 @@ pub mod cluster {
         /// > If you are using the `gcp.container.getEngineVersions` datasource with a regional cluster, ensure that you have provided a `location`
         /// to the datasource. A region can have a different set of supported versions than its corresponding zones, and not all zones in a
         /// region are guaranteed to support the same version.
-        pub min_master_version: pulumi_wasm_rust::Output<Option<String>>,
+        pub min_master_version: pulumi_gestalt_rust::Output<Option<String>>,
         /// Monitoring configuration for the cluster.
         /// Structure is documented below.
-        pub monitoring_config: pulumi_wasm_rust::Output<
+        pub monitoring_config: pulumi_gestalt_rust::Output<
             super::super::types::container::ClusterMonitoringConfig,
         >,
         /// The monitoring service that the cluster
@@ -822,31 +826,31 @@ pub mod cluster {
         /// Available options include
         /// `monitoring.googleapis.com`(Legacy Stackdriver), `monitoring.googleapis.com/kubernetes`(Stackdriver Kubernetes Engine Monitoring), and `none`.
         /// Defaults to `monitoring.googleapis.com/kubernetes`
-        pub monitoring_service: pulumi_wasm_rust::Output<String>,
+        pub monitoring_service: pulumi_gestalt_rust::Output<String>,
         /// The name of the cluster, unique within the project and
         /// location.
         ///
         /// - - -
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// The name or self_link of the Google Compute Engine
         /// network to which the cluster is connected. For Shared VPC, set this to the self link of the
         /// shared network.
-        pub network: pulumi_wasm_rust::Output<Option<String>>,
+        pub network: pulumi_gestalt_rust::Output<Option<String>>,
         /// Configuration options for the
         /// [NetworkPolicy](https://kubernetes.io/docs/concepts/services-networking/networkpolicies/)
         /// feature. Structure is documented below.
-        pub network_policy: pulumi_wasm_rust::Output<
+        pub network_policy: pulumi_gestalt_rust::Output<
             Option<super::super::types::container::ClusterNetworkPolicy>,
         >,
         /// Determines whether alias IPs or routes will be used for pod IPs in the cluster.
         /// Options are `VPC_NATIVE` or `ROUTES`. `VPC_NATIVE` enables [IP aliasing](https://cloud.google.com/kubernetes-engine/docs/how-to/ip-aliases). Newly created clusters will default to `VPC_NATIVE`.
-        pub networking_mode: pulumi_wasm_rust::Output<String>,
+        pub networking_mode: pulumi_gestalt_rust::Output<String>,
         /// Parameters used in creating the default node pool.
         /// Generally, this field should not be used at the same time as a
         /// `gcp.container.NodePool` or a `node_pool` block; this configuration
         /// manages the default node pool, which isn't recommended to be used.
         /// Structure is documented below.
-        pub node_config: pulumi_wasm_rust::Output<
+        pub node_config: pulumi_gestalt_rust::Output<
             super::super::types::container::ClusterNodeConfig,
         >,
         /// The list of zones in which the cluster's nodes
@@ -860,15 +864,15 @@ pub mod cluster {
         /// locations. In contrast, in a regional cluster, cluster master nodes are present
         /// in multiple zones in the region. For that reason, regional clusters should be
         /// preferred.
-        pub node_locations: pulumi_wasm_rust::Output<Vec<String>>,
+        pub node_locations: pulumi_gestalt_rust::Output<Vec<String>>,
         /// Node pool configs that apply to auto-provisioned node pools in
         /// [autopilot](https://cloud.google.com/kubernetes-engine/docs/concepts/autopilot-overview#comparison) clusters and
         /// [node auto-provisioning](https://cloud.google.com/kubernetes-engine/docs/how-to/node-auto-provisioning)-enabled clusters. Structure is documented below.
-        pub node_pool_auto_config: pulumi_wasm_rust::Output<
+        pub node_pool_auto_config: pulumi_gestalt_rust::Output<
             super::super::types::container::ClusterNodePoolAutoConfig,
         >,
         /// Default NodePool settings for the entire cluster. These settings are overridden if specified on the specific NodePool object. Structure is documented below.
-        pub node_pool_defaults: pulumi_wasm_rust::Output<
+        pub node_pool_defaults: pulumi_gestalt_rust::Output<
             super::super::types::container::ClusterNodePoolDefaults,
         >,
         /// List of node pools associated with this cluster.
@@ -877,7 +881,7 @@ pub mod cluster {
         /// cluster creation without deleting and recreating the entire cluster. Unless you absolutely need the ability
         /// to say "these are the _only_ node pools associated with this cluster", use the
         /// gcp.container.NodePool resource instead of this property.
-        pub node_pools: pulumi_wasm_rust::Output<
+        pub node_pools: pulumi_gestalt_rust::Output<
             Vec<super::super::types::container::ClusterNodePool>,
         >,
         /// The Kubernetes version on the nodes. Must either be unset
@@ -888,34 +892,34 @@ pub mod cluster {
         /// when fuzzy versions are used. See the `gcp.container.getEngineVersions` data source's
         /// `version_prefix` field to approximate fuzzy versions.
         /// To update nodes in other node pools, use the `version` attribute on the node pool.
-        pub node_version: pulumi_wasm_rust::Output<String>,
+        pub node_version: pulumi_gestalt_rust::Output<String>,
         /// Configuration for the [cluster upgrade notifications](https://cloud.google.com/kubernetes-engine/docs/how-to/cluster-upgrade-notifications) feature. Structure is documented below.
-        pub notification_config: pulumi_wasm_rust::Output<
+        pub notification_config: pulumi_gestalt_rust::Output<
             super::super::types::container::ClusterNotificationConfig,
         >,
-        pub operation: pulumi_wasm_rust::Output<String>,
+        pub operation: pulumi_gestalt_rust::Output<String>,
         /// Configuration for the
         /// [PodSecurityPolicy](https://cloud.google.com/kubernetes-engine/docs/how-to/pod-security-policies) feature.
         /// Structure is documented below.
-        pub pod_security_policy_config: pulumi_wasm_rust::Output<
+        pub pod_security_policy_config: pulumi_gestalt_rust::Output<
             Option<super::super::types::container::ClusterPodSecurityPolicyConfig>,
         >,
         /// Configuration for [private clusters](https://cloud.google.com/kubernetes-engine/docs/how-to/private-clusters),
         /// clusters with private nodes. Structure is documented below.
-        pub private_cluster_config: pulumi_wasm_rust::Output<
+        pub private_cluster_config: pulumi_gestalt_rust::Output<
             super::super::types::container::ClusterPrivateClusterConfig,
         >,
         /// The desired state of IPv6 connectivity to Google Services. By default, no private IPv6 access to or from Google Services (all access will be via IPv4).
-        pub private_ipv6_google_access: pulumi_wasm_rust::Output<String>,
+        pub private_ipv6_google_access: pulumi_gestalt_rust::Output<String>,
         /// The ID of the project in which the resource belongs. If it
         /// is not provided, the provider project is used.
-        pub project: pulumi_wasm_rust::Output<String>,
+        pub project: pulumi_gestalt_rust::Output<String>,
         /// Enable/Disable Protect API features for the cluster. Structure is documented below.
-        pub protect_config: pulumi_wasm_rust::Output<
+        pub protect_config: pulumi_gestalt_rust::Output<
             super::super::types::container::ClusterProtectConfig,
         >,
         /// The combination of labels configured directly on the resource and default labels configured on the provider.
-        pub pulumi_labels: pulumi_wasm_rust::Output<
+        pub pulumi_labels: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
         /// Configuration options for the [Release channel](https://cloud.google.com/kubernetes-engine/docs/concepts/release-channels)
@@ -927,76 +931,76 @@ pub mod cluster {
         /// field from your config will cause the provider to stop managing your cluster's
         /// release channel, but will not unenroll it. Instead, use the `"UNSPECIFIED"`
         /// channel. Structure is documented below.
-        pub release_channel: pulumi_wasm_rust::Output<
+        pub release_channel: pulumi_gestalt_rust::Output<
             super::super::types::container::ClusterReleaseChannel,
         >,
         /// If `true`, deletes the default node
         /// pool upon cluster creation. If you're using `gcp.container.NodePool`
         /// resources with no default node pool, this should be set to `true`, alongside
         /// setting `initial_node_count` to at least `1`.
-        pub remove_default_node_pool: pulumi_wasm_rust::Output<Option<bool>>,
+        pub remove_default_node_pool: pulumi_gestalt_rust::Output<Option<bool>>,
         /// The GCE resource labels (a map of key/value pairs) to be applied to the cluster.
         ///
         /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
         /// Please refer to the field 'effective_labels' for all of the labels present on the resource.
-        pub resource_labels: pulumi_wasm_rust::Output<
+        pub resource_labels: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Configuration for the
         /// [ResourceUsageExportConfig](https://cloud.google.com/kubernetes-engine/docs/how-to/cluster-usage-metering) feature.
         /// Structure is documented below.
-        pub resource_usage_export_config: pulumi_wasm_rust::Output<
+        pub resource_usage_export_config: pulumi_gestalt_rust::Output<
             Option<super::super::types::container::ClusterResourceUsageExportConfig>,
         >,
         /// Configuration for the
         /// [SecretManagerConfig](https://cloud.google.com/secret-manager/docs/secret-manager-managed-csi-component) feature.
         /// Structure is documented below.
-        pub secret_manager_config: pulumi_wasm_rust::Output<
+        pub secret_manager_config: pulumi_gestalt_rust::Output<
             Option<super::super::types::container::ClusterSecretManagerConfig>,
         >,
         /// Enable/Disable Security Posture API features for the cluster. Structure is documented below.
-        pub security_posture_config: pulumi_wasm_rust::Output<
+        pub security_posture_config: pulumi_gestalt_rust::Output<
             super::super::types::container::ClusterSecurityPostureConfig,
         >,
         /// The server-defined URL for the resource.
-        pub self_link: pulumi_wasm_rust::Output<String>,
+        pub self_link: pulumi_gestalt_rust::Output<String>,
         /// Structure is documented below.
-        pub service_external_ips_config: pulumi_wasm_rust::Output<
+        pub service_external_ips_config: pulumi_gestalt_rust::Output<
             super::super::types::container::ClusterServiceExternalIpsConfig,
         >,
         /// The IP address range of the Kubernetes services in this
         /// cluster, in [CIDR](http://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing)
         /// notation (e.g. `1.2.3.4/29`). Service addresses are typically put in the last
         /// `/16` from the container CIDR.
-        pub services_ipv4_cidr: pulumi_wasm_rust::Output<String>,
+        pub services_ipv4_cidr: pulumi_gestalt_rust::Output<String>,
         /// The name or self_link of the Google Compute Engine
         /// subnetwork in which the cluster's instances are launched.
-        pub subnetwork: pulumi_wasm_rust::Output<String>,
+        pub subnetwork: pulumi_gestalt_rust::Output<String>,
         /// TPU configuration for the cluster.
-        pub tpu_config: pulumi_wasm_rust::Output<
+        pub tpu_config: pulumi_gestalt_rust::Output<
             super::super::types::container::ClusterTpuConfig,
         >,
         /// The IP address range of the Cloud TPUs in this cluster, in
         /// [CIDR](http://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing)
         /// notation (e.g. `1.2.3.4/29`).
-        pub tpu_ipv4_cidr_block: pulumi_wasm_rust::Output<String>,
+        pub tpu_ipv4_cidr_block: pulumi_gestalt_rust::Output<String>,
         /// The custom keys configuration of the cluster.
-        pub user_managed_keys_config: pulumi_wasm_rust::Output<
+        pub user_managed_keys_config: pulumi_gestalt_rust::Output<
             Option<super::super::types::container::ClusterUserManagedKeysConfig>,
         >,
         /// Vertical Pod Autoscaling automatically adjusts the resources of pods controlled by it.
         /// Structure is documented below.
-        pub vertical_pod_autoscaling: pulumi_wasm_rust::Output<
+        pub vertical_pod_autoscaling: pulumi_gestalt_rust::Output<
             super::super::types::container::ClusterVerticalPodAutoscaling,
         >,
         /// Configuration for [direct-path (via ALTS) with workload identity.](https://cloud.google.com/kubernetes-engine/docs/reference/rest/v1beta1/projects.locations.clusters#workloadaltsconfig). Structure is documented below.
-        pub workload_alts_config: pulumi_wasm_rust::Output<
+        pub workload_alts_config: pulumi_gestalt_rust::Output<
             super::super::types::container::ClusterWorkloadAltsConfig,
         >,
         /// Workload Identity allows Kubernetes service accounts to act as a user-managed
         /// [Google IAM Service Account](https://cloud.google.com/iam/docs/service-accounts#user-managed_service_accounts).
         /// Structure is documented below.
-        pub workload_identity_config: pulumi_wasm_rust::Output<
+        pub workload_identity_config: pulumi_gestalt_rust::Output<
             super::super::types::container::ClusterWorkloadIdentityConfig,
         >,
     }
@@ -1005,11 +1009,11 @@ pub mod cluster {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: ClusterArgs,
     ) -> ClusterResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let addons_config_binding = args.addons_config.get_output(context).get_inner();
         let allow_net_admin_binding = args
@@ -1547,246 +1551,246 @@ pub mod cluster {
         };
         let o = register_interface::register(context.get_inner(), &request);
         ClusterResult {
-            addons_config: pulumi_wasm_rust::__private::into_domain(
+            addons_config: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("addonsConfig"),
             ),
-            allow_net_admin: pulumi_wasm_rust::__private::into_domain(
+            allow_net_admin: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("allowNetAdmin"),
             ),
-            authenticator_groups_config: pulumi_wasm_rust::__private::into_domain(
+            authenticator_groups_config: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("authenticatorGroupsConfig"),
             ),
-            binary_authorization: pulumi_wasm_rust::__private::into_domain(
+            binary_authorization: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("binaryAuthorization"),
             ),
-            cluster_autoscaling: pulumi_wasm_rust::__private::into_domain(
+            cluster_autoscaling: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("clusterAutoscaling"),
             ),
-            cluster_ipv4_cidr: pulumi_wasm_rust::__private::into_domain(
+            cluster_ipv4_cidr: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("clusterIpv4Cidr"),
             ),
-            cluster_telemetry: pulumi_wasm_rust::__private::into_domain(
+            cluster_telemetry: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("clusterTelemetry"),
             ),
-            confidential_nodes: pulumi_wasm_rust::__private::into_domain(
+            confidential_nodes: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("confidentialNodes"),
             ),
-            control_plane_endpoints_config: pulumi_wasm_rust::__private::into_domain(
+            control_plane_endpoints_config: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("controlPlaneEndpointsConfig"),
             ),
-            cost_management_config: pulumi_wasm_rust::__private::into_domain(
+            cost_management_config: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("costManagementConfig"),
             ),
-            database_encryption: pulumi_wasm_rust::__private::into_domain(
+            database_encryption: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("databaseEncryption"),
             ),
-            datapath_provider: pulumi_wasm_rust::__private::into_domain(
+            datapath_provider: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("datapathProvider"),
             ),
-            default_max_pods_per_node: pulumi_wasm_rust::__private::into_domain(
+            default_max_pods_per_node: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("defaultMaxPodsPerNode"),
             ),
-            default_snat_status: pulumi_wasm_rust::__private::into_domain(
+            default_snat_status: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("defaultSnatStatus"),
             ),
-            deletion_protection: pulumi_wasm_rust::__private::into_domain(
+            deletion_protection: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("deletionProtection"),
             ),
-            description: pulumi_wasm_rust::__private::into_domain(
+            description: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("description"),
             ),
-            dns_config: pulumi_wasm_rust::__private::into_domain(
+            dns_config: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("dnsConfig"),
             ),
-            effective_labels: pulumi_wasm_rust::__private::into_domain(
+            effective_labels: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("effectiveLabels"),
             ),
-            enable_autopilot: pulumi_wasm_rust::__private::into_domain(
+            enable_autopilot: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("enableAutopilot"),
             ),
-            enable_cilium_clusterwide_network_policy: pulumi_wasm_rust::__private::into_domain(
+            enable_cilium_clusterwide_network_policy: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("enableCiliumClusterwideNetworkPolicy"),
             ),
-            enable_fqdn_network_policy: pulumi_wasm_rust::__private::into_domain(
+            enable_fqdn_network_policy: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("enableFqdnNetworkPolicy"),
             ),
-            enable_intranode_visibility: pulumi_wasm_rust::__private::into_domain(
+            enable_intranode_visibility: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("enableIntranodeVisibility"),
             ),
-            enable_k8s_beta_apis: pulumi_wasm_rust::__private::into_domain(
+            enable_k8s_beta_apis: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("enableK8sBetaApis"),
             ),
-            enable_kubernetes_alpha: pulumi_wasm_rust::__private::into_domain(
+            enable_kubernetes_alpha: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("enableKubernetesAlpha"),
             ),
-            enable_l4_ilb_subsetting: pulumi_wasm_rust::__private::into_domain(
+            enable_l4_ilb_subsetting: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("enableL4IlbSubsetting"),
             ),
-            enable_legacy_abac: pulumi_wasm_rust::__private::into_domain(
+            enable_legacy_abac: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("enableLegacyAbac"),
             ),
-            enable_multi_networking: pulumi_wasm_rust::__private::into_domain(
+            enable_multi_networking: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("enableMultiNetworking"),
             ),
-            enable_shielded_nodes: pulumi_wasm_rust::__private::into_domain(
+            enable_shielded_nodes: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("enableShieldedNodes"),
             ),
-            enable_tpu: pulumi_wasm_rust::__private::into_domain(
+            enable_tpu: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("enableTpu"),
             ),
-            endpoint: pulumi_wasm_rust::__private::into_domain(
+            endpoint: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("endpoint"),
             ),
-            enterprise_config: pulumi_wasm_rust::__private::into_domain(
+            enterprise_config: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("enterpriseConfig"),
             ),
-            fleet: pulumi_wasm_rust::__private::into_domain(o.extract_field("fleet")),
-            gateway_api_config: pulumi_wasm_rust::__private::into_domain(
+            fleet: pulumi_gestalt_rust::__private::into_domain(o.extract_field("fleet")),
+            gateway_api_config: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("gatewayApiConfig"),
             ),
-            identity_service_config: pulumi_wasm_rust::__private::into_domain(
+            identity_service_config: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("identityServiceConfig"),
             ),
-            initial_node_count: pulumi_wasm_rust::__private::into_domain(
+            initial_node_count: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("initialNodeCount"),
             ),
-            ip_allocation_policy: pulumi_wasm_rust::__private::into_domain(
+            ip_allocation_policy: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("ipAllocationPolicy"),
             ),
-            label_fingerprint: pulumi_wasm_rust::__private::into_domain(
+            label_fingerprint: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("labelFingerprint"),
             ),
-            location: pulumi_wasm_rust::__private::into_domain(
+            location: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("location"),
             ),
-            logging_config: pulumi_wasm_rust::__private::into_domain(
+            logging_config: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("loggingConfig"),
             ),
-            logging_service: pulumi_wasm_rust::__private::into_domain(
+            logging_service: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("loggingService"),
             ),
-            maintenance_policy: pulumi_wasm_rust::__private::into_domain(
+            maintenance_policy: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("maintenancePolicy"),
             ),
-            master_auth: pulumi_wasm_rust::__private::into_domain(
+            master_auth: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("masterAuth"),
             ),
-            master_authorized_networks_config: pulumi_wasm_rust::__private::into_domain(
+            master_authorized_networks_config: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("masterAuthorizedNetworksConfig"),
             ),
-            master_version: pulumi_wasm_rust::__private::into_domain(
+            master_version: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("masterVersion"),
             ),
-            mesh_certificates: pulumi_wasm_rust::__private::into_domain(
+            mesh_certificates: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("meshCertificates"),
             ),
-            min_master_version: pulumi_wasm_rust::__private::into_domain(
+            min_master_version: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("minMasterVersion"),
             ),
-            monitoring_config: pulumi_wasm_rust::__private::into_domain(
+            monitoring_config: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("monitoringConfig"),
             ),
-            monitoring_service: pulumi_wasm_rust::__private::into_domain(
+            monitoring_service: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("monitoringService"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            network: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            network: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("network"),
             ),
-            network_policy: pulumi_wasm_rust::__private::into_domain(
+            network_policy: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("networkPolicy"),
             ),
-            networking_mode: pulumi_wasm_rust::__private::into_domain(
+            networking_mode: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("networkingMode"),
             ),
-            node_config: pulumi_wasm_rust::__private::into_domain(
+            node_config: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("nodeConfig"),
             ),
-            node_locations: pulumi_wasm_rust::__private::into_domain(
+            node_locations: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("nodeLocations"),
             ),
-            node_pool_auto_config: pulumi_wasm_rust::__private::into_domain(
+            node_pool_auto_config: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("nodePoolAutoConfig"),
             ),
-            node_pool_defaults: pulumi_wasm_rust::__private::into_domain(
+            node_pool_defaults: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("nodePoolDefaults"),
             ),
-            node_pools: pulumi_wasm_rust::__private::into_domain(
+            node_pools: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("nodePools"),
             ),
-            node_version: pulumi_wasm_rust::__private::into_domain(
+            node_version: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("nodeVersion"),
             ),
-            notification_config: pulumi_wasm_rust::__private::into_domain(
+            notification_config: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("notificationConfig"),
             ),
-            operation: pulumi_wasm_rust::__private::into_domain(
+            operation: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("operation"),
             ),
-            pod_security_policy_config: pulumi_wasm_rust::__private::into_domain(
+            pod_security_policy_config: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("podSecurityPolicyConfig"),
             ),
-            private_cluster_config: pulumi_wasm_rust::__private::into_domain(
+            private_cluster_config: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("privateClusterConfig"),
             ),
-            private_ipv6_google_access: pulumi_wasm_rust::__private::into_domain(
+            private_ipv6_google_access: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("privateIpv6GoogleAccess"),
             ),
-            project: pulumi_wasm_rust::__private::into_domain(
+            project: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("project"),
             ),
-            protect_config: pulumi_wasm_rust::__private::into_domain(
+            protect_config: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("protectConfig"),
             ),
-            pulumi_labels: pulumi_wasm_rust::__private::into_domain(
+            pulumi_labels: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("pulumiLabels"),
             ),
-            release_channel: pulumi_wasm_rust::__private::into_domain(
+            release_channel: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("releaseChannel"),
             ),
-            remove_default_node_pool: pulumi_wasm_rust::__private::into_domain(
+            remove_default_node_pool: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("removeDefaultNodePool"),
             ),
-            resource_labels: pulumi_wasm_rust::__private::into_domain(
+            resource_labels: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("resourceLabels"),
             ),
-            resource_usage_export_config: pulumi_wasm_rust::__private::into_domain(
+            resource_usage_export_config: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("resourceUsageExportConfig"),
             ),
-            secret_manager_config: pulumi_wasm_rust::__private::into_domain(
+            secret_manager_config: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("secretManagerConfig"),
             ),
-            security_posture_config: pulumi_wasm_rust::__private::into_domain(
+            security_posture_config: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("securityPostureConfig"),
             ),
-            self_link: pulumi_wasm_rust::__private::into_domain(
+            self_link: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("selfLink"),
             ),
-            service_external_ips_config: pulumi_wasm_rust::__private::into_domain(
+            service_external_ips_config: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("serviceExternalIpsConfig"),
             ),
-            services_ipv4_cidr: pulumi_wasm_rust::__private::into_domain(
+            services_ipv4_cidr: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("servicesIpv4Cidr"),
             ),
-            subnetwork: pulumi_wasm_rust::__private::into_domain(
+            subnetwork: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("subnetwork"),
             ),
-            tpu_config: pulumi_wasm_rust::__private::into_domain(
+            tpu_config: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("tpuConfig"),
             ),
-            tpu_ipv4_cidr_block: pulumi_wasm_rust::__private::into_domain(
+            tpu_ipv4_cidr_block: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("tpuIpv4CidrBlock"),
             ),
-            user_managed_keys_config: pulumi_wasm_rust::__private::into_domain(
+            user_managed_keys_config: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("userManagedKeysConfig"),
             ),
-            vertical_pod_autoscaling: pulumi_wasm_rust::__private::into_domain(
+            vertical_pod_autoscaling: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("verticalPodAutoscaling"),
             ),
-            workload_alts_config: pulumi_wasm_rust::__private::into_domain(
+            workload_alts_config: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("workloadAltsConfig"),
             ),
-            workload_identity_config: pulumi_wasm_rust::__private::into_domain(
+            workload_identity_config: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("workloadIdentityConfig"),
             ),
         }

@@ -3,8 +3,8 @@
 /// ## Example Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = resource_group::create(
@@ -47,44 +47,44 @@
 /// ```
 ///
 pub mod postgresql_firewall_rule {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct PostgresqlFirewallRuleArgs {
         /// The resource ID of the Azure Cosmos DB for PostgreSQL Cluster. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub cluster_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub cluster_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The end IP address of the Azure Cosmos DB for PostgreSQL Firewall Rule.
         #[builder(into)]
-        pub end_ip_address: pulumi_wasm_rust::InputOrOutput<String>,
+        pub end_ip_address: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The name which should be used for the Azure Cosmos DB for PostgreSQL Firewall Rule. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The start IP address of the Azure Cosmos DB for PostgreSQL Firewall Rule.
         #[builder(into)]
-        pub start_ip_address: pulumi_wasm_rust::InputOrOutput<String>,
+        pub start_ip_address: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct PostgresqlFirewallRuleResult {
         /// The resource ID of the Azure Cosmos DB for PostgreSQL Cluster. Changing this forces a new resource to be created.
-        pub cluster_id: pulumi_wasm_rust::Output<String>,
+        pub cluster_id: pulumi_gestalt_rust::Output<String>,
         /// The end IP address of the Azure Cosmos DB for PostgreSQL Firewall Rule.
-        pub end_ip_address: pulumi_wasm_rust::Output<String>,
+        pub end_ip_address: pulumi_gestalt_rust::Output<String>,
         /// The name which should be used for the Azure Cosmos DB for PostgreSQL Firewall Rule. Changing this forces a new resource to be created.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// The start IP address of the Azure Cosmos DB for PostgreSQL Firewall Rule.
-        pub start_ip_address: pulumi_wasm_rust::Output<String>,
+        pub start_ip_address: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: PostgresqlFirewallRuleArgs,
     ) -> PostgresqlFirewallRuleResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let cluster_id_binding = args.cluster_id.get_output(context).get_inner();
         let end_ip_address_binding = args.end_ip_address.get_output(context).get_inner();
@@ -118,14 +118,14 @@ pub mod postgresql_firewall_rule {
         };
         let o = register_interface::register(context.get_inner(), &request);
         PostgresqlFirewallRuleResult {
-            cluster_id: pulumi_wasm_rust::__private::into_domain(
+            cluster_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("clusterId"),
             ),
-            end_ip_address: pulumi_wasm_rust::__private::into_domain(
+            end_ip_address: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("endIpAddress"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            start_ip_address: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            start_ip_address: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("startIpAddress"),
             ),
         }

@@ -3,8 +3,8 @@
 /// ## Example Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let sqlInjectionMatchSet = sql_injection_match_set::create(
@@ -32,16 +32,16 @@
 /// $ pulumi import aws:wafregional/sqlInjectionMatchSet:SqlInjectionMatchSet sql_injection_match_set a1b2c3d4-d5f6-7777-8888-9999aaaabbbbcccc
 /// ```
 pub mod sql_injection_match_set {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct SqlInjectionMatchSetArgs {
         /// The name or description of the SizeConstraintSet.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The parts of web requests that you want AWS WAF to inspect for malicious SQL code and, if you want AWS WAF to inspect a header, the name of the header.
         #[builder(into, default)]
-        pub sql_injection_match_tuples: pulumi_wasm_rust::InputOrOutput<
+        pub sql_injection_match_tuples: pulumi_gestalt_rust::InputOrOutput<
             Option<
                 Vec<
                     super::super::types::wafregional::SqlInjectionMatchSetSqlInjectionMatchTuple,
@@ -52,9 +52,9 @@ pub mod sql_injection_match_set {
     #[allow(dead_code)]
     pub struct SqlInjectionMatchSetResult {
         /// The name or description of the SizeConstraintSet.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// The parts of web requests that you want AWS WAF to inspect for malicious SQL code and, if you want AWS WAF to inspect a header, the name of the header.
-        pub sql_injection_match_tuples: pulumi_wasm_rust::Output<
+        pub sql_injection_match_tuples: pulumi_gestalt_rust::Output<
             Option<
                 Vec<
                     super::super::types::wafregional::SqlInjectionMatchSetSqlInjectionMatchTuple,
@@ -67,11 +67,11 @@ pub mod sql_injection_match_set {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: SqlInjectionMatchSetArgs,
     ) -> SqlInjectionMatchSetResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let name_binding = args.name.get_output(context).get_inner();
         let sql_injection_match_tuples_binding = args
@@ -95,8 +95,8 @@ pub mod sql_injection_match_set {
         };
         let o = register_interface::register(context.get_inner(), &request);
         SqlInjectionMatchSetResult {
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            sql_injection_match_tuples: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            sql_injection_match_tuples: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("sqlInjectionMatchTuples"),
             ),
         }

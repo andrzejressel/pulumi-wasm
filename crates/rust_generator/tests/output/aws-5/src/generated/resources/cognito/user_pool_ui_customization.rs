@@ -75,52 +75,52 @@
 /// $ pulumi import aws:cognito/userPoolUICustomization:UserPoolUICustomization example us-west-2_ZCTarbt5C,12bu4fuk3mlgqa2rtrujgp6egq
 /// ```
 pub mod user_pool_ui_customization {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct UserPoolUICustomizationArgs {
         /// The client ID for the client app. Defaults to `ALL`. If `ALL` is specified, the `css` and/or `image_file` settings will be used for every client that has no UI customization set previously.
         #[builder(into, default)]
-        pub client_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub client_id: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The CSS values in the UI customization, provided as a String. At least one of `css` or `image_file` is required.
         #[builder(into, default)]
-        pub css: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub css: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The uploaded logo image for the UI customization, provided as a base64-encoded String. Drift detection is not possible for this argument. At least one of `css` or `image_file` is required.
         #[builder(into, default)]
-        pub image_file: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub image_file: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The user pool ID for the user pool.
         #[builder(into)]
-        pub user_pool_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub user_pool_id: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct UserPoolUICustomizationResult {
         /// The client ID for the client app. Defaults to `ALL`. If `ALL` is specified, the `css` and/or `image_file` settings will be used for every client that has no UI customization set previously.
-        pub client_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub client_id: pulumi_gestalt_rust::Output<Option<String>>,
         /// The creation date in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) for the UI customization.
-        pub creation_date: pulumi_wasm_rust::Output<String>,
+        pub creation_date: pulumi_gestalt_rust::Output<String>,
         /// The CSS values in the UI customization, provided as a String. At least one of `css` or `image_file` is required.
-        pub css: pulumi_wasm_rust::Output<Option<String>>,
+        pub css: pulumi_gestalt_rust::Output<Option<String>>,
         /// The CSS version number.
-        pub css_version: pulumi_wasm_rust::Output<String>,
+        pub css_version: pulumi_gestalt_rust::Output<String>,
         /// The uploaded logo image for the UI customization, provided as a base64-encoded String. Drift detection is not possible for this argument. At least one of `css` or `image_file` is required.
-        pub image_file: pulumi_wasm_rust::Output<Option<String>>,
+        pub image_file: pulumi_gestalt_rust::Output<Option<String>>,
         /// The logo image URL for the UI customization.
-        pub image_url: pulumi_wasm_rust::Output<String>,
+        pub image_url: pulumi_gestalt_rust::Output<String>,
         /// The last-modified date in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) for the UI customization.
-        pub last_modified_date: pulumi_wasm_rust::Output<String>,
+        pub last_modified_date: pulumi_gestalt_rust::Output<String>,
         /// The user pool ID for the user pool.
-        pub user_pool_id: pulumi_wasm_rust::Output<String>,
+        pub user_pool_id: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: UserPoolUICustomizationArgs,
     ) -> UserPoolUICustomizationResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let client_id_binding = args.client_id.get_output(context).get_inner();
         let css_binding = args.css.get_output(context).get_inner();
@@ -151,26 +151,26 @@ pub mod user_pool_ui_customization {
         };
         let o = register_interface::register(context.get_inner(), &request);
         UserPoolUICustomizationResult {
-            client_id: pulumi_wasm_rust::__private::into_domain(
+            client_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("clientId"),
             ),
-            creation_date: pulumi_wasm_rust::__private::into_domain(
+            creation_date: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("creationDate"),
             ),
-            css: pulumi_wasm_rust::__private::into_domain(o.extract_field("css")),
-            css_version: pulumi_wasm_rust::__private::into_domain(
+            css: pulumi_gestalt_rust::__private::into_domain(o.extract_field("css")),
+            css_version: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("cssVersion"),
             ),
-            image_file: pulumi_wasm_rust::__private::into_domain(
+            image_file: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("imageFile"),
             ),
-            image_url: pulumi_wasm_rust::__private::into_domain(
+            image_url: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("imageUrl"),
             ),
-            last_modified_date: pulumi_wasm_rust::__private::into_domain(
+            last_modified_date: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("lastModifiedDate"),
             ),
-            user_pool_id: pulumi_wasm_rust::__private::into_domain(
+            user_pool_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("userPoolId"),
             ),
         }

@@ -5,8 +5,8 @@
 /// ### Basic Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let test = dx_gateway_attachment::create(
@@ -32,63 +32,63 @@
 /// $ pulumi import aws:networkmanager/dxGatewayAttachment:DxGatewayAttachment example attachment-1a2b3c4d5e6f7g
 /// ```
 pub mod dx_gateway_attachment {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct DxGatewayAttachmentArgs {
         /// ID of the Cloud WAN core network to which the Direct Connect gateway attachment should be attached.
         #[builder(into)]
-        pub core_network_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub core_network_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// ARN of the Direct Connect gateway attachment.
         #[builder(into)]
-        pub direct_connect_gateway_arn: pulumi_wasm_rust::InputOrOutput<String>,
+        pub direct_connect_gateway_arn: pulumi_gestalt_rust::InputOrOutput<String>,
         /// One or more core network edge locations to associate with the Direct Connect gateway attachment.
         ///
         /// The following arguments are optional:
         #[builder(into)]
-        pub edge_locations: pulumi_wasm_rust::InputOrOutput<Vec<String>>,
+        pub edge_locations: pulumi_gestalt_rust::InputOrOutput<Vec<String>>,
         /// Key-value tags for the attachment. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         #[builder(into, default)]
-        pub timeouts: pulumi_wasm_rust::InputOrOutput<
+        pub timeouts: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::networkmanager::DxGatewayAttachmentTimeouts>,
         >,
     }
     #[allow(dead_code)]
     pub struct DxGatewayAttachmentResult {
-        pub arn: pulumi_wasm_rust::Output<String>,
+        pub arn: pulumi_gestalt_rust::Output<String>,
         /// Policy rule number associated with the attachment.
-        pub attachment_policy_rule_number: pulumi_wasm_rust::Output<i32>,
+        pub attachment_policy_rule_number: pulumi_gestalt_rust::Output<i32>,
         /// Type of attachment.
-        pub attachment_type: pulumi_wasm_rust::Output<String>,
+        pub attachment_type: pulumi_gestalt_rust::Output<String>,
         /// ARN of the core network for the attachment.
-        pub core_network_arn: pulumi_wasm_rust::Output<String>,
+        pub core_network_arn: pulumi_gestalt_rust::Output<String>,
         /// ID of the Cloud WAN core network to which the Direct Connect gateway attachment should be attached.
-        pub core_network_id: pulumi_wasm_rust::Output<String>,
+        pub core_network_id: pulumi_gestalt_rust::Output<String>,
         /// ARN of the Direct Connect gateway attachment.
-        pub direct_connect_gateway_arn: pulumi_wasm_rust::Output<String>,
+        pub direct_connect_gateway_arn: pulumi_gestalt_rust::Output<String>,
         /// One or more core network edge locations to associate with the Direct Connect gateway attachment.
         ///
         /// The following arguments are optional:
-        pub edge_locations: pulumi_wasm_rust::Output<Vec<String>>,
+        pub edge_locations: pulumi_gestalt_rust::Output<Vec<String>>,
         /// ID of the attachment account owner.
-        pub owner_account_id: pulumi_wasm_rust::Output<String>,
+        pub owner_account_id: pulumi_gestalt_rust::Output<String>,
         /// Name of the segment attachment.
-        pub segment_name: pulumi_wasm_rust::Output<String>,
+        pub segment_name: pulumi_gestalt_rust::Output<String>,
         /// State of the attachment.
-        pub state: pulumi_wasm_rust::Output<String>,
+        pub state: pulumi_gestalt_rust::Output<String>,
         /// Key-value tags for the attachment. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        pub tags_all: pulumi_wasm_rust::Output<
+        pub tags_all: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
-        pub timeouts: pulumi_wasm_rust::Output<
+        pub timeouts: pulumi_gestalt_rust::Output<
             Option<super::super::types::networkmanager::DxGatewayAttachmentTimeouts>,
         >,
     }
@@ -97,11 +97,11 @@ pub mod dx_gateway_attachment {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: DxGatewayAttachmentArgs,
     ) -> DxGatewayAttachmentResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let core_network_id_binding = args
             .core_network_id
@@ -143,37 +143,37 @@ pub mod dx_gateway_attachment {
         };
         let o = register_interface::register(context.get_inner(), &request);
         DxGatewayAttachmentResult {
-            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
-            attachment_policy_rule_number: pulumi_wasm_rust::__private::into_domain(
+            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
+            attachment_policy_rule_number: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("attachmentPolicyRuleNumber"),
             ),
-            attachment_type: pulumi_wasm_rust::__private::into_domain(
+            attachment_type: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("attachmentType"),
             ),
-            core_network_arn: pulumi_wasm_rust::__private::into_domain(
+            core_network_arn: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("coreNetworkArn"),
             ),
-            core_network_id: pulumi_wasm_rust::__private::into_domain(
+            core_network_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("coreNetworkId"),
             ),
-            direct_connect_gateway_arn: pulumi_wasm_rust::__private::into_domain(
+            direct_connect_gateway_arn: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("directConnectGatewayArn"),
             ),
-            edge_locations: pulumi_wasm_rust::__private::into_domain(
+            edge_locations: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("edgeLocations"),
             ),
-            owner_account_id: pulumi_wasm_rust::__private::into_domain(
+            owner_account_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("ownerAccountId"),
             ),
-            segment_name: pulumi_wasm_rust::__private::into_domain(
+            segment_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("segmentName"),
             ),
-            state: pulumi_wasm_rust::__private::into_domain(o.extract_field("state")),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_wasm_rust::__private::into_domain(
+            state: pulumi_gestalt_rust::__private::into_domain(o.extract_field("state")),
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            tags_all: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("tagsAll"),
             ),
-            timeouts: pulumi_wasm_rust::__private::into_domain(
+            timeouts: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("timeouts"),
             ),
         }

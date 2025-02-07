@@ -1,45 +1,47 @@
 pub mod get_cloud_vm_cluster {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct GetCloudVmClusterArgs {
         /// The ID of the VM Cluster.
         #[builder(into)]
-        pub cloud_vm_cluster_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub cloud_vm_cluster_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The location of the resource.
         ///
         /// - - -
         #[builder(into)]
-        pub location: pulumi_wasm_rust::InputOrOutput<String>,
+        pub location: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The project in which the resource belongs. If it
         /// is not provided, the provider project is used.
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub project: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct GetCloudVmClusterResult {
-        pub backup_subnet_cidr: pulumi_wasm_rust::Output<String>,
-        pub cidr: pulumi_wasm_rust::Output<String>,
-        pub cloud_vm_cluster_id: pulumi_wasm_rust::Output<String>,
-        pub create_time: pulumi_wasm_rust::Output<String>,
-        pub deletion_protection: pulumi_wasm_rust::Output<bool>,
-        pub display_name: pulumi_wasm_rust::Output<String>,
-        pub effective_labels: pulumi_wasm_rust::Output<
+        pub backup_subnet_cidr: pulumi_gestalt_rust::Output<String>,
+        pub cidr: pulumi_gestalt_rust::Output<String>,
+        pub cloud_vm_cluster_id: pulumi_gestalt_rust::Output<String>,
+        pub create_time: pulumi_gestalt_rust::Output<String>,
+        pub deletion_protection: pulumi_gestalt_rust::Output<bool>,
+        pub display_name: pulumi_gestalt_rust::Output<String>,
+        pub effective_labels: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
-        pub exadata_infrastructure: pulumi_wasm_rust::Output<String>,
-        pub gcp_oracle_zone: pulumi_wasm_rust::Output<String>,
+        pub exadata_infrastructure: pulumi_gestalt_rust::Output<String>,
+        pub gcp_oracle_zone: pulumi_gestalt_rust::Output<String>,
         /// The provider-assigned unique ID for this managed resource.
-        pub id: pulumi_wasm_rust::Output<String>,
-        pub labels: pulumi_wasm_rust::Output<std::collections::HashMap<String, String>>,
-        pub location: pulumi_wasm_rust::Output<String>,
-        pub name: pulumi_wasm_rust::Output<String>,
-        pub network: pulumi_wasm_rust::Output<String>,
-        pub project: pulumi_wasm_rust::Output<Option<String>>,
-        pub properties: pulumi_wasm_rust::Output<
+        pub id: pulumi_gestalt_rust::Output<String>,
+        pub labels: pulumi_gestalt_rust::Output<
+            std::collections::HashMap<String, String>,
+        >,
+        pub location: pulumi_gestalt_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
+        pub network: pulumi_gestalt_rust::Output<String>,
+        pub project: pulumi_gestalt_rust::Output<Option<String>>,
+        pub properties: pulumi_gestalt_rust::Output<
             Vec<super::super::super::types::oracledatabase::GetCloudVmClusterProperty>,
         >,
-        pub pulumi_labels: pulumi_wasm_rust::Output<
+        pub pulumi_labels: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
     }
@@ -48,10 +50,10 @@ pub mod get_cloud_vm_cluster {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         args: GetCloudVmClusterArgs,
     ) -> GetCloudVmClusterResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let cloud_vm_cluster_id_binding = args
             .cloud_vm_cluster_id
@@ -79,47 +81,49 @@ pub mod get_cloud_vm_cluster {
         };
         let o = register_interface::invoke(context.get_inner(), &request);
         GetCloudVmClusterResult {
-            backup_subnet_cidr: pulumi_wasm_rust::__private::into_domain(
+            backup_subnet_cidr: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("backupSubnetCidr"),
             ),
-            cidr: pulumi_wasm_rust::__private::into_domain(o.extract_field("cidr")),
-            cloud_vm_cluster_id: pulumi_wasm_rust::__private::into_domain(
+            cidr: pulumi_gestalt_rust::__private::into_domain(o.extract_field("cidr")),
+            cloud_vm_cluster_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("cloudVmClusterId"),
             ),
-            create_time: pulumi_wasm_rust::__private::into_domain(
+            create_time: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("createTime"),
             ),
-            deletion_protection: pulumi_wasm_rust::__private::into_domain(
+            deletion_protection: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("deletionProtection"),
             ),
-            display_name: pulumi_wasm_rust::__private::into_domain(
+            display_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("displayName"),
             ),
-            effective_labels: pulumi_wasm_rust::__private::into_domain(
+            effective_labels: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("effectiveLabels"),
             ),
-            exadata_infrastructure: pulumi_wasm_rust::__private::into_domain(
+            exadata_infrastructure: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("exadataInfrastructure"),
             ),
-            gcp_oracle_zone: pulumi_wasm_rust::__private::into_domain(
+            gcp_oracle_zone: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("gcpOracleZone"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
-            labels: pulumi_wasm_rust::__private::into_domain(o.extract_field("labels")),
-            location: pulumi_wasm_rust::__private::into_domain(
+            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
+            labels: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("labels"),
+            ),
+            location: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("location"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            network: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            network: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("network"),
             ),
-            project: pulumi_wasm_rust::__private::into_domain(
+            project: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("project"),
             ),
-            properties: pulumi_wasm_rust::__private::into_domain(
+            properties: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("properties"),
             ),
-            pulumi_labels: pulumi_wasm_rust::__private::into_domain(
+            pulumi_labels: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("pulumiLabels"),
             ),
         }

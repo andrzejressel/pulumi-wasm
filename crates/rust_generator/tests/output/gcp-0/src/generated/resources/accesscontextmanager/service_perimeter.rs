@@ -182,14 +182,14 @@
 /// ```
 ///
 pub mod service_perimeter {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ServicePerimeterArgs {
         /// Description of the ServicePerimeter and its use. Does not affect
         /// behavior.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub description: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Resource name for the ServicePerimeter. The short_name component must
         /// begin with a letter and only include alphanumeric and '_'.
         /// Format: accessPolicies/{policy_id}/servicePerimeters/{short_name}
@@ -197,11 +197,11 @@ pub mod service_perimeter {
         ///
         /// - - -
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The AccessPolicy this ServicePerimeter lives in.
         /// Format: accessPolicies/{policy_id}
         #[builder(into)]
-        pub parent: pulumi_wasm_rust::InputOrOutput<String>,
+        pub parent: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Specifies the type of the Perimeter. There are two types: regular and
         /// bridge. Regular Service Perimeter contains resources, access levels,
         /// and restricted services. Every resource can be in at most
@@ -219,14 +219,14 @@ pub mod service_perimeter {
         /// Default value is `PERIMETER_TYPE_REGULAR`.
         /// Possible values are: `PERIMETER_TYPE_REGULAR`, `PERIMETER_TYPE_BRIDGE`.
         #[builder(into, default)]
-        pub perimeter_type: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub perimeter_type: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Proposed (or dry run) ServicePerimeter configuration.
         /// This configuration allows to specify and test ServicePerimeter configuration
         /// without enforcing actual access restrictions. Only allowed to be set when
         /// the `useExplicitDryRunSpec` flag is set.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub spec: pulumi_wasm_rust::InputOrOutput<
+        pub spec: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::accesscontextmanager::ServicePerimeterSpec>,
         >,
         /// ServicePerimeter configuration. Specifies sets of resources,
@@ -234,12 +234,12 @@ pub mod service_perimeter {
         /// perimeter content and boundaries.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub status: pulumi_wasm_rust::InputOrOutput<
+        pub status: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::accesscontextmanager::ServicePerimeterStatus>,
         >,
         /// Human readable title. Must be unique within the Policy.
         #[builder(into)]
-        pub title: pulumi_wasm_rust::InputOrOutput<String>,
+        pub title: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Use explicit dry run spec flag. Ordinarily, a dry-run spec implicitly exists
         /// for all Service Perimeters, and that spec is identical to the status for those
         /// Service Perimeters. When this flag is set, it inhibits the generation of the
@@ -250,25 +250,25 @@ pub mod service_perimeter {
         /// between currently enforced and suggested restrictions. useExplicitDryRunSpec must
         /// bet set to True if any of the fields in the spec are set to non-default values.
         #[builder(into, default)]
-        pub use_explicit_dry_run_spec: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub use_explicit_dry_run_spec: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
     }
     #[allow(dead_code)]
     pub struct ServicePerimeterResult {
         /// Time the AccessPolicy was created in UTC.
-        pub create_time: pulumi_wasm_rust::Output<String>,
+        pub create_time: pulumi_gestalt_rust::Output<String>,
         /// Description of the ServicePerimeter and its use. Does not affect
         /// behavior.
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_gestalt_rust::Output<Option<String>>,
         /// Resource name for the ServicePerimeter. The short_name component must
         /// begin with a letter and only include alphanumeric and '_'.
         /// Format: accessPolicies/{policy_id}/servicePerimeters/{short_name}
         ///
         ///
         /// - - -
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// The AccessPolicy this ServicePerimeter lives in.
         /// Format: accessPolicies/{policy_id}
-        pub parent: pulumi_wasm_rust::Output<String>,
+        pub parent: pulumi_gestalt_rust::Output<String>,
         /// Specifies the type of the Perimeter. There are two types: regular and
         /// bridge. Regular Service Perimeter contains resources, access levels,
         /// and restricted services. Every resource can be in at most
@@ -285,26 +285,26 @@ pub mod service_perimeter {
         /// themselves.
         /// Default value is `PERIMETER_TYPE_REGULAR`.
         /// Possible values are: `PERIMETER_TYPE_REGULAR`, `PERIMETER_TYPE_BRIDGE`.
-        pub perimeter_type: pulumi_wasm_rust::Output<Option<String>>,
+        pub perimeter_type: pulumi_gestalt_rust::Output<Option<String>>,
         /// Proposed (or dry run) ServicePerimeter configuration.
         /// This configuration allows to specify and test ServicePerimeter configuration
         /// without enforcing actual access restrictions. Only allowed to be set when
         /// the `useExplicitDryRunSpec` flag is set.
         /// Structure is documented below.
-        pub spec: pulumi_wasm_rust::Output<
+        pub spec: pulumi_gestalt_rust::Output<
             Option<super::super::types::accesscontextmanager::ServicePerimeterSpec>,
         >,
         /// ServicePerimeter configuration. Specifies sets of resources,
         /// restricted services and access levels that determine
         /// perimeter content and boundaries.
         /// Structure is documented below.
-        pub status: pulumi_wasm_rust::Output<
+        pub status: pulumi_gestalt_rust::Output<
             Option<super::super::types::accesscontextmanager::ServicePerimeterStatus>,
         >,
         /// Human readable title. Must be unique within the Policy.
-        pub title: pulumi_wasm_rust::Output<String>,
+        pub title: pulumi_gestalt_rust::Output<String>,
         /// Time the AccessPolicy was updated in UTC.
-        pub update_time: pulumi_wasm_rust::Output<String>,
+        pub update_time: pulumi_gestalt_rust::Output<String>,
         /// Use explicit dry run spec flag. Ordinarily, a dry-run spec implicitly exists
         /// for all Service Perimeters, and that spec is identical to the status for those
         /// Service Perimeters. When this flag is set, it inhibits the generation of the
@@ -314,18 +314,18 @@ pub mod service_perimeter {
         /// actually enforcing them. This testing is done through analyzing the differences
         /// between currently enforced and suggested restrictions. useExplicitDryRunSpec must
         /// bet set to True if any of the fields in the spec are set to non-default values.
-        pub use_explicit_dry_run_spec: pulumi_wasm_rust::Output<Option<bool>>,
+        pub use_explicit_dry_run_spec: pulumi_gestalt_rust::Output<Option<bool>>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: ServicePerimeterArgs,
     ) -> ServicePerimeterResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let description_binding = args.description.get_output(context).get_inner();
         let name_binding = args.name.get_output(context).get_inner();
@@ -379,24 +379,28 @@ pub mod service_perimeter {
         };
         let o = register_interface::register(context.get_inner(), &request);
         ServicePerimeterResult {
-            create_time: pulumi_wasm_rust::__private::into_domain(
+            create_time: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("createTime"),
             ),
-            description: pulumi_wasm_rust::__private::into_domain(
+            description: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("description"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            parent: pulumi_wasm_rust::__private::into_domain(o.extract_field("parent")),
-            perimeter_type: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            parent: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("parent"),
+            ),
+            perimeter_type: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("perimeterType"),
             ),
-            spec: pulumi_wasm_rust::__private::into_domain(o.extract_field("spec")),
-            status: pulumi_wasm_rust::__private::into_domain(o.extract_field("status")),
-            title: pulumi_wasm_rust::__private::into_domain(o.extract_field("title")),
-            update_time: pulumi_wasm_rust::__private::into_domain(
+            spec: pulumi_gestalt_rust::__private::into_domain(o.extract_field("spec")),
+            status: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("status"),
+            ),
+            title: pulumi_gestalt_rust::__private::into_domain(o.extract_field("title")),
+            update_time: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("updateTime"),
             ),
-            use_explicit_dry_run_spec: pulumi_wasm_rust::__private::into_domain(
+            use_explicit_dry_run_spec: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("useExplicitDryRunSpec"),
             ),
         }

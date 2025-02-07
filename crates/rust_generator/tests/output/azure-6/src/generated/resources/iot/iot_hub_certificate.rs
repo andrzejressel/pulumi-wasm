@@ -43,49 +43,49 @@
 /// ```
 ///
 pub mod iot_hub_certificate {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct IotHubCertificateArgs {
         /// The Base-64 representation of the X509 leaf certificate .cer file or just a .pem file content.
         #[builder(into)]
-        pub certificate_content: pulumi_wasm_rust::InputOrOutput<String>,
+        pub certificate_content: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The name of the IoT Device Provisioning Service that this certificate will be attached to. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub iot_dps_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub iot_dps_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Specifies if the certificate is created in verified state. Defaults to `false`. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub is_verified: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub is_verified: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// Specifies the name of the Iot Device Provisioning Service Certificate resource. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The name of the resource group under which the Iot Device Provisioning Service Certificate resource has to be created. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub resource_group_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub resource_group_name: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct IotHubCertificateResult {
         /// The Base-64 representation of the X509 leaf certificate .cer file or just a .pem file content.
-        pub certificate_content: pulumi_wasm_rust::Output<String>,
+        pub certificate_content: pulumi_gestalt_rust::Output<String>,
         /// The name of the IoT Device Provisioning Service that this certificate will be attached to. Changing this forces a new resource to be created.
-        pub iot_dps_name: pulumi_wasm_rust::Output<String>,
+        pub iot_dps_name: pulumi_gestalt_rust::Output<String>,
         /// Specifies if the certificate is created in verified state. Defaults to `false`. Changing this forces a new resource to be created.
-        pub is_verified: pulumi_wasm_rust::Output<Option<bool>>,
+        pub is_verified: pulumi_gestalt_rust::Output<Option<bool>>,
         /// Specifies the name of the Iot Device Provisioning Service Certificate resource. Changing this forces a new resource to be created.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// The name of the resource group under which the Iot Device Provisioning Service Certificate resource has to be created. Changing this forces a new resource to be created.
-        pub resource_group_name: pulumi_wasm_rust::Output<String>,
+        pub resource_group_name: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: IotHubCertificateArgs,
     ) -> IotHubCertificateResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let certificate_content_binding = args
             .certificate_content
@@ -127,17 +127,17 @@ pub mod iot_hub_certificate {
         };
         let o = register_interface::register(context.get_inner(), &request);
         IotHubCertificateResult {
-            certificate_content: pulumi_wasm_rust::__private::into_domain(
+            certificate_content: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("certificateContent"),
             ),
-            iot_dps_name: pulumi_wasm_rust::__private::into_domain(
+            iot_dps_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("iotDpsName"),
             ),
-            is_verified: pulumi_wasm_rust::__private::into_domain(
+            is_verified: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("isVerified"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            resource_group_name: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("resourceGroupName"),
             ),
         }

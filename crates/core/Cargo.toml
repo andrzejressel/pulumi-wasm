@@ -1,5 +1,5 @@
 [package]
-name = "pulumi_wasm_core"
+name = "pulumi_gestalt_core"
 version.workspace = true
 edition.workspace = true
 
@@ -11,7 +11,7 @@ prost-types.workspace = true
 uuid.workspace = true
 log.workspace = true
 serde_json.workspace = true
-pulumi_wasm_proto.workspace = true
+pulumi_gestalt_proto.workspace = true
 
 [dev-dependencies]
 mockall.workspace = true

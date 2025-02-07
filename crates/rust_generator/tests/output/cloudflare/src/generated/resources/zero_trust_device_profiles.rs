@@ -3,8 +3,8 @@
 /// ## Example Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let developerWarpPolicy = zero_trust_device_profiles::create(
@@ -42,119 +42,119 @@
 /// ```
 ///
 pub mod zero_trust_device_profiles {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ZeroTrustDeviceProfilesArgs {
         /// The account identifier to target for the resource.
         #[builder(into)]
-        pub account_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub account_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Whether to allow mode switch for this policy.
         #[builder(into, default)]
-        pub allow_mode_switch: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub allow_mode_switch: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// Whether to allow updates under this policy.
         #[builder(into, default)]
-        pub allow_updates: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub allow_updates: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// Whether to allow devices to leave the organization. Defaults to `true`.
         #[builder(into, default)]
-        pub allowed_to_leave: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub allowed_to_leave: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// The amount of time in seconds to reconnect after having been disabled.
         #[builder(into, default)]
-        pub auto_connect: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
+        pub auto_connect: pulumi_gestalt_rust::InputOrOutput<Option<i32>>,
         /// The captive portal value for this policy. Defaults to `180`.
         #[builder(into, default)]
-        pub captive_portal: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
+        pub captive_portal: pulumi_gestalt_rust::InputOrOutput<Option<i32>>,
         /// Whether the policy refers to the default account policy.
         #[builder(into, default)]
-        pub default: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub default: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// Description of Policy.
         #[builder(into)]
-        pub description: pulumi_wasm_rust::InputOrOutput<String>,
+        pub description: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Whether to disable auto fallback for this policy.
         #[builder(into, default)]
-        pub disable_auto_fallback: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub disable_auto_fallback: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// Whether the policy is enabled (cannot be set for default policies). Defaults to `true`.
         #[builder(into, default)]
-        pub enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub enabled: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// Whether to add Microsoft IPs to split tunnel exclusions.
         #[builder(into, default)]
-        pub exclude_office_ips: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub exclude_office_ips: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// Wirefilter expression to match a device against when evaluating whether this policy should take effect for that device.
         #[builder(into, default)]
-        pub match_: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub match_: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Name of the policy.
         #[builder(into)]
-        pub name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The precedence of the policy. Lower values indicate higher precedence.
         #[builder(into, default)]
-        pub precedence: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
+        pub precedence: pulumi_gestalt_rust::InputOrOutput<Option<i32>>,
         /// The service mode. Available values: `1dot1`, `warp`, `proxy`, `posture_only`, `warp_tunnel_only`. Defaults to `warp`.
         #[builder(into, default)]
-        pub service_mode_v2_mode: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub service_mode_v2_mode: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The port to use for the proxy service mode. Required when using `service_mode_v2_mode`.
         #[builder(into, default)]
-        pub service_mode_v2_port: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
+        pub service_mode_v2_port: pulumi_gestalt_rust::InputOrOutput<Option<i32>>,
         /// The support URL that will be opened when sending feedback.
         #[builder(into, default)]
-        pub support_url: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub support_url: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Enablement of the ZT client switch lock.
         #[builder(into, default)]
-        pub switch_locked: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub switch_locked: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// Determines which tunnel protocol to use. Available values: `""`, `wireguard`, `masque`. Defaults to `wireguard`.
         #[builder(into, default)]
-        pub tunnel_protocol: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub tunnel_protocol: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct ZeroTrustDeviceProfilesResult {
         /// The account identifier to target for the resource.
-        pub account_id: pulumi_wasm_rust::Output<String>,
+        pub account_id: pulumi_gestalt_rust::Output<String>,
         /// Whether to allow mode switch for this policy.
-        pub allow_mode_switch: pulumi_wasm_rust::Output<Option<bool>>,
+        pub allow_mode_switch: pulumi_gestalt_rust::Output<Option<bool>>,
         /// Whether to allow updates under this policy.
-        pub allow_updates: pulumi_wasm_rust::Output<Option<bool>>,
+        pub allow_updates: pulumi_gestalt_rust::Output<Option<bool>>,
         /// Whether to allow devices to leave the organization. Defaults to `true`.
-        pub allowed_to_leave: pulumi_wasm_rust::Output<Option<bool>>,
+        pub allowed_to_leave: pulumi_gestalt_rust::Output<Option<bool>>,
         /// The amount of time in seconds to reconnect after having been disabled.
-        pub auto_connect: pulumi_wasm_rust::Output<Option<i32>>,
+        pub auto_connect: pulumi_gestalt_rust::Output<Option<i32>>,
         /// The captive portal value for this policy. Defaults to `180`.
-        pub captive_portal: pulumi_wasm_rust::Output<Option<i32>>,
+        pub captive_portal: pulumi_gestalt_rust::Output<Option<i32>>,
         /// Whether the policy refers to the default account policy.
-        pub default: pulumi_wasm_rust::Output<Option<bool>>,
+        pub default: pulumi_gestalt_rust::Output<Option<bool>>,
         /// Description of Policy.
-        pub description: pulumi_wasm_rust::Output<String>,
+        pub description: pulumi_gestalt_rust::Output<String>,
         /// Whether to disable auto fallback for this policy.
-        pub disable_auto_fallback: pulumi_wasm_rust::Output<Option<bool>>,
+        pub disable_auto_fallback: pulumi_gestalt_rust::Output<Option<bool>>,
         /// Whether the policy is enabled (cannot be set for default policies). Defaults to `true`.
-        pub enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub enabled: pulumi_gestalt_rust::Output<Option<bool>>,
         /// Whether to add Microsoft IPs to split tunnel exclusions.
-        pub exclude_office_ips: pulumi_wasm_rust::Output<Option<bool>>,
+        pub exclude_office_ips: pulumi_gestalt_rust::Output<Option<bool>>,
         /// Wirefilter expression to match a device against when evaluating whether this policy should take effect for that device.
-        pub match_: pulumi_wasm_rust::Output<Option<String>>,
+        pub match_: pulumi_gestalt_rust::Output<Option<String>>,
         /// Name of the policy.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// The precedence of the policy. Lower values indicate higher precedence.
-        pub precedence: pulumi_wasm_rust::Output<Option<i32>>,
+        pub precedence: pulumi_gestalt_rust::Output<Option<i32>>,
         /// The service mode. Available values: `1dot1`, `warp`, `proxy`, `posture_only`, `warp_tunnel_only`. Defaults to `warp`.
-        pub service_mode_v2_mode: pulumi_wasm_rust::Output<Option<String>>,
+        pub service_mode_v2_mode: pulumi_gestalt_rust::Output<Option<String>>,
         /// The port to use for the proxy service mode. Required when using `service_mode_v2_mode`.
-        pub service_mode_v2_port: pulumi_wasm_rust::Output<Option<i32>>,
+        pub service_mode_v2_port: pulumi_gestalt_rust::Output<Option<i32>>,
         /// The support URL that will be opened when sending feedback.
-        pub support_url: pulumi_wasm_rust::Output<Option<String>>,
+        pub support_url: pulumi_gestalt_rust::Output<Option<String>>,
         /// Enablement of the ZT client switch lock.
-        pub switch_locked: pulumi_wasm_rust::Output<Option<bool>>,
+        pub switch_locked: pulumi_gestalt_rust::Output<Option<bool>>,
         /// Determines which tunnel protocol to use. Available values: `""`, `wireguard`, `masque`. Defaults to `wireguard`.
-        pub tunnel_protocol: pulumi_wasm_rust::Output<Option<String>>,
+        pub tunnel_protocol: pulumi_gestalt_rust::Output<Option<String>>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: ZeroTrustDeviceProfilesArgs,
     ) -> ZeroTrustDeviceProfilesResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let account_id_binding = args.account_id.get_output(context).get_inner();
         let allow_mode_switch_binding = args
@@ -282,57 +282,59 @@ pub mod zero_trust_device_profiles {
         };
         let o = register_interface::register(context.get_inner(), &request);
         ZeroTrustDeviceProfilesResult {
-            account_id: pulumi_wasm_rust::__private::into_domain(
+            account_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("accountId"),
             ),
-            allow_mode_switch: pulumi_wasm_rust::__private::into_domain(
+            allow_mode_switch: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("allowModeSwitch"),
             ),
-            allow_updates: pulumi_wasm_rust::__private::into_domain(
+            allow_updates: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("allowUpdates"),
             ),
-            allowed_to_leave: pulumi_wasm_rust::__private::into_domain(
+            allowed_to_leave: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("allowedToLeave"),
             ),
-            auto_connect: pulumi_wasm_rust::__private::into_domain(
+            auto_connect: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("autoConnect"),
             ),
-            captive_portal: pulumi_wasm_rust::__private::into_domain(
+            captive_portal: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("captivePortal"),
             ),
-            default: pulumi_wasm_rust::__private::into_domain(
+            default: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("default"),
             ),
-            description: pulumi_wasm_rust::__private::into_domain(
+            description: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("description"),
             ),
-            disable_auto_fallback: pulumi_wasm_rust::__private::into_domain(
+            disable_auto_fallback: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("disableAutoFallback"),
             ),
-            enabled: pulumi_wasm_rust::__private::into_domain(
+            enabled: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("enabled"),
             ),
-            exclude_office_ips: pulumi_wasm_rust::__private::into_domain(
+            exclude_office_ips: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("excludeOfficeIps"),
             ),
-            match_: pulumi_wasm_rust::__private::into_domain(o.extract_field("match")),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            precedence: pulumi_wasm_rust::__private::into_domain(
+            match_: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("match"),
+            ),
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            precedence: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("precedence"),
             ),
-            service_mode_v2_mode: pulumi_wasm_rust::__private::into_domain(
+            service_mode_v2_mode: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("serviceModeV2Mode"),
             ),
-            service_mode_v2_port: pulumi_wasm_rust::__private::into_domain(
+            service_mode_v2_port: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("serviceModeV2Port"),
             ),
-            support_url: pulumi_wasm_rust::__private::into_domain(
+            support_url: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("supportUrl"),
             ),
-            switch_locked: pulumi_wasm_rust::__private::into_domain(
+            switch_locked: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("switchLocked"),
             ),
-            tunnel_protocol: pulumi_wasm_rust::__private::into_domain(
+            tunnel_protocol: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("tunnelProtocol"),
             ),
         }

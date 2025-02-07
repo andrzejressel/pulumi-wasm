@@ -3,8 +3,8 @@
 /// ## Example Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = resource_group::create(
@@ -69,121 +69,123 @@
 /// ```
 ///
 pub mod policy_vm {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct PolicyVMArgs {
         /// Configures the Policy backup frequency, times & days as documented in the `backup` block below.
         #[builder(into)]
-        pub backup: pulumi_wasm_rust::InputOrOutput<
+        pub backup: pulumi_gestalt_rust::InputOrOutput<
             super::super::types::backup::PolicyVmBackup,
         >,
         /// Specifies the instant restore resource group name as documented in the `instant_restore_resource_group` block below.
         #[builder(into, default)]
-        pub instant_restore_resource_group: pulumi_wasm_rust::InputOrOutput<
+        pub instant_restore_resource_group: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::backup::PolicyVmInstantRestoreResourceGroup>,
         >,
         /// Specifies the instant restore retention range in days. Possible values are between `1` and `5` when `policy_type` is `V1`, and `1` to `30` when `policy_type` is `V2`.
         ///
         /// > **NOTE:** `instant_restore_retention_days` **must** be set to `5` if the backup frequency is set to `Weekly`.
         #[builder(into, default)]
-        pub instant_restore_retention_days: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
+        pub instant_restore_retention_days: pulumi_gestalt_rust::InputOrOutput<
+            Option<i32>,
+        >,
         /// Specifies the name of the Backup Policy. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Type of the Backup Policy. Possible values are `V1` and `V2` where `V2` stands for the Enhanced Policy. Defaults to `V1`. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub policy_type: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub policy_type: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Specifies the name of the Recovery Services Vault to use. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub recovery_vault_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub recovery_vault_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The name of the resource group in which to create the policy. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub resource_group_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub resource_group_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Configures the policy daily retention as documented in the `retention_daily` block below. Required when backup frequency is `Daily`.
         #[builder(into, default)]
-        pub retention_daily: pulumi_wasm_rust::InputOrOutput<
+        pub retention_daily: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::backup::PolicyVmRetentionDaily>,
         >,
         /// Configures the policy monthly retention as documented in the `retention_monthly` block below.
         #[builder(into, default)]
-        pub retention_monthly: pulumi_wasm_rust::InputOrOutput<
+        pub retention_monthly: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::backup::PolicyVmRetentionMonthly>,
         >,
         /// Configures the policy weekly retention as documented in the `retention_weekly` block below. Required when backup frequency is `Weekly`.
         #[builder(into, default)]
-        pub retention_weekly: pulumi_wasm_rust::InputOrOutput<
+        pub retention_weekly: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::backup::PolicyVmRetentionWeekly>,
         >,
         /// Configures the policy yearly retention as documented in the `retention_yearly` block below.
         #[builder(into, default)]
-        pub retention_yearly: pulumi_wasm_rust::InputOrOutput<
+        pub retention_yearly: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::backup::PolicyVmRetentionYearly>,
         >,
         /// A `tiering_policy` block as defined below.
         #[builder(into, default)]
-        pub tiering_policy: pulumi_wasm_rust::InputOrOutput<
+        pub tiering_policy: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::backup::PolicyVmTieringPolicy>,
         >,
         /// Specifies the timezone. [the possible values are defined here](https://jackstromberg.com/2017/01/list-of-time-zones-consumed-by-azure/). Defaults to `UTC`
         #[builder(into, default)]
-        pub timezone: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub timezone: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct PolicyVMResult {
         /// Configures the Policy backup frequency, times & days as documented in the `backup` block below.
-        pub backup: pulumi_wasm_rust::Output<
+        pub backup: pulumi_gestalt_rust::Output<
             super::super::types::backup::PolicyVmBackup,
         >,
         /// Specifies the instant restore resource group name as documented in the `instant_restore_resource_group` block below.
-        pub instant_restore_resource_group: pulumi_wasm_rust::Output<
+        pub instant_restore_resource_group: pulumi_gestalt_rust::Output<
             Option<super::super::types::backup::PolicyVmInstantRestoreResourceGroup>,
         >,
         /// Specifies the instant restore retention range in days. Possible values are between `1` and `5` when `policy_type` is `V1`, and `1` to `30` when `policy_type` is `V2`.
         ///
         /// > **NOTE:** `instant_restore_retention_days` **must** be set to `5` if the backup frequency is set to `Weekly`.
-        pub instant_restore_retention_days: pulumi_wasm_rust::Output<i32>,
+        pub instant_restore_retention_days: pulumi_gestalt_rust::Output<i32>,
         /// Specifies the name of the Backup Policy. Changing this forces a new resource to be created.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// Type of the Backup Policy. Possible values are `V1` and `V2` where `V2` stands for the Enhanced Policy. Defaults to `V1`. Changing this forces a new resource to be created.
-        pub policy_type: pulumi_wasm_rust::Output<Option<String>>,
+        pub policy_type: pulumi_gestalt_rust::Output<Option<String>>,
         /// Specifies the name of the Recovery Services Vault to use. Changing this forces a new resource to be created.
-        pub recovery_vault_name: pulumi_wasm_rust::Output<String>,
+        pub recovery_vault_name: pulumi_gestalt_rust::Output<String>,
         /// The name of the resource group in which to create the policy. Changing this forces a new resource to be created.
-        pub resource_group_name: pulumi_wasm_rust::Output<String>,
+        pub resource_group_name: pulumi_gestalt_rust::Output<String>,
         /// Configures the policy daily retention as documented in the `retention_daily` block below. Required when backup frequency is `Daily`.
-        pub retention_daily: pulumi_wasm_rust::Output<
+        pub retention_daily: pulumi_gestalt_rust::Output<
             Option<super::super::types::backup::PolicyVmRetentionDaily>,
         >,
         /// Configures the policy monthly retention as documented in the `retention_monthly` block below.
-        pub retention_monthly: pulumi_wasm_rust::Output<
+        pub retention_monthly: pulumi_gestalt_rust::Output<
             Option<super::super::types::backup::PolicyVmRetentionMonthly>,
         >,
         /// Configures the policy weekly retention as documented in the `retention_weekly` block below. Required when backup frequency is `Weekly`.
-        pub retention_weekly: pulumi_wasm_rust::Output<
+        pub retention_weekly: pulumi_gestalt_rust::Output<
             Option<super::super::types::backup::PolicyVmRetentionWeekly>,
         >,
         /// Configures the policy yearly retention as documented in the `retention_yearly` block below.
-        pub retention_yearly: pulumi_wasm_rust::Output<
+        pub retention_yearly: pulumi_gestalt_rust::Output<
             Option<super::super::types::backup::PolicyVmRetentionYearly>,
         >,
         /// A `tiering_policy` block as defined below.
-        pub tiering_policy: pulumi_wasm_rust::Output<
+        pub tiering_policy: pulumi_gestalt_rust::Output<
             Option<super::super::types::backup::PolicyVmTieringPolicy>,
         >,
         /// Specifies the timezone. [the possible values are defined here](https://jackstromberg.com/2017/01/list-of-time-zones-consumed-by-azure/). Defaults to `UTC`
-        pub timezone: pulumi_wasm_rust::Output<Option<String>>,
+        pub timezone: pulumi_gestalt_rust::Output<Option<String>>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: PolicyVMArgs,
     ) -> PolicyVMResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let backup_binding = args.backup.get_output(context).get_inner();
         let instant_restore_resource_group_binding = args
@@ -283,39 +285,41 @@ pub mod policy_vm {
         };
         let o = register_interface::register(context.get_inner(), &request);
         PolicyVMResult {
-            backup: pulumi_wasm_rust::__private::into_domain(o.extract_field("backup")),
-            instant_restore_resource_group: pulumi_wasm_rust::__private::into_domain(
+            backup: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("backup"),
+            ),
+            instant_restore_resource_group: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("instantRestoreResourceGroup"),
             ),
-            instant_restore_retention_days: pulumi_wasm_rust::__private::into_domain(
+            instant_restore_retention_days: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("instantRestoreRetentionDays"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            policy_type: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            policy_type: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("policyType"),
             ),
-            recovery_vault_name: pulumi_wasm_rust::__private::into_domain(
+            recovery_vault_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("recoveryVaultName"),
             ),
-            resource_group_name: pulumi_wasm_rust::__private::into_domain(
+            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("resourceGroupName"),
             ),
-            retention_daily: pulumi_wasm_rust::__private::into_domain(
+            retention_daily: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("retentionDaily"),
             ),
-            retention_monthly: pulumi_wasm_rust::__private::into_domain(
+            retention_monthly: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("retentionMonthly"),
             ),
-            retention_weekly: pulumi_wasm_rust::__private::into_domain(
+            retention_weekly: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("retentionWeekly"),
             ),
-            retention_yearly: pulumi_wasm_rust::__private::into_domain(
+            retention_yearly: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("retentionYearly"),
             ),
-            tiering_policy: pulumi_wasm_rust::__private::into_domain(
+            tiering_policy: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("tieringPolicy"),
             ),
-            timezone: pulumi_wasm_rust::__private::into_domain(
+            timezone: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("timezone"),
             ),
         }

@@ -5,8 +5,8 @@
 /// ## Example Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = bucket::create(
@@ -27,40 +27,40 @@
 /// $ pulumi import aws:s3control/bucket:Bucket example arn:aws:s3-outposts:us-east-1:123456789012:outpost/op-12345678/bucket/example
 /// ```
 pub mod bucket {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct BucketArgs {
         /// Name of the bucket.
         #[builder(into)]
-        pub bucket: pulumi_wasm_rust::InputOrOutput<String>,
+        pub bucket: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Identifier of the Outpost to contain this bucket.
         #[builder(into)]
-        pub outpost_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub outpost_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
     #[allow(dead_code)]
     pub struct BucketResult {
         /// Amazon Resource Name (ARN) of the bucket.
-        pub arn: pulumi_wasm_rust::Output<String>,
+        pub arn: pulumi_gestalt_rust::Output<String>,
         /// Name of the bucket.
-        pub bucket: pulumi_wasm_rust::Output<String>,
+        pub bucket: pulumi_gestalt_rust::Output<String>,
         /// UTC creation date in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
-        pub creation_date: pulumi_wasm_rust::Output<String>,
+        pub creation_date: pulumi_gestalt_rust::Output<String>,
         /// Identifier of the Outpost to contain this bucket.
-        pub outpost_id: pulumi_wasm_rust::Output<String>,
+        pub outpost_id: pulumi_gestalt_rust::Output<String>,
         /// Boolean whether Public Access Block is enabled.
-        pub public_access_block_enabled: pulumi_wasm_rust::Output<bool>,
+        pub public_access_block_enabled: pulumi_gestalt_rust::Output<bool>,
         /// Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        pub tags_all: pulumi_wasm_rust::Output<
+        pub tags_all: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
     }
@@ -69,11 +69,11 @@ pub mod bucket {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: BucketArgs,
     ) -> BucketResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let bucket_binding = args.bucket.get_output(context).get_inner();
         let outpost_id_binding = args.outpost_id.get_output(context).get_inner();
@@ -99,19 +99,21 @@ pub mod bucket {
         };
         let o = register_interface::register(context.get_inner(), &request);
         BucketResult {
-            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
-            bucket: pulumi_wasm_rust::__private::into_domain(o.extract_field("bucket")),
-            creation_date: pulumi_wasm_rust::__private::into_domain(
+            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
+            bucket: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("bucket"),
+            ),
+            creation_date: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("creationDate"),
             ),
-            outpost_id: pulumi_wasm_rust::__private::into_domain(
+            outpost_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("outpostId"),
             ),
-            public_access_block_enabled: pulumi_wasm_rust::__private::into_domain(
+            public_access_block_enabled: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("publicAccessBlockEnabled"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_wasm_rust::__private::into_domain(
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            tags_all: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("tagsAll"),
             ),
         }

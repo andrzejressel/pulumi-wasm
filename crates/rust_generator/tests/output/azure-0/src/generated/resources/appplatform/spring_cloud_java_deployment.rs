@@ -53,67 +53,67 @@
 /// ```
 ///
 pub mod spring_cloud_java_deployment {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct SpringCloudJavaDeploymentArgs {
         /// Specifies the environment variables of the Spring Cloud Deployment as a map of key-value pairs.
         #[builder(into, default)]
-        pub environment_variables: pulumi_wasm_rust::InputOrOutput<
+        pub environment_variables: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Specifies the required instance count of the Spring Cloud Deployment. Possible Values are between `1` and `500`. Defaults to `1` if not specified.
         #[builder(into, default)]
-        pub instance_count: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
+        pub instance_count: pulumi_gestalt_rust::InputOrOutput<Option<i32>>,
         /// Specifies the jvm option of the Spring Cloud Deployment.
         #[builder(into, default)]
-        pub jvm_options: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub jvm_options: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Specifies the name of the Spring Cloud Deployment. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// A `quota` block as defined below.
         #[builder(into, default)]
-        pub quota: pulumi_wasm_rust::InputOrOutput<
+        pub quota: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::appplatform::SpringCloudJavaDeploymentQuota>,
         >,
         /// Specifies the runtime version of the Spring Cloud Deployment. Possible Values are `Java_8`, `Java_11` and `Java_17`. Defaults to `Java_8`.
         #[builder(into, default)]
-        pub runtime_version: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub runtime_version: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Specifies the id of the Spring Cloud Application in which to create the Deployment. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub spring_cloud_app_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub spring_cloud_app_id: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct SpringCloudJavaDeploymentResult {
         /// Specifies the environment variables of the Spring Cloud Deployment as a map of key-value pairs.
-        pub environment_variables: pulumi_wasm_rust::Output<
+        pub environment_variables: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Specifies the required instance count of the Spring Cloud Deployment. Possible Values are between `1` and `500`. Defaults to `1` if not specified.
-        pub instance_count: pulumi_wasm_rust::Output<Option<i32>>,
+        pub instance_count: pulumi_gestalt_rust::Output<Option<i32>>,
         /// Specifies the jvm option of the Spring Cloud Deployment.
-        pub jvm_options: pulumi_wasm_rust::Output<Option<String>>,
+        pub jvm_options: pulumi_gestalt_rust::Output<Option<String>>,
         /// Specifies the name of the Spring Cloud Deployment. Changing this forces a new resource to be created.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// A `quota` block as defined below.
-        pub quota: pulumi_wasm_rust::Output<
+        pub quota: pulumi_gestalt_rust::Output<
             super::super::types::appplatform::SpringCloudJavaDeploymentQuota,
         >,
         /// Specifies the runtime version of the Spring Cloud Deployment. Possible Values are `Java_8`, `Java_11` and `Java_17`. Defaults to `Java_8`.
-        pub runtime_version: pulumi_wasm_rust::Output<Option<String>>,
+        pub runtime_version: pulumi_gestalt_rust::Output<Option<String>>,
         /// Specifies the id of the Spring Cloud Application in which to create the Deployment. Changing this forces a new resource to be created.
-        pub spring_cloud_app_id: pulumi_wasm_rust::Output<String>,
+        pub spring_cloud_app_id: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: SpringCloudJavaDeploymentArgs,
     ) -> SpringCloudJavaDeploymentResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let environment_variables_binding = args
             .environment_variables
@@ -169,21 +169,21 @@ pub mod spring_cloud_java_deployment {
         };
         let o = register_interface::register(context.get_inner(), &request);
         SpringCloudJavaDeploymentResult {
-            environment_variables: pulumi_wasm_rust::__private::into_domain(
+            environment_variables: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("environmentVariables"),
             ),
-            instance_count: pulumi_wasm_rust::__private::into_domain(
+            instance_count: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("instanceCount"),
             ),
-            jvm_options: pulumi_wasm_rust::__private::into_domain(
+            jvm_options: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("jvmOptions"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            quota: pulumi_wasm_rust::__private::into_domain(o.extract_field("quota")),
-            runtime_version: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            quota: pulumi_gestalt_rust::__private::into_domain(o.extract_field("quota")),
+            runtime_version: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("runtimeVersion"),
             ),
-            spring_cloud_app_id: pulumi_wasm_rust::__private::into_domain(
+            spring_cloud_app_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("springCloudAppId"),
             ),
         }

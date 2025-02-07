@@ -44,73 +44,73 @@
 /// $ pulumi import aws:workspaces/workspace:Workspace example ws-9z9zmbkhv
 /// ```
 pub mod workspace {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct WorkspaceArgs {
         /// The ID of the bundle for the WorkSpace.
         #[builder(into)]
-        pub bundle_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub bundle_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The ID of the directory for the WorkSpace.
         #[builder(into)]
-        pub directory_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub directory_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Indicates whether the data stored on the root volume is encrypted.
         #[builder(into, default)]
-        pub root_volume_encryption_enabled: pulumi_wasm_rust::InputOrOutput<
+        pub root_volume_encryption_enabled: pulumi_gestalt_rust::InputOrOutput<
             Option<bool>,
         >,
         /// The tags for the WorkSpace. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// The user name of the user for the WorkSpace. This user name must exist in the directory for the WorkSpace.
         #[builder(into)]
-        pub user_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub user_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Indicates whether the data stored on the user volume is encrypted.
         #[builder(into, default)]
-        pub user_volume_encryption_enabled: pulumi_wasm_rust::InputOrOutput<
+        pub user_volume_encryption_enabled: pulumi_gestalt_rust::InputOrOutput<
             Option<bool>,
         >,
         /// The ARN of a symmetric AWS KMS customer master key (CMK) used to encrypt data stored on your WorkSpace. Amazon WorkSpaces does not support asymmetric CMKs.
         #[builder(into, default)]
-        pub volume_encryption_key: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub volume_encryption_key: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The WorkSpace properties.
         #[builder(into, default)]
-        pub workspace_properties: pulumi_wasm_rust::InputOrOutput<
+        pub workspace_properties: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::workspaces::WorkspaceWorkspaceProperties>,
         >,
     }
     #[allow(dead_code)]
     pub struct WorkspaceResult {
         /// The ID of the bundle for the WorkSpace.
-        pub bundle_id: pulumi_wasm_rust::Output<String>,
+        pub bundle_id: pulumi_gestalt_rust::Output<String>,
         /// The name of the WorkSpace, as seen by the operating system.
-        pub computer_name: pulumi_wasm_rust::Output<String>,
+        pub computer_name: pulumi_gestalt_rust::Output<String>,
         /// The ID of the directory for the WorkSpace.
-        pub directory_id: pulumi_wasm_rust::Output<String>,
+        pub directory_id: pulumi_gestalt_rust::Output<String>,
         /// The IP address of the WorkSpace.
-        pub ip_address: pulumi_wasm_rust::Output<String>,
+        pub ip_address: pulumi_gestalt_rust::Output<String>,
         /// Indicates whether the data stored on the root volume is encrypted.
-        pub root_volume_encryption_enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub root_volume_encryption_enabled: pulumi_gestalt_rust::Output<Option<bool>>,
         /// The operational state of the WorkSpace.
-        pub state: pulumi_wasm_rust::Output<String>,
+        pub state: pulumi_gestalt_rust::Output<String>,
         /// The tags for the WorkSpace. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        pub tags_all: pulumi_wasm_rust::Output<
+        pub tags_all: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
         /// The user name of the user for the WorkSpace. This user name must exist in the directory for the WorkSpace.
-        pub user_name: pulumi_wasm_rust::Output<String>,
+        pub user_name: pulumi_gestalt_rust::Output<String>,
         /// Indicates whether the data stored on the user volume is encrypted.
-        pub user_volume_encryption_enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub user_volume_encryption_enabled: pulumi_gestalt_rust::Output<Option<bool>>,
         /// The ARN of a symmetric AWS KMS customer master key (CMK) used to encrypt data stored on your WorkSpace. Amazon WorkSpaces does not support asymmetric CMKs.
-        pub volume_encryption_key: pulumi_wasm_rust::Output<Option<String>>,
+        pub volume_encryption_key: pulumi_gestalt_rust::Output<Option<String>>,
         /// The WorkSpace properties.
-        pub workspace_properties: pulumi_wasm_rust::Output<
+        pub workspace_properties: pulumi_gestalt_rust::Output<
             super::super::types::workspaces::WorkspaceWorkspaceProperties,
         >,
     }
@@ -119,11 +119,11 @@ pub mod workspace {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: WorkspaceArgs,
     ) -> WorkspaceResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let bundle_id_binding = args.bundle_id.get_output(context).get_inner();
         let directory_id_binding = args.directory_id.get_output(context).get_inner();
@@ -186,36 +186,36 @@ pub mod workspace {
         };
         let o = register_interface::register(context.get_inner(), &request);
         WorkspaceResult {
-            bundle_id: pulumi_wasm_rust::__private::into_domain(
+            bundle_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("bundleId"),
             ),
-            computer_name: pulumi_wasm_rust::__private::into_domain(
+            computer_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("computerName"),
             ),
-            directory_id: pulumi_wasm_rust::__private::into_domain(
+            directory_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("directoryId"),
             ),
-            ip_address: pulumi_wasm_rust::__private::into_domain(
+            ip_address: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("ipAddress"),
             ),
-            root_volume_encryption_enabled: pulumi_wasm_rust::__private::into_domain(
+            root_volume_encryption_enabled: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("rootVolumeEncryptionEnabled"),
             ),
-            state: pulumi_wasm_rust::__private::into_domain(o.extract_field("state")),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_wasm_rust::__private::into_domain(
+            state: pulumi_gestalt_rust::__private::into_domain(o.extract_field("state")),
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            tags_all: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("tagsAll"),
             ),
-            user_name: pulumi_wasm_rust::__private::into_domain(
+            user_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("userName"),
             ),
-            user_volume_encryption_enabled: pulumi_wasm_rust::__private::into_domain(
+            user_volume_encryption_enabled: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("userVolumeEncryptionEnabled"),
             ),
-            volume_encryption_key: pulumi_wasm_rust::__private::into_domain(
+            volume_encryption_key: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("volumeEncryptionKey"),
             ),
-            workspace_properties: pulumi_wasm_rust::__private::into_domain(
+            workspace_properties: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("workspaceProperties"),
             ),
         }

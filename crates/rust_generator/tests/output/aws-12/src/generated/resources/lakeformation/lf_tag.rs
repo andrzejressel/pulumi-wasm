@@ -3,8 +3,8 @@
 /// ## Example Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = lf_tag::create(
@@ -25,39 +25,39 @@
 /// $ pulumi import aws:lakeformation/lfTag:LfTag example 123456789012:some_key
 /// ```
 pub mod lf_tag {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct LfTagArgs {
         /// ID of the Data Catalog to create the tag in. If omitted, this defaults to the AWS Account ID.
         #[builder(into, default)]
-        pub catalog_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub catalog_id: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Key-name for the tag.
         #[builder(into)]
-        pub key: pulumi_wasm_rust::InputOrOutput<String>,
+        pub key: pulumi_gestalt_rust::InputOrOutput<String>,
         /// List of possible values an attribute can take.
         #[builder(into)]
-        pub values: pulumi_wasm_rust::InputOrOutput<Vec<String>>,
+        pub values: pulumi_gestalt_rust::InputOrOutput<Vec<String>>,
     }
     #[allow(dead_code)]
     pub struct LfTagResult {
         /// ID of the Data Catalog to create the tag in. If omitted, this defaults to the AWS Account ID.
-        pub catalog_id: pulumi_wasm_rust::Output<String>,
+        pub catalog_id: pulumi_gestalt_rust::Output<String>,
         /// Key-name for the tag.
-        pub key: pulumi_wasm_rust::Output<String>,
+        pub key: pulumi_gestalt_rust::Output<String>,
         /// List of possible values an attribute can take.
-        pub values: pulumi_wasm_rust::Output<Vec<String>>,
+        pub values: pulumi_gestalt_rust::Output<Vec<String>>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: LfTagArgs,
     ) -> LfTagResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let catalog_id_binding = args.catalog_id.get_output(context).get_inner();
         let key_binding = args.key.get_output(context).get_inner();
@@ -83,11 +83,13 @@ pub mod lf_tag {
         };
         let o = register_interface::register(context.get_inner(), &request);
         LfTagResult {
-            catalog_id: pulumi_wasm_rust::__private::into_domain(
+            catalog_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("catalogId"),
             ),
-            key: pulumi_wasm_rust::__private::into_domain(o.extract_field("key")),
-            values: pulumi_wasm_rust::__private::into_domain(o.extract_field("values")),
+            key: pulumi_gestalt_rust::__private::into_domain(o.extract_field("key")),
+            values: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("values"),
+            ),
         }
     }
 }

@@ -74,110 +74,112 @@
 /// ```
 ///
 pub mod spark_pool {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct SparkPoolArgs {
         /// An `auto_pause` block as defined below.
         #[builder(into, default)]
-        pub auto_pause: pulumi_wasm_rust::InputOrOutput<
+        pub auto_pause: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::synapse::SparkPoolAutoPause>,
         >,
         /// An `auto_scale` block as defined below. Exactly one of `node_count` or `auto_scale` must be specified.
         #[builder(into, default)]
-        pub auto_scale: pulumi_wasm_rust::InputOrOutput<
+        pub auto_scale: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::synapse::SparkPoolAutoScale>,
         >,
         /// The cache size in the Spark Pool.
         #[builder(into, default)]
-        pub cache_size: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
+        pub cache_size: pulumi_gestalt_rust::InputOrOutput<Option<i32>>,
         /// Indicates whether compute isolation is enabled or not. Defaults to `false`.
         #[builder(into, default)]
-        pub compute_isolation_enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub compute_isolation_enabled: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         #[builder(into, default)]
-        pub dynamic_executor_allocation_enabled: pulumi_wasm_rust::InputOrOutput<
+        pub dynamic_executor_allocation_enabled: pulumi_gestalt_rust::InputOrOutput<
             Option<bool>,
         >,
         #[builder(into, default)]
-        pub library_requirement: pulumi_wasm_rust::InputOrOutput<
+        pub library_requirement: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::synapse::SparkPoolLibraryRequirement>,
         >,
         #[builder(into, default)]
-        pub max_executors: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
+        pub max_executors: pulumi_gestalt_rust::InputOrOutput<Option<i32>>,
         #[builder(into, default)]
-        pub min_executors: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
+        pub min_executors: pulumi_gestalt_rust::InputOrOutput<Option<i32>>,
         /// The name which should be used for this Synapse Spark Pool. Changing this forces a new Synapse Spark Pool to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The number of nodes in the Spark Pool. Exactly one of `node_count` or `auto_scale` must be specified.
         #[builder(into, default)]
-        pub node_count: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
+        pub node_count: pulumi_gestalt_rust::InputOrOutput<Option<i32>>,
         /// The level of node in the Spark Pool. Possible values are `Small`, `Medium`, `Large`, `None`, `XLarge`, `XXLarge` and `XXXLarge`.
         #[builder(into)]
-        pub node_size: pulumi_wasm_rust::InputOrOutput<String>,
+        pub node_size: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The kind of nodes that the Spark Pool provides. Possible values are `HardwareAcceleratedFPGA`, `HardwareAcceleratedGPU`, `MemoryOptimized`, and `None`.
         #[builder(into)]
-        pub node_size_family: pulumi_wasm_rust::InputOrOutput<String>,
+        pub node_size_family: pulumi_gestalt_rust::InputOrOutput<String>,
         #[builder(into, default)]
-        pub session_level_packages_enabled: pulumi_wasm_rust::InputOrOutput<
+        pub session_level_packages_enabled: pulumi_gestalt_rust::InputOrOutput<
             Option<bool>,
         >,
         #[builder(into, default)]
-        pub spark_config: pulumi_wasm_rust::InputOrOutput<
+        pub spark_config: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::synapse::SparkPoolSparkConfig>,
         >,
         #[builder(into, default)]
-        pub spark_events_folder: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub spark_events_folder: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         #[builder(into, default)]
-        pub spark_log_folder: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub spark_log_folder: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         #[builder(into)]
-        pub spark_version: pulumi_wasm_rust::InputOrOutput<String>,
+        pub spark_version: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The ID of the Synapse Workspace where the Synapse Spark Pool should exist. Changing this forces a new Synapse Spark Pool to be created.
         #[builder(into)]
-        pub synapse_workspace_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub synapse_workspace_id: pulumi_gestalt_rust::InputOrOutput<String>,
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
     #[allow(dead_code)]
     pub struct SparkPoolResult {
         /// An `auto_pause` block as defined below.
-        pub auto_pause: pulumi_wasm_rust::Output<
+        pub auto_pause: pulumi_gestalt_rust::Output<
             Option<super::super::types::synapse::SparkPoolAutoPause>,
         >,
         /// An `auto_scale` block as defined below. Exactly one of `node_count` or `auto_scale` must be specified.
-        pub auto_scale: pulumi_wasm_rust::Output<
+        pub auto_scale: pulumi_gestalt_rust::Output<
             Option<super::super::types::synapse::SparkPoolAutoScale>,
         >,
         /// The cache size in the Spark Pool.
-        pub cache_size: pulumi_wasm_rust::Output<Option<i32>>,
+        pub cache_size: pulumi_gestalt_rust::Output<Option<i32>>,
         /// Indicates whether compute isolation is enabled or not. Defaults to `false`.
-        pub compute_isolation_enabled: pulumi_wasm_rust::Output<Option<bool>>,
-        pub dynamic_executor_allocation_enabled: pulumi_wasm_rust::Output<Option<bool>>,
-        pub library_requirement: pulumi_wasm_rust::Output<
+        pub compute_isolation_enabled: pulumi_gestalt_rust::Output<Option<bool>>,
+        pub dynamic_executor_allocation_enabled: pulumi_gestalt_rust::Output<
+            Option<bool>,
+        >,
+        pub library_requirement: pulumi_gestalt_rust::Output<
             Option<super::super::types::synapse::SparkPoolLibraryRequirement>,
         >,
-        pub max_executors: pulumi_wasm_rust::Output<Option<i32>>,
-        pub min_executors: pulumi_wasm_rust::Output<Option<i32>>,
+        pub max_executors: pulumi_gestalt_rust::Output<Option<i32>>,
+        pub min_executors: pulumi_gestalt_rust::Output<Option<i32>>,
         /// The name which should be used for this Synapse Spark Pool. Changing this forces a new Synapse Spark Pool to be created.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// The number of nodes in the Spark Pool. Exactly one of `node_count` or `auto_scale` must be specified.
-        pub node_count: pulumi_wasm_rust::Output<i32>,
+        pub node_count: pulumi_gestalt_rust::Output<i32>,
         /// The level of node in the Spark Pool. Possible values are `Small`, `Medium`, `Large`, `None`, `XLarge`, `XXLarge` and `XXXLarge`.
-        pub node_size: pulumi_wasm_rust::Output<String>,
+        pub node_size: pulumi_gestalt_rust::Output<String>,
         /// The kind of nodes that the Spark Pool provides. Possible values are `HardwareAcceleratedFPGA`, `HardwareAcceleratedGPU`, `MemoryOptimized`, and `None`.
-        pub node_size_family: pulumi_wasm_rust::Output<String>,
-        pub session_level_packages_enabled: pulumi_wasm_rust::Output<Option<bool>>,
-        pub spark_config: pulumi_wasm_rust::Output<
+        pub node_size_family: pulumi_gestalt_rust::Output<String>,
+        pub session_level_packages_enabled: pulumi_gestalt_rust::Output<Option<bool>>,
+        pub spark_config: pulumi_gestalt_rust::Output<
             Option<super::super::types::synapse::SparkPoolSparkConfig>,
         >,
-        pub spark_events_folder: pulumi_wasm_rust::Output<Option<String>>,
-        pub spark_log_folder: pulumi_wasm_rust::Output<Option<String>>,
-        pub spark_version: pulumi_wasm_rust::Output<String>,
+        pub spark_events_folder: pulumi_gestalt_rust::Output<Option<String>>,
+        pub spark_log_folder: pulumi_gestalt_rust::Output<Option<String>>,
+        pub spark_version: pulumi_gestalt_rust::Output<String>,
         /// The ID of the Synapse Workspace where the Synapse Spark Pool should exist. Changing this forces a new Synapse Spark Pool to be created.
-        pub synapse_workspace_id: pulumi_wasm_rust::Output<String>,
-        pub tags: pulumi_wasm_rust::Output<
+        pub synapse_workspace_id: pulumi_gestalt_rust::Output<String>,
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
@@ -186,11 +188,11 @@ pub mod spark_pool {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: SparkPoolArgs,
     ) -> SparkPoolResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let auto_pause_binding = args.auto_pause.get_output(context).get_inner();
         let auto_scale_binding = args.auto_scale.get_output(context).get_inner();
@@ -320,59 +322,59 @@ pub mod spark_pool {
         };
         let o = register_interface::register(context.get_inner(), &request);
         SparkPoolResult {
-            auto_pause: pulumi_wasm_rust::__private::into_domain(
+            auto_pause: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("autoPause"),
             ),
-            auto_scale: pulumi_wasm_rust::__private::into_domain(
+            auto_scale: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("autoScale"),
             ),
-            cache_size: pulumi_wasm_rust::__private::into_domain(
+            cache_size: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("cacheSize"),
             ),
-            compute_isolation_enabled: pulumi_wasm_rust::__private::into_domain(
+            compute_isolation_enabled: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("computeIsolationEnabled"),
             ),
-            dynamic_executor_allocation_enabled: pulumi_wasm_rust::__private::into_domain(
+            dynamic_executor_allocation_enabled: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("dynamicExecutorAllocationEnabled"),
             ),
-            library_requirement: pulumi_wasm_rust::__private::into_domain(
+            library_requirement: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("libraryRequirement"),
             ),
-            max_executors: pulumi_wasm_rust::__private::into_domain(
+            max_executors: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("maxExecutors"),
             ),
-            min_executors: pulumi_wasm_rust::__private::into_domain(
+            min_executors: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("minExecutors"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            node_count: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            node_count: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("nodeCount"),
             ),
-            node_size: pulumi_wasm_rust::__private::into_domain(
+            node_size: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("nodeSize"),
             ),
-            node_size_family: pulumi_wasm_rust::__private::into_domain(
+            node_size_family: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("nodeSizeFamily"),
             ),
-            session_level_packages_enabled: pulumi_wasm_rust::__private::into_domain(
+            session_level_packages_enabled: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("sessionLevelPackagesEnabled"),
             ),
-            spark_config: pulumi_wasm_rust::__private::into_domain(
+            spark_config: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("sparkConfig"),
             ),
-            spark_events_folder: pulumi_wasm_rust::__private::into_domain(
+            spark_events_folder: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("sparkEventsFolder"),
             ),
-            spark_log_folder: pulumi_wasm_rust::__private::into_domain(
+            spark_log_folder: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("sparkLogFolder"),
             ),
-            spark_version: pulumi_wasm_rust::__private::into_domain(
+            spark_version: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("sparkVersion"),
             ),
-            synapse_workspace_id: pulumi_wasm_rust::__private::into_domain(
+            synapse_workspace_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("synapseWorkspaceId"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
         }
     }
 }

@@ -1,36 +1,36 @@
 pub mod get_dps {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct GetDpsArgs {
         /// Specifies the name of the Iot Device Provisioning Service resource.
         #[builder(into)]
-        pub name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The name of the resource group under which the Iot Device Provisioning Service is located in.
         #[builder(into)]
-        pub resource_group_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub resource_group_name: pulumi_gestalt_rust::InputOrOutput<String>,
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
     #[allow(dead_code)]
     pub struct GetDpsResult {
         /// The allocation policy of the IoT Device Provisioning Service.
-        pub allocation_policy: pulumi_wasm_rust::Output<String>,
+        pub allocation_policy: pulumi_gestalt_rust::Output<String>,
         /// The device endpoint of the IoT Device Provisioning Service.
-        pub device_provisioning_host_name: pulumi_wasm_rust::Output<String>,
+        pub device_provisioning_host_name: pulumi_gestalt_rust::Output<String>,
         /// The provider-assigned unique ID for this managed resource.
-        pub id: pulumi_wasm_rust::Output<String>,
+        pub id: pulumi_gestalt_rust::Output<String>,
         /// The unique identifier of the IoT Device Provisioning Service.
-        pub id_scope: pulumi_wasm_rust::Output<String>,
+        pub id_scope: pulumi_gestalt_rust::Output<String>,
         /// Specifies the supported Azure location where the IoT Device Provisioning Service exists.
-        pub location: pulumi_wasm_rust::Output<String>,
-        pub name: pulumi_wasm_rust::Output<String>,
-        pub resource_group_name: pulumi_wasm_rust::Output<String>,
+        pub location: pulumi_gestalt_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
+        pub resource_group_name: pulumi_gestalt_rust::Output<String>,
         /// The service endpoint of the IoT Device Provisioning Service.
-        pub service_operations_host_name: pulumi_wasm_rust::Output<String>,
-        pub tags: pulumi_wasm_rust::Output<
+        pub service_operations_host_name: pulumi_gestalt_rust::Output<String>,
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
@@ -39,10 +39,10 @@ pub mod get_dps {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         args: GetDpsArgs,
     ) -> GetDpsResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let name_binding = args.name.get_output(context).get_inner();
         let resource_group_name_binding = args
@@ -70,27 +70,27 @@ pub mod get_dps {
         };
         let o = register_interface::invoke(context.get_inner(), &request);
         GetDpsResult {
-            allocation_policy: pulumi_wasm_rust::__private::into_domain(
+            allocation_policy: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("allocationPolicy"),
             ),
-            device_provisioning_host_name: pulumi_wasm_rust::__private::into_domain(
+            device_provisioning_host_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("deviceProvisioningHostName"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
-            id_scope: pulumi_wasm_rust::__private::into_domain(
+            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
+            id_scope: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("idScope"),
             ),
-            location: pulumi_wasm_rust::__private::into_domain(
+            location: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("location"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            resource_group_name: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("resourceGroupName"),
             ),
-            service_operations_host_name: pulumi_wasm_rust::__private::into_domain(
+            service_operations_host_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("serviceOperationsHostName"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
         }
     }
 }

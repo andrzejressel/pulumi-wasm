@@ -13,13 +13,13 @@ pub mod source;
 const PROVIDER_REGEX: &str = r"pulumi:(.*)/.*@(.*)--(.*)";
 
 pub async fn create(
-    pulumi_wasm: &dyn PulumiWasmSource,
+    pulumi_gestalt: &dyn PulumiWasmSource,
     program: Vec<u8>,
     debug: bool,
 ) -> anyhow::Result<Vec<u8>> {
     let mut graph = CompositionGraph::new();
 
-    let pulumi_wasm_version_regex: Regex = Regex::new(r"component:pulumi-wasm/.*@(.*)")?;
+    let pulumi_gestalt_version_regex: Regex = Regex::new(r"component:pulumi-gestalt/.*@(.*)")?;
 
     // Register the package dependencies into the graph
     let main = Package::from_bytes("main", None, program, graph.types_mut()).unwrap();
@@ -31,44 +31,45 @@ pub async fn create(
         .iter()
         .map(|(name, _)| name);
 
-    let pulumi_wasm_versions: BTreeSet<String> = import_names
-        .filter_map(|import| pulumi_wasm_version_regex.captures(import))
+    let pulumi_gestalt_versions: BTreeSet<String> = import_names
+        .filter_map(|import| pulumi_gestalt_version_regex.captures(import))
         .map(|captures| captures[1].to_string())
         .collect();
 
-    if pulumi_wasm_versions.is_empty() {
+    if pulumi_gestalt_versions.is_empty() {
         bail!("No Pulumi-Wasm version found");
-    } else if pulumi_wasm_versions.len() > 1 {
+    } else if pulumi_gestalt_versions.len() > 1 {
         bail!(
             "Found multiple Pulumi-Wasm versions: {}. Ensure only one is used.",
-            pulumi_wasm_versions.into_iter().sorted().join(", ")
+            pulumi_gestalt_versions.into_iter().sorted().join(", ")
         );
     }
 
-    let pulumi_wasm_version = pulumi_wasm_versions.iter().next().unwrap();
+    let pulumi_gestalt_version = pulumi_gestalt_versions.iter().next().unwrap();
 
-    info!("Pulumi Wasm version: {pulumi_wasm_version}");
+    info!("Pulumi Wasm version: {pulumi_gestalt_version}");
 
-    let pulumi_wasm = pulumi_wasm
-        .get(pulumi_wasm_version, debug)
+    let pulumi_gestalt = pulumi_gestalt
+        .get(pulumi_gestalt_version, debug)
         .await
-        .context("Cannot obtain pulumi_wasm component Wasm")?;
+        .context("Cannot obtain pulumi_gestalt component Wasm")?;
 
-    let pulumi_wasm =
-        Package::from_bytes("pulumi_wasm", None, pulumi_wasm, graph.types_mut()).unwrap();
-    let pulumi_wasm_package_id = graph.register_package(pulumi_wasm.clone()).unwrap();
-    let pulumi_wasm_instance = graph.instantiate(pulumi_wasm_package_id);
+    let pulumi_gestalt =
+        Package::from_bytes("pulumi_gestalt", None, pulumi_gestalt, graph.types_mut()).unwrap();
+    let pulumi_gestalt_package_id = graph.register_package(pulumi_gestalt.clone()).unwrap();
+    let pulumi_gestalt_instance = graph.instantiate(pulumi_gestalt_package_id);
 
     plug_into_socket(
         main_package_id,
         main_instance,
-        pulumi_wasm_package_id,
-        pulumi_wasm_instance,
+        pulumi_gestalt_package_id,
+        pulumi_gestalt_instance,
         &mut graph,
     )
     .unwrap();
 
-    let pulumi_main_component_name = "component:pulumi-wasm-external/pulumi-main@0.0.0-STABLE-DEV";
+    let pulumi_main_component_name =
+        "component:pulumi-gestalt-external/pulumi-main@0.0.0-STABLE-DEV";
     let pulumi_main_export = graph
         .alias_instance_export(main_instance, pulumi_main_component_name)
         .unwrap();
@@ -118,7 +119,7 @@ fn extract_provider_info(import_name: impl AsRef<str>) -> Option<ProviderInfo> {
         .map(|captures| ProviderInfo {
             name: captures.get(1).unwrap().as_str().to_string(),
             version: captures.get(2).unwrap().as_str().to_string(),
-            pulumi_wasm_version: captures.get(3).unwrap().as_str().to_string(),
+            pulumi_gestalt_version: captures.get(3).unwrap().as_str().to_string(),
         })
 }
 
@@ -126,7 +127,7 @@ fn extract_provider_info(import_name: impl AsRef<str>) -> Option<ProviderInfo> {
 struct ProviderInfo {
     name: String,
     version: String,
-    pulumi_wasm_version: String,
+    pulumi_gestalt_version: String,
 }
 
 #[cfg(test)]
@@ -145,7 +146,7 @@ mod tests {
                 Some(ProviderInfo {
                     name: "docker".to_string(),
                     version: "4.5.3".to_string(),
-                    pulumi_wasm_version: "0.0.0-DEV".to_string(),
+                    pulumi_gestalt_version: "0.0.0-DEV".to_string(),
                 })
             );
 

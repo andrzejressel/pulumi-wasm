@@ -576,7 +576,7 @@
 /// ```
 ///
 pub mod repository {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct RepositoryArgs {
@@ -586,20 +586,20 @@ pub mod repository {
         /// unique within a repository and be under 128 characters in length.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub cleanup_policies: pulumi_wasm_rust::InputOrOutput<
+        pub cleanup_policies: pulumi_gestalt_rust::InputOrOutput<
             Option<Vec<super::super::types::artifactregistry::RepositoryCleanupPolicy>>,
         >,
         /// If true, the cleanup pipeline is prevented from deleting versions in this
         /// repository.
         #[builder(into, default)]
-        pub cleanup_policy_dry_run: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub cleanup_policy_dry_run: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// The user-provided description of the repository.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub description: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Docker repository config contains repository level configuration for the repositories of docker type.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub docker_config: pulumi_wasm_rust::InputOrOutput<
+        pub docker_config: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::artifactregistry::RepositoryDockerConfig>,
         >,
         /// The format of packages that are stored in the repository. Supported formats
@@ -607,13 +607,13 @@ pub mod repository {
         /// You can only create alpha formats if you are a member of the
         /// [alpha user group](https://cloud.google.com/artifact-registry/docs/supported-formats#alpha-access).
         #[builder(into)]
-        pub format: pulumi_wasm_rust::InputOrOutput<String>,
+        pub format: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The Cloud KMS resource name of the customer managed encryption key that’s
         /// used to encrypt the contents of the Repository. Has the form:
         /// `projects/my-project/locations/my-region/keyRings/my-kr/cryptoKeys/my-key`.
         /// This value may not be changed after the Repository has been created.
         #[builder(into, default)]
-        pub kms_key_name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub kms_key_name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Labels with user-defined metadata.
         /// This field may contain up to 64 entries. Label keys and values may be no
         /// longer than 63 characters. Label keys must begin with a lowercase letter
@@ -623,7 +623,7 @@ pub mod repository {
         /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
         /// Please refer to the field `effective_labels` for all of the labels present on the resource.
         #[builder(into, default)]
-        pub labels: pulumi_wasm_rust::InputOrOutput<
+        pub labels: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// The name of the repository's location. In addition to specific regions,
@@ -633,28 +633,28 @@ pub mod repository {
         /// gcp.artifactregistry.getLocations
         /// data source for possible values.
         #[builder(into, default)]
-        pub location: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub location: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// MavenRepositoryConfig is maven related repository details.
         /// Provides additional configuration details for repositories of the maven
         /// format type.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub maven_config: pulumi_wasm_rust::InputOrOutput<
+        pub maven_config: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::artifactregistry::RepositoryMavenConfig>,
         >,
         /// The mode configures the repository to serve artifacts from different sources.
         /// Default value is `STANDARD_REPOSITORY`.
         /// Possible values are: `STANDARD_REPOSITORY`, `VIRTUAL_REPOSITORY`, `REMOTE_REPOSITORY`.
         #[builder(into, default)]
-        pub mode: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub mode: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub project: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Configuration specific for a Remote Repository.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub remote_repository_config: pulumi_wasm_rust::InputOrOutput<
+        pub remote_repository_config: pulumi_gestalt_rust::InputOrOutput<
             Option<
                 super::super::types::artifactregistry::RepositoryRemoteRepositoryConfig,
             >,
@@ -665,11 +665,11 @@ pub mod repository {
         ///
         /// - - -
         #[builder(into)]
-        pub repository_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub repository_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Configuration specific for a Virtual Repository.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub virtual_repository_config: pulumi_wasm_rust::InputOrOutput<
+        pub virtual_repository_config: pulumi_gestalt_rust::InputOrOutput<
             Option<
                 super::super::types::artifactregistry::RepositoryVirtualRepositoryConfig,
             >,
@@ -682,35 +682,35 @@ pub mod repository {
         /// Map keys are policy IDs supplied by users during policy creation. They must
         /// unique within a repository and be under 128 characters in length.
         /// Structure is documented below.
-        pub cleanup_policies: pulumi_wasm_rust::Output<
+        pub cleanup_policies: pulumi_gestalt_rust::Output<
             Option<Vec<super::super::types::artifactregistry::RepositoryCleanupPolicy>>,
         >,
         /// If true, the cleanup pipeline is prevented from deleting versions in this
         /// repository.
-        pub cleanup_policy_dry_run: pulumi_wasm_rust::Output<Option<bool>>,
+        pub cleanup_policy_dry_run: pulumi_gestalt_rust::Output<Option<bool>>,
         /// The time when the repository was created.
-        pub create_time: pulumi_wasm_rust::Output<String>,
+        pub create_time: pulumi_gestalt_rust::Output<String>,
         /// The user-provided description of the repository.
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_gestalt_rust::Output<Option<String>>,
         /// Docker repository config contains repository level configuration for the repositories of docker type.
         /// Structure is documented below.
-        pub docker_config: pulumi_wasm_rust::Output<
+        pub docker_config: pulumi_gestalt_rust::Output<
             Option<super::super::types::artifactregistry::RepositoryDockerConfig>,
         >,
         /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Pulumi, other clients and services.
-        pub effective_labels: pulumi_wasm_rust::Output<
+        pub effective_labels: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
         /// The format of packages that are stored in the repository. Supported formats
         /// can be found [here](https://cloud.google.com/artifact-registry/docs/supported-formats).
         /// You can only create alpha formats if you are a member of the
         /// [alpha user group](https://cloud.google.com/artifact-registry/docs/supported-formats#alpha-access).
-        pub format: pulumi_wasm_rust::Output<String>,
+        pub format: pulumi_gestalt_rust::Output<String>,
         /// The Cloud KMS resource name of the customer managed encryption key that’s
         /// used to encrypt the contents of the Repository. Has the form:
         /// `projects/my-project/locations/my-region/keyRings/my-kr/cryptoKeys/my-key`.
         /// This value may not be changed after the Repository has been created.
-        pub kms_key_name: pulumi_wasm_rust::Output<Option<String>>,
+        pub kms_key_name: pulumi_gestalt_rust::Output<Option<String>>,
         /// Labels with user-defined metadata.
         /// This field may contain up to 64 entries. Label keys and values may be no
         /// longer than 63 characters. Label keys must begin with a lowercase letter
@@ -719,7 +719,7 @@ pub mod repository {
         ///
         /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
         /// Please refer to the field `effective_labels` for all of the labels present on the resource.
-        pub labels: pulumi_wasm_rust::Output<
+        pub labels: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// The name of the repository's location. In addition to specific regions,
@@ -728,32 +728,32 @@ pub mod repository {
         /// or use the
         /// gcp.artifactregistry.getLocations
         /// data source for possible values.
-        pub location: pulumi_wasm_rust::Output<String>,
+        pub location: pulumi_gestalt_rust::Output<String>,
         /// MavenRepositoryConfig is maven related repository details.
         /// Provides additional configuration details for repositories of the maven
         /// format type.
         /// Structure is documented below.
-        pub maven_config: pulumi_wasm_rust::Output<
+        pub maven_config: pulumi_gestalt_rust::Output<
             Option<super::super::types::artifactregistry::RepositoryMavenConfig>,
         >,
         /// The mode configures the repository to serve artifacts from different sources.
         /// Default value is `STANDARD_REPOSITORY`.
         /// Possible values are: `STANDARD_REPOSITORY`, `VIRTUAL_REPOSITORY`, `REMOTE_REPOSITORY`.
-        pub mode: pulumi_wasm_rust::Output<Option<String>>,
+        pub mode: pulumi_gestalt_rust::Output<Option<String>>,
         /// The name of the repository, for example:
         /// "repo1"
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
-        pub project: pulumi_wasm_rust::Output<String>,
+        pub project: pulumi_gestalt_rust::Output<String>,
         /// The combination of labels configured directly on the resource
         /// and default labels configured on the provider.
-        pub pulumi_labels: pulumi_wasm_rust::Output<
+        pub pulumi_labels: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
         /// Configuration specific for a Remote Repository.
         /// Structure is documented below.
-        pub remote_repository_config: pulumi_wasm_rust::Output<
+        pub remote_repository_config: pulumi_gestalt_rust::Output<
             Option<
                 super::super::types::artifactregistry::RepositoryRemoteRepositoryConfig,
             >,
@@ -763,12 +763,12 @@ pub mod repository {
         ///
         ///
         /// - - -
-        pub repository_id: pulumi_wasm_rust::Output<String>,
+        pub repository_id: pulumi_gestalt_rust::Output<String>,
         /// The time when the repository was last updated.
-        pub update_time: pulumi_wasm_rust::Output<String>,
+        pub update_time: pulumi_gestalt_rust::Output<String>,
         /// Configuration specific for a Virtual Repository.
         /// Structure is documented below.
-        pub virtual_repository_config: pulumi_wasm_rust::Output<
+        pub virtual_repository_config: pulumi_gestalt_rust::Output<
             Option<
                 super::super::types::artifactregistry::RepositoryVirtualRepositoryConfig,
             >,
@@ -779,11 +779,11 @@ pub mod repository {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: RepositoryArgs,
     ) -> RepositoryResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let cleanup_policies_binding = args
             .cleanup_policies
@@ -876,53 +876,57 @@ pub mod repository {
         };
         let o = register_interface::register(context.get_inner(), &request);
         RepositoryResult {
-            cleanup_policies: pulumi_wasm_rust::__private::into_domain(
+            cleanup_policies: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("cleanupPolicies"),
             ),
-            cleanup_policy_dry_run: pulumi_wasm_rust::__private::into_domain(
+            cleanup_policy_dry_run: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("cleanupPolicyDryRun"),
             ),
-            create_time: pulumi_wasm_rust::__private::into_domain(
+            create_time: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("createTime"),
             ),
-            description: pulumi_wasm_rust::__private::into_domain(
+            description: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("description"),
             ),
-            docker_config: pulumi_wasm_rust::__private::into_domain(
+            docker_config: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("dockerConfig"),
             ),
-            effective_labels: pulumi_wasm_rust::__private::into_domain(
+            effective_labels: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("effectiveLabels"),
             ),
-            format: pulumi_wasm_rust::__private::into_domain(o.extract_field("format")),
-            kms_key_name: pulumi_wasm_rust::__private::into_domain(
+            format: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("format"),
+            ),
+            kms_key_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("kmsKeyName"),
             ),
-            labels: pulumi_wasm_rust::__private::into_domain(o.extract_field("labels")),
-            location: pulumi_wasm_rust::__private::into_domain(
+            labels: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("labels"),
+            ),
+            location: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("location"),
             ),
-            maven_config: pulumi_wasm_rust::__private::into_domain(
+            maven_config: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("mavenConfig"),
             ),
-            mode: pulumi_wasm_rust::__private::into_domain(o.extract_field("mode")),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            project: pulumi_wasm_rust::__private::into_domain(
+            mode: pulumi_gestalt_rust::__private::into_domain(o.extract_field("mode")),
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            project: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("project"),
             ),
-            pulumi_labels: pulumi_wasm_rust::__private::into_domain(
+            pulumi_labels: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("pulumiLabels"),
             ),
-            remote_repository_config: pulumi_wasm_rust::__private::into_domain(
+            remote_repository_config: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("remoteRepositoryConfig"),
             ),
-            repository_id: pulumi_wasm_rust::__private::into_domain(
+            repository_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("repositoryId"),
             ),
-            update_time: pulumi_wasm_rust::__private::into_domain(
+            update_time: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("updateTime"),
             ),
-            virtual_repository_config: pulumi_wasm_rust::__private::into_domain(
+            virtual_repository_config: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("virtualRepositoryConfig"),
             ),
         }

@@ -32,45 +32,45 @@
 /// $ pulumi import aws:appsync/type:Type example api-id:format:name
 /// ```
 pub mod type_ {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct TypeArgs {
         /// GraphQL API ID.
         #[builder(into)]
-        pub api_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub api_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The type definition.
         #[builder(into)]
-        pub definition: pulumi_wasm_rust::InputOrOutput<String>,
+        pub definition: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The type format: `SDL` or `JSON`.
         #[builder(into)]
-        pub format: pulumi_wasm_rust::InputOrOutput<String>,
+        pub format: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct TypeResult {
         /// GraphQL API ID.
-        pub api_id: pulumi_wasm_rust::Output<String>,
+        pub api_id: pulumi_gestalt_rust::Output<String>,
         /// The ARN of the type.
-        pub arn: pulumi_wasm_rust::Output<String>,
+        pub arn: pulumi_gestalt_rust::Output<String>,
         /// The type definition.
-        pub definition: pulumi_wasm_rust::Output<String>,
+        pub definition: pulumi_gestalt_rust::Output<String>,
         /// The type description.
-        pub description: pulumi_wasm_rust::Output<String>,
+        pub description: pulumi_gestalt_rust::Output<String>,
         /// The type format: `SDL` or `JSON`.
-        pub format: pulumi_wasm_rust::Output<String>,
+        pub format: pulumi_gestalt_rust::Output<String>,
         /// The type name.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: TypeArgs,
     ) -> TypeResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let api_id_binding = args.api_id.get_output(context).get_inner();
         let definition_binding = args.definition.get_output(context).get_inner();
@@ -96,16 +96,20 @@ pub mod type_ {
         };
         let o = register_interface::register(context.get_inner(), &request);
         TypeResult {
-            api_id: pulumi_wasm_rust::__private::into_domain(o.extract_field("apiId")),
-            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
-            definition: pulumi_wasm_rust::__private::into_domain(
+            api_id: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("apiId"),
+            ),
+            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
+            definition: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("definition"),
             ),
-            description: pulumi_wasm_rust::__private::into_domain(
+            description: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("description"),
             ),
-            format: pulumi_wasm_rust::__private::into_domain(o.extract_field("format")),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
+            format: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("format"),
+            ),
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
         }
     }
 }

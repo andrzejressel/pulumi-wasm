@@ -133,100 +133,100 @@
 /// ```
 ///
 pub mod cluster {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ClusterArgs {
         /// An `api_server_profile` block as defined below. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub api_server_profile: pulumi_wasm_rust::InputOrOutput<
+        pub api_server_profile: pulumi_gestalt_rust::InputOrOutput<
             super::super::types::redhatopenshift::ClusterApiServerProfile,
         >,
         /// A `cluster_profile` block as defined below. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub cluster_profile: pulumi_wasm_rust::InputOrOutput<
+        pub cluster_profile: pulumi_gestalt_rust::InputOrOutput<
             super::super::types::redhatopenshift::ClusterClusterProfile,
         >,
         /// An `ingress_profile` block as defined below. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub ingress_profile: pulumi_wasm_rust::InputOrOutput<
+        pub ingress_profile: pulumi_gestalt_rust::InputOrOutput<
             super::super::types::redhatopenshift::ClusterIngressProfile,
         >,
         /// The location where the Azure Red Hat OpenShift Cluster should be created. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub location: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub location: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// A `main_profile` block as defined below. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub main_profile: pulumi_wasm_rust::InputOrOutput<
+        pub main_profile: pulumi_gestalt_rust::InputOrOutput<
             super::super::types::redhatopenshift::ClusterMainProfile,
         >,
         /// The name of the Azure Red Hat OpenShift Cluster to create. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// A `network_profile` block as defined below. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub network_profile: pulumi_wasm_rust::InputOrOutput<
+        pub network_profile: pulumi_gestalt_rust::InputOrOutput<
             super::super::types::redhatopenshift::ClusterNetworkProfile,
         >,
         /// Specifies the Resource Group where the Azure Red Hat OpenShift Cluster should exist. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub resource_group_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub resource_group_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// A `service_principal` block as defined below.
         #[builder(into)]
-        pub service_principal: pulumi_wasm_rust::InputOrOutput<
+        pub service_principal: pulumi_gestalt_rust::InputOrOutput<
             super::super::types::redhatopenshift::ClusterServicePrincipal,
         >,
         /// A mapping of tags to assign to the resource.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// A `worker_profile` block as defined below. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub worker_profile: pulumi_wasm_rust::InputOrOutput<
+        pub worker_profile: pulumi_gestalt_rust::InputOrOutput<
             super::super::types::redhatopenshift::ClusterWorkerProfile,
         >,
     }
     #[allow(dead_code)]
     pub struct ClusterResult {
         /// An `api_server_profile` block as defined below. Changing this forces a new resource to be created.
-        pub api_server_profile: pulumi_wasm_rust::Output<
+        pub api_server_profile: pulumi_gestalt_rust::Output<
             super::super::types::redhatopenshift::ClusterApiServerProfile,
         >,
         /// A `cluster_profile` block as defined below. Changing this forces a new resource to be created.
-        pub cluster_profile: pulumi_wasm_rust::Output<
+        pub cluster_profile: pulumi_gestalt_rust::Output<
             super::super::types::redhatopenshift::ClusterClusterProfile,
         >,
         /// The Red Hat OpenShift cluster console URL.
-        pub console_url: pulumi_wasm_rust::Output<String>,
+        pub console_url: pulumi_gestalt_rust::Output<String>,
         /// An `ingress_profile` block as defined below. Changing this forces a new resource to be created.
-        pub ingress_profile: pulumi_wasm_rust::Output<
+        pub ingress_profile: pulumi_gestalt_rust::Output<
             super::super::types::redhatopenshift::ClusterIngressProfile,
         >,
         /// The location where the Azure Red Hat OpenShift Cluster should be created. Changing this forces a new resource to be created.
-        pub location: pulumi_wasm_rust::Output<String>,
+        pub location: pulumi_gestalt_rust::Output<String>,
         /// A `main_profile` block as defined below. Changing this forces a new resource to be created.
-        pub main_profile: pulumi_wasm_rust::Output<
+        pub main_profile: pulumi_gestalt_rust::Output<
             super::super::types::redhatopenshift::ClusterMainProfile,
         >,
         /// The name of the Azure Red Hat OpenShift Cluster to create. Changing this forces a new resource to be created.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// A `network_profile` block as defined below. Changing this forces a new resource to be created.
-        pub network_profile: pulumi_wasm_rust::Output<
+        pub network_profile: pulumi_gestalt_rust::Output<
             super::super::types::redhatopenshift::ClusterNetworkProfile,
         >,
         /// Specifies the Resource Group where the Azure Red Hat OpenShift Cluster should exist. Changing this forces a new resource to be created.
-        pub resource_group_name: pulumi_wasm_rust::Output<String>,
+        pub resource_group_name: pulumi_gestalt_rust::Output<String>,
         /// A `service_principal` block as defined below.
-        pub service_principal: pulumi_wasm_rust::Output<
+        pub service_principal: pulumi_gestalt_rust::Output<
             super::super::types::redhatopenshift::ClusterServicePrincipal,
         >,
         /// A mapping of tags to assign to the resource.
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// A `worker_profile` block as defined below. Changing this forces a new resource to be created.
-        pub worker_profile: pulumi_wasm_rust::Output<
+        pub worker_profile: pulumi_gestalt_rust::Output<
             super::super::types::redhatopenshift::ClusterWorkerProfile,
         >,
     }
@@ -235,11 +235,11 @@ pub mod cluster {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: ClusterArgs,
     ) -> ClusterResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let api_server_profile_binding = args
             .api_server_profile
@@ -323,36 +323,36 @@ pub mod cluster {
         };
         let o = register_interface::register(context.get_inner(), &request);
         ClusterResult {
-            api_server_profile: pulumi_wasm_rust::__private::into_domain(
+            api_server_profile: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("apiServerProfile"),
             ),
-            cluster_profile: pulumi_wasm_rust::__private::into_domain(
+            cluster_profile: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("clusterProfile"),
             ),
-            console_url: pulumi_wasm_rust::__private::into_domain(
+            console_url: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("consoleUrl"),
             ),
-            ingress_profile: pulumi_wasm_rust::__private::into_domain(
+            ingress_profile: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("ingressProfile"),
             ),
-            location: pulumi_wasm_rust::__private::into_domain(
+            location: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("location"),
             ),
-            main_profile: pulumi_wasm_rust::__private::into_domain(
+            main_profile: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("mainProfile"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            network_profile: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            network_profile: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("networkProfile"),
             ),
-            resource_group_name: pulumi_wasm_rust::__private::into_domain(
+            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("resourceGroupName"),
             ),
-            service_principal: pulumi_wasm_rust::__private::into_domain(
+            service_principal: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("servicePrincipal"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
-            worker_profile: pulumi_wasm_rust::__private::into_domain(
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            worker_profile: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("workerProfile"),
             ),
         }

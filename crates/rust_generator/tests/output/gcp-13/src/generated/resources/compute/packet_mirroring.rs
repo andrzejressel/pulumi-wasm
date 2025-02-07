@@ -123,7 +123,7 @@
 /// ```
 ///
 pub mod packet_mirroring {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct PacketMirroringArgs {
@@ -133,43 +133,43 @@ pub mod packet_mirroring {
         /// set to true.
         /// Structure is documented below.
         #[builder(into)]
-        pub collector_ilb: pulumi_wasm_rust::InputOrOutput<
+        pub collector_ilb: pulumi_gestalt_rust::InputOrOutput<
             super::super::types::compute::PacketMirroringCollectorIlb,
         >,
         /// A human-readable description of the rule.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub description: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// A filter for mirrored traffic. If unset, all traffic is mirrored.
         #[builder(into, default)]
-        pub filter: pulumi_wasm_rust::InputOrOutput<
+        pub filter: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::compute::PacketMirroringFilter>,
         >,
         /// A means of specifying which resources to mirror.
         /// Structure is documented below.
         #[builder(into)]
-        pub mirrored_resources: pulumi_wasm_rust::InputOrOutput<
+        pub mirrored_resources: pulumi_gestalt_rust::InputOrOutput<
             super::super::types::compute::PacketMirroringMirroredResources,
         >,
         /// The name of the packet mirroring rule
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Specifies the mirrored VPC network. Only packets in this network
         /// will be mirrored. All mirrored VMs should have a NIC in the given
         /// network. All mirrored subnetworks should belong to the given network.
         /// Structure is documented below.
         #[builder(into)]
-        pub network: pulumi_wasm_rust::InputOrOutput<
+        pub network: pulumi_gestalt_rust::InputOrOutput<
             super::super::types::compute::PacketMirroringNetwork,
         >,
         /// Since only one rule can be active at a time, priority is used to break ties in the case of two rules that apply to the
         /// same instances.
         #[builder(into, default)]
-        pub priority: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
+        pub priority: pulumi_gestalt_rust::InputOrOutput<Option<i32>>,
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub project: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The Region in which the created address should reside. If it is not provided, the provider region is used.
         #[builder(into, default)]
-        pub region: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub region: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct PacketMirroringResult {
@@ -178,46 +178,46 @@ pub mod packet_mirroring {
         /// specified forwarding rule must have is_mirroring_collector
         /// set to true.
         /// Structure is documented below.
-        pub collector_ilb: pulumi_wasm_rust::Output<
+        pub collector_ilb: pulumi_gestalt_rust::Output<
             super::super::types::compute::PacketMirroringCollectorIlb,
         >,
         /// A human-readable description of the rule.
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_gestalt_rust::Output<Option<String>>,
         /// A filter for mirrored traffic. If unset, all traffic is mirrored.
-        pub filter: pulumi_wasm_rust::Output<
+        pub filter: pulumi_gestalt_rust::Output<
             Option<super::super::types::compute::PacketMirroringFilter>,
         >,
         /// A means of specifying which resources to mirror.
         /// Structure is documented below.
-        pub mirrored_resources: pulumi_wasm_rust::Output<
+        pub mirrored_resources: pulumi_gestalt_rust::Output<
             super::super::types::compute::PacketMirroringMirroredResources,
         >,
         /// The name of the packet mirroring rule
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// Specifies the mirrored VPC network. Only packets in this network
         /// will be mirrored. All mirrored VMs should have a NIC in the given
         /// network. All mirrored subnetworks should belong to the given network.
         /// Structure is documented below.
-        pub network: pulumi_wasm_rust::Output<
+        pub network: pulumi_gestalt_rust::Output<
             super::super::types::compute::PacketMirroringNetwork,
         >,
         /// Since only one rule can be active at a time, priority is used to break ties in the case of two rules that apply to the
         /// same instances.
-        pub priority: pulumi_wasm_rust::Output<i32>,
-        pub project: pulumi_wasm_rust::Output<String>,
+        pub priority: pulumi_gestalt_rust::Output<i32>,
+        pub project: pulumi_gestalt_rust::Output<String>,
         /// The Region in which the created address should reside. If it is not provided, the provider region is used.
-        pub region: pulumi_wasm_rust::Output<String>,
+        pub region: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: PacketMirroringArgs,
     ) -> PacketMirroringResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let collector_ilb_binding = args.collector_ilb.get_output(context).get_inner();
         let description_binding = args.description.get_output(context).get_inner();
@@ -276,27 +276,31 @@ pub mod packet_mirroring {
         };
         let o = register_interface::register(context.get_inner(), &request);
         PacketMirroringResult {
-            collector_ilb: pulumi_wasm_rust::__private::into_domain(
+            collector_ilb: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("collectorIlb"),
             ),
-            description: pulumi_wasm_rust::__private::into_domain(
+            description: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("description"),
             ),
-            filter: pulumi_wasm_rust::__private::into_domain(o.extract_field("filter")),
-            mirrored_resources: pulumi_wasm_rust::__private::into_domain(
+            filter: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("filter"),
+            ),
+            mirrored_resources: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("mirroredResources"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            network: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            network: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("network"),
             ),
-            priority: pulumi_wasm_rust::__private::into_domain(
+            priority: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("priority"),
             ),
-            project: pulumi_wasm_rust::__private::into_domain(
+            project: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("project"),
             ),
-            region: pulumi_wasm_rust::__private::into_domain(o.extract_field("region")),
+            region: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("region"),
+            ),
         }
     }
 }

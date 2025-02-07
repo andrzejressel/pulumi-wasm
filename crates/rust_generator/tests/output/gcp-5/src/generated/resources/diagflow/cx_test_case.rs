@@ -129,7 +129,7 @@
 /// ```
 ///
 pub mod cx_test_case {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct CxTestCaseArgs {
@@ -138,22 +138,22 @@ pub mod cx_test_case {
         ///
         /// - - -
         #[builder(into)]
-        pub display_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub display_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Additional freeform notes about the test case. Limit of 400 characters.
         #[builder(into, default)]
-        pub notes: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub notes: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The agent to create the test case for.
         /// Format: projects/<Project ID>/locations/<Location ID>/agents/<Agent ID>.
         #[builder(into, default)]
-        pub parent: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub parent: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Tags are short descriptions that users may apply to test cases for organizational and filtering purposes.
         /// Each tag should start with "#" and has a limit of 30 characters
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
+        pub tags: pulumi_gestalt_rust::InputOrOutput<Option<Vec<String>>>,
         /// The conversation turns uttered when the test case was created, in chronological order. These include the canonical set of agent utterances that should occur when the agent is working properly.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub test_case_conversation_turns: pulumi_wasm_rust::InputOrOutput<
+        pub test_case_conversation_turns: pulumi_gestalt_rust::InputOrOutput<
             Option<
                 Vec<super::super::types::diagflow::CxTestCaseTestCaseConversationTurn>,
             >,
@@ -161,45 +161,45 @@ pub mod cx_test_case {
         /// Config for the test case.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub test_config: pulumi_wasm_rust::InputOrOutput<
+        pub test_config: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::diagflow::CxTestCaseTestConfig>,
         >,
     }
     #[allow(dead_code)]
     pub struct CxTestCaseResult {
         /// When the test was created. A timestamp in RFC3339 text format.
-        pub creation_time: pulumi_wasm_rust::Output<String>,
+        pub creation_time: pulumi_gestalt_rust::Output<String>,
         /// The human-readable name of the test case, unique within the agent. Limit of 200 characters.
         ///
         ///
         /// - - -
-        pub display_name: pulumi_wasm_rust::Output<String>,
+        pub display_name: pulumi_gestalt_rust::Output<String>,
         /// The latest test result.
         /// Structure is documented below.
-        pub last_test_results: pulumi_wasm_rust::Output<
+        pub last_test_results: pulumi_gestalt_rust::Output<
             Vec<super::super::types::diagflow::CxTestCaseLastTestResult>,
         >,
         /// The unique identifier of the page.
         /// Format: projects/<Project ID>/locations/<Location ID>/agents/<Agent ID>/flows/<Flow ID>/pages/<Page ID>.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// Additional freeform notes about the test case. Limit of 400 characters.
-        pub notes: pulumi_wasm_rust::Output<Option<String>>,
+        pub notes: pulumi_gestalt_rust::Output<Option<String>>,
         /// The agent to create the test case for.
         /// Format: projects/<Project ID>/locations/<Location ID>/agents/<Agent ID>.
-        pub parent: pulumi_wasm_rust::Output<Option<String>>,
+        pub parent: pulumi_gestalt_rust::Output<Option<String>>,
         /// Tags are short descriptions that users may apply to test cases for organizational and filtering purposes.
         /// Each tag should start with "#" and has a limit of 30 characters
-        pub tags: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub tags: pulumi_gestalt_rust::Output<Option<Vec<String>>>,
         /// The conversation turns uttered when the test case was created, in chronological order. These include the canonical set of agent utterances that should occur when the agent is working properly.
         /// Structure is documented below.
-        pub test_case_conversation_turns: pulumi_wasm_rust::Output<
+        pub test_case_conversation_turns: pulumi_gestalt_rust::Output<
             Option<
                 Vec<super::super::types::diagflow::CxTestCaseTestCaseConversationTurn>,
             >,
         >,
         /// Config for the test case.
         /// Structure is documented below.
-        pub test_config: pulumi_wasm_rust::Output<
+        pub test_config: pulumi_gestalt_rust::Output<
             Option<super::super::types::diagflow::CxTestCaseTestConfig>,
         >,
     }
@@ -208,11 +208,11 @@ pub mod cx_test_case {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: CxTestCaseArgs,
     ) -> CxTestCaseResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let display_name_binding = args.display_name.get_output(context).get_inner();
         let notes_binding = args.notes.get_output(context).get_inner();
@@ -256,23 +256,25 @@ pub mod cx_test_case {
         };
         let o = register_interface::register(context.get_inner(), &request);
         CxTestCaseResult {
-            creation_time: pulumi_wasm_rust::__private::into_domain(
+            creation_time: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("creationTime"),
             ),
-            display_name: pulumi_wasm_rust::__private::into_domain(
+            display_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("displayName"),
             ),
-            last_test_results: pulumi_wasm_rust::__private::into_domain(
+            last_test_results: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("lastTestResults"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            notes: pulumi_wasm_rust::__private::into_domain(o.extract_field("notes")),
-            parent: pulumi_wasm_rust::__private::into_domain(o.extract_field("parent")),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
-            test_case_conversation_turns: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            notes: pulumi_gestalt_rust::__private::into_domain(o.extract_field("notes")),
+            parent: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("parent"),
+            ),
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            test_case_conversation_turns: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("testCaseConversationTurns"),
             ),
-            test_config: pulumi_wasm_rust::__private::into_domain(
+            test_config: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("testConfig"),
             ),
         }

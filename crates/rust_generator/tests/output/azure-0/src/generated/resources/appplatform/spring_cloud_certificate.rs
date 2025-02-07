@@ -105,56 +105,56 @@
 /// ```
 ///
 pub mod spring_cloud_certificate {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct SpringCloudCertificateArgs {
         /// The content of uploaded certificate. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub certificate_content: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub certificate_content: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Specifies whether the private key should be excluded from the Key Vault Certificate. Changing this forces a new resource to be created. Defaults to `false`.
         #[builder(into, default)]
-        pub exclude_private_key: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub exclude_private_key: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// Specifies the ID of the Key Vault Certificate resource. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub key_vault_certificate_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub key_vault_certificate_id: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Specifies the name of the Spring Cloud Certificate. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Specifies the name of the resource group in which to create the Spring Cloud Certificate. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub resource_group_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub resource_group_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Specifies the name of the Spring Cloud Service resource. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub service_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub service_name: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct SpringCloudCertificateResult {
         /// The content of uploaded certificate. Changing this forces a new resource to be created.
-        pub certificate_content: pulumi_wasm_rust::Output<Option<String>>,
+        pub certificate_content: pulumi_gestalt_rust::Output<Option<String>>,
         /// Specifies whether the private key should be excluded from the Key Vault Certificate. Changing this forces a new resource to be created. Defaults to `false`.
-        pub exclude_private_key: pulumi_wasm_rust::Output<Option<bool>>,
+        pub exclude_private_key: pulumi_gestalt_rust::Output<Option<bool>>,
         /// Specifies the ID of the Key Vault Certificate resource. Changing this forces a new resource to be created.
-        pub key_vault_certificate_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub key_vault_certificate_id: pulumi_gestalt_rust::Output<Option<String>>,
         /// Specifies the name of the Spring Cloud Certificate. Changing this forces a new resource to be created.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// Specifies the name of the resource group in which to create the Spring Cloud Certificate. Changing this forces a new resource to be created.
-        pub resource_group_name: pulumi_wasm_rust::Output<String>,
+        pub resource_group_name: pulumi_gestalt_rust::Output<String>,
         /// Specifies the name of the Spring Cloud Service resource. Changing this forces a new resource to be created.
-        pub service_name: pulumi_wasm_rust::Output<String>,
+        pub service_name: pulumi_gestalt_rust::Output<String>,
         /// The thumbprint of the Spring Cloud certificate.
-        pub thumbprint: pulumi_wasm_rust::Output<String>,
+        pub thumbprint: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: SpringCloudCertificateArgs,
     ) -> SpringCloudCertificateResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let certificate_content_binding = args
             .certificate_content
@@ -208,23 +208,23 @@ pub mod spring_cloud_certificate {
         };
         let o = register_interface::register(context.get_inner(), &request);
         SpringCloudCertificateResult {
-            certificate_content: pulumi_wasm_rust::__private::into_domain(
+            certificate_content: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("certificateContent"),
             ),
-            exclude_private_key: pulumi_wasm_rust::__private::into_domain(
+            exclude_private_key: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("excludePrivateKey"),
             ),
-            key_vault_certificate_id: pulumi_wasm_rust::__private::into_domain(
+            key_vault_certificate_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("keyVaultCertificateId"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            resource_group_name: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("resourceGroupName"),
             ),
-            service_name: pulumi_wasm_rust::__private::into_domain(
+            service_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("serviceName"),
             ),
-            thumbprint: pulumi_wasm_rust::__private::into_domain(
+            thumbprint: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("thumbprint"),
             ),
         }

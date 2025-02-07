@@ -3,8 +3,8 @@
 /// ## Example Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = resource_group::create(
@@ -53,28 +53,28 @@
 /// ```
 ///
 pub mod threat_intelligence_indicator {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ThreatIntelligenceIndicatorArgs {
         /// Confidence levels of the Threat Intelligence Indicator.
         #[builder(into, default)]
-        pub confidence: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
+        pub confidence: pulumi_gestalt_rust::InputOrOutput<Option<i32>>,
         /// The creator of the Threat Intelligence Indicator.
         #[builder(into, default)]
-        pub created_by: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub created_by: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The description of the Threat Intelligence Indicator.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub description: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The display name of the Threat Intelligence Indicator.
         #[builder(into)]
-        pub display_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub display_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The extension config of the Threat Intelligence Indicator in JSON format.
         #[builder(into, default)]
-        pub extension: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub extension: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// One or more `external_reference` blocks as defined below.
         #[builder(into, default)]
-        pub external_references: pulumi_wasm_rust::InputOrOutput<
+        pub external_references: pulumi_gestalt_rust::InputOrOutput<
             Option<
                 Vec<
                     super::super::types::sentinel::ThreatIntelligenceIndicatorExternalReference,
@@ -83,7 +83,7 @@ pub mod threat_intelligence_indicator {
         >,
         /// One or more `granular_marking` blocks as defined below.
         #[builder(into, default)]
-        pub granular_markings: pulumi_wasm_rust::InputOrOutput<
+        pub granular_markings: pulumi_gestalt_rust::InputOrOutput<
             Option<
                 Vec<
                     super::super::types::sentinel::ThreatIntelligenceIndicatorGranularMarking,
@@ -92,7 +92,7 @@ pub mod threat_intelligence_indicator {
         >,
         /// One or more `kill_chain_phase` blocks as defined below.
         #[builder(into, default)]
-        pub kill_chain_phases: pulumi_wasm_rust::InputOrOutput<
+        pub kill_chain_phases: pulumi_gestalt_rust::InputOrOutput<
             Option<
                 Vec<
                     super::super::types::sentinel::ThreatIntelligenceIndicatorKillChainPhase,
@@ -101,63 +101,63 @@ pub mod threat_intelligence_indicator {
         >,
         /// The language of the Threat Intelligence Indicator.
         #[builder(into, default)]
-        pub language: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub language: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Specifies a list of Threat Intelligence marking references.
         #[builder(into, default)]
-        pub object_marking_refs: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
+        pub object_marking_refs: pulumi_gestalt_rust::InputOrOutput<Option<Vec<String>>>,
         /// The pattern used by the Threat Intelligence Indicator. When `pattern_type` set to `file`, `pattern` must be specified with `<HashName>:<Value>` format, such as `MD5:78ecc5c05cd8b79af480df2f8fba0b9d`.
         #[builder(into)]
-        pub pattern: pulumi_wasm_rust::InputOrOutput<String>,
+        pub pattern: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The type of pattern used by the Threat Intelligence Indicator. Possible values are `domain-name`, `file`, `ipv4-addr`, `ipv6-addr` and `url`.
         #[builder(into)]
-        pub pattern_type: pulumi_wasm_rust::InputOrOutput<String>,
+        pub pattern_type: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The version of a Threat Intelligence entity.
         #[builder(into, default)]
-        pub pattern_version: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub pattern_version: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Whether the Threat Intelligence entity revoked.
         #[builder(into, default)]
-        pub revoked: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub revoked: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// Source of the Threat Intelligence Indicator. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub source: pulumi_wasm_rust::InputOrOutput<String>,
+        pub source: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Specifies a list of tags of the Threat Intelligence Indicator.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
+        pub tags: pulumi_gestalt_rust::InputOrOutput<Option<Vec<String>>>,
         /// Specifies a list of threat types of this Threat Intelligence Indicator.
         #[builder(into, default)]
-        pub threat_types: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
+        pub threat_types: pulumi_gestalt_rust::InputOrOutput<Option<Vec<String>>>,
         /// The start of validate date in RFC3339.
         #[builder(into)]
-        pub validate_from_utc: pulumi_wasm_rust::InputOrOutput<String>,
+        pub validate_from_utc: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The end of validate date of the Threat Intelligence Indicator in RFC3339 format.
         #[builder(into, default)]
-        pub validate_until_utc: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub validate_until_utc: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The ID of the Log Analytics Workspace. Changing this forces a new Sentinel Threat Intelligence Indicator to be created.
         #[builder(into)]
-        pub workspace_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub workspace_id: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct ThreatIntelligenceIndicatorResult {
         /// Confidence levels of the Threat Intelligence Indicator.
-        pub confidence: pulumi_wasm_rust::Output<Option<i32>>,
+        pub confidence: pulumi_gestalt_rust::Output<Option<i32>>,
         /// The creator of the Threat Intelligence Indicator.
-        pub created_by: pulumi_wasm_rust::Output<Option<String>>,
+        pub created_by: pulumi_gestalt_rust::Output<Option<String>>,
         /// The date of this Threat Intelligence Indicator created.
-        pub created_on: pulumi_wasm_rust::Output<String>,
+        pub created_on: pulumi_gestalt_rust::Output<String>,
         /// Whether the Threat Intelligence entity is defanged?
-        pub defanged: pulumi_wasm_rust::Output<bool>,
+        pub defanged: pulumi_gestalt_rust::Output<bool>,
         /// The description of the Threat Intelligence Indicator.
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_gestalt_rust::Output<Option<String>>,
         /// The display name of the Threat Intelligence Indicator.
-        pub display_name: pulumi_wasm_rust::Output<String>,
+        pub display_name: pulumi_gestalt_rust::Output<String>,
         /// The extension config of the Threat Intelligence Indicator in JSON format.
-        pub extension: pulumi_wasm_rust::Output<String>,
+        pub extension: pulumi_gestalt_rust::Output<String>,
         /// The external ID of the Threat Intelligence Indicator.
-        pub external_id: pulumi_wasm_rust::Output<String>,
+        pub external_id: pulumi_gestalt_rust::Output<String>,
         /// the External last updated time in UTC.
-        pub external_last_updated_time_utc: pulumi_wasm_rust::Output<String>,
+        pub external_last_updated_time_utc: pulumi_gestalt_rust::Output<String>,
         /// One or more `external_reference` blocks as defined below.
-        pub external_references: pulumi_wasm_rust::Output<
+        pub external_references: pulumi_gestalt_rust::Output<
             Option<
                 Vec<
                     super::super::types::sentinel::ThreatIntelligenceIndicatorExternalReference,
@@ -165,7 +165,7 @@ pub mod threat_intelligence_indicator {
             >,
         >,
         /// One or more `granular_marking` blocks as defined below.
-        pub granular_markings: pulumi_wasm_rust::Output<
+        pub granular_markings: pulumi_gestalt_rust::Output<
             Option<
                 Vec<
                     super::super::types::sentinel::ThreatIntelligenceIndicatorGranularMarking,
@@ -173,11 +173,11 @@ pub mod threat_intelligence_indicator {
             >,
         >,
         /// The guid of this Sentinel Threat Intelligence Indicator.
-        pub guid: pulumi_wasm_rust::Output<String>,
+        pub guid: pulumi_gestalt_rust::Output<String>,
         /// A list of indicator types of this Threat Intelligence Indicator.
-        pub indicator_types: pulumi_wasm_rust::Output<Vec<String>>,
+        pub indicator_types: pulumi_gestalt_rust::Output<Vec<String>>,
         /// One or more `kill_chain_phase` blocks as defined below.
-        pub kill_chain_phases: pulumi_wasm_rust::Output<
+        pub kill_chain_phases: pulumi_gestalt_rust::Output<
             Option<
                 Vec<
                     super::super::types::sentinel::ThreatIntelligenceIndicatorKillChainPhase,
@@ -185,46 +185,46 @@ pub mod threat_intelligence_indicator {
             >,
         >,
         /// The language of the Threat Intelligence Indicator.
-        pub language: pulumi_wasm_rust::Output<Option<String>>,
+        pub language: pulumi_gestalt_rust::Output<Option<String>>,
         /// The last updated time of the Threat Intelligence Indicator in UTC.
-        pub last_updated_time_utc: pulumi_wasm_rust::Output<String>,
+        pub last_updated_time_utc: pulumi_gestalt_rust::Output<String>,
         /// Specifies a list of Threat Intelligence marking references.
-        pub object_marking_refs: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub object_marking_refs: pulumi_gestalt_rust::Output<Option<Vec<String>>>,
         /// A `parsed_pattern` block as defined below.
-        pub parsed_patterns: pulumi_wasm_rust::Output<
+        pub parsed_patterns: pulumi_gestalt_rust::Output<
             Vec<super::super::types::sentinel::ThreatIntelligenceIndicatorParsedPattern>,
         >,
         /// The pattern used by the Threat Intelligence Indicator. When `pattern_type` set to `file`, `pattern` must be specified with `<HashName>:<Value>` format, such as `MD5:78ecc5c05cd8b79af480df2f8fba0b9d`.
-        pub pattern: pulumi_wasm_rust::Output<String>,
+        pub pattern: pulumi_gestalt_rust::Output<String>,
         /// The type of pattern used by the Threat Intelligence Indicator. Possible values are `domain-name`, `file`, `ipv4-addr`, `ipv6-addr` and `url`.
-        pub pattern_type: pulumi_wasm_rust::Output<String>,
+        pub pattern_type: pulumi_gestalt_rust::Output<String>,
         /// The version of a Threat Intelligence entity.
-        pub pattern_version: pulumi_wasm_rust::Output<Option<String>>,
+        pub pattern_version: pulumi_gestalt_rust::Output<Option<String>>,
         /// Whether the Threat Intelligence entity revoked.
-        pub revoked: pulumi_wasm_rust::Output<Option<bool>>,
+        pub revoked: pulumi_gestalt_rust::Output<Option<bool>>,
         /// Source of the Threat Intelligence Indicator. Changing this forces a new resource to be created.
-        pub source: pulumi_wasm_rust::Output<String>,
+        pub source: pulumi_gestalt_rust::Output<String>,
         /// Specifies a list of tags of the Threat Intelligence Indicator.
-        pub tags: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub tags: pulumi_gestalt_rust::Output<Option<Vec<String>>>,
         /// Specifies a list of threat types of this Threat Intelligence Indicator.
-        pub threat_types: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub threat_types: pulumi_gestalt_rust::Output<Option<Vec<String>>>,
         /// The start of validate date in RFC3339.
-        pub validate_from_utc: pulumi_wasm_rust::Output<String>,
+        pub validate_from_utc: pulumi_gestalt_rust::Output<String>,
         /// The end of validate date of the Threat Intelligence Indicator in RFC3339 format.
-        pub validate_until_utc: pulumi_wasm_rust::Output<Option<String>>,
+        pub validate_until_utc: pulumi_gestalt_rust::Output<Option<String>>,
         /// The ID of the Log Analytics Workspace. Changing this forces a new Sentinel Threat Intelligence Indicator to be created.
-        pub workspace_id: pulumi_wasm_rust::Output<String>,
+        pub workspace_id: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: ThreatIntelligenceIndicatorArgs,
     ) -> ThreatIntelligenceIndicatorResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let confidence_binding = args.confidence.get_output(context).get_inner();
         let created_by_binding = args.created_by.get_output(context).get_inner();
@@ -357,82 +357,84 @@ pub mod threat_intelligence_indicator {
         };
         let o = register_interface::register(context.get_inner(), &request);
         ThreatIntelligenceIndicatorResult {
-            confidence: pulumi_wasm_rust::__private::into_domain(
+            confidence: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("confidence"),
             ),
-            created_by: pulumi_wasm_rust::__private::into_domain(
+            created_by: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("createdBy"),
             ),
-            created_on: pulumi_wasm_rust::__private::into_domain(
+            created_on: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("createdOn"),
             ),
-            defanged: pulumi_wasm_rust::__private::into_domain(
+            defanged: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("defanged"),
             ),
-            description: pulumi_wasm_rust::__private::into_domain(
+            description: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("description"),
             ),
-            display_name: pulumi_wasm_rust::__private::into_domain(
+            display_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("displayName"),
             ),
-            extension: pulumi_wasm_rust::__private::into_domain(
+            extension: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("extension"),
             ),
-            external_id: pulumi_wasm_rust::__private::into_domain(
+            external_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("externalId"),
             ),
-            external_last_updated_time_utc: pulumi_wasm_rust::__private::into_domain(
+            external_last_updated_time_utc: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("externalLastUpdatedTimeUtc"),
             ),
-            external_references: pulumi_wasm_rust::__private::into_domain(
+            external_references: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("externalReferences"),
             ),
-            granular_markings: pulumi_wasm_rust::__private::into_domain(
+            granular_markings: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("granularMarkings"),
             ),
-            guid: pulumi_wasm_rust::__private::into_domain(o.extract_field("guid")),
-            indicator_types: pulumi_wasm_rust::__private::into_domain(
+            guid: pulumi_gestalt_rust::__private::into_domain(o.extract_field("guid")),
+            indicator_types: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("indicatorTypes"),
             ),
-            kill_chain_phases: pulumi_wasm_rust::__private::into_domain(
+            kill_chain_phases: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("killChainPhases"),
             ),
-            language: pulumi_wasm_rust::__private::into_domain(
+            language: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("language"),
             ),
-            last_updated_time_utc: pulumi_wasm_rust::__private::into_domain(
+            last_updated_time_utc: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("lastUpdatedTimeUtc"),
             ),
-            object_marking_refs: pulumi_wasm_rust::__private::into_domain(
+            object_marking_refs: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("objectMarkingRefs"),
             ),
-            parsed_patterns: pulumi_wasm_rust::__private::into_domain(
+            parsed_patterns: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("parsedPatterns"),
             ),
-            pattern: pulumi_wasm_rust::__private::into_domain(
+            pattern: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("pattern"),
             ),
-            pattern_type: pulumi_wasm_rust::__private::into_domain(
+            pattern_type: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("patternType"),
             ),
-            pattern_version: pulumi_wasm_rust::__private::into_domain(
+            pattern_version: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("patternVersion"),
             ),
-            revoked: pulumi_wasm_rust::__private::into_domain(
+            revoked: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("revoked"),
             ),
-            source: pulumi_wasm_rust::__private::into_domain(o.extract_field("source")),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
-            threat_types: pulumi_wasm_rust::__private::into_domain(
+            source: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("source"),
+            ),
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            threat_types: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("threatTypes"),
             ),
-            validate_from_utc: pulumi_wasm_rust::__private::into_domain(
+            validate_from_utc: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("validateFromUtc"),
             ),
-            validate_until_utc: pulumi_wasm_rust::__private::into_domain(
+            validate_until_utc: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("validateUntilUtc"),
             ),
-            workspace_id: pulumi_wasm_rust::__private::into_domain(
+            workspace_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("workspaceId"),
             ),
         }

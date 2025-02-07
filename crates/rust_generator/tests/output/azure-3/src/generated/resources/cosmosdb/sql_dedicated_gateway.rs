@@ -3,8 +3,8 @@
 /// ## Example Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = resource_group::create(
@@ -55,39 +55,39 @@
 /// ```
 ///
 pub mod sql_dedicated_gateway {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct SqlDedicatedGatewayArgs {
         /// The resource ID of the CosmosDB Account. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub cosmosdb_account_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub cosmosdb_account_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The instance count for the CosmosDB SQL Dedicated Gateway. Possible value is between `1` and `5`.
         #[builder(into)]
-        pub instance_count: pulumi_wasm_rust::InputOrOutput<i32>,
+        pub instance_count: pulumi_gestalt_rust::InputOrOutput<i32>,
         /// The instance size for the CosmosDB SQL Dedicated Gateway. Changing this forces a new resource to be created. Possible values are `Cosmos.D4s`, `Cosmos.D8s` and `Cosmos.D16s`.
         #[builder(into)]
-        pub instance_size: pulumi_wasm_rust::InputOrOutput<String>,
+        pub instance_size: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct SqlDedicatedGatewayResult {
         /// The resource ID of the CosmosDB Account. Changing this forces a new resource to be created.
-        pub cosmosdb_account_id: pulumi_wasm_rust::Output<String>,
+        pub cosmosdb_account_id: pulumi_gestalt_rust::Output<String>,
         /// The instance count for the CosmosDB SQL Dedicated Gateway. Possible value is between `1` and `5`.
-        pub instance_count: pulumi_wasm_rust::Output<i32>,
+        pub instance_count: pulumi_gestalt_rust::Output<i32>,
         /// The instance size for the CosmosDB SQL Dedicated Gateway. Changing this forces a new resource to be created. Possible values are `Cosmos.D4s`, `Cosmos.D8s` and `Cosmos.D16s`.
-        pub instance_size: pulumi_wasm_rust::Output<String>,
+        pub instance_size: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: SqlDedicatedGatewayArgs,
     ) -> SqlDedicatedGatewayResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let cosmosdb_account_id_binding = args
             .cosmosdb_account_id
@@ -116,13 +116,13 @@ pub mod sql_dedicated_gateway {
         };
         let o = register_interface::register(context.get_inner(), &request);
         SqlDedicatedGatewayResult {
-            cosmosdb_account_id: pulumi_wasm_rust::__private::into_domain(
+            cosmosdb_account_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("cosmosdbAccountId"),
             ),
-            instance_count: pulumi_wasm_rust::__private::into_domain(
+            instance_count: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("instanceCount"),
             ),
-            instance_size: pulumi_wasm_rust::__private::into_domain(
+            instance_size: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("instanceSize"),
             ),
         }

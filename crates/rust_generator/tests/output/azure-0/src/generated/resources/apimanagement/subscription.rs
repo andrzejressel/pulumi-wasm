@@ -45,87 +45,87 @@
 /// ```
 ///
 pub mod subscription {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct SubscriptionArgs {
         /// Determines whether tracing can be enabled. Defaults to `true`.
         #[builder(into, default)]
-        pub allow_tracing: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub allow_tracing: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// The ID of the API which should be assigned to this Subscription. Changing this forces a new resource to be created.
         ///
         /// > **Info:** Only one of `product_id` and `api_id` can be set. If both are missing `/apis` scope is used for the subscription and all apis are accessible.
         #[builder(into, default)]
-        pub api_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub api_id: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The name of the API Management Service where this Subscription should be created. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub api_management_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub api_management_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The display name of this Subscription.
         #[builder(into)]
-        pub display_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub display_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The primary subscription key to use for the subscription.
         #[builder(into, default)]
-        pub primary_key: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub primary_key: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The ID of the Product which should be assigned to this Subscription. Changing this forces a new resource to be created.
         ///
         /// > **Info:** Only one of `product_id` and `api_id` can be set. If both are missing `all_apis` scope is used for the subscription.
         #[builder(into, default)]
-        pub product_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub product_id: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The name of the Resource Group in which the API Management Service exists. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub resource_group_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub resource_group_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The secondary subscription key to use for the subscription.
         #[builder(into, default)]
-        pub secondary_key: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub secondary_key: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The state of this Subscription. Possible values are `active`, `cancelled`, `expired`, `rejected`, `submitted` and `suspended`. Defaults to `submitted`.
         #[builder(into, default)]
-        pub state: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub state: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// An Identifier which should used as the ID of this Subscription. If not specified a new Subscription ID will be generated. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub subscription_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub subscription_id: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The ID of the User which should be assigned to this Subscription. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub user_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub user_id: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct SubscriptionResult {
         /// Determines whether tracing can be enabled. Defaults to `true`.
-        pub allow_tracing: pulumi_wasm_rust::Output<Option<bool>>,
+        pub allow_tracing: pulumi_gestalt_rust::Output<Option<bool>>,
         /// The ID of the API which should be assigned to this Subscription. Changing this forces a new resource to be created.
         ///
         /// > **Info:** Only one of `product_id` and `api_id` can be set. If both are missing `/apis` scope is used for the subscription and all apis are accessible.
-        pub api_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub api_id: pulumi_gestalt_rust::Output<Option<String>>,
         /// The name of the API Management Service where this Subscription should be created. Changing this forces a new resource to be created.
-        pub api_management_name: pulumi_wasm_rust::Output<String>,
+        pub api_management_name: pulumi_gestalt_rust::Output<String>,
         /// The display name of this Subscription.
-        pub display_name: pulumi_wasm_rust::Output<String>,
+        pub display_name: pulumi_gestalt_rust::Output<String>,
         /// The primary subscription key to use for the subscription.
-        pub primary_key: pulumi_wasm_rust::Output<String>,
+        pub primary_key: pulumi_gestalt_rust::Output<String>,
         /// The ID of the Product which should be assigned to this Subscription. Changing this forces a new resource to be created.
         ///
         /// > **Info:** Only one of `product_id` and `api_id` can be set. If both are missing `all_apis` scope is used for the subscription.
-        pub product_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub product_id: pulumi_gestalt_rust::Output<Option<String>>,
         /// The name of the Resource Group in which the API Management Service exists. Changing this forces a new resource to be created.
-        pub resource_group_name: pulumi_wasm_rust::Output<String>,
+        pub resource_group_name: pulumi_gestalt_rust::Output<String>,
         /// The secondary subscription key to use for the subscription.
-        pub secondary_key: pulumi_wasm_rust::Output<String>,
+        pub secondary_key: pulumi_gestalt_rust::Output<String>,
         /// The state of this Subscription. Possible values are `active`, `cancelled`, `expired`, `rejected`, `submitted` and `suspended`. Defaults to `submitted`.
-        pub state: pulumi_wasm_rust::Output<Option<String>>,
+        pub state: pulumi_gestalt_rust::Output<Option<String>>,
         /// An Identifier which should used as the ID of this Subscription. If not specified a new Subscription ID will be generated. Changing this forces a new resource to be created.
-        pub subscription_id: pulumi_wasm_rust::Output<String>,
+        pub subscription_id: pulumi_gestalt_rust::Output<String>,
         /// The ID of the User which should be assigned to this Subscription. Changing this forces a new resource to be created.
-        pub user_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub user_id: pulumi_gestalt_rust::Output<Option<String>>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: SubscriptionArgs,
     ) -> SubscriptionResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let allow_tracing_binding = args.allow_tracing.get_output(context).get_inner();
         let api_id_binding = args.api_id.get_output(context).get_inner();
@@ -200,33 +200,37 @@ pub mod subscription {
         };
         let o = register_interface::register(context.get_inner(), &request);
         SubscriptionResult {
-            allow_tracing: pulumi_wasm_rust::__private::into_domain(
+            allow_tracing: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("allowTracing"),
             ),
-            api_id: pulumi_wasm_rust::__private::into_domain(o.extract_field("apiId")),
-            api_management_name: pulumi_wasm_rust::__private::into_domain(
+            api_id: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("apiId"),
+            ),
+            api_management_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("apiManagementName"),
             ),
-            display_name: pulumi_wasm_rust::__private::into_domain(
+            display_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("displayName"),
             ),
-            primary_key: pulumi_wasm_rust::__private::into_domain(
+            primary_key: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("primaryKey"),
             ),
-            product_id: pulumi_wasm_rust::__private::into_domain(
+            product_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("productId"),
             ),
-            resource_group_name: pulumi_wasm_rust::__private::into_domain(
+            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("resourceGroupName"),
             ),
-            secondary_key: pulumi_wasm_rust::__private::into_domain(
+            secondary_key: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("secondaryKey"),
             ),
-            state: pulumi_wasm_rust::__private::into_domain(o.extract_field("state")),
-            subscription_id: pulumi_wasm_rust::__private::into_domain(
+            state: pulumi_gestalt_rust::__private::into_domain(o.extract_field("state")),
+            subscription_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("subscriptionId"),
             ),
-            user_id: pulumi_wasm_rust::__private::into_domain(o.extract_field("userId")),
+            user_id: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("userId"),
+            ),
         }
     }
 }

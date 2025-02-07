@@ -57,26 +57,26 @@
 /// ```
 ///
 pub mod access_level {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct AccessLevelArgs {
         /// A set of predefined conditions for the access level and a combining function.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub basic: pulumi_wasm_rust::InputOrOutput<
+        pub basic: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::accesscontextmanager::AccessLevelBasic>,
         >,
         /// Custom access level conditions are set using the Cloud Common Expression Language to represent the necessary conditions for the level to apply to a request.
         /// See CEL spec at: https://github.com/google/cel-spec.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub custom: pulumi_wasm_rust::InputOrOutput<
+        pub custom: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::accesscontextmanager::AccessLevelCustom>,
         >,
         /// Description of the AccessLevel and its use. Does not affect behavior.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub description: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Resource name for the Access Level. The short_name component must begin
         /// with a letter and only include alphanumeric and '_'.
         /// Format: accessPolicies/{policy_id}/accessLevels/{short_name}
@@ -84,53 +84,53 @@ pub mod access_level {
         ///
         /// - - -
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The AccessPolicy this AccessLevel lives in.
         /// Format: accessPolicies/{policy_id}
         #[builder(into)]
-        pub parent: pulumi_wasm_rust::InputOrOutput<String>,
+        pub parent: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Human readable title. Must be unique within the Policy.
         #[builder(into)]
-        pub title: pulumi_wasm_rust::InputOrOutput<String>,
+        pub title: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct AccessLevelResult {
         /// A set of predefined conditions for the access level and a combining function.
         /// Structure is documented below.
-        pub basic: pulumi_wasm_rust::Output<
+        pub basic: pulumi_gestalt_rust::Output<
             Option<super::super::types::accesscontextmanager::AccessLevelBasic>,
         >,
         /// Custom access level conditions are set using the Cloud Common Expression Language to represent the necessary conditions for the level to apply to a request.
         /// See CEL spec at: https://github.com/google/cel-spec.
         /// Structure is documented below.
-        pub custom: pulumi_wasm_rust::Output<
+        pub custom: pulumi_gestalt_rust::Output<
             Option<super::super::types::accesscontextmanager::AccessLevelCustom>,
         >,
         /// Description of the AccessLevel and its use. Does not affect behavior.
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_gestalt_rust::Output<Option<String>>,
         /// Resource name for the Access Level. The short_name component must begin
         /// with a letter and only include alphanumeric and '_'.
         /// Format: accessPolicies/{policy_id}/accessLevels/{short_name}
         ///
         ///
         /// - - -
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// The AccessPolicy this AccessLevel lives in.
         /// Format: accessPolicies/{policy_id}
-        pub parent: pulumi_wasm_rust::Output<String>,
+        pub parent: pulumi_gestalt_rust::Output<String>,
         /// Human readable title. Must be unique within the Policy.
-        pub title: pulumi_wasm_rust::Output<String>,
+        pub title: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: AccessLevelArgs,
     ) -> AccessLevelResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let basic_binding = args.basic.get_output(context).get_inner();
         let custom_binding = args.custom.get_output(context).get_inner();
@@ -171,14 +171,18 @@ pub mod access_level {
         };
         let o = register_interface::register(context.get_inner(), &request);
         AccessLevelResult {
-            basic: pulumi_wasm_rust::__private::into_domain(o.extract_field("basic")),
-            custom: pulumi_wasm_rust::__private::into_domain(o.extract_field("custom")),
-            description: pulumi_wasm_rust::__private::into_domain(
+            basic: pulumi_gestalt_rust::__private::into_domain(o.extract_field("basic")),
+            custom: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("custom"),
+            ),
+            description: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("description"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            parent: pulumi_wasm_rust::__private::into_domain(o.extract_field("parent")),
-            title: pulumi_wasm_rust::__private::into_domain(o.extract_field("title")),
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            parent: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("parent"),
+            ),
+            title: pulumi_gestalt_rust::__private::into_domain(o.extract_field("title")),
         }
     }
 }

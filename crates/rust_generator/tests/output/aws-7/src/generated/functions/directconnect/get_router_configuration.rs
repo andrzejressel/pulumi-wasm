@@ -1,5 +1,5 @@
 pub mod get_router_configuration {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct GetRouterConfigurationArgs {
@@ -22,35 +22,35 @@ pub mod get_router_configuration {
         /// }
         /// ```
         #[builder(into)]
-        pub router_type_identifier: pulumi_wasm_rust::InputOrOutput<String>,
+        pub router_type_identifier: pulumi_gestalt_rust::InputOrOutput<String>,
         /// ID of the Direct Connect Virtual Interface
         #[builder(into)]
-        pub virtual_interface_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub virtual_interface_id: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct GetRouterConfigurationResult {
         /// Instructions for configuring your router
-        pub customer_router_config: pulumi_wasm_rust::Output<String>,
+        pub customer_router_config: pulumi_gestalt_rust::Output<String>,
         /// The provider-assigned unique ID for this managed resource.
-        pub id: pulumi_wasm_rust::Output<String>,
+        pub id: pulumi_gestalt_rust::Output<String>,
         /// Router type identifier
-        pub router_type_identifier: pulumi_wasm_rust::Output<String>,
+        pub router_type_identifier: pulumi_gestalt_rust::Output<String>,
         /// Block of the router type details
-        pub routers: pulumi_wasm_rust::Output<
+        pub routers: pulumi_gestalt_rust::Output<
             Vec<super::super::super::types::directconnect::GetRouterConfigurationRouter>,
         >,
-        pub virtual_interface_id: pulumi_wasm_rust::Output<String>,
-        pub virtual_interface_name: pulumi_wasm_rust::Output<String>,
+        pub virtual_interface_id: pulumi_gestalt_rust::Output<String>,
+        pub virtual_interface_name: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         args: GetRouterConfigurationArgs,
     ) -> GetRouterConfigurationResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let router_type_identifier_binding = args
             .router_type_identifier
@@ -77,20 +77,20 @@ pub mod get_router_configuration {
         };
         let o = register_interface::invoke(context.get_inner(), &request);
         GetRouterConfigurationResult {
-            customer_router_config: pulumi_wasm_rust::__private::into_domain(
+            customer_router_config: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("customerRouterConfig"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
-            router_type_identifier: pulumi_wasm_rust::__private::into_domain(
+            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
+            router_type_identifier: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("routerTypeIdentifier"),
             ),
-            routers: pulumi_wasm_rust::__private::into_domain(
+            routers: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("routers"),
             ),
-            virtual_interface_id: pulumi_wasm_rust::__private::into_domain(
+            virtual_interface_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("virtualInterfaceId"),
             ),
-            virtual_interface_name: pulumi_wasm_rust::__private::into_domain(
+            virtual_interface_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("virtualInterfaceName"),
             ),
         }

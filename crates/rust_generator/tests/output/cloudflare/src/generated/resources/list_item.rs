@@ -4,8 +4,8 @@
 /// ## Example Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let exampleAsnItem = list_item::create(
@@ -98,63 +98,67 @@
 /// ```
 ///
 pub mod list_item {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ListItemArgs {
         /// The account identifier to target for the resource.
         #[builder(into)]
-        pub account_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub account_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Autonomous system number to include in the list. Must provide only one of: `ip`, `asn`, `redirect`, `hostname`.
         #[builder(into, default)]
-        pub asn: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
+        pub asn: pulumi_gestalt_rust::InputOrOutput<Option<i32>>,
         /// An optional comment for the item.
         #[builder(into, default)]
-        pub comment: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub comment: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Hostname to store in the list. Must provide only one of: `ip`, `asn`, `redirect`, `hostname`.
         #[builder(into, default)]
-        pub hostname: pulumi_wasm_rust::InputOrOutput<
+        pub hostname: pulumi_gestalt_rust::InputOrOutput<
             Option<super::types::ListItemHostname>,
         >,
         /// IP address to include in the list. Must provide only one of: `ip`, `asn`, `redirect`, `hostname`.
         #[builder(into, default)]
-        pub ip: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub ip: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The list identifier to target for the resource.
         #[builder(into)]
-        pub list_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub list_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Redirect configuration to store in the list. Must provide only one of: `ip`, `asn`, `redirect`, `hostname`.
         #[builder(into, default)]
-        pub redirect: pulumi_wasm_rust::InputOrOutput<
+        pub redirect: pulumi_gestalt_rust::InputOrOutput<
             Option<super::types::ListItemRedirect>,
         >,
     }
     #[allow(dead_code)]
     pub struct ListItemResult {
         /// The account identifier to target for the resource.
-        pub account_id: pulumi_wasm_rust::Output<String>,
+        pub account_id: pulumi_gestalt_rust::Output<String>,
         /// Autonomous system number to include in the list. Must provide only one of: `ip`, `asn`, `redirect`, `hostname`.
-        pub asn: pulumi_wasm_rust::Output<Option<i32>>,
+        pub asn: pulumi_gestalt_rust::Output<Option<i32>>,
         /// An optional comment for the item.
-        pub comment: pulumi_wasm_rust::Output<Option<String>>,
+        pub comment: pulumi_gestalt_rust::Output<Option<String>>,
         /// Hostname to store in the list. Must provide only one of: `ip`, `asn`, `redirect`, `hostname`.
-        pub hostname: pulumi_wasm_rust::Output<Option<super::types::ListItemHostname>>,
+        pub hostname: pulumi_gestalt_rust::Output<
+            Option<super::types::ListItemHostname>,
+        >,
         /// IP address to include in the list. Must provide only one of: `ip`, `asn`, `redirect`, `hostname`.
-        pub ip: pulumi_wasm_rust::Output<Option<String>>,
+        pub ip: pulumi_gestalt_rust::Output<Option<String>>,
         /// The list identifier to target for the resource.
-        pub list_id: pulumi_wasm_rust::Output<String>,
+        pub list_id: pulumi_gestalt_rust::Output<String>,
         /// Redirect configuration to store in the list. Must provide only one of: `ip`, `asn`, `redirect`, `hostname`.
-        pub redirect: pulumi_wasm_rust::Output<Option<super::types::ListItemRedirect>>,
+        pub redirect: pulumi_gestalt_rust::Output<
+            Option<super::types::ListItemRedirect>,
+        >,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: ListItemArgs,
     ) -> ListItemResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let account_id_binding = args.account_id.get_output(context).get_inner();
         let asn_binding = args.asn.get_output(context).get_inner();
@@ -200,19 +204,21 @@ pub mod list_item {
         };
         let o = register_interface::register(context.get_inner(), &request);
         ListItemResult {
-            account_id: pulumi_wasm_rust::__private::into_domain(
+            account_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("accountId"),
             ),
-            asn: pulumi_wasm_rust::__private::into_domain(o.extract_field("asn")),
-            comment: pulumi_wasm_rust::__private::into_domain(
+            asn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("asn")),
+            comment: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("comment"),
             ),
-            hostname: pulumi_wasm_rust::__private::into_domain(
+            hostname: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("hostname"),
             ),
-            ip: pulumi_wasm_rust::__private::into_domain(o.extract_field("ip")),
-            list_id: pulumi_wasm_rust::__private::into_domain(o.extract_field("listId")),
-            redirect: pulumi_wasm_rust::__private::into_domain(
+            ip: pulumi_gestalt_rust::__private::into_domain(o.extract_field("ip")),
+            list_id: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("listId"),
+            ),
+            redirect: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("redirect"),
             ),
         }

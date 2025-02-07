@@ -36,34 +36,34 @@
 /// $ pulumi import aws:servicecatalog/appregistryAttributeGroupAssociation:AppregistryAttributeGroupAssociation example 12456778723424sdffsdfsdq34,12234t3564dsfsdf34asff4ww3
 /// ```
 pub mod appregistry_attribute_group_association {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct AppregistryAttributeGroupAssociationArgs {
         /// ID of the application.
         #[builder(into)]
-        pub application_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub application_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// ID of the attribute group to associate with the application.
         #[builder(into)]
-        pub attribute_group_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub attribute_group_id: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct AppregistryAttributeGroupAssociationResult {
         /// ID of the application.
-        pub application_id: pulumi_wasm_rust::Output<String>,
+        pub application_id: pulumi_gestalt_rust::Output<String>,
         /// ID of the attribute group to associate with the application.
-        pub attribute_group_id: pulumi_wasm_rust::Output<String>,
+        pub attribute_group_id: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: AppregistryAttributeGroupAssociationArgs,
     ) -> AppregistryAttributeGroupAssociationResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let application_id_binding = args.application_id.get_output(context).get_inner();
         let attribute_group_id_binding = args
@@ -88,10 +88,10 @@ pub mod appregistry_attribute_group_association {
         };
         let o = register_interface::register(context.get_inner(), &request);
         AppregistryAttributeGroupAssociationResult {
-            application_id: pulumi_wasm_rust::__private::into_domain(
+            application_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("applicationId"),
             ),
-            attribute_group_id: pulumi_wasm_rust::__private::into_domain(
+            attribute_group_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("attributeGroupId"),
             ),
         }

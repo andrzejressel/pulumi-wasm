@@ -1,72 +1,72 @@
 pub mod zip_blob {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ZipBlobArgs {
         #[builder(into, default)]
-        pub access_tier: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub access_tier: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         #[builder(into, default)]
-        pub cache_control: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub cache_control: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         #[builder(into, default)]
-        pub content: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub content: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         #[builder(into, default)]
-        pub content_md5: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub content_md5: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         #[builder(into, default)]
-        pub content_type: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub content_type: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         #[builder(into, default)]
-        pub encryption_scope: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub encryption_scope: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         #[builder(into, default)]
-        pub metadata: pulumi_wasm_rust::InputOrOutput<
+        pub metadata: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         #[builder(into, default)]
-        pub parallelism: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
+        pub parallelism: pulumi_gestalt_rust::InputOrOutput<Option<i32>>,
         #[builder(into, default)]
-        pub size: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
+        pub size: pulumi_gestalt_rust::InputOrOutput<Option<i32>>,
         #[builder(into, default)]
-        pub source_content: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub source_content: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         #[builder(into, default)]
-        pub source_uri: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub source_uri: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         #[builder(into)]
-        pub storage_account_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub storage_account_name: pulumi_gestalt_rust::InputOrOutput<String>,
         #[builder(into)]
-        pub storage_container_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub storage_container_name: pulumi_gestalt_rust::InputOrOutput<String>,
         #[builder(into)]
-        pub type_: pulumi_wasm_rust::InputOrOutput<String>,
+        pub type_: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct ZipBlobResult {
-        pub access_tier: pulumi_wasm_rust::Output<String>,
-        pub cache_control: pulumi_wasm_rust::Output<Option<String>>,
-        pub content: pulumi_wasm_rust::Output<Option<String>>,
-        pub content_md5: pulumi_wasm_rust::Output<Option<String>>,
-        pub content_type: pulumi_wasm_rust::Output<Option<String>>,
-        pub encryption_scope: pulumi_wasm_rust::Output<Option<String>>,
-        pub metadata: pulumi_wasm_rust::Output<
+        pub access_tier: pulumi_gestalt_rust::Output<String>,
+        pub cache_control: pulumi_gestalt_rust::Output<Option<String>>,
+        pub content: pulumi_gestalt_rust::Output<Option<String>>,
+        pub content_md5: pulumi_gestalt_rust::Output<Option<String>>,
+        pub content_type: pulumi_gestalt_rust::Output<Option<String>>,
+        pub encryption_scope: pulumi_gestalt_rust::Output<Option<String>>,
+        pub metadata: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
-        pub name: pulumi_wasm_rust::Output<String>,
-        pub parallelism: pulumi_wasm_rust::Output<Option<i32>>,
-        pub size: pulumi_wasm_rust::Output<Option<i32>>,
-        pub source_content: pulumi_wasm_rust::Output<Option<String>>,
-        pub source_uri: pulumi_wasm_rust::Output<Option<String>>,
-        pub storage_account_name: pulumi_wasm_rust::Output<String>,
-        pub storage_container_name: pulumi_wasm_rust::Output<String>,
-        pub type_: pulumi_wasm_rust::Output<String>,
-        pub url: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
+        pub parallelism: pulumi_gestalt_rust::Output<Option<i32>>,
+        pub size: pulumi_gestalt_rust::Output<Option<i32>>,
+        pub source_content: pulumi_gestalt_rust::Output<Option<String>>,
+        pub source_uri: pulumi_gestalt_rust::Output<Option<String>>,
+        pub storage_account_name: pulumi_gestalt_rust::Output<String>,
+        pub storage_container_name: pulumi_gestalt_rust::Output<String>,
+        pub type_: pulumi_gestalt_rust::Output<String>,
+        pub url: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: ZipBlobArgs,
     ) -> ZipBlobResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let access_tier_binding = args.access_tier.get_output(context).get_inner();
         let cache_control_binding = args.cache_control.get_output(context).get_inner();
@@ -161,46 +161,46 @@ pub mod zip_blob {
         };
         let o = register_interface::register(context.get_inner(), &request);
         ZipBlobResult {
-            access_tier: pulumi_wasm_rust::__private::into_domain(
+            access_tier: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("accessTier"),
             ),
-            cache_control: pulumi_wasm_rust::__private::into_domain(
+            cache_control: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("cacheControl"),
             ),
-            content: pulumi_wasm_rust::__private::into_domain(
+            content: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("content"),
             ),
-            content_md5: pulumi_wasm_rust::__private::into_domain(
+            content_md5: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("contentMd5"),
             ),
-            content_type: pulumi_wasm_rust::__private::into_domain(
+            content_type: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("contentType"),
             ),
-            encryption_scope: pulumi_wasm_rust::__private::into_domain(
+            encryption_scope: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("encryptionScope"),
             ),
-            metadata: pulumi_wasm_rust::__private::into_domain(
+            metadata: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("metadata"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            parallelism: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            parallelism: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("parallelism"),
             ),
-            size: pulumi_wasm_rust::__private::into_domain(o.extract_field("size")),
-            source_content: pulumi_wasm_rust::__private::into_domain(
+            size: pulumi_gestalt_rust::__private::into_domain(o.extract_field("size")),
+            source_content: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("sourceContent"),
             ),
-            source_uri: pulumi_wasm_rust::__private::into_domain(
+            source_uri: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("sourceUri"),
             ),
-            storage_account_name: pulumi_wasm_rust::__private::into_domain(
+            storage_account_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("storageAccountName"),
             ),
-            storage_container_name: pulumi_wasm_rust::__private::into_domain(
+            storage_container_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("storageContainerName"),
             ),
-            type_: pulumi_wasm_rust::__private::into_domain(o.extract_field("type")),
-            url: pulumi_wasm_rust::__private::into_domain(o.extract_field("url")),
+            type_: pulumi_gestalt_rust::__private::into_domain(o.extract_field("type")),
+            url: pulumi_gestalt_rust::__private::into_domain(o.extract_field("url")),
         }
     }
 }

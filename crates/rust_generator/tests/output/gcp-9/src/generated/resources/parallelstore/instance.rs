@@ -75,16 +75,16 @@
 /// ```
 ///
 pub mod instance {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct InstanceArgs {
         /// Required. Immutable. Storage capacity of Parallelstore instance in Gibibytes (GiB).
         #[builder(into)]
-        pub capacity_gib: pulumi_wasm_rust::InputOrOutput<String>,
+        pub capacity_gib: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The description of the instance. 2048 characters or less.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub description: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Stripe level for directories.
         /// MIN when directory has a small number of files.
         /// MAX when directory has a large number of files.
@@ -94,7 +94,7 @@ pub mod instance {
         /// DIRECTORY_STRIPE_LEVEL_BALANCED
         /// DIRECTORY_STRIPE_LEVEL_MAX
         #[builder(into, default)]
-        pub directory_stripe_level: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub directory_stripe_level: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Stripe level for files.
         /// MIN better suited for small size files.
         /// MAX higher throughput performance for larger files.
@@ -104,7 +104,7 @@ pub mod instance {
         /// FILE_STRIPE_LEVEL_BALANCED
         /// FILE_STRIPE_LEVEL_MAX
         #[builder(into, default)]
-        pub file_stripe_level: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub file_stripe_level: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The logical name of the Parallelstore instance in the user project with the following restrictions:
         /// * Must contain only lowercase letters, numbers, and hyphens.
         /// * Must start with a letter.
@@ -115,7 +115,7 @@ pub mod instance {
         ///
         /// - - -
         #[builder(into)]
-        pub instance_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub instance_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Cloud Labels are a flexible and lightweight mechanism for
         /// organizing cloud resources into groups that reflect a customer's organizational
         /// needs and deployment strategies. Cloud Labels can be used to filter collections
@@ -138,40 +138,40 @@ pub mod instance {
         /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
         /// Please refer to the field `effective_labels` for all of the labels present on the resource.
         #[builder(into, default)]
-        pub labels: pulumi_wasm_rust::InputOrOutput<
+        pub labels: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Part of `parent`. See documentation of `projectsId`.
         #[builder(into)]
-        pub location: pulumi_wasm_rust::InputOrOutput<String>,
+        pub location: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Immutable. The name of the Google Compute Engine [VPC network](https://cloud.google.com/vpc/docs/vpc)
         /// to which the instance is connected.
         #[builder(into, default)]
-        pub network: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub network: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub project: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Immutable. Contains the id of the allocated IP address range
         /// associated with the private service access connection for example, \"test-default\"
         /// associated with IP range 10.0.0.0/29. If no range id is provided all ranges will
         /// be considered.
         #[builder(into, default)]
-        pub reserved_ip_range: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub reserved_ip_range: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct InstanceResult {
         /// Output only. List of access_points.
         /// Contains a list of IPv4 addresses used for client side configuration.
-        pub access_points: pulumi_wasm_rust::Output<Vec<String>>,
+        pub access_points: pulumi_gestalt_rust::Output<Vec<String>>,
         /// Required. Immutable. Storage capacity of Parallelstore instance in Gibibytes (GiB).
-        pub capacity_gib: pulumi_wasm_rust::Output<String>,
+        pub capacity_gib: pulumi_gestalt_rust::Output<String>,
         /// The time when the instance was created.
-        pub create_time: pulumi_wasm_rust::Output<String>,
+        pub create_time: pulumi_gestalt_rust::Output<String>,
         /// The version of DAOS software running in the instance.
-        pub daos_version: pulumi_wasm_rust::Output<String>,
+        pub daos_version: pulumi_gestalt_rust::Output<String>,
         /// The description of the instance. 2048 characters or less.
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_gestalt_rust::Output<Option<String>>,
         /// Stripe level for directories.
         /// MIN when directory has a small number of files.
         /// MAX when directory has a large number of files.
@@ -180,16 +180,16 @@ pub mod instance {
         /// DIRECTORY_STRIPE_LEVEL_MIN
         /// DIRECTORY_STRIPE_LEVEL_BALANCED
         /// DIRECTORY_STRIPE_LEVEL_MAX
-        pub directory_stripe_level: pulumi_wasm_rust::Output<Option<String>>,
+        pub directory_stripe_level: pulumi_gestalt_rust::Output<Option<String>>,
         /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Pulumi, other clients and services.
-        pub effective_labels: pulumi_wasm_rust::Output<
+        pub effective_labels: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
         /// Immutable. Contains the id of the allocated IP address
         /// range associated with the private service access connection for example, \"test-default\"
         /// associated with IP range 10.0.0.0/29. This field is populated by the service
         /// and contains the value currently used by the service.
-        pub effective_reserved_ip_range: pulumi_wasm_rust::Output<String>,
+        pub effective_reserved_ip_range: pulumi_gestalt_rust::Output<String>,
         /// Stripe level for files.
         /// MIN better suited for small size files.
         /// MAX higher throughput performance for larger files.
@@ -198,7 +198,7 @@ pub mod instance {
         /// FILE_STRIPE_LEVEL_MIN
         /// FILE_STRIPE_LEVEL_BALANCED
         /// FILE_STRIPE_LEVEL_MAX
-        pub file_stripe_level: pulumi_wasm_rust::Output<Option<String>>,
+        pub file_stripe_level: pulumi_gestalt_rust::Output<Option<String>>,
         /// The logical name of the Parallelstore instance in the user project with the following restrictions:
         /// * Must contain only lowercase letters, numbers, and hyphens.
         /// * Must start with a letter.
@@ -208,7 +208,7 @@ pub mod instance {
         ///
         ///
         /// - - -
-        pub instance_id: pulumi_wasm_rust::Output<String>,
+        pub instance_id: pulumi_gestalt_rust::Output<String>,
         /// Cloud Labels are a flexible and lightweight mechanism for
         /// organizing cloud resources into groups that reflect a customer's organizational
         /// needs and deployment strategies. Cloud Labels can be used to filter collections
@@ -230,30 +230,30 @@ pub mod instance {
         ///
         /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
         /// Please refer to the field `effective_labels` for all of the labels present on the resource.
-        pub labels: pulumi_wasm_rust::Output<
+        pub labels: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Part of `parent`. See documentation of `projectsId`.
-        pub location: pulumi_wasm_rust::Output<String>,
+        pub location: pulumi_gestalt_rust::Output<String>,
         /// Identifier. The resource name of the instance, in the format
         /// `projects/{project}/locations/{location}/instances/{instance_id}`
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// Immutable. The name of the Google Compute Engine [VPC network](https://cloud.google.com/vpc/docs/vpc)
         /// to which the instance is connected.
-        pub network: pulumi_wasm_rust::Output<Option<String>>,
+        pub network: pulumi_gestalt_rust::Output<Option<String>>,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
-        pub project: pulumi_wasm_rust::Output<String>,
+        pub project: pulumi_gestalt_rust::Output<String>,
         /// The combination of labels configured directly on the resource
         /// and default labels configured on the provider.
-        pub pulumi_labels: pulumi_wasm_rust::Output<
+        pub pulumi_labels: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
         /// Immutable. Contains the id of the allocated IP address range
         /// associated with the private service access connection for example, \"test-default\"
         /// associated with IP range 10.0.0.0/29. If no range id is provided all ranges will
         /// be considered.
-        pub reserved_ip_range: pulumi_wasm_rust::Output<Option<String>>,
+        pub reserved_ip_range: pulumi_gestalt_rust::Output<Option<String>>,
         /// The instance state.
         /// Possible values:
         /// STATE_UNSPECIFIED
@@ -262,20 +262,20 @@ pub mod instance {
         /// DELETING
         /// FAILED
         /// UPGRADING
-        pub state: pulumi_wasm_rust::Output<String>,
+        pub state: pulumi_gestalt_rust::Output<String>,
         /// The time when the instance was updated.
-        pub update_time: pulumi_wasm_rust::Output<String>,
+        pub update_time: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: InstanceArgs,
     ) -> InstanceResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let capacity_gib_binding = args.capacity_gib.get_output(context).get_inner();
         let description_binding = args.description.get_output(context).get_inner();
@@ -345,55 +345,57 @@ pub mod instance {
         };
         let o = register_interface::register(context.get_inner(), &request);
         InstanceResult {
-            access_points: pulumi_wasm_rust::__private::into_domain(
+            access_points: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("accessPoints"),
             ),
-            capacity_gib: pulumi_wasm_rust::__private::into_domain(
+            capacity_gib: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("capacityGib"),
             ),
-            create_time: pulumi_wasm_rust::__private::into_domain(
+            create_time: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("createTime"),
             ),
-            daos_version: pulumi_wasm_rust::__private::into_domain(
+            daos_version: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("daosVersion"),
             ),
-            description: pulumi_wasm_rust::__private::into_domain(
+            description: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("description"),
             ),
-            directory_stripe_level: pulumi_wasm_rust::__private::into_domain(
+            directory_stripe_level: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("directoryStripeLevel"),
             ),
-            effective_labels: pulumi_wasm_rust::__private::into_domain(
+            effective_labels: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("effectiveLabels"),
             ),
-            effective_reserved_ip_range: pulumi_wasm_rust::__private::into_domain(
+            effective_reserved_ip_range: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("effectiveReservedIpRange"),
             ),
-            file_stripe_level: pulumi_wasm_rust::__private::into_domain(
+            file_stripe_level: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("fileStripeLevel"),
             ),
-            instance_id: pulumi_wasm_rust::__private::into_domain(
+            instance_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("instanceId"),
             ),
-            labels: pulumi_wasm_rust::__private::into_domain(o.extract_field("labels")),
-            location: pulumi_wasm_rust::__private::into_domain(
+            labels: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("labels"),
+            ),
+            location: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("location"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            network: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            network: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("network"),
             ),
-            project: pulumi_wasm_rust::__private::into_domain(
+            project: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("project"),
             ),
-            pulumi_labels: pulumi_wasm_rust::__private::into_domain(
+            pulumi_labels: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("pulumiLabels"),
             ),
-            reserved_ip_range: pulumi_wasm_rust::__private::into_domain(
+            reserved_ip_range: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("reservedIpRange"),
             ),
-            state: pulumi_wasm_rust::__private::into_domain(o.extract_field("state")),
-            update_time: pulumi_wasm_rust::__private::into_domain(
+            state: pulumi_gestalt_rust::__private::into_domain(o.extract_field("state")),
+            update_time: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("updateTime"),
             ),
         }

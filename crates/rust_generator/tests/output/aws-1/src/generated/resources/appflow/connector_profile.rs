@@ -72,60 +72,60 @@
 /// $ pulumi import aws:appflow/connectorProfile:ConnectorProfile profile arn:aws:appflow:us-west-2:123456789012:connectorprofile/example-profile
 /// ```
 pub mod connector_profile {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ConnectorProfileArgs {
         /// Indicates the connection mode and specifies whether it is public or private. Private flows use AWS PrivateLink to route data over AWS infrastructure without exposing it to the public internet. One of: `Public`, `Private`.
         #[builder(into)]
-        pub connection_mode: pulumi_wasm_rust::InputOrOutput<String>,
+        pub connection_mode: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The label of the connector. The label is unique for each ConnectorRegistration in your AWS account. Only needed if calling for `CustomConnector` connector type.
         #[builder(into, default)]
-        pub connector_label: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub connector_label: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Defines the connector-specific configuration and credentials. See Connector Profile Config for more details.
         #[builder(into)]
-        pub connector_profile_config: pulumi_wasm_rust::InputOrOutput<
+        pub connector_profile_config: pulumi_gestalt_rust::InputOrOutput<
             super::super::types::appflow::ConnectorProfileConnectorProfileConfig,
         >,
         /// The type of connector. One of: `Amplitude`, `CustomConnector`, `CustomerProfiles`, `Datadog`, `Dynatrace`, `EventBridge`, `Googleanalytics`, `Honeycode`, `Infornexus`, `LookoutMetrics`, `Marketo`, `Redshift`, `S3`, `Salesforce`, `SAPOData`, `Servicenow`, `Singular`, `Slack`, `Snowflake`, `Trendmicro`, `Upsolver`, `Veeva`, `Zendesk`.
         #[builder(into)]
-        pub connector_type: pulumi_wasm_rust::InputOrOutput<String>,
+        pub connector_type: pulumi_gestalt_rust::InputOrOutput<String>,
         /// ARN (Amazon Resource Name) of the Key Management Service (KMS) key you provide for encryption. This is required if you do not want to use the Amazon AppFlow-managed KMS key. If you don't provide anything here, Amazon AppFlow uses the Amazon AppFlow-managed KMS key.
         #[builder(into, default)]
-        pub kms_arn: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub kms_arn: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct ConnectorProfileResult {
         /// ARN of the connector profile.
-        pub arn: pulumi_wasm_rust::Output<String>,
+        pub arn: pulumi_gestalt_rust::Output<String>,
         /// Indicates the connection mode and specifies whether it is public or private. Private flows use AWS PrivateLink to route data over AWS infrastructure without exposing it to the public internet. One of: `Public`, `Private`.
-        pub connection_mode: pulumi_wasm_rust::Output<String>,
+        pub connection_mode: pulumi_gestalt_rust::Output<String>,
         /// The label of the connector. The label is unique for each ConnectorRegistration in your AWS account. Only needed if calling for `CustomConnector` connector type.
-        pub connector_label: pulumi_wasm_rust::Output<Option<String>>,
+        pub connector_label: pulumi_gestalt_rust::Output<Option<String>>,
         /// Defines the connector-specific configuration and credentials. See Connector Profile Config for more details.
-        pub connector_profile_config: pulumi_wasm_rust::Output<
+        pub connector_profile_config: pulumi_gestalt_rust::Output<
             super::super::types::appflow::ConnectorProfileConnectorProfileConfig,
         >,
         /// The type of connector. One of: `Amplitude`, `CustomConnector`, `CustomerProfiles`, `Datadog`, `Dynatrace`, `EventBridge`, `Googleanalytics`, `Honeycode`, `Infornexus`, `LookoutMetrics`, `Marketo`, `Redshift`, `S3`, `Salesforce`, `SAPOData`, `Servicenow`, `Singular`, `Slack`, `Snowflake`, `Trendmicro`, `Upsolver`, `Veeva`, `Zendesk`.
-        pub connector_type: pulumi_wasm_rust::Output<String>,
+        pub connector_type: pulumi_gestalt_rust::Output<String>,
         /// ARN of the connector profile credentials.
-        pub credentials_arn: pulumi_wasm_rust::Output<String>,
+        pub credentials_arn: pulumi_gestalt_rust::Output<String>,
         /// ARN (Amazon Resource Name) of the Key Management Service (KMS) key you provide for encryption. This is required if you do not want to use the Amazon AppFlow-managed KMS key. If you don't provide anything here, Amazon AppFlow uses the Amazon AppFlow-managed KMS key.
-        pub kms_arn: pulumi_wasm_rust::Output<String>,
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub kms_arn: pulumi_gestalt_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: ConnectorProfileArgs,
     ) -> ConnectorProfileResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let connection_mode_binding = args
             .connection_mode
@@ -175,24 +175,26 @@ pub mod connector_profile {
         };
         let o = register_interface::register(context.get_inner(), &request);
         ConnectorProfileResult {
-            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
-            connection_mode: pulumi_wasm_rust::__private::into_domain(
+            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
+            connection_mode: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("connectionMode"),
             ),
-            connector_label: pulumi_wasm_rust::__private::into_domain(
+            connector_label: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("connectorLabel"),
             ),
-            connector_profile_config: pulumi_wasm_rust::__private::into_domain(
+            connector_profile_config: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("connectorProfileConfig"),
             ),
-            connector_type: pulumi_wasm_rust::__private::into_domain(
+            connector_type: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("connectorType"),
             ),
-            credentials_arn: pulumi_wasm_rust::__private::into_domain(
+            credentials_arn: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("credentialsArn"),
             ),
-            kms_arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("kmsArn")),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
+            kms_arn: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("kmsArn"),
+            ),
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
         }
     }
 }

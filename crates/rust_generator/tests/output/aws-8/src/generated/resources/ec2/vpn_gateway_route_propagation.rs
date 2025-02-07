@@ -7,8 +7,8 @@
 /// ## Example Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = vpn_gateway_route_propagation::create(
@@ -21,34 +21,34 @@
 /// }
 /// ```
 pub mod vpn_gateway_route_propagation {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct VpnGatewayRoutePropagationArgs {
         /// The id of the `aws.ec2.RouteTable` to propagate routes into.
         #[builder(into)]
-        pub route_table_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub route_table_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The id of the `aws.ec2.VpnGateway` to propagate routes from.
         #[builder(into)]
-        pub vpn_gateway_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub vpn_gateway_id: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct VpnGatewayRoutePropagationResult {
         /// The id of the `aws.ec2.RouteTable` to propagate routes into.
-        pub route_table_id: pulumi_wasm_rust::Output<String>,
+        pub route_table_id: pulumi_gestalt_rust::Output<String>,
         /// The id of the `aws.ec2.VpnGateway` to propagate routes from.
-        pub vpn_gateway_id: pulumi_wasm_rust::Output<String>,
+        pub vpn_gateway_id: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: VpnGatewayRoutePropagationArgs,
     ) -> VpnGatewayRoutePropagationResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let route_table_id_binding = args.route_table_id.get_output(context).get_inner();
         let vpn_gateway_id_binding = args.vpn_gateway_id.get_output(context).get_inner();
@@ -70,10 +70,10 @@ pub mod vpn_gateway_route_propagation {
         };
         let o = register_interface::register(context.get_inner(), &request);
         VpnGatewayRoutePropagationResult {
-            route_table_id: pulumi_wasm_rust::__private::into_domain(
+            route_table_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("routeTableId"),
             ),
-            vpn_gateway_id: pulumi_wasm_rust::__private::into_domain(
+            vpn_gateway_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("vpnGatewayId"),
             ),
         }

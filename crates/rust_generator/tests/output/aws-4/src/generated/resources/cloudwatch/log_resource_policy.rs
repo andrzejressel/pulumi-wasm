@@ -65,34 +65,34 @@
 /// $ pulumi import aws:cloudwatch/logResourcePolicy:LogResourcePolicy MyPolicy MyPolicy
 /// ```
 pub mod log_resource_policy {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct LogResourcePolicyArgs {
         /// Details of the resource policy, including the identity of the principal that is enabled to put logs to this account. This is formatted as a JSON string. Maximum length of 5120 characters.
         #[builder(into)]
-        pub policy_document: pulumi_wasm_rust::InputOrOutput<String>,
+        pub policy_document: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Name of the resource policy.
         #[builder(into)]
-        pub policy_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub policy_name: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct LogResourcePolicyResult {
         /// Details of the resource policy, including the identity of the principal that is enabled to put logs to this account. This is formatted as a JSON string. Maximum length of 5120 characters.
-        pub policy_document: pulumi_wasm_rust::Output<String>,
+        pub policy_document: pulumi_gestalt_rust::Output<String>,
         /// Name of the resource policy.
-        pub policy_name: pulumi_wasm_rust::Output<String>,
+        pub policy_name: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: LogResourcePolicyArgs,
     ) -> LogResourcePolicyResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let policy_document_binding = args
             .policy_document
@@ -116,10 +116,10 @@ pub mod log_resource_policy {
         };
         let o = register_interface::register(context.get_inner(), &request);
         LogResourcePolicyResult {
-            policy_document: pulumi_wasm_rust::__private::into_domain(
+            policy_document: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("policyDocument"),
             ),
-            policy_name: pulumi_wasm_rust::__private::into_domain(
+            policy_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("policyName"),
             ),
         }

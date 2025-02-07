@@ -138,8 +138,8 @@
 /// ### RunCommand Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let stopInstances = event_rule::create(
@@ -550,178 +550,178 @@
 /// $ pulumi import aws:cloudwatch/eventTarget:EventTarget test-event-target rule-name/target-id
 /// ```
 pub mod event_target {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct EventTargetArgs {
         /// Parameters used when you are using the rule to invoke an AppSync GraphQL API mutation. Documented below. A maximum of 1 are allowed.
         #[builder(into, default)]
-        pub appsync_target: pulumi_wasm_rust::InputOrOutput<
+        pub appsync_target: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::cloudwatch::EventTargetAppsyncTarget>,
         >,
         /// The Amazon Resource Name (ARN) of the target.
         #[builder(into)]
-        pub arn: pulumi_wasm_rust::InputOrOutput<String>,
+        pub arn: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Parameters used when you are using the rule to invoke an Amazon Batch Job. Documented below. A maximum of 1 are allowed.
         #[builder(into, default)]
-        pub batch_target: pulumi_wasm_rust::InputOrOutput<
+        pub batch_target: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::cloudwatch::EventTargetBatchTarget>,
         >,
         /// Parameters used when you are providing a dead letter config. Documented below. A maximum of 1 are allowed.
         #[builder(into, default)]
-        pub dead_letter_config: pulumi_wasm_rust::InputOrOutput<
+        pub dead_letter_config: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::cloudwatch::EventTargetDeadLetterConfig>,
         >,
         /// Parameters used when you are using the rule to invoke Amazon ECS Task. Documented below. A maximum of 1 are allowed.
         #[builder(into, default)]
-        pub ecs_target: pulumi_wasm_rust::InputOrOutput<
+        pub ecs_target: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::cloudwatch::EventTargetEcsTarget>,
         >,
         /// The name or ARN of the event bus to associate with the rule.
         /// If you omit this, the `default` event bus is used.
         #[builder(into, default)]
-        pub event_bus_name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub event_bus_name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Used to delete managed rules created by AWS. Defaults to `false`.
         #[builder(into, default)]
-        pub force_destroy: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub force_destroy: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// Parameters used when you are using the rule to invoke an API Gateway REST endpoint. Documented below. A maximum of 1 is allowed.
         #[builder(into, default)]
-        pub http_target: pulumi_wasm_rust::InputOrOutput<
+        pub http_target: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::cloudwatch::EventTargetHttpTarget>,
         >,
         /// Valid JSON text passed to the target. Conflicts with `input_path` and `input_transformer`.
         #[builder(into, default)]
-        pub input: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub input: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The value of the [JSONPath](http://goessner.net/articles/JsonPath/) that is used for extracting part of the matched event when passing it to the target. Conflicts with `input` and `input_transformer`.
         #[builder(into, default)]
-        pub input_path: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub input_path: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Parameters used when you are providing a custom input to a target based on certain event data. Conflicts with `input` and `input_path`.
         #[builder(into, default)]
-        pub input_transformer: pulumi_wasm_rust::InputOrOutput<
+        pub input_transformer: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::cloudwatch::EventTargetInputTransformer>,
         >,
         /// Parameters used when you are using the rule to invoke an Amazon Kinesis Stream. Documented below. A maximum of 1 are allowed.
         #[builder(into, default)]
-        pub kinesis_target: pulumi_wasm_rust::InputOrOutput<
+        pub kinesis_target: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::cloudwatch::EventTargetKinesisTarget>,
         >,
         /// Parameters used when you are using the rule to invoke an Amazon Redshift Statement. Documented below. A maximum of 1 are allowed.
         #[builder(into, default)]
-        pub redshift_target: pulumi_wasm_rust::InputOrOutput<
+        pub redshift_target: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::cloudwatch::EventTargetRedshiftTarget>,
         >,
         /// Parameters used when you are providing retry policies. Documented below. A maximum of 1 are allowed.
         #[builder(into, default)]
-        pub retry_policy: pulumi_wasm_rust::InputOrOutput<
+        pub retry_policy: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::cloudwatch::EventTargetRetryPolicy>,
         >,
         /// The Amazon Resource Name (ARN) of the IAM role to be used for this target when the rule is triggered. Required if `ecs_target` is used or target in `arn` is EC2 instance, Kinesis data stream, Step Functions state machine, or Event Bus in different account or region.
         #[builder(into, default)]
-        pub role_arn: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub role_arn: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The name of the rule you want to add targets to.
         ///
         /// The following arguments are optional:
         #[builder(into)]
-        pub rule: pulumi_wasm_rust::InputOrOutput<String>,
+        pub rule: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Parameters used when you are using the rule to invoke Amazon EC2 Run Command. Documented below. A maximum of 5 are allowed.
         #[builder(into, default)]
-        pub run_command_targets: pulumi_wasm_rust::InputOrOutput<
+        pub run_command_targets: pulumi_gestalt_rust::InputOrOutput<
             Option<Vec<super::super::types::cloudwatch::EventTargetRunCommandTarget>>,
         >,
         /// Parameters used when you are using the rule to invoke an Amazon SageMaker Pipeline. Documented below. A maximum of 1 are allowed.
         #[builder(into, default)]
-        pub sagemaker_pipeline_target: pulumi_wasm_rust::InputOrOutput<
+        pub sagemaker_pipeline_target: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::cloudwatch::EventTargetSagemakerPipelineTarget>,
         >,
         /// Parameters used when you are using the rule to invoke an Amazon SQS Queue. Documented below. A maximum of 1 are allowed.
         #[builder(into, default)]
-        pub sqs_target: pulumi_wasm_rust::InputOrOutput<
+        pub sqs_target: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::cloudwatch::EventTargetSqsTarget>,
         >,
         /// The unique target assignment ID. If missing, will generate a random, unique id.
         #[builder(into, default)]
-        pub target_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub target_id: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct EventTargetResult {
         /// Parameters used when you are using the rule to invoke an AppSync GraphQL API mutation. Documented below. A maximum of 1 are allowed.
-        pub appsync_target: pulumi_wasm_rust::Output<
+        pub appsync_target: pulumi_gestalt_rust::Output<
             Option<super::super::types::cloudwatch::EventTargetAppsyncTarget>,
         >,
         /// The Amazon Resource Name (ARN) of the target.
-        pub arn: pulumi_wasm_rust::Output<String>,
+        pub arn: pulumi_gestalt_rust::Output<String>,
         /// Parameters used when you are using the rule to invoke an Amazon Batch Job. Documented below. A maximum of 1 are allowed.
-        pub batch_target: pulumi_wasm_rust::Output<
+        pub batch_target: pulumi_gestalt_rust::Output<
             Option<super::super::types::cloudwatch::EventTargetBatchTarget>,
         >,
         /// Parameters used when you are providing a dead letter config. Documented below. A maximum of 1 are allowed.
-        pub dead_letter_config: pulumi_wasm_rust::Output<
+        pub dead_letter_config: pulumi_gestalt_rust::Output<
             Option<super::super::types::cloudwatch::EventTargetDeadLetterConfig>,
         >,
         /// Parameters used when you are using the rule to invoke Amazon ECS Task. Documented below. A maximum of 1 are allowed.
-        pub ecs_target: pulumi_wasm_rust::Output<
+        pub ecs_target: pulumi_gestalt_rust::Output<
             Option<super::super::types::cloudwatch::EventTargetEcsTarget>,
         >,
         /// The name or ARN of the event bus to associate with the rule.
         /// If you omit this, the `default` event bus is used.
-        pub event_bus_name: pulumi_wasm_rust::Output<Option<String>>,
+        pub event_bus_name: pulumi_gestalt_rust::Output<Option<String>>,
         /// Used to delete managed rules created by AWS. Defaults to `false`.
-        pub force_destroy: pulumi_wasm_rust::Output<Option<bool>>,
+        pub force_destroy: pulumi_gestalt_rust::Output<Option<bool>>,
         /// Parameters used when you are using the rule to invoke an API Gateway REST endpoint. Documented below. A maximum of 1 is allowed.
-        pub http_target: pulumi_wasm_rust::Output<
+        pub http_target: pulumi_gestalt_rust::Output<
             Option<super::super::types::cloudwatch::EventTargetHttpTarget>,
         >,
         /// Valid JSON text passed to the target. Conflicts with `input_path` and `input_transformer`.
-        pub input: pulumi_wasm_rust::Output<Option<String>>,
+        pub input: pulumi_gestalt_rust::Output<Option<String>>,
         /// The value of the [JSONPath](http://goessner.net/articles/JsonPath/) that is used for extracting part of the matched event when passing it to the target. Conflicts with `input` and `input_transformer`.
-        pub input_path: pulumi_wasm_rust::Output<Option<String>>,
+        pub input_path: pulumi_gestalt_rust::Output<Option<String>>,
         /// Parameters used when you are providing a custom input to a target based on certain event data. Conflicts with `input` and `input_path`.
-        pub input_transformer: pulumi_wasm_rust::Output<
+        pub input_transformer: pulumi_gestalt_rust::Output<
             Option<super::super::types::cloudwatch::EventTargetInputTransformer>,
         >,
         /// Parameters used when you are using the rule to invoke an Amazon Kinesis Stream. Documented below. A maximum of 1 are allowed.
-        pub kinesis_target: pulumi_wasm_rust::Output<
+        pub kinesis_target: pulumi_gestalt_rust::Output<
             Option<super::super::types::cloudwatch::EventTargetKinesisTarget>,
         >,
         /// Parameters used when you are using the rule to invoke an Amazon Redshift Statement. Documented below. A maximum of 1 are allowed.
-        pub redshift_target: pulumi_wasm_rust::Output<
+        pub redshift_target: pulumi_gestalt_rust::Output<
             Option<super::super::types::cloudwatch::EventTargetRedshiftTarget>,
         >,
         /// Parameters used when you are providing retry policies. Documented below. A maximum of 1 are allowed.
-        pub retry_policy: pulumi_wasm_rust::Output<
+        pub retry_policy: pulumi_gestalt_rust::Output<
             Option<super::super::types::cloudwatch::EventTargetRetryPolicy>,
         >,
         /// The Amazon Resource Name (ARN) of the IAM role to be used for this target when the rule is triggered. Required if `ecs_target` is used or target in `arn` is EC2 instance, Kinesis data stream, Step Functions state machine, or Event Bus in different account or region.
-        pub role_arn: pulumi_wasm_rust::Output<Option<String>>,
+        pub role_arn: pulumi_gestalt_rust::Output<Option<String>>,
         /// The name of the rule you want to add targets to.
         ///
         /// The following arguments are optional:
-        pub rule: pulumi_wasm_rust::Output<String>,
+        pub rule: pulumi_gestalt_rust::Output<String>,
         /// Parameters used when you are using the rule to invoke Amazon EC2 Run Command. Documented below. A maximum of 5 are allowed.
-        pub run_command_targets: pulumi_wasm_rust::Output<
+        pub run_command_targets: pulumi_gestalt_rust::Output<
             Option<Vec<super::super::types::cloudwatch::EventTargetRunCommandTarget>>,
         >,
         /// Parameters used when you are using the rule to invoke an Amazon SageMaker Pipeline. Documented below. A maximum of 1 are allowed.
-        pub sagemaker_pipeline_target: pulumi_wasm_rust::Output<
+        pub sagemaker_pipeline_target: pulumi_gestalt_rust::Output<
             Option<super::super::types::cloudwatch::EventTargetSagemakerPipelineTarget>,
         >,
         /// Parameters used when you are using the rule to invoke an Amazon SQS Queue. Documented below. A maximum of 1 are allowed.
-        pub sqs_target: pulumi_wasm_rust::Output<
+        pub sqs_target: pulumi_gestalt_rust::Output<
             Option<super::super::types::cloudwatch::EventTargetSqsTarget>,
         >,
         /// The unique target assignment ID. If missing, will generate a random, unique id.
-        pub target_id: pulumi_wasm_rust::Output<String>,
+        pub target_id: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: EventTargetArgs,
     ) -> EventTargetResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let appsync_target_binding = args.appsync_target.get_output(context).get_inner();
         let arn_binding = args.arn.get_output(context).get_inner();
@@ -847,58 +847,58 @@ pub mod event_target {
         };
         let o = register_interface::register(context.get_inner(), &request);
         EventTargetResult {
-            appsync_target: pulumi_wasm_rust::__private::into_domain(
+            appsync_target: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("appsyncTarget"),
             ),
-            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
-            batch_target: pulumi_wasm_rust::__private::into_domain(
+            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
+            batch_target: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("batchTarget"),
             ),
-            dead_letter_config: pulumi_wasm_rust::__private::into_domain(
+            dead_letter_config: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("deadLetterConfig"),
             ),
-            ecs_target: pulumi_wasm_rust::__private::into_domain(
+            ecs_target: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("ecsTarget"),
             ),
-            event_bus_name: pulumi_wasm_rust::__private::into_domain(
+            event_bus_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("eventBusName"),
             ),
-            force_destroy: pulumi_wasm_rust::__private::into_domain(
+            force_destroy: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("forceDestroy"),
             ),
-            http_target: pulumi_wasm_rust::__private::into_domain(
+            http_target: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("httpTarget"),
             ),
-            input: pulumi_wasm_rust::__private::into_domain(o.extract_field("input")),
-            input_path: pulumi_wasm_rust::__private::into_domain(
+            input: pulumi_gestalt_rust::__private::into_domain(o.extract_field("input")),
+            input_path: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("inputPath"),
             ),
-            input_transformer: pulumi_wasm_rust::__private::into_domain(
+            input_transformer: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("inputTransformer"),
             ),
-            kinesis_target: pulumi_wasm_rust::__private::into_domain(
+            kinesis_target: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("kinesisTarget"),
             ),
-            redshift_target: pulumi_wasm_rust::__private::into_domain(
+            redshift_target: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("redshiftTarget"),
             ),
-            retry_policy: pulumi_wasm_rust::__private::into_domain(
+            retry_policy: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("retryPolicy"),
             ),
-            role_arn: pulumi_wasm_rust::__private::into_domain(
+            role_arn: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("roleArn"),
             ),
-            rule: pulumi_wasm_rust::__private::into_domain(o.extract_field("rule")),
-            run_command_targets: pulumi_wasm_rust::__private::into_domain(
+            rule: pulumi_gestalt_rust::__private::into_domain(o.extract_field("rule")),
+            run_command_targets: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("runCommandTargets"),
             ),
-            sagemaker_pipeline_target: pulumi_wasm_rust::__private::into_domain(
+            sagemaker_pipeline_target: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("sagemakerPipelineTarget"),
             ),
-            sqs_target: pulumi_wasm_rust::__private::into_domain(
+            sqs_target: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("sqsTarget"),
             ),
-            target_id: pulumi_wasm_rust::__private::into_domain(
+            target_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("targetId"),
             ),
         }

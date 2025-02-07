@@ -21,8 +21,8 @@
 ///
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let default = backend_service::create(
@@ -47,8 +47,8 @@
 ///
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let default = backend_service::create(
@@ -72,8 +72,8 @@
 ///
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let default = backend_service::create(
@@ -104,8 +104,8 @@
 ///
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let default = backend_service::create(
@@ -134,8 +134,8 @@
 ///
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let default = backend_service::create(
@@ -169,8 +169,8 @@
 ///
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let default = backend_service::create(
@@ -206,8 +206,8 @@
 ///
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let default = backend_service::create(
@@ -251,8 +251,8 @@
 ///
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let default = backend_service::create(
@@ -279,8 +279,8 @@
 ///
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let default = backend_service::create(
@@ -341,8 +341,8 @@
 ///
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let default = backend_service::create(
@@ -413,8 +413,8 @@
 ///
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let default = backend_service::create(
@@ -440,8 +440,8 @@
 ///
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let default = backend_service::create(
@@ -480,7 +480,7 @@
 /// ```
 ///
 pub mod backend_service {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct BackendServiceArgs {
@@ -490,34 +490,34 @@ pub mod backend_service {
         /// maximum allowed value for TTL is one day.
         /// When the load balancing scheme is INTERNAL, this field is not used.
         #[builder(into, default)]
-        pub affinity_cookie_ttl_sec: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
+        pub affinity_cookie_ttl_sec: pulumi_gestalt_rust::InputOrOutput<Option<i32>>,
         /// The set of backends that serve this BackendService.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub backends: pulumi_wasm_rust::InputOrOutput<
+        pub backends: pulumi_gestalt_rust::InputOrOutput<
             Option<Vec<super::super::types::compute::BackendServiceBackend>>,
         >,
         /// Cloud CDN configuration for this BackendService.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub cdn_policy: pulumi_wasm_rust::InputOrOutput<
+        pub cdn_policy: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::compute::BackendServiceCdnPolicy>,
         >,
         /// Settings controlling the volume of connections to a backend service. This field
         /// is applicable only when the load_balancing_scheme is set to INTERNAL_SELF_MANAGED.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub circuit_breakers: pulumi_wasm_rust::InputOrOutput<
+        pub circuit_breakers: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::compute::BackendServiceCircuitBreakers>,
         >,
         /// Compress text responses using Brotli or gzip compression, based on the client's Accept-Encoding header.
         /// Possible values are: `AUTOMATIC`, `DISABLED`.
         #[builder(into, default)]
-        pub compression_mode: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub compression_mode: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Time for which instance will be drained (not accept new
         /// connections, but still work to finish started).
         #[builder(into, default)]
-        pub connection_draining_timeout_sec: pulumi_wasm_rust::InputOrOutput<
+        pub connection_draining_timeout_sec: pulumi_gestalt_rust::InputOrOutput<
             Option<i32>,
         >,
         /// Consistent Hash-based load balancing can be used to provide soft session
@@ -530,28 +530,30 @@ pub mod backend_service {
         /// set to MAGLEV or RING_HASH.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub consistent_hash: pulumi_wasm_rust::InputOrOutput<
+        pub consistent_hash: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::compute::BackendServiceConsistentHash>,
         >,
         /// Headers that the HTTP/S load balancer should add to proxied
         /// requests.
         #[builder(into, default)]
-        pub custom_request_headers: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
+        pub custom_request_headers: pulumi_gestalt_rust::InputOrOutput<
+            Option<Vec<String>>,
+        >,
         /// Headers that the HTTP/S load balancer should add to proxied
         /// responses.
         #[builder(into, default)]
-        pub custom_response_headers: pulumi_wasm_rust::InputOrOutput<
+        pub custom_response_headers: pulumi_gestalt_rust::InputOrOutput<
             Option<Vec<String>>,
         >,
         /// An optional description of this resource.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub description: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The resource URL for the edge security policy associated with this backend service.
         #[builder(into, default)]
-        pub edge_security_policy: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub edge_security_policy: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// If true, enable Cloud CDN for this BackendService.
         #[builder(into, default)]
-        pub enable_cdn: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub enable_cdn: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// The set of URLs to the HttpHealthCheck or HttpsHealthCheck resource
         /// for health checking this BackendService. Currently at most one health
         /// check can be specified.
@@ -559,17 +561,19 @@ pub mod backend_service {
         /// or serverless NEG as a backend.
         /// For internal load balancing, a URL to a HealthCheck resource must be specified instead.
         #[builder(into, default)]
-        pub health_checks: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub health_checks: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Settings for enabling Cloud Identity Aware Proxy
         /// Structure is documented below.
         #[builder(into, default)]
-        pub iap: pulumi_wasm_rust::InputOrOutput<
+        pub iap: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::compute::BackendServiceIap>,
         >,
         /// Specifies preference of traffic to the backend (from the proxy and from the client for proxyless gRPC).
         /// Possible values are: `IPV4_ONLY`, `PREFER_IPV6`, `IPV6_ONLY`.
         #[builder(into, default)]
-        pub ip_address_selection_policy: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub ip_address_selection_policy: pulumi_gestalt_rust::InputOrOutput<
+            Option<String>,
+        >,
         /// Indicates whether the backend service will be used with internal or
         /// external load balancing. A backend service created for one type of
         /// load balancing cannot be used with the other. For more information, refer to
@@ -577,7 +581,7 @@ pub mod backend_service {
         /// Default value is `EXTERNAL`.
         /// Possible values are: `EXTERNAL`, `INTERNAL_SELF_MANAGED`, `INTERNAL_MANAGED`, `EXTERNAL_MANAGED`.
         #[builder(into, default)]
-        pub load_balancing_scheme: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub load_balancing_scheme: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// A list of locality load balancing policies to be used in order of
         /// preference. Either the policy or the customPolicy field should be set.
         /// Overrides any value set in the localityLbPolicy field.
@@ -586,7 +590,7 @@ pub mod backend_service {
         /// validateForProxyless field set to true.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub locality_lb_policies: pulumi_wasm_rust::InputOrOutput<
+        pub locality_lb_policies: pulumi_gestalt_rust::InputOrOutput<
             Option<Vec<super::super::types::compute::BackendServiceLocalityLbPolicy>>,
         >,
         /// The load balancing algorithm used within the scope of the locality.
@@ -636,12 +640,12 @@ pub mod backend_service {
         /// field set to true.
         /// Possible values are: `ROUND_ROBIN`, `LEAST_REQUEST`, `RING_HASH`, `RANDOM`, `ORIGINAL_DESTINATION`, `MAGLEV`, `WEIGHTED_MAGLEV`.
         #[builder(into, default)]
-        pub locality_lb_policy: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub locality_lb_policy: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// This field denotes the logging options for the load balancer traffic served by this backend service.
         /// If logging is enabled, logs will be exported to Stackdriver.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub log_config: pulumi_wasm_rust::InputOrOutput<
+        pub log_config: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::compute::BackendServiceLogConfig>,
         >,
         /// Name of the resource. Provided by the client when the resource is
@@ -655,24 +659,24 @@ pub mod backend_service {
         ///
         /// - - -
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Settings controlling eviction of unhealthy hosts from the load balancing pool.
         /// Applicable backend service types can be a global backend service with the
         /// loadBalancingScheme set to INTERNAL_SELF_MANAGED or EXTERNAL_MANAGED.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub outlier_detection: pulumi_wasm_rust::InputOrOutput<
+        pub outlier_detection: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::compute::BackendServiceOutlierDetection>,
         >,
         /// Name of backend port. The same name should appear in the instance
         /// groups referenced by this service. Required when the load balancing
         /// scheme is EXTERNAL.
         #[builder(into, default)]
-        pub port_name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub port_name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub project: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The protocol this BackendService uses to communicate with backends.
         /// The default is HTTP. **NOTE**: HTTP2 is only valid for beta HTTP/2 load balancer
         /// types and may result in errors if used with the GA API. **NOTE**: With protocol “UNSPECIFIED”,
@@ -680,32 +684,32 @@ pub mod backend_service {
         /// with TCP/UDP/L3_DEFAULT Forwarding Rule protocol.
         /// Possible values are: `HTTP`, `HTTPS`, `HTTP2`, `TCP`, `SSL`, `GRPC`, `UNSPECIFIED`.
         #[builder(into, default)]
-        pub protocol: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub protocol: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The security policy associated with this backend service.
         #[builder(into, default)]
-        pub security_policy: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub security_policy: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The security settings that apply to this backend service. This field is applicable to either
         /// a regional backend service with the service_protocol set to HTTP, HTTPS, or HTTP2, and
         /// load_balancing_scheme set to INTERNAL_MANAGED; or a global backend service with the
         /// load_balancing_scheme set to INTERNAL_SELF_MANAGED.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub security_settings: pulumi_wasm_rust::InputOrOutput<
+        pub security_settings: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::compute::BackendServiceSecuritySettings>,
         >,
         /// URL to networkservices.ServiceLbPolicy resource.
         /// Can only be set if load balancing scheme is EXTERNAL, EXTERNAL_MANAGED, INTERNAL_MANAGED or INTERNAL_SELF_MANAGED and the scope is global.
         #[builder(into, default)]
-        pub service_lb_policy: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub service_lb_policy: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Type of session affinity to use. The default is NONE. Session affinity is
         /// not applicable if the protocol is UDP.
         /// Possible values are: `NONE`, `CLIENT_IP`, `CLIENT_IP_PORT_PROTO`, `CLIENT_IP_PROTO`, `GENERATED_COOKIE`, `HEADER_FIELD`, `HTTP_COOKIE`, `STRONG_COOKIE_AFFINITY`.
         #[builder(into, default)]
-        pub session_affinity: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub session_affinity: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Describes the HTTP cookie used for stateful session affinity. This field is applicable and required if the sessionAffinity is set to STRONG_COOKIE_AFFINITY.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub strong_session_affinity_cookie: pulumi_wasm_rust::InputOrOutput<
+        pub strong_session_affinity_cookie: pulumi_gestalt_rust::InputOrOutput<
             Option<
                 super::super::types::compute::BackendServiceStrongSessionAffinityCookie,
             >,
@@ -715,7 +719,7 @@ pub mod backend_service {
         /// The default is 30 seconds.
         /// The full range of timeout values allowed goes from 1 through 2,147,483,647 seconds.
         #[builder(into, default)]
-        pub timeout_sec: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
+        pub timeout_sec: pulumi_gestalt_rust::InputOrOutput<Option<i32>>,
     }
     #[allow(dead_code)]
     pub struct BackendServiceResult {
@@ -724,29 +728,29 @@ pub mod backend_service {
         /// only until the end of the browser session (or equivalent). The
         /// maximum allowed value for TTL is one day.
         /// When the load balancing scheme is INTERNAL, this field is not used.
-        pub affinity_cookie_ttl_sec: pulumi_wasm_rust::Output<Option<i32>>,
+        pub affinity_cookie_ttl_sec: pulumi_gestalt_rust::Output<Option<i32>>,
         /// The set of backends that serve this BackendService.
         /// Structure is documented below.
-        pub backends: pulumi_wasm_rust::Output<
+        pub backends: pulumi_gestalt_rust::Output<
             Option<Vec<super::super::types::compute::BackendServiceBackend>>,
         >,
         /// Cloud CDN configuration for this BackendService.
         /// Structure is documented below.
-        pub cdn_policy: pulumi_wasm_rust::Output<
+        pub cdn_policy: pulumi_gestalt_rust::Output<
             super::super::types::compute::BackendServiceCdnPolicy,
         >,
         /// Settings controlling the volume of connections to a backend service. This field
         /// is applicable only when the load_balancing_scheme is set to INTERNAL_SELF_MANAGED.
         /// Structure is documented below.
-        pub circuit_breakers: pulumi_wasm_rust::Output<
+        pub circuit_breakers: pulumi_gestalt_rust::Output<
             Option<super::super::types::compute::BackendServiceCircuitBreakers>,
         >,
         /// Compress text responses using Brotli or gzip compression, based on the client's Accept-Encoding header.
         /// Possible values are: `AUTOMATIC`, `DISABLED`.
-        pub compression_mode: pulumi_wasm_rust::Output<Option<String>>,
+        pub compression_mode: pulumi_gestalt_rust::Output<Option<String>>,
         /// Time for which instance will be drained (not accept new
         /// connections, but still work to finish started).
-        pub connection_draining_timeout_sec: pulumi_wasm_rust::Output<Option<i32>>,
+        pub connection_draining_timeout_sec: pulumi_gestalt_rust::Output<Option<i32>>,
         /// Consistent Hash-based load balancing can be used to provide soft session
         /// affinity based on HTTP headers, cookies or other properties. This load balancing
         /// policy is applicable only for HTTP connections. The affinity to a particular
@@ -756,50 +760,50 @@ pub mod backend_service {
         /// INTERNAL_SELF_MANAGED. This field is only applicable when locality_lb_policy is
         /// set to MAGLEV or RING_HASH.
         /// Structure is documented below.
-        pub consistent_hash: pulumi_wasm_rust::Output<
+        pub consistent_hash: pulumi_gestalt_rust::Output<
             Option<super::super::types::compute::BackendServiceConsistentHash>,
         >,
         /// Creation timestamp in RFC3339 text format.
-        pub creation_timestamp: pulumi_wasm_rust::Output<String>,
+        pub creation_timestamp: pulumi_gestalt_rust::Output<String>,
         /// Headers that the HTTP/S load balancer should add to proxied
         /// requests.
-        pub custom_request_headers: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub custom_request_headers: pulumi_gestalt_rust::Output<Option<Vec<String>>>,
         /// Headers that the HTTP/S load balancer should add to proxied
         /// responses.
-        pub custom_response_headers: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub custom_response_headers: pulumi_gestalt_rust::Output<Option<Vec<String>>>,
         /// An optional description of this resource.
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_gestalt_rust::Output<Option<String>>,
         /// The resource URL for the edge security policy associated with this backend service.
-        pub edge_security_policy: pulumi_wasm_rust::Output<Option<String>>,
+        pub edge_security_policy: pulumi_gestalt_rust::Output<Option<String>>,
         /// If true, enable Cloud CDN for this BackendService.
-        pub enable_cdn: pulumi_wasm_rust::Output<Option<bool>>,
+        pub enable_cdn: pulumi_gestalt_rust::Output<Option<bool>>,
         /// Fingerprint of this resource. A hash of the contents stored in this
         /// object. This field is used in optimistic locking.
-        pub fingerprint: pulumi_wasm_rust::Output<String>,
+        pub fingerprint: pulumi_gestalt_rust::Output<String>,
         /// The unique identifier for the resource. This identifier is defined by the server.
-        pub generated_id: pulumi_wasm_rust::Output<i32>,
+        pub generated_id: pulumi_gestalt_rust::Output<i32>,
         /// The set of URLs to the HttpHealthCheck or HttpsHealthCheck resource
         /// for health checking this BackendService. Currently at most one health
         /// check can be specified.
         /// A health check must be specified unless the backend service uses an internet
         /// or serverless NEG as a backend.
         /// For internal load balancing, a URL to a HealthCheck resource must be specified instead.
-        pub health_checks: pulumi_wasm_rust::Output<Option<String>>,
+        pub health_checks: pulumi_gestalt_rust::Output<Option<String>>,
         /// Settings for enabling Cloud Identity Aware Proxy
         /// Structure is documented below.
-        pub iap: pulumi_wasm_rust::Output<
+        pub iap: pulumi_gestalt_rust::Output<
             super::super::types::compute::BackendServiceIap,
         >,
         /// Specifies preference of traffic to the backend (from the proxy and from the client for proxyless gRPC).
         /// Possible values are: `IPV4_ONLY`, `PREFER_IPV6`, `IPV6_ONLY`.
-        pub ip_address_selection_policy: pulumi_wasm_rust::Output<Option<String>>,
+        pub ip_address_selection_policy: pulumi_gestalt_rust::Output<Option<String>>,
         /// Indicates whether the backend service will be used with internal or
         /// external load balancing. A backend service created for one type of
         /// load balancing cannot be used with the other. For more information, refer to
         /// [Choosing a load balancer](https://cloud.google.com/load-balancing/docs/backend-service).
         /// Default value is `EXTERNAL`.
         /// Possible values are: `EXTERNAL`, `INTERNAL_SELF_MANAGED`, `INTERNAL_MANAGED`, `EXTERNAL_MANAGED`.
-        pub load_balancing_scheme: pulumi_wasm_rust::Output<Option<String>>,
+        pub load_balancing_scheme: pulumi_gestalt_rust::Output<Option<String>>,
         /// A list of locality load balancing policies to be used in order of
         /// preference. Either the policy or the customPolicy field should be set.
         /// Overrides any value set in the localityLbPolicy field.
@@ -807,7 +811,7 @@ pub mod backend_service {
         /// by a URL Map that is referenced by a target gRPC proxy that has the
         /// validateForProxyless field set to true.
         /// Structure is documented below.
-        pub locality_lb_policies: pulumi_wasm_rust::Output<
+        pub locality_lb_policies: pulumi_gestalt_rust::Output<
             Option<Vec<super::super::types::compute::BackendServiceLocalityLbPolicy>>,
         >,
         /// The load balancing algorithm used within the scope of the locality.
@@ -856,11 +860,11 @@ pub mod backend_service {
         /// by a URL map that is bound to target gRPC proxy that has validate_for_proxyless
         /// field set to true.
         /// Possible values are: `ROUND_ROBIN`, `LEAST_REQUEST`, `RING_HASH`, `RANDOM`, `ORIGINAL_DESTINATION`, `MAGLEV`, `WEIGHTED_MAGLEV`.
-        pub locality_lb_policy: pulumi_wasm_rust::Output<Option<String>>,
+        pub locality_lb_policy: pulumi_gestalt_rust::Output<Option<String>>,
         /// This field denotes the logging options for the load balancer traffic served by this backend service.
         /// If logging is enabled, logs will be exported to Stackdriver.
         /// Structure is documented below.
-        pub log_config: pulumi_wasm_rust::Output<
+        pub log_config: pulumi_gestalt_rust::Output<
             super::super::types::compute::BackendServiceLogConfig,
         >,
         /// Name of the resource. Provided by the client when the resource is
@@ -873,50 +877,50 @@ pub mod backend_service {
         ///
         ///
         /// - - -
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// Settings controlling eviction of unhealthy hosts from the load balancing pool.
         /// Applicable backend service types can be a global backend service with the
         /// loadBalancingScheme set to INTERNAL_SELF_MANAGED or EXTERNAL_MANAGED.
         /// Structure is documented below.
-        pub outlier_detection: pulumi_wasm_rust::Output<
+        pub outlier_detection: pulumi_gestalt_rust::Output<
             Option<super::super::types::compute::BackendServiceOutlierDetection>,
         >,
         /// Name of backend port. The same name should appear in the instance
         /// groups referenced by this service. Required when the load balancing
         /// scheme is EXTERNAL.
-        pub port_name: pulumi_wasm_rust::Output<String>,
+        pub port_name: pulumi_gestalt_rust::Output<String>,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
-        pub project: pulumi_wasm_rust::Output<String>,
+        pub project: pulumi_gestalt_rust::Output<String>,
         /// The protocol this BackendService uses to communicate with backends.
         /// The default is HTTP. **NOTE**: HTTP2 is only valid for beta HTTP/2 load balancer
         /// types and may result in errors if used with the GA API. **NOTE**: With protocol “UNSPECIFIED”,
         /// the backend service can be used by Layer 4 Internal Load Balancing or Network Load Balancing
         /// with TCP/UDP/L3_DEFAULT Forwarding Rule protocol.
         /// Possible values are: `HTTP`, `HTTPS`, `HTTP2`, `TCP`, `SSL`, `GRPC`, `UNSPECIFIED`.
-        pub protocol: pulumi_wasm_rust::Output<String>,
+        pub protocol: pulumi_gestalt_rust::Output<String>,
         /// The security policy associated with this backend service.
-        pub security_policy: pulumi_wasm_rust::Output<Option<String>>,
+        pub security_policy: pulumi_gestalt_rust::Output<Option<String>>,
         /// The security settings that apply to this backend service. This field is applicable to either
         /// a regional backend service with the service_protocol set to HTTP, HTTPS, or HTTP2, and
         /// load_balancing_scheme set to INTERNAL_MANAGED; or a global backend service with the
         /// load_balancing_scheme set to INTERNAL_SELF_MANAGED.
         /// Structure is documented below.
-        pub security_settings: pulumi_wasm_rust::Output<
+        pub security_settings: pulumi_gestalt_rust::Output<
             Option<super::super::types::compute::BackendServiceSecuritySettings>,
         >,
         /// The URI of the created resource.
-        pub self_link: pulumi_wasm_rust::Output<String>,
+        pub self_link: pulumi_gestalt_rust::Output<String>,
         /// URL to networkservices.ServiceLbPolicy resource.
         /// Can only be set if load balancing scheme is EXTERNAL, EXTERNAL_MANAGED, INTERNAL_MANAGED or INTERNAL_SELF_MANAGED and the scope is global.
-        pub service_lb_policy: pulumi_wasm_rust::Output<Option<String>>,
+        pub service_lb_policy: pulumi_gestalt_rust::Output<Option<String>>,
         /// Type of session affinity to use. The default is NONE. Session affinity is
         /// not applicable if the protocol is UDP.
         /// Possible values are: `NONE`, `CLIENT_IP`, `CLIENT_IP_PORT_PROTO`, `CLIENT_IP_PROTO`, `GENERATED_COOKIE`, `HEADER_FIELD`, `HTTP_COOKIE`, `STRONG_COOKIE_AFFINITY`.
-        pub session_affinity: pulumi_wasm_rust::Output<String>,
+        pub session_affinity: pulumi_gestalt_rust::Output<String>,
         /// Describes the HTTP cookie used for stateful session affinity. This field is applicable and required if the sessionAffinity is set to STRONG_COOKIE_AFFINITY.
         /// Structure is documented below.
-        pub strong_session_affinity_cookie: pulumi_wasm_rust::Output<
+        pub strong_session_affinity_cookie: pulumi_gestalt_rust::Output<
             Option<
                 super::super::types::compute::BackendServiceStrongSessionAffinityCookie,
             >,
@@ -925,18 +929,18 @@ pub mod backend_service {
         /// For more information see, [Backend service settings](https://cloud.google.com/compute/docs/reference/rest/v1/backendServices).
         /// The default is 30 seconds.
         /// The full range of timeout values allowed goes from 1 through 2,147,483,647 seconds.
-        pub timeout_sec: pulumi_wasm_rust::Output<i32>,
+        pub timeout_sec: pulumi_gestalt_rust::Output<i32>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: BackendServiceArgs,
     ) -> BackendServiceResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let affinity_cookie_ttl_sec_binding = args
             .affinity_cookie_ttl_sec
@@ -1151,102 +1155,102 @@ pub mod backend_service {
         };
         let o = register_interface::register(context.get_inner(), &request);
         BackendServiceResult {
-            affinity_cookie_ttl_sec: pulumi_wasm_rust::__private::into_domain(
+            affinity_cookie_ttl_sec: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("affinityCookieTtlSec"),
             ),
-            backends: pulumi_wasm_rust::__private::into_domain(
+            backends: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("backends"),
             ),
-            cdn_policy: pulumi_wasm_rust::__private::into_domain(
+            cdn_policy: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("cdnPolicy"),
             ),
-            circuit_breakers: pulumi_wasm_rust::__private::into_domain(
+            circuit_breakers: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("circuitBreakers"),
             ),
-            compression_mode: pulumi_wasm_rust::__private::into_domain(
+            compression_mode: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("compressionMode"),
             ),
-            connection_draining_timeout_sec: pulumi_wasm_rust::__private::into_domain(
+            connection_draining_timeout_sec: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("connectionDrainingTimeoutSec"),
             ),
-            consistent_hash: pulumi_wasm_rust::__private::into_domain(
+            consistent_hash: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("consistentHash"),
             ),
-            creation_timestamp: pulumi_wasm_rust::__private::into_domain(
+            creation_timestamp: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("creationTimestamp"),
             ),
-            custom_request_headers: pulumi_wasm_rust::__private::into_domain(
+            custom_request_headers: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("customRequestHeaders"),
             ),
-            custom_response_headers: pulumi_wasm_rust::__private::into_domain(
+            custom_response_headers: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("customResponseHeaders"),
             ),
-            description: pulumi_wasm_rust::__private::into_domain(
+            description: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("description"),
             ),
-            edge_security_policy: pulumi_wasm_rust::__private::into_domain(
+            edge_security_policy: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("edgeSecurityPolicy"),
             ),
-            enable_cdn: pulumi_wasm_rust::__private::into_domain(
+            enable_cdn: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("enableCdn"),
             ),
-            fingerprint: pulumi_wasm_rust::__private::into_domain(
+            fingerprint: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("fingerprint"),
             ),
-            generated_id: pulumi_wasm_rust::__private::into_domain(
+            generated_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("generatedId"),
             ),
-            health_checks: pulumi_wasm_rust::__private::into_domain(
+            health_checks: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("healthChecks"),
             ),
-            iap: pulumi_wasm_rust::__private::into_domain(o.extract_field("iap")),
-            ip_address_selection_policy: pulumi_wasm_rust::__private::into_domain(
+            iap: pulumi_gestalt_rust::__private::into_domain(o.extract_field("iap")),
+            ip_address_selection_policy: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("ipAddressSelectionPolicy"),
             ),
-            load_balancing_scheme: pulumi_wasm_rust::__private::into_domain(
+            load_balancing_scheme: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("loadBalancingScheme"),
             ),
-            locality_lb_policies: pulumi_wasm_rust::__private::into_domain(
+            locality_lb_policies: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("localityLbPolicies"),
             ),
-            locality_lb_policy: pulumi_wasm_rust::__private::into_domain(
+            locality_lb_policy: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("localityLbPolicy"),
             ),
-            log_config: pulumi_wasm_rust::__private::into_domain(
+            log_config: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("logConfig"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            outlier_detection: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            outlier_detection: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("outlierDetection"),
             ),
-            port_name: pulumi_wasm_rust::__private::into_domain(
+            port_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("portName"),
             ),
-            project: pulumi_wasm_rust::__private::into_domain(
+            project: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("project"),
             ),
-            protocol: pulumi_wasm_rust::__private::into_domain(
+            protocol: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("protocol"),
             ),
-            security_policy: pulumi_wasm_rust::__private::into_domain(
+            security_policy: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("securityPolicy"),
             ),
-            security_settings: pulumi_wasm_rust::__private::into_domain(
+            security_settings: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("securitySettings"),
             ),
-            self_link: pulumi_wasm_rust::__private::into_domain(
+            self_link: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("selfLink"),
             ),
-            service_lb_policy: pulumi_wasm_rust::__private::into_domain(
+            service_lb_policy: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("serviceLbPolicy"),
             ),
-            session_affinity: pulumi_wasm_rust::__private::into_domain(
+            session_affinity: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("sessionAffinity"),
             ),
-            strong_session_affinity_cookie: pulumi_wasm_rust::__private::into_domain(
+            strong_session_affinity_cookie: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("strongSessionAffinityCookie"),
             ),
-            timeout_sec: pulumi_wasm_rust::__private::into_domain(
+            timeout_sec: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("timeoutSec"),
             ),
         }

@@ -70,116 +70,116 @@
 /// ```
 ///
 pub mod cassandra_cluster {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct CassandraClusterArgs {
         /// The authentication method that is used to authenticate clients. Possible values are `None` and `Cassandra`. Defaults to `Cassandra`.
         #[builder(into, default)]
-        pub authentication_method: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub authentication_method: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// A list of TLS certificates that is used to authorize client connecting to the Cassandra Cluster.
         #[builder(into, default)]
-        pub client_certificate_pems: pulumi_wasm_rust::InputOrOutput<
+        pub client_certificate_pems: pulumi_gestalt_rust::InputOrOutput<
             Option<Vec<String>>,
         >,
         /// The initial admin password for this Cassandra Cluster. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub default_admin_password: pulumi_wasm_rust::InputOrOutput<String>,
+        pub default_admin_password: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The ID of the delegated management subnet for this Cassandra Cluster. Changing this forces a new Cassandra Cluster to be created.
         #[builder(into)]
-        pub delegated_management_subnet_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub delegated_management_subnet_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// A list of TLS certificates that is used to authorize gossip from unmanaged Cassandra Data Center.
         #[builder(into, default)]
-        pub external_gossip_certificate_pems: pulumi_wasm_rust::InputOrOutput<
+        pub external_gossip_certificate_pems: pulumi_gestalt_rust::InputOrOutput<
             Option<Vec<String>>,
         >,
         /// A list of IP Addresses of the seed nodes in unmanaged the Cassandra Data Center which will be added to the seed node lists of all managed nodes.
         #[builder(into, default)]
-        pub external_seed_node_ip_addresses: pulumi_wasm_rust::InputOrOutput<
+        pub external_seed_node_ip_addresses: pulumi_gestalt_rust::InputOrOutput<
             Option<Vec<String>>,
         >,
         /// The number of hours to wait between taking a backup of the Cassandra Cluster. Defaults to `24`.
         ///
         /// > **Note:** To disable this feature, set this property to `0`.
         #[builder(into, default)]
-        pub hours_between_backups: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
+        pub hours_between_backups: pulumi_gestalt_rust::InputOrOutput<Option<i32>>,
         /// An `identity` block as defined below.
         #[builder(into, default)]
-        pub identity: pulumi_wasm_rust::InputOrOutput<
+        pub identity: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::cosmosdb::CassandraClusterIdentity>,
         >,
         /// The Azure Region where the Cassandra Cluster should exist. Changing this forces a new Cassandra Cluster to be created.
         #[builder(into, default)]
-        pub location: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub location: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The name which should be used for this Cassandra Cluster. Changing this forces a new Cassandra Cluster to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Is the automatic repair enabled on the Cassandra Cluster? Defaults to `true`.
         #[builder(into, default)]
-        pub repair_enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub repair_enabled: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// The name of the Resource Group where the Cassandra Cluster should exist. Changing this forces a new Cassandra Cluster to be created.
         #[builder(into)]
-        pub resource_group_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub resource_group_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// A mapping of tags assigned to the resource.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// The version of Cassandra what the Cluster converges to run. Possible values are `3.11` and `4.0`. Defaults to `3.11`. Changing this forces a new Cassandra Cluster to be created.
         #[builder(into, default)]
-        pub version: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub version: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct CassandraClusterResult {
         /// The authentication method that is used to authenticate clients. Possible values are `None` and `Cassandra`. Defaults to `Cassandra`.
-        pub authentication_method: pulumi_wasm_rust::Output<Option<String>>,
+        pub authentication_method: pulumi_gestalt_rust::Output<Option<String>>,
         /// A list of TLS certificates that is used to authorize client connecting to the Cassandra Cluster.
-        pub client_certificate_pems: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub client_certificate_pems: pulumi_gestalt_rust::Output<Option<Vec<String>>>,
         /// The initial admin password for this Cassandra Cluster. Changing this forces a new resource to be created.
-        pub default_admin_password: pulumi_wasm_rust::Output<String>,
+        pub default_admin_password: pulumi_gestalt_rust::Output<String>,
         /// The ID of the delegated management subnet for this Cassandra Cluster. Changing this forces a new Cassandra Cluster to be created.
-        pub delegated_management_subnet_id: pulumi_wasm_rust::Output<String>,
+        pub delegated_management_subnet_id: pulumi_gestalt_rust::Output<String>,
         /// A list of TLS certificates that is used to authorize gossip from unmanaged Cassandra Data Center.
-        pub external_gossip_certificate_pems: pulumi_wasm_rust::Output<
+        pub external_gossip_certificate_pems: pulumi_gestalt_rust::Output<
             Option<Vec<String>>,
         >,
         /// A list of IP Addresses of the seed nodes in unmanaged the Cassandra Data Center which will be added to the seed node lists of all managed nodes.
-        pub external_seed_node_ip_addresses: pulumi_wasm_rust::Output<
+        pub external_seed_node_ip_addresses: pulumi_gestalt_rust::Output<
             Option<Vec<String>>,
         >,
         /// The number of hours to wait between taking a backup of the Cassandra Cluster. Defaults to `24`.
         ///
         /// > **Note:** To disable this feature, set this property to `0`.
-        pub hours_between_backups: pulumi_wasm_rust::Output<Option<i32>>,
+        pub hours_between_backups: pulumi_gestalt_rust::Output<Option<i32>>,
         /// An `identity` block as defined below.
-        pub identity: pulumi_wasm_rust::Output<
+        pub identity: pulumi_gestalt_rust::Output<
             Option<super::super::types::cosmosdb::CassandraClusterIdentity>,
         >,
         /// The Azure Region where the Cassandra Cluster should exist. Changing this forces a new Cassandra Cluster to be created.
-        pub location: pulumi_wasm_rust::Output<String>,
+        pub location: pulumi_gestalt_rust::Output<String>,
         /// The name which should be used for this Cassandra Cluster. Changing this forces a new Cassandra Cluster to be created.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// Is the automatic repair enabled on the Cassandra Cluster? Defaults to `true`.
-        pub repair_enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub repair_enabled: pulumi_gestalt_rust::Output<Option<bool>>,
         /// The name of the Resource Group where the Cassandra Cluster should exist. Changing this forces a new Cassandra Cluster to be created.
-        pub resource_group_name: pulumi_wasm_rust::Output<String>,
+        pub resource_group_name: pulumi_gestalt_rust::Output<String>,
         /// A mapping of tags assigned to the resource.
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// The version of Cassandra what the Cluster converges to run. Possible values are `3.11` and `4.0`. Defaults to `3.11`. Changing this forces a new Cassandra Cluster to be created.
-        pub version: pulumi_wasm_rust::Output<Option<String>>,
+        pub version: pulumi_gestalt_rust::Output<Option<String>>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: CassandraClusterArgs,
     ) -> CassandraClusterResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let authentication_method_binding = args
             .authentication_method
@@ -284,42 +284,44 @@ pub mod cassandra_cluster {
         };
         let o = register_interface::register(context.get_inner(), &request);
         CassandraClusterResult {
-            authentication_method: pulumi_wasm_rust::__private::into_domain(
+            authentication_method: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("authenticationMethod"),
             ),
-            client_certificate_pems: pulumi_wasm_rust::__private::into_domain(
+            client_certificate_pems: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("clientCertificatePems"),
             ),
-            default_admin_password: pulumi_wasm_rust::__private::into_domain(
+            default_admin_password: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("defaultAdminPassword"),
             ),
-            delegated_management_subnet_id: pulumi_wasm_rust::__private::into_domain(
+            delegated_management_subnet_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("delegatedManagementSubnetId"),
             ),
-            external_gossip_certificate_pems: pulumi_wasm_rust::__private::into_domain(
+            external_gossip_certificate_pems: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("externalGossipCertificatePems"),
             ),
-            external_seed_node_ip_addresses: pulumi_wasm_rust::__private::into_domain(
+            external_seed_node_ip_addresses: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("externalSeedNodeIpAddresses"),
             ),
-            hours_between_backups: pulumi_wasm_rust::__private::into_domain(
+            hours_between_backups: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("hoursBetweenBackups"),
             ),
-            identity: pulumi_wasm_rust::__private::into_domain(
+            identity: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("identity"),
             ),
-            location: pulumi_wasm_rust::__private::into_domain(
+            location: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("location"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            repair_enabled: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            repair_enabled: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("repairEnabled"),
             ),
-            resource_group_name: pulumi_wasm_rust::__private::into_domain(
+            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("resourceGroupName"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
-            version: pulumi_wasm_rust::__private::into_domain(o.extract_field("version")),
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            version: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("version"),
+            ),
         }
     }
 }

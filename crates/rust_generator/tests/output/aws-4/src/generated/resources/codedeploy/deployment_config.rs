@@ -80,52 +80,52 @@
 /// $ pulumi import aws:codedeploy/deploymentConfig:DeploymentConfig example my-deployment-config
 /// ```
 pub mod deployment_config {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct DeploymentConfigArgs {
         /// The compute platform can be `Server`, `Lambda`, or `ECS`. Default is `Server`.
         #[builder(into, default)]
-        pub compute_platform: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub compute_platform: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The name of the deployment config.
         #[builder(into, default)]
-        pub deployment_config_name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub deployment_config_name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// A minimum_healthy_hosts block. Required for `Server` compute platform. Minimum Healthy Hosts are documented below.
         #[builder(into, default)]
-        pub minimum_healthy_hosts: pulumi_wasm_rust::InputOrOutput<
+        pub minimum_healthy_hosts: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::codedeploy::DeploymentConfigMinimumHealthyHosts>,
         >,
         /// A traffic_routing_config block. Traffic Routing Config is documented below.
         #[builder(into, default)]
-        pub traffic_routing_config: pulumi_wasm_rust::InputOrOutput<
+        pub traffic_routing_config: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::codedeploy::DeploymentConfigTrafficRoutingConfig>,
         >,
         /// A zonal_config block. Zonal Config is documented below.
         #[builder(into, default)]
-        pub zonal_config: pulumi_wasm_rust::InputOrOutput<
+        pub zonal_config: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::codedeploy::DeploymentConfigZonalConfig>,
         >,
     }
     #[allow(dead_code)]
     pub struct DeploymentConfigResult {
         /// The ARN of the deployment config.
-        pub arn: pulumi_wasm_rust::Output<String>,
+        pub arn: pulumi_gestalt_rust::Output<String>,
         /// The compute platform can be `Server`, `Lambda`, or `ECS`. Default is `Server`.
-        pub compute_platform: pulumi_wasm_rust::Output<Option<String>>,
+        pub compute_platform: pulumi_gestalt_rust::Output<Option<String>>,
         /// The AWS Assigned deployment config id
-        pub deployment_config_id: pulumi_wasm_rust::Output<String>,
+        pub deployment_config_id: pulumi_gestalt_rust::Output<String>,
         /// The name of the deployment config.
-        pub deployment_config_name: pulumi_wasm_rust::Output<String>,
+        pub deployment_config_name: pulumi_gestalt_rust::Output<String>,
         /// A minimum_healthy_hosts block. Required for `Server` compute platform. Minimum Healthy Hosts are documented below.
-        pub minimum_healthy_hosts: pulumi_wasm_rust::Output<
+        pub minimum_healthy_hosts: pulumi_gestalt_rust::Output<
             Option<super::super::types::codedeploy::DeploymentConfigMinimumHealthyHosts>,
         >,
         /// A traffic_routing_config block. Traffic Routing Config is documented below.
-        pub traffic_routing_config: pulumi_wasm_rust::Output<
+        pub traffic_routing_config: pulumi_gestalt_rust::Output<
             Option<super::super::types::codedeploy::DeploymentConfigTrafficRoutingConfig>,
         >,
         /// A zonal_config block. Zonal Config is documented below.
-        pub zonal_config: pulumi_wasm_rust::Output<
+        pub zonal_config: pulumi_gestalt_rust::Output<
             Option<super::super::types::codedeploy::DeploymentConfigZonalConfig>,
         >,
     }
@@ -134,11 +134,11 @@ pub mod deployment_config {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: DeploymentConfigArgs,
     ) -> DeploymentConfigResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let compute_platform_binding = args
             .compute_platform
@@ -186,23 +186,23 @@ pub mod deployment_config {
         };
         let o = register_interface::register(context.get_inner(), &request);
         DeploymentConfigResult {
-            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
-            compute_platform: pulumi_wasm_rust::__private::into_domain(
+            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
+            compute_platform: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("computePlatform"),
             ),
-            deployment_config_id: pulumi_wasm_rust::__private::into_domain(
+            deployment_config_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("deploymentConfigId"),
             ),
-            deployment_config_name: pulumi_wasm_rust::__private::into_domain(
+            deployment_config_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("deploymentConfigName"),
             ),
-            minimum_healthy_hosts: pulumi_wasm_rust::__private::into_domain(
+            minimum_healthy_hosts: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("minimumHealthyHosts"),
             ),
-            traffic_routing_config: pulumi_wasm_rust::__private::into_domain(
+            traffic_routing_config: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("trafficRoutingConfig"),
             ),
-            zonal_config: pulumi_wasm_rust::__private::into_domain(
+            zonal_config: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("zonalConfig"),
             ),
         }

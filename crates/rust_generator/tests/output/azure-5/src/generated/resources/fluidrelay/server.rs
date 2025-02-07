@@ -3,8 +3,8 @@
 /// ## Example Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = resource_group::create(
@@ -34,70 +34,70 @@
 /// ```
 ///
 pub mod server {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ServerArgs {
         /// A `customer_managed_key` block as defined below. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub customer_managed_key: pulumi_wasm_rust::InputOrOutput<
+        pub customer_managed_key: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::fluidrelay::ServerCustomerManagedKey>,
         >,
         /// An `identity` block as defined below.
         #[builder(into, default)]
-        pub identity: pulumi_wasm_rust::InputOrOutput<
+        pub identity: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::fluidrelay::ServerIdentity>,
         >,
         /// The Azure Region where the Fluid Relay Server should exist. Changing this forces a new Fluid Relay Server to be created.
         #[builder(into, default)]
-        pub location: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub location: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The name which should be used for this Fluid Relay Server. Changing this forces a new Fluid Relay Server to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The name of the Resource Group where the Fluid Relay Server should exist. Changing this forces a new Fluid Relay Server to be created.
         #[builder(into)]
-        pub resource_group_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub resource_group_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Sku of the storage associated with the resource, Possible values are `standard` and `basic`. Changing this forces a new Fluid Relay Server to be created.
         #[builder(into, default)]
-        pub storage_sku: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub storage_sku: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// A mapping of tags which should be assigned to the Fluid Relay Server.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
     #[allow(dead_code)]
     pub struct ServerResult {
         /// A `customer_managed_key` block as defined below. Changing this forces a new resource to be created.
-        pub customer_managed_key: pulumi_wasm_rust::Output<
+        pub customer_managed_key: pulumi_gestalt_rust::Output<
             Option<super::super::types::fluidrelay::ServerCustomerManagedKey>,
         >,
         /// The Fluid tenantId for this server.
-        pub frs_tenant_id: pulumi_wasm_rust::Output<String>,
+        pub frs_tenant_id: pulumi_gestalt_rust::Output<String>,
         /// An `identity` block as defined below.
-        pub identity: pulumi_wasm_rust::Output<
+        pub identity: pulumi_gestalt_rust::Output<
             Option<super::super::types::fluidrelay::ServerIdentity>,
         >,
         /// The Azure Region where the Fluid Relay Server should exist. Changing this forces a new Fluid Relay Server to be created.
-        pub location: pulumi_wasm_rust::Output<String>,
+        pub location: pulumi_gestalt_rust::Output<String>,
         /// The name which should be used for this Fluid Relay Server. Changing this forces a new Fluid Relay Server to be created.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// An array of the Fluid Relay Orderer endpoints. This will be deprecated in future version of fluid relay server and will always be empty, [more details](https://learn.microsoft.com/en-us/azure/azure-fluid-relay/concepts/version-compatibility).
-        pub orderer_endpoints: pulumi_wasm_rust::Output<Vec<String>>,
+        pub orderer_endpoints: pulumi_gestalt_rust::Output<Vec<String>>,
         /// The primary key for this server.
-        pub primary_key: pulumi_wasm_rust::Output<String>,
+        pub primary_key: pulumi_gestalt_rust::Output<String>,
         /// The name of the Resource Group where the Fluid Relay Server should exist. Changing this forces a new Fluid Relay Server to be created.
-        pub resource_group_name: pulumi_wasm_rust::Output<String>,
+        pub resource_group_name: pulumi_gestalt_rust::Output<String>,
         /// The secondary key for this server.
-        pub secondary_key: pulumi_wasm_rust::Output<String>,
+        pub secondary_key: pulumi_gestalt_rust::Output<String>,
         /// An array of service endpoints for this Fluid Relay Server.
-        pub service_endpoints: pulumi_wasm_rust::Output<Vec<String>>,
+        pub service_endpoints: pulumi_gestalt_rust::Output<Vec<String>>,
         /// An array of storage endpoints for this Fluid Relay Server. This will be deprecated in future version of fluid relay server and will always be empty, [more details](https://learn.microsoft.com/en-us/azure/azure-fluid-relay/concepts/version-compatibility).
-        pub storage_endpoints: pulumi_wasm_rust::Output<Vec<String>>,
+        pub storage_endpoints: pulumi_gestalt_rust::Output<Vec<String>>,
         /// Sku of the storage associated with the resource, Possible values are `standard` and `basic`. Changing this forces a new Fluid Relay Server to be created.
-        pub storage_sku: pulumi_wasm_rust::Output<String>,
+        pub storage_sku: pulumi_gestalt_rust::Output<String>,
         /// A mapping of tags which should be assigned to the Fluid Relay Server.
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
@@ -106,11 +106,11 @@ pub mod server {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: ServerArgs,
     ) -> ServerResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let customer_managed_key_binding = args
             .customer_managed_key
@@ -162,41 +162,41 @@ pub mod server {
         };
         let o = register_interface::register(context.get_inner(), &request);
         ServerResult {
-            customer_managed_key: pulumi_wasm_rust::__private::into_domain(
+            customer_managed_key: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("customerManagedKey"),
             ),
-            frs_tenant_id: pulumi_wasm_rust::__private::into_domain(
+            frs_tenant_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("frsTenantId"),
             ),
-            identity: pulumi_wasm_rust::__private::into_domain(
+            identity: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("identity"),
             ),
-            location: pulumi_wasm_rust::__private::into_domain(
+            location: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("location"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            orderer_endpoints: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            orderer_endpoints: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("ordererEndpoints"),
             ),
-            primary_key: pulumi_wasm_rust::__private::into_domain(
+            primary_key: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("primaryKey"),
             ),
-            resource_group_name: pulumi_wasm_rust::__private::into_domain(
+            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("resourceGroupName"),
             ),
-            secondary_key: pulumi_wasm_rust::__private::into_domain(
+            secondary_key: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("secondaryKey"),
             ),
-            service_endpoints: pulumi_wasm_rust::__private::into_domain(
+            service_endpoints: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("serviceEndpoints"),
             ),
-            storage_endpoints: pulumi_wasm_rust::__private::into_domain(
+            storage_endpoints: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("storageEndpoints"),
             ),
-            storage_sku: pulumi_wasm_rust::__private::into_domain(
+            storage_sku: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("storageSku"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
         }
     }
 }

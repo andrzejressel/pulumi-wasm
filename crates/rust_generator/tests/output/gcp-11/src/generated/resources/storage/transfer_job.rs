@@ -107,79 +107,79 @@
 /// ```
 ///
 pub mod transfer_job {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct TransferJobArgs {
         /// Unique description to identify the Transfer Job.
         #[builder(into)]
-        pub description: pulumi_wasm_rust::InputOrOutput<String>,
+        pub description: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Specifies the Event-driven transfer options. Event-driven transfers listen to an event stream to transfer updated files. Structure documented below Either `event_stream` or `schedule` must be set.
         #[builder(into, default)]
-        pub event_stream: pulumi_wasm_rust::InputOrOutput<
+        pub event_stream: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::storage::TransferJobEventStream>,
         >,
         /// The name of the Transfer Job. This name must start with "transferJobs/" prefix and end with a letter or a number, and should be no more than 128 characters ( `transferJobs/^(?!OPI)[A-Za-z0-9-._~]*[A-Za-z0-9]$` ). For transfers involving PosixFilesystem, this name must start with transferJobs/OPI specifically ( `transferJobs/OPI^[A-Za-z0-9-._~]*[A-Za-z0-9]$` ). For all other transfer types, this name must not start with transferJobs/OPI. Default the provider will assign a random unique name with `transferJobs/{{name}}` format, where `name` is a numeric value.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Notification configuration. This is not supported for transfers involving PosixFilesystem. Structure documented below.
         #[builder(into, default)]
-        pub notification_config: pulumi_wasm_rust::InputOrOutput<
+        pub notification_config: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::storage::TransferJobNotificationConfig>,
         >,
         /// The project in which the resource belongs. If it
         /// is not provided, the provider project is used.
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub project: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Schedule specification defining when the Transfer Job should be scheduled to start, end and what time to run. Structure documented below. Either `schedule` or `event_stream` must be set.
         #[builder(into, default)]
-        pub schedule: pulumi_wasm_rust::InputOrOutput<
+        pub schedule: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::storage::TransferJobSchedule>,
         >,
         /// Status of the job. Default: `ENABLED`. **NOTE: The effect of the new job status takes place during a subsequent job run. For example, if you change the job status from ENABLED to DISABLED, and an operation spawned by the transfer is running, the status change would not affect the current operation.**
         #[builder(into, default)]
-        pub status: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub status: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Transfer specification. Structure documented below.
         ///
         /// - - -
         #[builder(into)]
-        pub transfer_spec: pulumi_wasm_rust::InputOrOutput<
+        pub transfer_spec: pulumi_gestalt_rust::InputOrOutput<
             super::super::types::storage::TransferJobTransferSpec,
         >,
     }
     #[allow(dead_code)]
     pub struct TransferJobResult {
         /// When the Transfer Job was created.
-        pub creation_time: pulumi_wasm_rust::Output<String>,
+        pub creation_time: pulumi_gestalt_rust::Output<String>,
         /// When the Transfer Job was deleted.
-        pub deletion_time: pulumi_wasm_rust::Output<String>,
+        pub deletion_time: pulumi_gestalt_rust::Output<String>,
         /// Unique description to identify the Transfer Job.
-        pub description: pulumi_wasm_rust::Output<String>,
+        pub description: pulumi_gestalt_rust::Output<String>,
         /// Specifies the Event-driven transfer options. Event-driven transfers listen to an event stream to transfer updated files. Structure documented below Either `event_stream` or `schedule` must be set.
-        pub event_stream: pulumi_wasm_rust::Output<
+        pub event_stream: pulumi_gestalt_rust::Output<
             Option<super::super::types::storage::TransferJobEventStream>,
         >,
         /// When the Transfer Job was last modified.
-        pub last_modification_time: pulumi_wasm_rust::Output<String>,
+        pub last_modification_time: pulumi_gestalt_rust::Output<String>,
         /// The name of the Transfer Job. This name must start with "transferJobs/" prefix and end with a letter or a number, and should be no more than 128 characters ( `transferJobs/^(?!OPI)[A-Za-z0-9-._~]*[A-Za-z0-9]$` ). For transfers involving PosixFilesystem, this name must start with transferJobs/OPI specifically ( `transferJobs/OPI^[A-Za-z0-9-._~]*[A-Za-z0-9]$` ). For all other transfer types, this name must not start with transferJobs/OPI. Default the provider will assign a random unique name with `transferJobs/{{name}}` format, where `name` is a numeric value.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// Notification configuration. This is not supported for transfers involving PosixFilesystem. Structure documented below.
-        pub notification_config: pulumi_wasm_rust::Output<
+        pub notification_config: pulumi_gestalt_rust::Output<
             Option<super::super::types::storage::TransferJobNotificationConfig>,
         >,
         /// The project in which the resource belongs. If it
         /// is not provided, the provider project is used.
-        pub project: pulumi_wasm_rust::Output<String>,
+        pub project: pulumi_gestalt_rust::Output<String>,
         /// Schedule specification defining when the Transfer Job should be scheduled to start, end and what time to run. Structure documented below. Either `schedule` or `event_stream` must be set.
-        pub schedule: pulumi_wasm_rust::Output<
+        pub schedule: pulumi_gestalt_rust::Output<
             Option<super::super::types::storage::TransferJobSchedule>,
         >,
         /// Status of the job. Default: `ENABLED`. **NOTE: The effect of the new job status takes place during a subsequent job run. For example, if you change the job status from ENABLED to DISABLED, and an operation spawned by the transfer is running, the status change would not affect the current operation.**
-        pub status: pulumi_wasm_rust::Output<Option<String>>,
+        pub status: pulumi_gestalt_rust::Output<Option<String>>,
         /// Transfer specification. Structure documented below.
         ///
         /// - - -
-        pub transfer_spec: pulumi_wasm_rust::Output<
+        pub transfer_spec: pulumi_gestalt_rust::Output<
             super::super::types::storage::TransferJobTransferSpec,
         >,
     }
@@ -188,11 +188,11 @@ pub mod transfer_job {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: TransferJobArgs,
     ) -> TransferJobResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let description_binding = args.description.get_output(context).get_inner();
         let event_stream_binding = args.event_stream.get_output(context).get_inner();
@@ -246,33 +246,35 @@ pub mod transfer_job {
         };
         let o = register_interface::register(context.get_inner(), &request);
         TransferJobResult {
-            creation_time: pulumi_wasm_rust::__private::into_domain(
+            creation_time: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("creationTime"),
             ),
-            deletion_time: pulumi_wasm_rust::__private::into_domain(
+            deletion_time: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("deletionTime"),
             ),
-            description: pulumi_wasm_rust::__private::into_domain(
+            description: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("description"),
             ),
-            event_stream: pulumi_wasm_rust::__private::into_domain(
+            event_stream: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("eventStream"),
             ),
-            last_modification_time: pulumi_wasm_rust::__private::into_domain(
+            last_modification_time: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("lastModificationTime"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            notification_config: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            notification_config: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("notificationConfig"),
             ),
-            project: pulumi_wasm_rust::__private::into_domain(
+            project: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("project"),
             ),
-            schedule: pulumi_wasm_rust::__private::into_domain(
+            schedule: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("schedule"),
             ),
-            status: pulumi_wasm_rust::__private::into_domain(o.extract_field("status")),
-            transfer_spec: pulumi_wasm_rust::__private::into_domain(
+            status: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("status"),
+            ),
+            transfer_spec: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("transferSpec"),
             ),
         }

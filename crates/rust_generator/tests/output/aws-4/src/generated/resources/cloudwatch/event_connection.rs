@@ -5,8 +5,8 @@
 /// ## Example Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let test = event_connection::create(
@@ -34,8 +34,8 @@
 /// ### Basic Authorization
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let test = event_connection::create(
@@ -63,8 +63,8 @@
 /// ### OAuth Authorization
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let test = event_connection::create(
@@ -123,8 +123,8 @@
 /// ### Invocation Http Parameters
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let test = event_connection::create(
@@ -184,52 +184,52 @@
 /// $ pulumi import aws:cloudwatch/eventConnection:EventConnection test ngrok-connection
 /// ```
 pub mod event_connection {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct EventConnectionArgs {
         /// Parameters used for authorization. A maximum of 1 are allowed. Documented below.
         #[builder(into)]
-        pub auth_parameters: pulumi_wasm_rust::InputOrOutput<
+        pub auth_parameters: pulumi_gestalt_rust::InputOrOutput<
             super::super::types::cloudwatch::EventConnectionAuthParameters,
         >,
         /// Choose the type of authorization to use for the connection. One of `API_KEY`,`BASIC`,`OAUTH_CLIENT_CREDENTIALS`.
         #[builder(into)]
-        pub authorization_type: pulumi_wasm_rust::InputOrOutput<String>,
+        pub authorization_type: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Enter a description for the connection. Maximum of 512 characters.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub description: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The name of the new connection. Maximum of 64 characters consisting of numbers, lower/upper case letters, .,-,_.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct EventConnectionResult {
         /// The Amazon Resource Name (ARN) of the connection.
-        pub arn: pulumi_wasm_rust::Output<String>,
+        pub arn: pulumi_gestalt_rust::Output<String>,
         /// Parameters used for authorization. A maximum of 1 are allowed. Documented below.
-        pub auth_parameters: pulumi_wasm_rust::Output<
+        pub auth_parameters: pulumi_gestalt_rust::Output<
             super::super::types::cloudwatch::EventConnectionAuthParameters,
         >,
         /// Choose the type of authorization to use for the connection. One of `API_KEY`,`BASIC`,`OAUTH_CLIENT_CREDENTIALS`.
-        pub authorization_type: pulumi_wasm_rust::Output<String>,
+        pub authorization_type: pulumi_gestalt_rust::Output<String>,
         /// Enter a description for the connection. Maximum of 512 characters.
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_gestalt_rust::Output<Option<String>>,
         /// The name of the new connection. Maximum of 64 characters consisting of numbers, lower/upper case letters, .,-,_.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// The Amazon Resource Name (ARN) of the secret created from the authorization parameters specified for the connection.
-        pub secret_arn: pulumi_wasm_rust::Output<String>,
+        pub secret_arn: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: EventConnectionArgs,
     ) -> EventConnectionResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let auth_parameters_binding = args
             .auth_parameters
@@ -266,18 +266,18 @@ pub mod event_connection {
         };
         let o = register_interface::register(context.get_inner(), &request);
         EventConnectionResult {
-            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
-            auth_parameters: pulumi_wasm_rust::__private::into_domain(
+            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
+            auth_parameters: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("authParameters"),
             ),
-            authorization_type: pulumi_wasm_rust::__private::into_domain(
+            authorization_type: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("authorizationType"),
             ),
-            description: pulumi_wasm_rust::__private::into_domain(
+            description: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("description"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            secret_arn: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            secret_arn: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("secretArn"),
             ),
         }

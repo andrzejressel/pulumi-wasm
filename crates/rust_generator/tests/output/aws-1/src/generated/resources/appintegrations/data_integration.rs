@@ -27,55 +27,55 @@
 /// $ pulumi import aws:appintegrations/dataIntegration:DataIntegration example 12345678-1234-1234-1234-123456789123
 /// ```
 pub mod data_integration {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct DataIntegrationArgs {
         /// Specifies the description of the Data Integration.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub description: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Specifies the KMS key Amazon Resource Name (ARN) for the Data Integration.
         #[builder(into)]
-        pub kms_key: pulumi_wasm_rust::InputOrOutput<String>,
+        pub kms_key: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Specifies the name of the Data Integration.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// A block that defines the name of the data and how often it should be pulled from the source. The Schedule Config block is documented below.
         #[builder(into)]
-        pub schedule_config: pulumi_wasm_rust::InputOrOutput<
+        pub schedule_config: pulumi_gestalt_rust::InputOrOutput<
             super::super::types::appintegrations::DataIntegrationScheduleConfig,
         >,
         /// Specifies the URI of the data source. Create an AppFlow Connector Profile and reference the name of the profile in the URL. An example of this value for Salesforce is `Salesforce://AppFlow/example` where `example` is the name of the AppFlow Connector Profile.
         #[builder(into)]
-        pub source_uri: pulumi_wasm_rust::InputOrOutput<String>,
+        pub source_uri: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Tags to apply to the Data Integration. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
     #[allow(dead_code)]
     pub struct DataIntegrationResult {
         /// The Amazon Resource Name (ARN) of the Data Integration.
-        pub arn: pulumi_wasm_rust::Output<String>,
+        pub arn: pulumi_gestalt_rust::Output<String>,
         /// Specifies the description of the Data Integration.
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_gestalt_rust::Output<Option<String>>,
         /// Specifies the KMS key Amazon Resource Name (ARN) for the Data Integration.
-        pub kms_key: pulumi_wasm_rust::Output<String>,
+        pub kms_key: pulumi_gestalt_rust::Output<String>,
         /// Specifies the name of the Data Integration.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// A block that defines the name of the data and how often it should be pulled from the source. The Schedule Config block is documented below.
-        pub schedule_config: pulumi_wasm_rust::Output<
+        pub schedule_config: pulumi_gestalt_rust::Output<
             super::super::types::appintegrations::DataIntegrationScheduleConfig,
         >,
         /// Specifies the URI of the data source. Create an AppFlow Connector Profile and reference the name of the profile in the URL. An example of this value for Salesforce is `Salesforce://AppFlow/example` where `example` is the name of the AppFlow Connector Profile.
-        pub source_uri: pulumi_wasm_rust::Output<String>,
+        pub source_uri: pulumi_gestalt_rust::Output<String>,
         /// Tags to apply to the Data Integration. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        pub tags_all: pulumi_wasm_rust::Output<
+        pub tags_all: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
     }
@@ -84,11 +84,11 @@ pub mod data_integration {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: DataIntegrationArgs,
     ) -> DataIntegrationResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let description_binding = args.description.get_output(context).get_inner();
         let kms_key_binding = args.kms_key.get_output(context).get_inner();
@@ -132,20 +132,22 @@ pub mod data_integration {
         };
         let o = register_interface::register(context.get_inner(), &request);
         DataIntegrationResult {
-            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
-            description: pulumi_wasm_rust::__private::into_domain(
+            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
+            description: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("description"),
             ),
-            kms_key: pulumi_wasm_rust::__private::into_domain(o.extract_field("kmsKey")),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            schedule_config: pulumi_wasm_rust::__private::into_domain(
+            kms_key: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("kmsKey"),
+            ),
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            schedule_config: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("scheduleConfig"),
             ),
-            source_uri: pulumi_wasm_rust::__private::into_domain(
+            source_uri: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("sourceUri"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_wasm_rust::__private::into_domain(
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            tags_all: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("tagsAll"),
             ),
         }

@@ -1,52 +1,52 @@
 pub mod get_region_instance_group {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct GetRegionInstanceGroupArgs {
         /// The name of the instance group.  One of `name` or `self_link` must be provided.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The ID of the project in which the resource belongs.
         /// If `self_link` is provided, this value is ignored.  If neither `self_link`
         /// nor `project` are provided, the provider project is used.
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub project: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The region in which the resource belongs.  If `self_link`
         /// is provided, this value is ignored.  If neither `self_link` nor `region` are
         /// provided, the provider region is used.
         #[builder(into, default)]
-        pub region: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub region: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The link to the instance group.  One of `name` or `self_link` must be provided.
         ///
         /// - - -
         #[builder(into, default)]
-        pub self_link: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub self_link: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct GetRegionInstanceGroupResult {
         /// The provider-assigned unique ID for this managed resource.
-        pub id: pulumi_wasm_rust::Output<String>,
+        pub id: pulumi_gestalt_rust::Output<String>,
         /// List of instances in the group, as a list of resources, each containing:
-        pub instances: pulumi_wasm_rust::Output<
+        pub instances: pulumi_gestalt_rust::Output<
             Vec<super::super::super::types::compute::GetRegionInstanceGroupInstance>,
         >,
         /// String port name
-        pub name: pulumi_wasm_rust::Output<String>,
-        pub project: pulumi_wasm_rust::Output<String>,
-        pub region: pulumi_wasm_rust::Output<String>,
-        pub self_link: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
+        pub project: pulumi_gestalt_rust::Output<String>,
+        pub region: pulumi_gestalt_rust::Output<String>,
+        pub self_link: pulumi_gestalt_rust::Output<String>,
         /// The number of instances in the group.
-        pub size: pulumi_wasm_rust::Output<i32>,
+        pub size: pulumi_gestalt_rust::Output<i32>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         args: GetRegionInstanceGroupArgs,
     ) -> GetRegionInstanceGroupResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let name_binding = args.name.get_output(context).get_inner();
         let project_binding = args.project.get_output(context).get_inner();
@@ -76,19 +76,21 @@ pub mod get_region_instance_group {
         };
         let o = register_interface::invoke(context.get_inner(), &request);
         GetRegionInstanceGroupResult {
-            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
-            instances: pulumi_wasm_rust::__private::into_domain(
+            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
+            instances: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("instances"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            project: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            project: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("project"),
             ),
-            region: pulumi_wasm_rust::__private::into_domain(o.extract_field("region")),
-            self_link: pulumi_wasm_rust::__private::into_domain(
+            region: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("region"),
+            ),
+            self_link: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("selfLink"),
             ),
-            size: pulumi_wasm_rust::__private::into_domain(o.extract_field("size")),
+            size: pulumi_gestalt_rust::__private::into_domain(o.extract_field("size")),
         }
     }
 }

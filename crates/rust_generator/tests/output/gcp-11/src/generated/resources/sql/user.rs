@@ -123,7 +123,7 @@
 /// ```
 ///
 pub mod user {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct UserArgs {
@@ -135,34 +135,34 @@ pub mod user {
         ///
         /// - - -
         #[builder(into, default)]
-        pub deletion_policy: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub deletion_policy: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The host the user can connect from. This is only supported
         /// for BUILT_IN users in MySQL instances. Don't set this field for PostgreSQL and SQL Server instances.
         /// Can be an IP address. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub host: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub host: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The name of the Cloud SQL instance. Changing this
         /// forces a new resource to be created.
         #[builder(into)]
-        pub instance: pulumi_wasm_rust::InputOrOutput<String>,
+        pub instance: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The name of the user. Changing this forces a new resource
         /// to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The password for the user. Can be updated. For Postgres
         /// instances this is a Required field, unless type is set to either CLOUD_IAM_USER
         /// or CLOUD_IAM_SERVICE_ACCOUNT. Don't set this field for CLOUD_IAM_USER
         /// and CLOUD_IAM_SERVICE_ACCOUNT user types for any Cloud SQL instance.
         #[builder(into, default)]
-        pub password: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub password: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         #[builder(into, default)]
-        pub password_policy: pulumi_wasm_rust::InputOrOutput<
+        pub password_policy: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::sql::UserPasswordPolicy>,
         >,
         /// The ID of the project in which the resource belongs. If it
         /// is not provided, the provider project is used.
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub project: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The user type. It determines the method to authenticate the
         /// user during login. The default is the database's built-in user type. Flags
         /// include "BUILT_IN", "CLOUD_IAM_USER", "CLOUD_IAM_SERVICE_ACCOUNT", "CLOUD_IAM_GROUP",
@@ -170,7 +170,7 @@ pub mod user {
         /// [Postgres](https://cloud.google.com/sql/docs/postgres/admin-api/rest/v1beta4/users#sqlusertype)
         /// and [MySQL](https://cloud.google.com/sql/docs/mysql/admin-api/rest/v1beta4/users#sqlusertype).
         #[builder(into, default)]
-        pub type_: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub type_: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct UserResult {
@@ -181,29 +181,29 @@ pub mod user {
         /// Possible values are: `ABANDON`.
         ///
         /// - - -
-        pub deletion_policy: pulumi_wasm_rust::Output<Option<String>>,
+        pub deletion_policy: pulumi_gestalt_rust::Output<Option<String>>,
         /// The host the user can connect from. This is only supported
         /// for BUILT_IN users in MySQL instances. Don't set this field for PostgreSQL and SQL Server instances.
         /// Can be an IP address. Changing this forces a new resource to be created.
-        pub host: pulumi_wasm_rust::Output<String>,
+        pub host: pulumi_gestalt_rust::Output<String>,
         /// The name of the Cloud SQL instance. Changing this
         /// forces a new resource to be created.
-        pub instance: pulumi_wasm_rust::Output<String>,
+        pub instance: pulumi_gestalt_rust::Output<String>,
         /// The name of the user. Changing this forces a new resource
         /// to be created.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// The password for the user. Can be updated. For Postgres
         /// instances this is a Required field, unless type is set to either CLOUD_IAM_USER
         /// or CLOUD_IAM_SERVICE_ACCOUNT. Don't set this field for CLOUD_IAM_USER
         /// and CLOUD_IAM_SERVICE_ACCOUNT user types for any Cloud SQL instance.
-        pub password: pulumi_wasm_rust::Output<Option<String>>,
-        pub password_policy: pulumi_wasm_rust::Output<
+        pub password: pulumi_gestalt_rust::Output<Option<String>>,
+        pub password_policy: pulumi_gestalt_rust::Output<
             Option<super::super::types::sql::UserPasswordPolicy>,
         >,
         /// The ID of the project in which the resource belongs. If it
         /// is not provided, the provider project is used.
-        pub project: pulumi_wasm_rust::Output<String>,
-        pub sql_server_user_details: pulumi_wasm_rust::Output<
+        pub project: pulumi_gestalt_rust::Output<String>,
+        pub sql_server_user_details: pulumi_gestalt_rust::Output<
             Vec<super::super::types::sql::UserSqlServerUserDetail>,
         >,
         /// The user type. It determines the method to authenticate the
@@ -212,18 +212,18 @@ pub mod user {
         /// "CLOUD_IAM_GROUP_USER" and "CLOUD_IAM_GROUP_SERVICE_ACCOUNT" for
         /// [Postgres](https://cloud.google.com/sql/docs/postgres/admin-api/rest/v1beta4/users#sqlusertype)
         /// and [MySQL](https://cloud.google.com/sql/docs/mysql/admin-api/rest/v1beta4/users#sqlusertype).
-        pub type_: pulumi_wasm_rust::Output<Option<String>>,
+        pub type_: pulumi_gestalt_rust::Output<Option<String>>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: UserArgs,
     ) -> UserResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let deletion_policy_binding = args
             .deletion_policy
@@ -280,27 +280,27 @@ pub mod user {
         };
         let o = register_interface::register(context.get_inner(), &request);
         UserResult {
-            deletion_policy: pulumi_wasm_rust::__private::into_domain(
+            deletion_policy: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("deletionPolicy"),
             ),
-            host: pulumi_wasm_rust::__private::into_domain(o.extract_field("host")),
-            instance: pulumi_wasm_rust::__private::into_domain(
+            host: pulumi_gestalt_rust::__private::into_domain(o.extract_field("host")),
+            instance: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("instance"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            password: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            password: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("password"),
             ),
-            password_policy: pulumi_wasm_rust::__private::into_domain(
+            password_policy: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("passwordPolicy"),
             ),
-            project: pulumi_wasm_rust::__private::into_domain(
+            project: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("project"),
             ),
-            sql_server_user_details: pulumi_wasm_rust::__private::into_domain(
+            sql_server_user_details: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("sqlServerUserDetails"),
             ),
-            type_: pulumi_wasm_rust::__private::into_domain(o.extract_field("type")),
+            type_: pulumi_gestalt_rust::__private::into_domain(o.extract_field("type")),
         }
     }
 }

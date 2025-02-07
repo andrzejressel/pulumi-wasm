@@ -3,8 +3,8 @@
 /// ## Example Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let testLambdafunctionLogfilter = log_subscription_filter::create(
@@ -29,54 +29,54 @@
 /// $ pulumi import aws:cloudwatch/logSubscriptionFilter:LogSubscriptionFilter test_lambdafunction_logfilter "/aws/lambda/example_lambda_name|test_lambdafunction_logfilter"
 /// ```
 pub mod log_subscription_filter {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct LogSubscriptionFilterArgs {
         /// The ARN of the destination to deliver matching log events to. Kinesis stream or Lambda function ARN.
         #[builder(into)]
-        pub destination_arn: pulumi_wasm_rust::InputOrOutput<String>,
+        pub destination_arn: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The method used to distribute log data to the destination. By default log data is grouped by log stream, but the grouping can be set to random for a more even distribution. This property is only applicable when the destination is an Amazon Kinesis stream. Valid values are "Random" and "ByLogStream".
         #[builder(into, default)]
-        pub distribution: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub distribution: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// A valid CloudWatch Logs filter pattern for subscribing to a filtered stream of log events. Use empty string `""` to match everything. For more information, see the [Amazon CloudWatch Logs User Guide](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/FilterAndPatternSyntax.html).
         #[builder(into)]
-        pub filter_pattern: pulumi_wasm_rust::InputOrOutput<String>,
+        pub filter_pattern: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The name of the log group to associate the subscription filter with
         #[builder(into)]
-        pub log_group: pulumi_wasm_rust::InputOrOutput<String>,
+        pub log_group: pulumi_gestalt_rust::InputOrOutput<String>,
         /// A name for the subscription filter
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The ARN of an IAM role that grants Amazon CloudWatch Logs permissions to deliver ingested log events to the destination. If you use Lambda as a destination, you should skip this argument and use `aws.lambda.Permission` resource for granting access from CloudWatch logs to the destination Lambda function.
         #[builder(into, default)]
-        pub role_arn: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub role_arn: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct LogSubscriptionFilterResult {
         /// The ARN of the destination to deliver matching log events to. Kinesis stream or Lambda function ARN.
-        pub destination_arn: pulumi_wasm_rust::Output<String>,
+        pub destination_arn: pulumi_gestalt_rust::Output<String>,
         /// The method used to distribute log data to the destination. By default log data is grouped by log stream, but the grouping can be set to random for a more even distribution. This property is only applicable when the destination is an Amazon Kinesis stream. Valid values are "Random" and "ByLogStream".
-        pub distribution: pulumi_wasm_rust::Output<Option<String>>,
+        pub distribution: pulumi_gestalt_rust::Output<Option<String>>,
         /// A valid CloudWatch Logs filter pattern for subscribing to a filtered stream of log events. Use empty string `""` to match everything. For more information, see the [Amazon CloudWatch Logs User Guide](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/FilterAndPatternSyntax.html).
-        pub filter_pattern: pulumi_wasm_rust::Output<String>,
+        pub filter_pattern: pulumi_gestalt_rust::Output<String>,
         /// The name of the log group to associate the subscription filter with
-        pub log_group: pulumi_wasm_rust::Output<String>,
+        pub log_group: pulumi_gestalt_rust::Output<String>,
         /// A name for the subscription filter
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// The ARN of an IAM role that grants Amazon CloudWatch Logs permissions to deliver ingested log events to the destination. If you use Lambda as a destination, you should skip this argument and use `aws.lambda.Permission` resource for granting access from CloudWatch logs to the destination Lambda function.
-        pub role_arn: pulumi_wasm_rust::Output<String>,
+        pub role_arn: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: LogSubscriptionFilterArgs,
     ) -> LogSubscriptionFilterResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let destination_arn_binding = args
             .destination_arn
@@ -120,20 +120,20 @@ pub mod log_subscription_filter {
         };
         let o = register_interface::register(context.get_inner(), &request);
         LogSubscriptionFilterResult {
-            destination_arn: pulumi_wasm_rust::__private::into_domain(
+            destination_arn: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("destinationArn"),
             ),
-            distribution: pulumi_wasm_rust::__private::into_domain(
+            distribution: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("distribution"),
             ),
-            filter_pattern: pulumi_wasm_rust::__private::into_domain(
+            filter_pattern: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("filterPattern"),
             ),
-            log_group: pulumi_wasm_rust::__private::into_domain(
+            log_group: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("logGroup"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            role_arn: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            role_arn: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("roleArn"),
             ),
         }

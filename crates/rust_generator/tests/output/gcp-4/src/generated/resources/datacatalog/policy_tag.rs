@@ -13,8 +13,8 @@
 ///
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let basicPolicyTag = policy_tag::create(
@@ -39,8 +39,8 @@
 ///
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let childPolicy = policy_tag::create(
@@ -93,7 +93,7 @@
 /// ```
 ///
 pub mod policy_tag {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct PolicyTagArgs {
@@ -102,60 +102,60 @@ pub mod policy_tag {
         /// encoded in UTF-8. If not set, defaults to an empty description.
         /// If not set, defaults to an empty description.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub description: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// User defined name of this policy tag. It must: be unique within the parent
         /// taxonomy; contain only unicode letters, numbers, underscores, dashes and spaces;
         /// not start or end with spaces; and be at most 200 bytes long when encoded in UTF-8.
         #[builder(into)]
-        pub display_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub display_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Resource name of this policy tag's parent policy tag.
         /// If empty, it means this policy tag is a top level policy tag.
         /// If not set, defaults to an empty string.
         #[builder(into, default)]
-        pub parent_policy_tag: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub parent_policy_tag: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Taxonomy the policy tag is associated with
         ///
         ///
         /// - - -
         #[builder(into)]
-        pub taxonomy: pulumi_wasm_rust::InputOrOutput<String>,
+        pub taxonomy: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct PolicyTagResult {
         /// Resource names of child policy tags of this policy tag.
-        pub child_policy_tags: pulumi_wasm_rust::Output<Vec<String>>,
+        pub child_policy_tags: pulumi_gestalt_rust::Output<Vec<String>>,
         /// Description of this policy tag. It must: contain only unicode characters, tabs,
         /// newlines, carriage returns and page breaks; and be at most 2000 bytes long when
         /// encoded in UTF-8. If not set, defaults to an empty description.
         /// If not set, defaults to an empty description.
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_gestalt_rust::Output<Option<String>>,
         /// User defined name of this policy tag. It must: be unique within the parent
         /// taxonomy; contain only unicode letters, numbers, underscores, dashes and spaces;
         /// not start or end with spaces; and be at most 200 bytes long when encoded in UTF-8.
-        pub display_name: pulumi_wasm_rust::Output<String>,
+        pub display_name: pulumi_gestalt_rust::Output<String>,
         /// Resource name of this policy tag, whose format is:
         /// "projects/{project}/locations/{region}/taxonomies/{taxonomy}/policyTags/{policytag}"
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// Resource name of this policy tag's parent policy tag.
         /// If empty, it means this policy tag is a top level policy tag.
         /// If not set, defaults to an empty string.
-        pub parent_policy_tag: pulumi_wasm_rust::Output<Option<String>>,
+        pub parent_policy_tag: pulumi_gestalt_rust::Output<Option<String>>,
         /// Taxonomy the policy tag is associated with
         ///
         ///
         /// - - -
-        pub taxonomy: pulumi_wasm_rust::Output<String>,
+        pub taxonomy: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: PolicyTagArgs,
     ) -> PolicyTagResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let description_binding = args.description.get_output(context).get_inner();
         let display_name_binding = args.display_name.get_output(context).get_inner();
@@ -189,20 +189,20 @@ pub mod policy_tag {
         };
         let o = register_interface::register(context.get_inner(), &request);
         PolicyTagResult {
-            child_policy_tags: pulumi_wasm_rust::__private::into_domain(
+            child_policy_tags: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("childPolicyTags"),
             ),
-            description: pulumi_wasm_rust::__private::into_domain(
+            description: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("description"),
             ),
-            display_name: pulumi_wasm_rust::__private::into_domain(
+            display_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("displayName"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            parent_policy_tag: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            parent_policy_tag: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("parentPolicyTag"),
             ),
-            taxonomy: pulumi_wasm_rust::__private::into_domain(
+            taxonomy: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("taxonomy"),
             ),
         }

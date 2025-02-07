@@ -42,68 +42,68 @@
 /// ```
 ///
 pub mod integration_account_assembly {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct IntegrationAccountAssemblyArgs {
         /// The name of the Logic App Integration Account Assembly.
         #[builder(into)]
-        pub assembly_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub assembly_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The version of the Logic App Integration Account Assembly. Defaults to `0.0.0.0`.
         #[builder(into, default)]
-        pub assembly_version: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub assembly_version: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The content of the Logic App Integration Account Assembly.
         #[builder(into, default)]
-        pub content: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub content: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The content link URI of the Logic App Integration Account Assembly.
         #[builder(into, default)]
-        pub content_link_uri: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub content_link_uri: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The name of the Logic App Integration Account. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub integration_account_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub integration_account_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The metadata of the Logic App Integration Account Assembly.
         #[builder(into, default)]
-        pub metadata: pulumi_wasm_rust::InputOrOutput<
+        pub metadata: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// The name which should be used for this Logic App Integration Account Assembly Artifact. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The name of the Resource Group where the Logic App Integration Account Assembly Artifact should exist. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub resource_group_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub resource_group_name: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct IntegrationAccountAssemblyResult {
         /// The name of the Logic App Integration Account Assembly.
-        pub assembly_name: pulumi_wasm_rust::Output<String>,
+        pub assembly_name: pulumi_gestalt_rust::Output<String>,
         /// The version of the Logic App Integration Account Assembly. Defaults to `0.0.0.0`.
-        pub assembly_version: pulumi_wasm_rust::Output<Option<String>>,
+        pub assembly_version: pulumi_gestalt_rust::Output<Option<String>>,
         /// The content of the Logic App Integration Account Assembly.
-        pub content: pulumi_wasm_rust::Output<Option<String>>,
+        pub content: pulumi_gestalt_rust::Output<Option<String>>,
         /// The content link URI of the Logic App Integration Account Assembly.
-        pub content_link_uri: pulumi_wasm_rust::Output<Option<String>>,
+        pub content_link_uri: pulumi_gestalt_rust::Output<Option<String>>,
         /// The name of the Logic App Integration Account. Changing this forces a new resource to be created.
-        pub integration_account_name: pulumi_wasm_rust::Output<String>,
+        pub integration_account_name: pulumi_gestalt_rust::Output<String>,
         /// The metadata of the Logic App Integration Account Assembly.
-        pub metadata: pulumi_wasm_rust::Output<
+        pub metadata: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// The name which should be used for this Logic App Integration Account Assembly Artifact. Changing this forces a new resource to be created.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// The name of the Resource Group where the Logic App Integration Account Assembly Artifact should exist. Changing this forces a new resource to be created.
-        pub resource_group_name: pulumi_wasm_rust::Output<String>,
+        pub resource_group_name: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: IntegrationAccountAssemblyArgs,
     ) -> IntegrationAccountAssemblyResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let assembly_name_binding = args.assembly_name.get_output(context).get_inner();
         let assembly_version_binding = args
@@ -167,26 +167,26 @@ pub mod integration_account_assembly {
         };
         let o = register_interface::register(context.get_inner(), &request);
         IntegrationAccountAssemblyResult {
-            assembly_name: pulumi_wasm_rust::__private::into_domain(
+            assembly_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("assemblyName"),
             ),
-            assembly_version: pulumi_wasm_rust::__private::into_domain(
+            assembly_version: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("assemblyVersion"),
             ),
-            content: pulumi_wasm_rust::__private::into_domain(
+            content: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("content"),
             ),
-            content_link_uri: pulumi_wasm_rust::__private::into_domain(
+            content_link_uri: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("contentLinkUri"),
             ),
-            integration_account_name: pulumi_wasm_rust::__private::into_domain(
+            integration_account_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("integrationAccountName"),
             ),
-            metadata: pulumi_wasm_rust::__private::into_domain(
+            metadata: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("metadata"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            resource_group_name: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("resourceGroupName"),
             ),
         }

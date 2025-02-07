@@ -3,8 +3,8 @@
 /// ## Example Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = resource_group::create(
@@ -49,78 +49,78 @@
 /// ```
 ///
 pub mod user {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct UserArgs {
         /// The name of the API Management Service in which the User should be created. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub api_management_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub api_management_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The kind of confirmation email which will be sent to this user. Possible values are `invite` and `signup`. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub confirmation: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub confirmation: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The email address associated with this user.
         #[builder(into)]
-        pub email: pulumi_wasm_rust::InputOrOutput<String>,
+        pub email: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The first name for this user.
         #[builder(into)]
-        pub first_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub first_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The last name for this user.
         #[builder(into)]
-        pub last_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub last_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// A note about this user.
         #[builder(into, default)]
-        pub note: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub note: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The password associated with this user.
         #[builder(into, default)]
-        pub password: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub password: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The name of the Resource Group in which the API Management Service exists. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub resource_group_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub resource_group_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The state of this user. Possible values are `active`, `blocked` and `pending`.
         ///
         /// > **NOTE:** the State can be changed from Pending > Active/Blocked but not from Active/Blocked > Pending.
         #[builder(into, default)]
-        pub state: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub state: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The Identifier for this User, which must be unique within the API Management Service. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub user_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub user_id: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct UserResult {
         /// The name of the API Management Service in which the User should be created. Changing this forces a new resource to be created.
-        pub api_management_name: pulumi_wasm_rust::Output<String>,
+        pub api_management_name: pulumi_gestalt_rust::Output<String>,
         /// The kind of confirmation email which will be sent to this user. Possible values are `invite` and `signup`. Changing this forces a new resource to be created.
-        pub confirmation: pulumi_wasm_rust::Output<Option<String>>,
+        pub confirmation: pulumi_gestalt_rust::Output<Option<String>>,
         /// The email address associated with this user.
-        pub email: pulumi_wasm_rust::Output<String>,
+        pub email: pulumi_gestalt_rust::Output<String>,
         /// The first name for this user.
-        pub first_name: pulumi_wasm_rust::Output<String>,
+        pub first_name: pulumi_gestalt_rust::Output<String>,
         /// The last name for this user.
-        pub last_name: pulumi_wasm_rust::Output<String>,
+        pub last_name: pulumi_gestalt_rust::Output<String>,
         /// A note about this user.
-        pub note: pulumi_wasm_rust::Output<Option<String>>,
+        pub note: pulumi_gestalt_rust::Output<Option<String>>,
         /// The password associated with this user.
-        pub password: pulumi_wasm_rust::Output<Option<String>>,
+        pub password: pulumi_gestalt_rust::Output<Option<String>>,
         /// The name of the Resource Group in which the API Management Service exists. Changing this forces a new resource to be created.
-        pub resource_group_name: pulumi_wasm_rust::Output<String>,
+        pub resource_group_name: pulumi_gestalt_rust::Output<String>,
         /// The state of this user. Possible values are `active`, `blocked` and `pending`.
         ///
         /// > **NOTE:** the State can be changed from Pending > Active/Blocked but not from Active/Blocked > Pending.
-        pub state: pulumi_wasm_rust::Output<String>,
+        pub state: pulumi_gestalt_rust::Output<String>,
         /// The Identifier for this User, which must be unique within the API Management Service. Changing this forces a new resource to be created.
-        pub user_id: pulumi_wasm_rust::Output<String>,
+        pub user_id: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: UserArgs,
     ) -> UserResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let api_management_name_binding = args
             .api_management_name
@@ -187,28 +187,30 @@ pub mod user {
         };
         let o = register_interface::register(context.get_inner(), &request);
         UserResult {
-            api_management_name: pulumi_wasm_rust::__private::into_domain(
+            api_management_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("apiManagementName"),
             ),
-            confirmation: pulumi_wasm_rust::__private::into_domain(
+            confirmation: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("confirmation"),
             ),
-            email: pulumi_wasm_rust::__private::into_domain(o.extract_field("email")),
-            first_name: pulumi_wasm_rust::__private::into_domain(
+            email: pulumi_gestalt_rust::__private::into_domain(o.extract_field("email")),
+            first_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("firstName"),
             ),
-            last_name: pulumi_wasm_rust::__private::into_domain(
+            last_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("lastName"),
             ),
-            note: pulumi_wasm_rust::__private::into_domain(o.extract_field("note")),
-            password: pulumi_wasm_rust::__private::into_domain(
+            note: pulumi_gestalt_rust::__private::into_domain(o.extract_field("note")),
+            password: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("password"),
             ),
-            resource_group_name: pulumi_wasm_rust::__private::into_domain(
+            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("resourceGroupName"),
             ),
-            state: pulumi_wasm_rust::__private::into_domain(o.extract_field("state")),
-            user_id: pulumi_wasm_rust::__private::into_domain(o.extract_field("userId")),
+            state: pulumi_gestalt_rust::__private::into_domain(o.extract_field("state")),
+            user_id: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("userId"),
+            ),
         }
     }
 }

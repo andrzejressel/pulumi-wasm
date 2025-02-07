@@ -3,8 +3,8 @@
 /// ## NetApp Snapshot Policy Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = resource_group::create(
@@ -73,81 +73,81 @@
 /// ```
 ///
 pub mod snapshot_policy {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct SnapshotPolicyArgs {
         /// The name of the NetApp Account in which the NetApp Snapshot Policy should be created. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub account_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub account_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Sets a daily snapshot schedule. A `daily_schedule` block as defined below.
         #[builder(into, default)]
-        pub daily_schedule: pulumi_wasm_rust::InputOrOutput<
+        pub daily_schedule: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::netapp::SnapshotPolicyDailySchedule>,
         >,
         /// Defines that the NetApp Snapshot Policy is enabled or not.
         #[builder(into)]
-        pub enabled: pulumi_wasm_rust::InputOrOutput<bool>,
+        pub enabled: pulumi_gestalt_rust::InputOrOutput<bool>,
         /// Sets an hourly snapshot schedule. A `hourly_schedule` block as defined below.
         #[builder(into, default)]
-        pub hourly_schedule: pulumi_wasm_rust::InputOrOutput<
+        pub hourly_schedule: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::netapp::SnapshotPolicyHourlySchedule>,
         >,
         /// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub location: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub location: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Sets a monthly snapshot schedule. A `monthly_schedule` block as defined below.
         #[builder(into, default)]
-        pub monthly_schedule: pulumi_wasm_rust::InputOrOutput<
+        pub monthly_schedule: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::netapp::SnapshotPolicyMonthlySchedule>,
         >,
         /// The name of the NetApp Snapshot Policy. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The name of the resource group where the NetApp Snapshot Policy should be created. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub resource_group_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub resource_group_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// A mapping of tags to assign to the resource.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Sets a weekly snapshot schedule. A `weekly_schedule` block as defined below.
         #[builder(into, default)]
-        pub weekly_schedule: pulumi_wasm_rust::InputOrOutput<
+        pub weekly_schedule: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::netapp::SnapshotPolicyWeeklySchedule>,
         >,
     }
     #[allow(dead_code)]
     pub struct SnapshotPolicyResult {
         /// The name of the NetApp Account in which the NetApp Snapshot Policy should be created. Changing this forces a new resource to be created.
-        pub account_name: pulumi_wasm_rust::Output<String>,
+        pub account_name: pulumi_gestalt_rust::Output<String>,
         /// Sets a daily snapshot schedule. A `daily_schedule` block as defined below.
-        pub daily_schedule: pulumi_wasm_rust::Output<
+        pub daily_schedule: pulumi_gestalt_rust::Output<
             Option<super::super::types::netapp::SnapshotPolicyDailySchedule>,
         >,
         /// Defines that the NetApp Snapshot Policy is enabled or not.
-        pub enabled: pulumi_wasm_rust::Output<bool>,
+        pub enabled: pulumi_gestalt_rust::Output<bool>,
         /// Sets an hourly snapshot schedule. A `hourly_schedule` block as defined below.
-        pub hourly_schedule: pulumi_wasm_rust::Output<
+        pub hourly_schedule: pulumi_gestalt_rust::Output<
             Option<super::super::types::netapp::SnapshotPolicyHourlySchedule>,
         >,
         /// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
-        pub location: pulumi_wasm_rust::Output<String>,
+        pub location: pulumi_gestalt_rust::Output<String>,
         /// Sets a monthly snapshot schedule. A `monthly_schedule` block as defined below.
-        pub monthly_schedule: pulumi_wasm_rust::Output<
+        pub monthly_schedule: pulumi_gestalt_rust::Output<
             Option<super::super::types::netapp::SnapshotPolicyMonthlySchedule>,
         >,
         /// The name of the NetApp Snapshot Policy. Changing this forces a new resource to be created.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// The name of the resource group where the NetApp Snapshot Policy should be created. Changing this forces a new resource to be created.
-        pub resource_group_name: pulumi_wasm_rust::Output<String>,
+        pub resource_group_name: pulumi_gestalt_rust::Output<String>,
         /// A mapping of tags to assign to the resource.
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Sets a weekly snapshot schedule. A `weekly_schedule` block as defined below.
-        pub weekly_schedule: pulumi_wasm_rust::Output<
+        pub weekly_schedule: pulumi_gestalt_rust::Output<
             Option<super::super::types::netapp::SnapshotPolicyWeeklySchedule>,
         >,
     }
@@ -156,11 +156,11 @@ pub mod snapshot_policy {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: SnapshotPolicyArgs,
     ) -> SnapshotPolicyResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let account_name_binding = args.account_name.get_output(context).get_inner();
         let daily_schedule_binding = args.daily_schedule.get_output(context).get_inner();
@@ -233,30 +233,30 @@ pub mod snapshot_policy {
         };
         let o = register_interface::register(context.get_inner(), &request);
         SnapshotPolicyResult {
-            account_name: pulumi_wasm_rust::__private::into_domain(
+            account_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("accountName"),
             ),
-            daily_schedule: pulumi_wasm_rust::__private::into_domain(
+            daily_schedule: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("dailySchedule"),
             ),
-            enabled: pulumi_wasm_rust::__private::into_domain(
+            enabled: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("enabled"),
             ),
-            hourly_schedule: pulumi_wasm_rust::__private::into_domain(
+            hourly_schedule: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("hourlySchedule"),
             ),
-            location: pulumi_wasm_rust::__private::into_domain(
+            location: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("location"),
             ),
-            monthly_schedule: pulumi_wasm_rust::__private::into_domain(
+            monthly_schedule: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("monthlySchedule"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            resource_group_name: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("resourceGroupName"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
-            weekly_schedule: pulumi_wasm_rust::__private::into_domain(
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            weekly_schedule: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("weeklySchedule"),
             ),
         }

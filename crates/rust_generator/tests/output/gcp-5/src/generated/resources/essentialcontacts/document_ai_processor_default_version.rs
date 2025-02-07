@@ -8,8 +8,8 @@
 ///
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let processor = document_ai_processor::create(
@@ -43,7 +43,7 @@
 /// ```
 ///
 pub mod document_ai_processor_default_version {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct DocumentAiProcessorDefaultVersionArgs {
@@ -52,11 +52,11 @@ pub mod document_ai_processor_default_version {
         ///
         /// - - -
         #[builder(into)]
-        pub processor: pulumi_wasm_rust::InputOrOutput<String>,
+        pub processor: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The version to set. Using `stable` or `rc` will cause the API to return the latest version in that release channel.
         /// Apply `lifecycle.ignore_changes` to the `version` field to suppress this diff.
         #[builder(into)]
-        pub version: pulumi_wasm_rust::InputOrOutput<String>,
+        pub version: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct DocumentAiProcessorDefaultVersionResult {
@@ -64,21 +64,21 @@ pub mod document_ai_processor_default_version {
         ///
         ///
         /// - - -
-        pub processor: pulumi_wasm_rust::Output<String>,
+        pub processor: pulumi_gestalt_rust::Output<String>,
         /// The version to set. Using `stable` or `rc` will cause the API to return the latest version in that release channel.
         /// Apply `lifecycle.ignore_changes` to the `version` field to suppress this diff.
-        pub version: pulumi_wasm_rust::Output<String>,
+        pub version: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: DocumentAiProcessorDefaultVersionArgs,
     ) -> DocumentAiProcessorDefaultVersionResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let processor_binding = args.processor.get_output(context).get_inner();
         let version_binding = args.version.get_output(context).get_inner();
@@ -100,10 +100,12 @@ pub mod document_ai_processor_default_version {
         };
         let o = register_interface::register(context.get_inner(), &request);
         DocumentAiProcessorDefaultVersionResult {
-            processor: pulumi_wasm_rust::__private::into_domain(
+            processor: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("processor"),
             ),
-            version: pulumi_wasm_rust::__private::into_domain(o.extract_field("version")),
+            version: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("version"),
+            ),
         }
     }
 }

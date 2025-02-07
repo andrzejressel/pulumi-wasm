@@ -13,8 +13,8 @@ use syn::LitStr;
 
 pub fn generate_code(example: Example) -> Result<String> {
     let mut result = r"
-use pulumi_wasm_rust::Output;
-use pulumi_wasm_rust::{add_export, pulumi_main};
+use pulumi_gestalt_rust::Output;
+use pulumi_gestalt_rust::{add_export, pulumi_main};
 #[pulumi_main]
 fn test_main() -> Result<(), Error> {
     "

@@ -52,47 +52,51 @@
 /// ```
 ///
 pub mod spring_cloud_dev_tool_portal {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct SpringCloudDevToolPortalArgs {
         /// Should the Accelerator plugin be enabled?
         #[builder(into, default)]
-        pub application_accelerator_enabled: pulumi_wasm_rust::InputOrOutput<
+        pub application_accelerator_enabled: pulumi_gestalt_rust::InputOrOutput<
             Option<bool>,
         >,
         /// Should the Application Live View be enabled?
         #[builder(into, default)]
-        pub application_live_view_enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub application_live_view_enabled: pulumi_gestalt_rust::InputOrOutput<
+            Option<bool>,
+        >,
         /// The name which should be used for this Spring Cloud Dev Tool Portal. The only possible value is `default`. Changing this forces a new Spring Cloud Dev Tool Portal to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Is public network access enabled?
         #[builder(into, default)]
-        pub public_network_access_enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub public_network_access_enabled: pulumi_gestalt_rust::InputOrOutput<
+            Option<bool>,
+        >,
         /// The ID of the Spring Cloud Service. Changing this forces a new Spring Cloud Dev Tool Portal to be created.
         #[builder(into)]
-        pub spring_cloud_service_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub spring_cloud_service_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// A `sso` block as defined below.
         #[builder(into, default)]
-        pub sso: pulumi_wasm_rust::InputOrOutput<
+        pub sso: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::appplatform::SpringCloudDevToolPortalSso>,
         >,
     }
     #[allow(dead_code)]
     pub struct SpringCloudDevToolPortalResult {
         /// Should the Accelerator plugin be enabled?
-        pub application_accelerator_enabled: pulumi_wasm_rust::Output<bool>,
+        pub application_accelerator_enabled: pulumi_gestalt_rust::Output<bool>,
         /// Should the Application Live View be enabled?
-        pub application_live_view_enabled: pulumi_wasm_rust::Output<bool>,
+        pub application_live_view_enabled: pulumi_gestalt_rust::Output<bool>,
         /// The name which should be used for this Spring Cloud Dev Tool Portal. The only possible value is `default`. Changing this forces a new Spring Cloud Dev Tool Portal to be created.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// Is public network access enabled?
-        pub public_network_access_enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub public_network_access_enabled: pulumi_gestalt_rust::Output<Option<bool>>,
         /// The ID of the Spring Cloud Service. Changing this forces a new Spring Cloud Dev Tool Portal to be created.
-        pub spring_cloud_service_id: pulumi_wasm_rust::Output<String>,
+        pub spring_cloud_service_id: pulumi_gestalt_rust::Output<String>,
         /// A `sso` block as defined below.
-        pub sso: pulumi_wasm_rust::Output<
+        pub sso: pulumi_gestalt_rust::Output<
             Option<super::super::types::appplatform::SpringCloudDevToolPortalSso>,
         >,
     }
@@ -101,11 +105,11 @@ pub mod spring_cloud_dev_tool_portal {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: SpringCloudDevToolPortalArgs,
     ) -> SpringCloudDevToolPortalResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let application_accelerator_enabled_binding = args
             .application_accelerator_enabled
@@ -159,20 +163,20 @@ pub mod spring_cloud_dev_tool_portal {
         };
         let o = register_interface::register(context.get_inner(), &request);
         SpringCloudDevToolPortalResult {
-            application_accelerator_enabled: pulumi_wasm_rust::__private::into_domain(
+            application_accelerator_enabled: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("applicationAcceleratorEnabled"),
             ),
-            application_live_view_enabled: pulumi_wasm_rust::__private::into_domain(
+            application_live_view_enabled: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("applicationLiveViewEnabled"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            public_network_access_enabled: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            public_network_access_enabled: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("publicNetworkAccessEnabled"),
             ),
-            spring_cloud_service_id: pulumi_wasm_rust::__private::into_domain(
+            spring_cloud_service_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("springCloudServiceId"),
             ),
-            sso: pulumi_wasm_rust::__private::into_domain(o.extract_field("sso")),
+            sso: pulumi_gestalt_rust::__private::into_domain(o.extract_field("sso")),
         }
     }
 }

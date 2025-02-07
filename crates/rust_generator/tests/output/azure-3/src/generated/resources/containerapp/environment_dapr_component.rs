@@ -3,8 +3,8 @@
 /// ## Example Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = resource_group::create(
@@ -54,89 +54,89 @@
 /// ```
 ///
 pub mod environment_dapr_component {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct EnvironmentDaprComponentArgs {
         /// The Dapr Component Type. For example `state.azure.blobstorage`. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub component_type: pulumi_wasm_rust::InputOrOutput<String>,
+        pub component_type: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The ID of the Container App Managed Environment for this Dapr Component. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub container_app_environment_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub container_app_environment_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Should the Dapr sidecar to continue initialisation if the component fails to load. Defaults to `false`
         #[builder(into, default)]
-        pub ignore_errors: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub ignore_errors: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// The timeout for component initialisation as a `ISO8601` formatted string. e.g. `5s`, `2h`, `1m`. Defaults to `5s`.
         #[builder(into, default)]
-        pub init_timeout: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub init_timeout: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// One or more `metadata` blocks as detailed below.
         #[builder(into, default)]
-        pub metadatas: pulumi_wasm_rust::InputOrOutput<
+        pub metadatas: pulumi_gestalt_rust::InputOrOutput<
             Option<
                 Vec<super::super::types::containerapp::EnvironmentDaprComponentMetadata>,
             >,
         >,
         /// The name for this Dapr component. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// A list of scopes to which this component applies.
         ///
         /// > **NOTE:** See the official docs for more information at https://learn.microsoft.com/en-us/azure/container-apps/dapr-overview?tabs=bicep1%2Cyaml#component-scopes
         #[builder(into, default)]
-        pub scopes: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
+        pub scopes: pulumi_gestalt_rust::InputOrOutput<Option<Vec<String>>>,
         /// A `secret` block as detailed below.
         #[builder(into, default)]
-        pub secrets: pulumi_wasm_rust::InputOrOutput<
+        pub secrets: pulumi_gestalt_rust::InputOrOutput<
             Option<
                 Vec<super::super::types::containerapp::EnvironmentDaprComponentSecret>,
             >,
         >,
         /// The version of the component.
         #[builder(into)]
-        pub version: pulumi_wasm_rust::InputOrOutput<String>,
+        pub version: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct EnvironmentDaprComponentResult {
         /// The Dapr Component Type. For example `state.azure.blobstorage`. Changing this forces a new resource to be created.
-        pub component_type: pulumi_wasm_rust::Output<String>,
+        pub component_type: pulumi_gestalt_rust::Output<String>,
         /// The ID of the Container App Managed Environment for this Dapr Component. Changing this forces a new resource to be created.
-        pub container_app_environment_id: pulumi_wasm_rust::Output<String>,
+        pub container_app_environment_id: pulumi_gestalt_rust::Output<String>,
         /// Should the Dapr sidecar to continue initialisation if the component fails to load. Defaults to `false`
-        pub ignore_errors: pulumi_wasm_rust::Output<Option<bool>>,
+        pub ignore_errors: pulumi_gestalt_rust::Output<Option<bool>>,
         /// The timeout for component initialisation as a `ISO8601` formatted string. e.g. `5s`, `2h`, `1m`. Defaults to `5s`.
-        pub init_timeout: pulumi_wasm_rust::Output<Option<String>>,
+        pub init_timeout: pulumi_gestalt_rust::Output<Option<String>>,
         /// One or more `metadata` blocks as detailed below.
-        pub metadatas: pulumi_wasm_rust::Output<
+        pub metadatas: pulumi_gestalt_rust::Output<
             Option<
                 Vec<super::super::types::containerapp::EnvironmentDaprComponentMetadata>,
             >,
         >,
         /// The name for this Dapr component. Changing this forces a new resource to be created.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// A list of scopes to which this component applies.
         ///
         /// > **NOTE:** See the official docs for more information at https://learn.microsoft.com/en-us/azure/container-apps/dapr-overview?tabs=bicep1%2Cyaml#component-scopes
-        pub scopes: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub scopes: pulumi_gestalt_rust::Output<Option<Vec<String>>>,
         /// A `secret` block as detailed below.
-        pub secrets: pulumi_wasm_rust::Output<
+        pub secrets: pulumi_gestalt_rust::Output<
             Option<
                 Vec<super::super::types::containerapp::EnvironmentDaprComponentSecret>,
             >,
         >,
         /// The version of the component.
-        pub version: pulumi_wasm_rust::Output<String>,
+        pub version: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: EnvironmentDaprComponentArgs,
     ) -> EnvironmentDaprComponentResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let component_type_binding = args.component_type.get_output(context).get_inner();
         let container_app_environment_id_binding = args
@@ -196,27 +196,31 @@ pub mod environment_dapr_component {
         };
         let o = register_interface::register(context.get_inner(), &request);
         EnvironmentDaprComponentResult {
-            component_type: pulumi_wasm_rust::__private::into_domain(
+            component_type: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("componentType"),
             ),
-            container_app_environment_id: pulumi_wasm_rust::__private::into_domain(
+            container_app_environment_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("containerAppEnvironmentId"),
             ),
-            ignore_errors: pulumi_wasm_rust::__private::into_domain(
+            ignore_errors: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("ignoreErrors"),
             ),
-            init_timeout: pulumi_wasm_rust::__private::into_domain(
+            init_timeout: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("initTimeout"),
             ),
-            metadatas: pulumi_wasm_rust::__private::into_domain(
+            metadatas: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("metadatas"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            scopes: pulumi_wasm_rust::__private::into_domain(o.extract_field("scopes")),
-            secrets: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            scopes: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("scopes"),
+            ),
+            secrets: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("secrets"),
             ),
-            version: pulumi_wasm_rust::__private::into_domain(o.extract_field("version")),
+            version: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("version"),
+            ),
         }
     }
 }

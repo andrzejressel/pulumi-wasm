@@ -140,7 +140,7 @@
 /// ```
 ///
 pub mod workstation_cluster {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct WorkstationClusterArgs {
@@ -148,36 +148,36 @@ pub mod workstation_cluster {
         /// **Note**: This field is non-authoritative, and will only manage the annotations present in your configuration.
         /// Please refer to the field `effective_annotations` for all of the annotations present on the resource.
         #[builder(into, default)]
-        pub annotations: pulumi_wasm_rust::InputOrOutput<
+        pub annotations: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Human-readable name for this resource.
         #[builder(into, default)]
-        pub display_name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub display_name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Configuration options for a custom domain.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub domain_config: pulumi_wasm_rust::InputOrOutput<
+        pub domain_config: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::workstations::WorkstationClusterDomainConfig>,
         >,
         /// Client-specified labels that are applied to the resource and that are also propagated to the underlying Compute Engine resources.
         /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
         /// Please refer to the field `effective_labels` for all of the labels present on the resource.
         #[builder(into, default)]
-        pub labels: pulumi_wasm_rust::InputOrOutput<
+        pub labels: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// The location where the workstation cluster should reside.
         #[builder(into, default)]
-        pub location: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub location: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The relative resource name of the VPC network on which the instance can be accessed.
         /// It is specified in the following form: "projects/{projectNumber}/global/networks/{network_id}".
         #[builder(into)]
-        pub network: pulumi_wasm_rust::InputOrOutput<String>,
+        pub network: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Configuration for private cluster.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub private_cluster_config: pulumi_wasm_rust::InputOrOutput<
+        pub private_cluster_config: pulumi_gestalt_rust::InputOrOutput<
             Option<
                 super::super::types::workstations::WorkstationClusterPrivateClusterConfig,
             >,
@@ -185,105 +185,105 @@ pub mod workstation_cluster {
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub project: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Name of the Compute Engine subnetwork in which instances associated with this cluster will be created.
         /// Must be part of the subnetwork specified for this cluster.
         #[builder(into)]
-        pub subnetwork: pulumi_wasm_rust::InputOrOutput<String>,
+        pub subnetwork: pulumi_gestalt_rust::InputOrOutput<String>,
         /// ID to use for the workstation cluster.
         ///
         ///
         /// - - -
         #[builder(into)]
-        pub workstation_cluster_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub workstation_cluster_id: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct WorkstationClusterResult {
         /// Client-specified annotations. This is distinct from labels.
         /// **Note**: This field is non-authoritative, and will only manage the annotations present in your configuration.
         /// Please refer to the field `effective_annotations` for all of the annotations present on the resource.
-        pub annotations: pulumi_wasm_rust::Output<
+        pub annotations: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Status conditions describing the current resource state.
         /// Structure is documented below.
-        pub conditions: pulumi_wasm_rust::Output<
+        pub conditions: pulumi_gestalt_rust::Output<
             Vec<super::super::types::workstations::WorkstationClusterCondition>,
         >,
         /// The private IP address of the control plane for this workstation cluster.
         /// Workstation VMs need access to this IP address to work with the service, so make sure that your firewall rules allow egress from the workstation VMs to this address.
-        pub control_plane_ip: pulumi_wasm_rust::Output<String>,
+        pub control_plane_ip: pulumi_gestalt_rust::Output<String>,
         /// Time when this resource was created.
-        pub create_time: pulumi_wasm_rust::Output<String>,
+        pub create_time: pulumi_gestalt_rust::Output<String>,
         /// Whether this resource is in degraded mode, in which case it may require user action to restore full functionality.
         /// Details can be found in the conditions field.
-        pub degraded: pulumi_wasm_rust::Output<bool>,
+        pub degraded: pulumi_gestalt_rust::Output<bool>,
         /// Human-readable name for this resource.
-        pub display_name: pulumi_wasm_rust::Output<Option<String>>,
+        pub display_name: pulumi_gestalt_rust::Output<Option<String>>,
         /// Configuration options for a custom domain.
         /// Structure is documented below.
-        pub domain_config: pulumi_wasm_rust::Output<
+        pub domain_config: pulumi_gestalt_rust::Output<
             Option<super::super::types::workstations::WorkstationClusterDomainConfig>,
         >,
-        pub effective_annotations: pulumi_wasm_rust::Output<
+        pub effective_annotations: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
         /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Pulumi, other clients and services.
-        pub effective_labels: pulumi_wasm_rust::Output<
+        pub effective_labels: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
         /// Checksum computed by the server.
         /// May be sent on update and delete requests to ensure that the client has an up-to-date value before proceeding.
-        pub etag: pulumi_wasm_rust::Output<String>,
+        pub etag: pulumi_gestalt_rust::Output<String>,
         /// Client-specified labels that are applied to the resource and that are also propagated to the underlying Compute Engine resources.
         /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
         /// Please refer to the field `effective_labels` for all of the labels present on the resource.
-        pub labels: pulumi_wasm_rust::Output<
+        pub labels: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// The location where the workstation cluster should reside.
-        pub location: pulumi_wasm_rust::Output<Option<String>>,
+        pub location: pulumi_gestalt_rust::Output<Option<String>>,
         /// The name of the cluster resource.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// The relative resource name of the VPC network on which the instance can be accessed.
         /// It is specified in the following form: "projects/{projectNumber}/global/networks/{network_id}".
-        pub network: pulumi_wasm_rust::Output<String>,
+        pub network: pulumi_gestalt_rust::Output<String>,
         /// Configuration for private cluster.
         /// Structure is documented below.
-        pub private_cluster_config: pulumi_wasm_rust::Output<
+        pub private_cluster_config: pulumi_gestalt_rust::Output<
             Option<
                 super::super::types::workstations::WorkstationClusterPrivateClusterConfig,
             >,
         >,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
-        pub project: pulumi_wasm_rust::Output<String>,
+        pub project: pulumi_gestalt_rust::Output<String>,
         /// The combination of labels configured directly on the resource
         /// and default labels configured on the provider.
-        pub pulumi_labels: pulumi_wasm_rust::Output<
+        pub pulumi_labels: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
         /// Name of the Compute Engine subnetwork in which instances associated with this cluster will be created.
         /// Must be part of the subnetwork specified for this cluster.
-        pub subnetwork: pulumi_wasm_rust::Output<String>,
+        pub subnetwork: pulumi_gestalt_rust::Output<String>,
         /// The system-generated UID of the resource.
-        pub uid: pulumi_wasm_rust::Output<String>,
+        pub uid: pulumi_gestalt_rust::Output<String>,
         /// ID to use for the workstation cluster.
         ///
         ///
         /// - - -
-        pub workstation_cluster_id: pulumi_wasm_rust::Output<String>,
+        pub workstation_cluster_id: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: WorkstationClusterArgs,
     ) -> WorkstationClusterResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let annotations_binding = args.annotations.get_output(context).get_inner();
         let display_name_binding = args.display_name.get_output(context).get_inner();
@@ -350,56 +350,58 @@ pub mod workstation_cluster {
         };
         let o = register_interface::register(context.get_inner(), &request);
         WorkstationClusterResult {
-            annotations: pulumi_wasm_rust::__private::into_domain(
+            annotations: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("annotations"),
             ),
-            conditions: pulumi_wasm_rust::__private::into_domain(
+            conditions: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("conditions"),
             ),
-            control_plane_ip: pulumi_wasm_rust::__private::into_domain(
+            control_plane_ip: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("controlPlaneIp"),
             ),
-            create_time: pulumi_wasm_rust::__private::into_domain(
+            create_time: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("createTime"),
             ),
-            degraded: pulumi_wasm_rust::__private::into_domain(
+            degraded: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("degraded"),
             ),
-            display_name: pulumi_wasm_rust::__private::into_domain(
+            display_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("displayName"),
             ),
-            domain_config: pulumi_wasm_rust::__private::into_domain(
+            domain_config: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("domainConfig"),
             ),
-            effective_annotations: pulumi_wasm_rust::__private::into_domain(
+            effective_annotations: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("effectiveAnnotations"),
             ),
-            effective_labels: pulumi_wasm_rust::__private::into_domain(
+            effective_labels: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("effectiveLabels"),
             ),
-            etag: pulumi_wasm_rust::__private::into_domain(o.extract_field("etag")),
-            labels: pulumi_wasm_rust::__private::into_domain(o.extract_field("labels")),
-            location: pulumi_wasm_rust::__private::into_domain(
+            etag: pulumi_gestalt_rust::__private::into_domain(o.extract_field("etag")),
+            labels: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("labels"),
+            ),
+            location: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("location"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            network: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            network: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("network"),
             ),
-            private_cluster_config: pulumi_wasm_rust::__private::into_domain(
+            private_cluster_config: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("privateClusterConfig"),
             ),
-            project: pulumi_wasm_rust::__private::into_domain(
+            project: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("project"),
             ),
-            pulumi_labels: pulumi_wasm_rust::__private::into_domain(
+            pulumi_labels: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("pulumiLabels"),
             ),
-            subnetwork: pulumi_wasm_rust::__private::into_domain(
+            subnetwork: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("subnetwork"),
             ),
-            uid: pulumi_wasm_rust::__private::into_domain(o.extract_field("uid")),
-            workstation_cluster_id: pulumi_wasm_rust::__private::into_domain(
+            uid: pulumi_gestalt_rust::__private::into_domain(o.extract_field("uid")),
+            workstation_cluster_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("workstationClusterId"),
             ),
         }

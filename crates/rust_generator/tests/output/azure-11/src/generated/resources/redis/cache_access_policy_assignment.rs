@@ -49,49 +49,49 @@
 /// ```
 ///
 pub mod cache_access_policy_assignment {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct CacheAccessPolicyAssignmentArgs {
         /// The name of the Access Policy to be assigned. Changing this forces a new Redis Cache Access Policy Assignment to be created.
         #[builder(into)]
-        pub access_policy_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub access_policy_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The name of the Redis Cache Access Policy Assignment. Changing this forces a new Redis Cache Access Policy Assignment to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The principal ID to be assigned the Access Policy. Changing this forces a new Redis Cache Access Policy Assignment to be created.
         #[builder(into)]
-        pub object_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub object_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The alias of the principal ID. User-friendly name for object ID. Also represents username for token based authentication. Changing this forces a new Redis Cache Access Policy Assignment to be created.
         #[builder(into)]
-        pub object_id_alias: pulumi_wasm_rust::InputOrOutput<String>,
+        pub object_id_alias: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The ID of the Redis Cache. Changing this forces a new Redis Cache Access Policy Assignment to be created.
         #[builder(into)]
-        pub redis_cache_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub redis_cache_id: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct CacheAccessPolicyAssignmentResult {
         /// The name of the Access Policy to be assigned. Changing this forces a new Redis Cache Access Policy Assignment to be created.
-        pub access_policy_name: pulumi_wasm_rust::Output<String>,
+        pub access_policy_name: pulumi_gestalt_rust::Output<String>,
         /// The name of the Redis Cache Access Policy Assignment. Changing this forces a new Redis Cache Access Policy Assignment to be created.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// The principal ID to be assigned the Access Policy. Changing this forces a new Redis Cache Access Policy Assignment to be created.
-        pub object_id: pulumi_wasm_rust::Output<String>,
+        pub object_id: pulumi_gestalt_rust::Output<String>,
         /// The alias of the principal ID. User-friendly name for object ID. Also represents username for token based authentication. Changing this forces a new Redis Cache Access Policy Assignment to be created.
-        pub object_id_alias: pulumi_wasm_rust::Output<String>,
+        pub object_id_alias: pulumi_gestalt_rust::Output<String>,
         /// The ID of the Redis Cache. Changing this forces a new Redis Cache Access Policy Assignment to be created.
-        pub redis_cache_id: pulumi_wasm_rust::Output<String>,
+        pub redis_cache_id: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: CacheAccessPolicyAssignmentArgs,
     ) -> CacheAccessPolicyAssignmentResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let access_policy_name_binding = args
             .access_policy_name
@@ -134,17 +134,17 @@ pub mod cache_access_policy_assignment {
         };
         let o = register_interface::register(context.get_inner(), &request);
         CacheAccessPolicyAssignmentResult {
-            access_policy_name: pulumi_wasm_rust::__private::into_domain(
+            access_policy_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("accessPolicyName"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            object_id: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            object_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("objectId"),
             ),
-            object_id_alias: pulumi_wasm_rust::__private::into_domain(
+            object_id_alias: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("objectIdAlias"),
             ),
-            redis_cache_id: pulumi_wasm_rust::__private::into_domain(
+            redis_cache_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("redisCacheId"),
             ),
         }

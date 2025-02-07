@@ -3,8 +3,8 @@
 /// ## Example Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = conditional_forwader::create(
@@ -26,39 +26,39 @@
 /// $ pulumi import aws:directoryservice/conditionalForwader:ConditionalForwader example d-1234567890:example.com
 /// ```
 pub mod conditional_forwader {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ConditionalForwaderArgs {
         /// ID of directory.
         #[builder(into)]
-        pub directory_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub directory_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// A list of forwarder IP addresses.
         #[builder(into)]
-        pub dns_ips: pulumi_wasm_rust::InputOrOutput<Vec<String>>,
+        pub dns_ips: pulumi_gestalt_rust::InputOrOutput<Vec<String>>,
         /// The fully qualified domain name of the remote domain for which forwarders will be used.
         #[builder(into)]
-        pub remote_domain_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub remote_domain_name: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct ConditionalForwaderResult {
         /// ID of directory.
-        pub directory_id: pulumi_wasm_rust::Output<String>,
+        pub directory_id: pulumi_gestalt_rust::Output<String>,
         /// A list of forwarder IP addresses.
-        pub dns_ips: pulumi_wasm_rust::Output<Vec<String>>,
+        pub dns_ips: pulumi_gestalt_rust::Output<Vec<String>>,
         /// The fully qualified domain name of the remote domain for which forwarders will be used.
-        pub remote_domain_name: pulumi_wasm_rust::Output<String>,
+        pub remote_domain_name: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: ConditionalForwaderArgs,
     ) -> ConditionalForwaderResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let directory_id_binding = args.directory_id.get_output(context).get_inner();
         let dns_ips_binding = args.dns_ips.get_output(context).get_inner();
@@ -87,11 +87,13 @@ pub mod conditional_forwader {
         };
         let o = register_interface::register(context.get_inner(), &request);
         ConditionalForwaderResult {
-            directory_id: pulumi_wasm_rust::__private::into_domain(
+            directory_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("directoryId"),
             ),
-            dns_ips: pulumi_wasm_rust::__private::into_domain(o.extract_field("dnsIps")),
-            remote_domain_name: pulumi_wasm_rust::__private::into_domain(
+            dns_ips: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("dnsIps"),
+            ),
+            remote_domain_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("remoteDomainName"),
             ),
         }

@@ -3,8 +3,8 @@
 /// ## Example Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = vpc::create(
@@ -80,91 +80,91 @@
 /// $ pulumi import aws:servicediscovery/service:Service example 0123456789
 /// ```
 pub mod service {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ServiceArgs {
         /// The description of the service.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub description: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// A complex type that contains information about the resource record sets that you want Amazon Route 53 to create when you register an instance. See `dns_config` Block for details.
         #[builder(into, default)]
-        pub dns_config: pulumi_wasm_rust::InputOrOutput<
+        pub dns_config: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::servicediscovery::ServiceDnsConfig>,
         >,
         /// A boolean that indicates all instances should be deleted from the service so that the service can be destroyed without error. These instances are not recoverable. Defaults to `false`.
         #[builder(into, default)]
-        pub force_destroy: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub force_destroy: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// A complex type that contains settings for an optional health check. Only for Public DNS namespaces. See `health_check_config` Block for details.
         #[builder(into, default)]
-        pub health_check_config: pulumi_wasm_rust::InputOrOutput<
+        pub health_check_config: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::servicediscovery::ServiceHealthCheckConfig>,
         >,
         /// A complex type that contains settings for ECS managed health checks. See `health_check_custom_config` Block for details.
         #[builder(into, default)]
-        pub health_check_custom_config: pulumi_wasm_rust::InputOrOutput<
+        pub health_check_custom_config: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::servicediscovery::ServiceHealthCheckCustomConfig>,
         >,
         /// The name of the service.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The ID of the namespace that you want to use to create the service.
         #[builder(into, default)]
-        pub namespace_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub namespace_id: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// A map of tags to assign to the service. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// If present, specifies that the service instances are only discoverable using the `DiscoverInstances` API operation. No DNS records is registered for the service instances. The only valid value is `HTTP`.
         #[builder(into, default)]
-        pub type_: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub type_: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct ServiceResult {
         /// The ARN of the service.
-        pub arn: pulumi_wasm_rust::Output<String>,
+        pub arn: pulumi_gestalt_rust::Output<String>,
         /// The description of the service.
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_gestalt_rust::Output<Option<String>>,
         /// A complex type that contains information about the resource record sets that you want Amazon Route 53 to create when you register an instance. See `dns_config` Block for details.
-        pub dns_config: pulumi_wasm_rust::Output<
+        pub dns_config: pulumi_gestalt_rust::Output<
             Option<super::super::types::servicediscovery::ServiceDnsConfig>,
         >,
         /// A boolean that indicates all instances should be deleted from the service so that the service can be destroyed without error. These instances are not recoverable. Defaults to `false`.
-        pub force_destroy: pulumi_wasm_rust::Output<Option<bool>>,
+        pub force_destroy: pulumi_gestalt_rust::Output<Option<bool>>,
         /// A complex type that contains settings for an optional health check. Only for Public DNS namespaces. See `health_check_config` Block for details.
-        pub health_check_config: pulumi_wasm_rust::Output<
+        pub health_check_config: pulumi_gestalt_rust::Output<
             Option<super::super::types::servicediscovery::ServiceHealthCheckConfig>,
         >,
         /// A complex type that contains settings for ECS managed health checks. See `health_check_custom_config` Block for details.
-        pub health_check_custom_config: pulumi_wasm_rust::Output<
+        pub health_check_custom_config: pulumi_gestalt_rust::Output<
             Option<super::super::types::servicediscovery::ServiceHealthCheckCustomConfig>,
         >,
         /// The name of the service.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// The ID of the namespace that you want to use to create the service.
-        pub namespace_id: pulumi_wasm_rust::Output<String>,
+        pub namespace_id: pulumi_gestalt_rust::Output<String>,
         /// A map of tags to assign to the service. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        pub tags_all: pulumi_wasm_rust::Output<
+        pub tags_all: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
         /// If present, specifies that the service instances are only discoverable using the `DiscoverInstances` API operation. No DNS records is registered for the service instances. The only valid value is `HTTP`.
-        pub type_: pulumi_wasm_rust::Output<String>,
+        pub type_: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: ServiceArgs,
     ) -> ServiceResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let description_binding = args.description.get_output(context).get_inner();
         let dns_config_binding = args.dns_config.get_output(context).get_inner();
@@ -226,31 +226,31 @@ pub mod service {
         };
         let o = register_interface::register(context.get_inner(), &request);
         ServiceResult {
-            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
-            description: pulumi_wasm_rust::__private::into_domain(
+            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
+            description: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("description"),
             ),
-            dns_config: pulumi_wasm_rust::__private::into_domain(
+            dns_config: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("dnsConfig"),
             ),
-            force_destroy: pulumi_wasm_rust::__private::into_domain(
+            force_destroy: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("forceDestroy"),
             ),
-            health_check_config: pulumi_wasm_rust::__private::into_domain(
+            health_check_config: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("healthCheckConfig"),
             ),
-            health_check_custom_config: pulumi_wasm_rust::__private::into_domain(
+            health_check_custom_config: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("healthCheckCustomConfig"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            namespace_id: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            namespace_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("namespaceId"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_wasm_rust::__private::into_domain(
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            tags_all: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("tagsAll"),
             ),
-            type_: pulumi_wasm_rust::__private::into_domain(o.extract_field("type")),
+            type_: pulumi_gestalt_rust::__private::into_domain(o.extract_field("type")),
         }
     }
 }

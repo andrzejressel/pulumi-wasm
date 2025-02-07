@@ -1,5 +1,5 @@
 pub mod get_hc_vpn_gateway {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct GetHcVpnGatewayArgs {
@@ -8,29 +8,29 @@ pub mod get_hc_vpn_gateway {
         ///
         /// - - -
         #[builder(into)]
-        pub name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The project in which the resource belongs. If it
         /// is not provided, the provider project is used.
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub project: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The region in which the resource belongs. If it
         /// is not provided, the project region is used.
         #[builder(into, default)]
-        pub region: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub region: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct GetHcVpnGatewayResult {
-        pub description: pulumi_wasm_rust::Output<String>,
-        pub gateway_ip_version: pulumi_wasm_rust::Output<String>,
+        pub description: pulumi_gestalt_rust::Output<String>,
+        pub gateway_ip_version: pulumi_gestalt_rust::Output<String>,
         /// The provider-assigned unique ID for this managed resource.
-        pub id: pulumi_wasm_rust::Output<String>,
-        pub name: pulumi_wasm_rust::Output<String>,
-        pub network: pulumi_wasm_rust::Output<String>,
-        pub project: pulumi_wasm_rust::Output<Option<String>>,
-        pub region: pulumi_wasm_rust::Output<Option<String>>,
-        pub self_link: pulumi_wasm_rust::Output<String>,
-        pub stack_type: pulumi_wasm_rust::Output<String>,
-        pub vpn_interfaces: pulumi_wasm_rust::Output<
+        pub id: pulumi_gestalt_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
+        pub network: pulumi_gestalt_rust::Output<String>,
+        pub project: pulumi_gestalt_rust::Output<Option<String>>,
+        pub region: pulumi_gestalt_rust::Output<Option<String>>,
+        pub self_link: pulumi_gestalt_rust::Output<String>,
+        pub stack_type: pulumi_gestalt_rust::Output<String>,
+        pub vpn_interfaces: pulumi_gestalt_rust::Output<
             Vec<super::super::super::types::compute::GetHcVpnGatewayVpnInterface>,
         >,
     }
@@ -39,10 +39,10 @@ pub mod get_hc_vpn_gateway {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         args: GetHcVpnGatewayArgs,
     ) -> GetHcVpnGatewayResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let name_binding = args.name.get_output(context).get_inner();
         let project_binding = args.project.get_output(context).get_inner();
@@ -67,28 +67,30 @@ pub mod get_hc_vpn_gateway {
         };
         let o = register_interface::invoke(context.get_inner(), &request);
         GetHcVpnGatewayResult {
-            description: pulumi_wasm_rust::__private::into_domain(
+            description: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("description"),
             ),
-            gateway_ip_version: pulumi_wasm_rust::__private::into_domain(
+            gateway_ip_version: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("gatewayIpVersion"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            network: pulumi_wasm_rust::__private::into_domain(
+            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            network: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("network"),
             ),
-            project: pulumi_wasm_rust::__private::into_domain(
+            project: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("project"),
             ),
-            region: pulumi_wasm_rust::__private::into_domain(o.extract_field("region")),
-            self_link: pulumi_wasm_rust::__private::into_domain(
+            region: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("region"),
+            ),
+            self_link: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("selfLink"),
             ),
-            stack_type: pulumi_wasm_rust::__private::into_domain(
+            stack_type: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("stackType"),
             ),
-            vpn_interfaces: pulumi_wasm_rust::__private::into_domain(
+            vpn_interfaces: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("vpnInterfaces"),
             ),
         }

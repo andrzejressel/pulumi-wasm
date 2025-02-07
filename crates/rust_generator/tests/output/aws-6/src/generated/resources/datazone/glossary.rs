@@ -72,8 +72,8 @@
 /// ### Basic Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let test = glossary::create(
@@ -97,51 +97,51 @@
 /// $ pulumi import aws:datazone/glossary:Glossary example domain-id,glossary-id,owning-project-identifier
 /// ```
 pub mod glossary {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct GlossaryArgs {
         /// Description of the glossary. Must have a length between 0 and 4096.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub description: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         #[builder(into)]
-        pub domain_identifier: pulumi_wasm_rust::InputOrOutput<String>,
+        pub domain_identifier: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Name of the glossary. Must have length between 1 and 256.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// ID of the project that owns business glossary. Must follow regex of ^[a-zA-Z0-9_-]{1,36}$.
         ///
         /// The following arguments are optional:
         #[builder(into)]
-        pub owning_project_identifier: pulumi_wasm_rust::InputOrOutput<String>,
+        pub owning_project_identifier: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Status of business glossary. Valid values are DISABLED and ENABLED.
         #[builder(into, default)]
-        pub status: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub status: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct GlossaryResult {
         /// Description of the glossary. Must have a length between 0 and 4096.
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
-        pub domain_identifier: pulumi_wasm_rust::Output<String>,
+        pub description: pulumi_gestalt_rust::Output<Option<String>>,
+        pub domain_identifier: pulumi_gestalt_rust::Output<String>,
         /// Name of the glossary. Must have length between 1 and 256.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// ID of the project that owns business glossary. Must follow regex of ^[a-zA-Z0-9_-]{1,36}$.
         ///
         /// The following arguments are optional:
-        pub owning_project_identifier: pulumi_wasm_rust::Output<String>,
+        pub owning_project_identifier: pulumi_gestalt_rust::Output<String>,
         /// Status of business glossary. Valid values are DISABLED and ENABLED.
-        pub status: pulumi_wasm_rust::Output<Option<String>>,
+        pub status: pulumi_gestalt_rust::Output<Option<String>>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: GlossaryArgs,
     ) -> GlossaryResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let description_binding = args.description.get_output(context).get_inner();
         let domain_identifier_binding = args
@@ -183,17 +183,19 @@ pub mod glossary {
         };
         let o = register_interface::register(context.get_inner(), &request);
         GlossaryResult {
-            description: pulumi_wasm_rust::__private::into_domain(
+            description: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("description"),
             ),
-            domain_identifier: pulumi_wasm_rust::__private::into_domain(
+            domain_identifier: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("domainIdentifier"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            owning_project_identifier: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            owning_project_identifier: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("owningProjectIdentifier"),
             ),
-            status: pulumi_wasm_rust::__private::into_domain(o.extract_field("status")),
+            status: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("status"),
+            ),
         }
     }
 }

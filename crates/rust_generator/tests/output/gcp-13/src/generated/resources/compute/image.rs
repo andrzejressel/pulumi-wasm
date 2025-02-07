@@ -136,29 +136,29 @@
 /// ```
 ///
 pub mod image {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ImageArgs {
         /// An optional description of this resource. Provide this property when
         /// you create the resource.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub description: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Size of the image when restored onto a persistent disk (in GB).
         #[builder(into, default)]
-        pub disk_size_gb: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
+        pub disk_size_gb: pulumi_gestalt_rust::InputOrOutput<Option<i32>>,
         /// The name of the image family to which this image belongs. You can
         /// create disks by specifying an image family instead of a specific
         /// image name. The image family always returns its latest image that is
         /// not deprecated. The name of the image family must comply with
         /// RFC1035.
         #[builder(into, default)]
-        pub family: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub family: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// A list of features to enable on the guest operating system.
         /// Applicable only for bootable images.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub guest_os_features: pulumi_wasm_rust::InputOrOutput<
+        pub guest_os_features: pulumi_gestalt_rust::InputOrOutput<
             Option<Vec<super::super::types::compute::ImageGuestOsFeature>>,
         >,
         /// Encrypts the image using a customer-supplied encryption key.
@@ -167,19 +167,19 @@ pub mod image {
         /// disk from the image)
         /// Structure is documented below.
         #[builder(into, default)]
-        pub image_encryption_key: pulumi_wasm_rust::InputOrOutput<
+        pub image_encryption_key: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::compute::ImageImageEncryptionKey>,
         >,
         /// Labels to apply to this Image.
         /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
         /// Please refer to the field `effective_labels` for all of the labels present on the resource.
         #[builder(into, default)]
-        pub labels: pulumi_wasm_rust::InputOrOutput<
+        pub labels: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Any applicable license URI.
         #[builder(into, default)]
-        pub licenses: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
+        pub licenses: pulumi_gestalt_rust::InputOrOutput<Option<Vec<String>>>,
         /// Name of the resource; provided by the client when the resource is
         /// created. The name must be 1-63 characters long, and comply with
         /// RFC1035. Specifically, the name must be 1-63 characters long and
@@ -191,22 +191,22 @@ pub mod image {
         ///
         /// - - -
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub project: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The parameters of the raw disk image.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub raw_disk: pulumi_wasm_rust::InputOrOutput<
+        pub raw_disk: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::compute::ImageRawDisk>,
         >,
         /// The source disk to create this image based on.
         /// You must provide either this property or the
         /// rawDisk.source property but not both to create an image.
         #[builder(into, default)]
-        pub source_disk: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub source_disk: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// URL of the source image used to create this image. In order to create an image, you must provide the full or partial
         /// URL of one of the following:
         /// * The selfLink URL
@@ -214,7 +214,7 @@ pub mod image {
         /// * The rawDisk.source URL
         /// * The sourceDisk URL
         #[builder(into, default)]
-        pub source_image: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub source_image: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// URL of the source snapshot used to create this image.
         /// In order to create an image, you must provide the full or partial URL of one of the following:
         /// * The selfLink URL
@@ -223,27 +223,27 @@ pub mod image {
         /// * The rawDisk.source URL
         /// * The sourceDisk URL
         #[builder(into, default)]
-        pub source_snapshot: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub source_snapshot: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Cloud Storage bucket storage location of the image
         /// (regional or multi-regional).
         /// Reference link: https://cloud.google.com/compute/docs/reference/rest/v1/images
         #[builder(into, default)]
-        pub storage_locations: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
+        pub storage_locations: pulumi_gestalt_rust::InputOrOutput<Option<Vec<String>>>,
     }
     #[allow(dead_code)]
     pub struct ImageResult {
         /// Size of the image tar.gz archive stored in Google Cloud Storage (in
         /// bytes).
-        pub archive_size_bytes: pulumi_wasm_rust::Output<i32>,
+        pub archive_size_bytes: pulumi_gestalt_rust::Output<i32>,
         /// Creation timestamp in RFC3339 text format.
-        pub creation_timestamp: pulumi_wasm_rust::Output<String>,
+        pub creation_timestamp: pulumi_gestalt_rust::Output<String>,
         /// An optional description of this resource. Provide this property when
         /// you create the resource.
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_gestalt_rust::Output<Option<String>>,
         /// Size of the image when restored onto a persistent disk (in GB).
-        pub disk_size_gb: pulumi_wasm_rust::Output<i32>,
+        pub disk_size_gb: pulumi_gestalt_rust::Output<i32>,
         /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Pulumi, other clients and services.
-        pub effective_labels: pulumi_wasm_rust::Output<
+        pub effective_labels: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
         /// The name of the image family to which this image belongs. You can
@@ -251,11 +251,11 @@ pub mod image {
         /// image name. The image family always returns its latest image that is
         /// not deprecated. The name of the image family must comply with
         /// RFC1035.
-        pub family: pulumi_wasm_rust::Output<Option<String>>,
+        pub family: pulumi_gestalt_rust::Output<Option<String>>,
         /// A list of features to enable on the guest operating system.
         /// Applicable only for bootable images.
         /// Structure is documented below.
-        pub guest_os_features: pulumi_wasm_rust::Output<
+        pub guest_os_features: pulumi_gestalt_rust::Output<
             Vec<super::super::types::compute::ImageGuestOsFeature>,
         >,
         /// Encrypts the image using a customer-supplied encryption key.
@@ -263,20 +263,20 @@ pub mod image {
         /// provide the same key if you use the image later (e.g. to create a
         /// disk from the image)
         /// Structure is documented below.
-        pub image_encryption_key: pulumi_wasm_rust::Output<
+        pub image_encryption_key: pulumi_gestalt_rust::Output<
             Option<super::super::types::compute::ImageImageEncryptionKey>,
         >,
         /// The fingerprint used for optimistic locking of this resource. Used
         /// internally during updates.
-        pub label_fingerprint: pulumi_wasm_rust::Output<String>,
+        pub label_fingerprint: pulumi_gestalt_rust::Output<String>,
         /// Labels to apply to this Image.
         /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
         /// Please refer to the field `effective_labels` for all of the labels present on the resource.
-        pub labels: pulumi_wasm_rust::Output<
+        pub labels: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Any applicable license URI.
-        pub licenses: pulumi_wasm_rust::Output<Vec<String>>,
+        pub licenses: pulumi_gestalt_rust::Output<Vec<String>>,
         /// Name of the resource; provided by the client when the resource is
         /// created. The name must be 1-63 characters long, and comply with
         /// RFC1035. Specifically, the name must be 1-63 characters long and
@@ -287,33 +287,33 @@ pub mod image {
         ///
         ///
         /// - - -
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
-        pub project: pulumi_wasm_rust::Output<String>,
+        pub project: pulumi_gestalt_rust::Output<String>,
         /// The combination of labels configured directly on the resource
         /// and default labels configured on the provider.
-        pub pulumi_labels: pulumi_wasm_rust::Output<
+        pub pulumi_labels: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
         /// The parameters of the raw disk image.
         /// Structure is documented below.
-        pub raw_disk: pulumi_wasm_rust::Output<
+        pub raw_disk: pulumi_gestalt_rust::Output<
             Option<super::super::types::compute::ImageRawDisk>,
         >,
         /// The URI of the created resource.
-        pub self_link: pulumi_wasm_rust::Output<String>,
+        pub self_link: pulumi_gestalt_rust::Output<String>,
         /// The source disk to create this image based on.
         /// You must provide either this property or the
         /// rawDisk.source property but not both to create an image.
-        pub source_disk: pulumi_wasm_rust::Output<Option<String>>,
+        pub source_disk: pulumi_gestalt_rust::Output<Option<String>>,
         /// URL of the source image used to create this image. In order to create an image, you must provide the full or partial
         /// URL of one of the following:
         /// * The selfLink URL
         /// * This property
         /// * The rawDisk.source URL
         /// * The sourceDisk URL
-        pub source_image: pulumi_wasm_rust::Output<Option<String>>,
+        pub source_image: pulumi_gestalt_rust::Output<Option<String>>,
         /// URL of the source snapshot used to create this image.
         /// In order to create an image, you must provide the full or partial URL of one of the following:
         /// * The selfLink URL
@@ -321,22 +321,22 @@ pub mod image {
         /// * The sourceImage URL
         /// * The rawDisk.source URL
         /// * The sourceDisk URL
-        pub source_snapshot: pulumi_wasm_rust::Output<Option<String>>,
+        pub source_snapshot: pulumi_gestalt_rust::Output<Option<String>>,
         /// Cloud Storage bucket storage location of the image
         /// (regional or multi-regional).
         /// Reference link: https://cloud.google.com/compute/docs/reference/rest/v1/images
-        pub storage_locations: pulumi_wasm_rust::Output<Vec<String>>,
+        pub storage_locations: pulumi_gestalt_rust::Output<Vec<String>>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: ImageArgs,
     ) -> ImageResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let description_binding = args.description.get_output(context).get_inner();
         let disk_size_gb_binding = args.disk_size_gb.get_output(context).get_inner();
@@ -429,58 +429,62 @@ pub mod image {
         };
         let o = register_interface::register(context.get_inner(), &request);
         ImageResult {
-            archive_size_bytes: pulumi_wasm_rust::__private::into_domain(
+            archive_size_bytes: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("archiveSizeBytes"),
             ),
-            creation_timestamp: pulumi_wasm_rust::__private::into_domain(
+            creation_timestamp: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("creationTimestamp"),
             ),
-            description: pulumi_wasm_rust::__private::into_domain(
+            description: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("description"),
             ),
-            disk_size_gb: pulumi_wasm_rust::__private::into_domain(
+            disk_size_gb: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("diskSizeGb"),
             ),
-            effective_labels: pulumi_wasm_rust::__private::into_domain(
+            effective_labels: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("effectiveLabels"),
             ),
-            family: pulumi_wasm_rust::__private::into_domain(o.extract_field("family")),
-            guest_os_features: pulumi_wasm_rust::__private::into_domain(
+            family: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("family"),
+            ),
+            guest_os_features: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("guestOsFeatures"),
             ),
-            image_encryption_key: pulumi_wasm_rust::__private::into_domain(
+            image_encryption_key: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("imageEncryptionKey"),
             ),
-            label_fingerprint: pulumi_wasm_rust::__private::into_domain(
+            label_fingerprint: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("labelFingerprint"),
             ),
-            labels: pulumi_wasm_rust::__private::into_domain(o.extract_field("labels")),
-            licenses: pulumi_wasm_rust::__private::into_domain(
+            labels: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("labels"),
+            ),
+            licenses: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("licenses"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            project: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            project: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("project"),
             ),
-            pulumi_labels: pulumi_wasm_rust::__private::into_domain(
+            pulumi_labels: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("pulumiLabels"),
             ),
-            raw_disk: pulumi_wasm_rust::__private::into_domain(
+            raw_disk: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("rawDisk"),
             ),
-            self_link: pulumi_wasm_rust::__private::into_domain(
+            self_link: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("selfLink"),
             ),
-            source_disk: pulumi_wasm_rust::__private::into_domain(
+            source_disk: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("sourceDisk"),
             ),
-            source_image: pulumi_wasm_rust::__private::into_domain(
+            source_image: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("sourceImage"),
             ),
-            source_snapshot: pulumi_wasm_rust::__private::into_domain(
+            source_snapshot: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("sourceSnapshot"),
             ),
-            storage_locations: pulumi_wasm_rust::__private::into_domain(
+            storage_locations: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("storageLocations"),
             ),
         }

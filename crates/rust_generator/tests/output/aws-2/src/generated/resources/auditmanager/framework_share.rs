@@ -5,8 +5,8 @@
 /// ### Basic Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = framework_share::create(
@@ -28,50 +28,50 @@
 /// $ pulumi import aws:auditmanager/frameworkShare:FrameworkShare example abcdef-123456
 /// ```
 pub mod framework_share {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct FrameworkShareArgs {
         /// Comment from the sender about the share request.
         #[builder(into, default)]
-        pub comment: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub comment: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Amazon Web Services account of the recipient.
         #[builder(into)]
-        pub destination_account: pulumi_wasm_rust::InputOrOutput<String>,
+        pub destination_account: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Amazon Web Services region of the recipient.
         #[builder(into)]
-        pub destination_region: pulumi_wasm_rust::InputOrOutput<String>,
+        pub destination_region: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Unique identifier for the shared custom framework.
         ///
         /// The following arguments are optional:
         #[builder(into)]
-        pub framework_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub framework_id: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct FrameworkShareResult {
         /// Comment from the sender about the share request.
-        pub comment: pulumi_wasm_rust::Output<Option<String>>,
+        pub comment: pulumi_gestalt_rust::Output<Option<String>>,
         /// Amazon Web Services account of the recipient.
-        pub destination_account: pulumi_wasm_rust::Output<String>,
+        pub destination_account: pulumi_gestalt_rust::Output<String>,
         /// Amazon Web Services region of the recipient.
-        pub destination_region: pulumi_wasm_rust::Output<String>,
+        pub destination_region: pulumi_gestalt_rust::Output<String>,
         /// Unique identifier for the shared custom framework.
         ///
         /// The following arguments are optional:
-        pub framework_id: pulumi_wasm_rust::Output<String>,
+        pub framework_id: pulumi_gestalt_rust::Output<String>,
         /// Status of the share request.
-        pub status: pulumi_wasm_rust::Output<String>,
+        pub status: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: FrameworkShareArgs,
     ) -> FrameworkShareResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let comment_binding = args.comment.get_output(context).get_inner();
         let destination_account_binding = args
@@ -108,19 +108,21 @@ pub mod framework_share {
         };
         let o = register_interface::register(context.get_inner(), &request);
         FrameworkShareResult {
-            comment: pulumi_wasm_rust::__private::into_domain(
+            comment: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("comment"),
             ),
-            destination_account: pulumi_wasm_rust::__private::into_domain(
+            destination_account: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("destinationAccount"),
             ),
-            destination_region: pulumi_wasm_rust::__private::into_domain(
+            destination_region: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("destinationRegion"),
             ),
-            framework_id: pulumi_wasm_rust::__private::into_domain(
+            framework_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("frameworkId"),
             ),
-            status: pulumi_wasm_rust::__private::into_domain(o.extract_field("status")),
+            status: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("status"),
+            ),
         }
     }
 }

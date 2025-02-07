@@ -68,71 +68,73 @@
 /// ```
 ///
 pub mod gateway_host_name_configuration {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct GatewayHostNameConfigurationArgs {
         /// The ID of the API Management Service. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub api_management_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub api_management_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The certificate ID to be used for TLS connection establishment.
         #[builder(into)]
-        pub certificate_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub certificate_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The name of the API Management Gateway. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub gateway_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub gateway_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The host name to use for the API Management Gateway Host Name Configuration.
         #[builder(into)]
-        pub host_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub host_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Whether HTTP/2.0 is supported. Defaults to `true`.
         #[builder(into, default)]
-        pub http2_enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub http2_enabled: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// The name of the API Management Gateway Host Name Configuration. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Whether the API Management Gateway requests a client certificate.
         #[builder(into, default)]
-        pub request_client_certificate_enabled: pulumi_wasm_rust::InputOrOutput<
+        pub request_client_certificate_enabled: pulumi_gestalt_rust::InputOrOutput<
             Option<bool>,
         >,
         /// Whether TLS 1.0 is supported.
         #[builder(into, default)]
-        pub tls10_enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub tls10_enabled: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// Whether TLS 1.1 is supported.
         #[builder(into, default)]
-        pub tls11_enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub tls11_enabled: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
     }
     #[allow(dead_code)]
     pub struct GatewayHostNameConfigurationResult {
         /// The ID of the API Management Service. Changing this forces a new resource to be created.
-        pub api_management_id: pulumi_wasm_rust::Output<String>,
+        pub api_management_id: pulumi_gestalt_rust::Output<String>,
         /// The certificate ID to be used for TLS connection establishment.
-        pub certificate_id: pulumi_wasm_rust::Output<String>,
+        pub certificate_id: pulumi_gestalt_rust::Output<String>,
         /// The name of the API Management Gateway. Changing this forces a new resource to be created.
-        pub gateway_name: pulumi_wasm_rust::Output<String>,
+        pub gateway_name: pulumi_gestalt_rust::Output<String>,
         /// The host name to use for the API Management Gateway Host Name Configuration.
-        pub host_name: pulumi_wasm_rust::Output<String>,
+        pub host_name: pulumi_gestalt_rust::Output<String>,
         /// Whether HTTP/2.0 is supported. Defaults to `true`.
-        pub http2_enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub http2_enabled: pulumi_gestalt_rust::Output<Option<bool>>,
         /// The name of the API Management Gateway Host Name Configuration. Changing this forces a new resource to be created.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// Whether the API Management Gateway requests a client certificate.
-        pub request_client_certificate_enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub request_client_certificate_enabled: pulumi_gestalt_rust::Output<
+            Option<bool>,
+        >,
         /// Whether TLS 1.0 is supported.
-        pub tls10_enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub tls10_enabled: pulumi_gestalt_rust::Output<Option<bool>>,
         /// Whether TLS 1.1 is supported.
-        pub tls11_enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub tls11_enabled: pulumi_gestalt_rust::Output<Option<bool>>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: GatewayHostNameConfigurationArgs,
     ) -> GatewayHostNameConfigurationResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let api_management_id_binding = args
             .api_management_id
@@ -195,29 +197,29 @@ pub mod gateway_host_name_configuration {
         };
         let o = register_interface::register(context.get_inner(), &request);
         GatewayHostNameConfigurationResult {
-            api_management_id: pulumi_wasm_rust::__private::into_domain(
+            api_management_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("apiManagementId"),
             ),
-            certificate_id: pulumi_wasm_rust::__private::into_domain(
+            certificate_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("certificateId"),
             ),
-            gateway_name: pulumi_wasm_rust::__private::into_domain(
+            gateway_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("gatewayName"),
             ),
-            host_name: pulumi_wasm_rust::__private::into_domain(
+            host_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("hostName"),
             ),
-            http2_enabled: pulumi_wasm_rust::__private::into_domain(
+            http2_enabled: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("http2Enabled"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            request_client_certificate_enabled: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            request_client_certificate_enabled: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("requestClientCertificateEnabled"),
             ),
-            tls10_enabled: pulumi_wasm_rust::__private::into_domain(
+            tls10_enabled: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("tls10Enabled"),
             ),
-            tls11_enabled: pulumi_wasm_rust::__private::into_domain(
+            tls11_enabled: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("tls11Enabled"),
             ),
         }

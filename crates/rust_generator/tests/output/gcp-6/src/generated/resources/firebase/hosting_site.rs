@@ -4,8 +4,8 @@
 ///
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let default = hosting_site::create(
@@ -21,8 +21,8 @@
 ///
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let default = web_app::create(
@@ -74,31 +74,31 @@
 /// ```
 ///
 pub mod hosting_site {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct HostingSiteArgs {
         /// Optional. The [ID of a Web App](https://firebase.google.com/docs/reference/firebase-management/rest/v1beta1/projects.webApps#WebApp.FIELDS.app_id)
         /// associated with the Hosting site.
         #[builder(into, default)]
-        pub app_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub app_id: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub project: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Required. Immutable. A globally unique identifier for the Hosting site. This identifier is
         /// used to construct the Firebase-provisioned subdomains for the site, so it must also be a valid
         /// domain name label.
         #[builder(into, default)]
-        pub site_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub site_id: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct HostingSiteResult {
         /// Optional. The [ID of a Web App](https://firebase.google.com/docs/reference/firebase-management/rest/v1beta1/projects.webApps#WebApp.FIELDS.app_id)
         /// associated with the Hosting site.
-        pub app_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub app_id: pulumi_gestalt_rust::Output<Option<String>>,
         /// The default URL for the site in the form of https://{name}.web.app
-        pub default_url: pulumi_wasm_rust::Output<String>,
+        pub default_url: pulumi_gestalt_rust::Output<String>,
         /// Output only. The fully-qualified resource name of the Hosting site, in
         /// the format: projects/PROJECT_IDENTIFIER/sites/SITE_ID PROJECT_IDENTIFIER: the
         /// Firebase project's
@@ -106,25 +106,25 @@ pub mod hosting_site {
         /// [`ProjectId`](https://firebase.google.com/docs/reference/firebase-management/rest/v1beta1/projects#FirebaseProject.FIELDS.project_id).
         /// Learn more about using project identifiers in Google's
         /// [AIP 2510 standard](https://google.aip.dev/cloud/2510).
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
-        pub project: pulumi_wasm_rust::Output<String>,
+        pub project: pulumi_gestalt_rust::Output<String>,
         /// Required. Immutable. A globally unique identifier for the Hosting site. This identifier is
         /// used to construct the Firebase-provisioned subdomains for the site, so it must also be a valid
         /// domain name label.
-        pub site_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub site_id: pulumi_gestalt_rust::Output<Option<String>>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: HostingSiteArgs,
     ) -> HostingSiteResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let app_id_binding = args.app_id.get_output(context).get_inner();
         let project_binding = args.project.get_output(context).get_inner();
@@ -150,15 +150,19 @@ pub mod hosting_site {
         };
         let o = register_interface::register(context.get_inner(), &request);
         HostingSiteResult {
-            app_id: pulumi_wasm_rust::__private::into_domain(o.extract_field("appId")),
-            default_url: pulumi_wasm_rust::__private::into_domain(
+            app_id: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("appId"),
+            ),
+            default_url: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("defaultUrl"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            project: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            project: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("project"),
             ),
-            site_id: pulumi_wasm_rust::__private::into_domain(o.extract_field("siteId")),
+            site_id: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("siteId"),
+            ),
         }
     }
 }

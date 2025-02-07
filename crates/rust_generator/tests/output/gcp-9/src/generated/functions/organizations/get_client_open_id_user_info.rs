@@ -2,17 +2,17 @@ pub mod get_client_open_id_user_info {
     #[allow(dead_code)]
     pub struct GetClientOpenIdUserInfoResult {
         /// The email of the account used by the provider to authenticate with GCP.
-        pub email: pulumi_wasm_rust::Output<String>,
-        pub id: pulumi_wasm_rust::Output<String>,
+        pub email: pulumi_gestalt_rust::Output<String>,
+        pub id: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
     ) -> GetClientOpenIdUserInfoResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let request = register_interface::ResourceInvokeRequest {
             token: "gcp:organizations/getClientOpenIdUserInfo:getClientOpenIdUserInfo"
@@ -22,8 +22,8 @@ pub mod get_client_open_id_user_info {
         };
         let o = register_interface::invoke(context.get_inner(), &request);
         GetClientOpenIdUserInfoResult {
-            email: pulumi_wasm_rust::__private::into_domain(o.extract_field("email")),
-            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
+            email: pulumi_gestalt_rust::__private::into_domain(o.extract_field("email")),
+            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
         }
     }
 }

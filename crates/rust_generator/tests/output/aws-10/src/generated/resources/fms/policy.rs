@@ -43,108 +43,112 @@
 /// $ pulumi import aws:fms/policy:Policy example 5be49585-a7e3-4c49-dde1-a179fe4a619a
 /// ```
 pub mod policy {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct PolicyArgs {
         /// If true, the request will also perform a clean-up process. Defaults to `true`. More information can be found here [AWS Firewall Manager delete policy](https://docs.aws.amazon.com/fms/2018-01-01/APIReference/API_DeletePolicy.html)
         #[builder(into, default)]
-        pub delete_all_policy_resources: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub delete_all_policy_resources: pulumi_gestalt_rust::InputOrOutput<
+            Option<bool>,
+        >,
         /// If true, Firewall Manager will automatically remove protections from resources that leave the policy scope. Defaults to `false`. More information can be found here [AWS Firewall Manager policy contents](https://docs.aws.amazon.com/fms/2018-01-01/APIReference/API_Policy.html)
         #[builder(into, default)]
-        pub delete_unused_fm_managed_resources: pulumi_wasm_rust::InputOrOutput<
+        pub delete_unused_fm_managed_resources: pulumi_gestalt_rust::InputOrOutput<
             Option<bool>,
         >,
         /// The description of the AWS Network Firewall firewall policy.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub description: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// A map of lists of accounts and OU's to exclude from the policy.
         #[builder(into, default)]
-        pub exclude_map: pulumi_wasm_rust::InputOrOutput<
+        pub exclude_map: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::fms::PolicyExcludeMap>,
         >,
         /// A boolean value, if true the tags that are specified in the `resource_tags` are not protected by this policy. If set to false and resource_tags are populated, resources that contain tags will be protected by this policy.
         #[builder(into)]
-        pub exclude_resource_tags: pulumi_wasm_rust::InputOrOutput<bool>,
+        pub exclude_resource_tags: pulumi_gestalt_rust::InputOrOutput<bool>,
         /// A map of lists of accounts and OU's to include in the policy.
         #[builder(into, default)]
-        pub include_map: pulumi_wasm_rust::InputOrOutput<
+        pub include_map: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::fms::PolicyIncludeMap>,
         >,
         /// The friendly name of the AWS Firewall Manager Policy.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// A boolean value, indicates if the policy should automatically applied to resources that already exist in the account.
         #[builder(into, default)]
-        pub remediation_enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub remediation_enabled: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         #[builder(into, default)]
-        pub resource_set_ids: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
+        pub resource_set_ids: pulumi_gestalt_rust::InputOrOutput<Option<Vec<String>>>,
         /// A map of resource tags, that if present will filter protections on resources based on the exclude_resource_tags.
         #[builder(into, default)]
-        pub resource_tags: pulumi_wasm_rust::InputOrOutput<
+        pub resource_tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// A resource type to protect. Conflicts with `resource_type_list`. See the [FMS API Reference](https://docs.aws.amazon.com/fms/2018-01-01/APIReference/API_Policy.html#fms-Type-Policy-ResourceType) for more information about supported values.
         #[builder(into, default)]
-        pub resource_type: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub resource_type: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// A list of resource types to protect. Conflicts with `resource_type`. See the [FMS API Reference](https://docs.aws.amazon.com/fms/2018-01-01/APIReference/API_Policy.html#fms-Type-Policy-ResourceType) for more information about supported values. Lists with only one element are not supported, instead use `resource_type`.
         #[builder(into, default)]
-        pub resource_type_lists: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
+        pub resource_type_lists: pulumi_gestalt_rust::InputOrOutput<Option<Vec<String>>>,
         /// The objects to include in Security Service Policy Data. Documented below.
         #[builder(into)]
-        pub security_service_policy_data: pulumi_wasm_rust::InputOrOutput<
+        pub security_service_policy_data: pulumi_gestalt_rust::InputOrOutput<
             super::super::types::fms::PolicySecurityServicePolicyData,
         >,
         /// Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
     #[allow(dead_code)]
     pub struct PolicyResult {
-        pub arn: pulumi_wasm_rust::Output<String>,
+        pub arn: pulumi_gestalt_rust::Output<String>,
         /// If true, the request will also perform a clean-up process. Defaults to `true`. More information can be found here [AWS Firewall Manager delete policy](https://docs.aws.amazon.com/fms/2018-01-01/APIReference/API_DeletePolicy.html)
-        pub delete_all_policy_resources: pulumi_wasm_rust::Output<Option<bool>>,
+        pub delete_all_policy_resources: pulumi_gestalt_rust::Output<Option<bool>>,
         /// If true, Firewall Manager will automatically remove protections from resources that leave the policy scope. Defaults to `false`. More information can be found here [AWS Firewall Manager policy contents](https://docs.aws.amazon.com/fms/2018-01-01/APIReference/API_Policy.html)
-        pub delete_unused_fm_managed_resources: pulumi_wasm_rust::Output<Option<bool>>,
+        pub delete_unused_fm_managed_resources: pulumi_gestalt_rust::Output<
+            Option<bool>,
+        >,
         /// The description of the AWS Network Firewall firewall policy.
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_gestalt_rust::Output<Option<String>>,
         /// A map of lists of accounts and OU's to exclude from the policy.
-        pub exclude_map: pulumi_wasm_rust::Output<
+        pub exclude_map: pulumi_gestalt_rust::Output<
             Option<super::super::types::fms::PolicyExcludeMap>,
         >,
         /// A boolean value, if true the tags that are specified in the `resource_tags` are not protected by this policy. If set to false and resource_tags are populated, resources that contain tags will be protected by this policy.
-        pub exclude_resource_tags: pulumi_wasm_rust::Output<bool>,
+        pub exclude_resource_tags: pulumi_gestalt_rust::Output<bool>,
         /// A map of lists of accounts and OU's to include in the policy.
-        pub include_map: pulumi_wasm_rust::Output<
+        pub include_map: pulumi_gestalt_rust::Output<
             Option<super::super::types::fms::PolicyIncludeMap>,
         >,
         /// The friendly name of the AWS Firewall Manager Policy.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// A unique identifier for each update to the policy.
-        pub policy_update_token: pulumi_wasm_rust::Output<String>,
+        pub policy_update_token: pulumi_gestalt_rust::Output<String>,
         /// A boolean value, indicates if the policy should automatically applied to resources that already exist in the account.
-        pub remediation_enabled: pulumi_wasm_rust::Output<Option<bool>>,
-        pub resource_set_ids: pulumi_wasm_rust::Output<Vec<String>>,
+        pub remediation_enabled: pulumi_gestalt_rust::Output<Option<bool>>,
+        pub resource_set_ids: pulumi_gestalt_rust::Output<Vec<String>>,
         /// A map of resource tags, that if present will filter protections on resources based on the exclude_resource_tags.
-        pub resource_tags: pulumi_wasm_rust::Output<
+        pub resource_tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// A resource type to protect. Conflicts with `resource_type_list`. See the [FMS API Reference](https://docs.aws.amazon.com/fms/2018-01-01/APIReference/API_Policy.html#fms-Type-Policy-ResourceType) for more information about supported values.
-        pub resource_type: pulumi_wasm_rust::Output<String>,
+        pub resource_type: pulumi_gestalt_rust::Output<String>,
         /// A list of resource types to protect. Conflicts with `resource_type`. See the [FMS API Reference](https://docs.aws.amazon.com/fms/2018-01-01/APIReference/API_Policy.html#fms-Type-Policy-ResourceType) for more information about supported values. Lists with only one element are not supported, instead use `resource_type`.
-        pub resource_type_lists: pulumi_wasm_rust::Output<Vec<String>>,
+        pub resource_type_lists: pulumi_gestalt_rust::Output<Vec<String>>,
         /// The objects to include in Security Service Policy Data. Documented below.
-        pub security_service_policy_data: pulumi_wasm_rust::Output<
+        pub security_service_policy_data: pulumi_gestalt_rust::Output<
             super::super::types::fms::PolicySecurityServicePolicyData,
         >,
         /// Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        pub tags_all: pulumi_wasm_rust::Output<
+        pub tags_all: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
     }
@@ -153,11 +157,11 @@ pub mod policy {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: PolicyArgs,
     ) -> PolicyResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let delete_all_policy_resources_binding = args
             .delete_all_policy_resources
@@ -259,49 +263,49 @@ pub mod policy {
         };
         let o = register_interface::register(context.get_inner(), &request);
         PolicyResult {
-            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
-            delete_all_policy_resources: pulumi_wasm_rust::__private::into_domain(
+            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
+            delete_all_policy_resources: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("deleteAllPolicyResources"),
             ),
-            delete_unused_fm_managed_resources: pulumi_wasm_rust::__private::into_domain(
+            delete_unused_fm_managed_resources: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("deleteUnusedFmManagedResources"),
             ),
-            description: pulumi_wasm_rust::__private::into_domain(
+            description: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("description"),
             ),
-            exclude_map: pulumi_wasm_rust::__private::into_domain(
+            exclude_map: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("excludeMap"),
             ),
-            exclude_resource_tags: pulumi_wasm_rust::__private::into_domain(
+            exclude_resource_tags: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("excludeResourceTags"),
             ),
-            include_map: pulumi_wasm_rust::__private::into_domain(
+            include_map: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("includeMap"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            policy_update_token: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            policy_update_token: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("policyUpdateToken"),
             ),
-            remediation_enabled: pulumi_wasm_rust::__private::into_domain(
+            remediation_enabled: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("remediationEnabled"),
             ),
-            resource_set_ids: pulumi_wasm_rust::__private::into_domain(
+            resource_set_ids: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("resourceSetIds"),
             ),
-            resource_tags: pulumi_wasm_rust::__private::into_domain(
+            resource_tags: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("resourceTags"),
             ),
-            resource_type: pulumi_wasm_rust::__private::into_domain(
+            resource_type: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("resourceType"),
             ),
-            resource_type_lists: pulumi_wasm_rust::__private::into_domain(
+            resource_type_lists: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("resourceTypeLists"),
             ),
-            security_service_policy_data: pulumi_wasm_rust::__private::into_domain(
+            security_service_policy_data: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("securityServicePolicyData"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_wasm_rust::__private::into_domain(
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            tags_all: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("tagsAll"),
             ),
         }

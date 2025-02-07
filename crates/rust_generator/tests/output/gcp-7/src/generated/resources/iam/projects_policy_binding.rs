@@ -65,7 +65,7 @@
 /// ```
 ///
 pub mod projects_policy_binding {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ProjectsPolicyBindingArgs {
@@ -73,7 +73,7 @@ pub mod projects_policy_binding {
         /// limitations **Note**: This field is non-authoritative, and will only manage the annotations present in your
         /// configuration. Please refer to the field 'effective_annotations' for all of the annotations present on the resource.
         #[builder(into, default)]
-        pub annotations: pulumi_wasm_rust::InputOrOutput<
+        pub annotations: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Represents a textual expression in the Common Expression Language (CEL) syntax. CEL is a C-like expression language. The
@@ -87,32 +87,32 @@ pub mod projects_policy_binding {
         /// functions that may be referenced within an expression are determined by the service that evaluates it. See the service
         /// documentation for additional information.
         #[builder(into, default)]
-        pub condition: pulumi_wasm_rust::InputOrOutput<
+        pub condition: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::iam::ProjectsPolicyBindingCondition>,
         >,
         /// Optional. The description of the policy binding. Must be less than or equal to 63 characters.
         #[builder(into, default)]
-        pub display_name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub display_name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The location of the Policy Binding
         #[builder(into)]
-        pub location: pulumi_wasm_rust::InputOrOutput<String>,
+        pub location: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Required. Immutable. The resource name of the policy to be bound. The binding parent and policy must belong to the same Organization (or Project).
         #[builder(into)]
-        pub policy: pulumi_wasm_rust::InputOrOutput<String>,
+        pub policy: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The Policy Binding ID.
         #[builder(into)]
-        pub policy_binding_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub policy_binding_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Immutable. The kind of the policy to attach in this binding. This field must be one of the following: - Left empty (will
         /// be automatically set to the policy kind) - The input policy kind Possible values: POLICY_KIND_UNSPECIFIED
         /// PRINCIPAL_ACCESS_BOUNDARY ACCESS
         #[builder(into, default)]
-        pub policy_kind: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub policy_kind: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub project: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Target is the full resource name of the resource to which the policy will be bound. Immutable once set.
         /// Structure is documented below.
         #[builder(into)]
-        pub target: pulumi_wasm_rust::InputOrOutput<
+        pub target: pulumi_gestalt_rust::InputOrOutput<
             super::super::types::iam::ProjectsPolicyBindingTarget,
         >,
     }
@@ -121,7 +121,7 @@ pub mod projects_policy_binding {
         /// Optional. User defined annotations. See https://google.aip.dev/148#annotations for more details such as format and size
         /// limitations **Note**: This field is non-authoritative, and will only manage the annotations present in your
         /// configuration. Please refer to the field 'effective_annotations' for all of the annotations present on the resource.
-        pub annotations: pulumi_wasm_rust::Output<
+        pub annotations: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Represents a textual expression in the Common Expression Language (CEL) syntax. CEL is a C-like expression language. The
@@ -134,53 +134,53 @@ pub mod projects_policy_binding {
         /// with a timestamp.\" expression: \"'New message received at ' + string(document.create_time)\" The exact variables and
         /// functions that may be referenced within an expression are determined by the service that evaluates it. See the service
         /// documentation for additional information.
-        pub condition: pulumi_wasm_rust::Output<
+        pub condition: pulumi_gestalt_rust::Output<
             Option<super::super::types::iam::ProjectsPolicyBindingCondition>,
         >,
         /// Output only. The time when the policy binding was created.
-        pub create_time: pulumi_wasm_rust::Output<String>,
+        pub create_time: pulumi_gestalt_rust::Output<String>,
         /// Optional. The description of the policy binding. Must be less than or equal to 63 characters.
-        pub display_name: pulumi_wasm_rust::Output<Option<String>>,
-        pub effective_annotations: pulumi_wasm_rust::Output<
+        pub display_name: pulumi_gestalt_rust::Output<Option<String>>,
+        pub effective_annotations: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
         /// Optional. The etag for the policy binding. If this is provided on update, it must match the server's etag.
-        pub etag: pulumi_wasm_rust::Output<String>,
+        pub etag: pulumi_gestalt_rust::Output<String>,
         /// The location of the Policy Binding
-        pub location: pulumi_wasm_rust::Output<String>,
+        pub location: pulumi_gestalt_rust::Output<String>,
         /// The name of the policy binding in the format `{binding_parent/locations/{location}/policyBindings/{policy_binding_id}`
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// Required. Immutable. The resource name of the policy to be bound. The binding parent and policy must belong to the same Organization (or Project).
-        pub policy: pulumi_wasm_rust::Output<String>,
+        pub policy: pulumi_gestalt_rust::Output<String>,
         /// The Policy Binding ID.
-        pub policy_binding_id: pulumi_wasm_rust::Output<String>,
+        pub policy_binding_id: pulumi_gestalt_rust::Output<String>,
         /// Immutable. The kind of the policy to attach in this binding. This field must be one of the following: - Left empty (will
         /// be automatically set to the policy kind) - The input policy kind Possible values: POLICY_KIND_UNSPECIFIED
         /// PRINCIPAL_ACCESS_BOUNDARY ACCESS
-        pub policy_kind: pulumi_wasm_rust::Output<Option<String>>,
+        pub policy_kind: pulumi_gestalt_rust::Output<Option<String>>,
         /// Output only. The globally unique ID of the policy to be bound.
-        pub policy_uid: pulumi_wasm_rust::Output<String>,
-        pub project: pulumi_wasm_rust::Output<String>,
+        pub policy_uid: pulumi_gestalt_rust::Output<String>,
+        pub project: pulumi_gestalt_rust::Output<String>,
         /// Target is the full resource name of the resource to which the policy will be bound. Immutable once set.
         /// Structure is documented below.
-        pub target: pulumi_wasm_rust::Output<
+        pub target: pulumi_gestalt_rust::Output<
             super::super::types::iam::ProjectsPolicyBindingTarget,
         >,
         /// Output only. The globally unique ID of the policy binding. Assigned when the policy binding is created.
-        pub uid: pulumi_wasm_rust::Output<String>,
+        pub uid: pulumi_gestalt_rust::Output<String>,
         /// Output only. The time when the policy binding was most recently updated.
-        pub update_time: pulumi_wasm_rust::Output<String>,
+        pub update_time: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: ProjectsPolicyBindingArgs,
     ) -> ProjectsPolicyBindingResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let annotations_binding = args.annotations.get_output(context).get_inner();
         let condition_binding = args.condition.get_output(context).get_inner();
@@ -239,42 +239,46 @@ pub mod projects_policy_binding {
         };
         let o = register_interface::register(context.get_inner(), &request);
         ProjectsPolicyBindingResult {
-            annotations: pulumi_wasm_rust::__private::into_domain(
+            annotations: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("annotations"),
             ),
-            condition: pulumi_wasm_rust::__private::into_domain(
+            condition: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("condition"),
             ),
-            create_time: pulumi_wasm_rust::__private::into_domain(
+            create_time: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("createTime"),
             ),
-            display_name: pulumi_wasm_rust::__private::into_domain(
+            display_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("displayName"),
             ),
-            effective_annotations: pulumi_wasm_rust::__private::into_domain(
+            effective_annotations: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("effectiveAnnotations"),
             ),
-            etag: pulumi_wasm_rust::__private::into_domain(o.extract_field("etag")),
-            location: pulumi_wasm_rust::__private::into_domain(
+            etag: pulumi_gestalt_rust::__private::into_domain(o.extract_field("etag")),
+            location: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("location"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            policy: pulumi_wasm_rust::__private::into_domain(o.extract_field("policy")),
-            policy_binding_id: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            policy: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("policy"),
+            ),
+            policy_binding_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("policyBindingId"),
             ),
-            policy_kind: pulumi_wasm_rust::__private::into_domain(
+            policy_kind: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("policyKind"),
             ),
-            policy_uid: pulumi_wasm_rust::__private::into_domain(
+            policy_uid: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("policyUid"),
             ),
-            project: pulumi_wasm_rust::__private::into_domain(
+            project: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("project"),
             ),
-            target: pulumi_wasm_rust::__private::into_domain(o.extract_field("target")),
-            uid: pulumi_wasm_rust::__private::into_domain(o.extract_field("uid")),
-            update_time: pulumi_wasm_rust::__private::into_domain(
+            target: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("target"),
+            ),
+            uid: pulumi_gestalt_rust::__private::into_domain(o.extract_field("uid")),
+            update_time: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("updateTime"),
             ),
         }

@@ -5,8 +5,8 @@
 /// ### Basic Example
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let test = configuration_set::create(
@@ -21,8 +21,8 @@
 /// ### Require TLS Connections
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let test = configuration_set::create(
@@ -42,8 +42,8 @@
 /// ### Tracking Options
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let test = configuration_set::create(
@@ -68,52 +68,52 @@
 /// $ pulumi import aws:ses/configurationSet:ConfigurationSet test some-configuration-set-test
 /// ```
 pub mod configuration_set {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ConfigurationSetArgs {
         /// Whether messages that use the configuration set are required to use TLS. See below.
         #[builder(into, default)]
-        pub delivery_options: pulumi_wasm_rust::InputOrOutput<
+        pub delivery_options: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::ses::ConfigurationSetDeliveryOptions>,
         >,
         /// Name of the configuration set.
         ///
         /// The following argument is optional:
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Whether or not Amazon SES publishes reputation metrics for the configuration set, such as bounce and complaint rates, to Amazon CloudWatch. The default value is `false`.
         #[builder(into, default)]
-        pub reputation_metrics_enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub reputation_metrics_enabled: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// Whether email sending is enabled or disabled for the configuration set. The default value is `true`.
         #[builder(into, default)]
-        pub sending_enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub sending_enabled: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// Domain that is used to redirect email recipients to an Amazon SES-operated domain. See below. **NOTE:** This functionality is best effort.
         #[builder(into, default)]
-        pub tracking_options: pulumi_wasm_rust::InputOrOutput<
+        pub tracking_options: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::ses::ConfigurationSetTrackingOptions>,
         >,
     }
     #[allow(dead_code)]
     pub struct ConfigurationSetResult {
         /// SES configuration set ARN.
-        pub arn: pulumi_wasm_rust::Output<String>,
+        pub arn: pulumi_gestalt_rust::Output<String>,
         /// Whether messages that use the configuration set are required to use TLS. See below.
-        pub delivery_options: pulumi_wasm_rust::Output<
+        pub delivery_options: pulumi_gestalt_rust::Output<
             Option<super::super::types::ses::ConfigurationSetDeliveryOptions>,
         >,
         /// Date and time at which the reputation metrics for the configuration set were last reset. Resetting these metrics is known as a fresh start.
-        pub last_fresh_start: pulumi_wasm_rust::Output<String>,
+        pub last_fresh_start: pulumi_gestalt_rust::Output<String>,
         /// Name of the configuration set.
         ///
         /// The following argument is optional:
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// Whether or not Amazon SES publishes reputation metrics for the configuration set, such as bounce and complaint rates, to Amazon CloudWatch. The default value is `false`.
-        pub reputation_metrics_enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub reputation_metrics_enabled: pulumi_gestalt_rust::Output<Option<bool>>,
         /// Whether email sending is enabled or disabled for the configuration set. The default value is `true`.
-        pub sending_enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub sending_enabled: pulumi_gestalt_rust::Output<Option<bool>>,
         /// Domain that is used to redirect email recipients to an Amazon SES-operated domain. See below. **NOTE:** This functionality is best effort.
-        pub tracking_options: pulumi_wasm_rust::Output<
+        pub tracking_options: pulumi_gestalt_rust::Output<
             Option<super::super::types::ses::ConfigurationSetTrackingOptions>,
         >,
     }
@@ -122,11 +122,11 @@ pub mod configuration_set {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: ConfigurationSetArgs,
     ) -> ConfigurationSetResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let delivery_options_binding = args
             .delivery_options
@@ -174,21 +174,21 @@ pub mod configuration_set {
         };
         let o = register_interface::register(context.get_inner(), &request);
         ConfigurationSetResult {
-            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
-            delivery_options: pulumi_wasm_rust::__private::into_domain(
+            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
+            delivery_options: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("deliveryOptions"),
             ),
-            last_fresh_start: pulumi_wasm_rust::__private::into_domain(
+            last_fresh_start: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("lastFreshStart"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            reputation_metrics_enabled: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            reputation_metrics_enabled: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("reputationMetricsEnabled"),
             ),
-            sending_enabled: pulumi_wasm_rust::__private::into_domain(
+            sending_enabled: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("sendingEnabled"),
             ),
-            tracking_options: pulumi_wasm_rust::__private::into_domain(
+            tracking_options: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("trackingOptions"),
             ),
         }

@@ -13,8 +13,8 @@
 ///
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let agent = cx_agent::create(
@@ -72,94 +72,94 @@
 /// ```
 ///
 pub mod cx_webhook {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct CxWebhookArgs {
         /// Indicates whether the webhook is disabled.
         #[builder(into, default)]
-        pub disabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub disabled: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// The human-readable name of the webhook, unique within the agent.
         ///
         ///
         /// - - -
         #[builder(into)]
-        pub display_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub display_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Indicates if automatic spell correction is enabled in detect intent requests.
         #[builder(into, default)]
-        pub enable_spell_correction: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub enable_spell_correction: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// Determines whether this agent should log conversation queries.
         #[builder(into, default)]
-        pub enable_stackdriver_logging: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub enable_stackdriver_logging: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// Configuration for a generic web service.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub generic_web_service: pulumi_wasm_rust::InputOrOutput<
+        pub generic_web_service: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::diagflow::CxWebhookGenericWebService>,
         >,
         /// The agent to create a webhook for.
         /// Format: projects/<Project ID>/locations/<Location ID>/agents/<Agent ID>.
         #[builder(into, default)]
-        pub parent: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub parent: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Name of the SecuritySettings reference for the agent. Format: projects/<Project ID>/locations/<Location ID>/securitySettings/<Security Settings ID>.
         #[builder(into, default)]
-        pub security_settings: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub security_settings: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Configuration for a Service Directory service.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub service_directory: pulumi_wasm_rust::InputOrOutput<
+        pub service_directory: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::diagflow::CxWebhookServiceDirectory>,
         >,
         /// Webhook execution timeout.
         #[builder(into, default)]
-        pub timeout: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub timeout: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct CxWebhookResult {
         /// Indicates whether the webhook is disabled.
-        pub disabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub disabled: pulumi_gestalt_rust::Output<Option<bool>>,
         /// The human-readable name of the webhook, unique within the agent.
         ///
         ///
         /// - - -
-        pub display_name: pulumi_wasm_rust::Output<String>,
+        pub display_name: pulumi_gestalt_rust::Output<String>,
         /// Indicates if automatic spell correction is enabled in detect intent requests.
-        pub enable_spell_correction: pulumi_wasm_rust::Output<Option<bool>>,
+        pub enable_spell_correction: pulumi_gestalt_rust::Output<Option<bool>>,
         /// Determines whether this agent should log conversation queries.
-        pub enable_stackdriver_logging: pulumi_wasm_rust::Output<Option<bool>>,
+        pub enable_stackdriver_logging: pulumi_gestalt_rust::Output<Option<bool>>,
         /// Configuration for a generic web service.
         /// Structure is documented below.
-        pub generic_web_service: pulumi_wasm_rust::Output<
+        pub generic_web_service: pulumi_gestalt_rust::Output<
             Option<super::super::types::diagflow::CxWebhookGenericWebService>,
         >,
         /// The unique identifier of the webhook.
         /// Format: projects/<Project ID>/locations/<Location ID>/agents/<Agent ID>/webhooks/<Webhook ID>.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// The agent to create a webhook for.
         /// Format: projects/<Project ID>/locations/<Location ID>/agents/<Agent ID>.
-        pub parent: pulumi_wasm_rust::Output<Option<String>>,
+        pub parent: pulumi_gestalt_rust::Output<Option<String>>,
         /// Name of the SecuritySettings reference for the agent. Format: projects/<Project ID>/locations/<Location ID>/securitySettings/<Security Settings ID>.
-        pub security_settings: pulumi_wasm_rust::Output<Option<String>>,
+        pub security_settings: pulumi_gestalt_rust::Output<Option<String>>,
         /// Configuration for a Service Directory service.
         /// Structure is documented below.
-        pub service_directory: pulumi_wasm_rust::Output<
+        pub service_directory: pulumi_gestalt_rust::Output<
             Option<super::super::types::diagflow::CxWebhookServiceDirectory>,
         >,
         /// Name of the start flow in this agent. A start flow will be automatically created when the agent is created, and can only be deleted by deleting the agent. Format: projects/<Project ID>/locations/<Location ID>/agents/<Agent ID>/flows/<Flow ID>.
-        pub start_flow: pulumi_wasm_rust::Output<String>,
+        pub start_flow: pulumi_gestalt_rust::Output<String>,
         /// Webhook execution timeout.
-        pub timeout: pulumi_wasm_rust::Output<Option<String>>,
+        pub timeout: pulumi_gestalt_rust::Output<Option<String>>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: CxWebhookArgs,
     ) -> CxWebhookResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let disabled_binding = args.disabled.get_output(context).get_inner();
         let display_name_binding = args.display_name.get_output(context).get_inner();
@@ -230,33 +230,37 @@ pub mod cx_webhook {
         };
         let o = register_interface::register(context.get_inner(), &request);
         CxWebhookResult {
-            disabled: pulumi_wasm_rust::__private::into_domain(
+            disabled: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("disabled"),
             ),
-            display_name: pulumi_wasm_rust::__private::into_domain(
+            display_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("displayName"),
             ),
-            enable_spell_correction: pulumi_wasm_rust::__private::into_domain(
+            enable_spell_correction: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("enableSpellCorrection"),
             ),
-            enable_stackdriver_logging: pulumi_wasm_rust::__private::into_domain(
+            enable_stackdriver_logging: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("enableStackdriverLogging"),
             ),
-            generic_web_service: pulumi_wasm_rust::__private::into_domain(
+            generic_web_service: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("genericWebService"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            parent: pulumi_wasm_rust::__private::into_domain(o.extract_field("parent")),
-            security_settings: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            parent: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("parent"),
+            ),
+            security_settings: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("securitySettings"),
             ),
-            service_directory: pulumi_wasm_rust::__private::into_domain(
+            service_directory: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("serviceDirectory"),
             ),
-            start_flow: pulumi_wasm_rust::__private::into_domain(
+            start_flow: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("startFlow"),
             ),
-            timeout: pulumi_wasm_rust::__private::into_domain(o.extract_field("timeout")),
+            timeout: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("timeout"),
+            ),
         }
     }
 }

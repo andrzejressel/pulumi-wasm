@@ -89,38 +89,38 @@
 /// $ pulumi import aws:route53domains/delegationSignerRecord:DelegationSignerRecord example example.com,40DE3534F5324DBDAC598ACEDB5B1E26A5368732D9C791D1347E4FBDDF6FC343
 /// ```
 pub mod delegation_signer_record {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct DelegationSignerRecordArgs {
         /// The name of the domain that will have its parent DNS zone updated with the Delegation Signer record.
         #[builder(into)]
-        pub domain_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub domain_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The information about a key, including the algorithm, public key-value, and flags.
         #[builder(into, default)]
-        pub signing_attributes: pulumi_wasm_rust::InputOrOutput<
+        pub signing_attributes: pulumi_gestalt_rust::InputOrOutput<
             Option<
                 super::super::types::route53domains::DelegationSignerRecordSigningAttributes,
             >,
         >,
         #[builder(into, default)]
-        pub timeouts: pulumi_wasm_rust::InputOrOutput<
+        pub timeouts: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::route53domains::DelegationSignerRecordTimeouts>,
         >,
     }
     #[allow(dead_code)]
     pub struct DelegationSignerRecordResult {
         /// An ID assigned to the created DS record.
-        pub dnssec_key_id: pulumi_wasm_rust::Output<String>,
+        pub dnssec_key_id: pulumi_gestalt_rust::Output<String>,
         /// The name of the domain that will have its parent DNS zone updated with the Delegation Signer record.
-        pub domain_name: pulumi_wasm_rust::Output<String>,
+        pub domain_name: pulumi_gestalt_rust::Output<String>,
         /// The information about a key, including the algorithm, public key-value, and flags.
-        pub signing_attributes: pulumi_wasm_rust::Output<
+        pub signing_attributes: pulumi_gestalt_rust::Output<
             Option<
                 super::super::types::route53domains::DelegationSignerRecordSigningAttributes,
             >,
         >,
-        pub timeouts: pulumi_wasm_rust::Output<
+        pub timeouts: pulumi_gestalt_rust::Output<
             Option<super::super::types::route53domains::DelegationSignerRecordTimeouts>,
         >,
     }
@@ -129,11 +129,11 @@ pub mod delegation_signer_record {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: DelegationSignerRecordArgs,
     ) -> DelegationSignerRecordResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let domain_name_binding = args.domain_name.get_output(context).get_inner();
         let signing_attributes_binding = args
@@ -163,16 +163,16 @@ pub mod delegation_signer_record {
         };
         let o = register_interface::register(context.get_inner(), &request);
         DelegationSignerRecordResult {
-            dnssec_key_id: pulumi_wasm_rust::__private::into_domain(
+            dnssec_key_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("dnssecKeyId"),
             ),
-            domain_name: pulumi_wasm_rust::__private::into_domain(
+            domain_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("domainName"),
             ),
-            signing_attributes: pulumi_wasm_rust::__private::into_domain(
+            signing_attributes: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("signingAttributes"),
             ),
-            timeouts: pulumi_wasm_rust::__private::into_domain(
+            timeouts: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("timeouts"),
             ),
         }

@@ -19,20 +19,20 @@
 /// $ pulumi import aws:backup/globalSettings:GlobalSettings example 123456789012
 /// ```
 pub mod global_settings {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct GlobalSettingsArgs {
         /// A list of resources along with the opt-in preferences for the account.
         #[builder(into)]
-        pub global_settings: pulumi_wasm_rust::InputOrOutput<
+        pub global_settings: pulumi_gestalt_rust::InputOrOutput<
             std::collections::HashMap<String, String>,
         >,
     }
     #[allow(dead_code)]
     pub struct GlobalSettingsResult {
         /// A list of resources along with the opt-in preferences for the account.
-        pub global_settings: pulumi_wasm_rust::Output<
+        pub global_settings: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
     }
@@ -41,11 +41,11 @@ pub mod global_settings {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: GlobalSettingsArgs,
     ) -> GlobalSettingsResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let global_settings_binding = args
             .global_settings
@@ -64,7 +64,7 @@ pub mod global_settings {
         };
         let o = register_interface::register(context.get_inner(), &request);
         GlobalSettingsResult {
-            global_settings: pulumi_wasm_rust::__private::into_domain(
+            global_settings: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("globalSettings"),
             ),
         }

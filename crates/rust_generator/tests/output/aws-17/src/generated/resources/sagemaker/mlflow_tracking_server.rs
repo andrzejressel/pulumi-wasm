@@ -5,8 +5,8 @@
 /// ### Cognito Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = mlflow_tracking_server::create(
@@ -28,78 +28,80 @@
 /// $ pulumi import aws:sagemaker/mlflowTrackingServer:MlflowTrackingServer example example
 /// ```
 pub mod mlflow_tracking_server {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct MlflowTrackingServerArgs {
         /// The S3 URI for a general purpose bucket to use as the MLflow Tracking Server artifact store.
         #[builder(into)]
-        pub artifact_store_uri: pulumi_wasm_rust::InputOrOutput<String>,
+        pub artifact_store_uri: pulumi_gestalt_rust::InputOrOutput<String>,
         /// A list of Member Definitions that contains objects that identify the workers that make up the work team.
         #[builder(into, default)]
-        pub automatic_model_registration: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub automatic_model_registration: pulumi_gestalt_rust::InputOrOutput<
+            Option<bool>,
+        >,
         /// The version of MLflow that the tracking server uses. To see which MLflow versions are available to use, see [How it works](https://docs.aws.amazon.com/sagemaker/latest/dg/mlflow.html#mlflow-create-tracking-server-how-it-works).
         #[builder(into, default)]
-        pub mlflow_version: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub mlflow_version: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The Amazon Resource Name (ARN) for an IAM role in your account that the MLflow Tracking Server uses to access the artifact store in Amazon S3. The role should have AmazonS3FullAccess permissions. For more information on IAM permissions for tracking server creation, see [Set up IAM permissions for MLflow](https://docs.aws.amazon.com/sagemaker/latest/dg/mlflow-create-tracking-server-iam.html).
         #[builder(into)]
-        pub role_arn: pulumi_wasm_rust::InputOrOutput<String>,
+        pub role_arn: pulumi_gestalt_rust::InputOrOutput<String>,
         /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// A unique string identifying the tracking server name. This string is part of the tracking server ARN.
         #[builder(into)]
-        pub tracking_server_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub tracking_server_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The size of the tracking server you want to create. You can choose between "Small", "Medium", and "Large". The default MLflow Tracking Server configuration size is "Small". You can choose a size depending on the projected use of the tracking server such as the volume of data logged, number of users, and frequency of use.
         #[builder(into, default)]
-        pub tracking_server_size: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub tracking_server_size: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The day and time of the week in Coordinated Universal Time (UTC) 24-hour standard time that weekly maintenance updates are scheduled. For example: TUE:03:30.
         #[builder(into, default)]
-        pub weekly_maintenance_window_start: pulumi_wasm_rust::InputOrOutput<
+        pub weekly_maintenance_window_start: pulumi_gestalt_rust::InputOrOutput<
             Option<String>,
         >,
     }
     #[allow(dead_code)]
     pub struct MlflowTrackingServerResult {
         /// The Amazon Resource Name (ARN) assigned by AWS to this MLFlow Tracking Server.
-        pub arn: pulumi_wasm_rust::Output<String>,
+        pub arn: pulumi_gestalt_rust::Output<String>,
         /// The S3 URI for a general purpose bucket to use as the MLflow Tracking Server artifact store.
-        pub artifact_store_uri: pulumi_wasm_rust::Output<String>,
+        pub artifact_store_uri: pulumi_gestalt_rust::Output<String>,
         /// A list of Member Definitions that contains objects that identify the workers that make up the work team.
-        pub automatic_model_registration: pulumi_wasm_rust::Output<Option<bool>>,
+        pub automatic_model_registration: pulumi_gestalt_rust::Output<Option<bool>>,
         /// The version of MLflow that the tracking server uses. To see which MLflow versions are available to use, see [How it works](https://docs.aws.amazon.com/sagemaker/latest/dg/mlflow.html#mlflow-create-tracking-server-how-it-works).
-        pub mlflow_version: pulumi_wasm_rust::Output<String>,
+        pub mlflow_version: pulumi_gestalt_rust::Output<String>,
         /// The Amazon Resource Name (ARN) for an IAM role in your account that the MLflow Tracking Server uses to access the artifact store in Amazon S3. The role should have AmazonS3FullAccess permissions. For more information on IAM permissions for tracking server creation, see [Set up IAM permissions for MLflow](https://docs.aws.amazon.com/sagemaker/latest/dg/mlflow-create-tracking-server-iam.html).
-        pub role_arn: pulumi_wasm_rust::Output<String>,
+        pub role_arn: pulumi_gestalt_rust::Output<String>,
         /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        pub tags_all: pulumi_wasm_rust::Output<
+        pub tags_all: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
         /// A unique string identifying the tracking server name. This string is part of the tracking server ARN.
-        pub tracking_server_name: pulumi_wasm_rust::Output<String>,
+        pub tracking_server_name: pulumi_gestalt_rust::Output<String>,
         /// The size of the tracking server you want to create. You can choose between "Small", "Medium", and "Large". The default MLflow Tracking Server configuration size is "Small". You can choose a size depending on the projected use of the tracking server such as the volume of data logged, number of users, and frequency of use.
-        pub tracking_server_size: pulumi_wasm_rust::Output<Option<String>>,
+        pub tracking_server_size: pulumi_gestalt_rust::Output<Option<String>>,
         /// The URL to connect to the MLflow user interface for the described tracking server.
-        pub tracking_server_url: pulumi_wasm_rust::Output<String>,
+        pub tracking_server_url: pulumi_gestalt_rust::Output<String>,
         /// The day and time of the week in Coordinated Universal Time (UTC) 24-hour standard time that weekly maintenance updates are scheduled. For example: TUE:03:30.
-        pub weekly_maintenance_window_start: pulumi_wasm_rust::Output<String>,
+        pub weekly_maintenance_window_start: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: MlflowTrackingServerArgs,
     ) -> MlflowTrackingServerResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let artifact_store_uri_binding = args
             .artifact_store_uri
@@ -165,33 +167,33 @@ pub mod mlflow_tracking_server {
         };
         let o = register_interface::register(context.get_inner(), &request);
         MlflowTrackingServerResult {
-            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
-            artifact_store_uri: pulumi_wasm_rust::__private::into_domain(
+            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
+            artifact_store_uri: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("artifactStoreUri"),
             ),
-            automatic_model_registration: pulumi_wasm_rust::__private::into_domain(
+            automatic_model_registration: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("automaticModelRegistration"),
             ),
-            mlflow_version: pulumi_wasm_rust::__private::into_domain(
+            mlflow_version: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("mlflowVersion"),
             ),
-            role_arn: pulumi_wasm_rust::__private::into_domain(
+            role_arn: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("roleArn"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_wasm_rust::__private::into_domain(
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            tags_all: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("tagsAll"),
             ),
-            tracking_server_name: pulumi_wasm_rust::__private::into_domain(
+            tracking_server_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("trackingServerName"),
             ),
-            tracking_server_size: pulumi_wasm_rust::__private::into_domain(
+            tracking_server_size: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("trackingServerSize"),
             ),
-            tracking_server_url: pulumi_wasm_rust::__private::into_domain(
+            tracking_server_url: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("trackingServerUrl"),
             ),
-            weekly_maintenance_window_start: pulumi_wasm_rust::__private::into_domain(
+            weekly_maintenance_window_start: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("weeklyMaintenanceWindowStart"),
             ),
         }

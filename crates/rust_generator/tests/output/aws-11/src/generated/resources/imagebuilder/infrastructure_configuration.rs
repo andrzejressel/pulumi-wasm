@@ -35,123 +35,125 @@
 /// $ pulumi import aws:imagebuilder/infrastructureConfiguration:InfrastructureConfiguration example arn:aws:imagebuilder:us-east-1:123456789012:infrastructure-configuration/example
 /// ```
 pub mod infrastructure_configuration {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct InfrastructureConfigurationArgs {
         /// Description for the configuration.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub description: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Configuration block with instance metadata options for the HTTP requests that pipeline builds use to launch EC2 build and test instances. Detailed below.
         #[builder(into, default)]
-        pub instance_metadata_options: pulumi_wasm_rust::InputOrOutput<
+        pub instance_metadata_options: pulumi_gestalt_rust::InputOrOutput<
             Option<
                 super::super::types::imagebuilder::InfrastructureConfigurationInstanceMetadataOptions,
             >,
         >,
         /// Name of IAM Instance Profile.
         #[builder(into)]
-        pub instance_profile_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub instance_profile_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Set of EC2 Instance Types.
         #[builder(into, default)]
-        pub instance_types: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
+        pub instance_types: pulumi_gestalt_rust::InputOrOutput<Option<Vec<String>>>,
         /// Name of EC2 Key Pair.
         #[builder(into, default)]
-        pub key_pair: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub key_pair: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Configuration block with logging settings. Detailed below.
         #[builder(into, default)]
-        pub logging: pulumi_wasm_rust::InputOrOutput<
+        pub logging: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::imagebuilder::InfrastructureConfigurationLogging>,
         >,
         /// Name for the configuration.
         ///
         /// The following arguments are optional:
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Key-value map of resource tags to assign to infrastructure created by the configuration.
         #[builder(into, default)]
-        pub resource_tags: pulumi_wasm_rust::InputOrOutput<
+        pub resource_tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Set of EC2 Security Group identifiers.
         #[builder(into, default)]
-        pub security_group_ids: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
+        pub security_group_ids: pulumi_gestalt_rust::InputOrOutput<Option<Vec<String>>>,
         /// Amazon Resource Name (ARN) of SNS Topic.
         #[builder(into, default)]
-        pub sns_topic_arn: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub sns_topic_arn: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// EC2 Subnet identifier. Also requires `security_group_ids` argument.
         #[builder(into, default)]
-        pub subnet_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub subnet_id: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Key-value map of resource tags to assign to the configuration. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Enable if the instance should be terminated when the pipeline fails. Defaults to `false`.
         #[builder(into, default)]
-        pub terminate_instance_on_failure: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub terminate_instance_on_failure: pulumi_gestalt_rust::InputOrOutput<
+            Option<bool>,
+        >,
     }
     #[allow(dead_code)]
     pub struct InfrastructureConfigurationResult {
         /// Amazon Resource Name (ARN) of the configuration.
-        pub arn: pulumi_wasm_rust::Output<String>,
+        pub arn: pulumi_gestalt_rust::Output<String>,
         /// Date when the configuration was created.
-        pub date_created: pulumi_wasm_rust::Output<String>,
+        pub date_created: pulumi_gestalt_rust::Output<String>,
         /// Date when the configuration was updated.
-        pub date_updated: pulumi_wasm_rust::Output<String>,
+        pub date_updated: pulumi_gestalt_rust::Output<String>,
         /// Description for the configuration.
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_gestalt_rust::Output<Option<String>>,
         /// Configuration block with instance metadata options for the HTTP requests that pipeline builds use to launch EC2 build and test instances. Detailed below.
-        pub instance_metadata_options: pulumi_wasm_rust::Output<
+        pub instance_metadata_options: pulumi_gestalt_rust::Output<
             Option<
                 super::super::types::imagebuilder::InfrastructureConfigurationInstanceMetadataOptions,
             >,
         >,
         /// Name of IAM Instance Profile.
-        pub instance_profile_name: pulumi_wasm_rust::Output<String>,
+        pub instance_profile_name: pulumi_gestalt_rust::Output<String>,
         /// Set of EC2 Instance Types.
-        pub instance_types: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub instance_types: pulumi_gestalt_rust::Output<Option<Vec<String>>>,
         /// Name of EC2 Key Pair.
-        pub key_pair: pulumi_wasm_rust::Output<Option<String>>,
+        pub key_pair: pulumi_gestalt_rust::Output<Option<String>>,
         /// Configuration block with logging settings. Detailed below.
-        pub logging: pulumi_wasm_rust::Output<
+        pub logging: pulumi_gestalt_rust::Output<
             Option<super::super::types::imagebuilder::InfrastructureConfigurationLogging>,
         >,
         /// Name for the configuration.
         ///
         /// The following arguments are optional:
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// Key-value map of resource tags to assign to infrastructure created by the configuration.
-        pub resource_tags: pulumi_wasm_rust::Output<
+        pub resource_tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Set of EC2 Security Group identifiers.
-        pub security_group_ids: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub security_group_ids: pulumi_gestalt_rust::Output<Option<Vec<String>>>,
         /// Amazon Resource Name (ARN) of SNS Topic.
-        pub sns_topic_arn: pulumi_wasm_rust::Output<Option<String>>,
+        pub sns_topic_arn: pulumi_gestalt_rust::Output<Option<String>>,
         /// EC2 Subnet identifier. Also requires `security_group_ids` argument.
-        pub subnet_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub subnet_id: pulumi_gestalt_rust::Output<Option<String>>,
         /// Key-value map of resource tags to assign to the configuration. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        pub tags_all: pulumi_wasm_rust::Output<
+        pub tags_all: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
         /// Enable if the instance should be terminated when the pipeline fails. Defaults to `false`.
-        pub terminate_instance_on_failure: pulumi_wasm_rust::Output<Option<bool>>,
+        pub terminate_instance_on_failure: pulumi_gestalt_rust::Output<Option<bool>>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: InfrastructureConfigurationArgs,
     ) -> InfrastructureConfigurationResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let description_binding = args.description.get_output(context).get_inner();
         let instance_metadata_options_binding = args
@@ -240,49 +242,49 @@ pub mod infrastructure_configuration {
         };
         let o = register_interface::register(context.get_inner(), &request);
         InfrastructureConfigurationResult {
-            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
-            date_created: pulumi_wasm_rust::__private::into_domain(
+            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
+            date_created: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("dateCreated"),
             ),
-            date_updated: pulumi_wasm_rust::__private::into_domain(
+            date_updated: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("dateUpdated"),
             ),
-            description: pulumi_wasm_rust::__private::into_domain(
+            description: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("description"),
             ),
-            instance_metadata_options: pulumi_wasm_rust::__private::into_domain(
+            instance_metadata_options: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("instanceMetadataOptions"),
             ),
-            instance_profile_name: pulumi_wasm_rust::__private::into_domain(
+            instance_profile_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("instanceProfileName"),
             ),
-            instance_types: pulumi_wasm_rust::__private::into_domain(
+            instance_types: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("instanceTypes"),
             ),
-            key_pair: pulumi_wasm_rust::__private::into_domain(
+            key_pair: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("keyPair"),
             ),
-            logging: pulumi_wasm_rust::__private::into_domain(
+            logging: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("logging"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            resource_tags: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            resource_tags: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("resourceTags"),
             ),
-            security_group_ids: pulumi_wasm_rust::__private::into_domain(
+            security_group_ids: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("securityGroupIds"),
             ),
-            sns_topic_arn: pulumi_wasm_rust::__private::into_domain(
+            sns_topic_arn: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("snsTopicArn"),
             ),
-            subnet_id: pulumi_wasm_rust::__private::into_domain(
+            subnet_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("subnetId"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_wasm_rust::__private::into_domain(
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            tags_all: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("tagsAll"),
             ),
-            terminate_instance_on_failure: pulumi_wasm_rust::__private::into_domain(
+            terminate_instance_on_failure: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("terminateInstanceOnFailure"),
             ),
         }

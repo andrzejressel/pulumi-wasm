@@ -1,19 +1,19 @@
 pub mod list_product_families {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ListProductFamiliesArgs {
         /// Customer subscription properties. Clients can display available products to unregistered customers by explicitly passing subscription details
         #[builder(into, default)]
-        pub customer_subscription_details: pulumi_wasm_rust::InputOrOutput<
+        pub customer_subscription_details: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::CustomerSubscriptionDetails>,
         >,
         /// $expand is supported on configurations parameter for product, which provides details on the configurations for the product.
         #[builder(into, default)]
-        pub expand: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub expand: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Dictionary of filterable properties on product family.
         #[builder(into)]
-        pub filterable_properties: pulumi_wasm_rust::InputOrOutput<
+        pub filterable_properties: pulumi_gestalt_rust::InputOrOutput<
             std::collections::HashMap<
                 String,
                 Vec<super::super::types::FilterableProperty>,
@@ -21,14 +21,14 @@ pub mod list_product_families {
         >,
         /// $skipToken is supported on list of product families, which provides the next page in the list of product families.
         #[builder(into, default)]
-        pub skip_token: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub skip_token: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct ListProductFamiliesResult {
         /// Link for the next set of product families.
-        pub next_link: pulumi_wasm_rust::Output<Option<String>>,
+        pub next_link: pulumi_gestalt_rust::Output<Option<String>>,
         /// List of product families.
-        pub value: pulumi_wasm_rust::Output<
+        pub value: pulumi_gestalt_rust::Output<
             Vec<super::super::types::ProductFamilyResponse>,
         >,
     }
@@ -37,10 +37,10 @@ pub mod list_product_families {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         args: ListProductFamiliesArgs,
     ) -> ListProductFamiliesResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let customer_subscription_details_binding = args
             .customer_subscription_details
@@ -76,10 +76,10 @@ pub mod list_product_families {
         };
         let o = register_interface::invoke(context.get_inner(), &request);
         ListProductFamiliesResult {
-            next_link: pulumi_wasm_rust::__private::into_domain(
+            next_link: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("nextLink"),
             ),
-            value: pulumi_wasm_rust::__private::into_domain(o.extract_field("value")),
+            value: pulumi_gestalt_rust::__private::into_domain(o.extract_field("value")),
         }
     }
 }

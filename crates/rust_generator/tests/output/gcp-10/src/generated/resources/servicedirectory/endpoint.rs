@@ -101,77 +101,77 @@
 /// ```
 ///
 pub mod endpoint {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct EndpointArgs {
         /// IPv4 or IPv6 address of the endpoint.
         #[builder(into, default)]
-        pub address: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub address: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The Resource ID must be 1-63 characters long, including digits,
         /// lowercase letters or the hyphen character.
         ///
         ///
         /// - - -
         #[builder(into)]
-        pub endpoint_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub endpoint_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Metadata for the endpoint. This data can be consumed
         /// by service clients. The entire metadata dictionary may contain
         /// up to 512 characters, spread across all key-value pairs.
         /// Metadata that goes beyond any these limits will be rejected.
         #[builder(into, default)]
-        pub metadata: pulumi_wasm_rust::InputOrOutput<
+        pub metadata: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// The URL to the network, such as projects/PROJECT_NUMBER/locations/global/networks/NETWORK_NAME.
         #[builder(into, default)]
-        pub network: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub network: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Port that the endpoint is running on, must be in the
         /// range of [0, 65535]. If unspecified, the default is 0.
         #[builder(into, default)]
-        pub port: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
+        pub port: pulumi_gestalt_rust::InputOrOutput<Option<i32>>,
         /// The resource name of the service that this endpoint provides.
         #[builder(into)]
-        pub service: pulumi_wasm_rust::InputOrOutput<String>,
+        pub service: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct EndpointResult {
         /// IPv4 or IPv6 address of the endpoint.
-        pub address: pulumi_wasm_rust::Output<Option<String>>,
+        pub address: pulumi_gestalt_rust::Output<Option<String>>,
         /// The Resource ID must be 1-63 characters long, including digits,
         /// lowercase letters or the hyphen character.
         ///
         ///
         /// - - -
-        pub endpoint_id: pulumi_wasm_rust::Output<String>,
+        pub endpoint_id: pulumi_gestalt_rust::Output<String>,
         /// Metadata for the endpoint. This data can be consumed
         /// by service clients. The entire metadata dictionary may contain
         /// up to 512 characters, spread across all key-value pairs.
         /// Metadata that goes beyond any these limits will be rejected.
-        pub metadata: pulumi_wasm_rust::Output<
+        pub metadata: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// The resource name for the endpoint in the format
         /// `projects/*/locations/*/namespaces/*/services/*/endpoints/*`.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// The URL to the network, such as projects/PROJECT_NUMBER/locations/global/networks/NETWORK_NAME.
-        pub network: pulumi_wasm_rust::Output<Option<String>>,
+        pub network: pulumi_gestalt_rust::Output<Option<String>>,
         /// Port that the endpoint is running on, must be in the
         /// range of [0, 65535]. If unspecified, the default is 0.
-        pub port: pulumi_wasm_rust::Output<Option<i32>>,
+        pub port: pulumi_gestalt_rust::Output<Option<i32>>,
         /// The resource name of the service that this endpoint provides.
-        pub service: pulumi_wasm_rust::Output<String>,
+        pub service: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: EndpointArgs,
     ) -> EndpointResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let address_binding = args.address.get_output(context).get_inner();
         let endpoint_id_binding = args.endpoint_id.get_output(context).get_inner();
@@ -212,21 +212,23 @@ pub mod endpoint {
         };
         let o = register_interface::register(context.get_inner(), &request);
         EndpointResult {
-            address: pulumi_wasm_rust::__private::into_domain(
+            address: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("address"),
             ),
-            endpoint_id: pulumi_wasm_rust::__private::into_domain(
+            endpoint_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("endpointId"),
             ),
-            metadata: pulumi_wasm_rust::__private::into_domain(
+            metadata: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("metadata"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            network: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            network: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("network"),
             ),
-            port: pulumi_wasm_rust::__private::into_domain(o.extract_field("port")),
-            service: pulumi_wasm_rust::__private::into_domain(o.extract_field("service")),
+            port: pulumi_gestalt_rust::__private::into_domain(o.extract_field("port")),
+            service: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("service"),
+            ),
         }
     }
 }

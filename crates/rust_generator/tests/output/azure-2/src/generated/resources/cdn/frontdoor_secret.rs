@@ -556,32 +556,32 @@
 /// ```
 ///
 pub mod frontdoor_secret {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct FrontdoorSecretArgs {
         /// The Resource ID of the Front Door Profile. Changing this forces a new Front Door Secret to be created.
         #[builder(into)]
-        pub cdn_frontdoor_profile_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub cdn_frontdoor_profile_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The name which should be used for this Front Door Secret. Possible values must start with a letter or a number, only contain letters, numbers and hyphens and have a length of between 2 and 260 characters. Changing this forces a new Front Door Secret to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// A `secret` block as defined below. Changing this forces a new Front Door Secret to be created.
         #[builder(into)]
-        pub secret: pulumi_wasm_rust::InputOrOutput<
+        pub secret: pulumi_gestalt_rust::InputOrOutput<
             super::super::types::cdn::FrontdoorSecretSecret,
         >,
     }
     #[allow(dead_code)]
     pub struct FrontdoorSecretResult {
         /// The Resource ID of the Front Door Profile. Changing this forces a new Front Door Secret to be created.
-        pub cdn_frontdoor_profile_id: pulumi_wasm_rust::Output<String>,
+        pub cdn_frontdoor_profile_id: pulumi_gestalt_rust::Output<String>,
         /// The name of the Front Door Profile containing this Front Door Secret.
-        pub cdn_frontdoor_profile_name: pulumi_wasm_rust::Output<String>,
+        pub cdn_frontdoor_profile_name: pulumi_gestalt_rust::Output<String>,
         /// The name which should be used for this Front Door Secret. Possible values must start with a letter or a number, only contain letters, numbers and hyphens and have a length of between 2 and 260 characters. Changing this forces a new Front Door Secret to be created.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// A `secret` block as defined below. Changing this forces a new Front Door Secret to be created.
-        pub secret: pulumi_wasm_rust::Output<
+        pub secret: pulumi_gestalt_rust::Output<
             super::super::types::cdn::FrontdoorSecretSecret,
         >,
     }
@@ -590,11 +590,11 @@ pub mod frontdoor_secret {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: FrontdoorSecretArgs,
     ) -> FrontdoorSecretResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let cdn_frontdoor_profile_id_binding = args
             .cdn_frontdoor_profile_id
@@ -623,14 +623,16 @@ pub mod frontdoor_secret {
         };
         let o = register_interface::register(context.get_inner(), &request);
         FrontdoorSecretResult {
-            cdn_frontdoor_profile_id: pulumi_wasm_rust::__private::into_domain(
+            cdn_frontdoor_profile_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("cdnFrontdoorProfileId"),
             ),
-            cdn_frontdoor_profile_name: pulumi_wasm_rust::__private::into_domain(
+            cdn_frontdoor_profile_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("cdnFrontdoorProfileName"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            secret: pulumi_wasm_rust::__private::into_domain(o.extract_field("secret")),
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            secret: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("secret"),
+            ),
         }
     }
 }

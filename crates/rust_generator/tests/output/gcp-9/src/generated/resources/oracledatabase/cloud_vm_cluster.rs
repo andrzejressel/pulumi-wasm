@@ -152,16 +152,16 @@
 /// ```
 ///
 pub mod cloud_vm_cluster {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct CloudVmClusterArgs {
         /// CIDR range of the backup subnet.
         #[builder(into)]
-        pub backup_subnet_cidr: pulumi_wasm_rust::InputOrOutput<String>,
+        pub backup_subnet_cidr: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Network settings. CIDR to use for cluster IP allocation.
         #[builder(into)]
-        pub cidr: pulumi_wasm_rust::InputOrOutput<String>,
+        pub cidr: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The ID of the VM Cluster to create. This value is restricted
         /// to (^a-z?$) and must be a maximum of 63
         /// characters in length. The value must start with a letter and end with
@@ -170,48 +170,48 @@ pub mod cloud_vm_cluster {
         ///
         /// - - -
         #[builder(into)]
-        pub cloud_vm_cluster_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub cloud_vm_cluster_id: pulumi_gestalt_rust::InputOrOutput<String>,
         #[builder(into, default)]
-        pub deletion_protection: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub deletion_protection: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// User friendly name for this resource.
         #[builder(into, default)]
-        pub display_name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub display_name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The name of the Exadata Infrastructure resource on which VM cluster
         /// resource is created, in the following format:
         /// projects/{project}/locations/{region}/cloudExadataInfrastuctures/{cloud_extradata_infrastructure}
         #[builder(into)]
-        pub exadata_infrastructure: pulumi_wasm_rust::InputOrOutput<String>,
+        pub exadata_infrastructure: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Labels or tags associated with the VM Cluster.
         /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
         /// Please refer to the field `effective_labels` for all of the labels present on the resource.
         #[builder(into, default)]
-        pub labels: pulumi_wasm_rust::InputOrOutput<
+        pub labels: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Resource ID segment making up resource `name`. See documentation for resource type `oracledatabase.googleapis.com/DbNode`.
         #[builder(into)]
-        pub location: pulumi_wasm_rust::InputOrOutput<String>,
+        pub location: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The name of the VPC network.
         /// Format: projects/{project}/global/networks/{network}
         #[builder(into)]
-        pub network: pulumi_wasm_rust::InputOrOutput<String>,
+        pub network: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub project: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Various properties and settings associated with Exadata VM cluster.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub properties: pulumi_wasm_rust::InputOrOutput<
+        pub properties: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::oracledatabase::CloudVmClusterProperties>,
         >,
     }
     #[allow(dead_code)]
     pub struct CloudVmClusterResult {
         /// CIDR range of the backup subnet.
-        pub backup_subnet_cidr: pulumi_wasm_rust::Output<String>,
+        pub backup_subnet_cidr: pulumi_gestalt_rust::Output<String>,
         /// Network settings. CIDR to use for cluster IP allocation.
-        pub cidr: pulumi_wasm_rust::Output<String>,
+        pub cidr: pulumi_gestalt_rust::Output<String>,
         /// The ID of the VM Cluster to create. This value is restricted
         /// to (^a-z?$) and must be a maximum of 63
         /// characters in length. The value must start with a letter and end with
@@ -219,48 +219,48 @@ pub mod cloud_vm_cluster {
         ///
         ///
         /// - - -
-        pub cloud_vm_cluster_id: pulumi_wasm_rust::Output<String>,
+        pub cloud_vm_cluster_id: pulumi_gestalt_rust::Output<String>,
         /// The date and time that the VM cluster was created.
-        pub create_time: pulumi_wasm_rust::Output<String>,
-        pub deletion_protection: pulumi_wasm_rust::Output<Option<bool>>,
+        pub create_time: pulumi_gestalt_rust::Output<String>,
+        pub deletion_protection: pulumi_gestalt_rust::Output<Option<bool>>,
         /// User friendly name for this resource.
-        pub display_name: pulumi_wasm_rust::Output<Option<String>>,
+        pub display_name: pulumi_gestalt_rust::Output<Option<String>>,
         /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Pulumi, other clients and services.
-        pub effective_labels: pulumi_wasm_rust::Output<
+        pub effective_labels: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
         /// The name of the Exadata Infrastructure resource on which VM cluster
         /// resource is created, in the following format:
         /// projects/{project}/locations/{region}/cloudExadataInfrastuctures/{cloud_extradata_infrastructure}
-        pub exadata_infrastructure: pulumi_wasm_rust::Output<String>,
+        pub exadata_infrastructure: pulumi_gestalt_rust::Output<String>,
         /// GCP location where Oracle Exadata is hosted. It is same as GCP Oracle zone
         /// of Exadata infrastructure.
-        pub gcp_oracle_zone: pulumi_wasm_rust::Output<String>,
+        pub gcp_oracle_zone: pulumi_gestalt_rust::Output<String>,
         /// Labels or tags associated with the VM Cluster.
         /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
         /// Please refer to the field `effective_labels` for all of the labels present on the resource.
-        pub labels: pulumi_wasm_rust::Output<
+        pub labels: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Resource ID segment making up resource `name`. See documentation for resource type `oracledatabase.googleapis.com/DbNode`.
-        pub location: pulumi_wasm_rust::Output<String>,
+        pub location: pulumi_gestalt_rust::Output<String>,
         /// Identifier. The name of the VM Cluster resource with the format:
         /// projects/{project}/locations/{region}/cloudVmClusters/{cloud_vm_cluster}
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// The name of the VPC network.
         /// Format: projects/{project}/global/networks/{network}
-        pub network: pulumi_wasm_rust::Output<String>,
+        pub network: pulumi_gestalt_rust::Output<String>,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
-        pub project: pulumi_wasm_rust::Output<String>,
+        pub project: pulumi_gestalt_rust::Output<String>,
         /// Various properties and settings associated with Exadata VM cluster.
         /// Structure is documented below.
-        pub properties: pulumi_wasm_rust::Output<
+        pub properties: pulumi_gestalt_rust::Output<
             Option<super::super::types::oracledatabase::CloudVmClusterProperties>,
         >,
         /// The combination of labels configured directly on the resource
         /// and default labels configured on the provider.
-        pub pulumi_labels: pulumi_wasm_rust::Output<
+        pub pulumi_labels: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
     }
@@ -269,11 +269,11 @@ pub mod cloud_vm_cluster {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: CloudVmClusterArgs,
     ) -> CloudVmClusterResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let backup_subnet_cidr_binding = args
             .backup_subnet_cidr
@@ -351,46 +351,48 @@ pub mod cloud_vm_cluster {
         };
         let o = register_interface::register(context.get_inner(), &request);
         CloudVmClusterResult {
-            backup_subnet_cidr: pulumi_wasm_rust::__private::into_domain(
+            backup_subnet_cidr: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("backupSubnetCidr"),
             ),
-            cidr: pulumi_wasm_rust::__private::into_domain(o.extract_field("cidr")),
-            cloud_vm_cluster_id: pulumi_wasm_rust::__private::into_domain(
+            cidr: pulumi_gestalt_rust::__private::into_domain(o.extract_field("cidr")),
+            cloud_vm_cluster_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("cloudVmClusterId"),
             ),
-            create_time: pulumi_wasm_rust::__private::into_domain(
+            create_time: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("createTime"),
             ),
-            deletion_protection: pulumi_wasm_rust::__private::into_domain(
+            deletion_protection: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("deletionProtection"),
             ),
-            display_name: pulumi_wasm_rust::__private::into_domain(
+            display_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("displayName"),
             ),
-            effective_labels: pulumi_wasm_rust::__private::into_domain(
+            effective_labels: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("effectiveLabels"),
             ),
-            exadata_infrastructure: pulumi_wasm_rust::__private::into_domain(
+            exadata_infrastructure: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("exadataInfrastructure"),
             ),
-            gcp_oracle_zone: pulumi_wasm_rust::__private::into_domain(
+            gcp_oracle_zone: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("gcpOracleZone"),
             ),
-            labels: pulumi_wasm_rust::__private::into_domain(o.extract_field("labels")),
-            location: pulumi_wasm_rust::__private::into_domain(
+            labels: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("labels"),
+            ),
+            location: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("location"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            network: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            network: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("network"),
             ),
-            project: pulumi_wasm_rust::__private::into_domain(
+            project: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("project"),
             ),
-            properties: pulumi_wasm_rust::__private::into_domain(
+            properties: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("properties"),
             ),
-            pulumi_labels: pulumi_wasm_rust::__private::into_domain(
+            pulumi_labels: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("pulumiLabels"),
             ),
         }

@@ -8,8 +8,8 @@
 ///
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let tfentitlement = entitlement::create(
@@ -95,13 +95,13 @@
 /// ```
 ///
 pub mod entitlement {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct entitlementArgs {
         /// AdditionalNotificationTargets includes email addresses to be notified.
         #[builder(into, default)]
-        pub additional_notification_targets: pulumi_wasm_rust::InputOrOutput<
+        pub additional_notification_targets: pulumi_gestalt_rust::InputOrOutput<
             Option<
                 super::super::types::privilegedaccessmanager::EntitlementAdditionalNotificationTargets,
             >,
@@ -109,7 +109,7 @@ pub mod entitlement {
         /// The approvals needed before access will be granted to a requester. No approvals will be needed if this field is null.
         /// Different types of approval workflows that can be used to gate privileged access granting.
         #[builder(into, default)]
-        pub approval_workflow: pulumi_wasm_rust::InputOrOutput<
+        pub approval_workflow: pulumi_gestalt_rust::InputOrOutput<
             Option<
                 super::super::types::privilegedaccessmanager::EntitlementApprovalWorkflow,
             >,
@@ -117,104 +117,104 @@ pub mod entitlement {
         /// Who can create Grants using Entitlement. This list should contain at most one entry
         /// Structure is documented below.
         #[builder(into)]
-        pub eligible_users: pulumi_wasm_rust::InputOrOutput<
+        pub eligible_users: pulumi_gestalt_rust::InputOrOutput<
             Vec<super::super::types::privilegedaccessmanager::EntitlementEligibleUser>,
         >,
         /// The ID to use for this Entitlement. This will become the last part of the resource name.
         /// This value should be 4-63 characters, and valid characters are "[a-z]", "[0-9]", and "-". The first character should be from [a-z].
         /// This value should be unique among all other Entitlements under the specified `parent`.
         #[builder(into)]
-        pub entitlement_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub entitlement_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The region of the Entitlement resource.
         #[builder(into)]
-        pub location: pulumi_wasm_rust::InputOrOutput<String>,
+        pub location: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The maximum amount of time for which access would be granted for a request.
         /// A requester can choose to ask for access for less than this duration but never more.
         /// Format: calculate the time in seconds and concatenate it with 's' i.e. 2 hours = "7200s", 45 minutes = "2700s"
         #[builder(into)]
-        pub max_request_duration: pulumi_wasm_rust::InputOrOutput<String>,
+        pub max_request_duration: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Format: projects/{project-id|project-number} or organizations/{organization-number} or folders/{folder-number}
         #[builder(into)]
-        pub parent: pulumi_wasm_rust::InputOrOutput<String>,
+        pub parent: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Privileged access that this service can be used to gate.
         /// Structure is documented below.
         #[builder(into)]
-        pub privileged_access: pulumi_wasm_rust::InputOrOutput<
+        pub privileged_access: pulumi_gestalt_rust::InputOrOutput<
             super::super::types::privilegedaccessmanager::EntitlementPrivilegedAccess,
         >,
         /// Defines the ways in which a requester should provide the justification while requesting for access.
         /// Structure is documented below.
         #[builder(into)]
-        pub requester_justification_config: pulumi_wasm_rust::InputOrOutput<
+        pub requester_justification_config: pulumi_gestalt_rust::InputOrOutput<
             super::super::types::privilegedaccessmanager::EntitlementRequesterJustificationConfig,
         >,
     }
     #[allow(dead_code)]
     pub struct entitlementResult {
         /// AdditionalNotificationTargets includes email addresses to be notified.
-        pub additional_notification_targets: pulumi_wasm_rust::Output<
+        pub additional_notification_targets: pulumi_gestalt_rust::Output<
             Option<
                 super::super::types::privilegedaccessmanager::EntitlementAdditionalNotificationTargets,
             >,
         >,
         /// The approvals needed before access will be granted to a requester. No approvals will be needed if this field is null.
         /// Different types of approval workflows that can be used to gate privileged access granting.
-        pub approval_workflow: pulumi_wasm_rust::Output<
+        pub approval_workflow: pulumi_gestalt_rust::Output<
             Option<
                 super::super::types::privilegedaccessmanager::EntitlementApprovalWorkflow,
             >,
         >,
         /// Output only. Create time stamp. A timestamp in RFC3339 UTC "Zulu" format, with nanosecond resolution and up to nine fractional digits.
         /// Examples: "2014-10-02T15:01:23Z" and "2014-10-02T15:01:23.045123456Z"
-        pub create_time: pulumi_wasm_rust::Output<String>,
+        pub create_time: pulumi_gestalt_rust::Output<String>,
         /// Who can create Grants using Entitlement. This list should contain at most one entry
         /// Structure is documented below.
-        pub eligible_users: pulumi_wasm_rust::Output<
+        pub eligible_users: pulumi_gestalt_rust::Output<
             Vec<super::super::types::privilegedaccessmanager::EntitlementEligibleUser>,
         >,
         /// The ID to use for this Entitlement. This will become the last part of the resource name.
         /// This value should be 4-63 characters, and valid characters are "[a-z]", "[0-9]", and "-". The first character should be from [a-z].
         /// This value should be unique among all other Entitlements under the specified `parent`.
-        pub entitlement_id: pulumi_wasm_rust::Output<String>,
+        pub entitlement_id: pulumi_gestalt_rust::Output<String>,
         /// For Resource freshness validation (https://google.aip.dev/154)
-        pub etag: pulumi_wasm_rust::Output<String>,
+        pub etag: pulumi_gestalt_rust::Output<String>,
         /// The region of the Entitlement resource.
-        pub location: pulumi_wasm_rust::Output<String>,
+        pub location: pulumi_gestalt_rust::Output<String>,
         /// The maximum amount of time for which access would be granted for a request.
         /// A requester can choose to ask for access for less than this duration but never more.
         /// Format: calculate the time in seconds and concatenate it with 's' i.e. 2 hours = "7200s", 45 minutes = "2700s"
-        pub max_request_duration: pulumi_wasm_rust::Output<String>,
+        pub max_request_duration: pulumi_gestalt_rust::Output<String>,
         /// Output Only. The entitlement's name follows a hierarchical structure, comprising the organization, folder, or project, alongside the region and a unique entitlement ID.
         /// Formats: organizations/{organization-number}/locations/{region}/entitlements/{entitlement-id}, folders/{folder-number}/locations/{region}/entitlements/{entitlement-id}, and projects/{project-id|project-number}/locations/{region}/entitlements/{entitlement-id}.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// Format: projects/{project-id|project-number} or organizations/{organization-number} or folders/{folder-number}
-        pub parent: pulumi_wasm_rust::Output<String>,
+        pub parent: pulumi_gestalt_rust::Output<String>,
         /// Privileged access that this service can be used to gate.
         /// Structure is documented below.
-        pub privileged_access: pulumi_wasm_rust::Output<
+        pub privileged_access: pulumi_gestalt_rust::Output<
             super::super::types::privilegedaccessmanager::EntitlementPrivilegedAccess,
         >,
         /// Defines the ways in which a requester should provide the justification while requesting for access.
         /// Structure is documented below.
-        pub requester_justification_config: pulumi_wasm_rust::Output<
+        pub requester_justification_config: pulumi_gestalt_rust::Output<
             super::super::types::privilegedaccessmanager::EntitlementRequesterJustificationConfig,
         >,
         /// Output only. The current state of the Entitlement.
-        pub state: pulumi_wasm_rust::Output<String>,
+        pub state: pulumi_gestalt_rust::Output<String>,
         /// Output only. Update time stamp. A timestamp in RFC3339 UTC "Zulu" format, with nanosecond resolution and up to nine fractional digits.
         /// Examples: "2014-10-02T15:01:23Z" and "2014-10-02T15:01:23.045123456Z".
-        pub update_time: pulumi_wasm_rust::Output<String>,
+        pub update_time: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: entitlementArgs,
     ) -> entitlementResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let additional_notification_targets_binding = args
             .additional_notification_targets
@@ -285,38 +285,40 @@ pub mod entitlement {
         };
         let o = register_interface::register(context.get_inner(), &request);
         entitlementResult {
-            additional_notification_targets: pulumi_wasm_rust::__private::into_domain(
+            additional_notification_targets: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("additionalNotificationTargets"),
             ),
-            approval_workflow: pulumi_wasm_rust::__private::into_domain(
+            approval_workflow: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("approvalWorkflow"),
             ),
-            create_time: pulumi_wasm_rust::__private::into_domain(
+            create_time: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("createTime"),
             ),
-            eligible_users: pulumi_wasm_rust::__private::into_domain(
+            eligible_users: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("eligibleUsers"),
             ),
-            entitlement_id: pulumi_wasm_rust::__private::into_domain(
+            entitlement_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("entitlementId"),
             ),
-            etag: pulumi_wasm_rust::__private::into_domain(o.extract_field("etag")),
-            location: pulumi_wasm_rust::__private::into_domain(
+            etag: pulumi_gestalt_rust::__private::into_domain(o.extract_field("etag")),
+            location: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("location"),
             ),
-            max_request_duration: pulumi_wasm_rust::__private::into_domain(
+            max_request_duration: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("maxRequestDuration"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            parent: pulumi_wasm_rust::__private::into_domain(o.extract_field("parent")),
-            privileged_access: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            parent: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("parent"),
+            ),
+            privileged_access: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("privilegedAccess"),
             ),
-            requester_justification_config: pulumi_wasm_rust::__private::into_domain(
+            requester_justification_config: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("requesterJustificationConfig"),
             ),
-            state: pulumi_wasm_rust::__private::into_domain(o.extract_field("state")),
-            update_time: pulumi_wasm_rust::__private::into_domain(
+            state: pulumi_gestalt_rust::__private::into_domain(o.extract_field("state")),
+            update_time: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("updateTime"),
             ),
         }

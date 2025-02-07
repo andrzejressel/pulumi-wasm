@@ -98,140 +98,142 @@
 /// ```
 ///
 pub mod instance {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct InstanceArgs {
         /// The full name of the GCE network to connect the instance to. If not provided, 'default' will be used.
         #[builder(into, default)]
-        pub authorized_network: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub authorized_network: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// A user-visible name for the instance.
         #[builder(into, default)]
-        pub display_name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub display_name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Resource labels to represent user-provided metadata. **Note**: This field is non-authoritative, and will only manage the
         /// labels present in your configuration. Please refer to the field 'effective_labels' for all of the labels present on the
         /// resource.
         #[builder(into, default)]
-        pub labels: pulumi_wasm_rust::InputOrOutput<
+        pub labels: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Maintenance policy for an instance.
         #[builder(into, default)]
-        pub maintenance_policy: pulumi_wasm_rust::InputOrOutput<
+        pub maintenance_policy: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::memcache::InstanceMaintenancePolicy>,
         >,
         /// User-specified parameters for this memcache instance.
         #[builder(into, default)]
-        pub memcache_parameters: pulumi_wasm_rust::InputOrOutput<
+        pub memcache_parameters: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::memcache::InstanceMemcacheParameters>,
         >,
         /// The major version of Memcached software. If not provided, latest supported version will be used. Currently the latest
         /// supported major version is MEMCACHE_1_5. The minor version will be automatically determined by our system based on the
         /// latest supported minor version. Default value: "MEMCACHE_1_5" Possible values: ["MEMCACHE_1_5", "MEMCACHE_1_6_15"]
         #[builder(into, default)]
-        pub memcache_version: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub memcache_version: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The resource name of the instance.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Configuration for memcache nodes.
         /// Structure is documented below.
         #[builder(into)]
-        pub node_config: pulumi_wasm_rust::InputOrOutput<
+        pub node_config: pulumi_gestalt_rust::InputOrOutput<
             super::super::types::memcache::InstanceNodeConfig,
         >,
         /// Number of nodes in the memcache instance.
         #[builder(into)]
-        pub node_count: pulumi_wasm_rust::InputOrOutput<i32>,
+        pub node_count: pulumi_gestalt_rust::InputOrOutput<i32>,
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub project: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The region of the Memcache instance. If it is not provided, the provider region is used.
         #[builder(into, default)]
-        pub region: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub region: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Contains the name of allocated IP address ranges associated with the private service access connection for example,
         /// "test-default" associated with IP range 10.0.0.0/29.
         #[builder(into, default)]
-        pub reserved_ip_range_ids: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
+        pub reserved_ip_range_ids: pulumi_gestalt_rust::InputOrOutput<
+            Option<Vec<String>>,
+        >,
         /// Zones where memcache nodes should be provisioned. If not provided, all zones will be used.
         #[builder(into, default)]
-        pub zones: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
+        pub zones: pulumi_gestalt_rust::InputOrOutput<Option<Vec<String>>>,
     }
     #[allow(dead_code)]
     pub struct InstanceResult {
         /// The full name of the GCE network to connect the instance to. If not provided, 'default' will be used.
-        pub authorized_network: pulumi_wasm_rust::Output<String>,
+        pub authorized_network: pulumi_gestalt_rust::Output<String>,
         /// Creation timestamp in RFC3339 text format.
-        pub create_time: pulumi_wasm_rust::Output<String>,
+        pub create_time: pulumi_gestalt_rust::Output<String>,
         /// Endpoint for Discovery API
-        pub discovery_endpoint: pulumi_wasm_rust::Output<String>,
+        pub discovery_endpoint: pulumi_gestalt_rust::Output<String>,
         /// A user-visible name for the instance.
-        pub display_name: pulumi_wasm_rust::Output<String>,
+        pub display_name: pulumi_gestalt_rust::Output<String>,
         /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Pulumi, other clients and services.
-        pub effective_labels: pulumi_wasm_rust::Output<
+        pub effective_labels: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
         /// Resource labels to represent user-provided metadata. **Note**: This field is non-authoritative, and will only manage the
         /// labels present in your configuration. Please refer to the field 'effective_labels' for all of the labels present on the
         /// resource.
-        pub labels: pulumi_wasm_rust::Output<
+        pub labels: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Maintenance policy for an instance.
-        pub maintenance_policy: pulumi_wasm_rust::Output<
+        pub maintenance_policy: pulumi_gestalt_rust::Output<
             Option<super::super::types::memcache::InstanceMaintenancePolicy>,
         >,
         /// Output only. Published maintenance schedule.
         /// Structure is documented below.
-        pub maintenance_schedules: pulumi_wasm_rust::Output<
+        pub maintenance_schedules: pulumi_gestalt_rust::Output<
             Vec<super::super::types::memcache::InstanceMaintenanceSchedule>,
         >,
         /// The full version of memcached server running on this instance.
-        pub memcache_full_version: pulumi_wasm_rust::Output<String>,
+        pub memcache_full_version: pulumi_gestalt_rust::Output<String>,
         /// Additional information about the instance state, if available.
         /// Structure is documented below.
-        pub memcache_nodes: pulumi_wasm_rust::Output<
+        pub memcache_nodes: pulumi_gestalt_rust::Output<
             Vec<super::super::types::memcache::InstanceMemcacheNode>,
         >,
         /// User-specified parameters for this memcache instance.
-        pub memcache_parameters: pulumi_wasm_rust::Output<
+        pub memcache_parameters: pulumi_gestalt_rust::Output<
             Option<super::super::types::memcache::InstanceMemcacheParameters>,
         >,
         /// The major version of Memcached software. If not provided, latest supported version will be used. Currently the latest
         /// supported major version is MEMCACHE_1_5. The minor version will be automatically determined by our system based on the
         /// latest supported minor version. Default value: "MEMCACHE_1_5" Possible values: ["MEMCACHE_1_5", "MEMCACHE_1_6_15"]
-        pub memcache_version: pulumi_wasm_rust::Output<Option<String>>,
+        pub memcache_version: pulumi_gestalt_rust::Output<Option<String>>,
         /// The resource name of the instance.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// Configuration for memcache nodes.
         /// Structure is documented below.
-        pub node_config: pulumi_wasm_rust::Output<
+        pub node_config: pulumi_gestalt_rust::Output<
             super::super::types::memcache::InstanceNodeConfig,
         >,
         /// Number of nodes in the memcache instance.
-        pub node_count: pulumi_wasm_rust::Output<i32>,
-        pub project: pulumi_wasm_rust::Output<String>,
+        pub node_count: pulumi_gestalt_rust::Output<i32>,
+        pub project: pulumi_gestalt_rust::Output<String>,
         /// The combination of labels configured directly on the resource
         /// and default labels configured on the provider.
-        pub pulumi_labels: pulumi_wasm_rust::Output<
+        pub pulumi_labels: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
         /// The region of the Memcache instance. If it is not provided, the provider region is used.
-        pub region: pulumi_wasm_rust::Output<String>,
+        pub region: pulumi_gestalt_rust::Output<String>,
         /// Contains the name of allocated IP address ranges associated with the private service access connection for example,
         /// "test-default" associated with IP range 10.0.0.0/29.
-        pub reserved_ip_range_ids: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub reserved_ip_range_ids: pulumi_gestalt_rust::Output<Option<Vec<String>>>,
         /// Zones where memcache nodes should be provisioned. If not provided, all zones will be used.
-        pub zones: pulumi_wasm_rust::Output<Vec<String>>,
+        pub zones: pulumi_gestalt_rust::Output<Vec<String>>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: InstanceArgs,
     ) -> InstanceResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let authorized_network_binding = args
             .authorized_network
@@ -322,58 +324,62 @@ pub mod instance {
         };
         let o = register_interface::register(context.get_inner(), &request);
         InstanceResult {
-            authorized_network: pulumi_wasm_rust::__private::into_domain(
+            authorized_network: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("authorizedNetwork"),
             ),
-            create_time: pulumi_wasm_rust::__private::into_domain(
+            create_time: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("createTime"),
             ),
-            discovery_endpoint: pulumi_wasm_rust::__private::into_domain(
+            discovery_endpoint: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("discoveryEndpoint"),
             ),
-            display_name: pulumi_wasm_rust::__private::into_domain(
+            display_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("displayName"),
             ),
-            effective_labels: pulumi_wasm_rust::__private::into_domain(
+            effective_labels: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("effectiveLabels"),
             ),
-            labels: pulumi_wasm_rust::__private::into_domain(o.extract_field("labels")),
-            maintenance_policy: pulumi_wasm_rust::__private::into_domain(
+            labels: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("labels"),
+            ),
+            maintenance_policy: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("maintenancePolicy"),
             ),
-            maintenance_schedules: pulumi_wasm_rust::__private::into_domain(
+            maintenance_schedules: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("maintenanceSchedules"),
             ),
-            memcache_full_version: pulumi_wasm_rust::__private::into_domain(
+            memcache_full_version: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("memcacheFullVersion"),
             ),
-            memcache_nodes: pulumi_wasm_rust::__private::into_domain(
+            memcache_nodes: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("memcacheNodes"),
             ),
-            memcache_parameters: pulumi_wasm_rust::__private::into_domain(
+            memcache_parameters: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("memcacheParameters"),
             ),
-            memcache_version: pulumi_wasm_rust::__private::into_domain(
+            memcache_version: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("memcacheVersion"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            node_config: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            node_config: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("nodeConfig"),
             ),
-            node_count: pulumi_wasm_rust::__private::into_domain(
+            node_count: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("nodeCount"),
             ),
-            project: pulumi_wasm_rust::__private::into_domain(
+            project: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("project"),
             ),
-            pulumi_labels: pulumi_wasm_rust::__private::into_domain(
+            pulumi_labels: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("pulumiLabels"),
             ),
-            region: pulumi_wasm_rust::__private::into_domain(o.extract_field("region")),
-            reserved_ip_range_ids: pulumi_wasm_rust::__private::into_domain(
+            region: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("region"),
+            ),
+            reserved_ip_range_ids: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("reservedIpRangeIds"),
             ),
-            zones: pulumi_wasm_rust::__private::into_domain(o.extract_field("zones")),
+            zones: pulumi_gestalt_rust::__private::into_domain(o.extract_field("zones")),
         }
     }
 }

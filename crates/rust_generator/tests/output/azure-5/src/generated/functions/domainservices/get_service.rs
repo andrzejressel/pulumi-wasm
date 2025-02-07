@@ -1,72 +1,72 @@
 pub mod get_service {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct GetServiceArgs {
         /// The display name for your managed Active Directory Domain Service resource. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The name of the Resource Group in which the Domain Service should exist. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub resource_group_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub resource_group_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// A mapping of tags assigned to the resource.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
     #[allow(dead_code)]
     pub struct GetServiceResult {
         /// A unique ID for the managed domain deployment.
-        pub deployment_id: pulumi_wasm_rust::Output<String>,
+        pub deployment_id: pulumi_gestalt_rust::Output<String>,
         /// The forest type used by the managed domain. One of `ResourceTrusting`, for a _Resource Forest_, or blank, for a _User Forest_.
-        pub domain_configuration_type: pulumi_wasm_rust::Output<String>,
+        pub domain_configuration_type: pulumi_gestalt_rust::Output<String>,
         /// The Active Directory domain of the Domain Service. See [official documentation](https://docs.microsoft.com/azure/active-directory-domain-services/tutorial-create-instance#create-a-managed-domain) for constraints and recommendations.
-        pub domain_name: pulumi_wasm_rust::Output<String>,
+        pub domain_name: pulumi_gestalt_rust::Output<String>,
         /// Whether group-based filtered sync (also called scoped synchronisation) is enabled.
-        pub filtered_sync_enabled: pulumi_wasm_rust::Output<bool>,
+        pub filtered_sync_enabled: pulumi_gestalt_rust::Output<bool>,
         /// The provider-assigned unique ID for this managed resource.
-        pub id: pulumi_wasm_rust::Output<String>,
+        pub id: pulumi_gestalt_rust::Output<String>,
         /// The Azure location in which the replica set resides.
-        pub location: pulumi_wasm_rust::Output<String>,
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub location: pulumi_gestalt_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// A `notifications` block as defined below.
-        pub notifications: pulumi_wasm_rust::Output<
+        pub notifications: pulumi_gestalt_rust::Output<
             Vec<super::super::super::types::domainservices::GetServiceNotification>,
         >,
         /// One or more `replica_set` blocks as defined below.
-        pub replica_sets: pulumi_wasm_rust::Output<
+        pub replica_sets: pulumi_gestalt_rust::Output<
             Vec<super::super::super::types::domainservices::GetServiceReplicaSet>,
         >,
-        pub resource_group_name: pulumi_wasm_rust::Output<String>,
-        pub resource_id: pulumi_wasm_rust::Output<String>,
+        pub resource_group_name: pulumi_gestalt_rust::Output<String>,
+        pub resource_id: pulumi_gestalt_rust::Output<String>,
         /// A `secure_ldap` block as defined below.
-        pub secure_ldaps: pulumi_wasm_rust::Output<
+        pub secure_ldaps: pulumi_gestalt_rust::Output<
             Vec<super::super::super::types::domainservices::GetServiceSecureLdap>,
         >,
         /// A `security` block as defined below.
-        pub securities: pulumi_wasm_rust::Output<
+        pub securities: pulumi_gestalt_rust::Output<
             Vec<super::super::super::types::domainservices::GetServiceSecurity>,
         >,
         /// The SKU of the Domain Service resource. One of `Standard`, `Enterprise` or `Premium`.
-        pub sku: pulumi_wasm_rust::Output<String>,
-        pub sync_owner: pulumi_wasm_rust::Output<String>,
+        pub sku: pulumi_gestalt_rust::Output<String>,
+        pub sync_owner: pulumi_gestalt_rust::Output<String>,
         /// A mapping of tags assigned to the resource.
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
-        pub tenant_id: pulumi_wasm_rust::Output<String>,
-        pub version: pulumi_wasm_rust::Output<i32>,
+        pub tenant_id: pulumi_gestalt_rust::Output<String>,
+        pub version: pulumi_gestalt_rust::Output<i32>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         args: GetServiceArgs,
     ) -> GetServiceResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let name_binding = args.name.get_output(context).get_inner();
         let resource_group_name_binding = args
@@ -94,50 +94,52 @@ pub mod get_service {
         };
         let o = register_interface::invoke(context.get_inner(), &request);
         GetServiceResult {
-            deployment_id: pulumi_wasm_rust::__private::into_domain(
+            deployment_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("deploymentId"),
             ),
-            domain_configuration_type: pulumi_wasm_rust::__private::into_domain(
+            domain_configuration_type: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("domainConfigurationType"),
             ),
-            domain_name: pulumi_wasm_rust::__private::into_domain(
+            domain_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("domainName"),
             ),
-            filtered_sync_enabled: pulumi_wasm_rust::__private::into_domain(
+            filtered_sync_enabled: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("filteredSyncEnabled"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
-            location: pulumi_wasm_rust::__private::into_domain(
+            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
+            location: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("location"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            notifications: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            notifications: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("notifications"),
             ),
-            replica_sets: pulumi_wasm_rust::__private::into_domain(
+            replica_sets: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("replicaSets"),
             ),
-            resource_group_name: pulumi_wasm_rust::__private::into_domain(
+            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("resourceGroupName"),
             ),
-            resource_id: pulumi_wasm_rust::__private::into_domain(
+            resource_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("resourceId"),
             ),
-            secure_ldaps: pulumi_wasm_rust::__private::into_domain(
+            secure_ldaps: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("secureLdaps"),
             ),
-            securities: pulumi_wasm_rust::__private::into_domain(
+            securities: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("securities"),
             ),
-            sku: pulumi_wasm_rust::__private::into_domain(o.extract_field("sku")),
-            sync_owner: pulumi_wasm_rust::__private::into_domain(
+            sku: pulumi_gestalt_rust::__private::into_domain(o.extract_field("sku")),
+            sync_owner: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("syncOwner"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
-            tenant_id: pulumi_wasm_rust::__private::into_domain(
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            tenant_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("tenantId"),
             ),
-            version: pulumi_wasm_rust::__private::into_domain(o.extract_field("version")),
+            version: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("version"),
+            ),
         }
     }
 }

@@ -52,7 +52,7 @@
 /// ```
 ///
 pub mod key_vault {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct KeyVaultArgs {
@@ -60,7 +60,7 @@ pub mod key_vault {
         ///
         /// > **NOTE** Since `access_policy` can be configured both inline and via the separate `azure.keyvault.AccessPolicy` resource, we have to explicitly set it to empty slice (`[]`) to remove it.
         #[builder(into, default)]
-        pub access_policies: pulumi_wasm_rust::InputOrOutput<
+        pub access_policies: pulumi_gestalt_rust::InputOrOutput<
             Option<Vec<super::super::types::keyvault::KeyVaultAccessPolicy>>,
         >,
         /// One or more `contact` block as defined below.
@@ -69,70 +69,74 @@ pub mod key_vault {
         ///
         /// > **Note:** This field can only be set when `public_network_access_enabled` is set to `true`. To manage the `contact` with `public_network_access_enabled` set to `false`, please use the `azure.keyvault.CertificateContacts` resource instead of this property, and remove this property from the configuration. Especially for existing `azure.keyvault.KeyVault`, this means you'll need to import the `azure.keyvault.CertificateContacts` manually.
         #[builder(into, default)]
-        pub contacts: pulumi_wasm_rust::InputOrOutput<
+        pub contacts: pulumi_gestalt_rust::InputOrOutput<
             Option<Vec<super::super::types::keyvault::KeyVaultContact>>,
         >,
         /// Boolean flag to specify whether Azure Key Vault uses Role Based Access Control (RBAC) for authorization of data actions.
         #[builder(into, default)]
-        pub enable_rbac_authorization: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub enable_rbac_authorization: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// Boolean flag to specify whether Azure Virtual Machines are permitted to retrieve certificates stored as secrets from the key vault.
         #[builder(into, default)]
-        pub enabled_for_deployment: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub enabled_for_deployment: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// Boolean flag to specify whether Azure Disk Encryption is permitted to retrieve secrets from the vault and unwrap keys.
         #[builder(into, default)]
-        pub enabled_for_disk_encryption: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub enabled_for_disk_encryption: pulumi_gestalt_rust::InputOrOutput<
+            Option<bool>,
+        >,
         /// Boolean flag to specify whether Azure Resource Manager is permitted to retrieve secrets from the key vault.
         #[builder(into, default)]
-        pub enabled_for_template_deployment: pulumi_wasm_rust::InputOrOutput<
+        pub enabled_for_template_deployment: pulumi_gestalt_rust::InputOrOutput<
             Option<bool>,
         >,
         /// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub location: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub location: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Specifies the name of the Key Vault. Changing this forces a new resource to be created. The name must be globally unique. If the vault is in a recoverable state then the vault will need to be purged before reusing the name.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// A `network_acls` block as defined below.
         #[builder(into, default)]
-        pub network_acls: pulumi_wasm_rust::InputOrOutput<
+        pub network_acls: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::keyvault::KeyVaultNetworkAcls>,
         >,
         /// Whether public network access is allowed for this Key Vault. Defaults to `true`.
         #[builder(into, default)]
-        pub public_network_access_enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub public_network_access_enabled: pulumi_gestalt_rust::InputOrOutput<
+            Option<bool>,
+        >,
         /// Is Purge Protection enabled for this Key Vault?
         ///
         /// !> **Note:** Once Purge Protection has been Enabled it's not possible to Disable it. Support for [disabling purge protection is being tracked in this Azure API issue](https://github.com/Azure/azure-rest-api-specs/issues/8075). Deleting the Key Vault with Purge Protection Enabled will schedule the Key Vault to be deleted (which will happen by Azure in the configured number of days, currently 90 days).
         #[builder(into, default)]
-        pub purge_protection_enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub purge_protection_enabled: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// The name of the resource group in which to create the Key Vault. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub resource_group_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub resource_group_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The Name of the SKU used for this Key Vault. Possible values are `standard` and `premium`.
         #[builder(into)]
-        pub sku_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub sku_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The number of days that items should be retained for once soft-deleted. This value can be between `7` and `90` (the default) days.
         ///
         /// > **Note:** This field can only be configured one time and cannot be updated.
         ///
         /// <!-- TODO: Remove `contact` and Notes in 4.0 -->
         #[builder(into, default)]
-        pub soft_delete_retention_days: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
+        pub soft_delete_retention_days: pulumi_gestalt_rust::InputOrOutput<Option<i32>>,
         /// A mapping of tags to assign to the resource.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// The Azure Active Directory tenant ID that should be used for authenticating requests to the key vault.
         #[builder(into)]
-        pub tenant_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub tenant_id: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct KeyVaultResult {
         /// A list of up to 1024 objects describing access policies, as described below.
         ///
         /// > **NOTE** Since `access_policy` can be configured both inline and via the separate `azure.keyvault.AccessPolicy` resource, we have to explicitly set it to empty slice (`[]`) to remove it.
-        pub access_policies: pulumi_wasm_rust::Output<
+        pub access_policies: pulumi_gestalt_rust::Output<
             Vec<super::super::types::keyvault::KeyVaultAccessPolicy>,
         >,
         /// One or more `contact` block as defined below.
@@ -140,60 +144,60 @@ pub mod key_vault {
         /// > **Note:** This field can only be set once user has `managecontacts` certificate permission.
         ///
         /// > **Note:** This field can only be set when `public_network_access_enabled` is set to `true`. To manage the `contact` with `public_network_access_enabled` set to `false`, please use the `azure.keyvault.CertificateContacts` resource instead of this property, and remove this property from the configuration. Especially for existing `azure.keyvault.KeyVault`, this means you'll need to import the `azure.keyvault.CertificateContacts` manually.
-        pub contacts: pulumi_wasm_rust::Output<
+        pub contacts: pulumi_gestalt_rust::Output<
             Vec<super::super::types::keyvault::KeyVaultContact>,
         >,
         /// Boolean flag to specify whether Azure Key Vault uses Role Based Access Control (RBAC) for authorization of data actions.
-        pub enable_rbac_authorization: pulumi_wasm_rust::Output<Option<bool>>,
+        pub enable_rbac_authorization: pulumi_gestalt_rust::Output<Option<bool>>,
         /// Boolean flag to specify whether Azure Virtual Machines are permitted to retrieve certificates stored as secrets from the key vault.
-        pub enabled_for_deployment: pulumi_wasm_rust::Output<Option<bool>>,
+        pub enabled_for_deployment: pulumi_gestalt_rust::Output<Option<bool>>,
         /// Boolean flag to specify whether Azure Disk Encryption is permitted to retrieve secrets from the vault and unwrap keys.
-        pub enabled_for_disk_encryption: pulumi_wasm_rust::Output<Option<bool>>,
+        pub enabled_for_disk_encryption: pulumi_gestalt_rust::Output<Option<bool>>,
         /// Boolean flag to specify whether Azure Resource Manager is permitted to retrieve secrets from the key vault.
-        pub enabled_for_template_deployment: pulumi_wasm_rust::Output<Option<bool>>,
+        pub enabled_for_template_deployment: pulumi_gestalt_rust::Output<Option<bool>>,
         /// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
-        pub location: pulumi_wasm_rust::Output<String>,
+        pub location: pulumi_gestalt_rust::Output<String>,
         /// Specifies the name of the Key Vault. Changing this forces a new resource to be created. The name must be globally unique. If the vault is in a recoverable state then the vault will need to be purged before reusing the name.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// A `network_acls` block as defined below.
-        pub network_acls: pulumi_wasm_rust::Output<
+        pub network_acls: pulumi_gestalt_rust::Output<
             super::super::types::keyvault::KeyVaultNetworkAcls,
         >,
         /// Whether public network access is allowed for this Key Vault. Defaults to `true`.
-        pub public_network_access_enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub public_network_access_enabled: pulumi_gestalt_rust::Output<Option<bool>>,
         /// Is Purge Protection enabled for this Key Vault?
         ///
         /// !> **Note:** Once Purge Protection has been Enabled it's not possible to Disable it. Support for [disabling purge protection is being tracked in this Azure API issue](https://github.com/Azure/azure-rest-api-specs/issues/8075). Deleting the Key Vault with Purge Protection Enabled will schedule the Key Vault to be deleted (which will happen by Azure in the configured number of days, currently 90 days).
-        pub purge_protection_enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub purge_protection_enabled: pulumi_gestalt_rust::Output<Option<bool>>,
         /// The name of the resource group in which to create the Key Vault. Changing this forces a new resource to be created.
-        pub resource_group_name: pulumi_wasm_rust::Output<String>,
+        pub resource_group_name: pulumi_gestalt_rust::Output<String>,
         /// The Name of the SKU used for this Key Vault. Possible values are `standard` and `premium`.
-        pub sku_name: pulumi_wasm_rust::Output<String>,
+        pub sku_name: pulumi_gestalt_rust::Output<String>,
         /// The number of days that items should be retained for once soft-deleted. This value can be between `7` and `90` (the default) days.
         ///
         /// > **Note:** This field can only be configured one time and cannot be updated.
         ///
         /// <!-- TODO: Remove `contact` and Notes in 4.0 -->
-        pub soft_delete_retention_days: pulumi_wasm_rust::Output<Option<i32>>,
+        pub soft_delete_retention_days: pulumi_gestalt_rust::Output<Option<i32>>,
         /// A mapping of tags to assign to the resource.
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// The Azure Active Directory tenant ID that should be used for authenticating requests to the key vault.
-        pub tenant_id: pulumi_wasm_rust::Output<String>,
+        pub tenant_id: pulumi_gestalt_rust::Output<String>,
         /// The URI of the Key Vault, used for performing operations on keys and secrets.
-        pub vault_uri: pulumi_wasm_rust::Output<String>,
+        pub vault_uri: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: KeyVaultArgs,
     ) -> KeyVaultResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let access_policies_binding = args
             .access_policies
@@ -311,51 +315,51 @@ pub mod key_vault {
         };
         let o = register_interface::register(context.get_inner(), &request);
         KeyVaultResult {
-            access_policies: pulumi_wasm_rust::__private::into_domain(
+            access_policies: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("accessPolicies"),
             ),
-            contacts: pulumi_wasm_rust::__private::into_domain(
+            contacts: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("contacts"),
             ),
-            enable_rbac_authorization: pulumi_wasm_rust::__private::into_domain(
+            enable_rbac_authorization: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("enableRbacAuthorization"),
             ),
-            enabled_for_deployment: pulumi_wasm_rust::__private::into_domain(
+            enabled_for_deployment: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("enabledForDeployment"),
             ),
-            enabled_for_disk_encryption: pulumi_wasm_rust::__private::into_domain(
+            enabled_for_disk_encryption: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("enabledForDiskEncryption"),
             ),
-            enabled_for_template_deployment: pulumi_wasm_rust::__private::into_domain(
+            enabled_for_template_deployment: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("enabledForTemplateDeployment"),
             ),
-            location: pulumi_wasm_rust::__private::into_domain(
+            location: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("location"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            network_acls: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            network_acls: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("networkAcls"),
             ),
-            public_network_access_enabled: pulumi_wasm_rust::__private::into_domain(
+            public_network_access_enabled: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("publicNetworkAccessEnabled"),
             ),
-            purge_protection_enabled: pulumi_wasm_rust::__private::into_domain(
+            purge_protection_enabled: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("purgeProtectionEnabled"),
             ),
-            resource_group_name: pulumi_wasm_rust::__private::into_domain(
+            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("resourceGroupName"),
             ),
-            sku_name: pulumi_wasm_rust::__private::into_domain(
+            sku_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("skuName"),
             ),
-            soft_delete_retention_days: pulumi_wasm_rust::__private::into_domain(
+            soft_delete_retention_days: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("softDeleteRetentionDays"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
-            tenant_id: pulumi_wasm_rust::__private::into_domain(
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            tenant_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("tenantId"),
             ),
-            vault_uri: pulumi_wasm_rust::__private::into_domain(
+            vault_uri: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("vaultUri"),
             ),
         }

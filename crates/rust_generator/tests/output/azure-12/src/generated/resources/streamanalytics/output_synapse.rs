@@ -69,64 +69,64 @@
 /// ```
 ///
 pub mod output_synapse {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct OutputSynapseArgs {
         /// The name of the Azure SQL database. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub database: pulumi_wasm_rust::InputOrOutput<String>,
+        pub database: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The name of the Stream Output. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The password that will be used to connect to the Azure SQL database.
         #[builder(into)]
-        pub password: pulumi_wasm_rust::InputOrOutput<String>,
+        pub password: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The name of the Resource Group where the Stream Analytics Job exists. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub resource_group_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub resource_group_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The name of the SQL server containing the Azure SQL database. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub server: pulumi_wasm_rust::InputOrOutput<String>,
+        pub server: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The name of the Stream Analytics Job. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub stream_analytics_job_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub stream_analytics_job_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The name of the table in the Azure SQL database. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub table: pulumi_wasm_rust::InputOrOutput<String>,
+        pub table: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The user name that will be used to connect to the Azure SQL database. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub user: pulumi_wasm_rust::InputOrOutput<String>,
+        pub user: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct OutputSynapseResult {
         /// The name of the Azure SQL database. Changing this forces a new resource to be created.
-        pub database: pulumi_wasm_rust::Output<String>,
+        pub database: pulumi_gestalt_rust::Output<String>,
         /// The name of the Stream Output. Changing this forces a new resource to be created.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// The password that will be used to connect to the Azure SQL database.
-        pub password: pulumi_wasm_rust::Output<String>,
+        pub password: pulumi_gestalt_rust::Output<String>,
         /// The name of the Resource Group where the Stream Analytics Job exists. Changing this forces a new resource to be created.
-        pub resource_group_name: pulumi_wasm_rust::Output<String>,
+        pub resource_group_name: pulumi_gestalt_rust::Output<String>,
         /// The name of the SQL server containing the Azure SQL database. Changing this forces a new resource to be created.
-        pub server: pulumi_wasm_rust::Output<String>,
+        pub server: pulumi_gestalt_rust::Output<String>,
         /// The name of the Stream Analytics Job. Changing this forces a new resource to be created.
-        pub stream_analytics_job_name: pulumi_wasm_rust::Output<String>,
+        pub stream_analytics_job_name: pulumi_gestalt_rust::Output<String>,
         /// The name of the table in the Azure SQL database. Changing this forces a new resource to be created.
-        pub table: pulumi_wasm_rust::Output<String>,
+        pub table: pulumi_gestalt_rust::Output<String>,
         /// The user name that will be used to connect to the Azure SQL database. Changing this forces a new resource to be created.
-        pub user: pulumi_wasm_rust::Output<String>,
+        pub user: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: OutputSynapseArgs,
     ) -> OutputSynapseResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let database_binding = args.database.get_output(context).get_inner();
         let name_binding = args.name.get_output(context).get_inner();
@@ -183,22 +183,24 @@ pub mod output_synapse {
         };
         let o = register_interface::register(context.get_inner(), &request);
         OutputSynapseResult {
-            database: pulumi_wasm_rust::__private::into_domain(
+            database: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("database"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            password: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            password: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("password"),
             ),
-            resource_group_name: pulumi_wasm_rust::__private::into_domain(
+            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("resourceGroupName"),
             ),
-            server: pulumi_wasm_rust::__private::into_domain(o.extract_field("server")),
-            stream_analytics_job_name: pulumi_wasm_rust::__private::into_domain(
+            server: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("server"),
+            ),
+            stream_analytics_job_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("streamAnalyticsJobName"),
             ),
-            table: pulumi_wasm_rust::__private::into_domain(o.extract_field("table")),
-            user: pulumi_wasm_rust::__private::into_domain(o.extract_field("user")),
+            table: pulumi_gestalt_rust::__private::into_domain(o.extract_field("table")),
+            user: pulumi_gestalt_rust::__private::into_domain(o.extract_field("user")),
         }
     }
 }

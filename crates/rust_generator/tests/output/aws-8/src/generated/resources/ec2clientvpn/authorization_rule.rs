@@ -4,8 +4,8 @@
 /// ## Example Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = authorization_rule::create(
@@ -36,49 +36,49 @@
 /// $ pulumi import aws:ec2clientvpn/authorizationRule:AuthorizationRule example cvpn-endpoint-0ac3a1abbccddd666,10.1.0.0/24,team-a
 /// ```
 pub mod authorization_rule {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct AuthorizationRuleArgs {
         /// The ID of the group to which the authorization rule grants access. One of `access_group_id` or `authorize_all_groups` must be set.
         #[builder(into, default)]
-        pub access_group_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub access_group_id: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Indicates whether the authorization rule grants access to all clients. One of `access_group_id` or `authorize_all_groups` must be set.
         #[builder(into, default)]
-        pub authorize_all_groups: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub authorize_all_groups: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// The ID of the Client VPN endpoint.
         #[builder(into)]
-        pub client_vpn_endpoint_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub client_vpn_endpoint_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// A brief description of the authorization rule.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub description: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The IPv4 address range, in CIDR notation, of the network to which the authorization rule applies.
         #[builder(into)]
-        pub target_network_cidr: pulumi_wasm_rust::InputOrOutput<String>,
+        pub target_network_cidr: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct AuthorizationRuleResult {
         /// The ID of the group to which the authorization rule grants access. One of `access_group_id` or `authorize_all_groups` must be set.
-        pub access_group_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub access_group_id: pulumi_gestalt_rust::Output<Option<String>>,
         /// Indicates whether the authorization rule grants access to all clients. One of `access_group_id` or `authorize_all_groups` must be set.
-        pub authorize_all_groups: pulumi_wasm_rust::Output<Option<bool>>,
+        pub authorize_all_groups: pulumi_gestalt_rust::Output<Option<bool>>,
         /// The ID of the Client VPN endpoint.
-        pub client_vpn_endpoint_id: pulumi_wasm_rust::Output<String>,
+        pub client_vpn_endpoint_id: pulumi_gestalt_rust::Output<String>,
         /// A brief description of the authorization rule.
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_gestalt_rust::Output<Option<String>>,
         /// The IPv4 address range, in CIDR notation, of the network to which the authorization rule applies.
-        pub target_network_cidr: pulumi_wasm_rust::Output<String>,
+        pub target_network_cidr: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: AuthorizationRuleArgs,
     ) -> AuthorizationRuleResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let access_group_id_binding = args
             .access_group_id
@@ -126,19 +126,19 @@ pub mod authorization_rule {
         };
         let o = register_interface::register(context.get_inner(), &request);
         AuthorizationRuleResult {
-            access_group_id: pulumi_wasm_rust::__private::into_domain(
+            access_group_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("accessGroupId"),
             ),
-            authorize_all_groups: pulumi_wasm_rust::__private::into_domain(
+            authorize_all_groups: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("authorizeAllGroups"),
             ),
-            client_vpn_endpoint_id: pulumi_wasm_rust::__private::into_domain(
+            client_vpn_endpoint_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("clientVpnEndpointId"),
             ),
-            description: pulumi_wasm_rust::__private::into_domain(
+            description: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("description"),
             ),
-            target_network_cidr: pulumi_wasm_rust::__private::into_domain(
+            target_network_cidr: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("targetNetworkCidr"),
             ),
         }

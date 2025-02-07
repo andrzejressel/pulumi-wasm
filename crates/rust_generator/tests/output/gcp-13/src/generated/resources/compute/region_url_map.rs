@@ -9,8 +9,8 @@
 ///
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let default = region_health_check::create(
@@ -376,8 +376,8 @@
 ///
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let default = region_health_check::create(
@@ -457,8 +457,8 @@
 ///
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let default = region_health_check::create(
@@ -624,7 +624,7 @@
 /// ```
 ///
 pub mod region_url_map {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct RegionUrlMapArgs {
@@ -634,7 +634,7 @@ pub mod region_url_map {
         /// defaultRouteAction has no effect when the URL map is bound to a target gRPC proxy that has the validateForProxyless field set to true.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub default_route_action: pulumi_wasm_rust::InputOrOutput<
+        pub default_route_action: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::compute::RegionUrlMapDefaultRouteAction>,
         >,
         /// The full or partial URL of the defaultService resource to which traffic is directed if
@@ -645,23 +645,23 @@ pub mod region_url_map {
         /// weightedBackendServices, service must not be specified.  Only one of defaultService,
         /// defaultUrlRedirect or defaultRouteAction.weightedBackendService must be set.
         #[builder(into, default)]
-        pub default_service: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub default_service: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// When none of the specified hostRules match, the request is redirected to a URL specified
         /// by defaultUrlRedirect. If defaultUrlRedirect is specified, defaultService or
         /// defaultRouteAction must not be set.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub default_url_redirect: pulumi_wasm_rust::InputOrOutput<
+        pub default_url_redirect: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::compute::RegionUrlMapDefaultUrlRedirect>,
         >,
         /// An optional description of this resource. Provide this property when
         /// you create the resource.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub description: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The list of HostRules to use against the URL.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub host_rules: pulumi_wasm_rust::InputOrOutput<
+        pub host_rules: pulumi_gestalt_rust::InputOrOutput<
             Option<Vec<super::super::types::compute::RegionUrlMapHostRule>>,
         >,
         /// Name of the resource. Provided by the client when the resource is
@@ -675,39 +675,39 @@ pub mod region_url_map {
         ///
         /// - - -
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The list of named PathMatchers to use against the URL.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub path_matchers: pulumi_wasm_rust::InputOrOutput<
+        pub path_matchers: pulumi_gestalt_rust::InputOrOutput<
             Option<Vec<super::super::types::compute::RegionUrlMapPathMatcher>>,
         >,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub project: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The Region in which the url map should reside.
         /// If it is not provided, the provider region is used.
         #[builder(into, default)]
-        pub region: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub region: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The list of expected URL mappings. Requests to update this UrlMap will
         /// succeed only if all of the test cases pass.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub tests: pulumi_wasm_rust::InputOrOutput<
+        pub tests: pulumi_gestalt_rust::InputOrOutput<
             Option<Vec<super::super::types::compute::RegionUrlMapTest>>,
         >,
     }
     #[allow(dead_code)]
     pub struct RegionUrlMapResult {
         /// Creation timestamp in RFC3339 text format.
-        pub creation_timestamp: pulumi_wasm_rust::Output<String>,
+        pub creation_timestamp: pulumi_gestalt_rust::Output<String>,
         /// defaultRouteAction takes effect when none of the hostRules match. The load balancer performs advanced routing actions, such as URL rewrites and header transformations, before forwarding the request to the selected backend. If defaultRouteAction specifies any weightedBackendServices, defaultService must not be set. Conversely if defaultService is set, defaultRouteAction cannot contain any weightedBackendServices.
         /// Only one of defaultRouteAction or defaultUrlRedirect must be set.
         /// URL maps for Classic external HTTP(S) load balancers only support the urlRewrite action within defaultRouteAction.
         /// defaultRouteAction has no effect when the URL map is bound to a target gRPC proxy that has the validateForProxyless field set to true.
         /// Structure is documented below.
-        pub default_route_action: pulumi_wasm_rust::Output<
+        pub default_route_action: pulumi_gestalt_rust::Output<
             Option<super::super::types::compute::RegionUrlMapDefaultRouteAction>,
         >,
         /// The full or partial URL of the defaultService resource to which traffic is directed if
@@ -717,27 +717,27 @@ pub mod region_url_map {
         /// weightedBackendServices. Conversely, if routeAction specifies any
         /// weightedBackendServices, service must not be specified.  Only one of defaultService,
         /// defaultUrlRedirect or defaultRouteAction.weightedBackendService must be set.
-        pub default_service: pulumi_wasm_rust::Output<Option<String>>,
+        pub default_service: pulumi_gestalt_rust::Output<Option<String>>,
         /// When none of the specified hostRules match, the request is redirected to a URL specified
         /// by defaultUrlRedirect. If defaultUrlRedirect is specified, defaultService or
         /// defaultRouteAction must not be set.
         /// Structure is documented below.
-        pub default_url_redirect: pulumi_wasm_rust::Output<
+        pub default_url_redirect: pulumi_gestalt_rust::Output<
             Option<super::super::types::compute::RegionUrlMapDefaultUrlRedirect>,
         >,
         /// An optional description of this resource. Provide this property when
         /// you create the resource.
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_gestalt_rust::Output<Option<String>>,
         /// Fingerprint of this resource. This field is used internally during
         /// updates of this resource.
-        pub fingerprint: pulumi_wasm_rust::Output<String>,
+        pub fingerprint: pulumi_gestalt_rust::Output<String>,
         /// The list of HostRules to use against the URL.
         /// Structure is documented below.
-        pub host_rules: pulumi_wasm_rust::Output<
+        pub host_rules: pulumi_gestalt_rust::Output<
             Option<Vec<super::super::types::compute::RegionUrlMapHostRule>>,
         >,
         /// The unique identifier for the resource.
-        pub map_id: pulumi_wasm_rust::Output<i32>,
+        pub map_id: pulumi_gestalt_rust::Output<i32>,
         /// Name of the resource. Provided by the client when the resource is
         /// created. The name must be 1-63 characters long, and comply with
         /// RFC1035. Specifically, the name must be 1-63 characters long and match
@@ -748,24 +748,24 @@ pub mod region_url_map {
         ///
         ///
         /// - - -
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// The list of named PathMatchers to use against the URL.
         /// Structure is documented below.
-        pub path_matchers: pulumi_wasm_rust::Output<
+        pub path_matchers: pulumi_gestalt_rust::Output<
             Option<Vec<super::super::types::compute::RegionUrlMapPathMatcher>>,
         >,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
-        pub project: pulumi_wasm_rust::Output<String>,
+        pub project: pulumi_gestalt_rust::Output<String>,
         /// The Region in which the url map should reside.
         /// If it is not provided, the provider region is used.
-        pub region: pulumi_wasm_rust::Output<String>,
+        pub region: pulumi_gestalt_rust::Output<String>,
         /// The URI of the created resource.
-        pub self_link: pulumi_wasm_rust::Output<String>,
+        pub self_link: pulumi_gestalt_rust::Output<String>,
         /// The list of expected URL mappings. Requests to update this UrlMap will
         /// succeed only if all of the test cases pass.
         /// Structure is documented below.
-        pub tests: pulumi_wasm_rust::Output<
+        pub tests: pulumi_gestalt_rust::Output<
             Option<Vec<super::super::types::compute::RegionUrlMapTest>>,
         >,
     }
@@ -774,11 +774,11 @@ pub mod region_url_map {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: RegionUrlMapArgs,
     ) -> RegionUrlMapResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let default_route_action_binding = args
             .default_route_action
@@ -848,40 +848,44 @@ pub mod region_url_map {
         };
         let o = register_interface::register(context.get_inner(), &request);
         RegionUrlMapResult {
-            creation_timestamp: pulumi_wasm_rust::__private::into_domain(
+            creation_timestamp: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("creationTimestamp"),
             ),
-            default_route_action: pulumi_wasm_rust::__private::into_domain(
+            default_route_action: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("defaultRouteAction"),
             ),
-            default_service: pulumi_wasm_rust::__private::into_domain(
+            default_service: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("defaultService"),
             ),
-            default_url_redirect: pulumi_wasm_rust::__private::into_domain(
+            default_url_redirect: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("defaultUrlRedirect"),
             ),
-            description: pulumi_wasm_rust::__private::into_domain(
+            description: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("description"),
             ),
-            fingerprint: pulumi_wasm_rust::__private::into_domain(
+            fingerprint: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("fingerprint"),
             ),
-            host_rules: pulumi_wasm_rust::__private::into_domain(
+            host_rules: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("hostRules"),
             ),
-            map_id: pulumi_wasm_rust::__private::into_domain(o.extract_field("mapId")),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            path_matchers: pulumi_wasm_rust::__private::into_domain(
+            map_id: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("mapId"),
+            ),
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            path_matchers: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("pathMatchers"),
             ),
-            project: pulumi_wasm_rust::__private::into_domain(
+            project: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("project"),
             ),
-            region: pulumi_wasm_rust::__private::into_domain(o.extract_field("region")),
-            self_link: pulumi_wasm_rust::__private::into_domain(
+            region: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("region"),
+            ),
+            self_link: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("selfLink"),
             ),
-            tests: pulumi_wasm_rust::__private::into_domain(o.extract_field("tests")),
+            tests: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tests")),
         }
     }
 }

@@ -3,8 +3,8 @@
 /// ## Example Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = fleet::create(
@@ -38,143 +38,151 @@
 /// $ pulumi import aws:ec2/fleet:Fleet example fleet-b9b55d27-c5fc-41ac-a6f3-48fcc91f080c
 /// ```
 pub mod fleet {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct FleetArgs {
         /// Reserved.
         #[builder(into, default)]
-        pub context: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub context: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Whether running instances should be terminated if the total target capacity of the EC2 Fleet is decreased below the current size of the EC2. Valid values: `no-termination`, `termination`. Defaults to `termination`. Supported only for fleets of type `maintain`.
         #[builder(into, default)]
-        pub excess_capacity_termination_policy: pulumi_wasm_rust::InputOrOutput<
+        pub excess_capacity_termination_policy: pulumi_gestalt_rust::InputOrOutput<
             Option<String>,
         >,
         /// Information about the instances that were launched by the fleet. Available only when `type` is set to `instant`.
         #[builder(into, default)]
-        pub fleet_instance_sets: pulumi_wasm_rust::InputOrOutput<
+        pub fleet_instance_sets: pulumi_gestalt_rust::InputOrOutput<
             Option<Vec<super::super::types::ec2::FleetFleetInstanceSet>>,
         >,
         /// The state of the EC2 Fleet.
         #[builder(into, default)]
-        pub fleet_state: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub fleet_state: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The number of units fulfilled by this request compared to the set target capacity.
         #[builder(into, default)]
-        pub fulfilled_capacity: pulumi_wasm_rust::InputOrOutput<Option<f64>>,
+        pub fulfilled_capacity: pulumi_gestalt_rust::InputOrOutput<Option<f64>>,
         /// The number of units fulfilled by this request compared to the set target On-Demand capacity.
         #[builder(into, default)]
-        pub fulfilled_on_demand_capacity: pulumi_wasm_rust::InputOrOutput<Option<f64>>,
+        pub fulfilled_on_demand_capacity: pulumi_gestalt_rust::InputOrOutput<
+            Option<f64>,
+        >,
         /// Nested argument containing EC2 Launch Template configurations. Defined below.
         #[builder(into)]
-        pub launch_template_configs: pulumi_wasm_rust::InputOrOutput<
+        pub launch_template_configs: pulumi_gestalt_rust::InputOrOutput<
             Vec<super::super::types::ec2::FleetLaunchTemplateConfig>,
         >,
         /// Nested argument containing On-Demand configurations. Defined below.
         #[builder(into, default)]
-        pub on_demand_options: pulumi_wasm_rust::InputOrOutput<
+        pub on_demand_options: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::ec2::FleetOnDemandOptions>,
         >,
         /// Whether EC2 Fleet should replace unhealthy instances. Defaults to `false`. Supported only for fleets of type `maintain`.
         #[builder(into, default)]
-        pub replace_unhealthy_instances: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub replace_unhealthy_instances: pulumi_gestalt_rust::InputOrOutput<
+            Option<bool>,
+        >,
         /// Nested argument containing Spot configurations. Defined below.
         #[builder(into, default)]
-        pub spot_options: pulumi_wasm_rust::InputOrOutput<
+        pub spot_options: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::ec2::FleetSpotOptions>,
         >,
         /// Map of Fleet tags. To tag instances at launch, specify the tags in the Launch Template. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Nested argument containing target capacity configurations. Defined below.
         #[builder(into)]
-        pub target_capacity_specification: pulumi_wasm_rust::InputOrOutput<
+        pub target_capacity_specification: pulumi_gestalt_rust::InputOrOutput<
             super::super::types::ec2::FleetTargetCapacitySpecification,
         >,
         /// Whether to terminate instances for an EC2 Fleet if it is deleted successfully. Defaults to `false`.
         #[builder(into, default)]
-        pub terminate_instances: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub terminate_instances: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// Whether running instances should be terminated when the EC2 Fleet expires. Defaults to `false`.
         #[builder(into, default)]
-        pub terminate_instances_with_expiration: pulumi_wasm_rust::InputOrOutput<
+        pub terminate_instances_with_expiration: pulumi_gestalt_rust::InputOrOutput<
             Option<bool>,
         >,
         /// The type of request. Indicates whether the EC2 Fleet only requests the target capacity, or also attempts to maintain it. Valid values: `maintain`, `request`, `instant`. Defaults to `maintain`.
         #[builder(into, default)]
-        pub type_: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub type_: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The start date and time of the request, in UTC format (for example, YYYY-MM-DDTHH:MM:SSZ). The default is to start fulfilling the request immediately.
         #[builder(into, default)]
-        pub valid_from: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub valid_from: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The end date and time of the request, in UTC format (for example, YYYY-MM-DDTHH:MM:SSZ). At this point, no new EC2 Fleet requests are placed or able to fulfill the request. If no value is specified, the request remains until you cancel it.
         #[builder(into, default)]
-        pub valid_until: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub valid_until: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct FleetResult {
         /// The ARN of the fleet
-        pub arn: pulumi_wasm_rust::Output<String>,
+        pub arn: pulumi_gestalt_rust::Output<String>,
         /// Reserved.
-        pub context: pulumi_wasm_rust::Output<Option<String>>,
+        pub context: pulumi_gestalt_rust::Output<Option<String>>,
         /// Whether running instances should be terminated if the total target capacity of the EC2 Fleet is decreased below the current size of the EC2. Valid values: `no-termination`, `termination`. Defaults to `termination`. Supported only for fleets of type `maintain`.
-        pub excess_capacity_termination_policy: pulumi_wasm_rust::Output<Option<String>>,
+        pub excess_capacity_termination_policy: pulumi_gestalt_rust::Output<
+            Option<String>,
+        >,
         /// Information about the instances that were launched by the fleet. Available only when `type` is set to `instant`.
-        pub fleet_instance_sets: pulumi_wasm_rust::Output<
+        pub fleet_instance_sets: pulumi_gestalt_rust::Output<
             Vec<super::super::types::ec2::FleetFleetInstanceSet>,
         >,
         /// The state of the EC2 Fleet.
-        pub fleet_state: pulumi_wasm_rust::Output<String>,
+        pub fleet_state: pulumi_gestalt_rust::Output<String>,
         /// The number of units fulfilled by this request compared to the set target capacity.
-        pub fulfilled_capacity: pulumi_wasm_rust::Output<f64>,
+        pub fulfilled_capacity: pulumi_gestalt_rust::Output<f64>,
         /// The number of units fulfilled by this request compared to the set target On-Demand capacity.
-        pub fulfilled_on_demand_capacity: pulumi_wasm_rust::Output<f64>,
+        pub fulfilled_on_demand_capacity: pulumi_gestalt_rust::Output<f64>,
         /// Nested argument containing EC2 Launch Template configurations. Defined below.
-        pub launch_template_configs: pulumi_wasm_rust::Output<
+        pub launch_template_configs: pulumi_gestalt_rust::Output<
             Vec<super::super::types::ec2::FleetLaunchTemplateConfig>,
         >,
         /// Nested argument containing On-Demand configurations. Defined below.
-        pub on_demand_options: pulumi_wasm_rust::Output<
+        pub on_demand_options: pulumi_gestalt_rust::Output<
             Option<super::super::types::ec2::FleetOnDemandOptions>,
         >,
         /// Whether EC2 Fleet should replace unhealthy instances. Defaults to `false`. Supported only for fleets of type `maintain`.
-        pub replace_unhealthy_instances: pulumi_wasm_rust::Output<Option<bool>>,
+        pub replace_unhealthy_instances: pulumi_gestalt_rust::Output<Option<bool>>,
         /// Nested argument containing Spot configurations. Defined below.
-        pub spot_options: pulumi_wasm_rust::Output<
+        pub spot_options: pulumi_gestalt_rust::Output<
             Option<super::super::types::ec2::FleetSpotOptions>,
         >,
         /// Map of Fleet tags. To tag instances at launch, specify the tags in the Launch Template. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        pub tags_all: pulumi_wasm_rust::Output<
+        pub tags_all: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
         /// Nested argument containing target capacity configurations. Defined below.
-        pub target_capacity_specification: pulumi_wasm_rust::Output<
+        pub target_capacity_specification: pulumi_gestalt_rust::Output<
             super::super::types::ec2::FleetTargetCapacitySpecification,
         >,
         /// Whether to terminate instances for an EC2 Fleet if it is deleted successfully. Defaults to `false`.
-        pub terminate_instances: pulumi_wasm_rust::Output<Option<bool>>,
+        pub terminate_instances: pulumi_gestalt_rust::Output<Option<bool>>,
         /// Whether running instances should be terminated when the EC2 Fleet expires. Defaults to `false`.
-        pub terminate_instances_with_expiration: pulumi_wasm_rust::Output<Option<bool>>,
+        pub terminate_instances_with_expiration: pulumi_gestalt_rust::Output<
+            Option<bool>,
+        >,
         /// The type of request. Indicates whether the EC2 Fleet only requests the target capacity, or also attempts to maintain it. Valid values: `maintain`, `request`, `instant`. Defaults to `maintain`.
-        pub type_: pulumi_wasm_rust::Output<Option<String>>,
+        pub type_: pulumi_gestalt_rust::Output<Option<String>>,
         /// The start date and time of the request, in UTC format (for example, YYYY-MM-DDTHH:MM:SSZ). The default is to start fulfilling the request immediately.
-        pub valid_from: pulumi_wasm_rust::Output<Option<String>>,
+        pub valid_from: pulumi_gestalt_rust::Output<Option<String>>,
         /// The end date and time of the request, in UTC format (for example, YYYY-MM-DDTHH:MM:SSZ). At this point, no new EC2 Fleet requests are placed or able to fulfill the request. If no value is specified, the request remains until you cancel it.
-        pub valid_until: pulumi_wasm_rust::Output<Option<String>>,
+        pub valid_until: pulumi_gestalt_rust::Output<Option<String>>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: FleetArgs,
     ) -> FleetResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let context_binding = args.context.get_output(context).get_inner();
         let excess_capacity_termination_policy_binding = args
@@ -300,55 +308,55 @@ pub mod fleet {
         };
         let o = register_interface::register(context.get_inner(), &request);
         FleetResult {
-            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
-            context: pulumi_wasm_rust::__private::into_domain(
+            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
+            context: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("context"),
             ),
-            excess_capacity_termination_policy: pulumi_wasm_rust::__private::into_domain(
+            excess_capacity_termination_policy: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("excessCapacityTerminationPolicy"),
             ),
-            fleet_instance_sets: pulumi_wasm_rust::__private::into_domain(
+            fleet_instance_sets: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("fleetInstanceSets"),
             ),
-            fleet_state: pulumi_wasm_rust::__private::into_domain(
+            fleet_state: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("fleetState"),
             ),
-            fulfilled_capacity: pulumi_wasm_rust::__private::into_domain(
+            fulfilled_capacity: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("fulfilledCapacity"),
             ),
-            fulfilled_on_demand_capacity: pulumi_wasm_rust::__private::into_domain(
+            fulfilled_on_demand_capacity: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("fulfilledOnDemandCapacity"),
             ),
-            launch_template_configs: pulumi_wasm_rust::__private::into_domain(
+            launch_template_configs: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("launchTemplateConfigs"),
             ),
-            on_demand_options: pulumi_wasm_rust::__private::into_domain(
+            on_demand_options: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("onDemandOptions"),
             ),
-            replace_unhealthy_instances: pulumi_wasm_rust::__private::into_domain(
+            replace_unhealthy_instances: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("replaceUnhealthyInstances"),
             ),
-            spot_options: pulumi_wasm_rust::__private::into_domain(
+            spot_options: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("spotOptions"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_wasm_rust::__private::into_domain(
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            tags_all: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("tagsAll"),
             ),
-            target_capacity_specification: pulumi_wasm_rust::__private::into_domain(
+            target_capacity_specification: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("targetCapacitySpecification"),
             ),
-            terminate_instances: pulumi_wasm_rust::__private::into_domain(
+            terminate_instances: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("terminateInstances"),
             ),
-            terminate_instances_with_expiration: pulumi_wasm_rust::__private::into_domain(
+            terminate_instances_with_expiration: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("terminateInstancesWithExpiration"),
             ),
-            type_: pulumi_wasm_rust::__private::into_domain(o.extract_field("type")),
-            valid_from: pulumi_wasm_rust::__private::into_domain(
+            type_: pulumi_gestalt_rust::__private::into_domain(o.extract_field("type")),
+            valid_from: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("validFrom"),
             ),
-            valid_until: pulumi_wasm_rust::__private::into_domain(
+            valid_until: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("validUntil"),
             ),
         }

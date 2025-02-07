@@ -18,7 +18,7 @@
 pub mod sql_resource_sql_container {
     #[allow(dead_code)]
     pub struct SqlResourceSqlContainerResult {
-        pub resource: pulumi_wasm_rust::Output<
+        pub resource: pulumi_gestalt_rust::Output<
             Option<
                 super::super::types::documentdb::SqlContainerGetPropertiesResponseResource,
             >,
@@ -29,10 +29,10 @@ pub mod sql_resource_sql_container {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
     ) -> SqlResourceSqlContainerResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let request = register_interface::RegisterResourceRequest {
             type_: "azure-native:documentdb:SqlResourceSqlContainer".into(),
@@ -42,7 +42,7 @@ pub mod sql_resource_sql_container {
         };
         let o = register_interface::register(context.get_inner(), &request);
         SqlResourceSqlContainerResult {
-            resource: pulumi_wasm_rust::__private::into_domain(
+            resource: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("resource"),
             ),
         }

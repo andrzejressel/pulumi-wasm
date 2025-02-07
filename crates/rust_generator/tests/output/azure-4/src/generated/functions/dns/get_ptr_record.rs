@@ -1,43 +1,43 @@
 pub mod get_ptr_record {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct GetPtrRecordArgs {
         /// The name of the DNS PTR Record.
         #[builder(into)]
-        pub name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Specifies the resource group where the DNS Zone (parent resource) exists.
         #[builder(into)]
-        pub resource_group_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub resource_group_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Specifies the DNS Zone where the resource exists.
         #[builder(into)]
-        pub zone_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub zone_name: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct GetPtrRecordResult {
         /// The FQDN of the DNS PTR Record.
-        pub fqdn: pulumi_wasm_rust::Output<String>,
+        pub fqdn: pulumi_gestalt_rust::Output<String>,
         /// The provider-assigned unique ID for this managed resource.
-        pub id: pulumi_wasm_rust::Output<String>,
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub id: pulumi_gestalt_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// List of Fully Qualified Domain Names.
-        pub records: pulumi_wasm_rust::Output<Vec<String>>,
-        pub resource_group_name: pulumi_wasm_rust::Output<String>,
+        pub records: pulumi_gestalt_rust::Output<Vec<String>>,
+        pub resource_group_name: pulumi_gestalt_rust::Output<String>,
         /// A mapping of tags assigned to the resource.
-        pub tags: pulumi_wasm_rust::Output<std::collections::HashMap<String, String>>,
+        pub tags: pulumi_gestalt_rust::Output<std::collections::HashMap<String, String>>,
         /// The Time To Live (TTL) of the DNS record in seconds.
-        pub ttl: pulumi_wasm_rust::Output<i32>,
-        pub zone_name: pulumi_wasm_rust::Output<String>,
+        pub ttl: pulumi_gestalt_rust::Output<i32>,
+        pub zone_name: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         args: GetPtrRecordArgs,
     ) -> GetPtrRecordResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let name_binding = args.name.get_output(context).get_inner();
         let resource_group_name_binding = args
@@ -65,18 +65,18 @@ pub mod get_ptr_record {
         };
         let o = register_interface::invoke(context.get_inner(), &request);
         GetPtrRecordResult {
-            fqdn: pulumi_wasm_rust::__private::into_domain(o.extract_field("fqdn")),
-            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            records: pulumi_wasm_rust::__private::into_domain(
+            fqdn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("fqdn")),
+            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            records: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("records"),
             ),
-            resource_group_name: pulumi_wasm_rust::__private::into_domain(
+            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("resourceGroupName"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
-            ttl: pulumi_wasm_rust::__private::into_domain(o.extract_field("ttl")),
-            zone_name: pulumi_wasm_rust::__private::into_domain(
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            ttl: pulumi_gestalt_rust::__private::into_domain(o.extract_field("ttl")),
+            zone_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("zoneName"),
             ),
         }

@@ -93,7 +93,7 @@
 /// ```
 ///
 pub mod trust_config {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct TrustConfigArgs {
@@ -101,7 +101,7 @@ pub mod trust_config {
         /// the certificate is parseable, proof of private key possession is established, and constraints on the certificate's SAN field are met.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub allowlisted_certificates: pulumi_wasm_rust::InputOrOutput<
+        pub allowlisted_certificates: pulumi_gestalt_rust::InputOrOutput<
             Option<
                 Vec<
                     super::super::types::certificatemanager::TrustConfigAllowlistedCertificate,
@@ -110,12 +110,12 @@ pub mod trust_config {
         >,
         /// One or more paragraphs of text description of a trust config.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub description: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Set of label tags associated with the trust config.
         /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
         /// Please refer to the field `effective_labels` for all of the labels present on the resource.
         #[builder(into, default)]
-        pub labels: pulumi_wasm_rust::InputOrOutput<
+        pub labels: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// The trust config location.
@@ -123,19 +123,19 @@ pub mod trust_config {
         ///
         /// - - -
         #[builder(into)]
-        pub location: pulumi_wasm_rust::InputOrOutput<String>,
+        pub location: pulumi_gestalt_rust::InputOrOutput<String>,
         /// A user-defined name of the trust config. Trust config names must be unique globally.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub project: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Set of trust stores to perform validation against.
         /// This field is supported when TrustConfig is configured with Load Balancers, currently not supported for SPIFFE certificate validation.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub trust_stores: pulumi_wasm_rust::InputOrOutput<
+        pub trust_stores: pulumi_gestalt_rust::InputOrOutput<
             Option<Vec<super::super::types::certificatemanager::TrustConfigTrustStore>>,
         >,
     }
@@ -144,7 +144,7 @@ pub mod trust_config {
         /// Allowlisted PEM-encoded certificates. A certificate matching an allowlisted certificate is always considered valid as long as
         /// the certificate is parseable, proof of private key possession is established, and constraints on the certificate's SAN field are met.
         /// Structure is documented below.
-        pub allowlisted_certificates: pulumi_wasm_rust::Output<
+        pub allowlisted_certificates: pulumi_gestalt_rust::Output<
             Option<
                 Vec<
                     super::super::types::certificatemanager::TrustConfigAllowlistedCertificate,
@@ -154,55 +154,55 @@ pub mod trust_config {
         /// The creation timestamp of a TrustConfig.
         /// A timestamp in RFC3339 UTC "Zulu" format, with nanosecond resolution and up to nine fractional digits.
         /// Examples: "2014-10-02T15:01:23Z" and "2014-10-02T15:01:23.045123456Z".
-        pub create_time: pulumi_wasm_rust::Output<String>,
+        pub create_time: pulumi_gestalt_rust::Output<String>,
         /// One or more paragraphs of text description of a trust config.
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_gestalt_rust::Output<Option<String>>,
         /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Pulumi, other clients and services.
-        pub effective_labels: pulumi_wasm_rust::Output<
+        pub effective_labels: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
         /// Set of label tags associated with the trust config.
         /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
         /// Please refer to the field `effective_labels` for all of the labels present on the resource.
-        pub labels: pulumi_wasm_rust::Output<
+        pub labels: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// The trust config location.
         ///
         ///
         /// - - -
-        pub location: pulumi_wasm_rust::Output<String>,
+        pub location: pulumi_gestalt_rust::Output<String>,
         /// A user-defined name of the trust config. Trust config names must be unique globally.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
-        pub project: pulumi_wasm_rust::Output<String>,
+        pub project: pulumi_gestalt_rust::Output<String>,
         /// The combination of labels configured directly on the resource
         /// and default labels configured on the provider.
-        pub pulumi_labels: pulumi_wasm_rust::Output<
+        pub pulumi_labels: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
         /// Set of trust stores to perform validation against.
         /// This field is supported when TrustConfig is configured with Load Balancers, currently not supported for SPIFFE certificate validation.
         /// Structure is documented below.
-        pub trust_stores: pulumi_wasm_rust::Output<
+        pub trust_stores: pulumi_gestalt_rust::Output<
             Option<Vec<super::super::types::certificatemanager::TrustConfigTrustStore>>,
         >,
         /// The last update timestamp of a TrustConfig.
         /// A timestamp in RFC3339 UTC "Zulu" format, with nanosecond resolution and up to nine fractional digits.
         /// Examples: "2014-10-02T15:01:23Z" and "2014-10-02T15:01:23.045123456Z".
-        pub update_time: pulumi_wasm_rust::Output<String>,
+        pub update_time: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: TrustConfigArgs,
     ) -> TrustConfigResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let allowlisted_certificates_binding = args
             .allowlisted_certificates
@@ -251,33 +251,35 @@ pub mod trust_config {
         };
         let o = register_interface::register(context.get_inner(), &request);
         TrustConfigResult {
-            allowlisted_certificates: pulumi_wasm_rust::__private::into_domain(
+            allowlisted_certificates: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("allowlistedCertificates"),
             ),
-            create_time: pulumi_wasm_rust::__private::into_domain(
+            create_time: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("createTime"),
             ),
-            description: pulumi_wasm_rust::__private::into_domain(
+            description: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("description"),
             ),
-            effective_labels: pulumi_wasm_rust::__private::into_domain(
+            effective_labels: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("effectiveLabels"),
             ),
-            labels: pulumi_wasm_rust::__private::into_domain(o.extract_field("labels")),
-            location: pulumi_wasm_rust::__private::into_domain(
+            labels: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("labels"),
+            ),
+            location: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("location"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            project: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            project: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("project"),
             ),
-            pulumi_labels: pulumi_wasm_rust::__private::into_domain(
+            pulumi_labels: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("pulumiLabels"),
             ),
-            trust_stores: pulumi_wasm_rust::__private::into_domain(
+            trust_stores: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("trustStores"),
             ),
-            update_time: pulumi_wasm_rust::__private::into_domain(
+            update_time: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("updateTime"),
             ),
         }

@@ -5,8 +5,8 @@
 /// ### Basic Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = organization_admin_account_registration::create(
@@ -26,31 +26,31 @@
 /// $ pulumi import aws:auditmanager/organizationAdminAccountRegistration:OrganizationAdminAccountRegistration example 123456789012
 /// ```
 pub mod organization_admin_account_registration {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct OrganizationAdminAccountRegistrationArgs {
         /// Identifier for the organization administrator account.
         #[builder(into)]
-        pub admin_account_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub admin_account_id: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct OrganizationAdminAccountRegistrationResult {
         /// Identifier for the organization administrator account.
-        pub admin_account_id: pulumi_wasm_rust::Output<String>,
+        pub admin_account_id: pulumi_gestalt_rust::Output<String>,
         /// Identifier for the organization.
-        pub organization_id: pulumi_wasm_rust::Output<String>,
+        pub organization_id: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: OrganizationAdminAccountRegistrationArgs,
     ) -> OrganizationAdminAccountRegistrationResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let admin_account_id_binding = args
             .admin_account_id
@@ -70,10 +70,10 @@ pub mod organization_admin_account_registration {
         };
         let o = register_interface::register(context.get_inner(), &request);
         OrganizationAdminAccountRegistrationResult {
-            admin_account_id: pulumi_wasm_rust::__private::into_domain(
+            admin_account_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("adminAccountId"),
             ),
-            organization_id: pulumi_wasm_rust::__private::into_domain(
+            organization_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("organizationId"),
             ),
         }

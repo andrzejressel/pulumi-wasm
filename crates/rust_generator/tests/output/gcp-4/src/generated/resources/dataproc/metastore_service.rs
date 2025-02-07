@@ -54,8 +54,8 @@
 ///
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let cryptoKey = crypto_key::create(
@@ -96,8 +96,8 @@
 ///
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let default = metastore_service::create(
@@ -146,8 +146,8 @@
 ///
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let default = metastore_service::create(
@@ -196,8 +196,8 @@
 ///
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let dpms2 = metastore_service::create(
@@ -271,8 +271,8 @@
 ///
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let testResource = metastore_service::create(
@@ -308,8 +308,8 @@
 ///
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let testResource = metastore_service::create(
@@ -346,8 +346,8 @@
 ///
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let testResource = metastore_service::create(
@@ -383,8 +383,8 @@
 ///
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let testResource = metastore_service::create(
@@ -437,7 +437,7 @@
 /// ```
 ///
 pub mod metastore_service {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct MetastoreServiceArgs {
@@ -445,80 +445,80 @@ pub mod metastore_service {
         /// Default value is `MYSQL`.
         /// Possible values are: `MYSQL`, `SPANNER`.
         #[builder(into, default)]
-        pub database_type: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub database_type: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Indicates if the dataproc metastore should be protected against accidental deletions.
         #[builder(into, default)]
-        pub deletion_protection: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub deletion_protection: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// Information used to configure the Dataproc Metastore service to encrypt
         /// customer data at rest.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub encryption_config: pulumi_wasm_rust::InputOrOutput<
+        pub encryption_config: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::dataproc::MetastoreServiceEncryptionConfig>,
         >,
         /// Configuration information specific to running Hive metastore software as the metastore service.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub hive_metastore_config: pulumi_wasm_rust::InputOrOutput<
+        pub hive_metastore_config: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::dataproc::MetastoreServiceHiveMetastoreConfig>,
         >,
         /// User-defined labels for the metastore service.
         /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
         /// Please refer to the field `effective_labels` for all of the labels present on the resource.
         #[builder(into, default)]
-        pub labels: pulumi_wasm_rust::InputOrOutput<
+        pub labels: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// The location where the metastore service should reside.
         /// The default value is `global`.
         #[builder(into, default)]
-        pub location: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub location: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The one hour maintenance window of the metastore service.
         /// This specifies when the service can be restarted for maintenance purposes in UTC time.
         /// Maintenance window is not needed for services with the `SPANNER` database type.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub maintenance_window: pulumi_wasm_rust::InputOrOutput<
+        pub maintenance_window: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::dataproc::MetastoreServiceMaintenanceWindow>,
         >,
         /// The setting that defines how metastore metadata should be integrated with external services and systems.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub metadata_integration: pulumi_wasm_rust::InputOrOutput<
+        pub metadata_integration: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::dataproc::MetastoreServiceMetadataIntegration>,
         >,
         /// The relative resource name of the VPC network on which the instance can be accessed. It is specified in the following form:
         /// "projects/{projectNumber}/global/networks/{network_id}".
         #[builder(into, default)]
-        pub network: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub network: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The configuration specifying the network settings for the Dataproc Metastore service.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub network_config: pulumi_wasm_rust::InputOrOutput<
+        pub network_config: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::dataproc::MetastoreServiceNetworkConfig>,
         >,
         /// The TCP port at which the metastore service is reached. Default: 9083.
         #[builder(into, default)]
-        pub port: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
+        pub port: pulumi_gestalt_rust::InputOrOutput<Option<i32>>,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub project: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The release channel of the service. If unspecified, defaults to `STABLE`.
         /// Default value is `STABLE`.
         /// Possible values are: `CANARY`, `STABLE`.
         #[builder(into, default)]
-        pub release_channel: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub release_channel: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Represents the scaling configuration of a metastore service.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub scaling_config: pulumi_wasm_rust::InputOrOutput<
+        pub scaling_config: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::dataproc::MetastoreServiceScalingConfig>,
         >,
         /// The configuration of scheduled backup for the metastore service.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub scheduled_backup: pulumi_wasm_rust::InputOrOutput<
+        pub scheduled_backup: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::dataproc::MetastoreServiceScheduledBackup>,
         >,
         /// The ID of the metastore service. The id must contain only letters (a-z, A-Z), numbers (0-9), underscores (_),
@@ -528,98 +528,98 @@ pub mod metastore_service {
         ///
         /// - - -
         #[builder(into)]
-        pub service_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub service_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The configuration specifying telemetry settings for the Dataproc Metastore service. If unspecified defaults to JSON.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub telemetry_config: pulumi_wasm_rust::InputOrOutput<
+        pub telemetry_config: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::dataproc::MetastoreServiceTelemetryConfig>,
         >,
         /// The tier of the service.
         /// Possible values are: `DEVELOPER`, `ENTERPRISE`.
         #[builder(into, default)]
-        pub tier: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub tier: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct MetastoreServiceResult {
         /// A Cloud Storage URI (starting with gs://) that specifies where artifacts related to the metastore service are stored.
-        pub artifact_gcs_uri: pulumi_wasm_rust::Output<String>,
+        pub artifact_gcs_uri: pulumi_gestalt_rust::Output<String>,
         /// The database type that the Metastore service stores its data.
         /// Default value is `MYSQL`.
         /// Possible values are: `MYSQL`, `SPANNER`.
-        pub database_type: pulumi_wasm_rust::Output<Option<String>>,
+        pub database_type: pulumi_gestalt_rust::Output<Option<String>>,
         /// Indicates if the dataproc metastore should be protected against accidental deletions.
-        pub deletion_protection: pulumi_wasm_rust::Output<Option<bool>>,
+        pub deletion_protection: pulumi_gestalt_rust::Output<Option<bool>>,
         /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Pulumi, other clients and services.
-        pub effective_labels: pulumi_wasm_rust::Output<
+        pub effective_labels: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
         /// Information used to configure the Dataproc Metastore service to encrypt
         /// customer data at rest.
         /// Structure is documented below.
-        pub encryption_config: pulumi_wasm_rust::Output<
+        pub encryption_config: pulumi_gestalt_rust::Output<
             Option<super::super::types::dataproc::MetastoreServiceEncryptionConfig>,
         >,
         /// The URI of the endpoint used to access the metastore service.
-        pub endpoint_uri: pulumi_wasm_rust::Output<String>,
+        pub endpoint_uri: pulumi_gestalt_rust::Output<String>,
         /// Configuration information specific to running Hive metastore software as the metastore service.
         /// Structure is documented below.
-        pub hive_metastore_config: pulumi_wasm_rust::Output<
+        pub hive_metastore_config: pulumi_gestalt_rust::Output<
             Option<super::super::types::dataproc::MetastoreServiceHiveMetastoreConfig>,
         >,
         /// User-defined labels for the metastore service.
         /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
         /// Please refer to the field `effective_labels` for all of the labels present on the resource.
-        pub labels: pulumi_wasm_rust::Output<
+        pub labels: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// The location where the metastore service should reside.
         /// The default value is `global`.
-        pub location: pulumi_wasm_rust::Output<Option<String>>,
+        pub location: pulumi_gestalt_rust::Output<Option<String>>,
         /// The one hour maintenance window of the metastore service.
         /// This specifies when the service can be restarted for maintenance purposes in UTC time.
         /// Maintenance window is not needed for services with the `SPANNER` database type.
         /// Structure is documented below.
-        pub maintenance_window: pulumi_wasm_rust::Output<
+        pub maintenance_window: pulumi_gestalt_rust::Output<
             Option<super::super::types::dataproc::MetastoreServiceMaintenanceWindow>,
         >,
         /// The setting that defines how metastore metadata should be integrated with external services and systems.
         /// Structure is documented below.
-        pub metadata_integration: pulumi_wasm_rust::Output<
+        pub metadata_integration: pulumi_gestalt_rust::Output<
             Option<super::super::types::dataproc::MetastoreServiceMetadataIntegration>,
         >,
         /// The relative resource name of the metastore service.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// The relative resource name of the VPC network on which the instance can be accessed. It is specified in the following form:
         /// "projects/{projectNumber}/global/networks/{network_id}".
-        pub network: pulumi_wasm_rust::Output<String>,
+        pub network: pulumi_gestalt_rust::Output<String>,
         /// The configuration specifying the network settings for the Dataproc Metastore service.
         /// Structure is documented below.
-        pub network_config: pulumi_wasm_rust::Output<
+        pub network_config: pulumi_gestalt_rust::Output<
             Option<super::super::types::dataproc::MetastoreServiceNetworkConfig>,
         >,
         /// The TCP port at which the metastore service is reached. Default: 9083.
-        pub port: pulumi_wasm_rust::Output<i32>,
+        pub port: pulumi_gestalt_rust::Output<i32>,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
-        pub project: pulumi_wasm_rust::Output<String>,
+        pub project: pulumi_gestalt_rust::Output<String>,
         /// The combination of labels configured directly on the resource
         /// and default labels configured on the provider.
-        pub pulumi_labels: pulumi_wasm_rust::Output<
+        pub pulumi_labels: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
         /// The release channel of the service. If unspecified, defaults to `STABLE`.
         /// Default value is `STABLE`.
         /// Possible values are: `CANARY`, `STABLE`.
-        pub release_channel: pulumi_wasm_rust::Output<Option<String>>,
+        pub release_channel: pulumi_gestalt_rust::Output<Option<String>>,
         /// Represents the scaling configuration of a metastore service.
         /// Structure is documented below.
-        pub scaling_config: pulumi_wasm_rust::Output<
+        pub scaling_config: pulumi_gestalt_rust::Output<
             Option<super::super::types::dataproc::MetastoreServiceScalingConfig>,
         >,
         /// The configuration of scheduled backup for the metastore service.
         /// Structure is documented below.
-        pub scheduled_backup: pulumi_wasm_rust::Output<
+        pub scheduled_backup: pulumi_gestalt_rust::Output<
             Option<super::super::types::dataproc::MetastoreServiceScheduledBackup>,
         >,
         /// The ID of the metastore service. The id must contain only letters (a-z, A-Z), numbers (0-9), underscores (_),
@@ -628,32 +628,32 @@ pub mod metastore_service {
         ///
         ///
         /// - - -
-        pub service_id: pulumi_wasm_rust::Output<String>,
+        pub service_id: pulumi_gestalt_rust::Output<String>,
         /// The current state of the metastore service.
-        pub state: pulumi_wasm_rust::Output<String>,
+        pub state: pulumi_gestalt_rust::Output<String>,
         /// Additional information about the current state of the metastore service, if available.
-        pub state_message: pulumi_wasm_rust::Output<String>,
+        pub state_message: pulumi_gestalt_rust::Output<String>,
         /// The configuration specifying telemetry settings for the Dataproc Metastore service. If unspecified defaults to JSON.
         /// Structure is documented below.
-        pub telemetry_config: pulumi_wasm_rust::Output<
+        pub telemetry_config: pulumi_gestalt_rust::Output<
             super::super::types::dataproc::MetastoreServiceTelemetryConfig,
         >,
         /// The tier of the service.
         /// Possible values are: `DEVELOPER`, `ENTERPRISE`.
-        pub tier: pulumi_wasm_rust::Output<String>,
+        pub tier: pulumi_gestalt_rust::Output<String>,
         /// The globally unique resource identifier of the metastore service.
-        pub uid: pulumi_wasm_rust::Output<String>,
+        pub uid: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: MetastoreServiceArgs,
     ) -> MetastoreServiceResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let database_type_binding = args.database_type.get_output(context).get_inner();
         let deletion_protection_binding = args
@@ -778,72 +778,74 @@ pub mod metastore_service {
         };
         let o = register_interface::register(context.get_inner(), &request);
         MetastoreServiceResult {
-            artifact_gcs_uri: pulumi_wasm_rust::__private::into_domain(
+            artifact_gcs_uri: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("artifactGcsUri"),
             ),
-            database_type: pulumi_wasm_rust::__private::into_domain(
+            database_type: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("databaseType"),
             ),
-            deletion_protection: pulumi_wasm_rust::__private::into_domain(
+            deletion_protection: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("deletionProtection"),
             ),
-            effective_labels: pulumi_wasm_rust::__private::into_domain(
+            effective_labels: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("effectiveLabels"),
             ),
-            encryption_config: pulumi_wasm_rust::__private::into_domain(
+            encryption_config: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("encryptionConfig"),
             ),
-            endpoint_uri: pulumi_wasm_rust::__private::into_domain(
+            endpoint_uri: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("endpointUri"),
             ),
-            hive_metastore_config: pulumi_wasm_rust::__private::into_domain(
+            hive_metastore_config: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("hiveMetastoreConfig"),
             ),
-            labels: pulumi_wasm_rust::__private::into_domain(o.extract_field("labels")),
-            location: pulumi_wasm_rust::__private::into_domain(
+            labels: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("labels"),
+            ),
+            location: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("location"),
             ),
-            maintenance_window: pulumi_wasm_rust::__private::into_domain(
+            maintenance_window: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("maintenanceWindow"),
             ),
-            metadata_integration: pulumi_wasm_rust::__private::into_domain(
+            metadata_integration: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("metadataIntegration"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            network: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            network: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("network"),
             ),
-            network_config: pulumi_wasm_rust::__private::into_domain(
+            network_config: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("networkConfig"),
             ),
-            port: pulumi_wasm_rust::__private::into_domain(o.extract_field("port")),
-            project: pulumi_wasm_rust::__private::into_domain(
+            port: pulumi_gestalt_rust::__private::into_domain(o.extract_field("port")),
+            project: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("project"),
             ),
-            pulumi_labels: pulumi_wasm_rust::__private::into_domain(
+            pulumi_labels: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("pulumiLabels"),
             ),
-            release_channel: pulumi_wasm_rust::__private::into_domain(
+            release_channel: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("releaseChannel"),
             ),
-            scaling_config: pulumi_wasm_rust::__private::into_domain(
+            scaling_config: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("scalingConfig"),
             ),
-            scheduled_backup: pulumi_wasm_rust::__private::into_domain(
+            scheduled_backup: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("scheduledBackup"),
             ),
-            service_id: pulumi_wasm_rust::__private::into_domain(
+            service_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("serviceId"),
             ),
-            state: pulumi_wasm_rust::__private::into_domain(o.extract_field("state")),
-            state_message: pulumi_wasm_rust::__private::into_domain(
+            state: pulumi_gestalt_rust::__private::into_domain(o.extract_field("state")),
+            state_message: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("stateMessage"),
             ),
-            telemetry_config: pulumi_wasm_rust::__private::into_domain(
+            telemetry_config: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("telemetryConfig"),
             ),
-            tier: pulumi_wasm_rust::__private::into_domain(o.extract_field("tier")),
-            uid: pulumi_wasm_rust::__private::into_domain(o.extract_field("uid")),
+            tier: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tier")),
+            uid: pulumi_gestalt_rust::__private::into_domain(o.extract_field("uid")),
         }
     }
 }

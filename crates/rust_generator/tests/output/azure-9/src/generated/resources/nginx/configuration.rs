@@ -110,57 +110,57 @@
 /// ```
 ///
 pub mod configuration {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ConfigurationArgs {
         /// One or more `config_file` blocks as defined below.
         #[builder(into, default)]
-        pub config_files: pulumi_wasm_rust::InputOrOutput<
+        pub config_files: pulumi_gestalt_rust::InputOrOutput<
             Option<Vec<super::super::types::nginx::ConfigurationConfigFile>>,
         >,
         /// The ID of the Nginx Deployment. Changing this forces a new Nginx Configuration to be created.
         #[builder(into)]
-        pub nginx_deployment_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub nginx_deployment_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Specifies the package data for this configuration.
         #[builder(into, default)]
-        pub package_data: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub package_data: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// One or more `protected_file` blocks with sensitive information as defined below. If specified `config_file` must also be specified.
         #[builder(into, default)]
-        pub protected_files: pulumi_wasm_rust::InputOrOutput<
+        pub protected_files: pulumi_gestalt_rust::InputOrOutput<
             Option<Vec<super::super::types::nginx::ConfigurationProtectedFile>>,
         >,
         /// Specifies the root file path of this Nginx Configuration.
         #[builder(into)]
-        pub root_file: pulumi_wasm_rust::InputOrOutput<String>,
+        pub root_file: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct ConfigurationResult {
         /// One or more `config_file` blocks as defined below.
-        pub config_files: pulumi_wasm_rust::Output<
+        pub config_files: pulumi_gestalt_rust::Output<
             Option<Vec<super::super::types::nginx::ConfigurationConfigFile>>,
         >,
         /// The ID of the Nginx Deployment. Changing this forces a new Nginx Configuration to be created.
-        pub nginx_deployment_id: pulumi_wasm_rust::Output<String>,
+        pub nginx_deployment_id: pulumi_gestalt_rust::Output<String>,
         /// Specifies the package data for this configuration.
-        pub package_data: pulumi_wasm_rust::Output<Option<String>>,
+        pub package_data: pulumi_gestalt_rust::Output<Option<String>>,
         /// One or more `protected_file` blocks with sensitive information as defined below. If specified `config_file` must also be specified.
-        pub protected_files: pulumi_wasm_rust::Output<
+        pub protected_files: pulumi_gestalt_rust::Output<
             Option<Vec<super::super::types::nginx::ConfigurationProtectedFile>>,
         >,
         /// Specifies the root file path of this Nginx Configuration.
-        pub root_file: pulumi_wasm_rust::Output<String>,
+        pub root_file: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: ConfigurationArgs,
     ) -> ConfigurationResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let config_files_binding = args.config_files.get_output(context).get_inner();
         let nginx_deployment_id_binding = args
@@ -202,19 +202,19 @@ pub mod configuration {
         };
         let o = register_interface::register(context.get_inner(), &request);
         ConfigurationResult {
-            config_files: pulumi_wasm_rust::__private::into_domain(
+            config_files: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("configFiles"),
             ),
-            nginx_deployment_id: pulumi_wasm_rust::__private::into_domain(
+            nginx_deployment_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("nginxDeploymentId"),
             ),
-            package_data: pulumi_wasm_rust::__private::into_domain(
+            package_data: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("packageData"),
             ),
-            protected_files: pulumi_wasm_rust::__private::into_domain(
+            protected_files: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("protectedFiles"),
             ),
-            root_file: pulumi_wasm_rust::__private::into_domain(
+            root_file: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("rootFile"),
             ),
         }

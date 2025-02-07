@@ -53,77 +53,77 @@
 /// ```
 ///
 pub mod medtech_service {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct MedtechServiceArgs {
         /// Specifies the Device Mappings of the Med Tech Service.
         #[builder(into)]
-        pub device_mapping_json: pulumi_wasm_rust::InputOrOutput<String>,
+        pub device_mapping_json: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Specifies the Consumer Group of the Event Hub to connect to.
         #[builder(into)]
-        pub eventhub_consumer_group_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub eventhub_consumer_group_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Specifies the name of the Event Hub to connect to.
         #[builder(into)]
-        pub eventhub_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub eventhub_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Specifies the namespace name of the Event Hub to connect to.
         #[builder(into)]
-        pub eventhub_namespace_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub eventhub_namespace_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// An `identity` block as defined below.
         #[builder(into, default)]
-        pub identity: pulumi_wasm_rust::InputOrOutput<
+        pub identity: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::healthcare::MedtechServiceIdentity>,
         >,
         /// Specifies the Azure Region where the Healthcare Med Tech Service should be created. Changing this forces a new Healthcare Med Tech Service to be created.
         #[builder(into, default)]
-        pub location: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub location: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Specifies the name of the Healthcare Med Tech Service. Changing this forces a new Healthcare Med Tech Service to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// A mapping of tags to assign to the Healthcare Med Tech Service.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Specifies the id of the Healthcare Workspace where the Healthcare Med Tech Service should exist. Changing this forces a new Healthcare Med Tech Service to be created.
         #[builder(into)]
-        pub workspace_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub workspace_id: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct MedtechServiceResult {
         /// Specifies the Device Mappings of the Med Tech Service.
-        pub device_mapping_json: pulumi_wasm_rust::Output<String>,
+        pub device_mapping_json: pulumi_gestalt_rust::Output<String>,
         /// Specifies the Consumer Group of the Event Hub to connect to.
-        pub eventhub_consumer_group_name: pulumi_wasm_rust::Output<String>,
+        pub eventhub_consumer_group_name: pulumi_gestalt_rust::Output<String>,
         /// Specifies the name of the Event Hub to connect to.
-        pub eventhub_name: pulumi_wasm_rust::Output<String>,
+        pub eventhub_name: pulumi_gestalt_rust::Output<String>,
         /// Specifies the namespace name of the Event Hub to connect to.
-        pub eventhub_namespace_name: pulumi_wasm_rust::Output<String>,
+        pub eventhub_namespace_name: pulumi_gestalt_rust::Output<String>,
         /// An `identity` block as defined below.
-        pub identity: pulumi_wasm_rust::Output<
+        pub identity: pulumi_gestalt_rust::Output<
             Option<super::super::types::healthcare::MedtechServiceIdentity>,
         >,
         /// Specifies the Azure Region where the Healthcare Med Tech Service should be created. Changing this forces a new Healthcare Med Tech Service to be created.
-        pub location: pulumi_wasm_rust::Output<String>,
+        pub location: pulumi_gestalt_rust::Output<String>,
         /// Specifies the name of the Healthcare Med Tech Service. Changing this forces a new Healthcare Med Tech Service to be created.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// A mapping of tags to assign to the Healthcare Med Tech Service.
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Specifies the id of the Healthcare Workspace where the Healthcare Med Tech Service should exist. Changing this forces a new Healthcare Med Tech Service to be created.
-        pub workspace_id: pulumi_wasm_rust::Output<String>,
+        pub workspace_id: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: MedtechServiceArgs,
     ) -> MedtechServiceResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let device_mapping_json_binding = args
             .device_mapping_json
@@ -188,27 +188,27 @@ pub mod medtech_service {
         };
         let o = register_interface::register(context.get_inner(), &request);
         MedtechServiceResult {
-            device_mapping_json: pulumi_wasm_rust::__private::into_domain(
+            device_mapping_json: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("deviceMappingJson"),
             ),
-            eventhub_consumer_group_name: pulumi_wasm_rust::__private::into_domain(
+            eventhub_consumer_group_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("eventhubConsumerGroupName"),
             ),
-            eventhub_name: pulumi_wasm_rust::__private::into_domain(
+            eventhub_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("eventhubName"),
             ),
-            eventhub_namespace_name: pulumi_wasm_rust::__private::into_domain(
+            eventhub_namespace_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("eventhubNamespaceName"),
             ),
-            identity: pulumi_wasm_rust::__private::into_domain(
+            identity: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("identity"),
             ),
-            location: pulumi_wasm_rust::__private::into_domain(
+            location: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("location"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
-            workspace_id: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            workspace_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("workspaceId"),
             ),
         }

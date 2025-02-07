@@ -31,69 +31,69 @@
 /// $ pulumi import aws:ec2/defaultVpc:DefaultVpc default vpc-a01106c2
 /// ```
 pub mod default_vpc {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct DefaultVpcArgs {
         #[builder(into, default)]
-        pub assign_generated_ipv6_cidr_block: pulumi_wasm_rust::InputOrOutput<
+        pub assign_generated_ipv6_cidr_block: pulumi_gestalt_rust::InputOrOutput<
             Option<bool>,
         >,
         #[builder(into, default)]
-        pub enable_dns_hostnames: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub enable_dns_hostnames: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         #[builder(into, default)]
-        pub enable_dns_support: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub enable_dns_support: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         #[builder(into, default)]
-        pub enable_network_address_usage_metrics: pulumi_wasm_rust::InputOrOutput<
+        pub enable_network_address_usage_metrics: pulumi_gestalt_rust::InputOrOutput<
             Option<bool>,
         >,
         /// Whether destroying the resource deletes the default VPC. Default: `false`
         #[builder(into, default)]
-        pub force_destroy: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub force_destroy: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         #[builder(into, default)]
-        pub ipv6_cidr_block: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub ipv6_cidr_block: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         #[builder(into, default)]
-        pub ipv6_cidr_block_network_border_group: pulumi_wasm_rust::InputOrOutput<
+        pub ipv6_cidr_block_network_border_group: pulumi_gestalt_rust::InputOrOutput<
             Option<String>,
         >,
         #[builder(into, default)]
-        pub ipv6_ipam_pool_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub ipv6_ipam_pool_id: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         #[builder(into, default)]
-        pub ipv6_netmask_length: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
+        pub ipv6_netmask_length: pulumi_gestalt_rust::InputOrOutput<Option<i32>>,
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
     #[allow(dead_code)]
     pub struct DefaultVpcResult {
-        pub arn: pulumi_wasm_rust::Output<String>,
-        pub assign_generated_ipv6_cidr_block: pulumi_wasm_rust::Output<Option<bool>>,
+        pub arn: pulumi_gestalt_rust::Output<String>,
+        pub assign_generated_ipv6_cidr_block: pulumi_gestalt_rust::Output<Option<bool>>,
         /// The primary IPv4 CIDR block for the VPC
-        pub cidr_block: pulumi_wasm_rust::Output<String>,
-        pub default_network_acl_id: pulumi_wasm_rust::Output<String>,
-        pub default_route_table_id: pulumi_wasm_rust::Output<String>,
-        pub default_security_group_id: pulumi_wasm_rust::Output<String>,
-        pub dhcp_options_id: pulumi_wasm_rust::Output<String>,
-        pub enable_dns_hostnames: pulumi_wasm_rust::Output<Option<bool>>,
-        pub enable_dns_support: pulumi_wasm_rust::Output<Option<bool>>,
-        pub enable_network_address_usage_metrics: pulumi_wasm_rust::Output<bool>,
-        pub existing_default_vpc: pulumi_wasm_rust::Output<bool>,
+        pub cidr_block: pulumi_gestalt_rust::Output<String>,
+        pub default_network_acl_id: pulumi_gestalt_rust::Output<String>,
+        pub default_route_table_id: pulumi_gestalt_rust::Output<String>,
+        pub default_security_group_id: pulumi_gestalt_rust::Output<String>,
+        pub dhcp_options_id: pulumi_gestalt_rust::Output<String>,
+        pub enable_dns_hostnames: pulumi_gestalt_rust::Output<Option<bool>>,
+        pub enable_dns_support: pulumi_gestalt_rust::Output<Option<bool>>,
+        pub enable_network_address_usage_metrics: pulumi_gestalt_rust::Output<bool>,
+        pub existing_default_vpc: pulumi_gestalt_rust::Output<bool>,
         /// Whether destroying the resource deletes the default VPC. Default: `false`
-        pub force_destroy: pulumi_wasm_rust::Output<Option<bool>>,
+        pub force_destroy: pulumi_gestalt_rust::Output<Option<bool>>,
         /// The allowed tenancy of instances launched into the VPC
-        pub instance_tenancy: pulumi_wasm_rust::Output<String>,
-        pub ipv6_association_id: pulumi_wasm_rust::Output<String>,
-        pub ipv6_cidr_block: pulumi_wasm_rust::Output<String>,
-        pub ipv6_cidr_block_network_border_group: pulumi_wasm_rust::Output<String>,
-        pub ipv6_ipam_pool_id: pulumi_wasm_rust::Output<Option<String>>,
-        pub ipv6_netmask_length: pulumi_wasm_rust::Output<Option<i32>>,
-        pub main_route_table_id: pulumi_wasm_rust::Output<String>,
-        pub owner_id: pulumi_wasm_rust::Output<String>,
-        pub tags: pulumi_wasm_rust::Output<
+        pub instance_tenancy: pulumi_gestalt_rust::Output<String>,
+        pub ipv6_association_id: pulumi_gestalt_rust::Output<String>,
+        pub ipv6_cidr_block: pulumi_gestalt_rust::Output<String>,
+        pub ipv6_cidr_block_network_border_group: pulumi_gestalt_rust::Output<String>,
+        pub ipv6_ipam_pool_id: pulumi_gestalt_rust::Output<Option<String>>,
+        pub ipv6_netmask_length: pulumi_gestalt_rust::Output<Option<i32>>,
+        pub main_route_table_id: pulumi_gestalt_rust::Output<String>,
+        pub owner_id: pulumi_gestalt_rust::Output<String>,
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
-        pub tags_all: pulumi_wasm_rust::Output<
+        pub tags_all: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
     }
@@ -102,11 +102,11 @@ pub mod default_vpc {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: DefaultVpcArgs,
     ) -> DefaultVpcResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let assign_generated_ipv6_cidr_block_binding = args
             .assign_generated_ipv6_cidr_block
@@ -191,66 +191,66 @@ pub mod default_vpc {
         };
         let o = register_interface::register(context.get_inner(), &request);
         DefaultVpcResult {
-            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
-            assign_generated_ipv6_cidr_block: pulumi_wasm_rust::__private::into_domain(
+            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
+            assign_generated_ipv6_cidr_block: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("assignGeneratedIpv6CidrBlock"),
             ),
-            cidr_block: pulumi_wasm_rust::__private::into_domain(
+            cidr_block: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("cidrBlock"),
             ),
-            default_network_acl_id: pulumi_wasm_rust::__private::into_domain(
+            default_network_acl_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("defaultNetworkAclId"),
             ),
-            default_route_table_id: pulumi_wasm_rust::__private::into_domain(
+            default_route_table_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("defaultRouteTableId"),
             ),
-            default_security_group_id: pulumi_wasm_rust::__private::into_domain(
+            default_security_group_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("defaultSecurityGroupId"),
             ),
-            dhcp_options_id: pulumi_wasm_rust::__private::into_domain(
+            dhcp_options_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("dhcpOptionsId"),
             ),
-            enable_dns_hostnames: pulumi_wasm_rust::__private::into_domain(
+            enable_dns_hostnames: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("enableDnsHostnames"),
             ),
-            enable_dns_support: pulumi_wasm_rust::__private::into_domain(
+            enable_dns_support: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("enableDnsSupport"),
             ),
-            enable_network_address_usage_metrics: pulumi_wasm_rust::__private::into_domain(
+            enable_network_address_usage_metrics: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("enableNetworkAddressUsageMetrics"),
             ),
-            existing_default_vpc: pulumi_wasm_rust::__private::into_domain(
+            existing_default_vpc: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("existingDefaultVpc"),
             ),
-            force_destroy: pulumi_wasm_rust::__private::into_domain(
+            force_destroy: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("forceDestroy"),
             ),
-            instance_tenancy: pulumi_wasm_rust::__private::into_domain(
+            instance_tenancy: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("instanceTenancy"),
             ),
-            ipv6_association_id: pulumi_wasm_rust::__private::into_domain(
+            ipv6_association_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("ipv6AssociationId"),
             ),
-            ipv6_cidr_block: pulumi_wasm_rust::__private::into_domain(
+            ipv6_cidr_block: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("ipv6CidrBlock"),
             ),
-            ipv6_cidr_block_network_border_group: pulumi_wasm_rust::__private::into_domain(
+            ipv6_cidr_block_network_border_group: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("ipv6CidrBlockNetworkBorderGroup"),
             ),
-            ipv6_ipam_pool_id: pulumi_wasm_rust::__private::into_domain(
+            ipv6_ipam_pool_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("ipv6IpamPoolId"),
             ),
-            ipv6_netmask_length: pulumi_wasm_rust::__private::into_domain(
+            ipv6_netmask_length: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("ipv6NetmaskLength"),
             ),
-            main_route_table_id: pulumi_wasm_rust::__private::into_domain(
+            main_route_table_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("mainRouteTableId"),
             ),
-            owner_id: pulumi_wasm_rust::__private::into_domain(
+            owner_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("ownerId"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_wasm_rust::__private::into_domain(
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            tags_all: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("tagsAll"),
             ),
         }

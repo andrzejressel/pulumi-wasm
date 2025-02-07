@@ -7,8 +7,8 @@
 /// ### Email Address Identity
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = email_identity::create(
@@ -21,8 +21,8 @@
 /// ### Domain Identity
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = email_identity::create(
@@ -35,8 +35,8 @@
 /// ### Configuration Set
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = configuration_set::create(
@@ -56,8 +56,8 @@
 /// ### DKIM Signing Attributes (BYODKIM)
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = email_identity::create(
@@ -85,66 +85,66 @@
 /// $ pulumi import aws:sesv2/emailIdentity:EmailIdentity example example.com
 /// ```
 pub mod email_identity {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct EmailIdentityArgs {
         /// The configuration set to use by default when sending from this identity. Note that any configuration set defined in the email sending request takes precedence.
         #[builder(into, default)]
-        pub configuration_set_name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub configuration_set_name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The configuration of the DKIM authentication settings for an email domain identity.
         #[builder(into, default)]
-        pub dkim_signing_attributes: pulumi_wasm_rust::InputOrOutput<
+        pub dkim_signing_attributes: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::sesv2::EmailIdentityDkimSigningAttributes>,
         >,
         /// The email address or domain to verify.
         ///
         /// The following arguments are optional:
         #[builder(into)]
-        pub email_identity: pulumi_wasm_rust::InputOrOutput<String>,
+        pub email_identity: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
     #[allow(dead_code)]
     pub struct EmailIdentityResult {
         /// ARN of the Email Identity.
-        pub arn: pulumi_wasm_rust::Output<String>,
+        pub arn: pulumi_gestalt_rust::Output<String>,
         /// The configuration set to use by default when sending from this identity. Note that any configuration set defined in the email sending request takes precedence.
-        pub configuration_set_name: pulumi_wasm_rust::Output<Option<String>>,
+        pub configuration_set_name: pulumi_gestalt_rust::Output<Option<String>>,
         /// The configuration of the DKIM authentication settings for an email domain identity.
-        pub dkim_signing_attributes: pulumi_wasm_rust::Output<
+        pub dkim_signing_attributes: pulumi_gestalt_rust::Output<
             super::super::types::sesv2::EmailIdentityDkimSigningAttributes,
         >,
         /// The email address or domain to verify.
         ///
         /// The following arguments are optional:
-        pub email_identity: pulumi_wasm_rust::Output<String>,
+        pub email_identity: pulumi_gestalt_rust::Output<String>,
         /// The email identity type. Valid values: `EMAIL_ADDRESS`, `DOMAIN`.
-        pub identity_type: pulumi_wasm_rust::Output<String>,
+        pub identity_type: pulumi_gestalt_rust::Output<String>,
         /// Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        pub tags_all: pulumi_wasm_rust::Output<
+        pub tags_all: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
         /// Specifies whether or not the identity is verified.
-        pub verified_for_sending_status: pulumi_wasm_rust::Output<bool>,
+        pub verified_for_sending_status: pulumi_gestalt_rust::Output<bool>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: EmailIdentityArgs,
     ) -> EmailIdentityResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let configuration_set_name_binding = args
             .configuration_set_name
@@ -181,24 +181,24 @@ pub mod email_identity {
         };
         let o = register_interface::register(context.get_inner(), &request);
         EmailIdentityResult {
-            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
-            configuration_set_name: pulumi_wasm_rust::__private::into_domain(
+            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
+            configuration_set_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("configurationSetName"),
             ),
-            dkim_signing_attributes: pulumi_wasm_rust::__private::into_domain(
+            dkim_signing_attributes: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("dkimSigningAttributes"),
             ),
-            email_identity: pulumi_wasm_rust::__private::into_domain(
+            email_identity: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("emailIdentity"),
             ),
-            identity_type: pulumi_wasm_rust::__private::into_domain(
+            identity_type: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("identityType"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_wasm_rust::__private::into_domain(
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            tags_all: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("tagsAll"),
             ),
-            verified_for_sending_status: pulumi_wasm_rust::__private::into_domain(
+            verified_for_sending_status: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("verifiedForSendingStatus"),
             ),
         }

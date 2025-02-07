@@ -63,8 +63,8 @@
 /// ### SQL Application
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = log_group::create(
@@ -253,106 +253,106 @@
 /// $ pulumi import aws:kinesisanalyticsv2/application:Application example arn:aws:kinesisanalytics:us-west-2:123456789012:application/example-sql-application
 /// ```
 pub mod application {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ApplicationArgs {
         /// The application's configuration
         #[builder(into, default)]
-        pub application_configuration: pulumi_wasm_rust::InputOrOutput<
+        pub application_configuration: pulumi_gestalt_rust::InputOrOutput<
             Option<
                 super::super::types::kinesisanalyticsv2::ApplicationApplicationConfiguration,
             >,
         >,
         /// The application's mode. Valid values are `STREAMING`, `INTERACTIVE`.
         #[builder(into, default)]
-        pub application_mode: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub application_mode: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// A CloudWatch log stream to monitor application configuration errors.
         #[builder(into, default)]
-        pub cloudwatch_logging_options: pulumi_wasm_rust::InputOrOutput<
+        pub cloudwatch_logging_options: pulumi_gestalt_rust::InputOrOutput<
             Option<
                 super::super::types::kinesisanalyticsv2::ApplicationCloudwatchLoggingOptions,
             >,
         >,
         /// A summary description of the application.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub description: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Whether to force stop an unresponsive Flink-based application.
         #[builder(into, default)]
-        pub force_stop: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub force_stop: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// The name of the application.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The runtime environment for the application. Valid values: `SQL-1_0`, `FLINK-1_6`, `FLINK-1_8`, `FLINK-1_11`, `FLINK-1_13`, `FLINK-1_15`, `FLINK-1_18`, `FLINK-1_19`.
         #[builder(into)]
-        pub runtime_environment: pulumi_wasm_rust::InputOrOutput<String>,
+        pub runtime_environment: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The ARN of the IAM role used by the application to access Kinesis data streams, Kinesis Data Firehose delivery streams, Amazon S3 objects, and other external resources.
         #[builder(into)]
-        pub service_execution_role: pulumi_wasm_rust::InputOrOutput<String>,
+        pub service_execution_role: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Whether to start or stop the application.
         #[builder(into, default)]
-        pub start_application: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub start_application: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// A map of tags to assign to the application. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
     #[allow(dead_code)]
     pub struct ApplicationResult {
         /// The application's configuration
-        pub application_configuration: pulumi_wasm_rust::Output<
+        pub application_configuration: pulumi_gestalt_rust::Output<
             super::super::types::kinesisanalyticsv2::ApplicationApplicationConfiguration,
         >,
         /// The application's mode. Valid values are `STREAMING`, `INTERACTIVE`.
-        pub application_mode: pulumi_wasm_rust::Output<String>,
+        pub application_mode: pulumi_gestalt_rust::Output<String>,
         /// The ARN of the application.
-        pub arn: pulumi_wasm_rust::Output<String>,
+        pub arn: pulumi_gestalt_rust::Output<String>,
         /// A CloudWatch log stream to monitor application configuration errors.
-        pub cloudwatch_logging_options: pulumi_wasm_rust::Output<
+        pub cloudwatch_logging_options: pulumi_gestalt_rust::Output<
             Option<
                 super::super::types::kinesisanalyticsv2::ApplicationCloudwatchLoggingOptions,
             >,
         >,
         /// The current timestamp when the application was created.
-        pub create_timestamp: pulumi_wasm_rust::Output<String>,
+        pub create_timestamp: pulumi_gestalt_rust::Output<String>,
         /// A summary description of the application.
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_gestalt_rust::Output<Option<String>>,
         /// Whether to force stop an unresponsive Flink-based application.
-        pub force_stop: pulumi_wasm_rust::Output<Option<bool>>,
+        pub force_stop: pulumi_gestalt_rust::Output<Option<bool>>,
         /// The current timestamp when the application was last updated.
-        pub last_update_timestamp: pulumi_wasm_rust::Output<String>,
+        pub last_update_timestamp: pulumi_gestalt_rust::Output<String>,
         /// The name of the application.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// The runtime environment for the application. Valid values: `SQL-1_0`, `FLINK-1_6`, `FLINK-1_8`, `FLINK-1_11`, `FLINK-1_13`, `FLINK-1_15`, `FLINK-1_18`, `FLINK-1_19`.
-        pub runtime_environment: pulumi_wasm_rust::Output<String>,
+        pub runtime_environment: pulumi_gestalt_rust::Output<String>,
         /// The ARN of the IAM role used by the application to access Kinesis data streams, Kinesis Data Firehose delivery streams, Amazon S3 objects, and other external resources.
-        pub service_execution_role: pulumi_wasm_rust::Output<String>,
+        pub service_execution_role: pulumi_gestalt_rust::Output<String>,
         /// Whether to start or stop the application.
-        pub start_application: pulumi_wasm_rust::Output<Option<bool>>,
+        pub start_application: pulumi_gestalt_rust::Output<Option<bool>>,
         /// The status of the application.
-        pub status: pulumi_wasm_rust::Output<String>,
+        pub status: pulumi_gestalt_rust::Output<String>,
         /// A map of tags to assign to the application. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        pub tags_all: pulumi_wasm_rust::Output<
+        pub tags_all: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
         /// The current application version. Kinesis Data Analytics updates the `version_id` each time the application is updated.
-        pub version_id: pulumi_wasm_rust::Output<i32>,
+        pub version_id: pulumi_gestalt_rust::Output<i32>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: ApplicationArgs,
     ) -> ApplicationResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let application_configuration_binding = args
             .application_configuration
@@ -431,44 +431,46 @@ pub mod application {
         };
         let o = register_interface::register(context.get_inner(), &request);
         ApplicationResult {
-            application_configuration: pulumi_wasm_rust::__private::into_domain(
+            application_configuration: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("applicationConfiguration"),
             ),
-            application_mode: pulumi_wasm_rust::__private::into_domain(
+            application_mode: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("applicationMode"),
             ),
-            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
-            cloudwatch_logging_options: pulumi_wasm_rust::__private::into_domain(
+            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
+            cloudwatch_logging_options: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("cloudwatchLoggingOptions"),
             ),
-            create_timestamp: pulumi_wasm_rust::__private::into_domain(
+            create_timestamp: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("createTimestamp"),
             ),
-            description: pulumi_wasm_rust::__private::into_domain(
+            description: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("description"),
             ),
-            force_stop: pulumi_wasm_rust::__private::into_domain(
+            force_stop: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("forceStop"),
             ),
-            last_update_timestamp: pulumi_wasm_rust::__private::into_domain(
+            last_update_timestamp: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("lastUpdateTimestamp"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            runtime_environment: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            runtime_environment: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("runtimeEnvironment"),
             ),
-            service_execution_role: pulumi_wasm_rust::__private::into_domain(
+            service_execution_role: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("serviceExecutionRole"),
             ),
-            start_application: pulumi_wasm_rust::__private::into_domain(
+            start_application: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("startApplication"),
             ),
-            status: pulumi_wasm_rust::__private::into_domain(o.extract_field("status")),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_wasm_rust::__private::into_domain(
+            status: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("status"),
+            ),
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            tags_all: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("tagsAll"),
             ),
-            version_id: pulumi_wasm_rust::__private::into_domain(
+            version_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("versionId"),
             ),
         }

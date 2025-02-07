@@ -1,60 +1,60 @@
 pub mod get_custom_model {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct GetCustomModelArgs {
         /// Name or ARN of the custom model.
         #[builder(into)]
-        pub model_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub model_id: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct GetCustomModelResult {
         /// ARN of the base model.
-        pub base_model_arn: pulumi_wasm_rust::Output<String>,
+        pub base_model_arn: pulumi_gestalt_rust::Output<String>,
         /// Creation time of the model.
-        pub creation_time: pulumi_wasm_rust::Output<String>,
+        pub creation_time: pulumi_gestalt_rust::Output<String>,
         /// Hyperparameter values associated with this model.
-        pub hyperparameters: pulumi_wasm_rust::Output<
+        pub hyperparameters: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
-        pub id: pulumi_wasm_rust::Output<String>,
+        pub id: pulumi_gestalt_rust::Output<String>,
         /// Job ARN associated with this model.
-        pub job_arn: pulumi_wasm_rust::Output<String>,
+        pub job_arn: pulumi_gestalt_rust::Output<String>,
         /// Job name associated with this model.
-        pub job_name: pulumi_wasm_rust::Output<String>,
+        pub job_name: pulumi_gestalt_rust::Output<String>,
         /// Key-value mapping of tags for the fine-tuning job.
-        pub job_tags: pulumi_wasm_rust::Output<
+        pub job_tags: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
         /// ARN associated with this model.
-        pub model_arn: pulumi_wasm_rust::Output<String>,
-        pub model_id: pulumi_wasm_rust::Output<String>,
+        pub model_arn: pulumi_gestalt_rust::Output<String>,
+        pub model_id: pulumi_gestalt_rust::Output<String>,
         /// The custom model is encrypted at rest using this key.
-        pub model_kms_key_arn: pulumi_wasm_rust::Output<String>,
+        pub model_kms_key_arn: pulumi_gestalt_rust::Output<String>,
         /// Model name associated with this model.
-        pub model_name: pulumi_wasm_rust::Output<String>,
+        pub model_name: pulumi_gestalt_rust::Output<String>,
         /// Key-value mapping of tags for the model.
-        pub model_tags: pulumi_wasm_rust::Output<
+        pub model_tags: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
         /// Output data configuration associated with this custom model.
-        pub output_data_configs: pulumi_wasm_rust::Output<
+        pub output_data_configs: pulumi_gestalt_rust::Output<
             Vec<super::super::super::types::bedrock::GetCustomModelOutputDataConfig>,
         >,
         /// Information about the training dataset.
-        pub training_data_configs: pulumi_wasm_rust::Output<
+        pub training_data_configs: pulumi_gestalt_rust::Output<
             Vec<super::super::super::types::bedrock::GetCustomModelTrainingDataConfig>,
         >,
         /// Metrics associated with the customization job.
-        pub training_metrics: pulumi_wasm_rust::Output<
+        pub training_metrics: pulumi_gestalt_rust::Output<
             Vec<super::super::super::types::bedrock::GetCustomModelTrainingMetric>,
         >,
         /// Information about the validation dataset.
-        pub validation_data_configs: pulumi_wasm_rust::Output<
+        pub validation_data_configs: pulumi_gestalt_rust::Output<
             Vec<super::super::super::types::bedrock::GetCustomModelValidationDataConfig>,
         >,
         /// The loss metric for each validator that you provided.
-        pub validation_metrics: pulumi_wasm_rust::Output<
+        pub validation_metrics: pulumi_gestalt_rust::Output<
             Vec<super::super::super::types::bedrock::GetCustomModelValidationMetric>,
         >,
     }
@@ -63,10 +63,10 @@ pub mod get_custom_model {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         args: GetCustomModelArgs,
     ) -> GetCustomModelResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let model_id_binding = args.model_id.get_output(context).get_inner();
         let request = register_interface::ResourceInvokeRequest {
@@ -81,51 +81,53 @@ pub mod get_custom_model {
         };
         let o = register_interface::invoke(context.get_inner(), &request);
         GetCustomModelResult {
-            base_model_arn: pulumi_wasm_rust::__private::into_domain(
+            base_model_arn: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("baseModelArn"),
             ),
-            creation_time: pulumi_wasm_rust::__private::into_domain(
+            creation_time: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("creationTime"),
             ),
-            hyperparameters: pulumi_wasm_rust::__private::into_domain(
+            hyperparameters: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("hyperparameters"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
-            job_arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("jobArn")),
-            job_name: pulumi_wasm_rust::__private::into_domain(
+            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
+            job_arn: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("jobArn"),
+            ),
+            job_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("jobName"),
             ),
-            job_tags: pulumi_wasm_rust::__private::into_domain(
+            job_tags: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("jobTags"),
             ),
-            model_arn: pulumi_wasm_rust::__private::into_domain(
+            model_arn: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("modelArn"),
             ),
-            model_id: pulumi_wasm_rust::__private::into_domain(
+            model_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("modelId"),
             ),
-            model_kms_key_arn: pulumi_wasm_rust::__private::into_domain(
+            model_kms_key_arn: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("modelKmsKeyArn"),
             ),
-            model_name: pulumi_wasm_rust::__private::into_domain(
+            model_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("modelName"),
             ),
-            model_tags: pulumi_wasm_rust::__private::into_domain(
+            model_tags: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("modelTags"),
             ),
-            output_data_configs: pulumi_wasm_rust::__private::into_domain(
+            output_data_configs: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("outputDataConfigs"),
             ),
-            training_data_configs: pulumi_wasm_rust::__private::into_domain(
+            training_data_configs: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("trainingDataConfigs"),
             ),
-            training_metrics: pulumi_wasm_rust::__private::into_domain(
+            training_metrics: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("trainingMetrics"),
             ),
-            validation_data_configs: pulumi_wasm_rust::__private::into_domain(
+            validation_data_configs: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("validationDataConfigs"),
             ),
-            validation_metrics: pulumi_wasm_rust::__private::into_domain(
+            validation_metrics: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("validationMetrics"),
             ),
         }

@@ -3,8 +3,8 @@
 /// ## Example Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = resource_group::create(
@@ -36,111 +36,117 @@
 /// ```
 ///
 pub mod vault {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct VaultArgs {
         /// Whether to enable the Classic experience for VMware replication. If set to `false` VMware machines will be protected using the new stateless ASR replication appliance. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub classic_vmware_replication_enabled: pulumi_wasm_rust::InputOrOutput<
+        pub classic_vmware_replication_enabled: pulumi_gestalt_rust::InputOrOutput<
             Option<bool>,
         >,
         /// Is cross region restore enabled for this Vault? Only can be `true`, when `storage_mode_type` is `GeoRedundant`. Defaults to `false`.
         ///
         /// > **Note:** Once `cross_region_restore_enabled` is set to `true`, changing it back to `false` forces a new Recovery Service Vault to be created.
         #[builder(into, default)]
-        pub cross_region_restore_enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub cross_region_restore_enabled: pulumi_gestalt_rust::InputOrOutput<
+            Option<bool>,
+        >,
         /// An `encryption` block as defined below. Required with `identity`.
         ///
         /// !> **Note:** Once Encryption with your own key has been Enabled it's not possible to Disable it.
         #[builder(into, default)]
-        pub encryption: pulumi_wasm_rust::InputOrOutput<
+        pub encryption: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::recoveryservices::VaultEncryption>,
         >,
         /// An `identity` block as defined below.
         #[builder(into, default)]
-        pub identity: pulumi_wasm_rust::InputOrOutput<
+        pub identity: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::recoveryservices::VaultIdentity>,
         >,
         /// Immutability Settings of vault, possible values include: `Locked`, `Unlocked` and `Disabled`.
         ///
         /// > **Note:** Once `immutability` is set to `Locked`, changing it to other values forces a new Recovery Services Vault to be created.
         #[builder(into, default)]
-        pub immutability: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub immutability: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub location: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub location: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// A `monitoring` block as defined below.
         #[builder(into, default)]
-        pub monitoring: pulumi_wasm_rust::InputOrOutput<
+        pub monitoring: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::recoveryservices::VaultMonitoring>,
         >,
         /// Specifies the name of the Recovery Services Vault. Recovery Service Vault name must be 2 - 50 characters long, start with a letter, contain only letters, numbers and hyphens. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Is it enabled to access the vault from public networks. Defaults to `true`.
         #[builder(into, default)]
-        pub public_network_access_enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub public_network_access_enabled: pulumi_gestalt_rust::InputOrOutput<
+            Option<bool>,
+        >,
         /// The name of the resource group in which to create the Recovery Services Vault. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub resource_group_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub resource_group_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Sets the vault's SKU. Possible values include: `Standard`, `RS0`.
         #[builder(into)]
-        pub sku: pulumi_wasm_rust::InputOrOutput<String>,
+        pub sku: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Is soft delete enable for this Vault? Defaults to `true`.
         #[builder(into, default)]
-        pub soft_delete_enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub soft_delete_enabled: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// The storage type of the Recovery Services Vault. Possible values are `GeoRedundant`, `LocallyRedundant` and `ZoneRedundant`. Defaults to `GeoRedundant`.
         #[builder(into, default)]
-        pub storage_mode_type: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub storage_mode_type: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// A mapping of tags to assign to the resource.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
     #[allow(dead_code)]
     pub struct VaultResult {
         /// Whether to enable the Classic experience for VMware replication. If set to `false` VMware machines will be protected using the new stateless ASR replication appliance. Changing this forces a new resource to be created.
-        pub classic_vmware_replication_enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub classic_vmware_replication_enabled: pulumi_gestalt_rust::Output<
+            Option<bool>,
+        >,
         /// Is cross region restore enabled for this Vault? Only can be `true`, when `storage_mode_type` is `GeoRedundant`. Defaults to `false`.
         ///
         /// > **Note:** Once `cross_region_restore_enabled` is set to `true`, changing it back to `false` forces a new Recovery Service Vault to be created.
-        pub cross_region_restore_enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub cross_region_restore_enabled: pulumi_gestalt_rust::Output<Option<bool>>,
         /// An `encryption` block as defined below. Required with `identity`.
         ///
         /// !> **Note:** Once Encryption with your own key has been Enabled it's not possible to Disable it.
-        pub encryption: pulumi_wasm_rust::Output<
+        pub encryption: pulumi_gestalt_rust::Output<
             Option<super::super::types::recoveryservices::VaultEncryption>,
         >,
         /// An `identity` block as defined below.
-        pub identity: pulumi_wasm_rust::Output<
+        pub identity: pulumi_gestalt_rust::Output<
             Option<super::super::types::recoveryservices::VaultIdentity>,
         >,
         /// Immutability Settings of vault, possible values include: `Locked`, `Unlocked` and `Disabled`.
         ///
         /// > **Note:** Once `immutability` is set to `Locked`, changing it to other values forces a new Recovery Services Vault to be created.
-        pub immutability: pulumi_wasm_rust::Output<String>,
+        pub immutability: pulumi_gestalt_rust::Output<String>,
         /// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
-        pub location: pulumi_wasm_rust::Output<String>,
+        pub location: pulumi_gestalt_rust::Output<String>,
         /// A `monitoring` block as defined below.
-        pub monitoring: pulumi_wasm_rust::Output<
+        pub monitoring: pulumi_gestalt_rust::Output<
             Option<super::super::types::recoveryservices::VaultMonitoring>,
         >,
         /// Specifies the name of the Recovery Services Vault. Recovery Service Vault name must be 2 - 50 characters long, start with a letter, contain only letters, numbers and hyphens. Changing this forces a new resource to be created.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// Is it enabled to access the vault from public networks. Defaults to `true`.
-        pub public_network_access_enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub public_network_access_enabled: pulumi_gestalt_rust::Output<Option<bool>>,
         /// The name of the resource group in which to create the Recovery Services Vault. Changing this forces a new resource to be created.
-        pub resource_group_name: pulumi_wasm_rust::Output<String>,
+        pub resource_group_name: pulumi_gestalt_rust::Output<String>,
         /// Sets the vault's SKU. Possible values include: `Standard`, `RS0`.
-        pub sku: pulumi_wasm_rust::Output<String>,
+        pub sku: pulumi_gestalt_rust::Output<String>,
         /// Is soft delete enable for this Vault? Defaults to `true`.
-        pub soft_delete_enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub soft_delete_enabled: pulumi_gestalt_rust::Output<Option<bool>>,
         /// The storage type of the Recovery Services Vault. Possible values are `GeoRedundant`, `LocallyRedundant` and `ZoneRedundant`. Defaults to `GeoRedundant`.
-        pub storage_mode_type: pulumi_wasm_rust::Output<Option<String>>,
+        pub storage_mode_type: pulumi_gestalt_rust::Output<Option<String>>,
         /// A mapping of tags to assign to the resource.
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
@@ -149,11 +155,11 @@ pub mod vault {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: VaultArgs,
     ) -> VaultResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let classic_vmware_replication_enabled_binding = args
             .classic_vmware_replication_enabled
@@ -252,42 +258,42 @@ pub mod vault {
         };
         let o = register_interface::register(context.get_inner(), &request);
         VaultResult {
-            classic_vmware_replication_enabled: pulumi_wasm_rust::__private::into_domain(
+            classic_vmware_replication_enabled: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("classicVmwareReplicationEnabled"),
             ),
-            cross_region_restore_enabled: pulumi_wasm_rust::__private::into_domain(
+            cross_region_restore_enabled: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("crossRegionRestoreEnabled"),
             ),
-            encryption: pulumi_wasm_rust::__private::into_domain(
+            encryption: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("encryption"),
             ),
-            identity: pulumi_wasm_rust::__private::into_domain(
+            identity: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("identity"),
             ),
-            immutability: pulumi_wasm_rust::__private::into_domain(
+            immutability: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("immutability"),
             ),
-            location: pulumi_wasm_rust::__private::into_domain(
+            location: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("location"),
             ),
-            monitoring: pulumi_wasm_rust::__private::into_domain(
+            monitoring: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("monitoring"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            public_network_access_enabled: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            public_network_access_enabled: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("publicNetworkAccessEnabled"),
             ),
-            resource_group_name: pulumi_wasm_rust::__private::into_domain(
+            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("resourceGroupName"),
             ),
-            sku: pulumi_wasm_rust::__private::into_domain(o.extract_field("sku")),
-            soft_delete_enabled: pulumi_wasm_rust::__private::into_domain(
+            sku: pulumi_gestalt_rust::__private::into_domain(o.extract_field("sku")),
+            soft_delete_enabled: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("softDeleteEnabled"),
             ),
-            storage_mode_type: pulumi_wasm_rust::__private::into_domain(
+            storage_mode_type: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("storageModeType"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
         }
     }
 }

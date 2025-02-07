@@ -3,8 +3,8 @@
 /// ## Example Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = resource_group::create(
@@ -33,7 +33,7 @@
 /// ```
 ///
 pub mod zone {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ZoneArgs {
@@ -41,45 +41,45 @@ pub mod zone {
         ///
         /// > **NOTE:** If you are going to be using the Private DNS Zone with a Private Endpoint the name of the Private DNS Zone must follow the **Private DNS Zone name** schema in the [product documentation](https://docs.microsoft.com/azure/private-link/private-endpoint-dns#virtual-network-and-on-premises-workloads-using-a-dns-forwarder) in order for the two resources to be connected successfully.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Specifies the resource group where the resource exists. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub resource_group_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub resource_group_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// An `soa_record` block as defined below. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub soa_record: pulumi_wasm_rust::InputOrOutput<
+        pub soa_record: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::privatedns::ZoneSoaRecord>,
         >,
         /// A mapping of tags to assign to the resource.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
     #[allow(dead_code)]
     pub struct ZoneResult {
         /// The maximum number of record sets that can be created in this Private DNS zone.
-        pub max_number_of_record_sets: pulumi_wasm_rust::Output<i32>,
+        pub max_number_of_record_sets: pulumi_gestalt_rust::Output<i32>,
         /// The maximum number of virtual networks that can be linked to this Private DNS zone.
-        pub max_number_of_virtual_network_links: pulumi_wasm_rust::Output<i32>,
+        pub max_number_of_virtual_network_links: pulumi_gestalt_rust::Output<i32>,
         /// The maximum number of virtual networks that can be linked to this Private DNS zone with registration enabled.
-        pub max_number_of_virtual_network_links_with_registration: pulumi_wasm_rust::Output<
+        pub max_number_of_virtual_network_links_with_registration: pulumi_gestalt_rust::Output<
             i32,
         >,
         /// The name of the Private DNS Zone. Must be a valid domain name. Changing this forces a new resource to be created.
         ///
         /// > **NOTE:** If you are going to be using the Private DNS Zone with a Private Endpoint the name of the Private DNS Zone must follow the **Private DNS Zone name** schema in the [product documentation](https://docs.microsoft.com/azure/private-link/private-endpoint-dns#virtual-network-and-on-premises-workloads-using-a-dns-forwarder) in order for the two resources to be connected successfully.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// The current number of record sets in this Private DNS zone.
-        pub number_of_record_sets: pulumi_wasm_rust::Output<i32>,
+        pub number_of_record_sets: pulumi_gestalt_rust::Output<i32>,
         /// Specifies the resource group where the resource exists. Changing this forces a new resource to be created.
-        pub resource_group_name: pulumi_wasm_rust::Output<String>,
+        pub resource_group_name: pulumi_gestalt_rust::Output<String>,
         /// An `soa_record` block as defined below. Changing this forces a new resource to be created.
-        pub soa_record: pulumi_wasm_rust::Output<
+        pub soa_record: pulumi_gestalt_rust::Output<
             super::super::types::privatedns::ZoneSoaRecord,
         >,
         /// A mapping of tags to assign to the resource.
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
@@ -88,11 +88,11 @@ pub mod zone {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: ZoneArgs,
     ) -> ZoneResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let name_binding = args.name.get_output(context).get_inner();
         let resource_group_name_binding = args
@@ -126,26 +126,26 @@ pub mod zone {
         };
         let o = register_interface::register(context.get_inner(), &request);
         ZoneResult {
-            max_number_of_record_sets: pulumi_wasm_rust::__private::into_domain(
+            max_number_of_record_sets: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("maxNumberOfRecordSets"),
             ),
-            max_number_of_virtual_network_links: pulumi_wasm_rust::__private::into_domain(
+            max_number_of_virtual_network_links: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("maxNumberOfVirtualNetworkLinks"),
             ),
-            max_number_of_virtual_network_links_with_registration: pulumi_wasm_rust::__private::into_domain(
+            max_number_of_virtual_network_links_with_registration: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("maxNumberOfVirtualNetworkLinksWithRegistration"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            number_of_record_sets: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            number_of_record_sets: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("numberOfRecordSets"),
             ),
-            resource_group_name: pulumi_wasm_rust::__private::into_domain(
+            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("resourceGroupName"),
             ),
-            soa_record: pulumi_wasm_rust::__private::into_domain(
+            soa_record: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("soaRecord"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
         }
     }
 }

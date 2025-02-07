@@ -3,8 +3,8 @@
 /// ## Example Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = resource_group::create(
@@ -58,70 +58,70 @@
 /// ```
 ///
 pub mod frontdoor_origin_group {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct FrontdoorOriginGroupArgs {
         /// The ID of the Front Door Profile within which this Front Door Origin Group should exist. Changing this forces a new Front Door Origin Group to be created.
         #[builder(into)]
-        pub cdn_frontdoor_profile_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub cdn_frontdoor_profile_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// A `health_probe` block as defined below.
         #[builder(into, default)]
-        pub health_probe: pulumi_wasm_rust::InputOrOutput<
+        pub health_probe: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::cdn::FrontdoorOriginGroupHealthProbe>,
         >,
         /// A `load_balancing` block as defined below.
         #[builder(into)]
-        pub load_balancing: pulumi_wasm_rust::InputOrOutput<
+        pub load_balancing: pulumi_gestalt_rust::InputOrOutput<
             super::super::types::cdn::FrontdoorOriginGroupLoadBalancing,
         >,
         /// The name which should be used for this Front Door Origin Group. Changing this forces a new Front Door Origin Group to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Specifies the amount of time which should elapse before shifting traffic to another endpoint when a healthy endpoint becomes unhealthy or a new endpoint is added. Possible values are between `0` and `50` minutes (inclusive). Default is `10` minutes.
         ///
         /// > **NOTE:** This property is currently not used, but will be in the near future.
         #[builder(into, default)]
-        pub restore_traffic_time_to_healed_or_new_endpoint_in_minutes: pulumi_wasm_rust::InputOrOutput<
+        pub restore_traffic_time_to_healed_or_new_endpoint_in_minutes: pulumi_gestalt_rust::InputOrOutput<
             Option<i32>,
         >,
         /// Specifies whether session affinity should be enabled on this host. Defaults to `true`.
         #[builder(into, default)]
-        pub session_affinity_enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub session_affinity_enabled: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
     }
     #[allow(dead_code)]
     pub struct FrontdoorOriginGroupResult {
         /// The ID of the Front Door Profile within which this Front Door Origin Group should exist. Changing this forces a new Front Door Origin Group to be created.
-        pub cdn_frontdoor_profile_id: pulumi_wasm_rust::Output<String>,
+        pub cdn_frontdoor_profile_id: pulumi_gestalt_rust::Output<String>,
         /// A `health_probe` block as defined below.
-        pub health_probe: pulumi_wasm_rust::Output<
+        pub health_probe: pulumi_gestalt_rust::Output<
             Option<super::super::types::cdn::FrontdoorOriginGroupHealthProbe>,
         >,
         /// A `load_balancing` block as defined below.
-        pub load_balancing: pulumi_wasm_rust::Output<
+        pub load_balancing: pulumi_gestalt_rust::Output<
             super::super::types::cdn::FrontdoorOriginGroupLoadBalancing,
         >,
         /// The name which should be used for this Front Door Origin Group. Changing this forces a new Front Door Origin Group to be created.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// Specifies the amount of time which should elapse before shifting traffic to another endpoint when a healthy endpoint becomes unhealthy or a new endpoint is added. Possible values are between `0` and `50` minutes (inclusive). Default is `10` minutes.
         ///
         /// > **NOTE:** This property is currently not used, but will be in the near future.
-        pub restore_traffic_time_to_healed_or_new_endpoint_in_minutes: pulumi_wasm_rust::Output<
+        pub restore_traffic_time_to_healed_or_new_endpoint_in_minutes: pulumi_gestalt_rust::Output<
             Option<i32>,
         >,
         /// Specifies whether session affinity should be enabled on this host. Defaults to `true`.
-        pub session_affinity_enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub session_affinity_enabled: pulumi_gestalt_rust::Output<Option<bool>>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: FrontdoorOriginGroupArgs,
     ) -> FrontdoorOriginGroupResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let cdn_frontdoor_profile_id_binding = args
             .cdn_frontdoor_profile_id
@@ -171,20 +171,20 @@ pub mod frontdoor_origin_group {
         };
         let o = register_interface::register(context.get_inner(), &request);
         FrontdoorOriginGroupResult {
-            cdn_frontdoor_profile_id: pulumi_wasm_rust::__private::into_domain(
+            cdn_frontdoor_profile_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("cdnFrontdoorProfileId"),
             ),
-            health_probe: pulumi_wasm_rust::__private::into_domain(
+            health_probe: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("healthProbe"),
             ),
-            load_balancing: pulumi_wasm_rust::__private::into_domain(
+            load_balancing: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("loadBalancing"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            restore_traffic_time_to_healed_or_new_endpoint_in_minutes: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            restore_traffic_time_to_healed_or_new_endpoint_in_minutes: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("restoreTrafficTimeToHealedOrNewEndpointInMinutes"),
             ),
-            session_affinity_enabled: pulumi_wasm_rust::__private::into_domain(
+            session_affinity_enabled: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("sessionAffinityEnabled"),
             ),
         }

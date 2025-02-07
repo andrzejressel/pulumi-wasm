@@ -1,5 +1,5 @@
 [package]
-name = "pulumi_wasm_common"
+name = "pulumi_gestalt_common"
 version.workspace = true
 edition.workspace = true
 
@@ -7,4 +7,4 @@ edition.workspace = true
 
 [dependencies]
 log.workspace = true
-pulumi_wasm_wit = { workspace = true, features = ["logger"] }
+pulumi_gestalt_wit = { workspace = true, features = ["logger"] }

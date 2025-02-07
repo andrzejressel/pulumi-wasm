@@ -22,7 +22,7 @@
 /// $ pulumi import aws:dms/certificate:Certificate test test-dms-certificate-tf
 /// ```
 pub mod certificate {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct CertificateArgs {
@@ -30,37 +30,37 @@ pub mod certificate {
         ///
         /// - Must contain from 1 to 255 alphanumeric characters and hyphens.
         #[builder(into)]
-        pub certificate_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub certificate_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The contents of the .pem X.509 certificate file for the certificate. Either `certificate_pem` or `certificate_wallet` must be set.
         #[builder(into, default)]
-        pub certificate_pem: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub certificate_pem: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The contents of the Oracle Wallet certificate for use with SSL, provided as a base64-encoded String. Either `certificate_pem` or `certificate_wallet` must be set.
         #[builder(into, default)]
-        pub certificate_wallet: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub certificate_wallet: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
     #[allow(dead_code)]
     pub struct CertificateResult {
         /// The Amazon Resource Name (ARN) for the certificate.
-        pub certificate_arn: pulumi_wasm_rust::Output<String>,
+        pub certificate_arn: pulumi_gestalt_rust::Output<String>,
         /// The certificate identifier.
         ///
         /// - Must contain from 1 to 255 alphanumeric characters and hyphens.
-        pub certificate_id: pulumi_wasm_rust::Output<String>,
+        pub certificate_id: pulumi_gestalt_rust::Output<String>,
         /// The contents of the .pem X.509 certificate file for the certificate. Either `certificate_pem` or `certificate_wallet` must be set.
-        pub certificate_pem: pulumi_wasm_rust::Output<Option<String>>,
+        pub certificate_pem: pulumi_gestalt_rust::Output<Option<String>>,
         /// The contents of the Oracle Wallet certificate for use with SSL, provided as a base64-encoded String. Either `certificate_pem` or `certificate_wallet` must be set.
-        pub certificate_wallet: pulumi_wasm_rust::Output<Option<String>>,
+        pub certificate_wallet: pulumi_gestalt_rust::Output<Option<String>>,
         /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        pub tags_all: pulumi_wasm_rust::Output<
+        pub tags_all: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
     }
@@ -69,11 +69,11 @@ pub mod certificate {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: CertificateArgs,
     ) -> CertificateResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let certificate_id_binding = args.certificate_id.get_output(context).get_inner();
         let certificate_pem_binding = args
@@ -110,20 +110,20 @@ pub mod certificate {
         };
         let o = register_interface::register(context.get_inner(), &request);
         CertificateResult {
-            certificate_arn: pulumi_wasm_rust::__private::into_domain(
+            certificate_arn: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("certificateArn"),
             ),
-            certificate_id: pulumi_wasm_rust::__private::into_domain(
+            certificate_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("certificateId"),
             ),
-            certificate_pem: pulumi_wasm_rust::__private::into_domain(
+            certificate_pem: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("certificatePem"),
             ),
-            certificate_wallet: pulumi_wasm_rust::__private::into_domain(
+            certificate_wallet: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("certificateWallet"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_wasm_rust::__private::into_domain(
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            tags_all: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("tagsAll"),
             ),
         }

@@ -3,8 +3,8 @@
 /// ## Example Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = certificate::create(
@@ -41,41 +41,41 @@
 /// $ pulumi import aws:redshiftserverless/customDomainAssociation:CustomDomainAssociation example example-workgroup,example.com
 /// ```
 pub mod custom_domain_association {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct CustomDomainAssociationArgs {
         /// ARN of the certificate for the custom domain association.
         #[builder(into)]
-        pub custom_domain_certificate_arn: pulumi_wasm_rust::InputOrOutput<String>,
+        pub custom_domain_certificate_arn: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Custom domain to associate with the workgroup.
         #[builder(into)]
-        pub custom_domain_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub custom_domain_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Name of the workgroup.
         #[builder(into)]
-        pub workgroup_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub workgroup_name: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct CustomDomainAssociationResult {
         /// ARN of the certificate for the custom domain association.
-        pub custom_domain_certificate_arn: pulumi_wasm_rust::Output<String>,
+        pub custom_domain_certificate_arn: pulumi_gestalt_rust::Output<String>,
         /// Expiration time for the certificate.
-        pub custom_domain_certificate_expiry_time: pulumi_wasm_rust::Output<String>,
+        pub custom_domain_certificate_expiry_time: pulumi_gestalt_rust::Output<String>,
         /// Custom domain to associate with the workgroup.
-        pub custom_domain_name: pulumi_wasm_rust::Output<String>,
+        pub custom_domain_name: pulumi_gestalt_rust::Output<String>,
         /// Name of the workgroup.
-        pub workgroup_name: pulumi_wasm_rust::Output<String>,
+        pub workgroup_name: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: CustomDomainAssociationArgs,
     ) -> CustomDomainAssociationResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let custom_domain_certificate_arn_binding = args
             .custom_domain_certificate_arn
@@ -108,16 +108,16 @@ pub mod custom_domain_association {
         };
         let o = register_interface::register(context.get_inner(), &request);
         CustomDomainAssociationResult {
-            custom_domain_certificate_arn: pulumi_wasm_rust::__private::into_domain(
+            custom_domain_certificate_arn: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("customDomainCertificateArn"),
             ),
-            custom_domain_certificate_expiry_time: pulumi_wasm_rust::__private::into_domain(
+            custom_domain_certificate_expiry_time: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("customDomainCertificateExpiryTime"),
             ),
-            custom_domain_name: pulumi_wasm_rust::__private::into_domain(
+            custom_domain_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("customDomainName"),
             ),
-            workgroup_name: pulumi_wasm_rust::__private::into_domain(
+            workgroup_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("workgroupName"),
             ),
         }

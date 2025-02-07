@@ -96,54 +96,54 @@
 /// ```
 ///
 pub mod managed_certificate {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ManagedCertificateArgs {
         /// The ID of the App Service Custom Hostname Binding for the Certificate. Changing this forces a new App Service Managed Certificate to be created.
         #[builder(into)]
-        pub custom_hostname_binding_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub custom_hostname_binding_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// A mapping of tags which should be assigned to the App Service Managed Certificate.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
     #[allow(dead_code)]
     pub struct ManagedCertificateResult {
         /// The Canonical Name of the Certificate.
-        pub canonical_name: pulumi_wasm_rust::Output<String>,
+        pub canonical_name: pulumi_gestalt_rust::Output<String>,
         /// The ID of the App Service Custom Hostname Binding for the Certificate. Changing this forces a new App Service Managed Certificate to be created.
-        pub custom_hostname_binding_id: pulumi_wasm_rust::Output<String>,
+        pub custom_hostname_binding_id: pulumi_gestalt_rust::Output<String>,
         /// The expiration date of the Certificate.
-        pub expiration_date: pulumi_wasm_rust::Output<String>,
+        pub expiration_date: pulumi_gestalt_rust::Output<String>,
         /// The friendly name of the Certificate.
-        pub friendly_name: pulumi_wasm_rust::Output<String>,
+        pub friendly_name: pulumi_gestalt_rust::Output<String>,
         /// The list of Host Names for the Certificate.
-        pub host_names: pulumi_wasm_rust::Output<Vec<String>>,
+        pub host_names: pulumi_gestalt_rust::Output<Vec<String>>,
         /// The Start date for the Certificate.
-        pub issue_date: pulumi_wasm_rust::Output<String>,
+        pub issue_date: pulumi_gestalt_rust::Output<String>,
         /// The issuer of the Certificate.
-        pub issuer: pulumi_wasm_rust::Output<String>,
+        pub issuer: pulumi_gestalt_rust::Output<String>,
         /// The Subject Name for the Certificate.
-        pub subject_name: pulumi_wasm_rust::Output<String>,
+        pub subject_name: pulumi_gestalt_rust::Output<String>,
         /// A mapping of tags which should be assigned to the App Service Managed Certificate.
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// The Certificate Thumbprint.
-        pub thumbprint: pulumi_wasm_rust::Output<String>,
+        pub thumbprint: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: ManagedCertificateArgs,
     ) -> ManagedCertificateResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let custom_hostname_binding_id_binding = args
             .custom_hostname_binding_id
@@ -167,30 +167,32 @@ pub mod managed_certificate {
         };
         let o = register_interface::register(context.get_inner(), &request);
         ManagedCertificateResult {
-            canonical_name: pulumi_wasm_rust::__private::into_domain(
+            canonical_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("canonicalName"),
             ),
-            custom_hostname_binding_id: pulumi_wasm_rust::__private::into_domain(
+            custom_hostname_binding_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("customHostnameBindingId"),
             ),
-            expiration_date: pulumi_wasm_rust::__private::into_domain(
+            expiration_date: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("expirationDate"),
             ),
-            friendly_name: pulumi_wasm_rust::__private::into_domain(
+            friendly_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("friendlyName"),
             ),
-            host_names: pulumi_wasm_rust::__private::into_domain(
+            host_names: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("hostNames"),
             ),
-            issue_date: pulumi_wasm_rust::__private::into_domain(
+            issue_date: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("issueDate"),
             ),
-            issuer: pulumi_wasm_rust::__private::into_domain(o.extract_field("issuer")),
-            subject_name: pulumi_wasm_rust::__private::into_domain(
+            issuer: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("issuer"),
+            ),
+            subject_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("subjectName"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
-            thumbprint: pulumi_wasm_rust::__private::into_domain(
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            thumbprint: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("thumbprint"),
             ),
         }

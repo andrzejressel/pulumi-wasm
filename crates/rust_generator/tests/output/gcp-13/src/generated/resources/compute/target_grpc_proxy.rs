@@ -16,8 +16,8 @@
 ///
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let default = target_grpc_proxy::create(
@@ -134,13 +134,13 @@
 /// ```
 ///
 pub mod target_grpc_proxy {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct TargetGrpcProxyArgs {
         /// An optional description of this resource.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub description: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Name of the resource. Provided by the client when the resource
         /// is created. The name must be 1-63 characters long, and comply
         /// with RFC1035. Specifically, the name must be 1-63 characters long
@@ -152,16 +152,16 @@ pub mod target_grpc_proxy {
         ///
         /// - - -
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub project: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// URL to the UrlMap resource that defines the mapping from URL to
         /// the BackendService. The protocol field in the BackendService
         /// must be set to GRPC.
         #[builder(into, default)]
-        pub url_map: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub url_map: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// If true, indicates that the BackendServices referenced by
         /// the urlMap may be accessed by gRPC applications without using
         /// a sidecar proxy. This will enable configuration checks on urlMap
@@ -173,14 +173,14 @@ pub mod target_grpc_proxy {
         /// must not use "xds:///" scheme in the target URI of the service
         /// it is connecting to
         #[builder(into, default)]
-        pub validate_for_proxyless: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub validate_for_proxyless: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
     }
     #[allow(dead_code)]
     pub struct TargetGrpcProxyResult {
         /// Creation timestamp in RFC3339 text format.
-        pub creation_timestamp: pulumi_wasm_rust::Output<String>,
+        pub creation_timestamp: pulumi_gestalt_rust::Output<String>,
         /// An optional description of this resource.
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_gestalt_rust::Output<Option<String>>,
         /// Fingerprint of this resource. A hash of the contents stored in
         /// this object. This field is used in optimistic locking. This field
         /// will be ignored when inserting a TargetGrpcProxy. An up-to-date
@@ -188,7 +188,7 @@ pub mod target_grpc_proxy {
         /// TargetGrpcProxy; otherwise, the request will fail with error
         /// 412 conditionNotMet. To see the latest fingerprint, make a get()
         /// request to retrieve the TargetGrpcProxy. A base64-encoded string.
-        pub fingerprint: pulumi_wasm_rust::Output<String>,
+        pub fingerprint: pulumi_gestalt_rust::Output<String>,
         /// Name of the resource. Provided by the client when the resource
         /// is created. The name must be 1-63 characters long, and comply
         /// with RFC1035. Specifically, the name must be 1-63 characters long
@@ -199,18 +199,18 @@ pub mod target_grpc_proxy {
         ///
         ///
         /// - - -
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
-        pub project: pulumi_wasm_rust::Output<String>,
+        pub project: pulumi_gestalt_rust::Output<String>,
         /// The URI of the created resource.
-        pub self_link: pulumi_wasm_rust::Output<String>,
+        pub self_link: pulumi_gestalt_rust::Output<String>,
         /// Server-defined URL with id for the resource.
-        pub self_link_with_id: pulumi_wasm_rust::Output<String>,
+        pub self_link_with_id: pulumi_gestalt_rust::Output<String>,
         /// URL to the UrlMap resource that defines the mapping from URL to
         /// the BackendService. The protocol field in the BackendService
         /// must be set to GRPC.
-        pub url_map: pulumi_wasm_rust::Output<Option<String>>,
+        pub url_map: pulumi_gestalt_rust::Output<Option<String>>,
         /// If true, indicates that the BackendServices referenced by
         /// the urlMap may be accessed by gRPC applications without using
         /// a sidecar proxy. This will enable configuration checks on urlMap
@@ -221,18 +221,18 @@ pub mod target_grpc_proxy {
         /// applications via a sidecar proxy. In this case, a gRPC application
         /// must not use "xds:///" scheme in the target URI of the service
         /// it is connecting to
-        pub validate_for_proxyless: pulumi_wasm_rust::Output<Option<bool>>,
+        pub validate_for_proxyless: pulumi_gestalt_rust::Output<Option<bool>>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: TargetGrpcProxyArgs,
     ) -> TargetGrpcProxyResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let description_binding = args.description.get_output(context).get_inner();
         let name_binding = args.name.get_output(context).get_inner();
@@ -271,27 +271,29 @@ pub mod target_grpc_proxy {
         };
         let o = register_interface::register(context.get_inner(), &request);
         TargetGrpcProxyResult {
-            creation_timestamp: pulumi_wasm_rust::__private::into_domain(
+            creation_timestamp: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("creationTimestamp"),
             ),
-            description: pulumi_wasm_rust::__private::into_domain(
+            description: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("description"),
             ),
-            fingerprint: pulumi_wasm_rust::__private::into_domain(
+            fingerprint: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("fingerprint"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            project: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            project: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("project"),
             ),
-            self_link: pulumi_wasm_rust::__private::into_domain(
+            self_link: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("selfLink"),
             ),
-            self_link_with_id: pulumi_wasm_rust::__private::into_domain(
+            self_link_with_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("selfLinkWithId"),
             ),
-            url_map: pulumi_wasm_rust::__private::into_domain(o.extract_field("urlMap")),
-            validate_for_proxyless: pulumi_wasm_rust::__private::into_domain(
+            url_map: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("urlMap"),
+            ),
+            validate_for_proxyless: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("validateForProxyless"),
             ),
         }

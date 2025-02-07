@@ -3,8 +3,8 @@
 /// ## Example Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = resource_group::create(
@@ -34,127 +34,131 @@
 /// ```
 ///
 pub mod workflow {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct WorkflowArgs {
         /// A `access_control` block as defined below.
         #[builder(into, default)]
-        pub access_control: pulumi_wasm_rust::InputOrOutput<
+        pub access_control: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::logicapps::WorkflowAccessControl>,
         >,
         /// Is the Logic App Workflow enabled? Defaults to `true`.
         #[builder(into, default)]
-        pub enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub enabled: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// An `identity` block as defined below.
         #[builder(into, default)]
-        pub identity: pulumi_wasm_rust::InputOrOutput<
+        pub identity: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::logicapps::WorkflowIdentity>,
         >,
         /// The ID of the Integration Service Environment to which this Logic App Workflow belongs. Changing this forces a new Logic App Workflow to be created.
         #[builder(into, default)]
-        pub integration_service_environment_id: pulumi_wasm_rust::InputOrOutput<
+        pub integration_service_environment_id: pulumi_gestalt_rust::InputOrOutput<
             Option<String>,
         >,
         /// Specifies the supported Azure location where the Logic App Workflow exists. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub location: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub location: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The ID of the integration account linked by this Logic App Workflow.
         #[builder(into, default)]
-        pub logic_app_integration_account_id: pulumi_wasm_rust::InputOrOutput<
+        pub logic_app_integration_account_id: pulumi_gestalt_rust::InputOrOutput<
             Option<String>,
         >,
         /// Specifies the name of the Logic App Workflow. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// A map of Key-Value pairs.
         ///
         /// > **NOTE:** Any parameters specified must exist in the Schema defined in `workflow_parameters`.
         #[builder(into, default)]
-        pub parameters: pulumi_wasm_rust::InputOrOutput<
+        pub parameters: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// The name of the Resource Group in which the Logic App Workflow should be created. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub resource_group_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub resource_group_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// A mapping of tags to assign to the resource.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Specifies a map of Key-Value pairs of the Parameter Definitions to use for this Logic App Workflow. The key is the parameter name, and the value is a JSON encoded string of the parameter definition (see: <https://docs.microsoft.com/azure/logic-apps/logic-apps-workflow-definition-language#parameters>).
         #[builder(into, default)]
-        pub workflow_parameters: pulumi_wasm_rust::InputOrOutput<
+        pub workflow_parameters: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Specifies the Schema to use for this Logic App Workflow. Defaults to `https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#`. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub workflow_schema: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub workflow_schema: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Specifies the version of the Schema used for this Logic App Workflow. Defaults to `1.0.0.0`. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub workflow_version: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub workflow_version: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct WorkflowResult {
         /// A `access_control` block as defined below.
-        pub access_control: pulumi_wasm_rust::Output<
+        pub access_control: pulumi_gestalt_rust::Output<
             Option<super::super::types::logicapps::WorkflowAccessControl>,
         >,
         /// The Access Endpoint for the Logic App Workflow.
-        pub access_endpoint: pulumi_wasm_rust::Output<String>,
+        pub access_endpoint: pulumi_gestalt_rust::Output<String>,
         /// The list of access endpoint IP addresses of connector.
-        pub connector_endpoint_ip_addresses: pulumi_wasm_rust::Output<Vec<String>>,
+        pub connector_endpoint_ip_addresses: pulumi_gestalt_rust::Output<Vec<String>>,
         /// The list of outgoing IP addresses of connector.
-        pub connector_outbound_ip_addresses: pulumi_wasm_rust::Output<Vec<String>>,
+        pub connector_outbound_ip_addresses: pulumi_gestalt_rust::Output<Vec<String>>,
         /// Is the Logic App Workflow enabled? Defaults to `true`.
-        pub enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub enabled: pulumi_gestalt_rust::Output<Option<bool>>,
         /// An `identity` block as defined below.
-        pub identity: pulumi_wasm_rust::Output<
+        pub identity: pulumi_gestalt_rust::Output<
             Option<super::super::types::logicapps::WorkflowIdentity>,
         >,
         /// The ID of the Integration Service Environment to which this Logic App Workflow belongs. Changing this forces a new Logic App Workflow to be created.
-        pub integration_service_environment_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub integration_service_environment_id: pulumi_gestalt_rust::Output<
+            Option<String>,
+        >,
         /// Specifies the supported Azure location where the Logic App Workflow exists. Changing this forces a new resource to be created.
-        pub location: pulumi_wasm_rust::Output<String>,
+        pub location: pulumi_gestalt_rust::Output<String>,
         /// The ID of the integration account linked by this Logic App Workflow.
-        pub logic_app_integration_account_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub logic_app_integration_account_id: pulumi_gestalt_rust::Output<
+            Option<String>,
+        >,
         /// Specifies the name of the Logic App Workflow. Changing this forces a new resource to be created.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// A map of Key-Value pairs.
         ///
         /// > **NOTE:** Any parameters specified must exist in the Schema defined in `workflow_parameters`.
-        pub parameters: pulumi_wasm_rust::Output<
+        pub parameters: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// The name of the Resource Group in which the Logic App Workflow should be created. Changing this forces a new resource to be created.
-        pub resource_group_name: pulumi_wasm_rust::Output<String>,
+        pub resource_group_name: pulumi_gestalt_rust::Output<String>,
         /// A mapping of tags to assign to the resource.
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// The list of access endpoint IP addresses of workflow.
-        pub workflow_endpoint_ip_addresses: pulumi_wasm_rust::Output<Vec<String>>,
+        pub workflow_endpoint_ip_addresses: pulumi_gestalt_rust::Output<Vec<String>>,
         /// The list of outgoing IP addresses of workflow.
-        pub workflow_outbound_ip_addresses: pulumi_wasm_rust::Output<Vec<String>>,
+        pub workflow_outbound_ip_addresses: pulumi_gestalt_rust::Output<Vec<String>>,
         /// Specifies a map of Key-Value pairs of the Parameter Definitions to use for this Logic App Workflow. The key is the parameter name, and the value is a JSON encoded string of the parameter definition (see: <https://docs.microsoft.com/azure/logic-apps/logic-apps-workflow-definition-language#parameters>).
-        pub workflow_parameters: pulumi_wasm_rust::Output<
+        pub workflow_parameters: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Specifies the Schema to use for this Logic App Workflow. Defaults to `https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#`. Changing this forces a new resource to be created.
-        pub workflow_schema: pulumi_wasm_rust::Output<Option<String>>,
+        pub workflow_schema: pulumi_gestalt_rust::Output<Option<String>>,
         /// Specifies the version of the Schema used for this Logic App Workflow. Defaults to `1.0.0.0`. Changing this forces a new resource to be created.
-        pub workflow_version: pulumi_wasm_rust::Output<Option<String>>,
+        pub workflow_version: pulumi_gestalt_rust::Output<Option<String>>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: WorkflowArgs,
     ) -> WorkflowResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let access_control_binding = args.access_control.get_output(context).get_inner();
         let enabled_binding = args.enabled.get_output(context).get_inner();
@@ -248,54 +252,54 @@ pub mod workflow {
         };
         let o = register_interface::register(context.get_inner(), &request);
         WorkflowResult {
-            access_control: pulumi_wasm_rust::__private::into_domain(
+            access_control: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("accessControl"),
             ),
-            access_endpoint: pulumi_wasm_rust::__private::into_domain(
+            access_endpoint: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("accessEndpoint"),
             ),
-            connector_endpoint_ip_addresses: pulumi_wasm_rust::__private::into_domain(
+            connector_endpoint_ip_addresses: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("connectorEndpointIpAddresses"),
             ),
-            connector_outbound_ip_addresses: pulumi_wasm_rust::__private::into_domain(
+            connector_outbound_ip_addresses: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("connectorOutboundIpAddresses"),
             ),
-            enabled: pulumi_wasm_rust::__private::into_domain(
+            enabled: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("enabled"),
             ),
-            identity: pulumi_wasm_rust::__private::into_domain(
+            identity: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("identity"),
             ),
-            integration_service_environment_id: pulumi_wasm_rust::__private::into_domain(
+            integration_service_environment_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("integrationServiceEnvironmentId"),
             ),
-            location: pulumi_wasm_rust::__private::into_domain(
+            location: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("location"),
             ),
-            logic_app_integration_account_id: pulumi_wasm_rust::__private::into_domain(
+            logic_app_integration_account_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("logicAppIntegrationAccountId"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            parameters: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            parameters: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("parameters"),
             ),
-            resource_group_name: pulumi_wasm_rust::__private::into_domain(
+            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("resourceGroupName"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
-            workflow_endpoint_ip_addresses: pulumi_wasm_rust::__private::into_domain(
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            workflow_endpoint_ip_addresses: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("workflowEndpointIpAddresses"),
             ),
-            workflow_outbound_ip_addresses: pulumi_wasm_rust::__private::into_domain(
+            workflow_outbound_ip_addresses: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("workflowOutboundIpAddresses"),
             ),
-            workflow_parameters: pulumi_wasm_rust::__private::into_domain(
+            workflow_parameters: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("workflowParameters"),
             ),
-            workflow_schema: pulumi_wasm_rust::__private::into_domain(
+            workflow_schema: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("workflowSchema"),
             ),
-            workflow_version: pulumi_wasm_rust::__private::into_domain(
+            workflow_version: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("workflowVersion"),
             ),
         }

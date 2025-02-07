@@ -173,83 +173,83 @@
 ///
 /// ### API Gateway Handler Function
 pub mod callback_function {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct CallbackFunctionArgs {
         /// Instruction set architecture for your Lambda function. Valid values are `["x86_64"]` and `["arm64"]`. Default is `["x86_64"]`. Removing this attribute, function's architecture stay the same.
         #[builder(into, default)]
-        pub architectures: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
+        pub architectures: pulumi_gestalt_rust::InputOrOutput<Option<Vec<String>>>,
         /// The Javascript function to use as the entrypoint for the AWS Lambda out of. Either callback or callbackFactory must be provided.
         #[builder(into, default)]
-        pub callback: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub callback: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The Javascript function that will be called to produce the callback function that is the entrypoint for the AWS Lambda. Either callback or callbackFactory must be provided.
         #[builder(into, default)]
-        pub callback_factory: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub callback_factory: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Options to control which paths/packages should be included or excluded in the zip file containing the code for the AWS lambda.
         #[builder(into, default)]
-        pub code_path_options: pulumi_wasm_rust::InputOrOutput<
+        pub code_path_options: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::lambda::CodePathOptions>,
         >,
         /// To enable code signing for this function, specify the ARN of a code-signing configuration. A code-signing configuration includes a set of signing profiles, which define the trusted publishers for this function.
         #[builder(into, default)]
-        pub code_signing_config_arn: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub code_signing_config_arn: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Configuration block. Detailed below.
         #[builder(into, default)]
-        pub dead_letter_config: pulumi_wasm_rust::InputOrOutput<
+        pub dead_letter_config: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::lambda::FunctionDeadLetterConfig>,
         >,
         /// Description of what your Lambda Function does.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub description: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Configuration block. Detailed below.
         #[builder(into, default)]
-        pub environment: pulumi_wasm_rust::InputOrOutput<
+        pub environment: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::lambda::FunctionEnvironment>,
         >,
         /// The amount of Ephemeral storage(`/tmp`) to allocate for the Lambda Function in MB. This parameter is used to expand the total amount of Ephemeral storage available, beyond the default amount of `512`MB. Detailed below.
         #[builder(into, default)]
-        pub ephemeral_storage: pulumi_wasm_rust::InputOrOutput<
+        pub ephemeral_storage: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::lambda::FunctionEphemeralStorage>,
         >,
         /// Configuration block. Detailed below.
         #[builder(into, default)]
-        pub file_system_config: pulumi_wasm_rust::InputOrOutput<
+        pub file_system_config: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::lambda::FunctionFileSystemConfig>,
         >,
         /// Configuration block. Detailed below.
         #[builder(into, default)]
-        pub image_config: pulumi_wasm_rust::InputOrOutput<
+        pub image_config: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::lambda::FunctionImageConfig>,
         >,
         /// ECR image URI containing the function's deployment package. Exactly one of `filename`, `image_uri`,  or `s3_bucket` must be specified.
         #[builder(into, default)]
-        pub image_uri: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub image_uri: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Amazon Resource Name (ARN) of the AWS Key Management Service (KMS) key that is used to encrypt environment variables. If this configuration is not provided when environment variables are in use, AWS Lambda uses a default service key. If this configuration is provided when environment variables are not in use, the AWS Lambda API does not save this configuration and the provider will show a perpetual difference of adding the key. To fix the perpetual difference, remove this configuration.
         #[builder(into, default)]
-        pub kms_key_arn: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub kms_key_arn: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// List of Lambda Layer Version ARNs (maximum of 5) to attach to your Lambda Function. See [Lambda Layers](https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html)
         #[builder(into, default)]
-        pub layers: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
+        pub layers: pulumi_gestalt_rust::InputOrOutput<Option<Vec<String>>>,
         /// Configuration block used to specify advanced logging settings. Detailed below.
         #[builder(into, default)]
-        pub logging_config: pulumi_wasm_rust::InputOrOutput<
+        pub logging_config: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::lambda::FunctionLoggingConfig>,
         >,
         /// Amount of memory in MB your Lambda Function can use at runtime. Defaults to `128`. See [Limits](https://docs.aws.amazon.com/lambda/latest/dg/limits.html)
         #[builder(into, default)]
-        pub memory_size: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
+        pub memory_size: pulumi_gestalt_rust::InputOrOutput<Option<i32>>,
         /// Unique name for your Lambda Function.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Lambda deployment package type. Valid values are `Zip` and `Image`. Defaults to `Zip`.
         #[builder(into, default)]
-        pub package_type: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub package_type: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// A list of IAM policy ARNs to attach to the Function. Only one of `role` or `policies` can be provided. If neither is provided, the default policies will be used instead.
         #[builder(into, default)]
-        pub policies: pulumi_wasm_rust::InputOrOutput<
+        pub policies: pulumi_gestalt_rust::InputOrOutput<
             Option<
-                pulumi_wasm_rust::OneOf2<
+                pulumi_gestalt_rust::OneOf2<
                     std::collections::HashMap<String, String>,
                     Vec<String>,
                 >,
@@ -257,191 +257,195 @@ pub mod callback_function {
         >,
         /// Whether to publish creation/change as new Lambda Function Version. Defaults to `false`.
         #[builder(into, default)]
-        pub publish: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub publish: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// Whether to replace the security groups on the function's VPC configuration prior to destruction.
         /// Removing these security group associations prior to function destruction can speed up security group deletion times of AWS's internal cleanup operations.
         /// By default, the security groups will be replaced with the `default` security group in the function's configured VPC.
         /// Set the `replacement_security_group_ids` attribute to use a custom list of security groups for replacement.
         #[builder(into, default)]
-        pub replace_security_groups_on_destroy: pulumi_wasm_rust::InputOrOutput<
+        pub replace_security_groups_on_destroy: pulumi_gestalt_rust::InputOrOutput<
             Option<bool>,
         >,
         /// List of security group IDs to assign to the function's VPC configuration prior to destruction.
         /// `replace_security_groups_on_destroy` must be set to `true` to use this attribute.
         #[builder(into, default)]
-        pub replacement_security_group_ids: pulumi_wasm_rust::InputOrOutput<
+        pub replacement_security_group_ids: pulumi_gestalt_rust::InputOrOutput<
             Option<Vec<String>>,
         >,
         /// Amount of reserved concurrent executions for this lambda function. A value of `0` disables lambda from being triggered and `-1` removes any concurrency limitations. Defaults to Unreserved Concurrency Limits `-1`. See [Managing Concurrency](https://docs.aws.amazon.com/lambda/latest/dg/concurrent-executions.html)
         #[builder(into, default)]
-        pub reserved_concurrent_executions: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
+        pub reserved_concurrent_executions: pulumi_gestalt_rust::InputOrOutput<
+            Option<i32>,
+        >,
         /// The execution role for the Lambda Function. The role provides the function's identity and access to AWS services and resources. Only one of `role` or `policies` can be provided. If neither is provided, the default policies will be used instead.
         #[builder(into, default)]
-        pub role: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub role: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The Lambda runtime to use. If not provided, will default to `NodeJS20dX`.
         #[builder(into, default)]
-        pub runtime: pulumi_wasm_rust::InputOrOutput<
+        pub runtime: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::lambda::Runtime>,
         >,
         /// S3 bucket location containing the function's deployment package. This bucket must reside in the same AWS region where you are creating the Lambda function. Exactly one of `filename`, `image_uri`, or `s3_bucket` must be specified. When `s3_bucket` is set, `s3_key` is required.
         #[builder(into, default)]
-        pub s3_bucket: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub s3_bucket: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// S3 key of an object containing the function's deployment package. When `s3_bucket` is set, `s3_key` is required.
         #[builder(into, default)]
-        pub s3_key: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub s3_key: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Object version containing the function's deployment package. Conflicts with `filename` and `image_uri`.
         #[builder(into, default)]
-        pub s3_object_version: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub s3_object_version: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Set to true if you do not wish the function to be deleted at destroy time, and instead just remove the function from the Pulumi state.
         #[builder(into, default)]
-        pub skip_destroy: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub skip_destroy: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// Snap start settings block. Detailed below.
         #[builder(into, default)]
-        pub snap_start: pulumi_wasm_rust::InputOrOutput<
+        pub snap_start: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::lambda::FunctionSnapStart>,
         >,
         /// Virtual attribute used to trigger replacement when source code changes. Must be set to a base64-encoded SHA256 hash of the package file specified with either `filename` or `s3_key`.
         #[builder(into, default)]
-        pub source_code_hash: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub source_code_hash: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Map of tags to assign to the object. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Amount of time your Lambda Function has to run in seconds. Defaults to `3`. See [Limits](https://docs.aws.amazon.com/lambda/latest/dg/limits.html).
         #[builder(into, default)]
-        pub timeout: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
+        pub timeout: pulumi_gestalt_rust::InputOrOutput<Option<i32>>,
         /// Configuration block. Detailed below.
         #[builder(into, default)]
-        pub tracing_config: pulumi_wasm_rust::InputOrOutput<
+        pub tracing_config: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::lambda::FunctionTracingConfig>,
         >,
         /// Configuration block. Detailed below.
         #[builder(into, default)]
-        pub vpc_config: pulumi_wasm_rust::InputOrOutput<
+        pub vpc_config: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::lambda::FunctionVpcConfig>,
         >,
     }
     #[allow(dead_code)]
     pub struct CallbackFunctionResult {
         /// Instruction set architecture for your Lambda function. Valid values are `["x86_64"]` and `["arm64"]`. Default is `["x86_64"]`. Removing this attribute, function's architecture stay the same.
-        pub architectures: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub architectures: pulumi_gestalt_rust::Output<Option<Vec<String>>>,
         /// Amazon Resource Name (ARN) identifying your Lambda Function.
-        pub arn: pulumi_wasm_rust::Output<Option<String>>,
+        pub arn: pulumi_gestalt_rust::Output<Option<String>>,
         /// Path to the function's deployment package within the local filesystem. Exactly one of `filename`, `image_uri`, or `s3_bucket` must be specified.
-        pub code: pulumi_wasm_rust::Output<Option<String>>,
+        pub code: pulumi_gestalt_rust::Output<Option<String>>,
         /// Base64-encoded representation of raw SHA-256 sum of the zip file.
-        pub code_sha256: pulumi_wasm_rust::Output<Option<String>>,
+        pub code_sha256: pulumi_gestalt_rust::Output<Option<String>>,
         /// To enable code signing for this function, specify the ARN of a code-signing configuration. A code-signing configuration includes a set of signing profiles, which define the trusted publishers for this function.
-        pub code_signing_config_arn: pulumi_wasm_rust::Output<Option<String>>,
+        pub code_signing_config_arn: pulumi_gestalt_rust::Output<Option<String>>,
         /// Configuration block. Detailed below.
-        pub dead_letter_config: pulumi_wasm_rust::Output<
+        pub dead_letter_config: pulumi_gestalt_rust::Output<
             Option<super::super::types::lambda::FunctionDeadLetterConfig>,
         >,
         /// Description of what your Lambda Function does.
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_gestalt_rust::Output<Option<String>>,
         /// Configuration block. Detailed below.
-        pub environment: pulumi_wasm_rust::Output<
+        pub environment: pulumi_gestalt_rust::Output<
             Option<super::super::types::lambda::FunctionEnvironment>,
         >,
         /// The amount of Ephemeral storage(`/tmp`) to allocate for the Lambda Function in MB. This parameter is used to expand the total amount of Ephemeral storage available, beyond the default amount of `512`MB. Detailed below.
-        pub ephemeral_storage: pulumi_wasm_rust::Output<
+        pub ephemeral_storage: pulumi_gestalt_rust::Output<
             Option<super::super::types::lambda::FunctionEphemeralStorage>,
         >,
         /// Configuration block. Detailed below.
-        pub file_system_config: pulumi_wasm_rust::Output<
+        pub file_system_config: pulumi_gestalt_rust::Output<
             Option<super::super::types::lambda::FunctionFileSystemConfig>,
         >,
         /// Function [entrypoint](https://docs.aws.amazon.com/lambda/latest/dg/walkthrough-custom-events-create-test-function.html) in your code.
-        pub handler: pulumi_wasm_rust::Output<Option<String>>,
+        pub handler: pulumi_gestalt_rust::Output<Option<String>>,
         /// Configuration block. Detailed below.
-        pub image_config: pulumi_wasm_rust::Output<
+        pub image_config: pulumi_gestalt_rust::Output<
             Option<super::super::types::lambda::FunctionImageConfig>,
         >,
         /// ECR image URI containing the function's deployment package. Exactly one of `filename`, `image_uri`,  or `s3_bucket` must be specified.
-        pub image_uri: pulumi_wasm_rust::Output<Option<String>>,
+        pub image_uri: pulumi_gestalt_rust::Output<Option<String>>,
         /// ARN to be used for invoking Lambda Function from API Gateway - to be used in `aws.apigateway.Integration`'s `uri`.
-        pub invoke_arn: pulumi_wasm_rust::Output<Option<String>>,
+        pub invoke_arn: pulumi_gestalt_rust::Output<Option<String>>,
         /// Amazon Resource Name (ARN) of the AWS Key Management Service (KMS) key that is used to encrypt environment variables. If this configuration is not provided when environment variables are in use, AWS Lambda uses a default service key. If this configuration is provided when environment variables are not in use, the AWS Lambda API does not save this configuration and the provider will show a perpetual difference of adding the key. To fix the perpetual difference, remove this configuration.
-        pub kms_key_arn: pulumi_wasm_rust::Output<Option<String>>,
+        pub kms_key_arn: pulumi_gestalt_rust::Output<Option<String>>,
         /// Date this resource was last modified.
-        pub last_modified: pulumi_wasm_rust::Output<Option<String>>,
+        pub last_modified: pulumi_gestalt_rust::Output<Option<String>>,
         /// List of Lambda Layer Version ARNs (maximum of 5) to attach to your Lambda Function. See [Lambda Layers](https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html)
-        pub layers: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub layers: pulumi_gestalt_rust::Output<Option<Vec<String>>>,
         /// Configuration block used to specify advanced logging settings. Detailed below.
-        pub logging_config: pulumi_wasm_rust::Output<
+        pub logging_config: pulumi_gestalt_rust::Output<
             Option<super::super::types::lambda::FunctionLoggingConfig>,
         >,
         /// Amount of memory in MB your Lambda Function can use at runtime. Defaults to `128`. See [Limits](https://docs.aws.amazon.com/lambda/latest/dg/limits.html)
-        pub memory_size: pulumi_wasm_rust::Output<Option<i32>>,
+        pub memory_size: pulumi_gestalt_rust::Output<Option<i32>>,
         /// Unique name for your Lambda Function.
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_gestalt_rust::Output<Option<String>>,
         /// Lambda deployment package type. Valid values are `Zip` and `Image`. Defaults to `Zip`.
-        pub package_type: pulumi_wasm_rust::Output<Option<String>>,
+        pub package_type: pulumi_gestalt_rust::Output<Option<String>>,
         /// Whether to publish creation/change as new Lambda Function Version. Defaults to `false`.
-        pub publish: pulumi_wasm_rust::Output<Option<bool>>,
+        pub publish: pulumi_gestalt_rust::Output<Option<bool>>,
         /// ARN identifying your Lambda Function Version (if versioning is enabled via `publish = true`).
-        pub qualified_arn: pulumi_wasm_rust::Output<Option<String>>,
+        pub qualified_arn: pulumi_gestalt_rust::Output<Option<String>>,
         /// Qualified ARN (ARN with lambda version number) to be used for invoking Lambda Function from API Gateway - to be used in `aws.apigateway.Integration`'s `uri`.
-        pub qualified_invoke_arn: pulumi_wasm_rust::Output<Option<String>>,
+        pub qualified_invoke_arn: pulumi_gestalt_rust::Output<Option<String>>,
         /// Whether to replace the security groups on the function's VPC configuration prior to destruction.
         /// Removing these security group associations prior to function destruction can speed up security group deletion times of AWS's internal cleanup operations.
         /// By default, the security groups will be replaced with the `default` security group in the function's configured VPC.
         /// Set the `replacement_security_group_ids` attribute to use a custom list of security groups for replacement.
-        pub replace_security_groups_on_destroy: pulumi_wasm_rust::Output<Option<bool>>,
+        pub replace_security_groups_on_destroy: pulumi_gestalt_rust::Output<
+            Option<bool>,
+        >,
         /// List of security group IDs to assign to the function's VPC configuration prior to destruction.
         /// `replace_security_groups_on_destroy` must be set to `true` to use this attribute.
-        pub replacement_security_group_ids: pulumi_wasm_rust::Output<
+        pub replacement_security_group_ids: pulumi_gestalt_rust::Output<
             Option<Vec<String>>,
         >,
         /// Amount of reserved concurrent executions for this lambda function. A value of `0` disables lambda from being triggered and `-1` removes any concurrency limitations. Defaults to Unreserved Concurrency Limits `-1`. See [Managing Concurrency](https://docs.aws.amazon.com/lambda/latest/dg/concurrent-executions.html)
-        pub reserved_concurrent_executions: pulumi_wasm_rust::Output<Option<i32>>,
+        pub reserved_concurrent_executions: pulumi_gestalt_rust::Output<Option<i32>>,
         /// Amazon Resource Name (ARN) of the function's execution role. The role provides the function's identity and access to AWS services and resources.
         ///
         /// The following arguments are optional:
-        pub role: pulumi_wasm_rust::Output<Option<String>>,
+        pub role: pulumi_gestalt_rust::Output<Option<String>>,
         /// The IAM role assigned to this Lambda function. Will be undefined if an ARN was provided for the role input property.
-        pub role_instance: pulumi_wasm_rust::Output<Option<String>>,
+        pub role_instance: pulumi_gestalt_rust::Output<Option<String>>,
         /// Identifier of the function's runtime. See [Runtimes](https://docs.aws.amazon.com/lambda/latest/dg/API_CreateFunction.html#SSS-CreateFunction-request-Runtime) for valid values.
-        pub runtime: pulumi_wasm_rust::Output<Option<String>>,
+        pub runtime: pulumi_gestalt_rust::Output<Option<String>>,
         /// S3 bucket location containing the function's deployment package. This bucket must reside in the same AWS region where you are creating the Lambda function. Exactly one of `filename`, `image_uri`, or `s3_bucket` must be specified. When `s3_bucket` is set, `s3_key` is required.
-        pub s3_bucket: pulumi_wasm_rust::Output<Option<String>>,
+        pub s3_bucket: pulumi_gestalt_rust::Output<Option<String>>,
         /// S3 key of an object containing the function's deployment package. When `s3_bucket` is set, `s3_key` is required.
-        pub s3_key: pulumi_wasm_rust::Output<Option<String>>,
+        pub s3_key: pulumi_gestalt_rust::Output<Option<String>>,
         /// Object version containing the function's deployment package. Conflicts with `filename` and `image_uri`.
-        pub s3_object_version: pulumi_wasm_rust::Output<Option<String>>,
+        pub s3_object_version: pulumi_gestalt_rust::Output<Option<String>>,
         /// ARN of the signing job.
-        pub signing_job_arn: pulumi_wasm_rust::Output<Option<String>>,
+        pub signing_job_arn: pulumi_gestalt_rust::Output<Option<String>>,
         /// ARN of the signing profile version.
-        pub signing_profile_version_arn: pulumi_wasm_rust::Output<Option<String>>,
+        pub signing_profile_version_arn: pulumi_gestalt_rust::Output<Option<String>>,
         /// Set to true if you do not wish the function to be deleted at destroy time, and instead just remove the function from the Pulumi state.
-        pub skip_destroy: pulumi_wasm_rust::Output<Option<bool>>,
+        pub skip_destroy: pulumi_gestalt_rust::Output<Option<bool>>,
         /// Snap start settings block. Detailed below.
-        pub snap_start: pulumi_wasm_rust::Output<
+        pub snap_start: pulumi_gestalt_rust::Output<
             Option<super::super::types::lambda::FunctionSnapStart>,
         >,
         /// Virtual attribute used to trigger replacement when source code changes. Must be set to a base64-encoded SHA256 hash of the package file specified with either `filename` or `s3_key`.
-        pub source_code_hash: pulumi_wasm_rust::Output<Option<String>>,
+        pub source_code_hash: pulumi_gestalt_rust::Output<Option<String>>,
         /// Size in bytes of the function .zip file.
-        pub source_code_size: pulumi_wasm_rust::Output<Option<i32>>,
+        pub source_code_size: pulumi_gestalt_rust::Output<Option<i32>>,
         /// Map of tags to assign to the object. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        pub tags_all: pulumi_wasm_rust::Output<
+        pub tags_all: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Amount of time your Lambda Function has to run in seconds. Defaults to `3`. See [Limits](https://docs.aws.amazon.com/lambda/latest/dg/limits.html).
-        pub timeout: pulumi_wasm_rust::Output<Option<i32>>,
+        pub timeout: pulumi_gestalt_rust::Output<Option<i32>>,
         /// Configuration block. Detailed below.
-        pub tracing_config: pulumi_wasm_rust::Output<
+        pub tracing_config: pulumi_gestalt_rust::Output<
             Option<super::super::types::lambda::FunctionTracingConfig>,
         >,
         /// Latest published version of your Lambda Function.
-        pub version: pulumi_wasm_rust::Output<Option<String>>,
+        pub version: pulumi_gestalt_rust::Output<Option<String>>,
         /// Configuration block. Detailed below.
-        pub vpc_config: pulumi_wasm_rust::Output<
+        pub vpc_config: pulumi_gestalt_rust::Output<
             Option<super::super::types::lambda::FunctionVpcConfig>,
         >,
     }
@@ -450,11 +454,11 @@ pub mod callback_function {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: CallbackFunctionArgs,
     ) -> CallbackFunctionResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let architectures_binding = args.architectures.get_output(context).get_inner();
         let callback_binding = args.callback.get_output(context).get_inner();
@@ -673,125 +677,129 @@ pub mod callback_function {
         };
         let o = register_interface::register(context.get_inner(), &request);
         CallbackFunctionResult {
-            architectures: pulumi_wasm_rust::__private::into_domain(
+            architectures: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("architectures"),
             ),
-            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
-            code: pulumi_wasm_rust::__private::into_domain(o.extract_field("code")),
-            code_sha256: pulumi_wasm_rust::__private::into_domain(
+            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
+            code: pulumi_gestalt_rust::__private::into_domain(o.extract_field("code")),
+            code_sha256: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("codeSha256"),
             ),
-            code_signing_config_arn: pulumi_wasm_rust::__private::into_domain(
+            code_signing_config_arn: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("codeSigningConfigArn"),
             ),
-            dead_letter_config: pulumi_wasm_rust::__private::into_domain(
+            dead_letter_config: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("deadLetterConfig"),
             ),
-            description: pulumi_wasm_rust::__private::into_domain(
+            description: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("description"),
             ),
-            environment: pulumi_wasm_rust::__private::into_domain(
+            environment: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("environment"),
             ),
-            ephemeral_storage: pulumi_wasm_rust::__private::into_domain(
+            ephemeral_storage: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("ephemeralStorage"),
             ),
-            file_system_config: pulumi_wasm_rust::__private::into_domain(
+            file_system_config: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("fileSystemConfig"),
             ),
-            handler: pulumi_wasm_rust::__private::into_domain(
+            handler: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("handler"),
             ),
-            image_config: pulumi_wasm_rust::__private::into_domain(
+            image_config: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("imageConfig"),
             ),
-            image_uri: pulumi_wasm_rust::__private::into_domain(
+            image_uri: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("imageUri"),
             ),
-            invoke_arn: pulumi_wasm_rust::__private::into_domain(
+            invoke_arn: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("invokeArn"),
             ),
-            kms_key_arn: pulumi_wasm_rust::__private::into_domain(
+            kms_key_arn: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("kmsKeyArn"),
             ),
-            last_modified: pulumi_wasm_rust::__private::into_domain(
+            last_modified: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("lastModified"),
             ),
-            layers: pulumi_wasm_rust::__private::into_domain(o.extract_field("layers")),
-            logging_config: pulumi_wasm_rust::__private::into_domain(
+            layers: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("layers"),
+            ),
+            logging_config: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("loggingConfig"),
             ),
-            memory_size: pulumi_wasm_rust::__private::into_domain(
+            memory_size: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("memorySize"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            package_type: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            package_type: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("packageType"),
             ),
-            publish: pulumi_wasm_rust::__private::into_domain(
+            publish: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("publish"),
             ),
-            qualified_arn: pulumi_wasm_rust::__private::into_domain(
+            qualified_arn: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("qualifiedArn"),
             ),
-            qualified_invoke_arn: pulumi_wasm_rust::__private::into_domain(
+            qualified_invoke_arn: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("qualifiedInvokeArn"),
             ),
-            replace_security_groups_on_destroy: pulumi_wasm_rust::__private::into_domain(
+            replace_security_groups_on_destroy: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("replaceSecurityGroupsOnDestroy"),
             ),
-            replacement_security_group_ids: pulumi_wasm_rust::__private::into_domain(
+            replacement_security_group_ids: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("replacementSecurityGroupIds"),
             ),
-            reserved_concurrent_executions: pulumi_wasm_rust::__private::into_domain(
+            reserved_concurrent_executions: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("reservedConcurrentExecutions"),
             ),
-            role: pulumi_wasm_rust::__private::into_domain(o.extract_field("role")),
-            role_instance: pulumi_wasm_rust::__private::into_domain(
+            role: pulumi_gestalt_rust::__private::into_domain(o.extract_field("role")),
+            role_instance: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("roleInstance"),
             ),
-            runtime: pulumi_wasm_rust::__private::into_domain(
+            runtime: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("runtime"),
             ),
-            s3_bucket: pulumi_wasm_rust::__private::into_domain(
+            s3_bucket: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("s3Bucket"),
             ),
-            s3_key: pulumi_wasm_rust::__private::into_domain(o.extract_field("s3Key")),
-            s3_object_version: pulumi_wasm_rust::__private::into_domain(
+            s3_key: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("s3Key"),
+            ),
+            s3_object_version: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("s3ObjectVersion"),
             ),
-            signing_job_arn: pulumi_wasm_rust::__private::into_domain(
+            signing_job_arn: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("signingJobArn"),
             ),
-            signing_profile_version_arn: pulumi_wasm_rust::__private::into_domain(
+            signing_profile_version_arn: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("signingProfileVersionArn"),
             ),
-            skip_destroy: pulumi_wasm_rust::__private::into_domain(
+            skip_destroy: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("skipDestroy"),
             ),
-            snap_start: pulumi_wasm_rust::__private::into_domain(
+            snap_start: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("snapStart"),
             ),
-            source_code_hash: pulumi_wasm_rust::__private::into_domain(
+            source_code_hash: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("sourceCodeHash"),
             ),
-            source_code_size: pulumi_wasm_rust::__private::into_domain(
+            source_code_size: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("sourceCodeSize"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_wasm_rust::__private::into_domain(
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            tags_all: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("tagsAll"),
             ),
-            timeout: pulumi_wasm_rust::__private::into_domain(
+            timeout: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("timeout"),
             ),
-            tracing_config: pulumi_wasm_rust::__private::into_domain(
+            tracing_config: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("tracingConfig"),
             ),
-            version: pulumi_wasm_rust::__private::into_domain(
+            version: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("version"),
             ),
-            vpc_config: pulumi_wasm_rust::__private::into_domain(
+            vpc_config: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("vpcConfig"),
             ),
         }

@@ -53,54 +53,54 @@
 /// ```
 ///
 pub mod redis_cache {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct RedisCacheArgs {
         /// The resource ID of the API Management Service from which to create this external cache. Changing this forces a new API Management Redis Cache to be created.
         #[builder(into)]
-        pub api_management_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub api_management_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The location where to use cache from. Possible values are `default` and valid Azure regions. Defaults to `default`.
         #[builder(into, default)]
-        pub cache_location: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub cache_location: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The connection string to the Cache for Redis.
         #[builder(into)]
-        pub connection_string: pulumi_wasm_rust::InputOrOutput<String>,
+        pub connection_string: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The description of the API Management Redis Cache.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub description: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The name which should be used for this API Management Redis Cache. Changing this forces a new API Management Redis Cache to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The resource ID of the Cache for Redis.
         #[builder(into, default)]
-        pub redis_cache_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub redis_cache_id: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct RedisCacheResult {
         /// The resource ID of the API Management Service from which to create this external cache. Changing this forces a new API Management Redis Cache to be created.
-        pub api_management_id: pulumi_wasm_rust::Output<String>,
+        pub api_management_id: pulumi_gestalt_rust::Output<String>,
         /// The location where to use cache from. Possible values are `default` and valid Azure regions. Defaults to `default`.
-        pub cache_location: pulumi_wasm_rust::Output<Option<String>>,
+        pub cache_location: pulumi_gestalt_rust::Output<Option<String>>,
         /// The connection string to the Cache for Redis.
-        pub connection_string: pulumi_wasm_rust::Output<String>,
+        pub connection_string: pulumi_gestalt_rust::Output<String>,
         /// The description of the API Management Redis Cache.
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_gestalt_rust::Output<Option<String>>,
         /// The name which should be used for this API Management Redis Cache. Changing this forces a new API Management Redis Cache to be created.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// The resource ID of the Cache for Redis.
-        pub redis_cache_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub redis_cache_id: pulumi_gestalt_rust::Output<Option<String>>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: RedisCacheArgs,
     ) -> RedisCacheResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let api_management_id_binding = args
             .api_management_id
@@ -147,20 +147,20 @@ pub mod redis_cache {
         };
         let o = register_interface::register(context.get_inner(), &request);
         RedisCacheResult {
-            api_management_id: pulumi_wasm_rust::__private::into_domain(
+            api_management_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("apiManagementId"),
             ),
-            cache_location: pulumi_wasm_rust::__private::into_domain(
+            cache_location: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("cacheLocation"),
             ),
-            connection_string: pulumi_wasm_rust::__private::into_domain(
+            connection_string: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("connectionString"),
             ),
-            description: pulumi_wasm_rust::__private::into_domain(
+            description: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("description"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            redis_cache_id: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            redis_cache_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("redisCacheId"),
             ),
         }

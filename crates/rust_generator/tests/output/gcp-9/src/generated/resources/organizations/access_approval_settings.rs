@@ -11,8 +11,8 @@
 ///
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let organizationAccessApproval = access_approval_settings::create(
@@ -113,21 +113,21 @@
 /// ```
 ///
 pub mod access_approval_settings {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct AccessApprovalSettingsArgs {
         /// The asymmetric crypto key version to use for signing approval requests. Empty active_key_version indicates that a
         /// Google-managed key should be used for signing.
         #[builder(into, default)]
-        pub active_key_version: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub active_key_version: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// A list of Google Cloud Services for which the given resource has Access Approval enrolled.
         /// Access requests for the resource given by name against any of these services contained here will be required
         /// to have explicit approval. Enrollment can be done for individual services.
         /// A maximum of 10 enrolled services will be enforced, to be expanded as the set of supported services is expanded.
         /// Structure is documented below.
         #[builder(into)]
-        pub enrolled_services: pulumi_wasm_rust::InputOrOutput<
+        pub enrolled_services: pulumi_gestalt_rust::InputOrOutput<
             Vec<
                 super::super::types::organizations::AccessApprovalSettingsEnrolledService,
             >,
@@ -136,26 +136,26 @@ pub mod access_approval_settings {
         /// a resource will be sent to all emails in the settings of ancestor resources of that resource. A maximum of 50 email
         /// addresses are allowed.
         #[builder(into, default)]
-        pub notification_emails: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
+        pub notification_emails: pulumi_gestalt_rust::InputOrOutput<Option<Vec<String>>>,
         /// ID of the organization of the access approval settings.
         #[builder(into)]
-        pub organization_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub organization_id: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct AccessApprovalSettingsResult {
         /// The asymmetric crypto key version to use for signing approval requests. Empty active_key_version indicates that a
         /// Google-managed key should be used for signing.
-        pub active_key_version: pulumi_wasm_rust::Output<Option<String>>,
+        pub active_key_version: pulumi_gestalt_rust::Output<Option<String>>,
         /// This field will always be unset for the organization since organizations do not have ancestors.
-        pub ancestor_has_active_key_version: pulumi_wasm_rust::Output<bool>,
+        pub ancestor_has_active_key_version: pulumi_gestalt_rust::Output<bool>,
         /// This field will always be unset for the organization since organizations do not have ancestors.
-        pub enrolled_ancestor: pulumi_wasm_rust::Output<bool>,
+        pub enrolled_ancestor: pulumi_gestalt_rust::Output<bool>,
         /// A list of Google Cloud Services for which the given resource has Access Approval enrolled.
         /// Access requests for the resource given by name against any of these services contained here will be required
         /// to have explicit approval. Enrollment can be done for individual services.
         /// A maximum of 10 enrolled services will be enforced, to be expanded as the set of supported services is expanded.
         /// Structure is documented below.
-        pub enrolled_services: pulumi_wasm_rust::Output<
+        pub enrolled_services: pulumi_gestalt_rust::Output<
             Vec<
                 super::super::types::organizations::AccessApprovalSettingsEnrolledService,
             >,
@@ -163,26 +163,26 @@ pub mod access_approval_settings {
         /// If the field is true, that indicates that there is some configuration issue with the active_key_version
         /// configured on this Organization (e.g. it doesn't exist or the Access Approval service account doesn't have the
         /// correct permissions on it, etc.).
-        pub invalid_key_version: pulumi_wasm_rust::Output<bool>,
+        pub invalid_key_version: pulumi_gestalt_rust::Output<bool>,
         /// The resource name of the settings. Format is "organizations/{organization_id}/accessApprovalSettings"
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// A list of email addresses to which notifications relating to approval requests should be sent. Notifications relating to
         /// a resource will be sent to all emails in the settings of ancestor resources of that resource. A maximum of 50 email
         /// addresses are allowed.
-        pub notification_emails: pulumi_wasm_rust::Output<Vec<String>>,
+        pub notification_emails: pulumi_gestalt_rust::Output<Vec<String>>,
         /// ID of the organization of the access approval settings.
-        pub organization_id: pulumi_wasm_rust::Output<String>,
+        pub organization_id: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: AccessApprovalSettingsArgs,
     ) -> AccessApprovalSettingsResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let active_key_version_binding = args
             .active_key_version
@@ -226,26 +226,26 @@ pub mod access_approval_settings {
         };
         let o = register_interface::register(context.get_inner(), &request);
         AccessApprovalSettingsResult {
-            active_key_version: pulumi_wasm_rust::__private::into_domain(
+            active_key_version: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("activeKeyVersion"),
             ),
-            ancestor_has_active_key_version: pulumi_wasm_rust::__private::into_domain(
+            ancestor_has_active_key_version: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("ancestorHasActiveKeyVersion"),
             ),
-            enrolled_ancestor: pulumi_wasm_rust::__private::into_domain(
+            enrolled_ancestor: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("enrolledAncestor"),
             ),
-            enrolled_services: pulumi_wasm_rust::__private::into_domain(
+            enrolled_services: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("enrolledServices"),
             ),
-            invalid_key_version: pulumi_wasm_rust::__private::into_domain(
+            invalid_key_version: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("invalidKeyVersion"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            notification_emails: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            notification_emails: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("notificationEmails"),
             ),
-            organization_id: pulumi_wasm_rust::__private::into_domain(
+            organization_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("organizationId"),
             ),
         }

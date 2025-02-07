@@ -84,99 +84,99 @@
 /// $ pulumi import aws:directoryservice/trust:Trust example d-926724cf57/directory.example.com
 /// ```
 pub mod trust {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct TrustArgs {
         /// Set of IPv4 addresses for the DNS server associated with the remote Directory.
         /// Can contain between 1 and 4 values.
         #[builder(into, default)]
-        pub conditional_forwarder_ip_addrs: pulumi_wasm_rust::InputOrOutput<
+        pub conditional_forwarder_ip_addrs: pulumi_gestalt_rust::InputOrOutput<
             Option<Vec<String>>,
         >,
         /// Whether to delete the conditional forwarder when deleting the Trust relationship.
         #[builder(into, default)]
-        pub delete_associated_conditional_forwarder: pulumi_wasm_rust::InputOrOutput<
+        pub delete_associated_conditional_forwarder: pulumi_gestalt_rust::InputOrOutput<
             Option<bool>,
         >,
         /// ID of the Directory.
         #[builder(into)]
-        pub directory_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub directory_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Fully qualified domain name of the remote Directory.
         #[builder(into)]
-        pub remote_domain_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub remote_domain_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Whether to enable selective authentication.
         /// Valid values are `Enabled` and `Disabled`.
         /// Default value is `Disabled`.
         #[builder(into, default)]
-        pub selective_auth: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub selective_auth: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The direction of the Trust relationship.
         /// Valid values are `One-Way: Outgoing`, `One-Way: Incoming`, and `Two-Way`.
         #[builder(into)]
-        pub trust_direction: pulumi_wasm_rust::InputOrOutput<String>,
+        pub trust_direction: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Password for the Trust.
         /// Does not need to match the passwords for either Directory.
         /// Can contain upper- and lower-case letters, numbers, and punctuation characters.
         /// May be up to 128 characters long.
         #[builder(into)]
-        pub trust_password: pulumi_wasm_rust::InputOrOutput<String>,
+        pub trust_password: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Type of the Trust relationship.
         /// Valid values are `Forest` and `External`.
         /// Default value is `Forest`.
         #[builder(into, default)]
-        pub trust_type: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub trust_type: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct TrustResult {
         /// Set of IPv4 addresses for the DNS server associated with the remote Directory.
         /// Can contain between 1 and 4 values.
-        pub conditional_forwarder_ip_addrs: pulumi_wasm_rust::Output<
+        pub conditional_forwarder_ip_addrs: pulumi_gestalt_rust::Output<
             Option<Vec<String>>,
         >,
         /// Date and time when the Trust was created.
-        pub created_date_time: pulumi_wasm_rust::Output<String>,
+        pub created_date_time: pulumi_gestalt_rust::Output<String>,
         /// Whether to delete the conditional forwarder when deleting the Trust relationship.
-        pub delete_associated_conditional_forwarder: pulumi_wasm_rust::Output<bool>,
+        pub delete_associated_conditional_forwarder: pulumi_gestalt_rust::Output<bool>,
         /// ID of the Directory.
-        pub directory_id: pulumi_wasm_rust::Output<String>,
+        pub directory_id: pulumi_gestalt_rust::Output<String>,
         /// Date and time when the Trust was last updated.
-        pub last_updated_date_time: pulumi_wasm_rust::Output<String>,
+        pub last_updated_date_time: pulumi_gestalt_rust::Output<String>,
         /// Fully qualified domain name of the remote Directory.
-        pub remote_domain_name: pulumi_wasm_rust::Output<String>,
+        pub remote_domain_name: pulumi_gestalt_rust::Output<String>,
         /// Whether to enable selective authentication.
         /// Valid values are `Enabled` and `Disabled`.
         /// Default value is `Disabled`.
-        pub selective_auth: pulumi_wasm_rust::Output<String>,
+        pub selective_auth: pulumi_gestalt_rust::Output<String>,
         /// Date and time when the Trust state in `trust_state` was last updated.
-        pub state_last_updated_date_time: pulumi_wasm_rust::Output<String>,
+        pub state_last_updated_date_time: pulumi_gestalt_rust::Output<String>,
         /// The direction of the Trust relationship.
         /// Valid values are `One-Way: Outgoing`, `One-Way: Incoming`, and `Two-Way`.
-        pub trust_direction: pulumi_wasm_rust::Output<String>,
+        pub trust_direction: pulumi_gestalt_rust::Output<String>,
         /// Password for the Trust.
         /// Does not need to match the passwords for either Directory.
         /// Can contain upper- and lower-case letters, numbers, and punctuation characters.
         /// May be up to 128 characters long.
-        pub trust_password: pulumi_wasm_rust::Output<String>,
+        pub trust_password: pulumi_gestalt_rust::Output<String>,
         /// State of the Trust relationship.
         /// One of `Created`, `VerifyFailed`,`Verified`, `UpdateFailed`,`Updated`,`Deleted`, or `Failed`.
-        pub trust_state: pulumi_wasm_rust::Output<String>,
+        pub trust_state: pulumi_gestalt_rust::Output<String>,
         /// Reason for the Trust state set in `trust_state`.
-        pub trust_state_reason: pulumi_wasm_rust::Output<String>,
+        pub trust_state_reason: pulumi_gestalt_rust::Output<String>,
         /// Type of the Trust relationship.
         /// Valid values are `Forest` and `External`.
         /// Default value is `Forest`.
-        pub trust_type: pulumi_wasm_rust::Output<String>,
+        pub trust_type: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: TrustArgs,
     ) -> TrustResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let conditional_forwarder_ip_addrs_binding = args
             .conditional_forwarder_ip_addrs
@@ -239,43 +239,43 @@ pub mod trust {
         };
         let o = register_interface::register(context.get_inner(), &request);
         TrustResult {
-            conditional_forwarder_ip_addrs: pulumi_wasm_rust::__private::into_domain(
+            conditional_forwarder_ip_addrs: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("conditionalForwarderIpAddrs"),
             ),
-            created_date_time: pulumi_wasm_rust::__private::into_domain(
+            created_date_time: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("createdDateTime"),
             ),
-            delete_associated_conditional_forwarder: pulumi_wasm_rust::__private::into_domain(
+            delete_associated_conditional_forwarder: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("deleteAssociatedConditionalForwarder"),
             ),
-            directory_id: pulumi_wasm_rust::__private::into_domain(
+            directory_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("directoryId"),
             ),
-            last_updated_date_time: pulumi_wasm_rust::__private::into_domain(
+            last_updated_date_time: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("lastUpdatedDateTime"),
             ),
-            remote_domain_name: pulumi_wasm_rust::__private::into_domain(
+            remote_domain_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("remoteDomainName"),
             ),
-            selective_auth: pulumi_wasm_rust::__private::into_domain(
+            selective_auth: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("selectiveAuth"),
             ),
-            state_last_updated_date_time: pulumi_wasm_rust::__private::into_domain(
+            state_last_updated_date_time: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("stateLastUpdatedDateTime"),
             ),
-            trust_direction: pulumi_wasm_rust::__private::into_domain(
+            trust_direction: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("trustDirection"),
             ),
-            trust_password: pulumi_wasm_rust::__private::into_domain(
+            trust_password: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("trustPassword"),
             ),
-            trust_state: pulumi_wasm_rust::__private::into_domain(
+            trust_state: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("trustState"),
             ),
-            trust_state_reason: pulumi_wasm_rust::__private::into_domain(
+            trust_state_reason: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("trustStateReason"),
             ),
-            trust_type: pulumi_wasm_rust::__private::into_domain(
+            trust_type: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("trustType"),
             ),
         }

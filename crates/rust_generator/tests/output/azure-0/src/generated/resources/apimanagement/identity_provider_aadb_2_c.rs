@@ -57,84 +57,84 @@
 /// ```
 ///
 pub mod identity_provider_aadb_2_c {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct IdentityProviderAadb2cArgs {
         /// The allowed AAD tenant, usually your B2C tenant domain.
         #[builder(into)]
-        pub allowed_tenant: pulumi_wasm_rust::InputOrOutput<String>,
+        pub allowed_tenant: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The Name of the API Management Service where this AAD Identity Provider should be created. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub api_management_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub api_management_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// OpenID Connect discovery endpoint hostname, usually your b2clogin.com domain.
         #[builder(into)]
-        pub authority: pulumi_wasm_rust::InputOrOutput<String>,
+        pub authority: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Client ID of the Application in your B2C tenant.
         #[builder(into)]
-        pub client_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub client_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The client library to be used in the Azure AD B2C Identity Provider.
         #[builder(into, default)]
-        pub client_library: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub client_library: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Client secret of the Application in your B2C tenant.
         #[builder(into)]
-        pub client_secret: pulumi_wasm_rust::InputOrOutput<String>,
+        pub client_secret: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Password reset Policy Name.
         #[builder(into, default)]
-        pub password_reset_policy: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub password_reset_policy: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Profile editing Policy Name.
         #[builder(into, default)]
-        pub profile_editing_policy: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub profile_editing_policy: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The Name of the Resource Group where the API Management Service exists. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub resource_group_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub resource_group_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Signin Policy Name.
         #[builder(into)]
-        pub signin_policy: pulumi_wasm_rust::InputOrOutput<String>,
+        pub signin_policy: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The tenant to use instead of Common when logging into Active Directory, usually your B2C tenant domain.
         #[builder(into)]
-        pub signin_tenant: pulumi_wasm_rust::InputOrOutput<String>,
+        pub signin_tenant: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Signup Policy Name.
         #[builder(into)]
-        pub signup_policy: pulumi_wasm_rust::InputOrOutput<String>,
+        pub signup_policy: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct IdentityProviderAadb2cResult {
         /// The allowed AAD tenant, usually your B2C tenant domain.
-        pub allowed_tenant: pulumi_wasm_rust::Output<String>,
+        pub allowed_tenant: pulumi_gestalt_rust::Output<String>,
         /// The Name of the API Management Service where this AAD Identity Provider should be created. Changing this forces a new resource to be created.
-        pub api_management_name: pulumi_wasm_rust::Output<String>,
+        pub api_management_name: pulumi_gestalt_rust::Output<String>,
         /// OpenID Connect discovery endpoint hostname, usually your b2clogin.com domain.
-        pub authority: pulumi_wasm_rust::Output<String>,
+        pub authority: pulumi_gestalt_rust::Output<String>,
         /// Client ID of the Application in your B2C tenant.
-        pub client_id: pulumi_wasm_rust::Output<String>,
+        pub client_id: pulumi_gestalt_rust::Output<String>,
         /// The client library to be used in the Azure AD B2C Identity Provider.
-        pub client_library: pulumi_wasm_rust::Output<Option<String>>,
+        pub client_library: pulumi_gestalt_rust::Output<Option<String>>,
         /// Client secret of the Application in your B2C tenant.
-        pub client_secret: pulumi_wasm_rust::Output<String>,
+        pub client_secret: pulumi_gestalt_rust::Output<String>,
         /// Password reset Policy Name.
-        pub password_reset_policy: pulumi_wasm_rust::Output<Option<String>>,
+        pub password_reset_policy: pulumi_gestalt_rust::Output<Option<String>>,
         /// Profile editing Policy Name.
-        pub profile_editing_policy: pulumi_wasm_rust::Output<Option<String>>,
+        pub profile_editing_policy: pulumi_gestalt_rust::Output<Option<String>>,
         /// The Name of the Resource Group where the API Management Service exists. Changing this forces a new resource to be created.
-        pub resource_group_name: pulumi_wasm_rust::Output<String>,
+        pub resource_group_name: pulumi_gestalt_rust::Output<String>,
         /// Signin Policy Name.
-        pub signin_policy: pulumi_wasm_rust::Output<String>,
+        pub signin_policy: pulumi_gestalt_rust::Output<String>,
         /// The tenant to use instead of Common when logging into Active Directory, usually your B2C tenant domain.
-        pub signin_tenant: pulumi_wasm_rust::Output<String>,
+        pub signin_tenant: pulumi_gestalt_rust::Output<String>,
         /// Signup Policy Name.
-        pub signup_policy: pulumi_wasm_rust::Output<String>,
+        pub signup_policy: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: IdentityProviderAadb2cArgs,
     ) -> IdentityProviderAadb2cResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let allowed_tenant_binding = args.allowed_tenant.get_output(context).get_inner();
         let api_management_name_binding = args
@@ -218,40 +218,40 @@ pub mod identity_provider_aadb_2_c {
         };
         let o = register_interface::register(context.get_inner(), &request);
         IdentityProviderAadb2cResult {
-            allowed_tenant: pulumi_wasm_rust::__private::into_domain(
+            allowed_tenant: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("allowedTenant"),
             ),
-            api_management_name: pulumi_wasm_rust::__private::into_domain(
+            api_management_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("apiManagementName"),
             ),
-            authority: pulumi_wasm_rust::__private::into_domain(
+            authority: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("authority"),
             ),
-            client_id: pulumi_wasm_rust::__private::into_domain(
+            client_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("clientId"),
             ),
-            client_library: pulumi_wasm_rust::__private::into_domain(
+            client_library: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("clientLibrary"),
             ),
-            client_secret: pulumi_wasm_rust::__private::into_domain(
+            client_secret: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("clientSecret"),
             ),
-            password_reset_policy: pulumi_wasm_rust::__private::into_domain(
+            password_reset_policy: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("passwordResetPolicy"),
             ),
-            profile_editing_policy: pulumi_wasm_rust::__private::into_domain(
+            profile_editing_policy: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("profileEditingPolicy"),
             ),
-            resource_group_name: pulumi_wasm_rust::__private::into_domain(
+            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("resourceGroupName"),
             ),
-            signin_policy: pulumi_wasm_rust::__private::into_domain(
+            signin_policy: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("signinPolicy"),
             ),
-            signin_tenant: pulumi_wasm_rust::__private::into_domain(
+            signin_tenant: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("signinTenant"),
             ),
-            signup_policy: pulumi_wasm_rust::__private::into_domain(
+            signup_policy: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("signupPolicy"),
             ),
         }

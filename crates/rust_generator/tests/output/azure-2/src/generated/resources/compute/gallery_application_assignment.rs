@@ -90,49 +90,49 @@
 /// ```
 ///
 pub mod gallery_application_assignment {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct GalleryApplicationAssignmentArgs {
         /// Specifies the URI to an Azure Blob that will replace the default configuration for the package if provided. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub configuration_blob_uri: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub configuration_blob_uri: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The ID of the Gallery Application Version. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub gallery_application_version_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub gallery_application_version_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Specifies the order in which the packages have to be installed. Possible values are between `0` and `2147483647`. Defaults to `0`.
         #[builder(into, default)]
-        pub order: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
+        pub order: pulumi_gestalt_rust::InputOrOutput<Option<i32>>,
         /// Specifies a passthrough value for more generic context. This field can be any valid `string` value. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub tag: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub tag: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The ID of the Virtual Machine. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub virtual_machine_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub virtual_machine_id: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct GalleryApplicationAssignmentResult {
         /// Specifies the URI to an Azure Blob that will replace the default configuration for the package if provided. Changing this forces a new resource to be created.
-        pub configuration_blob_uri: pulumi_wasm_rust::Output<Option<String>>,
+        pub configuration_blob_uri: pulumi_gestalt_rust::Output<Option<String>>,
         /// The ID of the Gallery Application Version. Changing this forces a new resource to be created.
-        pub gallery_application_version_id: pulumi_wasm_rust::Output<String>,
+        pub gallery_application_version_id: pulumi_gestalt_rust::Output<String>,
         /// Specifies the order in which the packages have to be installed. Possible values are between `0` and `2147483647`. Defaults to `0`.
-        pub order: pulumi_wasm_rust::Output<Option<i32>>,
+        pub order: pulumi_gestalt_rust::Output<Option<i32>>,
         /// Specifies a passthrough value for more generic context. This field can be any valid `string` value. Changing this forces a new resource to be created.
-        pub tag: pulumi_wasm_rust::Output<Option<String>>,
+        pub tag: pulumi_gestalt_rust::Output<Option<String>>,
         /// The ID of the Virtual Machine. Changing this forces a new resource to be created.
-        pub virtual_machine_id: pulumi_wasm_rust::Output<String>,
+        pub virtual_machine_id: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: GalleryApplicationAssignmentArgs,
     ) -> GalleryApplicationAssignmentResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let configuration_blob_uri_binding = args
             .configuration_blob_uri
@@ -178,15 +178,15 @@ pub mod gallery_application_assignment {
         };
         let o = register_interface::register(context.get_inner(), &request);
         GalleryApplicationAssignmentResult {
-            configuration_blob_uri: pulumi_wasm_rust::__private::into_domain(
+            configuration_blob_uri: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("configurationBlobUri"),
             ),
-            gallery_application_version_id: pulumi_wasm_rust::__private::into_domain(
+            gallery_application_version_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("galleryApplicationVersionId"),
             ),
-            order: pulumi_wasm_rust::__private::into_domain(o.extract_field("order")),
-            tag: pulumi_wasm_rust::__private::into_domain(o.extract_field("tag")),
-            virtual_machine_id: pulumi_wasm_rust::__private::into_domain(
+            order: pulumi_gestalt_rust::__private::into_domain(o.extract_field("order")),
+            tag: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tag")),
+            virtual_machine_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("virtualMachineId"),
             ),
         }

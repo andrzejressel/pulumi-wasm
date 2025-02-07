@@ -3,8 +3,8 @@
 /// ## Example Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = resource_group::create(
@@ -44,28 +44,28 @@
 /// ```
 ///
 pub mod backup_policy_blob_storage {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct BackupPolicyBlobStorageArgs {
         /// Specifies a list of repeating time interval. It should follow `ISO 8601` repeating time interval. Changing this forces a new Backup Policy Blob Storage to be created.
         #[builder(into, default)]
-        pub backup_repeating_time_intervals: pulumi_wasm_rust::InputOrOutput<
+        pub backup_repeating_time_intervals: pulumi_gestalt_rust::InputOrOutput<
             Option<Vec<String>>,
         >,
         /// The name which should be used for this Backup Policy Blob Storage. Changing this forces a new Backup Policy Blob Storage to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The duration of operational default retention rule. It should follow `ISO 8601` duration format. Changing this forces a new Backup Policy Blob Storage to be created.
         #[builder(into, default)]
-        pub operational_default_retention_duration: pulumi_wasm_rust::InputOrOutput<
+        pub operational_default_retention_duration: pulumi_gestalt_rust::InputOrOutput<
             Option<String>,
         >,
         /// One or more `retention_rule` blocks as defined below. Changing this forces a new Backup Policy Blob Storage to be created.
         ///
         /// > **Note:** Setting `retention_rule` also requires setting `vault_default_retention_duration`.
         #[builder(into, default)]
-        pub retention_rules: pulumi_wasm_rust::InputOrOutput<
+        pub retention_rules: pulumi_gestalt_rust::InputOrOutput<
             Option<
                 Vec<
                     super::super::types::dataprotection::BackupPolicyBlobStorageRetentionRule,
@@ -74,34 +74,34 @@ pub mod backup_policy_blob_storage {
         >,
         /// Specifies the Time Zone which should be used by the backup schedule. Changing this forces a new Backup Policy Blob Storage to be created.
         #[builder(into, default)]
-        pub time_zone: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub time_zone: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The duration of vault default retention rule. It should follow `ISO 8601` duration format. Changing this forces a new Backup Policy Blob Storage to be created.
         ///
         /// > **Note:** Setting `vault_default_retention_duration` also requires setting `backup_repeating_time_intervals`. At least one of `operational_default_retention_duration` or `vault_default_retention_duration` must be specified.
         #[builder(into, default)]
-        pub vault_default_retention_duration: pulumi_wasm_rust::InputOrOutput<
+        pub vault_default_retention_duration: pulumi_gestalt_rust::InputOrOutput<
             Option<String>,
         >,
         /// The ID of the Backup Vault within which the Backup Policy Blob Storage should exist. Changing this forces a new Backup Policy Blob Storage to be created.
         #[builder(into)]
-        pub vault_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub vault_id: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct BackupPolicyBlobStorageResult {
         /// Specifies a list of repeating time interval. It should follow `ISO 8601` repeating time interval. Changing this forces a new Backup Policy Blob Storage to be created.
-        pub backup_repeating_time_intervals: pulumi_wasm_rust::Output<
+        pub backup_repeating_time_intervals: pulumi_gestalt_rust::Output<
             Option<Vec<String>>,
         >,
         /// The name which should be used for this Backup Policy Blob Storage. Changing this forces a new Backup Policy Blob Storage to be created.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// The duration of operational default retention rule. It should follow `ISO 8601` duration format. Changing this forces a new Backup Policy Blob Storage to be created.
-        pub operational_default_retention_duration: pulumi_wasm_rust::Output<
+        pub operational_default_retention_duration: pulumi_gestalt_rust::Output<
             Option<String>,
         >,
         /// One or more `retention_rule` blocks as defined below. Changing this forces a new Backup Policy Blob Storage to be created.
         ///
         /// > **Note:** Setting `retention_rule` also requires setting `vault_default_retention_duration`.
-        pub retention_rules: pulumi_wasm_rust::Output<
+        pub retention_rules: pulumi_gestalt_rust::Output<
             Option<
                 Vec<
                     super::super::types::dataprotection::BackupPolicyBlobStorageRetentionRule,
@@ -109,24 +109,26 @@ pub mod backup_policy_blob_storage {
             >,
         >,
         /// Specifies the Time Zone which should be used by the backup schedule. Changing this forces a new Backup Policy Blob Storage to be created.
-        pub time_zone: pulumi_wasm_rust::Output<Option<String>>,
+        pub time_zone: pulumi_gestalt_rust::Output<Option<String>>,
         /// The duration of vault default retention rule. It should follow `ISO 8601` duration format. Changing this forces a new Backup Policy Blob Storage to be created.
         ///
         /// > **Note:** Setting `vault_default_retention_duration` also requires setting `backup_repeating_time_intervals`. At least one of `operational_default_retention_duration` or `vault_default_retention_duration` must be specified.
-        pub vault_default_retention_duration: pulumi_wasm_rust::Output<Option<String>>,
+        pub vault_default_retention_duration: pulumi_gestalt_rust::Output<
+            Option<String>,
+        >,
         /// The ID of the Backup Vault within which the Backup Policy Blob Storage should exist. Changing this forces a new Backup Policy Blob Storage to be created.
-        pub vault_id: pulumi_wasm_rust::Output<String>,
+        pub vault_id: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: BackupPolicyBlobStorageArgs,
     ) -> BackupPolicyBlobStorageResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let backup_repeating_time_intervals_binding = args
             .backup_repeating_time_intervals
@@ -185,23 +187,23 @@ pub mod backup_policy_blob_storage {
         };
         let o = register_interface::register(context.get_inner(), &request);
         BackupPolicyBlobStorageResult {
-            backup_repeating_time_intervals: pulumi_wasm_rust::__private::into_domain(
+            backup_repeating_time_intervals: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("backupRepeatingTimeIntervals"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            operational_default_retention_duration: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            operational_default_retention_duration: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("operationalDefaultRetentionDuration"),
             ),
-            retention_rules: pulumi_wasm_rust::__private::into_domain(
+            retention_rules: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("retentionRules"),
             ),
-            time_zone: pulumi_wasm_rust::__private::into_domain(
+            time_zone: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("timeZone"),
             ),
-            vault_default_retention_duration: pulumi_wasm_rust::__private::into_domain(
+            vault_default_retention_duration: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("vaultDefaultRetentionDuration"),
             ),
-            vault_id: pulumi_wasm_rust::__private::into_domain(
+            vault_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("vaultId"),
             ),
         }

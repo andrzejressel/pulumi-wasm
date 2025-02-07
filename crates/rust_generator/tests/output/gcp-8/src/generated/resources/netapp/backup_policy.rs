@@ -56,104 +56,104 @@
 /// ```
 ///
 pub mod backup_policy {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct BackupPolicyArgs {
         /// Number of daily backups to keep. Note that the minimum daily backup limit is 2.
         #[builder(into)]
-        pub daily_backup_limit: pulumi_wasm_rust::InputOrOutput<i32>,
+        pub daily_backup_limit: pulumi_gestalt_rust::InputOrOutput<i32>,
         /// An optional description of this resource.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub description: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// If enabled, make backups automatically according to the schedules.
         /// This will be applied to all volumes that have this policy attached and enforced on volume level.
         #[builder(into, default)]
-        pub enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub enabled: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// Labels as key value pairs. Example: `{ "owner": "Bob", "department": "finance", "purpose": "testing" }`.
         ///
         /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
         /// Please refer to the field `effective_labels` for all of the labels present on the resource.
         #[builder(into, default)]
-        pub labels: pulumi_wasm_rust::InputOrOutput<
+        pub labels: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Name of the region for the policy to apply to.
         #[builder(into)]
-        pub location: pulumi_wasm_rust::InputOrOutput<String>,
+        pub location: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Number of monthly backups to keep. Note that the sum of daily, weekly and monthly backups should be greater than 1.
         #[builder(into)]
-        pub monthly_backup_limit: pulumi_wasm_rust::InputOrOutput<i32>,
+        pub monthly_backup_limit: pulumi_gestalt_rust::InputOrOutput<i32>,
         /// The name of the backup policy. Needs to be unique per location.
         ///
         ///
         /// - - -
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub project: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Number of weekly backups to keep. Note that the sum of daily, weekly and monthly backups should be greater than 1.
         #[builder(into)]
-        pub weekly_backup_limit: pulumi_wasm_rust::InputOrOutput<i32>,
+        pub weekly_backup_limit: pulumi_gestalt_rust::InputOrOutput<i32>,
     }
     #[allow(dead_code)]
     pub struct BackupPolicyResult {
         /// The total number of volumes assigned by this backup policy.
-        pub assigned_volume_count: pulumi_wasm_rust::Output<i32>,
+        pub assigned_volume_count: pulumi_gestalt_rust::Output<i32>,
         /// Create time of the backup policy. A timestamp in RFC3339 UTC "Zulu" format. Examples: "2023-06-22T09:13:01.617Z".
-        pub create_time: pulumi_wasm_rust::Output<String>,
+        pub create_time: pulumi_gestalt_rust::Output<String>,
         /// Number of daily backups to keep. Note that the minimum daily backup limit is 2.
-        pub daily_backup_limit: pulumi_wasm_rust::Output<i32>,
+        pub daily_backup_limit: pulumi_gestalt_rust::Output<i32>,
         /// An optional description of this resource.
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_gestalt_rust::Output<Option<String>>,
         /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Pulumi, other clients and services.
-        pub effective_labels: pulumi_wasm_rust::Output<
+        pub effective_labels: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
         /// If enabled, make backups automatically according to the schedules.
         /// This will be applied to all volumes that have this policy attached and enforced on volume level.
-        pub enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub enabled: pulumi_gestalt_rust::Output<Option<bool>>,
         /// Labels as key value pairs. Example: `{ "owner": "Bob", "department": "finance", "purpose": "testing" }`.
         ///
         /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
         /// Please refer to the field `effective_labels` for all of the labels present on the resource.
-        pub labels: pulumi_wasm_rust::Output<
+        pub labels: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Name of the region for the policy to apply to.
-        pub location: pulumi_wasm_rust::Output<String>,
+        pub location: pulumi_gestalt_rust::Output<String>,
         /// Number of monthly backups to keep. Note that the sum of daily, weekly and monthly backups should be greater than 1.
-        pub monthly_backup_limit: pulumi_wasm_rust::Output<i32>,
+        pub monthly_backup_limit: pulumi_gestalt_rust::Output<i32>,
         /// The name of the backup policy. Needs to be unique per location.
         ///
         ///
         /// - - -
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
-        pub project: pulumi_wasm_rust::Output<String>,
+        pub project: pulumi_gestalt_rust::Output<String>,
         /// The combination of labels configured directly on the resource
         /// and default labels configured on the provider.
-        pub pulumi_labels: pulumi_wasm_rust::Output<
+        pub pulumi_labels: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
         /// The state of the backup policy.
-        pub state: pulumi_wasm_rust::Output<String>,
+        pub state: pulumi_gestalt_rust::Output<String>,
         /// Number of weekly backups to keep. Note that the sum of daily, weekly and monthly backups should be greater than 1.
-        pub weekly_backup_limit: pulumi_wasm_rust::Output<i32>,
+        pub weekly_backup_limit: pulumi_gestalt_rust::Output<i32>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: BackupPolicyArgs,
     ) -> BackupPolicyResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let daily_backup_limit_binding = args
             .daily_backup_limit
@@ -218,40 +218,42 @@ pub mod backup_policy {
         };
         let o = register_interface::register(context.get_inner(), &request);
         BackupPolicyResult {
-            assigned_volume_count: pulumi_wasm_rust::__private::into_domain(
+            assigned_volume_count: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("assignedVolumeCount"),
             ),
-            create_time: pulumi_wasm_rust::__private::into_domain(
+            create_time: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("createTime"),
             ),
-            daily_backup_limit: pulumi_wasm_rust::__private::into_domain(
+            daily_backup_limit: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("dailyBackupLimit"),
             ),
-            description: pulumi_wasm_rust::__private::into_domain(
+            description: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("description"),
             ),
-            effective_labels: pulumi_wasm_rust::__private::into_domain(
+            effective_labels: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("effectiveLabels"),
             ),
-            enabled: pulumi_wasm_rust::__private::into_domain(
+            enabled: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("enabled"),
             ),
-            labels: pulumi_wasm_rust::__private::into_domain(o.extract_field("labels")),
-            location: pulumi_wasm_rust::__private::into_domain(
+            labels: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("labels"),
+            ),
+            location: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("location"),
             ),
-            monthly_backup_limit: pulumi_wasm_rust::__private::into_domain(
+            monthly_backup_limit: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("monthlyBackupLimit"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            project: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            project: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("project"),
             ),
-            pulumi_labels: pulumi_wasm_rust::__private::into_domain(
+            pulumi_labels: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("pulumiLabels"),
             ),
-            state: pulumi_wasm_rust::__private::into_domain(o.extract_field("state")),
-            weekly_backup_limit: pulumi_wasm_rust::__private::into_domain(
+            state: pulumi_gestalt_rust::__private::into_domain(o.extract_field("state")),
+            weekly_backup_limit: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("weeklyBackupLimit"),
             ),
         }

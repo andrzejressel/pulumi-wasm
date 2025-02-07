@@ -121,7 +121,7 @@
 /// ```
 ///
 pub mod network_endpoint_list {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct NetworkEndpointListArgs {
@@ -130,22 +130,22 @@ pub mod network_endpoint_list {
         ///
         /// - - -
         #[builder(into)]
-        pub network_endpoint_group: pulumi_wasm_rust::InputOrOutput<String>,
+        pub network_endpoint_group: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The network endpoints to be added to the enclosing network endpoint group
         /// (NEG). Each endpoint specifies an IP address and port, along with
         /// additional information depending on the NEG type.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub network_endpoints: pulumi_wasm_rust::InputOrOutput<
+        pub network_endpoints: pulumi_gestalt_rust::InputOrOutput<
             Option<Vec<super::super::types::compute::NetworkEndpointListNetworkEndpoint>>,
         >,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub project: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Zone where the containing network endpoint group is located.
         #[builder(into, default)]
-        pub zone: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub zone: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct NetworkEndpointListResult {
@@ -153,30 +153,30 @@ pub mod network_endpoint_list {
         ///
         ///
         /// - - -
-        pub network_endpoint_group: pulumi_wasm_rust::Output<String>,
+        pub network_endpoint_group: pulumi_gestalt_rust::Output<String>,
         /// The network endpoints to be added to the enclosing network endpoint group
         /// (NEG). Each endpoint specifies an IP address and port, along with
         /// additional information depending on the NEG type.
         /// Structure is documented below.
-        pub network_endpoints: pulumi_wasm_rust::Output<
+        pub network_endpoints: pulumi_gestalt_rust::Output<
             Option<Vec<super::super::types::compute::NetworkEndpointListNetworkEndpoint>>,
         >,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
-        pub project: pulumi_wasm_rust::Output<String>,
+        pub project: pulumi_gestalt_rust::Output<String>,
         /// Zone where the containing network endpoint group is located.
-        pub zone: pulumi_wasm_rust::Output<String>,
+        pub zone: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: NetworkEndpointListArgs,
     ) -> NetworkEndpointListResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let network_endpoint_group_binding = args
             .network_endpoint_group
@@ -213,16 +213,16 @@ pub mod network_endpoint_list {
         };
         let o = register_interface::register(context.get_inner(), &request);
         NetworkEndpointListResult {
-            network_endpoint_group: pulumi_wasm_rust::__private::into_domain(
+            network_endpoint_group: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("networkEndpointGroup"),
             ),
-            network_endpoints: pulumi_wasm_rust::__private::into_domain(
+            network_endpoints: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("networkEndpoints"),
             ),
-            project: pulumi_wasm_rust::__private::into_domain(
+            project: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("project"),
             ),
-            zone: pulumi_wasm_rust::__private::into_domain(o.extract_field("zone")),
+            zone: pulumi_gestalt_rust::__private::into_domain(o.extract_field("zone")),
         }
     }
 }

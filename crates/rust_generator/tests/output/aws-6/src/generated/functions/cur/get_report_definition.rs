@@ -1,54 +1,54 @@
 pub mod get_report_definition {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct GetReportDefinitionArgs {
         /// Name of the report definition to match.
         #[builder(into)]
-        pub report_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub report_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Map of key-value pairs assigned to the resource.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
     #[allow(dead_code)]
     pub struct GetReportDefinitionResult {
         /// A list of additional artifacts.
-        pub additional_artifacts: pulumi_wasm_rust::Output<Vec<String>>,
+        pub additional_artifacts: pulumi_gestalt_rust::Output<Vec<String>>,
         /// A list of schema elements.
-        pub additional_schema_elements: pulumi_wasm_rust::Output<Vec<String>>,
+        pub additional_schema_elements: pulumi_gestalt_rust::Output<Vec<String>>,
         /// Preferred format for report.
-        pub compression: pulumi_wasm_rust::Output<String>,
+        pub compression: pulumi_gestalt_rust::Output<String>,
         /// Preferred compression format for report.
-        pub format: pulumi_wasm_rust::Output<String>,
+        pub format: pulumi_gestalt_rust::Output<String>,
         /// The provider-assigned unique ID for this managed resource.
-        pub id: pulumi_wasm_rust::Output<String>,
+        pub id: pulumi_gestalt_rust::Output<String>,
         /// If true reports are updated after they have been finalized.
-        pub refresh_closed_reports: pulumi_wasm_rust::Output<bool>,
-        pub report_name: pulumi_wasm_rust::Output<String>,
+        pub refresh_closed_reports: pulumi_gestalt_rust::Output<bool>,
+        pub report_name: pulumi_gestalt_rust::Output<String>,
         /// Overwrite the previous version of each report or to deliver the report in addition to the previous versions.
-        pub report_versioning: pulumi_wasm_rust::Output<String>,
+        pub report_versioning: pulumi_gestalt_rust::Output<String>,
         /// Name of customer S3 bucket.
-        pub s3_bucket: pulumi_wasm_rust::Output<String>,
+        pub s3_bucket: pulumi_gestalt_rust::Output<String>,
         /// Preferred report path prefix.
-        pub s3_prefix: pulumi_wasm_rust::Output<String>,
+        pub s3_prefix: pulumi_gestalt_rust::Output<String>,
         /// Region of customer S3 bucket.
-        pub s3_region: pulumi_wasm_rust::Output<String>,
+        pub s3_region: pulumi_gestalt_rust::Output<String>,
         /// Map of key-value pairs assigned to the resource.
-        pub tags: pulumi_wasm_rust::Output<std::collections::HashMap<String, String>>,
+        pub tags: pulumi_gestalt_rust::Output<std::collections::HashMap<String, String>>,
         /// Frequency on which report data are measured and displayed.
-        pub time_unit: pulumi_wasm_rust::Output<String>,
+        pub time_unit: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         args: GetReportDefinitionArgs,
     ) -> GetReportDefinitionResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let report_name_binding = args.report_name.get_output(context).get_inner();
         let tags_binding = args.tags.get_output(context).get_inner();
@@ -68,37 +68,39 @@ pub mod get_report_definition {
         };
         let o = register_interface::invoke(context.get_inner(), &request);
         GetReportDefinitionResult {
-            additional_artifacts: pulumi_wasm_rust::__private::into_domain(
+            additional_artifacts: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("additionalArtifacts"),
             ),
-            additional_schema_elements: pulumi_wasm_rust::__private::into_domain(
+            additional_schema_elements: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("additionalSchemaElements"),
             ),
-            compression: pulumi_wasm_rust::__private::into_domain(
+            compression: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("compression"),
             ),
-            format: pulumi_wasm_rust::__private::into_domain(o.extract_field("format")),
-            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
-            refresh_closed_reports: pulumi_wasm_rust::__private::into_domain(
+            format: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("format"),
+            ),
+            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
+            refresh_closed_reports: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("refreshClosedReports"),
             ),
-            report_name: pulumi_wasm_rust::__private::into_domain(
+            report_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("reportName"),
             ),
-            report_versioning: pulumi_wasm_rust::__private::into_domain(
+            report_versioning: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("reportVersioning"),
             ),
-            s3_bucket: pulumi_wasm_rust::__private::into_domain(
+            s3_bucket: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("s3Bucket"),
             ),
-            s3_prefix: pulumi_wasm_rust::__private::into_domain(
+            s3_prefix: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("s3Prefix"),
             ),
-            s3_region: pulumi_wasm_rust::__private::into_domain(
+            s3_region: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("s3Region"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
-            time_unit: pulumi_wasm_rust::__private::into_domain(
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            time_unit: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("timeUnit"),
             ),
         }

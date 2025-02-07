@@ -54,73 +54,75 @@
 /// ```
 ///
 pub mod server_security_alert_policy {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ServerSecurityAlertPolicyArgs {
         /// Specifies an array of alerts that are disabled. Allowed values are: `Sql_Injection`, `Sql_Injection_Vulnerability`, `Access_Anomaly`, `Data_Exfiltration`, `Unsafe_Action`.
         #[builder(into, default)]
-        pub disabled_alerts: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
+        pub disabled_alerts: pulumi_gestalt_rust::InputOrOutput<Option<Vec<String>>>,
         /// Boolean flag which specifies if the alert is sent to the account administrators or not. Defaults to `false`.
         #[builder(into, default)]
-        pub email_account_admins: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub email_account_admins: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// Specifies an array of email addresses to which the alert is sent.
         #[builder(into, default)]
-        pub email_addresses: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
+        pub email_addresses: pulumi_gestalt_rust::InputOrOutput<Option<Vec<String>>>,
         /// The name of the resource group that contains the MS SQL Server. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub resource_group_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub resource_group_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Specifies the number of days to keep in the Threat Detection audit logs. Defaults to `0`.
         #[builder(into, default)]
-        pub retention_days: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
+        pub retention_days: pulumi_gestalt_rust::InputOrOutput<Option<i32>>,
         /// Specifies the name of the MS SQL Server. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub server_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub server_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Specifies the state of the policy, whether it is enabled or disabled or a policy has not been applied yet on the specific database server. Possible values are `Disabled`, `Enabled` and `New`.
         #[builder(into)]
-        pub state: pulumi_wasm_rust::InputOrOutput<String>,
+        pub state: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Specifies the identifier key of the Threat Detection audit storage account. This is mandatory when you use `storage_endpoint` to specify a storage account blob endpoint.
         ///
         /// > **NOTE:**  Please note that storage accounts configured with `shared_access_key_enabled = false` cannot be used to configure `azure.mssql.ServerSecurityAlertPolicy` with `storage_endpoint` for now.
         #[builder(into, default)]
-        pub storage_account_access_key: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub storage_account_access_key: pulumi_gestalt_rust::InputOrOutput<
+            Option<String>,
+        >,
         /// Specifies the blob storage endpoint (e.g. <https://example.blob.core.windows.net>). This blob storage will hold all Threat Detection audit logs.
         #[builder(into, default)]
-        pub storage_endpoint: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub storage_endpoint: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct ServerSecurityAlertPolicyResult {
         /// Specifies an array of alerts that are disabled. Allowed values are: `Sql_Injection`, `Sql_Injection_Vulnerability`, `Access_Anomaly`, `Data_Exfiltration`, `Unsafe_Action`.
-        pub disabled_alerts: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub disabled_alerts: pulumi_gestalt_rust::Output<Option<Vec<String>>>,
         /// Boolean flag which specifies if the alert is sent to the account administrators or not. Defaults to `false`.
-        pub email_account_admins: pulumi_wasm_rust::Output<Option<bool>>,
+        pub email_account_admins: pulumi_gestalt_rust::Output<Option<bool>>,
         /// Specifies an array of email addresses to which the alert is sent.
-        pub email_addresses: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub email_addresses: pulumi_gestalt_rust::Output<Option<Vec<String>>>,
         /// The name of the resource group that contains the MS SQL Server. Changing this forces a new resource to be created.
-        pub resource_group_name: pulumi_wasm_rust::Output<String>,
+        pub resource_group_name: pulumi_gestalt_rust::Output<String>,
         /// Specifies the number of days to keep in the Threat Detection audit logs. Defaults to `0`.
-        pub retention_days: pulumi_wasm_rust::Output<Option<i32>>,
+        pub retention_days: pulumi_gestalt_rust::Output<Option<i32>>,
         /// Specifies the name of the MS SQL Server. Changing this forces a new resource to be created.
-        pub server_name: pulumi_wasm_rust::Output<String>,
+        pub server_name: pulumi_gestalt_rust::Output<String>,
         /// Specifies the state of the policy, whether it is enabled or disabled or a policy has not been applied yet on the specific database server. Possible values are `Disabled`, `Enabled` and `New`.
-        pub state: pulumi_wasm_rust::Output<String>,
+        pub state: pulumi_gestalt_rust::Output<String>,
         /// Specifies the identifier key of the Threat Detection audit storage account. This is mandatory when you use `storage_endpoint` to specify a storage account blob endpoint.
         ///
         /// > **NOTE:**  Please note that storage accounts configured with `shared_access_key_enabled = false` cannot be used to configure `azure.mssql.ServerSecurityAlertPolicy` with `storage_endpoint` for now.
-        pub storage_account_access_key: pulumi_wasm_rust::Output<Option<String>>,
+        pub storage_account_access_key: pulumi_gestalt_rust::Output<Option<String>>,
         /// Specifies the blob storage endpoint (e.g. <https://example.blob.core.windows.net>). This blob storage will hold all Threat Detection audit logs.
-        pub storage_endpoint: pulumi_wasm_rust::Output<Option<String>>,
+        pub storage_endpoint: pulumi_gestalt_rust::Output<Option<String>>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: ServerSecurityAlertPolicyArgs,
     ) -> ServerSecurityAlertPolicyResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let disabled_alerts_binding = args
             .disabled_alerts
@@ -195,29 +197,29 @@ pub mod server_security_alert_policy {
         };
         let o = register_interface::register(context.get_inner(), &request);
         ServerSecurityAlertPolicyResult {
-            disabled_alerts: pulumi_wasm_rust::__private::into_domain(
+            disabled_alerts: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("disabledAlerts"),
             ),
-            email_account_admins: pulumi_wasm_rust::__private::into_domain(
+            email_account_admins: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("emailAccountAdmins"),
             ),
-            email_addresses: pulumi_wasm_rust::__private::into_domain(
+            email_addresses: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("emailAddresses"),
             ),
-            resource_group_name: pulumi_wasm_rust::__private::into_domain(
+            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("resourceGroupName"),
             ),
-            retention_days: pulumi_wasm_rust::__private::into_domain(
+            retention_days: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("retentionDays"),
             ),
-            server_name: pulumi_wasm_rust::__private::into_domain(
+            server_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("serverName"),
             ),
-            state: pulumi_wasm_rust::__private::into_domain(o.extract_field("state")),
-            storage_account_access_key: pulumi_wasm_rust::__private::into_domain(
+            state: pulumi_gestalt_rust::__private::into_domain(o.extract_field("state")),
+            storage_account_access_key: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("storageAccountAccessKey"),
             ),
-            storage_endpoint: pulumi_wasm_rust::__private::into_domain(
+            storage_endpoint: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("storageEndpoint"),
             ),
         }

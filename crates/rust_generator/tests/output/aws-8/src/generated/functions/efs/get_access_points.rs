@@ -1,31 +1,31 @@
 pub mod get_access_points {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct GetAccessPointsArgs {
         /// EFS File System identifier.
         #[builder(into)]
-        pub file_system_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub file_system_id: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct GetAccessPointsResult {
         /// Set of Amazon Resource Names (ARNs).
-        pub arns: pulumi_wasm_rust::Output<Vec<String>>,
-        pub file_system_id: pulumi_wasm_rust::Output<String>,
+        pub arns: pulumi_gestalt_rust::Output<Vec<String>>,
+        pub file_system_id: pulumi_gestalt_rust::Output<String>,
         /// The provider-assigned unique ID for this managed resource.
-        pub id: pulumi_wasm_rust::Output<String>,
+        pub id: pulumi_gestalt_rust::Output<String>,
         /// Set of identifiers.
-        pub ids: pulumi_wasm_rust::Output<Vec<String>>,
+        pub ids: pulumi_gestalt_rust::Output<Vec<String>>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         args: GetAccessPointsArgs,
     ) -> GetAccessPointsResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let file_system_id_binding = args.file_system_id.get_output(context).get_inner();
         let request = register_interface::ResourceInvokeRequest {
@@ -40,12 +40,12 @@ pub mod get_access_points {
         };
         let o = register_interface::invoke(context.get_inner(), &request);
         GetAccessPointsResult {
-            arns: pulumi_wasm_rust::__private::into_domain(o.extract_field("arns")),
-            file_system_id: pulumi_wasm_rust::__private::into_domain(
+            arns: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arns")),
+            file_system_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("fileSystemId"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
-            ids: pulumi_wasm_rust::__private::into_domain(o.extract_field("ids")),
+            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
+            ids: pulumi_gestalt_rust::__private::into_domain(o.extract_field("ids")),
         }
     }
 }

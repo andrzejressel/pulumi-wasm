@@ -1,11 +1,11 @@
 # WIT
 
 ``` title="world.wit"
---8<-- "pulumi_wasm_wit/wit/world.wit"
+--8<-- "crates/wit/wit/world.wit"
 ```
 
-``` title="pulumi-wasm-external.wit"
---8<-- "pulumi_wasm_wit/wit/deps/pulumi-wasm-external.wit"
+``` title="pulumi-gestalt-external.wit"
+--8<-- "crates/wit/wit/deps/pulumi-gestalt-external.wit"
 ```
 
 ## Interfaces
@@ -22,12 +22,12 @@ And invoking `finish` function - explained in [Output](Output.md/#mapping).
 
 ### Pulumi main
 
-Entrypoint to program that will be invoked by `pulumi-wasm-runner`.
-In Rust case it is created by `pulumi_wasm` macro.
+Entrypoint to program that will be invoked by `pulumi-gestalt-runner`.
+In Rust case it is created by `pulumi_gestalt` macro.
 
 ### Log
 
-Allows logging from within provider (used mostly for main pulumi-wasm component)
+Allows logging from within provider (used mostly for main pulumi-gestalt component)
 
 ### Register
 
@@ -36,7 +36,7 @@ Interface that allows registering of Pulumi resources. Used only by providers.
 ### External world
 
 Interface used as a substitute until Wasm gets proper GRPC client support. 
-It is used by main `pulumi-wasm` component binary and is implemented by `pulumi-wasm-runner`.
+It is used by main `pulumi-gestalt` component binary and is implemented by `pulumi-gestalt-runner`.
 
 ## Worlds
 
@@ -44,9 +44,9 @@ It is used by main `pulumi-wasm` component binary and is implemented by `pulumi-
 
 World used by client languages. Imports output and stack interfaces and exports pulumi-main interface.
 
-### pulumi-wasm world
+### pulumi-gestalt world
 
-World used by main pulumi-wasm component. A
+World used by main pulumi-gestalt component. A
 
 ### logger world
 

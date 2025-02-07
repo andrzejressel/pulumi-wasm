@@ -13,13 +13,13 @@
 /// ```
 ///
 pub mod project_sink {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ProjectSinkArgs {
         /// Options that affect sinks exporting data to BigQuery. Structure documented below.
         #[builder(into, default)]
-        pub bigquery_options: pulumi_wasm_rust::InputOrOutput<
+        pub bigquery_options: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::logging::ProjectSinkBigqueryOptions>,
         >,
         /// A user managed service account that will be used to write
@@ -27,10 +27,10 @@ pub mod project_sink {
         /// routing logs to a destination outside this sink's project. If not specified, a Logging service account
         /// will automatically be generated.
         #[builder(into, default)]
-        pub custom_writer_identity: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub custom_writer_identity: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// A description of this sink. The maximum length of the description is 8000 characters.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub description: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The destination of the sink (or, in other words, where logs are written to). Can be a Cloud Storage bucket, a PubSub topic, a BigQuery dataset, a Cloud Logging bucket, or a Google Cloud project. Examples:
         ///
         /// - `storage.googleapis.com/[GCS_BUCKET]`
@@ -41,46 +41,46 @@ pub mod project_sink {
         ///
         /// The writer associated with the sink must have access to write to the above resource.
         #[builder(into)]
-        pub destination: pulumi_wasm_rust::InputOrOutput<String>,
+        pub destination: pulumi_gestalt_rust::InputOrOutput<String>,
         /// If set to True, then this sink is disabled and it does not export any log entries.
         #[builder(into, default)]
-        pub disabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub disabled: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// Log entries that match any of the exclusion filters will not be exported. If a log entry is matched by both `filter` and one of `exclusions.filter`, it will not be exported.  Can be repeated multiple times for multiple exclusions. Structure is documented below.
         #[builder(into, default)]
-        pub exclusions: pulumi_wasm_rust::InputOrOutput<
+        pub exclusions: pulumi_gestalt_rust::InputOrOutput<
             Option<Vec<super::super::types::logging::ProjectSinkExclusion>>,
         >,
         /// The filter to apply when exporting logs. Only log entries that match the filter are exported.
         /// See [Advanced Log Filters](https://cloud.google.com/logging/docs/view/advanced_filters) for information on how to
         /// write a filter.
         #[builder(into, default)]
-        pub filter: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub filter: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The name of the logging sink. Logging automatically creates two sinks: `_Required` and `_Default`.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The ID of the project to create the sink in. If omitted, the project associated with the provider is
         /// used.
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub project: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Whether or not to create a unique identity associated with this sink. If `false`, then the `writer_identity` used is `serviceAccount:cloud-logs@system.gserviceaccount.com`. If `true` (the default),
         /// then a unique service account is created and used for this sink. If you wish to publish logs across projects or utilize
         /// `bigquery_options`, you must set `unique_writer_identity` to true.
         #[builder(into, default)]
-        pub unique_writer_identity: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub unique_writer_identity: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
     }
     #[allow(dead_code)]
     pub struct ProjectSinkResult {
         /// Options that affect sinks exporting data to BigQuery. Structure documented below.
-        pub bigquery_options: pulumi_wasm_rust::Output<
+        pub bigquery_options: pulumi_gestalt_rust::Output<
             super::super::types::logging::ProjectSinkBigqueryOptions,
         >,
         /// A user managed service account that will be used to write
         /// the log entries. The format must be `serviceAccount:some@email`. This field can only be specified if you are
         /// routing logs to a destination outside this sink's project. If not specified, a Logging service account
         /// will automatically be generated.
-        pub custom_writer_identity: pulumi_wasm_rust::Output<Option<String>>,
+        pub custom_writer_identity: pulumi_gestalt_rust::Output<Option<String>>,
         /// A description of this sink. The maximum length of the description is 8000 characters.
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_gestalt_rust::Output<Option<String>>,
         /// The destination of the sink (or, in other words, where logs are written to). Can be a Cloud Storage bucket, a PubSub topic, a BigQuery dataset, a Cloud Logging bucket, or a Google Cloud project. Examples:
         ///
         /// - `storage.googleapis.com/[GCS_BUCKET]`
@@ -90,40 +90,40 @@ pub mod project_sink {
         /// - `logging.googleapis.com/projects/[PROJECT_ID]`
         ///
         /// The writer associated with the sink must have access to write to the above resource.
-        pub destination: pulumi_wasm_rust::Output<String>,
+        pub destination: pulumi_gestalt_rust::Output<String>,
         /// If set to True, then this sink is disabled and it does not export any log entries.
-        pub disabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub disabled: pulumi_gestalt_rust::Output<Option<bool>>,
         /// Log entries that match any of the exclusion filters will not be exported. If a log entry is matched by both `filter` and one of `exclusions.filter`, it will not be exported.  Can be repeated multiple times for multiple exclusions. Structure is documented below.
-        pub exclusions: pulumi_wasm_rust::Output<
+        pub exclusions: pulumi_gestalt_rust::Output<
             Option<Vec<super::super::types::logging::ProjectSinkExclusion>>,
         >,
         /// The filter to apply when exporting logs. Only log entries that match the filter are exported.
         /// See [Advanced Log Filters](https://cloud.google.com/logging/docs/view/advanced_filters) for information on how to
         /// write a filter.
-        pub filter: pulumi_wasm_rust::Output<Option<String>>,
+        pub filter: pulumi_gestalt_rust::Output<Option<String>>,
         /// The name of the logging sink. Logging automatically creates two sinks: `_Required` and `_Default`.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// The ID of the project to create the sink in. If omitted, the project associated with the provider is
         /// used.
-        pub project: pulumi_wasm_rust::Output<String>,
+        pub project: pulumi_gestalt_rust::Output<String>,
         /// Whether or not to create a unique identity associated with this sink. If `false`, then the `writer_identity` used is `serviceAccount:cloud-logs@system.gserviceaccount.com`. If `true` (the default),
         /// then a unique service account is created and used for this sink. If you wish to publish logs across projects or utilize
         /// `bigquery_options`, you must set `unique_writer_identity` to true.
-        pub unique_writer_identity: pulumi_wasm_rust::Output<Option<bool>>,
+        pub unique_writer_identity: pulumi_gestalt_rust::Output<Option<bool>>,
         /// The identity associated with this sink. This identity must be granted write access to the
         /// configured `destination`.
-        pub writer_identity: pulumi_wasm_rust::Output<String>,
+        pub writer_identity: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: ProjectSinkArgs,
     ) -> ProjectSinkResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let bigquery_options_binding = args
             .bigquery_options
@@ -193,33 +193,35 @@ pub mod project_sink {
         };
         let o = register_interface::register(context.get_inner(), &request);
         ProjectSinkResult {
-            bigquery_options: pulumi_wasm_rust::__private::into_domain(
+            bigquery_options: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("bigqueryOptions"),
             ),
-            custom_writer_identity: pulumi_wasm_rust::__private::into_domain(
+            custom_writer_identity: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("customWriterIdentity"),
             ),
-            description: pulumi_wasm_rust::__private::into_domain(
+            description: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("description"),
             ),
-            destination: pulumi_wasm_rust::__private::into_domain(
+            destination: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("destination"),
             ),
-            disabled: pulumi_wasm_rust::__private::into_domain(
+            disabled: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("disabled"),
             ),
-            exclusions: pulumi_wasm_rust::__private::into_domain(
+            exclusions: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("exclusions"),
             ),
-            filter: pulumi_wasm_rust::__private::into_domain(o.extract_field("filter")),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            project: pulumi_wasm_rust::__private::into_domain(
+            filter: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("filter"),
+            ),
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            project: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("project"),
             ),
-            unique_writer_identity: pulumi_wasm_rust::__private::into_domain(
+            unique_writer_identity: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("uniqueWriterIdentity"),
             ),
-            writer_identity: pulumi_wasm_rust::__private::into_domain(
+            writer_identity: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("writerIdentity"),
             ),
         }

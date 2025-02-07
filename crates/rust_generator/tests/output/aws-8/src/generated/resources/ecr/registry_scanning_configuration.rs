@@ -5,8 +5,8 @@
 /// ### Basic example
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let configuration = registry_scanning_configuration::create(
@@ -29,8 +29,8 @@
 /// ### Multiple rules
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let test = registry_scanning_configuration::create(
@@ -62,40 +62,40 @@
 /// $ pulumi import aws:ecr/registryScanningConfiguration:RegistryScanningConfiguration example 123456789012
 /// ```
 pub mod registry_scanning_configuration {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct RegistryScanningConfigurationArgs {
         /// One or multiple blocks specifying scanning rules to determine which repository filters are used and at what frequency scanning will occur. See below for schema.
         #[builder(into, default)]
-        pub rules: pulumi_wasm_rust::InputOrOutput<
+        pub rules: pulumi_gestalt_rust::InputOrOutput<
             Option<Vec<super::super::types::ecr::RegistryScanningConfigurationRule>>,
         >,
         /// the scanning type to set for the registry. Can be either `ENHANCED` or `BASIC`.
         #[builder(into)]
-        pub scan_type: pulumi_wasm_rust::InputOrOutput<String>,
+        pub scan_type: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct RegistryScanningConfigurationResult {
         /// The registry ID the scanning configuration applies to.
-        pub registry_id: pulumi_wasm_rust::Output<String>,
+        pub registry_id: pulumi_gestalt_rust::Output<String>,
         /// One or multiple blocks specifying scanning rules to determine which repository filters are used and at what frequency scanning will occur. See below for schema.
-        pub rules: pulumi_wasm_rust::Output<
+        pub rules: pulumi_gestalt_rust::Output<
             Option<Vec<super::super::types::ecr::RegistryScanningConfigurationRule>>,
         >,
         /// the scanning type to set for the registry. Can be either `ENHANCED` or `BASIC`.
-        pub scan_type: pulumi_wasm_rust::Output<String>,
+        pub scan_type: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: RegistryScanningConfigurationArgs,
     ) -> RegistryScanningConfigurationResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let rules_binding = args.rules.get_output(context).get_inner();
         let scan_type_binding = args.scan_type.get_output(context).get_inner();
@@ -117,11 +117,11 @@ pub mod registry_scanning_configuration {
         };
         let o = register_interface::register(context.get_inner(), &request);
         RegistryScanningConfigurationResult {
-            registry_id: pulumi_wasm_rust::__private::into_domain(
+            registry_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("registryId"),
             ),
-            rules: pulumi_wasm_rust::__private::into_domain(o.extract_field("rules")),
-            scan_type: pulumi_wasm_rust::__private::into_domain(
+            rules: pulumi_gestalt_rust::__private::into_domain(o.extract_field("rules")),
+            scan_type: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("scanType"),
             ),
         }

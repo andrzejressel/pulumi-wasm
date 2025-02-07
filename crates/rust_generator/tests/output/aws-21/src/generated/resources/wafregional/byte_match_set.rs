@@ -3,8 +3,8 @@
 /// ## Example Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let byteSet = byte_match_set::create(
@@ -33,38 +33,38 @@
 /// $ pulumi import aws:wafregional/byteMatchSet:ByteMatchSet byte_set a1b2c3d4-d5f6-7777-8888-9999aaaabbbbcccc
 /// ```
 pub mod byte_match_set {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ByteMatchSetArgs {
         /// Settings for the ByteMatchSet, such as the bytes (typically a string that corresponds with ASCII characters) that you want AWS WAF to search for in web requests. ByteMatchTuple documented below.
         #[builder(into, default)]
-        pub byte_match_tuples: pulumi_wasm_rust::InputOrOutput<
+        pub byte_match_tuples: pulumi_gestalt_rust::InputOrOutput<
             Option<Vec<super::super::types::wafregional::ByteMatchSetByteMatchTuple>>,
         >,
         /// The name or description of the ByteMatchSet.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct ByteMatchSetResult {
         /// Settings for the ByteMatchSet, such as the bytes (typically a string that corresponds with ASCII characters) that you want AWS WAF to search for in web requests. ByteMatchTuple documented below.
-        pub byte_match_tuples: pulumi_wasm_rust::Output<
+        pub byte_match_tuples: pulumi_gestalt_rust::Output<
             Option<Vec<super::super::types::wafregional::ByteMatchSetByteMatchTuple>>,
         >,
         /// The name or description of the ByteMatchSet.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: ByteMatchSetArgs,
     ) -> ByteMatchSetResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let byte_match_tuples_binding = args
             .byte_match_tuples
@@ -88,10 +88,10 @@ pub mod byte_match_set {
         };
         let o = register_interface::register(context.get_inner(), &request);
         ByteMatchSetResult {
-            byte_match_tuples: pulumi_wasm_rust::__private::into_domain(
+            byte_match_tuples: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("byteMatchTuples"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
         }
     }
 }

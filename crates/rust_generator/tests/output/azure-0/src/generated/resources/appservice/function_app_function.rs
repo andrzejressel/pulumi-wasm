@@ -149,81 +149,81 @@
 /// ```
 ///
 pub mod function_app_function {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct FunctionAppFunctionArgs {
         /// The config for this Function in JSON format.
         #[builder(into)]
-        pub config_json: pulumi_wasm_rust::InputOrOutput<String>,
+        pub config_json: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Should this function be enabled. Defaults to `true`.
         #[builder(into, default)]
-        pub enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub enabled: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// A `file` block as detailed below. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub files: pulumi_wasm_rust::InputOrOutput<
+        pub files: pulumi_gestalt_rust::InputOrOutput<
             Option<Vec<super::super::types::appservice::FunctionAppFunctionFile>>,
         >,
         /// The ID of the Function App in which this function should reside. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub function_app_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub function_app_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The language the Function is written in. Possible values are `CSharp`, `Custom`, `Java`, `Javascript`, `Python`, `PowerShell`, and `TypeScript`.
         ///
         /// > **NOTE:** when using `Custom` language, you must specify the code handler in the `host.json` file for your function. See the [official docs](https://docs.microsoft.com/azure/azure-functions/functions-custom-handlers#hostjson) for more information.
         #[builder(into, default)]
-        pub language: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub language: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The name of the function. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The test data for the function.
         #[builder(into, default)]
-        pub test_data: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub test_data: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct FunctionAppFunctionResult {
         /// The config for this Function in JSON format.
-        pub config_json: pulumi_wasm_rust::Output<String>,
+        pub config_json: pulumi_gestalt_rust::Output<String>,
         /// The URL of the configuration JSON.
-        pub config_url: pulumi_wasm_rust::Output<String>,
+        pub config_url: pulumi_gestalt_rust::Output<String>,
         /// Should this function be enabled. Defaults to `true`.
-        pub enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub enabled: pulumi_gestalt_rust::Output<Option<bool>>,
         /// A `file` block as detailed below. Changing this forces a new resource to be created.
-        pub files: pulumi_wasm_rust::Output<
+        pub files: pulumi_gestalt_rust::Output<
             Option<Vec<super::super::types::appservice::FunctionAppFunctionFile>>,
         >,
         /// The ID of the Function App in which this function should reside. Changing this forces a new resource to be created.
-        pub function_app_id: pulumi_wasm_rust::Output<String>,
+        pub function_app_id: pulumi_gestalt_rust::Output<String>,
         /// The invocation URL.
-        pub invocation_url: pulumi_wasm_rust::Output<String>,
+        pub invocation_url: pulumi_gestalt_rust::Output<String>,
         /// The language the Function is written in. Possible values are `CSharp`, `Custom`, `Java`, `Javascript`, `Python`, `PowerShell`, and `TypeScript`.
         ///
         /// > **NOTE:** when using `Custom` language, you must specify the code handler in the `host.json` file for your function. See the [official docs](https://docs.microsoft.com/azure/azure-functions/functions-custom-handlers#hostjson) for more information.
-        pub language: pulumi_wasm_rust::Output<Option<String>>,
+        pub language: pulumi_gestalt_rust::Output<Option<String>>,
         /// The name of the function. Changing this forces a new resource to be created.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// The Script root path URL.
-        pub script_root_path_url: pulumi_wasm_rust::Output<String>,
+        pub script_root_path_url: pulumi_gestalt_rust::Output<String>,
         /// The script URL.
-        pub script_url: pulumi_wasm_rust::Output<String>,
+        pub script_url: pulumi_gestalt_rust::Output<String>,
         /// The URL for the Secrets File.
-        pub secrets_file_url: pulumi_wasm_rust::Output<String>,
+        pub secrets_file_url: pulumi_gestalt_rust::Output<String>,
         /// The test data for the function.
-        pub test_data: pulumi_wasm_rust::Output<Option<String>>,
+        pub test_data: pulumi_gestalt_rust::Output<Option<String>>,
         /// The Test data URL.
-        pub test_data_url: pulumi_wasm_rust::Output<String>,
+        pub test_data_url: pulumi_gestalt_rust::Output<String>,
         /// The function URL.
-        pub url: pulumi_wasm_rust::Output<String>,
+        pub url: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: FunctionAppFunctionArgs,
     ) -> FunctionAppFunctionResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let config_json_binding = args.config_json.get_output(context).get_inner();
         let enabled_binding = args.enabled.get_output(context).get_inner();
@@ -272,42 +272,42 @@ pub mod function_app_function {
         };
         let o = register_interface::register(context.get_inner(), &request);
         FunctionAppFunctionResult {
-            config_json: pulumi_wasm_rust::__private::into_domain(
+            config_json: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("configJson"),
             ),
-            config_url: pulumi_wasm_rust::__private::into_domain(
+            config_url: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("configUrl"),
             ),
-            enabled: pulumi_wasm_rust::__private::into_domain(
+            enabled: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("enabled"),
             ),
-            files: pulumi_wasm_rust::__private::into_domain(o.extract_field("files")),
-            function_app_id: pulumi_wasm_rust::__private::into_domain(
+            files: pulumi_gestalt_rust::__private::into_domain(o.extract_field("files")),
+            function_app_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("functionAppId"),
             ),
-            invocation_url: pulumi_wasm_rust::__private::into_domain(
+            invocation_url: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("invocationUrl"),
             ),
-            language: pulumi_wasm_rust::__private::into_domain(
+            language: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("language"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            script_root_path_url: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            script_root_path_url: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("scriptRootPathUrl"),
             ),
-            script_url: pulumi_wasm_rust::__private::into_domain(
+            script_url: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("scriptUrl"),
             ),
-            secrets_file_url: pulumi_wasm_rust::__private::into_domain(
+            secrets_file_url: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("secretsFileUrl"),
             ),
-            test_data: pulumi_wasm_rust::__private::into_domain(
+            test_data: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("testData"),
             ),
-            test_data_url: pulumi_wasm_rust::__private::into_domain(
+            test_data_url: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("testDataUrl"),
             ),
-            url: pulumi_wasm_rust::__private::into_domain(o.extract_field("url")),
+            url: pulumi_gestalt_rust::__private::into_domain(o.extract_field("url")),
         }
     }
 }

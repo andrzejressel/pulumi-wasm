@@ -114,34 +114,34 @@
 /// ```
 ///
 pub mod application_security_group_association {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ApplicationSecurityGroupAssociationArgs {
         /// The id of application security group to associate. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub application_security_group_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub application_security_group_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The id of private endpoint to associate. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub private_endpoint_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub private_endpoint_id: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct ApplicationSecurityGroupAssociationResult {
         /// The id of application security group to associate. Changing this forces a new resource to be created.
-        pub application_security_group_id: pulumi_wasm_rust::Output<String>,
+        pub application_security_group_id: pulumi_gestalt_rust::Output<String>,
         /// The id of private endpoint to associate. Changing this forces a new resource to be created.
-        pub private_endpoint_id: pulumi_wasm_rust::Output<String>,
+        pub private_endpoint_id: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: ApplicationSecurityGroupAssociationArgs,
     ) -> ApplicationSecurityGroupAssociationResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let application_security_group_id_binding = args
             .application_security_group_id
@@ -169,10 +169,10 @@ pub mod application_security_group_association {
         };
         let o = register_interface::register(context.get_inner(), &request);
         ApplicationSecurityGroupAssociationResult {
-            application_security_group_id: pulumi_wasm_rust::__private::into_domain(
+            application_security_group_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("applicationSecurityGroupId"),
             ),
-            private_endpoint_id: pulumi_wasm_rust::__private::into_domain(
+            private_endpoint_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("privateEndpointId"),
             ),
         }

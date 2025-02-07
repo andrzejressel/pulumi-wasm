@@ -5,8 +5,8 @@
 /// ## Example Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = attachment::create(
@@ -20,8 +20,8 @@
 /// ```
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = attachment::create(
@@ -34,39 +34,39 @@
 /// }
 /// ```
 pub mod attachment {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct AttachmentArgs {
         /// Name of ASG to associate with the ELB.
         #[builder(into)]
-        pub autoscaling_group_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub autoscaling_group_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Name of the ELB.
         #[builder(into, default)]
-        pub elb: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub elb: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// ARN of a load balancer target group.
         #[builder(into, default)]
-        pub lb_target_group_arn: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub lb_target_group_arn: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct AttachmentResult {
         /// Name of ASG to associate with the ELB.
-        pub autoscaling_group_name: pulumi_wasm_rust::Output<String>,
+        pub autoscaling_group_name: pulumi_gestalt_rust::Output<String>,
         /// Name of the ELB.
-        pub elb: pulumi_wasm_rust::Output<Option<String>>,
+        pub elb: pulumi_gestalt_rust::Output<Option<String>>,
         /// ARN of a load balancer target group.
-        pub lb_target_group_arn: pulumi_wasm_rust::Output<Option<String>>,
+        pub lb_target_group_arn: pulumi_gestalt_rust::Output<Option<String>>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: AttachmentArgs,
     ) -> AttachmentResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let autoscaling_group_name_binding = args
             .autoscaling_group_name
@@ -98,11 +98,11 @@ pub mod attachment {
         };
         let o = register_interface::register(context.get_inner(), &request);
         AttachmentResult {
-            autoscaling_group_name: pulumi_wasm_rust::__private::into_domain(
+            autoscaling_group_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("autoscalingGroupName"),
             ),
-            elb: pulumi_wasm_rust::__private::into_domain(o.extract_field("elb")),
-            lb_target_group_arn: pulumi_wasm_rust::__private::into_domain(
+            elb: pulumi_gestalt_rust::__private::into_domain(o.extract_field("elb")),
+            lb_target_group_arn: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("lbTargetGroupArn"),
             ),
         }

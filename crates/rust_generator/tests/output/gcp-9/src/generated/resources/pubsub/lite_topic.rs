@@ -73,7 +73,7 @@
 /// ```
 ///
 pub mod lite_topic {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct LiteTopicArgs {
@@ -82,35 +82,35 @@ pub mod lite_topic {
         ///
         /// - - -
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The settings for this topic's partitions.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub partition_config: pulumi_wasm_rust::InputOrOutput<
+        pub partition_config: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::pubsub::LiteTopicPartitionConfig>,
         >,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub project: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The region of the pubsub lite topic.
         #[builder(into, default)]
-        pub region: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub region: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The settings for this topic's Reservation usage.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub reservation_config: pulumi_wasm_rust::InputOrOutput<
+        pub reservation_config: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::pubsub::LiteTopicReservationConfig>,
         >,
         /// The settings for a topic's message retention.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub retention_config: pulumi_wasm_rust::InputOrOutput<
+        pub retention_config: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::pubsub::LiteTopicRetentionConfig>,
         >,
         /// The zone of the pubsub lite topic.
         #[builder(into, default)]
-        pub zone: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub zone: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct LiteTopicResult {
@@ -118,40 +118,40 @@ pub mod lite_topic {
         ///
         ///
         /// - - -
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// The settings for this topic's partitions.
         /// Structure is documented below.
-        pub partition_config: pulumi_wasm_rust::Output<
+        pub partition_config: pulumi_gestalt_rust::Output<
             Option<super::super::types::pubsub::LiteTopicPartitionConfig>,
         >,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
-        pub project: pulumi_wasm_rust::Output<String>,
+        pub project: pulumi_gestalt_rust::Output<String>,
         /// The region of the pubsub lite topic.
-        pub region: pulumi_wasm_rust::Output<Option<String>>,
+        pub region: pulumi_gestalt_rust::Output<Option<String>>,
         /// The settings for this topic's Reservation usage.
         /// Structure is documented below.
-        pub reservation_config: pulumi_wasm_rust::Output<
+        pub reservation_config: pulumi_gestalt_rust::Output<
             Option<super::super::types::pubsub::LiteTopicReservationConfig>,
         >,
         /// The settings for a topic's message retention.
         /// Structure is documented below.
-        pub retention_config: pulumi_wasm_rust::Output<
+        pub retention_config: pulumi_gestalt_rust::Output<
             Option<super::super::types::pubsub::LiteTopicRetentionConfig>,
         >,
         /// The zone of the pubsub lite topic.
-        pub zone: pulumi_wasm_rust::Output<Option<String>>,
+        pub zone: pulumi_gestalt_rust::Output<Option<String>>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: LiteTopicArgs,
     ) -> LiteTopicResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let name_binding = args.name.get_output(context).get_inner();
         let partition_config_binding = args
@@ -206,21 +206,23 @@ pub mod lite_topic {
         };
         let o = register_interface::register(context.get_inner(), &request);
         LiteTopicResult {
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            partition_config: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            partition_config: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("partitionConfig"),
             ),
-            project: pulumi_wasm_rust::__private::into_domain(
+            project: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("project"),
             ),
-            region: pulumi_wasm_rust::__private::into_domain(o.extract_field("region")),
-            reservation_config: pulumi_wasm_rust::__private::into_domain(
+            region: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("region"),
+            ),
+            reservation_config: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("reservationConfig"),
             ),
-            retention_config: pulumi_wasm_rust::__private::into_domain(
+            retention_config: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("retentionConfig"),
             ),
-            zone: pulumi_wasm_rust::__private::into_domain(o.extract_field("zone")),
+            zone: pulumi_gestalt_rust::__private::into_domain(o.extract_field("zone")),
         }
     }
 }

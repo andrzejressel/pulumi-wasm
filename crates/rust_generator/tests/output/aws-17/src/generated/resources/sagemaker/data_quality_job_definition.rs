@@ -5,8 +5,8 @@
 /// Basic usage:
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let test = data_quality_job_definition::create(
@@ -67,105 +67,105 @@
 /// $ pulumi import aws:sagemaker/dataQualityJobDefinition:DataQualityJobDefinition test_data_quality_job_definition data-quality-job-definition-foo
 /// ```
 pub mod data_quality_job_definition {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct DataQualityJobDefinitionArgs {
         /// Specifies the container that runs the monitoring job. Fields are documented below.
         #[builder(into)]
-        pub data_quality_app_specification: pulumi_wasm_rust::InputOrOutput<
+        pub data_quality_app_specification: pulumi_gestalt_rust::InputOrOutput<
             super::super::types::sagemaker::DataQualityJobDefinitionDataQualityAppSpecification,
         >,
         /// Configures the constraints and baselines for the monitoring job. Fields are documented below.
         #[builder(into, default)]
-        pub data_quality_baseline_config: pulumi_wasm_rust::InputOrOutput<
+        pub data_quality_baseline_config: pulumi_gestalt_rust::InputOrOutput<
             Option<
                 super::super::types::sagemaker::DataQualityJobDefinitionDataQualityBaselineConfig,
             >,
         >,
         /// A list of inputs for the monitoring job. Fields are documented below.
         #[builder(into)]
-        pub data_quality_job_input: pulumi_wasm_rust::InputOrOutput<
+        pub data_quality_job_input: pulumi_gestalt_rust::InputOrOutput<
             super::super::types::sagemaker::DataQualityJobDefinitionDataQualityJobInput,
         >,
         /// The output configuration for monitoring jobs. Fields are documented below.
         #[builder(into)]
-        pub data_quality_job_output_config: pulumi_wasm_rust::InputOrOutput<
+        pub data_quality_job_output_config: pulumi_gestalt_rust::InputOrOutput<
             super::super::types::sagemaker::DataQualityJobDefinitionDataQualityJobOutputConfig,
         >,
         /// Identifies the resources to deploy for a monitoring job. Fields are documented below.
         #[builder(into)]
-        pub job_resources: pulumi_wasm_rust::InputOrOutput<
+        pub job_resources: pulumi_gestalt_rust::InputOrOutput<
             super::super::types::sagemaker::DataQualityJobDefinitionJobResources,
         >,
         /// The name of the data quality job definition. If omitted, the provider will assign a random, unique name.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Specifies networking configuration for the monitoring job. Fields are documented below.
         #[builder(into, default)]
-        pub network_config: pulumi_wasm_rust::InputOrOutput<
+        pub network_config: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::sagemaker::DataQualityJobDefinitionNetworkConfig>,
         >,
         /// The Amazon Resource Name (ARN) of an IAM role that Amazon SageMaker can assume to perform tasks on your behalf.
         #[builder(into)]
-        pub role_arn: pulumi_wasm_rust::InputOrOutput<String>,
+        pub role_arn: pulumi_gestalt_rust::InputOrOutput<String>,
         /// A time limit for how long the monitoring job is allowed to run before stopping. Fields are documented below.
         #[builder(into, default)]
-        pub stopping_condition: pulumi_wasm_rust::InputOrOutput<
+        pub stopping_condition: pulumi_gestalt_rust::InputOrOutput<
             Option<
                 super::super::types::sagemaker::DataQualityJobDefinitionStoppingCondition,
             >,
         >,
         /// A mapping of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
     #[allow(dead_code)]
     pub struct DataQualityJobDefinitionResult {
         /// The Amazon Resource Name (ARN) assigned by AWS to this data quality job definition.
-        pub arn: pulumi_wasm_rust::Output<String>,
+        pub arn: pulumi_gestalt_rust::Output<String>,
         /// Specifies the container that runs the monitoring job. Fields are documented below.
-        pub data_quality_app_specification: pulumi_wasm_rust::Output<
+        pub data_quality_app_specification: pulumi_gestalt_rust::Output<
             super::super::types::sagemaker::DataQualityJobDefinitionDataQualityAppSpecification,
         >,
         /// Configures the constraints and baselines for the monitoring job. Fields are documented below.
-        pub data_quality_baseline_config: pulumi_wasm_rust::Output<
+        pub data_quality_baseline_config: pulumi_gestalt_rust::Output<
             Option<
                 super::super::types::sagemaker::DataQualityJobDefinitionDataQualityBaselineConfig,
             >,
         >,
         /// A list of inputs for the monitoring job. Fields are documented below.
-        pub data_quality_job_input: pulumi_wasm_rust::Output<
+        pub data_quality_job_input: pulumi_gestalt_rust::Output<
             super::super::types::sagemaker::DataQualityJobDefinitionDataQualityJobInput,
         >,
         /// The output configuration for monitoring jobs. Fields are documented below.
-        pub data_quality_job_output_config: pulumi_wasm_rust::Output<
+        pub data_quality_job_output_config: pulumi_gestalt_rust::Output<
             super::super::types::sagemaker::DataQualityJobDefinitionDataQualityJobOutputConfig,
         >,
         /// Identifies the resources to deploy for a monitoring job. Fields are documented below.
-        pub job_resources: pulumi_wasm_rust::Output<
+        pub job_resources: pulumi_gestalt_rust::Output<
             super::super::types::sagemaker::DataQualityJobDefinitionJobResources,
         >,
         /// The name of the data quality job definition. If omitted, the provider will assign a random, unique name.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// Specifies networking configuration for the monitoring job. Fields are documented below.
-        pub network_config: pulumi_wasm_rust::Output<
+        pub network_config: pulumi_gestalt_rust::Output<
             Option<super::super::types::sagemaker::DataQualityJobDefinitionNetworkConfig>,
         >,
         /// The Amazon Resource Name (ARN) of an IAM role that Amazon SageMaker can assume to perform tasks on your behalf.
-        pub role_arn: pulumi_wasm_rust::Output<String>,
+        pub role_arn: pulumi_gestalt_rust::Output<String>,
         /// A time limit for how long the monitoring job is allowed to run before stopping. Fields are documented below.
-        pub stopping_condition: pulumi_wasm_rust::Output<
+        pub stopping_condition: pulumi_gestalt_rust::Output<
             super::super::types::sagemaker::DataQualityJobDefinitionStoppingCondition,
         >,
         /// A mapping of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        pub tags_all: pulumi_wasm_rust::Output<
+        pub tags_all: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
     }
@@ -174,11 +174,11 @@ pub mod data_quality_job_definition {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: DataQualityJobDefinitionArgs,
     ) -> DataQualityJobDefinitionResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let data_quality_app_specification_binding = args
             .data_quality_app_specification
@@ -255,34 +255,34 @@ pub mod data_quality_job_definition {
         };
         let o = register_interface::register(context.get_inner(), &request);
         DataQualityJobDefinitionResult {
-            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
-            data_quality_app_specification: pulumi_wasm_rust::__private::into_domain(
+            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
+            data_quality_app_specification: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("dataQualityAppSpecification"),
             ),
-            data_quality_baseline_config: pulumi_wasm_rust::__private::into_domain(
+            data_quality_baseline_config: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("dataQualityBaselineConfig"),
             ),
-            data_quality_job_input: pulumi_wasm_rust::__private::into_domain(
+            data_quality_job_input: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("dataQualityJobInput"),
             ),
-            data_quality_job_output_config: pulumi_wasm_rust::__private::into_domain(
+            data_quality_job_output_config: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("dataQualityJobOutputConfig"),
             ),
-            job_resources: pulumi_wasm_rust::__private::into_domain(
+            job_resources: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("jobResources"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            network_config: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            network_config: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("networkConfig"),
             ),
-            role_arn: pulumi_wasm_rust::__private::into_domain(
+            role_arn: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("roleArn"),
             ),
-            stopping_condition: pulumi_wasm_rust::__private::into_domain(
+            stopping_condition: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("stoppingCondition"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_wasm_rust::__private::into_domain(
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            tags_all: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("tagsAll"),
             ),
         }

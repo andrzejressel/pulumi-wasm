@@ -1,3 +1,3 @@
-use pulumi_wasm_rust::include_provider;
+use pulumi_gestalt_rust::include_provider;
 
 include_provider!("aws");

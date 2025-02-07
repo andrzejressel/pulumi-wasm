@@ -25,78 +25,78 @@
 /// ```
 ///
 pub mod keystores_aliases_key_cert_file {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct KeystoresAliasesKeyCertFileArgs {
         /// Alias Name
         #[builder(into)]
-        pub alias: pulumi_wasm_rust::InputOrOutput<String>,
+        pub alias: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Cert content
         ///
         ///
         /// - - -
         #[builder(into)]
-        pub cert: pulumi_wasm_rust::InputOrOutput<String>,
+        pub cert: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Chain of certificates under this alias.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub certs_info: pulumi_wasm_rust::InputOrOutput<
+        pub certs_info: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::apigee::KeystoresAliasesKeyCertFileCertsInfo>,
         >,
         /// Environment associated with the alias
         #[builder(into)]
-        pub environment: pulumi_wasm_rust::InputOrOutput<String>,
+        pub environment: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Private Key content, omit if uploading to truststore
         #[builder(into, default)]
-        pub key: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub key: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Keystore Name
         #[builder(into)]
-        pub keystore: pulumi_wasm_rust::InputOrOutput<String>,
+        pub keystore: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Organization ID associated with the alias, without organization/ prefix
         #[builder(into)]
-        pub org_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub org_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Password for the Private Key if it's encrypted
         #[builder(into, default)]
-        pub password: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub password: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct KeystoresAliasesKeyCertFileResult {
         /// Alias Name
-        pub alias: pulumi_wasm_rust::Output<String>,
+        pub alias: pulumi_gestalt_rust::Output<String>,
         /// Cert content
         ///
         ///
         /// - - -
-        pub cert: pulumi_wasm_rust::Output<String>,
+        pub cert: pulumi_gestalt_rust::Output<String>,
         /// Chain of certificates under this alias.
         /// Structure is documented below.
-        pub certs_info: pulumi_wasm_rust::Output<
+        pub certs_info: pulumi_gestalt_rust::Output<
             super::super::types::apigee::KeystoresAliasesKeyCertFileCertsInfo,
         >,
         /// Environment associated with the alias
-        pub environment: pulumi_wasm_rust::Output<String>,
+        pub environment: pulumi_gestalt_rust::Output<String>,
         /// Private Key content, omit if uploading to truststore
-        pub key: pulumi_wasm_rust::Output<Option<String>>,
+        pub key: pulumi_gestalt_rust::Output<Option<String>>,
         /// Keystore Name
-        pub keystore: pulumi_wasm_rust::Output<String>,
+        pub keystore: pulumi_gestalt_rust::Output<String>,
         /// Organization ID associated with the alias, without organization/ prefix
-        pub org_id: pulumi_wasm_rust::Output<String>,
+        pub org_id: pulumi_gestalt_rust::Output<String>,
         /// Password for the Private Key if it's encrypted
-        pub password: pulumi_wasm_rust::Output<Option<String>>,
+        pub password: pulumi_gestalt_rust::Output<Option<String>>,
         /// Optional.Type of Alias
-        pub type_: pulumi_wasm_rust::Output<String>,
+        pub type_: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: KeystoresAliasesKeyCertFileArgs,
     ) -> KeystoresAliasesKeyCertFileResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let alias_binding = args.alias.get_output(context).get_inner();
         let cert_binding = args.cert.get_output(context).get_inner();
@@ -148,23 +148,25 @@ pub mod keystores_aliases_key_cert_file {
         };
         let o = register_interface::register(context.get_inner(), &request);
         KeystoresAliasesKeyCertFileResult {
-            alias: pulumi_wasm_rust::__private::into_domain(o.extract_field("alias")),
-            cert: pulumi_wasm_rust::__private::into_domain(o.extract_field("cert")),
-            certs_info: pulumi_wasm_rust::__private::into_domain(
+            alias: pulumi_gestalt_rust::__private::into_domain(o.extract_field("alias")),
+            cert: pulumi_gestalt_rust::__private::into_domain(o.extract_field("cert")),
+            certs_info: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("certsInfo"),
             ),
-            environment: pulumi_wasm_rust::__private::into_domain(
+            environment: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("environment"),
             ),
-            key: pulumi_wasm_rust::__private::into_domain(o.extract_field("key")),
-            keystore: pulumi_wasm_rust::__private::into_domain(
+            key: pulumi_gestalt_rust::__private::into_domain(o.extract_field("key")),
+            keystore: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("keystore"),
             ),
-            org_id: pulumi_wasm_rust::__private::into_domain(o.extract_field("orgId")),
-            password: pulumi_wasm_rust::__private::into_domain(
+            org_id: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("orgId"),
+            ),
+            password: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("password"),
             ),
-            type_: pulumi_wasm_rust::__private::into_domain(o.extract_field("type")),
+            type_: pulumi_gestalt_rust::__private::into_domain(o.extract_field("type")),
         }
     }
 }

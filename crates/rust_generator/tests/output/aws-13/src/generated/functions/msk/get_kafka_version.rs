@@ -1,33 +1,33 @@
 pub mod get_kafka_version {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct GetKafkaVersionArgs {
         /// Ordered list of preferred Kafka versions. The first match in this list will be returned. Either `preferred_versions` or `version` must be set.
         #[builder(into, default)]
-        pub preferred_versions: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
+        pub preferred_versions: pulumi_gestalt_rust::InputOrOutput<Option<Vec<String>>>,
         /// Version of MSK Kafka. For example 2.4.1.1 or "2.2.1" etc. Either `preferred_versions` or `version` must be set.
         #[builder(into, default)]
-        pub version: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub version: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct GetKafkaVersionResult {
         /// The provider-assigned unique ID for this managed resource.
-        pub id: pulumi_wasm_rust::Output<String>,
-        pub preferred_versions: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub id: pulumi_gestalt_rust::Output<String>,
+        pub preferred_versions: pulumi_gestalt_rust::Output<Option<Vec<String>>>,
         /// Status of the MSK Kafka version eg. `ACTIVE` or `DEPRECATED`.
-        pub status: pulumi_wasm_rust::Output<String>,
-        pub version: pulumi_wasm_rust::Output<String>,
+        pub status: pulumi_gestalt_rust::Output<String>,
+        pub version: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         args: GetKafkaVersionArgs,
     ) -> GetKafkaVersionResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let preferred_versions_binding = args
             .preferred_versions
@@ -50,12 +50,16 @@ pub mod get_kafka_version {
         };
         let o = register_interface::invoke(context.get_inner(), &request);
         GetKafkaVersionResult {
-            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
-            preferred_versions: pulumi_wasm_rust::__private::into_domain(
+            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
+            preferred_versions: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("preferredVersions"),
             ),
-            status: pulumi_wasm_rust::__private::into_domain(o.extract_field("status")),
-            version: pulumi_wasm_rust::__private::into_domain(o.extract_field("version")),
+            status: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("status"),
+            ),
+            version: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("version"),
+            ),
         }
     }
 }

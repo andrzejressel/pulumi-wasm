@@ -3,8 +3,8 @@
 /// ## Example Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = request_validator::create(
@@ -27,44 +27,46 @@
 /// $ pulumi import aws:apigateway/requestValidator:RequestValidator example 12345abcde/67890fghij
 /// ```
 pub mod request_validator {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct RequestValidatorArgs {
         /// Name of the request validator
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// ID of the associated Rest API
         #[builder(into)]
-        pub rest_api: pulumi_wasm_rust::InputOrOutput<String>,
+        pub rest_api: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Boolean whether to validate request body. Defaults to `false`.
         #[builder(into, default)]
-        pub validate_request_body: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub validate_request_body: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// Boolean whether to validate request parameters. Defaults to `false`.
         #[builder(into, default)]
-        pub validate_request_parameters: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub validate_request_parameters: pulumi_gestalt_rust::InputOrOutput<
+            Option<bool>,
+        >,
     }
     #[allow(dead_code)]
     pub struct RequestValidatorResult {
         /// Name of the request validator
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// ID of the associated Rest API
-        pub rest_api: pulumi_wasm_rust::Output<String>,
+        pub rest_api: pulumi_gestalt_rust::Output<String>,
         /// Boolean whether to validate request body. Defaults to `false`.
-        pub validate_request_body: pulumi_wasm_rust::Output<Option<bool>>,
+        pub validate_request_body: pulumi_gestalt_rust::Output<Option<bool>>,
         /// Boolean whether to validate request parameters. Defaults to `false`.
-        pub validate_request_parameters: pulumi_wasm_rust::Output<Option<bool>>,
+        pub validate_request_parameters: pulumi_gestalt_rust::Output<Option<bool>>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: RequestValidatorArgs,
     ) -> RequestValidatorResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let name_binding = args.name.get_output(context).get_inner();
         let rest_api_binding = args.rest_api.get_output(context).get_inner();
@@ -101,14 +103,14 @@ pub mod request_validator {
         };
         let o = register_interface::register(context.get_inner(), &request);
         RequestValidatorResult {
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            rest_api: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            rest_api: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("restApi"),
             ),
-            validate_request_body: pulumi_wasm_rust::__private::into_domain(
+            validate_request_body: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("validateRequestBody"),
             ),
-            validate_request_parameters: pulumi_wasm_rust::__private::into_domain(
+            validate_request_parameters: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("validateRequestParameters"),
             ),
         }

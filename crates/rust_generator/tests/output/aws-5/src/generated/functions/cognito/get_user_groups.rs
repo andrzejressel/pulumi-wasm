@@ -1,31 +1,31 @@
 pub mod get_user_groups {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct GetUserGroupsArgs {
         /// User pool the client belongs to.
         #[builder(into)]
-        pub user_pool_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub user_pool_id: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct GetUserGroupsResult {
         /// List of groups. See `groups` below.
-        pub groups: pulumi_wasm_rust::Output<
+        pub groups: pulumi_gestalt_rust::Output<
             Vec<super::super::super::types::cognito::GetUserGroupsGroup>,
         >,
         /// User pool identifier.
-        pub id: pulumi_wasm_rust::Output<String>,
-        pub user_pool_id: pulumi_wasm_rust::Output<String>,
+        pub id: pulumi_gestalt_rust::Output<String>,
+        pub user_pool_id: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         args: GetUserGroupsArgs,
     ) -> GetUserGroupsResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let user_pool_id_binding = args.user_pool_id.get_output(context).get_inner();
         let request = register_interface::ResourceInvokeRequest {
@@ -40,9 +40,11 @@ pub mod get_user_groups {
         };
         let o = register_interface::invoke(context.get_inner(), &request);
         GetUserGroupsResult {
-            groups: pulumi_wasm_rust::__private::into_domain(o.extract_field("groups")),
-            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
-            user_pool_id: pulumi_wasm_rust::__private::into_domain(
+            groups: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("groups"),
+            ),
+            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
+            user_pool_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("userPoolId"),
             ),
         }

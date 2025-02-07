@@ -3,8 +3,8 @@
 /// ## Example Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = resource_group::create(
@@ -133,62 +133,62 @@
 /// ```
 ///
 pub mod volume_quota_rule {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct VolumeQuotaRuleArgs {
         /// The Azure Region where the Volume Quota Rule should exist. Changing this forces a new Volume Quota Rule to be created.
         #[builder(into, default)]
-        pub location: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub location: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The name which should be used for this Volume Quota Rule. Changing this forces a new Volume Quota Rule to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Quota size in kibibytes.
         #[builder(into)]
-        pub quota_size_in_kib: pulumi_wasm_rust::InputOrOutput<i32>,
+        pub quota_size_in_kib: pulumi_gestalt_rust::InputOrOutput<i32>,
         /// Quota Target. This can be Unix UID/GID for NFSv3/NFSv4.1 volumes and Windows User SID for CIFS based volumes. Changing this forces a new resource to be created.
         ///
         /// > **NOTE:** `quota_target ` must be used when `quota_type` is `IndividualGroupQuota` or `IndividualUserQuota`
         ///
         /// > **NOTE:** more information about this resource can be found at [Understand default and individual user and group quotas](https://learn.microsoft.com/en-us/azure/azure-netapp-files/default-individual-user-group-quotas-introduction)
         #[builder(into, default)]
-        pub quota_target: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub quota_target: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Quota type. Possible values are `DefaultGroupQuota`, `DefaultUserQuota`, `IndividualGroupQuota` and `IndividualUserQuota`. Please note that `IndividualGroupQuota` and `DefaultGroupQuota` are not applicable to SMB and dual-protocol volumes. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub quota_type: pulumi_wasm_rust::InputOrOutput<String>,
+        pub quota_type: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The NetApp volume ID where the Volume Quota Rule is assigned to. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub volume_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub volume_id: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct VolumeQuotaRuleResult {
         /// The Azure Region where the Volume Quota Rule should exist. Changing this forces a new Volume Quota Rule to be created.
-        pub location: pulumi_wasm_rust::Output<String>,
+        pub location: pulumi_gestalt_rust::Output<String>,
         /// The name which should be used for this Volume Quota Rule. Changing this forces a new Volume Quota Rule to be created.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// Quota size in kibibytes.
-        pub quota_size_in_kib: pulumi_wasm_rust::Output<i32>,
+        pub quota_size_in_kib: pulumi_gestalt_rust::Output<i32>,
         /// Quota Target. This can be Unix UID/GID for NFSv3/NFSv4.1 volumes and Windows User SID for CIFS based volumes. Changing this forces a new resource to be created.
         ///
         /// > **NOTE:** `quota_target ` must be used when `quota_type` is `IndividualGroupQuota` or `IndividualUserQuota`
         ///
         /// > **NOTE:** more information about this resource can be found at [Understand default and individual user and group quotas](https://learn.microsoft.com/en-us/azure/azure-netapp-files/default-individual-user-group-quotas-introduction)
-        pub quota_target: pulumi_wasm_rust::Output<Option<String>>,
+        pub quota_target: pulumi_gestalt_rust::Output<Option<String>>,
         /// Quota type. Possible values are `DefaultGroupQuota`, `DefaultUserQuota`, `IndividualGroupQuota` and `IndividualUserQuota`. Please note that `IndividualGroupQuota` and `DefaultGroupQuota` are not applicable to SMB and dual-protocol volumes. Changing this forces a new resource to be created.
-        pub quota_type: pulumi_wasm_rust::Output<String>,
+        pub quota_type: pulumi_gestalt_rust::Output<String>,
         /// The NetApp volume ID where the Volume Quota Rule is assigned to. Changing this forces a new resource to be created.
-        pub volume_id: pulumi_wasm_rust::Output<String>,
+        pub volume_id: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: VolumeQuotaRuleArgs,
     ) -> VolumeQuotaRuleResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let location_binding = args.location.get_output(context).get_inner();
         let name_binding = args.name.get_output(context).get_inner();
@@ -232,20 +232,20 @@ pub mod volume_quota_rule {
         };
         let o = register_interface::register(context.get_inner(), &request);
         VolumeQuotaRuleResult {
-            location: pulumi_wasm_rust::__private::into_domain(
+            location: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("location"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            quota_size_in_kib: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            quota_size_in_kib: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("quotaSizeInKib"),
             ),
-            quota_target: pulumi_wasm_rust::__private::into_domain(
+            quota_target: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("quotaTarget"),
             ),
-            quota_type: pulumi_wasm_rust::__private::into_domain(
+            quota_type: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("quotaType"),
             ),
-            volume_id: pulumi_wasm_rust::__private::into_domain(
+            volume_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("volumeId"),
             ),
         }

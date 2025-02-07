@@ -11,8 +11,8 @@
 /// ### Basic Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = role_policies_exclusive::create(
@@ -32,8 +32,8 @@
 /// > This will not __prevent__ inline policies from being assigned to a role via Pulumi (or any other interface). This resource enables bringing inline policy assignments into a configured state, however, this reconciliation happens only when `apply` is proactively run.
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = role_policies_exclusive::create(
@@ -54,34 +54,34 @@
 /// $ pulumi import aws:iam/rolePoliciesExclusive:RolePoliciesExclusive example MyRole
 /// ```
 pub mod role_policies_exclusive {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct RolePoliciesExclusiveArgs {
         /// A list of inline policy names to be assigned to the role. Policies attached to this role but not configured in this argument will be removed.
         #[builder(into)]
-        pub policy_names: pulumi_wasm_rust::InputOrOutput<Vec<String>>,
+        pub policy_names: pulumi_gestalt_rust::InputOrOutput<Vec<String>>,
         /// IAM role name.
         #[builder(into)]
-        pub role_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub role_name: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct RolePoliciesExclusiveResult {
         /// A list of inline policy names to be assigned to the role. Policies attached to this role but not configured in this argument will be removed.
-        pub policy_names: pulumi_wasm_rust::Output<Vec<String>>,
+        pub policy_names: pulumi_gestalt_rust::Output<Vec<String>>,
         /// IAM role name.
-        pub role_name: pulumi_wasm_rust::Output<String>,
+        pub role_name: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: RolePoliciesExclusiveArgs,
     ) -> RolePoliciesExclusiveResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let policy_names_binding = args.policy_names.get_output(context).get_inner();
         let role_name_binding = args.role_name.get_output(context).get_inner();
@@ -102,10 +102,10 @@ pub mod role_policies_exclusive {
         };
         let o = register_interface::register(context.get_inner(), &request);
         RolePoliciesExclusiveResult {
-            policy_names: pulumi_wasm_rust::__private::into_domain(
+            policy_names: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("policyNames"),
             ),
-            role_name: pulumi_wasm_rust::__private::into_domain(
+            role_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("roleName"),
             ),
         }

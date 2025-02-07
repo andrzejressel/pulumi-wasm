@@ -2318,154 +2318,140 @@ dependencies = [
 ]
 
 [[package]]
-name = "pulumi_native_c"
-version = "0.0.0-DEV"
-dependencies = [
- "anyhow",
- "cbindgen",
- "libc",
- "pulumi_wasm_core",
- "pulumi_wasm_grpc_connection",
- "pulumi_wasm_proto",
- "serde_json",
- "uuid",
-]
-
-[[package]]
-name = "pulumi_wasm"
+name = "pulumi_gestalt"
 version = "0.0.0-DEV"
 dependencies = [
  "log",
  "prost",
- "pulumi_wasm_common",
- "pulumi_wasm_core",
- "pulumi_wasm_proto",
+ "pulumi_gestalt_common",
+ "pulumi_gestalt_core",
+ "pulumi_gestalt_proto",
  "serde",
  "serde_json",
  "wit-bindgen-rt 0.39.0",
 ]
 
 [[package]]
-name = "pulumi_wasm_build"
+name = "pulumi_gestalt_build"
 version = "0.0.0-DEV"
 dependencies = [
  "anyhow",
- "pulumi_wasm_generator",
- "pulumi_wasm_rust",
+ "pulumi_gestalt_generator",
+ "pulumi_gestalt_rust",
  "tempfile",
 ]
 
 [[package]]
-name = "pulumi_wasm_common"
+name = "pulumi_gestalt_common"
 version = "0.0.0-DEV"
 dependencies = [
  "log",
- "pulumi_wasm_wit",
+ "pulumi_gestalt_wit",
 ]
 
 [[package]]
-name = "pulumi_wasm_core"
+name = "pulumi_gestalt_core"
 version = "0.0.0-DEV"
 dependencies = [
  "log",
  "mockall",
  "prost",
  "prost-types",
- "pulumi_wasm_proto",
+ "pulumi_gestalt_proto",
  "serde_json",
  "uuid",
 ]
 
 [[package]]
-name = "pulumi_wasm_example_cpp"
+name = "pulumi_gestalt_example_cpp"
 version = "0.0.0-DEV"
 dependencies = [
  "anyhow",
- "pulumi_wasm_examples_common",
+ "pulumi_gestalt_examples_common",
 ]
 
 [[package]]
-name = "pulumi_wasm_example_dependencies"
+name = "pulumi_gestalt_example_dependencies"
 version = "0.0.0-DEV"
 dependencies = [
  "anyhow",
- "pulumi_wasm_examples_common",
- "pulumi_wasm_providers_random",
- "pulumi_wasm_rust",
+ "pulumi_gestalt_examples_common",
+ "pulumi_gestalt_providers_random",
+ "pulumi_gestalt_rust",
 ]
 
 [[package]]
-name = "pulumi_wasm_example_docker"
+name = "pulumi_gestalt_example_docker"
 version = "0.0.0-DEV"
 dependencies = [
  "anyhow",
- "pulumi_wasm_examples_common",
- "pulumi_wasm_providers_docker",
- "pulumi_wasm_rust",
+ "pulumi_gestalt_examples_common",
+ "pulumi_gestalt_providers_docker",
+ "pulumi_gestalt_rust",
 ]
 
 [[package]]
-name = "pulumi_wasm_example_multiple_providers"
+name = "pulumi_gestalt_example_multiple_providers"
 version = "0.0.0-DEV"
 dependencies = [
  "anyhow",
- "pulumi_wasm_examples_common",
- "pulumi_wasm_providers_docker",
- "pulumi_wasm_providers_random",
- "pulumi_wasm_rust",
+ "pulumi_gestalt_examples_common",
+ "pulumi_gestalt_providers_docker",
+ "pulumi_gestalt_providers_random",
+ "pulumi_gestalt_rust",
 ]
 
 [[package]]
-name = "pulumi_wasm_example_plugins"
-version = "0.0.0-DEV"
-dependencies = [
- "anyhow",
- "assert_cmd",
- "pulumi_wasm_examples_common",
- "pulumi_wasm_providers_random",
- "pulumi_wasm_rust",
-]
-
-[[package]]
-name = "pulumi_wasm_example_secret"
-version = "0.0.0-DEV"
-dependencies = [
- "anyhow",
- "pulumi_wasm_examples_common",
- "pulumi_wasm_providers_random",
- "pulumi_wasm_rust",
-]
-
-[[package]]
-name = "pulumi_wasm_example_simple"
-version = "0.0.0-DEV"
-dependencies = [
- "anyhow",
- "pulumi_wasm_examples_common",
- "pulumi_wasm_providers_random",
- "pulumi_wasm_rust",
-]
-
-[[package]]
-name = "pulumi_wasm_example_typesystem"
-version = "0.0.0-DEV"
-dependencies = [
- "pulumi_wasm_providers_typesystem",
- "pulumi_wasm_rust",
- "serde_json",
-]
-
-[[package]]
-name = "pulumi_wasm_examples_common"
+name = "pulumi_gestalt_example_plugins"
 version = "0.0.0-DEV"
 dependencies = [
  "anyhow",
  "assert_cmd",
+ "pulumi_gestalt_examples_common",
+ "pulumi_gestalt_providers_random",
+ "pulumi_gestalt_rust",
+]
+
+[[package]]
+name = "pulumi_gestalt_example_secret"
+version = "0.0.0-DEV"
+dependencies = [
+ "anyhow",
+ "pulumi_gestalt_examples_common",
+ "pulumi_gestalt_providers_random",
+ "pulumi_gestalt_rust",
+]
+
+[[package]]
+name = "pulumi_gestalt_example_simple"
+version = "0.0.0-DEV"
+dependencies = [
+ "anyhow",
+ "pulumi_gestalt_examples_common",
+ "pulumi_gestalt_providers_random",
+ "pulumi_gestalt_rust",
+]
+
+[[package]]
+name = "pulumi_gestalt_example_typesystem"
+version = "0.0.0-DEV"
+dependencies = [
+ "pulumi_gestalt_providers_typesystem",
+ "pulumi_gestalt_rust",
  "serde_json",
 ]
 
 [[package]]
-name = "pulumi_wasm_generator"
+name = "pulumi_gestalt_examples_common"
+version = "0.0.0-DEV"
+dependencies = [
+ "anyhow",
+ "assert_cmd",
+ "serde_json",
+]
+
+[[package]]
+name = "pulumi_gestalt_generator"
 version = "0.0.0-DEV"
 dependencies = [
  "anyhow",
@@ -2476,7 +2462,7 @@ dependencies = [
  "pathdiff",
  "prettyplease",
  "proc-macro2",
- "pulumi_wasm_rust",
+ "pulumi_gestalt_rust",
  "quote",
  "regex",
  "rinja",
@@ -2487,20 +2473,20 @@ dependencies = [
 ]
 
 [[package]]
-name = "pulumi_wasm_grpc_connection"
+name = "pulumi_gestalt_grpc_connection"
 version = "0.0.0-DEV"
 dependencies = [
  "anyhow",
  "futures",
  "prost",
- "pulumi_wasm_proto",
+ "pulumi_gestalt_proto",
  "tokio",
  "tokio-stream",
  "tonic",
 ]
 
 [[package]]
-name = "pulumi_wasm_proto"
+name = "pulumi_gestalt_proto"
 version = "0.0.0-DEV"
 dependencies = [
  "prost",
@@ -2510,84 +2496,84 @@ dependencies = [
 ]
 
 [[package]]
-name = "pulumi_wasm_providers_aws_mini"
+name = "pulumi_gestalt_providers_aws_mini"
 version = "0.0.0-DEV"
 dependencies = [
  "bon",
- "pulumi_wasm_build",
- "pulumi_wasm_rust",
+ "pulumi_gestalt_build",
+ "pulumi_gestalt_rust",
  "serde",
  "wit-bindgen",
 ]
 
 [[package]]
-name = "pulumi_wasm_providers_azure_mini"
+name = "pulumi_gestalt_providers_azure_mini"
 version = "0.0.0-DEV"
 dependencies = [
  "bon",
- "pulumi_wasm_build",
- "pulumi_wasm_rust",
+ "pulumi_gestalt_build",
+ "pulumi_gestalt_rust",
  "serde",
  "wit-bindgen",
 ]
 
 [[package]]
-name = "pulumi_wasm_providers_cloudflare"
+name = "pulumi_gestalt_providers_cloudflare"
 version = "0.0.0-DEV"
 dependencies = [
  "bon",
- "pulumi_wasm_build",
- "pulumi_wasm_rust",
+ "pulumi_gestalt_build",
+ "pulumi_gestalt_rust",
  "serde",
  "wit-bindgen",
 ]
 
 [[package]]
-name = "pulumi_wasm_providers_docker"
+name = "pulumi_gestalt_providers_docker"
 version = "0.0.0-DEV"
 dependencies = [
  "bon",
- "pulumi_wasm_build",
- "pulumi_wasm_rust",
+ "pulumi_gestalt_build",
+ "pulumi_gestalt_rust",
  "serde",
  "wit-bindgen",
 ]
 
 [[package]]
-name = "pulumi_wasm_providers_gcp_mini"
+name = "pulumi_gestalt_providers_gcp_mini"
 version = "0.0.0-DEV"
 dependencies = [
  "bon",
- "pulumi_wasm_build",
- "pulumi_wasm_rust",
+ "pulumi_gestalt_build",
+ "pulumi_gestalt_rust",
  "serde",
  "wit-bindgen",
 ]
 
 [[package]]
-name = "pulumi_wasm_providers_random"
+name = "pulumi_gestalt_providers_random"
 version = "0.0.0-DEV"
 dependencies = [
  "bon",
- "pulumi_wasm_build",
- "pulumi_wasm_rust",
+ "pulumi_gestalt_build",
+ "pulumi_gestalt_rust",
  "serde",
  "wit-bindgen",
 ]
 
 [[package]]
-name = "pulumi_wasm_providers_typesystem"
+name = "pulumi_gestalt_providers_typesystem"
 version = "0.0.0-DEV"
 dependencies = [
  "bon",
- "pulumi_wasm_build",
- "pulumi_wasm_rust",
+ "pulumi_gestalt_build",
+ "pulumi_gestalt_rust",
  "serde",
  "wit-bindgen",
 ]
 
 [[package]]
-name = "pulumi_wasm_runner"
+name = "pulumi_gestalt_runner"
 version = "0.0.0-DEV"
 dependencies = [
  "anyhow",
@@ -2595,10 +2581,10 @@ dependencies = [
  "log",
  "log4rs",
  "prost",
- "pulumi_wasm_grpc_connection",
- "pulumi_wasm_proto",
- "pulumi_wasm_runner_component_creator",
- "pulumi_wasm_wit",
+ "pulumi_gestalt_grpc_connection",
+ "pulumi_gestalt_proto",
+ "pulumi_gestalt_runner_component_creator",
+ "pulumi_gestalt_wit",
  "serde",
  "serde_json",
  "tokio",
@@ -2609,7 +2595,7 @@ dependencies = [
 ]
 
 [[package]]
-name = "pulumi_wasm_runner_component_creator"
+name = "pulumi_gestalt_runner_component_creator"
 version = "0.0.0-DEV"
 dependencies = [
  "anyhow",
@@ -2626,16 +2612,16 @@ dependencies = [
 ]
 
 [[package]]
-name = "pulumi_wasm_rust"
+name = "pulumi_gestalt_rust"
 version = "0.0.0-DEV"
 dependencies = [
  "anyhow",
  "bon",
  "log",
  "once_cell",
- "pulumi_wasm_build",
- "pulumi_wasm_common",
- "pulumi_wasm_wit",
+ "pulumi_gestalt_build",
+ "pulumi_gestalt_common",
+ "pulumi_gestalt_wit",
  "serde",
  "serde_json",
  "uuid",
@@ -2643,11 +2629,25 @@ dependencies = [
 ]
 
 [[package]]
-name = "pulumi_wasm_wit"
+name = "pulumi_gestalt_wit"
 version = "0.0.0-DEV"
 dependencies = [
  "wasmtime",
  "wit-bindgen",
+]
+
+[[package]]
+name = "pulumi_native_c"
+version = "0.0.0-DEV"
+dependencies = [
+ "anyhow",
+ "cbindgen",
+ "libc",
+ "pulumi_gestalt_core",
+ "pulumi_gestalt_grpc_connection",
+ "pulumi_gestalt_proto",
+ "serde_json",
+ "uuid",
 ]
 
 [[package]]

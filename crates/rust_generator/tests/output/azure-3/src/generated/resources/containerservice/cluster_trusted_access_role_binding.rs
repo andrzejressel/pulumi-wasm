@@ -108,44 +108,44 @@
 /// * Where `{trustedAccessRoleBindingName}` is the name of the Trusted Access Role Binding. For example `trustedAccessRoleBindingValue`.
 ///
 pub mod cluster_trusted_access_role_binding {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ClusterTrustedAccessRoleBindingArgs {
         /// Specifies the Kubernetes Cluster Id within which this Kubernetes Cluster Trusted Access Role Binding should exist. Changing this forces a new Kubernetes Cluster Trusted Access Role Binding to be created.
         #[builder(into)]
-        pub kubernetes_cluster_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub kubernetes_cluster_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Specifies the name of this Kubernetes Cluster Trusted Access Role Binding. Changing this forces a new Kubernetes Cluster Trusted Access Role Binding to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// A list of roles to bind, each item is a resource type qualified role name.
         #[builder(into)]
-        pub roles: pulumi_wasm_rust::InputOrOutput<Vec<String>>,
+        pub roles: pulumi_gestalt_rust::InputOrOutput<Vec<String>>,
         /// The ARM resource ID of source resource that trusted access is configured for. Changing this forces a new Kubernetes Cluster Trusted Access Role Binding to be created.
         #[builder(into)]
-        pub source_resource_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub source_resource_id: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct ClusterTrustedAccessRoleBindingResult {
         /// Specifies the Kubernetes Cluster Id within which this Kubernetes Cluster Trusted Access Role Binding should exist. Changing this forces a new Kubernetes Cluster Trusted Access Role Binding to be created.
-        pub kubernetes_cluster_id: pulumi_wasm_rust::Output<String>,
+        pub kubernetes_cluster_id: pulumi_gestalt_rust::Output<String>,
         /// Specifies the name of this Kubernetes Cluster Trusted Access Role Binding. Changing this forces a new Kubernetes Cluster Trusted Access Role Binding to be created.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// A list of roles to bind, each item is a resource type qualified role name.
-        pub roles: pulumi_wasm_rust::Output<Vec<String>>,
+        pub roles: pulumi_gestalt_rust::Output<Vec<String>>,
         /// The ARM resource ID of source resource that trusted access is configured for. Changing this forces a new Kubernetes Cluster Trusted Access Role Binding to be created.
-        pub source_resource_id: pulumi_wasm_rust::Output<String>,
+        pub source_resource_id: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: ClusterTrustedAccessRoleBindingArgs,
     ) -> ClusterTrustedAccessRoleBindingResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let kubernetes_cluster_id_binding = args
             .kubernetes_cluster_id
@@ -183,12 +183,12 @@ pub mod cluster_trusted_access_role_binding {
         };
         let o = register_interface::register(context.get_inner(), &request);
         ClusterTrustedAccessRoleBindingResult {
-            kubernetes_cluster_id: pulumi_wasm_rust::__private::into_domain(
+            kubernetes_cluster_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("kubernetesClusterId"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            roles: pulumi_wasm_rust::__private::into_domain(o.extract_field("roles")),
-            source_resource_id: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            roles: pulumi_gestalt_rust::__private::into_domain(o.extract_field("roles")),
+            source_resource_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("sourceResourceId"),
             ),
         }

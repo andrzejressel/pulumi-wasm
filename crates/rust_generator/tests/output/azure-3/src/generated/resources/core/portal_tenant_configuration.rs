@@ -11,8 +11,8 @@
 /// ## Example Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = portal_tenant_configuration::create(
@@ -33,7 +33,7 @@
 /// ```
 ///
 pub mod portal_tenant_configuration {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct PortalTenantConfigurationArgs {
@@ -41,25 +41,25 @@ pub mod portal_tenant_configuration {
         ///
         /// > **Note:** When `private_markdown_storage_enforced` is set to `true`, only external storage configuration (URI) is allowed for Markdown tiles. Inline content configuration will be prohibited.
         #[builder(into)]
-        pub private_markdown_storage_enforced: pulumi_wasm_rust::InputOrOutput<bool>,
+        pub private_markdown_storage_enforced: pulumi_gestalt_rust::InputOrOutput<bool>,
     }
     #[allow(dead_code)]
     pub struct PortalTenantConfigurationResult {
         /// Is the private tile markdown storage which used to display custom dynamic and static content enabled?
         ///
         /// > **Note:** When `private_markdown_storage_enforced` is set to `true`, only external storage configuration (URI) is allowed for Markdown tiles. Inline content configuration will be prohibited.
-        pub private_markdown_storage_enforced: pulumi_wasm_rust::Output<bool>,
+        pub private_markdown_storage_enforced: pulumi_gestalt_rust::Output<bool>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: PortalTenantConfigurationArgs,
     ) -> PortalTenantConfigurationResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let private_markdown_storage_enforced_binding = args
             .private_markdown_storage_enforced
@@ -79,7 +79,7 @@ pub mod portal_tenant_configuration {
         };
         let o = register_interface::register(context.get_inner(), &request);
         PortalTenantConfigurationResult {
-            private_markdown_storage_enforced: pulumi_wasm_rust::__private::into_domain(
+            private_markdown_storage_enforced: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("privateMarkdownStorageEnforced"),
             ),
         }

@@ -53,8 +53,8 @@
 /// ### Using CORS
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let b = bucket::create(
@@ -78,8 +78,8 @@
 /// ### Using versioning
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let b = bucket::create(
@@ -96,8 +96,8 @@
 /// ### Enable Logging
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let b = bucket::create(
@@ -276,8 +276,8 @@
 /// ### Enable Default Server Side Encryption
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let mybucket = bucket::create(
@@ -345,64 +345,64 @@
 /// The `policy` argument is not imported and will be deprecated in a future version of the provider. Use the `aws_s3_bucket_policy` resource to manage the S3 Bucket Policy instead.
 ///
 pub mod bucket {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct BucketArgs {
         /// Sets the accelerate configuration of an existing bucket. Can be `Enabled` or `Suspended`.
         #[builder(into, default)]
-        pub acceleration_status: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub acceleration_status: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The [canned ACL](https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#canned-acl) to apply. Valid values are `private`, `public-read`, `public-read-write`, `aws-exec-read`, `authenticated-read`, and `log-delivery-write`. Defaults to `private`.  Conflicts with `grant`.
         #[builder(into, default)]
-        pub acl: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub acl: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The ARN of the bucket. Will be of format `arn:aws:s3:::bucketname`.
         #[builder(into, default)]
-        pub arn: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub arn: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The name of the bucket. If omitted, this provider will assign a random, unique name. Must be lowercase and less than or equal to 63 characters in length. A full list of bucket naming rules [may be found here](https://docs.aws.amazon.com/AmazonS3/latest/userguide/bucketnamingrules.html).
         #[builder(into, default)]
-        pub bucket: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub bucket: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Creates a unique bucket name beginning with the specified prefix. Conflicts with `bucket`. Must be lowercase and less than or equal to 37 characters in length. A full list of bucket naming rules [may be found here](https://docs.aws.amazon.com/AmazonS3/latest/userguide/bucketnamingrules.html).
         #[builder(into, default)]
-        pub bucket_prefix: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub bucket_prefix: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// A rule of [Cross-Origin Resource Sharing](https://docs.aws.amazon.com/AmazonS3/latest/dev/cors.html) (documented below).
         #[builder(into, default)]
-        pub cors_rules: pulumi_wasm_rust::InputOrOutput<
+        pub cors_rules: pulumi_gestalt_rust::InputOrOutput<
             Option<Vec<super::super::types::s3::BucketCorsRule>>,
         >,
         /// A boolean that indicates all objects (including any [locked objects](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html)) should be deleted from the bucket so that the bucket can be destroyed without error. These objects are *not* recoverable.
         #[builder(into, default)]
-        pub force_destroy: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub force_destroy: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// An [ACL policy grant](https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#sample-acl) (documented below). Conflicts with `acl`.
         #[builder(into, default)]
-        pub grants: pulumi_wasm_rust::InputOrOutput<
+        pub grants: pulumi_gestalt_rust::InputOrOutput<
             Option<Vec<super::super::types::s3::BucketGrant>>,
         >,
         /// The [Route 53 Hosted Zone ID](https://docs.aws.amazon.com/general/latest/gr/rande.html#s3_website_region_endpoints) for this bucket's region.
         #[builder(into, default)]
-        pub hosted_zone_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub hosted_zone_id: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// A configuration of [object lifecycle management](http://docs.aws.amazon.com/AmazonS3/latest/dev/object-lifecycle-mgmt.html) (documented below).
         #[builder(into, default)]
-        pub lifecycle_rules: pulumi_wasm_rust::InputOrOutput<
+        pub lifecycle_rules: pulumi_gestalt_rust::InputOrOutput<
             Option<Vec<super::super::types::s3::BucketLifecycleRule>>,
         >,
         /// A settings of [bucket logging](https://docs.aws.amazon.com/AmazonS3/latest/UG/ManagingBucketLogging.html) (documented below).
         #[builder(into, default)]
-        pub loggings: pulumi_wasm_rust::InputOrOutput<
+        pub loggings: pulumi_gestalt_rust::InputOrOutput<
             Option<Vec<super::super::types::s3::BucketLogging>>,
         >,
         /// A configuration of [S3 object locking](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock.html) (documented below)
         ///
         /// > **NOTE:** You cannot use `acceleration_status` in `cn-north-1` or `us-gov-west-1`
         #[builder(into, default)]
-        pub object_lock_configuration: pulumi_wasm_rust::InputOrOutput<
+        pub object_lock_configuration: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::s3::BucketObjectLockConfiguration>,
         >,
         /// A valid [bucket policy](https://docs.aws.amazon.com/AmazonS3/latest/dev/example-bucket-policies.html) JSON document. Note that if the policy document is not specific enough (but still valid), this provider may view the policy as constantly changing in a `pulumi preview`. In this case, please make sure you use the verbose/specific version of the policy.
         #[builder(into, default)]
-        pub policy: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub policy: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// A configuration of [replication configuration](http://docs.aws.amazon.com/AmazonS3/latest/dev/crr.html) (documented below).
         #[builder(into, default)]
-        pub replication_configuration: pulumi_wasm_rust::InputOrOutput<
+        pub replication_configuration: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::s3::BucketReplicationConfiguration>,
         >,
         /// Specifies who should bear the cost of Amazon S3 data transfer.
@@ -410,124 +410,124 @@ pub mod bucket {
         /// the costs of any data transfer. See [Requester Pays Buckets](http://docs.aws.amazon.com/AmazonS3/latest/dev/RequesterPaysBuckets.html)
         /// developer guide for more information.
         #[builder(into, default)]
-        pub request_payer: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub request_payer: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// A configuration of [server-side encryption configuration](http://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-encryption.html) (documented below)
         #[builder(into, default)]
-        pub server_side_encryption_configuration: pulumi_wasm_rust::InputOrOutput<
+        pub server_side_encryption_configuration: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::s3::BucketServerSideEncryptionConfiguration>,
         >,
         /// A map of tags to assign to the bucket. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// A state of [versioning](https://docs.aws.amazon.com/AmazonS3/latest/dev/Versioning.html) (documented below)
         #[builder(into, default)]
-        pub versioning: pulumi_wasm_rust::InputOrOutput<
+        pub versioning: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::s3::BucketVersioning>,
         >,
         /// A website object (documented below).
         #[builder(into, default)]
-        pub website: pulumi_wasm_rust::InputOrOutput<
+        pub website: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::s3::BucketWebsite>,
         >,
         /// The domain of the website endpoint, if the bucket is configured with a website. If not, this will be an empty string. This is used to create Route 53 alias records.
         #[builder(into, default)]
-        pub website_domain: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub website_domain: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The website endpoint, if the bucket is configured with a website. If not, this will be an empty string.
         #[builder(into, default)]
-        pub website_endpoint: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub website_endpoint: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct BucketResult {
         /// Sets the accelerate configuration of an existing bucket. Can be `Enabled` or `Suspended`.
-        pub acceleration_status: pulumi_wasm_rust::Output<String>,
+        pub acceleration_status: pulumi_gestalt_rust::Output<String>,
         /// The [canned ACL](https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#canned-acl) to apply. Valid values are `private`, `public-read`, `public-read-write`, `aws-exec-read`, `authenticated-read`, and `log-delivery-write`. Defaults to `private`.  Conflicts with `grant`.
-        pub acl: pulumi_wasm_rust::Output<Option<String>>,
+        pub acl: pulumi_gestalt_rust::Output<Option<String>>,
         /// The ARN of the bucket. Will be of format `arn:aws:s3:::bucketname`.
-        pub arn: pulumi_wasm_rust::Output<String>,
+        pub arn: pulumi_gestalt_rust::Output<String>,
         /// The name of the bucket. If omitted, this provider will assign a random, unique name. Must be lowercase and less than or equal to 63 characters in length. A full list of bucket naming rules [may be found here](https://docs.aws.amazon.com/AmazonS3/latest/userguide/bucketnamingrules.html).
-        pub bucket: pulumi_wasm_rust::Output<String>,
+        pub bucket: pulumi_gestalt_rust::Output<String>,
         /// The bucket domain name. Will be of format `bucketname.s3.amazonaws.com`.
-        pub bucket_domain_name: pulumi_wasm_rust::Output<String>,
+        pub bucket_domain_name: pulumi_gestalt_rust::Output<String>,
         /// Creates a unique bucket name beginning with the specified prefix. Conflicts with `bucket`. Must be lowercase and less than or equal to 37 characters in length. A full list of bucket naming rules [may be found here](https://docs.aws.amazon.com/AmazonS3/latest/userguide/bucketnamingrules.html).
-        pub bucket_prefix: pulumi_wasm_rust::Output<Option<String>>,
+        pub bucket_prefix: pulumi_gestalt_rust::Output<Option<String>>,
         /// The bucket region-specific domain name. The bucket domain name including the region name, please refer [here](https://docs.aws.amazon.com/general/latest/gr/rande.html#s3_region) for format. Note: The AWS CloudFront allows specifying S3 region-specific endpoint when creating S3 origin, it will prevent [redirect issues](https://forums.aws.amazon.com/thread.jspa?threadID=216814) from CloudFront to S3 Origin URL.
-        pub bucket_regional_domain_name: pulumi_wasm_rust::Output<String>,
+        pub bucket_regional_domain_name: pulumi_gestalt_rust::Output<String>,
         /// A rule of [Cross-Origin Resource Sharing](https://docs.aws.amazon.com/AmazonS3/latest/dev/cors.html) (documented below).
-        pub cors_rules: pulumi_wasm_rust::Output<
+        pub cors_rules: pulumi_gestalt_rust::Output<
             Option<Vec<super::super::types::s3::BucketCorsRule>>,
         >,
         /// A boolean that indicates all objects (including any [locked objects](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html)) should be deleted from the bucket so that the bucket can be destroyed without error. These objects are *not* recoverable.
-        pub force_destroy: pulumi_wasm_rust::Output<Option<bool>>,
+        pub force_destroy: pulumi_gestalt_rust::Output<Option<bool>>,
         /// An [ACL policy grant](https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#sample-acl) (documented below). Conflicts with `acl`.
-        pub grants: pulumi_wasm_rust::Output<
+        pub grants: pulumi_gestalt_rust::Output<
             Option<Vec<super::super::types::s3::BucketGrant>>,
         >,
         /// The [Route 53 Hosted Zone ID](https://docs.aws.amazon.com/general/latest/gr/rande.html#s3_website_region_endpoints) for this bucket's region.
-        pub hosted_zone_id: pulumi_wasm_rust::Output<String>,
+        pub hosted_zone_id: pulumi_gestalt_rust::Output<String>,
         /// A configuration of [object lifecycle management](http://docs.aws.amazon.com/AmazonS3/latest/dev/object-lifecycle-mgmt.html) (documented below).
-        pub lifecycle_rules: pulumi_wasm_rust::Output<
+        pub lifecycle_rules: pulumi_gestalt_rust::Output<
             Option<Vec<super::super::types::s3::BucketLifecycleRule>>,
         >,
         /// A settings of [bucket logging](https://docs.aws.amazon.com/AmazonS3/latest/UG/ManagingBucketLogging.html) (documented below).
-        pub loggings: pulumi_wasm_rust::Output<
+        pub loggings: pulumi_gestalt_rust::Output<
             Option<Vec<super::super::types::s3::BucketLogging>>,
         >,
         /// A configuration of [S3 object locking](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock.html) (documented below)
         ///
         /// > **NOTE:** You cannot use `acceleration_status` in `cn-north-1` or `us-gov-west-1`
-        pub object_lock_configuration: pulumi_wasm_rust::Output<
+        pub object_lock_configuration: pulumi_gestalt_rust::Output<
             Option<super::super::types::s3::BucketObjectLockConfiguration>,
         >,
         /// A valid [bucket policy](https://docs.aws.amazon.com/AmazonS3/latest/dev/example-bucket-policies.html) JSON document. Note that if the policy document is not specific enough (but still valid), this provider may view the policy as constantly changing in a `pulumi preview`. In this case, please make sure you use the verbose/specific version of the policy.
-        pub policy: pulumi_wasm_rust::Output<Option<String>>,
+        pub policy: pulumi_gestalt_rust::Output<Option<String>>,
         /// The AWS region this bucket resides in.
-        pub region: pulumi_wasm_rust::Output<String>,
+        pub region: pulumi_gestalt_rust::Output<String>,
         /// A configuration of [replication configuration](http://docs.aws.amazon.com/AmazonS3/latest/dev/crr.html) (documented below).
-        pub replication_configuration: pulumi_wasm_rust::Output<
+        pub replication_configuration: pulumi_gestalt_rust::Output<
             Option<super::super::types::s3::BucketReplicationConfiguration>,
         >,
         /// Specifies who should bear the cost of Amazon S3 data transfer.
         /// Can be either `BucketOwner` or `Requester`. By default, the owner of the S3 bucket would incur
         /// the costs of any data transfer. See [Requester Pays Buckets](http://docs.aws.amazon.com/AmazonS3/latest/dev/RequesterPaysBuckets.html)
         /// developer guide for more information.
-        pub request_payer: pulumi_wasm_rust::Output<String>,
+        pub request_payer: pulumi_gestalt_rust::Output<String>,
         /// A configuration of [server-side encryption configuration](http://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-encryption.html) (documented below)
-        pub server_side_encryption_configuration: pulumi_wasm_rust::Output<
+        pub server_side_encryption_configuration: pulumi_gestalt_rust::Output<
             super::super::types::s3::BucketServerSideEncryptionConfiguration,
         >,
         /// A map of tags to assign to the bucket. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        pub tags_all: pulumi_wasm_rust::Output<
+        pub tags_all: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
         /// A state of [versioning](https://docs.aws.amazon.com/AmazonS3/latest/dev/Versioning.html) (documented below)
-        pub versioning: pulumi_wasm_rust::Output<
+        pub versioning: pulumi_gestalt_rust::Output<
             super::super::types::s3::BucketVersioning,
         >,
         /// A website object (documented below).
-        pub website: pulumi_wasm_rust::Output<
+        pub website: pulumi_gestalt_rust::Output<
             Option<super::super::types::s3::BucketWebsite>,
         >,
         /// The domain of the website endpoint, if the bucket is configured with a website. If not, this will be an empty string. This is used to create Route 53 alias records.
-        pub website_domain: pulumi_wasm_rust::Output<String>,
+        pub website_domain: pulumi_gestalt_rust::Output<String>,
         /// The website endpoint, if the bucket is configured with a website. If not, this will be an empty string.
-        pub website_endpoint: pulumi_wasm_rust::Output<String>,
+        pub website_endpoint: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: BucketArgs,
     ) -> BucketResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let acceleration_status_binding = args
             .acceleration_status
@@ -661,65 +661,73 @@ pub mod bucket {
         };
         let o = register_interface::register(context.get_inner(), &request);
         BucketResult {
-            acceleration_status: pulumi_wasm_rust::__private::into_domain(
+            acceleration_status: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("accelerationStatus"),
             ),
-            acl: pulumi_wasm_rust::__private::into_domain(o.extract_field("acl")),
-            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
-            bucket: pulumi_wasm_rust::__private::into_domain(o.extract_field("bucket")),
-            bucket_domain_name: pulumi_wasm_rust::__private::into_domain(
+            acl: pulumi_gestalt_rust::__private::into_domain(o.extract_field("acl")),
+            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
+            bucket: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("bucket"),
+            ),
+            bucket_domain_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("bucketDomainName"),
             ),
-            bucket_prefix: pulumi_wasm_rust::__private::into_domain(
+            bucket_prefix: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("bucketPrefix"),
             ),
-            bucket_regional_domain_name: pulumi_wasm_rust::__private::into_domain(
+            bucket_regional_domain_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("bucketRegionalDomainName"),
             ),
-            cors_rules: pulumi_wasm_rust::__private::into_domain(
+            cors_rules: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("corsRules"),
             ),
-            force_destroy: pulumi_wasm_rust::__private::into_domain(
+            force_destroy: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("forceDestroy"),
             ),
-            grants: pulumi_wasm_rust::__private::into_domain(o.extract_field("grants")),
-            hosted_zone_id: pulumi_wasm_rust::__private::into_domain(
+            grants: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("grants"),
+            ),
+            hosted_zone_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("hostedZoneId"),
             ),
-            lifecycle_rules: pulumi_wasm_rust::__private::into_domain(
+            lifecycle_rules: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("lifecycleRules"),
             ),
-            loggings: pulumi_wasm_rust::__private::into_domain(
+            loggings: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("loggings"),
             ),
-            object_lock_configuration: pulumi_wasm_rust::__private::into_domain(
+            object_lock_configuration: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("objectLockConfiguration"),
             ),
-            policy: pulumi_wasm_rust::__private::into_domain(o.extract_field("policy")),
-            region: pulumi_wasm_rust::__private::into_domain(o.extract_field("region")),
-            replication_configuration: pulumi_wasm_rust::__private::into_domain(
+            policy: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("policy"),
+            ),
+            region: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("region"),
+            ),
+            replication_configuration: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("replicationConfiguration"),
             ),
-            request_payer: pulumi_wasm_rust::__private::into_domain(
+            request_payer: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("requestPayer"),
             ),
-            server_side_encryption_configuration: pulumi_wasm_rust::__private::into_domain(
+            server_side_encryption_configuration: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("serverSideEncryptionConfiguration"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_wasm_rust::__private::into_domain(
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            tags_all: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("tagsAll"),
             ),
-            versioning: pulumi_wasm_rust::__private::into_domain(
+            versioning: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("versioning"),
             ),
-            website: pulumi_wasm_rust::__private::into_domain(
+            website: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("website"),
             ),
-            website_domain: pulumi_wasm_rust::__private::into_domain(
+            website_domain: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("websiteDomain"),
             ),
-            website_endpoint: pulumi_wasm_rust::__private::into_domain(
+            website_endpoint: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("websiteEndpoint"),
             ),
         }

@@ -294,18 +294,18 @@
 /// ```
 ///
 pub mod batch {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct BatchArgs {
         /// The ID to use for the batch, which will become the final component of the batch's resource name.
         /// This value must be 4-63 characters. Valid characters are /[a-z][0-9]-/.
         #[builder(into, default)]
-        pub batch_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub batch_id: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Environment configuration for the batch execution.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub environment_config: pulumi_wasm_rust::InputOrOutput<
+        pub environment_config: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::dataproc::BatchEnvironmentConfig>,
         >,
         /// The labels to associate with this batch.
@@ -313,44 +313,44 @@ pub mod batch {
         /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
         /// Please refer to the field `effective_labels` for all of the labels present on the resource.
         #[builder(into, default)]
-        pub labels: pulumi_wasm_rust::InputOrOutput<
+        pub labels: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// The location in which the batch will be created in.
         #[builder(into, default)]
-        pub location: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub location: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub project: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// PySpark batch config.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub pyspark_batch: pulumi_wasm_rust::InputOrOutput<
+        pub pyspark_batch: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::dataproc::BatchPysparkBatch>,
         >,
         /// Runtime configuration for the batch execution.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub runtime_config: pulumi_wasm_rust::InputOrOutput<
+        pub runtime_config: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::dataproc::BatchRuntimeConfig>,
         >,
         /// Spark batch config.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub spark_batch: pulumi_wasm_rust::InputOrOutput<
+        pub spark_batch: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::dataproc::BatchSparkBatch>,
         >,
         /// SparkR batch config.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub spark_r_batch: pulumi_wasm_rust::InputOrOutput<
+        pub spark_r_batch: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::dataproc::BatchSparkRBatch>,
         >,
         /// Spark SQL batch config.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub spark_sql_batch: pulumi_wasm_rust::InputOrOutput<
+        pub spark_sql_batch: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::dataproc::BatchSparkSqlBatch>,
         >,
     }
@@ -358,97 +358,97 @@ pub mod batch {
     pub struct BatchResult {
         /// The ID to use for the batch, which will become the final component of the batch's resource name.
         /// This value must be 4-63 characters. Valid characters are /[a-z][0-9]-/.
-        pub batch_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub batch_id: pulumi_gestalt_rust::Output<Option<String>>,
         /// The time when the batch was created.
-        pub create_time: pulumi_wasm_rust::Output<String>,
+        pub create_time: pulumi_gestalt_rust::Output<String>,
         /// The email address of the user who created the batch.
-        pub creator: pulumi_wasm_rust::Output<String>,
+        pub creator: pulumi_gestalt_rust::Output<String>,
         /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Pulumi, other clients and services.
-        pub effective_labels: pulumi_wasm_rust::Output<
+        pub effective_labels: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
         /// Environment configuration for the batch execution.
         /// Structure is documented below.
-        pub environment_config: pulumi_wasm_rust::Output<
+        pub environment_config: pulumi_gestalt_rust::Output<
             Option<super::super::types::dataproc::BatchEnvironmentConfig>,
         >,
         /// The labels to associate with this batch.
         ///
         /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
         /// Please refer to the field `effective_labels` for all of the labels present on the resource.
-        pub labels: pulumi_wasm_rust::Output<
+        pub labels: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// The location in which the batch will be created in.
-        pub location: pulumi_wasm_rust::Output<Option<String>>,
+        pub location: pulumi_gestalt_rust::Output<Option<String>>,
         /// The resource name of the batch.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// The resource name of the operation associated with this batch.
-        pub operation: pulumi_wasm_rust::Output<String>,
+        pub operation: pulumi_gestalt_rust::Output<String>,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
-        pub project: pulumi_wasm_rust::Output<String>,
+        pub project: pulumi_gestalt_rust::Output<String>,
         /// The combination of labels configured directly on the resource
         /// and default labels configured on the provider.
-        pub pulumi_labels: pulumi_wasm_rust::Output<
+        pub pulumi_labels: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
         /// PySpark batch config.
         /// Structure is documented below.
-        pub pyspark_batch: pulumi_wasm_rust::Output<
+        pub pyspark_batch: pulumi_gestalt_rust::Output<
             Option<super::super::types::dataproc::BatchPysparkBatch>,
         >,
         /// Runtime configuration for the batch execution.
         /// Structure is documented below.
-        pub runtime_config: pulumi_wasm_rust::Output<
+        pub runtime_config: pulumi_gestalt_rust::Output<
             Option<super::super::types::dataproc::BatchRuntimeConfig>,
         >,
         /// Runtime information about batch execution.
         /// Structure is documented below.
-        pub runtime_infos: pulumi_wasm_rust::Output<
+        pub runtime_infos: pulumi_gestalt_rust::Output<
             Vec<super::super::types::dataproc::BatchRuntimeInfo>,
         >,
         /// Spark batch config.
         /// Structure is documented below.
-        pub spark_batch: pulumi_wasm_rust::Output<
+        pub spark_batch: pulumi_gestalt_rust::Output<
             Option<super::super::types::dataproc::BatchSparkBatch>,
         >,
         /// SparkR batch config.
         /// Structure is documented below.
-        pub spark_r_batch: pulumi_wasm_rust::Output<
+        pub spark_r_batch: pulumi_gestalt_rust::Output<
             Option<super::super::types::dataproc::BatchSparkRBatch>,
         >,
         /// Spark SQL batch config.
         /// Structure is documented below.
-        pub spark_sql_batch: pulumi_wasm_rust::Output<
+        pub spark_sql_batch: pulumi_gestalt_rust::Output<
             Option<super::super::types::dataproc::BatchSparkSqlBatch>,
         >,
         /// (Output)
         /// The state of the batch at this point in history. For possible values, see the [API documentation](https://cloud.google.com/dataproc-serverless/docs/reference/rest/v1/projects.locations.batches#State).
-        pub state: pulumi_wasm_rust::Output<String>,
+        pub state: pulumi_gestalt_rust::Output<String>,
         /// Historical state information for the batch.
         /// Structure is documented below.
-        pub state_histories: pulumi_wasm_rust::Output<
+        pub state_histories: pulumi_gestalt_rust::Output<
             Vec<super::super::types::dataproc::BatchStateHistory>,
         >,
         /// (Output)
         /// Details about the state at this point in history.
-        pub state_message: pulumi_wasm_rust::Output<String>,
+        pub state_message: pulumi_gestalt_rust::Output<String>,
         /// Batch state details, such as a failure description if the state is FAILED.
-        pub state_time: pulumi_wasm_rust::Output<String>,
+        pub state_time: pulumi_gestalt_rust::Output<String>,
         /// A batch UUID (Unique Universal Identifier). The service generates this value when it creates the batch.
-        pub uuid: pulumi_wasm_rust::Output<String>,
+        pub uuid: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: BatchArgs,
     ) -> BatchResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let batch_id_binding = args.batch_id.get_output(context).get_inner();
         let environment_config_binding = args
@@ -515,64 +515,66 @@ pub mod batch {
         };
         let o = register_interface::register(context.get_inner(), &request);
         BatchResult {
-            batch_id: pulumi_wasm_rust::__private::into_domain(
+            batch_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("batchId"),
             ),
-            create_time: pulumi_wasm_rust::__private::into_domain(
+            create_time: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("createTime"),
             ),
-            creator: pulumi_wasm_rust::__private::into_domain(
+            creator: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("creator"),
             ),
-            effective_labels: pulumi_wasm_rust::__private::into_domain(
+            effective_labels: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("effectiveLabels"),
             ),
-            environment_config: pulumi_wasm_rust::__private::into_domain(
+            environment_config: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("environmentConfig"),
             ),
-            labels: pulumi_wasm_rust::__private::into_domain(o.extract_field("labels")),
-            location: pulumi_wasm_rust::__private::into_domain(
+            labels: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("labels"),
+            ),
+            location: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("location"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            operation: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            operation: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("operation"),
             ),
-            project: pulumi_wasm_rust::__private::into_domain(
+            project: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("project"),
             ),
-            pulumi_labels: pulumi_wasm_rust::__private::into_domain(
+            pulumi_labels: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("pulumiLabels"),
             ),
-            pyspark_batch: pulumi_wasm_rust::__private::into_domain(
+            pyspark_batch: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("pysparkBatch"),
             ),
-            runtime_config: pulumi_wasm_rust::__private::into_domain(
+            runtime_config: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("runtimeConfig"),
             ),
-            runtime_infos: pulumi_wasm_rust::__private::into_domain(
+            runtime_infos: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("runtimeInfos"),
             ),
-            spark_batch: pulumi_wasm_rust::__private::into_domain(
+            spark_batch: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("sparkBatch"),
             ),
-            spark_r_batch: pulumi_wasm_rust::__private::into_domain(
+            spark_r_batch: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("sparkRBatch"),
             ),
-            spark_sql_batch: pulumi_wasm_rust::__private::into_domain(
+            spark_sql_batch: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("sparkSqlBatch"),
             ),
-            state: pulumi_wasm_rust::__private::into_domain(o.extract_field("state")),
-            state_histories: pulumi_wasm_rust::__private::into_domain(
+            state: pulumi_gestalt_rust::__private::into_domain(o.extract_field("state")),
+            state_histories: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("stateHistories"),
             ),
-            state_message: pulumi_wasm_rust::__private::into_domain(
+            state_message: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("stateMessage"),
             ),
-            state_time: pulumi_wasm_rust::__private::into_domain(
+            state_time: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("stateTime"),
             ),
-            uuid: pulumi_wasm_rust::__private::into_domain(o.extract_field("uuid")),
+            uuid: pulumi_gestalt_rust::__private::into_domain(o.extract_field("uuid")),
         }
     }
 }

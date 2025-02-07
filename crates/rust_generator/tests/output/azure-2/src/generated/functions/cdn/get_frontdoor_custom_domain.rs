@@ -1,48 +1,48 @@
 pub mod get_frontdoor_custom_domain {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct GetFrontdoorCustomDomainArgs {
         /// The name of the Front Door Custom Domain.
         #[builder(into)]
-        pub name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The name of the Front Door Profile which the Front Door Custom Domain is bound to.
         #[builder(into)]
-        pub profile_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub profile_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The name of the Resource Group where the Front Door Profile exists.
         #[builder(into)]
-        pub resource_group_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub resource_group_name: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct GetFrontdoorCustomDomainResult {
         /// The ID of the Front Door Profile which the Front Door Custom Domain is bound to.
-        pub cdn_frontdoor_profile_id: pulumi_wasm_rust::Output<String>,
-        pub dns_zone_id: pulumi_wasm_rust::Output<String>,
+        pub cdn_frontdoor_profile_id: pulumi_gestalt_rust::Output<String>,
+        pub dns_zone_id: pulumi_gestalt_rust::Output<String>,
         /// The date time that the token expires.
-        pub expiration_date: pulumi_wasm_rust::Output<String>,
+        pub expiration_date: pulumi_gestalt_rust::Output<String>,
         /// The host name of the domain.
-        pub host_name: pulumi_wasm_rust::Output<String>,
+        pub host_name: pulumi_gestalt_rust::Output<String>,
         /// The provider-assigned unique ID for this managed resource.
-        pub id: pulumi_wasm_rust::Output<String>,
-        pub name: pulumi_wasm_rust::Output<String>,
-        pub profile_name: pulumi_wasm_rust::Output<String>,
-        pub resource_group_name: pulumi_wasm_rust::Output<String>,
+        pub id: pulumi_gestalt_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
+        pub profile_name: pulumi_gestalt_rust::Output<String>,
+        pub resource_group_name: pulumi_gestalt_rust::Output<String>,
         /// A `tls` block as defined below.
-        pub tls: pulumi_wasm_rust::Output<
+        pub tls: pulumi_gestalt_rust::Output<
             Vec<super::super::super::types::cdn::GetFrontdoorCustomDomainTl>,
         >,
         /// The challenge used for DNS TXT record or file based validation.
-        pub validation_token: pulumi_wasm_rust::Output<String>,
+        pub validation_token: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         args: GetFrontdoorCustomDomainArgs,
     ) -> GetFrontdoorCustomDomainResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let name_binding = args.name.get_output(context).get_inner();
         let profile_name_binding = args.profile_name.get_output(context).get_inner();
@@ -70,28 +70,28 @@ pub mod get_frontdoor_custom_domain {
         };
         let o = register_interface::invoke(context.get_inner(), &request);
         GetFrontdoorCustomDomainResult {
-            cdn_frontdoor_profile_id: pulumi_wasm_rust::__private::into_domain(
+            cdn_frontdoor_profile_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("cdnFrontdoorProfileId"),
             ),
-            dns_zone_id: pulumi_wasm_rust::__private::into_domain(
+            dns_zone_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("dnsZoneId"),
             ),
-            expiration_date: pulumi_wasm_rust::__private::into_domain(
+            expiration_date: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("expirationDate"),
             ),
-            host_name: pulumi_wasm_rust::__private::into_domain(
+            host_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("hostName"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            profile_name: pulumi_wasm_rust::__private::into_domain(
+            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            profile_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("profileName"),
             ),
-            resource_group_name: pulumi_wasm_rust::__private::into_domain(
+            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("resourceGroupName"),
             ),
-            tls: pulumi_wasm_rust::__private::into_domain(o.extract_field("tls")),
-            validation_token: pulumi_wasm_rust::__private::into_domain(
+            tls: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tls")),
+            validation_token: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("validationToken"),
             ),
         }

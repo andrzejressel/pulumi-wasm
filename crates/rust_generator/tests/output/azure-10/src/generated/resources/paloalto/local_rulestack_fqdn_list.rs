@@ -3,8 +3,8 @@
 /// ## Example Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = resource_group::create(
@@ -42,49 +42,51 @@
 /// ```
 ///
 pub mod local_rulestack_fqdn_list {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct LocalRulestackFqdnListArgs {
         /// The comment for Audit purposes.
         #[builder(into, default)]
-        pub audit_comment: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub audit_comment: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The description for the FQDN List.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub description: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Specifies a list of Fully Qualified Domain Names.
         #[builder(into)]
-        pub fully_qualified_domain_names: pulumi_wasm_rust::InputOrOutput<Vec<String>>,
+        pub fully_qualified_domain_names: pulumi_gestalt_rust::InputOrOutput<
+            Vec<String>,
+        >,
         /// The name which should be used for this Palo Alto Local Rulestack FQDN List.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The ID of the TODO. Changing this forces a new Palo Alto Local Rulestack FQDN List to be created.
         #[builder(into)]
-        pub rulestack_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub rulestack_id: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct LocalRulestackFqdnListResult {
         /// The comment for Audit purposes.
-        pub audit_comment: pulumi_wasm_rust::Output<Option<String>>,
+        pub audit_comment: pulumi_gestalt_rust::Output<Option<String>>,
         /// The description for the FQDN List.
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_gestalt_rust::Output<Option<String>>,
         /// Specifies a list of Fully Qualified Domain Names.
-        pub fully_qualified_domain_names: pulumi_wasm_rust::Output<Vec<String>>,
+        pub fully_qualified_domain_names: pulumi_gestalt_rust::Output<Vec<String>>,
         /// The name which should be used for this Palo Alto Local Rulestack FQDN List.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// The ID of the TODO. Changing this forces a new Palo Alto Local Rulestack FQDN List to be created.
-        pub rulestack_id: pulumi_wasm_rust::Output<String>,
+        pub rulestack_id: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: LocalRulestackFqdnListArgs,
     ) -> LocalRulestackFqdnListResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let audit_comment_binding = args.audit_comment.get_output(context).get_inner();
         let description_binding = args.description.get_output(context).get_inner();
@@ -123,17 +125,17 @@ pub mod local_rulestack_fqdn_list {
         };
         let o = register_interface::register(context.get_inner(), &request);
         LocalRulestackFqdnListResult {
-            audit_comment: pulumi_wasm_rust::__private::into_domain(
+            audit_comment: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("auditComment"),
             ),
-            description: pulumi_wasm_rust::__private::into_domain(
+            description: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("description"),
             ),
-            fully_qualified_domain_names: pulumi_wasm_rust::__private::into_domain(
+            fully_qualified_domain_names: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("fullyQualifiedDomainNames"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            rulestack_id: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            rulestack_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("rulestackId"),
             ),
         }

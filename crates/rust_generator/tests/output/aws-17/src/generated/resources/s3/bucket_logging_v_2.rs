@@ -9,8 +9,8 @@
 /// ## Example Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = bucket_v_2::create(
@@ -60,62 +60,62 @@
 /// $ pulumi import aws:s3/bucketLoggingV2:BucketLoggingV2 example bucket-name,123456789012
 /// ```
 pub mod bucket_logging_v_2 {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct BucketLoggingV2Args {
         /// Name of the bucket.
         #[builder(into)]
-        pub bucket: pulumi_wasm_rust::InputOrOutput<String>,
+        pub bucket: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Account ID of the expected bucket owner.
         #[builder(into, default)]
-        pub expected_bucket_owner: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub expected_bucket_owner: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Name of the bucket where you want Amazon S3 to store server access logs.
         #[builder(into)]
-        pub target_bucket: pulumi_wasm_rust::InputOrOutput<String>,
+        pub target_bucket: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Set of configuration blocks with information for granting permissions. See below.
         #[builder(into, default)]
-        pub target_grants: pulumi_wasm_rust::InputOrOutput<
+        pub target_grants: pulumi_gestalt_rust::InputOrOutput<
             Option<Vec<super::super::types::s3::BucketLoggingV2TargetGrant>>,
         >,
         /// Amazon S3 key format for log objects. See below.
         #[builder(into, default)]
-        pub target_object_key_format: pulumi_wasm_rust::InputOrOutput<
+        pub target_object_key_format: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::s3::BucketLoggingV2TargetObjectKeyFormat>,
         >,
         /// Prefix for all log object keys.
         #[builder(into)]
-        pub target_prefix: pulumi_wasm_rust::InputOrOutput<String>,
+        pub target_prefix: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct BucketLoggingV2Result {
         /// Name of the bucket.
-        pub bucket: pulumi_wasm_rust::Output<String>,
+        pub bucket: pulumi_gestalt_rust::Output<String>,
         /// Account ID of the expected bucket owner.
-        pub expected_bucket_owner: pulumi_wasm_rust::Output<Option<String>>,
+        pub expected_bucket_owner: pulumi_gestalt_rust::Output<Option<String>>,
         /// Name of the bucket where you want Amazon S3 to store server access logs.
-        pub target_bucket: pulumi_wasm_rust::Output<String>,
+        pub target_bucket: pulumi_gestalt_rust::Output<String>,
         /// Set of configuration blocks with information for granting permissions. See below.
-        pub target_grants: pulumi_wasm_rust::Output<
+        pub target_grants: pulumi_gestalt_rust::Output<
             Option<Vec<super::super::types::s3::BucketLoggingV2TargetGrant>>,
         >,
         /// Amazon S3 key format for log objects. See below.
-        pub target_object_key_format: pulumi_wasm_rust::Output<
+        pub target_object_key_format: pulumi_gestalt_rust::Output<
             Option<super::super::types::s3::BucketLoggingV2TargetObjectKeyFormat>,
         >,
         /// Prefix for all log object keys.
-        pub target_prefix: pulumi_wasm_rust::Output<String>,
+        pub target_prefix: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: BucketLoggingV2Args,
     ) -> BucketLoggingV2Result {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let bucket_binding = args.bucket.get_output(context).get_inner();
         let expected_bucket_owner_binding = args
@@ -162,20 +162,22 @@ pub mod bucket_logging_v_2 {
         };
         let o = register_interface::register(context.get_inner(), &request);
         BucketLoggingV2Result {
-            bucket: pulumi_wasm_rust::__private::into_domain(o.extract_field("bucket")),
-            expected_bucket_owner: pulumi_wasm_rust::__private::into_domain(
+            bucket: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("bucket"),
+            ),
+            expected_bucket_owner: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("expectedBucketOwner"),
             ),
-            target_bucket: pulumi_wasm_rust::__private::into_domain(
+            target_bucket: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("targetBucket"),
             ),
-            target_grants: pulumi_wasm_rust::__private::into_domain(
+            target_grants: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("targetGrants"),
             ),
-            target_object_key_format: pulumi_wasm_rust::__private::into_domain(
+            target_object_key_format: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("targetObjectKeyFormat"),
             ),
-            target_prefix: pulumi_wasm_rust::__private::into_domain(
+            target_prefix: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("targetPrefix"),
             ),
         }

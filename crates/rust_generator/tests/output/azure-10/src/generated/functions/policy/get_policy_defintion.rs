@@ -1,5 +1,5 @@
 pub mod get_policy_defintion {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct GetPolicyDefintionArgs {
@@ -7,47 +7,47 @@ pub mod get_policy_defintion {
         ///
         /// > **NOTE** Looking up policies by `display_name` is not recommended by the Azure Policy team as the property is not unique nor immutable. As such errors may occur when there are multiple policy definitions with same display name or the display name is changed. To avoid these types of errors you may wish to use the `name` property instead.
         #[builder(into, default)]
-        pub display_name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub display_name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Only retrieve Policy Definitions from this Management Group.
         #[builder(into, default)]
-        pub management_group_name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub management_group_name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Specifies the name of the Policy Definition. Conflicts with `display_name`.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct GetPolicyDefintionResult {
         /// The Description of the Policy.
-        pub description: pulumi_wasm_rust::Output<String>,
-        pub display_name: pulumi_wasm_rust::Output<String>,
+        pub description: pulumi_gestalt_rust::Output<String>,
+        pub display_name: pulumi_gestalt_rust::Output<String>,
         /// The provider-assigned unique ID for this managed resource.
-        pub id: pulumi_wasm_rust::Output<String>,
-        pub management_group_name: pulumi_wasm_rust::Output<Option<String>>,
+        pub id: pulumi_gestalt_rust::Output<String>,
+        pub management_group_name: pulumi_gestalt_rust::Output<Option<String>>,
         /// Any Metadata defined in the Policy.
-        pub metadata: pulumi_wasm_rust::Output<String>,
+        pub metadata: pulumi_gestalt_rust::Output<String>,
         /// The Mode of the Policy.
-        pub mode: pulumi_wasm_rust::Output<String>,
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub mode: pulumi_gestalt_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// Any Parameters defined in the Policy.
-        pub parameters: pulumi_wasm_rust::Output<String>,
+        pub parameters: pulumi_gestalt_rust::Output<String>,
         /// The Rule as defined (in JSON) in the Policy.
-        pub policy_rule: pulumi_wasm_rust::Output<String>,
+        pub policy_rule: pulumi_gestalt_rust::Output<String>,
         /// The Type of the Policy. Possible values are `BuiltIn`, `Custom` and `NotSpecified`.
-        pub policy_type: pulumi_wasm_rust::Output<String>,
+        pub policy_type: pulumi_gestalt_rust::Output<String>,
         /// A list of role definition id extracted from `policy_rule` required for remediation.
-        pub role_definition_ids: pulumi_wasm_rust::Output<Vec<String>>,
+        pub role_definition_ids: pulumi_gestalt_rust::Output<Vec<String>>,
         /// The Type of Policy.
-        pub type_: pulumi_wasm_rust::Output<String>,
+        pub type_: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         args: GetPolicyDefintionArgs,
     ) -> GetPolicyDefintionResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let display_name_binding = args.display_name.get_output(context).get_inner();
         let management_group_name_binding = args
@@ -75,34 +75,34 @@ pub mod get_policy_defintion {
         };
         let o = register_interface::invoke(context.get_inner(), &request);
         GetPolicyDefintionResult {
-            description: pulumi_wasm_rust::__private::into_domain(
+            description: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("description"),
             ),
-            display_name: pulumi_wasm_rust::__private::into_domain(
+            display_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("displayName"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
-            management_group_name: pulumi_wasm_rust::__private::into_domain(
+            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
+            management_group_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("managementGroupName"),
             ),
-            metadata: pulumi_wasm_rust::__private::into_domain(
+            metadata: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("metadata"),
             ),
-            mode: pulumi_wasm_rust::__private::into_domain(o.extract_field("mode")),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            parameters: pulumi_wasm_rust::__private::into_domain(
+            mode: pulumi_gestalt_rust::__private::into_domain(o.extract_field("mode")),
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            parameters: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("parameters"),
             ),
-            policy_rule: pulumi_wasm_rust::__private::into_domain(
+            policy_rule: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("policyRule"),
             ),
-            policy_type: pulumi_wasm_rust::__private::into_domain(
+            policy_type: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("policyType"),
             ),
-            role_definition_ids: pulumi_wasm_rust::__private::into_domain(
+            role_definition_ids: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("roleDefinitionIds"),
             ),
-            type_: pulumi_wasm_rust::__private::into_domain(o.extract_field("type")),
+            type_: pulumi_gestalt_rust::__private::into_domain(o.extract_field("type")),
         }
     }
 }

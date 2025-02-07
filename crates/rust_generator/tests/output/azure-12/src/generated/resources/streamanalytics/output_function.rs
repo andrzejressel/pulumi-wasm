@@ -3,8 +3,8 @@
 /// ## Example Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = resource_group::create(
@@ -83,64 +83,64 @@
 /// ```
 ///
 pub mod output_function {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct OutputFunctionArgs {
         /// The API key for the Function.
         #[builder(into)]
-        pub api_key: pulumi_wasm_rust::InputOrOutput<String>,
+        pub api_key: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The maximum number of events in each batch that's sent to the function. Defaults to `100`.
         #[builder(into, default)]
-        pub batch_max_count: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
+        pub batch_max_count: pulumi_gestalt_rust::InputOrOutput<Option<i32>>,
         /// The maximum batch size in bytes that's sent to the function. Defaults to `262144` (256 kB).
         #[builder(into, default)]
-        pub batch_max_in_bytes: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
+        pub batch_max_in_bytes: pulumi_gestalt_rust::InputOrOutput<Option<i32>>,
         /// The name of the Function App.
         #[builder(into)]
-        pub function_app: pulumi_wasm_rust::InputOrOutput<String>,
+        pub function_app: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The name of the function in the Function App.
         #[builder(into)]
-        pub function_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub function_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The name which should be used for this Stream Analytics Output. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The name of the Resource Group where the Stream Analytics Output should exist. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub resource_group_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub resource_group_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The name of the Stream Analytics Job. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub stream_analytics_job_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub stream_analytics_job_name: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct OutputFunctionResult {
         /// The API key for the Function.
-        pub api_key: pulumi_wasm_rust::Output<String>,
+        pub api_key: pulumi_gestalt_rust::Output<String>,
         /// The maximum number of events in each batch that's sent to the function. Defaults to `100`.
-        pub batch_max_count: pulumi_wasm_rust::Output<Option<i32>>,
+        pub batch_max_count: pulumi_gestalt_rust::Output<Option<i32>>,
         /// The maximum batch size in bytes that's sent to the function. Defaults to `262144` (256 kB).
-        pub batch_max_in_bytes: pulumi_wasm_rust::Output<Option<i32>>,
+        pub batch_max_in_bytes: pulumi_gestalt_rust::Output<Option<i32>>,
         /// The name of the Function App.
-        pub function_app: pulumi_wasm_rust::Output<String>,
+        pub function_app: pulumi_gestalt_rust::Output<String>,
         /// The name of the function in the Function App.
-        pub function_name: pulumi_wasm_rust::Output<String>,
+        pub function_name: pulumi_gestalt_rust::Output<String>,
         /// The name which should be used for this Stream Analytics Output. Changing this forces a new resource to be created.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// The name of the Resource Group where the Stream Analytics Output should exist. Changing this forces a new resource to be created.
-        pub resource_group_name: pulumi_wasm_rust::Output<String>,
+        pub resource_group_name: pulumi_gestalt_rust::Output<String>,
         /// The name of the Stream Analytics Job. Changing this forces a new resource to be created.
-        pub stream_analytics_job_name: pulumi_wasm_rust::Output<String>,
+        pub stream_analytics_job_name: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: OutputFunctionArgs,
     ) -> OutputFunctionResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let api_key_binding = args.api_key.get_output(context).get_inner();
         let batch_max_count_binding = args
@@ -203,24 +203,26 @@ pub mod output_function {
         };
         let o = register_interface::register(context.get_inner(), &request);
         OutputFunctionResult {
-            api_key: pulumi_wasm_rust::__private::into_domain(o.extract_field("apiKey")),
-            batch_max_count: pulumi_wasm_rust::__private::into_domain(
+            api_key: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("apiKey"),
+            ),
+            batch_max_count: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("batchMaxCount"),
             ),
-            batch_max_in_bytes: pulumi_wasm_rust::__private::into_domain(
+            batch_max_in_bytes: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("batchMaxInBytes"),
             ),
-            function_app: pulumi_wasm_rust::__private::into_domain(
+            function_app: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("functionApp"),
             ),
-            function_name: pulumi_wasm_rust::__private::into_domain(
+            function_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("functionName"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            resource_group_name: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("resourceGroupName"),
             ),
-            stream_analytics_job_name: pulumi_wasm_rust::__private::into_domain(
+            stream_analytics_job_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("streamAnalyticsJobName"),
             ),
         }

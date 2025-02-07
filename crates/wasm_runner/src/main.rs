@@ -6,8 +6,8 @@ use log4rs::append::file::FileAppender;
 use log4rs::config::{Appender, Root};
 use log4rs::encode::json::JsonEncoder;
 use log4rs::Config;
-use pulumi_wasm_proto::grpc;
-use pulumi_wasm_runner_component_creator::source::{GithubPulumiWasmSource, PulumiWasmSource};
+use pulumi_gestalt_proto::grpc;
+use pulumi_gestalt_runner_component_creator::source::{GithubPulumiWasmSource, PulumiWasmSource};
 use std::fs;
 use std::fs::File;
 use std::io::Write;
@@ -27,7 +27,7 @@ struct App {
 enum Command {
     Run {
         #[arg(long)]
-        pulumi_wasm: Option<PathBuf>,
+        pulumi_gestalt: Option<PathBuf>,
         #[clap(
             long,
             action,
@@ -68,20 +68,20 @@ async fn main() -> Result<(), Error> {
 
     match &args.command {
         Command::Run {
-            pulumi_wasm,
+            pulumi_gestalt,
             debug,
             program,
         } => {
-            use pulumi_wasm_runner_component_creator::source::FileSource;
+            use pulumi_gestalt_runner_component_creator::source::FileSource;
             log::info!("Debug set to {debug}");
             log::info!("Creating final component");
-            let pulumi_wasm_source: Box<dyn PulumiWasmSource> = match pulumi_wasm {
+            let pulumi_gestalt_source: Box<dyn PulumiWasmSource> = match pulumi_gestalt {
                 None => Box::new(GithubPulumiWasmSource {}),
                 Some(location) => Box::new(FileSource::new(location.clone())),
             };
 
-            let component = pulumi_wasm_runner_component_creator::create(
-                pulumi_wasm_source.as_ref(),
+            let component = pulumi_gestalt_runner_component_creator::create(
+                pulumi_gestalt_source.as_ref(),
                 fs::read(program)
                     .context(format!("Cannot read program {}", program.to_str().unwrap()))?,
                 *debug,

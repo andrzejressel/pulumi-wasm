@@ -52,105 +52,105 @@
 /// ```
 ///
 pub mod sql_container {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct SqlContainerArgs {
         /// The name of the Cosmos DB Account to create the container within. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub account_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub account_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The default time to live of Analytical Storage for this SQL container. If present and the value is set to `-1`, it is equal to infinity, and items don’t expire by default. If present and the value is set to some number `n` – items will expire `n` seconds after their last modified time.
         #[builder(into, default)]
-        pub analytical_storage_ttl: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
+        pub analytical_storage_ttl: pulumi_gestalt_rust::InputOrOutput<Option<i32>>,
         /// An `autoscale_settings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual destroy-apply.
         ///
         /// > **Note:** Switching between autoscale and manual throughput is not supported via this provider and must be completed via the Azure Portal and refreshed.
         #[builder(into, default)]
-        pub autoscale_settings: pulumi_wasm_rust::InputOrOutput<
+        pub autoscale_settings: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::cosmosdb::SqlContainerAutoscaleSettings>,
         >,
         /// A `conflict_resolution_policy` blocks as defined below. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub conflict_resolution_policy: pulumi_wasm_rust::InputOrOutput<
+        pub conflict_resolution_policy: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::cosmosdb::SqlContainerConflictResolutionPolicy>,
         >,
         /// The name of the Cosmos DB SQL Database to create the container within. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub database_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub database_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The default time to live of SQL container. If missing, items are not expired automatically. If present and the value is set to `-1`, it is equal to infinity, and items don’t expire by default. If present and the value is set to some number `n` – items will expire `n` seconds after their last modified time.
         #[builder(into, default)]
-        pub default_ttl: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
+        pub default_ttl: pulumi_gestalt_rust::InputOrOutput<Option<i32>>,
         /// An `indexing_policy` block as defined below.
         #[builder(into, default)]
-        pub indexing_policy: pulumi_wasm_rust::InputOrOutput<
+        pub indexing_policy: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::cosmosdb::SqlContainerIndexingPolicy>,
         >,
         /// Specifies the name of the Cosmos DB SQL Container. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Define a partition key kind. Possible values are `Hash` and `MultiHash`. Defaults to `Hash`. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub partition_key_kind: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub partition_key_kind: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// A list of partition key paths. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub partition_key_paths: pulumi_wasm_rust::InputOrOutput<Vec<String>>,
+        pub partition_key_paths: pulumi_gestalt_rust::InputOrOutput<Vec<String>>,
         /// Define a partition key version. Possible values are `1`and `2`. This should be set to `2` in order to use large partition keys.
         ///
         /// > **Note:** If `partition_key_version` is not specified when creating a new resource, you can update `partition_key_version` to `1`, updating to `2` forces a new resource to be created.
         #[builder(into, default)]
-        pub partition_key_version: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
+        pub partition_key_version: pulumi_gestalt_rust::InputOrOutput<Option<i32>>,
         /// The name of the resource group in which the Cosmos DB SQL Container is created. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub resource_group_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub resource_group_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The throughput of SQL container (RU/s). Must be set in increments of `100`. The minimum value is `400`. This must be set upon container creation otherwise it cannot be updated without a manual resource destroy-apply.
         #[builder(into, default)]
-        pub throughput: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
+        pub throughput: pulumi_gestalt_rust::InputOrOutput<Option<i32>>,
         /// One or more `unique_key` blocks as defined below. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub unique_keys: pulumi_wasm_rust::InputOrOutput<
+        pub unique_keys: pulumi_gestalt_rust::InputOrOutput<
             Option<Vec<super::super::types::cosmosdb::SqlContainerUniqueKey>>,
         >,
     }
     #[allow(dead_code)]
     pub struct SqlContainerResult {
         /// The name of the Cosmos DB Account to create the container within. Changing this forces a new resource to be created.
-        pub account_name: pulumi_wasm_rust::Output<String>,
+        pub account_name: pulumi_gestalt_rust::Output<String>,
         /// The default time to live of Analytical Storage for this SQL container. If present and the value is set to `-1`, it is equal to infinity, and items don’t expire by default. If present and the value is set to some number `n` – items will expire `n` seconds after their last modified time.
-        pub analytical_storage_ttl: pulumi_wasm_rust::Output<Option<i32>>,
+        pub analytical_storage_ttl: pulumi_gestalt_rust::Output<Option<i32>>,
         /// An `autoscale_settings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual destroy-apply.
         ///
         /// > **Note:** Switching between autoscale and manual throughput is not supported via this provider and must be completed via the Azure Portal and refreshed.
-        pub autoscale_settings: pulumi_wasm_rust::Output<
+        pub autoscale_settings: pulumi_gestalt_rust::Output<
             Option<super::super::types::cosmosdb::SqlContainerAutoscaleSettings>,
         >,
         /// A `conflict_resolution_policy` blocks as defined below. Changing this forces a new resource to be created.
-        pub conflict_resolution_policy: pulumi_wasm_rust::Output<
+        pub conflict_resolution_policy: pulumi_gestalt_rust::Output<
             super::super::types::cosmosdb::SqlContainerConflictResolutionPolicy,
         >,
         /// The name of the Cosmos DB SQL Database to create the container within. Changing this forces a new resource to be created.
-        pub database_name: pulumi_wasm_rust::Output<String>,
+        pub database_name: pulumi_gestalt_rust::Output<String>,
         /// The default time to live of SQL container. If missing, items are not expired automatically. If present and the value is set to `-1`, it is equal to infinity, and items don’t expire by default. If present and the value is set to some number `n` – items will expire `n` seconds after their last modified time.
-        pub default_ttl: pulumi_wasm_rust::Output<Option<i32>>,
+        pub default_ttl: pulumi_gestalt_rust::Output<Option<i32>>,
         /// An `indexing_policy` block as defined below.
-        pub indexing_policy: pulumi_wasm_rust::Output<
+        pub indexing_policy: pulumi_gestalt_rust::Output<
             super::super::types::cosmosdb::SqlContainerIndexingPolicy,
         >,
         /// Specifies the name of the Cosmos DB SQL Container. Changing this forces a new resource to be created.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// Define a partition key kind. Possible values are `Hash` and `MultiHash`. Defaults to `Hash`. Changing this forces a new resource to be created.
-        pub partition_key_kind: pulumi_wasm_rust::Output<Option<String>>,
+        pub partition_key_kind: pulumi_gestalt_rust::Output<Option<String>>,
         /// A list of partition key paths. Changing this forces a new resource to be created.
-        pub partition_key_paths: pulumi_wasm_rust::Output<Vec<String>>,
+        pub partition_key_paths: pulumi_gestalt_rust::Output<Vec<String>>,
         /// Define a partition key version. Possible values are `1`and `2`. This should be set to `2` in order to use large partition keys.
         ///
         /// > **Note:** If `partition_key_version` is not specified when creating a new resource, you can update `partition_key_version` to `1`, updating to `2` forces a new resource to be created.
-        pub partition_key_version: pulumi_wasm_rust::Output<Option<i32>>,
+        pub partition_key_version: pulumi_gestalt_rust::Output<Option<i32>>,
         /// The name of the resource group in which the Cosmos DB SQL Container is created. Changing this forces a new resource to be created.
-        pub resource_group_name: pulumi_wasm_rust::Output<String>,
+        pub resource_group_name: pulumi_gestalt_rust::Output<String>,
         /// The throughput of SQL container (RU/s). Must be set in increments of `100`. The minimum value is `400`. This must be set upon container creation otherwise it cannot be updated without a manual resource destroy-apply.
-        pub throughput: pulumi_wasm_rust::Output<i32>,
+        pub throughput: pulumi_gestalt_rust::Output<i32>,
         /// One or more `unique_key` blocks as defined below. Changing this forces a new resource to be created.
-        pub unique_keys: pulumi_wasm_rust::Output<
+        pub unique_keys: pulumi_gestalt_rust::Output<
             Option<Vec<super::super::types::cosmosdb::SqlContainerUniqueKey>>,
         >,
     }
@@ -159,11 +159,11 @@ pub mod sql_container {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: SqlContainerArgs,
     ) -> SqlContainerResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let account_name_binding = args.account_name.get_output(context).get_inner();
         let analytical_storage_ttl_binding = args
@@ -268,44 +268,44 @@ pub mod sql_container {
         };
         let o = register_interface::register(context.get_inner(), &request);
         SqlContainerResult {
-            account_name: pulumi_wasm_rust::__private::into_domain(
+            account_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("accountName"),
             ),
-            analytical_storage_ttl: pulumi_wasm_rust::__private::into_domain(
+            analytical_storage_ttl: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("analyticalStorageTtl"),
             ),
-            autoscale_settings: pulumi_wasm_rust::__private::into_domain(
+            autoscale_settings: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("autoscaleSettings"),
             ),
-            conflict_resolution_policy: pulumi_wasm_rust::__private::into_domain(
+            conflict_resolution_policy: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("conflictResolutionPolicy"),
             ),
-            database_name: pulumi_wasm_rust::__private::into_domain(
+            database_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("databaseName"),
             ),
-            default_ttl: pulumi_wasm_rust::__private::into_domain(
+            default_ttl: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("defaultTtl"),
             ),
-            indexing_policy: pulumi_wasm_rust::__private::into_domain(
+            indexing_policy: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("indexingPolicy"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            partition_key_kind: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            partition_key_kind: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("partitionKeyKind"),
             ),
-            partition_key_paths: pulumi_wasm_rust::__private::into_domain(
+            partition_key_paths: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("partitionKeyPaths"),
             ),
-            partition_key_version: pulumi_wasm_rust::__private::into_domain(
+            partition_key_version: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("partitionKeyVersion"),
             ),
-            resource_group_name: pulumi_wasm_rust::__private::into_domain(
+            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("resourceGroupName"),
             ),
-            throughput: pulumi_wasm_rust::__private::into_domain(
+            throughput: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("throughput"),
             ),
-            unique_keys: pulumi_wasm_rust::__private::into_domain(
+            unique_keys: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("uniqueKeys"),
             ),
         }

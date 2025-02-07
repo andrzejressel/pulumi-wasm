@@ -73,39 +73,39 @@
 /// ```
 ///
 pub mod workspace_network_outbound_rule_fqdn {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct WorkspaceNetworkOutboundRuleFqdnArgs {
         /// Specifies the fully qualified domain name to allow for outbound traffic.
         #[builder(into)]
-        pub destination_fqdn: pulumi_wasm_rust::InputOrOutput<String>,
+        pub destination_fqdn: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Specifies the name of the Machine Learning Workspace FQDN Network Outbound Rule. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Specifies the ID of the Machine Learning Workspace. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub workspace_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub workspace_id: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct WorkspaceNetworkOutboundRuleFqdnResult {
         /// Specifies the fully qualified domain name to allow for outbound traffic.
-        pub destination_fqdn: pulumi_wasm_rust::Output<String>,
+        pub destination_fqdn: pulumi_gestalt_rust::Output<String>,
         /// Specifies the name of the Machine Learning Workspace FQDN Network Outbound Rule. Changing this forces a new resource to be created.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// Specifies the ID of the Machine Learning Workspace. Changing this forces a new resource to be created.
-        pub workspace_id: pulumi_wasm_rust::Output<String>,
+        pub workspace_id: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: WorkspaceNetworkOutboundRuleFqdnArgs,
     ) -> WorkspaceNetworkOutboundRuleFqdnResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let destination_fqdn_binding = args
             .destination_fqdn
@@ -135,11 +135,11 @@ pub mod workspace_network_outbound_rule_fqdn {
         };
         let o = register_interface::register(context.get_inner(), &request);
         WorkspaceNetworkOutboundRuleFqdnResult {
-            destination_fqdn: pulumi_wasm_rust::__private::into_domain(
+            destination_fqdn: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("destinationFqdn"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            workspace_id: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            workspace_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("workspaceId"),
             ),
         }

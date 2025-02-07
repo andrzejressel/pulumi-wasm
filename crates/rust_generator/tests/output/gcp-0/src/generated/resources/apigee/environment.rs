@@ -79,7 +79,7 @@
 /// ```
 ///
 pub mod environment {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct EnvironmentArgs {
@@ -87,7 +87,7 @@ pub mod environment {
         /// the Environment and cannot be changed.
         /// Possible values are: `API_PROXY_TYPE_UNSPECIFIED`, `PROGRAMMABLE`, `CONFIGURABLE`.
         #[builder(into, default)]
-        pub api_proxy_type: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub api_proxy_type: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Optional. Deployment type supported by the environment. The deployment type can be
         /// set when creating the environment and cannot be changed. When you enable archive
         /// deployment, you will be prevented from performing a subset of actions within the
@@ -97,23 +97,23 @@ pub mod environment {
         /// Creating, updating, or deleting target servers.
         /// Possible values are: `DEPLOYMENT_TYPE_UNSPECIFIED`, `PROXY`, `ARCHIVE`.
         #[builder(into, default)]
-        pub deployment_type: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub deployment_type: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Description of the environment.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub description: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Display name of the environment.
         #[builder(into, default)]
-        pub display_name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub display_name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Optional. URI of the forward proxy to be applied to the runtime instances in this environment. Must be in the format of {scheme}://{hostname}:{port}. Note that the scheme must be one of "http" or "https", and the port must be supplied.
         #[builder(into, default)]
-        pub forward_proxy_uri: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub forward_proxy_uri: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The resource ID of the environment.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// NodeConfig for setting the min/max number of nodes associated with the environment.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub node_config: pulumi_wasm_rust::InputOrOutput<
+        pub node_config: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::apigee::EnvironmentNodeConfig>,
         >,
         /// The Apigee Organization associated with the Apigee environment,
@@ -122,21 +122,21 @@ pub mod environment {
         ///
         /// - - -
         #[builder(into)]
-        pub org_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub org_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Types that can be selected for an Environment. Each of the types are
         /// limited by capability and capacity. Refer to Apigee's public documentation
         /// to understand about each of these types in details.
         /// An Apigee org can support heterogeneous Environments.
         /// Possible values are: `ENVIRONMENT_TYPE_UNSPECIFIED`, `BASE`, `INTERMEDIATE`, `COMPREHENSIVE`.
         #[builder(into, default)]
-        pub type_: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub type_: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct EnvironmentResult {
         /// Optional. API Proxy type supported by the environment. The type can be set when creating
         /// the Environment and cannot be changed.
         /// Possible values are: `API_PROXY_TYPE_UNSPECIFIED`, `PROGRAMMABLE`, `CONFIGURABLE`.
-        pub api_proxy_type: pulumi_wasm_rust::Output<String>,
+        pub api_proxy_type: pulumi_gestalt_rust::Output<String>,
         /// Optional. Deployment type supported by the environment. The deployment type can be
         /// set when creating the environment and cannot be changed. When you enable archive
         /// deployment, you will be prevented from performing a subset of actions within the
@@ -145,18 +145,18 @@ pub mod environment {
         /// Creating, updating, or deleting resource files;
         /// Creating, updating, or deleting target servers.
         /// Possible values are: `DEPLOYMENT_TYPE_UNSPECIFIED`, `PROXY`, `ARCHIVE`.
-        pub deployment_type: pulumi_wasm_rust::Output<String>,
+        pub deployment_type: pulumi_gestalt_rust::Output<String>,
         /// Description of the environment.
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_gestalt_rust::Output<Option<String>>,
         /// Display name of the environment.
-        pub display_name: pulumi_wasm_rust::Output<Option<String>>,
+        pub display_name: pulumi_gestalt_rust::Output<Option<String>>,
         /// Optional. URI of the forward proxy to be applied to the runtime instances in this environment. Must be in the format of {scheme}://{hostname}:{port}. Note that the scheme must be one of "http" or "https", and the port must be supplied.
-        pub forward_proxy_uri: pulumi_wasm_rust::Output<Option<String>>,
+        pub forward_proxy_uri: pulumi_gestalt_rust::Output<Option<String>>,
         /// The resource ID of the environment.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// NodeConfig for setting the min/max number of nodes associated with the environment.
         /// Structure is documented below.
-        pub node_config: pulumi_wasm_rust::Output<
+        pub node_config: pulumi_gestalt_rust::Output<
             super::super::types::apigee::EnvironmentNodeConfig,
         >,
         /// The Apigee Organization associated with the Apigee environment,
@@ -164,24 +164,24 @@ pub mod environment {
         ///
         ///
         /// - - -
-        pub org_id: pulumi_wasm_rust::Output<String>,
+        pub org_id: pulumi_gestalt_rust::Output<String>,
         /// Types that can be selected for an Environment. Each of the types are
         /// limited by capability and capacity. Refer to Apigee's public documentation
         /// to understand about each of these types in details.
         /// An Apigee org can support heterogeneous Environments.
         /// Possible values are: `ENVIRONMENT_TYPE_UNSPECIFIED`, `BASE`, `INTERMEDIATE`, `COMPREHENSIVE`.
-        pub type_: pulumi_wasm_rust::Output<String>,
+        pub type_: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: EnvironmentArgs,
     ) -> EnvironmentResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let api_proxy_type_binding = args.api_proxy_type.get_output(context).get_inner();
         let deployment_type_binding = args
@@ -243,27 +243,29 @@ pub mod environment {
         };
         let o = register_interface::register(context.get_inner(), &request);
         EnvironmentResult {
-            api_proxy_type: pulumi_wasm_rust::__private::into_domain(
+            api_proxy_type: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("apiProxyType"),
             ),
-            deployment_type: pulumi_wasm_rust::__private::into_domain(
+            deployment_type: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("deploymentType"),
             ),
-            description: pulumi_wasm_rust::__private::into_domain(
+            description: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("description"),
             ),
-            display_name: pulumi_wasm_rust::__private::into_domain(
+            display_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("displayName"),
             ),
-            forward_proxy_uri: pulumi_wasm_rust::__private::into_domain(
+            forward_proxy_uri: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("forwardProxyUri"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            node_config: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            node_config: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("nodeConfig"),
             ),
-            org_id: pulumi_wasm_rust::__private::into_domain(o.extract_field("orgId")),
-            type_: pulumi_wasm_rust::__private::into_domain(o.extract_field("type")),
+            org_id: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("orgId"),
+            ),
+            type_: pulumi_gestalt_rust::__private::into_domain(o.extract_field("type")),
         }
     }
 }

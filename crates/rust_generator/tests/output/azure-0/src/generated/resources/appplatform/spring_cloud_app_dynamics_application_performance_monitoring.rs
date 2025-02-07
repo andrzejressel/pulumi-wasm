@@ -5,8 +5,8 @@
 /// ## Example Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = resource_group::create(
@@ -54,84 +54,84 @@
 /// ```
 ///
 pub mod spring_cloud_app_dynamics_application_performance_monitoring {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct SpringCloudAppDynamicsApplicationPerformanceMonitoringArgs {
         /// Specifies the account access key used to authenticate with the Controller.
         #[builder(into)]
-        pub agent_account_access_key: pulumi_wasm_rust::InputOrOutput<String>,
+        pub agent_account_access_key: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Specifies the account name of the App Dynamics account.
         #[builder(into)]
-        pub agent_account_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub agent_account_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Specifies the name of the logical business application that this JVM node belongs to.
         #[builder(into, default)]
-        pub agent_application_name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub agent_application_name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Specifies the name of the node. Where JVMs are dynamically created.
         #[builder(into, default)]
-        pub agent_node_name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub agent_node_name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Specifies the name of the tier that this JVM node belongs to.
         #[builder(into, default)]
-        pub agent_tier_name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub agent_tier_name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Specifies the unique host ID which is used to Logically partition a single physical host or virtual machine such that it appears to the Controller that the application is running on different machines.
         #[builder(into, default)]
-        pub agent_unique_host_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub agent_unique_host_id: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Specifies the hostname or the IP address of the AppDynamics Controller.
         #[builder(into)]
-        pub controller_host_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub controller_host_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Specifies the HTTP(S) port of the AppDynamics Controller. This is the port used to access the AppDynamics browser-based user interface.
         #[builder(into, default)]
-        pub controller_port: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
+        pub controller_port: pulumi_gestalt_rust::InputOrOutput<Option<i32>>,
         /// Specifies whether enable use SSL (HTTPS) to connect to the AppDynamics Controller.
         #[builder(into, default)]
-        pub controller_ssl_enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub controller_ssl_enabled: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// Specifies whether the Spring Cloud Application Performance Monitoring resource for Application Insights is enabled globally. Defaults to `false`.
         #[builder(into, default)]
-        pub globally_enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub globally_enabled: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// The name which should be used for this Spring Cloud Application Performance Monitoring resource for App Dynamics. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The ID of the Spring Cloud Service. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub spring_cloud_service_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub spring_cloud_service_id: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct SpringCloudAppDynamicsApplicationPerformanceMonitoringResult {
         /// Specifies the account access key used to authenticate with the Controller.
-        pub agent_account_access_key: pulumi_wasm_rust::Output<String>,
+        pub agent_account_access_key: pulumi_gestalt_rust::Output<String>,
         /// Specifies the account name of the App Dynamics account.
-        pub agent_account_name: pulumi_wasm_rust::Output<String>,
+        pub agent_account_name: pulumi_gestalt_rust::Output<String>,
         /// Specifies the name of the logical business application that this JVM node belongs to.
-        pub agent_application_name: pulumi_wasm_rust::Output<Option<String>>,
+        pub agent_application_name: pulumi_gestalt_rust::Output<Option<String>>,
         /// Specifies the name of the node. Where JVMs are dynamically created.
-        pub agent_node_name: pulumi_wasm_rust::Output<Option<String>>,
+        pub agent_node_name: pulumi_gestalt_rust::Output<Option<String>>,
         /// Specifies the name of the tier that this JVM node belongs to.
-        pub agent_tier_name: pulumi_wasm_rust::Output<Option<String>>,
+        pub agent_tier_name: pulumi_gestalt_rust::Output<Option<String>>,
         /// Specifies the unique host ID which is used to Logically partition a single physical host or virtual machine such that it appears to the Controller that the application is running on different machines.
-        pub agent_unique_host_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub agent_unique_host_id: pulumi_gestalt_rust::Output<Option<String>>,
         /// Specifies the hostname or the IP address of the AppDynamics Controller.
-        pub controller_host_name: pulumi_wasm_rust::Output<String>,
+        pub controller_host_name: pulumi_gestalt_rust::Output<String>,
         /// Specifies the HTTP(S) port of the AppDynamics Controller. This is the port used to access the AppDynamics browser-based user interface.
-        pub controller_port: pulumi_wasm_rust::Output<Option<i32>>,
+        pub controller_port: pulumi_gestalt_rust::Output<Option<i32>>,
         /// Specifies whether enable use SSL (HTTPS) to connect to the AppDynamics Controller.
-        pub controller_ssl_enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub controller_ssl_enabled: pulumi_gestalt_rust::Output<Option<bool>>,
         /// Specifies whether the Spring Cloud Application Performance Monitoring resource for Application Insights is enabled globally. Defaults to `false`.
-        pub globally_enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub globally_enabled: pulumi_gestalt_rust::Output<Option<bool>>,
         /// The name which should be used for this Spring Cloud Application Performance Monitoring resource for App Dynamics. Changing this forces a new resource to be created.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// The ID of the Spring Cloud Service. Changing this forces a new resource to be created.
-        pub spring_cloud_service_id: pulumi_wasm_rust::Output<String>,
+        pub spring_cloud_service_id: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: SpringCloudAppDynamicsApplicationPerformanceMonitoringArgs,
     ) -> SpringCloudAppDynamicsApplicationPerformanceMonitoringResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let agent_account_access_key_binding = args
             .agent_account_access_key
@@ -236,38 +236,38 @@ pub mod spring_cloud_app_dynamics_application_performance_monitoring {
         };
         let o = register_interface::register(context.get_inner(), &request);
         SpringCloudAppDynamicsApplicationPerformanceMonitoringResult {
-            agent_account_access_key: pulumi_wasm_rust::__private::into_domain(
+            agent_account_access_key: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("agentAccountAccessKey"),
             ),
-            agent_account_name: pulumi_wasm_rust::__private::into_domain(
+            agent_account_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("agentAccountName"),
             ),
-            agent_application_name: pulumi_wasm_rust::__private::into_domain(
+            agent_application_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("agentApplicationName"),
             ),
-            agent_node_name: pulumi_wasm_rust::__private::into_domain(
+            agent_node_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("agentNodeName"),
             ),
-            agent_tier_name: pulumi_wasm_rust::__private::into_domain(
+            agent_tier_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("agentTierName"),
             ),
-            agent_unique_host_id: pulumi_wasm_rust::__private::into_domain(
+            agent_unique_host_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("agentUniqueHostId"),
             ),
-            controller_host_name: pulumi_wasm_rust::__private::into_domain(
+            controller_host_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("controllerHostName"),
             ),
-            controller_port: pulumi_wasm_rust::__private::into_domain(
+            controller_port: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("controllerPort"),
             ),
-            controller_ssl_enabled: pulumi_wasm_rust::__private::into_domain(
+            controller_ssl_enabled: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("controllerSslEnabled"),
             ),
-            globally_enabled: pulumi_wasm_rust::__private::into_domain(
+            globally_enabled: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("globallyEnabled"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            spring_cloud_service_id: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            spring_cloud_service_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("springCloudServiceId"),
             ),
         }

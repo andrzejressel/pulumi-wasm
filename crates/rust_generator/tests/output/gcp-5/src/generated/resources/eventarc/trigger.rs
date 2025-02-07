@@ -68,7 +68,7 @@
 /// ```
 ///
 pub mod trigger {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct TriggerArgs {
@@ -76,37 +76,37 @@ pub mod trigger {
         /// `projects/{project}/locations/{location}/channels/{channel}` format. You must provide a channel to receive events from
         /// Eventarc SaaS partners.
         #[builder(into, default)]
-        pub channel: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub channel: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Required. Destination specifies where the events should be sent to.
         #[builder(into)]
-        pub destination: pulumi_wasm_rust::InputOrOutput<
+        pub destination: pulumi_gestalt_rust::InputOrOutput<
             super::super::types::eventarc::TriggerDestination,
         >,
         /// Optional. EventDataContentType specifies the type of payload in MIME format that is expected from the CloudEvent data
         /// field. This is set to `application/json` if the value is not defined.
         #[builder(into, default)]
-        pub event_data_content_type: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub event_data_content_type: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Optional. User labels attached to the triggers that can be used to group resources. **Note**: This field is
         /// non-authoritative, and will only manage the labels present in your configuration. Please refer to the field
         /// `effective_labels` for all of the labels present on the resource.
         #[builder(into, default)]
-        pub labels: pulumi_wasm_rust::InputOrOutput<
+        pub labels: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// The location for the resource
         #[builder(into)]
-        pub location: pulumi_wasm_rust::InputOrOutput<String>,
+        pub location: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Required. null The list of filters that applies to event attributes. Only events that match all the provided filters will be sent to the destination.
         #[builder(into)]
-        pub matching_criterias: pulumi_wasm_rust::InputOrOutput<
+        pub matching_criterias: pulumi_gestalt_rust::InputOrOutput<
             Vec<super::super::types::eventarc::TriggerMatchingCriteria>,
         >,
         /// Required. The resource name of the trigger. Must be unique within the location on the project.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The project for the resource
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub project: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Optional. The IAM service account email associated with the trigger. The service account represents the identity of the
         /// trigger. The principal who calls this API must have `iam.serviceAccounts.actAs` permission in the service account. See
         /// https://cloud.google.com/iam/docs/understanding-service-accounts#sa_common for more information. For Cloud Run
@@ -115,11 +115,11 @@ pub mod trigger {
         /// authenticated Cloud Run services. In order to create Audit Log triggers, the service account should also have
         /// `roles/eventarc.eventReceiver` IAM role.
         #[builder(into, default)]
-        pub service_account: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub service_account: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Optional. In order to deliver messages, Eventarc may use other GCP products as transport intermediary. This field
         /// contains a reference to that transport intermediary. This information can be used for debugging purposes.
         #[builder(into, default)]
-        pub transport: pulumi_wasm_rust::InputOrOutput<
+        pub transport: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::eventarc::TriggerTransport>,
         >,
     }
@@ -128,44 +128,44 @@ pub mod trigger {
         /// Optional. The name of the channel associated with the trigger in
         /// `projects/{project}/locations/{location}/channels/{channel}` format. You must provide a channel to receive events from
         /// Eventarc SaaS partners.
-        pub channel: pulumi_wasm_rust::Output<Option<String>>,
+        pub channel: pulumi_gestalt_rust::Output<Option<String>>,
         /// Output only. The reason(s) why a trigger is in FAILED state.
-        pub conditions: pulumi_wasm_rust::Output<
+        pub conditions: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
         /// Output only. The creation time.
-        pub create_time: pulumi_wasm_rust::Output<String>,
+        pub create_time: pulumi_gestalt_rust::Output<String>,
         /// Required. Destination specifies where the events should be sent to.
-        pub destination: pulumi_wasm_rust::Output<
+        pub destination: pulumi_gestalt_rust::Output<
             super::super::types::eventarc::TriggerDestination,
         >,
         /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Pulumi, other clients and services.
-        pub effective_labels: pulumi_wasm_rust::Output<
+        pub effective_labels: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
         /// Output only. This checksum is computed by the server based on the value of other fields, and may be sent only on create requests to ensure the client has an up-to-date value before proceeding.
-        pub etag: pulumi_wasm_rust::Output<String>,
+        pub etag: pulumi_gestalt_rust::Output<String>,
         /// Optional. EventDataContentType specifies the type of payload in MIME format that is expected from the CloudEvent data
         /// field. This is set to `application/json` if the value is not defined.
-        pub event_data_content_type: pulumi_wasm_rust::Output<String>,
+        pub event_data_content_type: pulumi_gestalt_rust::Output<String>,
         /// Optional. User labels attached to the triggers that can be used to group resources. **Note**: This field is
         /// non-authoritative, and will only manage the labels present in your configuration. Please refer to the field
         /// `effective_labels` for all of the labels present on the resource.
-        pub labels: pulumi_wasm_rust::Output<
+        pub labels: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// The location for the resource
-        pub location: pulumi_wasm_rust::Output<String>,
+        pub location: pulumi_gestalt_rust::Output<String>,
         /// Required. null The list of filters that applies to event attributes. Only events that match all the provided filters will be sent to the destination.
-        pub matching_criterias: pulumi_wasm_rust::Output<
+        pub matching_criterias: pulumi_gestalt_rust::Output<
             Vec<super::super::types::eventarc::TriggerMatchingCriteria>,
         >,
         /// Required. The resource name of the trigger. Must be unique within the location on the project.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// The project for the resource
-        pub project: pulumi_wasm_rust::Output<String>,
+        pub project: pulumi_gestalt_rust::Output<String>,
         /// The combination of labels configured directly on the resource and default labels configured on the provider.
-        pub pulumi_labels: pulumi_wasm_rust::Output<
+        pub pulumi_labels: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
         /// Optional. The IAM service account email associated with the trigger. The service account represents the identity of the
@@ -175,27 +175,27 @@ pub mod trigger {
         /// https://cloud.google.com/run/docs/triggering/pubsub-push#create-service-account for information on how to invoke
         /// authenticated Cloud Run services. In order to create Audit Log triggers, the service account should also have
         /// `roles/eventarc.eventReceiver` IAM role.
-        pub service_account: pulumi_wasm_rust::Output<Option<String>>,
+        pub service_account: pulumi_gestalt_rust::Output<Option<String>>,
         /// Optional. In order to deliver messages, Eventarc may use other GCP products as transport intermediary. This field
         /// contains a reference to that transport intermediary. This information can be used for debugging purposes.
-        pub transport: pulumi_wasm_rust::Output<
+        pub transport: pulumi_gestalt_rust::Output<
             super::super::types::eventarc::TriggerTransport,
         >,
         /// Output only. Server assigned unique identifier for the trigger. The value is a UUID4 string and guaranteed to remain unchanged until the resource is deleted.
-        pub uid: pulumi_wasm_rust::Output<String>,
+        pub uid: pulumi_gestalt_rust::Output<String>,
         /// Output only. The last-modified time.
-        pub update_time: pulumi_wasm_rust::Output<String>,
+        pub update_time: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: TriggerArgs,
     ) -> TriggerResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let channel_binding = args.channel.get_output(context).get_inner();
         let destination_binding = args.destination.get_output(context).get_inner();
@@ -265,47 +265,49 @@ pub mod trigger {
         };
         let o = register_interface::register(context.get_inner(), &request);
         TriggerResult {
-            channel: pulumi_wasm_rust::__private::into_domain(
+            channel: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("channel"),
             ),
-            conditions: pulumi_wasm_rust::__private::into_domain(
+            conditions: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("conditions"),
             ),
-            create_time: pulumi_wasm_rust::__private::into_domain(
+            create_time: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("createTime"),
             ),
-            destination: pulumi_wasm_rust::__private::into_domain(
+            destination: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("destination"),
             ),
-            effective_labels: pulumi_wasm_rust::__private::into_domain(
+            effective_labels: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("effectiveLabels"),
             ),
-            etag: pulumi_wasm_rust::__private::into_domain(o.extract_field("etag")),
-            event_data_content_type: pulumi_wasm_rust::__private::into_domain(
+            etag: pulumi_gestalt_rust::__private::into_domain(o.extract_field("etag")),
+            event_data_content_type: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("eventDataContentType"),
             ),
-            labels: pulumi_wasm_rust::__private::into_domain(o.extract_field("labels")),
-            location: pulumi_wasm_rust::__private::into_domain(
+            labels: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("labels"),
+            ),
+            location: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("location"),
             ),
-            matching_criterias: pulumi_wasm_rust::__private::into_domain(
+            matching_criterias: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("matchingCriterias"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            project: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            project: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("project"),
             ),
-            pulumi_labels: pulumi_wasm_rust::__private::into_domain(
+            pulumi_labels: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("pulumiLabels"),
             ),
-            service_account: pulumi_wasm_rust::__private::into_domain(
+            service_account: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("serviceAccount"),
             ),
-            transport: pulumi_wasm_rust::__private::into_domain(
+            transport: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("transport"),
             ),
-            uid: pulumi_wasm_rust::__private::into_domain(o.extract_field("uid")),
-            update_time: pulumi_wasm_rust::__private::into_domain(
+            uid: pulumi_gestalt_rust::__private::into_domain(o.extract_field("uid")),
+            update_time: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("updateTime"),
             ),
         }

@@ -58,8 +58,8 @@
 /// First, adopt an existing AWS-created route:
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let test = vpc::create(
@@ -84,8 +84,8 @@
 /// Next, update the target of the route:
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let test = vpc::create(
@@ -128,62 +128,62 @@
 /// $ pulumi import aws:ec2/routeTable:RouteTable public_rt rtb-4e616f6d69
 /// ```
 pub mod route_table {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct RouteTableArgs {
         /// A list of virtual gateways for propagation.
         #[builder(into, default)]
-        pub propagating_vgws: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
+        pub propagating_vgws: pulumi_gestalt_rust::InputOrOutput<Option<Vec<String>>>,
         /// A list of route objects. Their keys are documented below.
         /// This means that omitting this argument is interpreted as ignoring any existing routes. To remove all managed routes an empty list should be specified. See the example above.
         #[builder(into, default)]
-        pub routes: pulumi_wasm_rust::InputOrOutput<
+        pub routes: pulumi_gestalt_rust::InputOrOutput<
             Option<Vec<super::super::types::ec2::RouteTableRoute>>,
         >,
         /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// The VPC ID.
         #[builder(into)]
-        pub vpc_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub vpc_id: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct RouteTableResult {
         /// The ARN of the route table.
-        pub arn: pulumi_wasm_rust::Output<String>,
+        pub arn: pulumi_gestalt_rust::Output<String>,
         /// The ID of the AWS account that owns the route table.
-        pub owner_id: pulumi_wasm_rust::Output<String>,
+        pub owner_id: pulumi_gestalt_rust::Output<String>,
         /// A list of virtual gateways for propagation.
-        pub propagating_vgws: pulumi_wasm_rust::Output<Vec<String>>,
+        pub propagating_vgws: pulumi_gestalt_rust::Output<Vec<String>>,
         /// A list of route objects. Their keys are documented below.
         /// This means that omitting this argument is interpreted as ignoring any existing routes. To remove all managed routes an empty list should be specified. See the example above.
-        pub routes: pulumi_wasm_rust::Output<
+        pub routes: pulumi_gestalt_rust::Output<
             Vec<super::super::types::ec2::RouteTableRoute>,
         >,
         /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        pub tags_all: pulumi_wasm_rust::Output<
+        pub tags_all: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
         /// The VPC ID.
-        pub vpc_id: pulumi_wasm_rust::Output<String>,
+        pub vpc_id: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: RouteTableArgs,
     ) -> RouteTableResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let propagating_vgws_binding = args
             .propagating_vgws
@@ -217,19 +217,21 @@ pub mod route_table {
         };
         let o = register_interface::register(context.get_inner(), &request);
         RouteTableResult {
-            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
-            owner_id: pulumi_wasm_rust::__private::into_domain(
+            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
+            owner_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("ownerId"),
             ),
-            propagating_vgws: pulumi_wasm_rust::__private::into_domain(
+            propagating_vgws: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("propagatingVgws"),
             ),
-            routes: pulumi_wasm_rust::__private::into_domain(o.extract_field("routes")),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_wasm_rust::__private::into_domain(
+            routes: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("routes"),
+            ),
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            tags_all: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("tagsAll"),
             ),
-            vpc_id: pulumi_wasm_rust::__private::into_domain(o.extract_field("vpcId")),
+            vpc_id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("vpcId")),
         }
     }
 }

@@ -1,5 +1,5 @@
 pub mod search {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct SearchArgs {
@@ -7,35 +7,35 @@ pub mod search {
         ///
         /// The following arguments are optional:
         #[builder(into)]
-        pub query_string: pulumi_wasm_rust::InputOrOutput<String>,
+        pub query_string: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Specifies the Amazon resource name (ARN) of the view to use for the query. If you don't specify a value for this parameter, then the operation automatically uses the default view for the AWS Region in which you called this operation. If the Region either doesn't have a default view or if you don't have permission to use the default view, then the operation fails with a `401 Unauthorized` exception.
         #[builder(into, default)]
-        pub view_arn: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub view_arn: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct SearchResult {
         /// Query String.
-        pub id: pulumi_wasm_rust::Output<String>,
-        pub query_string: pulumi_wasm_rust::Output<String>,
+        pub id: pulumi_gestalt_rust::Output<String>,
+        pub query_string: pulumi_gestalt_rust::Output<String>,
         /// Number of resources that match the query. See `resource_count` below.
-        pub resource_counts: pulumi_wasm_rust::Output<
+        pub resource_counts: pulumi_gestalt_rust::Output<
             Vec<super::super::super::types::resourceexplorer::SearchResourceCount>,
         >,
         /// List of structures that describe the resources that match the query. See `resources` below.
-        pub resources: pulumi_wasm_rust::Output<
+        pub resources: pulumi_gestalt_rust::Output<
             Vec<super::super::super::types::resourceexplorer::SearchResource>,
         >,
-        pub view_arn: pulumi_wasm_rust::Output<String>,
+        pub view_arn: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         args: SearchArgs,
     ) -> SearchResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let query_string_binding = args.query_string.get_output(context).get_inner();
         let view_arn_binding = args.view_arn.get_output(context).get_inner();
@@ -55,17 +55,17 @@ pub mod search {
         };
         let o = register_interface::invoke(context.get_inner(), &request);
         SearchResult {
-            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
-            query_string: pulumi_wasm_rust::__private::into_domain(
+            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
+            query_string: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("queryString"),
             ),
-            resource_counts: pulumi_wasm_rust::__private::into_domain(
+            resource_counts: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("resourceCounts"),
             ),
-            resources: pulumi_wasm_rust::__private::into_domain(
+            resources: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("resources"),
             ),
-            view_arn: pulumi_wasm_rust::__private::into_domain(
+            view_arn: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("viewArn"),
             ),
         }

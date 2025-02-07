@@ -5,8 +5,8 @@
 /// ### AWS Account ID
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = ami_launch_permission::create(
@@ -22,8 +22,8 @@
 /// ### Public Access
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = ami_launch_permission::create(
@@ -60,49 +60,49 @@
 /// $ pulumi import aws:ec2/amiLaunchPermission:AmiLaunchPermission example 123456789012/ami-12345678
 /// ```
 pub mod ami_launch_permission {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct AmiLaunchPermissionArgs {
         /// AWS account ID for the launch permission.
         #[builder(into, default)]
-        pub account_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub account_id: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Name of the group for the launch permission. Valid values: `"all"`.
         #[builder(into, default)]
-        pub group: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub group: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// ID of the AMI.
         #[builder(into)]
-        pub image_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub image_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// ARN of an organization for the launch permission.
         #[builder(into, default)]
-        pub organization_arn: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub organization_arn: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// ARN of an organizational unit for the launch permission.
         #[builder(into, default)]
-        pub organizational_unit_arn: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub organizational_unit_arn: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct AmiLaunchPermissionResult {
         /// AWS account ID for the launch permission.
-        pub account_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub account_id: pulumi_gestalt_rust::Output<Option<String>>,
         /// Name of the group for the launch permission. Valid values: `"all"`.
-        pub group: pulumi_wasm_rust::Output<Option<String>>,
+        pub group: pulumi_gestalt_rust::Output<Option<String>>,
         /// ID of the AMI.
-        pub image_id: pulumi_wasm_rust::Output<String>,
+        pub image_id: pulumi_gestalt_rust::Output<String>,
         /// ARN of an organization for the launch permission.
-        pub organization_arn: pulumi_wasm_rust::Output<Option<String>>,
+        pub organization_arn: pulumi_gestalt_rust::Output<Option<String>>,
         /// ARN of an organizational unit for the launch permission.
-        pub organizational_unit_arn: pulumi_wasm_rust::Output<Option<String>>,
+        pub organizational_unit_arn: pulumi_gestalt_rust::Output<Option<String>>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: AmiLaunchPermissionArgs,
     ) -> AmiLaunchPermissionResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let account_id_binding = args.account_id.get_output(context).get_inner();
         let group_binding = args.group.get_output(context).get_inner();
@@ -144,17 +144,17 @@ pub mod ami_launch_permission {
         };
         let o = register_interface::register(context.get_inner(), &request);
         AmiLaunchPermissionResult {
-            account_id: pulumi_wasm_rust::__private::into_domain(
+            account_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("accountId"),
             ),
-            group: pulumi_wasm_rust::__private::into_domain(o.extract_field("group")),
-            image_id: pulumi_wasm_rust::__private::into_domain(
+            group: pulumi_gestalt_rust::__private::into_domain(o.extract_field("group")),
+            image_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("imageId"),
             ),
-            organization_arn: pulumi_wasm_rust::__private::into_domain(
+            organization_arn: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("organizationArn"),
             ),
-            organizational_unit_arn: pulumi_wasm_rust::__private::into_domain(
+            organizational_unit_arn: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("organizationalUnitArn"),
             ),
         }

@@ -3,8 +3,8 @@
 /// ## Example Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = resource_group::create(
@@ -53,149 +53,149 @@
 /// ```
 ///
 pub mod registry_task {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct RegistryTaskArgs {
         /// The name of the dedicated Container Registry Agent Pool for this Container Registry Task.
         #[builder(into, default)]
-        pub agent_pool_name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub agent_pool_name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// A `agent_setting` block as defined below.
         ///
         /// > **NOTE:** Only one of `agent_pool_name` and `agent_setting` can be specified.
         #[builder(into, default)]
-        pub agent_setting: pulumi_wasm_rust::InputOrOutput<
+        pub agent_setting: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::containerservice::RegistryTaskAgentSetting>,
         >,
         /// A `base_image_trigger` block as defined below.
         #[builder(into, default)]
-        pub base_image_trigger: pulumi_wasm_rust::InputOrOutput<
+        pub base_image_trigger: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::containerservice::RegistryTaskBaseImageTrigger>,
         >,
         /// The ID of the Container Registry that this Container Registry Task resides in. Changing this forces a new Container Registry Task to be created.
         #[builder(into)]
-        pub container_registry_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub container_registry_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// A `docker_step` block as defined below.
         #[builder(into, default)]
-        pub docker_step: pulumi_wasm_rust::InputOrOutput<
+        pub docker_step: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::containerservice::RegistryTaskDockerStep>,
         >,
         /// Should this Container Registry Task be enabled? Defaults to `true`.
         #[builder(into, default)]
-        pub enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub enabled: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// A `encoded_step` block as defined below.
         #[builder(into, default)]
-        pub encoded_step: pulumi_wasm_rust::InputOrOutput<
+        pub encoded_step: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::containerservice::RegistryTaskEncodedStep>,
         >,
         /// A `file_step` block as defined below.
         ///
         /// > **NOTE:** For non-system task (when `is_system_task` is set to `false`), one and only one of the `docker_step`, `encoded_step` and `file_step` should be specified.
         #[builder(into, default)]
-        pub file_step: pulumi_wasm_rust::InputOrOutput<
+        pub file_step: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::containerservice::RegistryTaskFileStep>,
         >,
         /// An `identity` block as defined below.
         #[builder(into, default)]
-        pub identity: pulumi_wasm_rust::InputOrOutput<
+        pub identity: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::containerservice::RegistryTaskIdentity>,
         >,
         /// Whether this Container Registry Task is a system task. Changing this forces a new Container Registry Task to be created. Defaults to `false`.
         #[builder(into, default)]
-        pub is_system_task: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub is_system_task: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         #[builder(into, default)]
-        pub log_template: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub log_template: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The name which should be used for this Container Registry Task. Changing this forces a new Container Registry Task to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// A `platform` block as defined below.
         ///
         /// > **NOTE:** The `platform` is required for non-system task (when `is_system_task` is set to `false`).
         #[builder(into, default)]
-        pub platform: pulumi_wasm_rust::InputOrOutput<
+        pub platform: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::containerservice::RegistryTaskPlatform>,
         >,
         #[builder(into, default)]
-        pub registry_credential: pulumi_wasm_rust::InputOrOutput<
+        pub registry_credential: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::containerservice::RegistryTaskRegistryCredential>,
         >,
         /// One or more `source_trigger` blocks as defined below.
         #[builder(into, default)]
-        pub source_triggers: pulumi_wasm_rust::InputOrOutput<
+        pub source_triggers: pulumi_gestalt_rust::InputOrOutput<
             Option<Vec<super::super::types::containerservice::RegistryTaskSourceTrigger>>,
         >,
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         #[builder(into, default)]
-        pub timeout_in_seconds: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
+        pub timeout_in_seconds: pulumi_gestalt_rust::InputOrOutput<Option<i32>>,
         /// One or more `timer_trigger` blocks as defined below.
         #[builder(into, default)]
-        pub timer_triggers: pulumi_wasm_rust::InputOrOutput<
+        pub timer_triggers: pulumi_gestalt_rust::InputOrOutput<
             Option<Vec<super::super::types::containerservice::RegistryTaskTimerTrigger>>,
         >,
     }
     #[allow(dead_code)]
     pub struct RegistryTaskResult {
         /// The name of the dedicated Container Registry Agent Pool for this Container Registry Task.
-        pub agent_pool_name: pulumi_wasm_rust::Output<Option<String>>,
+        pub agent_pool_name: pulumi_gestalt_rust::Output<Option<String>>,
         /// A `agent_setting` block as defined below.
         ///
         /// > **NOTE:** Only one of `agent_pool_name` and `agent_setting` can be specified.
-        pub agent_setting: pulumi_wasm_rust::Output<
+        pub agent_setting: pulumi_gestalt_rust::Output<
             Option<super::super::types::containerservice::RegistryTaskAgentSetting>,
         >,
         /// A `base_image_trigger` block as defined below.
-        pub base_image_trigger: pulumi_wasm_rust::Output<
+        pub base_image_trigger: pulumi_gestalt_rust::Output<
             Option<super::super::types::containerservice::RegistryTaskBaseImageTrigger>,
         >,
         /// The ID of the Container Registry that this Container Registry Task resides in. Changing this forces a new Container Registry Task to be created.
-        pub container_registry_id: pulumi_wasm_rust::Output<String>,
+        pub container_registry_id: pulumi_gestalt_rust::Output<String>,
         /// A `docker_step` block as defined below.
-        pub docker_step: pulumi_wasm_rust::Output<
+        pub docker_step: pulumi_gestalt_rust::Output<
             Option<super::super::types::containerservice::RegistryTaskDockerStep>,
         >,
         /// Should this Container Registry Task be enabled? Defaults to `true`.
-        pub enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub enabled: pulumi_gestalt_rust::Output<Option<bool>>,
         /// A `encoded_step` block as defined below.
-        pub encoded_step: pulumi_wasm_rust::Output<
+        pub encoded_step: pulumi_gestalt_rust::Output<
             Option<super::super::types::containerservice::RegistryTaskEncodedStep>,
         >,
         /// A `file_step` block as defined below.
         ///
         /// > **NOTE:** For non-system task (when `is_system_task` is set to `false`), one and only one of the `docker_step`, `encoded_step` and `file_step` should be specified.
-        pub file_step: pulumi_wasm_rust::Output<
+        pub file_step: pulumi_gestalt_rust::Output<
             Option<super::super::types::containerservice::RegistryTaskFileStep>,
         >,
         /// An `identity` block as defined below.
-        pub identity: pulumi_wasm_rust::Output<
+        pub identity: pulumi_gestalt_rust::Output<
             Option<super::super::types::containerservice::RegistryTaskIdentity>,
         >,
         /// Whether this Container Registry Task is a system task. Changing this forces a new Container Registry Task to be created. Defaults to `false`.
-        pub is_system_task: pulumi_wasm_rust::Output<Option<bool>>,
-        pub log_template: pulumi_wasm_rust::Output<Option<String>>,
+        pub is_system_task: pulumi_gestalt_rust::Output<Option<bool>>,
+        pub log_template: pulumi_gestalt_rust::Output<Option<String>>,
         /// The name which should be used for this Container Registry Task. Changing this forces a new Container Registry Task to be created.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// A `platform` block as defined below.
         ///
         /// > **NOTE:** The `platform` is required for non-system task (when `is_system_task` is set to `false`).
-        pub platform: pulumi_wasm_rust::Output<
+        pub platform: pulumi_gestalt_rust::Output<
             Option<super::super::types::containerservice::RegistryTaskPlatform>,
         >,
-        pub registry_credential: pulumi_wasm_rust::Output<
+        pub registry_credential: pulumi_gestalt_rust::Output<
             Option<super::super::types::containerservice::RegistryTaskRegistryCredential>,
         >,
         /// One or more `source_trigger` blocks as defined below.
-        pub source_triggers: pulumi_wasm_rust::Output<
+        pub source_triggers: pulumi_gestalt_rust::Output<
             Option<Vec<super::super::types::containerservice::RegistryTaskSourceTrigger>>,
         >,
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
-        pub timeout_in_seconds: pulumi_wasm_rust::Output<Option<i32>>,
+        pub timeout_in_seconds: pulumi_gestalt_rust::Output<Option<i32>>,
         /// One or more `timer_trigger` blocks as defined below.
-        pub timer_triggers: pulumi_wasm_rust::Output<
+        pub timer_triggers: pulumi_gestalt_rust::Output<
             Option<Vec<super::super::types::containerservice::RegistryTaskTimerTrigger>>,
         >,
     }
@@ -204,11 +204,11 @@ pub mod registry_task {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: RegistryTaskArgs,
     ) -> RegistryTaskResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let agent_pool_name_binding = args
             .agent_pool_name
@@ -327,54 +327,54 @@ pub mod registry_task {
         };
         let o = register_interface::register(context.get_inner(), &request);
         RegistryTaskResult {
-            agent_pool_name: pulumi_wasm_rust::__private::into_domain(
+            agent_pool_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("agentPoolName"),
             ),
-            agent_setting: pulumi_wasm_rust::__private::into_domain(
+            agent_setting: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("agentSetting"),
             ),
-            base_image_trigger: pulumi_wasm_rust::__private::into_domain(
+            base_image_trigger: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("baseImageTrigger"),
             ),
-            container_registry_id: pulumi_wasm_rust::__private::into_domain(
+            container_registry_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("containerRegistryId"),
             ),
-            docker_step: pulumi_wasm_rust::__private::into_domain(
+            docker_step: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("dockerStep"),
             ),
-            enabled: pulumi_wasm_rust::__private::into_domain(
+            enabled: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("enabled"),
             ),
-            encoded_step: pulumi_wasm_rust::__private::into_domain(
+            encoded_step: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("encodedStep"),
             ),
-            file_step: pulumi_wasm_rust::__private::into_domain(
+            file_step: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("fileStep"),
             ),
-            identity: pulumi_wasm_rust::__private::into_domain(
+            identity: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("identity"),
             ),
-            is_system_task: pulumi_wasm_rust::__private::into_domain(
+            is_system_task: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("isSystemTask"),
             ),
-            log_template: pulumi_wasm_rust::__private::into_domain(
+            log_template: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("logTemplate"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            platform: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            platform: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("platform"),
             ),
-            registry_credential: pulumi_wasm_rust::__private::into_domain(
+            registry_credential: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("registryCredential"),
             ),
-            source_triggers: pulumi_wasm_rust::__private::into_domain(
+            source_triggers: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("sourceTriggers"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
-            timeout_in_seconds: pulumi_wasm_rust::__private::into_domain(
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            timeout_in_seconds: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("timeoutInSeconds"),
             ),
-            timer_triggers: pulumi_wasm_rust::__private::into_domain(
+            timer_triggers: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("timerTriggers"),
             ),
         }

@@ -7,8 +7,8 @@
 /// ## Example Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = certificate::create(
@@ -41,34 +41,34 @@
 /// $ pulumi import aws:alb/listenerCertificate:ListenerCertificate example arn:aws:elasticloadbalancing:us-west-2:123456789012:listener/app/test/8e4497da625e2d8a/9ab28ade35828f96/67b3d2d36dd7c26b_arn:aws:iam::123456789012:server-certificate/tf-acc-test-6453083910015726063
 /// ```
 pub mod listener_certificate {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ListenerCertificateArgs {
         /// The ARN of the certificate to attach to the listener.
         #[builder(into)]
-        pub certificate_arn: pulumi_wasm_rust::InputOrOutput<String>,
+        pub certificate_arn: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The ARN of the listener to which to attach the certificate.
         #[builder(into)]
-        pub listener_arn: pulumi_wasm_rust::InputOrOutput<String>,
+        pub listener_arn: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct ListenerCertificateResult {
         /// The ARN of the certificate to attach to the listener.
-        pub certificate_arn: pulumi_wasm_rust::Output<String>,
+        pub certificate_arn: pulumi_gestalt_rust::Output<String>,
         /// The ARN of the listener to which to attach the certificate.
-        pub listener_arn: pulumi_wasm_rust::Output<String>,
+        pub listener_arn: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: ListenerCertificateArgs,
     ) -> ListenerCertificateResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let certificate_arn_binding = args
             .certificate_arn
@@ -92,10 +92,10 @@ pub mod listener_certificate {
         };
         let o = register_interface::register(context.get_inner(), &request);
         ListenerCertificateResult {
-            certificate_arn: pulumi_wasm_rust::__private::into_domain(
+            certificate_arn: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("certificateArn"),
             ),
-            listener_arn: pulumi_wasm_rust::__private::into_domain(
+            listener_arn: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("listenerArn"),
             ),
         }

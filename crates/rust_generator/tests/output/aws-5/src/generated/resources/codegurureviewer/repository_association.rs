@@ -3,8 +3,8 @@
 /// ## Example Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = key::create("example", KeyArgs::builder().build_struct());
@@ -35,13 +35,13 @@
 /// }
 /// ```
 pub mod repository_association {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct RepositoryAssociationArgs {
         /// An object describing the KMS key to asssociate. Block is documented below.
         #[builder(into, default)]
-        pub kms_key_details: pulumi_wasm_rust::InputOrOutput<
+        pub kms_key_details: pulumi_gestalt_rust::InputOrOutput<
             Option<
                 super::super::types::codegurureviewer::RepositoryAssociationKmsKeyDetails,
             >,
@@ -50,53 +50,53 @@ pub mod repository_association {
         ///
         /// The following arguments are optional:
         #[builder(into)]
-        pub repository: pulumi_wasm_rust::InputOrOutput<
+        pub repository: pulumi_gestalt_rust::InputOrOutput<
             super::super::types::codegurureviewer::RepositoryAssociationRepository,
         >,
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
     #[allow(dead_code)]
     pub struct RepositoryAssociationResult {
         /// The Amazon Resource Name (ARN) identifying the repository association.
-        pub arn: pulumi_wasm_rust::Output<String>,
+        pub arn: pulumi_gestalt_rust::Output<String>,
         /// The ID of the repository association.
-        pub association_id: pulumi_wasm_rust::Output<String>,
+        pub association_id: pulumi_gestalt_rust::Output<String>,
         /// The Amazon Resource Name (ARN) of an AWS CodeStar Connections connection.
-        pub connection_arn: pulumi_wasm_rust::Output<String>,
+        pub connection_arn: pulumi_gestalt_rust::Output<String>,
         /// An object describing the KMS key to asssociate. Block is documented below.
-        pub kms_key_details: pulumi_wasm_rust::Output<
+        pub kms_key_details: pulumi_gestalt_rust::Output<
             Option<
                 super::super::types::codegurureviewer::RepositoryAssociationKmsKeyDetails,
             >,
         >,
         /// The name of the repository.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// The owner of the repository.
-        pub owner: pulumi_wasm_rust::Output<String>,
+        pub owner: pulumi_gestalt_rust::Output<String>,
         /// The provider type of the repository association.
-        pub provider_type: pulumi_wasm_rust::Output<String>,
+        pub provider_type: pulumi_gestalt_rust::Output<String>,
         /// An object describing the repository to associate. Valid values: `bitbucket`, `codecommit`, `github_enterprise_server`, or `s3_bucket`. Block is documented below. Note: for repositories that leverage CodeStar connections (ex. `bitbucket`, `github_enterprise_server`) the connection must be in `Available` status prior to creating this resource.
         ///
         /// The following arguments are optional:
-        pub repository: pulumi_wasm_rust::Output<
+        pub repository: pulumi_gestalt_rust::Output<
             super::super::types::codegurureviewer::RepositoryAssociationRepository,
         >,
-        pub s3_repository_details: pulumi_wasm_rust::Output<
+        pub s3_repository_details: pulumi_gestalt_rust::Output<
             Vec<
                 super::super::types::codegurureviewer::RepositoryAssociationS3RepositoryDetail,
             >,
         >,
         /// The state of the repository association.
-        pub state: pulumi_wasm_rust::Output<String>,
+        pub state: pulumi_gestalt_rust::Output<String>,
         /// A description of why the repository association is in the current state.
-        pub state_reason: pulumi_wasm_rust::Output<String>,
-        pub tags: pulumi_wasm_rust::Output<
+        pub state_reason: pulumi_gestalt_rust::Output<String>,
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
-        pub tags_all: pulumi_wasm_rust::Output<
+        pub tags_all: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
     }
@@ -105,11 +105,11 @@ pub mod repository_association {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: RepositoryAssociationArgs,
     ) -> RepositoryAssociationResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let kms_key_details_binding = args
             .kms_key_details
@@ -139,33 +139,33 @@ pub mod repository_association {
         };
         let o = register_interface::register(context.get_inner(), &request);
         RepositoryAssociationResult {
-            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
-            association_id: pulumi_wasm_rust::__private::into_domain(
+            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
+            association_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("associationId"),
             ),
-            connection_arn: pulumi_wasm_rust::__private::into_domain(
+            connection_arn: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("connectionArn"),
             ),
-            kms_key_details: pulumi_wasm_rust::__private::into_domain(
+            kms_key_details: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("kmsKeyDetails"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            owner: pulumi_wasm_rust::__private::into_domain(o.extract_field("owner")),
-            provider_type: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            owner: pulumi_gestalt_rust::__private::into_domain(o.extract_field("owner")),
+            provider_type: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("providerType"),
             ),
-            repository: pulumi_wasm_rust::__private::into_domain(
+            repository: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("repository"),
             ),
-            s3_repository_details: pulumi_wasm_rust::__private::into_domain(
+            s3_repository_details: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("s3RepositoryDetails"),
             ),
-            state: pulumi_wasm_rust::__private::into_domain(o.extract_field("state")),
-            state_reason: pulumi_wasm_rust::__private::into_domain(
+            state: pulumi_gestalt_rust::__private::into_domain(o.extract_field("state")),
+            state_reason: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("stateReason"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_wasm_rust::__private::into_domain(
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            tags_all: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("tagsAll"),
             ),
         }

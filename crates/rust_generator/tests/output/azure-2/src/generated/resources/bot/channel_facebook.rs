@@ -48,58 +48,58 @@
 /// ```
 ///
 pub mod channel_facebook {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ChannelFacebookArgs {
         /// The name of the Bot Resource this channel will be associated with. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub bot_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub bot_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The Facebook Application ID for the Facebook Channel.
         #[builder(into)]
-        pub facebook_application_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub facebook_application_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The Facebook Application Secret for the Facebook Channel.
         #[builder(into)]
-        pub facebook_application_secret: pulumi_wasm_rust::InputOrOutput<String>,
+        pub facebook_application_secret: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub location: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub location: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// One or more `page` blocks as defined below.
         #[builder(into)]
-        pub pages: pulumi_wasm_rust::InputOrOutput<
+        pub pages: pulumi_gestalt_rust::InputOrOutput<
             Vec<super::super::types::bot::ChannelFacebookPage>,
         >,
         /// The name of the resource group where the Facebook Channel should be created. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub resource_group_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub resource_group_name: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct ChannelFacebookResult {
         /// The name of the Bot Resource this channel will be associated with. Changing this forces a new resource to be created.
-        pub bot_name: pulumi_wasm_rust::Output<String>,
+        pub bot_name: pulumi_gestalt_rust::Output<String>,
         /// The Facebook Application ID for the Facebook Channel.
-        pub facebook_application_id: pulumi_wasm_rust::Output<String>,
+        pub facebook_application_id: pulumi_gestalt_rust::Output<String>,
         /// The Facebook Application Secret for the Facebook Channel.
-        pub facebook_application_secret: pulumi_wasm_rust::Output<String>,
+        pub facebook_application_secret: pulumi_gestalt_rust::Output<String>,
         /// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
-        pub location: pulumi_wasm_rust::Output<String>,
+        pub location: pulumi_gestalt_rust::Output<String>,
         /// One or more `page` blocks as defined below.
-        pub pages: pulumi_wasm_rust::Output<
+        pub pages: pulumi_gestalt_rust::Output<
             Vec<super::super::types::bot::ChannelFacebookPage>,
         >,
         /// The name of the resource group where the Facebook Channel should be created. Changing this forces a new resource to be created.
-        pub resource_group_name: pulumi_wasm_rust::Output<String>,
+        pub resource_group_name: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: ChannelFacebookArgs,
     ) -> ChannelFacebookResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let bot_name_binding = args.bot_name.get_output(context).get_inner();
         let facebook_application_id_binding = args
@@ -149,20 +149,20 @@ pub mod channel_facebook {
         };
         let o = register_interface::register(context.get_inner(), &request);
         ChannelFacebookResult {
-            bot_name: pulumi_wasm_rust::__private::into_domain(
+            bot_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("botName"),
             ),
-            facebook_application_id: pulumi_wasm_rust::__private::into_domain(
+            facebook_application_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("facebookApplicationId"),
             ),
-            facebook_application_secret: pulumi_wasm_rust::__private::into_domain(
+            facebook_application_secret: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("facebookApplicationSecret"),
             ),
-            location: pulumi_wasm_rust::__private::into_domain(
+            location: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("location"),
             ),
-            pages: pulumi_wasm_rust::__private::into_domain(o.extract_field("pages")),
-            resource_group_name: pulumi_wasm_rust::__private::into_domain(
+            pages: pulumi_gestalt_rust::__private::into_domain(o.extract_field("pages")),
+            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("resourceGroupName"),
             ),
         }

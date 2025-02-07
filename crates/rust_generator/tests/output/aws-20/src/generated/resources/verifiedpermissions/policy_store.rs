@@ -3,8 +3,8 @@
 /// ### Basic Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = policy_store::create(
@@ -27,16 +27,16 @@
 ///  % pulumi import aws_verifiedpermissions_policy_store.example DxQg2j8xvXJQ1tQCYNWj9T
 ///
 pub mod policy_store {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct PolicyStoreArgs {
         /// A description of the Policy Store.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub description: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Validation settings for the policy store.
         #[builder(into, default)]
-        pub validation_settings: pulumi_wasm_rust::InputOrOutput<
+        pub validation_settings: pulumi_gestalt_rust::InputOrOutput<
             Option<
                 super::super::types::verifiedpermissions::PolicyStoreValidationSettings,
             >,
@@ -45,13 +45,13 @@ pub mod policy_store {
     #[allow(dead_code)]
     pub struct PolicyStoreResult {
         /// The ARN of the Policy Store.
-        pub arn: pulumi_wasm_rust::Output<String>,
+        pub arn: pulumi_gestalt_rust::Output<String>,
         /// A description of the Policy Store.
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_gestalt_rust::Output<Option<String>>,
         /// The ID of the Policy Store.
-        pub policy_store_id: pulumi_wasm_rust::Output<String>,
+        pub policy_store_id: pulumi_gestalt_rust::Output<String>,
         /// Validation settings for the policy store.
-        pub validation_settings: pulumi_wasm_rust::Output<
+        pub validation_settings: pulumi_gestalt_rust::Output<
             Option<
                 super::super::types::verifiedpermissions::PolicyStoreValidationSettings,
             >,
@@ -62,11 +62,11 @@ pub mod policy_store {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: PolicyStoreArgs,
     ) -> PolicyStoreResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let description_binding = args.description.get_output(context).get_inner();
         let validation_settings_binding = args
@@ -90,14 +90,14 @@ pub mod policy_store {
         };
         let o = register_interface::register(context.get_inner(), &request);
         PolicyStoreResult {
-            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
-            description: pulumi_wasm_rust::__private::into_domain(
+            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
+            description: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("description"),
             ),
-            policy_store_id: pulumi_wasm_rust::__private::into_domain(
+            policy_store_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("policyStoreId"),
             ),
-            validation_settings: pulumi_wasm_rust::__private::into_domain(
+            validation_settings: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("validationSettings"),
             ),
         }

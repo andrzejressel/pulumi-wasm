@@ -19,8 +19,8 @@
 ///
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let customNotificationConfig = notification_config::create(
@@ -59,52 +59,52 @@
 /// ```
 ///
 pub mod notification_config {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct NotificationConfigArgs {
         /// This must be unique within the organization.
         #[builder(into)]
-        pub config_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub config_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The description of the notification config (max of 1024 characters).
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub description: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The organization whose Cloud Security Command Center the Notification
         /// Config lives in.
         #[builder(into)]
-        pub organization: pulumi_wasm_rust::InputOrOutput<String>,
+        pub organization: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The Pub/Sub topic to send notifications to. Its format is
         /// "projects/[project_id]/topics/[topic]".
         #[builder(into)]
-        pub pubsub_topic: pulumi_wasm_rust::InputOrOutput<String>,
+        pub pubsub_topic: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The config for triggering streaming-based notifications.
         /// Structure is documented below.
         #[builder(into)]
-        pub streaming_config: pulumi_wasm_rust::InputOrOutput<
+        pub streaming_config: pulumi_gestalt_rust::InputOrOutput<
             super::super::types::securitycenter::NotificationConfigStreamingConfig,
         >,
     }
     #[allow(dead_code)]
     pub struct NotificationConfigResult {
         /// This must be unique within the organization.
-        pub config_id: pulumi_wasm_rust::Output<String>,
+        pub config_id: pulumi_gestalt_rust::Output<String>,
         /// The description of the notification config (max of 1024 characters).
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_gestalt_rust::Output<Option<String>>,
         /// The resource name of this notification config, in the format
         /// `organizations/{{organization}}/notificationConfigs/{{config_id}}`.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// The organization whose Cloud Security Command Center the Notification
         /// Config lives in.
-        pub organization: pulumi_wasm_rust::Output<String>,
+        pub organization: pulumi_gestalt_rust::Output<String>,
         /// The Pub/Sub topic to send notifications to. Its format is
         /// "projects/[project_id]/topics/[topic]".
-        pub pubsub_topic: pulumi_wasm_rust::Output<String>,
+        pub pubsub_topic: pulumi_gestalt_rust::Output<String>,
         /// The service account that needs "pubsub.topics.publish" permission to
         /// publish to the Pub/Sub topic.
-        pub service_account: pulumi_wasm_rust::Output<String>,
+        pub service_account: pulumi_gestalt_rust::Output<String>,
         /// The config for triggering streaming-based notifications.
         /// Structure is documented below.
-        pub streaming_config: pulumi_wasm_rust::Output<
+        pub streaming_config: pulumi_gestalt_rust::Output<
             super::super::types::securitycenter::NotificationConfigStreamingConfig,
         >,
     }
@@ -113,11 +113,11 @@ pub mod notification_config {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: NotificationConfigArgs,
     ) -> NotificationConfigResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let config_id_binding = args.config_id.get_output(context).get_inner();
         let description_binding = args.description.get_output(context).get_inner();
@@ -156,23 +156,23 @@ pub mod notification_config {
         };
         let o = register_interface::register(context.get_inner(), &request);
         NotificationConfigResult {
-            config_id: pulumi_wasm_rust::__private::into_domain(
+            config_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("configId"),
             ),
-            description: pulumi_wasm_rust::__private::into_domain(
+            description: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("description"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            organization: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            organization: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("organization"),
             ),
-            pubsub_topic: pulumi_wasm_rust::__private::into_domain(
+            pubsub_topic: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("pubsubTopic"),
             ),
-            service_account: pulumi_wasm_rust::__private::into_domain(
+            service_account: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("serviceAccount"),
             ),
-            streaming_config: pulumi_wasm_rust::__private::into_domain(
+            streaming_config: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("streamingConfig"),
             ),
         }

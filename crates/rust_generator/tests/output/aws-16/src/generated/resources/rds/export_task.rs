@@ -5,8 +5,8 @@
 /// ### Basic Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = export_task::create(
@@ -132,86 +132,86 @@
 /// $ pulumi import aws:rds/exportTask:ExportTask example example
 /// ```
 pub mod export_task {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ExportTaskArgs {
         /// Data to be exported from the snapshot. If this parameter is not provided, all the snapshot data is exported. Valid values are documented in the [AWS StartExportTask API documentation](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_StartExportTask.html#API_StartExportTask_RequestParameters).
         #[builder(into, default)]
-        pub export_onlies: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
+        pub export_onlies: pulumi_gestalt_rust::InputOrOutput<Option<Vec<String>>>,
         /// Unique identifier for the snapshot export task.
         #[builder(into)]
-        pub export_task_identifier: pulumi_wasm_rust::InputOrOutput<String>,
+        pub export_task_identifier: pulumi_gestalt_rust::InputOrOutput<String>,
         /// ARN of the IAM role to use for writing to the Amazon S3 bucket.
         #[builder(into)]
-        pub iam_role_arn: pulumi_wasm_rust::InputOrOutput<String>,
+        pub iam_role_arn: pulumi_gestalt_rust::InputOrOutput<String>,
         /// ID of the Amazon Web Services KMS key to use to encrypt the snapshot.
         #[builder(into)]
-        pub kms_key_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub kms_key_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Name of the Amazon S3 bucket to export the snapshot to.
         #[builder(into)]
-        pub s3_bucket_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub s3_bucket_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Amazon S3 bucket prefix to use as the file name and path of the exported snapshot.
         #[builder(into, default)]
-        pub s3_prefix: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub s3_prefix: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Amazon Resource Name (ARN) of the snapshot to export.
         ///
         /// The following arguments are optional:
         #[builder(into)]
-        pub source_arn: pulumi_wasm_rust::InputOrOutput<String>,
+        pub source_arn: pulumi_gestalt_rust::InputOrOutput<String>,
         #[builder(into, default)]
-        pub timeouts: pulumi_wasm_rust::InputOrOutput<
+        pub timeouts: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::rds::ExportTaskTimeouts>,
         >,
     }
     #[allow(dead_code)]
     pub struct ExportTaskResult {
         /// Data to be exported from the snapshot. If this parameter is not provided, all the snapshot data is exported. Valid values are documented in the [AWS StartExportTask API documentation](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_StartExportTask.html#API_StartExportTask_RequestParameters).
-        pub export_onlies: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub export_onlies: pulumi_gestalt_rust::Output<Option<Vec<String>>>,
         /// Unique identifier for the snapshot export task.
-        pub export_task_identifier: pulumi_wasm_rust::Output<String>,
+        pub export_task_identifier: pulumi_gestalt_rust::Output<String>,
         /// Reason the export failed, if it failed.
-        pub failure_cause: pulumi_wasm_rust::Output<String>,
+        pub failure_cause: pulumi_gestalt_rust::Output<String>,
         /// ARN of the IAM role to use for writing to the Amazon S3 bucket.
-        pub iam_role_arn: pulumi_wasm_rust::Output<String>,
+        pub iam_role_arn: pulumi_gestalt_rust::Output<String>,
         /// ID of the Amazon Web Services KMS key to use to encrypt the snapshot.
-        pub kms_key_id: pulumi_wasm_rust::Output<String>,
+        pub kms_key_id: pulumi_gestalt_rust::Output<String>,
         /// Progress of the snapshot export task as a percentage.
-        pub percent_progress: pulumi_wasm_rust::Output<i32>,
+        pub percent_progress: pulumi_gestalt_rust::Output<i32>,
         /// Name of the Amazon S3 bucket to export the snapshot to.
-        pub s3_bucket_name: pulumi_wasm_rust::Output<String>,
+        pub s3_bucket_name: pulumi_gestalt_rust::Output<String>,
         /// Amazon S3 bucket prefix to use as the file name and path of the exported snapshot.
-        pub s3_prefix: pulumi_wasm_rust::Output<String>,
+        pub s3_prefix: pulumi_gestalt_rust::Output<String>,
         /// Time that the snapshot was created.
-        pub snapshot_time: pulumi_wasm_rust::Output<String>,
+        pub snapshot_time: pulumi_gestalt_rust::Output<String>,
         /// Amazon Resource Name (ARN) of the snapshot to export.
         ///
         /// The following arguments are optional:
-        pub source_arn: pulumi_wasm_rust::Output<String>,
+        pub source_arn: pulumi_gestalt_rust::Output<String>,
         /// Type of source for the export.
-        pub source_type: pulumi_wasm_rust::Output<String>,
+        pub source_type: pulumi_gestalt_rust::Output<String>,
         /// Status of the export task.
-        pub status: pulumi_wasm_rust::Output<String>,
+        pub status: pulumi_gestalt_rust::Output<String>,
         /// Time that the snapshot export task completed.
-        pub task_end_time: pulumi_wasm_rust::Output<String>,
+        pub task_end_time: pulumi_gestalt_rust::Output<String>,
         /// Time that the snapshot export task started.
-        pub task_start_time: pulumi_wasm_rust::Output<String>,
-        pub timeouts: pulumi_wasm_rust::Output<
+        pub task_start_time: pulumi_gestalt_rust::Output<String>,
+        pub timeouts: pulumi_gestalt_rust::Output<
             Option<super::super::types::rds::ExportTaskTimeouts>,
         >,
         /// Warning about the snapshot export task, if any.
-        pub warning_message: pulumi_wasm_rust::Output<String>,
+        pub warning_message: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: ExportTaskArgs,
     ) -> ExportTaskResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let export_onlies_binding = args.export_onlies.get_output(context).get_inner();
         let export_task_identifier_binding = args
@@ -265,50 +265,52 @@ pub mod export_task {
         };
         let o = register_interface::register(context.get_inner(), &request);
         ExportTaskResult {
-            export_onlies: pulumi_wasm_rust::__private::into_domain(
+            export_onlies: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("exportOnlies"),
             ),
-            export_task_identifier: pulumi_wasm_rust::__private::into_domain(
+            export_task_identifier: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("exportTaskIdentifier"),
             ),
-            failure_cause: pulumi_wasm_rust::__private::into_domain(
+            failure_cause: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("failureCause"),
             ),
-            iam_role_arn: pulumi_wasm_rust::__private::into_domain(
+            iam_role_arn: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("iamRoleArn"),
             ),
-            kms_key_id: pulumi_wasm_rust::__private::into_domain(
+            kms_key_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("kmsKeyId"),
             ),
-            percent_progress: pulumi_wasm_rust::__private::into_domain(
+            percent_progress: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("percentProgress"),
             ),
-            s3_bucket_name: pulumi_wasm_rust::__private::into_domain(
+            s3_bucket_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("s3BucketName"),
             ),
-            s3_prefix: pulumi_wasm_rust::__private::into_domain(
+            s3_prefix: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("s3Prefix"),
             ),
-            snapshot_time: pulumi_wasm_rust::__private::into_domain(
+            snapshot_time: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("snapshotTime"),
             ),
-            source_arn: pulumi_wasm_rust::__private::into_domain(
+            source_arn: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("sourceArn"),
             ),
-            source_type: pulumi_wasm_rust::__private::into_domain(
+            source_type: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("sourceType"),
             ),
-            status: pulumi_wasm_rust::__private::into_domain(o.extract_field("status")),
-            task_end_time: pulumi_wasm_rust::__private::into_domain(
+            status: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("status"),
+            ),
+            task_end_time: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("taskEndTime"),
             ),
-            task_start_time: pulumi_wasm_rust::__private::into_domain(
+            task_start_time: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("taskStartTime"),
             ),
-            timeouts: pulumi_wasm_rust::__private::into_domain(
+            timeouts: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("timeouts"),
             ),
-            warning_message: pulumi_wasm_rust::__private::into_domain(
+            warning_message: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("warningMessage"),
             ),
         }

@@ -3,8 +3,8 @@
 /// ## Example Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = resource_group::create(
@@ -41,22 +41,22 @@
 /// ```
 ///
 pub mod integration_runtime_self_hosted {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct IntegrationRuntimeSelfHostedArgs {
         /// The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
         #[builder(into)]
-        pub data_factory_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub data_factory_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Integration runtime description.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub description: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The name which should be used for this Data Factory. Changing this forces a new Data Factory Self-hosted Integration Runtime to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// A `rbac_authorization` block as defined below. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub rbac_authorizations: pulumi_wasm_rust::InputOrOutput<
+        pub rbac_authorizations: pulumi_gestalt_rust::InputOrOutput<
             Option<
                 Vec<
                     super::super::types::datafactory::IntegrationRuntimeSelfHostedRbacAuthorization,
@@ -65,22 +65,22 @@ pub mod integration_runtime_self_hosted {
         >,
         /// Specifies whether enable interactive authoring function when your self-hosted integration runtime is unable to establish a connection with Azure Relay.
         #[builder(into, default)]
-        pub self_contained_interactive_authoring_enabled: pulumi_wasm_rust::InputOrOutput<
+        pub self_contained_interactive_authoring_enabled: pulumi_gestalt_rust::InputOrOutput<
             Option<bool>,
         >,
     }
     #[allow(dead_code)]
     pub struct IntegrationRuntimeSelfHostedResult {
         /// The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
-        pub data_factory_id: pulumi_wasm_rust::Output<String>,
+        pub data_factory_id: pulumi_gestalt_rust::Output<String>,
         /// Integration runtime description.
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_gestalt_rust::Output<Option<String>>,
         /// The name which should be used for this Data Factory. Changing this forces a new Data Factory Self-hosted Integration Runtime to be created.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// The primary integration runtime authentication key.
-        pub primary_authorization_key: pulumi_wasm_rust::Output<String>,
+        pub primary_authorization_key: pulumi_gestalt_rust::Output<String>,
         /// A `rbac_authorization` block as defined below. Changing this forces a new resource to be created.
-        pub rbac_authorizations: pulumi_wasm_rust::Output<
+        pub rbac_authorizations: pulumi_gestalt_rust::Output<
             Option<
                 Vec<
                     super::super::types::datafactory::IntegrationRuntimeSelfHostedRbacAuthorization,
@@ -88,9 +88,9 @@ pub mod integration_runtime_self_hosted {
             >,
         >,
         /// The secondary integration runtime authentication key.
-        pub secondary_authorization_key: pulumi_wasm_rust::Output<String>,
+        pub secondary_authorization_key: pulumi_gestalt_rust::Output<String>,
         /// Specifies whether enable interactive authoring function when your self-hosted integration runtime is unable to establish a connection with Azure Relay.
-        pub self_contained_interactive_authoring_enabled: pulumi_wasm_rust::Output<
+        pub self_contained_interactive_authoring_enabled: pulumi_gestalt_rust::Output<
             Option<bool>,
         >,
     }
@@ -99,11 +99,11 @@ pub mod integration_runtime_self_hosted {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: IntegrationRuntimeSelfHostedArgs,
     ) -> IntegrationRuntimeSelfHostedResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let data_factory_id_binding = args
             .data_factory_id
@@ -149,23 +149,23 @@ pub mod integration_runtime_self_hosted {
         };
         let o = register_interface::register(context.get_inner(), &request);
         IntegrationRuntimeSelfHostedResult {
-            data_factory_id: pulumi_wasm_rust::__private::into_domain(
+            data_factory_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("dataFactoryId"),
             ),
-            description: pulumi_wasm_rust::__private::into_domain(
+            description: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("description"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            primary_authorization_key: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            primary_authorization_key: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("primaryAuthorizationKey"),
             ),
-            rbac_authorizations: pulumi_wasm_rust::__private::into_domain(
+            rbac_authorizations: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("rbacAuthorizations"),
             ),
-            secondary_authorization_key: pulumi_wasm_rust::__private::into_domain(
+            secondary_authorization_key: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("secondaryAuthorizationKey"),
             ),
-            self_contained_interactive_authoring_enabled: pulumi_wasm_rust::__private::into_domain(
+            self_contained_interactive_authoring_enabled: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("selfContainedInteractiveAuthoringEnabled"),
             ),
         }

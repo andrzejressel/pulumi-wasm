@@ -71,67 +71,67 @@
 /// ```
 ///
 pub mod budget_subscription {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct BudgetSubscriptionArgs {
         /// The total amount of cost to track with the budget.
         #[builder(into)]
-        pub amount: pulumi_wasm_rust::InputOrOutput<f64>,
+        pub amount: pulumi_gestalt_rust::InputOrOutput<f64>,
         /// (Optional) The ETag of the Subscription Consumption Budget.
         #[builder(into, default)]
-        pub etag: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub etag: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// A `filter` block as defined below.
         #[builder(into, default)]
-        pub filter: pulumi_wasm_rust::InputOrOutput<
+        pub filter: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::consumption::BudgetSubscriptionFilter>,
         >,
         /// The name which should be used for this Subscription Consumption Budget. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// One or more `notification` blocks as defined below.
         #[builder(into)]
-        pub notifications: pulumi_wasm_rust::InputOrOutput<
+        pub notifications: pulumi_gestalt_rust::InputOrOutput<
             Vec<super::super::types::consumption::BudgetSubscriptionNotification>,
         >,
         /// The ID of the Subscription for which to create a Consumption Budget. Changing this forces a new resource to be created.
         ///
         /// > **NOTE:** The `subscription_id` property can accept a subscription ID e.g. `00000000-0000-0000-0000-000000000000` or the subscription resource ID e.g. `/subscriptions/00000000-0000-0000-0000-000000000000`. In version 3.0 this property will only accept the subscription resource ID.
         #[builder(into)]
-        pub subscription_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub subscription_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The time covered by a budget. Tracking of the amount will be reset based on the time grain. Must be one of `BillingAnnual`, `BillingMonth`, `BillingQuarter`, `Annually`, `Monthly` and `Quarterly`. Defaults to `Monthly`. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub time_grain: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub time_grain: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// A `time_period` block as defined below.
         #[builder(into)]
-        pub time_period: pulumi_wasm_rust::InputOrOutput<
+        pub time_period: pulumi_gestalt_rust::InputOrOutput<
             super::super::types::consumption::BudgetSubscriptionTimePeriod,
         >,
     }
     #[allow(dead_code)]
     pub struct BudgetSubscriptionResult {
         /// The total amount of cost to track with the budget.
-        pub amount: pulumi_wasm_rust::Output<f64>,
+        pub amount: pulumi_gestalt_rust::Output<f64>,
         /// (Optional) The ETag of the Subscription Consumption Budget.
-        pub etag: pulumi_wasm_rust::Output<String>,
+        pub etag: pulumi_gestalt_rust::Output<String>,
         /// A `filter` block as defined below.
-        pub filter: pulumi_wasm_rust::Output<
+        pub filter: pulumi_gestalt_rust::Output<
             Option<super::super::types::consumption::BudgetSubscriptionFilter>,
         >,
         /// The name which should be used for this Subscription Consumption Budget. Changing this forces a new resource to be created.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// One or more `notification` blocks as defined below.
-        pub notifications: pulumi_wasm_rust::Output<
+        pub notifications: pulumi_gestalt_rust::Output<
             Vec<super::super::types::consumption::BudgetSubscriptionNotification>,
         >,
         /// The ID of the Subscription for which to create a Consumption Budget. Changing this forces a new resource to be created.
         ///
         /// > **NOTE:** The `subscription_id` property can accept a subscription ID e.g. `00000000-0000-0000-0000-000000000000` or the subscription resource ID e.g. `/subscriptions/00000000-0000-0000-0000-000000000000`. In version 3.0 this property will only accept the subscription resource ID.
-        pub subscription_id: pulumi_wasm_rust::Output<String>,
+        pub subscription_id: pulumi_gestalt_rust::Output<String>,
         /// The time covered by a budget. Tracking of the amount will be reset based on the time grain. Must be one of `BillingAnnual`, `BillingMonth`, `BillingQuarter`, `Annually`, `Monthly` and `Quarterly`. Defaults to `Monthly`. Changing this forces a new resource to be created.
-        pub time_grain: pulumi_wasm_rust::Output<Option<String>>,
+        pub time_grain: pulumi_gestalt_rust::Output<Option<String>>,
         /// A `time_period` block as defined below.
-        pub time_period: pulumi_wasm_rust::Output<
+        pub time_period: pulumi_gestalt_rust::Output<
             super::super::types::consumption::BudgetSubscriptionTimePeriod,
         >,
     }
@@ -140,11 +140,11 @@ pub mod budget_subscription {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: BudgetSubscriptionArgs,
     ) -> BudgetSubscriptionResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let amount_binding = args.amount.get_output(context).get_inner();
         let etag_binding = args.etag.get_output(context).get_inner();
@@ -198,20 +198,24 @@ pub mod budget_subscription {
         };
         let o = register_interface::register(context.get_inner(), &request);
         BudgetSubscriptionResult {
-            amount: pulumi_wasm_rust::__private::into_domain(o.extract_field("amount")),
-            etag: pulumi_wasm_rust::__private::into_domain(o.extract_field("etag")),
-            filter: pulumi_wasm_rust::__private::into_domain(o.extract_field("filter")),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            notifications: pulumi_wasm_rust::__private::into_domain(
+            amount: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("amount"),
+            ),
+            etag: pulumi_gestalt_rust::__private::into_domain(o.extract_field("etag")),
+            filter: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("filter"),
+            ),
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            notifications: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("notifications"),
             ),
-            subscription_id: pulumi_wasm_rust::__private::into_domain(
+            subscription_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("subscriptionId"),
             ),
-            time_grain: pulumi_wasm_rust::__private::into_domain(
+            time_grain: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("timeGrain"),
             ),
-            time_period: pulumi_wasm_rust::__private::into_domain(
+            time_period: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("timePeriod"),
             ),
         }

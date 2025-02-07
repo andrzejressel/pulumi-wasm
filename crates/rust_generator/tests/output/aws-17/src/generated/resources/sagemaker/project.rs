@@ -5,8 +5,8 @@
 /// ## Example Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = project::create(
@@ -31,47 +31,47 @@
 /// $ pulumi import aws:sagemaker/project:Project example example
 /// ```
 pub mod project {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ProjectArgs {
         /// A description for the project.
         #[builder(into, default)]
-        pub project_description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub project_description: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The name of the Project.
         #[builder(into)]
-        pub project_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub project_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The product ID and provisioning artifact ID to provision a service catalog. See Service Catalog Provisioning Details below.
         #[builder(into)]
-        pub service_catalog_provisioning_details: pulumi_wasm_rust::InputOrOutput<
+        pub service_catalog_provisioning_details: pulumi_gestalt_rust::InputOrOutput<
             super::super::types::sagemaker::ProjectServiceCatalogProvisioningDetails,
         >,
         /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
     #[allow(dead_code)]
     pub struct ProjectResult {
         /// The Amazon Resource Name (ARN) assigned by AWS to this Project.
-        pub arn: pulumi_wasm_rust::Output<String>,
+        pub arn: pulumi_gestalt_rust::Output<String>,
         /// A description for the project.
-        pub project_description: pulumi_wasm_rust::Output<Option<String>>,
+        pub project_description: pulumi_gestalt_rust::Output<Option<String>>,
         /// The ID of the project.
-        pub project_id: pulumi_wasm_rust::Output<String>,
+        pub project_id: pulumi_gestalt_rust::Output<String>,
         /// The name of the Project.
-        pub project_name: pulumi_wasm_rust::Output<String>,
+        pub project_name: pulumi_gestalt_rust::Output<String>,
         /// The product ID and provisioning artifact ID to provision a service catalog. See Service Catalog Provisioning Details below.
-        pub service_catalog_provisioning_details: pulumi_wasm_rust::Output<
+        pub service_catalog_provisioning_details: pulumi_gestalt_rust::Output<
             super::super::types::sagemaker::ProjectServiceCatalogProvisioningDetails,
         >,
         /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        pub tags_all: pulumi_wasm_rust::Output<
+        pub tags_all: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
     }
@@ -80,11 +80,11 @@ pub mod project {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: ProjectArgs,
     ) -> ProjectResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let project_description_binding = args
             .project_description
@@ -121,21 +121,21 @@ pub mod project {
         };
         let o = register_interface::register(context.get_inner(), &request);
         ProjectResult {
-            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
-            project_description: pulumi_wasm_rust::__private::into_domain(
+            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
+            project_description: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("projectDescription"),
             ),
-            project_id: pulumi_wasm_rust::__private::into_domain(
+            project_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("projectId"),
             ),
-            project_name: pulumi_wasm_rust::__private::into_domain(
+            project_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("projectName"),
             ),
-            service_catalog_provisioning_details: pulumi_wasm_rust::__private::into_domain(
+            service_catalog_provisioning_details: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("serviceCatalogProvisioningDetails"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_wasm_rust::__private::into_domain(
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            tags_all: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("tagsAll"),
             ),
         }

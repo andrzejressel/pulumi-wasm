@@ -13,8 +13,8 @@
 ///
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let default = service::create(
@@ -137,8 +137,8 @@
 ///
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let connector = connector::create(
@@ -199,8 +199,8 @@
 ///
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let default = service::create(
@@ -267,8 +267,8 @@
 ///
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let default = service::create(
@@ -358,8 +358,8 @@
 ///
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let default = service::create(
@@ -409,8 +409,8 @@
 ///
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let default = service::create(
@@ -453,8 +453,8 @@
 ///
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let default = service::create(
@@ -558,8 +558,8 @@
 ///
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let default = service::create(
@@ -614,7 +614,7 @@
 /// ```
 ///
 pub mod service {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ServiceArgs {
@@ -626,42 +626,42 @@ pub mod service {
         /// annotations present in your configuration. Please refer to the field 'effective_annotations' for all of the annotations
         /// present on the resource.
         #[builder(into, default)]
-        pub annotations: pulumi_wasm_rust::InputOrOutput<
+        pub annotations: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Settings for the Binary Authorization feature.
         #[builder(into, default)]
-        pub binary_authorization: pulumi_wasm_rust::InputOrOutput<
+        pub binary_authorization: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::cloudrunv2::ServiceBinaryAuthorization>,
         >,
         /// Arbitrary identifier for the API client.
         #[builder(into, default)]
-        pub client: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub client: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Arbitrary version identifier for the API client.
         #[builder(into, default)]
-        pub client_version: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub client_version: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// One or more custom audiences that you want this service to support. Specify each custom audience as the full URL in a
         /// string. The custom audiences are encoded in the token and used to authenticate requests. For more information, see
         /// https://cloud.google.com/run/docs/configuring/custom-audiences.
         #[builder(into, default)]
-        pub custom_audiences: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
+        pub custom_audiences: pulumi_gestalt_rust::InputOrOutput<Option<Vec<String>>>,
         /// Disables public resolution of the default URI of this service.
         #[builder(into, default)]
-        pub default_uri_disabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub default_uri_disabled: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         #[builder(into, default)]
-        pub deletion_protection: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub deletion_protection: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// User-provided description of the Service. This field currently has a 512-character limit.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub description: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Provides the ingress settings for this Service. On output, returns the currently observed ingress settings, or
         /// INGRESS_TRAFFIC_UNSPECIFIED if no revision is active. Possible values: ["INGRESS_TRAFFIC_ALL",
         /// "INGRESS_TRAFFIC_INTERNAL_ONLY", "INGRESS_TRAFFIC_INTERNAL_LOAD_BALANCER"]
         #[builder(into, default)]
-        pub ingress: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub ingress: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Disables IAM permission check for run.routes.invoke for callers of this service. This feature is available by invitation
         /// only. For more information, visit https://cloud.google.com/run/docs/securing/managing-access#invoker_check.
         #[builder(into, default)]
-        pub invoker_iam_disabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub invoker_iam_disabled: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// Unstructured key value map that can be used to organize and categorize objects. User-provided labels are shared with
         /// Google's billing system, so they can be used to filter, or break down billing charges by team, component, environment,
         /// state, etc. For more information, visit https://cloud.google.com/resource-manager/docs/creating-managing-labels or
@@ -671,7 +671,7 @@ pub mod service {
         /// non-authoritative, and will only manage the labels present in your configuration. Please refer to the field
         /// 'effective_labels' for all of the labels present on the resource.
         #[builder(into, default)]
-        pub labels: pulumi_wasm_rust::InputOrOutput<
+        pub labels: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// The launch stage as defined by [Google Cloud Platform Launch
@@ -681,30 +681,30 @@ pub mod service {
         /// input, but only BETA and GA-level features are used, this field will be BETA on output. Possible values:
         /// ["UNIMPLEMENTED", "PRELAUNCH", "EARLY_ACCESS", "ALPHA", "BETA", "GA", "DEPRECATED"]
         #[builder(into, default)]
-        pub launch_stage: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub launch_stage: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The location of the cloud run service
         #[builder(into)]
-        pub location: pulumi_wasm_rust::InputOrOutput<String>,
+        pub location: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Name of the Service.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub project: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Scaling settings that apply to the whole service
         #[builder(into, default)]
-        pub scaling: pulumi_wasm_rust::InputOrOutput<
+        pub scaling: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::cloudrunv2::ServiceScaling>,
         >,
         /// The template used to create revisions for this Service.
         /// Structure is documented below.
         #[builder(into)]
-        pub template: pulumi_wasm_rust::InputOrOutput<
+        pub template: pulumi_gestalt_rust::InputOrOutput<
             super::super::types::cloudrunv2::ServiceTemplate,
         >,
         /// Specifies how to distribute traffic over a collection of Revisions belonging to the Service. If traffic is empty or not
         /// provided, defaults to 100% traffic to the latest Ready Revision.
         #[builder(into, default)]
-        pub traffics: pulumi_wasm_rust::InputOrOutput<
+        pub traffics: pulumi_gestalt_rust::InputOrOutput<
             Option<Vec<super::super::types::cloudrunv2::ServiceTraffic>>,
         >,
     }
@@ -717,57 +717,57 @@ pub mod service {
         /// annotations' namespacing, limits, and rules. **Note**: This field is non-authoritative, and will only manage the
         /// annotations present in your configuration. Please refer to the field 'effective_annotations' for all of the annotations
         /// present on the resource.
-        pub annotations: pulumi_wasm_rust::Output<
+        pub annotations: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Settings for the Binary Authorization feature.
-        pub binary_authorization: pulumi_wasm_rust::Output<
+        pub binary_authorization: pulumi_gestalt_rust::Output<
             Option<super::super::types::cloudrunv2::ServiceBinaryAuthorization>,
         >,
         /// Arbitrary identifier for the API client.
-        pub client: pulumi_wasm_rust::Output<Option<String>>,
+        pub client: pulumi_gestalt_rust::Output<Option<String>>,
         /// Arbitrary version identifier for the API client.
-        pub client_version: pulumi_wasm_rust::Output<Option<String>>,
+        pub client_version: pulumi_gestalt_rust::Output<Option<String>>,
         /// The Conditions of all other associated sub-resources. They contain additional diagnostics information in case the Service does not reach its Serving state. See comments in reconciling for additional information on reconciliation process in Cloud Run.
         /// Structure is documented below.
-        pub conditions: pulumi_wasm_rust::Output<
+        pub conditions: pulumi_gestalt_rust::Output<
             Vec<super::super::types::cloudrunv2::ServiceCondition>,
         >,
         /// The creation time.
-        pub create_time: pulumi_wasm_rust::Output<String>,
+        pub create_time: pulumi_gestalt_rust::Output<String>,
         /// Email address of the authenticated creator.
-        pub creator: pulumi_wasm_rust::Output<String>,
+        pub creator: pulumi_gestalt_rust::Output<String>,
         /// One or more custom audiences that you want this service to support. Specify each custom audience as the full URL in a
         /// string. The custom audiences are encoded in the token and used to authenticate requests. For more information, see
         /// https://cloud.google.com/run/docs/configuring/custom-audiences.
-        pub custom_audiences: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub custom_audiences: pulumi_gestalt_rust::Output<Option<Vec<String>>>,
         /// Disables public resolution of the default URI of this service.
-        pub default_uri_disabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub default_uri_disabled: pulumi_gestalt_rust::Output<Option<bool>>,
         /// The deletion time.
-        pub delete_time: pulumi_wasm_rust::Output<String>,
-        pub deletion_protection: pulumi_wasm_rust::Output<Option<bool>>,
+        pub delete_time: pulumi_gestalt_rust::Output<String>,
+        pub deletion_protection: pulumi_gestalt_rust::Output<Option<bool>>,
         /// User-provided description of the Service. This field currently has a 512-character limit.
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
-        pub effective_annotations: pulumi_wasm_rust::Output<
+        pub description: pulumi_gestalt_rust::Output<Option<String>>,
+        pub effective_annotations: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
         /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Pulumi, other clients and services.
-        pub effective_labels: pulumi_wasm_rust::Output<
+        pub effective_labels: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
         /// A system-generated fingerprint for this version of the resource. May be used to detect modification conflict during updates.
-        pub etag: pulumi_wasm_rust::Output<String>,
+        pub etag: pulumi_gestalt_rust::Output<String>,
         /// For a deleted resource, the time after which it will be permanently deleted.
-        pub expire_time: pulumi_wasm_rust::Output<String>,
+        pub expire_time: pulumi_gestalt_rust::Output<String>,
         /// A number that monotonically increases every time the user modifies the desired state. Please note that unlike v1, this is an int64 value. As with most Google APIs, its JSON representation will be a string instead of an integer.
-        pub generation: pulumi_wasm_rust::Output<String>,
+        pub generation: pulumi_gestalt_rust::Output<String>,
         /// Provides the ingress settings for this Service. On output, returns the currently observed ingress settings, or
         /// INGRESS_TRAFFIC_UNSPECIFIED if no revision is active. Possible values: ["INGRESS_TRAFFIC_ALL",
         /// "INGRESS_TRAFFIC_INTERNAL_ONLY", "INGRESS_TRAFFIC_INTERNAL_LOAD_BALANCER"]
-        pub ingress: pulumi_wasm_rust::Output<String>,
+        pub ingress: pulumi_gestalt_rust::Output<String>,
         /// Disables IAM permission check for run.routes.invoke for callers of this service. This feature is available by invitation
         /// only. For more information, visit https://cloud.google.com/run/docs/securing/managing-access#invoker_check.
-        pub invoker_iam_disabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub invoker_iam_disabled: pulumi_gestalt_rust::Output<Option<bool>>,
         /// Unstructured key value map that can be used to organize and categorize objects. User-provided labels are shared with
         /// Google's billing system, so they can be used to filter, or break down billing charges by team, component, environment,
         /// state, etc. For more information, visit https://cloud.google.com/resource-manager/docs/creating-managing-labels or
@@ -776,83 +776,83 @@ pub mod service {
         /// will be rejected. All system labels in v1 now have a corresponding field in v2 Service. **Note**: This field is
         /// non-authoritative, and will only manage the labels present in your configuration. Please refer to the field
         /// 'effective_labels' for all of the labels present on the resource.
-        pub labels: pulumi_wasm_rust::Output<
+        pub labels: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Email address of the last authenticated modifier.
-        pub last_modifier: pulumi_wasm_rust::Output<String>,
+        pub last_modifier: pulumi_gestalt_rust::Output<String>,
         /// Name of the last created revision. See comments in reconciling for additional information on reconciliation process in Cloud Run.
-        pub latest_created_revision: pulumi_wasm_rust::Output<String>,
+        pub latest_created_revision: pulumi_gestalt_rust::Output<String>,
         /// Name of the latest revision that is serving traffic. See comments in reconciling for additional information on reconciliation process in Cloud Run.
-        pub latest_ready_revision: pulumi_wasm_rust::Output<String>,
+        pub latest_ready_revision: pulumi_gestalt_rust::Output<String>,
         /// The launch stage as defined by [Google Cloud Platform Launch
         /// Stages](https://cloud.google.com/products#product-launch-stages). Cloud Run supports ALPHA, BETA, and GA. If no value is
         /// specified, GA is assumed. Set the launch stage to a preview stage on input to allow use of preview features in that
         /// stage. On read (or output), describes whether the resource uses preview features. For example, if ALPHA is provided as
         /// input, but only BETA and GA-level features are used, this field will be BETA on output. Possible values:
         /// ["UNIMPLEMENTED", "PRELAUNCH", "EARLY_ACCESS", "ALPHA", "BETA", "GA", "DEPRECATED"]
-        pub launch_stage: pulumi_wasm_rust::Output<String>,
+        pub launch_stage: pulumi_gestalt_rust::Output<String>,
         /// The location of the cloud run service
-        pub location: pulumi_wasm_rust::Output<String>,
+        pub location: pulumi_gestalt_rust::Output<String>,
         /// Name of the Service.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// The generation of this Service currently serving traffic. See comments in reconciling for additional information on reconciliation process in Cloud Run. Please note that unlike v1, this is an int64 value. As with most Google APIs, its JSON representation will be a string instead of an integer.
-        pub observed_generation: pulumi_wasm_rust::Output<String>,
-        pub project: pulumi_wasm_rust::Output<String>,
+        pub observed_generation: pulumi_gestalt_rust::Output<String>,
+        pub project: pulumi_gestalt_rust::Output<String>,
         /// The combination of labels configured directly on the resource
         /// and default labels configured on the provider.
-        pub pulumi_labels: pulumi_wasm_rust::Output<
+        pub pulumi_labels: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
         /// Returns true if the Service is currently being acted upon by the system to bring it into the desired state.
         /// When a new Service is created, or an existing one is updated, Cloud Run will asynchronously perform all necessary steps to bring the Service to the desired serving state. This process is called reconciliation. While reconciliation is in process, observedGeneration, latest_ready_revison, trafficStatuses, and uri will have transient values that might mismatch the intended state: Once reconciliation is over (and this field is false), there are two possible outcomes: reconciliation succeeded and the serving state matches the Service, or there was an error, and reconciliation failed. This state can be found in terminalCondition.state.
         /// If reconciliation succeeded, the following fields will match: traffic and trafficStatuses, observedGeneration and generation, latestReadyRevision and latestCreatedRevision.
         /// If reconciliation failed, trafficStatuses, observedGeneration, and latestReadyRevision will have the state of the last serving revision, or empty for newly created Services. Additional information on the failure can be found in terminalCondition and conditions.
-        pub reconciling: pulumi_wasm_rust::Output<bool>,
+        pub reconciling: pulumi_gestalt_rust::Output<bool>,
         /// Scaling settings that apply to the whole service
-        pub scaling: pulumi_wasm_rust::Output<
+        pub scaling: pulumi_gestalt_rust::Output<
             Option<super::super::types::cloudrunv2::ServiceScaling>,
         >,
         /// The template used to create revisions for this Service.
         /// Structure is documented below.
-        pub template: pulumi_wasm_rust::Output<
+        pub template: pulumi_gestalt_rust::Output<
             super::super::types::cloudrunv2::ServiceTemplate,
         >,
         /// The Condition of this Service, containing its readiness status, and detailed error information in case it did not reach a serving state. See comments in reconciling for additional information on reconciliation process in Cloud Run.
         /// Structure is documented below.
-        pub terminal_conditions: pulumi_wasm_rust::Output<
+        pub terminal_conditions: pulumi_gestalt_rust::Output<
             Vec<super::super::types::cloudrunv2::ServiceTerminalCondition>,
         >,
         /// Detailed status information for corresponding traffic targets. See comments in reconciling for additional information on reconciliation process in Cloud Run.
         /// Structure is documented below.
-        pub traffic_statuses: pulumi_wasm_rust::Output<
+        pub traffic_statuses: pulumi_gestalt_rust::Output<
             Vec<super::super::types::cloudrunv2::ServiceTrafficStatus>,
         >,
         /// Specifies how to distribute traffic over a collection of Revisions belonging to the Service. If traffic is empty or not
         /// provided, defaults to 100% traffic to the latest Ready Revision.
-        pub traffics: pulumi_wasm_rust::Output<
+        pub traffics: pulumi_gestalt_rust::Output<
             Vec<super::super::types::cloudrunv2::ServiceTraffic>,
         >,
         /// Server assigned unique identifier for the trigger. The value is a UUID4 string and guaranteed to remain unchanged until the resource is deleted.
-        pub uid: pulumi_wasm_rust::Output<String>,
+        pub uid: pulumi_gestalt_rust::Output<String>,
         /// The last-modified time.
-        pub update_time: pulumi_wasm_rust::Output<String>,
+        pub update_time: pulumi_gestalt_rust::Output<String>,
         /// (Output)
         /// Displays the target URI.
-        pub uri: pulumi_wasm_rust::Output<String>,
+        pub uri: pulumi_gestalt_rust::Output<String>,
         /// All URLs serving traffic for this Service.
-        pub urls: pulumi_wasm_rust::Output<Vec<String>>,
+        pub urls: pulumi_gestalt_rust::Output<Vec<String>>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: ServiceArgs,
     ) -> ServiceResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let annotations_binding = args.annotations.get_output(context).get_inner();
         let binary_authorization_binding = args
@@ -968,109 +968,113 @@ pub mod service {
         };
         let o = register_interface::register(context.get_inner(), &request);
         ServiceResult {
-            annotations: pulumi_wasm_rust::__private::into_domain(
+            annotations: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("annotations"),
             ),
-            binary_authorization: pulumi_wasm_rust::__private::into_domain(
+            binary_authorization: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("binaryAuthorization"),
             ),
-            client: pulumi_wasm_rust::__private::into_domain(o.extract_field("client")),
-            client_version: pulumi_wasm_rust::__private::into_domain(
+            client: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("client"),
+            ),
+            client_version: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("clientVersion"),
             ),
-            conditions: pulumi_wasm_rust::__private::into_domain(
+            conditions: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("conditions"),
             ),
-            create_time: pulumi_wasm_rust::__private::into_domain(
+            create_time: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("createTime"),
             ),
-            creator: pulumi_wasm_rust::__private::into_domain(
+            creator: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("creator"),
             ),
-            custom_audiences: pulumi_wasm_rust::__private::into_domain(
+            custom_audiences: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("customAudiences"),
             ),
-            default_uri_disabled: pulumi_wasm_rust::__private::into_domain(
+            default_uri_disabled: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("defaultUriDisabled"),
             ),
-            delete_time: pulumi_wasm_rust::__private::into_domain(
+            delete_time: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("deleteTime"),
             ),
-            deletion_protection: pulumi_wasm_rust::__private::into_domain(
+            deletion_protection: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("deletionProtection"),
             ),
-            description: pulumi_wasm_rust::__private::into_domain(
+            description: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("description"),
             ),
-            effective_annotations: pulumi_wasm_rust::__private::into_domain(
+            effective_annotations: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("effectiveAnnotations"),
             ),
-            effective_labels: pulumi_wasm_rust::__private::into_domain(
+            effective_labels: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("effectiveLabels"),
             ),
-            etag: pulumi_wasm_rust::__private::into_domain(o.extract_field("etag")),
-            expire_time: pulumi_wasm_rust::__private::into_domain(
+            etag: pulumi_gestalt_rust::__private::into_domain(o.extract_field("etag")),
+            expire_time: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("expireTime"),
             ),
-            generation: pulumi_wasm_rust::__private::into_domain(
+            generation: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("generation"),
             ),
-            ingress: pulumi_wasm_rust::__private::into_domain(
+            ingress: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("ingress"),
             ),
-            invoker_iam_disabled: pulumi_wasm_rust::__private::into_domain(
+            invoker_iam_disabled: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("invokerIamDisabled"),
             ),
-            labels: pulumi_wasm_rust::__private::into_domain(o.extract_field("labels")),
-            last_modifier: pulumi_wasm_rust::__private::into_domain(
+            labels: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("labels"),
+            ),
+            last_modifier: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("lastModifier"),
             ),
-            latest_created_revision: pulumi_wasm_rust::__private::into_domain(
+            latest_created_revision: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("latestCreatedRevision"),
             ),
-            latest_ready_revision: pulumi_wasm_rust::__private::into_domain(
+            latest_ready_revision: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("latestReadyRevision"),
             ),
-            launch_stage: pulumi_wasm_rust::__private::into_domain(
+            launch_stage: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("launchStage"),
             ),
-            location: pulumi_wasm_rust::__private::into_domain(
+            location: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("location"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            observed_generation: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            observed_generation: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("observedGeneration"),
             ),
-            project: pulumi_wasm_rust::__private::into_domain(
+            project: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("project"),
             ),
-            pulumi_labels: pulumi_wasm_rust::__private::into_domain(
+            pulumi_labels: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("pulumiLabels"),
             ),
-            reconciling: pulumi_wasm_rust::__private::into_domain(
+            reconciling: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("reconciling"),
             ),
-            scaling: pulumi_wasm_rust::__private::into_domain(
+            scaling: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("scaling"),
             ),
-            template: pulumi_wasm_rust::__private::into_domain(
+            template: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("template"),
             ),
-            terminal_conditions: pulumi_wasm_rust::__private::into_domain(
+            terminal_conditions: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("terminalConditions"),
             ),
-            traffic_statuses: pulumi_wasm_rust::__private::into_domain(
+            traffic_statuses: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("trafficStatuses"),
             ),
-            traffics: pulumi_wasm_rust::__private::into_domain(
+            traffics: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("traffics"),
             ),
-            uid: pulumi_wasm_rust::__private::into_domain(o.extract_field("uid")),
-            update_time: pulumi_wasm_rust::__private::into_domain(
+            uid: pulumi_gestalt_rust::__private::into_domain(o.extract_field("uid")),
+            update_time: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("updateTime"),
             ),
-            uri: pulumi_wasm_rust::__private::into_domain(o.extract_field("uri")),
-            urls: pulumi_wasm_rust::__private::into_domain(o.extract_field("urls")),
+            uri: pulumi_gestalt_rust::__private::into_domain(o.extract_field("uri")),
+            urls: pulumi_gestalt_rust::__private::into_domain(o.extract_field("urls")),
         }
     }
 }

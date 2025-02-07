@@ -3,8 +3,8 @@
 /// The following example below creates a CloudFront origin request policy.
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = origin_request_policy::create(
@@ -55,50 +55,50 @@
 /// $ pulumi import aws:cloudfront/originRequestPolicy:OriginRequestPolicy policy ccca32ef-dce3-4df3-80df-1bd3000bc4d3
 /// ```
 pub mod origin_request_policy {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct OriginRequestPolicyArgs {
         /// Comment to describe the origin request policy.
         #[builder(into, default)]
-        pub comment: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub comment: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Object that determines whether any cookies in viewer requests (and if so, which cookies) are included in the origin request key and automatically included in requests that CloudFront sends to the origin. See Cookies Config for more information.
         #[builder(into)]
-        pub cookies_config: pulumi_wasm_rust::InputOrOutput<
+        pub cookies_config: pulumi_gestalt_rust::InputOrOutput<
             super::super::types::cloudfront::OriginRequestPolicyCookiesConfig,
         >,
         /// Object that determines whether any HTTP headers (and if so, which headers) are included in the origin request key and automatically included in requests that CloudFront sends to the origin. See Headers Config for more information.
         #[builder(into)]
-        pub headers_config: pulumi_wasm_rust::InputOrOutput<
+        pub headers_config: pulumi_gestalt_rust::InputOrOutput<
             super::super::types::cloudfront::OriginRequestPolicyHeadersConfig,
         >,
         /// Unique name to identify the origin request policy.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Object that determines whether any URL query strings in viewer requests (and if so, which query strings) are included in the origin request key and automatically included in requests that CloudFront sends to the origin. See Query String Config for more information.
         #[builder(into)]
-        pub query_strings_config: pulumi_wasm_rust::InputOrOutput<
+        pub query_strings_config: pulumi_gestalt_rust::InputOrOutput<
             super::super::types::cloudfront::OriginRequestPolicyQueryStringsConfig,
         >,
     }
     #[allow(dead_code)]
     pub struct OriginRequestPolicyResult {
         /// Comment to describe the origin request policy.
-        pub comment: pulumi_wasm_rust::Output<Option<String>>,
+        pub comment: pulumi_gestalt_rust::Output<Option<String>>,
         /// Object that determines whether any cookies in viewer requests (and if so, which cookies) are included in the origin request key and automatically included in requests that CloudFront sends to the origin. See Cookies Config for more information.
-        pub cookies_config: pulumi_wasm_rust::Output<
+        pub cookies_config: pulumi_gestalt_rust::Output<
             super::super::types::cloudfront::OriginRequestPolicyCookiesConfig,
         >,
         /// The current version of the origin request policy.
-        pub etag: pulumi_wasm_rust::Output<String>,
+        pub etag: pulumi_gestalt_rust::Output<String>,
         /// Object that determines whether any HTTP headers (and if so, which headers) are included in the origin request key and automatically included in requests that CloudFront sends to the origin. See Headers Config for more information.
-        pub headers_config: pulumi_wasm_rust::Output<
+        pub headers_config: pulumi_gestalt_rust::Output<
             super::super::types::cloudfront::OriginRequestPolicyHeadersConfig,
         >,
         /// Unique name to identify the origin request policy.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// Object that determines whether any URL query strings in viewer requests (and if so, which query strings) are included in the origin request key and automatically included in requests that CloudFront sends to the origin. See Query String Config for more information.
-        pub query_strings_config: pulumi_wasm_rust::Output<
+        pub query_strings_config: pulumi_gestalt_rust::Output<
             super::super::types::cloudfront::OriginRequestPolicyQueryStringsConfig,
         >,
     }
@@ -107,11 +107,11 @@ pub mod origin_request_policy {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: OriginRequestPolicyArgs,
     ) -> OriginRequestPolicyResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let comment_binding = args.comment.get_output(context).get_inner();
         let cookies_config_binding = args.cookies_config.get_output(context).get_inner();
@@ -150,18 +150,18 @@ pub mod origin_request_policy {
         };
         let o = register_interface::register(context.get_inner(), &request);
         OriginRequestPolicyResult {
-            comment: pulumi_wasm_rust::__private::into_domain(
+            comment: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("comment"),
             ),
-            cookies_config: pulumi_wasm_rust::__private::into_domain(
+            cookies_config: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("cookiesConfig"),
             ),
-            etag: pulumi_wasm_rust::__private::into_domain(o.extract_field("etag")),
-            headers_config: pulumi_wasm_rust::__private::into_domain(
+            etag: pulumi_gestalt_rust::__private::into_domain(o.extract_field("etag")),
+            headers_config: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("headersConfig"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            query_strings_config: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            query_strings_config: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("queryStringsConfig"),
             ),
         }

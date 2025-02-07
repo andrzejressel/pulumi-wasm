@@ -87,22 +87,22 @@
 /// ```
 ///
 pub mod backup_schedule {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct BackupScheduleArgs {
         /// For a schedule that runs daily.
         #[builder(into, default)]
-        pub daily_recurrence: pulumi_wasm_rust::InputOrOutput<
+        pub daily_recurrence: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::firestore::BackupScheduleDailyRecurrence>,
         >,
         /// The Firestore database id. Defaults to `"(default)"`.
         #[builder(into, default)]
-        pub database: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub database: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub project: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// At what relative time in the future, compared to its creation time, the backup should be deleted, e.g. keep backups for 7 days.
         /// A duration in seconds with up to nine fractional digits, ending with 's'. Example: "3.5s".
         /// You can set this to a value up to 14 weeks.
@@ -110,38 +110,38 @@ pub mod backup_schedule {
         ///
         /// - - -
         #[builder(into)]
-        pub retention: pulumi_wasm_rust::InputOrOutput<String>,
+        pub retention: pulumi_gestalt_rust::InputOrOutput<String>,
         /// For a schedule that runs weekly on a specific day.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub weekly_recurrence: pulumi_wasm_rust::InputOrOutput<
+        pub weekly_recurrence: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::firestore::BackupScheduleWeeklyRecurrence>,
         >,
     }
     #[allow(dead_code)]
     pub struct BackupScheduleResult {
         /// For a schedule that runs daily.
-        pub daily_recurrence: pulumi_wasm_rust::Output<
+        pub daily_recurrence: pulumi_gestalt_rust::Output<
             Option<super::super::types::firestore::BackupScheduleDailyRecurrence>,
         >,
         /// The Firestore database id. Defaults to `"(default)"`.
-        pub database: pulumi_wasm_rust::Output<Option<String>>,
+        pub database: pulumi_gestalt_rust::Output<Option<String>>,
         /// The unique backup schedule identifier across all locations and databases for the given project. Format:
         /// `projects/{{project}}/databases/{{database}}/backupSchedules/{{backupSchedule}}`
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
-        pub project: pulumi_wasm_rust::Output<String>,
+        pub project: pulumi_gestalt_rust::Output<String>,
         /// At what relative time in the future, compared to its creation time, the backup should be deleted, e.g. keep backups for 7 days.
         /// A duration in seconds with up to nine fractional digits, ending with 's'. Example: "3.5s".
         /// You can set this to a value up to 14 weeks.
         ///
         ///
         /// - - -
-        pub retention: pulumi_wasm_rust::Output<String>,
+        pub retention: pulumi_gestalt_rust::Output<String>,
         /// For a schedule that runs weekly on a specific day.
         /// Structure is documented below.
-        pub weekly_recurrence: pulumi_wasm_rust::Output<
+        pub weekly_recurrence: pulumi_gestalt_rust::Output<
             Option<super::super::types::firestore::BackupScheduleWeeklyRecurrence>,
         >,
     }
@@ -150,11 +150,11 @@ pub mod backup_schedule {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: BackupScheduleArgs,
     ) -> BackupScheduleResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let daily_recurrence_binding = args
             .daily_recurrence
@@ -196,20 +196,20 @@ pub mod backup_schedule {
         };
         let o = register_interface::register(context.get_inner(), &request);
         BackupScheduleResult {
-            daily_recurrence: pulumi_wasm_rust::__private::into_domain(
+            daily_recurrence: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("dailyRecurrence"),
             ),
-            database: pulumi_wasm_rust::__private::into_domain(
+            database: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("database"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            project: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            project: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("project"),
             ),
-            retention: pulumi_wasm_rust::__private::into_domain(
+            retention: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("retention"),
             ),
-            weekly_recurrence: pulumi_wasm_rust::__private::into_domain(
+            weekly_recurrence: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("weeklyRecurrence"),
             ),
         }

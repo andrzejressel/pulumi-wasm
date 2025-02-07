@@ -3,8 +3,8 @@
 /// ## Example Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let test = field_level_encryption_config::create(
@@ -56,38 +56,38 @@
 /// $ pulumi import aws:cloudfront/fieldLevelEncryptionConfig:FieldLevelEncryptionConfig config E74FTE3AEXAMPLE
 /// ```
 pub mod field_level_encryption_config {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct FieldLevelEncryptionConfigArgs {
         /// An optional comment about the Field Level Encryption Config.
         #[builder(into, default)]
-        pub comment: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub comment: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Content Type Profile Config specifies when to forward content if a content type isn't recognized and profiles to use as by default in a request if a query argument doesn't specify a profile to use.
         #[builder(into)]
-        pub content_type_profile_config: pulumi_wasm_rust::InputOrOutput<
+        pub content_type_profile_config: pulumi_gestalt_rust::InputOrOutput<
             super::super::types::cloudfront::FieldLevelEncryptionConfigContentTypeProfileConfig,
         >,
         /// Query Arg Profile Config that specifies when to forward content if a profile isn't found and the profile that can be provided as a query argument in a request.
         #[builder(into)]
-        pub query_arg_profile_config: pulumi_wasm_rust::InputOrOutput<
+        pub query_arg_profile_config: pulumi_gestalt_rust::InputOrOutput<
             super::super::types::cloudfront::FieldLevelEncryptionConfigQueryArgProfileConfig,
         >,
     }
     #[allow(dead_code)]
     pub struct FieldLevelEncryptionConfigResult {
         /// Internal value used by CloudFront to allow future updates to the Field Level Encryption Config.
-        pub caller_reference: pulumi_wasm_rust::Output<String>,
+        pub caller_reference: pulumi_gestalt_rust::Output<String>,
         /// An optional comment about the Field Level Encryption Config.
-        pub comment: pulumi_wasm_rust::Output<Option<String>>,
+        pub comment: pulumi_gestalt_rust::Output<Option<String>>,
         /// Content Type Profile Config specifies when to forward content if a content type isn't recognized and profiles to use as by default in a request if a query argument doesn't specify a profile to use.
-        pub content_type_profile_config: pulumi_wasm_rust::Output<
+        pub content_type_profile_config: pulumi_gestalt_rust::Output<
             super::super::types::cloudfront::FieldLevelEncryptionConfigContentTypeProfileConfig,
         >,
         /// The current version of the Field Level Encryption Config. For example: `E2QWRUHAPOMQZL`.
-        pub etag: pulumi_wasm_rust::Output<String>,
+        pub etag: pulumi_gestalt_rust::Output<String>,
         /// Query Arg Profile Config that specifies when to forward content if a profile isn't found and the profile that can be provided as a query argument in a request.
-        pub query_arg_profile_config: pulumi_wasm_rust::Output<
+        pub query_arg_profile_config: pulumi_gestalt_rust::Output<
             super::super::types::cloudfront::FieldLevelEncryptionConfigQueryArgProfileConfig,
         >,
     }
@@ -96,11 +96,11 @@ pub mod field_level_encryption_config {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: FieldLevelEncryptionConfigArgs,
     ) -> FieldLevelEncryptionConfigResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let comment_binding = args.comment.get_output(context).get_inner();
         let content_type_profile_config_binding = args
@@ -133,17 +133,17 @@ pub mod field_level_encryption_config {
         };
         let o = register_interface::register(context.get_inner(), &request);
         FieldLevelEncryptionConfigResult {
-            caller_reference: pulumi_wasm_rust::__private::into_domain(
+            caller_reference: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("callerReference"),
             ),
-            comment: pulumi_wasm_rust::__private::into_domain(
+            comment: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("comment"),
             ),
-            content_type_profile_config: pulumi_wasm_rust::__private::into_domain(
+            content_type_profile_config: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("contentTypeProfileConfig"),
             ),
-            etag: pulumi_wasm_rust::__private::into_domain(o.extract_field("etag")),
-            query_arg_profile_config: pulumi_wasm_rust::__private::into_domain(
+            etag: pulumi_gestalt_rust::__private::into_domain(o.extract_field("etag")),
+            query_arg_profile_config: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("queryArgProfileConfig"),
             ),
         }

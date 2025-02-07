@@ -3,8 +3,8 @@
 /// ## Example Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = assessment_template::create(
@@ -41,72 +41,72 @@
 /// $ pulumi import aws:inspector/assessmentTemplate:AssessmentTemplate example arn:aws:inspector:us-west-2:123456789012:target/0-9IaAzhGR/template/0-WEcjR8CH
 /// ```
 pub mod assessment_template {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct AssessmentTemplateArgs {
         /// The duration of the inspector run.
         #[builder(into)]
-        pub duration: pulumi_wasm_rust::InputOrOutput<i32>,
+        pub duration: pulumi_gestalt_rust::InputOrOutput<i32>,
         /// A block that enables sending notifications about a specified assessment template event to a designated SNS topic. See Event Subscriptions for details.
         #[builder(into, default)]
-        pub event_subscriptions: pulumi_wasm_rust::InputOrOutput<
+        pub event_subscriptions: pulumi_gestalt_rust::InputOrOutput<
             Option<
                 Vec<super::super::types::inspector::AssessmentTemplateEventSubscription>,
             >,
         >,
         /// The name of the assessment template.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The rules to be used during the run.
         #[builder(into)]
-        pub rules_package_arns: pulumi_wasm_rust::InputOrOutput<Vec<String>>,
+        pub rules_package_arns: pulumi_gestalt_rust::InputOrOutput<Vec<String>>,
         /// Key-value map of tags for the Inspector assessment template. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// The assessment target ARN to attach the template to.
         #[builder(into)]
-        pub target_arn: pulumi_wasm_rust::InputOrOutput<String>,
+        pub target_arn: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct AssessmentTemplateResult {
         /// The template assessment ARN.
-        pub arn: pulumi_wasm_rust::Output<String>,
+        pub arn: pulumi_gestalt_rust::Output<String>,
         /// The duration of the inspector run.
-        pub duration: pulumi_wasm_rust::Output<i32>,
+        pub duration: pulumi_gestalt_rust::Output<i32>,
         /// A block that enables sending notifications about a specified assessment template event to a designated SNS topic. See Event Subscriptions for details.
-        pub event_subscriptions: pulumi_wasm_rust::Output<
+        pub event_subscriptions: pulumi_gestalt_rust::Output<
             Option<
                 Vec<super::super::types::inspector::AssessmentTemplateEventSubscription>,
             >,
         >,
         /// The name of the assessment template.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// The rules to be used during the run.
-        pub rules_package_arns: pulumi_wasm_rust::Output<Vec<String>>,
+        pub rules_package_arns: pulumi_gestalt_rust::Output<Vec<String>>,
         /// Key-value map of tags for the Inspector assessment template. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        pub tags_all: pulumi_wasm_rust::Output<
+        pub tags_all: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
         /// The assessment target ARN to attach the template to.
-        pub target_arn: pulumi_wasm_rust::Output<String>,
+        pub target_arn: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: AssessmentTemplateArgs,
     ) -> AssessmentTemplateResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let duration_binding = args.duration.get_output(context).get_inner();
         let event_subscriptions_binding = args
@@ -153,22 +153,22 @@ pub mod assessment_template {
         };
         let o = register_interface::register(context.get_inner(), &request);
         AssessmentTemplateResult {
-            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
-            duration: pulumi_wasm_rust::__private::into_domain(
+            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
+            duration: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("duration"),
             ),
-            event_subscriptions: pulumi_wasm_rust::__private::into_domain(
+            event_subscriptions: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("eventSubscriptions"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            rules_package_arns: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            rules_package_arns: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("rulesPackageArns"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_wasm_rust::__private::into_domain(
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            tags_all: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("tagsAll"),
             ),
-            target_arn: pulumi_wasm_rust::__private::into_domain(
+            target_arn: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("targetArn"),
             ),
         }

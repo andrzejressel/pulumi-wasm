@@ -1,58 +1,58 @@
 pub mod get_elastic_pool {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct GetElasticPoolArgs {
         /// The name of the elastic pool.
         #[builder(into)]
-        pub name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The name of the resource group which contains the elastic pool.
         #[builder(into)]
-        pub resource_group_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub resource_group_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The name of the SQL Server which contains the elastic pool.
         #[builder(into)]
-        pub server_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub server_name: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct GetElasticPoolResult {
         /// The type of enclave being used by the elastic pool.
-        pub enclave_type: pulumi_wasm_rust::Output<String>,
+        pub enclave_type: pulumi_gestalt_rust::Output<String>,
         /// The provider-assigned unique ID for this managed resource.
-        pub id: pulumi_wasm_rust::Output<String>,
+        pub id: pulumi_gestalt_rust::Output<String>,
         /// The license type to apply for this elastic pool.
-        pub license_type: pulumi_wasm_rust::Output<String>,
+        pub license_type: pulumi_gestalt_rust::Output<String>,
         /// Specifies the supported Azure location where the resource exists.
-        pub location: pulumi_wasm_rust::Output<String>,
+        pub location: pulumi_gestalt_rust::Output<String>,
         /// The max data size of the elastic pool in bytes.
-        pub max_size_bytes: pulumi_wasm_rust::Output<i32>,
+        pub max_size_bytes: pulumi_gestalt_rust::Output<i32>,
         /// The max data size of the elastic pool in gigabytes.
-        pub max_size_gb: pulumi_wasm_rust::Output<f64>,
+        pub max_size_gb: pulumi_gestalt_rust::Output<f64>,
         /// Specifies the SKU Name for this Elasticpool.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// The maximum capacity any one database can consume.
-        pub per_db_max_capacity: pulumi_wasm_rust::Output<i32>,
+        pub per_db_max_capacity: pulumi_gestalt_rust::Output<i32>,
         /// The minimum capacity all databases are guaranteed.
-        pub per_db_min_capacity: pulumi_wasm_rust::Output<i32>,
-        pub resource_group_name: pulumi_wasm_rust::Output<String>,
-        pub server_name: pulumi_wasm_rust::Output<String>,
+        pub per_db_min_capacity: pulumi_gestalt_rust::Output<i32>,
+        pub resource_group_name: pulumi_gestalt_rust::Output<String>,
+        pub server_name: pulumi_gestalt_rust::Output<String>,
         /// A `sku` block as defined below.
-        pub skus: pulumi_wasm_rust::Output<
+        pub skus: pulumi_gestalt_rust::Output<
             Vec<super::super::super::types::mssql::GetElasticPoolSkus>,
         >,
         /// A mapping of tags to assign to the resource.
-        pub tags: pulumi_wasm_rust::Output<std::collections::HashMap<String, String>>,
+        pub tags: pulumi_gestalt_rust::Output<std::collections::HashMap<String, String>>,
         /// Whether or not this elastic pool is zone redundant.
-        pub zone_redundant: pulumi_wasm_rust::Output<bool>,
+        pub zone_redundant: pulumi_gestalt_rust::Output<bool>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         args: GetElasticPoolArgs,
     ) -> GetElasticPoolResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let name_binding = args.name.get_output(context).get_inner();
         let resource_group_name_binding = args
@@ -80,38 +80,38 @@ pub mod get_elastic_pool {
         };
         let o = register_interface::invoke(context.get_inner(), &request);
         GetElasticPoolResult {
-            enclave_type: pulumi_wasm_rust::__private::into_domain(
+            enclave_type: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("enclaveType"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
-            license_type: pulumi_wasm_rust::__private::into_domain(
+            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
+            license_type: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("licenseType"),
             ),
-            location: pulumi_wasm_rust::__private::into_domain(
+            location: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("location"),
             ),
-            max_size_bytes: pulumi_wasm_rust::__private::into_domain(
+            max_size_bytes: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("maxSizeBytes"),
             ),
-            max_size_gb: pulumi_wasm_rust::__private::into_domain(
+            max_size_gb: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("maxSizeGb"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            per_db_max_capacity: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            per_db_max_capacity: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("perDbMaxCapacity"),
             ),
-            per_db_min_capacity: pulumi_wasm_rust::__private::into_domain(
+            per_db_min_capacity: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("perDbMinCapacity"),
             ),
-            resource_group_name: pulumi_wasm_rust::__private::into_domain(
+            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("resourceGroupName"),
             ),
-            server_name: pulumi_wasm_rust::__private::into_domain(
+            server_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("serverName"),
             ),
-            skus: pulumi_wasm_rust::__private::into_domain(o.extract_field("skus")),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
-            zone_redundant: pulumi_wasm_rust::__private::into_domain(
+            skus: pulumi_gestalt_rust::__private::into_domain(o.extract_field("skus")),
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            zone_redundant: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("zoneRedundant"),
             ),
         }

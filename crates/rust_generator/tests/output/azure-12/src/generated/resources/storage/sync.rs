@@ -29,42 +29,42 @@
 /// ```
 ///
 pub mod sync {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct SyncArgs {
         /// Incoming traffic policy. Possible values are `AllowAllTraffic` and `AllowVirtualNetworksOnly`. Defaults to `AllowAllTraffic`.
         #[builder(into, default)]
-        pub incoming_traffic_policy: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub incoming_traffic_policy: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The Azure Region where the Storage Sync should exist. Changing this forces a new Storage Sync to be created.
         #[builder(into, default)]
-        pub location: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub location: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The name which should be used for this Storage Sync. Changing this forces a new Storage Sync to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The name of the Resource Group where the Storage Sync should exist. Changing this forces a new Storage Sync to be created.
         #[builder(into)]
-        pub resource_group_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub resource_group_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// A mapping of tags which should be assigned to the Storage Sync.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
     #[allow(dead_code)]
     pub struct SyncResult {
         /// Incoming traffic policy. Possible values are `AllowAllTraffic` and `AllowVirtualNetworksOnly`. Defaults to `AllowAllTraffic`.
-        pub incoming_traffic_policy: pulumi_wasm_rust::Output<Option<String>>,
+        pub incoming_traffic_policy: pulumi_gestalt_rust::Output<Option<String>>,
         /// The Azure Region where the Storage Sync should exist. Changing this forces a new Storage Sync to be created.
-        pub location: pulumi_wasm_rust::Output<String>,
+        pub location: pulumi_gestalt_rust::Output<String>,
         /// The name which should be used for this Storage Sync. Changing this forces a new Storage Sync to be created.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// A list of registered servers owned by this Storage Sync.
-        pub registered_servers: pulumi_wasm_rust::Output<Vec<String>>,
+        pub registered_servers: pulumi_gestalt_rust::Output<Vec<String>>,
         /// The name of the Resource Group where the Storage Sync should exist. Changing this forces a new Storage Sync to be created.
-        pub resource_group_name: pulumi_wasm_rust::Output<String>,
+        pub resource_group_name: pulumi_gestalt_rust::Output<String>,
         /// A mapping of tags which should be assigned to the Storage Sync.
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
@@ -73,11 +73,11 @@ pub mod sync {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: SyncArgs,
     ) -> SyncResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let incoming_traffic_policy_binding = args
             .incoming_traffic_policy
@@ -119,20 +119,20 @@ pub mod sync {
         };
         let o = register_interface::register(context.get_inner(), &request);
         SyncResult {
-            incoming_traffic_policy: pulumi_wasm_rust::__private::into_domain(
+            incoming_traffic_policy: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("incomingTrafficPolicy"),
             ),
-            location: pulumi_wasm_rust::__private::into_domain(
+            location: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("location"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            registered_servers: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            registered_servers: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("registeredServers"),
             ),
-            resource_group_name: pulumi_wasm_rust::__private::into_domain(
+            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("resourceGroupName"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
         }
     }
 }

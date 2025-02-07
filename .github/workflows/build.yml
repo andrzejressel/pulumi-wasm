@@ -436,7 +436,7 @@ jobs:
 
     - name: Clone Repository
       run: |
-        git clone https://${{ secrets.RELEASE_TOKEN }}@github.com/andrzejressel/pulumi-wasm-releases /tmp/repo
+        git clone https://${{ secrets.RELEASE_TOKEN }}@github.com/andrzejressel/pulumi-gestalt-releases /tmp/repo
         cd /tmp/repo
         git config user.name "github-actions[bot]"
         git config user.email "github-actions[bot]@users.noreply.github.com"
@@ -453,7 +453,7 @@ jobs:
         name: ${{ env.new_version }}
         tag_name: "v${{ env.new_version }}"
         prerelease: true
-        repository: andrzejressel/pulumi-wasm-releases
+        repository: andrzejressel/pulumi-gestalt-releases
         token: ${{ secrets.RELEASE_TOKEN }}
         body: ""
 

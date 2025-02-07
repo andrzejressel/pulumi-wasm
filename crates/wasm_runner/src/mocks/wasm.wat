@@ -8,8 +8,8 @@
     (func (export "realloc") (param i32 i32 i32 i32) (result i32)
       i32.const 0
     )
-    (@custom "pulumi_wasm_provider::random" (after data) "{\"version\": \"4.15.0\"}")
-    (@custom "pulumi_wasm_provider::docker" (after data) "{\"version\": \"4.5.3\", \"pluginDownloadURL\": \"https://example.com\"}")
+    (@custom "pulumi_gestalt_provider::random" (after data) "{\"version\": \"4.15.0\"}")
+    (@custom "pulumi_gestalt_provider::docker" (after data) "{\"version\": \"4.5.3\", \"pluginDownloadURL\": \"https://example.com\"}")
   )
   (core instance $length_instance (instantiate $LengthCoreWasm))
   (func (export "length") (param "input" string) (result u32)

@@ -33,40 +33,40 @@
 /// $ pulumi import aws:ssoadmin/instanceAccessControlAttributes:InstanceAccessControlAttributes example arn:aws:sso:::instance/ssoins-0123456789abcdef
 /// ```
 pub mod instance_access_control_attributes {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct InstanceAccessControlAttributesArgs {
         /// See AccessControlAttribute for more details.
         #[builder(into)]
-        pub attributes: pulumi_wasm_rust::InputOrOutput<
+        pub attributes: pulumi_gestalt_rust::InputOrOutput<
             Vec<super::super::types::ssoadmin::InstanceAccessControlAttributesAttribute>,
         >,
         /// The Amazon Resource Name (ARN) of the SSO Instance.
         #[builder(into)]
-        pub instance_arn: pulumi_wasm_rust::InputOrOutput<String>,
+        pub instance_arn: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct InstanceAccessControlAttributesResult {
         /// See AccessControlAttribute for more details.
-        pub attributes: pulumi_wasm_rust::Output<
+        pub attributes: pulumi_gestalt_rust::Output<
             Vec<super::super::types::ssoadmin::InstanceAccessControlAttributesAttribute>,
         >,
         /// The Amazon Resource Name (ARN) of the SSO Instance.
-        pub instance_arn: pulumi_wasm_rust::Output<String>,
-        pub status: pulumi_wasm_rust::Output<String>,
-        pub status_reason: pulumi_wasm_rust::Output<String>,
+        pub instance_arn: pulumi_gestalt_rust::Output<String>,
+        pub status: pulumi_gestalt_rust::Output<String>,
+        pub status_reason: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: InstanceAccessControlAttributesArgs,
     ) -> InstanceAccessControlAttributesResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let attributes_binding = args.attributes.get_output(context).get_inner();
         let instance_arn_binding = args.instance_arn.get_output(context).get_inner();
@@ -88,14 +88,16 @@ pub mod instance_access_control_attributes {
         };
         let o = register_interface::register(context.get_inner(), &request);
         InstanceAccessControlAttributesResult {
-            attributes: pulumi_wasm_rust::__private::into_domain(
+            attributes: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("attributes"),
             ),
-            instance_arn: pulumi_wasm_rust::__private::into_domain(
+            instance_arn: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("instanceArn"),
             ),
-            status: pulumi_wasm_rust::__private::into_domain(o.extract_field("status")),
-            status_reason: pulumi_wasm_rust::__private::into_domain(
+            status: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("status"),
+            ),
+            status_reason: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("statusReason"),
             ),
         }

@@ -38,57 +38,57 @@
 /// $ pulumi import aws:opensearch/outboundConnection:OutboundConnection foo connection-id
 /// ```
 pub mod outbound_connection {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct OutboundConnectionArgs {
         /// Accepts the connection.
         #[builder(into, default)]
-        pub accept_connection: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub accept_connection: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// Specifies the connection alias that will be used by the customer for this connection.
         #[builder(into)]
-        pub connection_alias: pulumi_wasm_rust::InputOrOutput<String>,
+        pub connection_alias: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Specifies the connection mode. Accepted values are `DIRECT` or `VPC_ENDPOINT`.
         #[builder(into, default)]
-        pub connection_mode: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub connection_mode: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Configuration block for the outbound connection.
         #[builder(into, default)]
-        pub connection_properties: pulumi_wasm_rust::InputOrOutput<
+        pub connection_properties: pulumi_gestalt_rust::InputOrOutput<
             Option<
                 super::super::types::opensearch::OutboundConnectionConnectionProperties,
             >,
         >,
         /// Configuration block for the local Opensearch domain.
         #[builder(into)]
-        pub local_domain_info: pulumi_wasm_rust::InputOrOutput<
+        pub local_domain_info: pulumi_gestalt_rust::InputOrOutput<
             super::super::types::opensearch::OutboundConnectionLocalDomainInfo,
         >,
         /// Configuration block for the remote Opensearch domain.
         #[builder(into)]
-        pub remote_domain_info: pulumi_wasm_rust::InputOrOutput<
+        pub remote_domain_info: pulumi_gestalt_rust::InputOrOutput<
             super::super::types::opensearch::OutboundConnectionRemoteDomainInfo,
         >,
     }
     #[allow(dead_code)]
     pub struct OutboundConnectionResult {
         /// Accepts the connection.
-        pub accept_connection: pulumi_wasm_rust::Output<Option<bool>>,
+        pub accept_connection: pulumi_gestalt_rust::Output<Option<bool>>,
         /// Specifies the connection alias that will be used by the customer for this connection.
-        pub connection_alias: pulumi_wasm_rust::Output<String>,
+        pub connection_alias: pulumi_gestalt_rust::Output<String>,
         /// Specifies the connection mode. Accepted values are `DIRECT` or `VPC_ENDPOINT`.
-        pub connection_mode: pulumi_wasm_rust::Output<String>,
+        pub connection_mode: pulumi_gestalt_rust::Output<String>,
         /// Configuration block for the outbound connection.
-        pub connection_properties: pulumi_wasm_rust::Output<
+        pub connection_properties: pulumi_gestalt_rust::Output<
             super::super::types::opensearch::OutboundConnectionConnectionProperties,
         >,
         /// Status of the connection request.
-        pub connection_status: pulumi_wasm_rust::Output<String>,
+        pub connection_status: pulumi_gestalt_rust::Output<String>,
         /// Configuration block for the local Opensearch domain.
-        pub local_domain_info: pulumi_wasm_rust::Output<
+        pub local_domain_info: pulumi_gestalt_rust::Output<
             super::super::types::opensearch::OutboundConnectionLocalDomainInfo,
         >,
         /// Configuration block for the remote Opensearch domain.
-        pub remote_domain_info: pulumi_wasm_rust::Output<
+        pub remote_domain_info: pulumi_gestalt_rust::Output<
             super::super::types::opensearch::OutboundConnectionRemoteDomainInfo,
         >,
     }
@@ -97,11 +97,11 @@ pub mod outbound_connection {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: OutboundConnectionArgs,
     ) -> OutboundConnectionResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let accept_connection_binding = args
             .accept_connection
@@ -160,25 +160,25 @@ pub mod outbound_connection {
         };
         let o = register_interface::register(context.get_inner(), &request);
         OutboundConnectionResult {
-            accept_connection: pulumi_wasm_rust::__private::into_domain(
+            accept_connection: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("acceptConnection"),
             ),
-            connection_alias: pulumi_wasm_rust::__private::into_domain(
+            connection_alias: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("connectionAlias"),
             ),
-            connection_mode: pulumi_wasm_rust::__private::into_domain(
+            connection_mode: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("connectionMode"),
             ),
-            connection_properties: pulumi_wasm_rust::__private::into_domain(
+            connection_properties: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("connectionProperties"),
             ),
-            connection_status: pulumi_wasm_rust::__private::into_domain(
+            connection_status: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("connectionStatus"),
             ),
-            local_domain_info: pulumi_wasm_rust::__private::into_domain(
+            local_domain_info: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("localDomainInfo"),
             ),
-            remote_domain_info: pulumi_wasm_rust::__private::into_domain(
+            remote_domain_info: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("remoteDomainInfo"),
             ),
         }

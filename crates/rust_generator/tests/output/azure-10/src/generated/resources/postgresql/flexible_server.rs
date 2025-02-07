@@ -3,8 +3,8 @@
 /// ## Example Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = resource_group::create(
@@ -109,7 +109,7 @@
 /// ```
 ///
 pub mod flexible_server {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct FlexibleServerArgs {
@@ -119,115 +119,119 @@ pub mod flexible_server {
         ///
         /// > **Note:** To create with `administrator_login` specified or update with it first specified , `authentication.password_auth_enabled` must be set to `true`.
         #[builder(into, default)]
-        pub administrator_login: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub administrator_login: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The Password associated with the `administrator_login` for the PostgreSQL Flexible Server. Required when `create_mode` is `Default` and `authentication.password_auth_enabled` is `true`.
         #[builder(into, default)]
-        pub administrator_password: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub administrator_password: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// An `authentication` block as defined below.
         #[builder(into, default)]
-        pub authentication: pulumi_wasm_rust::InputOrOutput<
+        pub authentication: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::postgresql::FlexibleServerAuthentication>,
         >,
         /// Is the storage auto grow for PostgreSQL Flexible Server enabled? Defaults to `false`.
         #[builder(into, default)]
-        pub auto_grow_enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub auto_grow_enabled: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// The backup retention days for the PostgreSQL Flexible Server. Possible values are between `7` and `35` days.
         #[builder(into, default)]
-        pub backup_retention_days: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
+        pub backup_retention_days: pulumi_gestalt_rust::InputOrOutput<Option<i32>>,
         /// The creation mode which can be used to restore or replicate existing servers. Possible values are `Default`, `GeoRestore`, `PointInTimeRestore`, `Replica` and `Update`. Changing this forces a new PostgreSQL Flexible Server to be created.
         ///
         /// > **Note:** `create_mode` cannot be changed once it's set since it's a parameter at creation.
         ///
         /// > **Note:** While creating the resource, `create_mode` cannot be set to `Update`.
         #[builder(into, default)]
-        pub create_mode: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub create_mode: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// A `customer_managed_key` block as defined below. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub customer_managed_key: pulumi_wasm_rust::InputOrOutput<
+        pub customer_managed_key: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::postgresql::FlexibleServerCustomerManagedKey>,
         >,
         /// The ID of the virtual network subnet to create the PostgreSQL Flexible Server. The provided subnet should not have any other resource deployed in it and this subnet will be delegated to the PostgreSQL Flexible Server, if not already delegated. Changing this forces a new PostgreSQL Flexible Server to be created.
         #[builder(into, default)]
-        pub delegated_subnet_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub delegated_subnet_id: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Is Geo-Redundant backup enabled on the PostgreSQL Flexible Server. Defaults to `false`. Changing this forces a new PostgreSQL Flexible Server to be created.
         #[builder(into, default)]
-        pub geo_redundant_backup_enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub geo_redundant_backup_enabled: pulumi_gestalt_rust::InputOrOutput<
+            Option<bool>,
+        >,
         /// A `high_availability` block as defined below.
         #[builder(into, default)]
-        pub high_availability: pulumi_wasm_rust::InputOrOutput<
+        pub high_availability: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::postgresql::FlexibleServerHighAvailability>,
         >,
         /// An `identity` block as defined below.
         #[builder(into, default)]
-        pub identity: pulumi_wasm_rust::InputOrOutput<
+        pub identity: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::postgresql::FlexibleServerIdentity>,
         >,
         /// The Azure Region where the PostgreSQL Flexible Server should exist. Changing this forces a new PostgreSQL Flexible Server to be created.
         #[builder(into, default)]
-        pub location: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub location: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// A `maintenance_window` block as defined below.
         #[builder(into, default)]
-        pub maintenance_window: pulumi_wasm_rust::InputOrOutput<
+        pub maintenance_window: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::postgresql::FlexibleServerMaintenanceWindow>,
         >,
         /// The name which should be used for this PostgreSQL Flexible Server. Changing this forces a new PostgreSQL Flexible Server to be created.
         ///
         /// > **Note** This must be unique across the entire Azure service, not just within the resource group.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The point in time to restore from `source_server_id` when `create_mode` is `GeoRestore`, `PointInTimeRestore`. Changing this forces a new PostgreSQL Flexible Server to be created.
         #[builder(into, default)]
-        pub point_in_time_restore_time_in_utc: pulumi_wasm_rust::InputOrOutput<
+        pub point_in_time_restore_time_in_utc: pulumi_gestalt_rust::InputOrOutput<
             Option<String>,
         >,
         /// The ID of the private DNS zone to create the PostgreSQL Flexible Server.
         ///
         /// > **Note:** There will be a breaking change from upstream service at 15th July 2021, the `private_dns_zone_id` will be required when setting a `delegated_subnet_id`. For existing flexible servers who don't want to be recreated, you need to provide the `private_dns_zone_id` to the service team to manually migrate to the specified private DNS zone. The `azure.privatedns.Zone` should end with suffix `.postgres.database.azure.com`.
         #[builder(into, default)]
-        pub private_dns_zone_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub private_dns_zone_id: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Specifies whether this PostgreSQL Flexible Server is publicly accessible. Defaults to `true`.
         ///
         /// > **Note:** `public_network_access_enabled` must be set to `false` when `delegated_subnet_id` and `private_dns_zone_id` have a value.
         #[builder(into, default)]
-        pub public_network_access_enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub public_network_access_enabled: pulumi_gestalt_rust::InputOrOutput<
+            Option<bool>,
+        >,
         /// The replication role for the PostgreSQL Flexible Server. Possible value is `None`.
         ///
         /// > **Note:** The `replication_role` cannot be set while creating and only can be updated to `None` for replica server.
         #[builder(into, default)]
-        pub replication_role: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub replication_role: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The name of the Resource Group where the PostgreSQL Flexible Server should exist. Changing this forces a new PostgreSQL Flexible Server to be created.
         #[builder(into)]
-        pub resource_group_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub resource_group_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The SKU Name for the PostgreSQL Flexible Server. The name of the SKU, follows the `tier` + `name` pattern (e.g. `B_Standard_B1ms`, `GP_Standard_D2s_v3`, `MO_Standard_E4s_v3`).
         #[builder(into, default)]
-        pub sku_name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub sku_name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The resource ID of the source PostgreSQL Flexible Server to be restored. Required when `create_mode` is `GeoRestore`, `PointInTimeRestore` or `Replica`. Changing this forces a new PostgreSQL Flexible Server to be created.
         #[builder(into, default)]
-        pub source_server_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub source_server_id: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The max storage allowed for the PostgreSQL Flexible Server. Possible values are `32768`, `65536`, `131072`, `262144`, `524288`, `1048576`, `2097152`, `4193280`, `4194304`, `8388608`, `16777216` and `33553408`.
         ///
         /// > **Note:** If the `storage_mb` field is undefined on the initial deployment of the PostgreSQL Flexible Server resource it will default to `32768`. If the `storage_mb` field has been defined and then removed, the `storage_mb` field will retain the previously defined value.
         ///
         /// > **Note:** The `storage_mb` can only be scaled up, for example, you can scale the `storage_mb` from `32768` to `65536`, but not from `65536` to `32768`.
         #[builder(into, default)]
-        pub storage_mb: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
+        pub storage_mb: pulumi_gestalt_rust::InputOrOutput<Option<i32>>,
         /// The name of storage performance tier for IOPS of the PostgreSQL Flexible Server. Possible values are `P4`, `P6`, `P10`, `P15`,`P20`, `P30`,`P40`, `P50`,`P60`, `P70` or `P80`. Default value is dependant on the `storage_mb` value. Please see the `storage_tier` defaults based on `storage_mb` table below.
         ///
         /// > **Note:** The `storage_tier` can be scaled once every 12 hours, this restriction is in place to ensure stability and performance after any changes to your PostgreSQL Flexible Server's configuration.
         #[builder(into, default)]
-        pub storage_tier: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub storage_tier: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// A mapping of tags which should be assigned to the PostgreSQL Flexible Server.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// The version of PostgreSQL Flexible Server to use. Possible values are `11`,`12`, `13`, `14`, `15` and `16`. Required when `create_mode` is `Default`.
         ///
         /// > **Note:** When `create_mode` is `Update`, upgrading version wouldn't force a new resource to be created.
         #[builder(into, default)]
-        pub version: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub version: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         #[builder(into, default)]
-        pub zone: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub zone: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct FlexibleServerResult {
@@ -236,101 +240,103 @@ pub mod flexible_server {
         /// > **Note:** Once `administrator_login` is specified, changing this forces a new PostgreSQL Flexible Server to be created.
         ///
         /// > **Note:** To create with `administrator_login` specified or update with it first specified , `authentication.password_auth_enabled` must be set to `true`.
-        pub administrator_login: pulumi_wasm_rust::Output<String>,
+        pub administrator_login: pulumi_gestalt_rust::Output<String>,
         /// The Password associated with the `administrator_login` for the PostgreSQL Flexible Server. Required when `create_mode` is `Default` and `authentication.password_auth_enabled` is `true`.
-        pub administrator_password: pulumi_wasm_rust::Output<Option<String>>,
+        pub administrator_password: pulumi_gestalt_rust::Output<Option<String>>,
         /// An `authentication` block as defined below.
-        pub authentication: pulumi_wasm_rust::Output<
+        pub authentication: pulumi_gestalt_rust::Output<
             super::super::types::postgresql::FlexibleServerAuthentication,
         >,
         /// Is the storage auto grow for PostgreSQL Flexible Server enabled? Defaults to `false`.
-        pub auto_grow_enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub auto_grow_enabled: pulumi_gestalt_rust::Output<Option<bool>>,
         /// The backup retention days for the PostgreSQL Flexible Server. Possible values are between `7` and `35` days.
-        pub backup_retention_days: pulumi_wasm_rust::Output<i32>,
+        pub backup_retention_days: pulumi_gestalt_rust::Output<i32>,
         /// The creation mode which can be used to restore or replicate existing servers. Possible values are `Default`, `GeoRestore`, `PointInTimeRestore`, `Replica` and `Update`. Changing this forces a new PostgreSQL Flexible Server to be created.
         ///
         /// > **Note:** `create_mode` cannot be changed once it's set since it's a parameter at creation.
         ///
         /// > **Note:** While creating the resource, `create_mode` cannot be set to `Update`.
-        pub create_mode: pulumi_wasm_rust::Output<Option<String>>,
+        pub create_mode: pulumi_gestalt_rust::Output<Option<String>>,
         /// A `customer_managed_key` block as defined below. Changing this forces a new resource to be created.
-        pub customer_managed_key: pulumi_wasm_rust::Output<
+        pub customer_managed_key: pulumi_gestalt_rust::Output<
             Option<super::super::types::postgresql::FlexibleServerCustomerManagedKey>,
         >,
         /// The ID of the virtual network subnet to create the PostgreSQL Flexible Server. The provided subnet should not have any other resource deployed in it and this subnet will be delegated to the PostgreSQL Flexible Server, if not already delegated. Changing this forces a new PostgreSQL Flexible Server to be created.
-        pub delegated_subnet_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub delegated_subnet_id: pulumi_gestalt_rust::Output<Option<String>>,
         /// The FQDN of the PostgreSQL Flexible Server.
-        pub fqdn: pulumi_wasm_rust::Output<String>,
+        pub fqdn: pulumi_gestalt_rust::Output<String>,
         /// Is Geo-Redundant backup enabled on the PostgreSQL Flexible Server. Defaults to `false`. Changing this forces a new PostgreSQL Flexible Server to be created.
-        pub geo_redundant_backup_enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub geo_redundant_backup_enabled: pulumi_gestalt_rust::Output<Option<bool>>,
         /// A `high_availability` block as defined below.
-        pub high_availability: pulumi_wasm_rust::Output<
+        pub high_availability: pulumi_gestalt_rust::Output<
             Option<super::super::types::postgresql::FlexibleServerHighAvailability>,
         >,
         /// An `identity` block as defined below.
-        pub identity: pulumi_wasm_rust::Output<
+        pub identity: pulumi_gestalt_rust::Output<
             Option<super::super::types::postgresql::FlexibleServerIdentity>,
         >,
         /// The Azure Region where the PostgreSQL Flexible Server should exist. Changing this forces a new PostgreSQL Flexible Server to be created.
-        pub location: pulumi_wasm_rust::Output<String>,
+        pub location: pulumi_gestalt_rust::Output<String>,
         /// A `maintenance_window` block as defined below.
-        pub maintenance_window: pulumi_wasm_rust::Output<
+        pub maintenance_window: pulumi_gestalt_rust::Output<
             Option<super::super::types::postgresql::FlexibleServerMaintenanceWindow>,
         >,
         /// The name which should be used for this PostgreSQL Flexible Server. Changing this forces a new PostgreSQL Flexible Server to be created.
         ///
         /// > **Note** This must be unique across the entire Azure service, not just within the resource group.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// The point in time to restore from `source_server_id` when `create_mode` is `GeoRestore`, `PointInTimeRestore`. Changing this forces a new PostgreSQL Flexible Server to be created.
-        pub point_in_time_restore_time_in_utc: pulumi_wasm_rust::Output<Option<String>>,
+        pub point_in_time_restore_time_in_utc: pulumi_gestalt_rust::Output<
+            Option<String>,
+        >,
         /// The ID of the private DNS zone to create the PostgreSQL Flexible Server.
         ///
         /// > **Note:** There will be a breaking change from upstream service at 15th July 2021, the `private_dns_zone_id` will be required when setting a `delegated_subnet_id`. For existing flexible servers who don't want to be recreated, you need to provide the `private_dns_zone_id` to the service team to manually migrate to the specified private DNS zone. The `azure.privatedns.Zone` should end with suffix `.postgres.database.azure.com`.
-        pub private_dns_zone_id: pulumi_wasm_rust::Output<String>,
+        pub private_dns_zone_id: pulumi_gestalt_rust::Output<String>,
         /// Specifies whether this PostgreSQL Flexible Server is publicly accessible. Defaults to `true`.
         ///
         /// > **Note:** `public_network_access_enabled` must be set to `false` when `delegated_subnet_id` and `private_dns_zone_id` have a value.
-        pub public_network_access_enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub public_network_access_enabled: pulumi_gestalt_rust::Output<Option<bool>>,
         /// The replication role for the PostgreSQL Flexible Server. Possible value is `None`.
         ///
         /// > **Note:** The `replication_role` cannot be set while creating and only can be updated to `None` for replica server.
-        pub replication_role: pulumi_wasm_rust::Output<Option<String>>,
+        pub replication_role: pulumi_gestalt_rust::Output<Option<String>>,
         /// The name of the Resource Group where the PostgreSQL Flexible Server should exist. Changing this forces a new PostgreSQL Flexible Server to be created.
-        pub resource_group_name: pulumi_wasm_rust::Output<String>,
+        pub resource_group_name: pulumi_gestalt_rust::Output<String>,
         /// The SKU Name for the PostgreSQL Flexible Server. The name of the SKU, follows the `tier` + `name` pattern (e.g. `B_Standard_B1ms`, `GP_Standard_D2s_v3`, `MO_Standard_E4s_v3`).
-        pub sku_name: pulumi_wasm_rust::Output<String>,
+        pub sku_name: pulumi_gestalt_rust::Output<String>,
         /// The resource ID of the source PostgreSQL Flexible Server to be restored. Required when `create_mode` is `GeoRestore`, `PointInTimeRestore` or `Replica`. Changing this forces a new PostgreSQL Flexible Server to be created.
-        pub source_server_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub source_server_id: pulumi_gestalt_rust::Output<Option<String>>,
         /// The max storage allowed for the PostgreSQL Flexible Server. Possible values are `32768`, `65536`, `131072`, `262144`, `524288`, `1048576`, `2097152`, `4193280`, `4194304`, `8388608`, `16777216` and `33553408`.
         ///
         /// > **Note:** If the `storage_mb` field is undefined on the initial deployment of the PostgreSQL Flexible Server resource it will default to `32768`. If the `storage_mb` field has been defined and then removed, the `storage_mb` field will retain the previously defined value.
         ///
         /// > **Note:** The `storage_mb` can only be scaled up, for example, you can scale the `storage_mb` from `32768` to `65536`, but not from `65536` to `32768`.
-        pub storage_mb: pulumi_wasm_rust::Output<i32>,
+        pub storage_mb: pulumi_gestalt_rust::Output<i32>,
         /// The name of storage performance tier for IOPS of the PostgreSQL Flexible Server. Possible values are `P4`, `P6`, `P10`, `P15`,`P20`, `P30`,`P40`, `P50`,`P60`, `P70` or `P80`. Default value is dependant on the `storage_mb` value. Please see the `storage_tier` defaults based on `storage_mb` table below.
         ///
         /// > **Note:** The `storage_tier` can be scaled once every 12 hours, this restriction is in place to ensure stability and performance after any changes to your PostgreSQL Flexible Server's configuration.
-        pub storage_tier: pulumi_wasm_rust::Output<String>,
+        pub storage_tier: pulumi_gestalt_rust::Output<String>,
         /// A mapping of tags which should be assigned to the PostgreSQL Flexible Server.
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// The version of PostgreSQL Flexible Server to use. Possible values are `11`,`12`, `13`, `14`, `15` and `16`. Required when `create_mode` is `Default`.
         ///
         /// > **Note:** When `create_mode` is `Update`, upgrading version wouldn't force a new resource to be created.
-        pub version: pulumi_wasm_rust::Output<String>,
-        pub zone: pulumi_wasm_rust::Output<Option<String>>,
+        pub version: pulumi_gestalt_rust::Output<String>,
+        pub zone: pulumi_gestalt_rust::Output<Option<String>>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: FlexibleServerArgs,
     ) -> FlexibleServerResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let administrator_login_binding = args
             .administrator_login
@@ -516,79 +522,79 @@ pub mod flexible_server {
         };
         let o = register_interface::register(context.get_inner(), &request);
         FlexibleServerResult {
-            administrator_login: pulumi_wasm_rust::__private::into_domain(
+            administrator_login: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("administratorLogin"),
             ),
-            administrator_password: pulumi_wasm_rust::__private::into_domain(
+            administrator_password: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("administratorPassword"),
             ),
-            authentication: pulumi_wasm_rust::__private::into_domain(
+            authentication: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("authentication"),
             ),
-            auto_grow_enabled: pulumi_wasm_rust::__private::into_domain(
+            auto_grow_enabled: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("autoGrowEnabled"),
             ),
-            backup_retention_days: pulumi_wasm_rust::__private::into_domain(
+            backup_retention_days: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("backupRetentionDays"),
             ),
-            create_mode: pulumi_wasm_rust::__private::into_domain(
+            create_mode: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("createMode"),
             ),
-            customer_managed_key: pulumi_wasm_rust::__private::into_domain(
+            customer_managed_key: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("customerManagedKey"),
             ),
-            delegated_subnet_id: pulumi_wasm_rust::__private::into_domain(
+            delegated_subnet_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("delegatedSubnetId"),
             ),
-            fqdn: pulumi_wasm_rust::__private::into_domain(o.extract_field("fqdn")),
-            geo_redundant_backup_enabled: pulumi_wasm_rust::__private::into_domain(
+            fqdn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("fqdn")),
+            geo_redundant_backup_enabled: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("geoRedundantBackupEnabled"),
             ),
-            high_availability: pulumi_wasm_rust::__private::into_domain(
+            high_availability: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("highAvailability"),
             ),
-            identity: pulumi_wasm_rust::__private::into_domain(
+            identity: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("identity"),
             ),
-            location: pulumi_wasm_rust::__private::into_domain(
+            location: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("location"),
             ),
-            maintenance_window: pulumi_wasm_rust::__private::into_domain(
+            maintenance_window: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("maintenanceWindow"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            point_in_time_restore_time_in_utc: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            point_in_time_restore_time_in_utc: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("pointInTimeRestoreTimeInUtc"),
             ),
-            private_dns_zone_id: pulumi_wasm_rust::__private::into_domain(
+            private_dns_zone_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("privateDnsZoneId"),
             ),
-            public_network_access_enabled: pulumi_wasm_rust::__private::into_domain(
+            public_network_access_enabled: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("publicNetworkAccessEnabled"),
             ),
-            replication_role: pulumi_wasm_rust::__private::into_domain(
+            replication_role: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("replicationRole"),
             ),
-            resource_group_name: pulumi_wasm_rust::__private::into_domain(
+            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("resourceGroupName"),
             ),
-            sku_name: pulumi_wasm_rust::__private::into_domain(
+            sku_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("skuName"),
             ),
-            source_server_id: pulumi_wasm_rust::__private::into_domain(
+            source_server_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("sourceServerId"),
             ),
-            storage_mb: pulumi_wasm_rust::__private::into_domain(
+            storage_mb: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("storageMb"),
             ),
-            storage_tier: pulumi_wasm_rust::__private::into_domain(
+            storage_tier: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("storageTier"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
-            version: pulumi_wasm_rust::__private::into_domain(
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            version: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("version"),
             ),
-            zone: pulumi_wasm_rust::__private::into_domain(o.extract_field("zone")),
+            zone: pulumi_gestalt_rust::__private::into_domain(o.extract_field("zone")),
         }
     }
 }

@@ -34,34 +34,34 @@
 ///       vpnConnectionId: ${main.id}
 /// ```
 pub mod vpn_connection_route {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct VpnConnectionRouteArgs {
         /// The CIDR block associated with the local subnet of the customer network.
         #[builder(into)]
-        pub destination_cidr_block: pulumi_wasm_rust::InputOrOutput<String>,
+        pub destination_cidr_block: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The ID of the VPN connection.
         #[builder(into)]
-        pub vpn_connection_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub vpn_connection_id: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct VpnConnectionRouteResult {
         /// The CIDR block associated with the local subnet of the customer network.
-        pub destination_cidr_block: pulumi_wasm_rust::Output<String>,
+        pub destination_cidr_block: pulumi_gestalt_rust::Output<String>,
         /// The ID of the VPN connection.
-        pub vpn_connection_id: pulumi_wasm_rust::Output<String>,
+        pub vpn_connection_id: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: VpnConnectionRouteArgs,
     ) -> VpnConnectionRouteResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let destination_cidr_block_binding = args
             .destination_cidr_block
@@ -88,10 +88,10 @@ pub mod vpn_connection_route {
         };
         let o = register_interface::register(context.get_inner(), &request);
         VpnConnectionRouteResult {
-            destination_cidr_block: pulumi_wasm_rust::__private::into_domain(
+            destination_cidr_block: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("destinationCidrBlock"),
             ),
-            vpn_connection_id: pulumi_wasm_rust::__private::into_domain(
+            vpn_connection_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("vpnConnectionId"),
             ),
         }

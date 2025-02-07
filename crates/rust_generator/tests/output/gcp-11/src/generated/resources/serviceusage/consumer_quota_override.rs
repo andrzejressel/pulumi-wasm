@@ -138,19 +138,19 @@
 /// ```
 ///
 pub mod consumer_quota_override {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ConsumerQuotaOverrideArgs {
         /// If this map is nonempty, then this override applies only to specific values for dimensions defined in the limit unit.
         #[builder(into, default)]
-        pub dimensions: pulumi_wasm_rust::InputOrOutput<
+        pub dimensions: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// If the new quota would decrease the existing quota by more than 10%, the request is rejected.
         /// If `force` is `true`, that safety check is ignored.
         #[builder(into, default)]
-        pub force: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub force: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// The limit on the metric, e.g. `/project/region`.
         /// > Make sure that `limit` is in a format that doesn't start with `1/` or contain curly braces.
         /// E.g. use `/project/user` instead of `1/{project}/{user}`.
@@ -158,59 +158,59 @@ pub mod consumer_quota_override {
         ///
         /// - - -
         #[builder(into)]
-        pub limit: pulumi_wasm_rust::InputOrOutput<String>,
+        pub limit: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The metric that should be limited, e.g. `compute.googleapis.com/cpus`.
         #[builder(into)]
-        pub metric: pulumi_wasm_rust::InputOrOutput<String>,
+        pub metric: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The overriding quota limit value. Can be any nonnegative integer, or -1 (unlimited quota).
         #[builder(into)]
-        pub override_value: pulumi_wasm_rust::InputOrOutput<String>,
+        pub override_value: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub project: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The service that the metrics belong to, e.g. `compute.googleapis.com`.
         #[builder(into)]
-        pub service: pulumi_wasm_rust::InputOrOutput<String>,
+        pub service: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct ConsumerQuotaOverrideResult {
         /// If this map is nonempty, then this override applies only to specific values for dimensions defined in the limit unit.
-        pub dimensions: pulumi_wasm_rust::Output<
+        pub dimensions: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// If the new quota would decrease the existing quota by more than 10%, the request is rejected.
         /// If `force` is `true`, that safety check is ignored.
-        pub force: pulumi_wasm_rust::Output<Option<bool>>,
+        pub force: pulumi_gestalt_rust::Output<Option<bool>>,
         /// The limit on the metric, e.g. `/project/region`.
         /// > Make sure that `limit` is in a format that doesn't start with `1/` or contain curly braces.
         /// E.g. use `/project/user` instead of `1/{project}/{user}`.
         ///
         ///
         /// - - -
-        pub limit: pulumi_wasm_rust::Output<String>,
+        pub limit: pulumi_gestalt_rust::Output<String>,
         /// The metric that should be limited, e.g. `compute.googleapis.com/cpus`.
-        pub metric: pulumi_wasm_rust::Output<String>,
+        pub metric: pulumi_gestalt_rust::Output<String>,
         /// The server-generated name of the quota override.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// The overriding quota limit value. Can be any nonnegative integer, or -1 (unlimited quota).
-        pub override_value: pulumi_wasm_rust::Output<String>,
+        pub override_value: pulumi_gestalt_rust::Output<String>,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
-        pub project: pulumi_wasm_rust::Output<String>,
+        pub project: pulumi_gestalt_rust::Output<String>,
         /// The service that the metrics belong to, e.g. `compute.googleapis.com`.
-        pub service: pulumi_wasm_rust::Output<String>,
+        pub service: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: ConsumerQuotaOverrideArgs,
     ) -> ConsumerQuotaOverrideResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let dimensions_binding = args.dimensions.get_output(context).get_inner();
         let force_binding = args.force.get_output(context).get_inner();
@@ -256,20 +256,24 @@ pub mod consumer_quota_override {
         };
         let o = register_interface::register(context.get_inner(), &request);
         ConsumerQuotaOverrideResult {
-            dimensions: pulumi_wasm_rust::__private::into_domain(
+            dimensions: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("dimensions"),
             ),
-            force: pulumi_wasm_rust::__private::into_domain(o.extract_field("force")),
-            limit: pulumi_wasm_rust::__private::into_domain(o.extract_field("limit")),
-            metric: pulumi_wasm_rust::__private::into_domain(o.extract_field("metric")),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            override_value: pulumi_wasm_rust::__private::into_domain(
+            force: pulumi_gestalt_rust::__private::into_domain(o.extract_field("force")),
+            limit: pulumi_gestalt_rust::__private::into_domain(o.extract_field("limit")),
+            metric: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("metric"),
+            ),
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            override_value: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("overrideValue"),
             ),
-            project: pulumi_wasm_rust::__private::into_domain(
+            project: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("project"),
             ),
-            service: pulumi_wasm_rust::__private::into_domain(o.extract_field("service")),
+            service: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("service"),
+            ),
         }
     }
 }

@@ -55,7 +55,7 @@
 /// ```
 ///
 pub mod security_scan_config {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct SecurityScanConfigArgs {
@@ -63,35 +63,35 @@ pub mod security_scan_config {
         /// If specified, service will use the authentication configuration during scanning.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub authentication: pulumi_wasm_rust::InputOrOutput<
+        pub authentication: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::compute::SecurityScanConfigAuthentication>,
         >,
         /// The blacklist URL patterns as described in
         /// https://cloud.google.com/security-scanner/docs/excluded-urls
         #[builder(into, default)]
-        pub blacklist_patterns: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
+        pub blacklist_patterns: pulumi_gestalt_rust::InputOrOutput<Option<Vec<String>>>,
         /// The user provider display name of the ScanConfig.
         #[builder(into)]
-        pub display_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub display_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Controls export of scan configurations and results to Cloud Security Command Center.
         /// Default value is `ENABLED`.
         /// Possible values are: `ENABLED`, `DISABLED`.
         #[builder(into, default)]
-        pub export_to_security_command_center: pulumi_wasm_rust::InputOrOutput<
+        pub export_to_security_command_center: pulumi_gestalt_rust::InputOrOutput<
             Option<String>,
         >,
         /// The maximum QPS during scanning. A valid value ranges from 5 to 20 inclusively.
         /// Defaults to 15.
         #[builder(into, default)]
-        pub max_qps: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
+        pub max_qps: pulumi_gestalt_rust::InputOrOutput<Option<i32>>,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub project: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The schedule of the ScanConfig
         /// Structure is documented below.
         #[builder(into, default)]
-        pub schedule: pulumi_wasm_rust::InputOrOutput<
+        pub schedule: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::compute::SecurityScanConfigSchedule>,
         >,
         /// The starting URLs from which the scanner finds site pages.
@@ -99,71 +99,73 @@ pub mod security_scan_config {
         ///
         /// - - -
         #[builder(into)]
-        pub starting_urls: pulumi_wasm_rust::InputOrOutput<Vec<String>>,
+        pub starting_urls: pulumi_gestalt_rust::InputOrOutput<Vec<String>>,
         /// Set of Cloud Platforms targeted by the scan. If empty, APP_ENGINE will be used as a default.
         /// Each value may be one of: `APP_ENGINE`, `COMPUTE`.
         #[builder(into, default)]
-        pub target_platforms: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
+        pub target_platforms: pulumi_gestalt_rust::InputOrOutput<Option<Vec<String>>>,
         /// Type of the user agents used for scanning
         /// Default value is `CHROME_LINUX`.
         /// Possible values are: `USER_AGENT_UNSPECIFIED`, `CHROME_LINUX`, `CHROME_ANDROID`, `SAFARI_IPHONE`.
         #[builder(into, default)]
-        pub user_agent: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub user_agent: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct SecurityScanConfigResult {
         /// The authentication configuration.
         /// If specified, service will use the authentication configuration during scanning.
         /// Structure is documented below.
-        pub authentication: pulumi_wasm_rust::Output<
+        pub authentication: pulumi_gestalt_rust::Output<
             Option<super::super::types::compute::SecurityScanConfigAuthentication>,
         >,
         /// The blacklist URL patterns as described in
         /// https://cloud.google.com/security-scanner/docs/excluded-urls
-        pub blacklist_patterns: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub blacklist_patterns: pulumi_gestalt_rust::Output<Option<Vec<String>>>,
         /// The user provider display name of the ScanConfig.
-        pub display_name: pulumi_wasm_rust::Output<String>,
+        pub display_name: pulumi_gestalt_rust::Output<String>,
         /// Controls export of scan configurations and results to Cloud Security Command Center.
         /// Default value is `ENABLED`.
         /// Possible values are: `ENABLED`, `DISABLED`.
-        pub export_to_security_command_center: pulumi_wasm_rust::Output<Option<String>>,
+        pub export_to_security_command_center: pulumi_gestalt_rust::Output<
+            Option<String>,
+        >,
         /// The maximum QPS during scanning. A valid value ranges from 5 to 20 inclusively.
         /// Defaults to 15.
-        pub max_qps: pulumi_wasm_rust::Output<Option<i32>>,
+        pub max_qps: pulumi_gestalt_rust::Output<Option<i32>>,
         /// A server defined name for this index. Format:
         /// `projects/{{project}}/scanConfigs/{{server_generated_id}}`
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
-        pub project: pulumi_wasm_rust::Output<String>,
+        pub project: pulumi_gestalt_rust::Output<String>,
         /// The schedule of the ScanConfig
         /// Structure is documented below.
-        pub schedule: pulumi_wasm_rust::Output<
+        pub schedule: pulumi_gestalt_rust::Output<
             Option<super::super::types::compute::SecurityScanConfigSchedule>,
         >,
         /// The starting URLs from which the scanner finds site pages.
         ///
         ///
         /// - - -
-        pub starting_urls: pulumi_wasm_rust::Output<Vec<String>>,
+        pub starting_urls: pulumi_gestalt_rust::Output<Vec<String>>,
         /// Set of Cloud Platforms targeted by the scan. If empty, APP_ENGINE will be used as a default.
         /// Each value may be one of: `APP_ENGINE`, `COMPUTE`.
-        pub target_platforms: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub target_platforms: pulumi_gestalt_rust::Output<Option<Vec<String>>>,
         /// Type of the user agents used for scanning
         /// Default value is `CHROME_LINUX`.
         /// Possible values are: `USER_AGENT_UNSPECIFIED`, `CHROME_LINUX`, `CHROME_ANDROID`, `SAFARI_IPHONE`.
-        pub user_agent: pulumi_wasm_rust::Output<Option<String>>,
+        pub user_agent: pulumi_gestalt_rust::Output<Option<String>>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: SecurityScanConfigArgs,
     ) -> SecurityScanConfigResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let authentication_binding = args.authentication.get_output(context).get_inner();
         let blacklist_patterns_binding = args
@@ -233,33 +235,35 @@ pub mod security_scan_config {
         };
         let o = register_interface::register(context.get_inner(), &request);
         SecurityScanConfigResult {
-            authentication: pulumi_wasm_rust::__private::into_domain(
+            authentication: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("authentication"),
             ),
-            blacklist_patterns: pulumi_wasm_rust::__private::into_domain(
+            blacklist_patterns: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("blacklistPatterns"),
             ),
-            display_name: pulumi_wasm_rust::__private::into_domain(
+            display_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("displayName"),
             ),
-            export_to_security_command_center: pulumi_wasm_rust::__private::into_domain(
+            export_to_security_command_center: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("exportToSecurityCommandCenter"),
             ),
-            max_qps: pulumi_wasm_rust::__private::into_domain(o.extract_field("maxQps")),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            project: pulumi_wasm_rust::__private::into_domain(
+            max_qps: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("maxQps"),
+            ),
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            project: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("project"),
             ),
-            schedule: pulumi_wasm_rust::__private::into_domain(
+            schedule: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("schedule"),
             ),
-            starting_urls: pulumi_wasm_rust::__private::into_domain(
+            starting_urls: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("startingUrls"),
             ),
-            target_platforms: pulumi_wasm_rust::__private::into_domain(
+            target_platforms: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("targetPlatforms"),
             ),
-            user_agent: pulumi_wasm_rust::__private::into_domain(
+            user_agent: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("userAgent"),
             ),
         }

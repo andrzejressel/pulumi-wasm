@@ -136,7 +136,7 @@
 /// ```
 ///
 pub mod keystores_aliases_self_signed_cert {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct KeystoresAliasesSelfSignedCertArgs {
@@ -144,34 +144,34 @@ pub mod keystores_aliases_self_signed_cert {
         /// This must be provided for all formats except selfsignedcert; self-signed certs may specify the alias in either
         /// this parameter or the JSON body.
         #[builder(into)]
-        pub alias: pulumi_wasm_rust::InputOrOutput<String>,
+        pub alias: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Validity duration of certificate, in days. Accepts positive non-zero value. Defaults to 365.
         #[builder(into, default)]
-        pub cert_validity_in_days: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
+        pub cert_validity_in_days: pulumi_gestalt_rust::InputOrOutput<Option<i32>>,
         /// The Apigee environment name
         #[builder(into)]
-        pub environment: pulumi_wasm_rust::InputOrOutput<String>,
+        pub environment: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Key size. Default and maximum value is 2048 bits.
         #[builder(into, default)]
-        pub key_size: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub key_size: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The Apigee keystore name associated in an Apigee environment
         #[builder(into)]
-        pub keystore: pulumi_wasm_rust::InputOrOutput<String>,
+        pub keystore: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The Apigee Organization name associated with the Apigee environment
         #[builder(into)]
-        pub org_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub org_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Signature algorithm to generate private key. Valid values are SHA512withRSA, SHA384withRSA, and SHA256withRSA
         #[builder(into)]
-        pub sig_alg: pulumi_wasm_rust::InputOrOutput<String>,
+        pub sig_alg: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Subject details.
         /// Structure is documented below.
         #[builder(into)]
-        pub subject: pulumi_wasm_rust::InputOrOutput<
+        pub subject: pulumi_gestalt_rust::InputOrOutput<
             super::super::types::apigee::KeystoresAliasesSelfSignedCertSubject,
         >,
         /// List of alternative host names. Maximum length is 255 characters for each value.
         #[builder(into, default)]
-        pub subject_alternative_dns_names: pulumi_wasm_rust::InputOrOutput<
+        pub subject_alternative_dns_names: pulumi_gestalt_rust::InputOrOutput<
             Option<
                 super::super::types::apigee::KeystoresAliasesSelfSignedCertSubjectAlternativeDnsNames,
             >,
@@ -182,48 +182,48 @@ pub mod keystores_aliases_self_signed_cert {
         /// Alias for the key/certificate pair. Values must match the regular expression [\w\s-.]{1,255}.
         /// This must be provided for all formats except selfsignedcert; self-signed certs may specify the alias in either
         /// this parameter or the JSON body.
-        pub alias: pulumi_wasm_rust::Output<String>,
+        pub alias: pulumi_gestalt_rust::Output<String>,
         /// Validity duration of certificate, in days. Accepts positive non-zero value. Defaults to 365.
-        pub cert_validity_in_days: pulumi_wasm_rust::Output<Option<i32>>,
+        pub cert_validity_in_days: pulumi_gestalt_rust::Output<Option<i32>>,
         /// Chain of certificates under this alias.
         /// Structure is documented below.
-        pub certs_infos: pulumi_wasm_rust::Output<
+        pub certs_infos: pulumi_gestalt_rust::Output<
             Vec<super::super::types::apigee::KeystoresAliasesSelfSignedCertCertsInfo>,
         >,
         /// The Apigee environment name
-        pub environment: pulumi_wasm_rust::Output<String>,
+        pub environment: pulumi_gestalt_rust::Output<String>,
         /// Key size. Default and maximum value is 2048 bits.
-        pub key_size: pulumi_wasm_rust::Output<Option<String>>,
+        pub key_size: pulumi_gestalt_rust::Output<Option<String>>,
         /// The Apigee keystore name associated in an Apigee environment
-        pub keystore: pulumi_wasm_rust::Output<String>,
+        pub keystore: pulumi_gestalt_rust::Output<String>,
         /// The Apigee Organization name associated with the Apigee environment
-        pub org_id: pulumi_wasm_rust::Output<String>,
+        pub org_id: pulumi_gestalt_rust::Output<String>,
         /// Signature algorithm to generate private key. Valid values are SHA512withRSA, SHA384withRSA, and SHA256withRSA
-        pub sig_alg: pulumi_wasm_rust::Output<String>,
+        pub sig_alg: pulumi_gestalt_rust::Output<String>,
         /// Subject details.
         /// Structure is documented below.
-        pub subject: pulumi_wasm_rust::Output<
+        pub subject: pulumi_gestalt_rust::Output<
             super::super::types::apigee::KeystoresAliasesSelfSignedCertSubject,
         >,
         /// List of alternative host names. Maximum length is 255 characters for each value.
-        pub subject_alternative_dns_names: pulumi_wasm_rust::Output<
+        pub subject_alternative_dns_names: pulumi_gestalt_rust::Output<
             Option<
                 super::super::types::apigee::KeystoresAliasesSelfSignedCertSubjectAlternativeDnsNames,
             >,
         >,
         /// Optional.Type of Alias
-        pub type_: pulumi_wasm_rust::Output<String>,
+        pub type_: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: KeystoresAliasesSelfSignedCertArgs,
     ) -> KeystoresAliasesSelfSignedCertResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let alias_binding = args.alias.get_output(context).get_inner();
         let cert_validity_in_days_binding = args
@@ -286,31 +286,35 @@ pub mod keystores_aliases_self_signed_cert {
         };
         let o = register_interface::register(context.get_inner(), &request);
         KeystoresAliasesSelfSignedCertResult {
-            alias: pulumi_wasm_rust::__private::into_domain(o.extract_field("alias")),
-            cert_validity_in_days: pulumi_wasm_rust::__private::into_domain(
+            alias: pulumi_gestalt_rust::__private::into_domain(o.extract_field("alias")),
+            cert_validity_in_days: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("certValidityInDays"),
             ),
-            certs_infos: pulumi_wasm_rust::__private::into_domain(
+            certs_infos: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("certsInfos"),
             ),
-            environment: pulumi_wasm_rust::__private::into_domain(
+            environment: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("environment"),
             ),
-            key_size: pulumi_wasm_rust::__private::into_domain(
+            key_size: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("keySize"),
             ),
-            keystore: pulumi_wasm_rust::__private::into_domain(
+            keystore: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("keystore"),
             ),
-            org_id: pulumi_wasm_rust::__private::into_domain(o.extract_field("orgId")),
-            sig_alg: pulumi_wasm_rust::__private::into_domain(o.extract_field("sigAlg")),
-            subject: pulumi_wasm_rust::__private::into_domain(
+            org_id: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("orgId"),
+            ),
+            sig_alg: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("sigAlg"),
+            ),
+            subject: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("subject"),
             ),
-            subject_alternative_dns_names: pulumi_wasm_rust::__private::into_domain(
+            subject_alternative_dns_names: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("subjectAlternativeDnsNames"),
             ),
-            type_: pulumi_wasm_rust::__private::into_domain(o.extract_field("type")),
+            type_: pulumi_gestalt_rust::__private::into_domain(o.extract_field("type")),
         }
     }
 }

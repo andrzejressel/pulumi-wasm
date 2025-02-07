@@ -5,8 +5,8 @@
 /// ## Example Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let a = key::create("a", KeyArgs::builder().build_struct());
@@ -28,45 +28,45 @@
 /// $ pulumi import aws:kms/alias:Alias a alias/my-key-alias
 /// ```
 pub mod alias {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct AliasArgs {
         /// The display name of the alias. The name must start with the word "alias" followed by a forward slash (alias/)
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Creates an unique alias beginning with the specified prefix.
         /// The name must start with the word "alias" followed by a forward slash (alias/).  Conflicts with `name`.
         #[builder(into, default)]
-        pub name_prefix: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name_prefix: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Identifier for the key for which the alias is for, can be either an ARN or key_id.
         #[builder(into)]
-        pub target_key_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub target_key_id: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct AliasResult {
         /// The Amazon Resource Name (ARN) of the key alias.
-        pub arn: pulumi_wasm_rust::Output<String>,
+        pub arn: pulumi_gestalt_rust::Output<String>,
         /// The display name of the alias. The name must start with the word "alias" followed by a forward slash (alias/)
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// Creates an unique alias beginning with the specified prefix.
         /// The name must start with the word "alias" followed by a forward slash (alias/).  Conflicts with `name`.
-        pub name_prefix: pulumi_wasm_rust::Output<String>,
+        pub name_prefix: pulumi_gestalt_rust::Output<String>,
         /// The Amazon Resource Name (ARN) of the target key identifier.
-        pub target_key_arn: pulumi_wasm_rust::Output<String>,
+        pub target_key_arn: pulumi_gestalt_rust::Output<String>,
         /// Identifier for the key for which the alias is for, can be either an ARN or key_id.
-        pub target_key_id: pulumi_wasm_rust::Output<String>,
+        pub target_key_id: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: AliasArgs,
     ) -> AliasResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let name_binding = args.name.get_output(context).get_inner();
         let name_prefix_binding = args.name_prefix.get_output(context).get_inner();
@@ -92,15 +92,15 @@ pub mod alias {
         };
         let o = register_interface::register(context.get_inner(), &request);
         AliasResult {
-            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            name_prefix: pulumi_wasm_rust::__private::into_domain(
+            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            name_prefix: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("namePrefix"),
             ),
-            target_key_arn: pulumi_wasm_rust::__private::into_domain(
+            target_key_arn: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("targetKeyArn"),
             ),
-            target_key_id: pulumi_wasm_rust::__private::into_domain(
+            target_key_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("targetKeyId"),
             ),
         }

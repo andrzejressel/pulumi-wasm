@@ -74,22 +74,22 @@
 /// $ pulumi import aws:ecr/repositoryCreationTemplate:RepositoryCreationTemplate example example
 /// ```
 pub mod repository_creation_template {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct RepositoryCreationTemplateArgs {
         /// Which features this template applies to. Must contain one or more of `PULL_THROUGH_CACHE` or `REPLICATION`.
         #[builder(into)]
-        pub applied_fors: pulumi_wasm_rust::InputOrOutput<Vec<String>>,
+        pub applied_fors: pulumi_gestalt_rust::InputOrOutput<Vec<String>>,
         /// A custom IAM role to use for repository creation. Required if using repository tags or KMS encryption.
         #[builder(into, default)]
-        pub custom_role_arn: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub custom_role_arn: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The description for this template.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub description: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Encryption configuration for any created repositories. See below for schema.
         #[builder(into, default)]
-        pub encryption_configurations: pulumi_wasm_rust::InputOrOutput<
+        pub encryption_configurations: pulumi_gestalt_rust::InputOrOutput<
             Option<
                 Vec<
                     super::super::types::ecr::RepositoryCreationTemplateEncryptionConfiguration,
@@ -98,31 +98,31 @@ pub mod repository_creation_template {
         >,
         /// The tag mutability setting for any created repositories. Must be one of: `MUTABLE` or `IMMUTABLE`. Defaults to `MUTABLE`.
         #[builder(into, default)]
-        pub image_tag_mutability: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub image_tag_mutability: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The lifecycle policy document to apply to any created repositories. See more details about [Policy Parameters](http://docs.aws.amazon.com/AmazonECR/latest/userguide/LifecyclePolicies.html#lifecycle_policy_parameters) in the official AWS docs. Consider using the `aws.ecr.getLifecyclePolicyDocument` data_source to generate/manage the JSON document used for the `lifecycle_policy` argument.
         #[builder(into, default)]
-        pub lifecycle_policy: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub lifecycle_policy: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The repository name prefix to match against. Use `ROOT` to match any prefix that doesn't explicitly match another template.
         #[builder(into)]
-        pub prefix: pulumi_wasm_rust::InputOrOutput<String>,
+        pub prefix: pulumi_gestalt_rust::InputOrOutput<String>,
         #[builder(into, default)]
-        pub repository_policy: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub repository_policy: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// A map of tags to assign to any created repositories.
         #[builder(into, default)]
-        pub resource_tags: pulumi_wasm_rust::InputOrOutput<
+        pub resource_tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
     #[allow(dead_code)]
     pub struct RepositoryCreationTemplateResult {
         /// Which features this template applies to. Must contain one or more of `PULL_THROUGH_CACHE` or `REPLICATION`.
-        pub applied_fors: pulumi_wasm_rust::Output<Vec<String>>,
+        pub applied_fors: pulumi_gestalt_rust::Output<Vec<String>>,
         /// A custom IAM role to use for repository creation. Required if using repository tags or KMS encryption.
-        pub custom_role_arn: pulumi_wasm_rust::Output<Option<String>>,
+        pub custom_role_arn: pulumi_gestalt_rust::Output<Option<String>>,
         /// The description for this template.
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_gestalt_rust::Output<Option<String>>,
         /// Encryption configuration for any created repositories. See below for schema.
-        pub encryption_configurations: pulumi_wasm_rust::Output<
+        pub encryption_configurations: pulumi_gestalt_rust::Output<
             Option<
                 Vec<
                     super::super::types::ecr::RepositoryCreationTemplateEncryptionConfiguration,
@@ -130,16 +130,16 @@ pub mod repository_creation_template {
             >,
         >,
         /// The tag mutability setting for any created repositories. Must be one of: `MUTABLE` or `IMMUTABLE`. Defaults to `MUTABLE`.
-        pub image_tag_mutability: pulumi_wasm_rust::Output<Option<String>>,
+        pub image_tag_mutability: pulumi_gestalt_rust::Output<Option<String>>,
         /// The lifecycle policy document to apply to any created repositories. See more details about [Policy Parameters](http://docs.aws.amazon.com/AmazonECR/latest/userguide/LifecyclePolicies.html#lifecycle_policy_parameters) in the official AWS docs. Consider using the `aws.ecr.getLifecyclePolicyDocument` data_source to generate/manage the JSON document used for the `lifecycle_policy` argument.
-        pub lifecycle_policy: pulumi_wasm_rust::Output<Option<String>>,
+        pub lifecycle_policy: pulumi_gestalt_rust::Output<Option<String>>,
         /// The repository name prefix to match against. Use `ROOT` to match any prefix that doesn't explicitly match another template.
-        pub prefix: pulumi_wasm_rust::Output<String>,
+        pub prefix: pulumi_gestalt_rust::Output<String>,
         /// The registry ID the repository creation template applies to.
-        pub registry_id: pulumi_wasm_rust::Output<String>,
-        pub repository_policy: pulumi_wasm_rust::Output<Option<String>>,
+        pub registry_id: pulumi_gestalt_rust::Output<String>,
+        pub repository_policy: pulumi_gestalt_rust::Output<Option<String>>,
         /// A map of tags to assign to any created repositories.
-        pub resource_tags: pulumi_wasm_rust::Output<
+        pub resource_tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
@@ -148,11 +148,11 @@ pub mod repository_creation_template {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: RepositoryCreationTemplateArgs,
     ) -> RepositoryCreationTemplateResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let applied_fors_binding = args.applied_fors.get_output(context).get_inner();
         let custom_role_arn_binding = args
@@ -224,32 +224,34 @@ pub mod repository_creation_template {
         };
         let o = register_interface::register(context.get_inner(), &request);
         RepositoryCreationTemplateResult {
-            applied_fors: pulumi_wasm_rust::__private::into_domain(
+            applied_fors: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("appliedFors"),
             ),
-            custom_role_arn: pulumi_wasm_rust::__private::into_domain(
+            custom_role_arn: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("customRoleArn"),
             ),
-            description: pulumi_wasm_rust::__private::into_domain(
+            description: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("description"),
             ),
-            encryption_configurations: pulumi_wasm_rust::__private::into_domain(
+            encryption_configurations: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("encryptionConfigurations"),
             ),
-            image_tag_mutability: pulumi_wasm_rust::__private::into_domain(
+            image_tag_mutability: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("imageTagMutability"),
             ),
-            lifecycle_policy: pulumi_wasm_rust::__private::into_domain(
+            lifecycle_policy: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("lifecyclePolicy"),
             ),
-            prefix: pulumi_wasm_rust::__private::into_domain(o.extract_field("prefix")),
-            registry_id: pulumi_wasm_rust::__private::into_domain(
+            prefix: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("prefix"),
+            ),
+            registry_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("registryId"),
             ),
-            repository_policy: pulumi_wasm_rust::__private::into_domain(
+            repository_policy: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("repositoryPolicy"),
             ),
-            resource_tags: pulumi_wasm_rust::__private::into_domain(
+            resource_tags: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("resourceTags"),
             ),
         }

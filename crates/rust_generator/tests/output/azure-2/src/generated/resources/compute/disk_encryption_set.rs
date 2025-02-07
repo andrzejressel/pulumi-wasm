@@ -203,21 +203,21 @@
 /// ```
 ///
 pub mod disk_encryption_set {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct DiskEncryptionSetArgs {
         #[builder(into, default)]
-        pub auto_key_rotation_enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub auto_key_rotation_enabled: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// The type of key used to encrypt the data of the disk. Possible values are `EncryptionAtRestWithCustomerKey`, `EncryptionAtRestWithPlatformAndCustomerKeys` and `ConfidentialVmEncryptedWithCustomerKey`. Defaults to `EncryptionAtRestWithCustomerKey`. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub encryption_type: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub encryption_type: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Multi-tenant application client id to access key vault in a different tenant.
         #[builder(into, default)]
-        pub federated_client_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub federated_client_id: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// An `identity` block as defined below.
         #[builder(into)]
-        pub identity: pulumi_wasm_rust::InputOrOutput<
+        pub identity: pulumi_gestalt_rust::InputOrOutput<
             super::super::types::compute::DiskEncryptionSetIdentity,
         >,
         /// Specifies the URL to a Key Vault Key (either from a Key Vault Key, or the Key URL for the Key Vault Secret). Exactly one of `managed_hsm_key_id`, `key_vault_key_id` must be specified.
@@ -227,34 +227,34 @@ pub mod disk_encryption_set {
         /// > **NOTE** A KeyVault or Managed HSM using enable_rbac_authorization requires to use `azure.authorization.Assignment` to assign the role `Key Vault Crypto Service Encryption User` to this Disk Encryption Set.
         /// In this case, `azure.keyvault.AccessPolicy` is not needed.
         #[builder(into, default)]
-        pub key_vault_key_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub key_vault_key_id: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Specifies the Azure Region where the Disk Encryption Set exists. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub location: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub location: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Key ID of a key in a managed HSM.  Exactly one of `managed_hsm_key_id`, `key_vault_key_id` must be specified.
         #[builder(into, default)]
-        pub managed_hsm_key_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub managed_hsm_key_id: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The name of the Disk Encryption Set. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Specifies the name of the Resource Group where the Disk Encryption Set should exist. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub resource_group_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub resource_group_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// A mapping of tags to assign to the Disk Encryption Set.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
     #[allow(dead_code)]
     pub struct DiskEncryptionSetResult {
-        pub auto_key_rotation_enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub auto_key_rotation_enabled: pulumi_gestalt_rust::Output<Option<bool>>,
         /// The type of key used to encrypt the data of the disk. Possible values are `EncryptionAtRestWithCustomerKey`, `EncryptionAtRestWithPlatformAndCustomerKeys` and `ConfidentialVmEncryptedWithCustomerKey`. Defaults to `EncryptionAtRestWithCustomerKey`. Changing this forces a new resource to be created.
-        pub encryption_type: pulumi_wasm_rust::Output<Option<String>>,
+        pub encryption_type: pulumi_gestalt_rust::Output<Option<String>>,
         /// Multi-tenant application client id to access key vault in a different tenant.
-        pub federated_client_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub federated_client_id: pulumi_gestalt_rust::Output<Option<String>>,
         /// An `identity` block as defined below.
-        pub identity: pulumi_wasm_rust::Output<
+        pub identity: pulumi_gestalt_rust::Output<
             super::super::types::compute::DiskEncryptionSetIdentity,
         >,
         /// Specifies the URL to a Key Vault Key (either from a Key Vault Key, or the Key URL for the Key Vault Secret). Exactly one of `managed_hsm_key_id`, `key_vault_key_id` must be specified.
@@ -263,19 +263,19 @@ pub mod disk_encryption_set {
         ///
         /// > **NOTE** A KeyVault or Managed HSM using enable_rbac_authorization requires to use `azure.authorization.Assignment` to assign the role `Key Vault Crypto Service Encryption User` to this Disk Encryption Set.
         /// In this case, `azure.keyvault.AccessPolicy` is not needed.
-        pub key_vault_key_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub key_vault_key_id: pulumi_gestalt_rust::Output<Option<String>>,
         /// The URL for the Key Vault Key or Key Vault Secret that is currently being used by the service.
-        pub key_vault_key_url: pulumi_wasm_rust::Output<String>,
+        pub key_vault_key_url: pulumi_gestalt_rust::Output<String>,
         /// Specifies the Azure Region where the Disk Encryption Set exists. Changing this forces a new resource to be created.
-        pub location: pulumi_wasm_rust::Output<String>,
+        pub location: pulumi_gestalt_rust::Output<String>,
         /// Key ID of a key in a managed HSM.  Exactly one of `managed_hsm_key_id`, `key_vault_key_id` must be specified.
-        pub managed_hsm_key_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub managed_hsm_key_id: pulumi_gestalt_rust::Output<Option<String>>,
         /// The name of the Disk Encryption Set. Changing this forces a new resource to be created.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// Specifies the name of the Resource Group where the Disk Encryption Set should exist. Changing this forces a new resource to be created.
-        pub resource_group_name: pulumi_wasm_rust::Output<String>,
+        pub resource_group_name: pulumi_gestalt_rust::Output<String>,
         /// A mapping of tags to assign to the Disk Encryption Set.
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
@@ -284,11 +284,11 @@ pub mod disk_encryption_set {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: DiskEncryptionSetArgs,
     ) -> DiskEncryptionSetResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let auto_key_rotation_enabled_binding = args
             .auto_key_rotation_enabled
@@ -367,35 +367,35 @@ pub mod disk_encryption_set {
         };
         let o = register_interface::register(context.get_inner(), &request);
         DiskEncryptionSetResult {
-            auto_key_rotation_enabled: pulumi_wasm_rust::__private::into_domain(
+            auto_key_rotation_enabled: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("autoKeyRotationEnabled"),
             ),
-            encryption_type: pulumi_wasm_rust::__private::into_domain(
+            encryption_type: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("encryptionType"),
             ),
-            federated_client_id: pulumi_wasm_rust::__private::into_domain(
+            federated_client_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("federatedClientId"),
             ),
-            identity: pulumi_wasm_rust::__private::into_domain(
+            identity: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("identity"),
             ),
-            key_vault_key_id: pulumi_wasm_rust::__private::into_domain(
+            key_vault_key_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("keyVaultKeyId"),
             ),
-            key_vault_key_url: pulumi_wasm_rust::__private::into_domain(
+            key_vault_key_url: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("keyVaultKeyUrl"),
             ),
-            location: pulumi_wasm_rust::__private::into_domain(
+            location: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("location"),
             ),
-            managed_hsm_key_id: pulumi_wasm_rust::__private::into_domain(
+            managed_hsm_key_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("managedHsmKeyId"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            resource_group_name: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("resourceGroupName"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
         }
     }
 }

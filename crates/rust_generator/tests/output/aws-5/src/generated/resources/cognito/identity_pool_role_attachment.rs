@@ -8,49 +8,51 @@
 /// $ pulumi import aws:cognito/identityPoolRoleAttachment:IdentityPoolRoleAttachment example us-west-2:b64805ad-cb56-40ba-9ffc-f5d8207e6d42
 /// ```
 pub mod identity_pool_role_attachment {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct IdentityPoolRoleAttachmentArgs {
         /// An identity pool ID in the format `REGION_GUID`.
         #[builder(into)]
-        pub identity_pool_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub identity_pool_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// A List of Role Mapping.
         #[builder(into, default)]
-        pub role_mappings: pulumi_wasm_rust::InputOrOutput<
+        pub role_mappings: pulumi_gestalt_rust::InputOrOutput<
             Option<
                 Vec<super::super::types::cognito::IdentityPoolRoleAttachmentRoleMapping>,
             >,
         >,
         /// The map of roles associated with this pool. For a given role, the key will be either "authenticated" or "unauthenticated" and the value will be the Role ARN.
         #[builder(into)]
-        pub roles: pulumi_wasm_rust::InputOrOutput<
+        pub roles: pulumi_gestalt_rust::InputOrOutput<
             std::collections::HashMap<String, String>,
         >,
     }
     #[allow(dead_code)]
     pub struct IdentityPoolRoleAttachmentResult {
         /// An identity pool ID in the format `REGION_GUID`.
-        pub identity_pool_id: pulumi_wasm_rust::Output<String>,
+        pub identity_pool_id: pulumi_gestalt_rust::Output<String>,
         /// A List of Role Mapping.
-        pub role_mappings: pulumi_wasm_rust::Output<
+        pub role_mappings: pulumi_gestalt_rust::Output<
             Option<
                 Vec<super::super::types::cognito::IdentityPoolRoleAttachmentRoleMapping>,
             >,
         >,
         /// The map of roles associated with this pool. For a given role, the key will be either "authenticated" or "unauthenticated" and the value will be the Role ARN.
-        pub roles: pulumi_wasm_rust::Output<std::collections::HashMap<String, String>>,
+        pub roles: pulumi_gestalt_rust::Output<
+            std::collections::HashMap<String, String>,
+        >,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: IdentityPoolRoleAttachmentArgs,
     ) -> IdentityPoolRoleAttachmentResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let identity_pool_id_binding = args
             .identity_pool_id
@@ -80,13 +82,13 @@ pub mod identity_pool_role_attachment {
         };
         let o = register_interface::register(context.get_inner(), &request);
         IdentityPoolRoleAttachmentResult {
-            identity_pool_id: pulumi_wasm_rust::__private::into_domain(
+            identity_pool_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("identityPoolId"),
             ),
-            role_mappings: pulumi_wasm_rust::__private::into_domain(
+            role_mappings: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("roleMappings"),
             ),
-            roles: pulumi_wasm_rust::__private::into_domain(o.extract_field("roles")),
+            roles: pulumi_gestalt_rust::__private::into_domain(o.extract_field("roles")),
         }
     }
 }

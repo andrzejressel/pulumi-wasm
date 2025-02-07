@@ -88,116 +88,116 @@
 /// $ pulumi import aws:m2/environment:Environment example 01234567890abcdef012345678
 /// ```
 pub mod environment {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct EnvironmentArgs {
         #[builder(into, default)]
-        pub apply_changes_during_maintenance_window: pulumi_wasm_rust::InputOrOutput<
+        pub apply_changes_during_maintenance_window: pulumi_gestalt_rust::InputOrOutput<
             Option<bool>,
         >,
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub description: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Engine type must be `microfocus` or `bluage`.
         #[builder(into)]
-        pub engine_type: pulumi_wasm_rust::InputOrOutput<String>,
+        pub engine_type: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The specific version of the engine for the Environment.
         #[builder(into, default)]
-        pub engine_version: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub engine_version: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Force update the environment even if applications are running.
         #[builder(into, default)]
-        pub force_update: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub force_update: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         #[builder(into, default)]
-        pub high_availability_config: pulumi_wasm_rust::InputOrOutput<
+        pub high_availability_config: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::m2::EnvironmentHighAvailabilityConfig>,
         >,
         /// M2 Instance Type.
         ///
         /// The following arguments are optional:
         #[builder(into)]
-        pub instance_type: pulumi_wasm_rust::InputOrOutput<String>,
+        pub instance_type: pulumi_gestalt_rust::InputOrOutput<String>,
         /// ARN of the KMS key to use for the Environment.
         #[builder(into, default)]
-        pub kms_key_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub kms_key_id: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Name of the runtime environment. Must be unique within the account.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Configures the maintenance window that you want for the runtime environment. The maintenance window must have the format `ddd:hh24:mi-ddd:hh24:mi` and must be less than 24 hours. If not provided a random value will be used.
         #[builder(into, default)]
-        pub preferred_maintenance_window: pulumi_wasm_rust::InputOrOutput<
+        pub preferred_maintenance_window: pulumi_gestalt_rust::InputOrOutput<
             Option<String>,
         >,
         /// Allow applications deployed to this environment to be publicly accessible.
         #[builder(into, default)]
-        pub publicly_accessible: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub publicly_accessible: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// List of security group ids.
         #[builder(into, default)]
-        pub security_group_ids: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
+        pub security_group_ids: pulumi_gestalt_rust::InputOrOutput<Option<Vec<String>>>,
         #[builder(into, default)]
-        pub storage_configuration: pulumi_wasm_rust::InputOrOutput<
+        pub storage_configuration: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::m2::EnvironmentStorageConfiguration>,
         >,
         /// List of subnet ids to deploy environment to.
         #[builder(into, default)]
-        pub subnet_ids: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
+        pub subnet_ids: pulumi_gestalt_rust::InputOrOutput<Option<Vec<String>>>,
         /// Key-value tags for the place index. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         #[builder(into, default)]
-        pub timeouts: pulumi_wasm_rust::InputOrOutput<
+        pub timeouts: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::m2::EnvironmentTimeouts>,
         >,
     }
     #[allow(dead_code)]
     pub struct EnvironmentResult {
-        pub apply_changes_during_maintenance_window: pulumi_wasm_rust::Output<
+        pub apply_changes_during_maintenance_window: pulumi_gestalt_rust::Output<
             Option<bool>,
         >,
         /// ARN of the Environment.
-        pub arn: pulumi_wasm_rust::Output<String>,
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub arn: pulumi_gestalt_rust::Output<String>,
+        pub description: pulumi_gestalt_rust::Output<Option<String>>,
         /// Engine type must be `microfocus` or `bluage`.
-        pub engine_type: pulumi_wasm_rust::Output<String>,
+        pub engine_type: pulumi_gestalt_rust::Output<String>,
         /// The specific version of the engine for the Environment.
-        pub engine_version: pulumi_wasm_rust::Output<String>,
+        pub engine_version: pulumi_gestalt_rust::Output<String>,
         /// The id of the Environment.
-        pub environment_id: pulumi_wasm_rust::Output<String>,
+        pub environment_id: pulumi_gestalt_rust::Output<String>,
         /// Force update the environment even if applications are running.
-        pub force_update: pulumi_wasm_rust::Output<Option<bool>>,
-        pub high_availability_config: pulumi_wasm_rust::Output<
+        pub force_update: pulumi_gestalt_rust::Output<Option<bool>>,
+        pub high_availability_config: pulumi_gestalt_rust::Output<
             Option<super::super::types::m2::EnvironmentHighAvailabilityConfig>,
         >,
         /// M2 Instance Type.
         ///
         /// The following arguments are optional:
-        pub instance_type: pulumi_wasm_rust::Output<String>,
+        pub instance_type: pulumi_gestalt_rust::Output<String>,
         /// ARN of the KMS key to use for the Environment.
-        pub kms_key_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub kms_key_id: pulumi_gestalt_rust::Output<Option<String>>,
         /// ARN of the load balancer created by the Environment.
-        pub load_balancer_arn: pulumi_wasm_rust::Output<String>,
+        pub load_balancer_arn: pulumi_gestalt_rust::Output<String>,
         /// Name of the runtime environment. Must be unique within the account.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// Configures the maintenance window that you want for the runtime environment. The maintenance window must have the format `ddd:hh24:mi-ddd:hh24:mi` and must be less than 24 hours. If not provided a random value will be used.
-        pub preferred_maintenance_window: pulumi_wasm_rust::Output<String>,
+        pub preferred_maintenance_window: pulumi_gestalt_rust::Output<String>,
         /// Allow applications deployed to this environment to be publicly accessible.
-        pub publicly_accessible: pulumi_wasm_rust::Output<bool>,
+        pub publicly_accessible: pulumi_gestalt_rust::Output<bool>,
         /// List of security group ids.
-        pub security_group_ids: pulumi_wasm_rust::Output<Vec<String>>,
-        pub storage_configuration: pulumi_wasm_rust::Output<
+        pub security_group_ids: pulumi_gestalt_rust::Output<Vec<String>>,
+        pub storage_configuration: pulumi_gestalt_rust::Output<
             Option<super::super::types::m2::EnvironmentStorageConfiguration>,
         >,
         /// List of subnet ids to deploy environment to.
-        pub subnet_ids: pulumi_wasm_rust::Output<Vec<String>>,
+        pub subnet_ids: pulumi_gestalt_rust::Output<Vec<String>>,
         /// Key-value tags for the place index. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
-        pub tags_all: pulumi_wasm_rust::Output<
+        pub tags_all: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
-        pub timeouts: pulumi_wasm_rust::Output<
+        pub timeouts: pulumi_gestalt_rust::Output<
             Option<super::super::types::m2::EnvironmentTimeouts>,
         >,
     }
@@ -206,11 +206,11 @@ pub mod environment {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: EnvironmentArgs,
     ) -> EnvironmentResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let apply_changes_during_maintenance_window_binding = args
             .apply_changes_during_maintenance_window
@@ -319,58 +319,58 @@ pub mod environment {
         };
         let o = register_interface::register(context.get_inner(), &request);
         EnvironmentResult {
-            apply_changes_during_maintenance_window: pulumi_wasm_rust::__private::into_domain(
+            apply_changes_during_maintenance_window: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("applyChangesDuringMaintenanceWindow"),
             ),
-            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
-            description: pulumi_wasm_rust::__private::into_domain(
+            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
+            description: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("description"),
             ),
-            engine_type: pulumi_wasm_rust::__private::into_domain(
+            engine_type: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("engineType"),
             ),
-            engine_version: pulumi_wasm_rust::__private::into_domain(
+            engine_version: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("engineVersion"),
             ),
-            environment_id: pulumi_wasm_rust::__private::into_domain(
+            environment_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("environmentId"),
             ),
-            force_update: pulumi_wasm_rust::__private::into_domain(
+            force_update: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("forceUpdate"),
             ),
-            high_availability_config: pulumi_wasm_rust::__private::into_domain(
+            high_availability_config: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("highAvailabilityConfig"),
             ),
-            instance_type: pulumi_wasm_rust::__private::into_domain(
+            instance_type: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("instanceType"),
             ),
-            kms_key_id: pulumi_wasm_rust::__private::into_domain(
+            kms_key_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("kmsKeyId"),
             ),
-            load_balancer_arn: pulumi_wasm_rust::__private::into_domain(
+            load_balancer_arn: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("loadBalancerArn"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            preferred_maintenance_window: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            preferred_maintenance_window: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("preferredMaintenanceWindow"),
             ),
-            publicly_accessible: pulumi_wasm_rust::__private::into_domain(
+            publicly_accessible: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("publiclyAccessible"),
             ),
-            security_group_ids: pulumi_wasm_rust::__private::into_domain(
+            security_group_ids: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("securityGroupIds"),
             ),
-            storage_configuration: pulumi_wasm_rust::__private::into_domain(
+            storage_configuration: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("storageConfiguration"),
             ),
-            subnet_ids: pulumi_wasm_rust::__private::into_domain(
+            subnet_ids: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("subnetIds"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_wasm_rust::__private::into_domain(
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            tags_all: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("tagsAll"),
             ),
-            timeouts: pulumi_wasm_rust::__private::into_domain(
+            timeouts: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("timeouts"),
             ),
         }

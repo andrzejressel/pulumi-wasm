@@ -172,7 +172,7 @@
 /// ```
 ///
 pub mod data_transfer_config {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct DataTransferConfigArgs {
@@ -182,30 +182,30 @@ pub mod data_transfer_config {
         /// just [today-1]. Only valid if the data source supports the feature.
         /// Set the value to 0 to use the default value.
         #[builder(into, default)]
-        pub data_refresh_window_days: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
+        pub data_refresh_window_days: pulumi_gestalt_rust::InputOrOutput<Option<i32>>,
         /// The data source id. Cannot be changed once the transfer config is created.
         #[builder(into)]
-        pub data_source_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub data_source_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The BigQuery target dataset id.
         #[builder(into, default)]
-        pub destination_dataset_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub destination_dataset_id: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// When set to true, no runs are scheduled for a given transfer.
         #[builder(into, default)]
-        pub disabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub disabled: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// The user specified display name for the transfer config.
         #[builder(into)]
-        pub display_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub display_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Email notifications will be sent according to these preferences to the
         /// email address of the user who owns this transfer config.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub email_preferences: pulumi_wasm_rust::InputOrOutput<
+        pub email_preferences: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::bigquery::DataTransferConfigEmailPreferences>,
         >,
         /// Represents the encryption configuration for a transfer.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub encryption_configuration: pulumi_wasm_rust::InputOrOutput<
+        pub encryption_configuration: pulumi_gestalt_rust::InputOrOutput<
             Option<
                 super::super::types::bigquery::DataTransferConfigEncryptionConfiguration,
             >,
@@ -213,11 +213,13 @@ pub mod data_transfer_config {
         /// The geographic location where the transfer config should reside.
         /// Examples: US, EU, asia-northeast1. The default value is US.
         #[builder(into, default)]
-        pub location: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub location: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Pub/Sub topic where notifications will be sent after transfer runs
         /// associated with this transfer config finish.
         #[builder(into, default)]
-        pub notification_pubsub_topic: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub notification_pubsub_topic: pulumi_gestalt_rust::InputOrOutput<
+            Option<String>,
+        >,
         /// Parameters specific to each data source. For more information see the bq tab in the 'Setting up a data transfer'
         /// section for each data source. For example the parameters for Cloud Storage transfers are listed here:
         /// https://cloud.google.com/bigquery-transfer/docs/cloud-storage-transfer#bq
@@ -226,13 +228,13 @@ pub mod data_transfer_config {
         ///
         /// - - -
         #[builder(into)]
-        pub params: pulumi_wasm_rust::InputOrOutput<
+        pub params: pulumi_gestalt_rust::InputOrOutput<
             std::collections::HashMap<String, String>,
         >,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub project: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Data transfer schedule. If the data source does not support a custom
         /// schedule, this should be empty. If it is empty, the default value for
         /// the data source will be used. The specified times are in UTC. Examples
@@ -243,11 +245,11 @@ pub mod data_transfer_config {
         /// NOTE: The minimum interval time between recurring transfers depends
         /// on the data source; refer to the documentation for your data source.
         #[builder(into, default)]
-        pub schedule: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub schedule: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Options customizing the data transfer schedule.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub schedule_options: pulumi_wasm_rust::InputOrOutput<
+        pub schedule_options: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::bigquery::DataTransferConfigScheduleOptions>,
         >,
         /// Different parameters are configured primarily using the the `params` field on this
@@ -258,14 +260,14 @@ pub mod data_transfer_config {
         /// to a different credential configuration in the config will require an apply to update state.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub sensitive_params: pulumi_wasm_rust::InputOrOutput<
+        pub sensitive_params: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::bigquery::DataTransferConfigSensitiveParams>,
         >,
         /// Service account email. If this field is set, transfer config will
         /// be created with this service account credentials. It requires that
         /// requesting user calling this API has permissions to act as this service account.
         #[builder(into, default)]
-        pub service_account_name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub service_account_name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct DataTransferConfigResult {
@@ -274,40 +276,40 @@ pub mod data_transfer_config {
         /// reingests data for [today-10, today-1], rather than ingesting data for
         /// just [today-1]. Only valid if the data source supports the feature.
         /// Set the value to 0 to use the default value.
-        pub data_refresh_window_days: pulumi_wasm_rust::Output<Option<i32>>,
+        pub data_refresh_window_days: pulumi_gestalt_rust::Output<Option<i32>>,
         /// The data source id. Cannot be changed once the transfer config is created.
-        pub data_source_id: pulumi_wasm_rust::Output<String>,
+        pub data_source_id: pulumi_gestalt_rust::Output<String>,
         /// The BigQuery target dataset id.
-        pub destination_dataset_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub destination_dataset_id: pulumi_gestalt_rust::Output<Option<String>>,
         /// When set to true, no runs are scheduled for a given transfer.
-        pub disabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub disabled: pulumi_gestalt_rust::Output<Option<bool>>,
         /// The user specified display name for the transfer config.
-        pub display_name: pulumi_wasm_rust::Output<String>,
+        pub display_name: pulumi_gestalt_rust::Output<String>,
         /// Email notifications will be sent according to these preferences to the
         /// email address of the user who owns this transfer config.
         /// Structure is documented below.
-        pub email_preferences: pulumi_wasm_rust::Output<
+        pub email_preferences: pulumi_gestalt_rust::Output<
             Option<super::super::types::bigquery::DataTransferConfigEmailPreferences>,
         >,
         /// Represents the encryption configuration for a transfer.
         /// Structure is documented below.
-        pub encryption_configuration: pulumi_wasm_rust::Output<
+        pub encryption_configuration: pulumi_gestalt_rust::Output<
             Option<
                 super::super::types::bigquery::DataTransferConfigEncryptionConfiguration,
             >,
         >,
         /// The geographic location where the transfer config should reside.
         /// Examples: US, EU, asia-northeast1. The default value is US.
-        pub location: pulumi_wasm_rust::Output<Option<String>>,
+        pub location: pulumi_gestalt_rust::Output<Option<String>>,
         /// The resource name of the transfer config. Transfer config names have the
         /// form projects/{projectId}/locations/{location}/transferConfigs/{configId}
         /// or projects/{projectId}/transferConfigs/{configId},
         /// where configId is usually a uuid, but this is not required.
         /// The name is ignored when creating a transfer config.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// Pub/Sub topic where notifications will be sent after transfer runs
         /// associated with this transfer config finish.
-        pub notification_pubsub_topic: pulumi_wasm_rust::Output<Option<String>>,
+        pub notification_pubsub_topic: pulumi_gestalt_rust::Output<Option<String>>,
         /// Parameters specific to each data source. For more information see the bq tab in the 'Setting up a data transfer'
         /// section for each data source. For example the parameters for Cloud Storage transfers are listed here:
         /// https://cloud.google.com/bigquery-transfer/docs/cloud-storage-transfer#bq
@@ -315,10 +317,12 @@ pub mod data_transfer_config {
         ///
         ///
         /// - - -
-        pub params: pulumi_wasm_rust::Output<std::collections::HashMap<String, String>>,
+        pub params: pulumi_gestalt_rust::Output<
+            std::collections::HashMap<String, String>,
+        >,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
-        pub project: pulumi_wasm_rust::Output<String>,
+        pub project: pulumi_gestalt_rust::Output<String>,
         /// Data transfer schedule. If the data source does not support a custom
         /// schedule, this should be empty. If it is empty, the default value for
         /// the data source will be used. The specified times are in UTC. Examples
@@ -328,10 +332,10 @@ pub mod data_transfer_config {
         /// https://cloud.google.com/appengine/docs/flexible/python/scheduling-jobs-with-cron-yaml#the_schedule_format
         /// NOTE: The minimum interval time between recurring transfers depends
         /// on the data source; refer to the documentation for your data source.
-        pub schedule: pulumi_wasm_rust::Output<Option<String>>,
+        pub schedule: pulumi_gestalt_rust::Output<Option<String>>,
         /// Options customizing the data transfer schedule.
         /// Structure is documented below.
-        pub schedule_options: pulumi_wasm_rust::Output<
+        pub schedule_options: pulumi_gestalt_rust::Output<
             Option<super::super::types::bigquery::DataTransferConfigScheduleOptions>,
         >,
         /// Different parameters are configured primarily using the the `params` field on this
@@ -341,24 +345,24 @@ pub mod data_transfer_config {
         /// Credentials may not be specified in both locations and will cause an error. Changing from one location
         /// to a different credential configuration in the config will require an apply to update state.
         /// Structure is documented below.
-        pub sensitive_params: pulumi_wasm_rust::Output<
+        pub sensitive_params: pulumi_gestalt_rust::Output<
             Option<super::super::types::bigquery::DataTransferConfigSensitiveParams>,
         >,
         /// Service account email. If this field is set, transfer config will
         /// be created with this service account credentials. It requires that
         /// requesting user calling this API has permissions to act as this service account.
-        pub service_account_name: pulumi_wasm_rust::Output<Option<String>>,
+        pub service_account_name: pulumi_gestalt_rust::Output<Option<String>>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: DataTransferConfigArgs,
     ) -> DataTransferConfigResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let data_refresh_window_days_binding = args
             .data_refresh_window_days
@@ -468,48 +472,50 @@ pub mod data_transfer_config {
         };
         let o = register_interface::register(context.get_inner(), &request);
         DataTransferConfigResult {
-            data_refresh_window_days: pulumi_wasm_rust::__private::into_domain(
+            data_refresh_window_days: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("dataRefreshWindowDays"),
             ),
-            data_source_id: pulumi_wasm_rust::__private::into_domain(
+            data_source_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("dataSourceId"),
             ),
-            destination_dataset_id: pulumi_wasm_rust::__private::into_domain(
+            destination_dataset_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("destinationDatasetId"),
             ),
-            disabled: pulumi_wasm_rust::__private::into_domain(
+            disabled: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("disabled"),
             ),
-            display_name: pulumi_wasm_rust::__private::into_domain(
+            display_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("displayName"),
             ),
-            email_preferences: pulumi_wasm_rust::__private::into_domain(
+            email_preferences: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("emailPreferences"),
             ),
-            encryption_configuration: pulumi_wasm_rust::__private::into_domain(
+            encryption_configuration: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("encryptionConfiguration"),
             ),
-            location: pulumi_wasm_rust::__private::into_domain(
+            location: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("location"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            notification_pubsub_topic: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            notification_pubsub_topic: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("notificationPubsubTopic"),
             ),
-            params: pulumi_wasm_rust::__private::into_domain(o.extract_field("params")),
-            project: pulumi_wasm_rust::__private::into_domain(
+            params: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("params"),
+            ),
+            project: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("project"),
             ),
-            schedule: pulumi_wasm_rust::__private::into_domain(
+            schedule: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("schedule"),
             ),
-            schedule_options: pulumi_wasm_rust::__private::into_domain(
+            schedule_options: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("scheduleOptions"),
             ),
-            sensitive_params: pulumi_wasm_rust::__private::into_domain(
+            sensitive_params: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("sensitiveParams"),
             ),
-            service_account_name: pulumi_wasm_rust::__private::into_domain(
+            service_account_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("serviceAccountName"),
             ),
         }

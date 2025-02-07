@@ -4,8 +4,8 @@
 /// ## Example Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = zero_trust_access_custom_page::create(
@@ -20,54 +20,54 @@
 /// }
 /// ```
 pub mod zero_trust_access_custom_page {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ZeroTrustAccessCustomPageArgs {
         /// The account identifier to target for the resource. Conflicts with `zone_id`. **Modifying this attribute will force creation of a new resource.**
         #[builder(into, default)]
-        pub account_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub account_id: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Number of apps to display on the custom page.
         #[builder(into, default)]
-        pub app_count: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
+        pub app_count: pulumi_gestalt_rust::InputOrOutput<Option<i32>>,
         /// Custom HTML to display on the custom page.
         #[builder(into, default)]
-        pub custom_html: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub custom_html: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Friendly name of the Access Custom Page configuration.
         #[builder(into)]
-        pub name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Type of Access custom page to create. Available values: `identity_denied`, `forbidden`.
         #[builder(into)]
-        pub type_: pulumi_wasm_rust::InputOrOutput<String>,
+        pub type_: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The zone identifier to target for the resource. Conflicts with `account_id`. **Modifying this attribute will force creation of a new resource.**
         #[builder(into, default)]
-        pub zone_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub zone_id: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct ZeroTrustAccessCustomPageResult {
         /// The account identifier to target for the resource. Conflicts with `zone_id`. **Modifying this attribute will force creation of a new resource.**
-        pub account_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub account_id: pulumi_gestalt_rust::Output<Option<String>>,
         /// Number of apps to display on the custom page.
-        pub app_count: pulumi_wasm_rust::Output<Option<i32>>,
+        pub app_count: pulumi_gestalt_rust::Output<Option<i32>>,
         /// Custom HTML to display on the custom page.
-        pub custom_html: pulumi_wasm_rust::Output<Option<String>>,
+        pub custom_html: pulumi_gestalt_rust::Output<Option<String>>,
         /// Friendly name of the Access Custom Page configuration.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// Type of Access custom page to create. Available values: `identity_denied`, `forbidden`.
-        pub type_: pulumi_wasm_rust::Output<String>,
+        pub type_: pulumi_gestalt_rust::Output<String>,
         /// The zone identifier to target for the resource. Conflicts with `account_id`. **Modifying this attribute will force creation of a new resource.**
-        pub zone_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub zone_id: pulumi_gestalt_rust::Output<Option<String>>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: ZeroTrustAccessCustomPageArgs,
     ) -> ZeroTrustAccessCustomPageResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let account_id_binding = args.account_id.get_output(context).get_inner();
         let app_count_binding = args.app_count.get_output(context).get_inner();
@@ -109,18 +109,20 @@ pub mod zero_trust_access_custom_page {
         };
         let o = register_interface::register(context.get_inner(), &request);
         ZeroTrustAccessCustomPageResult {
-            account_id: pulumi_wasm_rust::__private::into_domain(
+            account_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("accountId"),
             ),
-            app_count: pulumi_wasm_rust::__private::into_domain(
+            app_count: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("appCount"),
             ),
-            custom_html: pulumi_wasm_rust::__private::into_domain(
+            custom_html: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("customHtml"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            type_: pulumi_wasm_rust::__private::into_domain(o.extract_field("type")),
-            zone_id: pulumi_wasm_rust::__private::into_domain(o.extract_field("zoneId")),
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            type_: pulumi_gestalt_rust::__private::into_domain(o.extract_field("type")),
+            zone_id: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("zoneId"),
+            ),
         }
     }
 }

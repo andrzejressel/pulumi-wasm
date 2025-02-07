@@ -1,37 +1,37 @@
 pub mod get_ipam_preview_next_cidr {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct GetIpamPreviewNextCidrArgs {
         /// Exclude a particular CIDR range from being returned by the pool.
         #[builder(into, default)]
-        pub disallowed_cidrs: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
+        pub disallowed_cidrs: pulumi_gestalt_rust::InputOrOutput<Option<Vec<String>>>,
         /// ID of the pool to which you want to assign a CIDR.
         #[builder(into)]
-        pub ipam_pool_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub ipam_pool_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Netmask length of the CIDR you would like to preview from the IPAM pool.
         #[builder(into, default)]
-        pub netmask_length: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
+        pub netmask_length: pulumi_gestalt_rust::InputOrOutput<Option<i32>>,
     }
     #[allow(dead_code)]
     pub struct GetIpamPreviewNextCidrResult {
         /// Previewed CIDR from the pool.
-        pub cidr: pulumi_wasm_rust::Output<String>,
-        pub disallowed_cidrs: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub cidr: pulumi_gestalt_rust::Output<String>,
+        pub disallowed_cidrs: pulumi_gestalt_rust::Output<Option<Vec<String>>>,
         /// The provider-assigned unique ID for this managed resource.
-        pub id: pulumi_wasm_rust::Output<String>,
-        pub ipam_pool_id: pulumi_wasm_rust::Output<String>,
-        pub netmask_length: pulumi_wasm_rust::Output<Option<i32>>,
+        pub id: pulumi_gestalt_rust::Output<String>,
+        pub ipam_pool_id: pulumi_gestalt_rust::Output<String>,
+        pub netmask_length: pulumi_gestalt_rust::Output<Option<i32>>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         args: GetIpamPreviewNextCidrArgs,
     ) -> GetIpamPreviewNextCidrResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let disallowed_cidrs_binding = args
             .disallowed_cidrs
@@ -59,15 +59,15 @@ pub mod get_ipam_preview_next_cidr {
         };
         let o = register_interface::invoke(context.get_inner(), &request);
         GetIpamPreviewNextCidrResult {
-            cidr: pulumi_wasm_rust::__private::into_domain(o.extract_field("cidr")),
-            disallowed_cidrs: pulumi_wasm_rust::__private::into_domain(
+            cidr: pulumi_gestalt_rust::__private::into_domain(o.extract_field("cidr")),
+            disallowed_cidrs: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("disallowedCidrs"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
-            ipam_pool_id: pulumi_wasm_rust::__private::into_domain(
+            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
+            ipam_pool_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("ipamPoolId"),
             ),
-            netmask_length: pulumi_wasm_rust::__private::into_domain(
+            netmask_length: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("netmaskLength"),
             ),
         }

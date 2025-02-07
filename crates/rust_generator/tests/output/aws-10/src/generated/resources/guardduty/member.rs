@@ -3,8 +3,8 @@
 /// ## Example Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let member = detector::create(
@@ -36,56 +36,56 @@
 /// $ pulumi import aws:guardduty/member:Member MyMember 00b00fd5aecc0ab60a708659477e9617:123456789012
 /// ```
 pub mod member {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct MemberArgs {
         /// AWS account ID for member account.
         #[builder(into)]
-        pub account_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub account_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The detector ID of the GuardDuty account where you want to create member accounts.
         #[builder(into)]
-        pub detector_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub detector_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Boolean whether an email notification is sent to the accounts. Defaults to `false`.
         #[builder(into, default)]
-        pub disable_email_notification: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub disable_email_notification: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// Email address for member account.
         #[builder(into)]
-        pub email: pulumi_wasm_rust::InputOrOutput<String>,
+        pub email: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Message for invitation.
         #[builder(into, default)]
-        pub invitation_message: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub invitation_message: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Boolean whether to invite the account to GuardDuty as a member. Defaults to `false`. To detect if an invitation needs to be (re-)sent, the this provider state value is `true` based on a `relationship_status` of `Disabled`, `Enabled`, `Invited`, or `EmailVerificationInProgress`.
         #[builder(into, default)]
-        pub invite: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub invite: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
     }
     #[allow(dead_code)]
     pub struct MemberResult {
         /// AWS account ID for member account.
-        pub account_id: pulumi_wasm_rust::Output<String>,
+        pub account_id: pulumi_gestalt_rust::Output<String>,
         /// The detector ID of the GuardDuty account where you want to create member accounts.
-        pub detector_id: pulumi_wasm_rust::Output<String>,
+        pub detector_id: pulumi_gestalt_rust::Output<String>,
         /// Boolean whether an email notification is sent to the accounts. Defaults to `false`.
-        pub disable_email_notification: pulumi_wasm_rust::Output<Option<bool>>,
+        pub disable_email_notification: pulumi_gestalt_rust::Output<Option<bool>>,
         /// Email address for member account.
-        pub email: pulumi_wasm_rust::Output<String>,
+        pub email: pulumi_gestalt_rust::Output<String>,
         /// Message for invitation.
-        pub invitation_message: pulumi_wasm_rust::Output<Option<String>>,
+        pub invitation_message: pulumi_gestalt_rust::Output<Option<String>>,
         /// Boolean whether to invite the account to GuardDuty as a member. Defaults to `false`. To detect if an invitation needs to be (re-)sent, the this provider state value is `true` based on a `relationship_status` of `Disabled`, `Enabled`, `Invited`, or `EmailVerificationInProgress`.
-        pub invite: pulumi_wasm_rust::Output<Option<bool>>,
+        pub invite: pulumi_gestalt_rust::Output<Option<bool>>,
         /// The status of the relationship between the member account and its primary account. More information can be found in [Amazon GuardDuty API Reference](https://docs.aws.amazon.com/guardduty/latest/ug/get-members.html).
-        pub relationship_status: pulumi_wasm_rust::Output<String>,
+        pub relationship_status: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: MemberArgs,
     ) -> MemberResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let account_id_binding = args.account_id.get_output(context).get_inner();
         let detector_id_binding = args.detector_id.get_output(context).get_inner();
@@ -132,21 +132,23 @@ pub mod member {
         };
         let o = register_interface::register(context.get_inner(), &request);
         MemberResult {
-            account_id: pulumi_wasm_rust::__private::into_domain(
+            account_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("accountId"),
             ),
-            detector_id: pulumi_wasm_rust::__private::into_domain(
+            detector_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("detectorId"),
             ),
-            disable_email_notification: pulumi_wasm_rust::__private::into_domain(
+            disable_email_notification: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("disableEmailNotification"),
             ),
-            email: pulumi_wasm_rust::__private::into_domain(o.extract_field("email")),
-            invitation_message: pulumi_wasm_rust::__private::into_domain(
+            email: pulumi_gestalt_rust::__private::into_domain(o.extract_field("email")),
+            invitation_message: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("invitationMessage"),
             ),
-            invite: pulumi_wasm_rust::__private::into_domain(o.extract_field("invite")),
-            relationship_status: pulumi_wasm_rust::__private::into_domain(
+            invite: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("invite"),
+            ),
+            relationship_status: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("relationshipStatus"),
             ),
         }

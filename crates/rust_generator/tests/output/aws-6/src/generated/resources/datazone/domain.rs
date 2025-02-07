@@ -55,71 +55,71 @@
 /// $ pulumi import aws:datazone/domain:Domain example domain-id-12345678
 /// ```
 pub mod domain {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct DomainArgs {
         /// Description of the Domain.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub description: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// ARN of the role used by DataZone to configure the Domain.
         ///
         /// The following arguments are optional:
         #[builder(into)]
-        pub domain_execution_role: pulumi_wasm_rust::InputOrOutput<String>,
+        pub domain_execution_role: pulumi_gestalt_rust::InputOrOutput<String>,
         /// ARN of the KMS key used to encrypt the Amazon DataZone domain, metadata and reporting data.
         #[builder(into, default)]
-        pub kms_key_identifier: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub kms_key_identifier: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Name of the Domain.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Single sign on options, used to [enable AWS IAM Identity Center](https://docs.aws.amazon.com/datazone/latest/userguide/enable-IAM-identity-center-for-datazone.html) for DataZone.
         #[builder(into, default)]
-        pub single_sign_on: pulumi_wasm_rust::InputOrOutput<
+        pub single_sign_on: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::datazone::DomainSingleSignOn>,
         >,
         /// Whether to skip the deletion check for the Domain.
         #[builder(into, default)]
-        pub skip_deletion_check: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub skip_deletion_check: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         #[builder(into, default)]
-        pub timeouts: pulumi_wasm_rust::InputOrOutput<
+        pub timeouts: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::datazone::DomainTimeouts>,
         >,
     }
     #[allow(dead_code)]
     pub struct DomainResult {
         /// ARN of the Domain.
-        pub arn: pulumi_wasm_rust::Output<String>,
+        pub arn: pulumi_gestalt_rust::Output<String>,
         /// Description of the Domain.
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_gestalt_rust::Output<Option<String>>,
         /// ARN of the role used by DataZone to configure the Domain.
         ///
         /// The following arguments are optional:
-        pub domain_execution_role: pulumi_wasm_rust::Output<String>,
+        pub domain_execution_role: pulumi_gestalt_rust::Output<String>,
         /// ARN of the KMS key used to encrypt the Amazon DataZone domain, metadata and reporting data.
-        pub kms_key_identifier: pulumi_wasm_rust::Output<Option<String>>,
+        pub kms_key_identifier: pulumi_gestalt_rust::Output<Option<String>>,
         /// Name of the Domain.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// URL of the data portal for the Domain.
-        pub portal_url: pulumi_wasm_rust::Output<String>,
+        pub portal_url: pulumi_gestalt_rust::Output<String>,
         /// Single sign on options, used to [enable AWS IAM Identity Center](https://docs.aws.amazon.com/datazone/latest/userguide/enable-IAM-identity-center-for-datazone.html) for DataZone.
-        pub single_sign_on: pulumi_wasm_rust::Output<
+        pub single_sign_on: pulumi_gestalt_rust::Output<
             Option<super::super::types::datazone::DomainSingleSignOn>,
         >,
         /// Whether to skip the deletion check for the Domain.
-        pub skip_deletion_check: pulumi_wasm_rust::Output<Option<bool>>,
-        pub tags: pulumi_wasm_rust::Output<
+        pub skip_deletion_check: pulumi_gestalt_rust::Output<Option<bool>>,
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        pub tags_all: pulumi_wasm_rust::Output<
+        pub tags_all: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
-        pub timeouts: pulumi_wasm_rust::Output<
+        pub timeouts: pulumi_gestalt_rust::Output<
             Option<super::super::types::datazone::DomainTimeouts>,
         >,
     }
@@ -128,11 +128,11 @@ pub mod domain {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: DomainArgs,
     ) -> DomainResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let description_binding = args.description.get_output(context).get_inner();
         let domain_execution_role_binding = args
@@ -192,31 +192,31 @@ pub mod domain {
         };
         let o = register_interface::register(context.get_inner(), &request);
         DomainResult {
-            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
-            description: pulumi_wasm_rust::__private::into_domain(
+            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
+            description: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("description"),
             ),
-            domain_execution_role: pulumi_wasm_rust::__private::into_domain(
+            domain_execution_role: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("domainExecutionRole"),
             ),
-            kms_key_identifier: pulumi_wasm_rust::__private::into_domain(
+            kms_key_identifier: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("kmsKeyIdentifier"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            portal_url: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            portal_url: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("portalUrl"),
             ),
-            single_sign_on: pulumi_wasm_rust::__private::into_domain(
+            single_sign_on: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("singleSignOn"),
             ),
-            skip_deletion_check: pulumi_wasm_rust::__private::into_domain(
+            skip_deletion_check: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("skipDeletionCheck"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_wasm_rust::__private::into_domain(
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            tags_all: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("tagsAll"),
             ),
-            timeouts: pulumi_wasm_rust::__private::into_domain(
+            timeouts: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("timeouts"),
             ),
         }
