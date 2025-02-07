@@ -2323,9 +2323,9 @@ version = "0.0.0-DEV"
 dependencies = [
  "log",
  "prost",
- "pulumi_gestalt_common",
  "pulumi_gestalt_core",
  "pulumi_gestalt_proto",
+ "pulumi_gestalt_rust_common",
  "serde",
  "serde_json",
  "wit-bindgen-rt 0.39.0",
@@ -2339,14 +2339,6 @@ dependencies = [
  "pulumi_gestalt_generator",
  "pulumi_gestalt_rust",
  "tempfile",
-]
-
-[[package]]
-name = "pulumi_gestalt_common"
-version = "0.0.0-DEV"
-dependencies = [
- "log",
- "pulumi_gestalt_wit",
 ]
 
 [[package]]
@@ -2620,12 +2612,20 @@ dependencies = [
  "log",
  "once_cell",
  "pulumi_gestalt_build",
- "pulumi_gestalt_common",
+ "pulumi_gestalt_rust_common",
  "pulumi_gestalt_wit",
  "serde",
  "serde_json",
  "uuid",
  "wit-bindgen",
+]
+
+[[package]]
+name = "pulumi_gestalt_rust_common"
+version = "0.0.0-DEV"
+dependencies = [
+ "log",
+ "pulumi_gestalt_wit",
 ]
 
 [[package]]

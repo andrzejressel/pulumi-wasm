@@ -509,7 +509,7 @@ dependencies = [
 ]
 
 [[package]]
-name = "pulumi_gestalt_common"
+name = "pulumi_gestalt_rust_common"
 version = "0.0.0-DEV"
 dependencies = [
  "log",
@@ -524,7 +524,7 @@ dependencies = [
  "bon",
  "log",
  "once_cell",
- "pulumi_gestalt_common",
+ "pulumi_gestalt_rust_common",
  "pulumi_gestalt_wit",
  "serde",
  "serde_json",
