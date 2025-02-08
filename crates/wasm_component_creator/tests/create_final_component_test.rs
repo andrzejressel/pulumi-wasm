@@ -41,13 +41,10 @@ async fn should_combine_wasm_components() -> Result<()> {
         .encode()
         .unwrap();
 
-    let result = pulumi_gestalt_wasm_component_creator::create(
-        &TestProgramSource {},
-        encoded.clone(),
-        true,
-    )
-    .await
-    .unwrap();
+    let result =
+        pulumi_gestalt_wasm_component_creator::create(&TestProgramSource {}, encoded.clone(), true)
+            .await
+            .unwrap();
 
     assert_component_only_exports_main_and_settings(&result)?;
 
@@ -89,13 +86,10 @@ async fn return_error_when_multiple_versions_of_pulumi_gestalt_is_found() -> Res
         .encode()
         .unwrap();
 
-    let error = pulumi_gestalt_wasm_component_creator::create(
-        &TestProgramSource {},
-        encoded.clone(),
-        true,
-    )
-    .await
-    .expect_err("Expected creator to return error");
+    let error =
+        pulumi_gestalt_wasm_component_creator::create(&TestProgramSource {}, encoded.clone(), true)
+            .await
+            .expect_err("Expected creator to return error");
 
     assert_eq!(
         error.to_string(),
@@ -149,13 +143,10 @@ async fn return_error_when_multiple_versions_of_pulumi_gestalt_in_providers_is_f
         .encode()
         .unwrap();
 
-    let error = pulumi_gestalt_wasm_component_creator::create(
-        &TestProgramSource {},
-        encoded.clone(),
-        true,
-    )
-    .await
-    .expect_err("Expected creator to return error");
+    let error =
+        pulumi_gestalt_wasm_component_creator::create(&TestProgramSource {}, encoded.clone(), true)
+            .await
+            .expect_err("Expected creator to return error");
 
     assert_eq!(
         error.to_string(),
