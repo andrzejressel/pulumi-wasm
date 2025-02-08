@@ -27,6 +27,7 @@
 /// ```sh
 /// $ pulumi import aws:pinpoint/baiduChannel:BaiduChannel channel application-id
 /// ```
+#[allow(clippy::doc_lazy_continuation, clippy::tabs_in_doc_comments)]
 pub mod baidu_channel {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

@@ -42,6 +42,7 @@
 /// $ pulumi import azure:storage/queue:Queue queue1 https://example.queue.core.windows.net/queue1
 /// ```
 ///
+#[allow(clippy::doc_lazy_continuation, clippy::tabs_in_doc_comments)]
 pub mod queue {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

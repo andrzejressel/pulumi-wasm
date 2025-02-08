@@ -1,5 +1,6 @@
 /// Provides a Cloudflare Split Tunnel resource. Split tunnels are used to either
 /// include or exclude lists of routes from the WARP client's tunnel.
+#[allow(clippy::doc_lazy_continuation, clippy::tabs_in_doc_comments)]
 pub mod zero_trust_split_tunnel {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

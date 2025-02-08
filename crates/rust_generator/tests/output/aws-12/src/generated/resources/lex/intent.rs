@@ -75,6 +75,7 @@
 /// ```sh
 /// $ pulumi import aws:lex/intent:Intent order_flowers_intent OrderFlowers
 /// ```
+#[allow(clippy::doc_lazy_continuation, clippy::tabs_in_doc_comments)]
 pub mod intent {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

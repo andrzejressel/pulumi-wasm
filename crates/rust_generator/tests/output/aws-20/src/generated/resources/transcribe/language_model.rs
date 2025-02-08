@@ -76,6 +76,7 @@
 /// ```sh
 /// $ pulumi import aws:transcribe/languageModel:LanguageModel example example-name
 /// ```
+#[allow(clippy::doc_lazy_continuation, clippy::tabs_in_doc_comments)]
 pub mod language_model {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

@@ -30,6 +30,7 @@
 /// ```sh
 /// $ pulumi import aws:appstream/directoryConfig:DirectoryConfig example directoryNameExample
 /// ```
+#[allow(clippy::doc_lazy_continuation, clippy::tabs_in_doc_comments)]
 pub mod directory_config {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

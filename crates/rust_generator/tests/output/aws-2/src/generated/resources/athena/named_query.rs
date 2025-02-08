@@ -61,6 +61,7 @@
 /// ```sh
 /// $ pulumi import aws:athena/namedQuery:NamedQuery example 0123456789
 /// ```
+#[allow(clippy::doc_lazy_continuation, clippy::tabs_in_doc_comments)]
 pub mod named_query {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

@@ -1,6 +1,7 @@
 {{#each resource.description_lines}}
     /// {{&this}}
 {{/each}}
+#[allow(clippy::doc_lazy_continuation, clippy::tabs_in_doc_comments)]
 pub mod {{resource.package_name}} {
 
 {{#if resource.input_properties}}

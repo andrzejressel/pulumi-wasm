@@ -44,6 +44,7 @@
 /// ```sh
 /// $ pulumi import aws:ec2/networkAcl:NetworkAcl main acl-7aaabd18
 /// ```
+#[allow(clippy::doc_lazy_continuation, clippy::tabs_in_doc_comments)]
 pub mod network_acl {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

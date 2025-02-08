@@ -35,6 +35,7 @@
 /// ```sh
 /// $ pulumi import aws:backup/regionSettings:RegionSettings test us-west-2
 /// ```
+#[allow(clippy::doc_lazy_continuation, clippy::tabs_in_doc_comments)]
 pub mod region_settings {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

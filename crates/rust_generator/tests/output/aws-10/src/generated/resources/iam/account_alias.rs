@@ -23,6 +23,7 @@
 /// ```sh
 /// $ pulumi import aws:iam/accountAlias:AccountAlias alias my-account-alias
 /// ```
+#[allow(clippy::doc_lazy_continuation, clippy::tabs_in_doc_comments)]
 pub mod account_alias {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

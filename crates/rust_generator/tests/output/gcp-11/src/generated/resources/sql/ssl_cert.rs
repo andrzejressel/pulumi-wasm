@@ -32,6 +32,7 @@
 ///
 /// Since the contents of the certificate cannot be accessed after its creation, this resource cannot be imported.
 ///
+#[allow(clippy::doc_lazy_continuation, clippy::tabs_in_doc_comments)]
 pub mod ssl_cert {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

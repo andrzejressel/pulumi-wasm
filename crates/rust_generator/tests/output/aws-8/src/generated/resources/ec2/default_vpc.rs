@@ -30,6 +30,7 @@
 /// ```sh
 /// $ pulumi import aws:ec2/defaultVpc:DefaultVpc default vpc-a01106c2
 /// ```
+#[allow(clippy::doc_lazy_continuation, clippy::tabs_in_doc_comments)]
 pub mod default_vpc {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

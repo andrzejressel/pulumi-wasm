@@ -52,6 +52,7 @@
 ///
 /// * Where `{capabilityName}` is the name of the Capability. For example `capabilityName`.
 ///
+#[allow(clippy::doc_lazy_continuation, clippy::tabs_in_doc_comments)]
 pub mod capability {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

@@ -22,6 +22,7 @@
 /// ```sh
 /// $ pulumi import aws:cfg/retentionConfiguration:RetentionConfiguration example default
 /// ```
+#[allow(clippy::doc_lazy_continuation, clippy::tabs_in_doc_comments)]
 pub mod retention_configuration {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

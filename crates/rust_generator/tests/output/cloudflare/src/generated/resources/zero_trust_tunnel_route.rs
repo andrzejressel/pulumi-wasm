@@ -8,6 +8,7 @@
 /// $ pulumi import cloudflare:index/zeroTrustTunnelRoute:ZeroTrustTunnelRoute example <account_id>/<network_cidr>/<virtual_network_id>
 /// ```
 ///
+#[allow(clippy::doc_lazy_continuation, clippy::tabs_in_doc_comments)]
 pub mod zero_trust_tunnel_route {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

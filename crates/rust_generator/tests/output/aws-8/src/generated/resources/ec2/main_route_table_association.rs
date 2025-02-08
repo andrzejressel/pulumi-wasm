@@ -28,6 +28,7 @@
 /// this original table as the Main Route Table for the VPC. You'll see this
 /// additional Route Table in the AWS console; it must remain intact in order for
 /// the `main_route_table_association` delete to work properly.
+#[allow(clippy::doc_lazy_continuation, clippy::tabs_in_doc_comments)]
 pub mod main_route_table_association {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
