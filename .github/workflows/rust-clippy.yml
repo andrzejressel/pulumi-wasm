@@ -71,3 +71,4 @@ jobs:
       with:
         sarif_file: rust-clippy-results.sarif
         wait-for-processing: true
+        category: Rust-${{ runner.os }}
