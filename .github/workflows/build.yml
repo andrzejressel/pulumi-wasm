@@ -355,53 +355,6 @@ jobs:
       - name: Ensure no files have changed
         run: git add . && git diff --quiet && git diff --cached --quiet
 
-#  run-clippy:
-#    runs-on: ${{ matrix.os }}
-#
-#    strategy:
-#      fail-fast: false
-#      matrix:
-#        os: [ubuntu-24.04, windows-2022, macos-14]
-#
-#    steps:
-#      - run: git config --system core.longpaths true
-#        if: runner.os == 'Windows'
-#      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4
-#        with:
-#          submodules: true
-#      - uses: extractions/setup-just@dd310ad5a97d8e7b41793f8ef055398d51ad4de6 # v2
-#        env:
-#          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-#      - uses: cargo-bins/cargo-binstall@main
-#        env:
-#          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-#      - name: Install requirements
-#        run: just install-requirements
-#        env:
-#          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-#      - run: brew install pulumi
-#        if: runner.os == 'macOS'
-#      - run: pulumi version
-#      - run: pulumi login --local
-#      - uses: actions/setup-go@f111f3307d8850f501ac008e886eec1fd1932a34 # v5
-#        with:
-#          go-version: '^1.22.0'
-#          cache-dependency-path: "**/go.sum"
-#      - name: Install Protoc
-#        uses: arduino/setup-protoc@v3
-#        with:
-#          version: "25.3"
-#          repo-token: ${{ secrets.GITHUB_TOKEN }}
-#      - run: protoc --version
-#      - uses: Swatinem/rust-cache@f0deed1e0edfc6a9be95417288c0e1099b1eeec3 # v2
-#      - run: just clippy
-#        env:
-#          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-#      - run: git add . && git diff
-#      - run: git diff --cached
-#      - name: Ensure no files have changed
-#        run: git add . && git diff --quiet && git diff --cached --quiet
-
   deploy:
     runs-on: ubuntu-24.04
     needs: [build-base, build-generated-provider, build-examples, build-housekeeping, build-rust-docs,  build-cpp]
