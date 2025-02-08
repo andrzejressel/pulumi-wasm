@@ -1,6 +1,6 @@
 use anyhow::Result;
 use async_trait::async_trait;
-use pulumi_gestalt_runner_component_creator::source::PulumiWasmSource;
+use pulumi_gestalt_runner_component_creator::source::WasmComponentSource;
 use wac_graph::types::Package;
 use wac_graph::CompositionGraph;
 use wit_component::{dummy_module, embed_component_metadata, ComponentEncoder, StringEncoding};
@@ -195,7 +195,7 @@ fn assert_component_only_exports_main_and_settings(result: &[u8]) -> Result<()> 
 struct TestProgramSource {}
 
 #[async_trait]
-impl PulumiWasmSource for TestProgramSource {
+impl WasmComponentSource for TestProgramSource {
     async fn get(&self, version: &str, debug: bool) -> Result<Vec<u8>> {
         let mut resolve = Resolve::new();
         resolve.add_pulumi_gestalt_stable().unwrap();
