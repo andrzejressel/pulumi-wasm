@@ -55,8 +55,7 @@ jobs:
         cargo install clippy-sarif || clippy-sarif --version
         cargo install sarif-fmt || sarif-fmt --version
     - name: Run rust-clippy
-      run:
-        just clippy-to-file
+      run: just clippy-to-file
     - name: Upload analysis results to GitHub
       uses: github/codeql-action/upload-sarif@9e8d0789d4a0fa9ceb6b1738f7e269594bdd67f0 # v3
       with:
