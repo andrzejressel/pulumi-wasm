@@ -41,6 +41,7 @@
 /// $ pulumi import gcp:serviceaccount/account:Account default projects/{{project_id}}/serviceAccounts/{{email}}
 /// ```
 ///
+#[allow(clippy::doc_lazy_continuation)]
 pub mod account {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

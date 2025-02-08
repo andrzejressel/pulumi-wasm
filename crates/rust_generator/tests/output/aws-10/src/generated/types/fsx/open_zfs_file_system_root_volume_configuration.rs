@@ -1,6 +1,7 @@
 #[derive(pulumi_gestalt_rust::__private::serde::Deserialize, pulumi_gestalt_rust::__private::serde::Serialize, pulumi_gestalt_rust::__private::bon::Builder, Debug, PartialEq, Clone)]
 #[builder(finish_fn = build_struct)]
 #[allow(dead_code)]
+#[allow(clippy::doc_lazy_continuation)]
 pub struct OpenZfsFileSystemRootVolumeConfiguration {
     /// A boolean flag indicating whether tags for the file system should be copied to snapshots. The default value is false.
     #[builder(into, default)]

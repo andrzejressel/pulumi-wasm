@@ -26,6 +26,7 @@
 /// ```sh
 /// $ pulumi import aws:schemas/registry:Registry test my_own_registry
 /// ```
+#[allow(clippy::doc_lazy_continuation)]
 pub mod registry {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

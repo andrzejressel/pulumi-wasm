@@ -58,6 +58,7 @@
 ///
 /// You cannot import Lightsail Key Pairs because the private and public key are only available on initial creation.
 ///
+#[allow(clippy::doc_lazy_continuation)]
 pub mod key_pair {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

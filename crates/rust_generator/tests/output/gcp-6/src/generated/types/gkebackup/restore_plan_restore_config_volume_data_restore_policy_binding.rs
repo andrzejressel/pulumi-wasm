@@ -1,6 +1,7 @@
 #[derive(pulumi_gestalt_rust::__private::serde::Deserialize, pulumi_gestalt_rust::__private::serde::Serialize, pulumi_gestalt_rust::__private::bon::Builder, Debug, PartialEq, Clone)]
 #[builder(finish_fn = build_struct)]
 #[allow(dead_code)]
+#[allow(clippy::doc_lazy_continuation)]
 pub struct RestorePlanRestoreConfigVolumeDataRestorePolicyBinding {
     /// Specifies the mechanism to be used to restore this volume data.
     /// See https://cloud.google.com/kubernetes-engine/docs/add-on/backup-for-gke/reference/rest/v1/RestoreConfig#VolumeDataRestorePolicy

@@ -53,6 +53,7 @@
 /// ```sh
 /// $ pulumi import aws:s3/bucketServerSideEncryptionConfigurationV2:BucketServerSideEncryptionConfigurationV2 example bucket-name,123456789012
 /// ```
+#[allow(clippy::doc_lazy_continuation)]
 pub mod bucket_server_side_encryption_configuration_v_2 {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

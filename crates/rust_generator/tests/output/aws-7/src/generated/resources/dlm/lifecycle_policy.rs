@@ -189,6 +189,7 @@
 /// ```sh
 /// $ pulumi import aws:dlm/lifecyclePolicy:LifecyclePolicy example policy-abcdef12345678901
 /// ```
+#[allow(clippy::doc_lazy_continuation)]
 pub mod lifecycle_policy {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

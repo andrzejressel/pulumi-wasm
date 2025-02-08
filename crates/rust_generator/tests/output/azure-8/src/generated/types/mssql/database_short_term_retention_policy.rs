@@ -1,6 +1,7 @@
 #[derive(pulumi_gestalt_rust::__private::serde::Deserialize, pulumi_gestalt_rust::__private::serde::Serialize, pulumi_gestalt_rust::__private::bon::Builder, Debug, PartialEq, Clone)]
 #[builder(finish_fn = build_struct)]
 #[allow(dead_code)]
+#[allow(clippy::doc_lazy_continuation)]
 pub struct DatabaseShortTermRetentionPolicy {
     /// The hours between each differential backup. This is only applicable to live databases but not dropped databases. Value has to be `12` or `24`. Defaults to `12` hours.
     #[builder(into, default)]

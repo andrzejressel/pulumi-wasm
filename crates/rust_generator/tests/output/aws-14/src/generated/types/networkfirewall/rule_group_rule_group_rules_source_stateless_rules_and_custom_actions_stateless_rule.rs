@@ -1,6 +1,7 @@
 #[derive(pulumi_gestalt_rust::__private::serde::Deserialize, pulumi_gestalt_rust::__private::serde::Serialize, pulumi_gestalt_rust::__private::bon::Builder, Debug, PartialEq, Clone)]
 #[builder(finish_fn = build_struct)]
 #[allow(dead_code)]
+#[allow(clippy::doc_lazy_continuation)]
 pub struct RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRule {
     /// A setting that indicates the order in which to run this rule relative to all of the rules that are defined for a stateless rule group. AWS Network Firewall evaluates the rules in a rule group starting with the lowest priority setting.
     #[builder(into)]

@@ -1,3 +1,4 @@
+#[allow(clippy::doc_lazy_continuation)]
 pub mod get_profiles_profiles {
     #[allow(dead_code)]
     pub struct GetProfilesProfilesResult {

@@ -59,6 +59,7 @@
 /// $ pulumi import gcp:securitycenter/v2FolderMuteConfig:V2FolderMuteConfig default {{folder}}/{{location}}/{{mute_config_id}}
 /// ```
 ///
+#[allow(clippy::doc_lazy_continuation)]
 pub mod v_2_folder_mute_config {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

@@ -77,6 +77,7 @@
 /// ```sh
 /// $ pulumi import aws:route53/keySigningKey:KeySigningKey example Z1D633PJN98FT9,example
 /// ```
+#[allow(clippy::doc_lazy_continuation)]
 pub mod key_signing_key {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

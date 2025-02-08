@@ -46,6 +46,7 @@
 /// $ pulumi import gcp:compute/firewallPolicyAssociation:FirewallPolicyAssociation default {{firewall_policy}}/{{name}}
 /// ```
 ///
+#[allow(clippy::doc_lazy_continuation)]
 pub mod firewall_policy_association {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

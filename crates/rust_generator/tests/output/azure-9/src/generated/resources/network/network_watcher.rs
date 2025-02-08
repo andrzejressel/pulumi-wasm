@@ -33,6 +33,7 @@
 /// $ pulumi import azure:network/networkWatcher:NetworkWatcher watcher1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Network/networkWatchers/watcher1
 /// ```
 ///
+#[allow(clippy::doc_lazy_continuation)]
 pub mod network_watcher {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

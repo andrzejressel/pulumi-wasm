@@ -1,3 +1,4 @@
+#[allow(clippy::doc_lazy_continuation)]
 pub mod get_uptime_check_i_ps {
     #[allow(dead_code)]
     pub struct GetUptimeCheckIPsResult {

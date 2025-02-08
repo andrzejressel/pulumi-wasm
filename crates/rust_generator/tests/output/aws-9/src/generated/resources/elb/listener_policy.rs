@@ -79,6 +79,7 @@
 /// ```
 ///
 /// This example shows how to add a [Predefined Security Policy for ELBs](https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-security-policy-table.html)
+#[allow(clippy::doc_lazy_continuation)]
 pub mod listener_policy {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

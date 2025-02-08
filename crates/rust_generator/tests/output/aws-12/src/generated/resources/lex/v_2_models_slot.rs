@@ -7,6 +7,7 @@
 /// ```sh
 /// $ pulumi import aws:lex/v2modelsSlot:V2modelsSlot example bot-1234,1,intent-5678,en-US,slot-9012
 /// ```
+#[allow(clippy::doc_lazy_continuation)]
 pub mod v_2_models_slot {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

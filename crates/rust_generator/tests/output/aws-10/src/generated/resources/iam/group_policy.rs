@@ -35,6 +35,7 @@
 /// ```sh
 /// $ pulumi import aws:iam/groupPolicy:GroupPolicy mypolicy group_of_mypolicy_name:mypolicy_name
 /// ```
+#[allow(clippy::doc_lazy_continuation)]
 pub mod group_policy {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

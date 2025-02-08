@@ -1,6 +1,7 @@
 #[derive(pulumi_gestalt_rust::__private::serde::Deserialize, pulumi_gestalt_rust::__private::serde::Serialize, pulumi_gestalt_rust::__private::bon::Builder, Debug, PartialEq, Clone)]
 #[builder(finish_fn = build_struct)]
 #[allow(dead_code)]
+#[allow(clippy::doc_lazy_continuation)]
 pub struct LocationFsxOntapFileSystemProtocolSmb {
     /// Fully qualified domain name of the Microsoft Active Directory (AD) that your storage virtual machine belongs to.
     #[builder(into, default)]

@@ -11,6 +11,7 @@
 /// $ pulumi import azure:oracle/cloudVmCluster:CloudVmCluster example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup/providers/Oracle.Database/cloudVmClusters/cloudVmClusters1
 /// ```
 ///
+#[allow(clippy::doc_lazy_continuation)]
 pub mod cloud_vm_cluster {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

@@ -34,6 +34,7 @@
 /// ```sh
 /// $ pulumi import aws:lightsail/lbCertificateAttachment:LbCertificateAttachment test example-load-balancer,example-certificate
 /// ```
+#[allow(clippy::doc_lazy_continuation)]
 pub mod lb_certificate_attachment {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

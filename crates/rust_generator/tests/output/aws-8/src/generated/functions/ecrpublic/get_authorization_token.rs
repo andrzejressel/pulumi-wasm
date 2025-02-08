@@ -1,3 +1,4 @@
+#[allow(clippy::doc_lazy_continuation)]
 pub mod get_authorization_token {
     #[allow(dead_code)]
     pub struct GetAuthorizationTokenResult {

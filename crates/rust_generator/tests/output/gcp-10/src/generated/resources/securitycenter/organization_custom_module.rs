@@ -127,6 +127,7 @@
 /// $ pulumi import gcp:securitycenter/organizationCustomModule:OrganizationCustomModule default {{organization}}/{{name}}
 /// ```
 ///
+#[allow(clippy::doc_lazy_continuation)]
 pub mod organization_custom_module {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

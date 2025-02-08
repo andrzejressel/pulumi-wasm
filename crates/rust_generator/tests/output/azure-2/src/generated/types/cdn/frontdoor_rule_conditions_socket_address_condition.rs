@@ -1,6 +1,7 @@
 #[derive(pulumi_gestalt_rust::__private::serde::Deserialize, pulumi_gestalt_rust::__private::serde::Serialize, pulumi_gestalt_rust::__private::bon::Builder, Debug, PartialEq, Clone)]
 #[builder(finish_fn = build_struct)]
 #[allow(dead_code)]
+#[allow(clippy::doc_lazy_continuation)]
 pub struct FrontdoorRuleConditionsSocketAddressCondition {
     /// Specify one or more IP address ranges. If multiple IP address ranges are specified, they're evaluated using `OR` logic.
     /// 

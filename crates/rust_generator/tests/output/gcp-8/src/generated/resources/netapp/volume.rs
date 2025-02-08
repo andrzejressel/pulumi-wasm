@@ -72,6 +72,7 @@
 /// $ pulumi import gcp:netapp/volume:Volume default {{location}}/{{name}}
 /// ```
 ///
+#[allow(clippy::doc_lazy_continuation)]
 pub mod volume {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

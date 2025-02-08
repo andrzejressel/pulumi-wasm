@@ -122,6 +122,7 @@
 /// $ pulumi import gcp:firebase/appCheckPlayIntegrityConfig:AppCheckPlayIntegrityConfig default {{app_id}}
 /// ```
 ///
+#[allow(clippy::doc_lazy_continuation)]
 pub mod app_check_play_integrity_config {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

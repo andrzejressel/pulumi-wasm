@@ -32,6 +32,7 @@
 /// ```sh
 /// $ pulumi import aws:auditmanager/control:Control example abc123-de45
 /// ```
+#[allow(clippy::doc_lazy_continuation)]
 pub mod control {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

@@ -51,6 +51,7 @@
 /// ```sh
 /// $ pulumi import aws:apigatewayv2/authorizer:Authorizer example aabbccddee/1122334
 /// ```
+#[allow(clippy::doc_lazy_continuation)]
 pub mod authorizer {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

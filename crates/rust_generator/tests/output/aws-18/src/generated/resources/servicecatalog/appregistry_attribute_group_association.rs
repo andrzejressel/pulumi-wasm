@@ -35,6 +35,7 @@
 /// ```sh
 /// $ pulumi import aws:servicecatalog/appregistryAttributeGroupAssociation:AppregistryAttributeGroupAssociation example 12456778723424sdffsdfsdq34,12234t3564dsfsdf34asff4ww3
 /// ```
+#[allow(clippy::doc_lazy_continuation)]
 pub mod appregistry_attribute_group_association {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

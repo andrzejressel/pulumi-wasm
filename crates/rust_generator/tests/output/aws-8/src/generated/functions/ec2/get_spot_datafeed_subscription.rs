@@ -1,3 +1,4 @@
+#[allow(clippy::doc_lazy_continuation)]
 pub mod get_spot_datafeed_subscription {
     #[allow(dead_code)]
     pub struct GetSpotDatafeedSubscriptionResult {

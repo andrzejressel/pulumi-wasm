@@ -33,6 +33,7 @@
 /// ```sh
 /// $ pulumi import aws:globalaccelerator/customRoutingAccelerator:CustomRoutingAccelerator example arn:aws:globalaccelerator::111111111111:accelerator/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
 /// ```
+#[allow(clippy::doc_lazy_continuation)]
 pub mod custom_routing_accelerator {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

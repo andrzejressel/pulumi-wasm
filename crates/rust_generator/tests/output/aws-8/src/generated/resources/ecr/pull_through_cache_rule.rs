@@ -30,6 +30,7 @@
 /// ```sh
 /// $ pulumi import aws:ecr/pullThroughCacheRule:PullThroughCacheRule example ecr-public
 /// ```
+#[allow(clippy::doc_lazy_continuation)]
 pub mod pull_through_cache_rule {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

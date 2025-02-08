@@ -65,6 +65,7 @@
 /// $ pulumi import gcp:tpu/v2QueuedResource:V2QueuedResource default {{name}}
 /// ```
 ///
+#[allow(clippy::doc_lazy_continuation)]
 pub mod v_2_queued_resource {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

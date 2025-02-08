@@ -23,6 +23,7 @@
 /// ```sh
 /// $ pulumi import aws:eks/accessPolicyAssociation:AccessPolicyAssociation my_eks_access_entry my_cluster_name#my_principal_arn#my_policy_arn
 /// ```
+#[allow(clippy::doc_lazy_continuation)]
 pub mod access_policy_association {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

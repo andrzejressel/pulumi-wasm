@@ -95,6 +95,7 @@
 /// $ pulumi import gcp:healthcare/dataset:Dataset default {{location}}/{{name}}
 /// ```
 ///
+#[allow(clippy::doc_lazy_continuation)]
 pub mod dataset {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

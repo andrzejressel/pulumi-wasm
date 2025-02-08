@@ -44,6 +44,7 @@
 /// $ pulumi import azure:management/groupPolicyRemediation:GroupPolicyRemediation example /providers/Microsoft.Management/managementGroups/my-mgmt-group-id/providers/Microsoft.PolicyInsights/remediations/remediation1
 /// ```
 ///
+#[allow(clippy::doc_lazy_continuation)]
 pub mod group_policy_remediation {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

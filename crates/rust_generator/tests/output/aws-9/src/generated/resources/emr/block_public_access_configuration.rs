@@ -95,6 +95,7 @@
 /// ```sh
 /// $ pulumi import aws:emr/blockPublicAccessConfiguration:BlockPublicAccessConfiguration example current
 /// ```
+#[allow(clippy::doc_lazy_continuation)]
 pub mod block_public_access_configuration {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

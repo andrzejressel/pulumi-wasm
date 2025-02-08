@@ -105,6 +105,7 @@
 /// $ pulumi import azure:logicapps/standard:Standard logicapp1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Web/sites/logicapp1
 /// ```
 ///
+#[allow(clippy::doc_lazy_continuation)]
 pub mod standard {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

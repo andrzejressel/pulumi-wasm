@@ -150,6 +150,7 @@
 /// $ pulumi import gcp:dataproc/clusterIAMPolicy:ClusterIAMPolicy default projects/{project}/regions/{region}/clusters/{cluster}
 /// ```
 ///
+#[allow(clippy::doc_lazy_continuation)]
 pub mod cluster_iam_policy {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

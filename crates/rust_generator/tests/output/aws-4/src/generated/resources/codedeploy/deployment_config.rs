@@ -79,6 +79,7 @@
 /// ```sh
 /// $ pulumi import aws:codedeploy/deploymentConfig:DeploymentConfig example my-deployment-config
 /// ```
+#[allow(clippy::doc_lazy_continuation)]
 pub mod deployment_config {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

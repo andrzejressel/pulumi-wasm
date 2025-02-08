@@ -55,6 +55,7 @@
 /// $ pulumi import cloudflare:index/loadBalancerPool:LoadBalancerPool example <account_id>/<load_balancer_pool_id>
 /// ```
 ///
+#[allow(clippy::doc_lazy_continuation)]
 pub mod load_balancer_pool {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

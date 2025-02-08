@@ -364,6 +364,7 @@
 ///
 ///  full name of the custom role, e.g. `[projects/my-project|organizations/my-org]/roles/my-custom-role`.
 ///
+#[allow(clippy::doc_lazy_continuation)]
 pub mod log_view_iam_binding {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

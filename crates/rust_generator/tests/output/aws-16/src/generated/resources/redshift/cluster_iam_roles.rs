@@ -26,6 +26,7 @@
 /// ```sh
 /// $ pulumi import aws:redshift/clusterIamRoles:ClusterIamRoles examplegroup1 example
 /// ```
+#[allow(clippy::doc_lazy_continuation)]
 pub mod cluster_iam_roles {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

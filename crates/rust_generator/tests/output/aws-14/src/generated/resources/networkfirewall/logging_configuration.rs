@@ -58,6 +58,7 @@
 /// ```sh
 /// $ pulumi import aws:networkfirewall/loggingConfiguration:LoggingConfiguration example arn:aws:network-firewall:us-west-1:123456789012:firewall/example
 /// ```
+#[allow(clippy::doc_lazy_continuation)]
 pub mod logging_configuration {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

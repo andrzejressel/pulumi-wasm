@@ -34,6 +34,7 @@
 /// $ pulumi import cloudflare:index/botManagement:BotManagement example <zone_id>
 /// ```
 ///
+#[allow(clippy::doc_lazy_continuation)]
 pub mod bot_management {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

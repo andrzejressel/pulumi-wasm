@@ -85,6 +85,7 @@
 /// $ pulumi import azure:dns/aaaaRecord:AaaaRecord example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Network/dnsZones/zone1/AAAA/myrecord1
 /// ```
 ///
+#[allow(clippy::doc_lazy_continuation)]
 pub mod aaaa_record {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

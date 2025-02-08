@@ -36,6 +36,7 @@
 /// $ pulumi import cloudflare:index/authenticatedOriginPullsCertificate:AuthenticatedOriginPullsCertificate example <zone_id>/<certificate_type>/<certificate_id>
 /// ```
 ///
+#[allow(clippy::doc_lazy_continuation)]
 pub mod authenticated_origin_pulls_certificate {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

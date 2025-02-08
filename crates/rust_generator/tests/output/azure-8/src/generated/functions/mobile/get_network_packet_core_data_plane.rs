@@ -1,3 +1,4 @@
+#[allow(clippy::doc_lazy_continuation)]
 pub mod get_network_packet_core_data_plane {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

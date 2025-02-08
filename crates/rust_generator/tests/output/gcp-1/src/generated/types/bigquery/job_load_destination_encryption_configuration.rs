@@ -1,6 +1,7 @@
 #[derive(pulumi_gestalt_rust::__private::serde::Deserialize, pulumi_gestalt_rust::__private::serde::Serialize, pulumi_gestalt_rust::__private::bon::Builder, Debug, PartialEq, Clone)]
 #[builder(finish_fn = build_struct)]
 #[allow(dead_code)]
+#[allow(clippy::doc_lazy_continuation)]
 pub struct JobLoadDestinationEncryptionConfiguration {
     /// Describes the Cloud KMS encryption key that will be used to protect destination BigQuery table.
     /// The BigQuery Service Account associated with your project requires access to this encryption key.

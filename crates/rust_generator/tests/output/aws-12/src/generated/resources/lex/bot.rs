@@ -60,6 +60,7 @@
 /// ```sh
 /// $ pulumi import aws:lex/bot:Bot order_flowers_bot OrderFlowers
 /// ```
+#[allow(clippy::doc_lazy_continuation)]
 pub mod bot {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

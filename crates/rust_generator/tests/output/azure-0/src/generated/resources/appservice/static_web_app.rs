@@ -33,6 +33,7 @@
 /// $ pulumi import azure:appservice/staticWebApp:StaticWebApp example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Web/staticSites/my-static-site1
 /// ```
 ///
+#[allow(clippy::doc_lazy_continuation)]
 pub mod static_web_app {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

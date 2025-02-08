@@ -30,6 +30,7 @@
 /// ```sh
 /// $ pulumi import aws:cloudwatch/logAnomalyDetector:LogAnomalyDetector example log_anomaly_detector-arn-12345678
 /// ```
+#[allow(clippy::doc_lazy_continuation)]
 pub mod log_anomaly_detector {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

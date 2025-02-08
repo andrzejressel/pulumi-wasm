@@ -34,6 +34,7 @@
 /// ```sh
 /// $ pulumi import aws:datasync/locationAzureBlob:LocationAzureBlob example arn:aws:datasync:us-east-1:123456789012:location/loc-12345678901234567
 /// ```
+#[allow(clippy::doc_lazy_continuation)]
 pub mod location_azure_blob {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

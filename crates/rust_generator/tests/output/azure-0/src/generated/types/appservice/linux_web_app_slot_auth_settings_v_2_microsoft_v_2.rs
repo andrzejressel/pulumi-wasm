@@ -1,6 +1,7 @@
 #[derive(pulumi_gestalt_rust::__private::serde::Deserialize, pulumi_gestalt_rust::__private::serde::Serialize, pulumi_gestalt_rust::__private::bon::Builder, Debug, PartialEq, Clone)]
 #[builder(finish_fn = build_struct)]
 #[allow(dead_code)]
+#[allow(clippy::doc_lazy_continuation)]
 pub struct LinuxWebAppSlotAuthSettingsV2MicrosoftV2 {
     /// Specifies a list of Allowed Audiences that will be requested as part of Microsoft Sign-In authentication.
     #[builder(into, default)]

@@ -76,6 +76,7 @@
 /// ```sh
 /// $ pulumi import aws:bedrock/agentAgent:AgentAgent example GGRRAED6JP
 /// ```
+#[allow(clippy::doc_lazy_continuation)]
 pub mod agent_agent {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

@@ -26,6 +26,7 @@
 /// ```sh
 /// $ pulumi import aws:transcribe/vocabularyFilter:VocabularyFilter example example-name
 /// ```
+#[allow(clippy::doc_lazy_continuation)]
 pub mod vocabulary_filter {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

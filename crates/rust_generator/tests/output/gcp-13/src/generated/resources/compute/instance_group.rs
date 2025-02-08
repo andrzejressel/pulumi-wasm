@@ -68,6 +68,7 @@
 /// $ pulumi import gcp:compute/instanceGroup:InstanceGroup default projects/{{project_id}}/zones/{{zone}}/instanceGroups/{{instance_group_id}}
 /// ```
 ///
+#[allow(clippy::doc_lazy_continuation)]
 pub mod instance_group {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

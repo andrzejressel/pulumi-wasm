@@ -173,6 +173,7 @@
 /// ```sh
 /// $ pulumi import aws:batch/computeEnvironment:ComputeEnvironment sample sample
 /// ```
+#[allow(clippy::doc_lazy_continuation)]
 pub mod compute_environment {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

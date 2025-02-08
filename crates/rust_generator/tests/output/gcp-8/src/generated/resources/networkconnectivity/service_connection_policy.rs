@@ -66,6 +66,7 @@
 /// $ pulumi import gcp:networkconnectivity/serviceConnectionPolicy:ServiceConnectionPolicy default {{location}}/{{name}}
 /// ```
 ///
+#[allow(clippy::doc_lazy_continuation)]
 pub mod service_connection_policy {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

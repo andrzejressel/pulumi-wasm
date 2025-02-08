@@ -40,6 +40,7 @@
 /// ```sh
 /// $ pulumi import aws:cloudwatch/eventBus:EventBus messenger chat-messages
 /// ```
+#[allow(clippy::doc_lazy_continuation)]
 pub mod event_bus {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

@@ -62,6 +62,7 @@
 /// $ pulumi import gcp:composer/userWorkloadsConfigMap:UserWorkloadsConfigMap default {{environment}}/{{name}}
 /// ```
 ///
+#[allow(clippy::doc_lazy_continuation)]
 pub mod user_workloads_config_map {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

@@ -73,6 +73,7 @@
 /// $ pulumi import gcp:accesscontextmanager/servicePerimeters:ServicePerimeters default {{parent}}
 /// ```
 ///
+#[allow(clippy::doc_lazy_continuation)]
 pub mod service_perimeters {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

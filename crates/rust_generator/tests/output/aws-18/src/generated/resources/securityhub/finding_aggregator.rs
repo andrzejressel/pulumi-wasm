@@ -66,6 +66,7 @@
 /// ```sh
 /// $ pulumi import aws:securityhub/findingAggregator:FindingAggregator example arn:aws:securityhub:eu-west-1:123456789098:finding-aggregator/abcd1234-abcd-1234-1234-abcdef123456
 /// ```
+#[allow(clippy::doc_lazy_continuation)]
 pub mod finding_aggregator {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

@@ -26,6 +26,7 @@
 /// ```sh
 /// $ pulumi import aws:servicecatalog/principalPortfolioAssociation:PrincipalPortfolioAssociation example en,arn:aws:iam::123456789012:user/Eleanor,port-68656c6c6f,IAM
 /// ```
+#[allow(clippy::doc_lazy_continuation)]
 pub mod principal_portfolio_association {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

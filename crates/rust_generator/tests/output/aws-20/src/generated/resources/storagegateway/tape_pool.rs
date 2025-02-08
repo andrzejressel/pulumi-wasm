@@ -24,6 +24,7 @@
 /// ```sh
 /// $ pulumi import aws:storagegateway/tapePool:TapePool example arn:aws:storagegateway:us-east-1:123456789012:tapepool/pool-12345678
 /// ```
+#[allow(clippy::doc_lazy_continuation)]
 pub mod tape_pool {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

@@ -24,6 +24,7 @@
 /// ```sh
 /// $ pulumi import aws:directconnect/gateway:Gateway test abcd1234-dcba-5678-be23-cdef9876ab45
 /// ```
+#[allow(clippy::doc_lazy_continuation)]
 pub mod gateway {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

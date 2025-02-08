@@ -97,6 +97,7 @@
 /// $ pulumi import gcp:compute/router:Router default {{name}}
 /// ```
 ///
+#[allow(clippy::doc_lazy_continuation)]
 pub mod router {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

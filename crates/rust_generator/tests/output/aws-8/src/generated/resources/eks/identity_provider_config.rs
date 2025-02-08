@@ -30,6 +30,7 @@
 /// ```sh
 /// $ pulumi import aws:eks/identityProviderConfig:IdentityProviderConfig my_identity_provider_config my_cluster:my_identity_provider_config
 /// ```
+#[allow(clippy::doc_lazy_continuation)]
 pub mod identity_provider_config {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

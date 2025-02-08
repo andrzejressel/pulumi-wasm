@@ -41,6 +41,7 @@
 /// $ pulumi import azure:dynatrace/monitor:Monitor example /subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/resGroup1/providers/Dynatrace.Observability/monitors/monitor1
 /// ```
 ///
+#[allow(clippy::doc_lazy_continuation)]
 pub mod monitor {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

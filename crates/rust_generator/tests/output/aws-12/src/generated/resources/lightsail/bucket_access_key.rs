@@ -23,6 +23,7 @@
 /// ```sh
 /// $ pulumi import aws:lightsail/bucketAccessKey:BucketAccessKey test example-bucket,AKIAIOSFODNN7EXAMPLE
 /// ```
+#[allow(clippy::doc_lazy_continuation)]
 pub mod bucket_access_key {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

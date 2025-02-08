@@ -1,6 +1,7 @@
 #[derive(pulumi_gestalt_rust::__private::serde::Deserialize, pulumi_gestalt_rust::__private::serde::Serialize, pulumi_gestalt_rust::__private::bon::Builder, Debug, PartialEq, Clone)]
 #[builder(finish_fn = build_struct)]
 #[allow(dead_code)]
+#[allow(clippy::doc_lazy_continuation)]
 pub struct PreventionJobTriggerTriggerSchedule {
     /// With this option a job is started a regular periodic basis. For example: every day (86400 seconds).
     /// A scheduled start time will be skipped if the previous execution has not ended when its scheduled time occurs.

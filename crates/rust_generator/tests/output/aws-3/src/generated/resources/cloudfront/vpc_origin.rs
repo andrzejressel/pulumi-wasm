@@ -55,6 +55,7 @@
 ///
 /// % pulumi import aws_cloudfront_vpc_origin vo_JQEa410sssUFoY6wMkx69j
 ///
+#[allow(clippy::doc_lazy_continuation)]
 pub mod vpc_origin {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

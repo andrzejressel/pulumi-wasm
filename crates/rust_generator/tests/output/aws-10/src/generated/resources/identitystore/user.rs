@@ -34,6 +34,7 @@
 /// ```sh
 /// $ pulumi import aws:identitystore/user:User example d-9c6705e95c/065212b4-9061-703b-5876-13a517ae2a7c
 /// ```
+#[allow(clippy::doc_lazy_continuation)]
 pub mod user {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

@@ -23,6 +23,7 @@
 /// ```sh
 /// $ pulumi import aws:apigateway/apiKey:ApiKey example 8bklk8bl1k3sB38D9B3l0enyWT8c09B30lkq0blk
 /// ```
+#[allow(clippy::doc_lazy_continuation)]
 pub mod api_key {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

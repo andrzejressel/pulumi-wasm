@@ -60,6 +60,7 @@
 /// ```sh
 /// $ pulumi import aws:grafana/workspace:Workspace example g-2054c75a02
 /// ```
+#[allow(clippy::doc_lazy_continuation)]
 pub mod workspace {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

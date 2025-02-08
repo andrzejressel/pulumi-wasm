@@ -60,6 +60,7 @@
 /// $ pulumi import gcp:compute/httpHealthCheck:HttpHealthCheck default {{name}}
 /// ```
 ///
+#[allow(clippy::doc_lazy_continuation)]
 pub mod http_health_check {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

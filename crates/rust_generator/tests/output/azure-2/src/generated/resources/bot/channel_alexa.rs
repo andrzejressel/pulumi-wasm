@@ -43,6 +43,7 @@
 /// $ pulumi import azure:bot/channelAlexa:ChannelAlexa example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.BotService/botServices/botService1/channels/AlexaChannel
 /// ```
 ///
+#[allow(clippy::doc_lazy_continuation)]
 pub mod channel_alexa {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

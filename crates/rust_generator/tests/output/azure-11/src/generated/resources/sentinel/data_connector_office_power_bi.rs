@@ -49,6 +49,7 @@
 /// $ pulumi import azure:sentinel/dataConnectorOfficePowerBi:DataConnectorOfficePowerBi example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.OperationalInsights/workspaces/workspace1/providers/Microsoft.SecurityInsights/dataConnectors/dc1
 /// ```
 ///
+#[allow(clippy::doc_lazy_continuation)]
 pub mod data_connector_office_power_bi {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

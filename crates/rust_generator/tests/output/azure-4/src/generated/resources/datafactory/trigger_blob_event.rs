@@ -66,6 +66,7 @@
 /// $ pulumi import azure:datafactory/triggerBlobEvent:TriggerBlobEvent example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example/providers/Microsoft.DataFactory/factories/example/triggers/example
 /// ```
 ///
+#[allow(clippy::doc_lazy_continuation)]
 pub mod trigger_blob_event {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

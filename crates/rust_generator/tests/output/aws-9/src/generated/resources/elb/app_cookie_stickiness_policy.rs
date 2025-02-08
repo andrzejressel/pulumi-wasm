@@ -40,6 +40,7 @@
 /// ```sh
 /// $ pulumi import aws:elb/appCookieStickinessPolicy:AppCookieStickinessPolicy example my-elb:80:my-policy
 /// ```
+#[allow(clippy::doc_lazy_continuation)]
 pub mod app_cookie_stickiness_policy {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

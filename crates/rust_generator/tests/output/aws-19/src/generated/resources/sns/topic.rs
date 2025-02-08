@@ -79,6 +79,7 @@
 /// ```sh
 /// $ pulumi import aws:sns/topic:Topic user_updates arn:aws:sns:us-west-2:123456789012:my-topic
 /// ```
+#[allow(clippy::doc_lazy_continuation)]
 pub mod topic {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

@@ -319,6 +319,7 @@
 /// $ pulumi import gcp:organizations/iAMPolicy:IAMPolicy default "{{org_id}} foo.googleapis.com"
 /// ```
 ///
+#[allow(clippy::doc_lazy_continuation)]
 pub mod iam_policy {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

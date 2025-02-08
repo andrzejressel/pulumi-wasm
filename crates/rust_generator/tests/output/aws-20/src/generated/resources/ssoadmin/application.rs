@@ -54,6 +54,7 @@
 /// ```sh
 /// $ pulumi import aws:ssoadmin/application:Application example arn:aws:sso::123456789012:application/id-12345678
 /// ```
+#[allow(clippy::doc_lazy_continuation)]
 pub mod application {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

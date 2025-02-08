@@ -198,6 +198,7 @@
 /// $ pulumi import gcp:compute/regionTargetHttpProxy:RegionTargetHttpProxy default {{name}}
 /// ```
 ///
+#[allow(clippy::doc_lazy_continuation)]
 pub mod region_target_http_proxy {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

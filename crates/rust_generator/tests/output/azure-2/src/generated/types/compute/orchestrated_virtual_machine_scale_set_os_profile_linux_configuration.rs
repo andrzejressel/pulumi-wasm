@@ -1,6 +1,7 @@
 #[derive(pulumi_gestalt_rust::__private::serde::Deserialize, pulumi_gestalt_rust::__private::serde::Serialize, pulumi_gestalt_rust::__private::bon::Builder, Debug, PartialEq, Clone)]
 #[builder(finish_fn = build_struct)]
 #[allow(dead_code)]
+#[allow(clippy::doc_lazy_continuation)]
 pub struct OrchestratedVirtualMachineScaleSetOsProfileLinuxConfiguration {
     /// The Password which should be used for the local-administrator on this Virtual Machine. Changing this forces a new resource to be created.
     #[builder(into, default)]

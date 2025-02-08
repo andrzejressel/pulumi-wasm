@@ -29,6 +29,7 @@
 /// $ pulumi import cloudflare:index/accountMember:AccountMember example <account_id>/<member_id>
 /// ```
 ///
+#[allow(clippy::doc_lazy_continuation)]
 pub mod account_member {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

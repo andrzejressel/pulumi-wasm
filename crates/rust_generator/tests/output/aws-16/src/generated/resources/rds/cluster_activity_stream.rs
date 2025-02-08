@@ -60,6 +60,7 @@
 /// ```sh
 /// $ pulumi import aws:rds/clusterActivityStream:ClusterActivityStream default arn:aws:rds:us-west-2:123456789012:cluster:aurora-cluster-demo
 /// ```
+#[allow(clippy::doc_lazy_continuation)]
 pub mod cluster_activity_stream {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

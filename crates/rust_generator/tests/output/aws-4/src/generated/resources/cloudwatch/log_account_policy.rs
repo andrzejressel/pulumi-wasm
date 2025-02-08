@@ -72,6 +72,7 @@
 /// ```sh
 /// $ pulumi import aws:cloudwatch/logAccountPolicy:LogAccountPolicy example "my-account-policy:SUBSCRIPTION_FILTER_POLICY"
 /// ```
+#[allow(clippy::doc_lazy_continuation)]
 pub mod log_account_policy {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

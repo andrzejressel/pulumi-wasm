@@ -24,6 +24,7 @@
 /// ```sh
 /// $ pulumi import aws:rum/metricsDestination:MetricsDestination example example
 /// ```
+#[allow(clippy::doc_lazy_continuation)]
 pub mod metrics_destination {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

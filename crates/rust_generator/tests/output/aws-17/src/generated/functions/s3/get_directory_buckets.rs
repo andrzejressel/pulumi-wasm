@@ -1,3 +1,4 @@
+#[allow(clippy::doc_lazy_continuation)]
 pub mod get_directory_buckets {
     #[allow(dead_code)]
     pub struct GetDirectoryBucketsResult {

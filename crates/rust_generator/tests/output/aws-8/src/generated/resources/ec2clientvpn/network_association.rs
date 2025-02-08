@@ -25,6 +25,7 @@
 /// ```sh
 /// $ pulumi import aws:ec2clientvpn/networkAssociation:NetworkAssociation example cvpn-endpoint-0ac3a1abbccddd666,cvpn-assoc-0b8db902465d069ad
 /// ```
+#[allow(clippy::doc_lazy_continuation)]
 pub mod network_association {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

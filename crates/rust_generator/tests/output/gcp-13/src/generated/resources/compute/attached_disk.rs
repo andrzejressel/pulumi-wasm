@@ -71,6 +71,7 @@
 /// $ pulumi import gcp:compute/attachedDisk:AttachedDisk default {{project}}/{{zone}}/{{instance.name}}/{{disk.name}}
 /// ```
 ///
+#[allow(clippy::doc_lazy_continuation)]
 pub mod attached_disk {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

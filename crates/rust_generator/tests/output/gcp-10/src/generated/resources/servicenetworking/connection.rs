@@ -62,6 +62,7 @@
 /// $ pulumi import gcp:servicenetworking/connection:Connection default /projects/{{project}}/global/networks/{{peering-network}}:{{service}}
 /// ```
 ///
+#[allow(clippy::doc_lazy_continuation)]
 pub mod connection {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

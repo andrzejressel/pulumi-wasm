@@ -97,6 +97,7 @@
 /// $ pulumi import azure:compute/automanageConfigurationAssignment:AutomanageConfigurationAssignment example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Compute/virtualMachines/vm1/providers/Microsoft.AutoManage/configurationProfileAssignments/default
 /// ```
 ///
+#[allow(clippy::doc_lazy_continuation)]
 pub mod automanage_configuration_assignment {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

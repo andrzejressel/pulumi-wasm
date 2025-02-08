@@ -8,6 +8,7 @@
 /// ```sh
 /// $ pulumi import aws:controltower/landingZone:LandingZone example 1A2B3C4D5E6F7G8H
 /// ```
+#[allow(clippy::doc_lazy_continuation)]
 pub mod landing_zone {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

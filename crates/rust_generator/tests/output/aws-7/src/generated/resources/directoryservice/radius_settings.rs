@@ -30,6 +30,7 @@
 /// ```sh
 /// $ pulumi import aws:directoryservice/radiusSettings:RadiusSettings example d-926724cf57
 /// ```
+#[allow(clippy::doc_lazy_continuation)]
 pub mod radius_settings {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

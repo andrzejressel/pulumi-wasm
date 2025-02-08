@@ -18,6 +18,7 @@
 /// ```sh
 /// $ pulumi import aws:networkmanager/connectPeer:ConnectPeer example connect-peer-061f3e96275db1acc
 /// ```
+#[allow(clippy::doc_lazy_continuation)]
 pub mod connect_peer {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

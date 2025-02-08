@@ -21,6 +21,7 @@
 /// ```sh
 /// $ pulumi import aws:mediaconvert/queue:Queue test tf-test-queue
 /// ```
+#[allow(clippy::doc_lazy_continuation)]
 pub mod queue {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

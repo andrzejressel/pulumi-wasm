@@ -32,6 +32,7 @@
 /// $ pulumi import azure:core/portalTenantConfiguration:PortalTenantConfiguration example /providers/Microsoft.Portal/tenantConfigurations/default
 /// ```
 ///
+#[allow(clippy::doc_lazy_continuation)]
 pub mod portal_tenant_configuration {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

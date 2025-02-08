@@ -76,6 +76,7 @@
 /// ```sh
 /// $ pulumi import aws:appsync/dataSource:DataSource example abcdef123456-example
 /// ```
+#[allow(clippy::doc_lazy_continuation)]
 pub mod data_source {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

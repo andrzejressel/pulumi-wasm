@@ -44,6 +44,7 @@
 /// ```sh
 /// $ pulumi import aws:securitylake/customLogSource:CustomLogSource example example-name
 /// ```
+#[allow(clippy::doc_lazy_continuation)]
 pub mod custom_log_source {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

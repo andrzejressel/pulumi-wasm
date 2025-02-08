@@ -249,6 +249,7 @@
 /// $ pulumi import gcp:dataplex/datascan:Datascan default {{data_scan_id}}
 /// ```
 ///
+#[allow(clippy::doc_lazy_continuation)]
 pub mod datascan {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

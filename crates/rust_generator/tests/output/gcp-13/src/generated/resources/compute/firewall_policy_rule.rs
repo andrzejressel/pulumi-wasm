@@ -87,6 +87,7 @@
 /// $ pulumi import gcp:compute/firewallPolicyRule:FirewallPolicyRule default {{firewall_policy}}/{{priority}}
 /// ```
 ///
+#[allow(clippy::doc_lazy_continuation)]
 pub mod firewall_policy_rule {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

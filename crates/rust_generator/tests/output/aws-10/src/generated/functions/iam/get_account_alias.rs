@@ -1,3 +1,4 @@
+#[allow(clippy::doc_lazy_continuation)]
 pub mod get_account_alias {
     #[allow(dead_code)]
     pub struct GetAccountAliasResult {

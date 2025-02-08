@@ -26,6 +26,7 @@
 /// ```sh
 /// $ pulumi import aws:route53domains/registeredDomain:RegisteredDomain example example.com
 /// ```
+#[allow(clippy::doc_lazy_continuation)]
 pub mod registered_domain {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

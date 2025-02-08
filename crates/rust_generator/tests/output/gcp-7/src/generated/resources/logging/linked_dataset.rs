@@ -78,6 +78,7 @@
 /// $ pulumi import gcp:logging/linkedDataset:LinkedDataset default {{parent}}/locations/{{location}}/buckets/{{bucket}}/links/{{link_id}}
 /// ```
 ///
+#[allow(clippy::doc_lazy_continuation)]
 pub mod linked_dataset {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

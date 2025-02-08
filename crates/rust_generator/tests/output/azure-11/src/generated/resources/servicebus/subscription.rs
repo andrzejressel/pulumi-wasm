@@ -43,6 +43,7 @@
 /// $ pulumi import azure:servicebus/subscription:Subscription example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.ServiceBus/namespaces/sbns1/topics/sntopic1/subscriptions/sbsub1
 /// ```
 ///
+#[allow(clippy::doc_lazy_continuation)]
 pub mod subscription {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

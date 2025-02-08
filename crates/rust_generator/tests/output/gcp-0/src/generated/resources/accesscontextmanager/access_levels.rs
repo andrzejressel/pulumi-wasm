@@ -59,6 +59,7 @@
 /// $ pulumi import gcp:accesscontextmanager/accessLevels:AccessLevels default {{parent}}
 /// ```
 ///
+#[allow(clippy::doc_lazy_continuation)]
 pub mod access_levels {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

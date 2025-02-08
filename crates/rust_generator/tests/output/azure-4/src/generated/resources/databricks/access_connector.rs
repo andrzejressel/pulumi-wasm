@@ -30,6 +30,7 @@
 /// $ pulumi import azure:databricks/accessConnector:AccessConnector connector1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Databricks/accessConnectors/connector1
 /// ```
 ///
+#[allow(clippy::doc_lazy_continuation)]
 pub mod access_connector {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

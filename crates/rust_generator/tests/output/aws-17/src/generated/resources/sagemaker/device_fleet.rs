@@ -31,6 +31,7 @@
 /// ```sh
 /// $ pulumi import aws:sagemaker/deviceFleet:DeviceFleet example my-fleet
 /// ```
+#[allow(clippy::doc_lazy_continuation)]
 pub mod device_fleet {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

@@ -11,6 +11,7 @@
 /// ```sh
 /// $ pulumi import aws:drs/replicationConfigurationTemplate:ReplicationConfigurationTemplate example templateid
 /// ```
+#[allow(clippy::doc_lazy_continuation)]
 pub mod replication_configuration_template {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

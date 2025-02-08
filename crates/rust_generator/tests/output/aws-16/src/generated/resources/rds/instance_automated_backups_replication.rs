@@ -86,6 +86,7 @@
 /// ```sh
 /// $ pulumi import aws:rds/instanceAutomatedBackupsReplication:InstanceAutomatedBackupsReplication default arn:aws:rds:us-east-1:123456789012:auto-backup:ab-faaa2mgdj1vmp4xflr7yhsrmtbtob7ltrzzz2my
 /// ```
+#[allow(clippy::doc_lazy_continuation)]
 pub mod instance_automated_backups_replication {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

@@ -69,6 +69,7 @@
 /// ```sh
 /// $ pulumi import aws:appconfig/hostedConfigurationVersion:HostedConfigurationVersion example 71abcde/11xxxxx/2
 /// ```
+#[allow(clippy::doc_lazy_continuation)]
 pub mod hosted_configuration_version {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

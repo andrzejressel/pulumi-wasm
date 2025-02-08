@@ -1,6 +1,7 @@
 #[derive(pulumi_gestalt_rust::__private::serde::Deserialize, pulumi_gestalt_rust::__private::serde::Serialize, pulumi_gestalt_rust::__private::bon::Builder, Debug, PartialEq, Clone)]
 #[builder(finish_fn = build_struct)]
 #[allow(dead_code)]
+#[allow(clippy::doc_lazy_continuation)]
 pub struct GetCertificateAuthorityRevocationConfigurationCrlConfiguration {
     /// Name inserted into the certificate CRL Distribution Points extension that enables the use of an alias for the CRL distribution point.
     #[builder(into)]

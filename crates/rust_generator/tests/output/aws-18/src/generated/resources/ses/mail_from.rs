@@ -71,6 +71,7 @@
 /// ```sh
 /// $ pulumi import aws:ses/mailFrom:MailFrom example example.com
 /// ```
+#[allow(clippy::doc_lazy_continuation)]
 pub mod mail_from {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

@@ -1,3 +1,4 @@
+#[allow(clippy::doc_lazy_continuation)]
 pub mod get_serial_console_access {
     #[allow(dead_code)]
     pub struct GetSerialConsoleAccessResult {

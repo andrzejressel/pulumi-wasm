@@ -41,6 +41,7 @@
 /// ```sh
 /// $ pulumi import aws:cloudwatch/logDestinationPolicy:LogDestinationPolicy test_destination_policy test_destination
 /// ```
+#[allow(clippy::doc_lazy_continuation)]
 pub mod log_destination_policy {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

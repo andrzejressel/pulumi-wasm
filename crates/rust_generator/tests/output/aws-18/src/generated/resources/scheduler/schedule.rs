@@ -63,6 +63,7 @@
 /// ```sh
 /// $ pulumi import aws:scheduler/schedule:Schedule example my-schedule-group/my-schedule
 /// ```
+#[allow(clippy::doc_lazy_continuation)]
 pub mod schedule {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

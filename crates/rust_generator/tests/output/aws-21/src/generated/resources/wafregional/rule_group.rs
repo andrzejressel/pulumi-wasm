@@ -35,6 +35,7 @@
 /// ```sh
 /// $ pulumi import aws:wafregional/ruleGroup:RuleGroup example a1b2c3d4-d5f6-7777-8888-9999aaaabbbbcccc
 /// ```
+#[allow(clippy::doc_lazy_continuation)]
 pub mod rule_group {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

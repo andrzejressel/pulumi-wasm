@@ -24,6 +24,7 @@
 /// ```sh
 /// $ pulumi import aws:appsync/domainNameApiAssociation:DomainNameApiAssociation example example.com
 /// ```
+#[allow(clippy::doc_lazy_continuation)]
 pub mod domain_name_api_association {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

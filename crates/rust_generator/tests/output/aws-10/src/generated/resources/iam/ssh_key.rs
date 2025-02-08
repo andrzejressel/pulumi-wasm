@@ -31,6 +31,7 @@
 /// ```sh
 /// $ pulumi import aws:iam/sshKey:SshKey user user:APKAJNCNNJICVN7CFKCA:SSH
 /// ```
+#[allow(clippy::doc_lazy_continuation)]
 pub mod ssh_key {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

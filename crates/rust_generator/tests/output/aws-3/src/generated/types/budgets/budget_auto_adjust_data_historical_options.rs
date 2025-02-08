@@ -1,6 +1,7 @@
 #[derive(pulumi_gestalt_rust::__private::serde::Deserialize, pulumi_gestalt_rust::__private::serde::Serialize, pulumi_gestalt_rust::__private::bon::Builder, Debug, PartialEq, Clone)]
 #[builder(finish_fn = build_struct)]
 #[allow(dead_code)]
+#[allow(clippy::doc_lazy_continuation)]
 pub struct BudgetAutoAdjustDataHistoricalOptions {
     /// (Required) - The number of budget periods included in the moving-average calculation that determines your auto-adjusted budget amount.
     #[builder(into)]

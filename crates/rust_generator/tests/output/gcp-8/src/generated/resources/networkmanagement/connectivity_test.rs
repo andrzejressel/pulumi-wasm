@@ -135,6 +135,7 @@
 /// $ pulumi import gcp:networkmanagement/connectivityTest:ConnectivityTest default {{name}}
 /// ```
 ///
+#[allow(clippy::doc_lazy_continuation)]
 pub mod connectivity_test {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

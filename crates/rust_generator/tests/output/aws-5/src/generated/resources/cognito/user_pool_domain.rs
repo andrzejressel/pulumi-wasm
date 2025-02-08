@@ -63,6 +63,7 @@
 /// ```sh
 /// $ pulumi import aws:cognito/userPoolDomain:UserPoolDomain main auth.example.org
 /// ```
+#[allow(clippy::doc_lazy_continuation)]
 pub mod user_pool_domain {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

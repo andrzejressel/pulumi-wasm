@@ -25,6 +25,7 @@
 /// ```sh
 /// $ pulumi import aws:opensearch/authorizeVpcEndpointAccess:AuthorizeVpcEndpointAccess example authorize_vpc_endpoint_access-id-12345678
 /// ```
+#[allow(clippy::doc_lazy_continuation)]
 pub mod authorize_vpc_endpoint_access {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

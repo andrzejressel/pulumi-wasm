@@ -28,6 +28,7 @@
 /// ```sh
 /// $ pulumi import aws:m2/deployment:Deployment example APPLICATION-ID,DEPLOYMENT-ID
 /// ```
+#[allow(clippy::doc_lazy_continuation)]
 pub mod deployment {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

@@ -29,6 +29,7 @@
 /// ```sh
 /// $ pulumi import aws:devopsguru/eventSourcesConfig:EventSourcesConfig example us-east-1
 /// ```
+#[allow(clippy::doc_lazy_continuation)]
 pub mod event_sources_config {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

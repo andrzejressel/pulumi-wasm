@@ -146,6 +146,7 @@
 /// ```sh
 /// $ pulumi import aws:eks/addon:Addon my_eks_addon my_cluster_name:my_addon_name
 /// ```
+#[allow(clippy::doc_lazy_continuation)]
 pub mod addon {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

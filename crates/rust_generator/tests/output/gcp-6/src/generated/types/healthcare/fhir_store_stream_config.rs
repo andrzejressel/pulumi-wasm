@@ -1,6 +1,7 @@
 #[derive(pulumi_gestalt_rust::__private::serde::Deserialize, pulumi_gestalt_rust::__private::serde::Serialize, pulumi_gestalt_rust::__private::bon::Builder, Debug, PartialEq, Clone)]
 #[builder(finish_fn = build_struct)]
 #[allow(dead_code)]
+#[allow(clippy::doc_lazy_continuation)]
 pub struct FhirStoreStreamConfig {
     /// The destination BigQuery structure that contains both the dataset location and corresponding schema config.
     /// The output is organized in one table per resource type. The server reuses the existing tables (if any) that

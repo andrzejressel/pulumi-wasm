@@ -30,6 +30,7 @@
 /// ```sh
 /// $ pulumi import aws:kinesis/stream:Stream test_stream pulumi-kinesis-test
 /// ```
+#[allow(clippy::doc_lazy_continuation)]
 pub mod stream {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

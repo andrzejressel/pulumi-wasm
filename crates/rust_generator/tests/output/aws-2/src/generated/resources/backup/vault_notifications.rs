@@ -50,6 +50,7 @@
 /// ```sh
 /// $ pulumi import aws:backup/vaultNotifications:VaultNotifications test TestVault
 /// ```
+#[allow(clippy::doc_lazy_continuation)]
 pub mod vault_notifications {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

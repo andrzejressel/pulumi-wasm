@@ -38,6 +38,7 @@
 /// ```sh
 /// $ pulumi import aws:guardduty/inviteAccepter:InviteAccepter member 00b00fd5aecc0ab60a708659477e9617
 /// ```
+#[allow(clippy::doc_lazy_continuation)]
 pub mod invite_accepter {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

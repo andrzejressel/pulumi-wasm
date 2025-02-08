@@ -83,6 +83,7 @@
 /// ```sh
 /// $ pulumi import aws:wafregional/webAclAssociation:WebAclAssociation foo web_acl_id:resource_arn
 /// ```
+#[allow(clippy::doc_lazy_continuation)]
 pub mod web_acl_association {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

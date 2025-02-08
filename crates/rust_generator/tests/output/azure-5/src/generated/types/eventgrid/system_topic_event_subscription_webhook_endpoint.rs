@@ -1,6 +1,7 @@
 #[derive(pulumi_gestalt_rust::__private::serde::Deserialize, pulumi_gestalt_rust::__private::serde::Serialize, pulumi_gestalt_rust::__private::bon::Builder, Debug, PartialEq, Clone)]
 #[builder(finish_fn = build_struct)]
 #[allow(dead_code)]
+#[allow(clippy::doc_lazy_continuation)]
 pub struct SystemTopicEventSubscriptionWebhookEndpoint {
     /// The Azure Active Directory Application ID or URI to get the access token that will be included as the bearer token in delivery requests.
     #[builder(into, default)]

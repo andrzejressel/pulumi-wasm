@@ -29,6 +29,7 @@
 /// ```sh
 /// $ pulumi import aws:worklink/websiteCertificateAuthorityAssociation:WebsiteCertificateAuthorityAssociation example arn:aws:worklink::123456789012:fleet/example,abcdefghijk
 /// ```
+#[allow(clippy::doc_lazy_continuation)]
 pub mod website_certificate_authority_association {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

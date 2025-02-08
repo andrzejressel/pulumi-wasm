@@ -68,6 +68,7 @@
 /// $ pulumi import gcp:discoveryengine/schema:Schema default {{location}}/{{data_store_id}}/{{schema_id}}
 /// ```
 ///
+#[allow(clippy::doc_lazy_continuation)]
 pub mod schema {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

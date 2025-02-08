@@ -137,6 +137,7 @@
 /// ```sh
 /// $ pulumi import aws:amplify/branch:Branch master d2ypk4k47z8u6/master
 /// ```
+#[allow(clippy::doc_lazy_continuation)]
 pub mod branch {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

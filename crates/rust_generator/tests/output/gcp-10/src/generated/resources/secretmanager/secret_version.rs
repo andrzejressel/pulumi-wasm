@@ -103,6 +103,7 @@
 /// $ pulumi import gcp:secretmanager/secretVersion:SecretVersion default projects/{{project}}/secrets/{{secret_id}}/versions/{{version}}
 /// ```
 ///
+#[allow(clippy::doc_lazy_continuation)]
 pub mod secret_version {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

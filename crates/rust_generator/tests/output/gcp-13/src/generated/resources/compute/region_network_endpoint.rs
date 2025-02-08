@@ -153,6 +153,7 @@
 /// $ pulumi import gcp:compute/regionNetworkEndpoint:RegionNetworkEndpoint default {{region_network_endpoint_group}}/{{ip_address}}/{{fqdn}}/{{port}}
 /// ```
 ///
+#[allow(clippy::doc_lazy_continuation)]
 pub mod region_network_endpoint {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

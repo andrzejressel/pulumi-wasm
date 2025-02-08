@@ -41,6 +41,7 @@
 /// $ pulumi import cloudflare:index/zeroTrustDevicePostureRule:ZeroTrustDevicePostureRule example <account_id>/<device_posture_rule_id>
 /// ```
 ///
+#[allow(clippy::doc_lazy_continuation)]
 pub mod zero_trust_device_posture_rule {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

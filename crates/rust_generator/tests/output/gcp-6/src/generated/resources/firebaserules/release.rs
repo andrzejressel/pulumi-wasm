@@ -80,6 +80,7 @@
 /// ```sh
 /// $ pulumi import gcp:firebaserules/release:Release default projects/{{project}}/releases/{{name}}
 /// ```
+#[allow(clippy::doc_lazy_continuation)]
 pub mod release {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

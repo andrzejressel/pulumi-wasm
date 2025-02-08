@@ -46,6 +46,7 @@
 /// ```sh
 /// $ pulumi import aws:worklink/fleet:Fleet test arn:aws:worklink::123456789012:fleet/example
 /// ```
+#[allow(clippy::doc_lazy_continuation)]
 pub mod fleet {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

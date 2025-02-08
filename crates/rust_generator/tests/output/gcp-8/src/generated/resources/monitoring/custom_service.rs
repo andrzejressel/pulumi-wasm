@@ -55,6 +55,7 @@
 /// $ pulumi import gcp:monitoring/customService:CustomService default {{name}}
 /// ```
 ///
+#[allow(clippy::doc_lazy_continuation)]
 pub mod custom_service {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

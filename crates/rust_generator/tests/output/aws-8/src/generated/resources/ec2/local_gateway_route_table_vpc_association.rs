@@ -30,6 +30,7 @@
 /// ```sh
 /// $ pulumi import aws:ec2/localGatewayRouteTableVpcAssociation:LocalGatewayRouteTableVpcAssociation example lgw-vpc-assoc-1234567890abcdef
 /// ```
+#[allow(clippy::doc_lazy_continuation)]
 pub mod local_gateway_route_table_vpc_association {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

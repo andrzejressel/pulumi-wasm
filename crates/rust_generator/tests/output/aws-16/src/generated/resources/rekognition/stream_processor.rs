@@ -171,6 +171,7 @@
 /// ```sh
 /// $ pulumi import aws:rekognition/streamProcessor:StreamProcessor example my-stream
 /// ```
+#[allow(clippy::doc_lazy_continuation)]
 pub mod stream_processor {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

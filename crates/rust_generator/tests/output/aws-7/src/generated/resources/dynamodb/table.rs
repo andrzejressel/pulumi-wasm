@@ -150,6 +150,7 @@
 /// ```sh
 /// $ pulumi import aws:dynamodb/table:Table basic-dynamodb-table GameScores
 /// ```
+#[allow(clippy::doc_lazy_continuation)]
 pub mod table {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

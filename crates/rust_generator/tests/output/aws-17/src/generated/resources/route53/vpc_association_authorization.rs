@@ -54,6 +54,7 @@
 /// ```sh
 /// $ pulumi import aws:route53/vpcAssociationAuthorization:VpcAssociationAuthorization example Z123456ABCDEFG:vpc-12345678
 /// ```
+#[allow(clippy::doc_lazy_continuation)]
 pub mod vpc_association_authorization {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

@@ -49,6 +49,7 @@
 /// $ pulumi import azure:storage/shareFile:ShareFile example https://account1.file.core.windows.net/share1/file1
 /// ```
 ///
+#[allow(clippy::doc_lazy_continuation)]
 pub mod share_file {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

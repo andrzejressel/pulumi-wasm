@@ -25,6 +25,7 @@
 /// ```sh
 /// $ pulumi import aws:appconfig/configurationProfile:ConfigurationProfile example 71abcde:11xxxxx
 /// ```
+#[allow(clippy::doc_lazy_continuation)]
 pub mod configuration_profile {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

@@ -55,6 +55,7 @@
 /// $ pulumi import gcp:kms/ekmConnection:EkmConnection default {{location}}/{{name}}
 /// ```
 ///
+#[allow(clippy::doc_lazy_continuation)]
 pub mod ekm_connection {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

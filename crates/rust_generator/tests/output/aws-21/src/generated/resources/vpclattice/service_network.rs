@@ -23,6 +23,7 @@
 /// ```sh
 /// $ pulumi import aws:vpclattice/serviceNetwork:ServiceNetwork example sn-0158f91c1e3358dba
 /// ```
+#[allow(clippy::doc_lazy_continuation)]
 pub mod service_network {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

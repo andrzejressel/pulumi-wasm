@@ -24,6 +24,7 @@
 /// ```sh
 /// $ pulumi import aws:s3/directoryBucket:DirectoryBucket example example--usw2-az1--x-s3
 /// ```
+#[allow(clippy::doc_lazy_continuation)]
 pub mod directory_bucket {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

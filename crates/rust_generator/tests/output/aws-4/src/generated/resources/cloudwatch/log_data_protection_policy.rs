@@ -48,6 +48,7 @@
 /// ```sh
 /// $ pulumi import aws:cloudwatch/logDataProtectionPolicy:LogDataProtectionPolicy example my-log-group
 /// ```
+#[allow(clippy::doc_lazy_continuation)]
 pub mod log_data_protection_policy {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

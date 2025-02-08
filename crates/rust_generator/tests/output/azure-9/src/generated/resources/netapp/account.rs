@@ -54,6 +54,7 @@
 ///
 /// ~> **IMPORTANT:** When importing a NetApp account, the `active_directory.password` and `active_directory.server_root_ca_certificate` values *cannot* be retrieved from the Azure API and will need to be redeclared within the resource.
 ///
+#[allow(clippy::doc_lazy_continuation)]
 pub mod account {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

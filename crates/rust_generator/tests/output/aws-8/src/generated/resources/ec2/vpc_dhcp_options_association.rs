@@ -29,6 +29,7 @@
 /// ```sh
 /// $ pulumi import aws:ec2/vpcDhcpOptionsAssociation:VpcDhcpOptionsAssociation imported vpc-0f001273ec18911b1
 /// ```
+#[allow(clippy::doc_lazy_continuation)]
 pub mod vpc_dhcp_options_association {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

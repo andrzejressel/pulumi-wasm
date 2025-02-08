@@ -30,6 +30,7 @@
 /// ```sh
 /// $ pulumi import aws:sagemaker/project:Project example example
 /// ```
+#[allow(clippy::doc_lazy_continuation)]
 pub mod project {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

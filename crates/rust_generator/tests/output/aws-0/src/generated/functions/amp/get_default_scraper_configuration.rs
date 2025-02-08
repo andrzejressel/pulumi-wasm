@@ -1,3 +1,4 @@
+#[allow(clippy::doc_lazy_continuation)]
 pub mod get_default_scraper_configuration {
     #[allow(dead_code)]
     pub struct GetDefaultScraperConfigurationResult {

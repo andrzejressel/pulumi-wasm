@@ -55,6 +55,7 @@
 /// ```sh
 /// $ pulumi import aws:devopsguru/notificationChannel:NotificationChannel example id-12345678
 /// ```
+#[allow(clippy::doc_lazy_continuation)]
 pub mod notification_channel {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

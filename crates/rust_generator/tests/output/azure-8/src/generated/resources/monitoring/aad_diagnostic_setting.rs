@@ -56,6 +56,7 @@
 /// $ pulumi import azure:monitoring/aadDiagnosticSetting:AadDiagnosticSetting example /providers/Microsoft.AADIAM/diagnosticSettings/setting1
 /// ```
 ///
+#[allow(clippy::doc_lazy_continuation)]
 pub mod aad_diagnostic_setting {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

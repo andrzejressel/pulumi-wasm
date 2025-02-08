@@ -37,6 +37,7 @@
 /// $ pulumi import azure:storage/container:Container container1 https://example.blob.core.windows.net/container
 /// ```
 ///
+#[allow(clippy::doc_lazy_continuation)]
 pub mod container {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

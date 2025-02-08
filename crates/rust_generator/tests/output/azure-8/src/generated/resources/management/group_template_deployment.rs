@@ -126,6 +126,7 @@
 /// $ pulumi import azure:management/groupTemplateDeployment:GroupTemplateDeployment example /providers/Microsoft.Management/managementGroups/my-management-group-id/providers/Microsoft.Resources/deployments/deploy1
 /// ```
 ///
+#[allow(clippy::doc_lazy_continuation)]
 pub mod group_template_deployment {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

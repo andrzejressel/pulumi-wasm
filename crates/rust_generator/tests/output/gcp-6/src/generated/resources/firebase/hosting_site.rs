@@ -73,6 +73,7 @@
 /// $ pulumi import gcp:firebase/hostingSite:HostingSite default {{site_id}}
 /// ```
 ///
+#[allow(clippy::doc_lazy_continuation)]
 pub mod hosting_site {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

@@ -9,6 +9,7 @@
 /// ```sh
 /// $ pulumi import aws:opensearch/serverlessSecurityConfig:ServerlessSecurityConfig example saml/123456789012/example
 /// ```
+#[allow(clippy::doc_lazy_continuation)]
 pub mod serverless_security_config {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

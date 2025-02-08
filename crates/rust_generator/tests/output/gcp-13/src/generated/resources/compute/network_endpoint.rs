@@ -101,6 +101,7 @@
 /// $ pulumi import gcp:compute/networkEndpoint:NetworkEndpoint default {{network_endpoint_group}}/{{instance}}/{{ip_address}}/{{port}}
 /// ```
 ///
+#[allow(clippy::doc_lazy_continuation)]
 pub mod network_endpoint {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

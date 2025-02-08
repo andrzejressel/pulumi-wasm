@@ -42,6 +42,7 @@
 /// $ pulumi import azure:stack/hciVirtualHardDisk:HciVirtualHardDisk example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1/providers/Microsoft.AzureStackHCI/virtualHardDisks/disk1
 /// ```
 ///
+#[allow(clippy::doc_lazy_continuation)]
 pub mod hci_virtual_hard_disk {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

@@ -1,3 +1,4 @@
+#[allow(clippy::doc_lazy_continuation)]
 pub mod get_canonical_user_id {
     #[allow(dead_code)]
     pub struct GetCanonicalUserIdResult {

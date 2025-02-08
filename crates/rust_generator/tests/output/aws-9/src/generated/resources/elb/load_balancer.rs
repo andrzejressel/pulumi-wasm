@@ -67,6 +67,7 @@
 /// ```sh
 /// $ pulumi import aws:elb/loadBalancer:LoadBalancer bar elb-production-12345
 /// ```
+#[allow(clippy::doc_lazy_continuation)]
 pub mod load_balancer {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

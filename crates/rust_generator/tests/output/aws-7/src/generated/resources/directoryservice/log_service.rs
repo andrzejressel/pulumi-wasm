@@ -46,6 +46,7 @@
 /// ```sh
 /// $ pulumi import aws:directoryservice/logService:LogService msad d-1234567890
 /// ```
+#[allow(clippy::doc_lazy_continuation)]
 pub mod log_service {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

@@ -25,6 +25,7 @@
 /// ```sh
 /// $ pulumi import aws:ec2/networkInsightsPath:NetworkInsightsPath test nip-00edfba169923aefd
 /// ```
+#[allow(clippy::doc_lazy_continuation)]
 pub mod network_insights_path {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

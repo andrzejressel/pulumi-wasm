@@ -31,6 +31,7 @@
 /// ```sh
 /// $ pulumi import aws:bedrock/agentKnowledgeBase:AgentKnowledgeBase example EMDPPAYPZI
 /// ```
+#[allow(clippy::doc_lazy_continuation)]
 pub mod agent_knowledge_base {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

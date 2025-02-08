@@ -71,6 +71,7 @@
 /// $ pulumi import gcp:ml/engineModel:EngineModel default {{name}}
 /// ```
 ///
+#[allow(clippy::doc_lazy_continuation)]
 pub mod engine_model {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

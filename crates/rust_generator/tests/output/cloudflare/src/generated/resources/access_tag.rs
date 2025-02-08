@@ -1,5 +1,6 @@
 /// Provides a resource to customize the pages your end users will see
 /// when trying to reach applications behind Cloudflare Access.
+#[allow(clippy::doc_lazy_continuation)]
 pub mod access_tag {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

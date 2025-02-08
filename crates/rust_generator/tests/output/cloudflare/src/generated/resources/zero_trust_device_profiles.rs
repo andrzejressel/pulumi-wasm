@@ -41,6 +41,7 @@
 /// $ pulumi import cloudflare:index/zeroTrustDeviceProfiles:ZeroTrustDeviceProfiles example <account_id>/<device_policy_id>
 /// ```
 ///
+#[allow(clippy::doc_lazy_continuation)]
 pub mod zero_trust_device_profiles {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

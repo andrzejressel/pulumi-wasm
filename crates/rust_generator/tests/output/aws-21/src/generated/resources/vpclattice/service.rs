@@ -27,6 +27,7 @@
 /// ```sh
 /// $ pulumi import aws:vpclattice/service:Service example svc-06728e2357ea55f8a
 /// ```
+#[allow(clippy::doc_lazy_continuation)]
 pub mod service {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

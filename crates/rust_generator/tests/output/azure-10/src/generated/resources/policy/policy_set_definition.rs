@@ -45,6 +45,7 @@
 /// $ pulumi import azure:policy/policySetDefinition:PolicySetDefinition example /providers/Microsoft.Management/managementGroups/my-mgmt-group-id/providers/Microsoft.Authorization/policySetDefinitions/testPolicySet
 /// ```
 ///
+#[allow(clippy::doc_lazy_continuation)]
 pub mod policy_set_definition {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

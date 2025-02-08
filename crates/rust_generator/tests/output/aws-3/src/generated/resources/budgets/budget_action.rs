@@ -86,6 +86,7 @@
 /// ```sh
 /// $ pulumi import aws:budgets/budgetAction:BudgetAction myBudget 123456789012:some-id:myBudget
 /// ```
+#[allow(clippy::doc_lazy_continuation)]
 pub mod budget_action {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

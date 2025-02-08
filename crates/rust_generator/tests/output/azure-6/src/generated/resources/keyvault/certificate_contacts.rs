@@ -64,6 +64,7 @@
 /// $ pulumi import azure:keyvault/certificateContacts:CertificateContacts example https://example-keyvault.vault.azure.net/certificates/contacts
 /// ```
 ///
+#[allow(clippy::doc_lazy_continuation)]
 pub mod certificate_contacts {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

@@ -28,6 +28,7 @@
 /// ```sh
 /// $ pulumi import aws:macie2/member:Member example 123456789012
 /// ```
+#[allow(clippy::doc_lazy_continuation)]
 pub mod member {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

@@ -45,6 +45,7 @@
 /// $ pulumi import azure:servicebus/queueAuthorizationRule:QueueAuthorizationRule rule1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.ServiceBus/namespaces/namespace1/queues/queue1/authorizationRules/rule1
 /// ```
 ///
+#[allow(clippy::doc_lazy_continuation)]
 pub mod queue_authorization_rule {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

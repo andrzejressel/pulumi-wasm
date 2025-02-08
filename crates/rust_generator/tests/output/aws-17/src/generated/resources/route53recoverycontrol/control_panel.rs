@@ -26,6 +26,7 @@
 /// ```sh
 /// $ pulumi import aws:route53recoverycontrol/controlPanel:ControlPanel mypanel arn:aws:route53-recovery-control::313517334327:controlpanel/1bfba17df8684f5dab0467b71424f7e8
 /// ```
+#[allow(clippy::doc_lazy_continuation)]
 pub mod control_panel {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

@@ -83,6 +83,7 @@
 /// ```sh
 /// $ pulumi import aws:ec2/networkInterfaceSecurityGroupAttachment:NetworkInterfaceSecurityGroupAttachment sg_attachment eni-1234567890abcdef0_sg-1234567890abcdef0
 /// ```
+#[allow(clippy::doc_lazy_continuation)]
 pub mod network_interface_security_group_attachment {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

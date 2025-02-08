@@ -87,6 +87,7 @@
 /// $ pulumi import azure:signalr/serviceCustomCertificate:ServiceCustomCertificate example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.SignalRService/signalR/signalr1/customCertificates/cert1
 /// ```
 ///
+#[allow(clippy::doc_lazy_continuation)]
 pub mod service_custom_certificate {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

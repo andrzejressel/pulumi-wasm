@@ -86,6 +86,7 @@
 /// ```sh
 /// $ pulumi import aws:glue/mLTransform:MLTransform example tfm-c2cafbe83b1c575f49eaca9939220e2fcd58e2d5
 /// ```
+#[allow(clippy::doc_lazy_continuation)]
 pub mod ml_transform {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

@@ -39,6 +39,7 @@
 /// ```sh
 /// $ pulumi import aws:ec2/tag:Tag example tgw-attach-1234567890abcdef,Name
 /// ```
+#[allow(clippy::doc_lazy_continuation)]
 pub mod tag {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

@@ -142,6 +142,7 @@
 /// $ pulumi import azure:mssql/database:Database example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Sql/servers/server1/databases/example1
 /// ```
 ///
+#[allow(clippy::doc_lazy_continuation)]
 pub mod database {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

@@ -31,6 +31,7 @@
 /// ```sh
 /// $ pulumi import aws:route53/resolverEndpoint:ResolverEndpoint foo rslvr-in-abcdef01234567890
 /// ```
+#[allow(clippy::doc_lazy_continuation)]
 pub mod resolver_endpoint {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

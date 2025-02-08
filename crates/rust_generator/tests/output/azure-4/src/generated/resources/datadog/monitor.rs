@@ -63,6 +63,7 @@
 /// $ pulumi import azure:datadog/monitor:Monitor example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Datadog/monitors/monitor1
 /// ```
 ///
+#[allow(clippy::doc_lazy_continuation)]
 pub mod monitor {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

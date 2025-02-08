@@ -38,6 +38,7 @@
 /// ```sh
 /// $ pulumi import aws:macie/findingsFilter:FindingsFilter example abcd1
 /// ```
+#[allow(clippy::doc_lazy_continuation)]
 pub mod findings_filter {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

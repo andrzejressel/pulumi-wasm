@@ -30,6 +30,7 @@
 /// ```sh
 /// $ pulumi import aws:transfer/agreement:Agreement example s-4221a88afd5f4362a/a-4221a88afd5f4362a
 /// ```
+#[allow(clippy::doc_lazy_continuation)]
 pub mod agreement {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

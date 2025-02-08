@@ -244,6 +244,7 @@
 /// $ pulumi import gcp:monitoring/slo:Slo default {{name}}
 /// ```
 ///
+#[allow(clippy::doc_lazy_continuation)]
 pub mod slo {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

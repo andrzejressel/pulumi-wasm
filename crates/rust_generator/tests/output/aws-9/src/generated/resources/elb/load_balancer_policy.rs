@@ -76,6 +76,7 @@
 ///       policyNames:
 ///         - ${["wu-tang-ssl"].policyName}
 /// ```
+#[allow(clippy::doc_lazy_continuation)]
 pub mod load_balancer_policy {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

@@ -46,6 +46,7 @@
 /// ```sh
 /// $ pulumi import aws:cloudwatch/eventPermission:EventPermission DevAccountAccess example-event-bus/DevAccountAccess
 /// ```
+#[allow(clippy::doc_lazy_continuation)]
 pub mod event_permission {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

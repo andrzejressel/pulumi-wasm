@@ -27,6 +27,7 @@
 /// ```sh
 /// $ pulumi import aws:apigateway/documentationPart:DocumentationPart example 5i4e1ko720/3oyy3t
 /// ```
+#[allow(clippy::doc_lazy_continuation)]
 pub mod documentation_part {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

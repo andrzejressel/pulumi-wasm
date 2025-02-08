@@ -43,6 +43,7 @@
 /// $ pulumi import azure:keyvault/certificateIssuer:CertificateIssuer example "https://key-vault-name.vault.azure.net/certificates/issuers/example"
 /// ```
 ///
+#[allow(clippy::doc_lazy_continuation)]
 pub mod certificate_issuer {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

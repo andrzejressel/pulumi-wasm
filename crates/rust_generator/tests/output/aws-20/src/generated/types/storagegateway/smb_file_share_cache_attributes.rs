@@ -1,6 +1,7 @@
 #[derive(pulumi_gestalt_rust::__private::serde::Deserialize, pulumi_gestalt_rust::__private::serde::Serialize, pulumi_gestalt_rust::__private::bon::Builder, Debug, PartialEq, Clone)]
 #[builder(finish_fn = build_struct)]
 #[allow(dead_code)]
+#[allow(clippy::doc_lazy_continuation)]
 pub struct SmbFileShareCacheAttributes {
     /// Refreshes a file share's cache by using Time To Live (TTL).
     /// TTL is the length of time since the last refresh after which access to the directory would cause the file gateway

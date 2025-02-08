@@ -115,6 +115,7 @@
 /// ```sh
 /// $ pulumi import aws:cloudformation/stackSetInstance:StackSetInstance example example,ou-sdas-123123123/ou-sdas-789789789,us-east-1,DELEGATED_ADMIN
 /// ```
+#[allow(clippy::doc_lazy_continuation)]
 pub mod stack_set_instance {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

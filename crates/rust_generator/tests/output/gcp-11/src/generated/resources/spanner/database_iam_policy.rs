@@ -271,6 +271,7 @@
 /// $ pulumi import gcp:spanner/databaseIAMPolicy:DatabaseIAMPolicy default {{project}}/{{instance}}/{{database}}
 /// ```
 ///
+#[allow(clippy::doc_lazy_continuation)]
 pub mod database_iam_policy {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

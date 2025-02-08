@@ -112,6 +112,7 @@
 /// ```sh
 /// $ pulumi import aws:lb/targetGroup:TargetGroup app_front_end arn:aws:elasticloadbalancing:us-west-2:187416307283:targetgroup/app-front-end/20cfe21448b66314
 /// ```
+#[allow(clippy::doc_lazy_continuation)]
 pub mod target_group {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

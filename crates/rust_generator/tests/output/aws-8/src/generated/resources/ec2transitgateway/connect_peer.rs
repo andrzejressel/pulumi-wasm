@@ -32,6 +32,7 @@
 /// ```sh
 /// $ pulumi import aws:ec2transitgateway/connectPeer:ConnectPeer example tgw-connect-peer-12345678
 /// ```
+#[allow(clippy::doc_lazy_continuation)]
 pub mod connect_peer {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

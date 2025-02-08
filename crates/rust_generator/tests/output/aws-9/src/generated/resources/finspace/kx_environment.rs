@@ -130,6 +130,7 @@
 /// ```sh
 /// $ pulumi import aws:finspace/kxEnvironment:KxEnvironment example n3ceo7wqxoxcti5tujqwzs
 /// ```
+#[allow(clippy::doc_lazy_continuation)]
 pub mod kx_environment {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

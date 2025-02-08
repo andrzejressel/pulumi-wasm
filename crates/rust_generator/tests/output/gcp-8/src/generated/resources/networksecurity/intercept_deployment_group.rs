@@ -44,6 +44,7 @@
 /// $ pulumi import gcp:networksecurity/interceptDeploymentGroup:InterceptDeploymentGroup default {{location}}/{{intercept_deployment_group_id}}
 /// ```
 ///
+#[allow(clippy::doc_lazy_continuation)]
 pub mod intercept_deployment_group {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

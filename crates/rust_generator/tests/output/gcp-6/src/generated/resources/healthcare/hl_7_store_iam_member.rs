@@ -127,6 +127,7 @@
 /// $ pulumi import gcp:healthcare/hl7StoreIamMember:Hl7StoreIamMember default {{project_id}}/{{location}}/{{dataset}}/{{hl7_v2_store}}
 /// ```
 ///
+#[allow(clippy::doc_lazy_continuation)]
 pub mod hl_7_store_iam_member {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

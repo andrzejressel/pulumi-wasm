@@ -40,6 +40,7 @@
 /// ```sh
 /// $ pulumi import aws:cloudsearch/domain:Domain example example-domain
 /// ```
+#[allow(clippy::doc_lazy_continuation)]
 pub mod domain {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

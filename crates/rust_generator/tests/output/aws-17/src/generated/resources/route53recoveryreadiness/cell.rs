@@ -21,6 +21,7 @@
 /// ```sh
 /// $ pulumi import aws:route53recoveryreadiness/cell:Cell us-west-2-failover-cell us-west-2-failover-cell
 /// ```
+#[allow(clippy::doc_lazy_continuation)]
 pub mod cell {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

@@ -53,6 +53,7 @@
 /// ```sh
 /// $ pulumi import aws:iam/rolePolicyAttachmentsExclusive:RolePolicyAttachmentsExclusive example MyRole
 /// ```
+#[allow(clippy::doc_lazy_continuation)]
 pub mod role_policy_attachments_exclusive {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

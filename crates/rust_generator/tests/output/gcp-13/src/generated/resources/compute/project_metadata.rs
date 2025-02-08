@@ -52,6 +52,7 @@
 /// $ pulumi import gcp:compute/projectMetadata:ProjectMetadata default {{project_id}}
 /// ```
 ///
+#[allow(clippy::doc_lazy_continuation)]
 pub mod project_metadata {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

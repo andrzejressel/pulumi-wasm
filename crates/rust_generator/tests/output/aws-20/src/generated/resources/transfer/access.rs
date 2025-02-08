@@ -52,6 +52,7 @@
 /// ```sh
 /// $ pulumi import aws:transfer/access:Access example s-12345678/S-1-1-12-1234567890-123456789-1234567890-1234
 /// ```
+#[allow(clippy::doc_lazy_continuation)]
 pub mod access {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

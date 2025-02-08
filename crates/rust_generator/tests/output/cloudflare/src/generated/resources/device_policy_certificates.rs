@@ -25,6 +25,7 @@
 /// $ pulumi import cloudflare:index/devicePolicyCertificates:DevicePolicyCertificates example <zone_id>
 /// ```
 ///
+#[allow(clippy::doc_lazy_continuation)]
 pub mod device_policy_certificates {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

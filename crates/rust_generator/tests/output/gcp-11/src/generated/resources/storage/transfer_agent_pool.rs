@@ -63,6 +63,7 @@
 /// $ pulumi import gcp:storage/transferAgentPool:TransferAgentPool default {{name}}
 /// ```
 ///
+#[allow(clippy::doc_lazy_continuation)]
 pub mod transfer_agent_pool {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

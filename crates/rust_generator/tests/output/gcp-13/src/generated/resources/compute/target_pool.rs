@@ -62,6 +62,7 @@
 /// $ pulumi import gcp:compute/targetPool:TargetPool default {{name}}
 /// ```
 ///
+#[allow(clippy::doc_lazy_continuation)]
 pub mod target_pool {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

@@ -28,6 +28,7 @@
 /// ```sh
 /// $ pulumi import aws:paymentcryptography/key:Key example arn:aws:payment-cryptography:us-east-1:123456789012:key/qtbojf64yshyvyzf
 /// ```
+#[allow(clippy::doc_lazy_continuation)]
 pub mod key {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

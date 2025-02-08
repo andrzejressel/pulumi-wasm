@@ -30,6 +30,7 @@
 /// ```sh
 /// $ pulumi import aws:macie2/classificationExportConfiguration:ClassificationExportConfiguration example 123456789012:us-west-2
 /// ```
+#[allow(clippy::doc_lazy_continuation)]
 pub mod classification_export_configuration {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

@@ -1,6 +1,7 @@
 #[derive(pulumi_gestalt_rust::__private::serde::Deserialize, pulumi_gestalt_rust::__private::serde::Serialize, pulumi_gestalt_rust::__private::bon::Builder, Debug, PartialEq, Clone)]
 #[builder(finish_fn = build_struct)]
 #[allow(dead_code)]
+#[allow(clippy::doc_lazy_continuation)]
 pub struct RuleGroupRuleGroupRulesSourceStatefulRuleHeader {
     /// The destination IP address or address range to inspect for, in CIDR notation. To match with any address, specify `ANY`.
     #[builder(into)]

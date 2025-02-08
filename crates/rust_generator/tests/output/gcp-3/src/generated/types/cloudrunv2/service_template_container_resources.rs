@@ -1,6 +1,7 @@
 #[derive(pulumi_gestalt_rust::__private::serde::Deserialize, pulumi_gestalt_rust::__private::serde::Serialize, pulumi_gestalt_rust::__private::bon::Builder, Debug, PartialEq, Clone)]
 #[builder(finish_fn = build_struct)]
 #[allow(dead_code)]
+#[allow(clippy::doc_lazy_continuation)]
 pub struct ServiceTemplateContainerResources {
     /// Determines whether CPU is only allocated during requests. True by default if the parent `resources` field is not set. However, if
     /// `resources` is set, this field must be explicitly set to true to preserve the default behavior.

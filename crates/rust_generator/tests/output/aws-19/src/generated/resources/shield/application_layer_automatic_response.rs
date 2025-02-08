@@ -28,6 +28,7 @@
 ///       function: aws:getPartition
 ///       arguments: {}
 /// ```
+#[allow(clippy::doc_lazy_continuation)]
 pub mod application_layer_automatic_response {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

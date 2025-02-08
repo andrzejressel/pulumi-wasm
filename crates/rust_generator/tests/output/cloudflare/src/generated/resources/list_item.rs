@@ -97,6 +97,7 @@
 /// $ pulumi import cloudflare:index/listItem:ListItem example <account_id>/<list_id>/<item_id>
 /// ```
 ///
+#[allow(clippy::doc_lazy_continuation)]
 pub mod list_item {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

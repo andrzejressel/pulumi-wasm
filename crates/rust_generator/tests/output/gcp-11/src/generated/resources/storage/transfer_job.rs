@@ -106,6 +106,7 @@
 /// $ pulumi import gcp:storage/transferJob:TransferJob default {{project_id}}/123456789
 /// ```
 ///
+#[allow(clippy::doc_lazy_continuation)]
 pub mod transfer_job {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

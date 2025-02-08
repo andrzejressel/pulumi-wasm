@@ -60,6 +60,7 @@
 /// ```sh
 /// $ pulumi import aws:route53/resolverRule:ResolverRule sys rslvr-rr-0123456789abcdef0
 /// ```
+#[allow(clippy::doc_lazy_continuation)]
 pub mod resolver_rule {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

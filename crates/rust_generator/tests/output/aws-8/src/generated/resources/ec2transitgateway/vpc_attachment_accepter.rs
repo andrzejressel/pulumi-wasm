@@ -25,6 +25,7 @@
 /// ```sh
 /// $ pulumi import aws:ec2transitgateway/vpcAttachmentAccepter:VpcAttachmentAccepter example tgw-attach-12345678
 /// ```
+#[allow(clippy::doc_lazy_continuation)]
 pub mod vpc_attachment_accepter {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

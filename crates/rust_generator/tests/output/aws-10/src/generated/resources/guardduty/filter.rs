@@ -44,6 +44,7 @@
 /// ```sh
 /// $ pulumi import aws:guardduty/filter:Filter MyFilter 00b00fd5aecc0ab60a708659477e9617:MyFilter
 /// ```
+#[allow(clippy::doc_lazy_continuation)]
 pub mod filter {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

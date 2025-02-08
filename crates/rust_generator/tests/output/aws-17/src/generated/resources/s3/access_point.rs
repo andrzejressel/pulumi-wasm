@@ -72,6 +72,7 @@
 /// ```sh
 /// $ pulumi import aws:s3/accessPoint:AccessPoint example arn:aws:s3-outposts:us-east-1:123456789012:outpost/op-1234567890123456/accesspoint/example
 /// ```
+#[allow(clippy::doc_lazy_continuation)]
 pub mod access_point {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

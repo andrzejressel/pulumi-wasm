@@ -51,6 +51,7 @@
 /// ```sh
 /// $ pulumi import aws:amplify/domainAssociation:DomainAssociation app d2ypk4k47z8u6/example.com
 /// ```
+#[allow(clippy::doc_lazy_continuation)]
 pub mod domain_association {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

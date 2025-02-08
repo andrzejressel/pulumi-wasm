@@ -28,6 +28,7 @@
 /// ```sh
 /// $ pulumi import aws:ec2transitgateway/policyTableAssociation:PolicyTableAssociation example tgw-rtb-12345678_tgw-attach-87654321
 /// ```
+#[allow(clippy::doc_lazy_continuation)]
 pub mod policy_table_association {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

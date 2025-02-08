@@ -24,6 +24,7 @@
 /// ```sh
 /// $ pulumi import aws:datasync/locationFsxLustre:LocationFsxLustre example arn:aws:datasync:us-west-2:123456789012:location/loc-12345678901234567#arn:aws:fsx:us-west-2:476956259333:file-system/fs-08e04cd442c1bb94a
 /// ```
+#[allow(clippy::doc_lazy_continuation)]
 pub mod location_fsx_lustre {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

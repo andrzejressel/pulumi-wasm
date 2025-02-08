@@ -84,6 +84,7 @@
 /// ```sh
 /// $ pulumi import aws:ses/eventDestination:EventDestination sns some-configuration-set-test/event-destination-sns
 /// ```
+#[allow(clippy::doc_lazy_continuation)]
 pub mod event_destination {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

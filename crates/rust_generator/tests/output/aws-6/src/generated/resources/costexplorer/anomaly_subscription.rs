@@ -208,6 +208,7 @@
 /// ```sh
 /// $ pulumi import aws:costexplorer/anomalySubscription:AnomalySubscription example AnomalySubscriptionARN
 /// ```
+#[allow(clippy::doc_lazy_continuation)]
 pub mod anomaly_subscription {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

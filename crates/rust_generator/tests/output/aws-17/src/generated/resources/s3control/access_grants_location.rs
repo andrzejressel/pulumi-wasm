@@ -31,6 +31,7 @@
 /// ```sh
 /// $ pulumi import aws:s3control/accessGrantsLocation:AccessGrantsLocation example 123456789012,default
 /// ```
+#[allow(clippy::doc_lazy_continuation)]
 pub mod access_grants_location {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

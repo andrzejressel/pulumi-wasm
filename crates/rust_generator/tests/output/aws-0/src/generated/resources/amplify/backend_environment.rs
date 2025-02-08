@@ -30,6 +30,7 @@
 /// ```sh
 /// $ pulumi import aws:amplify/backendEnvironment:BackendEnvironment example d2ypk4k47z8u6/example
 /// ```
+#[allow(clippy::doc_lazy_continuation)]
 pub mod backend_environment {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

@@ -328,6 +328,7 @@
 /// $ pulumi import azure:machinelearning/workspace:Workspace example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.MachineLearningServices/workspaces/workspace1
 /// ```
 ///
+#[allow(clippy::doc_lazy_continuation)]
 pub mod workspace {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

@@ -44,6 +44,7 @@
 /// ```sh
 /// $ pulumi import aws:lambda/functionUrl:FunctionUrl test_lambda_url my_test_lambda_function
 /// ```
+#[allow(clippy::doc_lazy_continuation)]
 pub mod function_url {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

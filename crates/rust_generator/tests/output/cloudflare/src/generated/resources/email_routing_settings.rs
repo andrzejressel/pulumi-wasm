@@ -11,6 +11,7 @@
 ///       zoneId: 0da42c8d2132a9ddaf714f9e7c920711
 ///       enabled: 'true'
 /// ```
+#[allow(clippy::doc_lazy_continuation)]
 pub mod email_routing_settings {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

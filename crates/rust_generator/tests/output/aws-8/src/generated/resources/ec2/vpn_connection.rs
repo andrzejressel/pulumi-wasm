@@ -119,6 +119,7 @@
 /// ```sh
 /// $ pulumi import aws:ec2/vpnConnection:VpnConnection testvpnconnection vpn-40f41529
 /// ```
+#[allow(clippy::doc_lazy_continuation)]
 pub mod vpn_connection {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

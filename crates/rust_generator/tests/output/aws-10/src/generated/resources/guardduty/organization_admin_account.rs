@@ -34,6 +34,7 @@
 /// ```sh
 /// $ pulumi import aws:guardduty/organizationAdminAccount:OrganizationAdminAccount example 123456789012
 /// ```
+#[allow(clippy::doc_lazy_continuation)]
 pub mod organization_admin_account {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

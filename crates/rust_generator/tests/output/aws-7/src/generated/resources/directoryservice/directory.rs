@@ -129,6 +129,7 @@
 /// ```sh
 /// $ pulumi import aws:directoryservice/directory:Directory sample d-926724cf57
 /// ```
+#[allow(clippy::doc_lazy_continuation)]
 pub mod directory {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

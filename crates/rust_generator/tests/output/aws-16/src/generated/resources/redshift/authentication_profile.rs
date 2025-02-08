@@ -22,6 +22,7 @@
 /// ```sh
 /// $ pulumi import aws:redshift/authenticationProfile:AuthenticationProfile test example
 /// ```
+#[allow(clippy::doc_lazy_continuation)]
 pub mod authentication_profile {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

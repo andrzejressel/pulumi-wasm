@@ -31,6 +31,7 @@
 /// ```sh
 /// $ pulumi import aws:ec2/spotDatafeedSubscription:SpotDatafeedSubscription mysubscription spot-datafeed-subscription
 /// ```
+#[allow(clippy::doc_lazy_continuation)]
 pub mod spot_datafeed_subscription {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

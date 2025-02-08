@@ -25,6 +25,7 @@
 /// ```sh
 /// $ pulumi import aws:appconfig/deploymentStrategy:DeploymentStrategy example 11xxxxx
 /// ```
+#[allow(clippy::doc_lazy_continuation)]
 pub mod deployment_strategy {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

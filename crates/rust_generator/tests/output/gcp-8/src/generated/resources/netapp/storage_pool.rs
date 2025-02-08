@@ -76,6 +76,7 @@
 /// $ pulumi import gcp:netapp/storagePool:StoragePool default {{location}}/{{name}}
 /// ```
 ///
+#[allow(clippy::doc_lazy_continuation)]
 pub mod storage_pool {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

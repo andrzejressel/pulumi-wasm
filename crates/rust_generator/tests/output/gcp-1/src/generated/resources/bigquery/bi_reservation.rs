@@ -45,6 +45,7 @@
 /// $ pulumi import gcp:bigquery/biReservation:BiReservation default {{location}}
 /// ```
 ///
+#[allow(clippy::doc_lazy_continuation)]
 pub mod bi_reservation {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

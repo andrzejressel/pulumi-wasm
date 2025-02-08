@@ -204,6 +204,7 @@
 /// $ pulumi import azure:dataprotection/backupInstanceKubernetesCluster:BackupInstanceKubernetesCluster example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.DataProtection/backupVaults/vault1/backupInstances/backupInstance1
 /// ```
 ///
+#[allow(clippy::doc_lazy_continuation)]
 pub mod backup_instance_kubernetes_cluster {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

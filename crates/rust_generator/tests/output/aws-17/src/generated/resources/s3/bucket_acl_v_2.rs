@@ -155,6 +155,7 @@
 /// ```sh
 /// $ pulumi import aws:s3/bucketAclV2:BucketAclV2 example bucket-name,123456789012,private
 /// ```
+#[allow(clippy::doc_lazy_continuation)]
 pub mod bucket_acl_v_2 {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

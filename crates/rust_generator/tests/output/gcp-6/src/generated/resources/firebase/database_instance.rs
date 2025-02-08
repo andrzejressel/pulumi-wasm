@@ -124,6 +124,7 @@
 /// $ pulumi import gcp:firebase/databaseInstance:DatabaseInstance default {{instance_id}}
 /// ```
 ///
+#[allow(clippy::doc_lazy_continuation)]
 pub mod database_instance {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

@@ -86,6 +86,7 @@
 /// ```sh
 /// $ pulumi import aws:cognito/managedUserPoolClient:ManagedUserPoolClient client us-west-2_abc123/3ho4ek12345678909nh3fmhpko
 /// ```
+#[allow(clippy::doc_lazy_continuation)]
 pub mod managed_user_pool_client {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

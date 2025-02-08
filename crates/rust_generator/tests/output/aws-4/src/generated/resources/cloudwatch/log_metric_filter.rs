@@ -36,6 +36,7 @@
 /// ```sh
 /// $ pulumi import aws:cloudwatch/logMetricFilter:LogMetricFilter test /aws/lambda/function:test
 /// ```
+#[allow(clippy::doc_lazy_continuation)]
 pub mod log_metric_filter {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

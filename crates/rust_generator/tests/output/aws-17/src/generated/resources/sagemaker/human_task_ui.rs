@@ -24,6 +24,7 @@
 /// ```sh
 /// $ pulumi import aws:sagemaker/humanTaskUI:HumanTaskUI example example
 /// ```
+#[allow(clippy::doc_lazy_continuation)]
 pub mod human_task_ui {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

@@ -27,6 +27,7 @@
 /// ```sh
 /// $ pulumi import aws:quicksight/folderMembership:FolderMembership example 123456789012,example-folder,DATASET,example-dataset
 /// ```
+#[allow(clippy::doc_lazy_continuation)]
 pub mod folder_membership {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

@@ -25,6 +25,7 @@
 /// $ pulumi import cloudflare:index/workerDomain:WorkerDomain example <account_id>/<worker_domain_id>
 /// ```
 ///
+#[allow(clippy::doc_lazy_continuation)]
 pub mod worker_domain {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

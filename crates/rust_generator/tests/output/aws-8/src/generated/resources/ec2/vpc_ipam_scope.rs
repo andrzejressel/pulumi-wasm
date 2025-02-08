@@ -31,6 +31,7 @@
 /// ```sh
 /// $ pulumi import aws:ec2/vpcIpamScope:VpcIpamScope example ipam-scope-0513c69f283d11dfb
 /// ```
+#[allow(clippy::doc_lazy_continuation)]
 pub mod vpc_ipam_scope {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

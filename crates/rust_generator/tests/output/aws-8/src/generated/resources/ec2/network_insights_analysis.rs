@@ -31,6 +31,7 @@
 /// ```sh
 /// $ pulumi import aws:ec2/networkInsightsAnalysis:NetworkInsightsAnalysis test nia-0462085c957f11a55
 /// ```
+#[allow(clippy::doc_lazy_continuation)]
 pub mod network_insights_analysis {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

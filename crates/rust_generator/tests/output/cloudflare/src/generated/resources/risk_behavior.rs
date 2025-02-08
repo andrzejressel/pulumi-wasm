@@ -1,4 +1,5 @@
 /// The [Risk Behavior](https://developers.cloudflare.com/cloudflare-one/insights/risk-score/) resource allows you to configure Cloudflare Risk Behaviors for an account.
+#[allow(clippy::doc_lazy_continuation)]
 pub mod risk_behavior {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

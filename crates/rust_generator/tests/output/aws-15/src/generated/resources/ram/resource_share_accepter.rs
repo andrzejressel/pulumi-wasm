@@ -41,6 +41,7 @@
 /// ```sh
 /// $ pulumi import aws:ram/resourceShareAccepter:ResourceShareAccepter example arn:aws:ram:us-east-1:123456789012:resource-share/c4b56393-e8d9-89d9-6dc9-883752de4767
 /// ```
+#[allow(clippy::doc_lazy_continuation)]
 pub mod resource_share_accepter {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

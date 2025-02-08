@@ -40,6 +40,7 @@
 /// $ pulumi import azure:automation/python3Package:Python3Package example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Automation/automationAccounts/account1/python3Packages/pkg
 /// ```
 ///
+#[allow(clippy::doc_lazy_continuation)]
 pub mod python_3_package {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

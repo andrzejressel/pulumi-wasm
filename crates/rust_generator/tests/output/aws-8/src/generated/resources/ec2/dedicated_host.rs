@@ -26,6 +26,7 @@
 /// ```sh
 /// $ pulumi import aws:ec2/dedicatedHost:DedicatedHost example h-0385a99d0e4b20cbb
 /// ```
+#[allow(clippy::doc_lazy_continuation)]
 pub mod dedicated_host {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

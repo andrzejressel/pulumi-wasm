@@ -103,6 +103,7 @@
 /// $ pulumi import gcp:dataplex/entryType:EntryType default {{location}}/{{entry_type_id}}
 /// ```
 ///
+#[allow(clippy::doc_lazy_continuation)]
 pub mod entry_type {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

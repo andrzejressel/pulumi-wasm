@@ -34,6 +34,7 @@
 /// ```sh
 /// $ pulumi import aws:wafregional/xssMatchSet:XssMatchSet example 12345abcde
 /// ```
+#[allow(clippy::doc_lazy_continuation)]
 pub mod xss_match_set {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

@@ -1,6 +1,7 @@
 {{#each resource.description_lines}}
     /// {{&this}}
 {{/each}}
+#[allow(clippy::doc_lazy_continuation)]
 pub mod {{resource.package_name}} {
 
 {{#if resource.input_properties}}

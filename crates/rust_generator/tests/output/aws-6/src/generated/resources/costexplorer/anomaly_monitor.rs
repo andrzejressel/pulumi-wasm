@@ -52,6 +52,7 @@
 /// ```sh
 /// $ pulumi import aws:costexplorer/anomalyMonitor:AnomalyMonitor example costAnomalyMonitorARN
 /// ```
+#[allow(clippy::doc_lazy_continuation)]
 pub mod anomaly_monitor {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

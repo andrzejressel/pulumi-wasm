@@ -7,6 +7,7 @@
 /// ```sh
 /// $ pulumi import aws:lightsail/bucketResourceAccess:BucketResourceAccess test example-bucket,example-instance
 /// ```
+#[allow(clippy::doc_lazy_continuation)]
 pub mod bucket_resource_access {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

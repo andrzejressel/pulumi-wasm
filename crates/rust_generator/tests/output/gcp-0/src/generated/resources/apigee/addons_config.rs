@@ -138,6 +138,7 @@
 /// $ pulumi import gcp:apigee/addonsConfig:AddonsConfig default {{name}}
 /// ```
 ///
+#[allow(clippy::doc_lazy_continuation)]
 pub mod addons_config {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

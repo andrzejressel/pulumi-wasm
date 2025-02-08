@@ -23,6 +23,7 @@
 /// ```sh
 /// $ pulumi import aws:route53recoveryreadiness/recoveryGroup:RecoveryGroup my-high-availability-app my-high-availability-app
 /// ```
+#[allow(clippy::doc_lazy_continuation)]
 pub mod recovery_group {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

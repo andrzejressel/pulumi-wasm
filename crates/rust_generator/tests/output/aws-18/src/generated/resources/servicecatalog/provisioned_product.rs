@@ -34,6 +34,7 @@
 /// ```sh
 /// $ pulumi import aws:servicecatalog/provisionedProduct:ProvisionedProduct example pp-dnigbtea24ste
 /// ```
+#[allow(clippy::doc_lazy_continuation)]
 pub mod provisioned_product {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

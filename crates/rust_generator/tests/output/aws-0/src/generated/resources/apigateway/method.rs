@@ -86,6 +86,7 @@
 /// ```sh
 /// $ pulumi import aws:apigateway/method:Method example 12345abcde/67890fghij/GET
 /// ```
+#[allow(clippy::doc_lazy_continuation)]
 pub mod method {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

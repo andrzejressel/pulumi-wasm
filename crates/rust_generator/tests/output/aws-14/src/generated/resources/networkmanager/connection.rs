@@ -26,6 +26,7 @@
 /// ```sh
 /// $ pulumi import aws:networkmanager/connection:Connection example arn:aws:networkmanager::123456789012:device/global-network-0d47f6t230mz46dy4/connection-07f6fd08867abc123
 /// ```
+#[allow(clippy::doc_lazy_continuation)]
 pub mod connection {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

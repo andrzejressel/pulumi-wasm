@@ -53,6 +53,7 @@
 /// $ pulumi import gcp:diagflow/agent:Agent default {{project}}
 /// ```
 ///
+#[allow(clippy::doc_lazy_continuation)]
 pub mod agent {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

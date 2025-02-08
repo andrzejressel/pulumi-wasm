@@ -25,6 +25,7 @@
 /// ```sh
 /// $ pulumi import aws:licensemanager/licenseGrantAccepter:LicenseGrantAccepter test arn:aws:license-manager::123456789012:grant:g-1cf9fba4ba2f42dcab11c686c4b4d329
 /// ```
+#[allow(clippy::doc_lazy_continuation)]
 pub mod license_grant_accepter {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

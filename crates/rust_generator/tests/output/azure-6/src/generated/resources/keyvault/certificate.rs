@@ -199,6 +199,7 @@
 /// $ pulumi import azure:keyvault/certificate:Certificate example "https://example-keyvault.vault.azure.net/certificates/example/fdf067c93bbb4b22bff4d8b7a9a56217"
 /// ```
 ///
+#[allow(clippy::doc_lazy_continuation)]
 pub mod certificate {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

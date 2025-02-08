@@ -45,6 +45,7 @@
 /// ```sh
 /// $ pulumi import aws:lightsail/lbAttachment:LbAttachment test example-load-balancer,example-instance
 /// ```
+#[allow(clippy::doc_lazy_continuation)]
 pub mod lb_attachment {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

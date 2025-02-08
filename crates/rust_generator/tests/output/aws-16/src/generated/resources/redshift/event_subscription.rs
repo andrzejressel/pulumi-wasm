@@ -40,6 +40,7 @@
 /// ```sh
 /// $ pulumi import aws:redshift/eventSubscription:EventSubscription default redshift-event-sub
 /// ```
+#[allow(clippy::doc_lazy_continuation)]
 pub mod event_subscription {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

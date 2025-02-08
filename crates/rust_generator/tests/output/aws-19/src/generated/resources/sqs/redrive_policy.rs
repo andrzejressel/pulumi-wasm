@@ -40,6 +40,7 @@
 /// ```sh
 /// $ pulumi import aws:sqs/redrivePolicy:RedrivePolicy test https://queue.amazonaws.com/123456789012/myqueue
 /// ```
+#[allow(clippy::doc_lazy_continuation)]
 pub mod redrive_policy {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

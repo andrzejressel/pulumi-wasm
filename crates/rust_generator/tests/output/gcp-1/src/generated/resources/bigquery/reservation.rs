@@ -56,6 +56,7 @@
 /// $ pulumi import gcp:bigquery/reservation:Reservation default {{location}}/{{name}}
 /// ```
 ///
+#[allow(clippy::doc_lazy_continuation)]
 pub mod reservation {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

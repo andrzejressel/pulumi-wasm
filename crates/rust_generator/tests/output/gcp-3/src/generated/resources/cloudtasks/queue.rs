@@ -168,6 +168,7 @@
 /// $ pulumi import gcp:cloudtasks/queue:Queue default {{location}}/{{name}}
 /// ```
 ///
+#[allow(clippy::doc_lazy_continuation)]
 pub mod queue {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

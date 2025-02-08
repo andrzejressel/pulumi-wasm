@@ -43,6 +43,7 @@
 /// $ pulumi import azure:datashare/share:Share example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.DataShare/accounts/account1/shares/share1
 /// ```
 ///
+#[allow(clippy::doc_lazy_continuation)]
 pub mod share {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

@@ -1,3 +1,4 @@
+#[allow(clippy::doc_lazy_continuation)]
 pub mod get_client_open_id_user_info {
     #[allow(dead_code)]
     pub struct GetClientOpenIdUserInfoResult {

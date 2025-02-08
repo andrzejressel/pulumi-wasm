@@ -73,6 +73,7 @@
 /// $ pulumi import azure:synapse/sqlPoolExtendedAuditingPolicy:SqlPoolExtendedAuditingPolicy example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Synapse/workspaces/workspace1/sqlPools/sqlPool1/extendedAuditingSettings/default
 /// ```
 ///
+#[allow(clippy::doc_lazy_continuation)]
 pub mod sql_pool_extended_auditing_policy {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

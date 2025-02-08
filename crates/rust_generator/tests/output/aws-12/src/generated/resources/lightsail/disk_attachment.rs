@@ -44,6 +44,7 @@
 /// ```sh
 /// $ pulumi import aws:lightsail/disk_attachment:Disk_attachment test test-disk,test-instance
 /// ```
+#[allow(clippy::doc_lazy_continuation)]
 pub mod disk_attachment {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

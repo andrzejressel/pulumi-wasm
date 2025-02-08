@@ -90,6 +90,7 @@
 /// ```sh
 /// $ pulumi import aws:lightsail/containerService:ContainerService my_container_service container-service-1
 /// ```
+#[allow(clippy::doc_lazy_continuation)]
 pub mod container_service {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

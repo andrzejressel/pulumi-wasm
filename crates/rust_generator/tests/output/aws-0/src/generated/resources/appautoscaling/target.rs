@@ -133,6 +133,7 @@
 /// ```sh
 /// $ pulumi import aws:appautoscaling/target:Target test-target service-namespace/resource-id/scalable-dimension
 /// ```
+#[allow(clippy::doc_lazy_continuation)]
 pub mod target {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

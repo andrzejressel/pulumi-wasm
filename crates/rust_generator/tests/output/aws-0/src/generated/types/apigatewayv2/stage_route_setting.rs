@@ -1,6 +1,7 @@
 #[derive(pulumi_gestalt_rust::__private::serde::Deserialize, pulumi_gestalt_rust::__private::serde::Serialize, pulumi_gestalt_rust::__private::bon::Builder, Debug, PartialEq, Clone)]
 #[builder(finish_fn = build_struct)]
 #[allow(dead_code)]
+#[allow(clippy::doc_lazy_continuation)]
 pub struct StageRouteSetting {
     /// Whether data trace logging is enabled for the route. Affects the log entries pushed to Amazon CloudWatch Logs.
     /// Defaults to `false`. Supported only for WebSocket APIs.

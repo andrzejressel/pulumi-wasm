@@ -28,6 +28,7 @@
 ///
 /// You cannot import this resource.
 ///
+#[allow(clippy::doc_lazy_continuation)]
 pub mod endpoint_service_private_dns_verification {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

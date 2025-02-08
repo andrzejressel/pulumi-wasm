@@ -31,6 +31,7 @@
 /// ```sh
 /// $ pulumi import aws:ssoadmin/applicationAssignmentConfiguration:ApplicationAssignmentConfiguration example arn:aws:sso::123456789012:application/id-12345678
 /// ```
+#[allow(clippy::doc_lazy_continuation)]
 pub mod application_assignment_configuration {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

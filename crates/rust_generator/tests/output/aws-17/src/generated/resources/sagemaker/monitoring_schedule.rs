@@ -33,6 +33,7 @@
 /// ```sh
 /// $ pulumi import aws:sagemaker/monitoringSchedule:MonitoringSchedule test_monitoring_schedule monitoring-schedule-foo
 /// ```
+#[allow(clippy::doc_lazy_continuation)]
 pub mod monitoring_schedule {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

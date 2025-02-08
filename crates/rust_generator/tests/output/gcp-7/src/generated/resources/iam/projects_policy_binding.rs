@@ -64,6 +64,7 @@
 /// $ pulumi import gcp:iam/projectsPolicyBinding:ProjectsPolicyBinding default {{location}}/{{policy_binding_id}}
 /// ```
 ///
+#[allow(clippy::doc_lazy_continuation)]
 pub mod projects_policy_binding {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

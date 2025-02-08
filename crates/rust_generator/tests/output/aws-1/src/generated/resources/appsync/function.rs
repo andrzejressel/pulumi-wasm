@@ -76,6 +76,7 @@
 /// ```sh
 /// $ pulumi import aws:appsync/function:Function example xxxxx-yyyyy
 /// ```
+#[allow(clippy::doc_lazy_continuation)]
 pub mod function {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

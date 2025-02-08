@@ -23,6 +23,7 @@
 /// $ pulumi import cloudflare:index/waitingRoomSettings:WaitingRoomSettings example <zone_id>
 /// ```
 ///
+#[allow(clippy::doc_lazy_continuation)]
 pub mod waiting_room_settings {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

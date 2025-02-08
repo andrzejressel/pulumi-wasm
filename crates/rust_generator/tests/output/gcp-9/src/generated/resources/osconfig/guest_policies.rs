@@ -152,6 +152,7 @@
 /// $ pulumi import gcp:osconfig/guestPolicies:GuestPolicies default {{guest_policy_id}}
 /// ```
 ///
+#[allow(clippy::doc_lazy_continuation)]
 pub mod guest_policies {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

@@ -39,6 +39,7 @@
 /// ```sh
 /// $ pulumi import aws:licensemanager/licenseConfiguration:LicenseConfiguration example arn:aws:license-manager:eu-west-1:123456789012:license-configuration:lic-0123456789abcdef0123456789abcdef
 /// ```
+#[allow(clippy::doc_lazy_continuation)]
 pub mod license_configuration {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

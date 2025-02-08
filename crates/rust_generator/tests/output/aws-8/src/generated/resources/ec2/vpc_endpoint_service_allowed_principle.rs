@@ -24,6 +24,7 @@
 ///       function: aws:getCallerIdentity
 ///       arguments: {}
 /// ```
+#[allow(clippy::doc_lazy_continuation)]
 pub mod vpc_endpoint_service_allowed_principle {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

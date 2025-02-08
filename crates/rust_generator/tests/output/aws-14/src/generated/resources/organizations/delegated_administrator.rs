@@ -24,6 +24,7 @@
 /// ```sh
 /// $ pulumi import aws:organizations/delegatedAdministrator:DelegatedAdministrator example 123456789012/config.amazonaws.com
 /// ```
+#[allow(clippy::doc_lazy_continuation)]
 pub mod delegated_administrator {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

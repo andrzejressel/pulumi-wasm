@@ -24,6 +24,7 @@
 /// ```sh
 /// $ pulumi import aws:mediapackage/channel:Channel kittens kittens-channel
 /// ```
+#[allow(clippy::doc_lazy_continuation)]
 pub mod channel {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

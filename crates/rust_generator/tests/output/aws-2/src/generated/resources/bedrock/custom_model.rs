@@ -34,6 +34,7 @@
 /// ```sh
 /// $ pulumi import aws:bedrock/customModel:CustomModel example arn:aws:bedrock:us-west-2:123456789012:model-customization-job/amazon.titan-text-express-v1:0:8k/1y5n57gh5y2e
 /// ```
+#[allow(clippy::doc_lazy_continuation)]
 pub mod custom_model {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

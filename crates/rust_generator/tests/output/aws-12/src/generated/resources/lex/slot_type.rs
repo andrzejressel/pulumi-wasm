@@ -35,6 +35,7 @@
 /// ```sh
 /// $ pulumi import aws:lex/slotType:SlotType flower_types FlowerTypes
 /// ```
+#[allow(clippy::doc_lazy_continuation)]
 pub mod slot_type {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

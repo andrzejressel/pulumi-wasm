@@ -59,6 +59,7 @@
 /// $ pulumi import azure:network/routeServer:RouteServer example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Network/virtualHubs/routeServer1
 /// ```
 ///
+#[allow(clippy::doc_lazy_continuation)]
 pub mod route_server {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

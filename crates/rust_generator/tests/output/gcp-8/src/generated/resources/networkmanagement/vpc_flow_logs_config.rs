@@ -263,6 +263,7 @@
 /// $ pulumi import gcp:networkmanagement/vpcFlowLogsConfig:VpcFlowLogsConfig default {{location}}/{{vpc_flow_logs_config_id}}
 /// ```
 ///
+#[allow(clippy::doc_lazy_continuation)]
 pub mod vpc_flow_logs_config {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

@@ -48,6 +48,7 @@
 /// $ pulumi import azure:datadog/monitorTagRule:MonitorTagRule example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Datadog/monitors/monitor1/tagRules/default
 /// ```
 ///
+#[allow(clippy::doc_lazy_continuation)]
 pub mod monitor_tag_rule {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

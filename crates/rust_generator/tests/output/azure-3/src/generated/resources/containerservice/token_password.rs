@@ -56,6 +56,7 @@
 /// $ pulumi import azure:containerservice/tokenPassword:TokenPassword example /subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/group1/providers/Microsoft.ContainerRegistry/registries/registry1/tokens/token1/passwords/password
 /// ```
 ///
+#[allow(clippy::doc_lazy_continuation)]
 pub mod token_password {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

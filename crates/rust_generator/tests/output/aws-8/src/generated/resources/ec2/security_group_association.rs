@@ -24,6 +24,7 @@
 ///     );
 /// }
 /// ```
+#[allow(clippy::doc_lazy_continuation)]
 pub mod security_group_association {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

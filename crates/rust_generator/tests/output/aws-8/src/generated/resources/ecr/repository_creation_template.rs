@@ -73,6 +73,7 @@
 /// ```sh
 /// $ pulumi import aws:ecr/repositoryCreationTemplate:RepositoryCreationTemplate example example
 /// ```
+#[allow(clippy::doc_lazy_continuation)]
 pub mod repository_creation_template {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

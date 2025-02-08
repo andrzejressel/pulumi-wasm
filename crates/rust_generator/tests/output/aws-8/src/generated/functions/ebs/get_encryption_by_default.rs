@@ -1,3 +1,4 @@
+#[allow(clippy::doc_lazy_continuation)]
 pub mod get_encryption_by_default {
     #[allow(dead_code)]
     pub struct GetEncryptionByDefaultResult {

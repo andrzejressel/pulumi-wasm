@@ -133,6 +133,7 @@
 /// ```sh
 /// $ pulumi import aws:lambda/functionEventInvokeConfig:FunctionEventInvokeConfig example my_function:production
 /// ```
+#[allow(clippy::doc_lazy_continuation)]
 pub mod function_event_invoke_config {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

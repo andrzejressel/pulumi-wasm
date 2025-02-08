@@ -67,6 +67,7 @@
 /// ```sh
 /// $ pulumi import aws:eks/nodeGroup:NodeGroup my_node_group my_cluster:my_node_group
 /// ```
+#[allow(clippy::doc_lazy_continuation)]
 pub mod node_group {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

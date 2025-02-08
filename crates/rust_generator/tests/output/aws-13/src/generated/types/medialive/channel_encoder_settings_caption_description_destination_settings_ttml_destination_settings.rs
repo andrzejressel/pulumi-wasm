@@ -1,6 +1,7 @@
 #[derive(pulumi_gestalt_rust::__private::serde::Deserialize, pulumi_gestalt_rust::__private::serde::Serialize, pulumi_gestalt_rust::__private::bon::Builder, Debug, PartialEq, Clone)]
 #[builder(finish_fn = build_struct)]
 #[allow(dead_code)]
+#[allow(clippy::doc_lazy_continuation)]
 pub struct ChannelEncoderSettingsCaptionDescriptionDestinationSettingsTtmlDestinationSettings {
     /// This field is not currently supported and will not affect the output styling. Leave the default value.
     #[builder(into)]

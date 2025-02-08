@@ -31,6 +31,7 @@
 /// ```sh
 /// $ pulumi import aws:directconnect/hostedPublicVirtualInterface:HostedPublicVirtualInterface test dxvif-33cc44dd
 /// ```
+#[allow(clippy::doc_lazy_continuation)]
 pub mod hosted_public_virtual_interface {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

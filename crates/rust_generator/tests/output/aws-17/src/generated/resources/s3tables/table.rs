@@ -39,6 +39,7 @@
 /// ```sh
 /// $ pulumi import aws:s3tables/table:Table example 'arn:aws:s3tables:us-west-2:123456789012:bucket/example-bucket;example-namespace;example-table'
 /// ```
+#[allow(clippy::doc_lazy_continuation)]
 pub mod table {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

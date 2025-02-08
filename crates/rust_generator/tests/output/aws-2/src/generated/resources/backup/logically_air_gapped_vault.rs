@@ -27,6 +27,7 @@
 /// ```sh
 /// $ pulumi import aws:backup/logicallyAirGappedVault:LogicallyAirGappedVault example lag-example-vault
 /// ```
+#[allow(clippy::doc_lazy_continuation)]
 pub mod logically_air_gapped_vault {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

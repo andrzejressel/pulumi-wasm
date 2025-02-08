@@ -35,6 +35,7 @@
 /// $ pulumi import azure:appplatform/springCloudApp:SpringCloudApp example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myresourcegroup/providers/Microsoft.AppPlatform/spring/myservice/apps/myapp
 /// ```
 ///
+#[allow(clippy::doc_lazy_continuation)]
 pub mod spring_cloud_app {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

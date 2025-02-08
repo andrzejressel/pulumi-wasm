@@ -78,6 +78,7 @@
 /// ```sh
 /// $ pulumi import aws:codepipeline/webhook:Webhook example arn:aws:codepipeline:us-west-2:123456789012:webhook:example
 /// ```
+#[allow(clippy::doc_lazy_continuation)]
 pub mod webhook {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

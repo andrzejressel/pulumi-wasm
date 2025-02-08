@@ -43,6 +43,7 @@
 /// $ pulumi import azure:securitycenter/workspace:Workspace example /subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.Security/workspaceSettings/default
 /// ```
 ///
+#[allow(clippy::doc_lazy_continuation)]
 pub mod workspace {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

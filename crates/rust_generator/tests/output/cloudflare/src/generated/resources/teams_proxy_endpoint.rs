@@ -26,6 +26,7 @@
 /// $ pulumi import cloudflare:index/teamsProxyEndpoint:TeamsProxyEndpoint example <account_id>/<proxy_endpoint_id>
 /// ```
 ///
+#[allow(clippy::doc_lazy_continuation)]
 pub mod teams_proxy_endpoint {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

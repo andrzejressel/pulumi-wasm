@@ -146,6 +146,7 @@
 /// $ pulumi import gcp:discoveryengine/chatEngine:ChatEngine default {{location}}/{{collection_id}}/{{engine_id}}
 /// ```
 ///
+#[allow(clippy::doc_lazy_continuation)]
 pub mod chat_engine {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

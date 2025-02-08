@@ -23,6 +23,7 @@
 /// $ pulumi import azure:appservice/sourceControlToken:SourceControlToken example /providers/Microsoft.Web/sourceControls/GitHub
 /// ```
 ///
+#[allow(clippy::doc_lazy_continuation)]
 pub mod source_control_token {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

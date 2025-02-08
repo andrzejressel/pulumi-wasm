@@ -99,6 +99,7 @@
 /// ```sh
 /// $ pulumi import aws:devopsguru/resourceCollection:ResourceCollection example AWS_CLOUD_FORMATION
 /// ```
+#[allow(clippy::doc_lazy_continuation)]
 pub mod resource_collection {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

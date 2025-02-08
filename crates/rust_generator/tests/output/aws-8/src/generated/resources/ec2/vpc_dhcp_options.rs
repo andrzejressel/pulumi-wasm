@@ -54,6 +54,7 @@
 /// ```sh
 /// $ pulumi import aws:ec2/vpcDhcpOptions:VpcDhcpOptions my_options dopt-d9070ebb
 /// ```
+#[allow(clippy::doc_lazy_continuation)]
 pub mod vpc_dhcp_options {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

@@ -109,6 +109,7 @@
 /// ```sh
 /// $ pulumi import aws:rds/customDbEngineVersion:CustomDbEngineVersion example custom-oracle-ee-cdb:19.cdb_cev1
 /// ```
+#[allow(clippy::doc_lazy_continuation)]
 pub mod custom_db_engine_version {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

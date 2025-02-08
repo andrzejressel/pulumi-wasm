@@ -17,6 +17,7 @@
 /// $ pulumi import gcp:accesscontextmanager/egressPolicy:EgressPolicy default {{egress_policy_name}}/{{resource}}
 /// ```
 ///
+#[allow(clippy::doc_lazy_continuation)]
 pub mod egress_policy {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

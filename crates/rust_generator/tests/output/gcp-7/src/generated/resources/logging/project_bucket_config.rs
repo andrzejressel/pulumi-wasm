@@ -135,6 +135,7 @@
 /// $ pulumi import gcp:logging/projectBucketConfig:ProjectBucketConfig default projects/{{project}}/locations/{{location}}/buckets/{{bucket_id}}
 /// ```
 ///
+#[allow(clippy::doc_lazy_continuation)]
 pub mod project_bucket_config {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

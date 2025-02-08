@@ -32,6 +32,7 @@
 /// ```sh
 /// $ pulumi import aws:account/primaryContact:PrimaryContact test 1234567890
 /// ```
+#[allow(clippy::doc_lazy_continuation)]
 pub mod primary_contact {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

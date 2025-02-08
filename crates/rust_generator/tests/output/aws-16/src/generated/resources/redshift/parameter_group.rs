@@ -33,6 +33,7 @@
 /// ```sh
 /// $ pulumi import aws:redshift/parameterGroup:ParameterGroup paramgroup1 parameter-group-test-pulumi
 /// ```
+#[allow(clippy::doc_lazy_continuation)]
 pub mod parameter_group {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

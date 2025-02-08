@@ -21,6 +21,7 @@
 /// ```sh
 /// $ pulumi import aws:codeartifact/domain:Domain example arn:aws:codeartifact:us-west-2:012345678912:domain/tf-acc-test-8593714120730241305
 /// ```
+#[allow(clippy::doc_lazy_continuation)]
 pub mod domain {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

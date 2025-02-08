@@ -128,6 +128,7 @@
 /// $ pulumi import gcp:compute/instanceGroupManager:InstanceGroupManager default {{name}}
 /// ```
 ///
+#[allow(clippy::doc_lazy_continuation)]
 pub mod instance_group_manager {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

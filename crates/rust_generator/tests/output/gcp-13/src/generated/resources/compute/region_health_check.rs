@@ -274,6 +274,7 @@
 /// $ pulumi import gcp:compute/regionHealthCheck:RegionHealthCheck default {{name}}
 /// ```
 ///
+#[allow(clippy::doc_lazy_continuation)]
 pub mod region_health_check {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

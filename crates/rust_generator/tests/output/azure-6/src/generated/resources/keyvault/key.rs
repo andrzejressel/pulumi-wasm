@@ -74,6 +74,7 @@
 /// $ pulumi import azure:keyvault/key:Key example "https://example-keyvault.vault.azure.net/keys/example/fdf067c93bbb4b22bff4d8b7a9a56217"
 /// ```
 ///
+#[allow(clippy::doc_lazy_continuation)]
 pub mod key {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

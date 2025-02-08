@@ -36,6 +36,7 @@
 /// ```sh
 /// $ pulumi import aws:cloud9/environmentMembership:EnvironmentMembership test environment-id#user-arn
 /// ```
+#[allow(clippy::doc_lazy_continuation)]
 pub mod environment_membership {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

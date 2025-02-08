@@ -19,6 +19,7 @@
 /// ```sh
 /// $ pulumi import aws:ec2/carrierGateway:CarrierGateway example cgw-12345
 /// ```
+#[allow(clippy::doc_lazy_continuation)]
 pub mod carrier_gateway {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

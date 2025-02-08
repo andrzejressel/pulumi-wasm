@@ -35,6 +35,7 @@
 /// * `name` - name of the configuration option
 /// * `value` - value for the configuration option
 /// * `resource` - (Optional) resource name for [scheduled action](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/command-options-general.html#command-options-general-autoscalingscheduledaction)
+#[allow(clippy::doc_lazy_continuation)]
 pub mod configuration_template {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

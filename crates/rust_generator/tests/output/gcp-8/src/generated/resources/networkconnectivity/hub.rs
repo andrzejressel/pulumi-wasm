@@ -67,6 +67,7 @@
 /// $ pulumi import gcp:networkconnectivity/hub:Hub default {{name}}
 /// ```
 ///
+#[allow(clippy::doc_lazy_continuation)]
 pub mod hub {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

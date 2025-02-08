@@ -43,6 +43,7 @@
 /// ```sh
 /// $ pulumi import aws:ec2/vpcEndpointConnectionAccepter:VpcEndpointConnectionAccepter foo vpce-svc-0f97a19d3fa8220bc_vpce-010601a6db371e263
 /// ```
+#[allow(clippy::doc_lazy_continuation)]
 pub mod vpc_endpoint_connection_accepter {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

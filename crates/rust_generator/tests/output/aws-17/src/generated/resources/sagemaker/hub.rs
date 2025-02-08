@@ -23,6 +23,7 @@
 /// ```sh
 /// $ pulumi import aws:sagemaker/hub:Hub test_hub my-code-repo
 /// ```
+#[allow(clippy::doc_lazy_continuation)]
 pub mod hub {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

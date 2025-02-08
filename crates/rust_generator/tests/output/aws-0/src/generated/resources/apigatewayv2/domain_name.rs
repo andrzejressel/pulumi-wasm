@@ -75,6 +75,7 @@
 /// ```sh
 /// $ pulumi import aws:apigatewayv2/domainName:DomainName example ws-api.example.com
 /// ```
+#[allow(clippy::doc_lazy_continuation)]
 pub mod domain_name {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

@@ -105,6 +105,7 @@
 /// ```sh
 /// $ pulumi import aws:glue/catalogTableOptimizer:CatalogTableOptimizer example 123456789012,example_database,example_table,compaction
 /// ```
+#[allow(clippy::doc_lazy_continuation)]
 pub mod catalog_table_optimizer {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

@@ -27,6 +27,7 @@
 /// ```sh
 /// $ pulumi import aws:kinesis/resourcePolicy:ResourcePolicy example arn:aws:kinesis:us-west-2:123456789012:stream/example
 /// ```
+#[allow(clippy::doc_lazy_continuation)]
 pub mod resource_policy {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

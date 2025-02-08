@@ -45,6 +45,7 @@
 /// $ pulumi import azure:core/subscriptionPolicyAssignment:SubscriptionPolicyAssignment example /subscriptions/00000000-0000-0000-000000000000/providers/Microsoft.Authorization/policyAssignments/assignment1
 /// ```
 ///
+#[allow(clippy::doc_lazy_continuation)]
 pub mod subscription_policy_assignment {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

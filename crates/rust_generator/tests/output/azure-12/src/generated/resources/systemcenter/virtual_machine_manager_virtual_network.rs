@@ -47,6 +47,7 @@
 /// $ pulumi import azure:systemcenter/virtualMachineManagerVirtualNetwork:VirtualMachineManagerVirtualNetwork example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup1/providers/Microsoft.ScVmm/virtualNetworks/virtualNetwork1
 /// ```
 ///
+#[allow(clippy::doc_lazy_continuation)]
 pub mod virtual_machine_manager_virtual_network {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

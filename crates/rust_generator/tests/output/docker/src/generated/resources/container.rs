@@ -63,6 +63,7 @@
 /// $ pulumi import docker:index/container:Container foo 9a550c0f0163d39d77222d3efd58701b625d47676c25c686c95b5b92d1cba6fd
 /// ```
 ///
+#[allow(clippy::doc_lazy_continuation)]
 pub mod container {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

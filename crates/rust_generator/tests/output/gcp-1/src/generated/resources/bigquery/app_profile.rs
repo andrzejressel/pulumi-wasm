@@ -184,6 +184,7 @@
 /// $ pulumi import gcp:bigquery/appProfile:AppProfile default {{instance}}/{{app_profile_id}}
 /// ```
 ///
+#[allow(clippy::doc_lazy_continuation)]
 pub mod app_profile {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

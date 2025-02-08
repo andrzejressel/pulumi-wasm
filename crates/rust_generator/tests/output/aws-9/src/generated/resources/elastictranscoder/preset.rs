@@ -63,6 +63,7 @@
 /// ```sh
 /// $ pulumi import aws:elastictranscoder/preset:Preset basic_preset 1407981661351-cttk8b
 /// ```
+#[allow(clippy::doc_lazy_continuation)]
 pub mod preset {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

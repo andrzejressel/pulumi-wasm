@@ -28,6 +28,7 @@
 /// ```sh
 /// $ pulumi import aws:networkmanager/link:Link example arn:aws:networkmanager::123456789012:link/global-network-0d47f6t230mz46dy4/link-444555aaabbb11223
 /// ```
+#[allow(clippy::doc_lazy_continuation)]
 pub mod link {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

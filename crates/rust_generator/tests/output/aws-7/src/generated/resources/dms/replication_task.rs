@@ -29,6 +29,7 @@
 /// ```sh
 /// $ pulumi import aws:dms/replicationTask:ReplicationTask test test-dms-replication-task-tf
 /// ```
+#[allow(clippy::doc_lazy_continuation)]
 pub mod replication_task {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

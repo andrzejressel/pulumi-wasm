@@ -69,6 +69,7 @@
 ///
 /// -> **NOTE** The ID requires quoting as there are semicolons. This user unfriendly ID can be found in the Deployments of the used resourcegroup, look for an Deployment which starts with `ConfigureAFSProtection-`, click then `Go to resource`.
 ///
+#[allow(clippy::doc_lazy_continuation)]
 pub mod protected_file_share {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

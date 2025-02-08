@@ -23,6 +23,7 @@
 /// ```sh
 /// $ pulumi import aws:apprunner/vpcIngressConnection:VpcIngressConnection example "arn:aws:apprunner:us-west-2:837424938642:vpcingressconnection/example/b379f86381d74825832c2e82080342fa"
 /// ```
+#[allow(clippy::doc_lazy_continuation)]
 pub mod vpc_ingress_connection {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

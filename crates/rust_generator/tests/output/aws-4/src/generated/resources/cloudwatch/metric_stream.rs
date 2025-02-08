@@ -159,6 +159,7 @@
 /// ```sh
 /// $ pulumi import aws:cloudwatch/metricStream:MetricStream sample sample-stream-name
 /// ```
+#[allow(clippy::doc_lazy_continuation)]
 pub mod metric_stream {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

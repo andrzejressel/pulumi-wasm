@@ -25,6 +25,7 @@
 /// ```sh
 /// $ pulumi import aws:dataexchange/dataSet:DataSet example arn:aws:dataexchange:us-west-2:123456789012:data-sets/4fa784c7-ccb4-4dbf-ba4f-02198320daa1
 /// ```
+#[allow(clippy::doc_lazy_continuation)]
 pub mod data_set {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

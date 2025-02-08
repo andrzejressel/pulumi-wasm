@@ -34,6 +34,7 @@
 /// ```sh
 /// $ pulumi import aws:cloudfront/keyvaluestoreKey:KeyvaluestoreKey example arn:aws:cloudfront::111111111111:key-value-store/8562g61f-caba-2845-9d99-b97diwae5d3c,someKey
 /// ```
+#[allow(clippy::doc_lazy_continuation)]
 pub mod keyvaluestore_key {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

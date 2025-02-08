@@ -96,6 +96,7 @@
 /// $ pulumi import gcp:compute/regionCommitment:RegionCommitment default {{name}}
 /// ```
 ///
+#[allow(clippy::doc_lazy_continuation)]
 pub mod region_commitment {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

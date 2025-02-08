@@ -1,3 +1,4 @@
+#[allow(clippy::doc_lazy_continuation)]
 pub mod get_instances {
     #[allow(dead_code)]
     pub struct GetInstancesResult {

@@ -57,6 +57,7 @@
 /// ```sh
 /// $ pulumi import aws:emr/instanceFleet:InstanceFleet example j-123456ABCDEF/if-15EK4O09RZLNR
 /// ```
+#[allow(clippy::doc_lazy_continuation)]
 pub mod instance_fleet {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

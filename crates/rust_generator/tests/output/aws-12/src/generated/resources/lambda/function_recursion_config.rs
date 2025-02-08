@@ -26,6 +26,7 @@
 /// ```sh
 /// $ pulumi import aws:lambda/functionRecursionConfig:FunctionRecursionConfig example SomeFunction
 /// ```
+#[allow(clippy::doc_lazy_continuation)]
 pub mod function_recursion_config {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

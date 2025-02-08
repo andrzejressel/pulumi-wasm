@@ -424,6 +424,7 @@
 /// $ pulumi import gcp:certificatemanager/certificate:Certificate default {{location}}/{{name}}
 /// ```
 ///
+#[allow(clippy::doc_lazy_continuation)]
 pub mod certificate {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

@@ -179,6 +179,7 @@
 /// ```sh
 /// $ pulumi import aws:route53/record:Record myrecord Z4KAPRWWNC7JR_dev.example.com_NS_dev
 /// ```
+#[allow(clippy::doc_lazy_continuation)]
 pub mod record {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

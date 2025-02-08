@@ -80,6 +80,7 @@
 /// $ pulumi import cloudflare:index/zeroTrustAccessIdentityProvider:ZeroTrustAccessIdentityProvider example <account_id>/<identity_provider_id>
 /// ```
 ///
+#[allow(clippy::doc_lazy_continuation)]
 pub mod zero_trust_access_identity_provider {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

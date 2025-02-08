@@ -44,6 +44,7 @@
 /// $ pulumi import azure:compute/dedicatedHost:DedicatedHost example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Compute/hostGroups/group1/hosts/host1
 /// ```
 ///
+#[allow(clippy::doc_lazy_continuation)]
 pub mod dedicated_host {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

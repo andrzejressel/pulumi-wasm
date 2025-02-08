@@ -42,6 +42,7 @@
 /// ```sh
 /// $ pulumi import aws:fms/policy:Policy example 5be49585-a7e3-4c49-dde1-a179fe4a619a
 /// ```
+#[allow(clippy::doc_lazy_continuation)]
 pub mod policy {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

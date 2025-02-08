@@ -28,6 +28,7 @@
 /// ```sh
 /// $ pulumi import aws:servicecatalog/tagOptionResourceAssociation:TagOptionResourceAssociation example tag-pjtvyakdlyo3m:prod-dnigbtea24ste
 /// ```
+#[allow(clippy::doc_lazy_continuation)]
 pub mod tag_option_resource_association {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

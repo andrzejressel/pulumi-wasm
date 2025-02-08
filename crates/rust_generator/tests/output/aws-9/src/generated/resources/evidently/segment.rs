@@ -60,6 +60,7 @@
 /// ```sh
 /// $ pulumi import aws:evidently/segment:Segment example arn:aws:evidently:us-west-2:123456789012:segment/example
 /// ```
+#[allow(clippy::doc_lazy_continuation)]
 pub mod segment {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

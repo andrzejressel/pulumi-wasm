@@ -28,6 +28,7 @@
 /// ```sh
 /// $ pulumi import aws:ec2/networkAclAssociation:NetworkAclAssociation main aclassoc-02baf37f20966b3e6
 /// ```
+#[allow(clippy::doc_lazy_continuation)]
 pub mod network_acl_association {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

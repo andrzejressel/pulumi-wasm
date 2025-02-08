@@ -43,6 +43,7 @@
 /// ```sh
 /// $ pulumi import aws:ec2transitgateway/instanceState:InstanceState test i-02cae6557dfcf2f96
 /// ```
+#[allow(clippy::doc_lazy_continuation)]
 pub mod instance_state {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

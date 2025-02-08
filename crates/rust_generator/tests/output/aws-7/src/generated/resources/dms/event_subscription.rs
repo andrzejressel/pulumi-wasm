@@ -27,6 +27,7 @@
 /// ```sh
 /// $ pulumi import aws:dms/eventSubscription:EventSubscription test my-awesome-event-subscription
 /// ```
+#[allow(clippy::doc_lazy_continuation)]
 pub mod event_subscription {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

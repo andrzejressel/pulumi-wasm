@@ -40,6 +40,7 @@
 /// ```sh
 /// $ pulumi import aws:emrcontainers/jobTemplate:JobTemplate example a1b2c3d4e5f6g7h8i9j10k11l
 /// ```
+#[allow(clippy::doc_lazy_continuation)]
 pub mod job_template {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

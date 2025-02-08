@@ -1,6 +1,7 @@
 #[derive(pulumi_gestalt_rust::__private::serde::Deserialize, pulumi_gestalt_rust::__private::serde::Serialize, pulumi_gestalt_rust::__private::bon::Builder, Debug, PartialEq, Clone)]
 #[builder(finish_fn = build_struct)]
 #[allow(dead_code)]
+#[allow(clippy::doc_lazy_continuation)]
 pub struct ServerTlsPolicyMtlsPolicy {
     /// Required if the policy is to be used with Traffic Director. For external HTTPS load balancers it must be empty.
     /// Defines the mechanism to obtain the Certificate Authority certificate to validate the client certificate.

@@ -24,6 +24,7 @@
 /// ```sh
 /// $ pulumi import aws:kendra/thesaurus:Thesaurus example thesaurus-123456780/idx-8012925589
 /// ```
+#[allow(clippy::doc_lazy_continuation)]
 pub mod thesaurus {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

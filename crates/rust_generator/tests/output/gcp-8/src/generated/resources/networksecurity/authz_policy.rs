@@ -196,6 +196,7 @@
 /// $ pulumi import gcp:networksecurity/authzPolicy:AuthzPolicy default {{name}}
 /// ```
 ///
+#[allow(clippy::doc_lazy_continuation)]
 pub mod authz_policy {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

@@ -83,6 +83,7 @@
 /// $ pulumi import gcp:iam/workforcePool:WorkforcePool default {{location}}/{{workforce_pool_id}}
 /// ```
 ///
+#[allow(clippy::doc_lazy_continuation)]
 pub mod workforce_pool {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

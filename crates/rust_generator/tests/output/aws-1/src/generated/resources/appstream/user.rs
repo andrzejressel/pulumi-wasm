@@ -26,6 +26,7 @@
 /// ```sh
 /// $ pulumi import aws:appstream/user:User example UserName/AuthenticationType
 /// ```
+#[allow(clippy::doc_lazy_continuation)]
 pub mod user {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

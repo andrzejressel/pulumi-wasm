@@ -42,6 +42,7 @@
 /// $ pulumi import azure:appplatform/springCloudNewRelicApplicationPerformanceMonitoring:SpringCloudNewRelicApplicationPerformanceMonitoring example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.AppPlatform/spring/service1/apms/apm1
 /// ```
 ///
+#[allow(clippy::doc_lazy_continuation)]
 pub mod spring_cloud_new_relic_application_performance_monitoring {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

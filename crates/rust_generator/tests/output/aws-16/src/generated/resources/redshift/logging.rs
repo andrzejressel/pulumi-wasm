@@ -46,6 +46,7 @@
 /// ```sh
 /// $ pulumi import aws:redshift/logging:Logging example cluster-id-12345678
 /// ```
+#[allow(clippy::doc_lazy_continuation)]
 pub mod logging {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

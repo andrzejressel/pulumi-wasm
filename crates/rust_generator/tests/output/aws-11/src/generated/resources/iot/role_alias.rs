@@ -35,6 +35,7 @@
 /// ```sh
 /// $ pulumi import aws:iot/roleAlias:RoleAlias example myalias
 /// ```
+#[allow(clippy::doc_lazy_continuation)]
 pub mod role_alias {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

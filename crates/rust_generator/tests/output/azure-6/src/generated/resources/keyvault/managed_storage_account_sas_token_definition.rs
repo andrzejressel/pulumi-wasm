@@ -105,6 +105,7 @@
 /// $ pulumi import azure:keyvault/managedStorageAccountSasTokenDefinition:ManagedStorageAccountSasTokenDefinition example https://example-keyvault.vault.azure.net/storage/exampleStorageAcc01/sas/exampleSasDefinition01
 /// ```
 ///
+#[allow(clippy::doc_lazy_continuation)]
 pub mod managed_storage_account_sas_token_definition {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

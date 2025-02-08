@@ -45,6 +45,7 @@
 /// $ pulumi import azure:mobile/networkSite:NetworkSite example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup1/providers/Microsoft.MobileNetwork/mobileNetworks/mobileNetwork1/sites/site1
 /// ```
 ///
+#[allow(clippy::doc_lazy_continuation)]
 pub mod network_site {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

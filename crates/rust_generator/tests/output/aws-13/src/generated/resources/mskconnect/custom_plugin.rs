@@ -37,6 +37,7 @@
 /// ```sh
 /// $ pulumi import aws:mskconnect/customPlugin:CustomPlugin example 'arn:aws:kafkaconnect:eu-central-1:123456789012:custom-plugin/debezium-example/abcdefgh-1234-5678-9abc-defghijklmno-4'
 /// ```
+#[allow(clippy::doc_lazy_continuation)]
 pub mod custom_plugin {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

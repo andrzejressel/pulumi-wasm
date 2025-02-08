@@ -41,6 +41,7 @@
 /// ```sh
 /// $ pulumi import aws:schemas/schema:Schema test name/registry
 /// ```
+#[allow(clippy::doc_lazy_continuation)]
 pub mod schema {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

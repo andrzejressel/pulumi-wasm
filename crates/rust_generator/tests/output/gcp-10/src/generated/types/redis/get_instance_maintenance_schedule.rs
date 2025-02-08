@@ -1,6 +1,7 @@
 #[derive(pulumi_gestalt_rust::__private::serde::Deserialize, pulumi_gestalt_rust::__private::serde::Serialize, pulumi_gestalt_rust::__private::bon::Builder, Debug, PartialEq, Clone)]
 #[builder(finish_fn = build_struct)]
 #[allow(dead_code)]
+#[allow(clippy::doc_lazy_continuation)]
 pub struct GetInstanceMaintenanceSchedule {
     /// Output only. The end time of any upcoming scheduled maintenance for this instance.
     /// A timestamp in RFC3339 UTC "Zulu" format, with nanosecond

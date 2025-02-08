@@ -32,6 +32,7 @@
 /// $ pulumi import cloudflare:index/zeroTrustDeviceManagedNetworks:ZeroTrustDeviceManagedNetworks example <account_id>/<device_managed_networks_id>
 /// ```
 ///
+#[allow(clippy::doc_lazy_continuation)]
 pub mod zero_trust_device_managed_networks {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

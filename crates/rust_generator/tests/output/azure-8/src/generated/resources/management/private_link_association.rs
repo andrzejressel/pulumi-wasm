@@ -48,6 +48,7 @@
 /// $ pulumi import azure:management/privateLinkAssociation:PrivateLinkAssociation example /providers/Microsoft.Management/managementGroups/00000000-0000-0000-0000-000000000000/providers/Microsoft.Authorization/privateLinkAssociations/00000000-0000-0000-0000-000000000000
 /// ```
 ///
+#[allow(clippy::doc_lazy_continuation)]
 pub mod private_link_association {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

@@ -151,6 +151,7 @@
 /// ```sh
 /// $ pulumi import aws:securityhub/insight:Insight example arn:aws:securityhub:us-west-2:1234567890:insight/1234567890/custom/91299ed7-abd0-4e44-a858-d0b15e37141a
 /// ```
+#[allow(clippy::doc_lazy_continuation)]
 pub mod insight {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

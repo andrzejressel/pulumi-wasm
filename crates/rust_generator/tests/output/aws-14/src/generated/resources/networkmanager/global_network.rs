@@ -21,6 +21,7 @@
 /// ```sh
 /// $ pulumi import aws:networkmanager/globalNetwork:GlobalNetwork example global-network-0d47f6t230mz46dy4
 /// ```
+#[allow(clippy::doc_lazy_continuation)]
 pub mod global_network {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

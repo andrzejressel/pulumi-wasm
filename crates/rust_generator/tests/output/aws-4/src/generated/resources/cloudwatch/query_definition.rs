@@ -27,6 +27,7 @@
 /// ```sh
 /// $ pulumi import aws:cloudwatch/queryDefinition:QueryDefinition example arn:aws:logs:us-west-2:123456789012:query-definition:269951d7-6f75-496d-9d7b-6b7a5486bdbd
 /// ```
+#[allow(clippy::doc_lazy_continuation)]
 pub mod query_definition {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

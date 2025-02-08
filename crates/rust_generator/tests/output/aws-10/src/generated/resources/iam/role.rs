@@ -188,6 +188,7 @@
 /// ```sh
 /// $ pulumi import aws:iam/role:Role developer developer_name
 /// ```
+#[allow(clippy::doc_lazy_continuation)]
 pub mod role {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

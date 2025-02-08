@@ -42,6 +42,7 @@
 /// ```sh
 /// $ pulumi import aws:iam/signingCertificate:SigningCertificate certificate IDIDIDIDID:user-name
 /// ```
+#[allow(clippy::doc_lazy_continuation)]
 pub mod signing_certificate {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

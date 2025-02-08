@@ -271,6 +271,7 @@
 /// $ pulumi import gcp:spanner/databaseIAMMember:DatabaseIAMMember default {{project}}/{{instance}}/{{database}}
 /// ```
 ///
+#[allow(clippy::doc_lazy_continuation)]
 pub mod database_iam_member {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

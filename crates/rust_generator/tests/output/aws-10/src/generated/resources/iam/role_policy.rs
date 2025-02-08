@@ -45,6 +45,7 @@
 /// ```sh
 /// $ pulumi import aws:iam/rolePolicy:RolePolicy mypolicy role_of_mypolicy_name:mypolicy_name
 /// ```
+#[allow(clippy::doc_lazy_continuation)]
 pub mod role_policy {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

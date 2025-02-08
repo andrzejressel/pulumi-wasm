@@ -1,6 +1,7 @@
 #[derive(pulumi_gestalt_rust::__private::serde::Deserialize, pulumi_gestalt_rust::__private::serde::Serialize, pulumi_gestalt_rust::__private::bon::Builder, Debug, PartialEq, Clone)]
 #[builder(finish_fn = build_struct)]
 #[allow(dead_code)]
+#[allow(clippy::doc_lazy_continuation)]
 pub struct ContainerServiceDeploymentVersionPublicEndpointHealthCheck {
     /// The number of consecutive health checks successes required before moving the container to the Healthy state. Defaults to 2.
     #[builder(into, default)]

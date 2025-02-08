@@ -11,6 +11,7 @@
 /// ```sh
 /// $ pulumi import aws:autoscaling/tag:Tag example asg-example,k8s.io/cluster-autoscaler/node-template/label/eks.amazonaws.com/capacityType
 /// ```
+#[allow(clippy::doc_lazy_continuation)]
 pub mod tag {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

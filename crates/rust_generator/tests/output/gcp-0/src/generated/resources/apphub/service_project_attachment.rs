@@ -88,6 +88,7 @@
 /// $ pulumi import gcp:apphub/serviceProjectAttachment:ServiceProjectAttachment default {{service_project_attachment_id}}
 /// ```
 ///
+#[allow(clippy::doc_lazy_continuation)]
 pub mod service_project_attachment {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

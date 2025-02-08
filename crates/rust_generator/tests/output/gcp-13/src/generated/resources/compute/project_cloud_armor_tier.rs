@@ -78,6 +78,7 @@
 /// $ pulumi import gcp:compute/projectCloudArmorTier:ProjectCloudArmorTier default {{project}}
 /// ```
 ///
+#[allow(clippy::doc_lazy_continuation)]
 pub mod project_cloud_armor_tier {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

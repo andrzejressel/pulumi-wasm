@@ -42,6 +42,7 @@
 /// $ pulumi import gcp:securitycenter/muteConfig:MuteConfig default {{name}}
 /// ```
 ///
+#[allow(clippy::doc_lazy_continuation)]
 pub mod mute_config {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

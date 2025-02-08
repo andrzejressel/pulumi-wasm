@@ -55,6 +55,7 @@
 /// ```sh
 /// $ pulumi import aws:s3/analyticsConfiguration:AnalyticsConfiguration my-bucket-entire-bucket my-bucket:EntireBucket
 /// ```
+#[allow(clippy::doc_lazy_continuation)]
 pub mod analytics_configuration {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

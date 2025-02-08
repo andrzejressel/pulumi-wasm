@@ -90,6 +90,7 @@
 /// $ pulumi import gcp:appengine/engineSplitTraffic:EngineSplitTraffic default {{service}}
 /// ```
 ///
+#[allow(clippy::doc_lazy_continuation)]
 pub mod engine_split_traffic {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

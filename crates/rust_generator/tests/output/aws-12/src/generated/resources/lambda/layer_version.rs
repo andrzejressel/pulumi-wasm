@@ -37,6 +37,7 @@
 /// ```sh
 /// $ pulumi import aws:lambda/layerVersion:LayerVersion test_layer arn:aws:lambda:_REGION_:_ACCOUNT_ID_:layer:_LAYER_NAME_:_LAYER_VERSION_
 /// ```
+#[allow(clippy::doc_lazy_continuation)]
 pub mod layer_version {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

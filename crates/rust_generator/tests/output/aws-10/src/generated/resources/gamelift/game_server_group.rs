@@ -108,6 +108,7 @@
 /// ```sh
 /// $ pulumi import aws:gamelift/gameServerGroup:GameServerGroup example example
 /// ```
+#[allow(clippy::doc_lazy_continuation)]
 pub mod game_server_group {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

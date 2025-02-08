@@ -73,6 +73,7 @@
 /// $ pulumi import gcp:netapp/activeDirectory:ActiveDirectory default {{location}}/{{name}}
 /// ```
 ///
+#[allow(clippy::doc_lazy_continuation)]
 pub mod active_directory {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

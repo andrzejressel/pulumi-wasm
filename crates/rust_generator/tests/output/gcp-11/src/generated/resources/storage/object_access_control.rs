@@ -59,6 +59,7 @@
 /// $ pulumi import gcp:storage/objectAccessControl:ObjectAccessControl default {{bucket}}/{{object}}/{{entity}}
 /// ```
 ///
+#[allow(clippy::doc_lazy_continuation)]
 pub mod object_access_control {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

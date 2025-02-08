@@ -28,6 +28,7 @@
 /// ```sh
 /// $ pulumi import aws:iam/serviceSpecificCredential:ServiceSpecificCredential default `codecommit.amazonaws.com:example:some-id`
 /// ```
+#[allow(clippy::doc_lazy_continuation)]
 pub mod service_specific_credential {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

@@ -36,6 +36,7 @@
 /// ```sh
 /// $ pulumi import aws:account/alternativeContact:AlternativeContact operations 1234567890/OPERATIONS
 /// ```
+#[allow(clippy::doc_lazy_continuation)]
 pub mod alternative_contact {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

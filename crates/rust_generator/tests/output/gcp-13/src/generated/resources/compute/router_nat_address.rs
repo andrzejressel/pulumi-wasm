@@ -43,6 +43,7 @@
 /// $ pulumi import gcp:compute/routerNatAddress:RouterNatAddress default {{router}}/{{router_nat}}
 /// ```
 ///
+#[allow(clippy::doc_lazy_continuation)]
 pub mod router_nat_address {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

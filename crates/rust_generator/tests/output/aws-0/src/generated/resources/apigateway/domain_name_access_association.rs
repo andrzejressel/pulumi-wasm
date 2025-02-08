@@ -25,6 +25,7 @@
 /// ```sh
 /// $ pulumi import aws:apigateway/domainNameAccessAssociation:DomainNameAccessAssociation example arn:aws:apigateway:us-west-2:123456789012:/domainnameaccessassociations/domainname/12qmzgp2.9m7ilski.test+hykg7a12e7/vpcesource/vpce-05de3f8f82740a748
 /// ```
+#[allow(clippy::doc_lazy_continuation)]
 pub mod domain_name_access_association {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

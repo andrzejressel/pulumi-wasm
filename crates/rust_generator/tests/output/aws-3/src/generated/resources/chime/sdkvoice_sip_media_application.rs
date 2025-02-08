@@ -31,6 +31,7 @@
 /// ```sh
 /// $ pulumi import aws:chime/sdkvoiceSipMediaApplication:SdkvoiceSipMediaApplication example abcdef123456
 /// ```
+#[allow(clippy::doc_lazy_continuation)]
 pub mod sdkvoice_sip_media_application {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

@@ -21,6 +21,7 @@
 /// ```sh
 /// $ pulumi import aws:datapipeline/pipeline:Pipeline default df-1234567890
 /// ```
+#[allow(clippy::doc_lazy_continuation)]
 pub mod pipeline {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

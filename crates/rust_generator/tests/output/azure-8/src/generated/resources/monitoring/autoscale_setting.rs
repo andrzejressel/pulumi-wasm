@@ -352,6 +352,7 @@
 /// $ pulumi import azure:monitoring/autoscaleSetting:AutoscaleSetting example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Insights/autoScaleSettings/setting1
 /// ```
 ///
+#[allow(clippy::doc_lazy_continuation)]
 pub mod autoscale_setting {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

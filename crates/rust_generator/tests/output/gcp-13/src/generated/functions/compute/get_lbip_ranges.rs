@@ -1,3 +1,4 @@
+#[allow(clippy::doc_lazy_continuation)]
 pub mod get_lbip_ranges {
     #[allow(dead_code)]
     pub struct GetLbipRangesResult {

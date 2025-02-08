@@ -226,6 +226,7 @@
 /// ```sh
 /// $ pulumi import aws:ec2/securityGroup:SecurityGroup elb_sg sg-903004f8
 /// ```
+#[allow(clippy::doc_lazy_continuation)]
 pub mod security_group {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

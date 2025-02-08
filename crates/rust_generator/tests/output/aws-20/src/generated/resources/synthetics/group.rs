@@ -23,6 +23,7 @@
 /// ```sh
 /// $ pulumi import aws:synthetics/group:Group example example
 /// ```
+#[allow(clippy::doc_lazy_continuation)]
 pub mod group {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

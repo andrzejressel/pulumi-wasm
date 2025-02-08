@@ -37,6 +37,7 @@
 /// ```sh
 /// $ pulumi import aws:ec2/eipAssociation:EipAssociation test eipassoc-ab12c345
 /// ```
+#[allow(clippy::doc_lazy_continuation)]
 pub mod eip_association {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

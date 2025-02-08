@@ -58,6 +58,7 @@
 /// $ pulumi import azure:datafactory/datasetJson:DatasetJson example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example/providers/Microsoft.DataFactory/factories/example/datasets/example
 /// ```
 ///
+#[allow(clippy::doc_lazy_continuation)]
 pub mod dataset_json {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

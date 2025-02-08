@@ -1,6 +1,7 @@
 #[derive(pulumi_gestalt_rust::__private::serde::Deserialize, pulumi_gestalt_rust::__private::serde::Serialize, pulumi_gestalt_rust::__private::bon::Builder, Debug, PartialEq, Clone)]
 #[builder(finish_fn = build_struct)]
 #[allow(dead_code)]
+#[allow(clippy::doc_lazy_continuation)]
 pub struct CaPoolIssuancePolicyAllowedKeyTypeRsa {
     /// The maximum allowed RSA modulus size, in bits. If this is not set, or if set to zero, the
     /// service will not enforce an explicit upper bound on RSA modulus sizes.

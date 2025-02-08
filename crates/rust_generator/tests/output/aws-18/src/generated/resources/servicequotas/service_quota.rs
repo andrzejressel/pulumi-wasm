@@ -29,6 +29,7 @@
 /// ```sh
 /// $ pulumi import aws:servicequotas/serviceQuota:ServiceQuota example vpc/L-F678F1CE
 /// ```
+#[allow(clippy::doc_lazy_continuation)]
 pub mod service_quota {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

@@ -90,6 +90,7 @@
 /// $ pulumi import gcp:networksecurity/mirroringDeployment:MirroringDeployment default {{location}}/{{mirroring_deployment_id}}
 /// ```
 ///
+#[allow(clippy::doc_lazy_continuation)]
 pub mod mirroring_deployment {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

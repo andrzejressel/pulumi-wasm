@@ -54,6 +54,7 @@
 /// ```sh
 /// $ pulumi import aws:cognito/userGroup:UserGroup group us-east-1_vG78M4goG/user-group
 /// ```
+#[allow(clippy::doc_lazy_continuation)]
 pub mod user_group {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

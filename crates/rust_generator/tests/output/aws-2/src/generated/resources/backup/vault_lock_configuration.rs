@@ -26,6 +26,7 @@
 /// ```sh
 /// $ pulumi import aws:backup/vaultLockConfiguration:VaultLockConfiguration test TestVault
 /// ```
+#[allow(clippy::doc_lazy_continuation)]
 pub mod vault_lock_configuration {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

@@ -318,6 +318,7 @@
 /// $ pulumi import gcp:iam/workloadIdentityPoolProvider:WorkloadIdentityPoolProvider default {{workload_identity_pool_id}}/{{workload_identity_pool_provider_id}}
 /// ```
 ///
+#[allow(clippy::doc_lazy_continuation)]
 pub mod workload_identity_pool_provider {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

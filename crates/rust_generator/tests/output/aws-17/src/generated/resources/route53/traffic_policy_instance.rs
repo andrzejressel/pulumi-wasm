@@ -27,6 +27,7 @@
 /// ```sh
 /// $ pulumi import aws:route53/trafficPolicyInstance:TrafficPolicyInstance test df579d9a-6396-410e-ac22-e7ad60cf9e7e
 /// ```
+#[allow(clippy::doc_lazy_continuation)]
 pub mod traffic_policy_instance {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

@@ -88,6 +88,7 @@
 /// $ pulumi import gcp:blockchainnodeengine/blockchainNodes:BlockchainNodes default {{location}}/{{blockchain_node_id}}
 /// ```
 ///
+#[allow(clippy::doc_lazy_continuation)]
 pub mod blockchain_nodes {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

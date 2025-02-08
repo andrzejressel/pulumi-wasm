@@ -52,6 +52,7 @@
 /// $ pulumi import azure:appservice/appService:AppService instance1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Web/sites/instance1
 /// ```
 ///
+#[allow(clippy::doc_lazy_continuation)]
 pub mod app_service {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

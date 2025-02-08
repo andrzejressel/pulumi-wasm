@@ -49,6 +49,7 @@
 ///
 /// * Where `{loadTestName}` is the name of the Load Test. For example `loadTestValue`.
 ///
+#[allow(clippy::doc_lazy_continuation)]
 pub mod load_test {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

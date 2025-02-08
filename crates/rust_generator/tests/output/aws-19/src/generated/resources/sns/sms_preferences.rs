@@ -18,6 +18,7 @@
 ///
 /// You cannot import the SMS preferences.
 ///
+#[allow(clippy::doc_lazy_continuation)]
 pub mod sms_preferences {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

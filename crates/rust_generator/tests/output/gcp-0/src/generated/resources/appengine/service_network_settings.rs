@@ -71,6 +71,7 @@
 /// $ pulumi import gcp:appengine/serviceNetworkSettings:ServiceNetworkSettings default {{service}}
 /// ```
 ///
+#[allow(clippy::doc_lazy_continuation)]
 pub mod service_network_settings {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

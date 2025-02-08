@@ -63,6 +63,7 @@
 /// ```sh
 /// $ pulumi import aws:cognito/user:User user us-east-1_vG78M4goG/user
 /// ```
+#[allow(clippy::doc_lazy_continuation)]
 pub mod user {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

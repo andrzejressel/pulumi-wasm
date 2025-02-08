@@ -28,6 +28,7 @@
 /// ```sh
 /// $ pulumi import aws:verifiedpermissions/policyTemplate:PolicyTemplate example policyStoreId:policyTemplateId
 /// ```
+#[allow(clippy::doc_lazy_continuation)]
 pub mod policy_template {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

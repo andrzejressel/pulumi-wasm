@@ -48,6 +48,7 @@
 /// ```sh
 /// $ pulumi import aws:ec2/networkInterface:NetworkInterface test eni-e5aa89a3
 /// ```
+#[allow(clippy::doc_lazy_continuation)]
 pub mod network_interface {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

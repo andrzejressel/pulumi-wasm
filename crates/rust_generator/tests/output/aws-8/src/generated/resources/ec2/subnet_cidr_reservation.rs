@@ -25,6 +25,7 @@
 /// ```sh
 /// $ pulumi import aws:ec2/subnetCidrReservation:SubnetCidrReservation example subnet-01llsxvsxabqiymcz:scr-4mnvz6wb7otksjcs9
 /// ```
+#[allow(clippy::doc_lazy_continuation)]
 pub mod subnet_cidr_reservation {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

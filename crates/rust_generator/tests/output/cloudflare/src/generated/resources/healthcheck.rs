@@ -68,6 +68,7 @@
 /// $ pulumi import cloudflare:index/healthcheck:Healthcheck example <zone_id>/<healthcheck_id>
 /// ```
 ///
+#[allow(clippy::doc_lazy_continuation)]
 pub mod healthcheck {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

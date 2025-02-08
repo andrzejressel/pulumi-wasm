@@ -193,6 +193,7 @@
 /// ```sh
 /// $ pulumi import aws:ec2/instance:Instance web i-12345678
 /// ```
+#[allow(clippy::doc_lazy_continuation)]
 pub mod instance {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

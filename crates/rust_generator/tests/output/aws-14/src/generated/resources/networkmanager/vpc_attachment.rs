@@ -27,6 +27,7 @@
 /// ```sh
 /// $ pulumi import aws:networkmanager/vpcAttachment:VpcAttachment example attachment-0f8fa60d2238d1bd8
 /// ```
+#[allow(clippy::doc_lazy_continuation)]
 pub mod vpc_attachment {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

@@ -36,6 +36,7 @@
 /// ```sh
 /// $ pulumi import aws:efs/mountTarget:MountTarget alpha fsmt-52a643fb
 /// ```
+#[allow(clippy::doc_lazy_continuation)]
 pub mod mount_target {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

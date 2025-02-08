@@ -40,6 +40,7 @@
 /// ```sh
 /// $ pulumi import aws:inspector/assessmentTemplate:AssessmentTemplate example arn:aws:inspector:us-west-2:123456789012:target/0-9IaAzhGR/template/0-WEcjR8CH
 /// ```
+#[allow(clippy::doc_lazy_continuation)]
 pub mod assessment_template {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

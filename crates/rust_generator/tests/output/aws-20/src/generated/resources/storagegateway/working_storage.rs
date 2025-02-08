@@ -26,6 +26,7 @@
 /// ```sh
 /// $ pulumi import aws:storagegateway/workingStorage:WorkingStorage example arn:aws:storagegateway:us-east-1:123456789012:gateway/sgw-12345678:pci-0000:03:00.0-scsi-0:0:0:0
 /// ```
+#[allow(clippy::doc_lazy_continuation)]
 pub mod working_storage {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

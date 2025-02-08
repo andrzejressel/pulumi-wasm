@@ -30,6 +30,7 @@
 /// ```sh
 /// $ pulumi import aws:organizations/organization:Organization my_org o-1234567
 /// ```
+#[allow(clippy::doc_lazy_continuation)]
 pub mod organization {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

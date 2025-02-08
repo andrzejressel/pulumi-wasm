@@ -44,6 +44,7 @@
 /// $ pulumi import gcp:compute/organizationSecurityPolicy:OrganizationSecurityPolicy default {{policy_id}}
 /// ```
 ///
+#[allow(clippy::doc_lazy_continuation)]
 pub mod organization_security_policy {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

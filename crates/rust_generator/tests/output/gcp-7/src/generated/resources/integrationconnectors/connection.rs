@@ -219,6 +219,7 @@
 /// $ pulumi import gcp:integrationconnectors/connection:Connection default {{location}}/{{name}}
 /// ```
 ///
+#[allow(clippy::doc_lazy_continuation)]
 pub mod connection {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

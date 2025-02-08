@@ -54,6 +54,7 @@
 /// $ pulumi import gcp:datacatalog/entryGroup:EntryGroup default {{name}}
 /// ```
 ///
+#[allow(clippy::doc_lazy_continuation)]
 pub mod entry_group {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

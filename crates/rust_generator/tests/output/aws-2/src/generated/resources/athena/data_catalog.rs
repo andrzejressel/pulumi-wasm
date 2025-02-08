@@ -70,6 +70,7 @@
 /// ```sh
 /// $ pulumi import aws:athena/dataCatalog:DataCatalog example example-data-catalog
 /// ```
+#[allow(clippy::doc_lazy_continuation)]
 pub mod data_catalog {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

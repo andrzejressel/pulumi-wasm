@@ -52,6 +52,7 @@
 /// $ pulumi import gcp:identityplatform/defaultSupportedIdpConfig:DefaultSupportedIdpConfig default {{idp_id}}
 /// ```
 ///
+#[allow(clippy::doc_lazy_continuation)]
 pub mod default_supported_idp_config {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

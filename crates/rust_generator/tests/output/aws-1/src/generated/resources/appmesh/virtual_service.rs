@@ -69,6 +69,7 @@
 /// ```sh
 /// $ pulumi import aws:appmesh/virtualService:VirtualService servicea simpleapp/servicea.simpleapp.local
 /// ```
+#[allow(clippy::doc_lazy_continuation)]
 pub mod virtual_service {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

@@ -109,6 +109,7 @@
 /// ```sh
 /// $ pulumi import aws:datazone/environmentProfile:EnvironmentProfile example environment_profile-id-12345678,domain-id-12345678
 /// ```
+#[allow(clippy::doc_lazy_continuation)]
 pub mod environment_profile {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

@@ -171,6 +171,7 @@
 /// $ pulumi import gcp:projects/apiKey:ApiKey default {{name}}
 /// ```
 ///
+#[allow(clippy::doc_lazy_continuation)]
 pub mod api_key {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

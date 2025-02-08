@@ -26,6 +26,7 @@
 /// ```sh
 /// $ pulumi import aws:dynamodb/resourcePolicy:ResourcePolicy example arn:aws:dynamodb:us-east-1:1234567890:table/my-table
 /// ```
+#[allow(clippy::doc_lazy_continuation)]
 pub mod resource_policy {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

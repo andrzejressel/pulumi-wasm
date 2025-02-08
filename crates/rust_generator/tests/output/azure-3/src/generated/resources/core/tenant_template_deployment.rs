@@ -27,6 +27,7 @@
 /// $ pulumi import azure:core/tenantTemplateDeployment:TenantTemplateDeployment example /providers/Microsoft.Resources/deployments/deploy1
 /// ```
 ///
+#[allow(clippy::doc_lazy_continuation)]
 pub mod tenant_template_deployment {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

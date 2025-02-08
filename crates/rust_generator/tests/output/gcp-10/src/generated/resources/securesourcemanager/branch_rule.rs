@@ -113,6 +113,7 @@
 /// $ pulumi import gcp:securesourcemanager/branchRule:BranchRule default {{branch_rule_id}}
 /// ```
 ///
+#[allow(clippy::doc_lazy_continuation)]
 pub mod branch_rule {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

@@ -82,6 +82,7 @@
 /// $ pulumi import gcp:workstations/workstation:Workstation default {{location}}/{{workstation_cluster_id}}/{{workstation_config_id}}/{{workstation_id}}
 /// ```
 ///
+#[allow(clippy::doc_lazy_continuation)]
 pub mod workstation {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

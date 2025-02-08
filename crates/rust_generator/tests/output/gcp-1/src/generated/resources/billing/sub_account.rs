@@ -29,6 +29,7 @@
 /// $ pulumi import gcp:billing/subAccount:SubAccount default billingAccounts/{billing_account_id}
 /// ```
 ///
+#[allow(clippy::doc_lazy_continuation)]
 pub mod sub_account {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

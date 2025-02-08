@@ -14,6 +14,7 @@
 /// ```sh
 /// $ pulumi import aws:autoscalingplans/scalingPlan:ScalingPlan example MyScale1
 /// ```
+#[allow(clippy::doc_lazy_continuation)]
 pub mod scaling_plan {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

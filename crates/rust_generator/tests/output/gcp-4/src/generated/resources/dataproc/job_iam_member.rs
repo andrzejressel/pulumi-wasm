@@ -150,6 +150,7 @@
 /// $ pulumi import gcp:dataproc/jobIAMMember:JobIAMMember default "projects/{project}/regions/{region}/jobs/{job_id}"
 /// ```
 ///
+#[allow(clippy::doc_lazy_continuation)]
 pub mod job_iam_member {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

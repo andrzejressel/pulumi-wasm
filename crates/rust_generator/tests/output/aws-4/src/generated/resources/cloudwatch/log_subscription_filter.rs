@@ -28,6 +28,7 @@
 /// ```sh
 /// $ pulumi import aws:cloudwatch/logSubscriptionFilter:LogSubscriptionFilter test_lambdafunction_logfilter "/aws/lambda/example_lambda_name|test_lambdafunction_logfilter"
 /// ```
+#[allow(clippy::doc_lazy_continuation)]
 pub mod log_subscription_filter {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

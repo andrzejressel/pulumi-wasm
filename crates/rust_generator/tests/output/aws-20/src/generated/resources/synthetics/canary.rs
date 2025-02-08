@@ -33,6 +33,7 @@
 /// ```sh
 /// $ pulumi import aws:synthetics/canary:Canary some some-canary
 /// ```
+#[allow(clippy::doc_lazy_continuation)]
 pub mod canary {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

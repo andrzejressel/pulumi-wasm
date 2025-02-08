@@ -21,6 +21,7 @@
 /// ```sh
 /// $ pulumi import aws:account/region:Region example ap-southeast-3
 /// ```
+#[allow(clippy::doc_lazy_continuation)]
 pub mod region {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

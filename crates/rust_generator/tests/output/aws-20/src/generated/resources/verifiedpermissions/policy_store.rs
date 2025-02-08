@@ -26,6 +26,7 @@
 ///
 ///  % pulumi import aws_verifiedpermissions_policy_store.example DxQg2j8xvXJQ1tQCYNWj9T
 ///
+#[allow(clippy::doc_lazy_continuation)]
 pub mod policy_store {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

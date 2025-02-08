@@ -44,6 +44,7 @@
 /// $ pulumi import gcp:certificatemanager/certificateMap:CertificateMap default {{name}}
 /// ```
 ///
+#[allow(clippy::doc_lazy_continuation)]
 pub mod certificate_map {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

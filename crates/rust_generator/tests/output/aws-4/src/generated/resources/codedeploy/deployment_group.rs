@@ -213,6 +213,7 @@
 /// ```sh
 /// $ pulumi import aws:codedeploy/deploymentGroup:DeploymentGroup example my-application:my-deployment-group
 /// ```
+#[allow(clippy::doc_lazy_continuation)]
 pub mod deployment_group {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

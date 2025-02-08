@@ -32,6 +32,7 @@
 /// ```sh
 /// $ pulumi import aws:cur/reportDefinition:ReportDefinition example_cur_report_definition example-cur-report-definition
 /// ```
+#[allow(clippy::doc_lazy_continuation)]
 pub mod report_definition {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

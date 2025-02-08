@@ -26,6 +26,7 @@
 /// ```sh
 /// $ pulumi import aws:ses/identityNotificationTopic:IdentityNotificationTopic test 'example.com|Bounce'
 /// ```
+#[allow(clippy::doc_lazy_continuation)]
 pub mod identity_notification_topic {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

@@ -46,6 +46,7 @@
 /// $ pulumi import gcp:compute/networkFirewallPolicy:NetworkFirewallPolicy default {{name}}
 /// ```
 ///
+#[allow(clippy::doc_lazy_continuation)]
 pub mod network_firewall_policy {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

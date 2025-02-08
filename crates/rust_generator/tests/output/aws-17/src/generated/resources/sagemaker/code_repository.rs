@@ -60,6 +60,7 @@
 /// ```sh
 /// $ pulumi import aws:sagemaker/codeRepository:CodeRepository test_code_repository my-code-repo
 /// ```
+#[allow(clippy::doc_lazy_continuation)]
 pub mod code_repository {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

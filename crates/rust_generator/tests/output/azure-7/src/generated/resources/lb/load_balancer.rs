@@ -49,6 +49,7 @@
 /// $ pulumi import azure:lb/loadBalancer:LoadBalancer example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Network/loadBalancers/lb1
 /// ```
 ///
+#[allow(clippy::doc_lazy_continuation)]
 pub mod load_balancer {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

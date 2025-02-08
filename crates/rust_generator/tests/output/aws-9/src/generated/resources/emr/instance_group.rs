@@ -31,6 +31,7 @@
 /// ```sh
 /// $ pulumi import aws:emr/instanceGroup:InstanceGroup task_group j-123456ABCDEF/ig-15EK4O09RZLNR
 /// ```
+#[allow(clippy::doc_lazy_continuation)]
 pub mod instance_group {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

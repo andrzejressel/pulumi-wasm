@@ -32,6 +32,7 @@
 /// ```sh
 /// $ pulumi import aws:redshiftserverless/usageLimit:UsageLimit example example-id
 /// ```
+#[allow(clippy::doc_lazy_continuation)]
 pub mod usage_limit {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

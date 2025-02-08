@@ -68,6 +68,7 @@
 /// $ pulumi import gcp:gkehub/membershipRbacRoleBinding:MembershipRbacRoleBinding default {{location}}/{{membership_id}}/{{membership_rbac_role_binding_id}}
 /// ```
 ///
+#[allow(clippy::doc_lazy_continuation)]
 pub mod membership_rbac_role_binding {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

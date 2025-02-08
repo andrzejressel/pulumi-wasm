@@ -60,6 +60,7 @@
 /// ```sh
 /// $ pulumi import aws:backup/framework:Framework test <id>
 /// ```
+#[allow(clippy::doc_lazy_continuation)]
 pub mod framework {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

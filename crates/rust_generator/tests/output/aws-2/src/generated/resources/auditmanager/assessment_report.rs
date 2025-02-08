@@ -26,6 +26,7 @@
 /// ```sh
 /// $ pulumi import aws:auditmanager/assessmentReport:AssessmentReport example abc123-de45
 /// ```
+#[allow(clippy::doc_lazy_continuation)]
 pub mod assessment_report {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

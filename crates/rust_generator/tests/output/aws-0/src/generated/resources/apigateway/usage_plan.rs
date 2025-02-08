@@ -7,6 +7,7 @@
 /// ```sh
 /// $ pulumi import aws:apigateway/usagePlan:UsagePlan myusageplan <usage_plan_id>
 /// ```
+#[allow(clippy::doc_lazy_continuation)]
 pub mod usage_plan {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

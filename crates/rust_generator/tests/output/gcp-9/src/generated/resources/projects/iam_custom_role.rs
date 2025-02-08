@@ -52,6 +52,7 @@
 /// $ pulumi import gcp:projects/iAMCustomRole:IAMCustomRole default {{role_id}}
 /// ```
 ///
+#[allow(clippy::doc_lazy_continuation)]
 pub mod iam_custom_role {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

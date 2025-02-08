@@ -8,6 +8,7 @@
 /// ```sh
 /// $ pulumi import aws:kms/grant:Grant test 1234abcd-12ab-34cd-56ef-1234567890ab:abcde1237f76e4ba7987489ac329fbfba6ad343d6f7075dbd1ef191f0120514
 /// ```
+#[allow(clippy::doc_lazy_continuation)]
 pub mod grant {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

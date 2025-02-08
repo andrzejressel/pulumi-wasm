@@ -290,6 +290,7 @@
 /// $ pulumi import gcp:compute/instanceTemplate:InstanceTemplate default {{name}}
 /// ```
 ///
+#[allow(clippy::doc_lazy_continuation)]
 pub mod instance_template {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

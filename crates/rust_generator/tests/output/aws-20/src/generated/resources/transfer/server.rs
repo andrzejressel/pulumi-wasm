@@ -170,6 +170,7 @@
 /// ```
 /// Certain resource arguments, such as `host_key`, cannot be read via the API and imported into the provider. This provider will display a difference for these arguments the first run after import if declared in the provider configuration for an imported resource.
 ///
+#[allow(clippy::doc_lazy_continuation)]
 pub mod server {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

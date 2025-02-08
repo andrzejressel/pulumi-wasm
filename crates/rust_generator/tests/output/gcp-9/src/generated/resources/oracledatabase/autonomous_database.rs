@@ -110,6 +110,7 @@
 /// $ pulumi import gcp:oracledatabase/autonomousDatabase:AutonomousDatabase default {{location}}/{{autonomous_database_id}}
 /// ```
 ///
+#[allow(clippy::doc_lazy_continuation)]
 pub mod autonomous_database {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

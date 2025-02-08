@@ -26,6 +26,7 @@
 /// ```sh
 /// $ pulumi import aws:vpclattice/accessLogSubscription:AccessLogSubscription example rft-8012925589
 /// ```
+#[allow(clippy::doc_lazy_continuation)]
 pub mod access_log_subscription {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

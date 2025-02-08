@@ -43,6 +43,7 @@
 ///
 /// This resource does not support import.
 ///
+#[allow(clippy::doc_lazy_continuation)]
 pub mod bucket_object {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

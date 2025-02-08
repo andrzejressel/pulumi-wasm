@@ -58,6 +58,7 @@
 /// $ pulumi import gcp:securitycenter/projectNotificationConfig:ProjectNotificationConfig default {{name}}
 /// ```
 ///
+#[allow(clippy::doc_lazy_continuation)]
 pub mod project_notification_config {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

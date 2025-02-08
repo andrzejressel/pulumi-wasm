@@ -42,6 +42,7 @@
 ///       bucket: ${default.id}
 ///       key: ${defaultBucketObjectv2.id}
 /// ```
+#[allow(clippy::doc_lazy_continuation)]
 pub mod application_version {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

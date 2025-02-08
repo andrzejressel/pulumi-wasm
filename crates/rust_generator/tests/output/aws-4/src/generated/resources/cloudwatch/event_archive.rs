@@ -52,6 +52,7 @@
 /// ```sh
 /// $ pulumi import aws:cloudwatch/eventArchive:EventArchive imported_event_archive order-archive
 /// ```
+#[allow(clippy::doc_lazy_continuation)]
 pub mod event_archive {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

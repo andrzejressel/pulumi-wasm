@@ -81,6 +81,7 @@
 /// ```sh
 /// $ pulumi import aws:wafv2/webAclLoggingConfiguration:WebAclLoggingConfiguration example arn:aws:wafv2:us-west-2:123456789012:regional/webacl/test-logs/a1b2c3d4-5678-90ab-cdef
 /// ```
+#[allow(clippy::doc_lazy_continuation)]
 pub mod web_acl_logging_configuration {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

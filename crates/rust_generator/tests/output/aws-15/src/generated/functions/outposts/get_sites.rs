@@ -1,3 +1,4 @@
+#[allow(clippy::doc_lazy_continuation)]
 pub mod get_sites {
     #[allow(dead_code)]
     pub struct GetSitesResult {

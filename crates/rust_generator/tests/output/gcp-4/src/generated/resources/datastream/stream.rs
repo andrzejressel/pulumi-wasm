@@ -970,6 +970,7 @@
 /// $ pulumi import gcp:datastream/stream:Stream default {{location}}/{{stream_id}}
 /// ```
 ///
+#[allow(clippy::doc_lazy_continuation)]
 pub mod stream {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

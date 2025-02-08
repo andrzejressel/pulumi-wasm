@@ -75,6 +75,7 @@
 /// $ pulumi import gcp:iap/client:Client default {{brand}}/{{client_id}}
 /// ```
 ///
+#[allow(clippy::doc_lazy_continuation)]
 pub mod client {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

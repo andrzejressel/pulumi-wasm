@@ -26,6 +26,7 @@
 /// ```sh
 /// $ pulumi import aws:finspace/kxVolume:KxVolume example n3ceo7wqxoxcti5tujqwzs,my-tf-kx-volume
 /// ```
+#[allow(clippy::doc_lazy_continuation)]
 pub mod kx_volume {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

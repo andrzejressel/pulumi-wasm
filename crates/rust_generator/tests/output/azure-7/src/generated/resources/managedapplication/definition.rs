@@ -38,6 +38,7 @@
 /// $ pulumi import azure:managedapplication/definition:Definition example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Solutions/applicationDefinitions/appDefinition1
 /// ```
 ///
+#[allow(clippy::doc_lazy_continuation)]
 pub mod definition {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

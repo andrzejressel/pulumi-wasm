@@ -31,6 +31,7 @@
 /// ```sh
 /// $ pulumi import aws:efs/backupPolicy:BackupPolicy example fs-6fa144c6
 /// ```
+#[allow(clippy::doc_lazy_continuation)]
 pub mod backup_policy {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

@@ -59,6 +59,7 @@
 /// $ pulumi import gcp:identityplatform/inboundSamlConfig:InboundSamlConfig default {{name}}
 /// ```
 ///
+#[allow(clippy::doc_lazy_continuation)]
 pub mod inbound_saml_config {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

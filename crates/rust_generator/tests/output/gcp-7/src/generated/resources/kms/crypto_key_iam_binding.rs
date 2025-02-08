@@ -164,6 +164,7 @@
 /// $ pulumi import gcp:kms/cryptoKeyIAMBinding:CryptoKeyIAMBinding default {{project_id}}/{{location}}/{{key_ring_name}}/{{crypto_key_name}}
 /// ```
 ///
+#[allow(clippy::doc_lazy_continuation)]
 pub mod crypto_key_iam_binding {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

@@ -27,6 +27,7 @@
 /// ```sh
 /// $ pulumi import aws:identitystore/group:Group example d-9c6705e95c/b8a1c340-8031-7071-a2fb-7dc540320c30
 /// ```
+#[allow(clippy::doc_lazy_continuation)]
 pub mod group {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

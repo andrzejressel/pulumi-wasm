@@ -154,6 +154,7 @@
 /// $ pulumi import gcp:bigtable/tableIamBinding:TableIamBinding default projects/{project}/instances/{instance}/tables/{table}
 /// ```
 ///
+#[allow(clippy::doc_lazy_continuation)]
 pub mod table_iam_binding {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

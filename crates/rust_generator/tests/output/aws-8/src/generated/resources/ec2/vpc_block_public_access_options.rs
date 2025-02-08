@@ -25,6 +25,7 @@
 /// ```sh
 /// $ pulumi import aws:ec2/vpcBlockPublicAccessOptions:VpcBlockPublicAccessOptions example us-east-1
 /// ```
+#[allow(clippy::doc_lazy_continuation)]
 pub mod vpc_block_public_access_options {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

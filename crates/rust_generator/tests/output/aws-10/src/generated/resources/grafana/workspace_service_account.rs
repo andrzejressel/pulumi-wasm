@@ -25,6 +25,7 @@
 /// ```sh
 /// $ pulumi import aws:grafana/workspaceServiceAccount:WorkspaceServiceAccount example g-abc12345,1
 /// ```
+#[allow(clippy::doc_lazy_continuation)]
 pub mod workspace_service_account {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

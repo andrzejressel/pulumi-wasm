@@ -24,6 +24,7 @@
 /// ```sh
 /// $ pulumi import aws:route53recoveryreadiness/readinessCheck:ReadinessCheck my-cw-alarm-check example
 /// ```
+#[allow(clippy::doc_lazy_continuation)]
 pub mod readiness_check {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

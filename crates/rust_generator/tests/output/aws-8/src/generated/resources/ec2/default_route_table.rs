@@ -43,6 +43,7 @@
 /// ```sh
 /// $ pulumi import aws:ec2/defaultRouteTable:DefaultRouteTable example vpc-33cc44dd
 /// ```
+#[allow(clippy::doc_lazy_continuation)]
 pub mod default_route_table {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

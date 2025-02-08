@@ -1,3 +1,4 @@
+#[allow(clippy::doc_lazy_continuation)]
 pub mod get_active_receipt_rule_set {
     #[allow(dead_code)]
     pub struct GetActiveReceiptRuleSetResult {

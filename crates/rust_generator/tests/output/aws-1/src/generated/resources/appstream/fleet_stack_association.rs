@@ -39,6 +39,7 @@
 /// ```sh
 /// $ pulumi import aws:appstream/fleetStackAssociation:FleetStackAssociation example fleetName/stackName
 /// ```
+#[allow(clippy::doc_lazy_continuation)]
 pub mod fleet_stack_association {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

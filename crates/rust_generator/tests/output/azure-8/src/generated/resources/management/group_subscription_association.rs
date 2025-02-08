@@ -33,6 +33,7 @@
 /// $ pulumi import azure:management/groupSubscriptionAssociation:GroupSubscriptionAssociation example /providers/Microsoft.Management/managementGroups/MyManagementGroup/subscriptions/12345678-1234-1234-1234-123456789012
 /// ```
 ///
+#[allow(clippy::doc_lazy_continuation)]
 pub mod group_subscription_association {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

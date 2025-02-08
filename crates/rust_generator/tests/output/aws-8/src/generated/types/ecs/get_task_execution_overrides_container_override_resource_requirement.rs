@@ -1,6 +1,7 @@
 #[derive(pulumi_gestalt_rust::__private::serde::Deserialize, pulumi_gestalt_rust::__private::serde::Serialize, pulumi_gestalt_rust::__private::bon::Builder, Debug, PartialEq, Clone)]
 #[builder(finish_fn = build_struct)]
 #[allow(dead_code)]
+#[allow(clippy::doc_lazy_continuation)]
 pub struct GetTaskExecutionOverridesContainerOverrideResourceRequirement {
     /// The type of resource to assign to a container. Valid values are `GPU` or `InferenceAccelerator`.
     #[builder(into)]

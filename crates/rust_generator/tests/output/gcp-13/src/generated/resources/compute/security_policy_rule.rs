@@ -169,6 +169,7 @@
 /// $ pulumi import gcp:compute/securityPolicyRule:SecurityPolicyRule default {{security_policy}}/{{priority}}
 /// ```
 ///
+#[allow(clippy::doc_lazy_continuation)]
 pub mod security_policy_rule {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

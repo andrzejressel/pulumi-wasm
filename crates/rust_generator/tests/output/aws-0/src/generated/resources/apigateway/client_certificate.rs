@@ -23,6 +23,7 @@
 /// ```sh
 /// $ pulumi import aws:apigateway/clientCertificate:ClientCertificate demo ab1cqe
 /// ```
+#[allow(clippy::doc_lazy_continuation)]
 pub mod client_certificate {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

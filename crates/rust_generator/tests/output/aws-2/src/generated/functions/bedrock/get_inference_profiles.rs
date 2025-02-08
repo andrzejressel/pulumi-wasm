@@ -1,3 +1,4 @@
+#[allow(clippy::doc_lazy_continuation)]
 pub mod get_inference_profiles {
     #[allow(dead_code)]
     pub struct GetInferenceProfilesResult {

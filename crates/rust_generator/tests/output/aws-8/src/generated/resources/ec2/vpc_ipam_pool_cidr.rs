@@ -78,6 +78,7 @@
 /// ```sh
 /// $ pulumi import aws:ec2/vpcIpamPoolCidr:VpcIpamPoolCidr example 172.20.0.0/24_ipam-pool-0e634f5a1517cccdc
 /// ```
+#[allow(clippy::doc_lazy_continuation)]
 pub mod vpc_ipam_pool_cidr {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

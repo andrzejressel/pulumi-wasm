@@ -23,6 +23,7 @@
 /// ```sh
 /// $ pulumi import aws:iam/serviceLinkedRole:ServiceLinkedRole elasticbeanstalk arn:aws:iam::123456789012:role/aws-service-role/elasticbeanstalk.amazonaws.com/AWSServiceRoleForElasticBeanstalk
 /// ```
+#[allow(clippy::doc_lazy_continuation)]
 pub mod service_linked_role {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

@@ -51,6 +51,7 @@
 /// ```sh
 /// $ pulumi import aws:signer/signingJob:SigningJob test_signer_signing_job 9ed7e5c3-b8d4-4da0-8459-44e0b068f7ee
 /// ```
+#[allow(clippy::doc_lazy_continuation)]
 pub mod signing_job {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

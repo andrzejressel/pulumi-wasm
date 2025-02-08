@@ -19,6 +19,7 @@
 /// ```sh
 /// $ pulumi import aws:ec2/internetGateway:InternetGateway gw igw-c0a643a9
 /// ```
+#[allow(clippy::doc_lazy_continuation)]
 pub mod internet_gateway {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

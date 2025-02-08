@@ -35,6 +35,7 @@
 /// ```sh
 /// $ pulumi import aws:apprunner/defaultAutoScalingConfigurationVersion:DefaultAutoScalingConfigurationVersion example us-west-2
 /// ```
+#[allow(clippy::doc_lazy_continuation)]
 pub mod default_auto_scaling_configuration_version {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

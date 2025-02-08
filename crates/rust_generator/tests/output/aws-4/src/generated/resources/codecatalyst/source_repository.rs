@@ -27,6 +27,7 @@
 /// ```sh
 /// $ pulumi import aws:codecatalyst/sourceRepository:SourceRepository example example-repo
 /// ```
+#[allow(clippy::doc_lazy_continuation)]
 pub mod source_repository {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

@@ -223,6 +223,7 @@
 /// $ pulumi import gcp:bigquery/dataset:Dataset default {{dataset_id}}
 /// ```
 ///
+#[allow(clippy::doc_lazy_continuation)]
 pub mod dataset {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

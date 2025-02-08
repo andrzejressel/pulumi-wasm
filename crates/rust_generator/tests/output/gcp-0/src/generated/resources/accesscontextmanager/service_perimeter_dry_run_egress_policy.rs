@@ -23,6 +23,7 @@
 ///
 /// ## Example Usage
 ///
+#[allow(clippy::doc_lazy_continuation)]
 pub mod service_perimeter_dry_run_egress_policy {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

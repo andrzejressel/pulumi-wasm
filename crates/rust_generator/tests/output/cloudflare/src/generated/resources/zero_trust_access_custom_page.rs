@@ -19,6 +19,7 @@
 ///     );
 /// }
 /// ```
+#[allow(clippy::doc_lazy_continuation)]
 pub mod zero_trust_access_custom_page {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

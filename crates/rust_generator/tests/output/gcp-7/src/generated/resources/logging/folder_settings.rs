@@ -63,6 +63,7 @@
 /// $ pulumi import gcp:logging/folderSettings:FolderSettings default {{folder}}
 /// ```
 ///
+#[allow(clippy::doc_lazy_continuation)]
 pub mod folder_settings {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

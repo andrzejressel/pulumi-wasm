@@ -21,6 +21,7 @@
 /// ```sh
 /// $ pulumi import aws:cloudwatch/internetMonitor:InternetMonitor some some-monitor
 /// ```
+#[allow(clippy::doc_lazy_continuation)]
 pub mod internet_monitor {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

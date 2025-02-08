@@ -32,6 +32,7 @@
 /// ```sh
 /// $ pulumi import aws:location/trackerAssociation:TrackerAssociation example "tracker_name|consumer_arn"
 /// ```
+#[allow(clippy::doc_lazy_continuation)]
 pub mod tracker_association {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

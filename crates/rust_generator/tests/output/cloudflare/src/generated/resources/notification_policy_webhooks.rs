@@ -25,6 +25,7 @@
 /// $ pulumi import cloudflare:index/notificationPolicyWebhooks:NotificationPolicyWebhooks example <account_id>/<notification_webhook_id>
 /// ```
 ///
+#[allow(clippy::doc_lazy_continuation)]
 pub mod notification_policy_webhooks {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

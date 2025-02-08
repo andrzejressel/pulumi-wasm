@@ -38,6 +38,7 @@
 /// ```sh
 /// $ pulumi import aws:schemas/registryPolicy:RegistryPolicy example example
 /// ```
+#[allow(clippy::doc_lazy_continuation)]
 pub mod registry_policy {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

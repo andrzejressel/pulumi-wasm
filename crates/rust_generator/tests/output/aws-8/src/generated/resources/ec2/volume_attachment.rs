@@ -36,6 +36,7 @@
 /// ```sh
 /// $ pulumi import aws:ec2/volumeAttachment:VolumeAttachment example /dev/sdh:vol-049df61146c4d7901:i-12345678
 /// ```
+#[allow(clippy::doc_lazy_continuation)]
 pub mod volume_attachment {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

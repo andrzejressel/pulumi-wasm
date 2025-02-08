@@ -25,6 +25,7 @@
 /// ```sh
 /// $ pulumi import aws:auditmanager/organizationAdminAccountRegistration:OrganizationAdminAccountRegistration example 123456789012
 /// ```
+#[allow(clippy::doc_lazy_continuation)]
 pub mod organization_admin_account_registration {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

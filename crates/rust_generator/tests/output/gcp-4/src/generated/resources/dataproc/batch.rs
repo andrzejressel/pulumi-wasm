@@ -293,6 +293,7 @@
 /// $ pulumi import gcp:dataproc/batch:Batch default {{location}}/{{batch_id}}
 /// ```
 ///
+#[allow(clippy::doc_lazy_continuation)]
 pub mod batch {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

@@ -26,6 +26,7 @@
 /// ```sh
 /// $ pulumi import aws:vpclattice/serviceNetworkServiceAssociation:ServiceNetworkServiceAssociation example snsa-05e2474658a88f6ba
 /// ```
+#[allow(clippy::doc_lazy_continuation)]
 pub mod service_network_service_association {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

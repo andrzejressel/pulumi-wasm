@@ -71,6 +71,7 @@
 /// $ pulumi import azure:containerservice/connectedRegistry:ConnectedRegistry example /subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/group1/providers/Microsoft.ContainerRegistry/registries/registry1/connectedRegistries/registry1
 /// ```
 ///
+#[allow(clippy::doc_lazy_continuation)]
 pub mod connected_registry {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

@@ -28,6 +28,7 @@
 /// ```sh
 /// $ pulumi import aws:ec2transitgateway/routeTablePropagation:RouteTablePropagation example tgw-rtb-12345678_tgw-attach-87654321
 /// ```
+#[allow(clippy::doc_lazy_continuation)]
 pub mod route_table_propagation {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

@@ -127,6 +127,7 @@
 /// $ pulumi import gcp:healthcare/fhirStoreIamMember:FhirStoreIamMember default {{project_id}}/{{location}}/{{dataset}}/{{fhir_store}}
 /// ```
 ///
+#[allow(clippy::doc_lazy_continuation)]
 pub mod fhir_store_iam_member {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

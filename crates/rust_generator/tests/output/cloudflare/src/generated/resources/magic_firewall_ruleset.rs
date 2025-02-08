@@ -30,6 +30,7 @@
 /// ```sh
 /// $ pulumi import cloudflare:index/magicFirewallRuleset:MagicFirewallRuleset example d41d8cd98f00b204e9800998ecf8427e/cb029e245cfdd66dc8d2e570d5dd3322
 /// ```
+#[allow(clippy::doc_lazy_continuation)]
 pub mod magic_firewall_ruleset {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

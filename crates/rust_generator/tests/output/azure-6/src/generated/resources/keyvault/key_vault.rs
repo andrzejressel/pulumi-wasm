@@ -51,6 +51,7 @@
 /// $ pulumi import azure:keyvault/keyVault:KeyVault example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.KeyVault/vaults/vault1
 /// ```
 ///
+#[allow(clippy::doc_lazy_continuation)]
 pub mod key_vault {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

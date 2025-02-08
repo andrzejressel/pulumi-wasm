@@ -24,6 +24,7 @@
 /// ```sh
 /// $ pulumi import aws:ivs/playbackKeyPair:PlaybackKeyPair example arn:aws:ivs:us-west-2:326937407773:playback-key/KDJRJNQhiQzA
 /// ```
+#[allow(clippy::doc_lazy_continuation)]
 pub mod playback_key_pair {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

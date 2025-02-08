@@ -63,6 +63,7 @@
 /// ```sh
 /// $ pulumi import aws:xray/encryptionConfig:EncryptionConfig example us-west-2
 /// ```
+#[allow(clippy::doc_lazy_continuation)]
 pub mod encryption_config {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

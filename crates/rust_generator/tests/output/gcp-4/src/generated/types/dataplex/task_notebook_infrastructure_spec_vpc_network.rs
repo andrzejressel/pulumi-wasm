@@ -1,6 +1,7 @@
 #[derive(pulumi_gestalt_rust::__private::serde::Deserialize, pulumi_gestalt_rust::__private::serde::Serialize, pulumi_gestalt_rust::__private::bon::Builder, Debug, PartialEq, Clone)]
 #[builder(finish_fn = build_struct)]
 #[allow(dead_code)]
+#[allow(clippy::doc_lazy_continuation)]
 pub struct TaskNotebookInfrastructureSpecVpcNetwork {
     /// The Cloud VPC network in which the job is run. By default, the Cloud VPC network named Default within the project is used.
     #[builder(into, default)]

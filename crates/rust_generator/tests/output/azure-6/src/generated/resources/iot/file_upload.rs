@@ -54,6 +54,7 @@
 /// $ pulumi import azure:iot/fileUpload:FileUpload example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Devices/iotHubs/hub1
 /// ```
 ///
+#[allow(clippy::doc_lazy_continuation)]
 pub mod file_upload {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

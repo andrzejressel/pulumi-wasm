@@ -50,6 +50,7 @@
 /// ```sh
 /// $ pulumi import aws:ec2/vpcEndpointConnectionNotification:VpcEndpointConnectionNotification foo vpce-nfn-09e6ed3b4efba2263
 /// ```
+#[allow(clippy::doc_lazy_continuation)]
 pub mod vpc_endpoint_connection_notification {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

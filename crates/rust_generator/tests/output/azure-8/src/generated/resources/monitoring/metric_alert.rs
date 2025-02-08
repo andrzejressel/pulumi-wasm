@@ -76,6 +76,7 @@
 /// $ pulumi import azure:monitoring/metricAlert:MetricAlert main /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example-resources/providers/Microsoft.Insights/metricAlerts/example-metricalert
 /// ```
 ///
+#[allow(clippy::doc_lazy_continuation)]
 pub mod metric_alert {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

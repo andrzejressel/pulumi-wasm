@@ -76,6 +76,7 @@
 /// $ pulumi import azure:machinelearning/datastoreDatalakeGen2:DatastoreDatalakeGen2 example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.MachineLearningServices/workspaces/mlw1/dataStores/datastore1
 /// ```
 ///
+#[allow(clippy::doc_lazy_continuation)]
 pub mod datastore_datalake_gen_2 {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

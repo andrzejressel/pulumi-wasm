@@ -1,6 +1,7 @@
 #[derive(pulumi_gestalt_rust::__private::serde::Deserialize, pulumi_gestalt_rust::__private::serde::Serialize, pulumi_gestalt_rust::__private::bon::Builder, Debug, PartialEq, Clone)]
 #[builder(finish_fn = build_struct)]
 #[allow(dead_code)]
+#[allow(clippy::doc_lazy_continuation)]
 pub struct BackupPlanBackupScheduleRpoConfig {
     /// User specified time windows during which backup can NOT happen for this BackupPlan.
     /// Backups should start and finish outside of any given exclusion window. Note: backup

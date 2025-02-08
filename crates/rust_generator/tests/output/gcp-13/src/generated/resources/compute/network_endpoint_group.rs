@@ -104,6 +104,7 @@
 /// $ pulumi import gcp:compute/networkEndpointGroup:NetworkEndpointGroup default {{name}}
 /// ```
 ///
+#[allow(clippy::doc_lazy_continuation)]
 pub mod network_endpoint_group {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

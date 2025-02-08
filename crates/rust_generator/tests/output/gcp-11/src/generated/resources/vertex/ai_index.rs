@@ -120,6 +120,7 @@
 /// $ pulumi import gcp:vertex/aiIndex:AiIndex default {{name}}
 /// ```
 ///
+#[allow(clippy::doc_lazy_continuation)]
 pub mod ai_index {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

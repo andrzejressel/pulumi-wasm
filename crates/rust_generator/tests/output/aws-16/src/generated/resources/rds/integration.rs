@@ -95,6 +95,7 @@
 /// ```sh
 /// $ pulumi import aws:rds/integration:Integration example arn:aws:rds:us-west-2:123456789012:integration:abcdefgh-0000-1111-2222-123456789012
 /// ```
+#[allow(clippy::doc_lazy_continuation)]
 pub mod integration {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

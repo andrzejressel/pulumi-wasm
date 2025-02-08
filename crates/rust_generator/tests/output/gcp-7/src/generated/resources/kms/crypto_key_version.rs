@@ -46,6 +46,7 @@
 /// $ pulumi import gcp:kms/cryptoKeyVersion:CryptoKeyVersion default {{name}}
 /// ```
 ///
+#[allow(clippy::doc_lazy_continuation)]
 pub mod crypto_key_version {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

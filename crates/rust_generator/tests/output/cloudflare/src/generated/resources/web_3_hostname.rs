@@ -1,4 +1,5 @@
 /// Manages Web3 hostnames for IPFS and Ethereum gateways.
+#[allow(clippy::doc_lazy_continuation)]
 pub mod web_3_hostname {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

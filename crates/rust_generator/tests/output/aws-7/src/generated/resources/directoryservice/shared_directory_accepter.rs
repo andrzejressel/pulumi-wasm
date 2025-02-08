@@ -37,6 +37,7 @@
 /// ```sh
 /// $ pulumi import aws:directoryservice/sharedDirectoryAccepter:SharedDirectoryAccepter example d-9267633ece
 /// ```
+#[allow(clippy::doc_lazy_continuation)]
 pub mod shared_directory_accepter {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

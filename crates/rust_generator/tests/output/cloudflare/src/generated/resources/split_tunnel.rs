@@ -9,6 +9,7 @@
 /// $ pulumi import cloudflare:index/splitTunnel:SplitTunnel example <account_id>/<policy_id>/<mode>
 /// ```
 ///
+#[allow(clippy::doc_lazy_continuation)]
 pub mod split_tunnel {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

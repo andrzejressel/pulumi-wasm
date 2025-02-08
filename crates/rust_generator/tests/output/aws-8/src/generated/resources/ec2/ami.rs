@@ -39,6 +39,7 @@
 /// ```sh
 /// $ pulumi import aws:ec2/ami:Ami example ami-12345678
 /// ```
+#[allow(clippy::doc_lazy_continuation)]
 pub mod ami {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

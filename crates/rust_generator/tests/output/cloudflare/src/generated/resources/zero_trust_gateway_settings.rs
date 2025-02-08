@@ -95,6 +95,7 @@
 /// $ pulumi import cloudflare:index/zeroTrustGatewaySettings:ZeroTrustGatewaySettings example <account_id>
 /// ```
 ///
+#[allow(clippy::doc_lazy_continuation)]
 pub mod zero_trust_gateway_settings {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

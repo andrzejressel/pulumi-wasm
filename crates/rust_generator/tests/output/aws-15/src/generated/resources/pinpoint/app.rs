@@ -27,6 +27,7 @@
 /// ```sh
 /// $ pulumi import aws:pinpoint/app:App name application-id
 /// ```
+#[allow(clippy::doc_lazy_continuation)]
 pub mod app {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

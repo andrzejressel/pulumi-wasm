@@ -35,6 +35,7 @@
 /// ```sh
 /// $ pulumi import aws:route53/delegationSet:DelegationSet set1 N1PA6795SAMPLE
 /// ```
+#[allow(clippy::doc_lazy_continuation)]
 pub mod delegation_set {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

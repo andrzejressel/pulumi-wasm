@@ -1,6 +1,7 @@
 #[derive(pulumi_gestalt_rust::__private::serde::Deserialize, pulumi_gestalt_rust::__private::serde::Serialize, pulumi_gestalt_rust::__private::bon::Builder, Debug, PartialEq, Clone)]
 #[builder(finish_fn = build_struct)]
 #[allow(dead_code)]
+#[allow(clippy::doc_lazy_continuation)]
 pub struct StandardAppVersionAutomaticScaling {
     /// Number of concurrent requests an automatic scaling instance can accept before the scheduler spawns a new instance.
     /// Defaults to a runtime-specific value.

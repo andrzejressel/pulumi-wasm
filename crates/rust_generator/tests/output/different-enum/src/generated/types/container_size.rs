@@ -1,5 +1,6 @@
 #[derive(Debug, PartialEq, Clone)]
 #[allow(dead_code)]
+#[allow(clippy::doc_lazy_continuation)]
 pub enum ContainerSize {
     FourInch,
     SixInch,

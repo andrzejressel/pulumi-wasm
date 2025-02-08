@@ -28,6 +28,7 @@
 /// ```sh
 /// $ pulumi import aws:lambda/codeSigningConfig:CodeSigningConfig imported_csc arn:aws:lambda:us-west-2:123456789012:code-signing-config:csc-0f6c334abcdea4d8b
 /// ```
+#[allow(clippy::doc_lazy_continuation)]
 pub mod code_signing_config {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

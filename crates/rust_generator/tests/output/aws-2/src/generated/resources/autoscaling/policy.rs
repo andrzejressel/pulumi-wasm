@@ -222,6 +222,7 @@
 /// ```sh
 /// $ pulumi import aws:autoscaling/policy:Policy test-policy asg-name/policy-name
 /// ```
+#[allow(clippy::doc_lazy_continuation)]
 pub mod policy {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

@@ -33,6 +33,7 @@
 /// ```sh
 /// $ pulumi import aws:rds/reservedInstance:ReservedInstance reservation_instance CustomReservationID
 /// ```
+#[allow(clippy::doc_lazy_continuation)]
 pub mod reserved_instance {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

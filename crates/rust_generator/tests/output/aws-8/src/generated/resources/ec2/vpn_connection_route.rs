@@ -33,6 +33,7 @@
 ///       destinationCidrBlock: 192.168.10.0/24
 ///       vpnConnectionId: ${main.id}
 /// ```
+#[allow(clippy::doc_lazy_continuation)]
 pub mod vpn_connection_route {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

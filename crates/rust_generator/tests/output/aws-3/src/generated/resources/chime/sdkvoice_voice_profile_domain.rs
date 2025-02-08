@@ -30,6 +30,7 @@
 /// ```sh
 /// $ pulumi import aws:chime/sdkvoiceVoiceProfileDomain:SdkvoiceVoiceProfileDomain example abcdef123456
 /// ```
+#[allow(clippy::doc_lazy_continuation)]
 pub mod sdkvoice_voice_profile_domain {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

@@ -375,6 +375,7 @@
 /// $ pulumi import gcp:gkehub/featureMembership:FeatureMembership default {{location}}/{{feature}}/{{membership}}
 /// ```
 ///
+#[allow(clippy::doc_lazy_continuation)]
 pub mod feature_membership {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

@@ -54,6 +54,7 @@
 /// $ pulumi import gcp:compute/securityScanConfig:SecurityScanConfig default {{name}}
 /// ```
 ///
+#[allow(clippy::doc_lazy_continuation)]
 pub mod security_scan_config {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

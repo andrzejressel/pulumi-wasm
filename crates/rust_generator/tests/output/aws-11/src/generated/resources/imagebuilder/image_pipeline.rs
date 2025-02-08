@@ -9,6 +9,7 @@
 /// ```sh
 /// $ pulumi import aws:imagebuilder/imagePipeline:ImagePipeline example arn:aws:imagebuilder:us-east-1:123456789012:image-pipeline/example
 /// ```
+#[allow(clippy::doc_lazy_continuation)]
 pub mod image_pipeline {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

@@ -71,6 +71,7 @@
 /// ```sh
 /// $ pulumi import aws:appflow/connectorProfile:ConnectorProfile profile arn:aws:appflow:us-west-2:123456789012:connectorprofile/example-profile
 /// ```
+#[allow(clippy::doc_lazy_continuation)]
 pub mod connector_profile {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

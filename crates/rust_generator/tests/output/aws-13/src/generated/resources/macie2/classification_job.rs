@@ -36,6 +36,7 @@
 /// ```sh
 /// $ pulumi import aws:macie2/classificationJob:ClassificationJob example abcd1
 /// ```
+#[allow(clippy::doc_lazy_continuation)]
 pub mod classification_job {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

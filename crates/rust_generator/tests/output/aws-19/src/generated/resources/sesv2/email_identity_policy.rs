@@ -33,6 +33,7 @@
 /// ```sh
 /// $ pulumi import aws:sesv2/emailIdentityPolicy:EmailIdentityPolicy example example_email_identity|example_policy_name
 /// ```
+#[allow(clippy::doc_lazy_continuation)]
 pub mod email_identity_policy {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

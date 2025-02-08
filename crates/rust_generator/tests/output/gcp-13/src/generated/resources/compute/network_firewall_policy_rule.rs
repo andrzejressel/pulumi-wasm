@@ -107,6 +107,7 @@
 /// $ pulumi import gcp:compute/networkFirewallPolicyRule:NetworkFirewallPolicyRule default {{firewall_policy}}/{{priority}}
 /// ```
 ///
+#[allow(clippy::doc_lazy_continuation)]
 pub mod network_firewall_policy_rule {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

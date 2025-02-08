@@ -110,6 +110,7 @@
 /// $ pulumi import gcp:cloudbuild/workerPool:WorkerPool default {{location}}/{{name}}
 /// ```
 ///
+#[allow(clippy::doc_lazy_continuation)]
 pub mod worker_pool {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

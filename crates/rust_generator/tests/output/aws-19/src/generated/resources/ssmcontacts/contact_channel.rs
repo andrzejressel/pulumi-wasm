@@ -61,6 +61,7 @@
 /// ```sh
 /// $ pulumi import aws:ssmcontacts/contactChannel:ContactChannel example arn:aws:ssm-contacts:us-west-2:123456789012:contact-channel/example
 /// ```
+#[allow(clippy::doc_lazy_continuation)]
 pub mod contact_channel {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

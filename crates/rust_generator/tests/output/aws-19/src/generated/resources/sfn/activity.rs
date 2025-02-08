@@ -40,6 +40,7 @@
 /// ```sh
 /// $ pulumi import aws:sfn/activity:Activity foo arn:aws:states:eu-west-1:123456789098:activity:bar
 /// ```
+#[allow(clippy::doc_lazy_continuation)]
 pub mod activity {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

@@ -28,6 +28,7 @@
 /// ```sh
 /// $ pulumi import aws:rds/clusterRoleAssociation:ClusterRoleAssociation example my-db-cluster,arn:aws:iam::123456789012:role/my-role
 /// ```
+#[allow(clippy::doc_lazy_continuation)]
 pub mod cluster_role_association {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
