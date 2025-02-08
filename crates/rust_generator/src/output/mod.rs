@@ -62,18 +62,8 @@ pub(crate) fn generate_combined_code(package: &Package, result_path: &std::path:
     generate_types_code(package, &result_path.join("types"));
 
     let main = main::generate(
-        generate_includes(
-            package,
-            "functions",
-            &package.functions,
-            &functions::generate_single_file_docs,
-        ),
-        generate_includes(
-            package,
-            "resources",
-            &package.resources,
-            &resources::generate_single_file_docs,
-        ),
+        generate_includes("functions", &package.functions),
+        generate_includes("resources", &package.resources),
         types::generate_module_imports(package),
         find_consts(package),
         package,
@@ -129,12 +119,7 @@ fn generate_files_looper(
     }
 }
 
-fn generate_includes<T>(
-    package: &Package,
-    name: &str,
-    objects: &BTreeMap<ElementId, T>,
-    generator: &(impl Fn(&Package, &ElementId) -> Vec<String> + 'static),
-) -> String {
+fn generate_includes<T>(name: &str, objects: &BTreeMap<ElementId, T>) -> String {
     if objects.is_empty() {
         return "".to_string();
     }
@@ -144,25 +129,17 @@ fn generate_includes<T>(
         tree.insert(element_id.clone());
     }
 
-    generate_includes_looper(package, &tree, std::path::Path::new(name))
+    generate_includes_looper(&tree, std::path::Path::new(name))
 }
 
-fn generate_includes_looper(
-    package: &Package,
-    tree_node: &TreeNode,
-    current_path: &std::path::Path,
-) -> String {
+fn generate_includes_looper(tree_node: &TreeNode, current_path: &std::path::Path) -> String {
     match tree_node {
         TreeNode::Namespace(ns, functions) => {
             let mut s = String::new();
 
             for (name, node) in ns {
                 s.push_str(&format!("pub mod {}{{\n", name));
-                s.push_str(&generate_includes_looper(
-                    package,
-                    node,
-                    &current_path.join(name),
-                ));
+                s.push_str(&generate_includes_looper(node, &current_path.join(name)));
                 s.push_str("}\n");
             }
 

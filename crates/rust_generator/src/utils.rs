@@ -70,18 +70,6 @@ pub(crate) fn escape_rust_name(name: &str) -> &str {
     }
 }
 
-pub(crate) fn escape_wit_identifier(s: &str) -> &str {
-    match s {
-        "flags" => "%flags",
-        "list" => "%list",
-        "result" => "%result",
-        "record" => "%record",
-        "type" => "%type",
-        "resource" => "%resource",
-        s => s,
-    }
-}
-
 pub(crate) fn sanitize_identifier(input: &str) -> String {
     // Filter characters that are valid for an identifier in Rust
     input
