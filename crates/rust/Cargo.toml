@@ -14,7 +14,7 @@ anyhow.workspace = true
 serde.workspace = true
 serde_json.workspace = true
 log.workspace = true
-pulumi_gestalt_common.workspace = true
+pulumi_gestalt_rust_common.workspace = true
 pulumi_gestalt_wit = { workspace = true, features = ["client"] }
 once_cell.workspace = true
 wit-bindgen.workspace = true
