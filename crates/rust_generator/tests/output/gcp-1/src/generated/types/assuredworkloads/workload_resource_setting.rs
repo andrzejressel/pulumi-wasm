@@ -1,7 +1,7 @@
 #[derive(pulumi_gestalt_rust::__private::serde::Deserialize, pulumi_gestalt_rust::__private::serde::Serialize, pulumi_gestalt_rust::__private::bon::Builder, Debug, PartialEq, Clone)]
 #[builder(finish_fn = build_struct)]
 #[allow(dead_code)]
-#[allow(clippy::doc_lazy_continuation)]
+#[allow(clippy::doc_lazy_continuation, clippy::tabs_in_doc_comments)]
 pub struct WorkloadResourceSetting {
     /// User-assigned resource display name. If not empty it will be used to create a resource with the specified name.
     #[builder(into, default)]

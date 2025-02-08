@@ -34,7 +34,7 @@
 ///
 /// If the data needs to be stored securily as a secret, consider using the RandomPassword resource instead.
 ///
-#[allow(clippy::doc_lazy_continuation)]
+#[allow(clippy::doc_lazy_continuation, clippy::tabs_in_doc_comments)]
 pub mod random_string {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

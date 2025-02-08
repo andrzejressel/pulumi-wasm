@@ -1,4 +1,4 @@
-#[allow(clippy::doc_lazy_continuation)]
+#[allow(clippy::doc_lazy_continuation, clippy::tabs_in_doc_comments)]
 pub mod get_rules_packages {
     #[allow(dead_code)]
     pub struct GetRulesPackagesResult {

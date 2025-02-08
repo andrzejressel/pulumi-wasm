@@ -27,7 +27,7 @@
 /// ```sh
 /// $ pulumi import aws:cloudhsmv2/hsm:Hsm bar hsm-quo8dahtaca
 /// ```
-#[allow(clippy::doc_lazy_continuation)]
+#[allow(clippy::doc_lazy_continuation, clippy::tabs_in_doc_comments)]
 pub mod hsm {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

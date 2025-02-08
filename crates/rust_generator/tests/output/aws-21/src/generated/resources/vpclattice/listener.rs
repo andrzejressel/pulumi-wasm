@@ -153,7 +153,7 @@
 /// ```sh
 /// $ pulumi import aws:vpclattice/listener:Listener example svc-1a2b3c4d/listener-987654321
 /// ```
-#[allow(clippy::doc_lazy_continuation)]
+#[allow(clippy::doc_lazy_continuation, clippy::tabs_in_doc_comments)]
 pub mod listener {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

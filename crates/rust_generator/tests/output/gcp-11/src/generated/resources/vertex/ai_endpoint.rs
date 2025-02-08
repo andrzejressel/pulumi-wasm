@@ -155,7 +155,7 @@
 /// $ pulumi import gcp:vertex/aiEndpoint:AiEndpoint default {{location}}/{{name}}
 /// ```
 ///
-#[allow(clippy::doc_lazy_continuation)]
+#[allow(clippy::doc_lazy_continuation, clippy::tabs_in_doc_comments)]
 pub mod ai_endpoint {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

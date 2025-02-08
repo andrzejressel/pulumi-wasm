@@ -25,7 +25,7 @@
 /// ```sh
 /// $ pulumi import aws:servicecatalog/portfolio:Portfolio testfolio port-12344321
 /// ```
-#[allow(clippy::doc_lazy_continuation)]
+#[allow(clippy::doc_lazy_continuation, clippy::tabs_in_doc_comments)]
 pub mod portfolio {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

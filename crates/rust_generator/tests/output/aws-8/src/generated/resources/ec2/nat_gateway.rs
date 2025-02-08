@@ -79,7 +79,7 @@
 /// ```sh
 /// $ pulumi import aws:ec2/natGateway:NatGateway private_gw nat-05dba92075d71c408
 /// ```
-#[allow(clippy::doc_lazy_continuation)]
+#[allow(clippy::doc_lazy_continuation, clippy::tabs_in_doc_comments)]
 pub mod nat_gateway {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

@@ -23,7 +23,7 @@
 /// ```sh
 /// $ pulumi import aws:quicksight/namespace:Namespace example 123456789012,example
 /// ```
-#[allow(clippy::doc_lazy_continuation)]
+#[allow(clippy::doc_lazy_continuation, clippy::tabs_in_doc_comments)]
 pub mod namespace {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

@@ -34,7 +34,7 @@
 /// $ pulumi import cloudflare:index/teamsRule:TeamsRule example <account_id>/<teams_rule_id>
 /// ```
 ///
-#[allow(clippy::doc_lazy_continuation)]
+#[allow(clippy::doc_lazy_continuation, clippy::tabs_in_doc_comments)]
 pub mod teams_rule {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

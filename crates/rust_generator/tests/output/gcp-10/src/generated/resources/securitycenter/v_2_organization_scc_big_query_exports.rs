@@ -63,7 +63,7 @@
 /// $ pulumi import gcp:securitycenter/v2OrganizationSccBigQueryExports:V2OrganizationSccBigQueryExports default {{organization}}/{{location}}/{{big_query_export_id}}
 /// ```
 ///
-#[allow(clippy::doc_lazy_continuation)]
+#[allow(clippy::doc_lazy_continuation, clippy::tabs_in_doc_comments)]
 pub mod v_2_organization_scc_big_query_exports {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

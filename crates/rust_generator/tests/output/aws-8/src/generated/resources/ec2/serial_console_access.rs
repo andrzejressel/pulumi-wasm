@@ -23,7 +23,7 @@
 /// ```sh
 /// $ pulumi import aws:ec2/serialConsoleAccess:SerialConsoleAccess example default
 /// ```
-#[allow(clippy::doc_lazy_continuation)]
+#[allow(clippy::doc_lazy_continuation, clippy::tabs_in_doc_comments)]
 pub mod serial_console_access {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

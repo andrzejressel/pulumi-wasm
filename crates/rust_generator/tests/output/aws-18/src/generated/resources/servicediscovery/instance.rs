@@ -71,7 +71,7 @@
 /// ```sh
 /// $ pulumi import aws:servicediscovery/instance:Instance example 0123456789/i-0123
 /// ```
-#[allow(clippy::doc_lazy_continuation)]
+#[allow(clippy::doc_lazy_continuation, clippy::tabs_in_doc_comments)]
 pub mod instance {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

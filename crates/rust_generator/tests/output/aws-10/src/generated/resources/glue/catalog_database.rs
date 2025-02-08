@@ -46,7 +46,7 @@
 /// ```sh
 /// $ pulumi import aws:glue/catalogDatabase:CatalogDatabase database 123456789012:my_database
 /// ```
-#[allow(clippy::doc_lazy_continuation)]
+#[allow(clippy::doc_lazy_continuation, clippy::tabs_in_doc_comments)]
 pub mod catalog_database {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

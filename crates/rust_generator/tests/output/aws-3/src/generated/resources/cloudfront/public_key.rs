@@ -24,7 +24,7 @@
 /// ```sh
 /// $ pulumi import aws:cloudfront/publicKey:PublicKey example K3D5EWEUDCCXON
 /// ```
-#[allow(clippy::doc_lazy_continuation)]
+#[allow(clippy::doc_lazy_continuation, clippy::tabs_in_doc_comments)]
 pub mod public_key {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

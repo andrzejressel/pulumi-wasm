@@ -677,7 +677,7 @@
 /// ```
 /// Note: Import does not work for stream destination `s3`. Consider using `extended_s3` since `s3` destination is deprecated.
 ///
-#[allow(clippy::doc_lazy_continuation)]
+#[allow(clippy::doc_lazy_continuation, clippy::tabs_in_doc_comments)]
 pub mod firehose_delivery_stream {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

@@ -53,7 +53,7 @@
 /// $ pulumi import gcp:iam/organizationsPolicyBinding:OrganizationsPolicyBinding default {{organization}}/{{location}}/{{policy_binding_id}}
 /// ```
 ///
-#[allow(clippy::doc_lazy_continuation)]
+#[allow(clippy::doc_lazy_continuation, clippy::tabs_in_doc_comments)]
 pub mod organizations_policy_binding {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

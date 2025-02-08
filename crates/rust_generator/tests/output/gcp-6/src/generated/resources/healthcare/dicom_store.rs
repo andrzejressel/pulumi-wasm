@@ -97,7 +97,7 @@
 /// $ pulumi import gcp:healthcare/dicomStore:DicomStore default {{dataset}}/{{name}}
 /// ```
 ///
-#[allow(clippy::doc_lazy_continuation)]
+#[allow(clippy::doc_lazy_continuation, clippy::tabs_in_doc_comments)]
 pub mod dicom_store {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

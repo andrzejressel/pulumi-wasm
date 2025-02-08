@@ -58,7 +58,7 @@
 /// ```sh
 /// $ pulumi import aws:fsx/ontapVolume:OntapVolume example fsvol-12345678abcdef123
 /// ```
-#[allow(clippy::doc_lazy_continuation)]
+#[allow(clippy::doc_lazy_continuation, clippy::tabs_in_doc_comments)]
 pub mod ontap_volume {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

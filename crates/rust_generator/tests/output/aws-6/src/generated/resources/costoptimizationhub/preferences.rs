@@ -40,7 +40,7 @@
 /// ```sh
 /// $ pulumi import aws:costoptimizationhub/preferences:Preferences example 111222333444
 /// ```
-#[allow(clippy::doc_lazy_continuation)]
+#[allow(clippy::doc_lazy_continuation, clippy::tabs_in_doc_comments)]
 pub mod preferences {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

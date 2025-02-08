@@ -21,7 +21,7 @@
 /// ```sh
 /// $ pulumi import aws:gamelift/alias:Alias example <alias-id>
 /// ```
-#[allow(clippy::doc_lazy_continuation)]
+#[allow(clippy::doc_lazy_continuation, clippy::tabs_in_doc_comments)]
 pub mod alias {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

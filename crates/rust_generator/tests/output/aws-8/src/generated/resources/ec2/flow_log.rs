@@ -196,7 +196,7 @@
 /// ```sh
 /// $ pulumi import aws:ec2/flowLog:FlowLog test_flow_log fl-1a2b3c4d
 /// ```
-#[allow(clippy::doc_lazy_continuation)]
+#[allow(clippy::doc_lazy_continuation, clippy::tabs_in_doc_comments)]
 pub mod flow_log {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

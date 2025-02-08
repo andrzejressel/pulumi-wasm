@@ -14,7 +14,7 @@
 /// $ pulumi import cloudflare:index/logpushJob:LogpushJob example zone/<zone_id>/<job_id>
 /// ```
 ///
-#[allow(clippy::doc_lazy_continuation)]
+#[allow(clippy::doc_lazy_continuation, clippy::tabs_in_doc_comments)]
 pub mod logpush_job {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

@@ -112,7 +112,7 @@
 /// ```sh
 /// $ pulumi import aws:apigateway/domainName:DomainName example dev.api.internal.example.com/abcde12345
 /// ```
-#[allow(clippy::doc_lazy_continuation)]
+#[allow(clippy::doc_lazy_continuation, clippy::tabs_in_doc_comments)]
 pub mod domain_name {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

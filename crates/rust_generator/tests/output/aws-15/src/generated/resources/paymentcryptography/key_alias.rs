@@ -34,7 +34,7 @@
 /// ```sh
 /// $ pulumi import aws:paymentcryptography/keyAlias:KeyAlias example alias/4681482429376900170
 /// ```
-#[allow(clippy::doc_lazy_continuation)]
+#[allow(clippy::doc_lazy_continuation, clippy::tabs_in_doc_comments)]
 pub mod key_alias {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

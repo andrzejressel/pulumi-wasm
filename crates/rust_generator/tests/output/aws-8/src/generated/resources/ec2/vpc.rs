@@ -74,7 +74,7 @@
 /// ```sh
 /// $ pulumi import aws:ec2/vpc:Vpc test_vpc vpc-a01106c2
 /// ```
-#[allow(clippy::doc_lazy_continuation)]
+#[allow(clippy::doc_lazy_continuation, clippy::tabs_in_doc_comments)]
 pub mod vpc {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

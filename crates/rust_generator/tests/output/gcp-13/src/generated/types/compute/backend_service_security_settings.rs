@@ -1,7 +1,7 @@
 #[derive(pulumi_gestalt_rust::__private::serde::Deserialize, pulumi_gestalt_rust::__private::serde::Serialize, pulumi_gestalt_rust::__private::bon::Builder, Debug, PartialEq, Clone)]
 #[builder(finish_fn = build_struct)]
 #[allow(dead_code)]
-#[allow(clippy::doc_lazy_continuation)]
+#[allow(clippy::doc_lazy_continuation, clippy::tabs_in_doc_comments)]
 pub struct BackendServiceSecuritySettings {
     /// The configuration needed to generate a signature for access to private storage buckets that support AWS's Signature Version 4 for authentication.
     /// Allowed only for INTERNET_IP_PORT and INTERNET_FQDN_PORT NEG backends.

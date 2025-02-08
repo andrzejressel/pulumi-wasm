@@ -85,7 +85,7 @@
 /// ```sh
 /// $ pulumi import aws:sagemaker/domain:Domain test_domain d-8jgsjtilstu8
 /// ```
-#[allow(clippy::doc_lazy_continuation)]
+#[allow(clippy::doc_lazy_continuation, clippy::tabs_in_doc_comments)]
 pub mod domain {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

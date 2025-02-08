@@ -32,7 +32,7 @@
 /// ```sh
 /// $ pulumi import aws:pinpoint/emailTemplate:EmailTemplate reset template_name
 /// ```
-#[allow(clippy::doc_lazy_continuation)]
+#[allow(clippy::doc_lazy_continuation, clippy::tabs_in_doc_comments)]
 pub mod email_template {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
