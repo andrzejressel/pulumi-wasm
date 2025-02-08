@@ -57,6 +57,7 @@
 /// ```
 /// Certain resource arguments, like `auto_accept`, do not have an EC2 API method for reading the information after peering connection creation. If the argument is set in the Pulumi program on an imported resource, Pulumi will always show a difference. To workaround this behavior, either omit the argument from the Pulumi program or use `ignore_changes` to hide the difference. For example:
 ///
+#[allow(clippy::doc_lazy_continuation, clippy::tabs_in_doc_comments)]
 pub mod vpc_peering_connection_accepter {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

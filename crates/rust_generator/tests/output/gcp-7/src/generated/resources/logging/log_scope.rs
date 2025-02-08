@@ -48,6 +48,7 @@
 /// $ pulumi import gcp:logging/logScope:LogScope default {{parent}}/locations/{{location}}/logScopes/{{name}}
 /// ```
 ///
+#[allow(clippy::doc_lazy_continuation, clippy::tabs_in_doc_comments)]
 pub mod log_scope {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

@@ -154,6 +154,7 @@
 /// $ pulumi import gcp:bigtable/tableIamPolicy:TableIamPolicy default projects/{project}/instances/{instance}/tables/{table}
 /// ```
 ///
+#[allow(clippy::doc_lazy_continuation, clippy::tabs_in_doc_comments)]
 pub mod table_iam_policy {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

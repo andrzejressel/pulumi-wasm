@@ -82,6 +82,7 @@
 /// ```sh
 /// $ pulumi import aws:route53/healthCheck:HealthCheck http_check abcdef11-2222-3333-4444-555555fedcba
 /// ```
+#[allow(clippy::doc_lazy_continuation, clippy::tabs_in_doc_comments)]
 pub mod health_check {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

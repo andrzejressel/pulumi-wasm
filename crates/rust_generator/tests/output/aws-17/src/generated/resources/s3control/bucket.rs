@@ -26,6 +26,7 @@
 /// ```sh
 /// $ pulumi import aws:s3control/bucket:Bucket example arn:aws:s3-outposts:us-east-1:123456789012:outpost/op-12345678/bucket/example
 /// ```
+#[allow(clippy::doc_lazy_continuation, clippy::tabs_in_doc_comments)]
 pub mod bucket {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

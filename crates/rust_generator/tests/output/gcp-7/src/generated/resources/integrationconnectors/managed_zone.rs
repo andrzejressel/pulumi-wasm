@@ -106,6 +106,7 @@
 /// $ pulumi import gcp:integrationconnectors/managedZone:ManagedZone default {{name}}
 /// ```
 ///
+#[allow(clippy::doc_lazy_continuation, clippy::tabs_in_doc_comments)]
 pub mod managed_zone {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

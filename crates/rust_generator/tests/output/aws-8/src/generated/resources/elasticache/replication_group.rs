@@ -219,6 +219,7 @@
 /// ```sh
 /// $ pulumi import aws:elasticache/replicationGroup:ReplicationGroup my_replication_group replication-group-1
 /// ```
+#[allow(clippy::doc_lazy_continuation, clippy::tabs_in_doc_comments)]
 pub mod replication_group {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

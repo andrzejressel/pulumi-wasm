@@ -26,6 +26,7 @@
 /// ```sh
 /// $ pulumi import aws:apigateway/requestValidator:RequestValidator example 12345abcde/67890fghij
 /// ```
+#[allow(clippy::doc_lazy_continuation, clippy::tabs_in_doc_comments)]
 pub mod request_validator {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

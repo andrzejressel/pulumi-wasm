@@ -281,6 +281,7 @@
 /// $ pulumi import gcp:healthcare/pipelineJob:PipelineJob default {{name}}
 /// ```
 ///
+#[allow(clippy::doc_lazy_continuation, clippy::tabs_in_doc_comments)]
 pub mod pipeline_job {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

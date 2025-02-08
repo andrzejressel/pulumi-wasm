@@ -59,6 +59,7 @@
 /// ```sh
 /// $ pulumi import aws:glacier/vaultLock:VaultLock example example-vault
 /// ```
+#[allow(clippy::doc_lazy_continuation, clippy::tabs_in_doc_comments)]
 pub mod vault_lock {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

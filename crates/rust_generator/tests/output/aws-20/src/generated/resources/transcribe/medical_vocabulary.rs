@@ -40,6 +40,7 @@
 /// ```sh
 /// $ pulumi import aws:transcribe/medicalVocabulary:MedicalVocabulary example example-name
 /// ```
+#[allow(clippy::doc_lazy_continuation, clippy::tabs_in_doc_comments)]
 pub mod medical_vocabulary {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

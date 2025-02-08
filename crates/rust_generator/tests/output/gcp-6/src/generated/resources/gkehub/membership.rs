@@ -141,6 +141,7 @@
 /// $ pulumi import gcp:gkehub/membership:Membership default {{location}}/{{membership_id}}
 /// ```
 ///
+#[allow(clippy::doc_lazy_continuation, clippy::tabs_in_doc_comments)]
 pub mod membership {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

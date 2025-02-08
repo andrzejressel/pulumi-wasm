@@ -1,6 +1,7 @@
 #[derive(pulumi_gestalt_rust::__private::serde::Deserialize, pulumi_gestalt_rust::__private::serde::Serialize, pulumi_gestalt_rust::__private::bon::Builder, Debug, PartialEq, Clone)]
 #[builder(finish_fn = build_struct)]
 #[allow(dead_code)]
+#[allow(clippy::doc_lazy_continuation, clippy::tabs_in_doc_comments)]
 pub struct InstancePersistenceConfig {
     /// Optional. Controls whether Persistence features are enabled. If not provided, the existing value will be used.
     /// - DISABLED: 	Persistence is disabled for the instance, and any existing snapshots are deleted.

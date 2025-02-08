@@ -1,5 +1,5 @@
 [workspace.lints.clippy]
-panic = "deny"
+panic = "warn"
 
 [workspace]
 resolver = "2"

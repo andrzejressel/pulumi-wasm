@@ -66,6 +66,7 @@
 /// ```sh
 /// $ pulumi import aws:connect/instance:Instance example f1288a1f-6193-445a-b47e-af739b2
 /// ```
+#[allow(clippy::doc_lazy_continuation, clippy::tabs_in_doc_comments)]
 pub mod instance {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

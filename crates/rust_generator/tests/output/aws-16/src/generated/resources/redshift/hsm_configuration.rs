@@ -28,6 +28,7 @@
 /// ```sh
 /// $ pulumi import aws:redshift/hsmConfiguration:HsmConfiguration example example
 /// ```
+#[allow(clippy::doc_lazy_continuation, clippy::tabs_in_doc_comments)]
 pub mod hsm_configuration {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

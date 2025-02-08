@@ -44,6 +44,7 @@
 /// ```sh
 /// $ pulumi import aws:glue/devEndpoint:DevEndpoint example foo
 /// ```
+#[allow(clippy::doc_lazy_continuation, clippy::tabs_in_doc_comments)]
 pub mod dev_endpoint {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

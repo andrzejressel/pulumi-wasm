@@ -82,11 +82,14 @@ fmt:
     cargo fmt
 
 fmt-clippy:
-    cargo clippy --all-features --fix --allow-dirty --allow-staged
+    cargo clippy --tests --all-features --fix --allow-dirty --allow-staged
     just fmt
 
+clippy:
+    cargo clippy --tests --all-features
+
 clippy-to-file:
-    cargo clippy --all-features --message-format=json | clippy-sarif | tee rust-clippy-results.sarif | sarif-fmt
+    cargo clippy --tests --all-features --message-format=json | clippy-sarif | tee rust-clippy-results.sarif | sarif-fmt
 
 regenerator:
     cargo run -p regenerator

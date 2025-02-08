@@ -53,6 +53,7 @@
 /// ```sh
 /// $ pulumi import aws:rds/optionGroup:OptionGroup example mysql-option-group
 /// ```
+#[allow(clippy::doc_lazy_continuation, clippy::tabs_in_doc_comments)]
 pub mod option_group {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

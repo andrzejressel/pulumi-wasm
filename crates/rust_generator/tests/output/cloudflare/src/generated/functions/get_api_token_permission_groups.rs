@@ -1,3 +1,4 @@
+#[allow(clippy::doc_lazy_continuation, clippy::tabs_in_doc_comments)]
 pub mod get_api_token_permission_groups {
     #[allow(dead_code)]
     pub struct GetApiTokenPermissionGroupsResult {

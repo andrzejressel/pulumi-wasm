@@ -1,6 +1,7 @@
 #[derive(pulumi_gestalt_rust::__private::serde::Deserialize, pulumi_gestalt_rust::__private::serde::Serialize, pulumi_gestalt_rust::__private::bon::Builder, Debug, PartialEq, Clone)]
 #[builder(finish_fn = build_struct)]
 #[allow(dead_code)]
+#[allow(clippy::doc_lazy_continuation, clippy::tabs_in_doc_comments)]
 pub struct PipeTargetParametersEcsTaskParametersOverridesInferenceAcceleratorOverride {
     /// The Elastic Inference accelerator device name to override for the task. This parameter must match a deviceName specified in the task definition.
     #[builder(into, default)]

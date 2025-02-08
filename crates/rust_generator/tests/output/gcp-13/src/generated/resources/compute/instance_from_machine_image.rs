@@ -22,6 +22,7 @@
 ///       labels:
 ///         my_key: my_value
 /// ```
+#[allow(clippy::doc_lazy_continuation, clippy::tabs_in_doc_comments)]
 pub mod instance_from_machine_image {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

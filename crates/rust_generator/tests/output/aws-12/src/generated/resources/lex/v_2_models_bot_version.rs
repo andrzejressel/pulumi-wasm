@@ -22,6 +22,7 @@
 /// ```sh
 /// $ pulumi import aws:lex/v2modelsBotVersion:V2modelsBotVersion example id-12345678,1
 /// ```
+#[allow(clippy::doc_lazy_continuation, clippy::tabs_in_doc_comments)]
 pub mod v_2_models_bot_version {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

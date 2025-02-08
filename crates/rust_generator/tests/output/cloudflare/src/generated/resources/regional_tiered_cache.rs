@@ -24,6 +24,7 @@
 /// $ pulumi import cloudflare:index/regionalTieredCache:RegionalTieredCache example <zone_id>
 /// ```
 ///
+#[allow(clippy::doc_lazy_continuation, clippy::tabs_in_doc_comments)]
 pub mod regional_tiered_cache {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]

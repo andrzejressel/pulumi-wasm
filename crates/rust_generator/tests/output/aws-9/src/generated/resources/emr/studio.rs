@@ -31,6 +31,7 @@
 /// ```sh
 /// $ pulumi import aws:emr/studio:Studio studio es-123456ABCDEF
 /// ```
+#[allow(clippy::doc_lazy_continuation, clippy::tabs_in_doc_comments)]
 pub mod studio {
     #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
