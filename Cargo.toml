@@ -4,34 +4,34 @@ panic = "deny"
 [workspace]
 resolver = "2"
 members = [
+    "crates/c_ffi",
+    "crates/core",
+    "crates/grpc",
+    "crates/proto",
+    "crates/rust",
+    "crates/rust_build",
+    "crates/rust_common",
+    "crates/rust_generator",
+    "crates/wasm",
+    "crates/wasm_runner",
+    "crates/wasm_runner_component_creator",
+    "crates/wit",
     "examples/common",
     "examples/cpp",
     "examples/dependencies",
     "examples/docker",
     "examples/multiple_providers",
+    "examples/plugins",
     "examples/secret",
     "examples/simple",
-    "examples/plugins",
     "examples/typesystem",
     "providers/aws-mini",
     "providers/azure-mini",
     "providers/cloudflare",
     "providers/docker",
     "providers/gcp-mini",
-    "providers/typesystem",
     "providers/random",
-    "crates/c_ffi",
-    "crates/wasm",
-    "pulumi_gestalt_common",
-    "crates/core",
-    "crates/rust_build",
-    "crates/rust_generator",
-    "crates/grpc",
-    "crates/proto",
-    "crates/wasm_runner",
-    "crates/wasm_runner_component_creator",
-    "crates/rust",
-    "crates/wit",
+    "providers/typesystem",
     "regenerator",
 ]
 
@@ -45,7 +45,7 @@ pulumi_gestalt_core = { version = "=0.0.0-DEV", path = "crates/core", registry =
 pulumi_gestalt_build = { version = "=0.0.0-DEV", path = "crates/rust_build", registry = "cloudsmith" }
 pulumi_gestalt_generator = { version = "=0.0.0-DEV", path = "crates/rust_generator", registry = "cloudsmith" }
 pulumi_gestalt_rust = { version = "=0.0.0-DEV", path = "crates/rust", registry = "cloudsmith" }
-pulumi_gestalt_common = { version = "=0.0.0-DEV", path = "pulumi_gestalt_common", registry = "cloudsmith" }
+pulumi_gestalt_rust_common = { version = "=0.0.0-DEV", path = "crates/rust_common", registry = "cloudsmith" }
 pulumi_gestalt_proto = { version = "=0.0.0-DEV", path = "crates/proto", registry = "cloudsmith" }
 pulumi_gestalt_wit = { version = "=0.0.0-DEV", path = "crates/wit", registry = "cloudsmith" }
 pulumi_gestalt_runner_component_creator = { version = "=0.0.0-DEV", path = "crates/wasm_runner_component_creator", registry = "cloudsmith" }
