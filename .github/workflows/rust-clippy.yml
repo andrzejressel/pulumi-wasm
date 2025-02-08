@@ -54,6 +54,12 @@ jobs:
       run: |
         cargo install clippy-sarif || clippy-sarif --version
         cargo install sarif-fmt || sarif-fmt --version
+    - run: brew install pulumi
+      if: runner.os == 'macOS'
+    - run: pulumi version
+    - run: pulumi login --local
+    - name: Prerun clippy
+      run: just clippy
     - name: Run rust-clippy
       run: just clippy-to-file
     - name: Upload analysis results to GitHub
