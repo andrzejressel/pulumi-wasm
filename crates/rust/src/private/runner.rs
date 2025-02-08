@@ -11,15 +11,15 @@ where
     F: Fn(&PulumiContext) -> Result<(), Error>,
 {
     let in_preview = in_preview_u8 == 1;
-    let engine = PulumiContext::new(in_preview);
-    let outer = |e: &PulumiContext| {
+    let main = || {
+        let engine = PulumiContext::new(in_preview);
         pulumi_gestalt_common::setup_logger();
         f(&engine)?;
         run_loop(&engine)?;
         Ok(())
     };
 
-    let result = outer(&engine);
+    let result = main();
 
     match result {
         Ok(()) => Ok(()),
