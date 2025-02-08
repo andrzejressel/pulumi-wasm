@@ -1,6 +1,6 @@
 use anyhow::Result;
 use async_trait::async_trait;
-use pulumi_gestalt_runner_component_creator::source::WasmComponentSource;
+use pulumi_gestalt_wasm_component_creator::source::WasmComponentSource;
 use wac_graph::types::Package;
 use wac_graph::CompositionGraph;
 use wit_component::{dummy_module, embed_component_metadata, ComponentEncoder, StringEncoding};
@@ -41,7 +41,7 @@ async fn should_combine_wasm_components() -> Result<()> {
         .encode()
         .unwrap();
 
-    let result = pulumi_gestalt_runner_component_creator::create(
+    let result = pulumi_gestalt_wasm_component_creator::create(
         &TestProgramSource {},
         encoded.clone(),
         true,
@@ -89,7 +89,7 @@ async fn return_error_when_multiple_versions_of_pulumi_gestalt_is_found() -> Res
         .encode()
         .unwrap();
 
-    let error = pulumi_gestalt_runner_component_creator::create(
+    let error = pulumi_gestalt_wasm_component_creator::create(
         &TestProgramSource {},
         encoded.clone(),
         true,
@@ -149,7 +149,7 @@ async fn return_error_when_multiple_versions_of_pulumi_gestalt_in_providers_is_f
         .encode()
         .unwrap();
 
-    let error = pulumi_gestalt_runner_component_creator::create(
+    let error = pulumi_gestalt_wasm_component_creator::create(
         &TestProgramSource {},
         encoded.clone(),
         true,

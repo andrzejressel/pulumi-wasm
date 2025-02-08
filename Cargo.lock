@@ -2565,45 +2565,6 @@ dependencies = [
 ]
 
 [[package]]
-name = "pulumi_gestalt_runner"
-version = "0.0.0-DEV"
-dependencies = [
- "anyhow",
- "clap",
- "log",
- "log4rs",
- "prost",
- "pulumi_gestalt_grpc_connection",
- "pulumi_gestalt_proto",
- "pulumi_gestalt_runner_component_creator",
- "pulumi_gestalt_wit",
- "serde",
- "serde_json",
- "tokio",
- "wasmparser 0.225.0",
- "wasmtime",
- "wasmtime-wasi",
- "wat",
-]
-
-[[package]]
-name = "pulumi_gestalt_runner_component_creator"
-version = "0.0.0-DEV"
-dependencies = [
- "anyhow",
- "async-trait",
- "directories",
- "itertools 0.14.0",
- "log",
- "regex",
- "reqwest",
- "tokio",
- "wac-graph",
- "wit-component",
- "wit-parser 0.225.0",
-]
-
-[[package]]
 name = "pulumi_gestalt_rust"
 version = "0.0.0-DEV"
 dependencies = [
@@ -2626,6 +2587,45 @@ version = "0.0.0-DEV"
 dependencies = [
  "log",
  "pulumi_gestalt_wit",
+]
+
+[[package]]
+name = "pulumi_gestalt_wasm_component_creator"
+version = "0.0.0-DEV"
+dependencies = [
+ "anyhow",
+ "async-trait",
+ "directories",
+ "itertools 0.14.0",
+ "log",
+ "regex",
+ "reqwest",
+ "tokio",
+ "wac-graph",
+ "wit-component",
+ "wit-parser 0.225.0",
+]
+
+[[package]]
+name = "pulumi_gestalt_wasm_runner"
+version = "0.0.0-DEV"
+dependencies = [
+ "anyhow",
+ "clap",
+ "log",
+ "log4rs",
+ "prost",
+ "pulumi_gestalt_grpc_connection",
+ "pulumi_gestalt_proto",
+ "pulumi_gestalt_wasm_component_creator",
+ "pulumi_gestalt_wit",
+ "serde",
+ "serde_json",
+ "tokio",
+ "wasmparser 0.225.0",
+ "wasmtime",
+ "wasmtime-wasi",
+ "wat",
 ]
 
 [[package]]

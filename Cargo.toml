@@ -14,7 +14,7 @@ members = [
     "crates/rust_generator",
     "crates/wasm",
     "crates/wasm_runner",
-    "crates/wasm_runner_component_creator",
+    "crates/wasm_component_creator",
     "crates/wit",
     "examples/common",
     "examples/cpp",
@@ -48,7 +48,7 @@ pulumi_gestalt_rust = { version = "=0.0.0-DEV", path = "crates/rust", registry =
 pulumi_gestalt_rust_common = { version = "=0.0.0-DEV", path = "crates/rust_common", registry = "cloudsmith" }
 pulumi_gestalt_proto = { version = "=0.0.0-DEV", path = "crates/proto", registry = "cloudsmith" }
 pulumi_gestalt_wit = { version = "=0.0.0-DEV", path = "crates/wit", registry = "cloudsmith" }
-pulumi_gestalt_runner_component_creator = { version = "=0.0.0-DEV", path = "crates/wasm_runner_component_creator", registry = "cloudsmith" }
+pulumi_gestalt_wasm_component_creator = { version = "=0.0.0-DEV", path = "crates/wasm_component_creator", registry = "cloudsmith" }
 pulumi_gestalt_providers_docker = { version = "=0.0.0-DEV", path = "providers/docker", registry = "cloudsmith" }
 pulumi_gestalt_providers_random = { version = "=0.0.0-DEV", path = "providers/random", registry = "cloudsmith" }
 pulumi_gestalt_providers_typesystem = { version = "=0.0.0-DEV", path = "providers/typesystem", registry = "cloudsmith" }
