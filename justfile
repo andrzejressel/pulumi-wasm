@@ -52,7 +52,7 @@ install-requirements:
 
 # Compiling everything together causes linking issues
 build-wasm-components:
-    cargo build -p pulumi_gestalt_runner
+    cargo build -p pulumi_gestalt_wasm_runner
     cargo component build -p pulumi_gestalt
     cargo component build -p pulumi_gestalt_example_simple
     cargo component build -p pulumi_gestalt_example_docker
@@ -62,7 +62,7 @@ build-wasm-components:
     cargo component build -p pulumi_gestalt_example_secret
 
 build-wasm-components-release:
-    cargo build -p pulumi_gestalt_runner --release
+    cargo build -p pulumi_gestalt_wasm_runner --release
     cargo component build -p pulumi_gestalt --release
     cargo component build -p pulumi_gestalt_example_simple --release
     cargo component build -p pulumi_gestalt_example_docker --release
@@ -106,8 +106,8 @@ publish:
     cargo hack publish -p pulumi_gestalt_generator --all-features --no-dev-deps --allow-dirty
     cargo hack publish -p pulumi_gestalt_build --all-features --no-dev-deps --allow-dirty
     cargo hack publish -p pulumi_gestalt_core --all-features --no-dev-deps --allow-dirty
-    cargo hack publish -p pulumi_gestalt_runner_component_creator --all-features --no-dev-deps --allow-dirty
-    cargo hack publish -p pulumi_gestalt_runner --all-features --no-dev-deps --allow-dirty
+    cargo hack publish -p pulumi_gestalt_wasm_component_creator --all-features --no-dev-deps --allow-dirty
+    cargo hack publish -p pulumi_gestalt_wasm_runner --all-features --no-dev-deps --allow-dirty
 
 test-provider-compilation COMPILATION_NAME:
     cargo llvm-cov nextest -p pulumi_gestalt_generator --cobertura --output-path covertura.xml --features generator_{{COMPILATION_NAME}} --test '*'

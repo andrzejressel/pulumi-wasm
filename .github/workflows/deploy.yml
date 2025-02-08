@@ -252,19 +252,19 @@ jobs:
       - name: Add target
         run: rustup target add ${{ matrix.rust-target }}
       - name: Build runner (Debug)
-        run: cargo build -p pulumi_gestalt_runner --target ${{ matrix.rust-target }}
+        run: cargo build -p pulumi_gestalt_wasm_runner --target ${{ matrix.rust-target }}
       - name: Build runner (Release)
-        run: cargo build -p pulumi_gestalt_runner --release --target ${{ matrix.rust-target }}
+        run: cargo build -p pulumi_gestalt_wasm_runner --release --target ${{ matrix.rust-target }}
 
       - run: |
-          cp ./target/${{ matrix.rust-target }}/debug/pulumi_gestalt_runner.exe ./target/${{ matrix.rust-target }}/debug/pulumi_gestalt_runner-${{ matrix.rust-target }}-debug
-          cp ./target/${{ matrix.rust-target }}/release/pulumi_gestalt_runner.exe ./target/${{ matrix.rust-target }}/release/pulumi_gestalt_runner-${{ matrix.rust-target }}
-          cp ./target/${{ matrix.rust-target }}/release/pulumi_gestalt_runner.exe ./target/${{ matrix.rust-target }}/release/pulumi_gestalt_runner-${{ matrix.rust-target }}-release
+          cp ./target/${{ matrix.rust-target }}/debug/pulumi_gestalt_wasm_runner.exe ./target/${{ matrix.rust-target }}/debug/pulumi_gestalt_wasm_runner-${{ matrix.rust-target }}-debug
+          cp ./target/${{ matrix.rust-target }}/release/pulumi_gestalt_wasm_runner.exe ./target/${{ matrix.rust-target }}/release/pulumi_gestalt_wasm_runner-${{ matrix.rust-target }}
+          cp ./target/${{ matrix.rust-target }}/release/pulumi_gestalt_wasm_runner.exe ./target/${{ matrix.rust-target }}/release/pulumi_gestalt_wasm_runner-${{ matrix.rust-target }}-release
         if: matrix.os == 'windows-2022'
       - run: |
-          cp ./target/${{ matrix.rust-target }}/debug/pulumi_gestalt_runner ./target/${{ matrix.rust-target }}/debug/pulumi_gestalt_runner-${{ matrix.rust-target }}-debug
-          cp ./target/${{ matrix.rust-target }}/release/pulumi_gestalt_runner ./target/${{ matrix.rust-target }}/release/pulumi_gestalt_runner-${{ matrix.rust-target }}
-          cp ./target/${{ matrix.rust-target }}/release/pulumi_gestalt_runner ./target/${{ matrix.rust-target }}/release/pulumi_gestalt_runner-${{ matrix.rust-target }}-release
+          cp ./target/${{ matrix.rust-target }}/debug/pulumi_gestalt_wasm_runner ./target/${{ matrix.rust-target }}/debug/pulumi_gestalt_wasm_runner-${{ matrix.rust-target }}-debug
+          cp ./target/${{ matrix.rust-target }}/release/pulumi_gestalt_wasm_runner ./target/${{ matrix.rust-target }}/release/pulumi_gestalt_wasm_runner-${{ matrix.rust-target }}
+          cp ./target/${{ matrix.rust-target }}/release/pulumi_gestalt_wasm_runner ./target/${{ matrix.rust-target }}/release/pulumi_gestalt_wasm_runner-${{ matrix.rust-target }}-release
         if: matrix.os != 'windows-2022'
 
       - name: Release
@@ -278,9 +278,9 @@ jobs:
           token: ${{ secrets.RELEASE_TOKEN }}
           body: ""
           files: |
-            ./target/${{ matrix.rust-target }}/debug/pulumi_gestalt_runner-${{ matrix.rust-target }}-debug
-            ./target/${{ matrix.rust-target }}/release/pulumi_gestalt_runner-${{ matrix.rust-target }}
-            ./target/${{ matrix.rust-target }}/release/pulumi_gestalt_runner-${{ matrix.rust-target }}-release
+            ./target/${{ matrix.rust-target }}/debug/pulumi_gestalt_wasm_runner-${{ matrix.rust-target }}-debug
+            ./target/${{ matrix.rust-target }}/release/pulumi_gestalt_wasm_runner-${{ matrix.rust-target }}
+            ./target/${{ matrix.rust-target }}/release/pulumi_gestalt_wasm_runner-${{ matrix.rust-target }}-release
 
   deploy_c_library:
     runs-on: ${{ matrix.os }}

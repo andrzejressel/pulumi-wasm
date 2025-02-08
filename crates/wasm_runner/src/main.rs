@@ -7,8 +7,8 @@ use log4rs::config::{Appender, Root};
 use log4rs::encode::json::JsonEncoder;
 use log4rs::Config;
 use pulumi_gestalt_proto::grpc;
-use pulumi_gestalt_runner_component_creator::source::GithubWasmComponentSource;
-use pulumi_gestalt_runner_component_creator::source::WasmComponentSource;
+use pulumi_gestalt_wasm_component_creator::source::GithubWasmComponentSource;
+use pulumi_gestalt_wasm_component_creator::source::WasmComponentSource;
 use std::fs;
 use std::fs::File;
 use std::io::Write;
@@ -74,7 +74,7 @@ async fn main() -> Result<(), Error> {
             debug,
             program,
         } => {
-            use pulumi_gestalt_runner_component_creator::source::FileSource;
+            use pulumi_gestalt_wasm_component_creator::source::FileSource;
             log::info!("Debug set to {debug}");
             log::info!("Creating final component");
             let pulumi_gestalt_source: Box<dyn WasmComponentSource> = match pulumi_gestalt {
@@ -82,7 +82,7 @@ async fn main() -> Result<(), Error> {
                 Some(location) => Box::new(FileSource::new(location.clone())),
             };
 
-            let component = pulumi_gestalt_runner_component_creator::create(
+            let component = pulumi_gestalt_wasm_component_creator::create(
                 pulumi_gestalt_source.as_ref(),
                 fs::read(program)
                     .context(format!("Cannot read program {}", program.to_str().unwrap()))?,
