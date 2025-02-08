@@ -28,7 +28,11 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        os: [ubuntu-24.04, macos-14] # Windows has mixed paths that mess GitHub reader up (https://github.com/github/codeql/issues/15209)
+        os:
+          - ubuntu-24.04
+        #  - windows-2022 Windows has mixed paths that mess GitHub reader up (https://github.com/github/codeql/issues/15209)
+          - macos-14
+
 
     name: Run rust-clippy analyzing
     permissions:
