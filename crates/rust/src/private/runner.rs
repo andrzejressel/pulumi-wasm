@@ -13,7 +13,7 @@ where
     let in_preview = in_preview_u8 == 1;
     let main = || {
         let engine = PulumiContext::new(in_preview);
-        pulumi_gestalt_common::setup_logger();
+        pulumi_gestalt_rust_common::setup_logger();
         f(&engine)?;
         run_loop(&engine)?;
         Ok(())

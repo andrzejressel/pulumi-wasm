@@ -5,14 +5,14 @@ use std::fs;
 use std::path::PathBuf;
 
 #[async_trait]
-pub trait PulumiWasmSource {
+pub trait WasmComponentSource {
     async fn get(&self, version: &str, debug: bool) -> Result<Vec<u8>>;
 }
 
-pub struct GithubPulumiWasmSource;
+pub struct GithubWasmComponentSource;
 
 #[async_trait]
-impl PulumiWasmSource for GithubPulumiWasmSource {
+impl WasmComponentSource for GithubWasmComponentSource {
     async fn get(&self, version: &str, debug: bool) -> Result<Vec<u8>> {
         let profile = if debug { "debug" } else { "release" };
 
@@ -72,7 +72,7 @@ impl FileSource {
 }
 
 #[async_trait]
-impl PulumiWasmSource for FileSource {
+impl WasmComponentSource for FileSource {
     async fn get(&self, _version: &str, _debug: bool) -> Result<Vec<u8>> {
         Ok(fs::read(&self.0)?)
     }
@@ -85,26 +85,24 @@ mod tests {
         use super::*;
 
         #[tokio::test]
-        #[ignore]
         async fn should_download_existing_pulumi_gestalt() -> Result<()> {
-            let source = GithubPulumiWasmSource {};
-            let res = source.get("25.1.10-72ba8cc", false).await?;
+            let source = GithubWasmComponentSource {};
+            let res = source.get("25.2.7-1354394", false).await?;
             assert!(!res.is_empty());
             Ok(())
         }
 
         #[tokio::test]
-        #[ignore]
         async fn should_download_existing_debug_pulumi_gestalt() -> Result<()> {
-            let source = GithubPulumiWasmSource {};
-            let res = source.get("25.1.10-72ba8cc", true).await?;
+            let source = GithubWasmComponentSource {};
+            let res = source.get("25.2.7-1354394", true).await?;
             assert!(!res.is_empty());
             Ok(())
         }
 
         #[tokio::test]
         async fn should_fail_on_noexisting_version() -> Result<()> {
-            let source = GithubPulumiWasmSource {};
+            let source = GithubWasmComponentSource {};
             let err = source
                 .get("0.0.0-NIGHTLY-nonexistent", false)
                 .await
