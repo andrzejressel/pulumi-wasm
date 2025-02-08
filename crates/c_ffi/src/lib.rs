@@ -68,7 +68,7 @@ pub struct RegisterResourceResult {
 type MappingFunction = extern "C" fn(*const c_void, *const c_void, *const c_char) -> *mut c_char;
 
 #[no_mangle]
-pub extern "C" fn create_engine(context: *const c_void) -> *mut PulumiEngine {
+extern "C" fn create_engine(context: *const c_void) -> *mut PulumiEngine {
     let engine = Rc::new(RefCell::new(get_engine()));
     let in_preview = match std::env::var("PULUMI_DRY_RUN") {
         Ok(preview) if preview == "true" => true,
@@ -86,7 +86,7 @@ pub extern "C" fn create_engine(context: *const c_void) -> *mut PulumiEngine {
 }
 
 #[no_mangle]
-pub extern "C" fn free_engine(t: *mut PulumiEngine) {
+extern "C" fn free_engine(t: *mut PulumiEngine) {
     unsafe {
         let b = Box::from_raw(t);
         for output in b.outputs.iter() {
@@ -96,7 +96,7 @@ pub extern "C" fn free_engine(t: *mut PulumiEngine) {
 }
 
 #[no_mangle]
-pub extern "C" fn create_output(
+extern "C" fn create_output(
     pulumi_engine: *mut PulumiEngine,
     value: *const c_char,
     secret: bool,
@@ -122,7 +122,7 @@ pub extern "C" fn create_output(
 }
 
 #[no_mangle]
-pub extern "C" fn add_export(value: *const CustomOutputId, name: *const c_char) {
+extern "C" fn add_export(value: *const CustomOutputId, name: *const c_char) {
     let name = unsafe { CStr::from_ptr(name) }
         .to_str()
         .unwrap()
@@ -137,7 +137,7 @@ pub extern "C" fn add_export(value: *const CustomOutputId, name: *const c_char) 
 }
 
 #[no_mangle]
-pub extern "C" fn finish(pulumi_engine: *mut PulumiEngine) {
+extern "C" fn finish(pulumi_engine: *mut PulumiEngine) {
     let pulumi_engine = unsafe { &mut *pulumi_engine };
     finish_loop(pulumi_engine, HashMap::new());
 }
@@ -171,7 +171,7 @@ fn finish_loop(pulumi_engine: &mut PulumiEngine, native_function_result: HashMap
 }
 
 #[no_mangle]
-pub extern "C" fn pulumi_map(
+extern "C" fn pulumi_map(
     pulumi_engine: *mut PulumiEngine,
     output: *const CustomOutputId,
     function_context: *const c_void,
@@ -222,7 +222,7 @@ pub extern "C" fn pulumi_map(
 }
 
 #[no_mangle]
-pub extern "C" fn pulumi_get_output(
+extern "C" fn pulumi_get_output(
     custom_register_output_id: *mut CustomRegisterOutputId,
     field_name: *const c_char,
 ) -> *mut CustomOutputId {
@@ -247,7 +247,7 @@ pub extern "C" fn pulumi_get_output(
 }
 
 #[no_mangle]
-pub extern "C" fn pulumi_register_resource(
+extern "C" fn pulumi_register_resource(
     pulumi_engine: *mut PulumiEngine,
     request: *const RegisterResourceRequest,
 ) -> *mut CustomRegisterOutputId {
