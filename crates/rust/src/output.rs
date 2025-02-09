@@ -32,11 +32,6 @@ pub(crate) static HASHMAP: Lazy<Mutex<HashMap<String, Function>>> = Lazy::new(||
     Mutex::new(m)
 });
 
-// static NONE_OUTPUT: Lazy<Output<Option<String>>> = Lazy::new(|| {
-//     let op = None::<String>;
-//     Output::new(&op)
-// });
-
 impl<T> Output<T> {
     pub fn map<B, F>(&self, f: F) -> Output<B>
     where
@@ -86,7 +81,7 @@ impl<T> Output<T> {
     ///
     /// # Safety
     ///
-    /// Underlying output must be of type `F`.
+    /// The underlying output must be of type `F`.
     pub unsafe fn new_from_handle<F: Serialize>(handle: output_interface::Output) -> Output<F> {
         Output {
             phantom: PhantomData::<F>,
@@ -119,10 +114,6 @@ impl<T: Serialize> Output<T> {
         }
     }
 
-    // /// Returns singleton Output containing serialized null
-    // pub fn empty() -> Output<Option<T>> {
-    //     unsafe { NONE_OUTPUT.transmute::<Option<T>>() }
-    // }
 }
 
 /// Generates Output<String> with formatted string. Supports up to 16 arguments.

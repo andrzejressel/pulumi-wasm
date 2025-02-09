@@ -8,6 +8,8 @@ pub mod __private;
 mod context;
 mod input_or_output;
 mod oneof;
+mod implementations;
+
 pub use input_or_output::InputOrOutput;
 
 pub use context::PulumiContext;
@@ -56,6 +58,7 @@ macro_rules! include_provider {
 /// }
 /// ```
 #[macro_export]
+#[cfg(target_arch = "wasm32")]
 macro_rules! pulumi_main {
     () => {
         #[export_name = "component:pulumi-gestalt-external/pulumi-main@0.0.0-STABLE-DEV#main"]
