@@ -19,6 +19,8 @@ pulumi_gestalt_wit = { workspace = true, features = ["client"] }
 once_cell.workspace = true
 wit-bindgen.workspace = true
 bon.workspace = true
+pulumi_gestalt_rust_adapter.workspace = true
+pulumi_gestalt_rust_adapter_wasm.workspace = true
 
 [dev-dependencies]
 pulumi_gestalt_build.workspace = true

@@ -1,6 +1,3 @@
-use crate::implementations::engine::{GestaltCompositeOutput, GestaltEngine, GestaltOutput};
-use crate::implementations::RegisterResourceRequest;
-use crate::output::HASHMAP;
 use anyhow::Error;
 use pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::pulumi_engine::Engine as WitEngine;
 use pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::stack_interface::add_export;
@@ -12,6 +9,7 @@ use std::marker::PhantomData;
 use std::rc::Rc;
 use std::sync::RwLock;
 use uuid::Uuid;
+use pulumi_gestalt_rust_adapter::{GestaltCompositeOutput, GestaltEngine, GestaltOutput, RegisterResourceRequest};
 
 type Function = Box<dyn Fn(&String) -> Result<String, Error> + Send>;
 
@@ -43,6 +41,7 @@ pub(crate) struct WasmEngine {
 impl GestaltEngine for WasmEngine {
     type Output<T> = WasmOutput<T>;
     type CompositeOutput = WasmCompositeOutput;
+    type OutputId = output_interface::Output;
 
     fn new<T>(&self, value: String, secret: bool) -> WasmOutput<T> {
         let engine = self.engine.clone();
@@ -55,7 +54,7 @@ impl GestaltEngine for WasmEngine {
         }
     }
 
-    fn register_resource(&self, request: RegisterResourceRequest) -> Self::CompositeOutput {
+    fn register_resource(&self, request: RegisterResourceRequest<Self::OutputId>) -> Self::CompositeOutput {
         let mut object_fields = Vec::new();
         for object in request.props {
             object_fields.push(register_interface::ObjectField {
@@ -97,18 +96,15 @@ impl InnerWasmEngine {
         };
 
         let uuid = Uuid::now_v7().to_string();
-        let mut map = HASHMAP.lock().unwrap();
-        map.insert(uuid.clone(), Box::new(f));
+        self.functions.insert(uuid.clone(), Box::new(f));
 
         uuid
-        // let new_output = self.wit_engine.map(uuid.as_str());
-
-        // new_output
     }
 }
 
 impl <T> GestaltOutput<T> for WasmOutput<T> {
     type Me<A> = WasmOutput<T>;
+    type OutputId = output_interface::Output;
 
     fn map<B, F>(&self, f: F) -> Self::Me<B>
     where
@@ -131,6 +127,18 @@ impl <T> GestaltOutput<T> for WasmOutput<T> {
 
     fn add_to_export(&self, key: &str) {
         add_export(key, &self.wasm_output);
+    }
+
+    fn combine<RESULT>(&self, others: &[&Self::OutputId]) -> Self::Me<RESULT> {
+        let mut all_outputs = Vec::new();
+        all_outputs.push(&self.wasm_output);
+        all_outputs.extend_from_slice(&others);
+        let result = output_interface::combine(&all_outputs);
+        WasmOutput {
+            engine: self.engine.clone(),
+            wasm_output: result,
+            phantom: PhantomData,
+        }
     }
 
     unsafe fn transmute<F>(self) -> Self::Me<F> {

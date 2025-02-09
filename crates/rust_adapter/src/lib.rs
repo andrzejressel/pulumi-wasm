@@ -1,17 +1,19 @@
 use serde::de::DeserializeOwned;
 use serde::Serialize;
-use crate::implementations::{OutputId, RegisterResourceRequest};
 
 pub trait GestaltEngine {
     type Output<T>;
     type CompositeOutput;
+    type OutputId;
 
     fn new<T>(&self, value: String, secret: bool) -> Self::Output<T>;
-    fn register_resource(&self, request: RegisterResourceRequest) -> Self::CompositeOutput;
+    fn register_resource(&self, request: RegisterResourceRequest<Self::OutputId>) -> Self::CompositeOutput;
 }
 
-pub trait GestaltOutput<T> {
+pub trait GestaltOutput<T> : Clone {
     type Me<A>;
+    type OutputId;
+
     fn map<B, F>(&self, f: F) -> Self::Me<B>
     where
         F: Fn(T) -> B + Send + 'static,
@@ -19,6 +21,8 @@ pub trait GestaltOutput<T> {
         B: Serialize;
 
     fn add_to_export(&self, key: &str);
+
+    fn combine< RESULT>(&self, others: &[&Self::OutputId]) -> Self::Me<RESULT>;
 
     /// Forcefully changes the visible type of underlying Output
     ///
@@ -30,7 +34,7 @@ pub trait GestaltOutput<T> {
     unsafe fn transmute<F>(self) -> Self::Me<F>;
 
     #[doc(hidden)]
-    fn get_id(&self) -> &OutputId;
+    fn get_id(&self) -> &Self::OutputId;
 }
 
 pub trait GestaltCompositeOutput {
@@ -39,9 +43,14 @@ pub trait GestaltCompositeOutput {
     fn get_field<T>(&self, key: &str) -> Self::Output<T>;
 }
 
-pub struct GestaltEngineOwned {
-    #[cfg(target_arch = "wasm32")]
-    pub engine: super::wasm_engine::WasmEngine,
-    #[cfg(not(target_arch = "wasm32"))]
-    pub engine: super::native_engine::NativeEngine,
+pub struct RegisterResourceRequest<'a, OUTPUT> {
+    pub type_: String,
+    pub name: String,
+    pub version: String,
+    pub props: &'a[RegisterResourceRequestObjectField<'a, OUTPUT>],
+}
+
+pub struct RegisterResourceRequestObjectField<'a, OUTPUT> {
+    pub name: String,
+    pub value: &'a OUTPUT
 }

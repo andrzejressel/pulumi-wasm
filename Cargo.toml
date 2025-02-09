@@ -33,6 +33,8 @@ members = [
     "providers/random",
     "providers/typesystem",
     "regenerator",
+    "crates/rust_adapter",
+    "crates/rust_adapter_wasm",
 ]
 
 [workspace.package]
@@ -54,6 +56,8 @@ pulumi_gestalt_providers_random = { version = "=0.0.0-DEV", path = "providers/ra
 pulumi_gestalt_providers_typesystem = { version = "=0.0.0-DEV", path = "providers/typesystem", registry = "cloudsmith" }
 pulumi_gestalt_examples_common = { version = "=0.0.0-DEV", path = "examples/common", registry = "cloudsmith" }
 pulumi_gestalt_grpc_connection = { version = "=0.0.0-DEV", path = "crates/grpc", registry = "cloudsmith" }
+pulumi_gestalt_rust_adapter = { version = "=0.0.0-DEV", path = "crates/rust_adapter", registry = "cloudsmith" }
+pulumi_gestalt_rust_adapter_wasm = { version = "=0.0.0-DEV", path = "crates/rust_adapter_wasm", registry = "cloudsmith" }
 
 anyhow = "1.0.82"
 prost = "0.13.1"
