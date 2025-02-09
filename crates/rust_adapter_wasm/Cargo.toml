@@ -5,7 +5,7 @@ edition.workspace = true
 
 [dependencies]
 pulumi_gestalt_rust_adapter.workspace = true
-pulumi_gestalt_wit.workspace = true
+pulumi_gestalt_wit = { workspace = true, features = ["client"] }
 anyhow.workspace = true
 serde.workspace = true
 uuid.workspace = true
