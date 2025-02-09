@@ -13,7 +13,7 @@ impl<T: Serialize> InputOrOutput<T> {
     pub fn get_output(self, engine: &PulumiContext) -> Output<T> {
         match self {
             InputOrOutput::StaticValue(value) => Output::new(engine, &value),
-            InputOrOutput::Output(output) => output.clone(),
+            InputOrOutput::Output(output) => output,
         }
     }
 }
