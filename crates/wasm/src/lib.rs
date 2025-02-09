@@ -196,4 +196,8 @@ impl GuestOutput for CustomOutputId {
             .create_native_function_node(function_name.into(), self.0);
         Output::new::<CustomOutputId>(CustomOutputId(output_id, refcell.clone()))
     }
+
+    fn clone(&self) -> Output {
+        Output::new::<CustomOutputId>(CustomOutputId(self.0, self.1.clone()))
+    }
 }
