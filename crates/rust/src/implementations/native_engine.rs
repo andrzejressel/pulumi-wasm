@@ -1,6 +1,6 @@
 use crate::Output;
 
-#[derive(Copy, Clone, Debug)]
+#[derive(Clone, Debug)]
 pub(crate) struct NativeOutput {
 
 }

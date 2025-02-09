@@ -3,10 +3,11 @@ use pulumi_gestalt_providers_docker::container;
 use pulumi_gestalt_providers_docker::container::ContainerArgs;
 use pulumi_gestalt_providers_random::random_string;
 use pulumi_gestalt_providers_random::random_string::RandomStringArgs;
-use pulumi_gestalt_rust::{add_export, pulumi_main};
+use pulumi_gestalt_rust::{add_export};
 use pulumi_gestalt_rust::{Output, PulumiContext};
 
-pulumi_main!();
+#[cfg(target_arch = "wasm32")]
+pulumi_gestalt_rust::pulumi_main!();
 
 fn pulumi_main(context: &PulumiContext) -> Result<()> {
     let length: Output<i32> = Output::new(context, &12).map(|i: i32| i * 3);
