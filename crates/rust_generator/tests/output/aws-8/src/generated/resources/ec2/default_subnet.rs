@@ -132,46 +132,53 @@ pub mod default_subnet {
     ) -> DefaultSubnetResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let assign_ipv6_address_on_creation_binding = args
+        let assign_ipv6_address_on_creation_binding_1 = args
             .assign_ipv6_address_on_creation
-            .get_output(context)
+            .get_output(context);
+        let assign_ipv6_address_on_creation_binding = assign_ipv6_address_on_creation_binding_1
             .get_inner();
-        let availability_zone_binding = args
-            .availability_zone
-            .get_output(context)
-            .get_inner();
-        let customer_owned_ipv4_pool_binding = args
+        let availability_zone_binding_1 = args.availability_zone.get_output(context);
+        let availability_zone_binding = availability_zone_binding_1.get_inner();
+        let customer_owned_ipv4_pool_binding_1 = args
             .customer_owned_ipv4_pool
-            .get_output(context)
+            .get_output(context);
+        let customer_owned_ipv4_pool_binding = customer_owned_ipv4_pool_binding_1
             .get_inner();
-        let enable_dns64_binding = args.enable_dns64.get_output(context).get_inner();
-        let enable_resource_name_dns_a_record_on_launch_binding = args
+        let enable_dns64_binding_1 = args.enable_dns64.get_output(context);
+        let enable_dns64_binding = enable_dns64_binding_1.get_inner();
+        let enable_resource_name_dns_a_record_on_launch_binding_1 = args
             .enable_resource_name_dns_a_record_on_launch
-            .get_output(context)
+            .get_output(context);
+        let enable_resource_name_dns_a_record_on_launch_binding = enable_resource_name_dns_a_record_on_launch_binding_1
             .get_inner();
-        let enable_resource_name_dns_aaaa_record_on_launch_binding = args
+        let enable_resource_name_dns_aaaa_record_on_launch_binding_1 = args
             .enable_resource_name_dns_aaaa_record_on_launch
-            .get_output(context)
+            .get_output(context);
+        let enable_resource_name_dns_aaaa_record_on_launch_binding = enable_resource_name_dns_aaaa_record_on_launch_binding_1
             .get_inner();
-        let force_destroy_binding = args.force_destroy.get_output(context).get_inner();
-        let ipv6_cidr_block_binding = args
-            .ipv6_cidr_block
-            .get_output(context)
-            .get_inner();
-        let ipv6_native_binding = args.ipv6_native.get_output(context).get_inner();
-        let map_customer_owned_ip_on_launch_binding = args
+        let force_destroy_binding_1 = args.force_destroy.get_output(context);
+        let force_destroy_binding = force_destroy_binding_1.get_inner();
+        let ipv6_cidr_block_binding_1 = args.ipv6_cidr_block.get_output(context);
+        let ipv6_cidr_block_binding = ipv6_cidr_block_binding_1.get_inner();
+        let ipv6_native_binding_1 = args.ipv6_native.get_output(context);
+        let ipv6_native_binding = ipv6_native_binding_1.get_inner();
+        let map_customer_owned_ip_on_launch_binding_1 = args
             .map_customer_owned_ip_on_launch
-            .get_output(context)
+            .get_output(context);
+        let map_customer_owned_ip_on_launch_binding = map_customer_owned_ip_on_launch_binding_1
             .get_inner();
-        let map_public_ip_on_launch_binding = args
+        let map_public_ip_on_launch_binding_1 = args
             .map_public_ip_on_launch
-            .get_output(context)
+            .get_output(context);
+        let map_public_ip_on_launch_binding = map_public_ip_on_launch_binding_1
             .get_inner();
-        let private_dns_hostname_type_on_launch_binding = args
+        let private_dns_hostname_type_on_launch_binding_1 = args
             .private_dns_hostname_type_on_launch
-            .get_output(context)
+            .get_output(context);
+        let private_dns_hostname_type_on_launch_binding = private_dns_hostname_type_on_launch_binding_1
             .get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:ec2/defaultSubnet:DefaultSubnet".into(),
             name: name.to_string(),

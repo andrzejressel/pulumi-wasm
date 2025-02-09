@@ -117,25 +117,31 @@ pub mod provisioning_artifact {
     ) -> ProvisioningArtifactResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let accept_language_binding = args
-            .accept_language
-            .get_output(context)
-            .get_inner();
-        let active_binding = args.active.get_output(context).get_inner();
-        let description_binding = args.description.get_output(context).get_inner();
-        let disable_template_validation_binding = args
+        let accept_language_binding_1 = args.accept_language.get_output(context);
+        let accept_language_binding = accept_language_binding_1.get_inner();
+        let active_binding_1 = args.active.get_output(context);
+        let active_binding = active_binding_1.get_inner();
+        let description_binding_1 = args.description.get_output(context);
+        let description_binding = description_binding_1.get_inner();
+        let disable_template_validation_binding_1 = args
             .disable_template_validation
-            .get_output(context)
+            .get_output(context);
+        let disable_template_validation_binding = disable_template_validation_binding_1
             .get_inner();
-        let guidance_binding = args.guidance.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let product_id_binding = args.product_id.get_output(context).get_inner();
-        let template_physical_id_binding = args
+        let guidance_binding_1 = args.guidance.get_output(context);
+        let guidance_binding = guidance_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let product_id_binding_1 = args.product_id.get_output(context);
+        let product_id_binding = product_id_binding_1.get_inner();
+        let template_physical_id_binding_1 = args
             .template_physical_id
-            .get_output(context)
-            .get_inner();
-        let template_url_binding = args.template_url.get_output(context).get_inner();
-        let type__binding = args.type_.get_output(context).get_inner();
+            .get_output(context);
+        let template_physical_id_binding = template_physical_id_binding_1.get_inner();
+        let template_url_binding_1 = args.template_url.get_output(context);
+        let template_url_binding = template_url_binding_1.get_inner();
+        let type__binding_1 = args.type_.get_output(context);
+        let type__binding = type__binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:servicecatalog/provisioningArtifact:ProvisioningArtifact".into(),
             name: name.to_string(),

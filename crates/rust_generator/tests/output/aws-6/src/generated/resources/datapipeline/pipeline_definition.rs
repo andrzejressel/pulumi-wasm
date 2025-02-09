@@ -120,19 +120,14 @@ pub mod pipeline_definition {
     ) -> PipelineDefinitionResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let parameter_objects_binding = args
-            .parameter_objects
-            .get_output(context)
-            .get_inner();
-        let parameter_values_binding = args
-            .parameter_values
-            .get_output(context)
-            .get_inner();
-        let pipeline_id_binding = args.pipeline_id.get_output(context).get_inner();
-        let pipeline_objects_binding = args
-            .pipeline_objects
-            .get_output(context)
-            .get_inner();
+        let parameter_objects_binding_1 = args.parameter_objects.get_output(context);
+        let parameter_objects_binding = parameter_objects_binding_1.get_inner();
+        let parameter_values_binding_1 = args.parameter_values.get_output(context);
+        let parameter_values_binding = parameter_values_binding_1.get_inner();
+        let pipeline_id_binding_1 = args.pipeline_id.get_output(context);
+        let pipeline_id_binding = pipeline_id_binding_1.get_inner();
+        let pipeline_objects_binding_1 = args.pipeline_objects.get_output(context);
+        let pipeline_objects_binding = pipeline_objects_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:datapipeline/pipelineDefinition:PipelineDefinition".into(),
             name: name.to_string(),

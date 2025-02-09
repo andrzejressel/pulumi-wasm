@@ -98,21 +98,18 @@ pub mod database {
     ) -> DatabaseResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let cluster_name_binding = args.cluster_name.get_output(context).get_inner();
-        let hot_cache_period_binding = args
-            .hot_cache_period
-            .get_output(context)
-            .get_inner();
-        let location_binding = args.location.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let resource_group_name_binding = args
-            .resource_group_name
-            .get_output(context)
-            .get_inner();
-        let soft_delete_period_binding = args
-            .soft_delete_period
-            .get_output(context)
-            .get_inner();
+        let cluster_name_binding_1 = args.cluster_name.get_output(context);
+        let cluster_name_binding = cluster_name_binding_1.get_inner();
+        let hot_cache_period_binding_1 = args.hot_cache_period.get_output(context);
+        let hot_cache_period_binding = hot_cache_period_binding_1.get_inner();
+        let location_binding_1 = args.location.get_output(context);
+        let location_binding = location_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let resource_group_name_binding_1 = args.resource_group_name.get_output(context);
+        let resource_group_name_binding = resource_group_name_binding_1.get_inner();
+        let soft_delete_period_binding_1 = args.soft_delete_period.get_output(context);
+        let soft_delete_period_binding = soft_delete_period_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:kusto/database:Database".into(),
             name: name.to_string(),

@@ -201,74 +201,85 @@ pub mod workspace {
     ) -> WorkspaceResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let access_connector_id_binding = args
-            .access_connector_id
-            .get_output(context)
-            .get_inner();
-        let custom_parameters_binding = args
-            .custom_parameters
-            .get_output(context)
-            .get_inner();
-        let customer_managed_key_enabled_binding = args
+        let access_connector_id_binding_1 = args.access_connector_id.get_output(context);
+        let access_connector_id_binding = access_connector_id_binding_1.get_inner();
+        let custom_parameters_binding_1 = args.custom_parameters.get_output(context);
+        let custom_parameters_binding = custom_parameters_binding_1.get_inner();
+        let customer_managed_key_enabled_binding_1 = args
             .customer_managed_key_enabled
-            .get_output(context)
+            .get_output(context);
+        let customer_managed_key_enabled_binding = customer_managed_key_enabled_binding_1
             .get_inner();
-        let default_storage_firewall_enabled_binding = args
+        let default_storage_firewall_enabled_binding_1 = args
             .default_storage_firewall_enabled
-            .get_output(context)
+            .get_output(context);
+        let default_storage_firewall_enabled_binding = default_storage_firewall_enabled_binding_1
             .get_inner();
-        let enhanced_security_compliance_binding = args
+        let enhanced_security_compliance_binding_1 = args
             .enhanced_security_compliance
-            .get_output(context)
+            .get_output(context);
+        let enhanced_security_compliance_binding = enhanced_security_compliance_binding_1
             .get_inner();
-        let infrastructure_encryption_enabled_binding = args
+        let infrastructure_encryption_enabled_binding_1 = args
             .infrastructure_encryption_enabled
-            .get_output(context)
+            .get_output(context);
+        let infrastructure_encryption_enabled_binding = infrastructure_encryption_enabled_binding_1
             .get_inner();
-        let load_balancer_backend_address_pool_id_binding = args
+        let load_balancer_backend_address_pool_id_binding_1 = args
             .load_balancer_backend_address_pool_id
-            .get_output(context)
+            .get_output(context);
+        let load_balancer_backend_address_pool_id_binding = load_balancer_backend_address_pool_id_binding_1
             .get_inner();
-        let location_binding = args.location.get_output(context).get_inner();
-        let managed_disk_cmk_key_vault_id_binding = args
+        let location_binding_1 = args.location.get_output(context);
+        let location_binding = location_binding_1.get_inner();
+        let managed_disk_cmk_key_vault_id_binding_1 = args
             .managed_disk_cmk_key_vault_id
-            .get_output(context)
+            .get_output(context);
+        let managed_disk_cmk_key_vault_id_binding = managed_disk_cmk_key_vault_id_binding_1
             .get_inner();
-        let managed_disk_cmk_key_vault_key_id_binding = args
+        let managed_disk_cmk_key_vault_key_id_binding_1 = args
             .managed_disk_cmk_key_vault_key_id
-            .get_output(context)
+            .get_output(context);
+        let managed_disk_cmk_key_vault_key_id_binding = managed_disk_cmk_key_vault_key_id_binding_1
             .get_inner();
-        let managed_disk_cmk_rotation_to_latest_version_enabled_binding = args
+        let managed_disk_cmk_rotation_to_latest_version_enabled_binding_1 = args
             .managed_disk_cmk_rotation_to_latest_version_enabled
-            .get_output(context)
+            .get_output(context);
+        let managed_disk_cmk_rotation_to_latest_version_enabled_binding = managed_disk_cmk_rotation_to_latest_version_enabled_binding_1
             .get_inner();
-        let managed_resource_group_name_binding = args
+        let managed_resource_group_name_binding_1 = args
             .managed_resource_group_name
-            .get_output(context)
+            .get_output(context);
+        let managed_resource_group_name_binding = managed_resource_group_name_binding_1
             .get_inner();
-        let managed_services_cmk_key_vault_id_binding = args
+        let managed_services_cmk_key_vault_id_binding_1 = args
             .managed_services_cmk_key_vault_id
-            .get_output(context)
+            .get_output(context);
+        let managed_services_cmk_key_vault_id_binding = managed_services_cmk_key_vault_id_binding_1
             .get_inner();
-        let managed_services_cmk_key_vault_key_id_binding = args
+        let managed_services_cmk_key_vault_key_id_binding_1 = args
             .managed_services_cmk_key_vault_key_id
-            .get_output(context)
+            .get_output(context);
+        let managed_services_cmk_key_vault_key_id_binding = managed_services_cmk_key_vault_key_id_binding_1
             .get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let network_security_group_rules_required_binding = args
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let network_security_group_rules_required_binding_1 = args
             .network_security_group_rules_required
-            .get_output(context)
+            .get_output(context);
+        let network_security_group_rules_required_binding = network_security_group_rules_required_binding_1
             .get_inner();
-        let public_network_access_enabled_binding = args
+        let public_network_access_enabled_binding_1 = args
             .public_network_access_enabled
-            .get_output(context)
+            .get_output(context);
+        let public_network_access_enabled_binding = public_network_access_enabled_binding_1
             .get_inner();
-        let resource_group_name_binding = args
-            .resource_group_name
-            .get_output(context)
-            .get_inner();
-        let sku_binding = args.sku.get_output(context).get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
+        let resource_group_name_binding_1 = args.resource_group_name.get_output(context);
+        let resource_group_name_binding = resource_group_name_binding_1.get_inner();
+        let sku_binding_1 = args.sku.get_output(context);
+        let sku_binding = sku_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:databricks/workspace:Workspace".into(),
             name: name.to_string(),

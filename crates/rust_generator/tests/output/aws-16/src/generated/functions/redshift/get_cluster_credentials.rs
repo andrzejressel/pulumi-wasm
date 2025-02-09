@@ -48,18 +48,18 @@ pub mod get_cluster_credentials {
     ) -> GetClusterCredentialsResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let auto_create_binding = args.auto_create.get_output(context).get_inner();
-        let cluster_identifier_binding = args
-            .cluster_identifier
-            .get_output(context)
-            .get_inner();
-        let db_groups_binding = args.db_groups.get_output(context).get_inner();
-        let db_name_binding = args.db_name.get_output(context).get_inner();
-        let db_user_binding = args.db_user.get_output(context).get_inner();
-        let duration_seconds_binding = args
-            .duration_seconds
-            .get_output(context)
-            .get_inner();
+        let auto_create_binding_1 = args.auto_create.get_output(context);
+        let auto_create_binding = auto_create_binding_1.get_inner();
+        let cluster_identifier_binding_1 = args.cluster_identifier.get_output(context);
+        let cluster_identifier_binding = cluster_identifier_binding_1.get_inner();
+        let db_groups_binding_1 = args.db_groups.get_output(context);
+        let db_groups_binding = db_groups_binding_1.get_inner();
+        let db_name_binding_1 = args.db_name.get_output(context);
+        let db_name_binding = db_name_binding_1.get_inner();
+        let db_user_binding_1 = args.db_user.get_output(context);
+        let db_user_binding = db_user_binding_1.get_inner();
+        let duration_seconds_binding_1 = args.duration_seconds.get_output(context);
+        let duration_seconds_binding = duration_seconds_binding_1.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:redshift/getClusterCredentials:getClusterCredentials".into(),
             version: super::super::super::get_version(),

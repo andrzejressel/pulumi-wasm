@@ -73,12 +73,14 @@ pub mod bucket_request_payment_configuration_v_2 {
     ) -> BucketRequestPaymentConfigurationV2Result {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let bucket_binding = args.bucket.get_output(context).get_inner();
-        let expected_bucket_owner_binding = args
+        let bucket_binding_1 = args.bucket.get_output(context);
+        let bucket_binding = bucket_binding_1.get_inner();
+        let expected_bucket_owner_binding_1 = args
             .expected_bucket_owner
-            .get_output(context)
-            .get_inner();
-        let payer_binding = args.payer.get_output(context).get_inner();
+            .get_output(context);
+        let expected_bucket_owner_binding = expected_bucket_owner_binding_1.get_inner();
+        let payer_binding_1 = args.payer.get_output(context);
+        let payer_binding = payer_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:s3/bucketRequestPaymentConfigurationV2:BucketRequestPaymentConfigurationV2"
                 .into(),

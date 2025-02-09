@@ -28,7 +28,8 @@ pub mod get_organizational_units {
     ) -> GetOrganizationalUnitsResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let parent_id_binding = args.parent_id.get_output(context).get_inner();
+        let parent_id_binding_1 = args.parent_id.get_output(context);
+        let parent_id_binding = parent_id_binding_1.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:organizations/getOrganizationalUnits:getOrganizationalUnits"
                 .into(),

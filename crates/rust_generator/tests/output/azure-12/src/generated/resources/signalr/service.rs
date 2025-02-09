@@ -218,58 +218,62 @@ pub mod service {
     ) -> ServiceResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let aad_auth_enabled_binding = args
-            .aad_auth_enabled
-            .get_output(context)
-            .get_inner();
-        let connectivity_logs_enabled_binding = args
+        let aad_auth_enabled_binding_1 = args.aad_auth_enabled.get_output(context);
+        let aad_auth_enabled_binding = aad_auth_enabled_binding_1.get_inner();
+        let connectivity_logs_enabled_binding_1 = args
             .connectivity_logs_enabled
-            .get_output(context)
+            .get_output(context);
+        let connectivity_logs_enabled_binding = connectivity_logs_enabled_binding_1
             .get_inner();
-        let cors_binding = args.cors.get_output(context).get_inner();
-        let http_request_logs_enabled_binding = args
+        let cors_binding_1 = args.cors.get_output(context);
+        let cors_binding = cors_binding_1.get_inner();
+        let http_request_logs_enabled_binding_1 = args
             .http_request_logs_enabled
-            .get_output(context)
+            .get_output(context);
+        let http_request_logs_enabled_binding = http_request_logs_enabled_binding_1
             .get_inner();
-        let identity_binding = args.identity.get_output(context).get_inner();
-        let live_trace_binding = args.live_trace.get_output(context).get_inner();
-        let live_trace_enabled_binding = args
-            .live_trace_enabled
-            .get_output(context)
-            .get_inner();
-        let local_auth_enabled_binding = args
-            .local_auth_enabled
-            .get_output(context)
-            .get_inner();
-        let location_binding = args.location.get_output(context).get_inner();
-        let messaging_logs_enabled_binding = args
+        let identity_binding_1 = args.identity.get_output(context);
+        let identity_binding = identity_binding_1.get_inner();
+        let live_trace_binding_1 = args.live_trace.get_output(context);
+        let live_trace_binding = live_trace_binding_1.get_inner();
+        let live_trace_enabled_binding_1 = args.live_trace_enabled.get_output(context);
+        let live_trace_enabled_binding = live_trace_enabled_binding_1.get_inner();
+        let local_auth_enabled_binding_1 = args.local_auth_enabled.get_output(context);
+        let local_auth_enabled_binding = local_auth_enabled_binding_1.get_inner();
+        let location_binding_1 = args.location.get_output(context);
+        let location_binding = location_binding_1.get_inner();
+        let messaging_logs_enabled_binding_1 = args
             .messaging_logs_enabled
-            .get_output(context)
+            .get_output(context);
+        let messaging_logs_enabled_binding = messaging_logs_enabled_binding_1
             .get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let public_network_access_enabled_binding = args
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let public_network_access_enabled_binding_1 = args
             .public_network_access_enabled
-            .get_output(context)
+            .get_output(context);
+        let public_network_access_enabled_binding = public_network_access_enabled_binding_1
             .get_inner();
-        let resource_group_name_binding = args
-            .resource_group_name
-            .get_output(context)
-            .get_inner();
-        let serverless_connection_timeout_in_seconds_binding = args
+        let resource_group_name_binding_1 = args.resource_group_name.get_output(context);
+        let resource_group_name_binding = resource_group_name_binding_1.get_inner();
+        let serverless_connection_timeout_in_seconds_binding_1 = args
             .serverless_connection_timeout_in_seconds
-            .get_output(context)
+            .get_output(context);
+        let serverless_connection_timeout_in_seconds_binding = serverless_connection_timeout_in_seconds_binding_1
             .get_inner();
-        let service_mode_binding = args.service_mode.get_output(context).get_inner();
-        let sku_binding = args.sku.get_output(context).get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
-        let tls_client_cert_enabled_binding = args
+        let service_mode_binding_1 = args.service_mode.get_output(context);
+        let service_mode_binding = service_mode_binding_1.get_inner();
+        let sku_binding_1 = args.sku.get_output(context);
+        let sku_binding = sku_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
+        let tls_client_cert_enabled_binding_1 = args
             .tls_client_cert_enabled
-            .get_output(context)
+            .get_output(context);
+        let tls_client_cert_enabled_binding = tls_client_cert_enabled_binding_1
             .get_inner();
-        let upstream_endpoints_binding = args
-            .upstream_endpoints
-            .get_output(context)
-            .get_inner();
+        let upstream_endpoints_binding_1 = args.upstream_endpoints.get_output(context);
+        let upstream_endpoints_binding = upstream_endpoints_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:signalr/service:Service".into(),
             name: name.to_string(),

@@ -151,13 +151,16 @@ pub mod group_membership {
     ) -> GroupMembershipResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let group_binding = args.group.get_output(context).get_inner();
-        let member_key_binding = args.member_key.get_output(context).get_inner();
-        let preferred_member_key_binding = args
+        let group_binding_1 = args.group.get_output(context);
+        let group_binding = group_binding_1.get_inner();
+        let member_key_binding_1 = args.member_key.get_output(context);
+        let member_key_binding = member_key_binding_1.get_inner();
+        let preferred_member_key_binding_1 = args
             .preferred_member_key
-            .get_output(context)
-            .get_inner();
-        let roles_binding = args.roles.get_output(context).get_inner();
+            .get_output(context);
+        let preferred_member_key_binding = preferred_member_key_binding_1.get_inner();
+        let roles_binding_1 = args.roles.get_output(context);
+        let roles_binding = roles_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:cloudidentity/groupMembership:GroupMembership".into(),
             name: name.to_string(),

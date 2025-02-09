@@ -86,16 +86,17 @@ pub mod application_network_rule_set {
     ) -> ApplicationNetworkRuleSetResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let apply_to_device_binding = args
-            .apply_to_device
-            .get_output(context)
-            .get_inner();
-        let default_action_binding = args.default_action.get_output(context).get_inner();
-        let iotcentral_application_id_binding = args
+        let apply_to_device_binding_1 = args.apply_to_device.get_output(context);
+        let apply_to_device_binding = apply_to_device_binding_1.get_inner();
+        let default_action_binding_1 = args.default_action.get_output(context);
+        let default_action_binding = default_action_binding_1.get_inner();
+        let iotcentral_application_id_binding_1 = args
             .iotcentral_application_id
-            .get_output(context)
+            .get_output(context);
+        let iotcentral_application_id_binding = iotcentral_application_id_binding_1
             .get_inner();
-        let ip_rules_binding = args.ip_rules.get_output(context).get_inner();
+        let ip_rules_binding_1 = args.ip_rules.get_output(context);
+        let ip_rules_binding = ip_rules_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:iotcentral/applicationNetworkRuleSet:ApplicationNetworkRuleSet"
                 .into(),

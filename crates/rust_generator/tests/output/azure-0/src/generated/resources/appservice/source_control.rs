@@ -134,23 +134,28 @@ pub mod source_control {
     ) -> SourceControlResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let app_id_binding = args.app_id.get_output(context).get_inner();
-        let branch_binding = args.branch.get_output(context).get_inner();
-        let github_action_configuration_binding = args
+        let app_id_binding_1 = args.app_id.get_output(context);
+        let app_id_binding = app_id_binding_1.get_inner();
+        let branch_binding_1 = args.branch.get_output(context);
+        let branch_binding = branch_binding_1.get_inner();
+        let github_action_configuration_binding_1 = args
             .github_action_configuration
-            .get_output(context)
+            .get_output(context);
+        let github_action_configuration_binding = github_action_configuration_binding_1
             .get_inner();
-        let repo_url_binding = args.repo_url.get_output(context).get_inner();
-        let rollback_enabled_binding = args
-            .rollback_enabled
-            .get_output(context)
-            .get_inner();
-        let use_local_git_binding = args.use_local_git.get_output(context).get_inner();
-        let use_manual_integration_binding = args
+        let repo_url_binding_1 = args.repo_url.get_output(context);
+        let repo_url_binding = repo_url_binding_1.get_inner();
+        let rollback_enabled_binding_1 = args.rollback_enabled.get_output(context);
+        let rollback_enabled_binding = rollback_enabled_binding_1.get_inner();
+        let use_local_git_binding_1 = args.use_local_git.get_output(context);
+        let use_local_git_binding = use_local_git_binding_1.get_inner();
+        let use_manual_integration_binding_1 = args
             .use_manual_integration
-            .get_output(context)
+            .get_output(context);
+        let use_manual_integration_binding = use_manual_integration_binding_1
             .get_inner();
-        let use_mercurial_binding = args.use_mercurial.get_output(context).get_inner();
+        let use_mercurial_binding_1 = args.use_mercurial.get_output(context);
+        let use_mercurial_binding = use_mercurial_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:appservice/sourceControl:SourceControl".into(),
             name: name.to_string(),

@@ -44,13 +44,17 @@ pub mod get_voices {
     ) -> GetVoicesResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let engine_binding = args.engine.get_output(context).get_inner();
-        let include_additional_language_codes_binding = args
+        let engine_binding_1 = args.engine.get_output(context);
+        let engine_binding = engine_binding_1.get_inner();
+        let include_additional_language_codes_binding_1 = args
             .include_additional_language_codes
-            .get_output(context)
+            .get_output(context);
+        let include_additional_language_codes_binding = include_additional_language_codes_binding_1
             .get_inner();
-        let language_code_binding = args.language_code.get_output(context).get_inner();
-        let voices_binding = args.voices.get_output(context).get_inner();
+        let language_code_binding_1 = args.language_code.get_output(context);
+        let language_code_binding = language_code_binding_1.get_inner();
+        let voices_binding_1 = args.voices.get_output(context);
+        let voices_binding = voices_binding_1.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:polly/getVoices:getVoices".into(),
             version: super::super::super::get_version(),

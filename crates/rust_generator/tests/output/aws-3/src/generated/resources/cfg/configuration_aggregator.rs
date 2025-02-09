@@ -143,16 +143,20 @@ pub mod configuration_aggregator {
     ) -> ConfigurationAggregatorResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let account_aggregation_source_binding = args
+        let account_aggregation_source_binding_1 = args
             .account_aggregation_source
-            .get_output(context)
+            .get_output(context);
+        let account_aggregation_source_binding = account_aggregation_source_binding_1
             .get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let organization_aggregation_source_binding = args
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let organization_aggregation_source_binding_1 = args
             .organization_aggregation_source
-            .get_output(context)
+            .get_output(context);
+        let organization_aggregation_source_binding = organization_aggregation_source_binding_1
             .get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:cfg/configurationAggregator:ConfigurationAggregator".into(),
             name: name.to_string(),

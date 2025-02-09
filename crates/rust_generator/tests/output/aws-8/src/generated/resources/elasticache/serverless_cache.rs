@@ -146,38 +146,42 @@ pub mod serverless_cache {
     ) -> ServerlessCacheResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let cache_usage_limits_binding = args
-            .cache_usage_limits
-            .get_output(context)
-            .get_inner();
-        let daily_snapshot_time_binding = args
-            .daily_snapshot_time
-            .get_output(context)
-            .get_inner();
-        let description_binding = args.description.get_output(context).get_inner();
-        let engine_binding = args.engine.get_output(context).get_inner();
-        let kms_key_id_binding = args.kms_key_id.get_output(context).get_inner();
-        let major_engine_version_binding = args
+        let cache_usage_limits_binding_1 = args.cache_usage_limits.get_output(context);
+        let cache_usage_limits_binding = cache_usage_limits_binding_1.get_inner();
+        let daily_snapshot_time_binding_1 = args.daily_snapshot_time.get_output(context);
+        let daily_snapshot_time_binding = daily_snapshot_time_binding_1.get_inner();
+        let description_binding_1 = args.description.get_output(context);
+        let description_binding = description_binding_1.get_inner();
+        let engine_binding_1 = args.engine.get_output(context);
+        let engine_binding = engine_binding_1.get_inner();
+        let kms_key_id_binding_1 = args.kms_key_id.get_output(context);
+        let kms_key_id_binding = kms_key_id_binding_1.get_inner();
+        let major_engine_version_binding_1 = args
             .major_engine_version
-            .get_output(context)
-            .get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let security_group_ids_binding = args
-            .security_group_ids
-            .get_output(context)
-            .get_inner();
-        let snapshot_arns_to_restores_binding = args
+            .get_output(context);
+        let major_engine_version_binding = major_engine_version_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let security_group_ids_binding_1 = args.security_group_ids.get_output(context);
+        let security_group_ids_binding = security_group_ids_binding_1.get_inner();
+        let snapshot_arns_to_restores_binding_1 = args
             .snapshot_arns_to_restores
-            .get_output(context)
+            .get_output(context);
+        let snapshot_arns_to_restores_binding = snapshot_arns_to_restores_binding_1
             .get_inner();
-        let snapshot_retention_limit_binding = args
+        let snapshot_retention_limit_binding_1 = args
             .snapshot_retention_limit
-            .get_output(context)
+            .get_output(context);
+        let snapshot_retention_limit_binding = snapshot_retention_limit_binding_1
             .get_inner();
-        let subnet_ids_binding = args.subnet_ids.get_output(context).get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
-        let timeouts_binding = args.timeouts.get_output(context).get_inner();
-        let user_group_id_binding = args.user_group_id.get_output(context).get_inner();
+        let subnet_ids_binding_1 = args.subnet_ids.get_output(context);
+        let subnet_ids_binding = subnet_ids_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
+        let timeouts_binding_1 = args.timeouts.get_output(context);
+        let timeouts_binding = timeouts_binding_1.get_inner();
+        let user_group_id_binding_1 = args.user_group_id.get_output(context);
+        let user_group_id_binding = user_group_id_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:elasticache/serverlessCache:ServerlessCache".into(),
             name: name.to_string(),

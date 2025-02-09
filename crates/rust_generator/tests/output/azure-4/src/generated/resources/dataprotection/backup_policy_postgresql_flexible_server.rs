@@ -143,21 +143,24 @@ pub mod backup_policy_postgresql_flexible_server {
     ) -> BackupPolicyPostgresqlFlexibleServerResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let backup_repeating_time_intervals_binding = args
+        let backup_repeating_time_intervals_binding_1 = args
             .backup_repeating_time_intervals
-            .get_output(context)
+            .get_output(context);
+        let backup_repeating_time_intervals_binding = backup_repeating_time_intervals_binding_1
             .get_inner();
-        let default_retention_rule_binding = args
+        let default_retention_rule_binding_1 = args
             .default_retention_rule
-            .get_output(context)
+            .get_output(context);
+        let default_retention_rule_binding = default_retention_rule_binding_1
             .get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let retention_rules_binding = args
-            .retention_rules
-            .get_output(context)
-            .get_inner();
-        let time_zone_binding = args.time_zone.get_output(context).get_inner();
-        let vault_id_binding = args.vault_id.get_output(context).get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let retention_rules_binding_1 = args.retention_rules.get_output(context);
+        let retention_rules_binding = retention_rules_binding_1.get_inner();
+        let time_zone_binding_1 = args.time_zone.get_output(context);
+        let time_zone_binding = time_zone_binding_1.get_inner();
+        let vault_id_binding_1 = args.vault_id.get_output(context);
+        let vault_id_binding = vault_id_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:dataprotection/backupPolicyPostgresqlFlexibleServer:BackupPolicyPostgresqlFlexibleServer"
                 .into(),

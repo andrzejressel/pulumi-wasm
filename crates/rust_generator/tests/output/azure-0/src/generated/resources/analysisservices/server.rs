@@ -122,31 +122,35 @@ pub mod server {
     ) -> ServerResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let admin_users_binding = args.admin_users.get_output(context).get_inner();
-        let backup_blob_container_uri_binding = args
+        let admin_users_binding_1 = args.admin_users.get_output(context);
+        let admin_users_binding = admin_users_binding_1.get_inner();
+        let backup_blob_container_uri_binding_1 = args
             .backup_blob_container_uri
-            .get_output(context)
+            .get_output(context);
+        let backup_blob_container_uri_binding = backup_blob_container_uri_binding_1
             .get_inner();
-        let ipv4_firewall_rules_binding = args
-            .ipv4_firewall_rules
-            .get_output(context)
-            .get_inner();
-        let location_binding = args.location.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let power_bi_service_enabled_binding = args
+        let ipv4_firewall_rules_binding_1 = args.ipv4_firewall_rules.get_output(context);
+        let ipv4_firewall_rules_binding = ipv4_firewall_rules_binding_1.get_inner();
+        let location_binding_1 = args.location.get_output(context);
+        let location_binding = location_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let power_bi_service_enabled_binding_1 = args
             .power_bi_service_enabled
-            .get_output(context)
+            .get_output(context);
+        let power_bi_service_enabled_binding = power_bi_service_enabled_binding_1
             .get_inner();
-        let querypool_connection_mode_binding = args
+        let querypool_connection_mode_binding_1 = args
             .querypool_connection_mode
-            .get_output(context)
+            .get_output(context);
+        let querypool_connection_mode_binding = querypool_connection_mode_binding_1
             .get_inner();
-        let resource_group_name_binding = args
-            .resource_group_name
-            .get_output(context)
-            .get_inner();
-        let sku_binding = args.sku.get_output(context).get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
+        let resource_group_name_binding_1 = args.resource_group_name.get_output(context);
+        let resource_group_name_binding = resource_group_name_binding_1.get_inner();
+        let sku_binding_1 = args.sku.get_output(context);
+        let sku_binding = sku_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:analysisservices/server:Server".into(),
             name: name.to_string(),

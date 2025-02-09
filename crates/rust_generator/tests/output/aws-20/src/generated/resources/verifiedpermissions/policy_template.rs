@@ -72,12 +72,12 @@ pub mod policy_template {
     ) -> PolicyTemplateResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let description_binding = args.description.get_output(context).get_inner();
-        let policy_store_id_binding = args
-            .policy_store_id
-            .get_output(context)
-            .get_inner();
-        let statement_binding = args.statement.get_output(context).get_inner();
+        let description_binding_1 = args.description.get_output(context);
+        let description_binding = description_binding_1.get_inner();
+        let policy_store_id_binding_1 = args.policy_store_id.get_output(context);
+        let policy_store_id_binding = policy_store_id_binding_1.get_inner();
+        let statement_binding_1 = args.statement.get_output(context);
+        let statement_binding = statement_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:verifiedpermissions/policyTemplate:PolicyTemplate".into(),
             name: name.to_string(),

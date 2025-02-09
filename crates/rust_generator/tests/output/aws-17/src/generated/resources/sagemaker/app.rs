@@ -98,16 +98,20 @@ pub mod app {
     ) -> AppResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let app_name_binding = args.app_name.get_output(context).get_inner();
-        let app_type_binding = args.app_type.get_output(context).get_inner();
-        let domain_id_binding = args.domain_id.get_output(context).get_inner();
-        let resource_spec_binding = args.resource_spec.get_output(context).get_inner();
-        let space_name_binding = args.space_name.get_output(context).get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
-        let user_profile_name_binding = args
-            .user_profile_name
-            .get_output(context)
-            .get_inner();
+        let app_name_binding_1 = args.app_name.get_output(context);
+        let app_name_binding = app_name_binding_1.get_inner();
+        let app_type_binding_1 = args.app_type.get_output(context);
+        let app_type_binding = app_type_binding_1.get_inner();
+        let domain_id_binding_1 = args.domain_id.get_output(context);
+        let domain_id_binding = domain_id_binding_1.get_inner();
+        let resource_spec_binding_1 = args.resource_spec.get_output(context);
+        let resource_spec_binding = resource_spec_binding_1.get_inner();
+        let space_name_binding_1 = args.space_name.get_output(context);
+        let space_name_binding = space_name_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
+        let user_profile_name_binding_1 = args.user_profile_name.get_output(context);
+        let user_profile_name_binding = user_profile_name_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:sagemaker/app:App".into(),
             name: name.to_string(),

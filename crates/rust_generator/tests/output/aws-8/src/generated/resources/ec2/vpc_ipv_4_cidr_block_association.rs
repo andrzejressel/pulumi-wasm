@@ -72,16 +72,14 @@ pub mod vpc_ipv_4_cidr_block_association {
     ) -> VpcIpv4CidrBlockAssociationResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let cidr_block_binding = args.cidr_block.get_output(context).get_inner();
-        let ipv4_ipam_pool_id_binding = args
-            .ipv4_ipam_pool_id
-            .get_output(context)
-            .get_inner();
-        let ipv4_netmask_length_binding = args
-            .ipv4_netmask_length
-            .get_output(context)
-            .get_inner();
-        let vpc_id_binding = args.vpc_id.get_output(context).get_inner();
+        let cidr_block_binding_1 = args.cidr_block.get_output(context);
+        let cidr_block_binding = cidr_block_binding_1.get_inner();
+        let ipv4_ipam_pool_id_binding_1 = args.ipv4_ipam_pool_id.get_output(context);
+        let ipv4_ipam_pool_id_binding = ipv4_ipam_pool_id_binding_1.get_inner();
+        let ipv4_netmask_length_binding_1 = args.ipv4_netmask_length.get_output(context);
+        let ipv4_netmask_length_binding = ipv4_netmask_length_binding_1.get_inner();
+        let vpc_id_binding_1 = args.vpc_id.get_output(context);
+        let vpc_id_binding = vpc_id_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:ec2/vpcIpv4CidrBlockAssociation:VpcIpv4CidrBlockAssociation"
                 .into(),

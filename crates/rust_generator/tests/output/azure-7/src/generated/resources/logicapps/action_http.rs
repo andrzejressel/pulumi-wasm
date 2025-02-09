@@ -119,14 +119,22 @@ pub mod action_http {
     ) -> ActionHttpResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let body_binding = args.body.get_output(context).get_inner();
-        let headers_binding = args.headers.get_output(context).get_inner();
-        let logic_app_id_binding = args.logic_app_id.get_output(context).get_inner();
-        let method_binding = args.method.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let queries_binding = args.queries.get_output(context).get_inner();
-        let run_afters_binding = args.run_afters.get_output(context).get_inner();
-        let uri_binding = args.uri.get_output(context).get_inner();
+        let body_binding_1 = args.body.get_output(context);
+        let body_binding = body_binding_1.get_inner();
+        let headers_binding_1 = args.headers.get_output(context);
+        let headers_binding = headers_binding_1.get_inner();
+        let logic_app_id_binding_1 = args.logic_app_id.get_output(context);
+        let logic_app_id_binding = logic_app_id_binding_1.get_inner();
+        let method_binding_1 = args.method.get_output(context);
+        let method_binding = method_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let queries_binding_1 = args.queries.get_output(context);
+        let queries_binding = queries_binding_1.get_inner();
+        let run_afters_binding_1 = args.run_afters.get_output(context);
+        let run_afters_binding = run_afters_binding_1.get_inner();
+        let uri_binding_1 = args.uri.get_output(context);
+        let uri_binding = uri_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:logicapps/actionHttp:ActionHttp".into(),
             name: name.to_string(),

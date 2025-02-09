@@ -70,10 +70,12 @@ pub mod sql_injection_match_set {
     ) -> SqlInjectionMatchSetResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let name_binding = args.name.get_output(context).get_inner();
-        let sql_injection_match_tuples_binding = args
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let sql_injection_match_tuples_binding_1 = args
             .sql_injection_match_tuples
-            .get_output(context)
+            .get_output(context);
+        let sql_injection_match_tuples_binding = sql_injection_match_tuples_binding_1
             .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:waf/sqlInjectionMatchSet:SqlInjectionMatchSet".into(),

@@ -116,23 +116,29 @@ pub mod domain_configuration {
     ) -> DomainConfigurationResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let authorizer_config_binding = args
-            .authorizer_config
-            .get_output(context)
-            .get_inner();
-        let domain_name_binding = args.domain_name.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let server_certificate_arns_binding = args
+        let authorizer_config_binding_1 = args.authorizer_config.get_output(context);
+        let authorizer_config_binding = authorizer_config_binding_1.get_inner();
+        let domain_name_binding_1 = args.domain_name.get_output(context);
+        let domain_name_binding = domain_name_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let server_certificate_arns_binding_1 = args
             .server_certificate_arns
-            .get_output(context)
+            .get_output(context);
+        let server_certificate_arns_binding = server_certificate_arns_binding_1
             .get_inner();
-        let service_type_binding = args.service_type.get_output(context).get_inner();
-        let status_binding = args.status.get_output(context).get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
-        let tls_config_binding = args.tls_config.get_output(context).get_inner();
-        let validation_certificate_arn_binding = args
+        let service_type_binding_1 = args.service_type.get_output(context);
+        let service_type_binding = service_type_binding_1.get_inner();
+        let status_binding_1 = args.status.get_output(context);
+        let status_binding = status_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
+        let tls_config_binding_1 = args.tls_config.get_output(context);
+        let tls_config_binding = tls_config_binding_1.get_inner();
+        let validation_certificate_arn_binding_1 = args
             .validation_certificate_arn
-            .get_output(context)
+            .get_output(context);
+        let validation_certificate_arn_binding = validation_certificate_arn_binding_1
             .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:iot/domainConfiguration:DomainConfiguration".into(),

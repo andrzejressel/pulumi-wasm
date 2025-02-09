@@ -41,16 +41,19 @@ pub mod foo {
     ) -> FooResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let argument_binding = args.argument.get_output(context).get_inner();
-        let backup_kube_client_settings_binding = args
+        let argument_binding_1 = args.argument.get_output(context);
+        let argument_binding = argument_binding_1.get_inner();
+        let backup_kube_client_settings_binding_1 = args
             .backup_kube_client_settings
-            .get_output(context)
+            .get_output(context);
+        let backup_kube_client_settings_binding = backup_kube_client_settings_binding_1
             .get_inner();
-        let kube_client_settings_binding = args
+        let kube_client_settings_binding_1 = args
             .kube_client_settings
-            .get_output(context)
-            .get_inner();
-        let settings_binding = args.settings.get_output(context).get_inner();
+            .get_output(context);
+        let kube_client_settings_binding = kube_client_settings_binding_1.get_inner();
+        let settings_binding_1 = args.settings.get_output(context);
+        let settings_binding = settings_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "example:index:Foo".into(),
             name: name.to_string(),

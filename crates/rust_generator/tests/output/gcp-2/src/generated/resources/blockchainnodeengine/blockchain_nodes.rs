@@ -189,21 +189,18 @@ pub mod blockchain_nodes {
     ) -> BlockchainNodesResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let blockchain_node_id_binding = args
-            .blockchain_node_id
-            .get_output(context)
-            .get_inner();
-        let blockchain_type_binding = args
-            .blockchain_type
-            .get_output(context)
-            .get_inner();
-        let ethereum_details_binding = args
-            .ethereum_details
-            .get_output(context)
-            .get_inner();
-        let labels_binding = args.labels.get_output(context).get_inner();
-        let location_binding = args.location.get_output(context).get_inner();
-        let project_binding = args.project.get_output(context).get_inner();
+        let blockchain_node_id_binding_1 = args.blockchain_node_id.get_output(context);
+        let blockchain_node_id_binding = blockchain_node_id_binding_1.get_inner();
+        let blockchain_type_binding_1 = args.blockchain_type.get_output(context);
+        let blockchain_type_binding = blockchain_type_binding_1.get_inner();
+        let ethereum_details_binding_1 = args.ethereum_details.get_output(context);
+        let ethereum_details_binding = ethereum_details_binding_1.get_inner();
+        let labels_binding_1 = args.labels.get_output(context);
+        let labels_binding = labels_binding_1.get_inner();
+        let location_binding_1 = args.location.get_output(context);
+        let location_binding = location_binding_1.get_inner();
+        let project_binding_1 = args.project.get_output(context);
+        let project_binding = project_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:blockchainnodeengine/blockchainNodes:BlockchainNodes".into(),
             name: name.to_string(),

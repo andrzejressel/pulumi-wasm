@@ -69,9 +69,12 @@ pub mod notebook_instance_lifecycle_configuration {
     ) -> NotebookInstanceLifecycleConfigurationResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let name_binding = args.name.get_output(context).get_inner();
-        let on_create_binding = args.on_create.get_output(context).get_inner();
-        let on_start_binding = args.on_start.get_output(context).get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let on_create_binding_1 = args.on_create.get_output(context);
+        let on_create_binding = on_create_binding_1.get_inner();
+        let on_start_binding_1 = args.on_start.get_output(context);
+        let on_start_binding = on_start_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:sagemaker/notebookInstanceLifecycleConfiguration:NotebookInstanceLifecycleConfiguration"
                 .into(),

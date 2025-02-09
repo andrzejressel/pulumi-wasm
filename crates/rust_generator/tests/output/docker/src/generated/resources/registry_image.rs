@@ -74,13 +74,16 @@ pub mod registry_image {
     ) -> RegistryImageResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let insecure_skip_verify_binding = args
+        let insecure_skip_verify_binding_1 = args
             .insecure_skip_verify
-            .get_output(context)
-            .get_inner();
-        let keep_remotely_binding = args.keep_remotely.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let triggers_binding = args.triggers.get_output(context).get_inner();
+            .get_output(context);
+        let insecure_skip_verify_binding = insecure_skip_verify_binding_1.get_inner();
+        let keep_remotely_binding_1 = args.keep_remotely.get_output(context);
+        let keep_remotely_binding = keep_remotely_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let triggers_binding_1 = args.triggers.get_output(context);
+        let triggers_binding = triggers_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "docker:index/registryImage:RegistryImage".into(),
             name: name.to_string(),

@@ -184,12 +184,18 @@ pub mod contacts_rotation {
     ) -> ContactsRotationResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let contact_ids_binding = args.contact_ids.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let recurrence_binding = args.recurrence.get_output(context).get_inner();
-        let start_time_binding = args.start_time.get_output(context).get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
-        let time_zone_id_binding = args.time_zone_id.get_output(context).get_inner();
+        let contact_ids_binding_1 = args.contact_ids.get_output(context);
+        let contact_ids_binding = contact_ids_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let recurrence_binding_1 = args.recurrence.get_output(context);
+        let recurrence_binding = recurrence_binding_1.get_inner();
+        let start_time_binding_1 = args.start_time.get_output(context);
+        let start_time_binding = start_time_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
+        let time_zone_id_binding_1 = args.time_zone_id.get_output(context);
+        let time_zone_id_binding = time_zone_id_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:ssm/contactsRotation:ContactsRotation".into(),
             name: name.to_string(),

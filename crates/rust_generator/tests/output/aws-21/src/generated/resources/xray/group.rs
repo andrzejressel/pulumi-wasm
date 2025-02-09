@@ -85,16 +85,17 @@ pub mod group {
     ) -> GroupResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let filter_expression_binding = args
-            .filter_expression
-            .get_output(context)
-            .get_inner();
-        let group_name_binding = args.group_name.get_output(context).get_inner();
-        let insights_configuration_binding = args
+        let filter_expression_binding_1 = args.filter_expression.get_output(context);
+        let filter_expression_binding = filter_expression_binding_1.get_inner();
+        let group_name_binding_1 = args.group_name.get_output(context);
+        let group_name_binding = group_name_binding_1.get_inner();
+        let insights_configuration_binding_1 = args
             .insights_configuration
-            .get_output(context)
+            .get_output(context);
+        let insights_configuration_binding = insights_configuration_binding_1
             .get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:xray/group:Group".into(),
             name: name.to_string(),

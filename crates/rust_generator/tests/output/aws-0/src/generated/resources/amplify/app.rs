@@ -324,53 +324,68 @@ pub mod app {
     ) -> AppResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let access_token_binding = args.access_token.get_output(context).get_inner();
-        let auto_branch_creation_config_binding = args
+        let access_token_binding_1 = args.access_token.get_output(context);
+        let access_token_binding = access_token_binding_1.get_inner();
+        let auto_branch_creation_config_binding_1 = args
             .auto_branch_creation_config
-            .get_output(context)
+            .get_output(context);
+        let auto_branch_creation_config_binding = auto_branch_creation_config_binding_1
             .get_inner();
-        let auto_branch_creation_patterns_binding = args
+        let auto_branch_creation_patterns_binding_1 = args
             .auto_branch_creation_patterns
-            .get_output(context)
+            .get_output(context);
+        let auto_branch_creation_patterns_binding = auto_branch_creation_patterns_binding_1
             .get_inner();
-        let basic_auth_credentials_binding = args
+        let basic_auth_credentials_binding_1 = args
             .basic_auth_credentials
-            .get_output(context)
+            .get_output(context);
+        let basic_auth_credentials_binding = basic_auth_credentials_binding_1
             .get_inner();
-        let build_spec_binding = args.build_spec.get_output(context).get_inner();
-        let cache_config_binding = args.cache_config.get_output(context).get_inner();
-        let custom_headers_binding = args.custom_headers.get_output(context).get_inner();
-        let custom_rules_binding = args.custom_rules.get_output(context).get_inner();
-        let description_binding = args.description.get_output(context).get_inner();
-        let enable_auto_branch_creation_binding = args
+        let build_spec_binding_1 = args.build_spec.get_output(context);
+        let build_spec_binding = build_spec_binding_1.get_inner();
+        let cache_config_binding_1 = args.cache_config.get_output(context);
+        let cache_config_binding = cache_config_binding_1.get_inner();
+        let custom_headers_binding_1 = args.custom_headers.get_output(context);
+        let custom_headers_binding = custom_headers_binding_1.get_inner();
+        let custom_rules_binding_1 = args.custom_rules.get_output(context);
+        let custom_rules_binding = custom_rules_binding_1.get_inner();
+        let description_binding_1 = args.description.get_output(context);
+        let description_binding = description_binding_1.get_inner();
+        let enable_auto_branch_creation_binding_1 = args
             .enable_auto_branch_creation
-            .get_output(context)
+            .get_output(context);
+        let enable_auto_branch_creation_binding = enable_auto_branch_creation_binding_1
             .get_inner();
-        let enable_basic_auth_binding = args
-            .enable_basic_auth
-            .get_output(context)
-            .get_inner();
-        let enable_branch_auto_build_binding = args
+        let enable_basic_auth_binding_1 = args.enable_basic_auth.get_output(context);
+        let enable_basic_auth_binding = enable_basic_auth_binding_1.get_inner();
+        let enable_branch_auto_build_binding_1 = args
             .enable_branch_auto_build
-            .get_output(context)
+            .get_output(context);
+        let enable_branch_auto_build_binding = enable_branch_auto_build_binding_1
             .get_inner();
-        let enable_branch_auto_deletion_binding = args
+        let enable_branch_auto_deletion_binding_1 = args
             .enable_branch_auto_deletion
-            .get_output(context)
+            .get_output(context);
+        let enable_branch_auto_deletion_binding = enable_branch_auto_deletion_binding_1
             .get_inner();
-        let environment_variables_binding = args
+        let environment_variables_binding_1 = args
             .environment_variables
-            .get_output(context)
-            .get_inner();
-        let iam_service_role_arn_binding = args
+            .get_output(context);
+        let environment_variables_binding = environment_variables_binding_1.get_inner();
+        let iam_service_role_arn_binding_1 = args
             .iam_service_role_arn
-            .get_output(context)
-            .get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let oauth_token_binding = args.oauth_token.get_output(context).get_inner();
-        let platform_binding = args.platform.get_output(context).get_inner();
-        let repository_binding = args.repository.get_output(context).get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
+            .get_output(context);
+        let iam_service_role_arn_binding = iam_service_role_arn_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let oauth_token_binding_1 = args.oauth_token.get_output(context);
+        let oauth_token_binding = oauth_token_binding_1.get_inner();
+        let platform_binding_1 = args.platform.get_output(context);
+        let platform_binding = platform_binding_1.get_inner();
+        let repository_binding_1 = args.repository.get_output(context);
+        let repository_binding = repository_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:amplify/app:App".into(),
             name: name.to_string(),

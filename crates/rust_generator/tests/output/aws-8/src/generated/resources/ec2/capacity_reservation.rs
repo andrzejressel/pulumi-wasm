@@ -124,34 +124,35 @@ pub mod capacity_reservation {
     ) -> CapacityReservationResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let availability_zone_binding = args
-            .availability_zone
-            .get_output(context)
-            .get_inner();
-        let ebs_optimized_binding = args.ebs_optimized.get_output(context).get_inner();
-        let end_date_binding = args.end_date.get_output(context).get_inner();
-        let end_date_type_binding = args.end_date_type.get_output(context).get_inner();
-        let ephemeral_storage_binding = args
-            .ephemeral_storage
-            .get_output(context)
-            .get_inner();
-        let instance_count_binding = args.instance_count.get_output(context).get_inner();
-        let instance_match_criteria_binding = args
+        let availability_zone_binding_1 = args.availability_zone.get_output(context);
+        let availability_zone_binding = availability_zone_binding_1.get_inner();
+        let ebs_optimized_binding_1 = args.ebs_optimized.get_output(context);
+        let ebs_optimized_binding = ebs_optimized_binding_1.get_inner();
+        let end_date_binding_1 = args.end_date.get_output(context);
+        let end_date_binding = end_date_binding_1.get_inner();
+        let end_date_type_binding_1 = args.end_date_type.get_output(context);
+        let end_date_type_binding = end_date_type_binding_1.get_inner();
+        let ephemeral_storage_binding_1 = args.ephemeral_storage.get_output(context);
+        let ephemeral_storage_binding = ephemeral_storage_binding_1.get_inner();
+        let instance_count_binding_1 = args.instance_count.get_output(context);
+        let instance_count_binding = instance_count_binding_1.get_inner();
+        let instance_match_criteria_binding_1 = args
             .instance_match_criteria
-            .get_output(context)
+            .get_output(context);
+        let instance_match_criteria_binding = instance_match_criteria_binding_1
             .get_inner();
-        let instance_platform_binding = args
-            .instance_platform
-            .get_output(context)
-            .get_inner();
-        let instance_type_binding = args.instance_type.get_output(context).get_inner();
-        let outpost_arn_binding = args.outpost_arn.get_output(context).get_inner();
-        let placement_group_arn_binding = args
-            .placement_group_arn
-            .get_output(context)
-            .get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
-        let tenancy_binding = args.tenancy.get_output(context).get_inner();
+        let instance_platform_binding_1 = args.instance_platform.get_output(context);
+        let instance_platform_binding = instance_platform_binding_1.get_inner();
+        let instance_type_binding_1 = args.instance_type.get_output(context);
+        let instance_type_binding = instance_type_binding_1.get_inner();
+        let outpost_arn_binding_1 = args.outpost_arn.get_output(context);
+        let outpost_arn_binding = outpost_arn_binding_1.get_inner();
+        let placement_group_arn_binding_1 = args.placement_group_arn.get_output(context);
+        let placement_group_arn_binding = placement_group_arn_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
+        let tenancy_binding_1 = args.tenancy.get_output(context);
+        let tenancy_binding = tenancy_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:ec2/capacityReservation:CapacityReservation".into(),
             name: name.to_string(),

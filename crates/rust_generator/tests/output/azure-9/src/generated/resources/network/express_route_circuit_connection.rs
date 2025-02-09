@@ -170,24 +170,18 @@ pub mod express_route_circuit_connection {
     ) -> ExpressRouteCircuitConnectionResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let address_prefix_ipv4_binding = args
-            .address_prefix_ipv4
-            .get_output(context)
-            .get_inner();
-        let address_prefix_ipv6_binding = args
-            .address_prefix_ipv6
-            .get_output(context)
-            .get_inner();
-        let authorization_key_binding = args
-            .authorization_key
-            .get_output(context)
-            .get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let peer_peering_id_binding = args
-            .peer_peering_id
-            .get_output(context)
-            .get_inner();
-        let peering_id_binding = args.peering_id.get_output(context).get_inner();
+        let address_prefix_ipv4_binding_1 = args.address_prefix_ipv4.get_output(context);
+        let address_prefix_ipv4_binding = address_prefix_ipv4_binding_1.get_inner();
+        let address_prefix_ipv6_binding_1 = args.address_prefix_ipv6.get_output(context);
+        let address_prefix_ipv6_binding = address_prefix_ipv6_binding_1.get_inner();
+        let authorization_key_binding_1 = args.authorization_key.get_output(context);
+        let authorization_key_binding = authorization_key_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let peer_peering_id_binding_1 = args.peer_peering_id.get_output(context);
+        let peer_peering_id_binding = peer_peering_id_binding_1.get_inner();
+        let peering_id_binding_1 = args.peering_id.get_output(context);
+        let peering_id_binding = peering_id_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:network/expressRouteCircuitConnection:ExpressRouteCircuitConnection"
                 .into(),

@@ -140,33 +140,36 @@ pub mod spring_cloud_app {
     ) -> SpringCloudAppResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let addon_json_binding = args.addon_json.get_output(context).get_inner();
-        let custom_persistent_disks_binding = args
+        let addon_json_binding_1 = args.addon_json.get_output(context);
+        let addon_json_binding = addon_json_binding_1.get_inner();
+        let custom_persistent_disks_binding_1 = args
             .custom_persistent_disks
-            .get_output(context)
+            .get_output(context);
+        let custom_persistent_disks_binding = custom_persistent_disks_binding_1
             .get_inner();
-        let https_only_binding = args.https_only.get_output(context).get_inner();
-        let identity_binding = args.identity.get_output(context).get_inner();
-        let ingress_settings_binding = args
-            .ingress_settings
-            .get_output(context)
-            .get_inner();
-        let is_public_binding = args.is_public.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let persistent_disk_binding = args
-            .persistent_disk
-            .get_output(context)
-            .get_inner();
-        let public_endpoint_enabled_binding = args
+        let https_only_binding_1 = args.https_only.get_output(context);
+        let https_only_binding = https_only_binding_1.get_inner();
+        let identity_binding_1 = args.identity.get_output(context);
+        let identity_binding = identity_binding_1.get_inner();
+        let ingress_settings_binding_1 = args.ingress_settings.get_output(context);
+        let ingress_settings_binding = ingress_settings_binding_1.get_inner();
+        let is_public_binding_1 = args.is_public.get_output(context);
+        let is_public_binding = is_public_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let persistent_disk_binding_1 = args.persistent_disk.get_output(context);
+        let persistent_disk_binding = persistent_disk_binding_1.get_inner();
+        let public_endpoint_enabled_binding_1 = args
             .public_endpoint_enabled
-            .get_output(context)
+            .get_output(context);
+        let public_endpoint_enabled_binding = public_endpoint_enabled_binding_1
             .get_inner();
-        let resource_group_name_binding = args
-            .resource_group_name
-            .get_output(context)
-            .get_inner();
-        let service_name_binding = args.service_name.get_output(context).get_inner();
-        let tls_enabled_binding = args.tls_enabled.get_output(context).get_inner();
+        let resource_group_name_binding_1 = args.resource_group_name.get_output(context);
+        let resource_group_name_binding = resource_group_name_binding_1.get_inner();
+        let service_name_binding_1 = args.service_name.get_output(context);
+        let service_name_binding = service_name_binding_1.get_inner();
+        let tls_enabled_binding_1 = args.tls_enabled.get_output(context);
+        let tls_enabled_binding = tls_enabled_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:appplatform/springCloudApp:SpringCloudApp".into(),
             name: name.to_string(),

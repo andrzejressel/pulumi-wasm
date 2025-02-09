@@ -57,11 +57,12 @@ pub mod regex_pattern_set {
     ) -> RegexPatternSetResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let name_binding = args.name.get_output(context).get_inner();
-        let regex_pattern_strings_binding = args
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let regex_pattern_strings_binding_1 = args
             .regex_pattern_strings
-            .get_output(context)
-            .get_inner();
+            .get_output(context);
+        let regex_pattern_strings_binding = regex_pattern_strings_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:wafregional/regexPatternSet:RegexPatternSet".into(),
             name: name.to_string(),

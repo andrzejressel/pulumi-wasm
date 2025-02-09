@@ -238,18 +238,24 @@ pub mod pipeline {
     ) -> PipelineResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let artifact_stores_binding = args
-            .artifact_stores
-            .get_output(context)
-            .get_inner();
-        let execution_mode_binding = args.execution_mode.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let pipeline_type_binding = args.pipeline_type.get_output(context).get_inner();
-        let role_arn_binding = args.role_arn.get_output(context).get_inner();
-        let stages_binding = args.stages.get_output(context).get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
-        let triggers_binding = args.triggers.get_output(context).get_inner();
-        let variables_binding = args.variables.get_output(context).get_inner();
+        let artifact_stores_binding_1 = args.artifact_stores.get_output(context);
+        let artifact_stores_binding = artifact_stores_binding_1.get_inner();
+        let execution_mode_binding_1 = args.execution_mode.get_output(context);
+        let execution_mode_binding = execution_mode_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let pipeline_type_binding_1 = args.pipeline_type.get_output(context);
+        let pipeline_type_binding = pipeline_type_binding_1.get_inner();
+        let role_arn_binding_1 = args.role_arn.get_output(context);
+        let role_arn_binding = role_arn_binding_1.get_inner();
+        let stages_binding_1 = args.stages.get_output(context);
+        let stages_binding = stages_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
+        let triggers_binding_1 = args.triggers.get_output(context);
+        let triggers_binding = triggers_binding_1.get_inner();
+        let variables_binding_1 = args.variables.get_output(context);
+        let variables_binding = variables_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:codepipeline/pipeline:Pipeline".into(),
             name: name.to_string(),

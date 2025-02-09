@@ -76,12 +76,12 @@ pub mod monitor {
     ) -> MonitorResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let aggregation_period_binding = args
-            .aggregation_period
-            .get_output(context)
-            .get_inner();
-        let monitor_name_binding = args.monitor_name.get_output(context).get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
+        let aggregation_period_binding_1 = args.aggregation_period.get_output(context);
+        let aggregation_period_binding = aggregation_period_binding_1.get_inner();
+        let monitor_name_binding_1 = args.monitor_name.get_output(context);
+        let monitor_name_binding = monitor_name_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:networkmonitor/monitor:Monitor".into(),
             name: name.to_string(),

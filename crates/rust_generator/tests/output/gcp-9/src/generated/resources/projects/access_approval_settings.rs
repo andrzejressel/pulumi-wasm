@@ -178,20 +178,16 @@ pub mod access_approval_settings {
     ) -> AccessApprovalSettingsResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let active_key_version_binding = args
-            .active_key_version
-            .get_output(context)
-            .get_inner();
-        let enrolled_services_binding = args
-            .enrolled_services
-            .get_output(context)
-            .get_inner();
-        let notification_emails_binding = args
-            .notification_emails
-            .get_output(context)
-            .get_inner();
-        let project_binding = args.project.get_output(context).get_inner();
-        let project_id_binding = args.project_id.get_output(context).get_inner();
+        let active_key_version_binding_1 = args.active_key_version.get_output(context);
+        let active_key_version_binding = active_key_version_binding_1.get_inner();
+        let enrolled_services_binding_1 = args.enrolled_services.get_output(context);
+        let enrolled_services_binding = enrolled_services_binding_1.get_inner();
+        let notification_emails_binding_1 = args.notification_emails.get_output(context);
+        let notification_emails_binding = notification_emails_binding_1.get_inner();
+        let project_binding_1 = args.project.get_output(context);
+        let project_binding = project_binding_1.get_inner();
+        let project_id_binding_1 = args.project_id.get_output(context);
+        let project_id_binding = project_id_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:projects/accessApprovalSettings:AccessApprovalSettings".into(),
             name: name.to_string(),

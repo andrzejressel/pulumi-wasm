@@ -341,50 +341,49 @@ pub mod integration {
     ) -> IntegrationResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let cache_key_parameters_binding = args
+        let cache_key_parameters_binding_1 = args
             .cache_key_parameters
-            .get_output(context)
-            .get_inner();
-        let cache_namespace_binding = args
-            .cache_namespace
-            .get_output(context)
-            .get_inner();
-        let connection_id_binding = args.connection_id.get_output(context).get_inner();
-        let connection_type_binding = args
-            .connection_type
-            .get_output(context)
-            .get_inner();
-        let content_handling_binding = args
-            .content_handling
-            .get_output(context)
-            .get_inner();
-        let credentials_binding = args.credentials.get_output(context).get_inner();
-        let http_method_binding = args.http_method.get_output(context).get_inner();
-        let integration_http_method_binding = args
+            .get_output(context);
+        let cache_key_parameters_binding = cache_key_parameters_binding_1.get_inner();
+        let cache_namespace_binding_1 = args.cache_namespace.get_output(context);
+        let cache_namespace_binding = cache_namespace_binding_1.get_inner();
+        let connection_id_binding_1 = args.connection_id.get_output(context);
+        let connection_id_binding = connection_id_binding_1.get_inner();
+        let connection_type_binding_1 = args.connection_type.get_output(context);
+        let connection_type_binding = connection_type_binding_1.get_inner();
+        let content_handling_binding_1 = args.content_handling.get_output(context);
+        let content_handling_binding = content_handling_binding_1.get_inner();
+        let credentials_binding_1 = args.credentials.get_output(context);
+        let credentials_binding = credentials_binding_1.get_inner();
+        let http_method_binding_1 = args.http_method.get_output(context);
+        let http_method_binding = http_method_binding_1.get_inner();
+        let integration_http_method_binding_1 = args
             .integration_http_method
-            .get_output(context)
+            .get_output(context);
+        let integration_http_method_binding = integration_http_method_binding_1
             .get_inner();
-        let passthrough_behavior_binding = args
+        let passthrough_behavior_binding_1 = args
             .passthrough_behavior
-            .get_output(context)
-            .get_inner();
-        let request_parameters_binding = args
-            .request_parameters
-            .get_output(context)
-            .get_inner();
-        let request_templates_binding = args
-            .request_templates
-            .get_output(context)
-            .get_inner();
-        let resource_id_binding = args.resource_id.get_output(context).get_inner();
-        let rest_api_binding = args.rest_api.get_output(context).get_inner();
-        let timeout_milliseconds_binding = args
+            .get_output(context);
+        let passthrough_behavior_binding = passthrough_behavior_binding_1.get_inner();
+        let request_parameters_binding_1 = args.request_parameters.get_output(context);
+        let request_parameters_binding = request_parameters_binding_1.get_inner();
+        let request_templates_binding_1 = args.request_templates.get_output(context);
+        let request_templates_binding = request_templates_binding_1.get_inner();
+        let resource_id_binding_1 = args.resource_id.get_output(context);
+        let resource_id_binding = resource_id_binding_1.get_inner();
+        let rest_api_binding_1 = args.rest_api.get_output(context);
+        let rest_api_binding = rest_api_binding_1.get_inner();
+        let timeout_milliseconds_binding_1 = args
             .timeout_milliseconds
-            .get_output(context)
-            .get_inner();
-        let tls_config_binding = args.tls_config.get_output(context).get_inner();
-        let type__binding = args.type_.get_output(context).get_inner();
-        let uri_binding = args.uri.get_output(context).get_inner();
+            .get_output(context);
+        let timeout_milliseconds_binding = timeout_milliseconds_binding_1.get_inner();
+        let tls_config_binding_1 = args.tls_config.get_output(context);
+        let tls_config_binding = tls_config_binding_1.get_inner();
+        let type__binding_1 = args.type_.get_output(context);
+        let type__binding = type__binding_1.get_inner();
+        let uri_binding_1 = args.uri.get_output(context);
+        let uri_binding = uri_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:apigateway/integration:Integration".into(),
             name: name.to_string(),

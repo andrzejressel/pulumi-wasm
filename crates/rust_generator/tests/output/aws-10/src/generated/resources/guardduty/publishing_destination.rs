@@ -154,16 +154,14 @@ pub mod publishing_destination {
     ) -> PublishingDestinationResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let destination_arn_binding = args
-            .destination_arn
-            .get_output(context)
-            .get_inner();
-        let destination_type_binding = args
-            .destination_type
-            .get_output(context)
-            .get_inner();
-        let detector_id_binding = args.detector_id.get_output(context).get_inner();
-        let kms_key_arn_binding = args.kms_key_arn.get_output(context).get_inner();
+        let destination_arn_binding_1 = args.destination_arn.get_output(context);
+        let destination_arn_binding = destination_arn_binding_1.get_inner();
+        let destination_type_binding_1 = args.destination_type.get_output(context);
+        let destination_type_binding = destination_type_binding_1.get_inner();
+        let detector_id_binding_1 = args.detector_id.get_output(context);
+        let detector_id_binding = detector_id_binding_1.get_inner();
+        let kms_key_arn_binding_1 = args.kms_key_arn.get_output(context);
+        let kms_key_arn_binding = kms_key_arn_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:guardduty/publishingDestination:PublishingDestination".into(),
             name: name.to_string(),

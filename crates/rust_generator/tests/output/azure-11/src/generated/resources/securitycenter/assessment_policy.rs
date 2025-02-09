@@ -89,20 +89,27 @@ pub mod assessment_policy {
     ) -> AssessmentPolicyResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let categories_binding = args.categories.get_output(context).get_inner();
-        let description_binding = args.description.get_output(context).get_inner();
-        let display_name_binding = args.display_name.get_output(context).get_inner();
-        let implementation_effort_binding = args
+        let categories_binding_1 = args.categories.get_output(context);
+        let categories_binding = categories_binding_1.get_inner();
+        let description_binding_1 = args.description.get_output(context);
+        let description_binding = description_binding_1.get_inner();
+        let display_name_binding_1 = args.display_name.get_output(context);
+        let display_name_binding = display_name_binding_1.get_inner();
+        let implementation_effort_binding_1 = args
             .implementation_effort
-            .get_output(context)
-            .get_inner();
-        let remediation_description_binding = args
+            .get_output(context);
+        let implementation_effort_binding = implementation_effort_binding_1.get_inner();
+        let remediation_description_binding_1 = args
             .remediation_description
-            .get_output(context)
+            .get_output(context);
+        let remediation_description_binding = remediation_description_binding_1
             .get_inner();
-        let severity_binding = args.severity.get_output(context).get_inner();
-        let threats_binding = args.threats.get_output(context).get_inner();
-        let user_impact_binding = args.user_impact.get_output(context).get_inner();
+        let severity_binding_1 = args.severity.get_output(context);
+        let severity_binding = severity_binding_1.get_inner();
+        let threats_binding_1 = args.threats.get_output(context);
+        let threats_binding = threats_binding_1.get_inner();
+        let user_impact_binding_1 = args.user_impact.get_output(context);
+        let user_impact_binding = user_impact_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:securitycenter/assessmentPolicy:AssessmentPolicy".into(),
             name: name.to_string(),

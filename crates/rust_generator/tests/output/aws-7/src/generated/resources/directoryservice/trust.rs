@@ -179,26 +179,28 @@ pub mod trust {
     ) -> TrustResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let conditional_forwarder_ip_addrs_binding = args
+        let conditional_forwarder_ip_addrs_binding_1 = args
             .conditional_forwarder_ip_addrs
-            .get_output(context)
+            .get_output(context);
+        let conditional_forwarder_ip_addrs_binding = conditional_forwarder_ip_addrs_binding_1
             .get_inner();
-        let delete_associated_conditional_forwarder_binding = args
+        let delete_associated_conditional_forwarder_binding_1 = args
             .delete_associated_conditional_forwarder
-            .get_output(context)
+            .get_output(context);
+        let delete_associated_conditional_forwarder_binding = delete_associated_conditional_forwarder_binding_1
             .get_inner();
-        let directory_id_binding = args.directory_id.get_output(context).get_inner();
-        let remote_domain_name_binding = args
-            .remote_domain_name
-            .get_output(context)
-            .get_inner();
-        let selective_auth_binding = args.selective_auth.get_output(context).get_inner();
-        let trust_direction_binding = args
-            .trust_direction
-            .get_output(context)
-            .get_inner();
-        let trust_password_binding = args.trust_password.get_output(context).get_inner();
-        let trust_type_binding = args.trust_type.get_output(context).get_inner();
+        let directory_id_binding_1 = args.directory_id.get_output(context);
+        let directory_id_binding = directory_id_binding_1.get_inner();
+        let remote_domain_name_binding_1 = args.remote_domain_name.get_output(context);
+        let remote_domain_name_binding = remote_domain_name_binding_1.get_inner();
+        let selective_auth_binding_1 = args.selective_auth.get_output(context);
+        let selective_auth_binding = selective_auth_binding_1.get_inner();
+        let trust_direction_binding_1 = args.trust_direction.get_output(context);
+        let trust_direction_binding = trust_direction_binding_1.get_inner();
+        let trust_password_binding_1 = args.trust_password.get_output(context);
+        let trust_password_binding = trust_password_binding_1.get_inner();
+        let trust_type_binding_1 = args.trust_type.get_output(context);
+        let trust_type_binding = trust_type_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:directoryservice/trust:Trust".into(),
             name: name.to_string(),

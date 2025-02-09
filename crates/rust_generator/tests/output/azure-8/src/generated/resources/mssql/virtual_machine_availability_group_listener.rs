@@ -96,24 +96,31 @@ pub mod virtual_machine_availability_group_listener {
     ) -> VirtualMachineAvailabilityGroupListenerResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let availability_group_name_binding = args
+        let availability_group_name_binding_1 = args
             .availability_group_name
-            .get_output(context)
+            .get_output(context);
+        let availability_group_name_binding = availability_group_name_binding_1
             .get_inner();
-        let load_balancer_configuration_binding = args
+        let load_balancer_configuration_binding_1 = args
             .load_balancer_configuration
-            .get_output(context)
+            .get_output(context);
+        let load_balancer_configuration_binding = load_balancer_configuration_binding_1
             .get_inner();
-        let multi_subnet_ip_configurations_binding = args
+        let multi_subnet_ip_configurations_binding_1 = args
             .multi_subnet_ip_configurations
-            .get_output(context)
+            .get_output(context);
+        let multi_subnet_ip_configurations_binding = multi_subnet_ip_configurations_binding_1
             .get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let port_binding = args.port.get_output(context).get_inner();
-        let replicas_binding = args.replicas.get_output(context).get_inner();
-        let sql_virtual_machine_group_id_binding = args
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let port_binding_1 = args.port.get_output(context);
+        let port_binding = port_binding_1.get_inner();
+        let replicas_binding_1 = args.replicas.get_output(context);
+        let replicas_binding = replicas_binding_1.get_inner();
+        let sql_virtual_machine_group_id_binding_1 = args
             .sql_virtual_machine_group_id
-            .get_output(context)
+            .get_output(context);
+        let sql_virtual_machine_group_id_binding = sql_virtual_machine_group_id_binding_1
             .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:mssql/virtualMachineAvailabilityGroupListener:VirtualMachineAvailabilityGroupListener"

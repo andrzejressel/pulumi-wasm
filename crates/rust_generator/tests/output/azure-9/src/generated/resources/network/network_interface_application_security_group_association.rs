@@ -104,14 +104,15 @@ pub mod network_interface_application_security_group_association {
     ) -> NetworkInterfaceApplicationSecurityGroupAssociationResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let application_security_group_id_binding = args
+        let application_security_group_id_binding_1 = args
             .application_security_group_id
-            .get_output(context)
+            .get_output(context);
+        let application_security_group_id_binding = application_security_group_id_binding_1
             .get_inner();
-        let network_interface_id_binding = args
+        let network_interface_id_binding_1 = args
             .network_interface_id
-            .get_output(context)
-            .get_inner();
+            .get_output(context);
+        let network_interface_id_binding = network_interface_id_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:network/networkInterfaceApplicationSecurityGroupAssociation:NetworkInterfaceApplicationSecurityGroupAssociation"
                 .into(),

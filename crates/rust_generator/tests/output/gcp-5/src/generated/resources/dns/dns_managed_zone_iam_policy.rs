@@ -232,9 +232,12 @@ pub mod dns_managed_zone_iam_policy {
     ) -> DnsManagedZoneIamPolicyResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let managed_zone_binding = args.managed_zone.get_output(context).get_inner();
-        let policy_data_binding = args.policy_data.get_output(context).get_inner();
-        let project_binding = args.project.get_output(context).get_inner();
+        let managed_zone_binding_1 = args.managed_zone.get_output(context);
+        let managed_zone_binding = managed_zone_binding_1.get_inner();
+        let policy_data_binding_1 = args.policy_data.get_output(context);
+        let policy_data_binding = policy_data_binding_1.get_inner();
+        let project_binding_1 = args.project.get_output(context);
+        let project_binding = project_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:dns/dnsManagedZoneIamPolicy:DnsManagedZoneIamPolicy".into(),
             name: name.to_string(),

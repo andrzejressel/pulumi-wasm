@@ -153,26 +153,34 @@ pub mod trigger_schedule {
     ) -> TriggerScheduleResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let activated_binding = args.activated.get_output(context).get_inner();
-        let annotations_binding = args.annotations.get_output(context).get_inner();
-        let data_factory_id_binding = args
-            .data_factory_id
-            .get_output(context)
-            .get_inner();
-        let description_binding = args.description.get_output(context).get_inner();
-        let end_time_binding = args.end_time.get_output(context).get_inner();
-        let frequency_binding = args.frequency.get_output(context).get_inner();
-        let interval_binding = args.interval.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let pipeline_name_binding = args.pipeline_name.get_output(context).get_inner();
-        let pipeline_parameters_binding = args
-            .pipeline_parameters
-            .get_output(context)
-            .get_inner();
-        let pipelines_binding = args.pipelines.get_output(context).get_inner();
-        let schedule_binding = args.schedule.get_output(context).get_inner();
-        let start_time_binding = args.start_time.get_output(context).get_inner();
-        let time_zone_binding = args.time_zone.get_output(context).get_inner();
+        let activated_binding_1 = args.activated.get_output(context);
+        let activated_binding = activated_binding_1.get_inner();
+        let annotations_binding_1 = args.annotations.get_output(context);
+        let annotations_binding = annotations_binding_1.get_inner();
+        let data_factory_id_binding_1 = args.data_factory_id.get_output(context);
+        let data_factory_id_binding = data_factory_id_binding_1.get_inner();
+        let description_binding_1 = args.description.get_output(context);
+        let description_binding = description_binding_1.get_inner();
+        let end_time_binding_1 = args.end_time.get_output(context);
+        let end_time_binding = end_time_binding_1.get_inner();
+        let frequency_binding_1 = args.frequency.get_output(context);
+        let frequency_binding = frequency_binding_1.get_inner();
+        let interval_binding_1 = args.interval.get_output(context);
+        let interval_binding = interval_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let pipeline_name_binding_1 = args.pipeline_name.get_output(context);
+        let pipeline_name_binding = pipeline_name_binding_1.get_inner();
+        let pipeline_parameters_binding_1 = args.pipeline_parameters.get_output(context);
+        let pipeline_parameters_binding = pipeline_parameters_binding_1.get_inner();
+        let pipelines_binding_1 = args.pipelines.get_output(context);
+        let pipelines_binding = pipelines_binding_1.get_inner();
+        let schedule_binding_1 = args.schedule.get_output(context);
+        let schedule_binding = schedule_binding_1.get_inner();
+        let start_time_binding_1 = args.start_time.get_output(context);
+        let start_time_binding = start_time_binding_1.get_inner();
+        let time_zone_binding_1 = args.time_zone.get_output(context);
+        let time_zone_binding = time_zone_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:datafactory/triggerSchedule:TriggerSchedule".into(),
             name: name.to_string(),

@@ -226,20 +226,28 @@ pub mod keystores_aliases_self_signed_cert {
     ) -> KeystoresAliasesSelfSignedCertResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let alias_binding = args.alias.get_output(context).get_inner();
-        let cert_validity_in_days_binding = args
+        let alias_binding_1 = args.alias.get_output(context);
+        let alias_binding = alias_binding_1.get_inner();
+        let cert_validity_in_days_binding_1 = args
             .cert_validity_in_days
-            .get_output(context)
-            .get_inner();
-        let environment_binding = args.environment.get_output(context).get_inner();
-        let key_size_binding = args.key_size.get_output(context).get_inner();
-        let keystore_binding = args.keystore.get_output(context).get_inner();
-        let org_id_binding = args.org_id.get_output(context).get_inner();
-        let sig_alg_binding = args.sig_alg.get_output(context).get_inner();
-        let subject_binding = args.subject.get_output(context).get_inner();
-        let subject_alternative_dns_names_binding = args
+            .get_output(context);
+        let cert_validity_in_days_binding = cert_validity_in_days_binding_1.get_inner();
+        let environment_binding_1 = args.environment.get_output(context);
+        let environment_binding = environment_binding_1.get_inner();
+        let key_size_binding_1 = args.key_size.get_output(context);
+        let key_size_binding = key_size_binding_1.get_inner();
+        let keystore_binding_1 = args.keystore.get_output(context);
+        let keystore_binding = keystore_binding_1.get_inner();
+        let org_id_binding_1 = args.org_id.get_output(context);
+        let org_id_binding = org_id_binding_1.get_inner();
+        let sig_alg_binding_1 = args.sig_alg.get_output(context);
+        let sig_alg_binding = sig_alg_binding_1.get_inner();
+        let subject_binding_1 = args.subject.get_output(context);
+        let subject_binding = subject_binding_1.get_inner();
+        let subject_alternative_dns_names_binding_1 = args
             .subject_alternative_dns_names
-            .get_output(context)
+            .get_output(context);
+        let subject_alternative_dns_names_binding = subject_alternative_dns_names_binding_1
             .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:apigee/keystoresAliasesSelfSignedCert:KeystoresAliasesSelfSignedCert"

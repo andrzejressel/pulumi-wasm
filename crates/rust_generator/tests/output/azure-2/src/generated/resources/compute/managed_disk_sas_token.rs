@@ -86,15 +86,12 @@ pub mod managed_disk_sas_token {
     ) -> ManagedDiskSasTokenResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let access_level_binding = args.access_level.get_output(context).get_inner();
-        let duration_in_seconds_binding = args
-            .duration_in_seconds
-            .get_output(context)
-            .get_inner();
-        let managed_disk_id_binding = args
-            .managed_disk_id
-            .get_output(context)
-            .get_inner();
+        let access_level_binding_1 = args.access_level.get_output(context);
+        let access_level_binding = access_level_binding_1.get_inner();
+        let duration_in_seconds_binding_1 = args.duration_in_seconds.get_output(context);
+        let duration_in_seconds_binding = duration_in_seconds_binding_1.get_inner();
+        let managed_disk_id_binding_1 = args.managed_disk_id.get_output(context);
+        let managed_disk_id_binding = managed_disk_id_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:compute/managedDiskSasToken:ManagedDiskSasToken".into(),
             name: name.to_string(),

@@ -524,48 +524,36 @@ pub mod health_check {
     ) -> HealthCheckResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let check_interval_sec_binding = args
-            .check_interval_sec
-            .get_output(context)
-            .get_inner();
-        let description_binding = args.description.get_output(context).get_inner();
-        let grpc_health_check_binding = args
-            .grpc_health_check
-            .get_output(context)
-            .get_inner();
-        let healthy_threshold_binding = args
-            .healthy_threshold
-            .get_output(context)
-            .get_inner();
-        let http2_health_check_binding = args
-            .http2_health_check
-            .get_output(context)
-            .get_inner();
-        let http_health_check_binding = args
-            .http_health_check
-            .get_output(context)
-            .get_inner();
-        let https_health_check_binding = args
-            .https_health_check
-            .get_output(context)
-            .get_inner();
-        let log_config_binding = args.log_config.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let project_binding = args.project.get_output(context).get_inner();
-        let source_regions_binding = args.source_regions.get_output(context).get_inner();
-        let ssl_health_check_binding = args
-            .ssl_health_check
-            .get_output(context)
-            .get_inner();
-        let tcp_health_check_binding = args
-            .tcp_health_check
-            .get_output(context)
-            .get_inner();
-        let timeout_sec_binding = args.timeout_sec.get_output(context).get_inner();
-        let unhealthy_threshold_binding = args
-            .unhealthy_threshold
-            .get_output(context)
-            .get_inner();
+        let check_interval_sec_binding_1 = args.check_interval_sec.get_output(context);
+        let check_interval_sec_binding = check_interval_sec_binding_1.get_inner();
+        let description_binding_1 = args.description.get_output(context);
+        let description_binding = description_binding_1.get_inner();
+        let grpc_health_check_binding_1 = args.grpc_health_check.get_output(context);
+        let grpc_health_check_binding = grpc_health_check_binding_1.get_inner();
+        let healthy_threshold_binding_1 = args.healthy_threshold.get_output(context);
+        let healthy_threshold_binding = healthy_threshold_binding_1.get_inner();
+        let http2_health_check_binding_1 = args.http2_health_check.get_output(context);
+        let http2_health_check_binding = http2_health_check_binding_1.get_inner();
+        let http_health_check_binding_1 = args.http_health_check.get_output(context);
+        let http_health_check_binding = http_health_check_binding_1.get_inner();
+        let https_health_check_binding_1 = args.https_health_check.get_output(context);
+        let https_health_check_binding = https_health_check_binding_1.get_inner();
+        let log_config_binding_1 = args.log_config.get_output(context);
+        let log_config_binding = log_config_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let project_binding_1 = args.project.get_output(context);
+        let project_binding = project_binding_1.get_inner();
+        let source_regions_binding_1 = args.source_regions.get_output(context);
+        let source_regions_binding = source_regions_binding_1.get_inner();
+        let ssl_health_check_binding_1 = args.ssl_health_check.get_output(context);
+        let ssl_health_check_binding = ssl_health_check_binding_1.get_inner();
+        let tcp_health_check_binding_1 = args.tcp_health_check.get_output(context);
+        let tcp_health_check_binding = tcp_health_check_binding_1.get_inner();
+        let timeout_sec_binding_1 = args.timeout_sec.get_output(context);
+        let timeout_sec_binding = timeout_sec_binding_1.get_inner();
+        let unhealthy_threshold_binding_1 = args.unhealthy_threshold.get_output(context);
+        let unhealthy_threshold_binding = unhealthy_threshold_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:compute/healthCheck:HealthCheck".into(),
             name: name.to_string(),

@@ -85,18 +85,21 @@ pub mod user {
     ) -> UserResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let authentication_type_binding = args
-            .authentication_type
-            .get_output(context)
-            .get_inner();
-        let enabled_binding = args.enabled.get_output(context).get_inner();
-        let first_name_binding = args.first_name.get_output(context).get_inner();
-        let last_name_binding = args.last_name.get_output(context).get_inner();
-        let send_email_notification_binding = args
+        let authentication_type_binding_1 = args.authentication_type.get_output(context);
+        let authentication_type_binding = authentication_type_binding_1.get_inner();
+        let enabled_binding_1 = args.enabled.get_output(context);
+        let enabled_binding = enabled_binding_1.get_inner();
+        let first_name_binding_1 = args.first_name.get_output(context);
+        let first_name_binding = first_name_binding_1.get_inner();
+        let last_name_binding_1 = args.last_name.get_output(context);
+        let last_name_binding = last_name_binding_1.get_inner();
+        let send_email_notification_binding_1 = args
             .send_email_notification
-            .get_output(context)
+            .get_output(context);
+        let send_email_notification_binding = send_email_notification_binding_1
             .get_inner();
-        let user_name_binding = args.user_name.get_output(context).get_inner();
+        let user_name_binding_1 = args.user_name.get_output(context);
+        let user_name_binding = user_name_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:appstream/user:User".into(),
             name: name.to_string(),

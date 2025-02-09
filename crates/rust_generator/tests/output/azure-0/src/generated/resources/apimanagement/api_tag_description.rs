@@ -105,15 +105,19 @@ pub mod api_tag_description {
     ) -> ApiTagDescriptionResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let api_tag_id_binding = args.api_tag_id.get_output(context).get_inner();
-        let description_binding = args.description.get_output(context).get_inner();
-        let external_documentation_description_binding = args
+        let api_tag_id_binding_1 = args.api_tag_id.get_output(context);
+        let api_tag_id_binding = api_tag_id_binding_1.get_inner();
+        let description_binding_1 = args.description.get_output(context);
+        let description_binding = description_binding_1.get_inner();
+        let external_documentation_description_binding_1 = args
             .external_documentation_description
-            .get_output(context)
+            .get_output(context);
+        let external_documentation_description_binding = external_documentation_description_binding_1
             .get_inner();
-        let external_documentation_url_binding = args
+        let external_documentation_url_binding_1 = args
             .external_documentation_url
-            .get_output(context)
+            .get_output(context);
+        let external_documentation_url_binding = external_documentation_url_binding_1
             .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:apimanagement/apiTagDescription:ApiTagDescription".into(),

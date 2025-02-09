@@ -107,24 +107,26 @@ pub mod table_replica {
     ) -> TableReplicaResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let deletion_protection_enabled_binding = args
+        let deletion_protection_enabled_binding_1 = args
             .deletion_protection_enabled
-            .get_output(context)
+            .get_output(context);
+        let deletion_protection_enabled_binding = deletion_protection_enabled_binding_1
             .get_inner();
-        let global_table_arn_binding = args
-            .global_table_arn
-            .get_output(context)
-            .get_inner();
-        let kms_key_arn_binding = args.kms_key_arn.get_output(context).get_inner();
-        let point_in_time_recovery_binding = args
+        let global_table_arn_binding_1 = args.global_table_arn.get_output(context);
+        let global_table_arn_binding = global_table_arn_binding_1.get_inner();
+        let kms_key_arn_binding_1 = args.kms_key_arn.get_output(context);
+        let kms_key_arn_binding = kms_key_arn_binding_1.get_inner();
+        let point_in_time_recovery_binding_1 = args
             .point_in_time_recovery
-            .get_output(context)
+            .get_output(context);
+        let point_in_time_recovery_binding = point_in_time_recovery_binding_1
             .get_inner();
-        let table_class_override_binding = args
+        let table_class_override_binding_1 = args
             .table_class_override
-            .get_output(context)
-            .get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
+            .get_output(context);
+        let table_class_override_binding = table_class_override_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:dynamodb/tableReplica:TableReplica".into(),
             name: name.to_string(),

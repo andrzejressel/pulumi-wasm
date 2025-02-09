@@ -217,13 +217,20 @@ pub mod selection {
     ) -> SelectionResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let conditions_binding = args.conditions.get_output(context).get_inner();
-        let iam_role_arn_binding = args.iam_role_arn.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let not_resources_binding = args.not_resources.get_output(context).get_inner();
-        let plan_id_binding = args.plan_id.get_output(context).get_inner();
-        let resources_binding = args.resources.get_output(context).get_inner();
-        let selection_tags_binding = args.selection_tags.get_output(context).get_inner();
+        let conditions_binding_1 = args.conditions.get_output(context);
+        let conditions_binding = conditions_binding_1.get_inner();
+        let iam_role_arn_binding_1 = args.iam_role_arn.get_output(context);
+        let iam_role_arn_binding = iam_role_arn_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let not_resources_binding_1 = args.not_resources.get_output(context);
+        let not_resources_binding = not_resources_binding_1.get_inner();
+        let plan_id_binding_1 = args.plan_id.get_output(context);
+        let plan_id_binding = plan_id_binding_1.get_inner();
+        let resources_binding_1 = args.resources.get_output(context);
+        let resources_binding = resources_binding_1.get_inner();
+        let selection_tags_binding_1 = args.selection_tags.get_output(context);
+        let selection_tags_binding = selection_tags_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:backup/selection:Selection".into(),
             name: name.to_string(),

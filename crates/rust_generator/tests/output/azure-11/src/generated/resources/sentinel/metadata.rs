@@ -222,45 +222,59 @@ pub mod metadata {
     ) -> MetadataResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let author_binding = args.author.get_output(context).get_inner();
-        let category_binding = args.category.get_output(context).get_inner();
-        let content_id_binding = args.content_id.get_output(context).get_inner();
-        let content_schema_version_binding = args
+        let author_binding_1 = args.author.get_output(context);
+        let author_binding = author_binding_1.get_inner();
+        let category_binding_1 = args.category.get_output(context);
+        let category_binding = category_binding_1.get_inner();
+        let content_id_binding_1 = args.content_id.get_output(context);
+        let content_id_binding = content_id_binding_1.get_inner();
+        let content_schema_version_binding_1 = args
             .content_schema_version
-            .get_output(context)
+            .get_output(context);
+        let content_schema_version_binding = content_schema_version_binding_1
             .get_inner();
-        let custom_version_binding = args.custom_version.get_output(context).get_inner();
-        let dependency_binding = args.dependency.get_output(context).get_inner();
-        let first_publish_date_binding = args
-            .first_publish_date
-            .get_output(context)
-            .get_inner();
-        let icon_id_binding = args.icon_id.get_output(context).get_inner();
-        let kind_binding = args.kind.get_output(context).get_inner();
-        let last_publish_date_binding = args
-            .last_publish_date
-            .get_output(context)
-            .get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let parent_id_binding = args.parent_id.get_output(context).get_inner();
-        let preview_images_binding = args.preview_images.get_output(context).get_inner();
-        let preview_images_darks_binding = args
+        let custom_version_binding_1 = args.custom_version.get_output(context);
+        let custom_version_binding = custom_version_binding_1.get_inner();
+        let dependency_binding_1 = args.dependency.get_output(context);
+        let dependency_binding = dependency_binding_1.get_inner();
+        let first_publish_date_binding_1 = args.first_publish_date.get_output(context);
+        let first_publish_date_binding = first_publish_date_binding_1.get_inner();
+        let icon_id_binding_1 = args.icon_id.get_output(context);
+        let icon_id_binding = icon_id_binding_1.get_inner();
+        let kind_binding_1 = args.kind.get_output(context);
+        let kind_binding = kind_binding_1.get_inner();
+        let last_publish_date_binding_1 = args.last_publish_date.get_output(context);
+        let last_publish_date_binding = last_publish_date_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let parent_id_binding_1 = args.parent_id.get_output(context);
+        let parent_id_binding = parent_id_binding_1.get_inner();
+        let preview_images_binding_1 = args.preview_images.get_output(context);
+        let preview_images_binding = preview_images_binding_1.get_inner();
+        let preview_images_darks_binding_1 = args
             .preview_images_darks
-            .get_output(context)
-            .get_inner();
-        let providers_binding = args.providers.get_output(context).get_inner();
-        let source_binding = args.source.get_output(context).get_inner();
-        let support_binding = args.support.get_output(context).get_inner();
-        let threat_analysis_tactics_binding = args
+            .get_output(context);
+        let preview_images_darks_binding = preview_images_darks_binding_1.get_inner();
+        let providers_binding_1 = args.providers.get_output(context);
+        let providers_binding = providers_binding_1.get_inner();
+        let source_binding_1 = args.source.get_output(context);
+        let source_binding = source_binding_1.get_inner();
+        let support_binding_1 = args.support.get_output(context);
+        let support_binding = support_binding_1.get_inner();
+        let threat_analysis_tactics_binding_1 = args
             .threat_analysis_tactics
-            .get_output(context)
+            .get_output(context);
+        let threat_analysis_tactics_binding = threat_analysis_tactics_binding_1
             .get_inner();
-        let threat_analysis_techniques_binding = args
+        let threat_analysis_techniques_binding_1 = args
             .threat_analysis_techniques
-            .get_output(context)
+            .get_output(context);
+        let threat_analysis_techniques_binding = threat_analysis_techniques_binding_1
             .get_inner();
-        let version_binding = args.version.get_output(context).get_inner();
-        let workspace_id_binding = args.workspace_id.get_output(context).get_inner();
+        let version_binding_1 = args.version.get_output(context);
+        let version_binding = version_binding_1.get_inner();
+        let workspace_id_binding_1 = args.workspace_id.get_output(context);
+        let workspace_id_binding = workspace_id_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:sentinel/metadata:Metadata".into(),
             name: name.to_string(),

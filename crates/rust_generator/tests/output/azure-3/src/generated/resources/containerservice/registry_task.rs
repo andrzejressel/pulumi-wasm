@@ -211,42 +211,44 @@ pub mod registry_task {
     ) -> RegistryTaskResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let agent_pool_name_binding = args
-            .agent_pool_name
-            .get_output(context)
-            .get_inner();
-        let agent_setting_binding = args.agent_setting.get_output(context).get_inner();
-        let base_image_trigger_binding = args
-            .base_image_trigger
-            .get_output(context)
-            .get_inner();
-        let container_registry_id_binding = args
+        let agent_pool_name_binding_1 = args.agent_pool_name.get_output(context);
+        let agent_pool_name_binding = agent_pool_name_binding_1.get_inner();
+        let agent_setting_binding_1 = args.agent_setting.get_output(context);
+        let agent_setting_binding = agent_setting_binding_1.get_inner();
+        let base_image_trigger_binding_1 = args.base_image_trigger.get_output(context);
+        let base_image_trigger_binding = base_image_trigger_binding_1.get_inner();
+        let container_registry_id_binding_1 = args
             .container_registry_id
-            .get_output(context)
-            .get_inner();
-        let docker_step_binding = args.docker_step.get_output(context).get_inner();
-        let enabled_binding = args.enabled.get_output(context).get_inner();
-        let encoded_step_binding = args.encoded_step.get_output(context).get_inner();
-        let file_step_binding = args.file_step.get_output(context).get_inner();
-        let identity_binding = args.identity.get_output(context).get_inner();
-        let is_system_task_binding = args.is_system_task.get_output(context).get_inner();
-        let log_template_binding = args.log_template.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let platform_binding = args.platform.get_output(context).get_inner();
-        let registry_credential_binding = args
-            .registry_credential
-            .get_output(context)
-            .get_inner();
-        let source_triggers_binding = args
-            .source_triggers
-            .get_output(context)
-            .get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
-        let timeout_in_seconds_binding = args
-            .timeout_in_seconds
-            .get_output(context)
-            .get_inner();
-        let timer_triggers_binding = args.timer_triggers.get_output(context).get_inner();
+            .get_output(context);
+        let container_registry_id_binding = container_registry_id_binding_1.get_inner();
+        let docker_step_binding_1 = args.docker_step.get_output(context);
+        let docker_step_binding = docker_step_binding_1.get_inner();
+        let enabled_binding_1 = args.enabled.get_output(context);
+        let enabled_binding = enabled_binding_1.get_inner();
+        let encoded_step_binding_1 = args.encoded_step.get_output(context);
+        let encoded_step_binding = encoded_step_binding_1.get_inner();
+        let file_step_binding_1 = args.file_step.get_output(context);
+        let file_step_binding = file_step_binding_1.get_inner();
+        let identity_binding_1 = args.identity.get_output(context);
+        let identity_binding = identity_binding_1.get_inner();
+        let is_system_task_binding_1 = args.is_system_task.get_output(context);
+        let is_system_task_binding = is_system_task_binding_1.get_inner();
+        let log_template_binding_1 = args.log_template.get_output(context);
+        let log_template_binding = log_template_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let platform_binding_1 = args.platform.get_output(context);
+        let platform_binding = platform_binding_1.get_inner();
+        let registry_credential_binding_1 = args.registry_credential.get_output(context);
+        let registry_credential_binding = registry_credential_binding_1.get_inner();
+        let source_triggers_binding_1 = args.source_triggers.get_output(context);
+        let source_triggers_binding = source_triggers_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
+        let timeout_in_seconds_binding_1 = args.timeout_in_seconds.get_output(context);
+        let timeout_in_seconds_binding = timeout_in_seconds_binding_1.get_inner();
+        let timer_triggers_binding_1 = args.timer_triggers.get_output(context);
+        let timer_triggers_binding = timer_triggers_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:containerservice/registryTask:RegistryTask".into(),
             name: name.to_string(),

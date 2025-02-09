@@ -178,54 +178,50 @@ pub mod launch_configuration {
     ) -> LaunchConfigurationResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let associate_public_ip_address_binding = args
+        let associate_public_ip_address_binding_1 = args
             .associate_public_ip_address
-            .get_output(context)
+            .get_output(context);
+        let associate_public_ip_address_binding = associate_public_ip_address_binding_1
             .get_inner();
-        let ebs_block_devices_binding = args
-            .ebs_block_devices
-            .get_output(context)
-            .get_inner();
-        let ebs_optimized_binding = args.ebs_optimized.get_output(context).get_inner();
-        let enable_monitoring_binding = args
-            .enable_monitoring
-            .get_output(context)
-            .get_inner();
-        let ephemeral_block_devices_binding = args
+        let ebs_block_devices_binding_1 = args.ebs_block_devices.get_output(context);
+        let ebs_block_devices_binding = ebs_block_devices_binding_1.get_inner();
+        let ebs_optimized_binding_1 = args.ebs_optimized.get_output(context);
+        let ebs_optimized_binding = ebs_optimized_binding_1.get_inner();
+        let enable_monitoring_binding_1 = args.enable_monitoring.get_output(context);
+        let enable_monitoring_binding = enable_monitoring_binding_1.get_inner();
+        let ephemeral_block_devices_binding_1 = args
             .ephemeral_block_devices
-            .get_output(context)
+            .get_output(context);
+        let ephemeral_block_devices_binding = ephemeral_block_devices_binding_1
             .get_inner();
-        let iam_instance_profile_binding = args
+        let iam_instance_profile_binding_1 = args
             .iam_instance_profile
-            .get_output(context)
-            .get_inner();
-        let image_id_binding = args.image_id.get_output(context).get_inner();
-        let instance_type_binding = args.instance_type.get_output(context).get_inner();
-        let key_name_binding = args.key_name.get_output(context).get_inner();
-        let metadata_options_binding = args
-            .metadata_options
-            .get_output(context)
-            .get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let name_prefix_binding = args.name_prefix.get_output(context).get_inner();
-        let placement_tenancy_binding = args
-            .placement_tenancy
-            .get_output(context)
-            .get_inner();
-        let root_block_device_binding = args
-            .root_block_device
-            .get_output(context)
-            .get_inner();
-        let security_groups_binding = args
-            .security_groups
-            .get_output(context)
-            .get_inner();
-        let spot_price_binding = args.spot_price.get_output(context).get_inner();
-        let user_data_binding = args.user_data.get_output(context).get_inner();
-        let user_data_base64_binding = args
-            .user_data_base64
-            .get_output(context)
-            .get_inner();
+            .get_output(context);
+        let iam_instance_profile_binding = iam_instance_profile_binding_1.get_inner();
+        let image_id_binding_1 = args.image_id.get_output(context);
+        let image_id_binding = image_id_binding_1.get_inner();
+        let instance_type_binding_1 = args.instance_type.get_output(context);
+        let instance_type_binding = instance_type_binding_1.get_inner();
+        let key_name_binding_1 = args.key_name.get_output(context);
+        let key_name_binding = key_name_binding_1.get_inner();
+        let metadata_options_binding_1 = args.metadata_options.get_output(context);
+        let metadata_options_binding = metadata_options_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let name_prefix_binding_1 = args.name_prefix.get_output(context);
+        let name_prefix_binding = name_prefix_binding_1.get_inner();
+        let placement_tenancy_binding_1 = args.placement_tenancy.get_output(context);
+        let placement_tenancy_binding = placement_tenancy_binding_1.get_inner();
+        let root_block_device_binding_1 = args.root_block_device.get_output(context);
+        let root_block_device_binding = root_block_device_binding_1.get_inner();
+        let security_groups_binding_1 = args.security_groups.get_output(context);
+        let security_groups_binding = security_groups_binding_1.get_inner();
+        let spot_price_binding_1 = args.spot_price.get_output(context);
+        let spot_price_binding = spot_price_binding_1.get_inner();
+        let user_data_binding_1 = args.user_data.get_output(context);
+        let user_data_binding = user_data_binding_1.get_inner();
+        let user_data_base64_binding_1 = args.user_data_base64.get_output(context);
+        let user_data_base64_binding = user_data_base64_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:ec2/launchConfiguration:LaunchConfiguration".into(),
             name: name.to_string(),

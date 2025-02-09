@@ -114,16 +114,17 @@ pub mod reserved_cache_node {
     ) -> ReservedCacheNodeResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let cache_node_count_binding = args
-            .cache_node_count
-            .get_output(context)
-            .get_inner();
-        let reserved_cache_nodes_offering_id_binding = args
+        let cache_node_count_binding_1 = args.cache_node_count.get_output(context);
+        let cache_node_count_binding = cache_node_count_binding_1.get_inner();
+        let reserved_cache_nodes_offering_id_binding_1 = args
             .reserved_cache_nodes_offering_id
-            .get_output(context)
+            .get_output(context);
+        let reserved_cache_nodes_offering_id_binding = reserved_cache_nodes_offering_id_binding_1
             .get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
-        let timeouts_binding = args.timeouts.get_output(context).get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
+        let timeouts_binding_1 = args.timeouts.get_output(context);
+        let timeouts_binding = timeouts_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:elasticache/reservedCacheNode:ReservedCacheNode".into(),
             name: name.to_string(),

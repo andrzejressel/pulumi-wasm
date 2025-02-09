@@ -898,53 +898,58 @@ pub mod trigger {
     ) -> TriggerResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let approval_config_binding = args
-            .approval_config
-            .get_output(context)
-            .get_inner();
-        let bitbucket_server_trigger_config_binding = args
+        let approval_config_binding_1 = args.approval_config.get_output(context);
+        let approval_config_binding = approval_config_binding_1.get_inner();
+        let bitbucket_server_trigger_config_binding_1 = args
             .bitbucket_server_trigger_config
-            .get_output(context)
+            .get_output(context);
+        let bitbucket_server_trigger_config_binding = bitbucket_server_trigger_config_binding_1
             .get_inner();
-        let build_binding = args.build.get_output(context).get_inner();
-        let description_binding = args.description.get_output(context).get_inner();
-        let disabled_binding = args.disabled.get_output(context).get_inner();
-        let filename_binding = args.filename.get_output(context).get_inner();
-        let filter_binding = args.filter.get_output(context).get_inner();
-        let git_file_source_binding = args
-            .git_file_source
-            .get_output(context)
-            .get_inner();
-        let github_binding = args.github.get_output(context).get_inner();
-        let ignored_files_binding = args.ignored_files.get_output(context).get_inner();
-        let include_build_logs_binding = args
-            .include_build_logs
-            .get_output(context)
-            .get_inner();
-        let included_files_binding = args.included_files.get_output(context).get_inner();
-        let location_binding = args.location.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let project_binding = args.project.get_output(context).get_inner();
-        let pubsub_config_binding = args.pubsub_config.get_output(context).get_inner();
-        let repository_event_config_binding = args
+        let build_binding_1 = args.build.get_output(context);
+        let build_binding = build_binding_1.get_inner();
+        let description_binding_1 = args.description.get_output(context);
+        let description_binding = description_binding_1.get_inner();
+        let disabled_binding_1 = args.disabled.get_output(context);
+        let disabled_binding = disabled_binding_1.get_inner();
+        let filename_binding_1 = args.filename.get_output(context);
+        let filename_binding = filename_binding_1.get_inner();
+        let filter_binding_1 = args.filter.get_output(context);
+        let filter_binding = filter_binding_1.get_inner();
+        let git_file_source_binding_1 = args.git_file_source.get_output(context);
+        let git_file_source_binding = git_file_source_binding_1.get_inner();
+        let github_binding_1 = args.github.get_output(context);
+        let github_binding = github_binding_1.get_inner();
+        let ignored_files_binding_1 = args.ignored_files.get_output(context);
+        let ignored_files_binding = ignored_files_binding_1.get_inner();
+        let include_build_logs_binding_1 = args.include_build_logs.get_output(context);
+        let include_build_logs_binding = include_build_logs_binding_1.get_inner();
+        let included_files_binding_1 = args.included_files.get_output(context);
+        let included_files_binding = included_files_binding_1.get_inner();
+        let location_binding_1 = args.location.get_output(context);
+        let location_binding = location_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let project_binding_1 = args.project.get_output(context);
+        let project_binding = project_binding_1.get_inner();
+        let pubsub_config_binding_1 = args.pubsub_config.get_output(context);
+        let pubsub_config_binding = pubsub_config_binding_1.get_inner();
+        let repository_event_config_binding_1 = args
             .repository_event_config
-            .get_output(context)
+            .get_output(context);
+        let repository_event_config_binding = repository_event_config_binding_1
             .get_inner();
-        let service_account_binding = args
-            .service_account
-            .get_output(context)
-            .get_inner();
-        let source_to_build_binding = args
-            .source_to_build
-            .get_output(context)
-            .get_inner();
-        let substitutions_binding = args.substitutions.get_output(context).get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
-        let trigger_template_binding = args
-            .trigger_template
-            .get_output(context)
-            .get_inner();
-        let webhook_config_binding = args.webhook_config.get_output(context).get_inner();
+        let service_account_binding_1 = args.service_account.get_output(context);
+        let service_account_binding = service_account_binding_1.get_inner();
+        let source_to_build_binding_1 = args.source_to_build.get_output(context);
+        let source_to_build_binding = source_to_build_binding_1.get_inner();
+        let substitutions_binding_1 = args.substitutions.get_output(context);
+        let substitutions_binding = substitutions_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
+        let trigger_template_binding_1 = args.trigger_template.get_output(context);
+        let trigger_template_binding = trigger_template_binding_1.get_inner();
+        let webhook_config_binding_1 = args.webhook_config.get_output(context);
+        let webhook_config_binding = webhook_config_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:cloudbuild/trigger:Trigger".into(),
             name: name.to_string(),

@@ -138,29 +138,33 @@ pub mod data_repository_association {
     ) -> DataRepositoryAssociationResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let batch_import_meta_data_on_create_binding = args
+        let batch_import_meta_data_on_create_binding_1 = args
             .batch_import_meta_data_on_create
-            .get_output(context)
+            .get_output(context);
+        let batch_import_meta_data_on_create_binding = batch_import_meta_data_on_create_binding_1
             .get_inner();
-        let data_repository_path_binding = args
+        let data_repository_path_binding_1 = args
             .data_repository_path
-            .get_output(context)
-            .get_inner();
-        let delete_data_in_filesystem_binding = args
+            .get_output(context);
+        let data_repository_path_binding = data_repository_path_binding_1.get_inner();
+        let delete_data_in_filesystem_binding_1 = args
             .delete_data_in_filesystem
-            .get_output(context)
+            .get_output(context);
+        let delete_data_in_filesystem_binding = delete_data_in_filesystem_binding_1
             .get_inner();
-        let file_system_id_binding = args.file_system_id.get_output(context).get_inner();
-        let file_system_path_binding = args
-            .file_system_path
-            .get_output(context)
-            .get_inner();
-        let imported_file_chunk_size_binding = args
+        let file_system_id_binding_1 = args.file_system_id.get_output(context);
+        let file_system_id_binding = file_system_id_binding_1.get_inner();
+        let file_system_path_binding_1 = args.file_system_path.get_output(context);
+        let file_system_path_binding = file_system_path_binding_1.get_inner();
+        let imported_file_chunk_size_binding_1 = args
             .imported_file_chunk_size
-            .get_output(context)
+            .get_output(context);
+        let imported_file_chunk_size_binding = imported_file_chunk_size_binding_1
             .get_inner();
-        let s3_binding = args.s3.get_output(context).get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
+        let s3_binding_1 = args.s3.get_output(context);
+        let s3_binding = s3_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:fsx/dataRepositoryAssociation:DataRepositoryAssociation".into(),
             name: name.to_string(),

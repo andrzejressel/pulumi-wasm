@@ -58,10 +58,8 @@ pub mod organizations_features {
     ) -> OrganizationsFeaturesResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let enabled_features_binding = args
-            .enabled_features
-            .get_output(context)
-            .get_inner();
+        let enabled_features_binding_1 = args.enabled_features.get_output(context);
+        let enabled_features_binding = enabled_features_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:iam/organizationsFeatures:OrganizationsFeatures".into(),
             name: name.to_string(),

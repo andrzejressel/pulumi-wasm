@@ -123,10 +123,14 @@ pub mod user_pool_ui_customization {
     ) -> UserPoolUICustomizationResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let client_id_binding = args.client_id.get_output(context).get_inner();
-        let css_binding = args.css.get_output(context).get_inner();
-        let image_file_binding = args.image_file.get_output(context).get_inner();
-        let user_pool_id_binding = args.user_pool_id.get_output(context).get_inner();
+        let client_id_binding_1 = args.client_id.get_output(context);
+        let client_id_binding = client_id_binding_1.get_inner();
+        let css_binding_1 = args.css.get_output(context);
+        let css_binding = css_binding_1.get_inner();
+        let image_file_binding_1 = args.image_file.get_output(context);
+        let image_file_binding = image_file_binding_1.get_inner();
+        let user_pool_id_binding_1 = args.user_pool_id.get_output(context);
+        let user_pool_id_binding = user_pool_id_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:cognito/userPoolUICustomization:UserPoolUICustomization".into(),
             name: name.to_string(),

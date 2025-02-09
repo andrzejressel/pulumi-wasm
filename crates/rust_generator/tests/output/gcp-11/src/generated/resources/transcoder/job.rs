@@ -739,11 +739,16 @@ pub mod job {
     ) -> JobResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let config_binding = args.config.get_output(context).get_inner();
-        let labels_binding = args.labels.get_output(context).get_inner();
-        let location_binding = args.location.get_output(context).get_inner();
-        let project_binding = args.project.get_output(context).get_inner();
-        let template_id_binding = args.template_id.get_output(context).get_inner();
+        let config_binding_1 = args.config.get_output(context);
+        let config_binding = config_binding_1.get_inner();
+        let labels_binding_1 = args.labels.get_output(context);
+        let labels_binding = labels_binding_1.get_inner();
+        let location_binding_1 = args.location.get_output(context);
+        let location_binding = location_binding_1.get_inner();
+        let project_binding_1 = args.project.get_output(context);
+        let project_binding = project_binding_1.get_inner();
+        let template_id_binding_1 = args.template_id.get_output(context);
+        let template_id_binding = template_id_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:transcoder/job:Job".into(),
             name: name.to_string(),

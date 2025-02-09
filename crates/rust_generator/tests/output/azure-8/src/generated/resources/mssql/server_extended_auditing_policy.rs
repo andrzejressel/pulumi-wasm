@@ -256,40 +256,43 @@ pub mod server_extended_auditing_policy {
     ) -> ServerExtendedAuditingPolicyResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let audit_actions_and_groups_binding = args
+        let audit_actions_and_groups_binding_1 = args
             .audit_actions_and_groups
-            .get_output(context)
+            .get_output(context);
+        let audit_actions_and_groups_binding = audit_actions_and_groups_binding_1
             .get_inner();
-        let enabled_binding = args.enabled.get_output(context).get_inner();
-        let log_monitoring_enabled_binding = args
+        let enabled_binding_1 = args.enabled.get_output(context);
+        let enabled_binding = enabled_binding_1.get_inner();
+        let log_monitoring_enabled_binding_1 = args
             .log_monitoring_enabled
-            .get_output(context)
+            .get_output(context);
+        let log_monitoring_enabled_binding = log_monitoring_enabled_binding_1
             .get_inner();
-        let predicate_expression_binding = args
+        let predicate_expression_binding_1 = args
             .predicate_expression
-            .get_output(context)
-            .get_inner();
-        let retention_in_days_binding = args
-            .retention_in_days
-            .get_output(context)
-            .get_inner();
-        let server_id_binding = args.server_id.get_output(context).get_inner();
-        let storage_account_access_key_binding = args
+            .get_output(context);
+        let predicate_expression_binding = predicate_expression_binding_1.get_inner();
+        let retention_in_days_binding_1 = args.retention_in_days.get_output(context);
+        let retention_in_days_binding = retention_in_days_binding_1.get_inner();
+        let server_id_binding_1 = args.server_id.get_output(context);
+        let server_id_binding = server_id_binding_1.get_inner();
+        let storage_account_access_key_binding_1 = args
             .storage_account_access_key
-            .get_output(context)
+            .get_output(context);
+        let storage_account_access_key_binding = storage_account_access_key_binding_1
             .get_inner();
-        let storage_account_access_key_is_secondary_binding = args
+        let storage_account_access_key_is_secondary_binding_1 = args
             .storage_account_access_key_is_secondary
-            .get_output(context)
+            .get_output(context);
+        let storage_account_access_key_is_secondary_binding = storage_account_access_key_is_secondary_binding_1
             .get_inner();
-        let storage_account_subscription_id_binding = args
+        let storage_account_subscription_id_binding_1 = args
             .storage_account_subscription_id
-            .get_output(context)
+            .get_output(context);
+        let storage_account_subscription_id_binding = storage_account_subscription_id_binding_1
             .get_inner();
-        let storage_endpoint_binding = args
-            .storage_endpoint
-            .get_output(context)
-            .get_inner();
+        let storage_endpoint_binding_1 = args.storage_endpoint.get_output(context);
+        let storage_endpoint_binding = storage_endpoint_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:mssql/serverExtendedAuditingPolicy:ServerExtendedAuditingPolicy"
                 .into(),

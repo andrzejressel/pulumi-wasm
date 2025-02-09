@@ -198,27 +198,29 @@ pub mod auth_config {
     ) -> AuthConfigResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let client_certificate_binding = args
-            .client_certificate
-            .get_output(context)
-            .get_inner();
-        let decrypted_credential_binding = args
+        let client_certificate_binding_1 = args.client_certificate.get_output(context);
+        let client_certificate_binding = client_certificate_binding_1.get_inner();
+        let decrypted_credential_binding_1 = args
             .decrypted_credential
-            .get_output(context)
-            .get_inner();
-        let description_binding = args.description.get_output(context).get_inner();
-        let display_name_binding = args.display_name.get_output(context).get_inner();
-        let expiry_notification_durations_binding = args
+            .get_output(context);
+        let decrypted_credential_binding = decrypted_credential_binding_1.get_inner();
+        let description_binding_1 = args.description.get_output(context);
+        let description_binding = description_binding_1.get_inner();
+        let display_name_binding_1 = args.display_name.get_output(context);
+        let display_name_binding = display_name_binding_1.get_inner();
+        let expiry_notification_durations_binding_1 = args
             .expiry_notification_durations
-            .get_output(context)
+            .get_output(context);
+        let expiry_notification_durations_binding = expiry_notification_durations_binding_1
             .get_inner();
-        let location_binding = args.location.get_output(context).get_inner();
-        let override_valid_time_binding = args
-            .override_valid_time
-            .get_output(context)
-            .get_inner();
-        let project_binding = args.project.get_output(context).get_inner();
-        let visibility_binding = args.visibility.get_output(context).get_inner();
+        let location_binding_1 = args.location.get_output(context);
+        let location_binding = location_binding_1.get_inner();
+        let override_valid_time_binding_1 = args.override_valid_time.get_output(context);
+        let override_valid_time_binding = override_valid_time_binding_1.get_inner();
+        let project_binding_1 = args.project.get_output(context);
+        let project_binding = project_binding_1.get_inner();
+        let visibility_binding_1 = args.visibility.get_output(context);
+        let visibility_binding = visibility_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:applicationintegration/authConfig:AuthConfig".into(),
             name: name.to_string(),

@@ -160,27 +160,35 @@ pub mod schedule {
     ) -> ScheduleResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let description_binding = args.description.get_output(context).get_inner();
-        let end_date_binding = args.end_date.get_output(context).get_inner();
-        let flexible_time_window_binding = args
+        let description_binding_1 = args.description.get_output(context);
+        let description_binding = description_binding_1.get_inner();
+        let end_date_binding_1 = args.end_date.get_output(context);
+        let end_date_binding = end_date_binding_1.get_inner();
+        let flexible_time_window_binding_1 = args
             .flexible_time_window
-            .get_output(context)
-            .get_inner();
-        let group_name_binding = args.group_name.get_output(context).get_inner();
-        let kms_key_arn_binding = args.kms_key_arn.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let name_prefix_binding = args.name_prefix.get_output(context).get_inner();
-        let schedule_expression_binding = args
-            .schedule_expression
-            .get_output(context)
-            .get_inner();
-        let schedule_expression_timezone_binding = args
+            .get_output(context);
+        let flexible_time_window_binding = flexible_time_window_binding_1.get_inner();
+        let group_name_binding_1 = args.group_name.get_output(context);
+        let group_name_binding = group_name_binding_1.get_inner();
+        let kms_key_arn_binding_1 = args.kms_key_arn.get_output(context);
+        let kms_key_arn_binding = kms_key_arn_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let name_prefix_binding_1 = args.name_prefix.get_output(context);
+        let name_prefix_binding = name_prefix_binding_1.get_inner();
+        let schedule_expression_binding_1 = args.schedule_expression.get_output(context);
+        let schedule_expression_binding = schedule_expression_binding_1.get_inner();
+        let schedule_expression_timezone_binding_1 = args
             .schedule_expression_timezone
-            .get_output(context)
+            .get_output(context);
+        let schedule_expression_timezone_binding = schedule_expression_timezone_binding_1
             .get_inner();
-        let start_date_binding = args.start_date.get_output(context).get_inner();
-        let state_binding = args.state.get_output(context).get_inner();
-        let target_binding = args.target.get_output(context).get_inner();
+        let start_date_binding_1 = args.start_date.get_output(context);
+        let start_date_binding = start_date_binding_1.get_inner();
+        let state_binding_1 = args.state.get_output(context);
+        let state_binding = state_binding_1.get_inner();
+        let target_binding_1 = args.target.get_output(context);
+        let target_binding = target_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:scheduler/schedule:Schedule".into(),
             name: name.to_string(),

@@ -193,12 +193,12 @@ pub mod insight {
     ) -> InsightResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let filters_binding = args.filters.get_output(context).get_inner();
-        let group_by_attribute_binding = args
-            .group_by_attribute
-            .get_output(context)
-            .get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
+        let filters_binding_1 = args.filters.get_output(context);
+        let filters_binding = filters_binding_1.get_inner();
+        let group_by_attribute_binding_1 = args.group_by_attribute.get_output(context);
+        let group_by_attribute_binding = group_by_attribute_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:securityhub/insight:Insight".into(),
             name: name.to_string(),

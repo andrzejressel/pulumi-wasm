@@ -1016,240 +1016,231 @@ pub mod cluster {
     ) -> ClusterResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let addons_config_binding = args.addons_config.get_output(context).get_inner();
-        let allow_net_admin_binding = args
-            .allow_net_admin
-            .get_output(context)
-            .get_inner();
-        let authenticator_groups_config_binding = args
+        let addons_config_binding_1 = args.addons_config.get_output(context);
+        let addons_config_binding = addons_config_binding_1.get_inner();
+        let allow_net_admin_binding_1 = args.allow_net_admin.get_output(context);
+        let allow_net_admin_binding = allow_net_admin_binding_1.get_inner();
+        let authenticator_groups_config_binding_1 = args
             .authenticator_groups_config
-            .get_output(context)
+            .get_output(context);
+        let authenticator_groups_config_binding = authenticator_groups_config_binding_1
             .get_inner();
-        let binary_authorization_binding = args
+        let binary_authorization_binding_1 = args
             .binary_authorization
-            .get_output(context)
-            .get_inner();
-        let cluster_autoscaling_binding = args
-            .cluster_autoscaling
-            .get_output(context)
-            .get_inner();
-        let cluster_ipv4_cidr_binding = args
-            .cluster_ipv4_cidr
-            .get_output(context)
-            .get_inner();
-        let cluster_telemetry_binding = args
-            .cluster_telemetry
-            .get_output(context)
-            .get_inner();
-        let confidential_nodes_binding = args
-            .confidential_nodes
-            .get_output(context)
-            .get_inner();
-        let control_plane_endpoints_config_binding = args
+            .get_output(context);
+        let binary_authorization_binding = binary_authorization_binding_1.get_inner();
+        let cluster_autoscaling_binding_1 = args.cluster_autoscaling.get_output(context);
+        let cluster_autoscaling_binding = cluster_autoscaling_binding_1.get_inner();
+        let cluster_ipv4_cidr_binding_1 = args.cluster_ipv4_cidr.get_output(context);
+        let cluster_ipv4_cidr_binding = cluster_ipv4_cidr_binding_1.get_inner();
+        let cluster_telemetry_binding_1 = args.cluster_telemetry.get_output(context);
+        let cluster_telemetry_binding = cluster_telemetry_binding_1.get_inner();
+        let confidential_nodes_binding_1 = args.confidential_nodes.get_output(context);
+        let confidential_nodes_binding = confidential_nodes_binding_1.get_inner();
+        let control_plane_endpoints_config_binding_1 = args
             .control_plane_endpoints_config
-            .get_output(context)
+            .get_output(context);
+        let control_plane_endpoints_config_binding = control_plane_endpoints_config_binding_1
             .get_inner();
-        let cost_management_config_binding = args
+        let cost_management_config_binding_1 = args
             .cost_management_config
-            .get_output(context)
+            .get_output(context);
+        let cost_management_config_binding = cost_management_config_binding_1
             .get_inner();
-        let database_encryption_binding = args
-            .database_encryption
-            .get_output(context)
-            .get_inner();
-        let datapath_provider_binding = args
-            .datapath_provider
-            .get_output(context)
-            .get_inner();
-        let default_max_pods_per_node_binding = args
+        let database_encryption_binding_1 = args.database_encryption.get_output(context);
+        let database_encryption_binding = database_encryption_binding_1.get_inner();
+        let datapath_provider_binding_1 = args.datapath_provider.get_output(context);
+        let datapath_provider_binding = datapath_provider_binding_1.get_inner();
+        let default_max_pods_per_node_binding_1 = args
             .default_max_pods_per_node
-            .get_output(context)
+            .get_output(context);
+        let default_max_pods_per_node_binding = default_max_pods_per_node_binding_1
             .get_inner();
-        let default_snat_status_binding = args
-            .default_snat_status
-            .get_output(context)
-            .get_inner();
-        let deletion_protection_binding = args
-            .deletion_protection
-            .get_output(context)
-            .get_inner();
-        let description_binding = args.description.get_output(context).get_inner();
-        let dns_config_binding = args.dns_config.get_output(context).get_inner();
-        let enable_autopilot_binding = args
-            .enable_autopilot
-            .get_output(context)
-            .get_inner();
-        let enable_cilium_clusterwide_network_policy_binding = args
+        let default_snat_status_binding_1 = args.default_snat_status.get_output(context);
+        let default_snat_status_binding = default_snat_status_binding_1.get_inner();
+        let deletion_protection_binding_1 = args.deletion_protection.get_output(context);
+        let deletion_protection_binding = deletion_protection_binding_1.get_inner();
+        let description_binding_1 = args.description.get_output(context);
+        let description_binding = description_binding_1.get_inner();
+        let dns_config_binding_1 = args.dns_config.get_output(context);
+        let dns_config_binding = dns_config_binding_1.get_inner();
+        let enable_autopilot_binding_1 = args.enable_autopilot.get_output(context);
+        let enable_autopilot_binding = enable_autopilot_binding_1.get_inner();
+        let enable_cilium_clusterwide_network_policy_binding_1 = args
             .enable_cilium_clusterwide_network_policy
-            .get_output(context)
+            .get_output(context);
+        let enable_cilium_clusterwide_network_policy_binding = enable_cilium_clusterwide_network_policy_binding_1
             .get_inner();
-        let enable_fqdn_network_policy_binding = args
+        let enable_fqdn_network_policy_binding_1 = args
             .enable_fqdn_network_policy
-            .get_output(context)
+            .get_output(context);
+        let enable_fqdn_network_policy_binding = enable_fqdn_network_policy_binding_1
             .get_inner();
-        let enable_intranode_visibility_binding = args
+        let enable_intranode_visibility_binding_1 = args
             .enable_intranode_visibility
-            .get_output(context)
+            .get_output(context);
+        let enable_intranode_visibility_binding = enable_intranode_visibility_binding_1
             .get_inner();
-        let enable_k8s_beta_apis_binding = args
+        let enable_k8s_beta_apis_binding_1 = args
             .enable_k8s_beta_apis
-            .get_output(context)
-            .get_inner();
-        let enable_kubernetes_alpha_binding = args
+            .get_output(context);
+        let enable_k8s_beta_apis_binding = enable_k8s_beta_apis_binding_1.get_inner();
+        let enable_kubernetes_alpha_binding_1 = args
             .enable_kubernetes_alpha
-            .get_output(context)
+            .get_output(context);
+        let enable_kubernetes_alpha_binding = enable_kubernetes_alpha_binding_1
             .get_inner();
-        let enable_l4_ilb_subsetting_binding = args
+        let enable_l4_ilb_subsetting_binding_1 = args
             .enable_l4_ilb_subsetting
-            .get_output(context)
+            .get_output(context);
+        let enable_l4_ilb_subsetting_binding = enable_l4_ilb_subsetting_binding_1
             .get_inner();
-        let enable_legacy_abac_binding = args
-            .enable_legacy_abac
-            .get_output(context)
-            .get_inner();
-        let enable_multi_networking_binding = args
+        let enable_legacy_abac_binding_1 = args.enable_legacy_abac.get_output(context);
+        let enable_legacy_abac_binding = enable_legacy_abac_binding_1.get_inner();
+        let enable_multi_networking_binding_1 = args
             .enable_multi_networking
-            .get_output(context)
+            .get_output(context);
+        let enable_multi_networking_binding = enable_multi_networking_binding_1
             .get_inner();
-        let enable_shielded_nodes_binding = args
+        let enable_shielded_nodes_binding_1 = args
             .enable_shielded_nodes
-            .get_output(context)
-            .get_inner();
-        let enable_tpu_binding = args.enable_tpu.get_output(context).get_inner();
-        let enterprise_config_binding = args
-            .enterprise_config
-            .get_output(context)
-            .get_inner();
-        let fleet_binding = args.fleet.get_output(context).get_inner();
-        let gateway_api_config_binding = args
-            .gateway_api_config
-            .get_output(context)
-            .get_inner();
-        let identity_service_config_binding = args
+            .get_output(context);
+        let enable_shielded_nodes_binding = enable_shielded_nodes_binding_1.get_inner();
+        let enable_tpu_binding_1 = args.enable_tpu.get_output(context);
+        let enable_tpu_binding = enable_tpu_binding_1.get_inner();
+        let enterprise_config_binding_1 = args.enterprise_config.get_output(context);
+        let enterprise_config_binding = enterprise_config_binding_1.get_inner();
+        let fleet_binding_1 = args.fleet.get_output(context);
+        let fleet_binding = fleet_binding_1.get_inner();
+        let gateway_api_config_binding_1 = args.gateway_api_config.get_output(context);
+        let gateway_api_config_binding = gateway_api_config_binding_1.get_inner();
+        let identity_service_config_binding_1 = args
             .identity_service_config
-            .get_output(context)
+            .get_output(context);
+        let identity_service_config_binding = identity_service_config_binding_1
             .get_inner();
-        let initial_node_count_binding = args
-            .initial_node_count
-            .get_output(context)
-            .get_inner();
-        let ip_allocation_policy_binding = args
+        let initial_node_count_binding_1 = args.initial_node_count.get_output(context);
+        let initial_node_count_binding = initial_node_count_binding_1.get_inner();
+        let ip_allocation_policy_binding_1 = args
             .ip_allocation_policy
-            .get_output(context)
-            .get_inner();
-        let location_binding = args.location.get_output(context).get_inner();
-        let logging_config_binding = args.logging_config.get_output(context).get_inner();
-        let logging_service_binding = args
-            .logging_service
-            .get_output(context)
-            .get_inner();
-        let maintenance_policy_binding = args
-            .maintenance_policy
-            .get_output(context)
-            .get_inner();
-        let master_auth_binding = args.master_auth.get_output(context).get_inner();
-        let master_authorized_networks_config_binding = args
+            .get_output(context);
+        let ip_allocation_policy_binding = ip_allocation_policy_binding_1.get_inner();
+        let location_binding_1 = args.location.get_output(context);
+        let location_binding = location_binding_1.get_inner();
+        let logging_config_binding_1 = args.logging_config.get_output(context);
+        let logging_config_binding = logging_config_binding_1.get_inner();
+        let logging_service_binding_1 = args.logging_service.get_output(context);
+        let logging_service_binding = logging_service_binding_1.get_inner();
+        let maintenance_policy_binding_1 = args.maintenance_policy.get_output(context);
+        let maintenance_policy_binding = maintenance_policy_binding_1.get_inner();
+        let master_auth_binding_1 = args.master_auth.get_output(context);
+        let master_auth_binding = master_auth_binding_1.get_inner();
+        let master_authorized_networks_config_binding_1 = args
             .master_authorized_networks_config
-            .get_output(context)
+            .get_output(context);
+        let master_authorized_networks_config_binding = master_authorized_networks_config_binding_1
             .get_inner();
-        let mesh_certificates_binding = args
-            .mesh_certificates
-            .get_output(context)
-            .get_inner();
-        let min_master_version_binding = args
-            .min_master_version
-            .get_output(context)
-            .get_inner();
-        let monitoring_config_binding = args
-            .monitoring_config
-            .get_output(context)
-            .get_inner();
-        let monitoring_service_binding = args
-            .monitoring_service
-            .get_output(context)
-            .get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let network_binding = args.network.get_output(context).get_inner();
-        let network_policy_binding = args.network_policy.get_output(context).get_inner();
-        let networking_mode_binding = args
-            .networking_mode
-            .get_output(context)
-            .get_inner();
-        let node_config_binding = args.node_config.get_output(context).get_inner();
-        let node_locations_binding = args.node_locations.get_output(context).get_inner();
-        let node_pool_auto_config_binding = args
+        let mesh_certificates_binding_1 = args.mesh_certificates.get_output(context);
+        let mesh_certificates_binding = mesh_certificates_binding_1.get_inner();
+        let min_master_version_binding_1 = args.min_master_version.get_output(context);
+        let min_master_version_binding = min_master_version_binding_1.get_inner();
+        let monitoring_config_binding_1 = args.monitoring_config.get_output(context);
+        let monitoring_config_binding = monitoring_config_binding_1.get_inner();
+        let monitoring_service_binding_1 = args.monitoring_service.get_output(context);
+        let monitoring_service_binding = monitoring_service_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let network_binding_1 = args.network.get_output(context);
+        let network_binding = network_binding_1.get_inner();
+        let network_policy_binding_1 = args.network_policy.get_output(context);
+        let network_policy_binding = network_policy_binding_1.get_inner();
+        let networking_mode_binding_1 = args.networking_mode.get_output(context);
+        let networking_mode_binding = networking_mode_binding_1.get_inner();
+        let node_config_binding_1 = args.node_config.get_output(context);
+        let node_config_binding = node_config_binding_1.get_inner();
+        let node_locations_binding_1 = args.node_locations.get_output(context);
+        let node_locations_binding = node_locations_binding_1.get_inner();
+        let node_pool_auto_config_binding_1 = args
             .node_pool_auto_config
-            .get_output(context)
-            .get_inner();
-        let node_pool_defaults_binding = args
-            .node_pool_defaults
-            .get_output(context)
-            .get_inner();
-        let node_pools_binding = args.node_pools.get_output(context).get_inner();
-        let node_version_binding = args.node_version.get_output(context).get_inner();
-        let notification_config_binding = args
-            .notification_config
-            .get_output(context)
-            .get_inner();
-        let pod_security_policy_config_binding = args
+            .get_output(context);
+        let node_pool_auto_config_binding = node_pool_auto_config_binding_1.get_inner();
+        let node_pool_defaults_binding_1 = args.node_pool_defaults.get_output(context);
+        let node_pool_defaults_binding = node_pool_defaults_binding_1.get_inner();
+        let node_pools_binding_1 = args.node_pools.get_output(context);
+        let node_pools_binding = node_pools_binding_1.get_inner();
+        let node_version_binding_1 = args.node_version.get_output(context);
+        let node_version_binding = node_version_binding_1.get_inner();
+        let notification_config_binding_1 = args.notification_config.get_output(context);
+        let notification_config_binding = notification_config_binding_1.get_inner();
+        let pod_security_policy_config_binding_1 = args
             .pod_security_policy_config
-            .get_output(context)
+            .get_output(context);
+        let pod_security_policy_config_binding = pod_security_policy_config_binding_1
             .get_inner();
-        let private_cluster_config_binding = args
+        let private_cluster_config_binding_1 = args
             .private_cluster_config
-            .get_output(context)
+            .get_output(context);
+        let private_cluster_config_binding = private_cluster_config_binding_1
             .get_inner();
-        let private_ipv6_google_access_binding = args
+        let private_ipv6_google_access_binding_1 = args
             .private_ipv6_google_access
-            .get_output(context)
+            .get_output(context);
+        let private_ipv6_google_access_binding = private_ipv6_google_access_binding_1
             .get_inner();
-        let project_binding = args.project.get_output(context).get_inner();
-        let protect_config_binding = args.protect_config.get_output(context).get_inner();
-        let release_channel_binding = args
-            .release_channel
-            .get_output(context)
-            .get_inner();
-        let remove_default_node_pool_binding = args
+        let project_binding_1 = args.project.get_output(context);
+        let project_binding = project_binding_1.get_inner();
+        let protect_config_binding_1 = args.protect_config.get_output(context);
+        let protect_config_binding = protect_config_binding_1.get_inner();
+        let release_channel_binding_1 = args.release_channel.get_output(context);
+        let release_channel_binding = release_channel_binding_1.get_inner();
+        let remove_default_node_pool_binding_1 = args
             .remove_default_node_pool
-            .get_output(context)
+            .get_output(context);
+        let remove_default_node_pool_binding = remove_default_node_pool_binding_1
             .get_inner();
-        let resource_labels_binding = args
-            .resource_labels
-            .get_output(context)
-            .get_inner();
-        let resource_usage_export_config_binding = args
+        let resource_labels_binding_1 = args.resource_labels.get_output(context);
+        let resource_labels_binding = resource_labels_binding_1.get_inner();
+        let resource_usage_export_config_binding_1 = args
             .resource_usage_export_config
-            .get_output(context)
+            .get_output(context);
+        let resource_usage_export_config_binding = resource_usage_export_config_binding_1
             .get_inner();
-        let secret_manager_config_binding = args
+        let secret_manager_config_binding_1 = args
             .secret_manager_config
-            .get_output(context)
-            .get_inner();
-        let security_posture_config_binding = args
+            .get_output(context);
+        let secret_manager_config_binding = secret_manager_config_binding_1.get_inner();
+        let security_posture_config_binding_1 = args
             .security_posture_config
-            .get_output(context)
+            .get_output(context);
+        let security_posture_config_binding = security_posture_config_binding_1
             .get_inner();
-        let service_external_ips_config_binding = args
+        let service_external_ips_config_binding_1 = args
             .service_external_ips_config
-            .get_output(context)
+            .get_output(context);
+        let service_external_ips_config_binding = service_external_ips_config_binding_1
             .get_inner();
-        let subnetwork_binding = args.subnetwork.get_output(context).get_inner();
-        let tpu_config_binding = args.tpu_config.get_output(context).get_inner();
-        let user_managed_keys_config_binding = args
+        let subnetwork_binding_1 = args.subnetwork.get_output(context);
+        let subnetwork_binding = subnetwork_binding_1.get_inner();
+        let tpu_config_binding_1 = args.tpu_config.get_output(context);
+        let tpu_config_binding = tpu_config_binding_1.get_inner();
+        let user_managed_keys_config_binding_1 = args
             .user_managed_keys_config
-            .get_output(context)
+            .get_output(context);
+        let user_managed_keys_config_binding = user_managed_keys_config_binding_1
             .get_inner();
-        let vertical_pod_autoscaling_binding = args
+        let vertical_pod_autoscaling_binding_1 = args
             .vertical_pod_autoscaling
-            .get_output(context)
+            .get_output(context);
+        let vertical_pod_autoscaling_binding = vertical_pod_autoscaling_binding_1
             .get_inner();
-        let workload_alts_config_binding = args
+        let workload_alts_config_binding_1 = args
             .workload_alts_config
-            .get_output(context)
-            .get_inner();
-        let workload_identity_config_binding = args
+            .get_output(context);
+        let workload_alts_config_binding = workload_alts_config_binding_1.get_inner();
+        let workload_identity_config_binding_1 = args
             .workload_identity_config
-            .get_output(context)
+            .get_output(context);
+        let workload_identity_config_binding = workload_identity_config_binding_1
             .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:container/cluster:Cluster".into(),

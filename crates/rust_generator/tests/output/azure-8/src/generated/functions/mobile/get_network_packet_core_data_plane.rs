@@ -44,11 +44,13 @@ pub mod get_network_packet_core_data_plane {
     ) -> GetNetworkPacketCoreDataPlaneResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let mobile_network_packet_core_control_plane_id_binding = args
+        let mobile_network_packet_core_control_plane_id_binding_1 = args
             .mobile_network_packet_core_control_plane_id
-            .get_output(context)
+            .get_output(context);
+        let mobile_network_packet_core_control_plane_id_binding = mobile_network_packet_core_control_plane_id_binding_1
             .get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "azure:mobile/getNetworkPacketCoreDataPlane:getNetworkPacketCoreDataPlane"
                 .into(),

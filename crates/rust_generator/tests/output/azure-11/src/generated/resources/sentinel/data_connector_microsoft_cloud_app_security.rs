@@ -105,17 +105,22 @@ pub mod data_connector_microsoft_cloud_app_security {
     ) -> DataConnectorMicrosoftCloudAppSecurityResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let alerts_enabled_binding = args.alerts_enabled.get_output(context).get_inner();
-        let discovery_logs_enabled_binding = args
+        let alerts_enabled_binding_1 = args.alerts_enabled.get_output(context);
+        let alerts_enabled_binding = alerts_enabled_binding_1.get_inner();
+        let discovery_logs_enabled_binding_1 = args
             .discovery_logs_enabled
-            .get_output(context)
+            .get_output(context);
+        let discovery_logs_enabled_binding = discovery_logs_enabled_binding_1
             .get_inner();
-        let log_analytics_workspace_id_binding = args
+        let log_analytics_workspace_id_binding_1 = args
             .log_analytics_workspace_id
-            .get_output(context)
+            .get_output(context);
+        let log_analytics_workspace_id_binding = log_analytics_workspace_id_binding_1
             .get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let tenant_id_binding = args.tenant_id.get_output(context).get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let tenant_id_binding_1 = args.tenant_id.get_output(context);
+        let tenant_id_binding = tenant_id_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:sentinel/dataConnectorMicrosoftCloudAppSecurity:DataConnectorMicrosoftCloudAppSecurity"
                 .into(),

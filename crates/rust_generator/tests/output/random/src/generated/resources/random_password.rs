@@ -120,21 +120,30 @@ pub mod random_password {
     ) -> RandomPasswordResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let keepers_binding = args.keepers.get_output(context).get_inner();
-        let length_binding = args.length.get_output(context).get_inner();
-        let lower_binding = args.lower.get_output(context).get_inner();
-        let min_lower_binding = args.min_lower.get_output(context).get_inner();
-        let min_numeric_binding = args.min_numeric.get_output(context).get_inner();
-        let min_special_binding = args.min_special.get_output(context).get_inner();
-        let min_upper_binding = args.min_upper.get_output(context).get_inner();
-        let number_binding = args.number.get_output(context).get_inner();
-        let numeric_binding = args.numeric.get_output(context).get_inner();
-        let override_special_binding = args
-            .override_special
-            .get_output(context)
-            .get_inner();
-        let special_binding = args.special.get_output(context).get_inner();
-        let upper_binding = args.upper.get_output(context).get_inner();
+        let keepers_binding_1 = args.keepers.get_output(context);
+        let keepers_binding = keepers_binding_1.get_inner();
+        let length_binding_1 = args.length.get_output(context);
+        let length_binding = length_binding_1.get_inner();
+        let lower_binding_1 = args.lower.get_output(context);
+        let lower_binding = lower_binding_1.get_inner();
+        let min_lower_binding_1 = args.min_lower.get_output(context);
+        let min_lower_binding = min_lower_binding_1.get_inner();
+        let min_numeric_binding_1 = args.min_numeric.get_output(context);
+        let min_numeric_binding = min_numeric_binding_1.get_inner();
+        let min_special_binding_1 = args.min_special.get_output(context);
+        let min_special_binding = min_special_binding_1.get_inner();
+        let min_upper_binding_1 = args.min_upper.get_output(context);
+        let min_upper_binding = min_upper_binding_1.get_inner();
+        let number_binding_1 = args.number.get_output(context);
+        let number_binding = number_binding_1.get_inner();
+        let numeric_binding_1 = args.numeric.get_output(context);
+        let numeric_binding = numeric_binding_1.get_inner();
+        let override_special_binding_1 = args.override_special.get_output(context);
+        let override_special_binding = override_special_binding_1.get_inner();
+        let special_binding_1 = args.special.get_output(context);
+        let special_binding = special_binding_1.get_inner();
+        let upper_binding_1 = args.upper.get_output(context);
+        let upper_binding = upper_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "random:index/randomPassword:RandomPassword".into(),
             name: name.to_string(),

@@ -89,18 +89,20 @@ pub mod agent_agent_knowledge_base_association {
     ) -> AgentAgentKnowledgeBaseAssociationResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let agent_id_binding = args.agent_id.get_output(context).get_inner();
-        let agent_version_binding = args.agent_version.get_output(context).get_inner();
-        let description_binding = args.description.get_output(context).get_inner();
-        let knowledge_base_id_binding = args
-            .knowledge_base_id
-            .get_output(context)
-            .get_inner();
-        let knowledge_base_state_binding = args
+        let agent_id_binding_1 = args.agent_id.get_output(context);
+        let agent_id_binding = agent_id_binding_1.get_inner();
+        let agent_version_binding_1 = args.agent_version.get_output(context);
+        let agent_version_binding = agent_version_binding_1.get_inner();
+        let description_binding_1 = args.description.get_output(context);
+        let description_binding = description_binding_1.get_inner();
+        let knowledge_base_id_binding_1 = args.knowledge_base_id.get_output(context);
+        let knowledge_base_id_binding = knowledge_base_id_binding_1.get_inner();
+        let knowledge_base_state_binding_1 = args
             .knowledge_base_state
-            .get_output(context)
-            .get_inner();
-        let timeouts_binding = args.timeouts.get_output(context).get_inner();
+            .get_output(context);
+        let knowledge_base_state_binding = knowledge_base_state_binding_1.get_inner();
+        let timeouts_binding_1 = args.timeouts.get_output(context);
+        let timeouts_binding = timeouts_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:bedrock/agentAgentKnowledgeBaseAssociation:AgentAgentKnowledgeBaseAssociation"
                 .into(),

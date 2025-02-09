@@ -146,30 +146,35 @@ pub mod spring_cloud_container_deployment {
     ) -> SpringCloudContainerDeploymentResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let addon_json_binding = args.addon_json.get_output(context).get_inner();
-        let application_performance_monitoring_ids_binding = args
+        let addon_json_binding_1 = args.addon_json.get_output(context);
+        let addon_json_binding = addon_json_binding_1.get_inner();
+        let application_performance_monitoring_ids_binding_1 = args
             .application_performance_monitoring_ids
-            .get_output(context)
+            .get_output(context);
+        let application_performance_monitoring_ids_binding = application_performance_monitoring_ids_binding_1
             .get_inner();
-        let arguments_binding = args.arguments.get_output(context).get_inner();
-        let commands_binding = args.commands.get_output(context).get_inner();
-        let environment_variables_binding = args
+        let arguments_binding_1 = args.arguments.get_output(context);
+        let arguments_binding = arguments_binding_1.get_inner();
+        let commands_binding_1 = args.commands.get_output(context);
+        let commands_binding = commands_binding_1.get_inner();
+        let environment_variables_binding_1 = args
             .environment_variables
-            .get_output(context)
-            .get_inner();
-        let image_binding = args.image.get_output(context).get_inner();
-        let instance_count_binding = args.instance_count.get_output(context).get_inner();
-        let language_framework_binding = args
-            .language_framework
-            .get_output(context)
-            .get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let quota_binding = args.quota.get_output(context).get_inner();
-        let server_binding = args.server.get_output(context).get_inner();
-        let spring_cloud_app_id_binding = args
-            .spring_cloud_app_id
-            .get_output(context)
-            .get_inner();
+            .get_output(context);
+        let environment_variables_binding = environment_variables_binding_1.get_inner();
+        let image_binding_1 = args.image.get_output(context);
+        let image_binding = image_binding_1.get_inner();
+        let instance_count_binding_1 = args.instance_count.get_output(context);
+        let instance_count_binding = instance_count_binding_1.get_inner();
+        let language_framework_binding_1 = args.language_framework.get_output(context);
+        let language_framework_binding = language_framework_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let quota_binding_1 = args.quota.get_output(context);
+        let quota_binding = quota_binding_1.get_inner();
+        let server_binding_1 = args.server.get_output(context);
+        let server_binding = server_binding_1.get_inner();
+        let spring_cloud_app_id_binding_1 = args.spring_cloud_app_id.get_output(context);
+        let spring_cloud_app_id_binding = spring_cloud_app_id_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:appplatform/springCloudContainerDeployment:SpringCloudContainerDeployment"
                 .into(),

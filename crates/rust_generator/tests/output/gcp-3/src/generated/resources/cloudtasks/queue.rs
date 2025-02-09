@@ -281,19 +281,27 @@ pub mod queue {
     ) -> QueueResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let app_engine_routing_override_binding = args
+        let app_engine_routing_override_binding_1 = args
             .app_engine_routing_override
-            .get_output(context)
+            .get_output(context);
+        let app_engine_routing_override_binding = app_engine_routing_override_binding_1
             .get_inner();
-        let http_target_binding = args.http_target.get_output(context).get_inner();
-        let location_binding = args.location.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let project_binding = args.project.get_output(context).get_inner();
-        let rate_limits_binding = args.rate_limits.get_output(context).get_inner();
-        let retry_config_binding = args.retry_config.get_output(context).get_inner();
-        let stackdriver_logging_config_binding = args
+        let http_target_binding_1 = args.http_target.get_output(context);
+        let http_target_binding = http_target_binding_1.get_inner();
+        let location_binding_1 = args.location.get_output(context);
+        let location_binding = location_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let project_binding_1 = args.project.get_output(context);
+        let project_binding = project_binding_1.get_inner();
+        let rate_limits_binding_1 = args.rate_limits.get_output(context);
+        let rate_limits_binding = rate_limits_binding_1.get_inner();
+        let retry_config_binding_1 = args.retry_config.get_output(context);
+        let retry_config_binding = retry_config_binding_1.get_inner();
+        let stackdriver_logging_config_binding_1 = args
             .stackdriver_logging_config
-            .get_output(context)
+            .get_output(context);
+        let stackdriver_logging_config_binding = stackdriver_logging_config_binding_1
             .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:cloudtasks/queue:Queue".into(),

@@ -214,40 +214,48 @@ pub mod data_lake_settings {
     ) -> DataLakeSettingsResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let admins_binding = args.admins.get_output(context).get_inner();
-        let allow_external_data_filtering_binding = args
+        let admins_binding_1 = args.admins.get_output(context);
+        let admins_binding = admins_binding_1.get_inner();
+        let allow_external_data_filtering_binding_1 = args
             .allow_external_data_filtering
-            .get_output(context)
+            .get_output(context);
+        let allow_external_data_filtering_binding = allow_external_data_filtering_binding_1
             .get_inner();
-        let allow_full_table_external_data_access_binding = args
+        let allow_full_table_external_data_access_binding_1 = args
             .allow_full_table_external_data_access
-            .get_output(context)
+            .get_output(context);
+        let allow_full_table_external_data_access_binding = allow_full_table_external_data_access_binding_1
             .get_inner();
-        let authorized_session_tag_value_lists_binding = args
+        let authorized_session_tag_value_lists_binding_1 = args
             .authorized_session_tag_value_lists
-            .get_output(context)
+            .get_output(context);
+        let authorized_session_tag_value_lists_binding = authorized_session_tag_value_lists_binding_1
             .get_inner();
-        let catalog_id_binding = args.catalog_id.get_output(context).get_inner();
-        let create_database_default_permissions_binding = args
+        let catalog_id_binding_1 = args.catalog_id.get_output(context);
+        let catalog_id_binding = catalog_id_binding_1.get_inner();
+        let create_database_default_permissions_binding_1 = args
             .create_database_default_permissions
-            .get_output(context)
+            .get_output(context);
+        let create_database_default_permissions_binding = create_database_default_permissions_binding_1
             .get_inner();
-        let create_table_default_permissions_binding = args
+        let create_table_default_permissions_binding_1 = args
             .create_table_default_permissions
-            .get_output(context)
+            .get_output(context);
+        let create_table_default_permissions_binding = create_table_default_permissions_binding_1
             .get_inner();
-        let external_data_filtering_allow_lists_binding = args
+        let external_data_filtering_allow_lists_binding_1 = args
             .external_data_filtering_allow_lists
-            .get_output(context)
+            .get_output(context);
+        let external_data_filtering_allow_lists_binding = external_data_filtering_allow_lists_binding_1
             .get_inner();
-        let parameters_binding = args.parameters.get_output(context).get_inner();
-        let read_only_admins_binding = args
-            .read_only_admins
-            .get_output(context)
-            .get_inner();
-        let trusted_resource_owners_binding = args
+        let parameters_binding_1 = args.parameters.get_output(context);
+        let parameters_binding = parameters_binding_1.get_inner();
+        let read_only_admins_binding_1 = args.read_only_admins.get_output(context);
+        let read_only_admins_binding = read_only_admins_binding_1.get_inner();
+        let trusted_resource_owners_binding_1 = args
             .trusted_resource_owners
-            .get_output(context)
+            .get_output(context);
+        let trusted_resource_owners_binding = trusted_resource_owners_binding_1
             .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:lakeformation/dataLakeSettings:DataLakeSettings".into(),

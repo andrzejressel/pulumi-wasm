@@ -145,21 +145,30 @@ pub mod network {
     ) -> NetworkResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let attachable_binding = args.attachable.get_output(context).get_inner();
-        let check_duplicate_binding = args
-            .check_duplicate
-            .get_output(context)
-            .get_inner();
-        let driver_binding = args.driver.get_output(context).get_inner();
-        let ingress_binding = args.ingress.get_output(context).get_inner();
-        let internal_binding = args.internal.get_output(context).get_inner();
-        let ipam_configs_binding = args.ipam_configs.get_output(context).get_inner();
-        let ipam_driver_binding = args.ipam_driver.get_output(context).get_inner();
-        let ipam_options_binding = args.ipam_options.get_output(context).get_inner();
-        let ipv6_binding = args.ipv6.get_output(context).get_inner();
-        let labels_binding = args.labels.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let options_binding = args.options.get_output(context).get_inner();
+        let attachable_binding_1 = args.attachable.get_output(context);
+        let attachable_binding = attachable_binding_1.get_inner();
+        let check_duplicate_binding_1 = args.check_duplicate.get_output(context);
+        let check_duplicate_binding = check_duplicate_binding_1.get_inner();
+        let driver_binding_1 = args.driver.get_output(context);
+        let driver_binding = driver_binding_1.get_inner();
+        let ingress_binding_1 = args.ingress.get_output(context);
+        let ingress_binding = ingress_binding_1.get_inner();
+        let internal_binding_1 = args.internal.get_output(context);
+        let internal_binding = internal_binding_1.get_inner();
+        let ipam_configs_binding_1 = args.ipam_configs.get_output(context);
+        let ipam_configs_binding = ipam_configs_binding_1.get_inner();
+        let ipam_driver_binding_1 = args.ipam_driver.get_output(context);
+        let ipam_driver_binding = ipam_driver_binding_1.get_inner();
+        let ipam_options_binding_1 = args.ipam_options.get_output(context);
+        let ipam_options_binding = ipam_options_binding_1.get_inner();
+        let ipv6_binding_1 = args.ipv6.get_output(context);
+        let ipv6_binding = ipv6_binding_1.get_inner();
+        let labels_binding_1 = args.labels.get_output(context);
+        let labels_binding = labels_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let options_binding_1 = args.options.get_output(context);
+        let options_binding = options_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "docker:index/network:Network".into(),
             name: name.to_string(),

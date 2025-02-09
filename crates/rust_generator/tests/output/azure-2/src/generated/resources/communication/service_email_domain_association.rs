@@ -87,13 +87,15 @@ pub mod service_email_domain_association {
     ) -> ServiceEmailDomainAssociationResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let communication_service_id_binding = args
+        let communication_service_id_binding_1 = args
             .communication_service_id
-            .get_output(context)
+            .get_output(context);
+        let communication_service_id_binding = communication_service_id_binding_1
             .get_inner();
-        let email_service_domain_id_binding = args
+        let email_service_domain_id_binding_1 = args
             .email_service_domain_id
-            .get_output(context)
+            .get_output(context);
+        let email_service_domain_id_binding = email_service_domain_id_binding_1
             .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:communication/serviceEmailDomainAssociation:ServiceEmailDomainAssociation"

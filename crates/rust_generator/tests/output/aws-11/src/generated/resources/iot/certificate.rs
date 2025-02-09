@@ -112,13 +112,14 @@ pub mod certificate {
     ) -> CertificateResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let active_binding = args.active.get_output(context).get_inner();
-        let ca_pem_binding = args.ca_pem.get_output(context).get_inner();
-        let certificate_pem_binding = args
-            .certificate_pem
-            .get_output(context)
-            .get_inner();
-        let csr_binding = args.csr.get_output(context).get_inner();
+        let active_binding_1 = args.active.get_output(context);
+        let active_binding = active_binding_1.get_inner();
+        let ca_pem_binding_1 = args.ca_pem.get_output(context);
+        let ca_pem_binding = ca_pem_binding_1.get_inner();
+        let certificate_pem_binding_1 = args.certificate_pem.get_output(context);
+        let certificate_pem_binding = certificate_pem_binding_1.get_inner();
+        let csr_binding_1 = args.csr.get_output(context);
+        let csr_binding = csr_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:iot/certificate:Certificate".into(),
             name: name.to_string(),

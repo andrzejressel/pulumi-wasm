@@ -154,28 +154,23 @@ pub mod organization_conformance_pack {
     ) -> OrganizationConformancePackResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let delivery_s3_bucket_binding = args
-            .delivery_s3_bucket
-            .get_output(context)
-            .get_inner();
-        let delivery_s3_key_prefix_binding = args
+        let delivery_s3_bucket_binding_1 = args.delivery_s3_bucket.get_output(context);
+        let delivery_s3_bucket_binding = delivery_s3_bucket_binding_1.get_inner();
+        let delivery_s3_key_prefix_binding_1 = args
             .delivery_s3_key_prefix
-            .get_output(context)
+            .get_output(context);
+        let delivery_s3_key_prefix_binding = delivery_s3_key_prefix_binding_1
             .get_inner();
-        let excluded_accounts_binding = args
-            .excluded_accounts
-            .get_output(context)
-            .get_inner();
-        let input_parameters_binding = args
-            .input_parameters
-            .get_output(context)
-            .get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let template_body_binding = args.template_body.get_output(context).get_inner();
-        let template_s3_uri_binding = args
-            .template_s3_uri
-            .get_output(context)
-            .get_inner();
+        let excluded_accounts_binding_1 = args.excluded_accounts.get_output(context);
+        let excluded_accounts_binding = excluded_accounts_binding_1.get_inner();
+        let input_parameters_binding_1 = args.input_parameters.get_output(context);
+        let input_parameters_binding = input_parameters_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let template_body_binding_1 = args.template_body.get_output(context);
+        let template_body_binding = template_body_binding_1.get_inner();
+        let template_s3_uri_binding_1 = args.template_s3_uri.get_output(context);
+        let template_s3_uri_binding = template_s3_uri_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:cfg/organizationConformancePack:OrganizationConformancePack"
                 .into(),

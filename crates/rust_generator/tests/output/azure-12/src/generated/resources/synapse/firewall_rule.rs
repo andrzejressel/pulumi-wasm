@@ -105,16 +105,16 @@ pub mod firewall_rule {
     ) -> FirewallRuleResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let end_ip_address_binding = args.end_ip_address.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let start_ip_address_binding = args
-            .start_ip_address
-            .get_output(context)
-            .get_inner();
-        let synapse_workspace_id_binding = args
+        let end_ip_address_binding_1 = args.end_ip_address.get_output(context);
+        let end_ip_address_binding = end_ip_address_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let start_ip_address_binding_1 = args.start_ip_address.get_output(context);
+        let start_ip_address_binding = start_ip_address_binding_1.get_inner();
+        let synapse_workspace_id_binding_1 = args
             .synapse_workspace_id
-            .get_output(context)
-            .get_inner();
+            .get_output(context);
+        let synapse_workspace_id_binding = synapse_workspace_id_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:synapse/firewallRule:FirewallRule".into(),
             name: name.to_string(),

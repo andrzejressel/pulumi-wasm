@@ -272,35 +272,42 @@ pub mod addon {
     ) -> AddonResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let addon_name_binding = args.addon_name.get_output(context).get_inner();
-        let addon_version_binding = args.addon_version.get_output(context).get_inner();
-        let cluster_name_binding = args.cluster_name.get_output(context).get_inner();
-        let configuration_values_binding = args
+        let addon_name_binding_1 = args.addon_name.get_output(context);
+        let addon_name_binding = addon_name_binding_1.get_inner();
+        let addon_version_binding_1 = args.addon_version.get_output(context);
+        let addon_version_binding = addon_version_binding_1.get_inner();
+        let cluster_name_binding_1 = args.cluster_name.get_output(context);
+        let cluster_name_binding = cluster_name_binding_1.get_inner();
+        let configuration_values_binding_1 = args
             .configuration_values
-            .get_output(context)
-            .get_inner();
-        let pod_identity_associations_binding = args
+            .get_output(context);
+        let configuration_values_binding = configuration_values_binding_1.get_inner();
+        let pod_identity_associations_binding_1 = args
             .pod_identity_associations
-            .get_output(context)
+            .get_output(context);
+        let pod_identity_associations_binding = pod_identity_associations_binding_1
             .get_inner();
-        let preserve_binding = args.preserve.get_output(context).get_inner();
-        let resolve_conflicts_binding = args
-            .resolve_conflicts
-            .get_output(context)
-            .get_inner();
-        let resolve_conflicts_on_create_binding = args
+        let preserve_binding_1 = args.preserve.get_output(context);
+        let preserve_binding = preserve_binding_1.get_inner();
+        let resolve_conflicts_binding_1 = args.resolve_conflicts.get_output(context);
+        let resolve_conflicts_binding = resolve_conflicts_binding_1.get_inner();
+        let resolve_conflicts_on_create_binding_1 = args
             .resolve_conflicts_on_create
-            .get_output(context)
+            .get_output(context);
+        let resolve_conflicts_on_create_binding = resolve_conflicts_on_create_binding_1
             .get_inner();
-        let resolve_conflicts_on_update_binding = args
+        let resolve_conflicts_on_update_binding_1 = args
             .resolve_conflicts_on_update
-            .get_output(context)
+            .get_output(context);
+        let resolve_conflicts_on_update_binding = resolve_conflicts_on_update_binding_1
             .get_inner();
-        let service_account_role_arn_binding = args
+        let service_account_role_arn_binding_1 = args
             .service_account_role_arn
-            .get_output(context)
+            .get_output(context);
+        let service_account_role_arn_binding = service_account_role_arn_binding_1
             .get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:eks/addon:Addon".into(),
             name: name.to_string(),

@@ -232,57 +232,59 @@ pub mod health_check {
     ) -> HealthCheckResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let child_health_threshold_binding = args
+        let child_health_threshold_binding_1 = args
             .child_health_threshold
-            .get_output(context)
+            .get_output(context);
+        let child_health_threshold_binding = child_health_threshold_binding_1
             .get_inner();
-        let child_healthchecks_binding = args
-            .child_healthchecks
-            .get_output(context)
-            .get_inner();
-        let cloudwatch_alarm_name_binding = args
+        let child_healthchecks_binding_1 = args.child_healthchecks.get_output(context);
+        let child_healthchecks_binding = child_healthchecks_binding_1.get_inner();
+        let cloudwatch_alarm_name_binding_1 = args
             .cloudwatch_alarm_name
-            .get_output(context)
-            .get_inner();
-        let cloudwatch_alarm_region_binding = args
+            .get_output(context);
+        let cloudwatch_alarm_name_binding = cloudwatch_alarm_name_binding_1.get_inner();
+        let cloudwatch_alarm_region_binding_1 = args
             .cloudwatch_alarm_region
-            .get_output(context)
+            .get_output(context);
+        let cloudwatch_alarm_region_binding = cloudwatch_alarm_region_binding_1
             .get_inner();
-        let disabled_binding = args.disabled.get_output(context).get_inner();
-        let enable_sni_binding = args.enable_sni.get_output(context).get_inner();
-        let failure_threshold_binding = args
-            .failure_threshold
-            .get_output(context)
-            .get_inner();
-        let fqdn_binding = args.fqdn.get_output(context).get_inner();
-        let insufficient_data_health_status_binding = args
+        let disabled_binding_1 = args.disabled.get_output(context);
+        let disabled_binding = disabled_binding_1.get_inner();
+        let enable_sni_binding_1 = args.enable_sni.get_output(context);
+        let enable_sni_binding = enable_sni_binding_1.get_inner();
+        let failure_threshold_binding_1 = args.failure_threshold.get_output(context);
+        let failure_threshold_binding = failure_threshold_binding_1.get_inner();
+        let fqdn_binding_1 = args.fqdn.get_output(context);
+        let fqdn_binding = fqdn_binding_1.get_inner();
+        let insufficient_data_health_status_binding_1 = args
             .insufficient_data_health_status
-            .get_output(context)
+            .get_output(context);
+        let insufficient_data_health_status_binding = insufficient_data_health_status_binding_1
             .get_inner();
-        let invert_healthcheck_binding = args
-            .invert_healthcheck
-            .get_output(context)
-            .get_inner();
-        let ip_address_binding = args.ip_address.get_output(context).get_inner();
-        let measure_latency_binding = args
-            .measure_latency
-            .get_output(context)
-            .get_inner();
-        let port_binding = args.port.get_output(context).get_inner();
-        let reference_name_binding = args.reference_name.get_output(context).get_inner();
-        let regions_binding = args.regions.get_output(context).get_inner();
-        let request_interval_binding = args
-            .request_interval
-            .get_output(context)
-            .get_inner();
-        let resource_path_binding = args.resource_path.get_output(context).get_inner();
-        let routing_control_arn_binding = args
-            .routing_control_arn
-            .get_output(context)
-            .get_inner();
-        let search_string_binding = args.search_string.get_output(context).get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
-        let type__binding = args.type_.get_output(context).get_inner();
+        let invert_healthcheck_binding_1 = args.invert_healthcheck.get_output(context);
+        let invert_healthcheck_binding = invert_healthcheck_binding_1.get_inner();
+        let ip_address_binding_1 = args.ip_address.get_output(context);
+        let ip_address_binding = ip_address_binding_1.get_inner();
+        let measure_latency_binding_1 = args.measure_latency.get_output(context);
+        let measure_latency_binding = measure_latency_binding_1.get_inner();
+        let port_binding_1 = args.port.get_output(context);
+        let port_binding = port_binding_1.get_inner();
+        let reference_name_binding_1 = args.reference_name.get_output(context);
+        let reference_name_binding = reference_name_binding_1.get_inner();
+        let regions_binding_1 = args.regions.get_output(context);
+        let regions_binding = regions_binding_1.get_inner();
+        let request_interval_binding_1 = args.request_interval.get_output(context);
+        let request_interval_binding = request_interval_binding_1.get_inner();
+        let resource_path_binding_1 = args.resource_path.get_output(context);
+        let resource_path_binding = resource_path_binding_1.get_inner();
+        let routing_control_arn_binding_1 = args.routing_control_arn.get_output(context);
+        let routing_control_arn_binding = routing_control_arn_binding_1.get_inner();
+        let search_string_binding_1 = args.search_string.get_output(context);
+        let search_string_binding = search_string_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
+        let type__binding_1 = args.type_.get_output(context);
+        let type__binding = type__binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:route53/healthCheck:HealthCheck".into(),
             name: name.to_string(),

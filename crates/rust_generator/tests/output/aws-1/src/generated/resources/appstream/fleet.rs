@@ -181,45 +181,57 @@ pub mod fleet {
     ) -> FleetResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let compute_capacity_binding = args
-            .compute_capacity
-            .get_output(context)
-            .get_inner();
-        let description_binding = args.description.get_output(context).get_inner();
-        let disconnect_timeout_in_seconds_binding = args
+        let compute_capacity_binding_1 = args.compute_capacity.get_output(context);
+        let compute_capacity_binding = compute_capacity_binding_1.get_inner();
+        let description_binding_1 = args.description.get_output(context);
+        let description_binding = description_binding_1.get_inner();
+        let disconnect_timeout_in_seconds_binding_1 = args
             .disconnect_timeout_in_seconds
-            .get_output(context)
+            .get_output(context);
+        let disconnect_timeout_in_seconds_binding = disconnect_timeout_in_seconds_binding_1
             .get_inner();
-        let display_name_binding = args.display_name.get_output(context).get_inner();
-        let domain_join_info_binding = args
-            .domain_join_info
-            .get_output(context)
-            .get_inner();
-        let enable_default_internet_access_binding = args
+        let display_name_binding_1 = args.display_name.get_output(context);
+        let display_name_binding = display_name_binding_1.get_inner();
+        let domain_join_info_binding_1 = args.domain_join_info.get_output(context);
+        let domain_join_info_binding = domain_join_info_binding_1.get_inner();
+        let enable_default_internet_access_binding_1 = args
             .enable_default_internet_access
-            .get_output(context)
+            .get_output(context);
+        let enable_default_internet_access_binding = enable_default_internet_access_binding_1
             .get_inner();
-        let fleet_type_binding = args.fleet_type.get_output(context).get_inner();
-        let iam_role_arn_binding = args.iam_role_arn.get_output(context).get_inner();
-        let idle_disconnect_timeout_in_seconds_binding = args
+        let fleet_type_binding_1 = args.fleet_type.get_output(context);
+        let fleet_type_binding = fleet_type_binding_1.get_inner();
+        let iam_role_arn_binding_1 = args.iam_role_arn.get_output(context);
+        let iam_role_arn_binding = iam_role_arn_binding_1.get_inner();
+        let idle_disconnect_timeout_in_seconds_binding_1 = args
             .idle_disconnect_timeout_in_seconds
-            .get_output(context)
+            .get_output(context);
+        let idle_disconnect_timeout_in_seconds_binding = idle_disconnect_timeout_in_seconds_binding_1
             .get_inner();
-        let image_arn_binding = args.image_arn.get_output(context).get_inner();
-        let image_name_binding = args.image_name.get_output(context).get_inner();
-        let instance_type_binding = args.instance_type.get_output(context).get_inner();
-        let max_sessions_per_instance_binding = args
+        let image_arn_binding_1 = args.image_arn.get_output(context);
+        let image_arn_binding = image_arn_binding_1.get_inner();
+        let image_name_binding_1 = args.image_name.get_output(context);
+        let image_name_binding = image_name_binding_1.get_inner();
+        let instance_type_binding_1 = args.instance_type.get_output(context);
+        let instance_type_binding = instance_type_binding_1.get_inner();
+        let max_sessions_per_instance_binding_1 = args
             .max_sessions_per_instance
-            .get_output(context)
+            .get_output(context);
+        let max_sessions_per_instance_binding = max_sessions_per_instance_binding_1
             .get_inner();
-        let max_user_duration_in_seconds_binding = args
+        let max_user_duration_in_seconds_binding_1 = args
             .max_user_duration_in_seconds
-            .get_output(context)
+            .get_output(context);
+        let max_user_duration_in_seconds_binding = max_user_duration_in_seconds_binding_1
             .get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let stream_view_binding = args.stream_view.get_output(context).get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
-        let vpc_config_binding = args.vpc_config.get_output(context).get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let stream_view_binding_1 = args.stream_view.get_output(context);
+        let stream_view_binding = stream_view_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
+        let vpc_config_binding_1 = args.vpc_config.get_output(context);
+        let vpc_config_binding = vpc_config_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:appstream/fleet:Fleet".into(),
             name: name.to_string(),

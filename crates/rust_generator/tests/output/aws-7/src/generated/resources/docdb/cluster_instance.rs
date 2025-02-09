@@ -222,51 +222,50 @@ pub mod cluster_instance {
     ) -> ClusterInstanceResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let apply_immediately_binding = args
-            .apply_immediately
-            .get_output(context)
-            .get_inner();
-        let auto_minor_version_upgrade_binding = args
+        let apply_immediately_binding_1 = args.apply_immediately.get_output(context);
+        let apply_immediately_binding = apply_immediately_binding_1.get_inner();
+        let auto_minor_version_upgrade_binding_1 = args
             .auto_minor_version_upgrade
-            .get_output(context)
+            .get_output(context);
+        let auto_minor_version_upgrade_binding = auto_minor_version_upgrade_binding_1
             .get_inner();
-        let availability_zone_binding = args
-            .availability_zone
-            .get_output(context)
-            .get_inner();
-        let ca_cert_identifier_binding = args
-            .ca_cert_identifier
-            .get_output(context)
-            .get_inner();
-        let cluster_identifier_binding = args
-            .cluster_identifier
-            .get_output(context)
-            .get_inner();
-        let copy_tags_to_snapshot_binding = args
+        let availability_zone_binding_1 = args.availability_zone.get_output(context);
+        let availability_zone_binding = availability_zone_binding_1.get_inner();
+        let ca_cert_identifier_binding_1 = args.ca_cert_identifier.get_output(context);
+        let ca_cert_identifier_binding = ca_cert_identifier_binding_1.get_inner();
+        let cluster_identifier_binding_1 = args.cluster_identifier.get_output(context);
+        let cluster_identifier_binding = cluster_identifier_binding_1.get_inner();
+        let copy_tags_to_snapshot_binding_1 = args
             .copy_tags_to_snapshot
-            .get_output(context)
-            .get_inner();
-        let enable_performance_insights_binding = args
+            .get_output(context);
+        let copy_tags_to_snapshot_binding = copy_tags_to_snapshot_binding_1.get_inner();
+        let enable_performance_insights_binding_1 = args
             .enable_performance_insights
-            .get_output(context)
+            .get_output(context);
+        let enable_performance_insights_binding = enable_performance_insights_binding_1
             .get_inner();
-        let engine_binding = args.engine.get_output(context).get_inner();
-        let identifier_binding = args.identifier.get_output(context).get_inner();
-        let identifier_prefix_binding = args
-            .identifier_prefix
-            .get_output(context)
-            .get_inner();
-        let instance_class_binding = args.instance_class.get_output(context).get_inner();
-        let performance_insights_kms_key_id_binding = args
+        let engine_binding_1 = args.engine.get_output(context);
+        let engine_binding = engine_binding_1.get_inner();
+        let identifier_binding_1 = args.identifier.get_output(context);
+        let identifier_binding = identifier_binding_1.get_inner();
+        let identifier_prefix_binding_1 = args.identifier_prefix.get_output(context);
+        let identifier_prefix_binding = identifier_prefix_binding_1.get_inner();
+        let instance_class_binding_1 = args.instance_class.get_output(context);
+        let instance_class_binding = instance_class_binding_1.get_inner();
+        let performance_insights_kms_key_id_binding_1 = args
             .performance_insights_kms_key_id
-            .get_output(context)
+            .get_output(context);
+        let performance_insights_kms_key_id_binding = performance_insights_kms_key_id_binding_1
             .get_inner();
-        let preferred_maintenance_window_binding = args
+        let preferred_maintenance_window_binding_1 = args
             .preferred_maintenance_window
-            .get_output(context)
+            .get_output(context);
+        let preferred_maintenance_window_binding = preferred_maintenance_window_binding_1
             .get_inner();
-        let promotion_tier_binding = args.promotion_tier.get_output(context).get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
+        let promotion_tier_binding_1 = args.promotion_tier.get_output(context);
+        let promotion_tier_binding = promotion_tier_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:docdb/clusterInstance:ClusterInstance".into(),
             name: name.to_string(),

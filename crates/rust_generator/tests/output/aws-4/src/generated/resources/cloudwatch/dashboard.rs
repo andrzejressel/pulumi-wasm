@@ -75,8 +75,10 @@ pub mod dashboard {
     ) -> DashboardResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let dashboard_body_binding = args.dashboard_body.get_output(context).get_inner();
-        let dashboard_name_binding = args.dashboard_name.get_output(context).get_inner();
+        let dashboard_body_binding_1 = args.dashboard_body.get_output(context);
+        let dashboard_body_binding = dashboard_body_binding_1.get_inner();
+        let dashboard_name_binding_1 = args.dashboard_name.get_output(context);
+        let dashboard_name_binding = dashboard_name_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:cloudwatch/dashboard:Dashboard".into(),
             name: name.to_string(),

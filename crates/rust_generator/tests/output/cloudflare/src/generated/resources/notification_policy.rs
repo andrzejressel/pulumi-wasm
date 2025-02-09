@@ -94,24 +94,29 @@ pub mod notification_policy {
     ) -> NotificationPolicyResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let account_id_binding = args.account_id.get_output(context).get_inner();
-        let alert_type_binding = args.alert_type.get_output(context).get_inner();
-        let description_binding = args.description.get_output(context).get_inner();
-        let email_integrations_binding = args
-            .email_integrations
-            .get_output(context)
-            .get_inner();
-        let enabled_binding = args.enabled.get_output(context).get_inner();
-        let filters_binding = args.filters.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let pagerduty_integrations_binding = args
+        let account_id_binding_1 = args.account_id.get_output(context);
+        let account_id_binding = account_id_binding_1.get_inner();
+        let alert_type_binding_1 = args.alert_type.get_output(context);
+        let alert_type_binding = alert_type_binding_1.get_inner();
+        let description_binding_1 = args.description.get_output(context);
+        let description_binding = description_binding_1.get_inner();
+        let email_integrations_binding_1 = args.email_integrations.get_output(context);
+        let email_integrations_binding = email_integrations_binding_1.get_inner();
+        let enabled_binding_1 = args.enabled.get_output(context);
+        let enabled_binding = enabled_binding_1.get_inner();
+        let filters_binding_1 = args.filters.get_output(context);
+        let filters_binding = filters_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let pagerduty_integrations_binding_1 = args
             .pagerduty_integrations
-            .get_output(context)
+            .get_output(context);
+        let pagerduty_integrations_binding = pagerduty_integrations_binding_1
             .get_inner();
-        let webhooks_integrations_binding = args
+        let webhooks_integrations_binding_1 = args
             .webhooks_integrations
-            .get_output(context)
-            .get_inner();
+            .get_output(context);
+        let webhooks_integrations_binding = webhooks_integrations_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "cloudflare:index/notificationPolicy:NotificationPolicy".into(),
             name: name.to_string(),

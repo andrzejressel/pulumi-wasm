@@ -91,11 +91,12 @@ pub mod workspace_application_group_association {
     ) -> WorkspaceApplicationGroupAssociationResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let application_group_id_binding = args
+        let application_group_id_binding_1 = args
             .application_group_id
-            .get_output(context)
-            .get_inner();
-        let workspace_id_binding = args.workspace_id.get_output(context).get_inner();
+            .get_output(context);
+        let application_group_id_binding = application_group_id_binding_1.get_inner();
+        let workspace_id_binding_1 = args.workspace_id.get_output(context);
+        let workspace_id_binding = workspace_id_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:desktopvirtualization/workspaceApplicationGroupAssociation:WorkspaceApplicationGroupAssociation"
                 .into(),

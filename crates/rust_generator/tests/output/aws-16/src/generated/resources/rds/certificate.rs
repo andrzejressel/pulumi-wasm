@@ -47,9 +47,10 @@ pub mod certificate {
     ) -> CertificateResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let certificate_identifier_binding = args
+        let certificate_identifier_binding_1 = args
             .certificate_identifier
-            .get_output(context)
+            .get_output(context);
+        let certificate_identifier_binding = certificate_identifier_binding_1
             .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:rds/certificate:Certificate".into(),

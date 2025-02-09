@@ -155,24 +155,24 @@ pub mod global_cluster {
     ) -> GlobalClusterResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let deletion_protection_binding = args
-            .deletion_protection
-            .get_output(context)
-            .get_inner();
-        let engine_binding = args.engine.get_output(context).get_inner();
-        let engine_version_binding = args.engine_version.get_output(context).get_inner();
-        let global_cluster_identifier_binding = args
+        let deletion_protection_binding_1 = args.deletion_protection.get_output(context);
+        let deletion_protection_binding = deletion_protection_binding_1.get_inner();
+        let engine_binding_1 = args.engine.get_output(context);
+        let engine_binding = engine_binding_1.get_inner();
+        let engine_version_binding_1 = args.engine_version.get_output(context);
+        let engine_version_binding = engine_version_binding_1.get_inner();
+        let global_cluster_identifier_binding_1 = args
             .global_cluster_identifier
-            .get_output(context)
+            .get_output(context);
+        let global_cluster_identifier_binding = global_cluster_identifier_binding_1
             .get_inner();
-        let source_db_cluster_identifier_binding = args
+        let source_db_cluster_identifier_binding_1 = args
             .source_db_cluster_identifier
-            .get_output(context)
+            .get_output(context);
+        let source_db_cluster_identifier_binding = source_db_cluster_identifier_binding_1
             .get_inner();
-        let storage_encrypted_binding = args
-            .storage_encrypted
-            .get_output(context)
-            .get_inner();
+        let storage_encrypted_binding_1 = args.storage_encrypted.get_output(context);
+        let storage_encrypted_binding = storage_encrypted_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:neptune/globalCluster:GlobalCluster".into(),
             name: name.to_string(),

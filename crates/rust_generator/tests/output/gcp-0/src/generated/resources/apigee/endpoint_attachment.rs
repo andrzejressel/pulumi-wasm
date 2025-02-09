@@ -135,16 +135,17 @@ pub mod endpoint_attachment {
     ) -> EndpointAttachmentResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let endpoint_attachment_id_binding = args
+        let endpoint_attachment_id_binding_1 = args
             .endpoint_attachment_id
-            .get_output(context)
+            .get_output(context);
+        let endpoint_attachment_id_binding = endpoint_attachment_id_binding_1
             .get_inner();
-        let location_binding = args.location.get_output(context).get_inner();
-        let org_id_binding = args.org_id.get_output(context).get_inner();
-        let service_attachment_binding = args
-            .service_attachment
-            .get_output(context)
-            .get_inner();
+        let location_binding_1 = args.location.get_output(context);
+        let location_binding = location_binding_1.get_inner();
+        let org_id_binding_1 = args.org_id.get_output(context);
+        let org_id_binding = org_id_binding_1.get_inner();
+        let service_attachment_binding_1 = args.service_attachment.get_output(context);
+        let service_attachment_binding = service_attachment_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:apigee/endpointAttachment:EndpointAttachment".into(),
             name: name.to_string(),

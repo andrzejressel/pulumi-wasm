@@ -105,21 +105,30 @@ pub mod get_vpc_peering_connection {
     ) -> GetVpcPeeringConnectionResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let cidr_block_binding = args.cidr_block.get_output(context).get_inner();
-        let filters_binding = args.filters.get_output(context).get_inner();
-        let id_binding = args.id.get_output(context).get_inner();
-        let owner_id_binding = args.owner_id.get_output(context).get_inner();
-        let peer_cidr_block_binding = args
-            .peer_cidr_block
-            .get_output(context)
-            .get_inner();
-        let peer_owner_id_binding = args.peer_owner_id.get_output(context).get_inner();
-        let peer_region_binding = args.peer_region.get_output(context).get_inner();
-        let peer_vpc_id_binding = args.peer_vpc_id.get_output(context).get_inner();
-        let region_binding = args.region.get_output(context).get_inner();
-        let status_binding = args.status.get_output(context).get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
-        let vpc_id_binding = args.vpc_id.get_output(context).get_inner();
+        let cidr_block_binding_1 = args.cidr_block.get_output(context);
+        let cidr_block_binding = cidr_block_binding_1.get_inner();
+        let filters_binding_1 = args.filters.get_output(context);
+        let filters_binding = filters_binding_1.get_inner();
+        let id_binding_1 = args.id.get_output(context);
+        let id_binding = id_binding_1.get_inner();
+        let owner_id_binding_1 = args.owner_id.get_output(context);
+        let owner_id_binding = owner_id_binding_1.get_inner();
+        let peer_cidr_block_binding_1 = args.peer_cidr_block.get_output(context);
+        let peer_cidr_block_binding = peer_cidr_block_binding_1.get_inner();
+        let peer_owner_id_binding_1 = args.peer_owner_id.get_output(context);
+        let peer_owner_id_binding = peer_owner_id_binding_1.get_inner();
+        let peer_region_binding_1 = args.peer_region.get_output(context);
+        let peer_region_binding = peer_region_binding_1.get_inner();
+        let peer_vpc_id_binding_1 = args.peer_vpc_id.get_output(context);
+        let peer_vpc_id_binding = peer_vpc_id_binding_1.get_inner();
+        let region_binding_1 = args.region.get_output(context);
+        let region_binding = region_binding_1.get_inner();
+        let status_binding_1 = args.status.get_output(context);
+        let status_binding = status_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
+        let vpc_id_binding_1 = args.vpc_id.get_output(context);
+        let vpc_id_binding = vpc_id_binding_1.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:ec2/getVpcPeeringConnection:getVpcPeeringConnection".into(),
             version: super::super::super::get_version(),

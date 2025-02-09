@@ -34,8 +34,10 @@ pub mod get_selection {
     ) -> GetSelectionResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let plan_id_binding = args.plan_id.get_output(context).get_inner();
-        let selection_id_binding = args.selection_id.get_output(context).get_inner();
+        let plan_id_binding_1 = args.plan_id.get_output(context);
+        let plan_id_binding = plan_id_binding_1.get_inner();
+        let selection_id_binding_1 = args.selection_id.get_output(context);
+        let selection_id_binding = selection_id_binding_1.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:backup/getSelection:getSelection".into(),
             version: super::super::super::get_version(),

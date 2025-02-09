@@ -181,33 +181,38 @@ pub mod link_service {
     ) -> LinkServiceResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let auto_approval_subscription_ids_binding = args
+        let auto_approval_subscription_ids_binding_1 = args
             .auto_approval_subscription_ids
-            .get_output(context)
+            .get_output(context);
+        let auto_approval_subscription_ids_binding = auto_approval_subscription_ids_binding_1
             .get_inner();
-        let enable_proxy_protocol_binding = args
+        let enable_proxy_protocol_binding_1 = args
             .enable_proxy_protocol
-            .get_output(context)
-            .get_inner();
-        let fqdns_binding = args.fqdns.get_output(context).get_inner();
-        let load_balancer_frontend_ip_configuration_ids_binding = args
+            .get_output(context);
+        let enable_proxy_protocol_binding = enable_proxy_protocol_binding_1.get_inner();
+        let fqdns_binding_1 = args.fqdns.get_output(context);
+        let fqdns_binding = fqdns_binding_1.get_inner();
+        let load_balancer_frontend_ip_configuration_ids_binding_1 = args
             .load_balancer_frontend_ip_configuration_ids
-            .get_output(context)
+            .get_output(context);
+        let load_balancer_frontend_ip_configuration_ids_binding = load_balancer_frontend_ip_configuration_ids_binding_1
             .get_inner();
-        let location_binding = args.location.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let nat_ip_configurations_binding = args
+        let location_binding_1 = args.location.get_output(context);
+        let location_binding = location_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let nat_ip_configurations_binding_1 = args
             .nat_ip_configurations
-            .get_output(context)
-            .get_inner();
-        let resource_group_name_binding = args
-            .resource_group_name
-            .get_output(context)
-            .get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
-        let visibility_subscription_ids_binding = args
+            .get_output(context);
+        let nat_ip_configurations_binding = nat_ip_configurations_binding_1.get_inner();
+        let resource_group_name_binding_1 = args.resource_group_name.get_output(context);
+        let resource_group_name_binding = resource_group_name_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
+        let visibility_subscription_ids_binding_1 = args
             .visibility_subscription_ids
-            .get_output(context)
+            .get_output(context);
+        let visibility_subscription_ids_binding = visibility_subscription_ids_binding_1
             .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:privatedns/linkService:LinkService".into(),

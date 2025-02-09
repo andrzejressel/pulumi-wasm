@@ -137,15 +137,16 @@ pub mod network_interface_nat_rule_association {
     ) -> NetworkInterfaceNatRuleAssociationResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let ip_configuration_name_binding = args
+        let ip_configuration_name_binding_1 = args
             .ip_configuration_name
-            .get_output(context)
-            .get_inner();
-        let nat_rule_id_binding = args.nat_rule_id.get_output(context).get_inner();
-        let network_interface_id_binding = args
+            .get_output(context);
+        let ip_configuration_name_binding = ip_configuration_name_binding_1.get_inner();
+        let nat_rule_id_binding_1 = args.nat_rule_id.get_output(context);
+        let nat_rule_id_binding = nat_rule_id_binding_1.get_inner();
+        let network_interface_id_binding_1 = args
             .network_interface_id
-            .get_output(context)
-            .get_inner();
+            .get_output(context);
+        let network_interface_id_binding = network_interface_id_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:network/networkInterfaceNatRuleAssociation:NetworkInterfaceNatRuleAssociation"
                 .into(),

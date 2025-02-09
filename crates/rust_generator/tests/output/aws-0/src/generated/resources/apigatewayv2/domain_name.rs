@@ -136,16 +136,20 @@ pub mod domain_name {
     ) -> DomainNameResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let domain_name_binding = args.domain_name.get_output(context).get_inner();
-        let domain_name_configuration_binding = args
+        let domain_name_binding_1 = args.domain_name.get_output(context);
+        let domain_name_binding = domain_name_binding_1.get_inner();
+        let domain_name_configuration_binding_1 = args
             .domain_name_configuration
-            .get_output(context)
+            .get_output(context);
+        let domain_name_configuration_binding = domain_name_configuration_binding_1
             .get_inner();
-        let mutual_tls_authentication_binding = args
+        let mutual_tls_authentication_binding_1 = args
             .mutual_tls_authentication
-            .get_output(context)
+            .get_output(context);
+        let mutual_tls_authentication_binding = mutual_tls_authentication_binding_1
             .get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:apigatewayv2/domainName:DomainName".into(),
             name: name.to_string(),

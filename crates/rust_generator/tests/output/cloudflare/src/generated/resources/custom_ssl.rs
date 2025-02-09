@@ -72,15 +72,14 @@ pub mod custom_ssl {
     ) -> CustomSslResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let custom_ssl_options_binding = args
-            .custom_ssl_options
-            .get_output(context)
-            .get_inner();
-        let custom_ssl_priorities_binding = args
+        let custom_ssl_options_binding_1 = args.custom_ssl_options.get_output(context);
+        let custom_ssl_options_binding = custom_ssl_options_binding_1.get_inner();
+        let custom_ssl_priorities_binding_1 = args
             .custom_ssl_priorities
-            .get_output(context)
-            .get_inner();
-        let zone_id_binding = args.zone_id.get_output(context).get_inner();
+            .get_output(context);
+        let custom_ssl_priorities_binding = custom_ssl_priorities_binding_1.get_inner();
+        let zone_id_binding_1 = args.zone_id.get_output(context);
+        let zone_id_binding = zone_id_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "cloudflare:index/customSsl:CustomSsl".into(),
             name: name.to_string(),

@@ -198,36 +198,38 @@ pub mod compute_instance {
     ) -> ComputeInstanceResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let assign_to_user_binding = args.assign_to_user.get_output(context).get_inner();
-        let authorization_type_binding = args
-            .authorization_type
-            .get_output(context)
-            .get_inner();
-        let description_binding = args.description.get_output(context).get_inner();
-        let identity_binding = args.identity.get_output(context).get_inner();
-        let local_auth_enabled_binding = args
-            .local_auth_enabled
-            .get_output(context)
-            .get_inner();
-        let machine_learning_workspace_id_binding = args
+        let assign_to_user_binding_1 = args.assign_to_user.get_output(context);
+        let assign_to_user_binding = assign_to_user_binding_1.get_inner();
+        let authorization_type_binding_1 = args.authorization_type.get_output(context);
+        let authorization_type_binding = authorization_type_binding_1.get_inner();
+        let description_binding_1 = args.description.get_output(context);
+        let description_binding = description_binding_1.get_inner();
+        let identity_binding_1 = args.identity.get_output(context);
+        let identity_binding = identity_binding_1.get_inner();
+        let local_auth_enabled_binding_1 = args.local_auth_enabled.get_output(context);
+        let local_auth_enabled_binding = local_auth_enabled_binding_1.get_inner();
+        let machine_learning_workspace_id_binding_1 = args
             .machine_learning_workspace_id
-            .get_output(context)
+            .get_output(context);
+        let machine_learning_workspace_id_binding = machine_learning_workspace_id_binding_1
             .get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let node_public_ip_enabled_binding = args
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let node_public_ip_enabled_binding_1 = args
             .node_public_ip_enabled
-            .get_output(context)
+            .get_output(context);
+        let node_public_ip_enabled_binding = node_public_ip_enabled_binding_1
             .get_inner();
-        let ssh_binding = args.ssh.get_output(context).get_inner();
-        let subnet_resource_id_binding = args
-            .subnet_resource_id
-            .get_output(context)
-            .get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
-        let virtual_machine_size_binding = args
+        let ssh_binding_1 = args.ssh.get_output(context);
+        let ssh_binding = ssh_binding_1.get_inner();
+        let subnet_resource_id_binding_1 = args.subnet_resource_id.get_output(context);
+        let subnet_resource_id_binding = subnet_resource_id_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
+        let virtual_machine_size_binding_1 = args
             .virtual_machine_size
-            .get_output(context)
-            .get_inner();
+            .get_output(context);
+        let virtual_machine_size_binding = virtual_machine_size_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:machinelearning/computeInstance:ComputeInstance".into(),
             name: name.to_string(),

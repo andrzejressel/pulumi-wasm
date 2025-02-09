@@ -427,39 +427,49 @@ pub mod instance {
     ) -> InstanceResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let authorization_mode_binding = args
-            .authorization_mode
-            .get_output(context)
-            .get_inner();
-        let deletion_protection_enabled_binding = args
+        let authorization_mode_binding_1 = args.authorization_mode.get_output(context);
+        let authorization_mode_binding = authorization_mode_binding_1.get_inner();
+        let deletion_protection_enabled_binding_1 = args
             .deletion_protection_enabled
-            .get_output(context)
+            .get_output(context);
+        let deletion_protection_enabled_binding = deletion_protection_enabled_binding_1
             .get_inner();
-        let desired_psc_auto_connections_binding = args
+        let desired_psc_auto_connections_binding_1 = args
             .desired_psc_auto_connections
-            .get_output(context)
+            .get_output(context);
+        let desired_psc_auto_connections_binding = desired_psc_auto_connections_binding_1
             .get_inner();
-        let engine_configs_binding = args.engine_configs.get_output(context).get_inner();
-        let engine_version_binding = args.engine_version.get_output(context).get_inner();
-        let instance_id_binding = args.instance_id.get_output(context).get_inner();
-        let labels_binding = args.labels.get_output(context).get_inner();
-        let location_binding = args.location.get_output(context).get_inner();
-        let mode_binding = args.mode.get_output(context).get_inner();
-        let node_type_binding = args.node_type.get_output(context).get_inner();
-        let persistence_config_binding = args
-            .persistence_config
-            .get_output(context)
-            .get_inner();
-        let project_binding = args.project.get_output(context).get_inner();
-        let replica_count_binding = args.replica_count.get_output(context).get_inner();
-        let shard_count_binding = args.shard_count.get_output(context).get_inner();
-        let transit_encryption_mode_binding = args
+        let engine_configs_binding_1 = args.engine_configs.get_output(context);
+        let engine_configs_binding = engine_configs_binding_1.get_inner();
+        let engine_version_binding_1 = args.engine_version.get_output(context);
+        let engine_version_binding = engine_version_binding_1.get_inner();
+        let instance_id_binding_1 = args.instance_id.get_output(context);
+        let instance_id_binding = instance_id_binding_1.get_inner();
+        let labels_binding_1 = args.labels.get_output(context);
+        let labels_binding = labels_binding_1.get_inner();
+        let location_binding_1 = args.location.get_output(context);
+        let location_binding = location_binding_1.get_inner();
+        let mode_binding_1 = args.mode.get_output(context);
+        let mode_binding = mode_binding_1.get_inner();
+        let node_type_binding_1 = args.node_type.get_output(context);
+        let node_type_binding = node_type_binding_1.get_inner();
+        let persistence_config_binding_1 = args.persistence_config.get_output(context);
+        let persistence_config_binding = persistence_config_binding_1.get_inner();
+        let project_binding_1 = args.project.get_output(context);
+        let project_binding = project_binding_1.get_inner();
+        let replica_count_binding_1 = args.replica_count.get_output(context);
+        let replica_count_binding = replica_count_binding_1.get_inner();
+        let shard_count_binding_1 = args.shard_count.get_output(context);
+        let shard_count_binding = shard_count_binding_1.get_inner();
+        let transit_encryption_mode_binding_1 = args
             .transit_encryption_mode
-            .get_output(context)
+            .get_output(context);
+        let transit_encryption_mode_binding = transit_encryption_mode_binding_1
             .get_inner();
-        let zone_distribution_config_binding = args
+        let zone_distribution_config_binding_1 = args
             .zone_distribution_config
-            .get_output(context)
+            .get_output(context);
+        let zone_distribution_config_binding = zone_distribution_config_binding_1
             .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:memorystore/instance:Instance".into(),

@@ -76,12 +76,12 @@ pub mod permission_set_inline_policy {
     ) -> PermissionSetInlinePolicyResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let inline_policy_binding = args.inline_policy.get_output(context).get_inner();
-        let instance_arn_binding = args.instance_arn.get_output(context).get_inner();
-        let permission_set_arn_binding = args
-            .permission_set_arn
-            .get_output(context)
-            .get_inner();
+        let inline_policy_binding_1 = args.inline_policy.get_output(context);
+        let inline_policy_binding = inline_policy_binding_1.get_inner();
+        let instance_arn_binding_1 = args.instance_arn.get_output(context);
+        let instance_arn_binding = instance_arn_binding_1.get_inner();
+        let permission_set_arn_binding_1 = args.permission_set_arn.get_output(context);
+        let permission_set_arn_binding = permission_set_arn_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:ssoadmin/permissionSetInlinePolicy:PermissionSetInlinePolicy"
                 .into(),

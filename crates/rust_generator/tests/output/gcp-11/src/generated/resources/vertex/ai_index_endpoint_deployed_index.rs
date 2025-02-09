@@ -351,37 +351,31 @@ pub mod ai_index_endpoint_deployed_index {
     ) -> AiIndexEndpointDeployedIndexResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let automatic_resources_binding = args
-            .automatic_resources
-            .get_output(context)
-            .get_inner();
-        let dedicated_resources_binding = args
-            .dedicated_resources
-            .get_output(context)
-            .get_inner();
-        let deployed_index_auth_config_binding = args
+        let automatic_resources_binding_1 = args.automatic_resources.get_output(context);
+        let automatic_resources_binding = automatic_resources_binding_1.get_inner();
+        let dedicated_resources_binding_1 = args.dedicated_resources.get_output(context);
+        let dedicated_resources_binding = dedicated_resources_binding_1.get_inner();
+        let deployed_index_auth_config_binding_1 = args
             .deployed_index_auth_config
-            .get_output(context)
+            .get_output(context);
+        let deployed_index_auth_config_binding = deployed_index_auth_config_binding_1
             .get_inner();
-        let deployed_index_id_binding = args
-            .deployed_index_id
-            .get_output(context)
-            .get_inner();
-        let deployment_group_binding = args
-            .deployment_group
-            .get_output(context)
-            .get_inner();
-        let display_name_binding = args.display_name.get_output(context).get_inner();
-        let enable_access_logging_binding = args
+        let deployed_index_id_binding_1 = args.deployed_index_id.get_output(context);
+        let deployed_index_id_binding = deployed_index_id_binding_1.get_inner();
+        let deployment_group_binding_1 = args.deployment_group.get_output(context);
+        let deployment_group_binding = deployment_group_binding_1.get_inner();
+        let display_name_binding_1 = args.display_name.get_output(context);
+        let display_name_binding = display_name_binding_1.get_inner();
+        let enable_access_logging_binding_1 = args
             .enable_access_logging
-            .get_output(context)
-            .get_inner();
-        let index_binding = args.index.get_output(context).get_inner();
-        let index_endpoint_binding = args.index_endpoint.get_output(context).get_inner();
-        let reserved_ip_ranges_binding = args
-            .reserved_ip_ranges
-            .get_output(context)
-            .get_inner();
+            .get_output(context);
+        let enable_access_logging_binding = enable_access_logging_binding_1.get_inner();
+        let index_binding_1 = args.index.get_output(context);
+        let index_binding = index_binding_1.get_inner();
+        let index_endpoint_binding_1 = args.index_endpoint.get_output(context);
+        let index_endpoint_binding = index_endpoint_binding_1.get_inner();
+        let reserved_ip_ranges_binding_1 = args.reserved_ip_ranges.get_output(context);
+        let reserved_ip_ranges_binding = reserved_ip_ranges_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:vertex/aiIndexEndpointDeployedIndex:AiIndexEndpointDeployedIndex"
                 .into(),

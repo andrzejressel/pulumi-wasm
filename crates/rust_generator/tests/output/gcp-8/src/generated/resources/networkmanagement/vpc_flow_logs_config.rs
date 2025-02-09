@@ -404,31 +404,40 @@ pub mod vpc_flow_logs_config {
     ) -> VpcFlowLogsConfigResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let aggregation_interval_binding = args
+        let aggregation_interval_binding_1 = args
             .aggregation_interval
-            .get_output(context)
-            .get_inner();
-        let description_binding = args.description.get_output(context).get_inner();
-        let filter_expr_binding = args.filter_expr.get_output(context).get_inner();
-        let flow_sampling_binding = args.flow_sampling.get_output(context).get_inner();
-        let interconnect_attachment_binding = args
+            .get_output(context);
+        let aggregation_interval_binding = aggregation_interval_binding_1.get_inner();
+        let description_binding_1 = args.description.get_output(context);
+        let description_binding = description_binding_1.get_inner();
+        let filter_expr_binding_1 = args.filter_expr.get_output(context);
+        let filter_expr_binding = filter_expr_binding_1.get_inner();
+        let flow_sampling_binding_1 = args.flow_sampling.get_output(context);
+        let flow_sampling_binding = flow_sampling_binding_1.get_inner();
+        let interconnect_attachment_binding_1 = args
             .interconnect_attachment
-            .get_output(context)
+            .get_output(context);
+        let interconnect_attachment_binding = interconnect_attachment_binding_1
             .get_inner();
-        let labels_binding = args.labels.get_output(context).get_inner();
-        let location_binding = args.location.get_output(context).get_inner();
-        let metadata_binding = args.metadata.get_output(context).get_inner();
-        let metadata_fields_binding = args
-            .metadata_fields
-            .get_output(context)
-            .get_inner();
-        let project_binding = args.project.get_output(context).get_inner();
-        let state_binding = args.state.get_output(context).get_inner();
-        let vpc_flow_logs_config_id_binding = args
+        let labels_binding_1 = args.labels.get_output(context);
+        let labels_binding = labels_binding_1.get_inner();
+        let location_binding_1 = args.location.get_output(context);
+        let location_binding = location_binding_1.get_inner();
+        let metadata_binding_1 = args.metadata.get_output(context);
+        let metadata_binding = metadata_binding_1.get_inner();
+        let metadata_fields_binding_1 = args.metadata_fields.get_output(context);
+        let metadata_fields_binding = metadata_fields_binding_1.get_inner();
+        let project_binding_1 = args.project.get_output(context);
+        let project_binding = project_binding_1.get_inner();
+        let state_binding_1 = args.state.get_output(context);
+        let state_binding = state_binding_1.get_inner();
+        let vpc_flow_logs_config_id_binding_1 = args
             .vpc_flow_logs_config_id
-            .get_output(context)
+            .get_output(context);
+        let vpc_flow_logs_config_id_binding = vpc_flow_logs_config_id_binding_1
             .get_inner();
-        let vpn_tunnel_binding = args.vpn_tunnel.get_output(context).get_inner();
+        let vpn_tunnel_binding_1 = args.vpn_tunnel.get_output(context);
+        let vpn_tunnel_binding = vpn_tunnel_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:networkmanagement/vpcFlowLogsConfig:VpcFlowLogsConfig".into(),
             name: name.to_string(),

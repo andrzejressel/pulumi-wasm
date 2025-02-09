@@ -73,7 +73,8 @@ pub mod get_received_license {
     ) -> GetReceivedLicenseResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let license_arn_binding = args.license_arn.get_output(context).get_inner();
+        let license_arn_binding_1 = args.license_arn.get_output(context);
+        let license_arn_binding = license_arn_binding_1.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:licensemanager/getReceivedLicense:getReceivedLicense".into(),
             version: super::super::super::get_version(),

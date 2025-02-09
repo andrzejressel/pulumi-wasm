@@ -290,19 +290,28 @@ pub mod node_pool {
     ) -> NodePoolResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let cluster_binding = args.cluster.get_output(context).get_inner();
-        let labels_binding = args.labels.get_output(context).get_inner();
-        let local_disk_encryption_binding = args
+        let cluster_binding_1 = args.cluster.get_output(context);
+        let cluster_binding = cluster_binding_1.get_inner();
+        let labels_binding_1 = args.labels.get_output(context);
+        let labels_binding = labels_binding_1.get_inner();
+        let local_disk_encryption_binding_1 = args
             .local_disk_encryption
-            .get_output(context)
-            .get_inner();
-        let location_binding = args.location.get_output(context).get_inner();
-        let machine_filter_binding = args.machine_filter.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let node_config_binding = args.node_config.get_output(context).get_inner();
-        let node_count_binding = args.node_count.get_output(context).get_inner();
-        let node_location_binding = args.node_location.get_output(context).get_inner();
-        let project_binding = args.project.get_output(context).get_inner();
+            .get_output(context);
+        let local_disk_encryption_binding = local_disk_encryption_binding_1.get_inner();
+        let location_binding_1 = args.location.get_output(context);
+        let location_binding = location_binding_1.get_inner();
+        let machine_filter_binding_1 = args.machine_filter.get_output(context);
+        let machine_filter_binding = machine_filter_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let node_config_binding_1 = args.node_config.get_output(context);
+        let node_config_binding = node_config_binding_1.get_inner();
+        let node_count_binding_1 = args.node_count.get_output(context);
+        let node_count_binding = node_count_binding_1.get_inner();
+        let node_location_binding_1 = args.node_location.get_output(context);
+        let node_location_binding = node_location_binding_1.get_inner();
+        let project_binding_1 = args.project.get_output(context);
+        let project_binding = project_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:edgecontainer/nodePool:NodePool".into(),
             name: name.to_string(),

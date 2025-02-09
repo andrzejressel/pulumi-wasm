@@ -197,23 +197,27 @@ pub mod ai_feature_store {
     ) -> AiFeatureStoreResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let encryption_spec_binding = args
-            .encryption_spec
-            .get_output(context)
-            .get_inner();
-        let force_destroy_binding = args.force_destroy.get_output(context).get_inner();
-        let labels_binding = args.labels.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let online_serving_config_binding = args
+        let encryption_spec_binding_1 = args.encryption_spec.get_output(context);
+        let encryption_spec_binding = encryption_spec_binding_1.get_inner();
+        let force_destroy_binding_1 = args.force_destroy.get_output(context);
+        let force_destroy_binding = force_destroy_binding_1.get_inner();
+        let labels_binding_1 = args.labels.get_output(context);
+        let labels_binding = labels_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let online_serving_config_binding_1 = args
             .online_serving_config
-            .get_output(context)
-            .get_inner();
-        let online_storage_ttl_days_binding = args
+            .get_output(context);
+        let online_serving_config_binding = online_serving_config_binding_1.get_inner();
+        let online_storage_ttl_days_binding_1 = args
             .online_storage_ttl_days
-            .get_output(context)
+            .get_output(context);
+        let online_storage_ttl_days_binding = online_storage_ttl_days_binding_1
             .get_inner();
-        let project_binding = args.project.get_output(context).get_inner();
-        let region_binding = args.region.get_output(context).get_inner();
+        let project_binding_1 = args.project.get_output(context);
+        let project_binding = project_binding_1.get_inner();
+        let region_binding_1 = args.region.get_output(context);
+        let region_binding = region_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:vertex/aiFeatureStore:AiFeatureStore".into(),
             name: name.to_string(),

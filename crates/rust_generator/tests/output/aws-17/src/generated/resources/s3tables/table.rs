@@ -126,17 +126,19 @@ pub mod table {
     ) -> TableResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let format_binding = args.format.get_output(context).get_inner();
-        let maintenance_configuration_binding = args
+        let format_binding_1 = args.format.get_output(context);
+        let format_binding = format_binding_1.get_inner();
+        let maintenance_configuration_binding_1 = args
             .maintenance_configuration
-            .get_output(context)
+            .get_output(context);
+        let maintenance_configuration_binding = maintenance_configuration_binding_1
             .get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let namespace_binding = args.namespace.get_output(context).get_inner();
-        let table_bucket_arn_binding = args
-            .table_bucket_arn
-            .get_output(context)
-            .get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let namespace_binding_1 = args.namespace.get_output(context);
+        let namespace_binding = namespace_binding_1.get_inner();
+        let table_bucket_arn_binding_1 = args.table_bucket_arn.get_output(context);
+        let table_bucket_arn_binding = table_bucket_arn_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:s3tables/table:Table".into(),
             name: name.to_string(),

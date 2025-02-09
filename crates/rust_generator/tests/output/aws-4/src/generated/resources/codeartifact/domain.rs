@@ -77,9 +77,12 @@ pub mod domain {
     ) -> DomainResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let domain_binding = args.domain.get_output(context).get_inner();
-        let encryption_key_binding = args.encryption_key.get_output(context).get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
+        let domain_binding_1 = args.domain.get_output(context);
+        let domain_binding = domain_binding_1.get_inner();
+        let encryption_key_binding_1 = args.encryption_key.get_output(context);
+        let encryption_key_binding = encryption_key_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:codeartifact/domain:Domain".into(),
             name: name.to_string(),

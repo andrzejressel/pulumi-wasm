@@ -140,35 +140,30 @@ pub mod environment {
     ) -> EnvironmentResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let account_identifier_binding = args
-            .account_identifier
-            .get_output(context)
-            .get_inner();
-        let account_region_binding = args.account_region.get_output(context).get_inner();
-        let blueprint_identifier_binding = args
+        let account_identifier_binding_1 = args.account_identifier.get_output(context);
+        let account_identifier_binding = account_identifier_binding_1.get_inner();
+        let account_region_binding_1 = args.account_region.get_output(context);
+        let account_region_binding = account_region_binding_1.get_inner();
+        let blueprint_identifier_binding_1 = args
             .blueprint_identifier
-            .get_output(context)
-            .get_inner();
-        let description_binding = args.description.get_output(context).get_inner();
-        let domain_identifier_binding = args
-            .domain_identifier
-            .get_output(context)
-            .get_inner();
-        let glossary_terms_binding = args.glossary_terms.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let profile_identifier_binding = args
-            .profile_identifier
-            .get_output(context)
-            .get_inner();
-        let project_identifier_binding = args
-            .project_identifier
-            .get_output(context)
-            .get_inner();
-        let timeouts_binding = args.timeouts.get_output(context).get_inner();
-        let user_parameters_binding = args
-            .user_parameters
-            .get_output(context)
-            .get_inner();
+            .get_output(context);
+        let blueprint_identifier_binding = blueprint_identifier_binding_1.get_inner();
+        let description_binding_1 = args.description.get_output(context);
+        let description_binding = description_binding_1.get_inner();
+        let domain_identifier_binding_1 = args.domain_identifier.get_output(context);
+        let domain_identifier_binding = domain_identifier_binding_1.get_inner();
+        let glossary_terms_binding_1 = args.glossary_terms.get_output(context);
+        let glossary_terms_binding = glossary_terms_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let profile_identifier_binding_1 = args.profile_identifier.get_output(context);
+        let profile_identifier_binding = profile_identifier_binding_1.get_inner();
+        let project_identifier_binding_1 = args.project_identifier.get_output(context);
+        let project_identifier_binding = project_identifier_binding_1.get_inner();
+        let timeouts_binding_1 = args.timeouts.get_output(context);
+        let timeouts_binding = timeouts_binding_1.get_inner();
+        let user_parameters_binding_1 = args.user_parameters.get_output(context);
+        let user_parameters_binding = user_parameters_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:datazone/environment:Environment".into(),
             name: name.to_string(),

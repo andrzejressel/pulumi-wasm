@@ -31,8 +31,10 @@ pub mod nursery {
     ) {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let sizes_binding = args.sizes.get_output(context).get_inner();
-        let varieties_binding = args.varieties.get_output(context).get_inner();
+        let sizes_binding_1 = args.sizes.get_output(context);
+        let sizes_binding = sizes_binding_1.get_inner();
+        let varieties_binding_1 = args.varieties.get_output(context);
+        let varieties_binding = varieties_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "plant:tree/v1:Nursery".into(),
             name: name.to_string(),

@@ -156,30 +156,39 @@ pub mod infrastructure_configuration {
     ) -> InfrastructureConfigurationResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let description_binding = args.description.get_output(context).get_inner();
-        let instance_metadata_options_binding = args
+        let description_binding_1 = args.description.get_output(context);
+        let description_binding = description_binding_1.get_inner();
+        let instance_metadata_options_binding_1 = args
             .instance_metadata_options
-            .get_output(context)
+            .get_output(context);
+        let instance_metadata_options_binding = instance_metadata_options_binding_1
             .get_inner();
-        let instance_profile_name_binding = args
+        let instance_profile_name_binding_1 = args
             .instance_profile_name
-            .get_output(context)
-            .get_inner();
-        let instance_types_binding = args.instance_types.get_output(context).get_inner();
-        let key_pair_binding = args.key_pair.get_output(context).get_inner();
-        let logging_binding = args.logging.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let resource_tags_binding = args.resource_tags.get_output(context).get_inner();
-        let security_group_ids_binding = args
-            .security_group_ids
-            .get_output(context)
-            .get_inner();
-        let sns_topic_arn_binding = args.sns_topic_arn.get_output(context).get_inner();
-        let subnet_id_binding = args.subnet_id.get_output(context).get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
-        let terminate_instance_on_failure_binding = args
+            .get_output(context);
+        let instance_profile_name_binding = instance_profile_name_binding_1.get_inner();
+        let instance_types_binding_1 = args.instance_types.get_output(context);
+        let instance_types_binding = instance_types_binding_1.get_inner();
+        let key_pair_binding_1 = args.key_pair.get_output(context);
+        let key_pair_binding = key_pair_binding_1.get_inner();
+        let logging_binding_1 = args.logging.get_output(context);
+        let logging_binding = logging_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let resource_tags_binding_1 = args.resource_tags.get_output(context);
+        let resource_tags_binding = resource_tags_binding_1.get_inner();
+        let security_group_ids_binding_1 = args.security_group_ids.get_output(context);
+        let security_group_ids_binding = security_group_ids_binding_1.get_inner();
+        let sns_topic_arn_binding_1 = args.sns_topic_arn.get_output(context);
+        let sns_topic_arn_binding = sns_topic_arn_binding_1.get_inner();
+        let subnet_id_binding_1 = args.subnet_id.get_output(context);
+        let subnet_id_binding = subnet_id_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
+        let terminate_instance_on_failure_binding_1 = args
             .terminate_instance_on_failure
-            .get_output(context)
+            .get_output(context);
+        let terminate_instance_on_failure_binding = terminate_instance_on_failure_binding_1
             .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:imagebuilder/infrastructureConfiguration:InfrastructureConfiguration"

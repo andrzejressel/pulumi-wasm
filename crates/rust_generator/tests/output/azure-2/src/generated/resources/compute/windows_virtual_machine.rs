@@ -543,148 +543,164 @@ pub mod windows_virtual_machine {
     ) -> WindowsVirtualMachineResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let additional_capabilities_binding = args
+        let additional_capabilities_binding_1 = args
             .additional_capabilities
-            .get_output(context)
+            .get_output(context);
+        let additional_capabilities_binding = additional_capabilities_binding_1
             .get_inner();
-        let additional_unattend_contents_binding = args
+        let additional_unattend_contents_binding_1 = args
             .additional_unattend_contents
-            .get_output(context)
+            .get_output(context);
+        let additional_unattend_contents_binding = additional_unattend_contents_binding_1
             .get_inner();
-        let admin_password_binding = args.admin_password.get_output(context).get_inner();
-        let admin_username_binding = args.admin_username.get_output(context).get_inner();
-        let allow_extension_operations_binding = args
+        let admin_password_binding_1 = args.admin_password.get_output(context);
+        let admin_password_binding = admin_password_binding_1.get_inner();
+        let admin_username_binding_1 = args.admin_username.get_output(context);
+        let admin_username_binding = admin_username_binding_1.get_inner();
+        let allow_extension_operations_binding_1 = args
             .allow_extension_operations
-            .get_output(context)
+            .get_output(context);
+        let allow_extension_operations_binding = allow_extension_operations_binding_1
             .get_inner();
-        let availability_set_id_binding = args
-            .availability_set_id
-            .get_output(context)
-            .get_inner();
-        let boot_diagnostics_binding = args
-            .boot_diagnostics
-            .get_output(context)
-            .get_inner();
-        let bypass_platform_safety_checks_on_user_schedule_enabled_binding = args
+        let availability_set_id_binding_1 = args.availability_set_id.get_output(context);
+        let availability_set_id_binding = availability_set_id_binding_1.get_inner();
+        let boot_diagnostics_binding_1 = args.boot_diagnostics.get_output(context);
+        let boot_diagnostics_binding = boot_diagnostics_binding_1.get_inner();
+        let bypass_platform_safety_checks_on_user_schedule_enabled_binding_1 = args
             .bypass_platform_safety_checks_on_user_schedule_enabled
-            .get_output(context)
+            .get_output(context);
+        let bypass_platform_safety_checks_on_user_schedule_enabled_binding = bypass_platform_safety_checks_on_user_schedule_enabled_binding_1
             .get_inner();
-        let capacity_reservation_group_id_binding = args
+        let capacity_reservation_group_id_binding_1 = args
             .capacity_reservation_group_id
-            .get_output(context)
+            .get_output(context);
+        let capacity_reservation_group_id_binding = capacity_reservation_group_id_binding_1
             .get_inner();
-        let computer_name_binding = args.computer_name.get_output(context).get_inner();
-        let custom_data_binding = args.custom_data.get_output(context).get_inner();
-        let dedicated_host_group_id_binding = args
+        let computer_name_binding_1 = args.computer_name.get_output(context);
+        let computer_name_binding = computer_name_binding_1.get_inner();
+        let custom_data_binding_1 = args.custom_data.get_output(context);
+        let custom_data_binding = custom_data_binding_1.get_inner();
+        let dedicated_host_group_id_binding_1 = args
             .dedicated_host_group_id
-            .get_output(context)
+            .get_output(context);
+        let dedicated_host_group_id_binding = dedicated_host_group_id_binding_1
             .get_inner();
-        let dedicated_host_id_binding = args
-            .dedicated_host_id
-            .get_output(context)
-            .get_inner();
-        let disk_controller_type_binding = args
+        let dedicated_host_id_binding_1 = args.dedicated_host_id.get_output(context);
+        let dedicated_host_id_binding = dedicated_host_id_binding_1.get_inner();
+        let disk_controller_type_binding_1 = args
             .disk_controller_type
-            .get_output(context)
-            .get_inner();
-        let edge_zone_binding = args.edge_zone.get_output(context).get_inner();
-        let enable_automatic_updates_binding = args
+            .get_output(context);
+        let disk_controller_type_binding = disk_controller_type_binding_1.get_inner();
+        let edge_zone_binding_1 = args.edge_zone.get_output(context);
+        let edge_zone_binding = edge_zone_binding_1.get_inner();
+        let enable_automatic_updates_binding_1 = args
             .enable_automatic_updates
-            .get_output(context)
+            .get_output(context);
+        let enable_automatic_updates_binding = enable_automatic_updates_binding_1
             .get_inner();
-        let encryption_at_host_enabled_binding = args
+        let encryption_at_host_enabled_binding_1 = args
             .encryption_at_host_enabled
-            .get_output(context)
+            .get_output(context);
+        let encryption_at_host_enabled_binding = encryption_at_host_enabled_binding_1
             .get_inner();
-        let eviction_policy_binding = args
-            .eviction_policy
-            .get_output(context)
-            .get_inner();
-        let extensions_time_budget_binding = args
+        let eviction_policy_binding_1 = args.eviction_policy.get_output(context);
+        let eviction_policy_binding = eviction_policy_binding_1.get_inner();
+        let extensions_time_budget_binding_1 = args
             .extensions_time_budget
-            .get_output(context)
+            .get_output(context);
+        let extensions_time_budget_binding = extensions_time_budget_binding_1
             .get_inner();
-        let gallery_applications_binding = args
+        let gallery_applications_binding_1 = args
             .gallery_applications
-            .get_output(context)
-            .get_inner();
-        let hotpatching_enabled_binding = args
-            .hotpatching_enabled
-            .get_output(context)
-            .get_inner();
-        let identity_binding = args.identity.get_output(context).get_inner();
-        let license_type_binding = args.license_type.get_output(context).get_inner();
-        let location_binding = args.location.get_output(context).get_inner();
-        let max_bid_price_binding = args.max_bid_price.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let network_interface_ids_binding = args
+            .get_output(context);
+        let gallery_applications_binding = gallery_applications_binding_1.get_inner();
+        let hotpatching_enabled_binding_1 = args.hotpatching_enabled.get_output(context);
+        let hotpatching_enabled_binding = hotpatching_enabled_binding_1.get_inner();
+        let identity_binding_1 = args.identity.get_output(context);
+        let identity_binding = identity_binding_1.get_inner();
+        let license_type_binding_1 = args.license_type.get_output(context);
+        let license_type_binding = license_type_binding_1.get_inner();
+        let location_binding_1 = args.location.get_output(context);
+        let location_binding = location_binding_1.get_inner();
+        let max_bid_price_binding_1 = args.max_bid_price.get_output(context);
+        let max_bid_price_binding = max_bid_price_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let network_interface_ids_binding_1 = args
             .network_interface_ids
-            .get_output(context)
-            .get_inner();
-        let os_disk_binding = args.os_disk.get_output(context).get_inner();
-        let os_image_notification_binding = args
+            .get_output(context);
+        let network_interface_ids_binding = network_interface_ids_binding_1.get_inner();
+        let os_disk_binding_1 = args.os_disk.get_output(context);
+        let os_disk_binding = os_disk_binding_1.get_inner();
+        let os_image_notification_binding_1 = args
             .os_image_notification
-            .get_output(context)
-            .get_inner();
-        let patch_assessment_mode_binding = args
+            .get_output(context);
+        let os_image_notification_binding = os_image_notification_binding_1.get_inner();
+        let patch_assessment_mode_binding_1 = args
             .patch_assessment_mode
-            .get_output(context)
-            .get_inner();
-        let patch_mode_binding = args.patch_mode.get_output(context).get_inner();
-        let plan_binding = args.plan.get_output(context).get_inner();
-        let platform_fault_domain_binding = args
+            .get_output(context);
+        let patch_assessment_mode_binding = patch_assessment_mode_binding_1.get_inner();
+        let patch_mode_binding_1 = args.patch_mode.get_output(context);
+        let patch_mode_binding = patch_mode_binding_1.get_inner();
+        let plan_binding_1 = args.plan.get_output(context);
+        let plan_binding = plan_binding_1.get_inner();
+        let platform_fault_domain_binding_1 = args
             .platform_fault_domain
-            .get_output(context)
-            .get_inner();
-        let priority_binding = args.priority.get_output(context).get_inner();
-        let provision_vm_agent_binding = args
-            .provision_vm_agent
-            .get_output(context)
-            .get_inner();
-        let proximity_placement_group_id_binding = args
+            .get_output(context);
+        let platform_fault_domain_binding = platform_fault_domain_binding_1.get_inner();
+        let priority_binding_1 = args.priority.get_output(context);
+        let priority_binding = priority_binding_1.get_inner();
+        let provision_vm_agent_binding_1 = args.provision_vm_agent.get_output(context);
+        let provision_vm_agent_binding = provision_vm_agent_binding_1.get_inner();
+        let proximity_placement_group_id_binding_1 = args
             .proximity_placement_group_id
-            .get_output(context)
+            .get_output(context);
+        let proximity_placement_group_id_binding = proximity_placement_group_id_binding_1
             .get_inner();
-        let reboot_setting_binding = args.reboot_setting.get_output(context).get_inner();
-        let resource_group_name_binding = args
-            .resource_group_name
-            .get_output(context)
-            .get_inner();
-        let secrets_binding = args.secrets.get_output(context).get_inner();
-        let secure_boot_enabled_binding = args
-            .secure_boot_enabled
-            .get_output(context)
-            .get_inner();
-        let size_binding = args.size.get_output(context).get_inner();
-        let source_image_id_binding = args
-            .source_image_id
-            .get_output(context)
-            .get_inner();
-        let source_image_reference_binding = args
+        let reboot_setting_binding_1 = args.reboot_setting.get_output(context);
+        let reboot_setting_binding = reboot_setting_binding_1.get_inner();
+        let resource_group_name_binding_1 = args.resource_group_name.get_output(context);
+        let resource_group_name_binding = resource_group_name_binding_1.get_inner();
+        let secrets_binding_1 = args.secrets.get_output(context);
+        let secrets_binding = secrets_binding_1.get_inner();
+        let secure_boot_enabled_binding_1 = args.secure_boot_enabled.get_output(context);
+        let secure_boot_enabled_binding = secure_boot_enabled_binding_1.get_inner();
+        let size_binding_1 = args.size.get_output(context);
+        let size_binding = size_binding_1.get_inner();
+        let source_image_id_binding_1 = args.source_image_id.get_output(context);
+        let source_image_id_binding = source_image_id_binding_1.get_inner();
+        let source_image_reference_binding_1 = args
             .source_image_reference
-            .get_output(context)
+            .get_output(context);
+        let source_image_reference_binding = source_image_reference_binding_1
             .get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
-        let termination_notification_binding = args
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
+        let termination_notification_binding_1 = args
             .termination_notification
-            .get_output(context)
+            .get_output(context);
+        let termination_notification_binding = termination_notification_binding_1
             .get_inner();
-        let timezone_binding = args.timezone.get_output(context).get_inner();
-        let user_data_binding = args.user_data.get_output(context).get_inner();
-        let virtual_machine_scale_set_id_binding = args
+        let timezone_binding_1 = args.timezone.get_output(context);
+        let timezone_binding = timezone_binding_1.get_inner();
+        let user_data_binding_1 = args.user_data.get_output(context);
+        let user_data_binding = user_data_binding_1.get_inner();
+        let virtual_machine_scale_set_id_binding_1 = args
             .virtual_machine_scale_set_id
-            .get_output(context)
+            .get_output(context);
+        let virtual_machine_scale_set_id_binding = virtual_machine_scale_set_id_binding_1
             .get_inner();
-        let vm_agent_platform_updates_enabled_binding = args
+        let vm_agent_platform_updates_enabled_binding_1 = args
             .vm_agent_platform_updates_enabled
-            .get_output(context)
+            .get_output(context);
+        let vm_agent_platform_updates_enabled_binding = vm_agent_platform_updates_enabled_binding_1
             .get_inner();
-        let vtpm_enabled_binding = args.vtpm_enabled.get_output(context).get_inner();
-        let winrm_listeners_binding = args
-            .winrm_listeners
-            .get_output(context)
-            .get_inner();
-        let zone_binding = args.zone.get_output(context).get_inner();
+        let vtpm_enabled_binding_1 = args.vtpm_enabled.get_output(context);
+        let vtpm_enabled_binding = vtpm_enabled_binding_1.get_inner();
+        let winrm_listeners_binding_1 = args.winrm_listeners.get_output(context);
+        let winrm_listeners_binding = winrm_listeners_binding_1.get_inner();
+        let zone_binding_1 = args.zone.get_output(context);
+        let zone_binding = zone_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:compute/windowsVirtualMachine:WindowsVirtualMachine".into(),
             name: name.to_string(),

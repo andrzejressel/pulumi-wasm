@@ -124,26 +124,28 @@ pub mod exadata_infrastructure {
     ) -> ExadataInfrastructureResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let compute_count_binding = args.compute_count.get_output(context).get_inner();
-        let customer_contacts_binding = args
-            .customer_contacts
-            .get_output(context)
-            .get_inner();
-        let display_name_binding = args.display_name.get_output(context).get_inner();
-        let location_binding = args.location.get_output(context).get_inner();
-        let maintenance_windows_binding = args
-            .maintenance_windows
-            .get_output(context)
-            .get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let resource_group_name_binding = args
-            .resource_group_name
-            .get_output(context)
-            .get_inner();
-        let shape_binding = args.shape.get_output(context).get_inner();
-        let storage_count_binding = args.storage_count.get_output(context).get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
-        let zones_binding = args.zones.get_output(context).get_inner();
+        let compute_count_binding_1 = args.compute_count.get_output(context);
+        let compute_count_binding = compute_count_binding_1.get_inner();
+        let customer_contacts_binding_1 = args.customer_contacts.get_output(context);
+        let customer_contacts_binding = customer_contacts_binding_1.get_inner();
+        let display_name_binding_1 = args.display_name.get_output(context);
+        let display_name_binding = display_name_binding_1.get_inner();
+        let location_binding_1 = args.location.get_output(context);
+        let location_binding = location_binding_1.get_inner();
+        let maintenance_windows_binding_1 = args.maintenance_windows.get_output(context);
+        let maintenance_windows_binding = maintenance_windows_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let resource_group_name_binding_1 = args.resource_group_name.get_output(context);
+        let resource_group_name_binding = resource_group_name_binding_1.get_inner();
+        let shape_binding_1 = args.shape.get_output(context);
+        let shape_binding = shape_binding_1.get_inner();
+        let storage_count_binding_1 = args.storage_count.get_output(context);
+        let storage_count_binding = storage_count_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
+        let zones_binding_1 = args.zones.get_output(context);
+        let zones_binding = zones_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:oracle/exadataInfrastructure:ExadataInfrastructure".into(),
             name: name.to_string(),

@@ -44,12 +44,12 @@ pub mod get_geofence_collection {
     ) -> GetGeofenceCollectionResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let collection_name_binding = args
-            .collection_name
-            .get_output(context)
-            .get_inner();
-        let kms_key_id_binding = args.kms_key_id.get_output(context).get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
+        let collection_name_binding_1 = args.collection_name.get_output(context);
+        let collection_name_binding = collection_name_binding_1.get_inner();
+        let kms_key_id_binding_1 = args.kms_key_id.get_output(context);
+        let kms_key_id_binding = kms_key_id_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:location/getGeofenceCollection:getGeofenceCollection".into(),
             version: super::super::super::get_version(),

@@ -160,26 +160,34 @@ pub mod receipt_rule {
     ) -> ReceiptRuleResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let add_header_actions_binding = args
-            .add_header_actions
-            .get_output(context)
-            .get_inner();
-        let after_binding = args.after.get_output(context).get_inner();
-        let bounce_actions_binding = args.bounce_actions.get_output(context).get_inner();
-        let enabled_binding = args.enabled.get_output(context).get_inner();
-        let lambda_actions_binding = args.lambda_actions.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let recipients_binding = args.recipients.get_output(context).get_inner();
-        let rule_set_name_binding = args.rule_set_name.get_output(context).get_inner();
-        let s3_actions_binding = args.s3_actions.get_output(context).get_inner();
-        let scan_enabled_binding = args.scan_enabled.get_output(context).get_inner();
-        let sns_actions_binding = args.sns_actions.get_output(context).get_inner();
-        let stop_actions_binding = args.stop_actions.get_output(context).get_inner();
-        let tls_policy_binding = args.tls_policy.get_output(context).get_inner();
-        let workmail_actions_binding = args
-            .workmail_actions
-            .get_output(context)
-            .get_inner();
+        let add_header_actions_binding_1 = args.add_header_actions.get_output(context);
+        let add_header_actions_binding = add_header_actions_binding_1.get_inner();
+        let after_binding_1 = args.after.get_output(context);
+        let after_binding = after_binding_1.get_inner();
+        let bounce_actions_binding_1 = args.bounce_actions.get_output(context);
+        let bounce_actions_binding = bounce_actions_binding_1.get_inner();
+        let enabled_binding_1 = args.enabled.get_output(context);
+        let enabled_binding = enabled_binding_1.get_inner();
+        let lambda_actions_binding_1 = args.lambda_actions.get_output(context);
+        let lambda_actions_binding = lambda_actions_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let recipients_binding_1 = args.recipients.get_output(context);
+        let recipients_binding = recipients_binding_1.get_inner();
+        let rule_set_name_binding_1 = args.rule_set_name.get_output(context);
+        let rule_set_name_binding = rule_set_name_binding_1.get_inner();
+        let s3_actions_binding_1 = args.s3_actions.get_output(context);
+        let s3_actions_binding = s3_actions_binding_1.get_inner();
+        let scan_enabled_binding_1 = args.scan_enabled.get_output(context);
+        let scan_enabled_binding = scan_enabled_binding_1.get_inner();
+        let sns_actions_binding_1 = args.sns_actions.get_output(context);
+        let sns_actions_binding = sns_actions_binding_1.get_inner();
+        let stop_actions_binding_1 = args.stop_actions.get_output(context);
+        let stop_actions_binding = stop_actions_binding_1.get_inner();
+        let tls_policy_binding_1 = args.tls_policy.get_output(context);
+        let tls_policy_binding = tls_policy_binding_1.get_inner();
+        let workmail_actions_binding_1 = args.workmail_actions.get_output(context);
+        let workmail_actions_binding = workmail_actions_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:ses/receiptRule:ReceiptRule".into(),
             name: name.to_string(),

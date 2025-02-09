@@ -81,12 +81,12 @@ pub mod application_assignment {
     ) -> ApplicationAssignmentResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let application_arn_binding = args
-            .application_arn
-            .get_output(context)
-            .get_inner();
-        let principal_id_binding = args.principal_id.get_output(context).get_inner();
-        let principal_type_binding = args.principal_type.get_output(context).get_inner();
+        let application_arn_binding_1 = args.application_arn.get_output(context);
+        let application_arn_binding = application_arn_binding_1.get_inner();
+        let principal_id_binding_1 = args.principal_id.get_output(context);
+        let principal_id_binding = principal_id_binding_1.get_inner();
+        let principal_type_binding_1 = args.principal_type.get_output(context);
+        let principal_type_binding = principal_type_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:ssoadmin/applicationAssignment:ApplicationAssignment".into(),
             name: name.to_string(),

@@ -65,12 +65,18 @@ pub mod get_route_table {
     ) -> GetRouteTableResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let filters_binding = args.filters.get_output(context).get_inner();
-        let gateway_id_binding = args.gateway_id.get_output(context).get_inner();
-        let route_table_id_binding = args.route_table_id.get_output(context).get_inner();
-        let subnet_id_binding = args.subnet_id.get_output(context).get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
-        let vpc_id_binding = args.vpc_id.get_output(context).get_inner();
+        let filters_binding_1 = args.filters.get_output(context);
+        let filters_binding = filters_binding_1.get_inner();
+        let gateway_id_binding_1 = args.gateway_id.get_output(context);
+        let gateway_id_binding = gateway_id_binding_1.get_inner();
+        let route_table_id_binding_1 = args.route_table_id.get_output(context);
+        let route_table_id_binding = route_table_id_binding_1.get_inner();
+        let subnet_id_binding_1 = args.subnet_id.get_output(context);
+        let subnet_id_binding = subnet_id_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
+        let vpc_id_binding_1 = args.vpc_id.get_output(context);
+        let vpc_id_binding = vpc_id_binding_1.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:ec2/getRouteTable:getRouteTable".into(),
             version: super::super::super::get_version(),

@@ -155,10 +155,14 @@ pub mod method_settings {
     ) -> MethodSettingsResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let method_path_binding = args.method_path.get_output(context).get_inner();
-        let rest_api_binding = args.rest_api.get_output(context).get_inner();
-        let settings_binding = args.settings.get_output(context).get_inner();
-        let stage_name_binding = args.stage_name.get_output(context).get_inner();
+        let method_path_binding_1 = args.method_path.get_output(context);
+        let method_path_binding = method_path_binding_1.get_inner();
+        let rest_api_binding_1 = args.rest_api.get_output(context);
+        let rest_api_binding = rest_api_binding_1.get_inner();
+        let settings_binding_1 = args.settings.get_output(context);
+        let settings_binding = settings_binding_1.get_inner();
+        let stage_name_binding_1 = args.stage_name.get_output(context);
+        let stage_name_binding = stage_name_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:apigateway/methodSettings:MethodSettings".into(),
             name: name.to_string(),

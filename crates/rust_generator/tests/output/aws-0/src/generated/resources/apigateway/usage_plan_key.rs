@@ -85,9 +85,12 @@ pub mod usage_plan_key {
     ) -> UsagePlanKeyResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let key_id_binding = args.key_id.get_output(context).get_inner();
-        let key_type_binding = args.key_type.get_output(context).get_inner();
-        let usage_plan_id_binding = args.usage_plan_id.get_output(context).get_inner();
+        let key_id_binding_1 = args.key_id.get_output(context);
+        let key_id_binding = key_id_binding_1.get_inner();
+        let key_type_binding_1 = args.key_type.get_output(context);
+        let key_type_binding = key_type_binding_1.get_inner();
+        let usage_plan_id_binding_1 = args.usage_plan_id.get_output(context);
+        let usage_plan_id_binding = usage_plan_id_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:apigateway/usagePlanKey:UsagePlanKey".into(),
             name: name.to_string(),

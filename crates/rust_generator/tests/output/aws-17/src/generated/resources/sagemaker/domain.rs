@@ -215,40 +215,43 @@ pub mod domain {
     ) -> DomainResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let app_network_access_type_binding = args
+        let app_network_access_type_binding_1 = args
             .app_network_access_type
-            .get_output(context)
+            .get_output(context);
+        let app_network_access_type_binding = app_network_access_type_binding_1
             .get_inner();
-        let app_security_group_management_binding = args
+        let app_security_group_management_binding_1 = args
             .app_security_group_management
-            .get_output(context)
+            .get_output(context);
+        let app_security_group_management_binding = app_security_group_management_binding_1
             .get_inner();
-        let auth_mode_binding = args.auth_mode.get_output(context).get_inner();
-        let default_space_settings_binding = args
+        let auth_mode_binding_1 = args.auth_mode.get_output(context);
+        let auth_mode_binding = auth_mode_binding_1.get_inner();
+        let default_space_settings_binding_1 = args
             .default_space_settings
-            .get_output(context)
+            .get_output(context);
+        let default_space_settings_binding = default_space_settings_binding_1
             .get_inner();
-        let default_user_settings_binding = args
+        let default_user_settings_binding_1 = args
             .default_user_settings
-            .get_output(context)
-            .get_inner();
-        let domain_name_binding = args.domain_name.get_output(context).get_inner();
-        let domain_settings_binding = args
-            .domain_settings
-            .get_output(context)
-            .get_inner();
-        let kms_key_id_binding = args.kms_key_id.get_output(context).get_inner();
-        let retention_policy_binding = args
-            .retention_policy
-            .get_output(context)
-            .get_inner();
-        let subnet_ids_binding = args.subnet_ids.get_output(context).get_inner();
-        let tag_propagation_binding = args
-            .tag_propagation
-            .get_output(context)
-            .get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
-        let vpc_id_binding = args.vpc_id.get_output(context).get_inner();
+            .get_output(context);
+        let default_user_settings_binding = default_user_settings_binding_1.get_inner();
+        let domain_name_binding_1 = args.domain_name.get_output(context);
+        let domain_name_binding = domain_name_binding_1.get_inner();
+        let domain_settings_binding_1 = args.domain_settings.get_output(context);
+        let domain_settings_binding = domain_settings_binding_1.get_inner();
+        let kms_key_id_binding_1 = args.kms_key_id.get_output(context);
+        let kms_key_id_binding = kms_key_id_binding_1.get_inner();
+        let retention_policy_binding_1 = args.retention_policy.get_output(context);
+        let retention_policy_binding = retention_policy_binding_1.get_inner();
+        let subnet_ids_binding_1 = args.subnet_ids.get_output(context);
+        let subnet_ids_binding = subnet_ids_binding_1.get_inner();
+        let tag_propagation_binding_1 = args.tag_propagation.get_output(context);
+        let tag_propagation_binding = tag_propagation_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
+        let vpc_id_binding_1 = args.vpc_id.get_output(context);
+        let vpc_id_binding = vpc_id_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:sagemaker/domain:Domain".into(),
             name: name.to_string(),

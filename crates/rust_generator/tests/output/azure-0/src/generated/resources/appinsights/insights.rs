@@ -191,54 +191,53 @@ pub mod insights {
     ) -> InsightsResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let application_type_binding = args
-            .application_type
-            .get_output(context)
-            .get_inner();
-        let daily_data_cap_in_gb_binding = args
+        let application_type_binding_1 = args.application_type.get_output(context);
+        let application_type_binding = application_type_binding_1.get_inner();
+        let daily_data_cap_in_gb_binding_1 = args
             .daily_data_cap_in_gb
-            .get_output(context)
-            .get_inner();
-        let daily_data_cap_notifications_disabled_binding = args
+            .get_output(context);
+        let daily_data_cap_in_gb_binding = daily_data_cap_in_gb_binding_1.get_inner();
+        let daily_data_cap_notifications_disabled_binding_1 = args
             .daily_data_cap_notifications_disabled
-            .get_output(context)
+            .get_output(context);
+        let daily_data_cap_notifications_disabled_binding = daily_data_cap_notifications_disabled_binding_1
             .get_inner();
-        let disable_ip_masking_binding = args
-            .disable_ip_masking
-            .get_output(context)
-            .get_inner();
-        let force_customer_storage_for_profiler_binding = args
+        let disable_ip_masking_binding_1 = args.disable_ip_masking.get_output(context);
+        let disable_ip_masking_binding = disable_ip_masking_binding_1.get_inner();
+        let force_customer_storage_for_profiler_binding_1 = args
             .force_customer_storage_for_profiler
-            .get_output(context)
+            .get_output(context);
+        let force_customer_storage_for_profiler_binding = force_customer_storage_for_profiler_binding_1
             .get_inner();
-        let internet_ingestion_enabled_binding = args
+        let internet_ingestion_enabled_binding_1 = args
             .internet_ingestion_enabled
-            .get_output(context)
+            .get_output(context);
+        let internet_ingestion_enabled_binding = internet_ingestion_enabled_binding_1
             .get_inner();
-        let internet_query_enabled_binding = args
+        let internet_query_enabled_binding_1 = args
             .internet_query_enabled
-            .get_output(context)
+            .get_output(context);
+        let internet_query_enabled_binding = internet_query_enabled_binding_1
             .get_inner();
-        let local_authentication_disabled_binding = args
+        let local_authentication_disabled_binding_1 = args
             .local_authentication_disabled
-            .get_output(context)
+            .get_output(context);
+        let local_authentication_disabled_binding = local_authentication_disabled_binding_1
             .get_inner();
-        let location_binding = args.location.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let resource_group_name_binding = args
-            .resource_group_name
-            .get_output(context)
-            .get_inner();
-        let retention_in_days_binding = args
-            .retention_in_days
-            .get_output(context)
-            .get_inner();
-        let sampling_percentage_binding = args
-            .sampling_percentage
-            .get_output(context)
-            .get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
-        let workspace_id_binding = args.workspace_id.get_output(context).get_inner();
+        let location_binding_1 = args.location.get_output(context);
+        let location_binding = location_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let resource_group_name_binding_1 = args.resource_group_name.get_output(context);
+        let resource_group_name_binding = resource_group_name_binding_1.get_inner();
+        let retention_in_days_binding_1 = args.retention_in_days.get_output(context);
+        let retention_in_days_binding = retention_in_days_binding_1.get_inner();
+        let sampling_percentage_binding_1 = args.sampling_percentage.get_output(context);
+        let sampling_percentage_binding = sampling_percentage_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
+        let workspace_id_binding_1 = args.workspace_id.get_output(context);
+        let workspace_id_binding = workspace_id_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:appinsights/insights:Insights".into(),
             name: name.to_string(),

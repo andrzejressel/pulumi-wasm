@@ -112,12 +112,12 @@ pub mod gcp_user_access_binding {
     ) -> GcpUserAccessBindingResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let access_levels_binding = args.access_levels.get_output(context).get_inner();
-        let group_key_binding = args.group_key.get_output(context).get_inner();
-        let organization_id_binding = args
-            .organization_id
-            .get_output(context)
-            .get_inner();
+        let access_levels_binding_1 = args.access_levels.get_output(context);
+        let access_levels_binding = access_levels_binding_1.get_inner();
+        let group_key_binding_1 = args.group_key.get_output(context);
+        let group_key_binding = group_key_binding_1.get_inner();
+        let organization_id_binding_1 = args.organization_id.get_output(context);
+        let organization_id_binding = organization_id_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:accesscontextmanager/gcpUserAccessBinding:GcpUserAccessBinding"
                 .into(),

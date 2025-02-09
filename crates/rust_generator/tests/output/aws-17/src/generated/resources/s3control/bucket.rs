@@ -76,9 +76,12 @@ pub mod bucket {
     ) -> BucketResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let bucket_binding = args.bucket.get_output(context).get_inner();
-        let outpost_id_binding = args.outpost_id.get_output(context).get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
+        let bucket_binding_1 = args.bucket.get_output(context);
+        let bucket_binding = bucket_binding_1.get_inner();
+        let outpost_id_binding_1 = args.outpost_id.get_output(context);
+        let outpost_id_binding = outpost_id_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:s3control/bucket:Bucket".into(),
             name: name.to_string(),

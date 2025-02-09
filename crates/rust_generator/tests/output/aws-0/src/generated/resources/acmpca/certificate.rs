@@ -112,24 +112,24 @@ pub mod certificate {
     ) -> CertificateResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let api_passthrough_binding = args
-            .api_passthrough
-            .get_output(context)
-            .get_inner();
-        let certificate_authority_arn_binding = args
+        let api_passthrough_binding_1 = args.api_passthrough.get_output(context);
+        let api_passthrough_binding = api_passthrough_binding_1.get_inner();
+        let certificate_authority_arn_binding_1 = args
             .certificate_authority_arn
-            .get_output(context)
+            .get_output(context);
+        let certificate_authority_arn_binding = certificate_authority_arn_binding_1
             .get_inner();
-        let certificate_signing_request_binding = args
+        let certificate_signing_request_binding_1 = args
             .certificate_signing_request
-            .get_output(context)
+            .get_output(context);
+        let certificate_signing_request_binding = certificate_signing_request_binding_1
             .get_inner();
-        let signing_algorithm_binding = args
-            .signing_algorithm
-            .get_output(context)
-            .get_inner();
-        let template_arn_binding = args.template_arn.get_output(context).get_inner();
-        let validity_binding = args.validity.get_output(context).get_inner();
+        let signing_algorithm_binding_1 = args.signing_algorithm.get_output(context);
+        let signing_algorithm_binding = signing_algorithm_binding_1.get_inner();
+        let template_arn_binding_1 = args.template_arn.get_output(context);
+        let template_arn_binding = template_arn_binding_1.get_inner();
+        let validity_binding_1 = args.validity.get_output(context);
+        let validity_binding = validity_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:acmpca/certificate:Certificate".into(),
             name: name.to_string(),

@@ -62,11 +62,13 @@ pub mod vpc_block_public_access_options {
     ) -> VpcBlockPublicAccessOptionsResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let internet_gateway_block_mode_binding = args
+        let internet_gateway_block_mode_binding_1 = args
             .internet_gateway_block_mode
-            .get_output(context)
+            .get_output(context);
+        let internet_gateway_block_mode_binding = internet_gateway_block_mode_binding_1
             .get_inner();
-        let timeouts_binding = args.timeouts.get_output(context).get_inner();
+        let timeouts_binding_1 = args.timeouts.get_output(context);
+        let timeouts_binding = timeouts_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:ec2/vpcBlockPublicAccessOptions:VpcBlockPublicAccessOptions"
                 .into(),

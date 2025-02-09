@@ -405,25 +405,28 @@ pub mod pipeline_job {
     ) -> PipelineJobResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let backfill_pipeline_job_binding = args
+        let backfill_pipeline_job_binding_1 = args
             .backfill_pipeline_job
-            .get_output(context)
-            .get_inner();
-        let dataset_binding = args.dataset.get_output(context).get_inner();
-        let disable_lineage_binding = args
-            .disable_lineage
-            .get_output(context)
-            .get_inner();
-        let labels_binding = args.labels.get_output(context).get_inner();
-        let location_binding = args.location.get_output(context).get_inner();
-        let mapping_pipeline_job_binding = args
+            .get_output(context);
+        let backfill_pipeline_job_binding = backfill_pipeline_job_binding_1.get_inner();
+        let dataset_binding_1 = args.dataset.get_output(context);
+        let dataset_binding = dataset_binding_1.get_inner();
+        let disable_lineage_binding_1 = args.disable_lineage.get_output(context);
+        let disable_lineage_binding = disable_lineage_binding_1.get_inner();
+        let labels_binding_1 = args.labels.get_output(context);
+        let labels_binding = labels_binding_1.get_inner();
+        let location_binding_1 = args.location.get_output(context);
+        let location_binding = location_binding_1.get_inner();
+        let mapping_pipeline_job_binding_1 = args
             .mapping_pipeline_job
-            .get_output(context)
-            .get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let reconciliation_pipeline_job_binding = args
+            .get_output(context);
+        let mapping_pipeline_job_binding = mapping_pipeline_job_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let reconciliation_pipeline_job_binding_1 = args
             .reconciliation_pipeline_job
-            .get_output(context)
+            .get_output(context);
+        let reconciliation_pipeline_job_binding = reconciliation_pipeline_job_binding_1
             .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:healthcare/pipelineJob:PipelineJob".into(),

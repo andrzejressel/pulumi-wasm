@@ -100,14 +100,16 @@ pub mod event_archive {
     ) -> EventArchiveResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let description_binding = args.description.get_output(context).get_inner();
-        let event_pattern_binding = args.event_pattern.get_output(context).get_inner();
-        let event_source_arn_binding = args
-            .event_source_arn
-            .get_output(context)
-            .get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let retention_days_binding = args.retention_days.get_output(context).get_inner();
+        let description_binding_1 = args.description.get_output(context);
+        let description_binding = description_binding_1.get_inner();
+        let event_pattern_binding_1 = args.event_pattern.get_output(context);
+        let event_pattern_binding = event_pattern_binding_1.get_inner();
+        let event_source_arn_binding_1 = args.event_source_arn.get_output(context);
+        let event_source_arn_binding = event_source_arn_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let retention_days_binding_1 = args.retention_days.get_output(context);
+        let retention_days_binding = retention_days_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:cloudwatch/eventArchive:EventArchive".into(),
             name: name.to_string(),

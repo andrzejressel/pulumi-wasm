@@ -136,49 +136,38 @@ pub mod hci_virtual_hard_disk {
     ) -> HciVirtualHardDiskResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let block_size_in_bytes_binding = args
-            .block_size_in_bytes
-            .get_output(context)
-            .get_inner();
-        let custom_location_id_binding = args
-            .custom_location_id
-            .get_output(context)
-            .get_inner();
-        let disk_file_format_binding = args
-            .disk_file_format
-            .get_output(context)
-            .get_inner();
-        let disk_size_in_gb_binding = args
-            .disk_size_in_gb
-            .get_output(context)
-            .get_inner();
-        let dynamic_enabled_binding = args
-            .dynamic_enabled
-            .get_output(context)
-            .get_inner();
-        let hyperv_generation_binding = args
-            .hyperv_generation
-            .get_output(context)
-            .get_inner();
-        let location_binding = args.location.get_output(context).get_inner();
-        let logical_sector_in_bytes_binding = args
+        let block_size_in_bytes_binding_1 = args.block_size_in_bytes.get_output(context);
+        let block_size_in_bytes_binding = block_size_in_bytes_binding_1.get_inner();
+        let custom_location_id_binding_1 = args.custom_location_id.get_output(context);
+        let custom_location_id_binding = custom_location_id_binding_1.get_inner();
+        let disk_file_format_binding_1 = args.disk_file_format.get_output(context);
+        let disk_file_format_binding = disk_file_format_binding_1.get_inner();
+        let disk_size_in_gb_binding_1 = args.disk_size_in_gb.get_output(context);
+        let disk_size_in_gb_binding = disk_size_in_gb_binding_1.get_inner();
+        let dynamic_enabled_binding_1 = args.dynamic_enabled.get_output(context);
+        let dynamic_enabled_binding = dynamic_enabled_binding_1.get_inner();
+        let hyperv_generation_binding_1 = args.hyperv_generation.get_output(context);
+        let hyperv_generation_binding = hyperv_generation_binding_1.get_inner();
+        let location_binding_1 = args.location.get_output(context);
+        let location_binding = location_binding_1.get_inner();
+        let logical_sector_in_bytes_binding_1 = args
             .logical_sector_in_bytes
-            .get_output(context)
+            .get_output(context);
+        let logical_sector_in_bytes_binding = logical_sector_in_bytes_binding_1
             .get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let physical_sector_in_bytes_binding = args
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let physical_sector_in_bytes_binding_1 = args
             .physical_sector_in_bytes
-            .get_output(context)
+            .get_output(context);
+        let physical_sector_in_bytes_binding = physical_sector_in_bytes_binding_1
             .get_inner();
-        let resource_group_name_binding = args
-            .resource_group_name
-            .get_output(context)
-            .get_inner();
-        let storage_path_id_binding = args
-            .storage_path_id
-            .get_output(context)
-            .get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
+        let resource_group_name_binding_1 = args.resource_group_name.get_output(context);
+        let resource_group_name_binding = resource_group_name_binding_1.get_inner();
+        let storage_path_id_binding_1 = args.storage_path_id.get_output(context);
+        let storage_path_id_binding = storage_path_id_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:stack/hciVirtualHardDisk:HciVirtualHardDisk".into(),
             name: name.to_string(),

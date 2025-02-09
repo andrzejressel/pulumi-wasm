@@ -112,12 +112,12 @@ pub mod repository_association {
     ) -> RepositoryAssociationResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let kms_key_details_binding = args
-            .kms_key_details
-            .get_output(context)
-            .get_inner();
-        let repository_binding = args.repository.get_output(context).get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
+        let kms_key_details_binding_1 = args.kms_key_details.get_output(context);
+        let kms_key_details_binding = kms_key_details_binding_1.get_inner();
+        let repository_binding_1 = args.repository.get_output(context);
+        let repository_binding = repository_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:codegurureviewer/repositoryAssociation:RepositoryAssociation"
                 .into(),

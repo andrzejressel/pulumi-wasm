@@ -128,14 +128,19 @@ pub mod entity_type {
     ) -> EntityTypeResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let display_name_binding = args.display_name.get_output(context).get_inner();
-        let enable_fuzzy_extraction_binding = args
+        let display_name_binding_1 = args.display_name.get_output(context);
+        let display_name_binding = display_name_binding_1.get_inner();
+        let enable_fuzzy_extraction_binding_1 = args
             .enable_fuzzy_extraction
-            .get_output(context)
+            .get_output(context);
+        let enable_fuzzy_extraction_binding = enable_fuzzy_extraction_binding_1
             .get_inner();
-        let entities_binding = args.entities.get_output(context).get_inner();
-        let kind_binding = args.kind.get_output(context).get_inner();
-        let project_binding = args.project.get_output(context).get_inner();
+        let entities_binding_1 = args.entities.get_output(context);
+        let entities_binding = entities_binding_1.get_inner();
+        let kind_binding_1 = args.kind.get_output(context);
+        let kind_binding = kind_binding_1.get_inner();
+        let project_binding_1 = args.project.get_output(context);
+        let project_binding = project_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:diagflow/entityType:EntityType".into(),
             name: name.to_string(),

@@ -40,16 +40,16 @@ pub mod get_outposts {
     ) -> GetOutpostsResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let availability_zone_binding = args
-            .availability_zone
-            .get_output(context)
-            .get_inner();
-        let availability_zone_id_binding = args
+        let availability_zone_binding_1 = args.availability_zone.get_output(context);
+        let availability_zone_binding = availability_zone_binding_1.get_inner();
+        let availability_zone_id_binding_1 = args
             .availability_zone_id
-            .get_output(context)
-            .get_inner();
-        let owner_id_binding = args.owner_id.get_output(context).get_inner();
-        let site_id_binding = args.site_id.get_output(context).get_inner();
+            .get_output(context);
+        let availability_zone_id_binding = availability_zone_id_binding_1.get_inner();
+        let owner_id_binding_1 = args.owner_id.get_output(context);
+        let owner_id_binding = owner_id_binding_1.get_inner();
+        let site_id_binding_1 = args.site_id.get_output(context);
+        let site_id_binding = site_id_binding_1.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:outposts/getOutposts:getOutposts".into(),
             version: super::super::super::get_version(),

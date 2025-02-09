@@ -108,19 +108,23 @@ pub mod express_route_gateway {
     ) -> ExpressRouteGatewayResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let allow_non_virtual_wan_traffic_binding = args
+        let allow_non_virtual_wan_traffic_binding_1 = args
             .allow_non_virtual_wan_traffic
-            .get_output(context)
+            .get_output(context);
+        let allow_non_virtual_wan_traffic_binding = allow_non_virtual_wan_traffic_binding_1
             .get_inner();
-        let location_binding = args.location.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let resource_group_name_binding = args
-            .resource_group_name
-            .get_output(context)
-            .get_inner();
-        let scale_units_binding = args.scale_units.get_output(context).get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
-        let virtual_hub_id_binding = args.virtual_hub_id.get_output(context).get_inner();
+        let location_binding_1 = args.location.get_output(context);
+        let location_binding = location_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let resource_group_name_binding_1 = args.resource_group_name.get_output(context);
+        let resource_group_name_binding = resource_group_name_binding_1.get_inner();
+        let scale_units_binding_1 = args.scale_units.get_output(context);
+        let scale_units_binding = scale_units_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
+        let virtual_hub_id_binding_1 = args.virtual_hub_id.get_output(context);
+        let virtual_hub_id_binding = virtual_hub_id_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:network/expressRouteGateway:ExpressRouteGateway".into(),
             name: name.to_string(),

@@ -194,42 +194,50 @@ pub mod vpc_ipam_pool {
     ) -> VpcIpamPoolResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let address_family_binding = args.address_family.get_output(context).get_inner();
-        let allocation_default_netmask_length_binding = args
+        let address_family_binding_1 = args.address_family.get_output(context);
+        let address_family_binding = address_family_binding_1.get_inner();
+        let allocation_default_netmask_length_binding_1 = args
             .allocation_default_netmask_length
-            .get_output(context)
+            .get_output(context);
+        let allocation_default_netmask_length_binding = allocation_default_netmask_length_binding_1
             .get_inner();
-        let allocation_max_netmask_length_binding = args
+        let allocation_max_netmask_length_binding_1 = args
             .allocation_max_netmask_length
-            .get_output(context)
+            .get_output(context);
+        let allocation_max_netmask_length_binding = allocation_max_netmask_length_binding_1
             .get_inner();
-        let allocation_min_netmask_length_binding = args
+        let allocation_min_netmask_length_binding_1 = args
             .allocation_min_netmask_length
-            .get_output(context)
+            .get_output(context);
+        let allocation_min_netmask_length_binding = allocation_min_netmask_length_binding_1
             .get_inner();
-        let allocation_resource_tags_binding = args
+        let allocation_resource_tags_binding_1 = args
             .allocation_resource_tags
-            .get_output(context)
+            .get_output(context);
+        let allocation_resource_tags_binding = allocation_resource_tags_binding_1
             .get_inner();
-        let auto_import_binding = args.auto_import.get_output(context).get_inner();
-        let aws_service_binding = args.aws_service.get_output(context).get_inner();
-        let cascade_binding = args.cascade.get_output(context).get_inner();
-        let description_binding = args.description.get_output(context).get_inner();
-        let ipam_scope_id_binding = args.ipam_scope_id.get_output(context).get_inner();
-        let locale_binding = args.locale.get_output(context).get_inner();
-        let public_ip_source_binding = args
-            .public_ip_source
-            .get_output(context)
-            .get_inner();
-        let publicly_advertisable_binding = args
+        let auto_import_binding_1 = args.auto_import.get_output(context);
+        let auto_import_binding = auto_import_binding_1.get_inner();
+        let aws_service_binding_1 = args.aws_service.get_output(context);
+        let aws_service_binding = aws_service_binding_1.get_inner();
+        let cascade_binding_1 = args.cascade.get_output(context);
+        let cascade_binding = cascade_binding_1.get_inner();
+        let description_binding_1 = args.description.get_output(context);
+        let description_binding = description_binding_1.get_inner();
+        let ipam_scope_id_binding_1 = args.ipam_scope_id.get_output(context);
+        let ipam_scope_id_binding = ipam_scope_id_binding_1.get_inner();
+        let locale_binding_1 = args.locale.get_output(context);
+        let locale_binding = locale_binding_1.get_inner();
+        let public_ip_source_binding_1 = args.public_ip_source.get_output(context);
+        let public_ip_source_binding = public_ip_source_binding_1.get_inner();
+        let publicly_advertisable_binding_1 = args
             .publicly_advertisable
-            .get_output(context)
-            .get_inner();
-        let source_ipam_pool_id_binding = args
-            .source_ipam_pool_id
-            .get_output(context)
-            .get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
+            .get_output(context);
+        let publicly_advertisable_binding = publicly_advertisable_binding_1.get_inner();
+        let source_ipam_pool_id_binding_1 = args.source_ipam_pool_id.get_output(context);
+        let source_ipam_pool_id_binding = source_ipam_pool_id_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:ec2/vpcIpamPool:VpcIpamPool".into(),
             name: name.to_string(),

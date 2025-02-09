@@ -145,16 +145,20 @@ pub mod public_delegated_prefix {
     ) -> PublicDelegatedPrefixResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let description_binding = args.description.get_output(context).get_inner();
-        let ip_cidr_range_binding = args.ip_cidr_range.get_output(context).get_inner();
-        let is_live_migration_binding = args
-            .is_live_migration
-            .get_output(context)
-            .get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let parent_prefix_binding = args.parent_prefix.get_output(context).get_inner();
-        let project_binding = args.project.get_output(context).get_inner();
-        let region_binding = args.region.get_output(context).get_inner();
+        let description_binding_1 = args.description.get_output(context);
+        let description_binding = description_binding_1.get_inner();
+        let ip_cidr_range_binding_1 = args.ip_cidr_range.get_output(context);
+        let ip_cidr_range_binding = ip_cidr_range_binding_1.get_inner();
+        let is_live_migration_binding_1 = args.is_live_migration.get_output(context);
+        let is_live_migration_binding = is_live_migration_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let parent_prefix_binding_1 = args.parent_prefix.get_output(context);
+        let parent_prefix_binding = parent_prefix_binding_1.get_inner();
+        let project_binding_1 = args.project.get_output(context);
+        let project_binding = project_binding_1.get_inner();
+        let region_binding_1 = args.region.get_output(context);
+        let region_binding = region_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:compute/publicDelegatedPrefix:PublicDelegatedPrefix".into(),
             name: name.to_string(),

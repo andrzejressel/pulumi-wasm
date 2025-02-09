@@ -59,7 +59,8 @@ pub mod event_sources_config {
     ) -> EventSourcesConfigResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let event_sources_binding = args.event_sources.get_output(context).get_inner();
+        let event_sources_binding_1 = args.event_sources.get_output(context);
+        let event_sources_binding = event_sources_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:devopsguru/eventSourcesConfig:EventSourcesConfig".into(),
             name: name.to_string(),

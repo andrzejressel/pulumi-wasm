@@ -124,22 +124,20 @@ pub mod ekm_connection {
     ) -> EkmConnectionResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let crypto_space_path_binding = args
-            .crypto_space_path
-            .get_output(context)
-            .get_inner();
-        let etag_binding = args.etag.get_output(context).get_inner();
-        let key_management_mode_binding = args
-            .key_management_mode
-            .get_output(context)
-            .get_inner();
-        let location_binding = args.location.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let project_binding = args.project.get_output(context).get_inner();
-        let service_resolvers_binding = args
-            .service_resolvers
-            .get_output(context)
-            .get_inner();
+        let crypto_space_path_binding_1 = args.crypto_space_path.get_output(context);
+        let crypto_space_path_binding = crypto_space_path_binding_1.get_inner();
+        let etag_binding_1 = args.etag.get_output(context);
+        let etag_binding = etag_binding_1.get_inner();
+        let key_management_mode_binding_1 = args.key_management_mode.get_output(context);
+        let key_management_mode_binding = key_management_mode_binding_1.get_inner();
+        let location_binding_1 = args.location.get_output(context);
+        let location_binding = location_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let project_binding_1 = args.project.get_output(context);
+        let project_binding = project_binding_1.get_inner();
+        let service_resolvers_binding_1 = args.service_resolvers.get_output(context);
+        let service_resolvers_binding = service_resolvers_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:kms/ekmConnection:EkmConnection".into(),
             name: name.to_string(),

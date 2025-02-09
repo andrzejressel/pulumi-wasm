@@ -39,8 +39,10 @@ pub mod get_dedicated_ip_pool {
     ) -> GetDedicatedIpPoolResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let pool_name_binding = args.pool_name.get_output(context).get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
+        let pool_name_binding_1 = args.pool_name.get_output(context);
+        let pool_name_binding = pool_name_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:sesv2/getDedicatedIpPool:getDedicatedIpPool".into(),
             version: super::super::super::get_version(),

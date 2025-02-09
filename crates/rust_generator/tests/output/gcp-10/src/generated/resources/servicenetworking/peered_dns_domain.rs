@@ -84,11 +84,16 @@ pub mod peered_dns_domain {
     ) -> PeeredDnsDomainResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let dns_suffix_binding = args.dns_suffix.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let network_binding = args.network.get_output(context).get_inner();
-        let project_binding = args.project.get_output(context).get_inner();
-        let service_binding = args.service.get_output(context).get_inner();
+        let dns_suffix_binding_1 = args.dns_suffix.get_output(context);
+        let dns_suffix_binding = dns_suffix_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let network_binding_1 = args.network.get_output(context);
+        let network_binding = network_binding_1.get_inner();
+        let project_binding_1 = args.project.get_output(context);
+        let project_binding = project_binding_1.get_inner();
+        let service_binding_1 = args.service.get_output(context);
+        let service_binding = service_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:servicenetworking/peeredDnsDomain:PeeredDnsDomain".into(),
             name: name.to_string(),

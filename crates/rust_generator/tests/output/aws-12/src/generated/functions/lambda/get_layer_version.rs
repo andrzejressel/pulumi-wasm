@@ -61,16 +61,17 @@ pub mod get_layer_version {
     ) -> GetLayerVersionResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let compatible_architecture_binding = args
+        let compatible_architecture_binding_1 = args
             .compatible_architecture
-            .get_output(context)
+            .get_output(context);
+        let compatible_architecture_binding = compatible_architecture_binding_1
             .get_inner();
-        let compatible_runtime_binding = args
-            .compatible_runtime
-            .get_output(context)
-            .get_inner();
-        let layer_name_binding = args.layer_name.get_output(context).get_inner();
-        let version_binding = args.version.get_output(context).get_inner();
+        let compatible_runtime_binding_1 = args.compatible_runtime.get_output(context);
+        let compatible_runtime_binding = compatible_runtime_binding_1.get_inner();
+        let layer_name_binding_1 = args.layer_name.get_output(context);
+        let layer_name_binding = layer_name_binding_1.get_inner();
+        let version_binding_1 = args.version.get_output(context);
+        let version_binding = version_binding_1.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:lambda/getLayerVersion:getLayerVersion".into(),
             version: super::super::super::get_version(),

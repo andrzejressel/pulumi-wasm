@@ -82,8 +82,10 @@ pub mod container_policy {
     ) -> ContainerPolicyResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let container_name_binding = args.container_name.get_output(context).get_inner();
-        let policy_binding = args.policy.get_output(context).get_inner();
+        let container_name_binding_1 = args.container_name.get_output(context);
+        let container_name_binding = container_name_binding_1.get_inner();
+        let policy_binding_1 = args.policy.get_output(context);
+        let policy_binding = policy_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:mediastore/containerPolicy:ContainerPolicy".into(),
             name: name.to_string(),

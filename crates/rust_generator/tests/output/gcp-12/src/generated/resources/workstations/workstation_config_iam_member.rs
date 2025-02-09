@@ -130,19 +130,25 @@ pub mod workstation_config_iam_member {
     ) -> WorkstationConfigIamMemberResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let condition_binding = args.condition.get_output(context).get_inner();
-        let location_binding = args.location.get_output(context).get_inner();
-        let member_binding = args.member.get_output(context).get_inner();
-        let project_binding = args.project.get_output(context).get_inner();
-        let role_binding = args.role.get_output(context).get_inner();
-        let workstation_cluster_id_binding = args
+        let condition_binding_1 = args.condition.get_output(context);
+        let condition_binding = condition_binding_1.get_inner();
+        let location_binding_1 = args.location.get_output(context);
+        let location_binding = location_binding_1.get_inner();
+        let member_binding_1 = args.member.get_output(context);
+        let member_binding = member_binding_1.get_inner();
+        let project_binding_1 = args.project.get_output(context);
+        let project_binding = project_binding_1.get_inner();
+        let role_binding_1 = args.role.get_output(context);
+        let role_binding = role_binding_1.get_inner();
+        let workstation_cluster_id_binding_1 = args
             .workstation_cluster_id
-            .get_output(context)
+            .get_output(context);
+        let workstation_cluster_id_binding = workstation_cluster_id_binding_1
             .get_inner();
-        let workstation_config_id_binding = args
+        let workstation_config_id_binding_1 = args
             .workstation_config_id
-            .get_output(context)
-            .get_inner();
+            .get_output(context);
+        let workstation_config_id_binding = workstation_config_id_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:workstations/workstationConfigIamMember:WorkstationConfigIamMember"
                 .into(),

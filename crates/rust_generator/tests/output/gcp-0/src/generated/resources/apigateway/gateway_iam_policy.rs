@@ -247,10 +247,14 @@ pub mod gateway_iam_policy {
     ) -> GatewayIamPolicyResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let gateway_binding = args.gateway.get_output(context).get_inner();
-        let policy_data_binding = args.policy_data.get_output(context).get_inner();
-        let project_binding = args.project.get_output(context).get_inner();
-        let region_binding = args.region.get_output(context).get_inner();
+        let gateway_binding_1 = args.gateway.get_output(context);
+        let gateway_binding = gateway_binding_1.get_inner();
+        let policy_data_binding_1 = args.policy_data.get_output(context);
+        let policy_data_binding = policy_data_binding_1.get_inner();
+        let project_binding_1 = args.project.get_output(context);
+        let project_binding = project_binding_1.get_inner();
+        let region_binding_1 = args.region.get_output(context);
+        let region_binding = region_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:apigateway/gatewayIamPolicy:GatewayIamPolicy".into(),
             name: name.to_string(),

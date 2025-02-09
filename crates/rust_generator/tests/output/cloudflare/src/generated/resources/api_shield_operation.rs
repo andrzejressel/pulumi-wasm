@@ -59,10 +59,14 @@ pub mod api_shield_operation {
     ) -> ApiShieldOperationResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let endpoint_binding = args.endpoint.get_output(context).get_inner();
-        let host_binding = args.host.get_output(context).get_inner();
-        let method_binding = args.method.get_output(context).get_inner();
-        let zone_id_binding = args.zone_id.get_output(context).get_inner();
+        let endpoint_binding_1 = args.endpoint.get_output(context);
+        let endpoint_binding = endpoint_binding_1.get_inner();
+        let host_binding_1 = args.host.get_output(context);
+        let host_binding = host_binding_1.get_inner();
+        let method_binding_1 = args.method.get_output(context);
+        let method_binding = method_binding_1.get_inner();
+        let zone_id_binding_1 = args.zone_id.get_output(context);
+        let zone_id_binding = zone_id_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "cloudflare:index/apiShieldOperation:ApiShieldOperation".into(),
             name: name.to_string(),

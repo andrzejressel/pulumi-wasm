@@ -76,11 +76,13 @@ pub mod association {
     ) -> AssociationResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let license_configuration_arn_binding = args
+        let license_configuration_arn_binding_1 = args
             .license_configuration_arn
-            .get_output(context)
+            .get_output(context);
+        let license_configuration_arn_binding = license_configuration_arn_binding_1
             .get_inner();
-        let resource_arn_binding = args.resource_arn.get_output(context).get_inner();
+        let resource_arn_binding_1 = args.resource_arn.get_output(context);
+        let resource_arn_binding = resource_arn_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:licensemanager/association:Association".into(),
             name: name.to_string(),

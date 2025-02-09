@@ -358,24 +358,33 @@ pub mod job {
     ) -> JobResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let app_engine_http_target_binding = args
+        let app_engine_http_target_binding_1 = args
             .app_engine_http_target
-            .get_output(context)
+            .get_output(context);
+        let app_engine_http_target_binding = app_engine_http_target_binding_1
             .get_inner();
-        let attempt_deadline_binding = args
-            .attempt_deadline
-            .get_output(context)
-            .get_inner();
-        let description_binding = args.description.get_output(context).get_inner();
-        let http_target_binding = args.http_target.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let paused_binding = args.paused.get_output(context).get_inner();
-        let project_binding = args.project.get_output(context).get_inner();
-        let pubsub_target_binding = args.pubsub_target.get_output(context).get_inner();
-        let region_binding = args.region.get_output(context).get_inner();
-        let retry_config_binding = args.retry_config.get_output(context).get_inner();
-        let schedule_binding = args.schedule.get_output(context).get_inner();
-        let time_zone_binding = args.time_zone.get_output(context).get_inner();
+        let attempt_deadline_binding_1 = args.attempt_deadline.get_output(context);
+        let attempt_deadline_binding = attempt_deadline_binding_1.get_inner();
+        let description_binding_1 = args.description.get_output(context);
+        let description_binding = description_binding_1.get_inner();
+        let http_target_binding_1 = args.http_target.get_output(context);
+        let http_target_binding = http_target_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let paused_binding_1 = args.paused.get_output(context);
+        let paused_binding = paused_binding_1.get_inner();
+        let project_binding_1 = args.project.get_output(context);
+        let project_binding = project_binding_1.get_inner();
+        let pubsub_target_binding_1 = args.pubsub_target.get_output(context);
+        let pubsub_target_binding = pubsub_target_binding_1.get_inner();
+        let region_binding_1 = args.region.get_output(context);
+        let region_binding = region_binding_1.get_inner();
+        let retry_config_binding_1 = args.retry_config.get_output(context);
+        let retry_config_binding = retry_config_binding_1.get_inner();
+        let schedule_binding_1 = args.schedule.get_output(context);
+        let schedule_binding = schedule_binding_1.get_inner();
+        let time_zone_binding_1 = args.time_zone.get_output(context);
+        let time_zone_binding = time_zone_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:cloudscheduler/job:Job".into(),
             name: name.to_string(),

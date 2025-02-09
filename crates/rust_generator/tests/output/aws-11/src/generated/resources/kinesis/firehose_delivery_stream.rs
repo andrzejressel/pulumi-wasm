@@ -892,60 +892,76 @@ pub mod firehose_delivery_stream {
     ) -> FirehoseDeliveryStreamResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let arn_binding = args.arn.get_output(context).get_inner();
-        let destination_binding = args.destination.get_output(context).get_inner();
-        let destination_id_binding = args.destination_id.get_output(context).get_inner();
-        let elasticsearch_configuration_binding = args
+        let arn_binding_1 = args.arn.get_output(context);
+        let arn_binding = arn_binding_1.get_inner();
+        let destination_binding_1 = args.destination.get_output(context);
+        let destination_binding = destination_binding_1.get_inner();
+        let destination_id_binding_1 = args.destination_id.get_output(context);
+        let destination_id_binding = destination_id_binding_1.get_inner();
+        let elasticsearch_configuration_binding_1 = args
             .elasticsearch_configuration
-            .get_output(context)
+            .get_output(context);
+        let elasticsearch_configuration_binding = elasticsearch_configuration_binding_1
             .get_inner();
-        let extended_s3_configuration_binding = args
+        let extended_s3_configuration_binding_1 = args
             .extended_s3_configuration
-            .get_output(context)
+            .get_output(context);
+        let extended_s3_configuration_binding = extended_s3_configuration_binding_1
             .get_inner();
-        let http_endpoint_configuration_binding = args
+        let http_endpoint_configuration_binding_1 = args
             .http_endpoint_configuration
-            .get_output(context)
+            .get_output(context);
+        let http_endpoint_configuration_binding = http_endpoint_configuration_binding_1
             .get_inner();
-        let iceberg_configuration_binding = args
+        let iceberg_configuration_binding_1 = args
             .iceberg_configuration
-            .get_output(context)
-            .get_inner();
-        let kinesis_source_configuration_binding = args
+            .get_output(context);
+        let iceberg_configuration_binding = iceberg_configuration_binding_1.get_inner();
+        let kinesis_source_configuration_binding_1 = args
             .kinesis_source_configuration
-            .get_output(context)
+            .get_output(context);
+        let kinesis_source_configuration_binding = kinesis_source_configuration_binding_1
             .get_inner();
-        let msk_source_configuration_binding = args
+        let msk_source_configuration_binding_1 = args
             .msk_source_configuration
-            .get_output(context)
+            .get_output(context);
+        let msk_source_configuration_binding = msk_source_configuration_binding_1
             .get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let opensearch_configuration_binding = args
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let opensearch_configuration_binding_1 = args
             .opensearch_configuration
-            .get_output(context)
+            .get_output(context);
+        let opensearch_configuration_binding = opensearch_configuration_binding_1
             .get_inner();
-        let opensearchserverless_configuration_binding = args
+        let opensearchserverless_configuration_binding_1 = args
             .opensearchserverless_configuration
-            .get_output(context)
+            .get_output(context);
+        let opensearchserverless_configuration_binding = opensearchserverless_configuration_binding_1
             .get_inner();
-        let redshift_configuration_binding = args
+        let redshift_configuration_binding_1 = args
             .redshift_configuration
-            .get_output(context)
+            .get_output(context);
+        let redshift_configuration_binding = redshift_configuration_binding_1
             .get_inner();
-        let server_side_encryption_binding = args
+        let server_side_encryption_binding_1 = args
             .server_side_encryption
-            .get_output(context)
+            .get_output(context);
+        let server_side_encryption_binding = server_side_encryption_binding_1
             .get_inner();
-        let snowflake_configuration_binding = args
+        let snowflake_configuration_binding_1 = args
             .snowflake_configuration
-            .get_output(context)
+            .get_output(context);
+        let snowflake_configuration_binding = snowflake_configuration_binding_1
             .get_inner();
-        let splunk_configuration_binding = args
+        let splunk_configuration_binding_1 = args
             .splunk_configuration
-            .get_output(context)
-            .get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
-        let version_id_binding = args.version_id.get_output(context).get_inner();
+            .get_output(context);
+        let splunk_configuration_binding = splunk_configuration_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
+        let version_id_binding_1 = args.version_id.get_output(context);
+        let version_id_binding = version_id_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:kinesis/firehoseDeliveryStream:FirehoseDeliveryStream".into(),
             name: name.to_string(),

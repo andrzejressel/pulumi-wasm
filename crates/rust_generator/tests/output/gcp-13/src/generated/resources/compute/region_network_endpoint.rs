@@ -230,19 +230,27 @@ pub mod region_network_endpoint {
     ) -> RegionNetworkEndpointResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let client_destination_port_binding = args
+        let client_destination_port_binding_1 = args
             .client_destination_port
-            .get_output(context)
+            .get_output(context);
+        let client_destination_port_binding = client_destination_port_binding_1
             .get_inner();
-        let fqdn_binding = args.fqdn.get_output(context).get_inner();
-        let instance_binding = args.instance.get_output(context).get_inner();
-        let ip_address_binding = args.ip_address.get_output(context).get_inner();
-        let port_binding = args.port.get_output(context).get_inner();
-        let project_binding = args.project.get_output(context).get_inner();
-        let region_binding = args.region.get_output(context).get_inner();
-        let region_network_endpoint_group_binding = args
+        let fqdn_binding_1 = args.fqdn.get_output(context);
+        let fqdn_binding = fqdn_binding_1.get_inner();
+        let instance_binding_1 = args.instance.get_output(context);
+        let instance_binding = instance_binding_1.get_inner();
+        let ip_address_binding_1 = args.ip_address.get_output(context);
+        let ip_address_binding = ip_address_binding_1.get_inner();
+        let port_binding_1 = args.port.get_output(context);
+        let port_binding = port_binding_1.get_inner();
+        let project_binding_1 = args.project.get_output(context);
+        let project_binding = project_binding_1.get_inner();
+        let region_binding_1 = args.region.get_output(context);
+        let region_binding = region_binding_1.get_inner();
+        let region_network_endpoint_group_binding_1 = args
             .region_network_endpoint_group
-            .get_output(context)
+            .get_output(context);
+        let region_network_endpoint_group_binding = region_network_endpoint_group_binding_1
             .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:compute/regionNetworkEndpoint:RegionNetworkEndpoint".into(),

@@ -135,28 +135,30 @@ pub mod image_recipe {
     ) -> ImageRecipeResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let block_device_mappings_binding = args
+        let block_device_mappings_binding_1 = args
             .block_device_mappings
-            .get_output(context)
-            .get_inner();
-        let components_binding = args.components.get_output(context).get_inner();
-        let description_binding = args.description.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let parent_image_binding = args.parent_image.get_output(context).get_inner();
-        let systems_manager_agent_binding = args
+            .get_output(context);
+        let block_device_mappings_binding = block_device_mappings_binding_1.get_inner();
+        let components_binding_1 = args.components.get_output(context);
+        let components_binding = components_binding_1.get_inner();
+        let description_binding_1 = args.description.get_output(context);
+        let description_binding = description_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let parent_image_binding_1 = args.parent_image.get_output(context);
+        let parent_image_binding = parent_image_binding_1.get_inner();
+        let systems_manager_agent_binding_1 = args
             .systems_manager_agent
-            .get_output(context)
-            .get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
-        let user_data_base64_binding = args
-            .user_data_base64
-            .get_output(context)
-            .get_inner();
-        let version_binding = args.version.get_output(context).get_inner();
-        let working_directory_binding = args
-            .working_directory
-            .get_output(context)
-            .get_inner();
+            .get_output(context);
+        let systems_manager_agent_binding = systems_manager_agent_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
+        let user_data_base64_binding_1 = args.user_data_base64.get_output(context);
+        let user_data_base64_binding = user_data_base64_binding_1.get_inner();
+        let version_binding_1 = args.version.get_output(context);
+        let version_binding = version_binding_1.get_inner();
+        let working_directory_binding_1 = args.working_directory.get_output(context);
+        let working_directory_binding = working_directory_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:imagebuilder/imageRecipe:ImageRecipe".into(),
             name: name.to_string(),

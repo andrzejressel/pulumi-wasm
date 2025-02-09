@@ -161,20 +161,28 @@ pub mod event_rule {
     ) -> EventRuleResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let description_binding = args.description.get_output(context).get_inner();
-        let event_bus_name_binding = args.event_bus_name.get_output(context).get_inner();
-        let event_pattern_binding = args.event_pattern.get_output(context).get_inner();
-        let force_destroy_binding = args.force_destroy.get_output(context).get_inner();
-        let is_enabled_binding = args.is_enabled.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let name_prefix_binding = args.name_prefix.get_output(context).get_inner();
-        let role_arn_binding = args.role_arn.get_output(context).get_inner();
-        let schedule_expression_binding = args
-            .schedule_expression
-            .get_output(context)
-            .get_inner();
-        let state_binding = args.state.get_output(context).get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
+        let description_binding_1 = args.description.get_output(context);
+        let description_binding = description_binding_1.get_inner();
+        let event_bus_name_binding_1 = args.event_bus_name.get_output(context);
+        let event_bus_name_binding = event_bus_name_binding_1.get_inner();
+        let event_pattern_binding_1 = args.event_pattern.get_output(context);
+        let event_pattern_binding = event_pattern_binding_1.get_inner();
+        let force_destroy_binding_1 = args.force_destroy.get_output(context);
+        let force_destroy_binding = force_destroy_binding_1.get_inner();
+        let is_enabled_binding_1 = args.is_enabled.get_output(context);
+        let is_enabled_binding = is_enabled_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let name_prefix_binding_1 = args.name_prefix.get_output(context);
+        let name_prefix_binding = name_prefix_binding_1.get_inner();
+        let role_arn_binding_1 = args.role_arn.get_output(context);
+        let role_arn_binding = role_arn_binding_1.get_inner();
+        let schedule_expression_binding_1 = args.schedule_expression.get_output(context);
+        let schedule_expression_binding = schedule_expression_binding_1.get_inner();
+        let state_binding_1 = args.state.get_output(context);
+        let state_binding = state_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:cloudwatch/eventRule:EventRule".into(),
             name: name.to_string(),

@@ -82,8 +82,10 @@ pub mod managed_scaling_policy {
     ) -> ManagedScalingPolicyResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let cluster_id_binding = args.cluster_id.get_output(context).get_inner();
-        let compute_limits_binding = args.compute_limits.get_output(context).get_inner();
+        let cluster_id_binding_1 = args.cluster_id.get_output(context);
+        let cluster_id_binding = cluster_id_binding_1.get_inner();
+        let compute_limits_binding_1 = args.compute_limits.get_output(context);
+        let compute_limits_binding = compute_limits_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:emr/managedScalingPolicy:ManagedScalingPolicy".into(),
             name: name.to_string(),

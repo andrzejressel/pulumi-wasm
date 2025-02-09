@@ -38,9 +38,12 @@ pub mod get_public_configurations {
     ) -> GetPublicConfigurationsResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let location_binding = args.location.get_output(context).get_inner();
-        let recur_every_binding = args.recur_every.get_output(context).get_inner();
-        let scope_binding = args.scope.get_output(context).get_inner();
+        let location_binding_1 = args.location.get_output(context);
+        let location_binding = location_binding_1.get_inner();
+        let recur_every_binding_1 = args.recur_every.get_output(context);
+        let recur_every_binding = recur_every_binding_1.get_inner();
+        let scope_binding_1 = args.scope.get_output(context);
+        let scope_binding = scope_binding_1.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "azure:maintenance/getPublicConfigurations:getPublicConfigurations"
                 .into(),

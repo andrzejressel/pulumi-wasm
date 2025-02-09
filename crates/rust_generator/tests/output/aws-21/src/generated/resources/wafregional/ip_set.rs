@@ -67,11 +67,10 @@ pub mod ip_set {
     ) -> IpSetResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let ip_set_descriptors_binding = args
-            .ip_set_descriptors
-            .get_output(context)
-            .get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
+        let ip_set_descriptors_binding_1 = args.ip_set_descriptors.get_output(context);
+        let ip_set_descriptors_binding = ip_set_descriptors_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:wafregional/ipSet:IpSet".into(),
             name: name.to_string(),

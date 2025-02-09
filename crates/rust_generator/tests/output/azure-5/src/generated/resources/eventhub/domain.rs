@@ -150,43 +150,46 @@ pub mod domain {
     ) -> DomainResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let auto_create_topic_with_first_subscription_binding = args
+        let auto_create_topic_with_first_subscription_binding_1 = args
             .auto_create_topic_with_first_subscription
-            .get_output(context)
+            .get_output(context);
+        let auto_create_topic_with_first_subscription_binding = auto_create_topic_with_first_subscription_binding_1
             .get_inner();
-        let auto_delete_topic_with_last_subscription_binding = args
+        let auto_delete_topic_with_last_subscription_binding_1 = args
             .auto_delete_topic_with_last_subscription
-            .get_output(context)
+            .get_output(context);
+        let auto_delete_topic_with_last_subscription_binding = auto_delete_topic_with_last_subscription_binding_1
             .get_inner();
-        let identity_binding = args.identity.get_output(context).get_inner();
-        let inbound_ip_rules_binding = args
-            .inbound_ip_rules
-            .get_output(context)
-            .get_inner();
-        let input_mapping_default_values_binding = args
+        let identity_binding_1 = args.identity.get_output(context);
+        let identity_binding = identity_binding_1.get_inner();
+        let inbound_ip_rules_binding_1 = args.inbound_ip_rules.get_output(context);
+        let inbound_ip_rules_binding = inbound_ip_rules_binding_1.get_inner();
+        let input_mapping_default_values_binding_1 = args
             .input_mapping_default_values
-            .get_output(context)
+            .get_output(context);
+        let input_mapping_default_values_binding = input_mapping_default_values_binding_1
             .get_inner();
-        let input_mapping_fields_binding = args
+        let input_mapping_fields_binding_1 = args
             .input_mapping_fields
-            .get_output(context)
-            .get_inner();
-        let input_schema_binding = args.input_schema.get_output(context).get_inner();
-        let local_auth_enabled_binding = args
-            .local_auth_enabled
-            .get_output(context)
-            .get_inner();
-        let location_binding = args.location.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let public_network_access_enabled_binding = args
+            .get_output(context);
+        let input_mapping_fields_binding = input_mapping_fields_binding_1.get_inner();
+        let input_schema_binding_1 = args.input_schema.get_output(context);
+        let input_schema_binding = input_schema_binding_1.get_inner();
+        let local_auth_enabled_binding_1 = args.local_auth_enabled.get_output(context);
+        let local_auth_enabled_binding = local_auth_enabled_binding_1.get_inner();
+        let location_binding_1 = args.location.get_output(context);
+        let location_binding = location_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let public_network_access_enabled_binding_1 = args
             .public_network_access_enabled
-            .get_output(context)
+            .get_output(context);
+        let public_network_access_enabled_binding = public_network_access_enabled_binding_1
             .get_inner();
-        let resource_group_name_binding = args
-            .resource_group_name
-            .get_output(context)
-            .get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
+        let resource_group_name_binding_1 = args.resource_group_name.get_output(context);
+        let resource_group_name_binding = resource_group_name_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:eventhub/domain:Domain".into(),
             name: name.to_string(),

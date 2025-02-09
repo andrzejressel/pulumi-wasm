@@ -90,9 +90,12 @@ pub mod source_iam_policy {
     ) -> SourceIamPolicyResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let organization_binding = args.organization.get_output(context).get_inner();
-        let policy_data_binding = args.policy_data.get_output(context).get_inner();
-        let source_binding = args.source.get_output(context).get_inner();
+        let organization_binding_1 = args.organization.get_output(context);
+        let organization_binding = organization_binding_1.get_inner();
+        let policy_data_binding_1 = args.policy_data.get_output(context);
+        let policy_data_binding = policy_data_binding_1.get_inner();
+        let source_binding_1 = args.source.get_output(context);
+        let source_binding = source_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:securitycenter/sourceIamPolicy:SourceIamPolicy".into(),
             name: name.to_string(),

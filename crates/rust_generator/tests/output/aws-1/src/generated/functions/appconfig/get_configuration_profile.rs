@@ -52,12 +52,15 @@ pub mod get_configuration_profile {
     ) -> GetConfigurationProfileResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let application_id_binding = args.application_id.get_output(context).get_inner();
-        let configuration_profile_id_binding = args
+        let application_id_binding_1 = args.application_id.get_output(context);
+        let application_id_binding = application_id_binding_1.get_inner();
+        let configuration_profile_id_binding_1 = args
             .configuration_profile_id
-            .get_output(context)
+            .get_output(context);
+        let configuration_profile_id_binding = configuration_profile_id_binding_1
             .get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:appconfig/getConfigurationProfile:getConfigurationProfile"
                 .into(),

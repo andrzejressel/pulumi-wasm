@@ -308,36 +308,32 @@ pub mod managed_instance_security_alert_policy {
     ) -> ManagedInstanceSecurityAlertPolicyResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let disabled_alerts_binding = args
-            .disabled_alerts
-            .get_output(context)
-            .get_inner();
-        let email_account_admins_enabled_binding = args
+        let disabled_alerts_binding_1 = args.disabled_alerts.get_output(context);
+        let disabled_alerts_binding = disabled_alerts_binding_1.get_inner();
+        let email_account_admins_enabled_binding_1 = args
             .email_account_admins_enabled
-            .get_output(context)
+            .get_output(context);
+        let email_account_admins_enabled_binding = email_account_admins_enabled_binding_1
             .get_inner();
-        let email_addresses_binding = args
-            .email_addresses
-            .get_output(context)
-            .get_inner();
-        let enabled_binding = args.enabled.get_output(context).get_inner();
-        let managed_instance_name_binding = args
+        let email_addresses_binding_1 = args.email_addresses.get_output(context);
+        let email_addresses_binding = email_addresses_binding_1.get_inner();
+        let enabled_binding_1 = args.enabled.get_output(context);
+        let enabled_binding = enabled_binding_1.get_inner();
+        let managed_instance_name_binding_1 = args
             .managed_instance_name
-            .get_output(context)
-            .get_inner();
-        let resource_group_name_binding = args
-            .resource_group_name
-            .get_output(context)
-            .get_inner();
-        let retention_days_binding = args.retention_days.get_output(context).get_inner();
-        let storage_account_access_key_binding = args
+            .get_output(context);
+        let managed_instance_name_binding = managed_instance_name_binding_1.get_inner();
+        let resource_group_name_binding_1 = args.resource_group_name.get_output(context);
+        let resource_group_name_binding = resource_group_name_binding_1.get_inner();
+        let retention_days_binding_1 = args.retention_days.get_output(context);
+        let retention_days_binding = retention_days_binding_1.get_inner();
+        let storage_account_access_key_binding_1 = args
             .storage_account_access_key
-            .get_output(context)
+            .get_output(context);
+        let storage_account_access_key_binding = storage_account_access_key_binding_1
             .get_inner();
-        let storage_endpoint_binding = args
-            .storage_endpoint
-            .get_output(context)
-            .get_inner();
+        let storage_endpoint_binding_1 = args.storage_endpoint.get_output(context);
+        let storage_endpoint_binding = storage_endpoint_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:mssql/managedInstanceSecurityAlertPolicy:ManagedInstanceSecurityAlertPolicy"
                 .into(),

@@ -148,17 +148,22 @@ pub mod mirroring_endpoint_group {
     ) -> MirroringEndpointGroupResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let labels_binding = args.labels.get_output(context).get_inner();
-        let location_binding = args.location.get_output(context).get_inner();
-        let mirroring_deployment_group_binding = args
+        let labels_binding_1 = args.labels.get_output(context);
+        let labels_binding = labels_binding_1.get_inner();
+        let location_binding_1 = args.location.get_output(context);
+        let location_binding = location_binding_1.get_inner();
+        let mirroring_deployment_group_binding_1 = args
             .mirroring_deployment_group
-            .get_output(context)
+            .get_output(context);
+        let mirroring_deployment_group_binding = mirroring_deployment_group_binding_1
             .get_inner();
-        let mirroring_endpoint_group_id_binding = args
+        let mirroring_endpoint_group_id_binding_1 = args
             .mirroring_endpoint_group_id
-            .get_output(context)
+            .get_output(context);
+        let mirroring_endpoint_group_id_binding = mirroring_endpoint_group_id_binding_1
             .get_inner();
-        let project_binding = args.project.get_output(context).get_inner();
+        let project_binding_1 = args.project.get_output(context);
+        let project_binding = project_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:networksecurity/mirroringEndpointGroup:MirroringEndpointGroup"
                 .into(),

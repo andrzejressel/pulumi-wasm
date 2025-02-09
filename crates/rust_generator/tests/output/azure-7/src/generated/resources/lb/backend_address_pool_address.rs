@@ -121,20 +121,22 @@ pub mod backend_address_pool_address {
     ) -> BackendAddressPoolAddressResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let backend_address_ip_configuration_id_binding = args
+        let backend_address_ip_configuration_id_binding_1 = args
             .backend_address_ip_configuration_id
-            .get_output(context)
+            .get_output(context);
+        let backend_address_ip_configuration_id_binding = backend_address_ip_configuration_id_binding_1
             .get_inner();
-        let backend_address_pool_id_binding = args
+        let backend_address_pool_id_binding_1 = args
             .backend_address_pool_id
-            .get_output(context)
+            .get_output(context);
+        let backend_address_pool_id_binding = backend_address_pool_id_binding_1
             .get_inner();
-        let ip_address_binding = args.ip_address.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let virtual_network_id_binding = args
-            .virtual_network_id
-            .get_output(context)
-            .get_inner();
+        let ip_address_binding_1 = args.ip_address.get_output(context);
+        let ip_address_binding = ip_address_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let virtual_network_id_binding_1 = args.virtual_network_id.get_output(context);
+        let virtual_network_id_binding = virtual_network_id_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:lb/backendAddressPoolAddress:BackendAddressPoolAddress".into(),
             name: name.to_string(),

@@ -143,35 +143,31 @@ pub mod vpc_endpoint_service {
     ) -> VpcEndpointServiceResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let acceptance_required_binding = args
-            .acceptance_required
-            .get_output(context)
-            .get_inner();
-        let allowed_principals_binding = args
-            .allowed_principals
-            .get_output(context)
-            .get_inner();
-        let gateway_load_balancer_arns_binding = args
+        let acceptance_required_binding_1 = args.acceptance_required.get_output(context);
+        let acceptance_required_binding = acceptance_required_binding_1.get_inner();
+        let allowed_principals_binding_1 = args.allowed_principals.get_output(context);
+        let allowed_principals_binding = allowed_principals_binding_1.get_inner();
+        let gateway_load_balancer_arns_binding_1 = args
             .gateway_load_balancer_arns
-            .get_output(context)
+            .get_output(context);
+        let gateway_load_balancer_arns_binding = gateway_load_balancer_arns_binding_1
             .get_inner();
-        let network_load_balancer_arns_binding = args
+        let network_load_balancer_arns_binding_1 = args
             .network_load_balancer_arns
-            .get_output(context)
+            .get_output(context);
+        let network_load_balancer_arns_binding = network_load_balancer_arns_binding_1
             .get_inner();
-        let private_dns_name_binding = args
-            .private_dns_name
-            .get_output(context)
-            .get_inner();
-        let supported_ip_address_types_binding = args
+        let private_dns_name_binding_1 = args.private_dns_name.get_output(context);
+        let private_dns_name_binding = private_dns_name_binding_1.get_inner();
+        let supported_ip_address_types_binding_1 = args
             .supported_ip_address_types
-            .get_output(context)
+            .get_output(context);
+        let supported_ip_address_types_binding = supported_ip_address_types_binding_1
             .get_inner();
-        let supported_regions_binding = args
-            .supported_regions
-            .get_output(context)
-            .get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
+        let supported_regions_binding_1 = args.supported_regions.get_output(context);
+        let supported_regions_binding = supported_regions_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:ec2/vpcEndpointService:VpcEndpointService".into(),
             name: name.to_string(),

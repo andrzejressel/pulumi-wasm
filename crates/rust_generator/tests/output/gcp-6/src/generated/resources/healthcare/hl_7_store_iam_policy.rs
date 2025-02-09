@@ -168,11 +168,10 @@ pub mod hl_7_store_iam_policy {
     ) -> Hl7StoreIamPolicyResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let hl7_v2_store_id_binding = args
-            .hl7_v2_store_id
-            .get_output(context)
-            .get_inner();
-        let policy_data_binding = args.policy_data.get_output(context).get_inner();
+        let hl7_v2_store_id_binding_1 = args.hl7_v2_store_id.get_output(context);
+        let hl7_v2_store_id_binding = hl7_v2_store_id_binding_1.get_inner();
+        let policy_data_binding_1 = args.policy_data.get_output(context);
+        let policy_data_binding = policy_data_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:healthcare/hl7StoreIamPolicy:Hl7StoreIamPolicy".into(),
             name: name.to_string(),

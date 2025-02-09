@@ -128,11 +128,16 @@ pub mod default_supported_idp_config {
     ) -> DefaultSupportedIdpConfigResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let client_id_binding = args.client_id.get_output(context).get_inner();
-        let client_secret_binding = args.client_secret.get_output(context).get_inner();
-        let enabled_binding = args.enabled.get_output(context).get_inner();
-        let idp_id_binding = args.idp_id.get_output(context).get_inner();
-        let project_binding = args.project.get_output(context).get_inner();
+        let client_id_binding_1 = args.client_id.get_output(context);
+        let client_id_binding = client_id_binding_1.get_inner();
+        let client_secret_binding_1 = args.client_secret.get_output(context);
+        let client_secret_binding = client_secret_binding_1.get_inner();
+        let enabled_binding_1 = args.enabled.get_output(context);
+        let enabled_binding = enabled_binding_1.get_inner();
+        let idp_id_binding_1 = args.idp_id.get_output(context);
+        let idp_id_binding = idp_id_binding_1.get_inner();
+        let project_binding_1 = args.project.get_output(context);
+        let project_binding = project_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:identityplatform/defaultSupportedIdpConfig:DefaultSupportedIdpConfig"
                 .into(),

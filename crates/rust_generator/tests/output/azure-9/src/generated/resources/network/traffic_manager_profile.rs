@@ -140,24 +140,29 @@ pub mod traffic_manager_profile {
     ) -> TrafficManagerProfileResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let dns_config_binding = args.dns_config.get_output(context).get_inner();
-        let max_return_binding = args.max_return.get_output(context).get_inner();
-        let monitor_config_binding = args.monitor_config.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let profile_status_binding = args.profile_status.get_output(context).get_inner();
-        let resource_group_name_binding = args
-            .resource_group_name
-            .get_output(context)
-            .get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
-        let traffic_routing_method_binding = args
+        let dns_config_binding_1 = args.dns_config.get_output(context);
+        let dns_config_binding = dns_config_binding_1.get_inner();
+        let max_return_binding_1 = args.max_return.get_output(context);
+        let max_return_binding = max_return_binding_1.get_inner();
+        let monitor_config_binding_1 = args.monitor_config.get_output(context);
+        let monitor_config_binding = monitor_config_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let profile_status_binding_1 = args.profile_status.get_output(context);
+        let profile_status_binding = profile_status_binding_1.get_inner();
+        let resource_group_name_binding_1 = args.resource_group_name.get_output(context);
+        let resource_group_name_binding = resource_group_name_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
+        let traffic_routing_method_binding_1 = args
             .traffic_routing_method
-            .get_output(context)
+            .get_output(context);
+        let traffic_routing_method_binding = traffic_routing_method_binding_1
             .get_inner();
-        let traffic_view_enabled_binding = args
+        let traffic_view_enabled_binding_1 = args
             .traffic_view_enabled
-            .get_output(context)
-            .get_inner();
+            .get_output(context);
+        let traffic_view_enabled_binding = traffic_view_enabled_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:network/trafficManagerProfile:TrafficManagerProfile".into(),
             name: name.to_string(),

@@ -100,14 +100,16 @@ pub mod function_url {
     ) -> FunctionUrlResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let authorization_type_binding = args
-            .authorization_type
-            .get_output(context)
-            .get_inner();
-        let cors_binding = args.cors.get_output(context).get_inner();
-        let function_name_binding = args.function_name.get_output(context).get_inner();
-        let invoke_mode_binding = args.invoke_mode.get_output(context).get_inner();
-        let qualifier_binding = args.qualifier.get_output(context).get_inner();
+        let authorization_type_binding_1 = args.authorization_type.get_output(context);
+        let authorization_type_binding = authorization_type_binding_1.get_inner();
+        let cors_binding_1 = args.cors.get_output(context);
+        let cors_binding = cors_binding_1.get_inner();
+        let function_name_binding_1 = args.function_name.get_output(context);
+        let function_name_binding = function_name_binding_1.get_inner();
+        let invoke_mode_binding_1 = args.invoke_mode.get_output(context);
+        let invoke_mode_binding = invoke_mode_binding_1.get_inner();
+        let qualifier_binding_1 = args.qualifier.get_output(context);
+        let qualifier_binding = qualifier_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:lambda/functionUrl:FunctionUrl".into(),
             name: name.to_string(),

@@ -96,10 +96,14 @@ pub mod subscription_pricing {
     ) -> SubscriptionPricingResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let extensions_binding = args.extensions.get_output(context).get_inner();
-        let resource_type_binding = args.resource_type.get_output(context).get_inner();
-        let subplan_binding = args.subplan.get_output(context).get_inner();
-        let tier_binding = args.tier.get_output(context).get_inner();
+        let extensions_binding_1 = args.extensions.get_output(context);
+        let extensions_binding = extensions_binding_1.get_inner();
+        let resource_type_binding_1 = args.resource_type.get_output(context);
+        let resource_type_binding = resource_type_binding_1.get_inner();
+        let subplan_binding_1 = args.subplan.get_output(context);
+        let subplan_binding = subplan_binding_1.get_inner();
+        let tier_binding_1 = args.tier.get_output(context);
+        let tier_binding = tier_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:securitycenter/subscriptionPricing:SubscriptionPricing".into(),
             name: name.to_string(),

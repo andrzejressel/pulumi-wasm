@@ -69,7 +69,8 @@ pub mod get_custom_model {
     ) -> GetCustomModelResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let model_id_binding = args.model_id.get_output(context).get_inner();
+        let model_id_binding_1 = args.model_id.get_output(context);
+        let model_id_binding = model_id_binding_1.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:bedrock/getCustomModel:getCustomModel".into(),
             version: super::super::super::get_version(),

@@ -46,8 +46,10 @@ pub mod get_authorizer {
     ) -> GetAuthorizerResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let authorizer_id_binding = args.authorizer_id.get_output(context).get_inner();
-        let rest_api_id_binding = args.rest_api_id.get_output(context).get_inner();
+        let authorizer_id_binding_1 = args.authorizer_id.get_output(context);
+        let authorizer_id_binding = authorizer_id_binding_1.get_inner();
+        let rest_api_id_binding_1 = args.rest_api_id.get_output(context);
+        let rest_api_id_binding = rest_api_id_binding_1.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:apigateway/getAuthorizer:getAuthorizer".into(),
             version: super::super::super::get_version(),

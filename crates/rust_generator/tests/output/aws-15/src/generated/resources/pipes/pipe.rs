@@ -318,31 +318,34 @@ pub mod pipe {
     ) -> PipeResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let description_binding = args.description.get_output(context).get_inner();
-        let desired_state_binding = args.desired_state.get_output(context).get_inner();
-        let enrichment_binding = args.enrichment.get_output(context).get_inner();
-        let enrichment_parameters_binding = args
+        let description_binding_1 = args.description.get_output(context);
+        let description_binding = description_binding_1.get_inner();
+        let desired_state_binding_1 = args.desired_state.get_output(context);
+        let desired_state_binding = desired_state_binding_1.get_inner();
+        let enrichment_binding_1 = args.enrichment.get_output(context);
+        let enrichment_binding = enrichment_binding_1.get_inner();
+        let enrichment_parameters_binding_1 = args
             .enrichment_parameters
-            .get_output(context)
-            .get_inner();
-        let log_configuration_binding = args
-            .log_configuration
-            .get_output(context)
-            .get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let name_prefix_binding = args.name_prefix.get_output(context).get_inner();
-        let role_arn_binding = args.role_arn.get_output(context).get_inner();
-        let source_binding = args.source.get_output(context).get_inner();
-        let source_parameters_binding = args
-            .source_parameters
-            .get_output(context)
-            .get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
-        let target_binding = args.target.get_output(context).get_inner();
-        let target_parameters_binding = args
-            .target_parameters
-            .get_output(context)
-            .get_inner();
+            .get_output(context);
+        let enrichment_parameters_binding = enrichment_parameters_binding_1.get_inner();
+        let log_configuration_binding_1 = args.log_configuration.get_output(context);
+        let log_configuration_binding = log_configuration_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let name_prefix_binding_1 = args.name_prefix.get_output(context);
+        let name_prefix_binding = name_prefix_binding_1.get_inner();
+        let role_arn_binding_1 = args.role_arn.get_output(context);
+        let role_arn_binding = role_arn_binding_1.get_inner();
+        let source_binding_1 = args.source.get_output(context);
+        let source_binding = source_binding_1.get_inner();
+        let source_parameters_binding_1 = args.source_parameters.get_output(context);
+        let source_parameters_binding = source_parameters_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
+        let target_binding_1 = args.target.get_output(context);
+        let target_binding = target_binding_1.get_inner();
+        let target_parameters_binding_1 = args.target_parameters.get_output(context);
+        let target_parameters_binding = target_parameters_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:pipes/pipe:Pipe".into(),
             name: name.to_string(),

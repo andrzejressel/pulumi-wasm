@@ -71,10 +71,14 @@ pub mod zero_trust_tunnel_cloudflared {
     ) -> ZeroTrustTunnelCloudflaredResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let account_id_binding = args.account_id.get_output(context).get_inner();
-        let config_src_binding = args.config_src.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let secret_binding = args.secret.get_output(context).get_inner();
+        let account_id_binding_1 = args.account_id.get_output(context);
+        let account_id_binding = account_id_binding_1.get_inner();
+        let config_src_binding_1 = args.config_src.get_output(context);
+        let config_src_binding = config_src_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let secret_binding_1 = args.secret.get_output(context);
+        let secret_binding = secret_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "cloudflare:index/zeroTrustTunnelCloudflared:ZeroTrustTunnelCloudflared"
                 .into(),

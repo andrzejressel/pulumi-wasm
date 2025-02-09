@@ -201,23 +201,25 @@ pub mod cloud_exadata_infrastructure {
     ) -> CloudExadataInfrastructureResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let cloud_exadata_infrastructure_id_binding = args
+        let cloud_exadata_infrastructure_id_binding_1 = args
             .cloud_exadata_infrastructure_id
-            .get_output(context)
+            .get_output(context);
+        let cloud_exadata_infrastructure_id_binding = cloud_exadata_infrastructure_id_binding_1
             .get_inner();
-        let deletion_protection_binding = args
-            .deletion_protection
-            .get_output(context)
-            .get_inner();
-        let display_name_binding = args.display_name.get_output(context).get_inner();
-        let gcp_oracle_zone_binding = args
-            .gcp_oracle_zone
-            .get_output(context)
-            .get_inner();
-        let labels_binding = args.labels.get_output(context).get_inner();
-        let location_binding = args.location.get_output(context).get_inner();
-        let project_binding = args.project.get_output(context).get_inner();
-        let properties_binding = args.properties.get_output(context).get_inner();
+        let deletion_protection_binding_1 = args.deletion_protection.get_output(context);
+        let deletion_protection_binding = deletion_protection_binding_1.get_inner();
+        let display_name_binding_1 = args.display_name.get_output(context);
+        let display_name_binding = display_name_binding_1.get_inner();
+        let gcp_oracle_zone_binding_1 = args.gcp_oracle_zone.get_output(context);
+        let gcp_oracle_zone_binding = gcp_oracle_zone_binding_1.get_inner();
+        let labels_binding_1 = args.labels.get_output(context);
+        let labels_binding = labels_binding_1.get_inner();
+        let location_binding_1 = args.location.get_output(context);
+        let location_binding = location_binding_1.get_inner();
+        let project_binding_1 = args.project.get_output(context);
+        let project_binding = project_binding_1.get_inner();
+        let properties_binding_1 = args.properties.get_output(context);
+        let properties_binding = properties_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:oracledatabase/cloudExadataInfrastructure:CloudExadataInfrastructure"
                 .into(),

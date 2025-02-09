@@ -240,45 +240,51 @@ pub mod active_directory {
     ) -> ActiveDirectoryResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let administrators_binding = args.administrators.get_output(context).get_inner();
-        let aes_encryption_binding = args.aes_encryption.get_output(context).get_inner();
-        let backup_operators_binding = args
-            .backup_operators
-            .get_output(context)
-            .get_inner();
-        let description_binding = args.description.get_output(context).get_inner();
-        let dns_binding = args.dns.get_output(context).get_inner();
-        let domain_binding = args.domain.get_output(context).get_inner();
-        let encrypt_dc_connections_binding = args
+        let administrators_binding_1 = args.administrators.get_output(context);
+        let administrators_binding = administrators_binding_1.get_inner();
+        let aes_encryption_binding_1 = args.aes_encryption.get_output(context);
+        let aes_encryption_binding = aes_encryption_binding_1.get_inner();
+        let backup_operators_binding_1 = args.backup_operators.get_output(context);
+        let backup_operators_binding = backup_operators_binding_1.get_inner();
+        let description_binding_1 = args.description.get_output(context);
+        let description_binding = description_binding_1.get_inner();
+        let dns_binding_1 = args.dns.get_output(context);
+        let dns_binding = dns_binding_1.get_inner();
+        let domain_binding_1 = args.domain.get_output(context);
+        let domain_binding = domain_binding_1.get_inner();
+        let encrypt_dc_connections_binding_1 = args
             .encrypt_dc_connections
-            .get_output(context)
+            .get_output(context);
+        let encrypt_dc_connections_binding = encrypt_dc_connections_binding_1
             .get_inner();
-        let kdc_hostname_binding = args.kdc_hostname.get_output(context).get_inner();
-        let kdc_ip_binding = args.kdc_ip.get_output(context).get_inner();
-        let labels_binding = args.labels.get_output(context).get_inner();
-        let ldap_signing_binding = args.ldap_signing.get_output(context).get_inner();
-        let location_binding = args.location.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let net_bios_prefix_binding = args
-            .net_bios_prefix
-            .get_output(context)
-            .get_inner();
-        let nfs_users_with_ldap_binding = args
-            .nfs_users_with_ldap
-            .get_output(context)
-            .get_inner();
-        let organizational_unit_binding = args
-            .organizational_unit
-            .get_output(context)
-            .get_inner();
-        let password_binding = args.password.get_output(context).get_inner();
-        let project_binding = args.project.get_output(context).get_inner();
-        let security_operators_binding = args
-            .security_operators
-            .get_output(context)
-            .get_inner();
-        let site_binding = args.site.get_output(context).get_inner();
-        let username_binding = args.username.get_output(context).get_inner();
+        let kdc_hostname_binding_1 = args.kdc_hostname.get_output(context);
+        let kdc_hostname_binding = kdc_hostname_binding_1.get_inner();
+        let kdc_ip_binding_1 = args.kdc_ip.get_output(context);
+        let kdc_ip_binding = kdc_ip_binding_1.get_inner();
+        let labels_binding_1 = args.labels.get_output(context);
+        let labels_binding = labels_binding_1.get_inner();
+        let ldap_signing_binding_1 = args.ldap_signing.get_output(context);
+        let ldap_signing_binding = ldap_signing_binding_1.get_inner();
+        let location_binding_1 = args.location.get_output(context);
+        let location_binding = location_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let net_bios_prefix_binding_1 = args.net_bios_prefix.get_output(context);
+        let net_bios_prefix_binding = net_bios_prefix_binding_1.get_inner();
+        let nfs_users_with_ldap_binding_1 = args.nfs_users_with_ldap.get_output(context);
+        let nfs_users_with_ldap_binding = nfs_users_with_ldap_binding_1.get_inner();
+        let organizational_unit_binding_1 = args.organizational_unit.get_output(context);
+        let organizational_unit_binding = organizational_unit_binding_1.get_inner();
+        let password_binding_1 = args.password.get_output(context);
+        let password_binding = password_binding_1.get_inner();
+        let project_binding_1 = args.project.get_output(context);
+        let project_binding = project_binding_1.get_inner();
+        let security_operators_binding_1 = args.security_operators.get_output(context);
+        let security_operators_binding = security_operators_binding_1.get_inner();
+        let site_binding_1 = args.site.get_output(context);
+        let site_binding = site_binding_1.get_inner();
+        let username_binding_1 = args.username.get_output(context);
+        let username_binding = username_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:netapp/activeDirectory:ActiveDirectory".into(),
             name: name.to_string(),

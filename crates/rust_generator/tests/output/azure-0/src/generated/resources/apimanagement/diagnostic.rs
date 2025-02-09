@@ -205,53 +205,42 @@ pub mod diagnostic {
     ) -> DiagnosticResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let always_log_errors_binding = args
-            .always_log_errors
-            .get_output(context)
-            .get_inner();
-        let api_management_logger_id_binding = args
+        let always_log_errors_binding_1 = args.always_log_errors.get_output(context);
+        let always_log_errors_binding = always_log_errors_binding_1.get_inner();
+        let api_management_logger_id_binding_1 = args
             .api_management_logger_id
-            .get_output(context)
+            .get_output(context);
+        let api_management_logger_id_binding = api_management_logger_id_binding_1
             .get_inner();
-        let api_management_name_binding = args
-            .api_management_name
-            .get_output(context)
-            .get_inner();
-        let backend_request_binding = args
-            .backend_request
-            .get_output(context)
-            .get_inner();
-        let backend_response_binding = args
-            .backend_response
-            .get_output(context)
-            .get_inner();
-        let frontend_request_binding = args
-            .frontend_request
-            .get_output(context)
-            .get_inner();
-        let frontend_response_binding = args
-            .frontend_response
-            .get_output(context)
-            .get_inner();
-        let http_correlation_protocol_binding = args
+        let api_management_name_binding_1 = args.api_management_name.get_output(context);
+        let api_management_name_binding = api_management_name_binding_1.get_inner();
+        let backend_request_binding_1 = args.backend_request.get_output(context);
+        let backend_request_binding = backend_request_binding_1.get_inner();
+        let backend_response_binding_1 = args.backend_response.get_output(context);
+        let backend_response_binding = backend_response_binding_1.get_inner();
+        let frontend_request_binding_1 = args.frontend_request.get_output(context);
+        let frontend_request_binding = frontend_request_binding_1.get_inner();
+        let frontend_response_binding_1 = args.frontend_response.get_output(context);
+        let frontend_response_binding = frontend_response_binding_1.get_inner();
+        let http_correlation_protocol_binding_1 = args
             .http_correlation_protocol
-            .get_output(context)
+            .get_output(context);
+        let http_correlation_protocol_binding = http_correlation_protocol_binding_1
             .get_inner();
-        let identifier_binding = args.identifier.get_output(context).get_inner();
-        let log_client_ip_binding = args.log_client_ip.get_output(context).get_inner();
-        let operation_name_format_binding = args
+        let identifier_binding_1 = args.identifier.get_output(context);
+        let identifier_binding = identifier_binding_1.get_inner();
+        let log_client_ip_binding_1 = args.log_client_ip.get_output(context);
+        let log_client_ip_binding = log_client_ip_binding_1.get_inner();
+        let operation_name_format_binding_1 = args
             .operation_name_format
-            .get_output(context)
-            .get_inner();
-        let resource_group_name_binding = args
-            .resource_group_name
-            .get_output(context)
-            .get_inner();
-        let sampling_percentage_binding = args
-            .sampling_percentage
-            .get_output(context)
-            .get_inner();
-        let verbosity_binding = args.verbosity.get_output(context).get_inner();
+            .get_output(context);
+        let operation_name_format_binding = operation_name_format_binding_1.get_inner();
+        let resource_group_name_binding_1 = args.resource_group_name.get_output(context);
+        let resource_group_name_binding = resource_group_name_binding_1.get_inner();
+        let sampling_percentage_binding_1 = args.sampling_percentage.get_output(context);
+        let sampling_percentage_binding = sampling_percentage_binding_1.get_inner();
+        let verbosity_binding_1 = args.verbosity.get_output(context);
+        let verbosity_binding = verbosity_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:apimanagement/diagnostic:Diagnostic".into(),
             name: name.to_string(),

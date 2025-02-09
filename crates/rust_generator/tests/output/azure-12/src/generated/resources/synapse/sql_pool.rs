@@ -140,29 +140,37 @@ pub mod sql_pool {
     ) -> SqlPoolResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let collation_binding = args.collation.get_output(context).get_inner();
-        let create_mode_binding = args.create_mode.get_output(context).get_inner();
-        let data_encrypted_binding = args.data_encrypted.get_output(context).get_inner();
-        let geo_backup_policy_enabled_binding = args
+        let collation_binding_1 = args.collation.get_output(context);
+        let collation_binding = collation_binding_1.get_inner();
+        let create_mode_binding_1 = args.create_mode.get_output(context);
+        let create_mode_binding = create_mode_binding_1.get_inner();
+        let data_encrypted_binding_1 = args.data_encrypted.get_output(context);
+        let data_encrypted_binding = data_encrypted_binding_1.get_inner();
+        let geo_backup_policy_enabled_binding_1 = args
             .geo_backup_policy_enabled
-            .get_output(context)
+            .get_output(context);
+        let geo_backup_policy_enabled_binding = geo_backup_policy_enabled_binding_1
             .get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let recovery_database_id_binding = args
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let recovery_database_id_binding_1 = args
             .recovery_database_id
-            .get_output(context)
-            .get_inner();
-        let restore_binding = args.restore.get_output(context).get_inner();
-        let sku_name_binding = args.sku_name.get_output(context).get_inner();
-        let storage_account_type_binding = args
+            .get_output(context);
+        let recovery_database_id_binding = recovery_database_id_binding_1.get_inner();
+        let restore_binding_1 = args.restore.get_output(context);
+        let restore_binding = restore_binding_1.get_inner();
+        let sku_name_binding_1 = args.sku_name.get_output(context);
+        let sku_name_binding = sku_name_binding_1.get_inner();
+        let storage_account_type_binding_1 = args
             .storage_account_type
-            .get_output(context)
-            .get_inner();
-        let synapse_workspace_id_binding = args
+            .get_output(context);
+        let storage_account_type_binding = storage_account_type_binding_1.get_inner();
+        let synapse_workspace_id_binding_1 = args
             .synapse_workspace_id
-            .get_output(context)
-            .get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
+            .get_output(context);
+        let synapse_workspace_id_binding = synapse_workspace_id_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:synapse/sqlPool:SqlPool".into(),
             name: name.to_string(),

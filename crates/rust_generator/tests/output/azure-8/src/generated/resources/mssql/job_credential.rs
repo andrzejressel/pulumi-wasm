@@ -103,10 +103,14 @@ pub mod job_credential {
     ) -> JobCredentialResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let job_agent_id_binding = args.job_agent_id.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let password_binding = args.password.get_output(context).get_inner();
-        let username_binding = args.username.get_output(context).get_inner();
+        let job_agent_id_binding_1 = args.job_agent_id.get_output(context);
+        let job_agent_id_binding = job_agent_id_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let password_binding_1 = args.password.get_output(context);
+        let password_binding = password_binding_1.get_inner();
+        let username_binding_1 = args.username.get_output(context);
+        let username_binding = username_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:mssql/jobCredential:JobCredential".into(),
             name: name.to_string(),

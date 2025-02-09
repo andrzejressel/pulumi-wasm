@@ -123,15 +123,15 @@ pub mod certificate_authority_certificate {
     ) -> CertificateAuthorityCertificateResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let certificate_binding = args.certificate.get_output(context).get_inner();
-        let certificate_authority_arn_binding = args
+        let certificate_binding_1 = args.certificate.get_output(context);
+        let certificate_binding = certificate_binding_1.get_inner();
+        let certificate_authority_arn_binding_1 = args
             .certificate_authority_arn
-            .get_output(context)
+            .get_output(context);
+        let certificate_authority_arn_binding = certificate_authority_arn_binding_1
             .get_inner();
-        let certificate_chain_binding = args
-            .certificate_chain
-            .get_output(context)
-            .get_inner();
+        let certificate_chain_binding_1 = args.certificate_chain.get_output(context);
+        let certificate_chain_binding = certificate_chain_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:acmpca/certificateAuthorityCertificate:CertificateAuthorityCertificate"
                 .into(),

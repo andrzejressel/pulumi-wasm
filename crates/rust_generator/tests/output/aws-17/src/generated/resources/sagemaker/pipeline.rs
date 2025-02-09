@@ -108,29 +108,32 @@ pub mod pipeline {
     ) -> PipelineResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let parallelism_configuration_binding = args
+        let parallelism_configuration_binding_1 = args
             .parallelism_configuration
-            .get_output(context)
+            .get_output(context);
+        let parallelism_configuration_binding = parallelism_configuration_binding_1
             .get_inner();
-        let pipeline_definition_binding = args
-            .pipeline_definition
-            .get_output(context)
-            .get_inner();
-        let pipeline_definition_s3_location_binding = args
+        let pipeline_definition_binding_1 = args.pipeline_definition.get_output(context);
+        let pipeline_definition_binding = pipeline_definition_binding_1.get_inner();
+        let pipeline_definition_s3_location_binding_1 = args
             .pipeline_definition_s3_location
-            .get_output(context)
+            .get_output(context);
+        let pipeline_definition_s3_location_binding = pipeline_definition_s3_location_binding_1
             .get_inner();
-        let pipeline_description_binding = args
+        let pipeline_description_binding_1 = args
             .pipeline_description
-            .get_output(context)
-            .get_inner();
-        let pipeline_display_name_binding = args
+            .get_output(context);
+        let pipeline_description_binding = pipeline_description_binding_1.get_inner();
+        let pipeline_display_name_binding_1 = args
             .pipeline_display_name
-            .get_output(context)
-            .get_inner();
-        let pipeline_name_binding = args.pipeline_name.get_output(context).get_inner();
-        let role_arn_binding = args.role_arn.get_output(context).get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
+            .get_output(context);
+        let pipeline_display_name_binding = pipeline_display_name_binding_1.get_inner();
+        let pipeline_name_binding_1 = args.pipeline_name.get_output(context);
+        let pipeline_name_binding = pipeline_name_binding_1.get_inner();
+        let role_arn_binding_1 = args.role_arn.get_output(context);
+        let role_arn_binding = role_arn_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:sagemaker/pipeline:Pipeline".into(),
             name: name.to_string(),

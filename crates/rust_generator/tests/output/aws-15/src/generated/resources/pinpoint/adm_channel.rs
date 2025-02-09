@@ -69,10 +69,14 @@ pub mod adm_channel {
     ) -> AdmChannelResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let application_id_binding = args.application_id.get_output(context).get_inner();
-        let client_id_binding = args.client_id.get_output(context).get_inner();
-        let client_secret_binding = args.client_secret.get_output(context).get_inner();
-        let enabled_binding = args.enabled.get_output(context).get_inner();
+        let application_id_binding_1 = args.application_id.get_output(context);
+        let application_id_binding = application_id_binding_1.get_inner();
+        let client_id_binding_1 = args.client_id.get_output(context);
+        let client_id_binding = client_id_binding_1.get_inner();
+        let client_secret_binding_1 = args.client_secret.get_output(context);
+        let client_secret_binding = client_secret_binding_1.get_inner();
+        let enabled_binding_1 = args.enabled.get_output(context);
+        let enabled_binding = enabled_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:pinpoint/admChannel:AdmChannel".into(),
             name: name.to_string(),

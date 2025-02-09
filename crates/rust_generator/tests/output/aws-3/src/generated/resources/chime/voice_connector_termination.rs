@@ -85,24 +85,20 @@ pub mod voice_connector_termination {
     ) -> VoiceConnectorTerminationResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let calling_regions_binding = args
-            .calling_regions
-            .get_output(context)
-            .get_inner();
-        let cidr_allow_lists_binding = args
-            .cidr_allow_lists
-            .get_output(context)
-            .get_inner();
-        let cps_limit_binding = args.cps_limit.get_output(context).get_inner();
-        let default_phone_number_binding = args
+        let calling_regions_binding_1 = args.calling_regions.get_output(context);
+        let calling_regions_binding = calling_regions_binding_1.get_inner();
+        let cidr_allow_lists_binding_1 = args.cidr_allow_lists.get_output(context);
+        let cidr_allow_lists_binding = cidr_allow_lists_binding_1.get_inner();
+        let cps_limit_binding_1 = args.cps_limit.get_output(context);
+        let cps_limit_binding = cps_limit_binding_1.get_inner();
+        let default_phone_number_binding_1 = args
             .default_phone_number
-            .get_output(context)
-            .get_inner();
-        let disabled_binding = args.disabled.get_output(context).get_inner();
-        let voice_connector_id_binding = args
-            .voice_connector_id
-            .get_output(context)
-            .get_inner();
+            .get_output(context);
+        let default_phone_number_binding = default_phone_number_binding_1.get_inner();
+        let disabled_binding_1 = args.disabled.get_output(context);
+        let disabled_binding = disabled_binding_1.get_inner();
+        let voice_connector_id_binding_1 = args.voice_connector_id.get_output(context);
+        let voice_connector_id_binding = voice_connector_id_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:chime/voiceConnectorTermination:VoiceConnectorTermination"
                 .into(),

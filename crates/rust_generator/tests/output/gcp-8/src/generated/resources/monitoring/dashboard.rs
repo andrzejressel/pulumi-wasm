@@ -99,8 +99,10 @@ pub mod dashboard {
     ) -> DashboardResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let dashboard_json_binding = args.dashboard_json.get_output(context).get_inner();
-        let project_binding = args.project.get_output(context).get_inner();
+        let dashboard_json_binding_1 = args.dashboard_json.get_output(context);
+        let dashboard_json_binding = dashboard_json_binding_1.get_inner();
+        let project_binding_1 = args.project.get_output(context);
+        let project_binding = project_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:monitoring/dashboard:Dashboard".into(),
             name: name.to_string(),

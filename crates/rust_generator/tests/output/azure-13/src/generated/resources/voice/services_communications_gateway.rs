@@ -174,38 +174,43 @@ pub mod services_communications_gateway {
     ) -> ServicesCommunicationsGatewayResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let api_bridge_binding = args.api_bridge.get_output(context).get_inner();
-        let auto_generated_domain_name_label_scope_binding = args
+        let api_bridge_binding_1 = args.api_bridge.get_output(context);
+        let api_bridge_binding = api_bridge_binding_1.get_inner();
+        let auto_generated_domain_name_label_scope_binding_1 = args
             .auto_generated_domain_name_label_scope
-            .get_output(context)
+            .get_output(context);
+        let auto_generated_domain_name_label_scope_binding = auto_generated_domain_name_label_scope_binding_1
             .get_inner();
-        let codecs_binding = args.codecs.get_output(context).get_inner();
-        let connectivity_binding = args.connectivity.get_output(context).get_inner();
-        let e911_type_binding = args.e911_type.get_output(context).get_inner();
-        let emergency_dial_strings_binding = args
+        let codecs_binding_1 = args.codecs.get_output(context);
+        let codecs_binding = codecs_binding_1.get_inner();
+        let connectivity_binding_1 = args.connectivity.get_output(context);
+        let connectivity_binding = connectivity_binding_1.get_inner();
+        let e911_type_binding_1 = args.e911_type.get_output(context);
+        let e911_type_binding = e911_type_binding_1.get_inner();
+        let emergency_dial_strings_binding_1 = args
             .emergency_dial_strings
-            .get_output(context)
+            .get_output(context);
+        let emergency_dial_strings_binding = emergency_dial_strings_binding_1
             .get_inner();
-        let location_binding = args.location.get_output(context).get_inner();
-        let microsoft_teams_voicemail_pilot_number_binding = args
+        let location_binding_1 = args.location.get_output(context);
+        let location_binding = location_binding_1.get_inner();
+        let microsoft_teams_voicemail_pilot_number_binding_1 = args
             .microsoft_teams_voicemail_pilot_number
-            .get_output(context)
+            .get_output(context);
+        let microsoft_teams_voicemail_pilot_number_binding = microsoft_teams_voicemail_pilot_number_binding_1
             .get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let on_prem_mcp_enabled_binding = args
-            .on_prem_mcp_enabled
-            .get_output(context)
-            .get_inner();
-        let platforms_binding = args.platforms.get_output(context).get_inner();
-        let resource_group_name_binding = args
-            .resource_group_name
-            .get_output(context)
-            .get_inner();
-        let service_locations_binding = args
-            .service_locations
-            .get_output(context)
-            .get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let on_prem_mcp_enabled_binding_1 = args.on_prem_mcp_enabled.get_output(context);
+        let on_prem_mcp_enabled_binding = on_prem_mcp_enabled_binding_1.get_inner();
+        let platforms_binding_1 = args.platforms.get_output(context);
+        let platforms_binding = platforms_binding_1.get_inner();
+        let resource_group_name_binding_1 = args.resource_group_name.get_output(context);
+        let resource_group_name_binding = resource_group_name_binding_1.get_inner();
+        let service_locations_binding_1 = args.service_locations.get_output(context);
+        let service_locations_binding = service_locations_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:voice/servicesCommunicationsGateway:ServicesCommunicationsGateway"
                 .into(),

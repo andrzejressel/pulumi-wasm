@@ -431,38 +431,46 @@ pub mod region_disk {
     ) -> RegionDiskResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let async_primary_disk_binding = args
-            .async_primary_disk
-            .get_output(context)
-            .get_inner();
-        let description_binding = args.description.get_output(context).get_inner();
-        let disk_encryption_key_binding = args
-            .disk_encryption_key
-            .get_output(context)
-            .get_inner();
-        let guest_os_features_binding = args
-            .guest_os_features
-            .get_output(context)
-            .get_inner();
-        let interface_binding = args.interface.get_output(context).get_inner();
-        let labels_binding = args.labels.get_output(context).get_inner();
-        let licenses_binding = args.licenses.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let physical_block_size_bytes_binding = args
+        let async_primary_disk_binding_1 = args.async_primary_disk.get_output(context);
+        let async_primary_disk_binding = async_primary_disk_binding_1.get_inner();
+        let description_binding_1 = args.description.get_output(context);
+        let description_binding = description_binding_1.get_inner();
+        let disk_encryption_key_binding_1 = args.disk_encryption_key.get_output(context);
+        let disk_encryption_key_binding = disk_encryption_key_binding_1.get_inner();
+        let guest_os_features_binding_1 = args.guest_os_features.get_output(context);
+        let guest_os_features_binding = guest_os_features_binding_1.get_inner();
+        let interface_binding_1 = args.interface.get_output(context);
+        let interface_binding = interface_binding_1.get_inner();
+        let labels_binding_1 = args.labels.get_output(context);
+        let labels_binding = labels_binding_1.get_inner();
+        let licenses_binding_1 = args.licenses.get_output(context);
+        let licenses_binding = licenses_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let physical_block_size_bytes_binding_1 = args
             .physical_block_size_bytes
-            .get_output(context)
+            .get_output(context);
+        let physical_block_size_bytes_binding = physical_block_size_bytes_binding_1
             .get_inner();
-        let project_binding = args.project.get_output(context).get_inner();
-        let region_binding = args.region.get_output(context).get_inner();
-        let replica_zones_binding = args.replica_zones.get_output(context).get_inner();
-        let size_binding = args.size.get_output(context).get_inner();
-        let snapshot_binding = args.snapshot.get_output(context).get_inner();
-        let source_disk_binding = args.source_disk.get_output(context).get_inner();
-        let source_snapshot_encryption_key_binding = args
+        let project_binding_1 = args.project.get_output(context);
+        let project_binding = project_binding_1.get_inner();
+        let region_binding_1 = args.region.get_output(context);
+        let region_binding = region_binding_1.get_inner();
+        let replica_zones_binding_1 = args.replica_zones.get_output(context);
+        let replica_zones_binding = replica_zones_binding_1.get_inner();
+        let size_binding_1 = args.size.get_output(context);
+        let size_binding = size_binding_1.get_inner();
+        let snapshot_binding_1 = args.snapshot.get_output(context);
+        let snapshot_binding = snapshot_binding_1.get_inner();
+        let source_disk_binding_1 = args.source_disk.get_output(context);
+        let source_disk_binding = source_disk_binding_1.get_inner();
+        let source_snapshot_encryption_key_binding_1 = args
             .source_snapshot_encryption_key
-            .get_output(context)
+            .get_output(context);
+        let source_snapshot_encryption_key_binding = source_snapshot_encryption_key_binding_1
             .get_inner();
-        let type__binding = args.type_.get_output(context).get_inner();
+        let type__binding_1 = args.type_.get_output(context);
+        let type__binding = type__binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:compute/regionDisk:RegionDisk".into(),
             name: name.to_string(),

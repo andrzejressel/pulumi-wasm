@@ -140,13 +140,17 @@ pub mod custom_domain {
     ) -> CustomDomainResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let domain_name_binding = args.domain_name.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let web_pubsub_custom_certificate_id_binding = args
+        let domain_name_binding_1 = args.domain_name.get_output(context);
+        let domain_name_binding = domain_name_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let web_pubsub_custom_certificate_id_binding_1 = args
             .web_pubsub_custom_certificate_id
-            .get_output(context)
+            .get_output(context);
+        let web_pubsub_custom_certificate_id_binding = web_pubsub_custom_certificate_id_binding_1
             .get_inner();
-        let web_pubsub_id_binding = args.web_pubsub_id.get_output(context).get_inner();
+        let web_pubsub_id_binding_1 = args.web_pubsub_id.get_output(context);
+        let web_pubsub_id_binding = web_pubsub_id_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:webpubsub/customDomain:CustomDomain".into(),
             name: name.to_string(),

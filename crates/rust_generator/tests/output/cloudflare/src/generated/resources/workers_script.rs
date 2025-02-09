@@ -199,62 +199,60 @@ pub mod workers_script {
     ) -> WorkersScriptResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let account_id_binding = args.account_id.get_output(context).get_inner();
-        let analytics_engine_bindings_binding = args
+        let account_id_binding_1 = args.account_id.get_output(context);
+        let account_id_binding = account_id_binding_1.get_inner();
+        let analytics_engine_bindings_binding_1 = args
             .analytics_engine_bindings
-            .get_output(context)
+            .get_output(context);
+        let analytics_engine_bindings_binding = analytics_engine_bindings_binding_1
             .get_inner();
-        let compatibility_date_binding = args
-            .compatibility_date
-            .get_output(context)
-            .get_inner();
-        let compatibility_flags_binding = args
-            .compatibility_flags
-            .get_output(context)
-            .get_inner();
-        let content_binding = args.content.get_output(context).get_inner();
-        let d1_database_bindings_binding = args
+        let compatibility_date_binding_1 = args.compatibility_date.get_output(context);
+        let compatibility_date_binding = compatibility_date_binding_1.get_inner();
+        let compatibility_flags_binding_1 = args.compatibility_flags.get_output(context);
+        let compatibility_flags_binding = compatibility_flags_binding_1.get_inner();
+        let content_binding_1 = args.content.get_output(context);
+        let content_binding = content_binding_1.get_inner();
+        let d1_database_bindings_binding_1 = args
             .d1_database_bindings
-            .get_output(context)
-            .get_inner();
-        let dispatch_namespace_binding = args
-            .dispatch_namespace
-            .get_output(context)
-            .get_inner();
-        let hyperdrive_config_bindings_binding = args
+            .get_output(context);
+        let d1_database_bindings_binding = d1_database_bindings_binding_1.get_inner();
+        let dispatch_namespace_binding_1 = args.dispatch_namespace.get_output(context);
+        let dispatch_namespace_binding = dispatch_namespace_binding_1.get_inner();
+        let hyperdrive_config_bindings_binding_1 = args
             .hyperdrive_config_bindings
-            .get_output(context)
+            .get_output(context);
+        let hyperdrive_config_bindings_binding = hyperdrive_config_bindings_binding_1
             .get_inner();
-        let kv_namespace_bindings_binding = args
+        let kv_namespace_bindings_binding_1 = args
             .kv_namespace_bindings
-            .get_output(context)
-            .get_inner();
-        let logpush_binding = args.logpush.get_output(context).get_inner();
-        let module_binding = args.module.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let placements_binding = args.placements.get_output(context).get_inner();
-        let plain_text_bindings_binding = args
-            .plain_text_bindings
-            .get_output(context)
-            .get_inner();
-        let queue_bindings_binding = args.queue_bindings.get_output(context).get_inner();
-        let r2_bucket_bindings_binding = args
-            .r2_bucket_bindings
-            .get_output(context)
-            .get_inner();
-        let secret_text_bindings_binding = args
+            .get_output(context);
+        let kv_namespace_bindings_binding = kv_namespace_bindings_binding_1.get_inner();
+        let logpush_binding_1 = args.logpush.get_output(context);
+        let logpush_binding = logpush_binding_1.get_inner();
+        let module_binding_1 = args.module.get_output(context);
+        let module_binding = module_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let placements_binding_1 = args.placements.get_output(context);
+        let placements_binding = placements_binding_1.get_inner();
+        let plain_text_bindings_binding_1 = args.plain_text_bindings.get_output(context);
+        let plain_text_bindings_binding = plain_text_bindings_binding_1.get_inner();
+        let queue_bindings_binding_1 = args.queue_bindings.get_output(context);
+        let queue_bindings_binding = queue_bindings_binding_1.get_inner();
+        let r2_bucket_bindings_binding_1 = args.r2_bucket_bindings.get_output(context);
+        let r2_bucket_bindings_binding = r2_bucket_bindings_binding_1.get_inner();
+        let secret_text_bindings_binding_1 = args
             .secret_text_bindings
-            .get_output(context)
-            .get_inner();
-        let service_bindings_binding = args
-            .service_bindings
-            .get_output(context)
-            .get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
-        let webassembly_bindings_binding = args
+            .get_output(context);
+        let secret_text_bindings_binding = secret_text_bindings_binding_1.get_inner();
+        let service_bindings_binding_1 = args.service_bindings.get_output(context);
+        let service_bindings_binding = service_bindings_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
+        let webassembly_bindings_binding_1 = args
             .webassembly_bindings
-            .get_output(context)
-            .get_inner();
+            .get_output(context);
+        let webassembly_bindings_binding = webassembly_bindings_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "cloudflare:index/workersScript:WorkersScript".into(),
             name: name.to_string(),

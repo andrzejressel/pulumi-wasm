@@ -161,21 +161,27 @@ pub mod environment_ec_2 {
     ) -> EnvironmentEC2Result {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let automatic_stop_time_minutes_binding = args
+        let automatic_stop_time_minutes_binding_1 = args
             .automatic_stop_time_minutes
-            .get_output(context)
+            .get_output(context);
+        let automatic_stop_time_minutes_binding = automatic_stop_time_minutes_binding_1
             .get_inner();
-        let connection_type_binding = args
-            .connection_type
-            .get_output(context)
-            .get_inner();
-        let description_binding = args.description.get_output(context).get_inner();
-        let image_id_binding = args.image_id.get_output(context).get_inner();
-        let instance_type_binding = args.instance_type.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let owner_arn_binding = args.owner_arn.get_output(context).get_inner();
-        let subnet_id_binding = args.subnet_id.get_output(context).get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
+        let connection_type_binding_1 = args.connection_type.get_output(context);
+        let connection_type_binding = connection_type_binding_1.get_inner();
+        let description_binding_1 = args.description.get_output(context);
+        let description_binding = description_binding_1.get_inner();
+        let image_id_binding_1 = args.image_id.get_output(context);
+        let image_id_binding = image_id_binding_1.get_inner();
+        let instance_type_binding_1 = args.instance_type.get_output(context);
+        let instance_type_binding = instance_type_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let owner_arn_binding_1 = args.owner_arn.get_output(context);
+        let owner_arn_binding = owner_arn_binding_1.get_inner();
+        let subnet_id_binding_1 = args.subnet_id.get_output(context);
+        let subnet_id_binding = subnet_id_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:cloud9/environmentEC2:EnvironmentEC2".into(),
             name: name.to_string(),

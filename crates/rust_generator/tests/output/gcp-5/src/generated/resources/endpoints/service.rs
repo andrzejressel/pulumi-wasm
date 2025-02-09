@@ -108,14 +108,18 @@ pub mod service {
     ) -> ServiceResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let grpc_config_binding = args.grpc_config.get_output(context).get_inner();
-        let openapi_config_binding = args.openapi_config.get_output(context).get_inner();
-        let project_binding = args.project.get_output(context).get_inner();
-        let protoc_output_base64_binding = args
+        let grpc_config_binding_1 = args.grpc_config.get_output(context);
+        let grpc_config_binding = grpc_config_binding_1.get_inner();
+        let openapi_config_binding_1 = args.openapi_config.get_output(context);
+        let openapi_config_binding = openapi_config_binding_1.get_inner();
+        let project_binding_1 = args.project.get_output(context);
+        let project_binding = project_binding_1.get_inner();
+        let protoc_output_base64_binding_1 = args
             .protoc_output_base64
-            .get_output(context)
-            .get_inner();
-        let service_name_binding = args.service_name.get_output(context).get_inner();
+            .get_output(context);
+        let protoc_output_base64_binding = protoc_output_base64_binding_1.get_inner();
+        let service_name_binding_1 = args.service_name.get_output(context);
+        let service_name_binding = service_name_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:endpoints/service:Service".into(),
             name: name.to_string(),

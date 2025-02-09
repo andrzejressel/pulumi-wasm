@@ -244,62 +244,69 @@ pub mod alert_rule_scheduled {
     ) -> AlertRuleScheduledResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let alert_details_overrides_binding = args
+        let alert_details_overrides_binding_1 = args
             .alert_details_overrides
-            .get_output(context)
+            .get_output(context);
+        let alert_details_overrides_binding = alert_details_overrides_binding_1
             .get_inner();
-        let alert_rule_template_guid_binding = args
+        let alert_rule_template_guid_binding_1 = args
             .alert_rule_template_guid
-            .get_output(context)
+            .get_output(context);
+        let alert_rule_template_guid_binding = alert_rule_template_guid_binding_1
             .get_inner();
-        let alert_rule_template_version_binding = args
+        let alert_rule_template_version_binding_1 = args
             .alert_rule_template_version
-            .get_output(context)
+            .get_output(context);
+        let alert_rule_template_version_binding = alert_rule_template_version_binding_1
             .get_inner();
-        let custom_details_binding = args.custom_details.get_output(context).get_inner();
-        let description_binding = args.description.get_output(context).get_inner();
-        let display_name_binding = args.display_name.get_output(context).get_inner();
-        let enabled_binding = args.enabled.get_output(context).get_inner();
-        let entity_mappings_binding = args
-            .entity_mappings
-            .get_output(context)
-            .get_inner();
-        let event_grouping_binding = args.event_grouping.get_output(context).get_inner();
-        let incident_binding = args.incident.get_output(context).get_inner();
-        let log_analytics_workspace_id_binding = args
+        let custom_details_binding_1 = args.custom_details.get_output(context);
+        let custom_details_binding = custom_details_binding_1.get_inner();
+        let description_binding_1 = args.description.get_output(context);
+        let description_binding = description_binding_1.get_inner();
+        let display_name_binding_1 = args.display_name.get_output(context);
+        let display_name_binding = display_name_binding_1.get_inner();
+        let enabled_binding_1 = args.enabled.get_output(context);
+        let enabled_binding = enabled_binding_1.get_inner();
+        let entity_mappings_binding_1 = args.entity_mappings.get_output(context);
+        let entity_mappings_binding = entity_mappings_binding_1.get_inner();
+        let event_grouping_binding_1 = args.event_grouping.get_output(context);
+        let event_grouping_binding = event_grouping_binding_1.get_inner();
+        let incident_binding_1 = args.incident.get_output(context);
+        let incident_binding = incident_binding_1.get_inner();
+        let log_analytics_workspace_id_binding_1 = args
             .log_analytics_workspace_id
-            .get_output(context)
+            .get_output(context);
+        let log_analytics_workspace_id_binding = log_analytics_workspace_id_binding_1
             .get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let query_binding = args.query.get_output(context).get_inner();
-        let query_frequency_binding = args
-            .query_frequency
-            .get_output(context)
-            .get_inner();
-        let query_period_binding = args.query_period.get_output(context).get_inner();
-        let sentinel_entity_mappings_binding = args
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let query_binding_1 = args.query.get_output(context);
+        let query_binding = query_binding_1.get_inner();
+        let query_frequency_binding_1 = args.query_frequency.get_output(context);
+        let query_frequency_binding = query_frequency_binding_1.get_inner();
+        let query_period_binding_1 = args.query_period.get_output(context);
+        let query_period_binding = query_period_binding_1.get_inner();
+        let sentinel_entity_mappings_binding_1 = args
             .sentinel_entity_mappings
-            .get_output(context)
+            .get_output(context);
+        let sentinel_entity_mappings_binding = sentinel_entity_mappings_binding_1
             .get_inner();
-        let severity_binding = args.severity.get_output(context).get_inner();
-        let suppression_duration_binding = args
+        let severity_binding_1 = args.severity.get_output(context);
+        let severity_binding = severity_binding_1.get_inner();
+        let suppression_duration_binding_1 = args
             .suppression_duration
-            .get_output(context)
-            .get_inner();
-        let suppression_enabled_binding = args
-            .suppression_enabled
-            .get_output(context)
-            .get_inner();
-        let tactics_binding = args.tactics.get_output(context).get_inner();
-        let techniques_binding = args.techniques.get_output(context).get_inner();
-        let trigger_operator_binding = args
-            .trigger_operator
-            .get_output(context)
-            .get_inner();
-        let trigger_threshold_binding = args
-            .trigger_threshold
-            .get_output(context)
-            .get_inner();
+            .get_output(context);
+        let suppression_duration_binding = suppression_duration_binding_1.get_inner();
+        let suppression_enabled_binding_1 = args.suppression_enabled.get_output(context);
+        let suppression_enabled_binding = suppression_enabled_binding_1.get_inner();
+        let tactics_binding_1 = args.tactics.get_output(context);
+        let tactics_binding = tactics_binding_1.get_inner();
+        let techniques_binding_1 = args.techniques.get_output(context);
+        let techniques_binding = techniques_binding_1.get_inner();
+        let trigger_operator_binding_1 = args.trigger_operator.get_output(context);
+        let trigger_operator_binding = trigger_operator_binding_1.get_inner();
+        let trigger_threshold_binding_1 = args.trigger_threshold.get_output(context);
+        let trigger_threshold_binding = trigger_threshold_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:sentinel/alertRuleScheduled:AlertRuleScheduled".into(),
             name: name.to_string(),

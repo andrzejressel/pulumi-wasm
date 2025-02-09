@@ -84,13 +84,20 @@ pub mod get_dev_environment {
     ) -> GetDevEnvironmentResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let alias_binding = args.alias.get_output(context).get_inner();
-        let creator_id_binding = args.creator_id.get_output(context).get_inner();
-        let env_id_binding = args.env_id.get_output(context).get_inner();
-        let project_name_binding = args.project_name.get_output(context).get_inner();
-        let repositories_binding = args.repositories.get_output(context).get_inner();
-        let space_name_binding = args.space_name.get_output(context).get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
+        let alias_binding_1 = args.alias.get_output(context);
+        let alias_binding = alias_binding_1.get_inner();
+        let creator_id_binding_1 = args.creator_id.get_output(context);
+        let creator_id_binding = creator_id_binding_1.get_inner();
+        let env_id_binding_1 = args.env_id.get_output(context);
+        let env_id_binding = env_id_binding_1.get_inner();
+        let project_name_binding_1 = args.project_name.get_output(context);
+        let project_name_binding = project_name_binding_1.get_inner();
+        let repositories_binding_1 = args.repositories.get_output(context);
+        let repositories_binding = repositories_binding_1.get_inner();
+        let space_name_binding_1 = args.space_name.get_output(context);
+        let space_name_binding = space_name_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:codecatalyst/getDevEnvironment:getDevEnvironment".into(),
             version: super::super::super::get_version(),

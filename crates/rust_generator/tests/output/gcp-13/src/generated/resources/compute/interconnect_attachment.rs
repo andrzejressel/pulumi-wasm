@@ -387,32 +387,46 @@ pub mod interconnect_attachment {
     ) -> InterconnectAttachmentResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let admin_enabled_binding = args.admin_enabled.get_output(context).get_inner();
-        let bandwidth_binding = args.bandwidth.get_output(context).get_inner();
-        let candidate_subnets_binding = args
-            .candidate_subnets
-            .get_output(context)
-            .get_inner();
-        let description_binding = args.description.get_output(context).get_inner();
-        let edge_availability_domain_binding = args
+        let admin_enabled_binding_1 = args.admin_enabled.get_output(context);
+        let admin_enabled_binding = admin_enabled_binding_1.get_inner();
+        let bandwidth_binding_1 = args.bandwidth.get_output(context);
+        let bandwidth_binding = bandwidth_binding_1.get_inner();
+        let candidate_subnets_binding_1 = args.candidate_subnets.get_output(context);
+        let candidate_subnets_binding = candidate_subnets_binding_1.get_inner();
+        let description_binding_1 = args.description.get_output(context);
+        let description_binding = description_binding_1.get_inner();
+        let edge_availability_domain_binding_1 = args
             .edge_availability_domain
-            .get_output(context)
+            .get_output(context);
+        let edge_availability_domain_binding = edge_availability_domain_binding_1
             .get_inner();
-        let encryption_binding = args.encryption.get_output(context).get_inner();
-        let interconnect_binding = args.interconnect.get_output(context).get_inner();
-        let ipsec_internal_addresses_binding = args
+        let encryption_binding_1 = args.encryption.get_output(context);
+        let encryption_binding = encryption_binding_1.get_inner();
+        let interconnect_binding_1 = args.interconnect.get_output(context);
+        let interconnect_binding = interconnect_binding_1.get_inner();
+        let ipsec_internal_addresses_binding_1 = args
             .ipsec_internal_addresses
-            .get_output(context)
+            .get_output(context);
+        let ipsec_internal_addresses_binding = ipsec_internal_addresses_binding_1
             .get_inner();
-        let mtu_binding = args.mtu.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let project_binding = args.project.get_output(context).get_inner();
-        let region_binding = args.region.get_output(context).get_inner();
-        let router_binding = args.router.get_output(context).get_inner();
-        let stack_type_binding = args.stack_type.get_output(context).get_inner();
-        let subnet_length_binding = args.subnet_length.get_output(context).get_inner();
-        let type__binding = args.type_.get_output(context).get_inner();
-        let vlan_tag8021q_binding = args.vlan_tag8021q.get_output(context).get_inner();
+        let mtu_binding_1 = args.mtu.get_output(context);
+        let mtu_binding = mtu_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let project_binding_1 = args.project.get_output(context);
+        let project_binding = project_binding_1.get_inner();
+        let region_binding_1 = args.region.get_output(context);
+        let region_binding = region_binding_1.get_inner();
+        let router_binding_1 = args.router.get_output(context);
+        let router_binding = router_binding_1.get_inner();
+        let stack_type_binding_1 = args.stack_type.get_output(context);
+        let stack_type_binding = stack_type_binding_1.get_inner();
+        let subnet_length_binding_1 = args.subnet_length.get_output(context);
+        let subnet_length_binding = subnet_length_binding_1.get_inner();
+        let type__binding_1 = args.type_.get_output(context);
+        let type__binding = type__binding_1.get_inner();
+        let vlan_tag8021q_binding_1 = args.vlan_tag8021q.get_output(context);
+        let vlan_tag8021q_binding = vlan_tag8021q_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:compute/interconnectAttachment:InterconnectAttachment".into(),
             name: name.to_string(),

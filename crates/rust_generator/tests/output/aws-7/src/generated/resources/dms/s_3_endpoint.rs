@@ -393,152 +393,159 @@ pub mod s_3_endpoint {
     ) -> S3EndpointResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let add_column_name_binding = args
-            .add_column_name
-            .get_output(context)
-            .get_inner();
-        let add_trailing_padding_character_binding = args
+        let add_column_name_binding_1 = args.add_column_name.get_output(context);
+        let add_column_name_binding = add_column_name_binding_1.get_inner();
+        let add_trailing_padding_character_binding_1 = args
             .add_trailing_padding_character
-            .get_output(context)
+            .get_output(context);
+        let add_trailing_padding_character_binding = add_trailing_padding_character_binding_1
             .get_inner();
-        let bucket_folder_binding = args.bucket_folder.get_output(context).get_inner();
-        let bucket_name_binding = args.bucket_name.get_output(context).get_inner();
-        let canned_acl_for_objects_binding = args
+        let bucket_folder_binding_1 = args.bucket_folder.get_output(context);
+        let bucket_folder_binding = bucket_folder_binding_1.get_inner();
+        let bucket_name_binding_1 = args.bucket_name.get_output(context);
+        let bucket_name_binding = bucket_name_binding_1.get_inner();
+        let canned_acl_for_objects_binding_1 = args
             .canned_acl_for_objects
-            .get_output(context)
+            .get_output(context);
+        let canned_acl_for_objects_binding = canned_acl_for_objects_binding_1
             .get_inner();
-        let cdc_inserts_and_updates_binding = args
+        let cdc_inserts_and_updates_binding_1 = args
             .cdc_inserts_and_updates
-            .get_output(context)
+            .get_output(context);
+        let cdc_inserts_and_updates_binding = cdc_inserts_and_updates_binding_1
             .get_inner();
-        let cdc_inserts_only_binding = args
-            .cdc_inserts_only
-            .get_output(context)
-            .get_inner();
-        let cdc_max_batch_interval_binding = args
+        let cdc_inserts_only_binding_1 = args.cdc_inserts_only.get_output(context);
+        let cdc_inserts_only_binding = cdc_inserts_only_binding_1.get_inner();
+        let cdc_max_batch_interval_binding_1 = args
             .cdc_max_batch_interval
-            .get_output(context)
+            .get_output(context);
+        let cdc_max_batch_interval_binding = cdc_max_batch_interval_binding_1
             .get_inner();
-        let cdc_min_file_size_binding = args
-            .cdc_min_file_size
-            .get_output(context)
-            .get_inner();
-        let cdc_path_binding = args.cdc_path.get_output(context).get_inner();
-        let certificate_arn_binding = args
-            .certificate_arn
-            .get_output(context)
-            .get_inner();
-        let compression_type_binding = args
-            .compression_type
-            .get_output(context)
-            .get_inner();
-        let csv_delimiter_binding = args.csv_delimiter.get_output(context).get_inner();
-        let csv_no_sup_value_binding = args
-            .csv_no_sup_value
-            .get_output(context)
-            .get_inner();
-        let csv_null_value_binding = args.csv_null_value.get_output(context).get_inner();
-        let csv_row_delimiter_binding = args
-            .csv_row_delimiter
-            .get_output(context)
-            .get_inner();
-        let data_format_binding = args.data_format.get_output(context).get_inner();
-        let data_page_size_binding = args.data_page_size.get_output(context).get_inner();
-        let date_partition_delimiter_binding = args
+        let cdc_min_file_size_binding_1 = args.cdc_min_file_size.get_output(context);
+        let cdc_min_file_size_binding = cdc_min_file_size_binding_1.get_inner();
+        let cdc_path_binding_1 = args.cdc_path.get_output(context);
+        let cdc_path_binding = cdc_path_binding_1.get_inner();
+        let certificate_arn_binding_1 = args.certificate_arn.get_output(context);
+        let certificate_arn_binding = certificate_arn_binding_1.get_inner();
+        let compression_type_binding_1 = args.compression_type.get_output(context);
+        let compression_type_binding = compression_type_binding_1.get_inner();
+        let csv_delimiter_binding_1 = args.csv_delimiter.get_output(context);
+        let csv_delimiter_binding = csv_delimiter_binding_1.get_inner();
+        let csv_no_sup_value_binding_1 = args.csv_no_sup_value.get_output(context);
+        let csv_no_sup_value_binding = csv_no_sup_value_binding_1.get_inner();
+        let csv_null_value_binding_1 = args.csv_null_value.get_output(context);
+        let csv_null_value_binding = csv_null_value_binding_1.get_inner();
+        let csv_row_delimiter_binding_1 = args.csv_row_delimiter.get_output(context);
+        let csv_row_delimiter_binding = csv_row_delimiter_binding_1.get_inner();
+        let data_format_binding_1 = args.data_format.get_output(context);
+        let data_format_binding = data_format_binding_1.get_inner();
+        let data_page_size_binding_1 = args.data_page_size.get_output(context);
+        let data_page_size_binding = data_page_size_binding_1.get_inner();
+        let date_partition_delimiter_binding_1 = args
             .date_partition_delimiter
-            .get_output(context)
+            .get_output(context);
+        let date_partition_delimiter_binding = date_partition_delimiter_binding_1
             .get_inner();
-        let date_partition_enabled_binding = args
+        let date_partition_enabled_binding_1 = args
             .date_partition_enabled
-            .get_output(context)
+            .get_output(context);
+        let date_partition_enabled_binding = date_partition_enabled_binding_1
             .get_inner();
-        let date_partition_sequence_binding = args
+        let date_partition_sequence_binding_1 = args
             .date_partition_sequence
-            .get_output(context)
+            .get_output(context);
+        let date_partition_sequence_binding = date_partition_sequence_binding_1
             .get_inner();
-        let date_partition_timezone_binding = args
+        let date_partition_timezone_binding_1 = args
             .date_partition_timezone
-            .get_output(context)
+            .get_output(context);
+        let date_partition_timezone_binding = date_partition_timezone_binding_1
             .get_inner();
-        let detach_target_on_lob_lookup_failure_parquet_binding = args
+        let detach_target_on_lob_lookup_failure_parquet_binding_1 = args
             .detach_target_on_lob_lookup_failure_parquet
-            .get_output(context)
+            .get_output(context);
+        let detach_target_on_lob_lookup_failure_parquet_binding = detach_target_on_lob_lookup_failure_parquet_binding_1
             .get_inner();
-        let dict_page_size_limit_binding = args
+        let dict_page_size_limit_binding_1 = args
             .dict_page_size_limit
-            .get_output(context)
-            .get_inner();
-        let enable_statistics_binding = args
-            .enable_statistics
-            .get_output(context)
-            .get_inner();
-        let encoding_type_binding = args.encoding_type.get_output(context).get_inner();
-        let encryption_mode_binding = args
-            .encryption_mode
-            .get_output(context)
-            .get_inner();
-        let endpoint_id_binding = args.endpoint_id.get_output(context).get_inner();
-        let endpoint_type_binding = args.endpoint_type.get_output(context).get_inner();
-        let expected_bucket_owner_binding = args
+            .get_output(context);
+        let dict_page_size_limit_binding = dict_page_size_limit_binding_1.get_inner();
+        let enable_statistics_binding_1 = args.enable_statistics.get_output(context);
+        let enable_statistics_binding = enable_statistics_binding_1.get_inner();
+        let encoding_type_binding_1 = args.encoding_type.get_output(context);
+        let encoding_type_binding = encoding_type_binding_1.get_inner();
+        let encryption_mode_binding_1 = args.encryption_mode.get_output(context);
+        let encryption_mode_binding = encryption_mode_binding_1.get_inner();
+        let endpoint_id_binding_1 = args.endpoint_id.get_output(context);
+        let endpoint_id_binding = endpoint_id_binding_1.get_inner();
+        let endpoint_type_binding_1 = args.endpoint_type.get_output(context);
+        let endpoint_type_binding = endpoint_type_binding_1.get_inner();
+        let expected_bucket_owner_binding_1 = args
             .expected_bucket_owner
-            .get_output(context)
-            .get_inner();
-        let external_table_definition_binding = args
+            .get_output(context);
+        let expected_bucket_owner_binding = expected_bucket_owner_binding_1.get_inner();
+        let external_table_definition_binding_1 = args
             .external_table_definition
-            .get_output(context)
+            .get_output(context);
+        let external_table_definition_binding = external_table_definition_binding_1
             .get_inner();
-        let glue_catalog_generation_binding = args
+        let glue_catalog_generation_binding_1 = args
             .glue_catalog_generation
-            .get_output(context)
+            .get_output(context);
+        let glue_catalog_generation_binding = glue_catalog_generation_binding_1
             .get_inner();
-        let ignore_header_rows_binding = args
-            .ignore_header_rows
-            .get_output(context)
-            .get_inner();
-        let include_op_for_full_load_binding = args
+        let ignore_header_rows_binding_1 = args.ignore_header_rows.get_output(context);
+        let ignore_header_rows_binding = ignore_header_rows_binding_1.get_inner();
+        let include_op_for_full_load_binding_1 = args
             .include_op_for_full_load
-            .get_output(context)
+            .get_output(context);
+        let include_op_for_full_load_binding = include_op_for_full_load_binding_1
             .get_inner();
-        let kms_key_arn_binding = args.kms_key_arn.get_output(context).get_inner();
-        let max_file_size_binding = args.max_file_size.get_output(context).get_inner();
-        let parquet_timestamp_in_millisecond_binding = args
+        let kms_key_arn_binding_1 = args.kms_key_arn.get_output(context);
+        let kms_key_arn_binding = kms_key_arn_binding_1.get_inner();
+        let max_file_size_binding_1 = args.max_file_size.get_output(context);
+        let max_file_size_binding = max_file_size_binding_1.get_inner();
+        let parquet_timestamp_in_millisecond_binding_1 = args
             .parquet_timestamp_in_millisecond
-            .get_output(context)
+            .get_output(context);
+        let parquet_timestamp_in_millisecond_binding = parquet_timestamp_in_millisecond_binding_1
             .get_inner();
-        let parquet_version_binding = args
-            .parquet_version
-            .get_output(context)
-            .get_inner();
-        let preserve_transactions_binding = args
+        let parquet_version_binding_1 = args.parquet_version.get_output(context);
+        let parquet_version_binding = parquet_version_binding_1.get_inner();
+        let preserve_transactions_binding_1 = args
             .preserve_transactions
-            .get_output(context)
-            .get_inner();
-        let rfc4180_binding = args.rfc4180.get_output(context).get_inner();
-        let row_group_length_binding = args
-            .row_group_length
-            .get_output(context)
-            .get_inner();
-        let server_side_encryption_kms_key_id_binding = args
+            .get_output(context);
+        let preserve_transactions_binding = preserve_transactions_binding_1.get_inner();
+        let rfc4180_binding_1 = args.rfc4180.get_output(context);
+        let rfc4180_binding = rfc4180_binding_1.get_inner();
+        let row_group_length_binding_1 = args.row_group_length.get_output(context);
+        let row_group_length_binding = row_group_length_binding_1.get_inner();
+        let server_side_encryption_kms_key_id_binding_1 = args
             .server_side_encryption_kms_key_id
-            .get_output(context)
+            .get_output(context);
+        let server_side_encryption_kms_key_id_binding = server_side_encryption_kms_key_id_binding_1
             .get_inner();
-        let service_access_role_arn_binding = args
+        let service_access_role_arn_binding_1 = args
             .service_access_role_arn
-            .get_output(context)
+            .get_output(context);
+        let service_access_role_arn_binding = service_access_role_arn_binding_1
             .get_inner();
-        let ssl_mode_binding = args.ssl_mode.get_output(context).get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
-        let timestamp_column_name_binding = args
+        let ssl_mode_binding_1 = args.ssl_mode.get_output(context);
+        let ssl_mode_binding = ssl_mode_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
+        let timestamp_column_name_binding_1 = args
             .timestamp_column_name
-            .get_output(context)
-            .get_inner();
-        let use_csv_no_sup_value_binding = args
+            .get_output(context);
+        let timestamp_column_name_binding = timestamp_column_name_binding_1.get_inner();
+        let use_csv_no_sup_value_binding_1 = args
             .use_csv_no_sup_value
-            .get_output(context)
-            .get_inner();
-        let use_task_start_time_for_full_load_timestamp_binding = args
+            .get_output(context);
+        let use_csv_no_sup_value_binding = use_csv_no_sup_value_binding_1.get_inner();
+        let use_task_start_time_for_full_load_timestamp_binding_1 = args
             .use_task_start_time_for_full_load_timestamp
-            .get_output(context)
+            .get_output(context);
+        let use_task_start_time_for_full_load_timestamp_binding = use_task_start_time_for_full_load_timestamp_binding_1
             .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:dms/s3Endpoint:S3Endpoint".into(),

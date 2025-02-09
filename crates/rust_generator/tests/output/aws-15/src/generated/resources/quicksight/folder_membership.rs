@@ -72,10 +72,14 @@ pub mod folder_membership {
     ) -> FolderMembershipResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let aws_account_id_binding = args.aws_account_id.get_output(context).get_inner();
-        let folder_id_binding = args.folder_id.get_output(context).get_inner();
-        let member_id_binding = args.member_id.get_output(context).get_inner();
-        let member_type_binding = args.member_type.get_output(context).get_inner();
+        let aws_account_id_binding_1 = args.aws_account_id.get_output(context);
+        let aws_account_id_binding = aws_account_id_binding_1.get_inner();
+        let folder_id_binding_1 = args.folder_id.get_output(context);
+        let folder_id_binding = folder_id_binding_1.get_inner();
+        let member_id_binding_1 = args.member_id.get_output(context);
+        let member_id_binding = member_id_binding_1.get_inner();
+        let member_type_binding_1 = args.member_type.get_output(context);
+        let member_type_binding = member_type_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:quicksight/folderMembership:FolderMembership".into(),
             name: name.to_string(),

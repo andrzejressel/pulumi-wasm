@@ -112,25 +112,26 @@ pub mod cluster_managed_private_endpoint {
     ) -> ClusterManagedPrivateEndpointResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let cluster_name_binding = args.cluster_name.get_output(context).get_inner();
-        let group_id_binding = args.group_id.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let private_link_resource_id_binding = args
+        let cluster_name_binding_1 = args.cluster_name.get_output(context);
+        let cluster_name_binding = cluster_name_binding_1.get_inner();
+        let group_id_binding_1 = args.group_id.get_output(context);
+        let group_id_binding = group_id_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let private_link_resource_id_binding_1 = args
             .private_link_resource_id
-            .get_output(context)
+            .get_output(context);
+        let private_link_resource_id_binding = private_link_resource_id_binding_1
             .get_inner();
-        let private_link_resource_region_binding = args
+        let private_link_resource_region_binding_1 = args
             .private_link_resource_region
-            .get_output(context)
+            .get_output(context);
+        let private_link_resource_region_binding = private_link_resource_region_binding_1
             .get_inner();
-        let request_message_binding = args
-            .request_message
-            .get_output(context)
-            .get_inner();
-        let resource_group_name_binding = args
-            .resource_group_name
-            .get_output(context)
-            .get_inner();
+        let request_message_binding_1 = args.request_message.get_output(context);
+        let request_message_binding = request_message_binding_1.get_inner();
+        let resource_group_name_binding_1 = args.resource_group_name.get_output(context);
+        let resource_group_name_binding = resource_group_name_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:kusto/clusterManagedPrivateEndpoint:ClusterManagedPrivateEndpoint"
                 .into(),

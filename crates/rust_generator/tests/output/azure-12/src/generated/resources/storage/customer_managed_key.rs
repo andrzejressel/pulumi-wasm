@@ -172,25 +172,27 @@ pub mod customer_managed_key {
     ) -> CustomerManagedKeyResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let federated_identity_client_id_binding = args
+        let federated_identity_client_id_binding_1 = args
             .federated_identity_client_id
-            .get_output(context)
+            .get_output(context);
+        let federated_identity_client_id_binding = federated_identity_client_id_binding_1
             .get_inner();
-        let key_name_binding = args.key_name.get_output(context).get_inner();
-        let key_vault_id_binding = args.key_vault_id.get_output(context).get_inner();
-        let key_vault_uri_binding = args.key_vault_uri.get_output(context).get_inner();
-        let key_version_binding = args.key_version.get_output(context).get_inner();
-        let managed_hsm_key_id_binding = args
-            .managed_hsm_key_id
-            .get_output(context)
-            .get_inner();
-        let storage_account_id_binding = args
-            .storage_account_id
-            .get_output(context)
-            .get_inner();
-        let user_assigned_identity_id_binding = args
+        let key_name_binding_1 = args.key_name.get_output(context);
+        let key_name_binding = key_name_binding_1.get_inner();
+        let key_vault_id_binding_1 = args.key_vault_id.get_output(context);
+        let key_vault_id_binding = key_vault_id_binding_1.get_inner();
+        let key_vault_uri_binding_1 = args.key_vault_uri.get_output(context);
+        let key_vault_uri_binding = key_vault_uri_binding_1.get_inner();
+        let key_version_binding_1 = args.key_version.get_output(context);
+        let key_version_binding = key_version_binding_1.get_inner();
+        let managed_hsm_key_id_binding_1 = args.managed_hsm_key_id.get_output(context);
+        let managed_hsm_key_id_binding = managed_hsm_key_id_binding_1.get_inner();
+        let storage_account_id_binding_1 = args.storage_account_id.get_output(context);
+        let storage_account_id_binding = storage_account_id_binding_1.get_inner();
+        let user_assigned_identity_id_binding_1 = args
             .user_assigned_identity_id
-            .get_output(context)
+            .get_output(context);
+        let user_assigned_identity_id_binding = user_assigned_identity_id_binding_1
             .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:storage/customerManagedKey:CustomerManagedKey".into(),

@@ -60,11 +60,10 @@ pub mod vpc_dhcp_options_association {
     ) -> VpcDhcpOptionsAssociationResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let dhcp_options_id_binding = args
-            .dhcp_options_id
-            .get_output(context)
-            .get_inner();
-        let vpc_id_binding = args.vpc_id.get_output(context).get_inner();
+        let dhcp_options_id_binding_1 = args.dhcp_options_id.get_output(context);
+        let dhcp_options_id_binding = dhcp_options_id_binding_1.get_inner();
+        let vpc_id_binding_1 = args.vpc_id.get_output(context);
+        let vpc_id_binding = vpc_id_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:ec2/vpcDhcpOptionsAssociation:VpcDhcpOptionsAssociation".into(),
             name: name.to_string(),

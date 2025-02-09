@@ -142,26 +142,28 @@ pub mod smart_detector_alert_rule {
     ) -> SmartDetectorAlertRuleResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let action_group_binding = args.action_group.get_output(context).get_inner();
-        let description_binding = args.description.get_output(context).get_inner();
-        let detector_type_binding = args.detector_type.get_output(context).get_inner();
-        let enabled_binding = args.enabled.get_output(context).get_inner();
-        let frequency_binding = args.frequency.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let resource_group_name_binding = args
-            .resource_group_name
-            .get_output(context)
-            .get_inner();
-        let scope_resource_ids_binding = args
-            .scope_resource_ids
-            .get_output(context)
-            .get_inner();
-        let severity_binding = args.severity.get_output(context).get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
-        let throttling_duration_binding = args
-            .throttling_duration
-            .get_output(context)
-            .get_inner();
+        let action_group_binding_1 = args.action_group.get_output(context);
+        let action_group_binding = action_group_binding_1.get_inner();
+        let description_binding_1 = args.description.get_output(context);
+        let description_binding = description_binding_1.get_inner();
+        let detector_type_binding_1 = args.detector_type.get_output(context);
+        let detector_type_binding = detector_type_binding_1.get_inner();
+        let enabled_binding_1 = args.enabled.get_output(context);
+        let enabled_binding = enabled_binding_1.get_inner();
+        let frequency_binding_1 = args.frequency.get_output(context);
+        let frequency_binding = frequency_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let resource_group_name_binding_1 = args.resource_group_name.get_output(context);
+        let resource_group_name_binding = resource_group_name_binding_1.get_inner();
+        let scope_resource_ids_binding_1 = args.scope_resource_ids.get_output(context);
+        let scope_resource_ids_binding = scope_resource_ids_binding_1.get_inner();
+        let severity_binding_1 = args.severity.get_output(context);
+        let severity_binding = severity_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
+        let throttling_duration_binding_1 = args.throttling_duration.get_output(context);
+        let throttling_duration_binding = throttling_duration_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:monitoring/smartDetectorAlertRule:SmartDetectorAlertRule"
                 .into(),

@@ -73,13 +73,15 @@ pub mod preferences {
     ) -> PreferencesResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let member_account_discount_visibility_binding = args
+        let member_account_discount_visibility_binding_1 = args
             .member_account_discount_visibility
-            .get_output(context)
+            .get_output(context);
+        let member_account_discount_visibility_binding = member_account_discount_visibility_binding_1
             .get_inner();
-        let savings_estimation_mode_binding = args
+        let savings_estimation_mode_binding_1 = args
             .savings_estimation_mode
-            .get_output(context)
+            .get_output(context);
+        let savings_estimation_mode_binding = savings_estimation_mode_binding_1
             .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:costoptimizationhub/preferences:Preferences".into(),

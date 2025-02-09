@@ -40,11 +40,14 @@ pub mod get_instance_type_offering {
     ) -> GetInstanceTypeOfferingResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let filters_binding = args.filters.get_output(context).get_inner();
-        let location_type_binding = args.location_type.get_output(context).get_inner();
-        let preferred_instance_types_binding = args
+        let filters_binding_1 = args.filters.get_output(context);
+        let filters_binding = filters_binding_1.get_inner();
+        let location_type_binding_1 = args.location_type.get_output(context);
+        let location_type_binding = location_type_binding_1.get_inner();
+        let preferred_instance_types_binding_1 = args
             .preferred_instance_types
-            .get_output(context)
+            .get_output(context);
+        let preferred_instance_types_binding = preferred_instance_types_binding_1
             .get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:ec2/getInstanceTypeOffering:getInstanceTypeOffering".into(),

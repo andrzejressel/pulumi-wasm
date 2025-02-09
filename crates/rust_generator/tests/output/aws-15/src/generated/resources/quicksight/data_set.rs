@@ -350,42 +350,48 @@ pub mod data_set {
     ) -> DataSetResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let aws_account_id_binding = args.aws_account_id.get_output(context).get_inner();
-        let column_groups_binding = args.column_groups.get_output(context).get_inner();
-        let column_level_permission_rules_binding = args
+        let aws_account_id_binding_1 = args.aws_account_id.get_output(context);
+        let aws_account_id_binding = aws_account_id_binding_1.get_inner();
+        let column_groups_binding_1 = args.column_groups.get_output(context);
+        let column_groups_binding = column_groups_binding_1.get_inner();
+        let column_level_permission_rules_binding_1 = args
             .column_level_permission_rules
-            .get_output(context)
+            .get_output(context);
+        let column_level_permission_rules_binding = column_level_permission_rules_binding_1
             .get_inner();
-        let data_set_id_binding = args.data_set_id.get_output(context).get_inner();
-        let data_set_usage_configuration_binding = args
+        let data_set_id_binding_1 = args.data_set_id.get_output(context);
+        let data_set_id_binding = data_set_id_binding_1.get_inner();
+        let data_set_usage_configuration_binding_1 = args
             .data_set_usage_configuration
-            .get_output(context)
+            .get_output(context);
+        let data_set_usage_configuration_binding = data_set_usage_configuration_binding_1
             .get_inner();
-        let field_folders_binding = args.field_folders.get_output(context).get_inner();
-        let import_mode_binding = args.import_mode.get_output(context).get_inner();
-        let logical_table_maps_binding = args
-            .logical_table_maps
-            .get_output(context)
-            .get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let permissions_binding = args.permissions.get_output(context).get_inner();
-        let physical_table_maps_binding = args
-            .physical_table_maps
-            .get_output(context)
-            .get_inner();
-        let refresh_properties_binding = args
-            .refresh_properties
-            .get_output(context)
-            .get_inner();
-        let row_level_permission_data_set_binding = args
+        let field_folders_binding_1 = args.field_folders.get_output(context);
+        let field_folders_binding = field_folders_binding_1.get_inner();
+        let import_mode_binding_1 = args.import_mode.get_output(context);
+        let import_mode_binding = import_mode_binding_1.get_inner();
+        let logical_table_maps_binding_1 = args.logical_table_maps.get_output(context);
+        let logical_table_maps_binding = logical_table_maps_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let permissions_binding_1 = args.permissions.get_output(context);
+        let permissions_binding = permissions_binding_1.get_inner();
+        let physical_table_maps_binding_1 = args.physical_table_maps.get_output(context);
+        let physical_table_maps_binding = physical_table_maps_binding_1.get_inner();
+        let refresh_properties_binding_1 = args.refresh_properties.get_output(context);
+        let refresh_properties_binding = refresh_properties_binding_1.get_inner();
+        let row_level_permission_data_set_binding_1 = args
             .row_level_permission_data_set
-            .get_output(context)
+            .get_output(context);
+        let row_level_permission_data_set_binding = row_level_permission_data_set_binding_1
             .get_inner();
-        let row_level_permission_tag_configuration_binding = args
+        let row_level_permission_tag_configuration_binding_1 = args
             .row_level_permission_tag_configuration
-            .get_output(context)
+            .get_output(context);
+        let row_level_permission_tag_configuration_binding = row_level_permission_tag_configuration_binding_1
             .get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:quicksight/dataSet:DataSet".into(),
             name: name.to_string(),

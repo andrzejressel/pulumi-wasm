@@ -120,10 +120,14 @@ pub mod cross_account_attachment {
     ) -> CrossAccountAttachmentResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let name_binding = args.name.get_output(context).get_inner();
-        let principals_binding = args.principals.get_output(context).get_inner();
-        let resources_binding = args.resources.get_output(context).get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let principals_binding_1 = args.principals.get_output(context);
+        let principals_binding = principals_binding_1.get_inner();
+        let resources_binding_1 = args.resources.get_output(context);
+        let resources_binding = resources_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:globalaccelerator/crossAccountAttachment:CrossAccountAttachment"
                 .into(),

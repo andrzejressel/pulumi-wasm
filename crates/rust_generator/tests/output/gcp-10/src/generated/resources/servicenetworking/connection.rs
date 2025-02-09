@@ -116,19 +116,21 @@ pub mod connection {
     ) -> ConnectionResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let deletion_policy_binding = args
-            .deletion_policy
-            .get_output(context)
-            .get_inner();
-        let network_binding = args.network.get_output(context).get_inner();
-        let reserved_peering_ranges_binding = args
+        let deletion_policy_binding_1 = args.deletion_policy.get_output(context);
+        let deletion_policy_binding = deletion_policy_binding_1.get_inner();
+        let network_binding_1 = args.network.get_output(context);
+        let network_binding = network_binding_1.get_inner();
+        let reserved_peering_ranges_binding_1 = args
             .reserved_peering_ranges
-            .get_output(context)
+            .get_output(context);
+        let reserved_peering_ranges_binding = reserved_peering_ranges_binding_1
             .get_inner();
-        let service_binding = args.service.get_output(context).get_inner();
-        let update_on_creation_fail_binding = args
+        let service_binding_1 = args.service.get_output(context);
+        let service_binding = service_binding_1.get_inner();
+        let update_on_creation_fail_binding_1 = args
             .update_on_creation_fail
-            .get_output(context)
+            .get_output(context);
+        let update_on_creation_fail_binding = update_on_creation_fail_binding_1
             .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:servicenetworking/connection:Connection".into(),

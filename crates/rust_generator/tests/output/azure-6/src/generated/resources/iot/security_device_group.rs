@@ -105,10 +105,14 @@ pub mod security_device_group {
     ) -> SecurityDeviceGroupResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let allow_rule_binding = args.allow_rule.get_output(context).get_inner();
-        let iothub_id_binding = args.iothub_id.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let range_rules_binding = args.range_rules.get_output(context).get_inner();
+        let allow_rule_binding_1 = args.allow_rule.get_output(context);
+        let allow_rule_binding = allow_rule_binding_1.get_inner();
+        let iothub_id_binding_1 = args.iothub_id.get_output(context);
+        let iothub_id_binding = iothub_id_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let range_rules_binding_1 = args.range_rules.get_output(context);
+        let range_rules_binding = range_rules_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:iot/securityDeviceGroup:SecurityDeviceGroup".into(),
             name: name.to_string(),

@@ -52,10 +52,14 @@ pub mod get_vocabulary {
     ) -> GetVocabularyResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let instance_id_binding = args.instance_id.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
-        let vocabulary_id_binding = args.vocabulary_id.get_output(context).get_inner();
+        let instance_id_binding_1 = args.instance_id.get_output(context);
+        let instance_id_binding = instance_id_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
+        let vocabulary_id_binding_1 = args.vocabulary_id.get_output(context);
+        let vocabulary_id_binding = vocabulary_id_binding_1.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:connect/getVocabulary:getVocabulary".into(),
             version: super::super::super::get_version(),

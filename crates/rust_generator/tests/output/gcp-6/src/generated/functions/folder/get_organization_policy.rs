@@ -40,8 +40,10 @@ pub mod get_organization_policy {
     ) -> GetOrganizationPolicyResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let constraint_binding = args.constraint.get_output(context).get_inner();
-        let folder_binding = args.folder.get_output(context).get_inner();
+        let constraint_binding_1 = args.constraint.get_output(context);
+        let constraint_binding = constraint_binding_1.get_inner();
+        let folder_binding_1 = args.folder.get_output(context);
+        let folder_binding = folder_binding_1.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "gcp:folder/getOrganizationPolicy:getOrganizationPolicy".into(),
             version: super::super::super::get_version(),

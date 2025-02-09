@@ -36,11 +36,10 @@ pub mod get_provisioning_artifacts {
     ) -> GetProvisioningArtifactsResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let accept_language_binding = args
-            .accept_language
-            .get_output(context)
-            .get_inner();
-        let product_id_binding = args.product_id.get_output(context).get_inner();
+        let accept_language_binding_1 = args.accept_language.get_output(context);
+        let accept_language_binding = accept_language_binding_1.get_inner();
+        let product_id_binding_1 = args.product_id.get_output(context);
+        let product_id_binding = product_id_binding_1.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:servicecatalog/getProvisioningArtifacts:getProvisioningArtifacts"
                 .into(),

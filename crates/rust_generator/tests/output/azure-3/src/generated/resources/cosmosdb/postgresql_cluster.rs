@@ -205,74 +205,81 @@ pub mod postgresql_cluster {
     ) -> PostgresqlClusterResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let administrator_login_password_binding = args
+        let administrator_login_password_binding_1 = args
             .administrator_login_password
-            .get_output(context)
+            .get_output(context);
+        let administrator_login_password_binding = administrator_login_password_binding_1
             .get_inner();
-        let citus_version_binding = args.citus_version.get_output(context).get_inner();
-        let coordinator_public_ip_access_enabled_binding = args
+        let citus_version_binding_1 = args.citus_version.get_output(context);
+        let citus_version_binding = citus_version_binding_1.get_inner();
+        let coordinator_public_ip_access_enabled_binding_1 = args
             .coordinator_public_ip_access_enabled
-            .get_output(context)
+            .get_output(context);
+        let coordinator_public_ip_access_enabled_binding = coordinator_public_ip_access_enabled_binding_1
             .get_inner();
-        let coordinator_server_edition_binding = args
+        let coordinator_server_edition_binding_1 = args
             .coordinator_server_edition
-            .get_output(context)
+            .get_output(context);
+        let coordinator_server_edition_binding = coordinator_server_edition_binding_1
             .get_inner();
-        let coordinator_storage_quota_in_mb_binding = args
+        let coordinator_storage_quota_in_mb_binding_1 = args
             .coordinator_storage_quota_in_mb
-            .get_output(context)
+            .get_output(context);
+        let coordinator_storage_quota_in_mb_binding = coordinator_storage_quota_in_mb_binding_1
             .get_inner();
-        let coordinator_vcore_count_binding = args
+        let coordinator_vcore_count_binding_1 = args
             .coordinator_vcore_count
-            .get_output(context)
+            .get_output(context);
+        let coordinator_vcore_count_binding = coordinator_vcore_count_binding_1
             .get_inner();
-        let ha_enabled_binding = args.ha_enabled.get_output(context).get_inner();
-        let location_binding = args.location.get_output(context).get_inner();
-        let maintenance_window_binding = args
-            .maintenance_window
-            .get_output(context)
-            .get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let node_count_binding = args.node_count.get_output(context).get_inner();
-        let node_public_ip_access_enabled_binding = args
+        let ha_enabled_binding_1 = args.ha_enabled.get_output(context);
+        let ha_enabled_binding = ha_enabled_binding_1.get_inner();
+        let location_binding_1 = args.location.get_output(context);
+        let location_binding = location_binding_1.get_inner();
+        let maintenance_window_binding_1 = args.maintenance_window.get_output(context);
+        let maintenance_window_binding = maintenance_window_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let node_count_binding_1 = args.node_count.get_output(context);
+        let node_count_binding = node_count_binding_1.get_inner();
+        let node_public_ip_access_enabled_binding_1 = args
             .node_public_ip_access_enabled
-            .get_output(context)
+            .get_output(context);
+        let node_public_ip_access_enabled_binding = node_public_ip_access_enabled_binding_1
             .get_inner();
-        let node_server_edition_binding = args
-            .node_server_edition
-            .get_output(context)
-            .get_inner();
-        let node_storage_quota_in_mb_binding = args
+        let node_server_edition_binding_1 = args.node_server_edition.get_output(context);
+        let node_server_edition_binding = node_server_edition_binding_1.get_inner();
+        let node_storage_quota_in_mb_binding_1 = args
             .node_storage_quota_in_mb
-            .get_output(context)
+            .get_output(context);
+        let node_storage_quota_in_mb_binding = node_storage_quota_in_mb_binding_1
             .get_inner();
-        let node_vcores_binding = args.node_vcores.get_output(context).get_inner();
-        let point_in_time_in_utc_binding = args
+        let node_vcores_binding_1 = args.node_vcores.get_output(context);
+        let node_vcores_binding = node_vcores_binding_1.get_inner();
+        let point_in_time_in_utc_binding_1 = args
             .point_in_time_in_utc
-            .get_output(context)
-            .get_inner();
-        let preferred_primary_zone_binding = args
+            .get_output(context);
+        let point_in_time_in_utc_binding = point_in_time_in_utc_binding_1.get_inner();
+        let preferred_primary_zone_binding_1 = args
             .preferred_primary_zone
-            .get_output(context)
+            .get_output(context);
+        let preferred_primary_zone_binding = preferred_primary_zone_binding_1
             .get_inner();
-        let resource_group_name_binding = args
-            .resource_group_name
-            .get_output(context)
-            .get_inner();
-        let shards_on_coordinator_enabled_binding = args
+        let resource_group_name_binding_1 = args.resource_group_name.get_output(context);
+        let resource_group_name_binding = resource_group_name_binding_1.get_inner();
+        let shards_on_coordinator_enabled_binding_1 = args
             .shards_on_coordinator_enabled
-            .get_output(context)
+            .get_output(context);
+        let shards_on_coordinator_enabled_binding = shards_on_coordinator_enabled_binding_1
             .get_inner();
-        let source_location_binding = args
-            .source_location
-            .get_output(context)
-            .get_inner();
-        let source_resource_id_binding = args
-            .source_resource_id
-            .get_output(context)
-            .get_inner();
-        let sql_version_binding = args.sql_version.get_output(context).get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
+        let source_location_binding_1 = args.source_location.get_output(context);
+        let source_location_binding = source_location_binding_1.get_inner();
+        let source_resource_id_binding_1 = args.source_resource_id.get_output(context);
+        let source_resource_id_binding = source_resource_id_binding_1.get_inner();
+        let sql_version_binding_1 = args.sql_version.get_output(context);
+        let sql_version_binding = sql_version_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:cosmosdb/postgresqlCluster:PostgresqlCluster".into(),
             name: name.to_string(),

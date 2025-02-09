@@ -32,10 +32,12 @@ pub mod get_certificate {
     ) -> GetCertificateResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let arn_binding = args.arn.get_output(context).get_inner();
-        let certificate_authority_arn_binding = args
+        let arn_binding_1 = args.arn.get_output(context);
+        let arn_binding = arn_binding_1.get_inner();
+        let certificate_authority_arn_binding_1 = args
             .certificate_authority_arn
-            .get_output(context)
+            .get_output(context);
+        let certificate_authority_arn_binding = certificate_authority_arn_binding_1
             .get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:acmpca/getCertificate:getCertificate".into(),

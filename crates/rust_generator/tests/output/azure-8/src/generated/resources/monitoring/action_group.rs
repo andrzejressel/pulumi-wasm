@@ -260,53 +260,49 @@ pub mod action_group {
     ) -> ActionGroupResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let arm_role_receivers_binding = args
-            .arm_role_receivers
-            .get_output(context)
-            .get_inner();
-        let automation_runbook_receivers_binding = args
+        let arm_role_receivers_binding_1 = args.arm_role_receivers.get_output(context);
+        let arm_role_receivers_binding = arm_role_receivers_binding_1.get_inner();
+        let automation_runbook_receivers_binding_1 = args
             .automation_runbook_receivers
-            .get_output(context)
+            .get_output(context);
+        let automation_runbook_receivers_binding = automation_runbook_receivers_binding_1
             .get_inner();
-        let azure_app_push_receivers_binding = args
+        let azure_app_push_receivers_binding_1 = args
             .azure_app_push_receivers
-            .get_output(context)
+            .get_output(context);
+        let azure_app_push_receivers_binding = azure_app_push_receivers_binding_1
             .get_inner();
-        let azure_function_receivers_binding = args
+        let azure_function_receivers_binding_1 = args
             .azure_function_receivers
-            .get_output(context)
+            .get_output(context);
+        let azure_function_receivers_binding = azure_function_receivers_binding_1
             .get_inner();
-        let email_receivers_binding = args
-            .email_receivers
-            .get_output(context)
-            .get_inner();
-        let enabled_binding = args.enabled.get_output(context).get_inner();
-        let event_hub_receivers_binding = args
-            .event_hub_receivers
-            .get_output(context)
-            .get_inner();
-        let itsm_receivers_binding = args.itsm_receivers.get_output(context).get_inner();
-        let location_binding = args.location.get_output(context).get_inner();
-        let logic_app_receivers_binding = args
-            .logic_app_receivers
-            .get_output(context)
-            .get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let resource_group_name_binding = args
-            .resource_group_name
-            .get_output(context)
-            .get_inner();
-        let short_name_binding = args.short_name.get_output(context).get_inner();
-        let sms_receivers_binding = args.sms_receivers.get_output(context).get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
-        let voice_receivers_binding = args
-            .voice_receivers
-            .get_output(context)
-            .get_inner();
-        let webhook_receivers_binding = args
-            .webhook_receivers
-            .get_output(context)
-            .get_inner();
+        let email_receivers_binding_1 = args.email_receivers.get_output(context);
+        let email_receivers_binding = email_receivers_binding_1.get_inner();
+        let enabled_binding_1 = args.enabled.get_output(context);
+        let enabled_binding = enabled_binding_1.get_inner();
+        let event_hub_receivers_binding_1 = args.event_hub_receivers.get_output(context);
+        let event_hub_receivers_binding = event_hub_receivers_binding_1.get_inner();
+        let itsm_receivers_binding_1 = args.itsm_receivers.get_output(context);
+        let itsm_receivers_binding = itsm_receivers_binding_1.get_inner();
+        let location_binding_1 = args.location.get_output(context);
+        let location_binding = location_binding_1.get_inner();
+        let logic_app_receivers_binding_1 = args.logic_app_receivers.get_output(context);
+        let logic_app_receivers_binding = logic_app_receivers_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let resource_group_name_binding_1 = args.resource_group_name.get_output(context);
+        let resource_group_name_binding = resource_group_name_binding_1.get_inner();
+        let short_name_binding_1 = args.short_name.get_output(context);
+        let short_name_binding = short_name_binding_1.get_inner();
+        let sms_receivers_binding_1 = args.sms_receivers.get_output(context);
+        let sms_receivers_binding = sms_receivers_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
+        let voice_receivers_binding_1 = args.voice_receivers.get_output(context);
+        let voice_receivers_binding = voice_receivers_binding_1.get_inner();
+        let webhook_receivers_binding_1 = args.webhook_receivers.get_output(context);
+        let webhook_receivers_binding = webhook_receivers_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:monitoring/actionGroup:ActionGroup".into(),
             name: name.to_string(),

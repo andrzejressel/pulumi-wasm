@@ -254,48 +254,56 @@ pub mod cx_agent {
     ) -> CxAgentResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let advanced_settings_binding = args
-            .advanced_settings
-            .get_output(context)
-            .get_inner();
-        let avatar_uri_binding = args.avatar_uri.get_output(context).get_inner();
-        let default_language_code_binding = args
+        let advanced_settings_binding_1 = args.advanced_settings.get_output(context);
+        let advanced_settings_binding = advanced_settings_binding_1.get_inner();
+        let avatar_uri_binding_1 = args.avatar_uri.get_output(context);
+        let avatar_uri_binding = avatar_uri_binding_1.get_inner();
+        let default_language_code_binding_1 = args
             .default_language_code
-            .get_output(context)
-            .get_inner();
-        let description_binding = args.description.get_output(context).get_inner();
-        let display_name_binding = args.display_name.get_output(context).get_inner();
-        let enable_spell_correction_binding = args
+            .get_output(context);
+        let default_language_code_binding = default_language_code_binding_1.get_inner();
+        let description_binding_1 = args.description.get_output(context);
+        let description_binding = description_binding_1.get_inner();
+        let display_name_binding_1 = args.display_name.get_output(context);
+        let display_name_binding = display_name_binding_1.get_inner();
+        let enable_spell_correction_binding_1 = args
             .enable_spell_correction
-            .get_output(context)
+            .get_output(context);
+        let enable_spell_correction_binding = enable_spell_correction_binding_1
             .get_inner();
-        let enable_stackdriver_logging_binding = args
+        let enable_stackdriver_logging_binding_1 = args
             .enable_stackdriver_logging
-            .get_output(context)
+            .get_output(context);
+        let enable_stackdriver_logging_binding = enable_stackdriver_logging_binding_1
             .get_inner();
-        let git_integration_settings_binding = args
+        let git_integration_settings_binding_1 = args
             .git_integration_settings
-            .get_output(context)
+            .get_output(context);
+        let git_integration_settings_binding = git_integration_settings_binding_1
             .get_inner();
-        let location_binding = args.location.get_output(context).get_inner();
-        let project_binding = args.project.get_output(context).get_inner();
-        let security_settings_binding = args
-            .security_settings
-            .get_output(context)
-            .get_inner();
-        let speech_to_text_settings_binding = args
+        let location_binding_1 = args.location.get_output(context);
+        let location_binding = location_binding_1.get_inner();
+        let project_binding_1 = args.project.get_output(context);
+        let project_binding = project_binding_1.get_inner();
+        let security_settings_binding_1 = args.security_settings.get_output(context);
+        let security_settings_binding = security_settings_binding_1.get_inner();
+        let speech_to_text_settings_binding_1 = args
             .speech_to_text_settings
-            .get_output(context)
+            .get_output(context);
+        let speech_to_text_settings_binding = speech_to_text_settings_binding_1
             .get_inner();
-        let supported_language_codes_binding = args
+        let supported_language_codes_binding_1 = args
             .supported_language_codes
-            .get_output(context)
+            .get_output(context);
+        let supported_language_codes_binding = supported_language_codes_binding_1
             .get_inner();
-        let text_to_speech_settings_binding = args
+        let text_to_speech_settings_binding_1 = args
             .text_to_speech_settings
-            .get_output(context)
+            .get_output(context);
+        let text_to_speech_settings_binding = text_to_speech_settings_binding_1
             .get_inner();
-        let time_zone_binding = args.time_zone.get_output(context).get_inner();
+        let time_zone_binding_1 = args.time_zone.get_output(context);
+        let time_zone_binding = time_zone_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:diagflow/cxAgent:CxAgent".into(),
             name: name.to_string(),

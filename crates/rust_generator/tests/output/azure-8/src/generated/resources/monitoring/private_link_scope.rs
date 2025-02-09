@@ -84,20 +84,18 @@ pub mod private_link_scope {
     ) -> PrivateLinkScopeResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let ingestion_access_mode_binding = args
+        let ingestion_access_mode_binding_1 = args
             .ingestion_access_mode
-            .get_output(context)
-            .get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let query_access_mode_binding = args
-            .query_access_mode
-            .get_output(context)
-            .get_inner();
-        let resource_group_name_binding = args
-            .resource_group_name
-            .get_output(context)
-            .get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
+            .get_output(context);
+        let ingestion_access_mode_binding = ingestion_access_mode_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let query_access_mode_binding_1 = args.query_access_mode.get_output(context);
+        let query_access_mode_binding = query_access_mode_binding_1.get_inner();
+        let resource_group_name_binding_1 = args.resource_group_name.get_output(context);
+        let resource_group_name_binding = resource_group_name_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:monitoring/privateLinkScope:PrivateLinkScope".into(),
             name: name.to_string(),

@@ -37,10 +37,10 @@ pub mod get_application_providers {
     ) -> GetApplicationProvidersResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let application_providers_binding = args
+        let application_providers_binding_1 = args
             .application_providers
-            .get_output(context)
-            .get_inner();
+            .get_output(context);
+        let application_providers_binding = application_providers_binding_1.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:ssoadmin/getApplicationProviders:getApplicationProviders".into(),
             version: super::super::super::get_version(),

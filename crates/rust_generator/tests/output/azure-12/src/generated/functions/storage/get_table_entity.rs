@@ -36,12 +36,12 @@ pub mod get_table_entity {
     ) -> GetTableEntityResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let partition_key_binding = args.partition_key.get_output(context).get_inner();
-        let row_key_binding = args.row_key.get_output(context).get_inner();
-        let storage_table_id_binding = args
-            .storage_table_id
-            .get_output(context)
-            .get_inner();
+        let partition_key_binding_1 = args.partition_key.get_output(context);
+        let partition_key_binding = partition_key_binding_1.get_inner();
+        let row_key_binding_1 = args.row_key.get_output(context);
+        let row_key_binding = row_key_binding_1.get_inner();
+        let storage_table_id_binding_1 = args.storage_table_id.get_output(context);
+        let storage_table_id_binding = storage_table_id_binding_1.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "azure:storage/getTableEntity:getTableEntity".into(),
             version: super::super::super::get_version(),

@@ -283,14 +283,16 @@ pub mod certifiate {
     ) -> CertifiateResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let certificate_binding = args.certificate.get_output(context).get_inner();
-        let certificate_policy_binding = args
-            .certificate_policy
-            .get_output(context)
-            .get_inner();
-        let key_vault_id_binding = args.key_vault_id.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
+        let certificate_binding_1 = args.certificate.get_output(context);
+        let certificate_binding = certificate_binding_1.get_inner();
+        let certificate_policy_binding_1 = args.certificate_policy.get_output(context);
+        let certificate_policy_binding = certificate_policy_binding_1.get_inner();
+        let key_vault_id_binding_1 = args.key_vault_id.get_output(context);
+        let key_vault_id_binding = key_vault_id_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:keyvault/certifiate:Certifiate".into(),
             name: name.to_string(),

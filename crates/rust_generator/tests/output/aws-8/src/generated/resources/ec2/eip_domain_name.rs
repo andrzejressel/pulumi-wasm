@@ -69,9 +69,12 @@ pub mod eip_domain_name {
     ) -> EipDomainNameResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let allocation_id_binding = args.allocation_id.get_output(context).get_inner();
-        let domain_name_binding = args.domain_name.get_output(context).get_inner();
-        let timeouts_binding = args.timeouts.get_output(context).get_inner();
+        let allocation_id_binding_1 = args.allocation_id.get_output(context);
+        let allocation_id_binding = allocation_id_binding_1.get_inner();
+        let domain_name_binding_1 = args.domain_name.get_output(context);
+        let domain_name_binding = domain_name_binding_1.get_inner();
+        let timeouts_binding_1 = args.timeouts.get_output(context);
+        let timeouts_binding = timeouts_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:ec2/eipDomainName:EipDomainName".into(),
             name: name.to_string(),

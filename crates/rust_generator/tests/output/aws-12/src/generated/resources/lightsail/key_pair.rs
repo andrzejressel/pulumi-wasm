@@ -123,11 +123,16 @@ pub mod key_pair {
     ) -> KeyPairResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let name_binding = args.name.get_output(context).get_inner();
-        let name_prefix_binding = args.name_prefix.get_output(context).get_inner();
-        let pgp_key_binding = args.pgp_key.get_output(context).get_inner();
-        let public_key_binding = args.public_key.get_output(context).get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let name_prefix_binding_1 = args.name_prefix.get_output(context);
+        let name_prefix_binding = name_prefix_binding_1.get_inner();
+        let pgp_key_binding_1 = args.pgp_key.get_output(context);
+        let pgp_key_binding = pgp_key_binding_1.get_inner();
+        let public_key_binding_1 = args.public_key.get_output(context);
+        let public_key_binding = public_key_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:lightsail/keyPair:KeyPair".into(),
             name: name.to_string(),

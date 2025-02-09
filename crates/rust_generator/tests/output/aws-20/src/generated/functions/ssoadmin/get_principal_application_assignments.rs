@@ -50,13 +50,17 @@ pub mod get_principal_application_assignments {
     ) -> GetPrincipalApplicationAssignmentsResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let application_assignments_binding = args
+        let application_assignments_binding_1 = args
             .application_assignments
-            .get_output(context)
+            .get_output(context);
+        let application_assignments_binding = application_assignments_binding_1
             .get_inner();
-        let instance_arn_binding = args.instance_arn.get_output(context).get_inner();
-        let principal_id_binding = args.principal_id.get_output(context).get_inner();
-        let principal_type_binding = args.principal_type.get_output(context).get_inner();
+        let instance_arn_binding_1 = args.instance_arn.get_output(context);
+        let instance_arn_binding = instance_arn_binding_1.get_inner();
+        let principal_id_binding_1 = args.principal_id.get_output(context);
+        let principal_id_binding = principal_id_binding_1.get_inner();
+        let principal_type_binding_1 = args.principal_type.get_output(context);
+        let principal_type_binding = principal_type_binding_1.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:ssoadmin/getPrincipalApplicationAssignments:getPrincipalApplicationAssignments"
                 .into(),

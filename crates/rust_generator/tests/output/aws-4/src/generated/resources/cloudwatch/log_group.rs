@@ -94,19 +94,20 @@ pub mod log_group {
     ) -> LogGroupResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let kms_key_id_binding = args.kms_key_id.get_output(context).get_inner();
-        let log_group_class_binding = args
-            .log_group_class
-            .get_output(context)
-            .get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let name_prefix_binding = args.name_prefix.get_output(context).get_inner();
-        let retention_in_days_binding = args
-            .retention_in_days
-            .get_output(context)
-            .get_inner();
-        let skip_destroy_binding = args.skip_destroy.get_output(context).get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
+        let kms_key_id_binding_1 = args.kms_key_id.get_output(context);
+        let kms_key_id_binding = kms_key_id_binding_1.get_inner();
+        let log_group_class_binding_1 = args.log_group_class.get_output(context);
+        let log_group_class_binding = log_group_class_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let name_prefix_binding_1 = args.name_prefix.get_output(context);
+        let name_prefix_binding = name_prefix_binding_1.get_inner();
+        let retention_in_days_binding_1 = args.retention_in_days.get_output(context);
+        let retention_in_days_binding = retention_in_days_binding_1.get_inner();
+        let skip_destroy_binding_1 = args.skip_destroy.get_output(context);
+        let skip_destroy_binding = skip_destroy_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:cloudwatch/logGroup:LogGroup".into(),
             name: name.to_string(),

@@ -98,9 +98,12 @@ pub mod random_id {
     ) -> RandomIdResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let byte_length_binding = args.byte_length.get_output(context).get_inner();
-        let keepers_binding = args.keepers.get_output(context).get_inner();
-        let prefix_binding = args.prefix.get_output(context).get_inner();
+        let byte_length_binding_1 = args.byte_length.get_output(context);
+        let byte_length_binding = byte_length_binding_1.get_inner();
+        let keepers_binding_1 = args.keepers.get_output(context);
+        let keepers_binding = keepers_binding_1.get_inner();
+        let prefix_binding_1 = args.prefix.get_output(context);
+        let prefix_binding = prefix_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "random:index/randomId:RandomId".into(),
             name: name.to_string(),

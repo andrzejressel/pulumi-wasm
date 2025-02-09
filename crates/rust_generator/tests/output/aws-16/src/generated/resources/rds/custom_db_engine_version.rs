@@ -218,27 +218,36 @@ pub mod custom_db_engine_version {
     ) -> CustomDbEngineVersionResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let database_installation_files_s3_bucket_name_binding = args
+        let database_installation_files_s3_bucket_name_binding_1 = args
             .database_installation_files_s3_bucket_name
-            .get_output(context)
+            .get_output(context);
+        let database_installation_files_s3_bucket_name_binding = database_installation_files_s3_bucket_name_binding_1
             .get_inner();
-        let database_installation_files_s3_prefix_binding = args
+        let database_installation_files_s3_prefix_binding_1 = args
             .database_installation_files_s3_prefix
-            .get_output(context)
+            .get_output(context);
+        let database_installation_files_s3_prefix_binding = database_installation_files_s3_prefix_binding_1
             .get_inner();
-        let description_binding = args.description.get_output(context).get_inner();
-        let engine_binding = args.engine.get_output(context).get_inner();
-        let engine_version_binding = args.engine_version.get_output(context).get_inner();
-        let filename_binding = args.filename.get_output(context).get_inner();
-        let kms_key_id_binding = args.kms_key_id.get_output(context).get_inner();
-        let manifest_binding = args.manifest.get_output(context).get_inner();
-        let manifest_hash_binding = args.manifest_hash.get_output(context).get_inner();
-        let source_image_id_binding = args
-            .source_image_id
-            .get_output(context)
-            .get_inner();
-        let status_binding = args.status.get_output(context).get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
+        let description_binding_1 = args.description.get_output(context);
+        let description_binding = description_binding_1.get_inner();
+        let engine_binding_1 = args.engine.get_output(context);
+        let engine_binding = engine_binding_1.get_inner();
+        let engine_version_binding_1 = args.engine_version.get_output(context);
+        let engine_version_binding = engine_version_binding_1.get_inner();
+        let filename_binding_1 = args.filename.get_output(context);
+        let filename_binding = filename_binding_1.get_inner();
+        let kms_key_id_binding_1 = args.kms_key_id.get_output(context);
+        let kms_key_id_binding = kms_key_id_binding_1.get_inner();
+        let manifest_binding_1 = args.manifest.get_output(context);
+        let manifest_binding = manifest_binding_1.get_inner();
+        let manifest_hash_binding_1 = args.manifest_hash.get_output(context);
+        let manifest_hash_binding = manifest_hash_binding_1.get_inner();
+        let source_image_id_binding_1 = args.source_image_id.get_output(context);
+        let source_image_id_binding = source_image_id_binding_1.get_inner();
+        let status_binding_1 = args.status.get_output(context);
+        let status_binding = status_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:rds/customDbEngineVersion:CustomDbEngineVersion".into(),
             name: name.to_string(),

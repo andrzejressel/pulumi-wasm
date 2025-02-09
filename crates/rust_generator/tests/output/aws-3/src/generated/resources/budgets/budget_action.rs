@@ -183,25 +183,26 @@ pub mod budget_action {
     ) -> BudgetActionResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let account_id_binding = args.account_id.get_output(context).get_inner();
-        let action_threshold_binding = args
-            .action_threshold
-            .get_output(context)
-            .get_inner();
-        let action_type_binding = args.action_type.get_output(context).get_inner();
-        let approval_model_binding = args.approval_model.get_output(context).get_inner();
-        let budget_name_binding = args.budget_name.get_output(context).get_inner();
-        let definition_binding = args.definition.get_output(context).get_inner();
-        let execution_role_arn_binding = args
-            .execution_role_arn
-            .get_output(context)
-            .get_inner();
-        let notification_type_binding = args
-            .notification_type
-            .get_output(context)
-            .get_inner();
-        let subscribers_binding = args.subscribers.get_output(context).get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
+        let account_id_binding_1 = args.account_id.get_output(context);
+        let account_id_binding = account_id_binding_1.get_inner();
+        let action_threshold_binding_1 = args.action_threshold.get_output(context);
+        let action_threshold_binding = action_threshold_binding_1.get_inner();
+        let action_type_binding_1 = args.action_type.get_output(context);
+        let action_type_binding = action_type_binding_1.get_inner();
+        let approval_model_binding_1 = args.approval_model.get_output(context);
+        let approval_model_binding = approval_model_binding_1.get_inner();
+        let budget_name_binding_1 = args.budget_name.get_output(context);
+        let budget_name_binding = budget_name_binding_1.get_inner();
+        let definition_binding_1 = args.definition.get_output(context);
+        let definition_binding = definition_binding_1.get_inner();
+        let execution_role_arn_binding_1 = args.execution_role_arn.get_output(context);
+        let execution_role_arn_binding = execution_role_arn_binding_1.get_inner();
+        let notification_type_binding_1 = args.notification_type.get_output(context);
+        let notification_type_binding = notification_type_binding_1.get_inner();
+        let subscribers_binding_1 = args.subscribers.get_output(context);
+        let subscribers_binding = subscribers_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:budgets/budgetAction:BudgetAction".into(),
             name: name.to_string(),

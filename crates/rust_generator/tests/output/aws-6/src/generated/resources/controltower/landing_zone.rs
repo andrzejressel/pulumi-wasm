@@ -60,9 +60,12 @@ pub mod landing_zone {
     ) -> LandingZoneResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let manifest_json_binding = args.manifest_json.get_output(context).get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
-        let version_binding = args.version.get_output(context).get_inner();
+        let manifest_json_binding_1 = args.manifest_json.get_output(context);
+        let manifest_json_binding = manifest_json_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
+        let version_binding_1 = args.version.get_output(context);
+        let version_binding = version_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:controltower/landingZone:LandingZone".into(),
             name: name.to_string(),

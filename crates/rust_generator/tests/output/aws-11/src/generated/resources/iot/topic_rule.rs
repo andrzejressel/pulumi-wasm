@@ -276,41 +276,58 @@ pub mod topic_rule {
     ) -> TopicRuleResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let cloudwatch_alarms_binding = args
-            .cloudwatch_alarms
-            .get_output(context)
-            .get_inner();
-        let cloudwatch_logs_binding = args
-            .cloudwatch_logs
-            .get_output(context)
-            .get_inner();
-        let cloudwatch_metrics_binding = args
-            .cloudwatch_metrics
-            .get_output(context)
-            .get_inner();
-        let description_binding = args.description.get_output(context).get_inner();
-        let dynamodbs_binding = args.dynamodbs.get_output(context).get_inner();
-        let dynamodbv2s_binding = args.dynamodbv2s.get_output(context).get_inner();
-        let elasticsearch_binding = args.elasticsearch.get_output(context).get_inner();
-        let enabled_binding = args.enabled.get_output(context).get_inner();
-        let error_action_binding = args.error_action.get_output(context).get_inner();
-        let firehoses_binding = args.firehoses.get_output(context).get_inner();
-        let https_binding = args.https.get_output(context).get_inner();
-        let iot_analytics_binding = args.iot_analytics.get_output(context).get_inner();
-        let iot_events_binding = args.iot_events.get_output(context).get_inner();
-        let kafkas_binding = args.kafkas.get_output(context).get_inner();
-        let kineses_binding = args.kineses.get_output(context).get_inner();
-        let lambdas_binding = args.lambdas.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let republishes_binding = args.republishes.get_output(context).get_inner();
-        let s3_binding = args.s3.get_output(context).get_inner();
-        let sns_binding = args.sns.get_output(context).get_inner();
-        let sql_binding = args.sql.get_output(context).get_inner();
-        let sql_version_binding = args.sql_version.get_output(context).get_inner();
-        let sqs_binding = args.sqs.get_output(context).get_inner();
-        let step_functions_binding = args.step_functions.get_output(context).get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
-        let timestreams_binding = args.timestreams.get_output(context).get_inner();
+        let cloudwatch_alarms_binding_1 = args.cloudwatch_alarms.get_output(context);
+        let cloudwatch_alarms_binding = cloudwatch_alarms_binding_1.get_inner();
+        let cloudwatch_logs_binding_1 = args.cloudwatch_logs.get_output(context);
+        let cloudwatch_logs_binding = cloudwatch_logs_binding_1.get_inner();
+        let cloudwatch_metrics_binding_1 = args.cloudwatch_metrics.get_output(context);
+        let cloudwatch_metrics_binding = cloudwatch_metrics_binding_1.get_inner();
+        let description_binding_1 = args.description.get_output(context);
+        let description_binding = description_binding_1.get_inner();
+        let dynamodbs_binding_1 = args.dynamodbs.get_output(context);
+        let dynamodbs_binding = dynamodbs_binding_1.get_inner();
+        let dynamodbv2s_binding_1 = args.dynamodbv2s.get_output(context);
+        let dynamodbv2s_binding = dynamodbv2s_binding_1.get_inner();
+        let elasticsearch_binding_1 = args.elasticsearch.get_output(context);
+        let elasticsearch_binding = elasticsearch_binding_1.get_inner();
+        let enabled_binding_1 = args.enabled.get_output(context);
+        let enabled_binding = enabled_binding_1.get_inner();
+        let error_action_binding_1 = args.error_action.get_output(context);
+        let error_action_binding = error_action_binding_1.get_inner();
+        let firehoses_binding_1 = args.firehoses.get_output(context);
+        let firehoses_binding = firehoses_binding_1.get_inner();
+        let https_binding_1 = args.https.get_output(context);
+        let https_binding = https_binding_1.get_inner();
+        let iot_analytics_binding_1 = args.iot_analytics.get_output(context);
+        let iot_analytics_binding = iot_analytics_binding_1.get_inner();
+        let iot_events_binding_1 = args.iot_events.get_output(context);
+        let iot_events_binding = iot_events_binding_1.get_inner();
+        let kafkas_binding_1 = args.kafkas.get_output(context);
+        let kafkas_binding = kafkas_binding_1.get_inner();
+        let kineses_binding_1 = args.kineses.get_output(context);
+        let kineses_binding = kineses_binding_1.get_inner();
+        let lambdas_binding_1 = args.lambdas.get_output(context);
+        let lambdas_binding = lambdas_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let republishes_binding_1 = args.republishes.get_output(context);
+        let republishes_binding = republishes_binding_1.get_inner();
+        let s3_binding_1 = args.s3.get_output(context);
+        let s3_binding = s3_binding_1.get_inner();
+        let sns_binding_1 = args.sns.get_output(context);
+        let sns_binding = sns_binding_1.get_inner();
+        let sql_binding_1 = args.sql.get_output(context);
+        let sql_binding = sql_binding_1.get_inner();
+        let sql_version_binding_1 = args.sql_version.get_output(context);
+        let sql_version_binding = sql_version_binding_1.get_inner();
+        let sqs_binding_1 = args.sqs.get_output(context);
+        let sqs_binding = sqs_binding_1.get_inner();
+        let step_functions_binding_1 = args.step_functions.get_output(context);
+        let step_functions_binding = step_functions_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
+        let timestreams_binding_1 = args.timestreams.get_output(context);
+        let timestreams_binding = timestreams_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:iot/topicRule:TopicRule".into(),
             name: name.to_string(),

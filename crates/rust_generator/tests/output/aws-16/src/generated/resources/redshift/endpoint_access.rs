@@ -81,19 +81,18 @@ pub mod endpoint_access {
     ) -> EndpointAccessResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let cluster_identifier_binding = args
-            .cluster_identifier
-            .get_output(context)
-            .get_inner();
-        let endpoint_name_binding = args.endpoint_name.get_output(context).get_inner();
-        let resource_owner_binding = args.resource_owner.get_output(context).get_inner();
-        let subnet_group_name_binding = args
-            .subnet_group_name
-            .get_output(context)
-            .get_inner();
-        let vpc_security_group_ids_binding = args
+        let cluster_identifier_binding_1 = args.cluster_identifier.get_output(context);
+        let cluster_identifier_binding = cluster_identifier_binding_1.get_inner();
+        let endpoint_name_binding_1 = args.endpoint_name.get_output(context);
+        let endpoint_name_binding = endpoint_name_binding_1.get_inner();
+        let resource_owner_binding_1 = args.resource_owner.get_output(context);
+        let resource_owner_binding = resource_owner_binding_1.get_inner();
+        let subnet_group_name_binding_1 = args.subnet_group_name.get_output(context);
+        let subnet_group_name_binding = subnet_group_name_binding_1.get_inner();
+        let vpc_security_group_ids_binding_1 = args
             .vpc_security_group_ids
-            .get_output(context)
+            .get_output(context);
+        let vpc_security_group_ids_binding = vpc_security_group_ids_binding_1
             .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:redshift/endpointAccess:EndpointAccess".into(),

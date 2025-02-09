@@ -89,22 +89,18 @@ pub mod bucket_public_access_block {
     ) -> BucketPublicAccessBlockResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let block_public_acls_binding = args
-            .block_public_acls
-            .get_output(context)
-            .get_inner();
-        let block_public_policy_binding = args
-            .block_public_policy
-            .get_output(context)
-            .get_inner();
-        let bucket_binding = args.bucket.get_output(context).get_inner();
-        let ignore_public_acls_binding = args
-            .ignore_public_acls
-            .get_output(context)
-            .get_inner();
-        let restrict_public_buckets_binding = args
+        let block_public_acls_binding_1 = args.block_public_acls.get_output(context);
+        let block_public_acls_binding = block_public_acls_binding_1.get_inner();
+        let block_public_policy_binding_1 = args.block_public_policy.get_output(context);
+        let block_public_policy_binding = block_public_policy_binding_1.get_inner();
+        let bucket_binding_1 = args.bucket.get_output(context);
+        let bucket_binding = bucket_binding_1.get_inner();
+        let ignore_public_acls_binding_1 = args.ignore_public_acls.get_output(context);
+        let ignore_public_acls_binding = ignore_public_acls_binding_1.get_inner();
+        let restrict_public_buckets_binding_1 = args
             .restrict_public_buckets
-            .get_output(context)
+            .get_output(context);
+        let restrict_public_buckets_binding = restrict_public_buckets_binding_1
             .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:s3/bucketPublicAccessBlock:BucketPublicAccessBlock".into(),

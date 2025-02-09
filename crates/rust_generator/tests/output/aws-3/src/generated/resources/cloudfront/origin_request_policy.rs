@@ -114,14 +114,18 @@ pub mod origin_request_policy {
     ) -> OriginRequestPolicyResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let comment_binding = args.comment.get_output(context).get_inner();
-        let cookies_config_binding = args.cookies_config.get_output(context).get_inner();
-        let headers_config_binding = args.headers_config.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let query_strings_config_binding = args
+        let comment_binding_1 = args.comment.get_output(context);
+        let comment_binding = comment_binding_1.get_inner();
+        let cookies_config_binding_1 = args.cookies_config.get_output(context);
+        let cookies_config_binding = cookies_config_binding_1.get_inner();
+        let headers_config_binding_1 = args.headers_config.get_output(context);
+        let headers_config_binding = headers_config_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let query_strings_config_binding_1 = args
             .query_strings_config
-            .get_output(context)
-            .get_inner();
+            .get_output(context);
+        let query_strings_config_binding = query_strings_config_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:cloudfront/originRequestPolicy:OriginRequestPolicy".into(),
             name: name.to_string(),

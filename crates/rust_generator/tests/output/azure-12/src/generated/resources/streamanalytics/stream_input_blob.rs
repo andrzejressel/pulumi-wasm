@@ -134,31 +134,34 @@ pub mod stream_input_blob {
     ) -> StreamInputBlobResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let date_format_binding = args.date_format.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let path_pattern_binding = args.path_pattern.get_output(context).get_inner();
-        let resource_group_name_binding = args
-            .resource_group_name
-            .get_output(context)
-            .get_inner();
-        let serialization_binding = args.serialization.get_output(context).get_inner();
-        let storage_account_key_binding = args
-            .storage_account_key
-            .get_output(context)
-            .get_inner();
-        let storage_account_name_binding = args
+        let date_format_binding_1 = args.date_format.get_output(context);
+        let date_format_binding = date_format_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let path_pattern_binding_1 = args.path_pattern.get_output(context);
+        let path_pattern_binding = path_pattern_binding_1.get_inner();
+        let resource_group_name_binding_1 = args.resource_group_name.get_output(context);
+        let resource_group_name_binding = resource_group_name_binding_1.get_inner();
+        let serialization_binding_1 = args.serialization.get_output(context);
+        let serialization_binding = serialization_binding_1.get_inner();
+        let storage_account_key_binding_1 = args.storage_account_key.get_output(context);
+        let storage_account_key_binding = storage_account_key_binding_1.get_inner();
+        let storage_account_name_binding_1 = args
             .storage_account_name
-            .get_output(context)
-            .get_inner();
-        let storage_container_name_binding = args
+            .get_output(context);
+        let storage_account_name_binding = storage_account_name_binding_1.get_inner();
+        let storage_container_name_binding_1 = args
             .storage_container_name
-            .get_output(context)
+            .get_output(context);
+        let storage_container_name_binding = storage_container_name_binding_1
             .get_inner();
-        let stream_analytics_job_name_binding = args
+        let stream_analytics_job_name_binding_1 = args
             .stream_analytics_job_name
-            .get_output(context)
+            .get_output(context);
+        let stream_analytics_job_name_binding = stream_analytics_job_name_binding_1
             .get_inner();
-        let time_format_binding = args.time_format.get_output(context).get_inner();
+        let time_format_binding_1 = args.time_format.get_output(context);
+        let time_format_binding = time_format_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:streamanalytics/streamInputBlob:StreamInputBlob".into(),
             name: name.to_string(),

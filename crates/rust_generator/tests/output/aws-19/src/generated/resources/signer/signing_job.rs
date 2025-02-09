@@ -132,13 +132,17 @@ pub mod signing_job {
     ) -> SigningJobResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let destination_binding = args.destination.get_output(context).get_inner();
-        let ignore_signing_job_failure_binding = args
+        let destination_binding_1 = args.destination.get_output(context);
+        let destination_binding = destination_binding_1.get_inner();
+        let ignore_signing_job_failure_binding_1 = args
             .ignore_signing_job_failure
-            .get_output(context)
+            .get_output(context);
+        let ignore_signing_job_failure_binding = ignore_signing_job_failure_binding_1
             .get_inner();
-        let profile_name_binding = args.profile_name.get_output(context).get_inner();
-        let source_binding = args.source.get_output(context).get_inner();
+        let profile_name_binding_1 = args.profile_name.get_output(context);
+        let profile_name_binding = profile_name_binding_1.get_inner();
+        let source_binding_1 = args.source.get_output(context);
+        let source_binding = source_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:signer/signingJob:SigningJob".into(),
             name: name.to_string(),

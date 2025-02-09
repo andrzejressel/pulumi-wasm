@@ -327,30 +327,30 @@ pub mod listener {
     ) -> ListenerResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let alpn_policy_binding = args.alpn_policy.get_output(context).get_inner();
-        let certificate_arn_binding = args
-            .certificate_arn
-            .get_output(context)
-            .get_inner();
-        let default_actions_binding = args
-            .default_actions
-            .get_output(context)
-            .get_inner();
-        let load_balancer_arn_binding = args
-            .load_balancer_arn
-            .get_output(context)
-            .get_inner();
-        let mutual_authentication_binding = args
+        let alpn_policy_binding_1 = args.alpn_policy.get_output(context);
+        let alpn_policy_binding = alpn_policy_binding_1.get_inner();
+        let certificate_arn_binding_1 = args.certificate_arn.get_output(context);
+        let certificate_arn_binding = certificate_arn_binding_1.get_inner();
+        let default_actions_binding_1 = args.default_actions.get_output(context);
+        let default_actions_binding = default_actions_binding_1.get_inner();
+        let load_balancer_arn_binding_1 = args.load_balancer_arn.get_output(context);
+        let load_balancer_arn_binding = load_balancer_arn_binding_1.get_inner();
+        let mutual_authentication_binding_1 = args
             .mutual_authentication
-            .get_output(context)
-            .get_inner();
-        let port_binding = args.port.get_output(context).get_inner();
-        let protocol_binding = args.protocol.get_output(context).get_inner();
-        let ssl_policy_binding = args.ssl_policy.get_output(context).get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
-        let tcp_idle_timeout_seconds_binding = args
+            .get_output(context);
+        let mutual_authentication_binding = mutual_authentication_binding_1.get_inner();
+        let port_binding_1 = args.port.get_output(context);
+        let port_binding = port_binding_1.get_inner();
+        let protocol_binding_1 = args.protocol.get_output(context);
+        let protocol_binding = protocol_binding_1.get_inner();
+        let ssl_policy_binding_1 = args.ssl_policy.get_output(context);
+        let ssl_policy_binding = ssl_policy_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
+        let tcp_idle_timeout_seconds_binding_1 = args
             .tcp_idle_timeout_seconds
-            .get_output(context)
+            .get_output(context);
+        let tcp_idle_timeout_seconds_binding = tcp_idle_timeout_seconds_binding_1
             .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:alb/listener:Listener".into(),

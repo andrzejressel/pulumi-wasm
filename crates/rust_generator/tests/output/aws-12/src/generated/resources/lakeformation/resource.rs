@@ -75,20 +75,21 @@ pub mod resource {
     ) -> ResourceResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let arn_binding = args.arn.get_output(context).get_inner();
-        let hybrid_access_enabled_binding = args
+        let arn_binding_1 = args.arn.get_output(context);
+        let arn_binding = arn_binding_1.get_inner();
+        let hybrid_access_enabled_binding_1 = args
             .hybrid_access_enabled
-            .get_output(context)
-            .get_inner();
-        let role_arn_binding = args.role_arn.get_output(context).get_inner();
-        let use_service_linked_role_binding = args
+            .get_output(context);
+        let hybrid_access_enabled_binding = hybrid_access_enabled_binding_1.get_inner();
+        let role_arn_binding_1 = args.role_arn.get_output(context);
+        let role_arn_binding = role_arn_binding_1.get_inner();
+        let use_service_linked_role_binding_1 = args
             .use_service_linked_role
-            .get_output(context)
+            .get_output(context);
+        let use_service_linked_role_binding = use_service_linked_role_binding_1
             .get_inner();
-        let with_federation_binding = args
-            .with_federation
-            .get_output(context)
-            .get_inner();
+        let with_federation_binding_1 = args.with_federation.get_output(context);
+        let with_federation_binding = with_federation_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:lakeformation/resource:Resource".into(),
             name: name.to_string(),

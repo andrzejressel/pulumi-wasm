@@ -128,24 +128,24 @@ pub mod fleet {
     ) -> FleetResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let audit_stream_arn_binding = args
-            .audit_stream_arn
-            .get_output(context)
-            .get_inner();
-        let device_ca_certificate_binding = args
+        let audit_stream_arn_binding_1 = args.audit_stream_arn.get_output(context);
+        let audit_stream_arn_binding = audit_stream_arn_binding_1.get_inner();
+        let device_ca_certificate_binding_1 = args
             .device_ca_certificate
-            .get_output(context)
-            .get_inner();
-        let display_name_binding = args.display_name.get_output(context).get_inner();
-        let identity_provider_binding = args
-            .identity_provider
-            .get_output(context)
-            .get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let network_binding = args.network.get_output(context).get_inner();
-        let optimize_for_end_user_location_binding = args
+            .get_output(context);
+        let device_ca_certificate_binding = device_ca_certificate_binding_1.get_inner();
+        let display_name_binding_1 = args.display_name.get_output(context);
+        let display_name_binding = display_name_binding_1.get_inner();
+        let identity_provider_binding_1 = args.identity_provider.get_output(context);
+        let identity_provider_binding = identity_provider_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let network_binding_1 = args.network.get_output(context);
+        let network_binding = network_binding_1.get_inner();
+        let optimize_for_end_user_location_binding_1 = args
             .optimize_for_end_user_location
-            .get_output(context)
+            .get_output(context);
+        let optimize_for_end_user_location_binding = optimize_for_end_user_location_binding_1
             .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:worklink/fleet:Fleet".into(),

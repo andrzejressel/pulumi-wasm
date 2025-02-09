@@ -118,17 +118,18 @@ pub mod document_ai_warehouse_document_schema {
     ) -> DocumentAiWarehouseDocumentSchemaResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let display_name_binding = args.display_name.get_output(context).get_inner();
-        let document_is_folder_binding = args
-            .document_is_folder
-            .get_output(context)
-            .get_inner();
-        let location_binding = args.location.get_output(context).get_inner();
-        let project_number_binding = args.project_number.get_output(context).get_inner();
-        let property_definitions_binding = args
+        let display_name_binding_1 = args.display_name.get_output(context);
+        let display_name_binding = display_name_binding_1.get_inner();
+        let document_is_folder_binding_1 = args.document_is_folder.get_output(context);
+        let document_is_folder_binding = document_is_folder_binding_1.get_inner();
+        let location_binding_1 = args.location.get_output(context);
+        let location_binding = location_binding_1.get_inner();
+        let project_number_binding_1 = args.project_number.get_output(context);
+        let project_number_binding = project_number_binding_1.get_inner();
+        let property_definitions_binding_1 = args
             .property_definitions
-            .get_output(context)
-            .get_inner();
+            .get_output(context);
+        let property_definitions_binding = property_definitions_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:essentialcontacts/documentAiWarehouseDocumentSchema:DocumentAiWarehouseDocumentSchema"
                 .into(),

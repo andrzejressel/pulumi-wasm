@@ -92,14 +92,12 @@ pub mod protection_health_check_association {
     ) -> ProtectionHealthCheckAssociationResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let health_check_arn_binding = args
-            .health_check_arn
-            .get_output(context)
-            .get_inner();
-        let shield_protection_id_binding = args
+        let health_check_arn_binding_1 = args.health_check_arn.get_output(context);
+        let health_check_arn_binding = health_check_arn_binding_1.get_inner();
+        let shield_protection_id_binding_1 = args
             .shield_protection_id
-            .get_output(context)
-            .get_inner();
+            .get_output(context);
+        let shield_protection_id_binding = shield_protection_id_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:shield/protectionHealthCheckAssociation:ProtectionHealthCheckAssociation"
                 .into(),

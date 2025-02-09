@@ -216,16 +216,20 @@ pub mod volume_group {
     ) -> VolumeGroupResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let elastic_san_id_binding = args.elastic_san_id.get_output(context).get_inner();
-        let encryption_binding = args.encryption.get_output(context).get_inner();
-        let encryption_type_binding = args
-            .encryption_type
-            .get_output(context)
-            .get_inner();
-        let identity_binding = args.identity.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let network_rules_binding = args.network_rules.get_output(context).get_inner();
-        let protocol_type_binding = args.protocol_type.get_output(context).get_inner();
+        let elastic_san_id_binding_1 = args.elastic_san_id.get_output(context);
+        let elastic_san_id_binding = elastic_san_id_binding_1.get_inner();
+        let encryption_binding_1 = args.encryption.get_output(context);
+        let encryption_binding = encryption_binding_1.get_inner();
+        let encryption_type_binding_1 = args.encryption_type.get_output(context);
+        let encryption_type_binding = encryption_type_binding_1.get_inner();
+        let identity_binding_1 = args.identity.get_output(context);
+        let identity_binding = identity_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let network_rules_binding_1 = args.network_rules.get_output(context);
+        let network_rules_binding = network_rules_binding_1.get_inner();
+        let protocol_type_binding_1 = args.protocol_type.get_output(context);
+        let protocol_type_binding = protocol_type_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:elasticsan/volumeGroup:VolumeGroup".into(),
             name: name.to_string(),

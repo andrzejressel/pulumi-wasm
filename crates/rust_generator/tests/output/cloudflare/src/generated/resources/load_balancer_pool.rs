@@ -157,28 +157,32 @@ pub mod load_balancer_pool {
     ) -> LoadBalancerPoolResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let account_id_binding = args.account_id.get_output(context).get_inner();
-        let check_regions_binding = args.check_regions.get_output(context).get_inner();
-        let description_binding = args.description.get_output(context).get_inner();
-        let enabled_binding = args.enabled.get_output(context).get_inner();
-        let latitude_binding = args.latitude.get_output(context).get_inner();
-        let load_sheddings_binding = args.load_sheddings.get_output(context).get_inner();
-        let longitude_binding = args.longitude.get_output(context).get_inner();
-        let minimum_origins_binding = args
-            .minimum_origins
-            .get_output(context)
-            .get_inner();
-        let monitor_binding = args.monitor.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let notification_email_binding = args
-            .notification_email
-            .get_output(context)
-            .get_inner();
-        let origin_steerings_binding = args
-            .origin_steerings
-            .get_output(context)
-            .get_inner();
-        let origins_binding = args.origins.get_output(context).get_inner();
+        let account_id_binding_1 = args.account_id.get_output(context);
+        let account_id_binding = account_id_binding_1.get_inner();
+        let check_regions_binding_1 = args.check_regions.get_output(context);
+        let check_regions_binding = check_regions_binding_1.get_inner();
+        let description_binding_1 = args.description.get_output(context);
+        let description_binding = description_binding_1.get_inner();
+        let enabled_binding_1 = args.enabled.get_output(context);
+        let enabled_binding = enabled_binding_1.get_inner();
+        let latitude_binding_1 = args.latitude.get_output(context);
+        let latitude_binding = latitude_binding_1.get_inner();
+        let load_sheddings_binding_1 = args.load_sheddings.get_output(context);
+        let load_sheddings_binding = load_sheddings_binding_1.get_inner();
+        let longitude_binding_1 = args.longitude.get_output(context);
+        let longitude_binding = longitude_binding_1.get_inner();
+        let minimum_origins_binding_1 = args.minimum_origins.get_output(context);
+        let minimum_origins_binding = minimum_origins_binding_1.get_inner();
+        let monitor_binding_1 = args.monitor.get_output(context);
+        let monitor_binding = monitor_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let notification_email_binding_1 = args.notification_email.get_output(context);
+        let notification_email_binding = notification_email_binding_1.get_inner();
+        let origin_steerings_binding_1 = args.origin_steerings.get_output(context);
+        let origin_steerings_binding = origin_steerings_binding_1.get_inner();
+        let origins_binding_1 = args.origins.get_output(context);
+        let origins_binding = origins_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "cloudflare:index/loadBalancerPool:LoadBalancerPool".into(),
             name: name.to_string(),

@@ -307,46 +307,47 @@ pub mod db_instance {
     ) -> DbInstanceResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let allocated_storage_binding = args
-            .allocated_storage
-            .get_output(context)
-            .get_inner();
-        let bucket_binding = args.bucket.get_output(context).get_inner();
-        let db_instance_type_binding = args
-            .db_instance_type
-            .get_output(context)
-            .get_inner();
-        let db_parameter_group_identifier_binding = args
+        let allocated_storage_binding_1 = args.allocated_storage.get_output(context);
+        let allocated_storage_binding = allocated_storage_binding_1.get_inner();
+        let bucket_binding_1 = args.bucket.get_output(context);
+        let bucket_binding = bucket_binding_1.get_inner();
+        let db_instance_type_binding_1 = args.db_instance_type.get_output(context);
+        let db_instance_type_binding = db_instance_type_binding_1.get_inner();
+        let db_parameter_group_identifier_binding_1 = args
             .db_parameter_group_identifier
-            .get_output(context)
+            .get_output(context);
+        let db_parameter_group_identifier_binding = db_parameter_group_identifier_binding_1
             .get_inner();
-        let db_storage_type_binding = args
-            .db_storage_type
-            .get_output(context)
-            .get_inner();
-        let deployment_type_binding = args
-            .deployment_type
-            .get_output(context)
-            .get_inner();
-        let log_delivery_configuration_binding = args
+        let db_storage_type_binding_1 = args.db_storage_type.get_output(context);
+        let db_storage_type_binding = db_storage_type_binding_1.get_inner();
+        let deployment_type_binding_1 = args.deployment_type.get_output(context);
+        let deployment_type_binding = deployment_type_binding_1.get_inner();
+        let log_delivery_configuration_binding_1 = args
             .log_delivery_configuration
-            .get_output(context)
+            .get_output(context);
+        let log_delivery_configuration_binding = log_delivery_configuration_binding_1
             .get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let organization_binding = args.organization.get_output(context).get_inner();
-        let password_binding = args.password.get_output(context).get_inner();
-        let publicly_accessible_binding = args
-            .publicly_accessible
-            .get_output(context)
-            .get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
-        let timeouts_binding = args.timeouts.get_output(context).get_inner();
-        let username_binding = args.username.get_output(context).get_inner();
-        let vpc_security_group_ids_binding = args
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let organization_binding_1 = args.organization.get_output(context);
+        let organization_binding = organization_binding_1.get_inner();
+        let password_binding_1 = args.password.get_output(context);
+        let password_binding = password_binding_1.get_inner();
+        let publicly_accessible_binding_1 = args.publicly_accessible.get_output(context);
+        let publicly_accessible_binding = publicly_accessible_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
+        let timeouts_binding_1 = args.timeouts.get_output(context);
+        let timeouts_binding = timeouts_binding_1.get_inner();
+        let username_binding_1 = args.username.get_output(context);
+        let username_binding = username_binding_1.get_inner();
+        let vpc_security_group_ids_binding_1 = args
             .vpc_security_group_ids
-            .get_output(context)
+            .get_output(context);
+        let vpc_security_group_ids_binding = vpc_security_group_ids_binding_1
             .get_inner();
-        let vpc_subnet_ids_binding = args.vpc_subnet_ids.get_output(context).get_inner();
+        let vpc_subnet_ids_binding_1 = args.vpc_subnet_ids.get_output(context);
+        let vpc_subnet_ids_binding = vpc_subnet_ids_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:timestreaminfluxdb/dbInstance:DbInstance".into(),
             name: name.to_string(),

@@ -54,11 +54,10 @@ pub mod ingress_policy {
     ) -> IngressPolicyResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let ingress_policy_name_binding = args
-            .ingress_policy_name
-            .get_output(context)
-            .get_inner();
-        let resource_binding = args.resource.get_output(context).get_inner();
+        let ingress_policy_name_binding_1 = args.ingress_policy_name.get_output(context);
+        let ingress_policy_name_binding = ingress_policy_name_binding_1.get_inner();
+        let resource_binding_1 = args.resource.get_output(context);
+        let resource_binding = resource_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:accesscontextmanager/ingressPolicy:IngressPolicy".into(),
             name: name.to_string(),

@@ -98,25 +98,28 @@ pub mod get_subnet {
     ) -> GetSubnetResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let availability_zone_binding = args
-            .availability_zone
-            .get_output(context)
-            .get_inner();
-        let availability_zone_id_binding = args
+        let availability_zone_binding_1 = args.availability_zone.get_output(context);
+        let availability_zone_binding = availability_zone_binding_1.get_inner();
+        let availability_zone_id_binding_1 = args
             .availability_zone_id
-            .get_output(context)
-            .get_inner();
-        let cidr_block_binding = args.cidr_block.get_output(context).get_inner();
-        let default_for_az_binding = args.default_for_az.get_output(context).get_inner();
-        let filters_binding = args.filters.get_output(context).get_inner();
-        let id_binding = args.id.get_output(context).get_inner();
-        let ipv6_cidr_block_binding = args
-            .ipv6_cidr_block
-            .get_output(context)
-            .get_inner();
-        let state_binding = args.state.get_output(context).get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
-        let vpc_id_binding = args.vpc_id.get_output(context).get_inner();
+            .get_output(context);
+        let availability_zone_id_binding = availability_zone_id_binding_1.get_inner();
+        let cidr_block_binding_1 = args.cidr_block.get_output(context);
+        let cidr_block_binding = cidr_block_binding_1.get_inner();
+        let default_for_az_binding_1 = args.default_for_az.get_output(context);
+        let default_for_az_binding = default_for_az_binding_1.get_inner();
+        let filters_binding_1 = args.filters.get_output(context);
+        let filters_binding = filters_binding_1.get_inner();
+        let id_binding_1 = args.id.get_output(context);
+        let id_binding = id_binding_1.get_inner();
+        let ipv6_cidr_block_binding_1 = args.ipv6_cidr_block.get_output(context);
+        let ipv6_cidr_block_binding = ipv6_cidr_block_binding_1.get_inner();
+        let state_binding_1 = args.state.get_output(context);
+        let state_binding = state_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
+        let vpc_id_binding_1 = args.vpc_id.get_output(context);
+        let vpc_id_binding = vpc_id_binding_1.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:ec2/getSubnet:getSubnet".into(),
             version: super::super::super::get_version(),

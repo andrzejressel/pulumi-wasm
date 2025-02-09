@@ -829,139 +829,130 @@ pub mod group {
     ) -> GroupResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let availability_zone_distribution_binding = args
+        let availability_zone_distribution_binding_1 = args
             .availability_zone_distribution
-            .get_output(context)
+            .get_output(context);
+        let availability_zone_distribution_binding = availability_zone_distribution_binding_1
             .get_inner();
-        let availability_zones_binding = args
-            .availability_zones
-            .get_output(context)
-            .get_inner();
-        let capacity_rebalance_binding = args
-            .capacity_rebalance
-            .get_output(context)
-            .get_inner();
-        let context_binding = args.context.get_output(context).get_inner();
-        let default_cooldown_binding = args
-            .default_cooldown
-            .get_output(context)
-            .get_inner();
-        let default_instance_warmup_binding = args
+        let availability_zones_binding_1 = args.availability_zones.get_output(context);
+        let availability_zones_binding = availability_zones_binding_1.get_inner();
+        let capacity_rebalance_binding_1 = args.capacity_rebalance.get_output(context);
+        let capacity_rebalance_binding = capacity_rebalance_binding_1.get_inner();
+        let context_binding_1 = args.context.get_output(context);
+        let context_binding = context_binding_1.get_inner();
+        let default_cooldown_binding_1 = args.default_cooldown.get_output(context);
+        let default_cooldown_binding = default_cooldown_binding_1.get_inner();
+        let default_instance_warmup_binding_1 = args
             .default_instance_warmup
-            .get_output(context)
+            .get_output(context);
+        let default_instance_warmup_binding = default_instance_warmup_binding_1
             .get_inner();
-        let desired_capacity_binding = args
-            .desired_capacity
-            .get_output(context)
-            .get_inner();
-        let desired_capacity_type_binding = args
+        let desired_capacity_binding_1 = args.desired_capacity.get_output(context);
+        let desired_capacity_binding = desired_capacity_binding_1.get_inner();
+        let desired_capacity_type_binding_1 = args
             .desired_capacity_type
-            .get_output(context)
-            .get_inner();
-        let enabled_metrics_binding = args
-            .enabled_metrics
-            .get_output(context)
-            .get_inner();
-        let force_delete_binding = args.force_delete.get_output(context).get_inner();
-        let force_delete_warm_pool_binding = args
+            .get_output(context);
+        let desired_capacity_type_binding = desired_capacity_type_binding_1.get_inner();
+        let enabled_metrics_binding_1 = args.enabled_metrics.get_output(context);
+        let enabled_metrics_binding = enabled_metrics_binding_1.get_inner();
+        let force_delete_binding_1 = args.force_delete.get_output(context);
+        let force_delete_binding = force_delete_binding_1.get_inner();
+        let force_delete_warm_pool_binding_1 = args
             .force_delete_warm_pool
-            .get_output(context)
+            .get_output(context);
+        let force_delete_warm_pool_binding = force_delete_warm_pool_binding_1
             .get_inner();
-        let health_check_grace_period_binding = args
+        let health_check_grace_period_binding_1 = args
             .health_check_grace_period
-            .get_output(context)
+            .get_output(context);
+        let health_check_grace_period_binding = health_check_grace_period_binding_1
             .get_inner();
-        let health_check_type_binding = args
-            .health_check_type
-            .get_output(context)
-            .get_inner();
-        let ignore_failed_scaling_activities_binding = args
+        let health_check_type_binding_1 = args.health_check_type.get_output(context);
+        let health_check_type_binding = health_check_type_binding_1.get_inner();
+        let ignore_failed_scaling_activities_binding_1 = args
             .ignore_failed_scaling_activities
-            .get_output(context)
+            .get_output(context);
+        let ignore_failed_scaling_activities_binding = ignore_failed_scaling_activities_binding_1
             .get_inner();
-        let initial_lifecycle_hooks_binding = args
+        let initial_lifecycle_hooks_binding_1 = args
             .initial_lifecycle_hooks
-            .get_output(context)
+            .get_output(context);
+        let initial_lifecycle_hooks_binding = initial_lifecycle_hooks_binding_1
             .get_inner();
-        let instance_maintenance_policy_binding = args
+        let instance_maintenance_policy_binding_1 = args
             .instance_maintenance_policy
-            .get_output(context)
+            .get_output(context);
+        let instance_maintenance_policy_binding = instance_maintenance_policy_binding_1
             .get_inner();
-        let instance_refresh_binding = args
-            .instance_refresh
-            .get_output(context)
-            .get_inner();
-        let launch_configuration_binding = args
+        let instance_refresh_binding_1 = args.instance_refresh.get_output(context);
+        let instance_refresh_binding = instance_refresh_binding_1.get_inner();
+        let launch_configuration_binding_1 = args
             .launch_configuration
-            .get_output(context)
-            .get_inner();
-        let launch_template_binding = args
-            .launch_template
-            .get_output(context)
-            .get_inner();
-        let load_balancers_binding = args.load_balancers.get_output(context).get_inner();
-        let max_instance_lifetime_binding = args
+            .get_output(context);
+        let launch_configuration_binding = launch_configuration_binding_1.get_inner();
+        let launch_template_binding_1 = args.launch_template.get_output(context);
+        let launch_template_binding = launch_template_binding_1.get_inner();
+        let load_balancers_binding_1 = args.load_balancers.get_output(context);
+        let load_balancers_binding = load_balancers_binding_1.get_inner();
+        let max_instance_lifetime_binding_1 = args
             .max_instance_lifetime
-            .get_output(context)
-            .get_inner();
-        let max_size_binding = args.max_size.get_output(context).get_inner();
-        let metrics_granularity_binding = args
-            .metrics_granularity
-            .get_output(context)
-            .get_inner();
-        let min_elb_capacity_binding = args
-            .min_elb_capacity
-            .get_output(context)
-            .get_inner();
-        let min_size_binding = args.min_size.get_output(context).get_inner();
-        let mixed_instances_policy_binding = args
+            .get_output(context);
+        let max_instance_lifetime_binding = max_instance_lifetime_binding_1.get_inner();
+        let max_size_binding_1 = args.max_size.get_output(context);
+        let max_size_binding = max_size_binding_1.get_inner();
+        let metrics_granularity_binding_1 = args.metrics_granularity.get_output(context);
+        let metrics_granularity_binding = metrics_granularity_binding_1.get_inner();
+        let min_elb_capacity_binding_1 = args.min_elb_capacity.get_output(context);
+        let min_elb_capacity_binding = min_elb_capacity_binding_1.get_inner();
+        let min_size_binding_1 = args.min_size.get_output(context);
+        let min_size_binding = min_size_binding_1.get_inner();
+        let mixed_instances_policy_binding_1 = args
             .mixed_instances_policy
-            .get_output(context)
+            .get_output(context);
+        let mixed_instances_policy_binding = mixed_instances_policy_binding_1
             .get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let name_prefix_binding = args.name_prefix.get_output(context).get_inner();
-        let placement_group_binding = args
-            .placement_group
-            .get_output(context)
-            .get_inner();
-        let protect_from_scale_in_binding = args
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let name_prefix_binding_1 = args.name_prefix.get_output(context);
+        let name_prefix_binding = name_prefix_binding_1.get_inner();
+        let placement_group_binding_1 = args.placement_group.get_output(context);
+        let placement_group_binding = placement_group_binding_1.get_inner();
+        let protect_from_scale_in_binding_1 = args
             .protect_from_scale_in
-            .get_output(context)
-            .get_inner();
-        let service_linked_role_arn_binding = args
+            .get_output(context);
+        let protect_from_scale_in_binding = protect_from_scale_in_binding_1.get_inner();
+        let service_linked_role_arn_binding_1 = args
             .service_linked_role_arn
-            .get_output(context)
+            .get_output(context);
+        let service_linked_role_arn_binding = service_linked_role_arn_binding_1
             .get_inner();
-        let suspended_processes_binding = args
-            .suspended_processes
-            .get_output(context)
-            .get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
-        let target_group_arns_binding = args
-            .target_group_arns
-            .get_output(context)
-            .get_inner();
-        let termination_policies_binding = args
+        let suspended_processes_binding_1 = args.suspended_processes.get_output(context);
+        let suspended_processes_binding = suspended_processes_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
+        let target_group_arns_binding_1 = args.target_group_arns.get_output(context);
+        let target_group_arns_binding = target_group_arns_binding_1.get_inner();
+        let termination_policies_binding_1 = args
             .termination_policies
-            .get_output(context)
-            .get_inner();
-        let traffic_sources_binding = args
-            .traffic_sources
-            .get_output(context)
-            .get_inner();
-        let vpc_zone_identifiers_binding = args
+            .get_output(context);
+        let termination_policies_binding = termination_policies_binding_1.get_inner();
+        let traffic_sources_binding_1 = args.traffic_sources.get_output(context);
+        let traffic_sources_binding = traffic_sources_binding_1.get_inner();
+        let vpc_zone_identifiers_binding_1 = args
             .vpc_zone_identifiers
-            .get_output(context)
-            .get_inner();
-        let wait_for_capacity_timeout_binding = args
+            .get_output(context);
+        let vpc_zone_identifiers_binding = vpc_zone_identifiers_binding_1.get_inner();
+        let wait_for_capacity_timeout_binding_1 = args
             .wait_for_capacity_timeout
-            .get_output(context)
+            .get_output(context);
+        let wait_for_capacity_timeout_binding = wait_for_capacity_timeout_binding_1
             .get_inner();
-        let wait_for_elb_capacity_binding = args
+        let wait_for_elb_capacity_binding_1 = args
             .wait_for_elb_capacity
-            .get_output(context)
-            .get_inner();
-        let warm_pool_binding = args.warm_pool.get_output(context).get_inner();
+            .get_output(context);
+        let wait_for_elb_capacity_binding = wait_for_elb_capacity_binding_1.get_inner();
+        let warm_pool_binding_1 = args.warm_pool.get_output(context);
+        let warm_pool_binding = warm_pool_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:autoscaling/group:Group".into(),
             name: name.to_string(),

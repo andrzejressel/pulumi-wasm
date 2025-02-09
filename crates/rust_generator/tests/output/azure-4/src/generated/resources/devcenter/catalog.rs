@@ -42,14 +42,16 @@ pub mod catalog {
     ) -> CatalogResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let catalog_adogit_binding = args.catalog_adogit.get_output(context).get_inner();
-        let catalog_github_binding = args.catalog_github.get_output(context).get_inner();
-        let dev_center_id_binding = args.dev_center_id.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let resource_group_name_binding = args
-            .resource_group_name
-            .get_output(context)
-            .get_inner();
+        let catalog_adogit_binding_1 = args.catalog_adogit.get_output(context);
+        let catalog_adogit_binding = catalog_adogit_binding_1.get_inner();
+        let catalog_github_binding_1 = args.catalog_github.get_output(context);
+        let catalog_github_binding = catalog_github_binding_1.get_inner();
+        let dev_center_id_binding_1 = args.dev_center_id.get_output(context);
+        let dev_center_id_binding = dev_center_id_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let resource_group_name_binding_1 = args.resource_group_name.get_output(context);
+        let resource_group_name_binding = resource_group_name_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:devcenter/catalog:Catalog".into(),
             name: name.to_string(),

@@ -181,25 +181,26 @@ pub mod key {
     ) -> KeyResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let curve_binding = args.curve.get_output(context).get_inner();
-        let expiration_date_binding = args
-            .expiration_date
-            .get_output(context)
-            .get_inner();
-        let key_opts_binding = args.key_opts.get_output(context).get_inner();
-        let key_size_binding = args.key_size.get_output(context).get_inner();
-        let key_type_binding = args.key_type.get_output(context).get_inner();
-        let key_vault_id_binding = args.key_vault_id.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let not_before_date_binding = args
-            .not_before_date
-            .get_output(context)
-            .get_inner();
-        let rotation_policy_binding = args
-            .rotation_policy
-            .get_output(context)
-            .get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
+        let curve_binding_1 = args.curve.get_output(context);
+        let curve_binding = curve_binding_1.get_inner();
+        let expiration_date_binding_1 = args.expiration_date.get_output(context);
+        let expiration_date_binding = expiration_date_binding_1.get_inner();
+        let key_opts_binding_1 = args.key_opts.get_output(context);
+        let key_opts_binding = key_opts_binding_1.get_inner();
+        let key_size_binding_1 = args.key_size.get_output(context);
+        let key_size_binding = key_size_binding_1.get_inner();
+        let key_type_binding_1 = args.key_type.get_output(context);
+        let key_type_binding = key_type_binding_1.get_inner();
+        let key_vault_id_binding_1 = args.key_vault_id.get_output(context);
+        let key_vault_id_binding = key_vault_id_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let not_before_date_binding_1 = args.not_before_date.get_output(context);
+        let not_before_date_binding = not_before_date_binding_1.get_inner();
+        let rotation_policy_binding_1 = args.rotation_policy.get_output(context);
+        let rotation_policy_binding = rotation_policy_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:keyvault/key:Key".into(),
             name: name.to_string(),

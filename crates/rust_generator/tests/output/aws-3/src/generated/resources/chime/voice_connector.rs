@@ -82,13 +82,14 @@ pub mod voice_connector {
     ) -> VoiceConnectorResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let aws_region_binding = args.aws_region.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let require_encryption_binding = args
-            .require_encryption
-            .get_output(context)
-            .get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
+        let aws_region_binding_1 = args.aws_region.get_output(context);
+        let aws_region_binding = aws_region_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let require_encryption_binding_1 = args.require_encryption.get_output(context);
+        let require_encryption_binding = require_encryption_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:chime/voiceConnector:VoiceConnector".into(),
             name: name.to_string(),

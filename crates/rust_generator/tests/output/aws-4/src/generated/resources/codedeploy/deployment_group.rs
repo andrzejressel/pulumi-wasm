@@ -398,65 +398,64 @@ pub mod deployment_group {
     ) -> DeploymentGroupResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let alarm_configuration_binding = args
-            .alarm_configuration
-            .get_output(context)
-            .get_inner();
-        let app_name_binding = args.app_name.get_output(context).get_inner();
-        let auto_rollback_configuration_binding = args
+        let alarm_configuration_binding_1 = args.alarm_configuration.get_output(context);
+        let alarm_configuration_binding = alarm_configuration_binding_1.get_inner();
+        let app_name_binding_1 = args.app_name.get_output(context);
+        let app_name_binding = app_name_binding_1.get_inner();
+        let auto_rollback_configuration_binding_1 = args
             .auto_rollback_configuration
-            .get_output(context)
+            .get_output(context);
+        let auto_rollback_configuration_binding = auto_rollback_configuration_binding_1
             .get_inner();
-        let autoscaling_groups_binding = args
-            .autoscaling_groups
-            .get_output(context)
-            .get_inner();
-        let blue_green_deployment_config_binding = args
+        let autoscaling_groups_binding_1 = args.autoscaling_groups.get_output(context);
+        let autoscaling_groups_binding = autoscaling_groups_binding_1.get_inner();
+        let blue_green_deployment_config_binding_1 = args
             .blue_green_deployment_config
-            .get_output(context)
+            .get_output(context);
+        let blue_green_deployment_config_binding = blue_green_deployment_config_binding_1
             .get_inner();
-        let deployment_config_name_binding = args
+        let deployment_config_name_binding_1 = args
             .deployment_config_name
-            .get_output(context)
+            .get_output(context);
+        let deployment_config_name_binding = deployment_config_name_binding_1
             .get_inner();
-        let deployment_group_name_binding = args
+        let deployment_group_name_binding_1 = args
             .deployment_group_name
-            .get_output(context)
-            .get_inner();
-        let deployment_style_binding = args
-            .deployment_style
-            .get_output(context)
-            .get_inner();
-        let ec2_tag_filters_binding = args
-            .ec2_tag_filters
-            .get_output(context)
-            .get_inner();
-        let ec2_tag_sets_binding = args.ec2_tag_sets.get_output(context).get_inner();
-        let ecs_service_binding = args.ecs_service.get_output(context).get_inner();
-        let load_balancer_info_binding = args
-            .load_balancer_info
-            .get_output(context)
-            .get_inner();
-        let on_premises_instance_tag_filters_binding = args
+            .get_output(context);
+        let deployment_group_name_binding = deployment_group_name_binding_1.get_inner();
+        let deployment_style_binding_1 = args.deployment_style.get_output(context);
+        let deployment_style_binding = deployment_style_binding_1.get_inner();
+        let ec2_tag_filters_binding_1 = args.ec2_tag_filters.get_output(context);
+        let ec2_tag_filters_binding = ec2_tag_filters_binding_1.get_inner();
+        let ec2_tag_sets_binding_1 = args.ec2_tag_sets.get_output(context);
+        let ec2_tag_sets_binding = ec2_tag_sets_binding_1.get_inner();
+        let ecs_service_binding_1 = args.ecs_service.get_output(context);
+        let ecs_service_binding = ecs_service_binding_1.get_inner();
+        let load_balancer_info_binding_1 = args.load_balancer_info.get_output(context);
+        let load_balancer_info_binding = load_balancer_info_binding_1.get_inner();
+        let on_premises_instance_tag_filters_binding_1 = args
             .on_premises_instance_tag_filters
-            .get_output(context)
+            .get_output(context);
+        let on_premises_instance_tag_filters_binding = on_premises_instance_tag_filters_binding_1
             .get_inner();
-        let outdated_instances_strategy_binding = args
+        let outdated_instances_strategy_binding_1 = args
             .outdated_instances_strategy
-            .get_output(context)
+            .get_output(context);
+        let outdated_instances_strategy_binding = outdated_instances_strategy_binding_1
             .get_inner();
-        let service_role_arn_binding = args
-            .service_role_arn
-            .get_output(context)
-            .get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
-        let termination_hook_enabled_binding = args
+        let service_role_arn_binding_1 = args.service_role_arn.get_output(context);
+        let service_role_arn_binding = service_role_arn_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
+        let termination_hook_enabled_binding_1 = args
             .termination_hook_enabled
-            .get_output(context)
+            .get_output(context);
+        let termination_hook_enabled_binding = termination_hook_enabled_binding_1
             .get_inner();
-        let trigger_configurations_binding = args
+        let trigger_configurations_binding_1 = args
             .trigger_configurations
-            .get_output(context)
+            .get_output(context);
+        let trigger_configurations_binding = trigger_configurations_binding_1
             .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:codedeploy/deploymentGroup:DeploymentGroup".into(),

@@ -331,37 +331,40 @@ pub mod run_command {
     ) -> RunCommandResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let error_blob_managed_identity_binding = args
+        let error_blob_managed_identity_binding_1 = args
             .error_blob_managed_identity
-            .get_output(context)
+            .get_output(context);
+        let error_blob_managed_identity_binding = error_blob_managed_identity_binding_1
             .get_inner();
-        let error_blob_uri_binding = args.error_blob_uri.get_output(context).get_inner();
-        let location_binding = args.location.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let output_blob_managed_identity_binding = args
+        let error_blob_uri_binding_1 = args.error_blob_uri.get_output(context);
+        let error_blob_uri_binding = error_blob_uri_binding_1.get_inner();
+        let location_binding_1 = args.location.get_output(context);
+        let location_binding = location_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let output_blob_managed_identity_binding_1 = args
             .output_blob_managed_identity
-            .get_output(context)
+            .get_output(context);
+        let output_blob_managed_identity_binding = output_blob_managed_identity_binding_1
             .get_inner();
-        let output_blob_uri_binding = args
-            .output_blob_uri
-            .get_output(context)
-            .get_inner();
-        let parameters_binding = args.parameters.get_output(context).get_inner();
-        let protected_parameters_binding = args
+        let output_blob_uri_binding_1 = args.output_blob_uri.get_output(context);
+        let output_blob_uri_binding = output_blob_uri_binding_1.get_inner();
+        let parameters_binding_1 = args.parameters.get_output(context);
+        let parameters_binding = parameters_binding_1.get_inner();
+        let protected_parameters_binding_1 = args
             .protected_parameters
-            .get_output(context)
-            .get_inner();
-        let run_as_password_binding = args
-            .run_as_password
-            .get_output(context)
-            .get_inner();
-        let run_as_user_binding = args.run_as_user.get_output(context).get_inner();
-        let source_binding = args.source.get_output(context).get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
-        let virtual_machine_id_binding = args
-            .virtual_machine_id
-            .get_output(context)
-            .get_inner();
+            .get_output(context);
+        let protected_parameters_binding = protected_parameters_binding_1.get_inner();
+        let run_as_password_binding_1 = args.run_as_password.get_output(context);
+        let run_as_password_binding = run_as_password_binding_1.get_inner();
+        let run_as_user_binding_1 = args.run_as_user.get_output(context);
+        let run_as_user_binding = run_as_user_binding_1.get_inner();
+        let source_binding_1 = args.source.get_output(context);
+        let source_binding = source_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
+        let virtual_machine_id_binding_1 = args.virtual_machine_id.get_output(context);
+        let virtual_machine_id_binding = virtual_machine_id_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:compute/runCommand:RunCommand".into(),
             name: name.to_string(),

@@ -138,32 +138,34 @@ pub mod outbound_rule {
     ) -> OutboundRuleResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let allocated_outbound_ports_binding = args
+        let allocated_outbound_ports_binding_1 = args
             .allocated_outbound_ports
-            .get_output(context)
+            .get_output(context);
+        let allocated_outbound_ports_binding = allocated_outbound_ports_binding_1
             .get_inner();
-        let backend_address_pool_id_binding = args
+        let backend_address_pool_id_binding_1 = args
             .backend_address_pool_id
-            .get_output(context)
+            .get_output(context);
+        let backend_address_pool_id_binding = backend_address_pool_id_binding_1
             .get_inner();
-        let enable_tcp_reset_binding = args
-            .enable_tcp_reset
-            .get_output(context)
-            .get_inner();
-        let frontend_ip_configurations_binding = args
+        let enable_tcp_reset_binding_1 = args.enable_tcp_reset.get_output(context);
+        let enable_tcp_reset_binding = enable_tcp_reset_binding_1.get_inner();
+        let frontend_ip_configurations_binding_1 = args
             .frontend_ip_configurations
-            .get_output(context)
+            .get_output(context);
+        let frontend_ip_configurations_binding = frontend_ip_configurations_binding_1
             .get_inner();
-        let idle_timeout_in_minutes_binding = args
+        let idle_timeout_in_minutes_binding_1 = args
             .idle_timeout_in_minutes
-            .get_output(context)
+            .get_output(context);
+        let idle_timeout_in_minutes_binding = idle_timeout_in_minutes_binding_1
             .get_inner();
-        let loadbalancer_id_binding = args
-            .loadbalancer_id
-            .get_output(context)
-            .get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let protocol_binding = args.protocol.get_output(context).get_inner();
+        let loadbalancer_id_binding_1 = args.loadbalancer_id.get_output(context);
+        let loadbalancer_id_binding = loadbalancer_id_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let protocol_binding_1 = args.protocol.get_output(context);
+        let protocol_binding = protocol_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:lb/outboundRule:OutboundRule".into(),
             name: name.to_string(),

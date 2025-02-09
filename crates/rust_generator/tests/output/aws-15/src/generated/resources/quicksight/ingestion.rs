@@ -76,10 +76,14 @@ pub mod ingestion {
     ) -> IngestionResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let aws_account_id_binding = args.aws_account_id.get_output(context).get_inner();
-        let data_set_id_binding = args.data_set_id.get_output(context).get_inner();
-        let ingestion_id_binding = args.ingestion_id.get_output(context).get_inner();
-        let ingestion_type_binding = args.ingestion_type.get_output(context).get_inner();
+        let aws_account_id_binding_1 = args.aws_account_id.get_output(context);
+        let aws_account_id_binding = aws_account_id_binding_1.get_inner();
+        let data_set_id_binding_1 = args.data_set_id.get_output(context);
+        let data_set_id_binding = data_set_id_binding_1.get_inner();
+        let ingestion_id_binding_1 = args.ingestion_id.get_output(context);
+        let ingestion_id_binding = ingestion_id_binding_1.get_inner();
+        let ingestion_type_binding_1 = args.ingestion_type.get_output(context);
+        let ingestion_type_binding = ingestion_type_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:quicksight/ingestion:Ingestion".into(),
             name: name.to_string(),

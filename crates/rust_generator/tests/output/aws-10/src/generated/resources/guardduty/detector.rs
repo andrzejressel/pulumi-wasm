@@ -115,13 +115,17 @@ pub mod detector {
     ) -> DetectorResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let datasources_binding = args.datasources.get_output(context).get_inner();
-        let enable_binding = args.enable.get_output(context).get_inner();
-        let finding_publishing_frequency_binding = args
+        let datasources_binding_1 = args.datasources.get_output(context);
+        let datasources_binding = datasources_binding_1.get_inner();
+        let enable_binding_1 = args.enable.get_output(context);
+        let enable_binding = enable_binding_1.get_inner();
+        let finding_publishing_frequency_binding_1 = args
             .finding_publishing_frequency
-            .get_output(context)
+            .get_output(context);
+        let finding_publishing_frequency_binding = finding_publishing_frequency_binding_1
             .get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:guardduty/detector:Detector".into(),
             name: name.to_string(),

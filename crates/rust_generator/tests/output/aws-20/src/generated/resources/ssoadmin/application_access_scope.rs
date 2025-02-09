@@ -75,15 +75,12 @@ pub mod application_access_scope {
     ) -> ApplicationAccessScopeResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let application_arn_binding = args
-            .application_arn
-            .get_output(context)
-            .get_inner();
-        let authorized_targets_binding = args
-            .authorized_targets
-            .get_output(context)
-            .get_inner();
-        let scope_binding = args.scope.get_output(context).get_inner();
+        let application_arn_binding_1 = args.application_arn.get_output(context);
+        let application_arn_binding = application_arn_binding_1.get_inner();
+        let authorized_targets_binding_1 = args.authorized_targets.get_output(context);
+        let authorized_targets_binding = authorized_targets_binding_1.get_inner();
+        let scope_binding_1 = args.scope.get_output(context);
+        let scope_binding = scope_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:ssoadmin/applicationAccessScope:ApplicationAccessScope".into(),
             name: name.to_string(),

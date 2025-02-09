@@ -108,35 +108,35 @@ pub mod gre_tunnel {
     ) -> GreTunnelResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let account_id_binding = args.account_id.get_output(context).get_inner();
-        let cloudflare_gre_endpoint_binding = args
+        let account_id_binding_1 = args.account_id.get_output(context);
+        let account_id_binding = account_id_binding_1.get_inner();
+        let cloudflare_gre_endpoint_binding_1 = args
             .cloudflare_gre_endpoint
-            .get_output(context)
+            .get_output(context);
+        let cloudflare_gre_endpoint_binding = cloudflare_gre_endpoint_binding_1
             .get_inner();
-        let customer_gre_endpoint_binding = args
+        let customer_gre_endpoint_binding_1 = args
             .customer_gre_endpoint
-            .get_output(context)
-            .get_inner();
-        let description_binding = args.description.get_output(context).get_inner();
-        let health_check_enabled_binding = args
+            .get_output(context);
+        let customer_gre_endpoint_binding = customer_gre_endpoint_binding_1.get_inner();
+        let description_binding_1 = args.description.get_output(context);
+        let description_binding = description_binding_1.get_inner();
+        let health_check_enabled_binding_1 = args
             .health_check_enabled
-            .get_output(context)
-            .get_inner();
-        let health_check_target_binding = args
-            .health_check_target
-            .get_output(context)
-            .get_inner();
-        let health_check_type_binding = args
-            .health_check_type
-            .get_output(context)
-            .get_inner();
-        let interface_address_binding = args
-            .interface_address
-            .get_output(context)
-            .get_inner();
-        let mtu_binding = args.mtu.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let ttl_binding = args.ttl.get_output(context).get_inner();
+            .get_output(context);
+        let health_check_enabled_binding = health_check_enabled_binding_1.get_inner();
+        let health_check_target_binding_1 = args.health_check_target.get_output(context);
+        let health_check_target_binding = health_check_target_binding_1.get_inner();
+        let health_check_type_binding_1 = args.health_check_type.get_output(context);
+        let health_check_type_binding = health_check_type_binding_1.get_inner();
+        let interface_address_binding_1 = args.interface_address.get_output(context);
+        let interface_address_binding = interface_address_binding_1.get_inner();
+        let mtu_binding_1 = args.mtu.get_output(context);
+        let mtu_binding = mtu_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let ttl_binding_1 = args.ttl.get_output(context);
+        let ttl_binding = ttl_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "cloudflare:index/greTunnel:GreTunnel".into(),
             name: name.to_string(),

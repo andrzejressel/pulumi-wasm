@@ -56,11 +56,13 @@ pub mod api_shield {
     ) -> ApiShieldResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let auth_id_characteristics_binding = args
+        let auth_id_characteristics_binding_1 = args
             .auth_id_characteristics
-            .get_output(context)
+            .get_output(context);
+        let auth_id_characteristics_binding = auth_id_characteristics_binding_1
             .get_inner();
-        let zone_id_binding = args.zone_id.get_output(context).get_inner();
+        let zone_id_binding_1 = args.zone_id.get_output(context);
+        let zone_id_binding = zone_id_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "cloudflare:index/apiShield:ApiShield".into(),
             name: name.to_string(),

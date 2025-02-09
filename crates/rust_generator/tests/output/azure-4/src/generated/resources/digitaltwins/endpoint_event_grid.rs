@@ -108,27 +108,30 @@ pub mod endpoint_event_grid {
     ) -> EndpointEventGridResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let dead_letter_storage_secret_binding = args
+        let dead_letter_storage_secret_binding_1 = args
             .dead_letter_storage_secret
-            .get_output(context)
+            .get_output(context);
+        let dead_letter_storage_secret_binding = dead_letter_storage_secret_binding_1
             .get_inner();
-        let digital_twins_id_binding = args
-            .digital_twins_id
-            .get_output(context)
-            .get_inner();
-        let eventgrid_topic_endpoint_binding = args
+        let digital_twins_id_binding_1 = args.digital_twins_id.get_output(context);
+        let digital_twins_id_binding = digital_twins_id_binding_1.get_inner();
+        let eventgrid_topic_endpoint_binding_1 = args
             .eventgrid_topic_endpoint
-            .get_output(context)
+            .get_output(context);
+        let eventgrid_topic_endpoint_binding = eventgrid_topic_endpoint_binding_1
             .get_inner();
-        let eventgrid_topic_primary_access_key_binding = args
+        let eventgrid_topic_primary_access_key_binding_1 = args
             .eventgrid_topic_primary_access_key
-            .get_output(context)
+            .get_output(context);
+        let eventgrid_topic_primary_access_key_binding = eventgrid_topic_primary_access_key_binding_1
             .get_inner();
-        let eventgrid_topic_secondary_access_key_binding = args
+        let eventgrid_topic_secondary_access_key_binding_1 = args
             .eventgrid_topic_secondary_access_key
-            .get_output(context)
+            .get_output(context);
+        let eventgrid_topic_secondary_access_key_binding = eventgrid_topic_secondary_access_key_binding_1
             .get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:digitaltwins/endpointEventGrid:EndpointEventGrid".into(),
             name: name.to_string(),

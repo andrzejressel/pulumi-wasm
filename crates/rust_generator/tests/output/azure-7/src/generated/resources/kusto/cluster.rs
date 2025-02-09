@@ -205,63 +205,71 @@ pub mod cluster {
     ) -> ClusterResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let allowed_fqdns_binding = args.allowed_fqdns.get_output(context).get_inner();
-        let allowed_ip_ranges_binding = args
-            .allowed_ip_ranges
-            .get_output(context)
-            .get_inner();
-        let auto_stop_enabled_binding = args
-            .auto_stop_enabled
-            .get_output(context)
-            .get_inner();
-        let disk_encryption_enabled_binding = args
+        let allowed_fqdns_binding_1 = args.allowed_fqdns.get_output(context);
+        let allowed_fqdns_binding = allowed_fqdns_binding_1.get_inner();
+        let allowed_ip_ranges_binding_1 = args.allowed_ip_ranges.get_output(context);
+        let allowed_ip_ranges_binding = allowed_ip_ranges_binding_1.get_inner();
+        let auto_stop_enabled_binding_1 = args.auto_stop_enabled.get_output(context);
+        let auto_stop_enabled_binding = auto_stop_enabled_binding_1.get_inner();
+        let disk_encryption_enabled_binding_1 = args
             .disk_encryption_enabled
-            .get_output(context)
+            .get_output(context);
+        let disk_encryption_enabled_binding = disk_encryption_enabled_binding_1
             .get_inner();
-        let double_encryption_enabled_binding = args
+        let double_encryption_enabled_binding_1 = args
             .double_encryption_enabled
-            .get_output(context)
+            .get_output(context);
+        let double_encryption_enabled_binding = double_encryption_enabled_binding_1
             .get_inner();
-        let identity_binding = args.identity.get_output(context).get_inner();
-        let language_extensions_binding = args
-            .language_extensions
-            .get_output(context)
-            .get_inner();
-        let location_binding = args.location.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let optimized_auto_scale_binding = args
+        let identity_binding_1 = args.identity.get_output(context);
+        let identity_binding = identity_binding_1.get_inner();
+        let language_extensions_binding_1 = args.language_extensions.get_output(context);
+        let language_extensions_binding = language_extensions_binding_1.get_inner();
+        let location_binding_1 = args.location.get_output(context);
+        let location_binding = location_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let optimized_auto_scale_binding_1 = args
             .optimized_auto_scale
-            .get_output(context)
-            .get_inner();
-        let outbound_network_access_restricted_binding = args
+            .get_output(context);
+        let optimized_auto_scale_binding = optimized_auto_scale_binding_1.get_inner();
+        let outbound_network_access_restricted_binding_1 = args
             .outbound_network_access_restricted
-            .get_output(context)
+            .get_output(context);
+        let outbound_network_access_restricted_binding = outbound_network_access_restricted_binding_1
             .get_inner();
-        let public_ip_type_binding = args.public_ip_type.get_output(context).get_inner();
-        let public_network_access_enabled_binding = args
+        let public_ip_type_binding_1 = args.public_ip_type.get_output(context);
+        let public_ip_type_binding = public_ip_type_binding_1.get_inner();
+        let public_network_access_enabled_binding_1 = args
             .public_network_access_enabled
-            .get_output(context)
+            .get_output(context);
+        let public_network_access_enabled_binding = public_network_access_enabled_binding_1
             .get_inner();
-        let purge_enabled_binding = args.purge_enabled.get_output(context).get_inner();
-        let resource_group_name_binding = args
-            .resource_group_name
-            .get_output(context)
-            .get_inner();
-        let sku_binding = args.sku.get_output(context).get_inner();
-        let streaming_ingestion_enabled_binding = args
+        let purge_enabled_binding_1 = args.purge_enabled.get_output(context);
+        let purge_enabled_binding = purge_enabled_binding_1.get_inner();
+        let resource_group_name_binding_1 = args.resource_group_name.get_output(context);
+        let resource_group_name_binding = resource_group_name_binding_1.get_inner();
+        let sku_binding_1 = args.sku.get_output(context);
+        let sku_binding = sku_binding_1.get_inner();
+        let streaming_ingestion_enabled_binding_1 = args
             .streaming_ingestion_enabled
-            .get_output(context)
+            .get_output(context);
+        let streaming_ingestion_enabled_binding = streaming_ingestion_enabled_binding_1
             .get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
-        let trusted_external_tenants_binding = args
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
+        let trusted_external_tenants_binding_1 = args
             .trusted_external_tenants
-            .get_output(context)
+            .get_output(context);
+        let trusted_external_tenants_binding = trusted_external_tenants_binding_1
             .get_inner();
-        let virtual_network_configuration_binding = args
+        let virtual_network_configuration_binding_1 = args
             .virtual_network_configuration
-            .get_output(context)
+            .get_output(context);
+        let virtual_network_configuration_binding = virtual_network_configuration_binding_1
             .get_inner();
-        let zones_binding = args.zones.get_output(context).get_inner();
+        let zones_binding_1 = args.zones.get_output(context);
+        let zones_binding = zones_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:kusto/cluster:Cluster".into(),
             name: name.to_string(),

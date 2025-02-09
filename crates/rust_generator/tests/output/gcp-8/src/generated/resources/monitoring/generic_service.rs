@@ -146,11 +146,16 @@ pub mod generic_service {
     ) -> GenericServiceResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let basic_service_binding = args.basic_service.get_output(context).get_inner();
-        let display_name_binding = args.display_name.get_output(context).get_inner();
-        let project_binding = args.project.get_output(context).get_inner();
-        let service_id_binding = args.service_id.get_output(context).get_inner();
-        let user_labels_binding = args.user_labels.get_output(context).get_inner();
+        let basic_service_binding_1 = args.basic_service.get_output(context);
+        let basic_service_binding = basic_service_binding_1.get_inner();
+        let display_name_binding_1 = args.display_name.get_output(context);
+        let display_name_binding = display_name_binding_1.get_inner();
+        let project_binding_1 = args.project.get_output(context);
+        let project_binding = project_binding_1.get_inner();
+        let service_id_binding_1 = args.service_id.get_output(context);
+        let service_id_binding = service_id_binding_1.get_inner();
+        let user_labels_binding_1 = args.user_labels.get_output(context);
+        let user_labels_binding = user_labels_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:monitoring/genericService:GenericService".into(),
             name: name.to_string(),

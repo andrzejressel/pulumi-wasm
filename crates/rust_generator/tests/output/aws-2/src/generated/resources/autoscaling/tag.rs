@@ -44,11 +44,13 @@ pub mod tag {
     ) -> TagResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let autoscaling_group_name_binding = args
+        let autoscaling_group_name_binding_1 = args
             .autoscaling_group_name
-            .get_output(context)
+            .get_output(context);
+        let autoscaling_group_name_binding = autoscaling_group_name_binding_1
             .get_inner();
-        let tag_binding = args.tag.get_output(context).get_inner();
+        let tag_binding_1 = args.tag.get_output(context);
+        let tag_binding = tag_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:autoscaling/tag:Tag".into(),
             name: name.to_string(),

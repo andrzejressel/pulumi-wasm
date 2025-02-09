@@ -137,40 +137,47 @@ pub mod access_organization {
     ) -> AccessOrganizationResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let account_id_binding = args.account_id.get_output(context).get_inner();
-        let allow_authenticate_via_warp_binding = args
+        let account_id_binding_1 = args.account_id.get_output(context);
+        let account_id_binding = account_id_binding_1.get_inner();
+        let allow_authenticate_via_warp_binding_1 = args
             .allow_authenticate_via_warp
-            .get_output(context)
+            .get_output(context);
+        let allow_authenticate_via_warp_binding = allow_authenticate_via_warp_binding_1
             .get_inner();
-        let auth_domain_binding = args.auth_domain.get_output(context).get_inner();
-        let auto_redirect_to_identity_binding = args
+        let auth_domain_binding_1 = args.auth_domain.get_output(context);
+        let auth_domain_binding = auth_domain_binding_1.get_inner();
+        let auto_redirect_to_identity_binding_1 = args
             .auto_redirect_to_identity
-            .get_output(context)
+            .get_output(context);
+        let auto_redirect_to_identity_binding = auto_redirect_to_identity_binding_1
             .get_inner();
-        let custom_pages_binding = args.custom_pages.get_output(context).get_inner();
-        let is_ui_read_only_binding = args
-            .is_ui_read_only
-            .get_output(context)
-            .get_inner();
-        let login_designs_binding = args.login_designs.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let session_duration_binding = args
-            .session_duration
-            .get_output(context)
-            .get_inner();
-        let ui_read_only_toggle_reason_binding = args
+        let custom_pages_binding_1 = args.custom_pages.get_output(context);
+        let custom_pages_binding = custom_pages_binding_1.get_inner();
+        let is_ui_read_only_binding_1 = args.is_ui_read_only.get_output(context);
+        let is_ui_read_only_binding = is_ui_read_only_binding_1.get_inner();
+        let login_designs_binding_1 = args.login_designs.get_output(context);
+        let login_designs_binding = login_designs_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let session_duration_binding_1 = args.session_duration.get_output(context);
+        let session_duration_binding = session_duration_binding_1.get_inner();
+        let ui_read_only_toggle_reason_binding_1 = args
             .ui_read_only_toggle_reason
-            .get_output(context)
+            .get_output(context);
+        let ui_read_only_toggle_reason_binding = ui_read_only_toggle_reason_binding_1
             .get_inner();
-        let user_seat_expiration_inactive_time_binding = args
+        let user_seat_expiration_inactive_time_binding_1 = args
             .user_seat_expiration_inactive_time
-            .get_output(context)
+            .get_output(context);
+        let user_seat_expiration_inactive_time_binding = user_seat_expiration_inactive_time_binding_1
             .get_inner();
-        let warp_auth_session_duration_binding = args
+        let warp_auth_session_duration_binding_1 = args
             .warp_auth_session_duration
-            .get_output(context)
+            .get_output(context);
+        let warp_auth_session_duration_binding = warp_auth_session_duration_binding_1
             .get_inner();
-        let zone_id_binding = args.zone_id.get_output(context).get_inner();
+        let zone_id_binding_1 = args.zone_id.get_output(context);
+        let zone_id_binding = zone_id_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "cloudflare:index/accessOrganization:AccessOrganization".into(),
             name: name.to_string(),

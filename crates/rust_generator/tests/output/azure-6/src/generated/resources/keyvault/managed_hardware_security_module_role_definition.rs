@@ -101,11 +101,16 @@ pub mod managed_hardware_security_module_role_definition {
     ) -> ManagedHardwareSecurityModuleRoleDefinitionResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let description_binding = args.description.get_output(context).get_inner();
-        let managed_hsm_id_binding = args.managed_hsm_id.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let permissions_binding = args.permissions.get_output(context).get_inner();
-        let role_name_binding = args.role_name.get_output(context).get_inner();
+        let description_binding_1 = args.description.get_output(context);
+        let description_binding = description_binding_1.get_inner();
+        let managed_hsm_id_binding_1 = args.managed_hsm_id.get_output(context);
+        let managed_hsm_id_binding = managed_hsm_id_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let permissions_binding_1 = args.permissions.get_output(context);
+        let permissions_binding = permissions_binding_1.get_inner();
+        let role_name_binding_1 = args.role_name.get_output(context);
+        let role_name_binding = role_name_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:keyvault/managedHardwareSecurityModuleRoleDefinition:ManagedHardwareSecurityModuleRoleDefinition"
                 .into(),

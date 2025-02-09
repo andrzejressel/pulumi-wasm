@@ -167,27 +167,33 @@ pub mod authorizer {
     ) -> AuthorizerResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let authorizer_credentials_binding = args
+        let authorizer_credentials_binding_1 = args
             .authorizer_credentials
-            .get_output(context)
+            .get_output(context);
+        let authorizer_credentials_binding = authorizer_credentials_binding_1
             .get_inner();
-        let authorizer_result_ttl_in_seconds_binding = args
+        let authorizer_result_ttl_in_seconds_binding_1 = args
             .authorizer_result_ttl_in_seconds
-            .get_output(context)
+            .get_output(context);
+        let authorizer_result_ttl_in_seconds_binding = authorizer_result_ttl_in_seconds_binding_1
             .get_inner();
-        let authorizer_uri_binding = args.authorizer_uri.get_output(context).get_inner();
-        let identity_source_binding = args
-            .identity_source
-            .get_output(context)
-            .get_inner();
-        let identity_validation_expression_binding = args
+        let authorizer_uri_binding_1 = args.authorizer_uri.get_output(context);
+        let authorizer_uri_binding = authorizer_uri_binding_1.get_inner();
+        let identity_source_binding_1 = args.identity_source.get_output(context);
+        let identity_source_binding = identity_source_binding_1.get_inner();
+        let identity_validation_expression_binding_1 = args
             .identity_validation_expression
-            .get_output(context)
+            .get_output(context);
+        let identity_validation_expression_binding = identity_validation_expression_binding_1
             .get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let provider_arns_binding = args.provider_arns.get_output(context).get_inner();
-        let rest_api_binding = args.rest_api.get_output(context).get_inner();
-        let type__binding = args.type_.get_output(context).get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let provider_arns_binding_1 = args.provider_arns.get_output(context);
+        let provider_arns_binding = provider_arns_binding_1.get_inner();
+        let rest_api_binding_1 = args.rest_api.get_output(context);
+        let rest_api_binding = rest_api_binding_1.get_inner();
+        let type__binding_1 = args.type_.get_output(context);
+        let type__binding = type__binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:apigateway/authorizer:Authorizer".into(),
             name: name.to_string(),

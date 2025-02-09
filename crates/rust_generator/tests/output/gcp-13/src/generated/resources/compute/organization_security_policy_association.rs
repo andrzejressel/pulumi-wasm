@@ -125,9 +125,12 @@ pub mod organization_security_policy_association {
     ) -> OrganizationSecurityPolicyAssociationResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let attachment_id_binding = args.attachment_id.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let policy_id_binding = args.policy_id.get_output(context).get_inner();
+        let attachment_id_binding_1 = args.attachment_id.get_output(context);
+        let attachment_id_binding = attachment_id_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let policy_id_binding_1 = args.policy_id.get_output(context);
+        let policy_id_binding = policy_id_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:compute/organizationSecurityPolicyAssociation:OrganizationSecurityPolicyAssociation"
                 .into(),

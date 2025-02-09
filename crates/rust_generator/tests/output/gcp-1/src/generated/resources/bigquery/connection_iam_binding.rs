@@ -297,12 +297,18 @@ pub mod connection_iam_binding {
     ) -> ConnectionIamBindingResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let condition_binding = args.condition.get_output(context).get_inner();
-        let connection_id_binding = args.connection_id.get_output(context).get_inner();
-        let location_binding = args.location.get_output(context).get_inner();
-        let members_binding = args.members.get_output(context).get_inner();
-        let project_binding = args.project.get_output(context).get_inner();
-        let role_binding = args.role.get_output(context).get_inner();
+        let condition_binding_1 = args.condition.get_output(context);
+        let condition_binding = condition_binding_1.get_inner();
+        let connection_id_binding_1 = args.connection_id.get_output(context);
+        let connection_id_binding = connection_id_binding_1.get_inner();
+        let location_binding_1 = args.location.get_output(context);
+        let location_binding = location_binding_1.get_inner();
+        let members_binding_1 = args.members.get_output(context);
+        let members_binding = members_binding_1.get_inner();
+        let project_binding_1 = args.project.get_output(context);
+        let project_binding = project_binding_1.get_inner();
+        let role_binding_1 = args.role.get_output(context);
+        let role_binding = role_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:bigquery/connectionIamBinding:ConnectionIamBinding".into(),
             name: name.to_string(),

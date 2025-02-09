@@ -29,7 +29,8 @@ pub mod get_data_shares {
     ) -> GetDataSharesResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let data_shares_binding = args.data_shares.get_output(context).get_inner();
+        let data_shares_binding_1 = args.data_shares.get_output(context);
+        let data_shares_binding = data_shares_binding_1.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:redshift/getDataShares:getDataShares".into(),
             version: super::super::super::get_version(),

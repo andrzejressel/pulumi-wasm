@@ -48,11 +48,10 @@ pub mod get_cost_category {
     ) -> GetCostCategoryResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let cost_category_arn_binding = args
-            .cost_category_arn
-            .get_output(context)
-            .get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
+        let cost_category_arn_binding_1 = args.cost_category_arn.get_output(context);
+        let cost_category_arn_binding = cost_category_arn_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:costexplorer/getCostCategory:getCostCategory".into(),
             version: super::super::super::get_version(),

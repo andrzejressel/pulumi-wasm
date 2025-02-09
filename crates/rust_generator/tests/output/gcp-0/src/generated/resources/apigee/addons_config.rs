@@ -181,8 +181,10 @@ pub mod addons_config {
     ) -> AddonsConfigResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let addons_config_binding = args.addons_config.get_output(context).get_inner();
-        let org_binding = args.org.get_output(context).get_inner();
+        let addons_config_binding_1 = args.addons_config.get_output(context);
+        let addons_config_binding = addons_config_binding_1.get_inner();
+        let org_binding_1 = args.org.get_output(context);
+        let org_binding = org_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:apigee/addonsConfig:AddonsConfig".into(),
             name: name.to_string(),

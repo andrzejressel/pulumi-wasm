@@ -126,39 +126,38 @@ pub mod endpoint_group {
     ) -> EndpointGroupResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let endpoint_configurations_binding = args
+        let endpoint_configurations_binding_1 = args
             .endpoint_configurations
-            .get_output(context)
+            .get_output(context);
+        let endpoint_configurations_binding = endpoint_configurations_binding_1
             .get_inner();
-        let endpoint_group_region_binding = args
+        let endpoint_group_region_binding_1 = args
             .endpoint_group_region
-            .get_output(context)
-            .get_inner();
-        let health_check_interval_seconds_binding = args
+            .get_output(context);
+        let endpoint_group_region_binding = endpoint_group_region_binding_1.get_inner();
+        let health_check_interval_seconds_binding_1 = args
             .health_check_interval_seconds
-            .get_output(context)
+            .get_output(context);
+        let health_check_interval_seconds_binding = health_check_interval_seconds_binding_1
             .get_inner();
-        let health_check_path_binding = args
-            .health_check_path
-            .get_output(context)
-            .get_inner();
-        let health_check_port_binding = args
-            .health_check_port
-            .get_output(context)
-            .get_inner();
-        let health_check_protocol_binding = args
+        let health_check_path_binding_1 = args.health_check_path.get_output(context);
+        let health_check_path_binding = health_check_path_binding_1.get_inner();
+        let health_check_port_binding_1 = args.health_check_port.get_output(context);
+        let health_check_port_binding = health_check_port_binding_1.get_inner();
+        let health_check_protocol_binding_1 = args
             .health_check_protocol
-            .get_output(context)
-            .get_inner();
-        let listener_arn_binding = args.listener_arn.get_output(context).get_inner();
-        let port_overrides_binding = args.port_overrides.get_output(context).get_inner();
-        let threshold_count_binding = args
-            .threshold_count
-            .get_output(context)
-            .get_inner();
-        let traffic_dial_percentage_binding = args
+            .get_output(context);
+        let health_check_protocol_binding = health_check_protocol_binding_1.get_inner();
+        let listener_arn_binding_1 = args.listener_arn.get_output(context);
+        let listener_arn_binding = listener_arn_binding_1.get_inner();
+        let port_overrides_binding_1 = args.port_overrides.get_output(context);
+        let port_overrides_binding = port_overrides_binding_1.get_inner();
+        let threshold_count_binding_1 = args.threshold_count.get_output(context);
+        let threshold_count_binding = threshold_count_binding_1.get_inner();
+        let traffic_dial_percentage_binding_1 = args
             .traffic_dial_percentage
-            .get_output(context)
+            .get_output(context);
+        let traffic_dial_percentage_binding = traffic_dial_percentage_binding_1
             .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:globalaccelerator/endpointGroup:EndpointGroup".into(),

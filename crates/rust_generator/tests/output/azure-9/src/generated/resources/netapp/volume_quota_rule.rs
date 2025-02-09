@@ -191,15 +191,18 @@ pub mod volume_quota_rule {
     ) -> VolumeQuotaRuleResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let location_binding = args.location.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let quota_size_in_kib_binding = args
-            .quota_size_in_kib
-            .get_output(context)
-            .get_inner();
-        let quota_target_binding = args.quota_target.get_output(context).get_inner();
-        let quota_type_binding = args.quota_type.get_output(context).get_inner();
-        let volume_id_binding = args.volume_id.get_output(context).get_inner();
+        let location_binding_1 = args.location.get_output(context);
+        let location_binding = location_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let quota_size_in_kib_binding_1 = args.quota_size_in_kib.get_output(context);
+        let quota_size_in_kib_binding = quota_size_in_kib_binding_1.get_inner();
+        let quota_target_binding_1 = args.quota_target.get_output(context);
+        let quota_target_binding = quota_target_binding_1.get_inner();
+        let quota_type_binding_1 = args.quota_type.get_output(context);
+        let quota_type_binding = quota_type_binding_1.get_inner();
+        let volume_id_binding_1 = args.volume_id.get_output(context);
+        let volume_id_binding = volume_id_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:netapp/volumeQuotaRule:VolumeQuotaRule".into(),
             name: name.to_string(),

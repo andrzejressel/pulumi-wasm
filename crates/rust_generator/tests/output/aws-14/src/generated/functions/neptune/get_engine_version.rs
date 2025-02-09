@@ -50,16 +50,17 @@ pub mod get_engine_version {
     ) -> GetEngineVersionResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let engine_binding = args.engine.get_output(context).get_inner();
-        let parameter_group_family_binding = args
+        let engine_binding_1 = args.engine.get_output(context);
+        let engine_binding = engine_binding_1.get_inner();
+        let parameter_group_family_binding_1 = args
             .parameter_group_family
-            .get_output(context)
+            .get_output(context);
+        let parameter_group_family_binding = parameter_group_family_binding_1
             .get_inner();
-        let preferred_versions_binding = args
-            .preferred_versions
-            .get_output(context)
-            .get_inner();
-        let version_binding = args.version.get_output(context).get_inner();
+        let preferred_versions_binding_1 = args.preferred_versions.get_output(context);
+        let preferred_versions_binding = preferred_versions_binding_1.get_inner();
+        let version_binding_1 = args.version.get_output(context);
+        let version_binding = version_binding_1.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:neptune/getEngineVersion:getEngineVersion".into(),
             version: super::super::super::get_version(),

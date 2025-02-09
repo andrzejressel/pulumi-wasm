@@ -68,21 +68,20 @@ pub mod custom_key_store {
     ) -> CustomKeyStoreResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let cloud_hsm_cluster_id_binding = args
+        let cloud_hsm_cluster_id_binding_1 = args
             .cloud_hsm_cluster_id
-            .get_output(context)
-            .get_inner();
-        let custom_key_store_name_binding = args
+            .get_output(context);
+        let cloud_hsm_cluster_id_binding = cloud_hsm_cluster_id_binding_1.get_inner();
+        let custom_key_store_name_binding_1 = args
             .custom_key_store_name
-            .get_output(context)
-            .get_inner();
-        let key_store_password_binding = args
-            .key_store_password
-            .get_output(context)
-            .get_inner();
-        let trust_anchor_certificate_binding = args
+            .get_output(context);
+        let custom_key_store_name_binding = custom_key_store_name_binding_1.get_inner();
+        let key_store_password_binding_1 = args.key_store_password.get_output(context);
+        let key_store_password_binding = key_store_password_binding_1.get_inner();
+        let trust_anchor_certificate_binding_1 = args
             .trust_anchor_certificate
-            .get_output(context)
+            .get_output(context);
+        let trust_anchor_certificate_binding = trust_anchor_certificate_binding_1
             .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:kms/customKeyStore:CustomKeyStore".into(),

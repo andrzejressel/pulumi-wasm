@@ -57,15 +57,19 @@ pub mod instance_metadata_defaults {
     ) -> InstanceMetadataDefaultsResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let http_endpoint_binding = args.http_endpoint.get_output(context).get_inner();
-        let http_put_response_hop_limit_binding = args
+        let http_endpoint_binding_1 = args.http_endpoint.get_output(context);
+        let http_endpoint_binding = http_endpoint_binding_1.get_inner();
+        let http_put_response_hop_limit_binding_1 = args
             .http_put_response_hop_limit
-            .get_output(context)
+            .get_output(context);
+        let http_put_response_hop_limit_binding = http_put_response_hop_limit_binding_1
             .get_inner();
-        let http_tokens_binding = args.http_tokens.get_output(context).get_inner();
-        let instance_metadata_tags_binding = args
+        let http_tokens_binding_1 = args.http_tokens.get_output(context);
+        let http_tokens_binding = http_tokens_binding_1.get_inner();
+        let instance_metadata_tags_binding_1 = args
             .instance_metadata_tags
-            .get_output(context)
+            .get_output(context);
+        let instance_metadata_tags_binding = instance_metadata_tags_binding_1
             .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:ec2/instanceMetadataDefaults:InstanceMetadataDefaults".into(),

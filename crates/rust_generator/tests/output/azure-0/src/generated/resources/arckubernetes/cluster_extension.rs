@@ -128,28 +128,32 @@ pub mod cluster_extension {
     ) -> ClusterExtensionResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let cluster_id_binding = args.cluster_id.get_output(context).get_inner();
-        let configuration_protected_settings_binding = args
+        let cluster_id_binding_1 = args.cluster_id.get_output(context);
+        let cluster_id_binding = cluster_id_binding_1.get_inner();
+        let configuration_protected_settings_binding_1 = args
             .configuration_protected_settings
-            .get_output(context)
+            .get_output(context);
+        let configuration_protected_settings_binding = configuration_protected_settings_binding_1
             .get_inner();
-        let configuration_settings_binding = args
+        let configuration_settings_binding_1 = args
             .configuration_settings
-            .get_output(context)
+            .get_output(context);
+        let configuration_settings_binding = configuration_settings_binding_1
             .get_inner();
-        let extension_type_binding = args.extension_type.get_output(context).get_inner();
-        let identity_binding = args.identity.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let release_namespace_binding = args
-            .release_namespace
-            .get_output(context)
-            .get_inner();
-        let release_train_binding = args.release_train.get_output(context).get_inner();
-        let target_namespace_binding = args
-            .target_namespace
-            .get_output(context)
-            .get_inner();
-        let version_binding = args.version.get_output(context).get_inner();
+        let extension_type_binding_1 = args.extension_type.get_output(context);
+        let extension_type_binding = extension_type_binding_1.get_inner();
+        let identity_binding_1 = args.identity.get_output(context);
+        let identity_binding = identity_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let release_namespace_binding_1 = args.release_namespace.get_output(context);
+        let release_namespace_binding = release_namespace_binding_1.get_inner();
+        let release_train_binding_1 = args.release_train.get_output(context);
+        let release_train_binding = release_train_binding_1.get_inner();
+        let target_namespace_binding_1 = args.target_namespace.get_output(context);
+        let target_namespace_binding = target_namespace_binding_1.get_inner();
+        let version_binding_1 = args.version.get_output(context);
+        let version_binding = version_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:arckubernetes/clusterExtension:ClusterExtension".into(),
             name: name.to_string(),

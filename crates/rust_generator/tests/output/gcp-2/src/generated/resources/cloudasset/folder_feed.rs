@@ -179,20 +179,22 @@ pub mod folder_feed {
     ) -> FolderFeedResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let asset_names_binding = args.asset_names.get_output(context).get_inner();
-        let asset_types_binding = args.asset_types.get_output(context).get_inner();
-        let billing_project_binding = args
-            .billing_project
-            .get_output(context)
-            .get_inner();
-        let condition_binding = args.condition.get_output(context).get_inner();
-        let content_type_binding = args.content_type.get_output(context).get_inner();
-        let feed_id_binding = args.feed_id.get_output(context).get_inner();
-        let feed_output_config_binding = args
-            .feed_output_config
-            .get_output(context)
-            .get_inner();
-        let folder_binding = args.folder.get_output(context).get_inner();
+        let asset_names_binding_1 = args.asset_names.get_output(context);
+        let asset_names_binding = asset_names_binding_1.get_inner();
+        let asset_types_binding_1 = args.asset_types.get_output(context);
+        let asset_types_binding = asset_types_binding_1.get_inner();
+        let billing_project_binding_1 = args.billing_project.get_output(context);
+        let billing_project_binding = billing_project_binding_1.get_inner();
+        let condition_binding_1 = args.condition.get_output(context);
+        let condition_binding = condition_binding_1.get_inner();
+        let content_type_binding_1 = args.content_type.get_output(context);
+        let content_type_binding = content_type_binding_1.get_inner();
+        let feed_id_binding_1 = args.feed_id.get_output(context);
+        let feed_id_binding = feed_id_binding_1.get_inner();
+        let feed_output_config_binding_1 = args.feed_output_config.get_output(context);
+        let feed_output_config_binding = feed_output_config_binding_1.get_inner();
+        let folder_binding_1 = args.folder.get_output(context);
+        let folder_binding = folder_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:cloudasset/folderFeed:FolderFeed".into(),
             name: name.to_string(),

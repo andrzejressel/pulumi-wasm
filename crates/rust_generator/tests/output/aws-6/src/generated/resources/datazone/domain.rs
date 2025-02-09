@@ -135,23 +135,24 @@ pub mod domain {
     ) -> DomainResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let description_binding = args.description.get_output(context).get_inner();
-        let domain_execution_role_binding = args
+        let description_binding_1 = args.description.get_output(context);
+        let description_binding = description_binding_1.get_inner();
+        let domain_execution_role_binding_1 = args
             .domain_execution_role
-            .get_output(context)
-            .get_inner();
-        let kms_key_identifier_binding = args
-            .kms_key_identifier
-            .get_output(context)
-            .get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let single_sign_on_binding = args.single_sign_on.get_output(context).get_inner();
-        let skip_deletion_check_binding = args
-            .skip_deletion_check
-            .get_output(context)
-            .get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
-        let timeouts_binding = args.timeouts.get_output(context).get_inner();
+            .get_output(context);
+        let domain_execution_role_binding = domain_execution_role_binding_1.get_inner();
+        let kms_key_identifier_binding_1 = args.kms_key_identifier.get_output(context);
+        let kms_key_identifier_binding = kms_key_identifier_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let single_sign_on_binding_1 = args.single_sign_on.get_output(context);
+        let single_sign_on_binding = single_sign_on_binding_1.get_inner();
+        let skip_deletion_check_binding_1 = args.skip_deletion_check.get_output(context);
+        let skip_deletion_check_binding = skip_deletion_check_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
+        let timeouts_binding_1 = args.timeouts.get_output(context);
+        let timeouts_binding = timeouts_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:datazone/domain:Domain".into(),
             name: name.to_string(),

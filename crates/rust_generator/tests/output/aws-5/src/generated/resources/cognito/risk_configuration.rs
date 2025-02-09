@@ -107,20 +107,25 @@ pub mod risk_configuration {
     ) -> RiskConfigurationResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let account_takeover_risk_configuration_binding = args
+        let account_takeover_risk_configuration_binding_1 = args
             .account_takeover_risk_configuration
-            .get_output(context)
+            .get_output(context);
+        let account_takeover_risk_configuration_binding = account_takeover_risk_configuration_binding_1
             .get_inner();
-        let client_id_binding = args.client_id.get_output(context).get_inner();
-        let compromised_credentials_risk_configuration_binding = args
+        let client_id_binding_1 = args.client_id.get_output(context);
+        let client_id_binding = client_id_binding_1.get_inner();
+        let compromised_credentials_risk_configuration_binding_1 = args
             .compromised_credentials_risk_configuration
-            .get_output(context)
+            .get_output(context);
+        let compromised_credentials_risk_configuration_binding = compromised_credentials_risk_configuration_binding_1
             .get_inner();
-        let risk_exception_configuration_binding = args
+        let risk_exception_configuration_binding_1 = args
             .risk_exception_configuration
-            .get_output(context)
+            .get_output(context);
+        let risk_exception_configuration_binding = risk_exception_configuration_binding_1
             .get_inner();
-        let user_pool_id_binding = args.user_pool_id.get_output(context).get_inner();
+        let user_pool_id_binding_1 = args.user_pool_id.get_output(context);
+        let user_pool_id_binding = user_pool_id_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:cognito/riskConfiguration:RiskConfiguration".into(),
             name: name.to_string(),

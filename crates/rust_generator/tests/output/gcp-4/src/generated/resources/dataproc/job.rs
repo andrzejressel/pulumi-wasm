@@ -220,23 +220,34 @@ pub mod job {
     ) -> JobResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let force_delete_binding = args.force_delete.get_output(context).get_inner();
-        let hadoop_config_binding = args.hadoop_config.get_output(context).get_inner();
-        let hive_config_binding = args.hive_config.get_output(context).get_inner();
-        let labels_binding = args.labels.get_output(context).get_inner();
-        let pig_config_binding = args.pig_config.get_output(context).get_inner();
-        let placement_binding = args.placement.get_output(context).get_inner();
-        let presto_config_binding = args.presto_config.get_output(context).get_inner();
-        let project_binding = args.project.get_output(context).get_inner();
-        let pyspark_config_binding = args.pyspark_config.get_output(context).get_inner();
-        let reference_binding = args.reference.get_output(context).get_inner();
-        let region_binding = args.region.get_output(context).get_inner();
-        let scheduling_binding = args.scheduling.get_output(context).get_inner();
-        let spark_config_binding = args.spark_config.get_output(context).get_inner();
-        let sparksql_config_binding = args
-            .sparksql_config
-            .get_output(context)
-            .get_inner();
+        let force_delete_binding_1 = args.force_delete.get_output(context);
+        let force_delete_binding = force_delete_binding_1.get_inner();
+        let hadoop_config_binding_1 = args.hadoop_config.get_output(context);
+        let hadoop_config_binding = hadoop_config_binding_1.get_inner();
+        let hive_config_binding_1 = args.hive_config.get_output(context);
+        let hive_config_binding = hive_config_binding_1.get_inner();
+        let labels_binding_1 = args.labels.get_output(context);
+        let labels_binding = labels_binding_1.get_inner();
+        let pig_config_binding_1 = args.pig_config.get_output(context);
+        let pig_config_binding = pig_config_binding_1.get_inner();
+        let placement_binding_1 = args.placement.get_output(context);
+        let placement_binding = placement_binding_1.get_inner();
+        let presto_config_binding_1 = args.presto_config.get_output(context);
+        let presto_config_binding = presto_config_binding_1.get_inner();
+        let project_binding_1 = args.project.get_output(context);
+        let project_binding = project_binding_1.get_inner();
+        let pyspark_config_binding_1 = args.pyspark_config.get_output(context);
+        let pyspark_config_binding = pyspark_config_binding_1.get_inner();
+        let reference_binding_1 = args.reference.get_output(context);
+        let reference_binding = reference_binding_1.get_inner();
+        let region_binding_1 = args.region.get_output(context);
+        let region_binding = region_binding_1.get_inner();
+        let scheduling_binding_1 = args.scheduling.get_output(context);
+        let scheduling_binding = scheduling_binding_1.get_inner();
+        let spark_config_binding_1 = args.spark_config.get_output(context);
+        let spark_config_binding = spark_config_binding_1.get_inner();
+        let sparksql_config_binding_1 = args.sparksql_config.get_output(context);
+        let sparksql_config_binding = sparksql_config_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:dataproc/job:Job".into(),
             name: name.to_string(),

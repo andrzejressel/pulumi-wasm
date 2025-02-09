@@ -381,9 +381,12 @@ pub mod secret_iam_policy {
     ) -> SecretIamPolicyResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let policy_data_binding = args.policy_data.get_output(context).get_inner();
-        let project_binding = args.project.get_output(context).get_inner();
-        let secret_id_binding = args.secret_id.get_output(context).get_inner();
+        let policy_data_binding_1 = args.policy_data.get_output(context);
+        let policy_data_binding = policy_data_binding_1.get_inner();
+        let project_binding_1 = args.project.get_output(context);
+        let project_binding = project_binding_1.get_inner();
+        let secret_id_binding_1 = args.secret_id.get_output(context);
+        let secret_id_binding = secret_id_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:secretmanager/secretIamPolicy:SecretIamPolicy".into(),
             name: name.to_string(),

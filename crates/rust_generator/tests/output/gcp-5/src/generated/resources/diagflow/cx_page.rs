@@ -533,27 +533,27 @@ pub mod cx_page {
     ) -> CxPageResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let advanced_settings_binding = args
-            .advanced_settings
-            .get_output(context)
-            .get_inner();
-        let display_name_binding = args.display_name.get_output(context).get_inner();
-        let entry_fulfillment_binding = args
-            .entry_fulfillment
-            .get_output(context)
-            .get_inner();
-        let event_handlers_binding = args.event_handlers.get_output(context).get_inner();
-        let form_binding = args.form.get_output(context).get_inner();
-        let language_code_binding = args.language_code.get_output(context).get_inner();
-        let parent_binding = args.parent.get_output(context).get_inner();
-        let transition_route_groups_binding = args
+        let advanced_settings_binding_1 = args.advanced_settings.get_output(context);
+        let advanced_settings_binding = advanced_settings_binding_1.get_inner();
+        let display_name_binding_1 = args.display_name.get_output(context);
+        let display_name_binding = display_name_binding_1.get_inner();
+        let entry_fulfillment_binding_1 = args.entry_fulfillment.get_output(context);
+        let entry_fulfillment_binding = entry_fulfillment_binding_1.get_inner();
+        let event_handlers_binding_1 = args.event_handlers.get_output(context);
+        let event_handlers_binding = event_handlers_binding_1.get_inner();
+        let form_binding_1 = args.form.get_output(context);
+        let form_binding = form_binding_1.get_inner();
+        let language_code_binding_1 = args.language_code.get_output(context);
+        let language_code_binding = language_code_binding_1.get_inner();
+        let parent_binding_1 = args.parent.get_output(context);
+        let parent_binding = parent_binding_1.get_inner();
+        let transition_route_groups_binding_1 = args
             .transition_route_groups
-            .get_output(context)
+            .get_output(context);
+        let transition_route_groups_binding = transition_route_groups_binding_1
             .get_inner();
-        let transition_routes_binding = args
-            .transition_routes
-            .get_output(context)
-            .get_inner();
+        let transition_routes_binding_1 = args.transition_routes.get_output(context);
+        let transition_routes_binding = transition_routes_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:diagflow/cxPage:CxPage".into(),
             name: name.to_string(),

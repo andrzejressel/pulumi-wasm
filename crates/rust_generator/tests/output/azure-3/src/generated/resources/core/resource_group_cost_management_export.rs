@@ -118,32 +118,31 @@ pub mod resource_group_cost_management_export {
     ) -> ResourceGroupCostManagementExportResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let active_binding = args.active.get_output(context).get_inner();
-        let export_data_options_binding = args
-            .export_data_options
-            .get_output(context)
-            .get_inner();
-        let export_data_storage_location_binding = args
+        let active_binding_1 = args.active.get_output(context);
+        let active_binding = active_binding_1.get_inner();
+        let export_data_options_binding_1 = args.export_data_options.get_output(context);
+        let export_data_options_binding = export_data_options_binding_1.get_inner();
+        let export_data_storage_location_binding_1 = args
             .export_data_storage_location
-            .get_output(context)
+            .get_output(context);
+        let export_data_storage_location_binding = export_data_storage_location_binding_1
             .get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let recurrence_period_end_date_binding = args
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let recurrence_period_end_date_binding_1 = args
             .recurrence_period_end_date
-            .get_output(context)
+            .get_output(context);
+        let recurrence_period_end_date_binding = recurrence_period_end_date_binding_1
             .get_inner();
-        let recurrence_period_start_date_binding = args
+        let recurrence_period_start_date_binding_1 = args
             .recurrence_period_start_date
-            .get_output(context)
+            .get_output(context);
+        let recurrence_period_start_date_binding = recurrence_period_start_date_binding_1
             .get_inner();
-        let recurrence_type_binding = args
-            .recurrence_type
-            .get_output(context)
-            .get_inner();
-        let resource_group_id_binding = args
-            .resource_group_id
-            .get_output(context)
-            .get_inner();
+        let recurrence_type_binding_1 = args.recurrence_type.get_output(context);
+        let recurrence_type_binding = recurrence_type_binding_1.get_inner();
+        let resource_group_id_binding_1 = args.resource_group_id.get_output(context);
+        let resource_group_id_binding = resource_group_id_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:core/resourceGroupCostManagementExport:ResourceGroupCostManagementExport"
                 .into(),

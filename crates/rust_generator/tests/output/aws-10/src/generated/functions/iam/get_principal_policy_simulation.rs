@@ -95,34 +95,40 @@ pub mod get_principal_policy_simulation {
     ) -> GetPrincipalPolicySimulationResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let action_names_binding = args.action_names.get_output(context).get_inner();
-        let additional_policies_jsons_binding = args
+        let action_names_binding_1 = args.action_names.get_output(context);
+        let action_names_binding = action_names_binding_1.get_inner();
+        let additional_policies_jsons_binding_1 = args
             .additional_policies_jsons
-            .get_output(context)
+            .get_output(context);
+        let additional_policies_jsons_binding = additional_policies_jsons_binding_1
             .get_inner();
-        let caller_arn_binding = args.caller_arn.get_output(context).get_inner();
-        let contexts_binding = args.contexts.get_output(context).get_inner();
-        let permissions_boundary_policies_jsons_binding = args
+        let caller_arn_binding_1 = args.caller_arn.get_output(context);
+        let caller_arn_binding = caller_arn_binding_1.get_inner();
+        let contexts_binding_1 = args.contexts.get_output(context);
+        let contexts_binding = contexts_binding_1.get_inner();
+        let permissions_boundary_policies_jsons_binding_1 = args
             .permissions_boundary_policies_jsons
-            .get_output(context)
+            .get_output(context);
+        let permissions_boundary_policies_jsons_binding = permissions_boundary_policies_jsons_binding_1
             .get_inner();
-        let policy_source_arn_binding = args
-            .policy_source_arn
-            .get_output(context)
-            .get_inner();
-        let resource_arns_binding = args.resource_arns.get_output(context).get_inner();
-        let resource_handling_option_binding = args
+        let policy_source_arn_binding_1 = args.policy_source_arn.get_output(context);
+        let policy_source_arn_binding = policy_source_arn_binding_1.get_inner();
+        let resource_arns_binding_1 = args.resource_arns.get_output(context);
+        let resource_arns_binding = resource_arns_binding_1.get_inner();
+        let resource_handling_option_binding_1 = args
             .resource_handling_option
-            .get_output(context)
+            .get_output(context);
+        let resource_handling_option_binding = resource_handling_option_binding_1
             .get_inner();
-        let resource_owner_account_id_binding = args
+        let resource_owner_account_id_binding_1 = args
             .resource_owner_account_id
-            .get_output(context)
+            .get_output(context);
+        let resource_owner_account_id_binding = resource_owner_account_id_binding_1
             .get_inner();
-        let resource_policy_json_binding = args
+        let resource_policy_json_binding_1 = args
             .resource_policy_json
-            .get_output(context)
-            .get_inner();
+            .get_output(context);
+        let resource_policy_json_binding = resource_policy_json_binding_1.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:iam/getPrincipalPolicySimulation:getPrincipalPolicySimulation"
                 .into(),

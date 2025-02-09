@@ -144,25 +144,31 @@ pub mod watcher {
     ) -> WatcherResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let automation_account_id_binding = args
+        let automation_account_id_binding_1 = args
             .automation_account_id
-            .get_output(context)
-            .get_inner();
-        let description_binding = args.description.get_output(context).get_inner();
-        let etag_binding = args.etag.get_output(context).get_inner();
-        let execution_frequency_in_seconds_binding = args
+            .get_output(context);
+        let automation_account_id_binding = automation_account_id_binding_1.get_inner();
+        let description_binding_1 = args.description.get_output(context);
+        let description_binding = description_binding_1.get_inner();
+        let etag_binding_1 = args.etag.get_output(context);
+        let etag_binding = etag_binding_1.get_inner();
+        let execution_frequency_in_seconds_binding_1 = args
             .execution_frequency_in_seconds
-            .get_output(context)
+            .get_output(context);
+        let execution_frequency_in_seconds_binding = execution_frequency_in_seconds_binding_1
             .get_inner();
-        let location_binding = args.location.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let script_name_binding = args.script_name.get_output(context).get_inner();
-        let script_parameters_binding = args
-            .script_parameters
-            .get_output(context)
-            .get_inner();
-        let script_run_on_binding = args.script_run_on.get_output(context).get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
+        let location_binding_1 = args.location.get_output(context);
+        let location_binding = location_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let script_name_binding_1 = args.script_name.get_output(context);
+        let script_name_binding = script_name_binding_1.get_inner();
+        let script_parameters_binding_1 = args.script_parameters.get_output(context);
+        let script_parameters_binding = script_parameters_binding_1.get_inner();
+        let script_run_on_binding_1 = args.script_run_on.get_output(context);
+        let script_run_on_binding = script_run_on_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:automation/watcher:Watcher".into(),
             name: name.to_string(),

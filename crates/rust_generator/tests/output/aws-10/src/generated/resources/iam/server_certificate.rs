@@ -162,19 +162,20 @@ pub mod server_certificate {
     ) -> ServerCertificateResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let certificate_body_binding = args
-            .certificate_body
-            .get_output(context)
-            .get_inner();
-        let certificate_chain_binding = args
-            .certificate_chain
-            .get_output(context)
-            .get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let name_prefix_binding = args.name_prefix.get_output(context).get_inner();
-        let path_binding = args.path.get_output(context).get_inner();
-        let private_key_binding = args.private_key.get_output(context).get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
+        let certificate_body_binding_1 = args.certificate_body.get_output(context);
+        let certificate_body_binding = certificate_body_binding_1.get_inner();
+        let certificate_chain_binding_1 = args.certificate_chain.get_output(context);
+        let certificate_chain_binding = certificate_chain_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let name_prefix_binding_1 = args.name_prefix.get_output(context);
+        let name_prefix_binding = name_prefix_binding_1.get_inner();
+        let path_binding_1 = args.path.get_output(context);
+        let path_binding = path_binding_1.get_inner();
+        let private_key_binding_1 = args.private_key.get_output(context);
+        let private_key_binding = private_key_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:iam/serverCertificate:ServerCertificate".into(),
             name: name.to_string(),

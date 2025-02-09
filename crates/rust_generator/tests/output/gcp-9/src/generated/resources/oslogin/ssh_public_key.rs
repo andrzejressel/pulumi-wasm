@@ -98,13 +98,16 @@ pub mod ssh_public_key {
     ) -> SshPublicKeyResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let expiration_time_usec_binding = args
+        let expiration_time_usec_binding_1 = args
             .expiration_time_usec
-            .get_output(context)
-            .get_inner();
-        let key_binding = args.key.get_output(context).get_inner();
-        let project_binding = args.project.get_output(context).get_inner();
-        let user_binding = args.user.get_output(context).get_inner();
+            .get_output(context);
+        let expiration_time_usec_binding = expiration_time_usec_binding_1.get_inner();
+        let key_binding_1 = args.key.get_output(context);
+        let key_binding = key_binding_1.get_inner();
+        let project_binding_1 = args.project.get_output(context);
+        let project_binding = project_binding_1.get_inner();
+        let user_binding_1 = args.user.get_output(context);
+        let user_binding = user_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:oslogin/sshPublicKey:SshPublicKey".into(),
             name: name.to_string(),

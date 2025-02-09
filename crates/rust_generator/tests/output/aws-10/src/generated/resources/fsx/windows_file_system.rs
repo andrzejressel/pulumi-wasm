@@ -238,71 +238,67 @@ pub mod windows_file_system {
     ) -> WindowsFileSystemResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let active_directory_id_binding = args
-            .active_directory_id
-            .get_output(context)
-            .get_inner();
-        let aliases_binding = args.aliases.get_output(context).get_inner();
-        let audit_log_configuration_binding = args
+        let active_directory_id_binding_1 = args.active_directory_id.get_output(context);
+        let active_directory_id_binding = active_directory_id_binding_1.get_inner();
+        let aliases_binding_1 = args.aliases.get_output(context);
+        let aliases_binding = aliases_binding_1.get_inner();
+        let audit_log_configuration_binding_1 = args
             .audit_log_configuration
-            .get_output(context)
+            .get_output(context);
+        let audit_log_configuration_binding = audit_log_configuration_binding_1
             .get_inner();
-        let automatic_backup_retention_days_binding = args
+        let automatic_backup_retention_days_binding_1 = args
             .automatic_backup_retention_days
-            .get_output(context)
+            .get_output(context);
+        let automatic_backup_retention_days_binding = automatic_backup_retention_days_binding_1
             .get_inner();
-        let backup_id_binding = args.backup_id.get_output(context).get_inner();
-        let copy_tags_to_backups_binding = args
+        let backup_id_binding_1 = args.backup_id.get_output(context);
+        let backup_id_binding = backup_id_binding_1.get_inner();
+        let copy_tags_to_backups_binding_1 = args
             .copy_tags_to_backups
-            .get_output(context)
-            .get_inner();
-        let daily_automatic_backup_start_time_binding = args
+            .get_output(context);
+        let copy_tags_to_backups_binding = copy_tags_to_backups_binding_1.get_inner();
+        let daily_automatic_backup_start_time_binding_1 = args
             .daily_automatic_backup_start_time
-            .get_output(context)
+            .get_output(context);
+        let daily_automatic_backup_start_time_binding = daily_automatic_backup_start_time_binding_1
             .get_inner();
-        let deployment_type_binding = args
-            .deployment_type
-            .get_output(context)
-            .get_inner();
-        let disk_iops_configuration_binding = args
+        let deployment_type_binding_1 = args.deployment_type.get_output(context);
+        let deployment_type_binding = deployment_type_binding_1.get_inner();
+        let disk_iops_configuration_binding_1 = args
             .disk_iops_configuration
-            .get_output(context)
+            .get_output(context);
+        let disk_iops_configuration_binding = disk_iops_configuration_binding_1
             .get_inner();
-        let final_backup_tags_binding = args
-            .final_backup_tags
-            .get_output(context)
-            .get_inner();
-        let kms_key_id_binding = args.kms_key_id.get_output(context).get_inner();
-        let preferred_subnet_id_binding = args
-            .preferred_subnet_id
-            .get_output(context)
-            .get_inner();
-        let security_group_ids_binding = args
-            .security_group_ids
-            .get_output(context)
-            .get_inner();
-        let self_managed_active_directory_binding = args
+        let final_backup_tags_binding_1 = args.final_backup_tags.get_output(context);
+        let final_backup_tags_binding = final_backup_tags_binding_1.get_inner();
+        let kms_key_id_binding_1 = args.kms_key_id.get_output(context);
+        let kms_key_id_binding = kms_key_id_binding_1.get_inner();
+        let preferred_subnet_id_binding_1 = args.preferred_subnet_id.get_output(context);
+        let preferred_subnet_id_binding = preferred_subnet_id_binding_1.get_inner();
+        let security_group_ids_binding_1 = args.security_group_ids.get_output(context);
+        let security_group_ids_binding = security_group_ids_binding_1.get_inner();
+        let self_managed_active_directory_binding_1 = args
             .self_managed_active_directory
-            .get_output(context)
+            .get_output(context);
+        let self_managed_active_directory_binding = self_managed_active_directory_binding_1
             .get_inner();
-        let skip_final_backup_binding = args
-            .skip_final_backup
-            .get_output(context)
-            .get_inner();
-        let storage_capacity_binding = args
-            .storage_capacity
-            .get_output(context)
-            .get_inner();
-        let storage_type_binding = args.storage_type.get_output(context).get_inner();
-        let subnet_ids_binding = args.subnet_ids.get_output(context).get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
-        let throughput_capacity_binding = args
-            .throughput_capacity
-            .get_output(context)
-            .get_inner();
-        let weekly_maintenance_start_time_binding = args
+        let skip_final_backup_binding_1 = args.skip_final_backup.get_output(context);
+        let skip_final_backup_binding = skip_final_backup_binding_1.get_inner();
+        let storage_capacity_binding_1 = args.storage_capacity.get_output(context);
+        let storage_capacity_binding = storage_capacity_binding_1.get_inner();
+        let storage_type_binding_1 = args.storage_type.get_output(context);
+        let storage_type_binding = storage_type_binding_1.get_inner();
+        let subnet_ids_binding_1 = args.subnet_ids.get_output(context);
+        let subnet_ids_binding = subnet_ids_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
+        let throughput_capacity_binding_1 = args.throughput_capacity.get_output(context);
+        let throughput_capacity_binding = throughput_capacity_binding_1.get_inner();
+        let weekly_maintenance_start_time_binding_1 = args
             .weekly_maintenance_start_time
-            .get_output(context)
+            .get_output(context);
+        let weekly_maintenance_start_time_binding = weekly_maintenance_start_time_binding_1
             .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:fsx/windowsFileSystem:WindowsFileSystem".into(),

@@ -163,43 +163,50 @@ pub mod grafana {
     ) -> GrafanaResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let api_key_enabled_binding = args
-            .api_key_enabled
-            .get_output(context)
-            .get_inner();
-        let auto_generated_domain_name_label_scope_binding = args
+        let api_key_enabled_binding_1 = args.api_key_enabled.get_output(context);
+        let api_key_enabled_binding = api_key_enabled_binding_1.get_inner();
+        let auto_generated_domain_name_label_scope_binding_1 = args
             .auto_generated_domain_name_label_scope
-            .get_output(context)
+            .get_output(context);
+        let auto_generated_domain_name_label_scope_binding = auto_generated_domain_name_label_scope_binding_1
             .get_inner();
-        let azure_monitor_workspace_integrations_binding = args
+        let azure_monitor_workspace_integrations_binding_1 = args
             .azure_monitor_workspace_integrations
-            .get_output(context)
+            .get_output(context);
+        let azure_monitor_workspace_integrations_binding = azure_monitor_workspace_integrations_binding_1
             .get_inner();
-        let deterministic_outbound_ip_enabled_binding = args
+        let deterministic_outbound_ip_enabled_binding_1 = args
             .deterministic_outbound_ip_enabled
-            .get_output(context)
+            .get_output(context);
+        let deterministic_outbound_ip_enabled_binding = deterministic_outbound_ip_enabled_binding_1
             .get_inner();
-        let grafana_major_version_binding = args
+        let grafana_major_version_binding_1 = args
             .grafana_major_version
-            .get_output(context)
-            .get_inner();
-        let identity_binding = args.identity.get_output(context).get_inner();
-        let location_binding = args.location.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let public_network_access_enabled_binding = args
+            .get_output(context);
+        let grafana_major_version_binding = grafana_major_version_binding_1.get_inner();
+        let identity_binding_1 = args.identity.get_output(context);
+        let identity_binding = identity_binding_1.get_inner();
+        let location_binding_1 = args.location.get_output(context);
+        let location_binding = location_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let public_network_access_enabled_binding_1 = args
             .public_network_access_enabled
-            .get_output(context)
+            .get_output(context);
+        let public_network_access_enabled_binding = public_network_access_enabled_binding_1
             .get_inner();
-        let resource_group_name_binding = args
-            .resource_group_name
-            .get_output(context)
-            .get_inner();
-        let sku_binding = args.sku.get_output(context).get_inner();
-        let smtp_binding = args.smtp.get_output(context).get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
-        let zone_redundancy_enabled_binding = args
+        let resource_group_name_binding_1 = args.resource_group_name.get_output(context);
+        let resource_group_name_binding = resource_group_name_binding_1.get_inner();
+        let sku_binding_1 = args.sku.get_output(context);
+        let sku_binding = sku_binding_1.get_inner();
+        let smtp_binding_1 = args.smtp.get_output(context);
+        let smtp_binding = smtp_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
+        let zone_redundancy_enabled_binding_1 = args
             .zone_redundancy_enabled
-            .get_output(context)
+            .get_output(context);
+        let zone_redundancy_enabled_binding = zone_redundancy_enabled_binding_1
             .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:dashboard/grafana:Grafana".into(),

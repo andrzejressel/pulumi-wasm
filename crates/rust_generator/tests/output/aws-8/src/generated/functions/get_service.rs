@@ -44,18 +44,18 @@ pub mod get_service {
     ) -> GetServiceResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let dns_name_binding = args.dns_name.get_output(context).get_inner();
-        let id_binding = args.id.get_output(context).get_inner();
-        let region_binding = args.region.get_output(context).get_inner();
-        let reverse_dns_name_binding = args
-            .reverse_dns_name
-            .get_output(context)
-            .get_inner();
-        let reverse_dns_prefix_binding = args
-            .reverse_dns_prefix
-            .get_output(context)
-            .get_inner();
-        let service_id_binding = args.service_id.get_output(context).get_inner();
+        let dns_name_binding_1 = args.dns_name.get_output(context);
+        let dns_name_binding = dns_name_binding_1.get_inner();
+        let id_binding_1 = args.id.get_output(context);
+        let id_binding = id_binding_1.get_inner();
+        let region_binding_1 = args.region.get_output(context);
+        let region_binding = region_binding_1.get_inner();
+        let reverse_dns_name_binding_1 = args.reverse_dns_name.get_output(context);
+        let reverse_dns_name_binding = reverse_dns_name_binding_1.get_inner();
+        let reverse_dns_prefix_binding_1 = args.reverse_dns_prefix.get_output(context);
+        let reverse_dns_prefix_binding = reverse_dns_prefix_binding_1.get_inner();
+        let service_id_binding_1 = args.service_id.get_output(context);
+        let service_id_binding = service_id_binding_1.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:index/getService:getService".into(),
             version: super::super::get_version(),

@@ -76,11 +76,10 @@ pub mod get_host_pool_registration_info {
     ) -> getHostPoolRegistrationInfoResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let expiration_date_binding = args
-            .expiration_date
-            .get_output(context)
-            .get_inner();
-        let hostpool_id_binding = args.hostpool_id.get_output(context).get_inner();
+        let expiration_date_binding_1 = args.expiration_date.get_output(context);
+        let expiration_date_binding = expiration_date_binding_1.get_inner();
+        let hostpool_id_binding_1 = args.hostpool_id.get_output(context);
+        let hostpool_id_binding = hostpool_id_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:desktopvirtualization/getHostPoolRegistrationInfo:getHostPoolRegistrationInfo"
                 .into(),

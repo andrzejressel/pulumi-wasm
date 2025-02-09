@@ -158,8 +158,10 @@ pub mod event_bus_policy {
     ) -> EventBusPolicyResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let event_bus_name_binding = args.event_bus_name.get_output(context).get_inner();
-        let policy_binding = args.policy.get_output(context).get_inner();
+        let event_bus_name_binding_1 = args.event_bus_name.get_output(context);
+        let event_bus_name_binding = event_bus_name_binding_1.get_inner();
+        let policy_binding_1 = args.policy.get_output(context);
+        let policy_binding = policy_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:cloudwatch/eventBusPolicy:EventBusPolicy".into(),
             name: name.to_string(),

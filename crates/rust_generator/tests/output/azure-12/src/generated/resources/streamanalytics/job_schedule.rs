@@ -151,11 +151,14 @@ pub mod job_schedule {
     ) -> JobScheduleResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let start_mode_binding = args.start_mode.get_output(context).get_inner();
-        let start_time_binding = args.start_time.get_output(context).get_inner();
-        let stream_analytics_job_id_binding = args
+        let start_mode_binding_1 = args.start_mode.get_output(context);
+        let start_mode_binding = start_mode_binding_1.get_inner();
+        let start_time_binding_1 = args.start_time.get_output(context);
+        let start_time_binding = start_time_binding_1.get_inner();
+        let stream_analytics_job_id_binding_1 = args
             .stream_analytics_job_id
-            .get_output(context)
+            .get_output(context);
+        let stream_analytics_job_id_binding = stream_analytics_job_id_binding_1
             .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:streamanalytics/jobSchedule:JobSchedule".into(),

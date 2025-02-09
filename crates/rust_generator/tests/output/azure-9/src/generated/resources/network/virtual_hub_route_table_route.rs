@@ -161,15 +161,18 @@ pub mod virtual_hub_route_table_route {
     ) -> VirtualHubRouteTableRouteResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let destinations_binding = args.destinations.get_output(context).get_inner();
-        let destinations_type_binding = args
-            .destinations_type
-            .get_output(context)
-            .get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let next_hop_binding = args.next_hop.get_output(context).get_inner();
-        let next_hop_type_binding = args.next_hop_type.get_output(context).get_inner();
-        let route_table_id_binding = args.route_table_id.get_output(context).get_inner();
+        let destinations_binding_1 = args.destinations.get_output(context);
+        let destinations_binding = destinations_binding_1.get_inner();
+        let destinations_type_binding_1 = args.destinations_type.get_output(context);
+        let destinations_type_binding = destinations_type_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let next_hop_binding_1 = args.next_hop.get_output(context);
+        let next_hop_binding = next_hop_binding_1.get_inner();
+        let next_hop_type_binding_1 = args.next_hop_type.get_output(context);
+        let next_hop_type_binding = next_hop_type_binding_1.get_inner();
+        let route_table_id_binding_1 = args.route_table_id.get_output(context);
+        let route_table_id_binding = route_table_id_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:network/virtualHubRouteTableRoute:VirtualHubRouteTableRoute"
                 .into(),

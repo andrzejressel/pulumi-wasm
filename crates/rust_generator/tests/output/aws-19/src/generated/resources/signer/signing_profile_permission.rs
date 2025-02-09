@@ -100,18 +100,18 @@ pub mod signing_profile_permission {
     ) -> SigningProfilePermissionResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let action_binding = args.action.get_output(context).get_inner();
-        let principal_binding = args.principal.get_output(context).get_inner();
-        let profile_name_binding = args.profile_name.get_output(context).get_inner();
-        let profile_version_binding = args
-            .profile_version
-            .get_output(context)
-            .get_inner();
-        let statement_id_binding = args.statement_id.get_output(context).get_inner();
-        let statement_id_prefix_binding = args
-            .statement_id_prefix
-            .get_output(context)
-            .get_inner();
+        let action_binding_1 = args.action.get_output(context);
+        let action_binding = action_binding_1.get_inner();
+        let principal_binding_1 = args.principal.get_output(context);
+        let principal_binding = principal_binding_1.get_inner();
+        let profile_name_binding_1 = args.profile_name.get_output(context);
+        let profile_name_binding = profile_name_binding_1.get_inner();
+        let profile_version_binding_1 = args.profile_version.get_output(context);
+        let profile_version_binding = profile_version_binding_1.get_inner();
+        let statement_id_binding_1 = args.statement_id.get_output(context);
+        let statement_id_binding = statement_id_binding_1.get_inner();
+        let statement_id_prefix_binding_1 = args.statement_id_prefix.get_output(context);
+        let statement_id_prefix_binding = statement_id_prefix_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:signer/signingProfilePermission:SigningProfilePermission".into(),
             name: name.to_string(),

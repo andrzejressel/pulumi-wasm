@@ -97,24 +97,24 @@ pub mod get_core_network_policy_document {
     ) -> GetCoreNetworkPolicyDocumentResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let attachment_policies_binding = args
-            .attachment_policies
-            .get_output(context)
-            .get_inner();
-        let core_network_configurations_binding = args
+        let attachment_policies_binding_1 = args.attachment_policies.get_output(context);
+        let attachment_policies_binding = attachment_policies_binding_1.get_inner();
+        let core_network_configurations_binding_1 = args
             .core_network_configurations
-            .get_output(context)
+            .get_output(context);
+        let core_network_configurations_binding = core_network_configurations_binding_1
             .get_inner();
-        let network_function_groups_binding = args
+        let network_function_groups_binding_1 = args
             .network_function_groups
-            .get_output(context)
+            .get_output(context);
+        let network_function_groups_binding = network_function_groups_binding_1
             .get_inner();
-        let segment_actions_binding = args
-            .segment_actions
-            .get_output(context)
-            .get_inner();
-        let segments_binding = args.segments.get_output(context).get_inner();
-        let version_binding = args.version.get_output(context).get_inner();
+        let segment_actions_binding_1 = args.segment_actions.get_output(context);
+        let segment_actions_binding = segment_actions_binding_1.get_inner();
+        let segments_binding_1 = args.segments.get_output(context);
+        let segments_binding = segments_binding_1.get_inner();
+        let version_binding_1 = args.version.get_output(context);
+        let version_binding = version_binding_1.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:networkmanager/getCoreNetworkPolicyDocument:getCoreNetworkPolicyDocument"
                 .into(),

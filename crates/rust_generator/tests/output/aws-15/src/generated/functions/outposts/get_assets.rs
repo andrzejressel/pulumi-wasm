@@ -34,15 +34,12 @@ pub mod get_assets {
     ) -> GetAssetsResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let arn_binding = args.arn.get_output(context).get_inner();
-        let host_id_filters_binding = args
-            .host_id_filters
-            .get_output(context)
-            .get_inner();
-        let status_id_filters_binding = args
-            .status_id_filters
-            .get_output(context)
-            .get_inner();
+        let arn_binding_1 = args.arn.get_output(context);
+        let arn_binding = arn_binding_1.get_inner();
+        let host_id_filters_binding_1 = args.host_id_filters.get_output(context);
+        let host_id_filters_binding = host_id_filters_binding_1.get_inner();
+        let status_id_filters_binding_1 = args.status_id_filters.get_output(context);
+        let status_id_filters_binding = status_id_filters_binding_1.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:outposts/getAssets:getAssets".into(),
             version: super::super::super::get_version(),

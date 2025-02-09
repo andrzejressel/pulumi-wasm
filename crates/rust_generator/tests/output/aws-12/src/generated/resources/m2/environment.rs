@@ -213,40 +213,49 @@ pub mod environment {
     ) -> EnvironmentResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let apply_changes_during_maintenance_window_binding = args
+        let apply_changes_during_maintenance_window_binding_1 = args
             .apply_changes_during_maintenance_window
-            .get_output(context)
+            .get_output(context);
+        let apply_changes_during_maintenance_window_binding = apply_changes_during_maintenance_window_binding_1
             .get_inner();
-        let description_binding = args.description.get_output(context).get_inner();
-        let engine_type_binding = args.engine_type.get_output(context).get_inner();
-        let engine_version_binding = args.engine_version.get_output(context).get_inner();
-        let force_update_binding = args.force_update.get_output(context).get_inner();
-        let high_availability_config_binding = args
+        let description_binding_1 = args.description.get_output(context);
+        let description_binding = description_binding_1.get_inner();
+        let engine_type_binding_1 = args.engine_type.get_output(context);
+        let engine_type_binding = engine_type_binding_1.get_inner();
+        let engine_version_binding_1 = args.engine_version.get_output(context);
+        let engine_version_binding = engine_version_binding_1.get_inner();
+        let force_update_binding_1 = args.force_update.get_output(context);
+        let force_update_binding = force_update_binding_1.get_inner();
+        let high_availability_config_binding_1 = args
             .high_availability_config
-            .get_output(context)
+            .get_output(context);
+        let high_availability_config_binding = high_availability_config_binding_1
             .get_inner();
-        let instance_type_binding = args.instance_type.get_output(context).get_inner();
-        let kms_key_id_binding = args.kms_key_id.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let preferred_maintenance_window_binding = args
+        let instance_type_binding_1 = args.instance_type.get_output(context);
+        let instance_type_binding = instance_type_binding_1.get_inner();
+        let kms_key_id_binding_1 = args.kms_key_id.get_output(context);
+        let kms_key_id_binding = kms_key_id_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let preferred_maintenance_window_binding_1 = args
             .preferred_maintenance_window
-            .get_output(context)
+            .get_output(context);
+        let preferred_maintenance_window_binding = preferred_maintenance_window_binding_1
             .get_inner();
-        let publicly_accessible_binding = args
-            .publicly_accessible
-            .get_output(context)
-            .get_inner();
-        let security_group_ids_binding = args
-            .security_group_ids
-            .get_output(context)
-            .get_inner();
-        let storage_configuration_binding = args
+        let publicly_accessible_binding_1 = args.publicly_accessible.get_output(context);
+        let publicly_accessible_binding = publicly_accessible_binding_1.get_inner();
+        let security_group_ids_binding_1 = args.security_group_ids.get_output(context);
+        let security_group_ids_binding = security_group_ids_binding_1.get_inner();
+        let storage_configuration_binding_1 = args
             .storage_configuration
-            .get_output(context)
-            .get_inner();
-        let subnet_ids_binding = args.subnet_ids.get_output(context).get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
-        let timeouts_binding = args.timeouts.get_output(context).get_inner();
+            .get_output(context);
+        let storage_configuration_binding = storage_configuration_binding_1.get_inner();
+        let subnet_ids_binding_1 = args.subnet_ids.get_output(context);
+        let subnet_ids_binding = subnet_ids_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
+        let timeouts_binding_1 = args.timeouts.get_output(context);
+        let timeouts_binding = timeouts_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:m2/environment:Environment".into(),
             name: name.to_string(),

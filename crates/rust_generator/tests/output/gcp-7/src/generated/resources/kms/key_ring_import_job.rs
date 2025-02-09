@@ -103,13 +103,14 @@ pub mod key_ring_import_job {
     ) -> KeyRingImportJobResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let import_job_id_binding = args.import_job_id.get_output(context).get_inner();
-        let import_method_binding = args.import_method.get_output(context).get_inner();
-        let key_ring_binding = args.key_ring.get_output(context).get_inner();
-        let protection_level_binding = args
-            .protection_level
-            .get_output(context)
-            .get_inner();
+        let import_job_id_binding_1 = args.import_job_id.get_output(context);
+        let import_job_id_binding = import_job_id_binding_1.get_inner();
+        let import_method_binding_1 = args.import_method.get_output(context);
+        let import_method_binding = import_method_binding_1.get_inner();
+        let key_ring_binding_1 = args.key_ring.get_output(context);
+        let key_ring_binding = key_ring_binding_1.get_inner();
+        let protection_level_binding_1 = args.protection_level.get_output(context);
+        let protection_level_binding = protection_level_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:kms/keyRingImportJob:KeyRingImportJob".into(),
             name: name.to_string(),

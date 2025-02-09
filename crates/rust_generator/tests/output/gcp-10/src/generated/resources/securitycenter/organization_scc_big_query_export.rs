@@ -171,14 +171,16 @@ pub mod organization_scc_big_query_export {
     ) -> OrganizationSccBigQueryExportResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let big_query_export_id_binding = args
-            .big_query_export_id
-            .get_output(context)
-            .get_inner();
-        let dataset_binding = args.dataset.get_output(context).get_inner();
-        let description_binding = args.description.get_output(context).get_inner();
-        let filter_binding = args.filter.get_output(context).get_inner();
-        let organization_binding = args.organization.get_output(context).get_inner();
+        let big_query_export_id_binding_1 = args.big_query_export_id.get_output(context);
+        let big_query_export_id_binding = big_query_export_id_binding_1.get_inner();
+        let dataset_binding_1 = args.dataset.get_output(context);
+        let dataset_binding = dataset_binding_1.get_inner();
+        let description_binding_1 = args.description.get_output(context);
+        let description_binding = description_binding_1.get_inner();
+        let filter_binding_1 = args.filter.get_output(context);
+        let filter_binding = filter_binding_1.get_inner();
+        let organization_binding_1 = args.organization.get_output(context);
+        let organization_binding = organization_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:securitycenter/organizationSccBigQueryExport:OrganizationSccBigQueryExport"
                 .into(),

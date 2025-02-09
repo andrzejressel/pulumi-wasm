@@ -1421,58 +1421,69 @@ pub mod forwarding_rule {
     ) -> ForwardingRuleResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let all_ports_binding = args.all_ports.get_output(context).get_inner();
-        let allow_global_access_binding = args
-            .allow_global_access
-            .get_output(context)
-            .get_inner();
-        let allow_psc_global_access_binding = args
+        let all_ports_binding_1 = args.all_ports.get_output(context);
+        let all_ports_binding = all_ports_binding_1.get_inner();
+        let allow_global_access_binding_1 = args.allow_global_access.get_output(context);
+        let allow_global_access_binding = allow_global_access_binding_1.get_inner();
+        let allow_psc_global_access_binding_1 = args
             .allow_psc_global_access
-            .get_output(context)
+            .get_output(context);
+        let allow_psc_global_access_binding = allow_psc_global_access_binding_1
             .get_inner();
-        let backend_service_binding = args
-            .backend_service
-            .get_output(context)
-            .get_inner();
-        let description_binding = args.description.get_output(context).get_inner();
-        let ip_address_binding = args.ip_address.get_output(context).get_inner();
-        let ip_protocol_binding = args.ip_protocol.get_output(context).get_inner();
-        let ip_version_binding = args.ip_version.get_output(context).get_inner();
-        let is_mirroring_collector_binding = args
+        let backend_service_binding_1 = args.backend_service.get_output(context);
+        let backend_service_binding = backend_service_binding_1.get_inner();
+        let description_binding_1 = args.description.get_output(context);
+        let description_binding = description_binding_1.get_inner();
+        let ip_address_binding_1 = args.ip_address.get_output(context);
+        let ip_address_binding = ip_address_binding_1.get_inner();
+        let ip_protocol_binding_1 = args.ip_protocol.get_output(context);
+        let ip_protocol_binding = ip_protocol_binding_1.get_inner();
+        let ip_version_binding_1 = args.ip_version.get_output(context);
+        let ip_version_binding = ip_version_binding_1.get_inner();
+        let is_mirroring_collector_binding_1 = args
             .is_mirroring_collector
-            .get_output(context)
+            .get_output(context);
+        let is_mirroring_collector_binding = is_mirroring_collector_binding_1
             .get_inner();
-        let labels_binding = args.labels.get_output(context).get_inner();
-        let load_balancing_scheme_binding = args
+        let labels_binding_1 = args.labels.get_output(context);
+        let labels_binding = labels_binding_1.get_inner();
+        let load_balancing_scheme_binding_1 = args
             .load_balancing_scheme
-            .get_output(context)
-            .get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let network_binding = args.network.get_output(context).get_inner();
-        let network_tier_binding = args.network_tier.get_output(context).get_inner();
-        let no_automate_dns_zone_binding = args
+            .get_output(context);
+        let load_balancing_scheme_binding = load_balancing_scheme_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let network_binding_1 = args.network.get_output(context);
+        let network_binding = network_binding_1.get_inner();
+        let network_tier_binding_1 = args.network_tier.get_output(context);
+        let network_tier_binding = network_tier_binding_1.get_inner();
+        let no_automate_dns_zone_binding_1 = args
             .no_automate_dns_zone
-            .get_output(context)
-            .get_inner();
-        let port_range_binding = args.port_range.get_output(context).get_inner();
-        let ports_binding = args.ports.get_output(context).get_inner();
-        let project_binding = args.project.get_output(context).get_inner();
-        let recreate_closed_psc_binding = args
-            .recreate_closed_psc
-            .get_output(context)
-            .get_inner();
-        let region_binding = args.region.get_output(context).get_inner();
-        let service_directory_registrations_binding = args
+            .get_output(context);
+        let no_automate_dns_zone_binding = no_automate_dns_zone_binding_1.get_inner();
+        let port_range_binding_1 = args.port_range.get_output(context);
+        let port_range_binding = port_range_binding_1.get_inner();
+        let ports_binding_1 = args.ports.get_output(context);
+        let ports_binding = ports_binding_1.get_inner();
+        let project_binding_1 = args.project.get_output(context);
+        let project_binding = project_binding_1.get_inner();
+        let recreate_closed_psc_binding_1 = args.recreate_closed_psc.get_output(context);
+        let recreate_closed_psc_binding = recreate_closed_psc_binding_1.get_inner();
+        let region_binding_1 = args.region.get_output(context);
+        let region_binding = region_binding_1.get_inner();
+        let service_directory_registrations_binding_1 = args
             .service_directory_registrations
-            .get_output(context)
+            .get_output(context);
+        let service_directory_registrations_binding = service_directory_registrations_binding_1
             .get_inner();
-        let service_label_binding = args.service_label.get_output(context).get_inner();
-        let source_ip_ranges_binding = args
-            .source_ip_ranges
-            .get_output(context)
-            .get_inner();
-        let subnetwork_binding = args.subnetwork.get_output(context).get_inner();
-        let target_binding = args.target.get_output(context).get_inner();
+        let service_label_binding_1 = args.service_label.get_output(context);
+        let service_label_binding = service_label_binding_1.get_inner();
+        let source_ip_ranges_binding_1 = args.source_ip_ranges.get_output(context);
+        let source_ip_ranges_binding = source_ip_ranges_binding_1.get_inner();
+        let subnetwork_binding_1 = args.subnetwork.get_output(context);
+        let subnetwork_binding = subnetwork_binding_1.get_inner();
+        let target_binding_1 = args.target.get_output(context);
+        let target_binding = target_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:compute/forwardingRule:ForwardingRule".into(),
             name: name.to_string(),

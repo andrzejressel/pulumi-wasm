@@ -197,60 +197,54 @@ pub mod network_interface {
     ) -> NetworkInterfaceResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let attachments_binding = args.attachments.get_output(context).get_inner();
-        let description_binding = args.description.get_output(context).get_inner();
-        let enable_primary_ipv6_binding = args
-            .enable_primary_ipv6
-            .get_output(context)
-            .get_inner();
-        let interface_type_binding = args.interface_type.get_output(context).get_inner();
-        let ipv4_prefix_count_binding = args
-            .ipv4_prefix_count
-            .get_output(context)
-            .get_inner();
-        let ipv4_prefixes_binding = args.ipv4_prefixes.get_output(context).get_inner();
-        let ipv6_address_count_binding = args
-            .ipv6_address_count
-            .get_output(context)
-            .get_inner();
-        let ipv6_address_list_enabled_binding = args
+        let attachments_binding_1 = args.attachments.get_output(context);
+        let attachments_binding = attachments_binding_1.get_inner();
+        let description_binding_1 = args.description.get_output(context);
+        let description_binding = description_binding_1.get_inner();
+        let enable_primary_ipv6_binding_1 = args.enable_primary_ipv6.get_output(context);
+        let enable_primary_ipv6_binding = enable_primary_ipv6_binding_1.get_inner();
+        let interface_type_binding_1 = args.interface_type.get_output(context);
+        let interface_type_binding = interface_type_binding_1.get_inner();
+        let ipv4_prefix_count_binding_1 = args.ipv4_prefix_count.get_output(context);
+        let ipv4_prefix_count_binding = ipv4_prefix_count_binding_1.get_inner();
+        let ipv4_prefixes_binding_1 = args.ipv4_prefixes.get_output(context);
+        let ipv4_prefixes_binding = ipv4_prefixes_binding_1.get_inner();
+        let ipv6_address_count_binding_1 = args.ipv6_address_count.get_output(context);
+        let ipv6_address_count_binding = ipv6_address_count_binding_1.get_inner();
+        let ipv6_address_list_enabled_binding_1 = args
             .ipv6_address_list_enabled
-            .get_output(context)
+            .get_output(context);
+        let ipv6_address_list_enabled_binding = ipv6_address_list_enabled_binding_1
             .get_inner();
-        let ipv6_address_lists_binding = args
-            .ipv6_address_lists
-            .get_output(context)
-            .get_inner();
-        let ipv6_addresses_binding = args.ipv6_addresses.get_output(context).get_inner();
-        let ipv6_prefix_count_binding = args
-            .ipv6_prefix_count
-            .get_output(context)
-            .get_inner();
-        let ipv6_prefixes_binding = args.ipv6_prefixes.get_output(context).get_inner();
-        let private_ip_binding = args.private_ip.get_output(context).get_inner();
-        let private_ip_list_enabled_binding = args
+        let ipv6_address_lists_binding_1 = args.ipv6_address_lists.get_output(context);
+        let ipv6_address_lists_binding = ipv6_address_lists_binding_1.get_inner();
+        let ipv6_addresses_binding_1 = args.ipv6_addresses.get_output(context);
+        let ipv6_addresses_binding = ipv6_addresses_binding_1.get_inner();
+        let ipv6_prefix_count_binding_1 = args.ipv6_prefix_count.get_output(context);
+        let ipv6_prefix_count_binding = ipv6_prefix_count_binding_1.get_inner();
+        let ipv6_prefixes_binding_1 = args.ipv6_prefixes.get_output(context);
+        let ipv6_prefixes_binding = ipv6_prefixes_binding_1.get_inner();
+        let private_ip_binding_1 = args.private_ip.get_output(context);
+        let private_ip_binding = private_ip_binding_1.get_inner();
+        let private_ip_list_enabled_binding_1 = args
             .private_ip_list_enabled
-            .get_output(context)
+            .get_output(context);
+        let private_ip_list_enabled_binding = private_ip_list_enabled_binding_1
             .get_inner();
-        let private_ip_lists_binding = args
-            .private_ip_lists
-            .get_output(context)
-            .get_inner();
-        let private_ips_binding = args.private_ips.get_output(context).get_inner();
-        let private_ips_count_binding = args
-            .private_ips_count
-            .get_output(context)
-            .get_inner();
-        let security_groups_binding = args
-            .security_groups
-            .get_output(context)
-            .get_inner();
-        let source_dest_check_binding = args
-            .source_dest_check
-            .get_output(context)
-            .get_inner();
-        let subnet_id_binding = args.subnet_id.get_output(context).get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
+        let private_ip_lists_binding_1 = args.private_ip_lists.get_output(context);
+        let private_ip_lists_binding = private_ip_lists_binding_1.get_inner();
+        let private_ips_binding_1 = args.private_ips.get_output(context);
+        let private_ips_binding = private_ips_binding_1.get_inner();
+        let private_ips_count_binding_1 = args.private_ips_count.get_output(context);
+        let private_ips_count_binding = private_ips_count_binding_1.get_inner();
+        let security_groups_binding_1 = args.security_groups.get_output(context);
+        let security_groups_binding = security_groups_binding_1.get_inner();
+        let source_dest_check_binding_1 = args.source_dest_check.get_output(context);
+        let source_dest_check_binding = source_dest_check_binding_1.get_inner();
+        let subnet_id_binding_1 = args.subnet_id.get_output(context);
+        let subnet_id_binding = subnet_id_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:ec2/networkInterface:NetworkInterface".into(),
             name: name.to_string(),

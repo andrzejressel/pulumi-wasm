@@ -345,74 +345,84 @@ pub mod pool {
     ) -> PoolResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let account_name_binding = args.account_name.get_output(context).get_inner();
-        let auto_scale_binding = args.auto_scale.get_output(context).get_inner();
-        let certificates_binding = args.certificates.get_output(context).get_inner();
-        let container_configuration_binding = args
+        let account_name_binding_1 = args.account_name.get_output(context);
+        let account_name_binding = account_name_binding_1.get_inner();
+        let auto_scale_binding_1 = args.auto_scale.get_output(context);
+        let auto_scale_binding = auto_scale_binding_1.get_inner();
+        let certificates_binding_1 = args.certificates.get_output(context);
+        let certificates_binding = certificates_binding_1.get_inner();
+        let container_configuration_binding_1 = args
             .container_configuration
-            .get_output(context)
+            .get_output(context);
+        let container_configuration_binding = container_configuration_binding_1
             .get_inner();
-        let data_disks_binding = args.data_disks.get_output(context).get_inner();
-        let disk_encryptions_binding = args
-            .disk_encryptions
-            .get_output(context)
-            .get_inner();
-        let display_name_binding = args.display_name.get_output(context).get_inner();
-        let extensions_binding = args.extensions.get_output(context).get_inner();
-        let fixed_scale_binding = args.fixed_scale.get_output(context).get_inner();
-        let identity_binding = args.identity.get_output(context).get_inner();
-        let inter_node_communication_binding = args
+        let data_disks_binding_1 = args.data_disks.get_output(context);
+        let data_disks_binding = data_disks_binding_1.get_inner();
+        let disk_encryptions_binding_1 = args.disk_encryptions.get_output(context);
+        let disk_encryptions_binding = disk_encryptions_binding_1.get_inner();
+        let display_name_binding_1 = args.display_name.get_output(context);
+        let display_name_binding = display_name_binding_1.get_inner();
+        let extensions_binding_1 = args.extensions.get_output(context);
+        let extensions_binding = extensions_binding_1.get_inner();
+        let fixed_scale_binding_1 = args.fixed_scale.get_output(context);
+        let fixed_scale_binding = fixed_scale_binding_1.get_inner();
+        let identity_binding_1 = args.identity.get_output(context);
+        let identity_binding = identity_binding_1.get_inner();
+        let inter_node_communication_binding_1 = args
             .inter_node_communication
-            .get_output(context)
+            .get_output(context);
+        let inter_node_communication_binding = inter_node_communication_binding_1
             .get_inner();
-        let license_type_binding = args.license_type.get_output(context).get_inner();
-        let max_tasks_per_node_binding = args
-            .max_tasks_per_node
-            .get_output(context)
-            .get_inner();
-        let metadata_binding = args.metadata.get_output(context).get_inner();
-        let mounts_binding = args.mounts.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let network_configuration_binding = args
+        let license_type_binding_1 = args.license_type.get_output(context);
+        let license_type_binding = license_type_binding_1.get_inner();
+        let max_tasks_per_node_binding_1 = args.max_tasks_per_node.get_output(context);
+        let max_tasks_per_node_binding = max_tasks_per_node_binding_1.get_inner();
+        let metadata_binding_1 = args.metadata.get_output(context);
+        let metadata_binding = metadata_binding_1.get_inner();
+        let mounts_binding_1 = args.mounts.get_output(context);
+        let mounts_binding = mounts_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let network_configuration_binding_1 = args
             .network_configuration
-            .get_output(context)
-            .get_inner();
-        let node_agent_sku_id_binding = args
-            .node_agent_sku_id
-            .get_output(context)
-            .get_inner();
-        let node_placements_binding = args
-            .node_placements
-            .get_output(context)
-            .get_inner();
-        let os_disk_placement_binding = args
-            .os_disk_placement
-            .get_output(context)
-            .get_inner();
-        let resource_group_name_binding = args
-            .resource_group_name
-            .get_output(context)
-            .get_inner();
-        let start_task_binding = args.start_task.get_output(context).get_inner();
-        let stop_pending_resize_operation_binding = args
+            .get_output(context);
+        let network_configuration_binding = network_configuration_binding_1.get_inner();
+        let node_agent_sku_id_binding_1 = args.node_agent_sku_id.get_output(context);
+        let node_agent_sku_id_binding = node_agent_sku_id_binding_1.get_inner();
+        let node_placements_binding_1 = args.node_placements.get_output(context);
+        let node_placements_binding = node_placements_binding_1.get_inner();
+        let os_disk_placement_binding_1 = args.os_disk_placement.get_output(context);
+        let os_disk_placement_binding = os_disk_placement_binding_1.get_inner();
+        let resource_group_name_binding_1 = args.resource_group_name.get_output(context);
+        let resource_group_name_binding = resource_group_name_binding_1.get_inner();
+        let start_task_binding_1 = args.start_task.get_output(context);
+        let start_task_binding = start_task_binding_1.get_inner();
+        let stop_pending_resize_operation_binding_1 = args
             .stop_pending_resize_operation
-            .get_output(context)
+            .get_output(context);
+        let stop_pending_resize_operation_binding = stop_pending_resize_operation_binding_1
             .get_inner();
-        let storage_image_reference_binding = args
+        let storage_image_reference_binding_1 = args
             .storage_image_reference
-            .get_output(context)
+            .get_output(context);
+        let storage_image_reference_binding = storage_image_reference_binding_1
             .get_inner();
-        let target_node_communication_mode_binding = args
+        let target_node_communication_mode_binding_1 = args
             .target_node_communication_mode
-            .get_output(context)
+            .get_output(context);
+        let target_node_communication_mode_binding = target_node_communication_mode_binding_1
             .get_inner();
-        let task_scheduling_policies_binding = args
+        let task_scheduling_policies_binding_1 = args
             .task_scheduling_policies
-            .get_output(context)
+            .get_output(context);
+        let task_scheduling_policies_binding = task_scheduling_policies_binding_1
             .get_inner();
-        let user_accounts_binding = args.user_accounts.get_output(context).get_inner();
-        let vm_size_binding = args.vm_size.get_output(context).get_inner();
-        let windows_binding = args.windows.get_output(context).get_inner();
+        let user_accounts_binding_1 = args.user_accounts.get_output(context);
+        let user_accounts_binding = user_accounts_binding_1.get_inner();
+        let vm_size_binding_1 = args.vm_size.get_output(context);
+        let vm_size_binding = vm_size_binding_1.get_inner();
+        let windows_binding_1 = args.windows.get_output(context);
+        let windows_binding = windows_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:batch/pool:Pool".into(),
             name: name.to_string(),

@@ -215,15 +215,21 @@ pub mod cx_test_case {
     ) -> CxTestCaseResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let display_name_binding = args.display_name.get_output(context).get_inner();
-        let notes_binding = args.notes.get_output(context).get_inner();
-        let parent_binding = args.parent.get_output(context).get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
-        let test_case_conversation_turns_binding = args
+        let display_name_binding_1 = args.display_name.get_output(context);
+        let display_name_binding = display_name_binding_1.get_inner();
+        let notes_binding_1 = args.notes.get_output(context);
+        let notes_binding = notes_binding_1.get_inner();
+        let parent_binding_1 = args.parent.get_output(context);
+        let parent_binding = parent_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
+        let test_case_conversation_turns_binding_1 = args
             .test_case_conversation_turns
-            .get_output(context)
+            .get_output(context);
+        let test_case_conversation_turns_binding = test_case_conversation_turns_binding_1
             .get_inner();
-        let test_config_binding = args.test_config.get_output(context).get_inner();
+        let test_config_binding_1 = args.test_config.get_output(context);
+        let test_config_binding = test_config_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:diagflow/cxTestCase:CxTestCase".into(),
             name: name.to_string(),

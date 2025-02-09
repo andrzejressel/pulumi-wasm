@@ -128,23 +128,24 @@ pub mod logger {
     ) -> LoggerResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let api_management_name_binding = args
-            .api_management_name
-            .get_output(context)
-            .get_inner();
-        let application_insights_binding = args
+        let api_management_name_binding_1 = args.api_management_name.get_output(context);
+        let api_management_name_binding = api_management_name_binding_1.get_inner();
+        let application_insights_binding_1 = args
             .application_insights
-            .get_output(context)
-            .get_inner();
-        let buffered_binding = args.buffered.get_output(context).get_inner();
-        let description_binding = args.description.get_output(context).get_inner();
-        let eventhub_binding = args.eventhub.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let resource_group_name_binding = args
-            .resource_group_name
-            .get_output(context)
-            .get_inner();
-        let resource_id_binding = args.resource_id.get_output(context).get_inner();
+            .get_output(context);
+        let application_insights_binding = application_insights_binding_1.get_inner();
+        let buffered_binding_1 = args.buffered.get_output(context);
+        let buffered_binding = buffered_binding_1.get_inner();
+        let description_binding_1 = args.description.get_output(context);
+        let description_binding = description_binding_1.get_inner();
+        let eventhub_binding_1 = args.eventhub.get_output(context);
+        let eventhub_binding = eventhub_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let resource_group_name_binding_1 = args.resource_group_name.get_output(context);
+        let resource_group_name_binding = resource_group_name_binding_1.get_inner();
+        let resource_id_binding_1 = args.resource_id.get_output(context);
+        let resource_id_binding = resource_id_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:apimanagement/logger:Logger".into(),
             name: name.to_string(),

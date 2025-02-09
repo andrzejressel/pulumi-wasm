@@ -282,48 +282,54 @@ pub mod io_t_hub {
     ) -> IoTHubResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let cloud_to_device_binding = args
-            .cloud_to_device
-            .get_output(context)
-            .get_inner();
-        let endpoints_binding = args.endpoints.get_output(context).get_inner();
-        let enrichments_binding = args.enrichments.get_output(context).get_inner();
-        let event_hub_partition_count_binding = args
+        let cloud_to_device_binding_1 = args.cloud_to_device.get_output(context);
+        let cloud_to_device_binding = cloud_to_device_binding_1.get_inner();
+        let endpoints_binding_1 = args.endpoints.get_output(context);
+        let endpoints_binding = endpoints_binding_1.get_inner();
+        let enrichments_binding_1 = args.enrichments.get_output(context);
+        let enrichments_binding = enrichments_binding_1.get_inner();
+        let event_hub_partition_count_binding_1 = args
             .event_hub_partition_count
-            .get_output(context)
+            .get_output(context);
+        let event_hub_partition_count_binding = event_hub_partition_count_binding_1
             .get_inner();
-        let event_hub_retention_in_days_binding = args
+        let event_hub_retention_in_days_binding_1 = args
             .event_hub_retention_in_days
-            .get_output(context)
+            .get_output(context);
+        let event_hub_retention_in_days_binding = event_hub_retention_in_days_binding_1
             .get_inner();
-        let fallback_route_binding = args.fallback_route.get_output(context).get_inner();
-        let file_upload_binding = args.file_upload.get_output(context).get_inner();
-        let identity_binding = args.identity.get_output(context).get_inner();
-        let local_authentication_enabled_binding = args
+        let fallback_route_binding_1 = args.fallback_route.get_output(context);
+        let fallback_route_binding = fallback_route_binding_1.get_inner();
+        let file_upload_binding_1 = args.file_upload.get_output(context);
+        let file_upload_binding = file_upload_binding_1.get_inner();
+        let identity_binding_1 = args.identity.get_output(context);
+        let identity_binding = identity_binding_1.get_inner();
+        let local_authentication_enabled_binding_1 = args
             .local_authentication_enabled
-            .get_output(context)
+            .get_output(context);
+        let local_authentication_enabled_binding = local_authentication_enabled_binding_1
             .get_inner();
-        let location_binding = args.location.get_output(context).get_inner();
-        let min_tls_version_binding = args
-            .min_tls_version
-            .get_output(context)
-            .get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let network_rule_sets_binding = args
-            .network_rule_sets
-            .get_output(context)
-            .get_inner();
-        let public_network_access_enabled_binding = args
+        let location_binding_1 = args.location.get_output(context);
+        let location_binding = location_binding_1.get_inner();
+        let min_tls_version_binding_1 = args.min_tls_version.get_output(context);
+        let min_tls_version_binding = min_tls_version_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let network_rule_sets_binding_1 = args.network_rule_sets.get_output(context);
+        let network_rule_sets_binding = network_rule_sets_binding_1.get_inner();
+        let public_network_access_enabled_binding_1 = args
             .public_network_access_enabled
-            .get_output(context)
+            .get_output(context);
+        let public_network_access_enabled_binding = public_network_access_enabled_binding_1
             .get_inner();
-        let resource_group_name_binding = args
-            .resource_group_name
-            .get_output(context)
-            .get_inner();
-        let routes_binding = args.routes.get_output(context).get_inner();
-        let sku_binding = args.sku.get_output(context).get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
+        let resource_group_name_binding_1 = args.resource_group_name.get_output(context);
+        let resource_group_name_binding = resource_group_name_binding_1.get_inner();
+        let routes_binding_1 = args.routes.get_output(context);
+        let routes_binding = routes_binding_1.get_inner();
+        let sku_binding_1 = args.sku.get_output(context);
+        let sku_binding = sku_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:iot/ioTHub:IoTHub".into(),
             name: name.to_string(),

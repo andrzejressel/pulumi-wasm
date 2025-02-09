@@ -124,17 +124,25 @@ pub mod v_2_models_bot_locale {
     ) -> V2modelsBotLocaleResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let bot_id_binding = args.bot_id.get_output(context).get_inner();
-        let bot_version_binding = args.bot_version.get_output(context).get_inner();
-        let description_binding = args.description.get_output(context).get_inner();
-        let locale_id_binding = args.locale_id.get_output(context).get_inner();
-        let n_lu_intent_confidence_threshold_binding = args
+        let bot_id_binding_1 = args.bot_id.get_output(context);
+        let bot_id_binding = bot_id_binding_1.get_inner();
+        let bot_version_binding_1 = args.bot_version.get_output(context);
+        let bot_version_binding = bot_version_binding_1.get_inner();
+        let description_binding_1 = args.description.get_output(context);
+        let description_binding = description_binding_1.get_inner();
+        let locale_id_binding_1 = args.locale_id.get_output(context);
+        let locale_id_binding = locale_id_binding_1.get_inner();
+        let n_lu_intent_confidence_threshold_binding_1 = args
             .n_lu_intent_confidence_threshold
-            .get_output(context)
+            .get_output(context);
+        let n_lu_intent_confidence_threshold_binding = n_lu_intent_confidence_threshold_binding_1
             .get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let timeouts_binding = args.timeouts.get_output(context).get_inner();
-        let voice_settings_binding = args.voice_settings.get_output(context).get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let timeouts_binding_1 = args.timeouts.get_output(context);
+        let timeouts_binding = timeouts_binding_1.get_inner();
+        let voice_settings_binding_1 = args.voice_settings.get_output(context);
+        let voice_settings_binding = voice_settings_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:lex/v2modelsBotLocale:V2modelsBotLocale".into(),
             name: name.to_string(),

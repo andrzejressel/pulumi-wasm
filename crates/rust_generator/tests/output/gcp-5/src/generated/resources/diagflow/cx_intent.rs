@@ -217,26 +217,34 @@ pub mod cx_intent {
     ) -> CxIntentResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let description_binding = args.description.get_output(context).get_inner();
-        let display_name_binding = args.display_name.get_output(context).get_inner();
-        let is_default_negative_intent_binding = args
+        let description_binding_1 = args.description.get_output(context);
+        let description_binding = description_binding_1.get_inner();
+        let display_name_binding_1 = args.display_name.get_output(context);
+        let display_name_binding = display_name_binding_1.get_inner();
+        let is_default_negative_intent_binding_1 = args
             .is_default_negative_intent
-            .get_output(context)
+            .get_output(context);
+        let is_default_negative_intent_binding = is_default_negative_intent_binding_1
             .get_inner();
-        let is_default_welcome_intent_binding = args
+        let is_default_welcome_intent_binding_1 = args
             .is_default_welcome_intent
-            .get_output(context)
+            .get_output(context);
+        let is_default_welcome_intent_binding = is_default_welcome_intent_binding_1
             .get_inner();
-        let is_fallback_binding = args.is_fallback.get_output(context).get_inner();
-        let labels_binding = args.labels.get_output(context).get_inner();
-        let language_code_binding = args.language_code.get_output(context).get_inner();
-        let parameters_binding = args.parameters.get_output(context).get_inner();
-        let parent_binding = args.parent.get_output(context).get_inner();
-        let priority_binding = args.priority.get_output(context).get_inner();
-        let training_phrases_binding = args
-            .training_phrases
-            .get_output(context)
-            .get_inner();
+        let is_fallback_binding_1 = args.is_fallback.get_output(context);
+        let is_fallback_binding = is_fallback_binding_1.get_inner();
+        let labels_binding_1 = args.labels.get_output(context);
+        let labels_binding = labels_binding_1.get_inner();
+        let language_code_binding_1 = args.language_code.get_output(context);
+        let language_code_binding = language_code_binding_1.get_inner();
+        let parameters_binding_1 = args.parameters.get_output(context);
+        let parameters_binding = parameters_binding_1.get_inner();
+        let parent_binding_1 = args.parent.get_output(context);
+        let parent_binding = parent_binding_1.get_inner();
+        let priority_binding_1 = args.priority.get_output(context);
+        let priority_binding = priority_binding_1.get_inner();
+        let training_phrases_binding_1 = args.training_phrases.get_output(context);
+        let training_phrases_binding = training_phrases_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:diagflow/cxIntent:CxIntent".into(),
             name: name.to_string(),

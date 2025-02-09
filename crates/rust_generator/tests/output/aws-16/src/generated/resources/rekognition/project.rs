@@ -74,10 +74,14 @@ pub mod project {
     ) -> ProjectResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let auto_update_binding = args.auto_update.get_output(context).get_inner();
-        let feature_binding = args.feature.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let timeouts_binding = args.timeouts.get_output(context).get_inner();
+        let auto_update_binding_1 = args.auto_update.get_output(context);
+        let auto_update_binding = auto_update_binding_1.get_inner();
+        let feature_binding_1 = args.feature.get_output(context);
+        let feature_binding = feature_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let timeouts_binding_1 = args.timeouts.get_output(context);
+        let timeouts_binding = timeouts_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:rekognition/project:Project".into(),
             name: name.to_string(),

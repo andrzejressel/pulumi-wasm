@@ -144,26 +144,30 @@ pub mod collaboration {
     ) -> CollaborationResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let creator_display_name_binding = args
+        let creator_display_name_binding_1 = args
             .creator_display_name
-            .get_output(context)
-            .get_inner();
-        let creator_member_abilities_binding = args
+            .get_output(context);
+        let creator_display_name_binding = creator_display_name_binding_1.get_inner();
+        let creator_member_abilities_binding_1 = args
             .creator_member_abilities
-            .get_output(context)
+            .get_output(context);
+        let creator_member_abilities_binding = creator_member_abilities_binding_1
             .get_inner();
-        let data_encryption_metadata_binding = args
+        let data_encryption_metadata_binding_1 = args
             .data_encryption_metadata
-            .get_output(context)
+            .get_output(context);
+        let data_encryption_metadata_binding = data_encryption_metadata_binding_1
             .get_inner();
-        let description_binding = args.description.get_output(context).get_inner();
-        let members_binding = args.members.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let query_log_status_binding = args
-            .query_log_status
-            .get_output(context)
-            .get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
+        let description_binding_1 = args.description.get_output(context);
+        let description_binding = description_binding_1.get_inner();
+        let members_binding_1 = args.members.get_output(context);
+        let members_binding = members_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let query_log_status_binding_1 = args.query_log_status.get_output(context);
+        let query_log_status_binding = query_log_status_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:cleanrooms/collaboration:Collaboration".into(),
             name: name.to_string(),

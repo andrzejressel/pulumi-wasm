@@ -156,37 +156,37 @@ pub mod file_cache {
     ) -> FileCacheResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let copy_tags_to_data_repository_associations_binding = args
+        let copy_tags_to_data_repository_associations_binding_1 = args
             .copy_tags_to_data_repository_associations
-            .get_output(context)
+            .get_output(context);
+        let copy_tags_to_data_repository_associations_binding = copy_tags_to_data_repository_associations_binding_1
             .get_inner();
-        let data_repository_associations_binding = args
+        let data_repository_associations_binding_1 = args
             .data_repository_associations
-            .get_output(context)
+            .get_output(context);
+        let data_repository_associations_binding = data_repository_associations_binding_1
             .get_inner();
-        let file_cache_type_binding = args
-            .file_cache_type
-            .get_output(context)
-            .get_inner();
-        let file_cache_type_version_binding = args
+        let file_cache_type_binding_1 = args.file_cache_type.get_output(context);
+        let file_cache_type_binding = file_cache_type_binding_1.get_inner();
+        let file_cache_type_version_binding_1 = args
             .file_cache_type_version
-            .get_output(context)
+            .get_output(context);
+        let file_cache_type_version_binding = file_cache_type_version_binding_1
             .get_inner();
-        let kms_key_id_binding = args.kms_key_id.get_output(context).get_inner();
-        let lustre_configurations_binding = args
+        let kms_key_id_binding_1 = args.kms_key_id.get_output(context);
+        let kms_key_id_binding = kms_key_id_binding_1.get_inner();
+        let lustre_configurations_binding_1 = args
             .lustre_configurations
-            .get_output(context)
-            .get_inner();
-        let security_group_ids_binding = args
-            .security_group_ids
-            .get_output(context)
-            .get_inner();
-        let storage_capacity_binding = args
-            .storage_capacity
-            .get_output(context)
-            .get_inner();
-        let subnet_ids_binding = args.subnet_ids.get_output(context).get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
+            .get_output(context);
+        let lustre_configurations_binding = lustre_configurations_binding_1.get_inner();
+        let security_group_ids_binding_1 = args.security_group_ids.get_output(context);
+        let security_group_ids_binding = security_group_ids_binding_1.get_inner();
+        let storage_capacity_binding_1 = args.storage_capacity.get_output(context);
+        let storage_capacity_binding = storage_capacity_binding_1.get_inner();
+        let subnet_ids_binding_1 = args.subnet_ids.get_output(context);
+        let subnet_ids_binding = subnet_ids_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:fsx/fileCache:FileCache".into(),
             name: name.to_string(),

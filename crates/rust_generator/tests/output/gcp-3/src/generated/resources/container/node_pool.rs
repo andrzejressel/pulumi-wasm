@@ -333,38 +333,40 @@ pub mod node_pool {
     ) -> NodePoolResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let autoscaling_binding = args.autoscaling.get_output(context).get_inner();
-        let cluster_binding = args.cluster.get_output(context).get_inner();
-        let initial_node_count_binding = args
-            .initial_node_count
-            .get_output(context)
-            .get_inner();
-        let location_binding = args.location.get_output(context).get_inner();
-        let management_binding = args.management.get_output(context).get_inner();
-        let max_pods_per_node_binding = args
-            .max_pods_per_node
-            .get_output(context)
-            .get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let name_prefix_binding = args.name_prefix.get_output(context).get_inner();
-        let network_config_binding = args.network_config.get_output(context).get_inner();
-        let node_config_binding = args.node_config.get_output(context).get_inner();
-        let node_count_binding = args.node_count.get_output(context).get_inner();
-        let node_locations_binding = args.node_locations.get_output(context).get_inner();
-        let placement_policy_binding = args
-            .placement_policy
-            .get_output(context)
-            .get_inner();
-        let project_binding = args.project.get_output(context).get_inner();
-        let queued_provisioning_binding = args
-            .queued_provisioning
-            .get_output(context)
-            .get_inner();
-        let upgrade_settings_binding = args
-            .upgrade_settings
-            .get_output(context)
-            .get_inner();
-        let version_binding = args.version.get_output(context).get_inner();
+        let autoscaling_binding_1 = args.autoscaling.get_output(context);
+        let autoscaling_binding = autoscaling_binding_1.get_inner();
+        let cluster_binding_1 = args.cluster.get_output(context);
+        let cluster_binding = cluster_binding_1.get_inner();
+        let initial_node_count_binding_1 = args.initial_node_count.get_output(context);
+        let initial_node_count_binding = initial_node_count_binding_1.get_inner();
+        let location_binding_1 = args.location.get_output(context);
+        let location_binding = location_binding_1.get_inner();
+        let management_binding_1 = args.management.get_output(context);
+        let management_binding = management_binding_1.get_inner();
+        let max_pods_per_node_binding_1 = args.max_pods_per_node.get_output(context);
+        let max_pods_per_node_binding = max_pods_per_node_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let name_prefix_binding_1 = args.name_prefix.get_output(context);
+        let name_prefix_binding = name_prefix_binding_1.get_inner();
+        let network_config_binding_1 = args.network_config.get_output(context);
+        let network_config_binding = network_config_binding_1.get_inner();
+        let node_config_binding_1 = args.node_config.get_output(context);
+        let node_config_binding = node_config_binding_1.get_inner();
+        let node_count_binding_1 = args.node_count.get_output(context);
+        let node_count_binding = node_count_binding_1.get_inner();
+        let node_locations_binding_1 = args.node_locations.get_output(context);
+        let node_locations_binding = node_locations_binding_1.get_inner();
+        let placement_policy_binding_1 = args.placement_policy.get_output(context);
+        let placement_policy_binding = placement_policy_binding_1.get_inner();
+        let project_binding_1 = args.project.get_output(context);
+        let project_binding = project_binding_1.get_inner();
+        let queued_provisioning_binding_1 = args.queued_provisioning.get_output(context);
+        let queued_provisioning_binding = queued_provisioning_binding_1.get_inner();
+        let upgrade_settings_binding_1 = args.upgrade_settings.get_output(context);
+        let upgrade_settings_binding = upgrade_settings_binding_1.get_inner();
+        let version_binding_1 = args.version.get_output(context);
+        let version_binding = version_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:container/nodePool:NodePool".into(),
             name: name.to_string(),

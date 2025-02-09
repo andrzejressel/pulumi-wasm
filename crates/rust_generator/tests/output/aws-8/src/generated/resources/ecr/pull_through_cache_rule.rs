@@ -68,15 +68,16 @@ pub mod pull_through_cache_rule {
     ) -> PullThroughCacheRuleResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let credential_arn_binding = args.credential_arn.get_output(context).get_inner();
-        let ecr_repository_prefix_binding = args
+        let credential_arn_binding_1 = args.credential_arn.get_output(context);
+        let credential_arn_binding = credential_arn_binding_1.get_inner();
+        let ecr_repository_prefix_binding_1 = args
             .ecr_repository_prefix
-            .get_output(context)
-            .get_inner();
-        let upstream_registry_url_binding = args
+            .get_output(context);
+        let ecr_repository_prefix_binding = ecr_repository_prefix_binding_1.get_inner();
+        let upstream_registry_url_binding_1 = args
             .upstream_registry_url
-            .get_output(context)
-            .get_inner();
+            .get_output(context);
+        let upstream_registry_url_binding = upstream_registry_url_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:ecr/pullThroughCacheRule:PullThroughCacheRule".into(),
             name: name.to_string(),

@@ -49,9 +49,12 @@ pub mod get_quicksight_user {
     ) -> GetQuicksightUserResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let aws_account_id_binding = args.aws_account_id.get_output(context).get_inner();
-        let namespace_binding = args.namespace.get_output(context).get_inner();
-        let user_name_binding = args.user_name.get_output(context).get_inner();
+        let aws_account_id_binding_1 = args.aws_account_id.get_output(context);
+        let aws_account_id_binding = aws_account_id_binding_1.get_inner();
+        let namespace_binding_1 = args.namespace.get_output(context);
+        let namespace_binding = namespace_binding_1.get_inner();
+        let user_name_binding_1 = args.user_name.get_output(context);
+        let user_name_binding = user_name_binding_1.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:quicksight/getQuicksightUser:getQuicksightUser".into(),
             version: super::super::super::get_version(),

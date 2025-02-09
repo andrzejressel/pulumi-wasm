@@ -226,16 +226,20 @@ pub mod function_app_function {
     ) -> FunctionAppFunctionResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let config_json_binding = args.config_json.get_output(context).get_inner();
-        let enabled_binding = args.enabled.get_output(context).get_inner();
-        let files_binding = args.files.get_output(context).get_inner();
-        let function_app_id_binding = args
-            .function_app_id
-            .get_output(context)
-            .get_inner();
-        let language_binding = args.language.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let test_data_binding = args.test_data.get_output(context).get_inner();
+        let config_json_binding_1 = args.config_json.get_output(context);
+        let config_json_binding = config_json_binding_1.get_inner();
+        let enabled_binding_1 = args.enabled.get_output(context);
+        let enabled_binding = enabled_binding_1.get_inner();
+        let files_binding_1 = args.files.get_output(context);
+        let files_binding = files_binding_1.get_inner();
+        let function_app_id_binding_1 = args.function_app_id.get_output(context);
+        let function_app_id_binding = function_app_id_binding_1.get_inner();
+        let language_binding_1 = args.language.get_output(context);
+        let language_binding = language_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let test_data_binding_1 = args.test_data.get_output(context);
+        let test_data_binding = test_data_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:appservice/functionAppFunction:FunctionAppFunction".into(),
             name: name.to_string(),

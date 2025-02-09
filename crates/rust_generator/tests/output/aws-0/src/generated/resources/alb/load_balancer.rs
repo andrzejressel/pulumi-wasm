@@ -268,89 +268,93 @@ pub mod load_balancer {
     ) -> LoadBalancerResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let access_logs_binding = args.access_logs.get_output(context).get_inner();
-        let client_keep_alive_binding = args
-            .client_keep_alive
-            .get_output(context)
-            .get_inner();
-        let connection_logs_binding = args
-            .connection_logs
-            .get_output(context)
-            .get_inner();
-        let customer_owned_ipv4_pool_binding = args
+        let access_logs_binding_1 = args.access_logs.get_output(context);
+        let access_logs_binding = access_logs_binding_1.get_inner();
+        let client_keep_alive_binding_1 = args.client_keep_alive.get_output(context);
+        let client_keep_alive_binding = client_keep_alive_binding_1.get_inner();
+        let connection_logs_binding_1 = args.connection_logs.get_output(context);
+        let connection_logs_binding = connection_logs_binding_1.get_inner();
+        let customer_owned_ipv4_pool_binding_1 = args
             .customer_owned_ipv4_pool
-            .get_output(context)
+            .get_output(context);
+        let customer_owned_ipv4_pool_binding = customer_owned_ipv4_pool_binding_1
             .get_inner();
-        let desync_mitigation_mode_binding = args
+        let desync_mitigation_mode_binding_1 = args
             .desync_mitigation_mode
-            .get_output(context)
+            .get_output(context);
+        let desync_mitigation_mode_binding = desync_mitigation_mode_binding_1
             .get_inner();
-        let dns_record_client_routing_policy_binding = args
+        let dns_record_client_routing_policy_binding_1 = args
             .dns_record_client_routing_policy
-            .get_output(context)
+            .get_output(context);
+        let dns_record_client_routing_policy_binding = dns_record_client_routing_policy_binding_1
             .get_inner();
-        let drop_invalid_header_fields_binding = args
+        let drop_invalid_header_fields_binding_1 = args
             .drop_invalid_header_fields
-            .get_output(context)
+            .get_output(context);
+        let drop_invalid_header_fields_binding = drop_invalid_header_fields_binding_1
             .get_inner();
-        let enable_cross_zone_load_balancing_binding = args
+        let enable_cross_zone_load_balancing_binding_1 = args
             .enable_cross_zone_load_balancing
-            .get_output(context)
+            .get_output(context);
+        let enable_cross_zone_load_balancing_binding = enable_cross_zone_load_balancing_binding_1
             .get_inner();
-        let enable_deletion_protection_binding = args
+        let enable_deletion_protection_binding_1 = args
             .enable_deletion_protection
-            .get_output(context)
+            .get_output(context);
+        let enable_deletion_protection_binding = enable_deletion_protection_binding_1
             .get_inner();
-        let enable_http2_binding = args.enable_http2.get_output(context).get_inner();
-        let enable_tls_version_and_cipher_suite_headers_binding = args
+        let enable_http2_binding_1 = args.enable_http2.get_output(context);
+        let enable_http2_binding = enable_http2_binding_1.get_inner();
+        let enable_tls_version_and_cipher_suite_headers_binding_1 = args
             .enable_tls_version_and_cipher_suite_headers
-            .get_output(context)
+            .get_output(context);
+        let enable_tls_version_and_cipher_suite_headers_binding = enable_tls_version_and_cipher_suite_headers_binding_1
             .get_inner();
-        let enable_waf_fail_open_binding = args
+        let enable_waf_fail_open_binding_1 = args
             .enable_waf_fail_open
-            .get_output(context)
-            .get_inner();
-        let enable_xff_client_port_binding = args
+            .get_output(context);
+        let enable_waf_fail_open_binding = enable_waf_fail_open_binding_1.get_inner();
+        let enable_xff_client_port_binding_1 = args
             .enable_xff_client_port
-            .get_output(context)
+            .get_output(context);
+        let enable_xff_client_port_binding = enable_xff_client_port_binding_1
             .get_inner();
-        let enable_zonal_shift_binding = args
-            .enable_zonal_shift
-            .get_output(context)
-            .get_inner();
-        let enforce_security_group_inbound_rules_on_private_link_traffic_binding = args
+        let enable_zonal_shift_binding_1 = args.enable_zonal_shift.get_output(context);
+        let enable_zonal_shift_binding = enable_zonal_shift_binding_1.get_inner();
+        let enforce_security_group_inbound_rules_on_private_link_traffic_binding_1 = args
             .enforce_security_group_inbound_rules_on_private_link_traffic
-            .get_output(context)
+            .get_output(context);
+        let enforce_security_group_inbound_rules_on_private_link_traffic_binding = enforce_security_group_inbound_rules_on_private_link_traffic_binding_1
             .get_inner();
-        let idle_timeout_binding = args.idle_timeout.get_output(context).get_inner();
-        let internal_binding = args.internal.get_output(context).get_inner();
-        let ip_address_type_binding = args
-            .ip_address_type
-            .get_output(context)
-            .get_inner();
-        let load_balancer_type_binding = args
-            .load_balancer_type
-            .get_output(context)
-            .get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let name_prefix_binding = args.name_prefix.get_output(context).get_inner();
-        let preserve_host_header_binding = args
+        let idle_timeout_binding_1 = args.idle_timeout.get_output(context);
+        let idle_timeout_binding = idle_timeout_binding_1.get_inner();
+        let internal_binding_1 = args.internal.get_output(context);
+        let internal_binding = internal_binding_1.get_inner();
+        let ip_address_type_binding_1 = args.ip_address_type.get_output(context);
+        let ip_address_type_binding = ip_address_type_binding_1.get_inner();
+        let load_balancer_type_binding_1 = args.load_balancer_type.get_output(context);
+        let load_balancer_type_binding = load_balancer_type_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let name_prefix_binding_1 = args.name_prefix.get_output(context);
+        let name_prefix_binding = name_prefix_binding_1.get_inner();
+        let preserve_host_header_binding_1 = args
             .preserve_host_header
-            .get_output(context)
-            .get_inner();
-        let security_groups_binding = args
-            .security_groups
-            .get_output(context)
-            .get_inner();
-        let subnet_mappings_binding = args
-            .subnet_mappings
-            .get_output(context)
-            .get_inner();
-        let subnets_binding = args.subnets.get_output(context).get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
-        let xff_header_processing_mode_binding = args
+            .get_output(context);
+        let preserve_host_header_binding = preserve_host_header_binding_1.get_inner();
+        let security_groups_binding_1 = args.security_groups.get_output(context);
+        let security_groups_binding = security_groups_binding_1.get_inner();
+        let subnet_mappings_binding_1 = args.subnet_mappings.get_output(context);
+        let subnet_mappings_binding = subnet_mappings_binding_1.get_inner();
+        let subnets_binding_1 = args.subnets.get_output(context);
+        let subnets_binding = subnets_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
+        let xff_header_processing_mode_binding_1 = args
             .xff_header_processing_mode
-            .get_output(context)
+            .get_output(context);
+        let xff_header_processing_mode_binding = xff_header_processing_mode_binding_1
             .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:alb/loadBalancer:LoadBalancer".into(),

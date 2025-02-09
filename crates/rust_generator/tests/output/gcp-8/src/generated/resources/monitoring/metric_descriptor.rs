@@ -238,16 +238,26 @@ pub mod metric_descriptor {
     ) -> MetricDescriptorResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let description_binding = args.description.get_output(context).get_inner();
-        let display_name_binding = args.display_name.get_output(context).get_inner();
-        let labels_binding = args.labels.get_output(context).get_inner();
-        let launch_stage_binding = args.launch_stage.get_output(context).get_inner();
-        let metadata_binding = args.metadata.get_output(context).get_inner();
-        let metric_kind_binding = args.metric_kind.get_output(context).get_inner();
-        let project_binding = args.project.get_output(context).get_inner();
-        let type__binding = args.type_.get_output(context).get_inner();
-        let unit_binding = args.unit.get_output(context).get_inner();
-        let value_type_binding = args.value_type.get_output(context).get_inner();
+        let description_binding_1 = args.description.get_output(context);
+        let description_binding = description_binding_1.get_inner();
+        let display_name_binding_1 = args.display_name.get_output(context);
+        let display_name_binding = display_name_binding_1.get_inner();
+        let labels_binding_1 = args.labels.get_output(context);
+        let labels_binding = labels_binding_1.get_inner();
+        let launch_stage_binding_1 = args.launch_stage.get_output(context);
+        let launch_stage_binding = launch_stage_binding_1.get_inner();
+        let metadata_binding_1 = args.metadata.get_output(context);
+        let metadata_binding = metadata_binding_1.get_inner();
+        let metric_kind_binding_1 = args.metric_kind.get_output(context);
+        let metric_kind_binding = metric_kind_binding_1.get_inner();
+        let project_binding_1 = args.project.get_output(context);
+        let project_binding = project_binding_1.get_inner();
+        let type__binding_1 = args.type_.get_output(context);
+        let type__binding = type__binding_1.get_inner();
+        let unit_binding_1 = args.unit.get_output(context);
+        let unit_binding = unit_binding_1.get_inner();
+        let value_type_binding_1 = args.value_type.get_output(context);
+        let value_type_binding = value_type_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:monitoring/metricDescriptor:MetricDescriptor".into(),
             name: name.to_string(),

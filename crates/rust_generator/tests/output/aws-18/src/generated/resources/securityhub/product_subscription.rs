@@ -132,7 +132,8 @@ pub mod product_subscription {
     ) -> ProductSubscriptionResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let product_arn_binding = args.product_arn.get_output(context).get_inner();
+        let product_arn_binding_1 = args.product_arn.get_output(context);
+        let product_arn_binding = product_arn_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:securityhub/productSubscription:ProductSubscription".into(),
             name: name.to_string(),

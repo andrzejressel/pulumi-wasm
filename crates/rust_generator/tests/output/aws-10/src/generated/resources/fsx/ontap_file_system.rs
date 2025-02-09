@@ -234,62 +234,59 @@ pub mod ontap_file_system {
     ) -> OntapFileSystemResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let automatic_backup_retention_days_binding = args
+        let automatic_backup_retention_days_binding_1 = args
             .automatic_backup_retention_days
-            .get_output(context)
+            .get_output(context);
+        let automatic_backup_retention_days_binding = automatic_backup_retention_days_binding_1
             .get_inner();
-        let daily_automatic_backup_start_time_binding = args
+        let daily_automatic_backup_start_time_binding_1 = args
             .daily_automatic_backup_start_time
-            .get_output(context)
+            .get_output(context);
+        let daily_automatic_backup_start_time_binding = daily_automatic_backup_start_time_binding_1
             .get_inner();
-        let deployment_type_binding = args
-            .deployment_type
-            .get_output(context)
-            .get_inner();
-        let disk_iops_configuration_binding = args
+        let deployment_type_binding_1 = args.deployment_type.get_output(context);
+        let deployment_type_binding = deployment_type_binding_1.get_inner();
+        let disk_iops_configuration_binding_1 = args
             .disk_iops_configuration
-            .get_output(context)
+            .get_output(context);
+        let disk_iops_configuration_binding = disk_iops_configuration_binding_1
             .get_inner();
-        let endpoint_ip_address_range_binding = args
+        let endpoint_ip_address_range_binding_1 = args
             .endpoint_ip_address_range
-            .get_output(context)
+            .get_output(context);
+        let endpoint_ip_address_range_binding = endpoint_ip_address_range_binding_1
             .get_inner();
-        let fsx_admin_password_binding = args
-            .fsx_admin_password
-            .get_output(context)
-            .get_inner();
-        let ha_pairs_binding = args.ha_pairs.get_output(context).get_inner();
-        let kms_key_id_binding = args.kms_key_id.get_output(context).get_inner();
-        let preferred_subnet_id_binding = args
-            .preferred_subnet_id
-            .get_output(context)
-            .get_inner();
-        let route_table_ids_binding = args
-            .route_table_ids
-            .get_output(context)
-            .get_inner();
-        let security_group_ids_binding = args
-            .security_group_ids
-            .get_output(context)
-            .get_inner();
-        let storage_capacity_binding = args
-            .storage_capacity
-            .get_output(context)
-            .get_inner();
-        let storage_type_binding = args.storage_type.get_output(context).get_inner();
-        let subnet_ids_binding = args.subnet_ids.get_output(context).get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
-        let throughput_capacity_binding = args
-            .throughput_capacity
-            .get_output(context)
-            .get_inner();
-        let throughput_capacity_per_ha_pair_binding = args
+        let fsx_admin_password_binding_1 = args.fsx_admin_password.get_output(context);
+        let fsx_admin_password_binding = fsx_admin_password_binding_1.get_inner();
+        let ha_pairs_binding_1 = args.ha_pairs.get_output(context);
+        let ha_pairs_binding = ha_pairs_binding_1.get_inner();
+        let kms_key_id_binding_1 = args.kms_key_id.get_output(context);
+        let kms_key_id_binding = kms_key_id_binding_1.get_inner();
+        let preferred_subnet_id_binding_1 = args.preferred_subnet_id.get_output(context);
+        let preferred_subnet_id_binding = preferred_subnet_id_binding_1.get_inner();
+        let route_table_ids_binding_1 = args.route_table_ids.get_output(context);
+        let route_table_ids_binding = route_table_ids_binding_1.get_inner();
+        let security_group_ids_binding_1 = args.security_group_ids.get_output(context);
+        let security_group_ids_binding = security_group_ids_binding_1.get_inner();
+        let storage_capacity_binding_1 = args.storage_capacity.get_output(context);
+        let storage_capacity_binding = storage_capacity_binding_1.get_inner();
+        let storage_type_binding_1 = args.storage_type.get_output(context);
+        let storage_type_binding = storage_type_binding_1.get_inner();
+        let subnet_ids_binding_1 = args.subnet_ids.get_output(context);
+        let subnet_ids_binding = subnet_ids_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
+        let throughput_capacity_binding_1 = args.throughput_capacity.get_output(context);
+        let throughput_capacity_binding = throughput_capacity_binding_1.get_inner();
+        let throughput_capacity_per_ha_pair_binding_1 = args
             .throughput_capacity_per_ha_pair
-            .get_output(context)
+            .get_output(context);
+        let throughput_capacity_per_ha_pair_binding = throughput_capacity_per_ha_pair_binding_1
             .get_inner();
-        let weekly_maintenance_start_time_binding = args
+        let weekly_maintenance_start_time_binding_1 = args
             .weekly_maintenance_start_time
-            .get_output(context)
+            .get_output(context);
+        let weekly_maintenance_start_time_binding = weekly_maintenance_start_time_binding_1
             .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:fsx/ontapFileSystem:OntapFileSystem".into(),

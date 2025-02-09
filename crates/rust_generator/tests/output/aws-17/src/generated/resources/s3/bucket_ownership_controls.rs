@@ -69,8 +69,10 @@ pub mod bucket_ownership_controls {
     ) -> BucketOwnershipControlsResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let bucket_binding = args.bucket.get_output(context).get_inner();
-        let rule_binding = args.rule.get_output(context).get_inner();
+        let bucket_binding_1 = args.bucket.get_output(context);
+        let bucket_binding = bucket_binding_1.get_inner();
+        let rule_binding_1 = args.rule.get_output(context);
+        let rule_binding = rule_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:s3/bucketOwnershipControls:BucketOwnershipControls".into(),
             name: name.to_string(),

@@ -315,28 +315,28 @@ pub mod tls_inspection_policy {
     ) -> TlsInspectionPolicyResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let ca_pool_binding = args.ca_pool.get_output(context).get_inner();
-        let custom_tls_features_binding = args
-            .custom_tls_features
-            .get_output(context)
-            .get_inner();
-        let description_binding = args.description.get_output(context).get_inner();
-        let exclude_public_ca_set_binding = args
+        let ca_pool_binding_1 = args.ca_pool.get_output(context);
+        let ca_pool_binding = ca_pool_binding_1.get_inner();
+        let custom_tls_features_binding_1 = args.custom_tls_features.get_output(context);
+        let custom_tls_features_binding = custom_tls_features_binding_1.get_inner();
+        let description_binding_1 = args.description.get_output(context);
+        let description_binding = description_binding_1.get_inner();
+        let exclude_public_ca_set_binding_1 = args
             .exclude_public_ca_set
-            .get_output(context)
-            .get_inner();
-        let location_binding = args.location.get_output(context).get_inner();
-        let min_tls_version_binding = args
-            .min_tls_version
-            .get_output(context)
-            .get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let project_binding = args.project.get_output(context).get_inner();
-        let tls_feature_profile_binding = args
-            .tls_feature_profile
-            .get_output(context)
-            .get_inner();
-        let trust_config_binding = args.trust_config.get_output(context).get_inner();
+            .get_output(context);
+        let exclude_public_ca_set_binding = exclude_public_ca_set_binding_1.get_inner();
+        let location_binding_1 = args.location.get_output(context);
+        let location_binding = location_binding_1.get_inner();
+        let min_tls_version_binding_1 = args.min_tls_version.get_output(context);
+        let min_tls_version_binding = min_tls_version_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let project_binding_1 = args.project.get_output(context);
+        let project_binding = project_binding_1.get_inner();
+        let tls_feature_profile_binding_1 = args.tls_feature_profile.get_output(context);
+        let tls_feature_profile_binding = tls_feature_profile_binding_1.get_inner();
+        let trust_config_binding_1 = args.trust_config.get_output(context);
+        let trust_config_binding = trust_config_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:networksecurity/tlsInspectionPolicy:TlsInspectionPolicy".into(),
             name: name.to_string(),

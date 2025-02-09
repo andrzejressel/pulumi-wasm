@@ -81,12 +81,18 @@ pub mod zone_lockdown {
     ) -> ZoneLockdownResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let configurations_binding = args.configurations.get_output(context).get_inner();
-        let description_binding = args.description.get_output(context).get_inner();
-        let paused_binding = args.paused.get_output(context).get_inner();
-        let priority_binding = args.priority.get_output(context).get_inner();
-        let urls_binding = args.urls.get_output(context).get_inner();
-        let zone_id_binding = args.zone_id.get_output(context).get_inner();
+        let configurations_binding_1 = args.configurations.get_output(context);
+        let configurations_binding = configurations_binding_1.get_inner();
+        let description_binding_1 = args.description.get_output(context);
+        let description_binding = description_binding_1.get_inner();
+        let paused_binding_1 = args.paused.get_output(context);
+        let paused_binding = paused_binding_1.get_inner();
+        let priority_binding_1 = args.priority.get_output(context);
+        let priority_binding = priority_binding_1.get_inner();
+        let urls_binding_1 = args.urls.get_output(context);
+        let urls_binding = urls_binding_1.get_inner();
+        let zone_id_binding_1 = args.zone_id.get_output(context);
+        let zone_id_binding = zone_id_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "cloudflare:index/zoneLockdown:ZoneLockdown".into(),
             name: name.to_string(),

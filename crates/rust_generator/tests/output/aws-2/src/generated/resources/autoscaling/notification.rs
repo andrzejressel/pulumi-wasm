@@ -78,9 +78,12 @@ pub mod notification {
     ) -> NotificationResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let group_names_binding = args.group_names.get_output(context).get_inner();
-        let notifications_binding = args.notifications.get_output(context).get_inner();
-        let topic_arn_binding = args.topic_arn.get_output(context).get_inner();
+        let group_names_binding_1 = args.group_names.get_output(context);
+        let group_names_binding = group_names_binding_1.get_inner();
+        let notifications_binding_1 = args.notifications.get_output(context);
+        let notifications_binding = notifications_binding_1.get_inner();
+        let topic_arn_binding_1 = args.topic_arn.get_output(context);
+        let topic_arn_binding = topic_arn_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:autoscaling/notification:Notification".into(),
             name: name.to_string(),

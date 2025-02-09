@@ -57,12 +57,15 @@ pub mod get_network_insights_path {
     ) -> GetNetworkInsightsPathResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let filters_binding = args.filters.get_output(context).get_inner();
-        let network_insights_path_id_binding = args
+        let filters_binding_1 = args.filters.get_output(context);
+        let filters_binding = filters_binding_1.get_inner();
+        let network_insights_path_id_binding_1 = args
             .network_insights_path_id
-            .get_output(context)
+            .get_output(context);
+        let network_insights_path_id_binding = network_insights_path_id_binding_1
             .get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:ec2/getNetworkInsightsPath:getNetworkInsightsPath".into(),
             version: super::super::super::get_version(),

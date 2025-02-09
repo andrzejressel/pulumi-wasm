@@ -158,26 +158,22 @@ pub mod glossary_term {
     ) -> GlossaryTermResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let domain_identifier_binding = args
-            .domain_identifier
-            .get_output(context)
-            .get_inner();
-        let glossary_identifier_binding = args
-            .glossary_identifier
-            .get_output(context)
-            .get_inner();
-        let long_description_binding = args
-            .long_description
-            .get_output(context)
-            .get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let short_description_binding = args
-            .short_description
-            .get_output(context)
-            .get_inner();
-        let status_binding = args.status.get_output(context).get_inner();
-        let term_relations_binding = args.term_relations.get_output(context).get_inner();
-        let timeouts_binding = args.timeouts.get_output(context).get_inner();
+        let domain_identifier_binding_1 = args.domain_identifier.get_output(context);
+        let domain_identifier_binding = domain_identifier_binding_1.get_inner();
+        let glossary_identifier_binding_1 = args.glossary_identifier.get_output(context);
+        let glossary_identifier_binding = glossary_identifier_binding_1.get_inner();
+        let long_description_binding_1 = args.long_description.get_output(context);
+        let long_description_binding = long_description_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let short_description_binding_1 = args.short_description.get_output(context);
+        let short_description_binding = short_description_binding_1.get_inner();
+        let status_binding_1 = args.status.get_output(context);
+        let status_binding = status_binding_1.get_inner();
+        let term_relations_binding_1 = args.term_relations.get_output(context);
+        let term_relations_binding = term_relations_binding_1.get_inner();
+        let timeouts_binding_1 = args.timeouts.get_output(context);
+        let timeouts_binding = timeouts_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:datazone/glossaryTerm:GlossaryTerm".into(),
             name: name.to_string(),

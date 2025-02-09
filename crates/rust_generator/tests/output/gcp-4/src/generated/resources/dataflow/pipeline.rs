@@ -213,22 +213,29 @@ pub mod pipeline {
     ) -> PipelineResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let display_name_binding = args.display_name.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let pipeline_sources_binding = args
-            .pipeline_sources
-            .get_output(context)
-            .get_inner();
-        let project_binding = args.project.get_output(context).get_inner();
-        let region_binding = args.region.get_output(context).get_inner();
-        let schedule_info_binding = args.schedule_info.get_output(context).get_inner();
-        let scheduler_service_account_email_binding = args
+        let display_name_binding_1 = args.display_name.get_output(context);
+        let display_name_binding = display_name_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let pipeline_sources_binding_1 = args.pipeline_sources.get_output(context);
+        let pipeline_sources_binding = pipeline_sources_binding_1.get_inner();
+        let project_binding_1 = args.project.get_output(context);
+        let project_binding = project_binding_1.get_inner();
+        let region_binding_1 = args.region.get_output(context);
+        let region_binding = region_binding_1.get_inner();
+        let schedule_info_binding_1 = args.schedule_info.get_output(context);
+        let schedule_info_binding = schedule_info_binding_1.get_inner();
+        let scheduler_service_account_email_binding_1 = args
             .scheduler_service_account_email
-            .get_output(context)
+            .get_output(context);
+        let scheduler_service_account_email_binding = scheduler_service_account_email_binding_1
             .get_inner();
-        let state_binding = args.state.get_output(context).get_inner();
-        let type__binding = args.type_.get_output(context).get_inner();
-        let workload_binding = args.workload.get_output(context).get_inner();
+        let state_binding_1 = args.state.get_output(context);
+        let state_binding = state_binding_1.get_inner();
+        let type__binding_1 = args.type_.get_output(context);
+        let type__binding = type__binding_1.get_inner();
+        let workload_binding_1 = args.workload.get_output(context);
+        let workload_binding = workload_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:dataflow/pipeline:Pipeline".into(),
             name: name.to_string(),

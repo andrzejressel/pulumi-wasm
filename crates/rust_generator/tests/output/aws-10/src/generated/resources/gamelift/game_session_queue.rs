@@ -109,25 +109,23 @@ pub mod game_session_queue {
     ) -> GameSessionQueueResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let custom_event_data_binding = args
-            .custom_event_data
-            .get_output(context)
-            .get_inner();
-        let destinations_binding = args.destinations.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let notification_target_binding = args
-            .notification_target
-            .get_output(context)
-            .get_inner();
-        let player_latency_policies_binding = args
+        let custom_event_data_binding_1 = args.custom_event_data.get_output(context);
+        let custom_event_data_binding = custom_event_data_binding_1.get_inner();
+        let destinations_binding_1 = args.destinations.get_output(context);
+        let destinations_binding = destinations_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let notification_target_binding_1 = args.notification_target.get_output(context);
+        let notification_target_binding = notification_target_binding_1.get_inner();
+        let player_latency_policies_binding_1 = args
             .player_latency_policies
-            .get_output(context)
+            .get_output(context);
+        let player_latency_policies_binding = player_latency_policies_binding_1
             .get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
-        let timeout_in_seconds_binding = args
-            .timeout_in_seconds
-            .get_output(context)
-            .get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
+        let timeout_in_seconds_binding_1 = args.timeout_in_seconds.get_output(context);
+        let timeout_in_seconds_binding = timeout_in_seconds_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:gamelift/gameSessionQueue:GameSessionQueue".into(),
             name: name.to_string(),

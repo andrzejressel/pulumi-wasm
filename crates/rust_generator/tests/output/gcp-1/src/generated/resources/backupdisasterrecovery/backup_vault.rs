@@ -240,35 +240,43 @@ pub mod backup_vault {
     ) -> BackupVaultResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let access_restriction_binding = args
-            .access_restriction
-            .get_output(context)
-            .get_inner();
-        let allow_missing_binding = args.allow_missing.get_output(context).get_inner();
-        let annotations_binding = args.annotations.get_output(context).get_inner();
-        let backup_minimum_enforced_retention_duration_binding = args
+        let access_restriction_binding_1 = args.access_restriction.get_output(context);
+        let access_restriction_binding = access_restriction_binding_1.get_inner();
+        let allow_missing_binding_1 = args.allow_missing.get_output(context);
+        let allow_missing_binding = allow_missing_binding_1.get_inner();
+        let annotations_binding_1 = args.annotations.get_output(context);
+        let annotations_binding = annotations_binding_1.get_inner();
+        let backup_minimum_enforced_retention_duration_binding_1 = args
             .backup_minimum_enforced_retention_duration
-            .get_output(context)
+            .get_output(context);
+        let backup_minimum_enforced_retention_duration_binding = backup_minimum_enforced_retention_duration_binding_1
             .get_inner();
-        let backup_vault_id_binding = args
-            .backup_vault_id
-            .get_output(context)
-            .get_inner();
-        let description_binding = args.description.get_output(context).get_inner();
-        let effective_time_binding = args.effective_time.get_output(context).get_inner();
-        let force_delete_binding = args.force_delete.get_output(context).get_inner();
-        let force_update_binding = args.force_update.get_output(context).get_inner();
-        let ignore_backup_plan_references_binding = args
+        let backup_vault_id_binding_1 = args.backup_vault_id.get_output(context);
+        let backup_vault_id_binding = backup_vault_id_binding_1.get_inner();
+        let description_binding_1 = args.description.get_output(context);
+        let description_binding = description_binding_1.get_inner();
+        let effective_time_binding_1 = args.effective_time.get_output(context);
+        let effective_time_binding = effective_time_binding_1.get_inner();
+        let force_delete_binding_1 = args.force_delete.get_output(context);
+        let force_delete_binding = force_delete_binding_1.get_inner();
+        let force_update_binding_1 = args.force_update.get_output(context);
+        let force_update_binding = force_update_binding_1.get_inner();
+        let ignore_backup_plan_references_binding_1 = args
             .ignore_backup_plan_references
-            .get_output(context)
+            .get_output(context);
+        let ignore_backup_plan_references_binding = ignore_backup_plan_references_binding_1
             .get_inner();
-        let ignore_inactive_datasources_binding = args
+        let ignore_inactive_datasources_binding_1 = args
             .ignore_inactive_datasources
-            .get_output(context)
+            .get_output(context);
+        let ignore_inactive_datasources_binding = ignore_inactive_datasources_binding_1
             .get_inner();
-        let labels_binding = args.labels.get_output(context).get_inner();
-        let location_binding = args.location.get_output(context).get_inner();
-        let project_binding = args.project.get_output(context).get_inner();
+        let labels_binding_1 = args.labels.get_output(context);
+        let labels_binding = labels_binding_1.get_inner();
+        let location_binding_1 = args.location.get_output(context);
+        let location_binding = location_binding_1.get_inner();
+        let project_binding_1 = args.project.get_output(context);
+        let project_binding = project_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:backupdisasterrecovery/backupVault:BackupVault".into(),
             name: name.to_string(),

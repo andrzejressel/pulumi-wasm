@@ -56,12 +56,12 @@ pub mod get_vpc_dhcp_options {
     ) -> GetVpcDhcpOptionsResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let dhcp_options_id_binding = args
-            .dhcp_options_id
-            .get_output(context)
-            .get_inner();
-        let filters_binding = args.filters.get_output(context).get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
+        let dhcp_options_id_binding_1 = args.dhcp_options_id.get_output(context);
+        let dhcp_options_id_binding = dhcp_options_id_binding_1.get_inner();
+        let filters_binding_1 = args.filters.get_output(context);
+        let filters_binding = filters_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:ec2/getVpcDhcpOptions:getVpcDhcpOptions".into(),
             version: super::super::super::get_version(),

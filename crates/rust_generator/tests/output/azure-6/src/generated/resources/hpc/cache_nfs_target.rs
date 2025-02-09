@@ -186,28 +186,27 @@ pub mod cache_nfs_target {
     ) -> CacheNfsTargetResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let cache_name_binding = args.cache_name.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let namespace_junctions_binding = args
-            .namespace_junctions
-            .get_output(context)
-            .get_inner();
-        let resource_group_name_binding = args
-            .resource_group_name
-            .get_output(context)
-            .get_inner();
-        let target_host_name_binding = args
-            .target_host_name
-            .get_output(context)
-            .get_inner();
-        let usage_model_binding = args.usage_model.get_output(context).get_inner();
-        let verification_timer_in_seconds_binding = args
+        let cache_name_binding_1 = args.cache_name.get_output(context);
+        let cache_name_binding = cache_name_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let namespace_junctions_binding_1 = args.namespace_junctions.get_output(context);
+        let namespace_junctions_binding = namespace_junctions_binding_1.get_inner();
+        let resource_group_name_binding_1 = args.resource_group_name.get_output(context);
+        let resource_group_name_binding = resource_group_name_binding_1.get_inner();
+        let target_host_name_binding_1 = args.target_host_name.get_output(context);
+        let target_host_name_binding = target_host_name_binding_1.get_inner();
+        let usage_model_binding_1 = args.usage_model.get_output(context);
+        let usage_model_binding = usage_model_binding_1.get_inner();
+        let verification_timer_in_seconds_binding_1 = args
             .verification_timer_in_seconds
-            .get_output(context)
+            .get_output(context);
+        let verification_timer_in_seconds_binding = verification_timer_in_seconds_binding_1
             .get_inner();
-        let write_back_timer_in_seconds_binding = args
+        let write_back_timer_in_seconds_binding_1 = args
             .write_back_timer_in_seconds
-            .get_output(context)
+            .get_output(context);
+        let write_back_timer_in_seconds_binding = write_back_timer_in_seconds_binding_1
             .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:hpc/cacheNfsTarget:CacheNfsTarget".into(),

@@ -120,24 +120,27 @@ pub mod spring_cloud_dynatrace_application_performance_monitoring {
     ) -> SpringCloudDynatraceApplicationPerformanceMonitoringResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let api_token_binding = args.api_token.get_output(context).get_inner();
-        let api_url_binding = args.api_url.get_output(context).get_inner();
-        let connection_point_binding = args
-            .connection_point
-            .get_output(context)
-            .get_inner();
-        let environment_id_binding = args.environment_id.get_output(context).get_inner();
-        let globally_enabled_binding = args
-            .globally_enabled
-            .get_output(context)
-            .get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let spring_cloud_service_id_binding = args
+        let api_token_binding_1 = args.api_token.get_output(context);
+        let api_token_binding = api_token_binding_1.get_inner();
+        let api_url_binding_1 = args.api_url.get_output(context);
+        let api_url_binding = api_url_binding_1.get_inner();
+        let connection_point_binding_1 = args.connection_point.get_output(context);
+        let connection_point_binding = connection_point_binding_1.get_inner();
+        let environment_id_binding_1 = args.environment_id.get_output(context);
+        let environment_id_binding = environment_id_binding_1.get_inner();
+        let globally_enabled_binding_1 = args.globally_enabled.get_output(context);
+        let globally_enabled_binding = globally_enabled_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let spring_cloud_service_id_binding_1 = args
             .spring_cloud_service_id
-            .get_output(context)
+            .get_output(context);
+        let spring_cloud_service_id_binding = spring_cloud_service_id_binding_1
             .get_inner();
-        let tenant_binding = args.tenant.get_output(context).get_inner();
-        let tenant_token_binding = args.tenant_token.get_output(context).get_inner();
+        let tenant_binding_1 = args.tenant.get_output(context);
+        let tenant_binding = tenant_binding_1.get_inner();
+        let tenant_token_binding_1 = args.tenant_token.get_output(context);
+        let tenant_token_binding = tenant_token_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:appplatform/springCloudDynatraceApplicationPerformanceMonitoring:SpringCloudDynatraceApplicationPerformanceMonitoring"
                 .into(),

@@ -61,9 +61,12 @@ pub mod get_thesaurus {
     ) -> GetThesaurusResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let index_id_binding = args.index_id.get_output(context).get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
-        let thesaurus_id_binding = args.thesaurus_id.get_output(context).get_inner();
+        let index_id_binding_1 = args.index_id.get_output(context);
+        let index_id_binding = index_id_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
+        let thesaurus_id_binding_1 = args.thesaurus_id.get_output(context);
+        let thesaurus_id_binding = thesaurus_id_binding_1.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:kendra/getThesaurus:getThesaurus".into(),
             version: super::super::super::get_version(),

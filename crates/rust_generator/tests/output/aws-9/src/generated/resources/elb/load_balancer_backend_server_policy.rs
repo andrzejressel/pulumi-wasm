@@ -85,12 +85,12 @@ pub mod load_balancer_backend_server_policy {
     ) -> LoadBalancerBackendServerPolicyResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let instance_port_binding = args.instance_port.get_output(context).get_inner();
-        let load_balancer_name_binding = args
-            .load_balancer_name
-            .get_output(context)
-            .get_inner();
-        let policy_names_binding = args.policy_names.get_output(context).get_inner();
+        let instance_port_binding_1 = args.instance_port.get_output(context);
+        let instance_port_binding = instance_port_binding_1.get_inner();
+        let load_balancer_name_binding_1 = args.load_balancer_name.get_output(context);
+        let load_balancer_name_binding = load_balancer_name_binding_1.get_inner();
+        let policy_names_binding_1 = args.policy_names.get_output(context);
+        let policy_names_binding = policy_names_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:elb/loadBalancerBackendServerPolicy:LoadBalancerBackendServerPolicy"
                 .into(),

@@ -133,17 +133,20 @@ pub mod role_assignment {
     ) -> RoleAssignmentResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let principal_id_binding = args.principal_id.get_output(context).get_inner();
-        let principal_type_binding = args.principal_type.get_output(context).get_inner();
-        let role_name_binding = args.role_name.get_output(context).get_inner();
-        let synapse_spark_pool_id_binding = args
+        let principal_id_binding_1 = args.principal_id.get_output(context);
+        let principal_id_binding = principal_id_binding_1.get_inner();
+        let principal_type_binding_1 = args.principal_type.get_output(context);
+        let principal_type_binding = principal_type_binding_1.get_inner();
+        let role_name_binding_1 = args.role_name.get_output(context);
+        let role_name_binding = role_name_binding_1.get_inner();
+        let synapse_spark_pool_id_binding_1 = args
             .synapse_spark_pool_id
-            .get_output(context)
-            .get_inner();
-        let synapse_workspace_id_binding = args
+            .get_output(context);
+        let synapse_spark_pool_id_binding = synapse_spark_pool_id_binding_1.get_inner();
+        let synapse_workspace_id_binding_1 = args
             .synapse_workspace_id
-            .get_output(context)
-            .get_inner();
+            .get_output(context);
+        let synapse_workspace_id_binding = synapse_workspace_id_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:synapse/roleAssignment:RoleAssignment".into(),
             name: name.to_string(),

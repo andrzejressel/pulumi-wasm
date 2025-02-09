@@ -55,10 +55,12 @@ pub mod get_security_group_rule {
     ) -> GetSecurityGroupRuleResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let filters_binding = args.filters.get_output(context).get_inner();
-        let security_group_rule_id_binding = args
+        let filters_binding_1 = args.filters.get_output(context);
+        let filters_binding = filters_binding_1.get_inner();
+        let security_group_rule_id_binding_1 = args
             .security_group_rule_id
-            .get_output(context)
+            .get_output(context);
+        let security_group_rule_id_binding = security_group_rule_id_binding_1
             .get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:vpc/getSecurityGroupRule:getSecurityGroupRule".into(),

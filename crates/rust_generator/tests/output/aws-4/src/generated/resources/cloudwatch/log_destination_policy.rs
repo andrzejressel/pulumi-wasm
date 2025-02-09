@@ -77,12 +77,12 @@ pub mod log_destination_policy {
     ) -> LogDestinationPolicyResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let access_policy_binding = args.access_policy.get_output(context).get_inner();
-        let destination_name_binding = args
-            .destination_name
-            .get_output(context)
-            .get_inner();
-        let force_update_binding = args.force_update.get_output(context).get_inner();
+        let access_policy_binding_1 = args.access_policy.get_output(context);
+        let access_policy_binding = access_policy_binding_1.get_inner();
+        let destination_name_binding_1 = args.destination_name.get_output(context);
+        let destination_name_binding = destination_name_binding_1.get_inner();
+        let force_update_binding_1 = args.force_update.get_output(context);
+        let force_update_binding = force_update_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:cloudwatch/logDestinationPolicy:LogDestinationPolicy".into(),
             name: name.to_string(),

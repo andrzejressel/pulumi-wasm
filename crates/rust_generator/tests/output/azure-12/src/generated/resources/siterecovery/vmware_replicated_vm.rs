@@ -320,70 +320,77 @@ pub mod vmware_replicated_vm {
     ) -> VmwareReplicatedVmResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let appliance_name_binding = args.appliance_name.get_output(context).get_inner();
-        let default_log_storage_account_id_binding = args
+        let appliance_name_binding_1 = args.appliance_name.get_output(context);
+        let appliance_name_binding = appliance_name_binding_1.get_inner();
+        let default_log_storage_account_id_binding_1 = args
             .default_log_storage_account_id
-            .get_output(context)
+            .get_output(context);
+        let default_log_storage_account_id_binding = default_log_storage_account_id_binding_1
             .get_inner();
-        let default_recovery_disk_type_binding = args
+        let default_recovery_disk_type_binding_1 = args
             .default_recovery_disk_type
-            .get_output(context)
+            .get_output(context);
+        let default_recovery_disk_type_binding = default_recovery_disk_type_binding_1
             .get_inner();
-        let default_target_disk_encryption_set_id_binding = args
+        let default_target_disk_encryption_set_id_binding_1 = args
             .default_target_disk_encryption_set_id
-            .get_output(context)
+            .get_output(context);
+        let default_target_disk_encryption_set_id_binding = default_target_disk_encryption_set_id_binding_1
             .get_inner();
-        let license_type_binding = args.license_type.get_output(context).get_inner();
-        let managed_disks_binding = args.managed_disks.get_output(context).get_inner();
-        let multi_vm_group_name_binding = args
-            .multi_vm_group_name
-            .get_output(context)
-            .get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let network_interfaces_binding = args
-            .network_interfaces
-            .get_output(context)
-            .get_inner();
-        let physical_server_credential_name_binding = args
+        let license_type_binding_1 = args.license_type.get_output(context);
+        let license_type_binding = license_type_binding_1.get_inner();
+        let managed_disks_binding_1 = args.managed_disks.get_output(context);
+        let managed_disks_binding = managed_disks_binding_1.get_inner();
+        let multi_vm_group_name_binding_1 = args.multi_vm_group_name.get_output(context);
+        let multi_vm_group_name_binding = multi_vm_group_name_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let network_interfaces_binding_1 = args.network_interfaces.get_output(context);
+        let network_interfaces_binding = network_interfaces_binding_1.get_inner();
+        let physical_server_credential_name_binding_1 = args
             .physical_server_credential_name
-            .get_output(context)
+            .get_output(context);
+        let physical_server_credential_name_binding = physical_server_credential_name_binding_1
             .get_inner();
-        let recovery_replication_policy_id_binding = args
+        let recovery_replication_policy_id_binding_1 = args
             .recovery_replication_policy_id
-            .get_output(context)
+            .get_output(context);
+        let recovery_replication_policy_id_binding = recovery_replication_policy_id_binding_1
             .get_inner();
-        let recovery_vault_id_binding = args
-            .recovery_vault_id
-            .get_output(context)
-            .get_inner();
-        let source_vm_name_binding = args.source_vm_name.get_output(context).get_inner();
-        let target_availability_set_id_binding = args
+        let recovery_vault_id_binding_1 = args.recovery_vault_id.get_output(context);
+        let recovery_vault_id_binding = recovery_vault_id_binding_1.get_inner();
+        let source_vm_name_binding_1 = args.source_vm_name.get_output(context);
+        let source_vm_name_binding = source_vm_name_binding_1.get_inner();
+        let target_availability_set_id_binding_1 = args
             .target_availability_set_id
-            .get_output(context)
+            .get_output(context);
+        let target_availability_set_id_binding = target_availability_set_id_binding_1
             .get_inner();
-        let target_boot_diagnostics_storage_account_id_binding = args
+        let target_boot_diagnostics_storage_account_id_binding_1 = args
             .target_boot_diagnostics_storage_account_id
-            .get_output(context)
+            .get_output(context);
+        let target_boot_diagnostics_storage_account_id_binding = target_boot_diagnostics_storage_account_id_binding_1
             .get_inner();
-        let target_network_id_binding = args
-            .target_network_id
-            .get_output(context)
-            .get_inner();
-        let target_proximity_placement_group_id_binding = args
+        let target_network_id_binding_1 = args.target_network_id.get_output(context);
+        let target_network_id_binding = target_network_id_binding_1.get_inner();
+        let target_proximity_placement_group_id_binding_1 = args
             .target_proximity_placement_group_id
-            .get_output(context)
+            .get_output(context);
+        let target_proximity_placement_group_id_binding = target_proximity_placement_group_id_binding_1
             .get_inner();
-        let target_resource_group_id_binding = args
+        let target_resource_group_id_binding_1 = args
             .target_resource_group_id
-            .get_output(context)
+            .get_output(context);
+        let target_resource_group_id_binding = target_resource_group_id_binding_1
             .get_inner();
-        let target_vm_name_binding = args.target_vm_name.get_output(context).get_inner();
-        let target_vm_size_binding = args.target_vm_size.get_output(context).get_inner();
-        let target_zone_binding = args.target_zone.get_output(context).get_inner();
-        let test_network_id_binding = args
-            .test_network_id
-            .get_output(context)
-            .get_inner();
+        let target_vm_name_binding_1 = args.target_vm_name.get_output(context);
+        let target_vm_name_binding = target_vm_name_binding_1.get_inner();
+        let target_vm_size_binding_1 = args.target_vm_size.get_output(context);
+        let target_vm_size_binding = target_vm_size_binding_1.get_inner();
+        let target_zone_binding_1 = args.target_zone.get_output(context);
+        let target_zone_binding = target_zone_binding_1.get_inner();
+        let test_network_id_binding_1 = args.test_network_id.get_output(context);
+        let test_network_id_binding = test_network_id_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:siterecovery/vmwareReplicatedVm:VmwareReplicatedVm".into(),
             name: name.to_string(),

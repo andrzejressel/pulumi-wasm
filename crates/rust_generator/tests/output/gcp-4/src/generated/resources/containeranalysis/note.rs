@@ -187,29 +187,24 @@ pub mod note {
     ) -> NoteResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let attestation_authority_binding = args
+        let attestation_authority_binding_1 = args
             .attestation_authority
-            .get_output(context)
-            .get_inner();
-        let expiration_time_binding = args
-            .expiration_time
-            .get_output(context)
-            .get_inner();
-        let long_description_binding = args
-            .long_description
-            .get_output(context)
-            .get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let project_binding = args.project.get_output(context).get_inner();
-        let related_note_names_binding = args
-            .related_note_names
-            .get_output(context)
-            .get_inner();
-        let related_urls_binding = args.related_urls.get_output(context).get_inner();
-        let short_description_binding = args
-            .short_description
-            .get_output(context)
-            .get_inner();
+            .get_output(context);
+        let attestation_authority_binding = attestation_authority_binding_1.get_inner();
+        let expiration_time_binding_1 = args.expiration_time.get_output(context);
+        let expiration_time_binding = expiration_time_binding_1.get_inner();
+        let long_description_binding_1 = args.long_description.get_output(context);
+        let long_description_binding = long_description_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let project_binding_1 = args.project.get_output(context);
+        let project_binding = project_binding_1.get_inner();
+        let related_note_names_binding_1 = args.related_note_names.get_output(context);
+        let related_note_names_binding = related_note_names_binding_1.get_inner();
+        let related_urls_binding_1 = args.related_urls.get_output(context);
+        let related_urls_binding = related_urls_binding_1.get_inner();
+        let short_description_binding_1 = args.short_description.get_output(context);
+        let short_description_binding = short_description_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:containeranalysis/note:Note".into(),
             name: name.to_string(),

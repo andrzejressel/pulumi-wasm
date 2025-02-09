@@ -73,13 +73,14 @@ pub mod endpoint_authorization {
     ) -> EndpointAuthorizationResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let account_binding = args.account.get_output(context).get_inner();
-        let cluster_identifier_binding = args
-            .cluster_identifier
-            .get_output(context)
-            .get_inner();
-        let force_delete_binding = args.force_delete.get_output(context).get_inner();
-        let vpc_ids_binding = args.vpc_ids.get_output(context).get_inner();
+        let account_binding_1 = args.account.get_output(context);
+        let account_binding = account_binding_1.get_inner();
+        let cluster_identifier_binding_1 = args.cluster_identifier.get_output(context);
+        let cluster_identifier_binding = cluster_identifier_binding_1.get_inner();
+        let force_delete_binding_1 = args.force_delete.get_output(context);
+        let force_delete_binding = force_delete_binding_1.get_inner();
+        let vpc_ids_binding_1 = args.vpc_ids.get_output(context);
+        let vpc_ids_binding = vpc_ids_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:redshift/endpointAuthorization:EndpointAuthorization".into(),
             name: name.to_string(),

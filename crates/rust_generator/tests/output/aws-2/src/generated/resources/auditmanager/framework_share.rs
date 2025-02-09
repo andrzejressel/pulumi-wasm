@@ -74,16 +74,14 @@ pub mod framework_share {
     ) -> FrameworkShareResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let comment_binding = args.comment.get_output(context).get_inner();
-        let destination_account_binding = args
-            .destination_account
-            .get_output(context)
-            .get_inner();
-        let destination_region_binding = args
-            .destination_region
-            .get_output(context)
-            .get_inner();
-        let framework_id_binding = args.framework_id.get_output(context).get_inner();
+        let comment_binding_1 = args.comment.get_output(context);
+        let comment_binding = comment_binding_1.get_inner();
+        let destination_account_binding_1 = args.destination_account.get_output(context);
+        let destination_account_binding = destination_account_binding_1.get_inner();
+        let destination_region_binding_1 = args.destination_region.get_output(context);
+        let destination_region_binding = destination_region_binding_1.get_inner();
+        let framework_id_binding_1 = args.framework_id.get_output(context);
+        let framework_id_binding = framework_id_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:auditmanager/frameworkShare:FrameworkShare".into(),
             name: name.to_string(),

@@ -211,27 +211,31 @@ pub mod repository {
     ) -> RepositoryResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let display_name_binding = args.display_name.get_output(context).get_inner();
-        let git_remote_settings_binding = args
-            .git_remote_settings
-            .get_output(context)
-            .get_inner();
-        let kms_key_name_binding = args.kms_key_name.get_output(context).get_inner();
-        let labels_binding = args.labels.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let npmrc_environment_variables_secret_version_binding = args
+        let display_name_binding_1 = args.display_name.get_output(context);
+        let display_name_binding = display_name_binding_1.get_inner();
+        let git_remote_settings_binding_1 = args.git_remote_settings.get_output(context);
+        let git_remote_settings_binding = git_remote_settings_binding_1.get_inner();
+        let kms_key_name_binding_1 = args.kms_key_name.get_output(context);
+        let kms_key_name_binding = kms_key_name_binding_1.get_inner();
+        let labels_binding_1 = args.labels.get_output(context);
+        let labels_binding = labels_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let npmrc_environment_variables_secret_version_binding_1 = args
             .npmrc_environment_variables_secret_version
-            .get_output(context)
+            .get_output(context);
+        let npmrc_environment_variables_secret_version_binding = npmrc_environment_variables_secret_version_binding_1
             .get_inner();
-        let project_binding = args.project.get_output(context).get_inner();
-        let region_binding = args.region.get_output(context).get_inner();
-        let service_account_binding = args
-            .service_account
-            .get_output(context)
-            .get_inner();
-        let workspace_compilation_overrides_binding = args
+        let project_binding_1 = args.project.get_output(context);
+        let project_binding = project_binding_1.get_inner();
+        let region_binding_1 = args.region.get_output(context);
+        let region_binding = region_binding_1.get_inner();
+        let service_account_binding_1 = args.service_account.get_output(context);
+        let service_account_binding = service_account_binding_1.get_inner();
+        let workspace_compilation_overrides_binding_1 = args
             .workspace_compilation_overrides
-            .get_output(context)
+            .get_output(context);
+        let workspace_compilation_overrides_binding = workspace_compilation_overrides_binding_1
             .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:dataform/repository:Repository".into(),

@@ -70,12 +70,15 @@ pub mod resource_policy {
     ) -> ResourcePolicyResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let confirm_remove_self_resource_access_binding = args
+        let confirm_remove_self_resource_access_binding_1 = args
             .confirm_remove_self_resource_access
-            .get_output(context)
+            .get_output(context);
+        let confirm_remove_self_resource_access_binding = confirm_remove_self_resource_access_binding_1
             .get_inner();
-        let policy_binding = args.policy.get_output(context).get_inner();
-        let resource_arn_binding = args.resource_arn.get_output(context).get_inner();
+        let policy_binding_1 = args.policy.get_output(context);
+        let policy_binding = policy_binding_1.get_inner();
+        let resource_arn_binding_1 = args.resource_arn.get_output(context);
+        let resource_arn_binding = resource_arn_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:dynamodb/resourcePolicy:ResourcePolicy".into(),
             name: name.to_string(),

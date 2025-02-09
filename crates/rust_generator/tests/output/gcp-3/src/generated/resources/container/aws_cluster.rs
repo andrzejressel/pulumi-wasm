@@ -373,21 +373,32 @@ pub mod aws_cluster {
     ) -> AwsClusterResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let annotations_binding = args.annotations.get_output(context).get_inner();
-        let authorization_binding = args.authorization.get_output(context).get_inner();
-        let aws_region_binding = args.aws_region.get_output(context).get_inner();
-        let binary_authorization_binding = args
+        let annotations_binding_1 = args.annotations.get_output(context);
+        let annotations_binding = annotations_binding_1.get_inner();
+        let authorization_binding_1 = args.authorization.get_output(context);
+        let authorization_binding = authorization_binding_1.get_inner();
+        let aws_region_binding_1 = args.aws_region.get_output(context);
+        let aws_region_binding = aws_region_binding_1.get_inner();
+        let binary_authorization_binding_1 = args
             .binary_authorization
-            .get_output(context)
-            .get_inner();
-        let control_plane_binding = args.control_plane.get_output(context).get_inner();
-        let description_binding = args.description.get_output(context).get_inner();
-        let fleet_binding = args.fleet.get_output(context).get_inner();
-        let location_binding = args.location.get_output(context).get_inner();
-        let logging_config_binding = args.logging_config.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let networking_binding = args.networking.get_output(context).get_inner();
-        let project_binding = args.project.get_output(context).get_inner();
+            .get_output(context);
+        let binary_authorization_binding = binary_authorization_binding_1.get_inner();
+        let control_plane_binding_1 = args.control_plane.get_output(context);
+        let control_plane_binding = control_plane_binding_1.get_inner();
+        let description_binding_1 = args.description.get_output(context);
+        let description_binding = description_binding_1.get_inner();
+        let fleet_binding_1 = args.fleet.get_output(context);
+        let fleet_binding = fleet_binding_1.get_inner();
+        let location_binding_1 = args.location.get_output(context);
+        let location_binding = location_binding_1.get_inner();
+        let logging_config_binding_1 = args.logging_config.get_output(context);
+        let logging_config_binding = logging_config_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let networking_binding_1 = args.networking.get_output(context);
+        let networking_binding = networking_binding_1.get_inner();
+        let project_binding_1 = args.project.get_output(context);
+        let project_binding = project_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:container/awsCluster:AwsCluster".into(),
             name: name.to_string(),

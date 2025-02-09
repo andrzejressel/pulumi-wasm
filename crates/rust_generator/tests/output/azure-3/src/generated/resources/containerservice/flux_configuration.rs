@@ -140,18 +140,27 @@ pub mod flux_configuration {
     ) -> FluxConfigurationResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let blob_storage_binding = args.blob_storage.get_output(context).get_inner();
-        let bucket_binding = args.bucket.get_output(context).get_inner();
-        let cluster_id_binding = args.cluster_id.get_output(context).get_inner();
-        let continuous_reconciliation_enabled_binding = args
+        let blob_storage_binding_1 = args.blob_storage.get_output(context);
+        let blob_storage_binding = blob_storage_binding_1.get_inner();
+        let bucket_binding_1 = args.bucket.get_output(context);
+        let bucket_binding = bucket_binding_1.get_inner();
+        let cluster_id_binding_1 = args.cluster_id.get_output(context);
+        let cluster_id_binding = cluster_id_binding_1.get_inner();
+        let continuous_reconciliation_enabled_binding_1 = args
             .continuous_reconciliation_enabled
-            .get_output(context)
+            .get_output(context);
+        let continuous_reconciliation_enabled_binding = continuous_reconciliation_enabled_binding_1
             .get_inner();
-        let git_repository_binding = args.git_repository.get_output(context).get_inner();
-        let kustomizations_binding = args.kustomizations.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let namespace_binding = args.namespace.get_output(context).get_inner();
-        let scope_binding = args.scope.get_output(context).get_inner();
+        let git_repository_binding_1 = args.git_repository.get_output(context);
+        let git_repository_binding = git_repository_binding_1.get_inner();
+        let kustomizations_binding_1 = args.kustomizations.get_output(context);
+        let kustomizations_binding = kustomizations_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let namespace_binding_1 = args.namespace.get_output(context);
+        let namespace_binding = namespace_binding_1.get_inner();
+        let scope_binding_1 = args.scope.get_output(context);
+        let scope_binding = scope_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:containerservice/fluxConfiguration:FluxConfiguration".into(),
             name: name.to_string(),

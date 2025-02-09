@@ -163,22 +163,26 @@ pub mod target_pool {
     ) -> TargetPoolResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let backup_pool_binding = args.backup_pool.get_output(context).get_inner();
-        let description_binding = args.description.get_output(context).get_inner();
-        let failover_ratio_binding = args.failover_ratio.get_output(context).get_inner();
-        let health_checks_binding = args.health_checks.get_output(context).get_inner();
-        let instances_binding = args.instances.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let project_binding = args.project.get_output(context).get_inner();
-        let region_binding = args.region.get_output(context).get_inner();
-        let security_policy_binding = args
-            .security_policy
-            .get_output(context)
-            .get_inner();
-        let session_affinity_binding = args
-            .session_affinity
-            .get_output(context)
-            .get_inner();
+        let backup_pool_binding_1 = args.backup_pool.get_output(context);
+        let backup_pool_binding = backup_pool_binding_1.get_inner();
+        let description_binding_1 = args.description.get_output(context);
+        let description_binding = description_binding_1.get_inner();
+        let failover_ratio_binding_1 = args.failover_ratio.get_output(context);
+        let failover_ratio_binding = failover_ratio_binding_1.get_inner();
+        let health_checks_binding_1 = args.health_checks.get_output(context);
+        let health_checks_binding = health_checks_binding_1.get_inner();
+        let instances_binding_1 = args.instances.get_output(context);
+        let instances_binding = instances_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let project_binding_1 = args.project.get_output(context);
+        let project_binding = project_binding_1.get_inner();
+        let region_binding_1 = args.region.get_output(context);
+        let region_binding = region_binding_1.get_inner();
+        let security_policy_binding_1 = args.security_policy.get_output(context);
+        let security_policy_binding = security_policy_binding_1.get_inner();
+        let session_affinity_binding_1 = args.session_affinity.get_output(context);
+        let session_affinity_binding = session_affinity_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:compute/targetPool:TargetPool".into(),
             name: name.to_string(),

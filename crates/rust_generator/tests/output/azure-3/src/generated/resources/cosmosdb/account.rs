@@ -340,107 +340,115 @@ pub mod account {
     ) -> AccountResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let access_key_metadata_writes_enabled_binding = args
+        let access_key_metadata_writes_enabled_binding_1 = args
             .access_key_metadata_writes_enabled
-            .get_output(context)
+            .get_output(context);
+        let access_key_metadata_writes_enabled_binding = access_key_metadata_writes_enabled_binding_1
             .get_inner();
-        let analytical_storage_binding = args
-            .analytical_storage
-            .get_output(context)
-            .get_inner();
-        let analytical_storage_enabled_binding = args
+        let analytical_storage_binding_1 = args.analytical_storage.get_output(context);
+        let analytical_storage_binding = analytical_storage_binding_1.get_inner();
+        let analytical_storage_enabled_binding_1 = args
             .analytical_storage_enabled
-            .get_output(context)
+            .get_output(context);
+        let analytical_storage_enabled_binding = analytical_storage_enabled_binding_1
             .get_inner();
-        let automatic_failover_enabled_binding = args
+        let automatic_failover_enabled_binding_1 = args
             .automatic_failover_enabled
-            .get_output(context)
+            .get_output(context);
+        let automatic_failover_enabled_binding = automatic_failover_enabled_binding_1
             .get_inner();
-        let backup_binding = args.backup.get_output(context).get_inner();
-        let burst_capacity_enabled_binding = args
+        let backup_binding_1 = args.backup.get_output(context);
+        let backup_binding = backup_binding_1.get_inner();
+        let burst_capacity_enabled_binding_1 = args
             .burst_capacity_enabled
-            .get_output(context)
+            .get_output(context);
+        let burst_capacity_enabled_binding = burst_capacity_enabled_binding_1
             .get_inner();
-        let capabilities_binding = args.capabilities.get_output(context).get_inner();
-        let capacity_binding = args.capacity.get_output(context).get_inner();
-        let consistency_policy_binding = args
-            .consistency_policy
-            .get_output(context)
-            .get_inner();
-        let cors_rule_binding = args.cors_rule.get_output(context).get_inner();
-        let create_mode_binding = args.create_mode.get_output(context).get_inner();
-        let default_identity_type_binding = args
+        let capabilities_binding_1 = args.capabilities.get_output(context);
+        let capabilities_binding = capabilities_binding_1.get_inner();
+        let capacity_binding_1 = args.capacity.get_output(context);
+        let capacity_binding = capacity_binding_1.get_inner();
+        let consistency_policy_binding_1 = args.consistency_policy.get_output(context);
+        let consistency_policy_binding = consistency_policy_binding_1.get_inner();
+        let cors_rule_binding_1 = args.cors_rule.get_output(context);
+        let cors_rule_binding = cors_rule_binding_1.get_inner();
+        let create_mode_binding_1 = args.create_mode.get_output(context);
+        let create_mode_binding = create_mode_binding_1.get_inner();
+        let default_identity_type_binding_1 = args
             .default_identity_type
-            .get_output(context)
-            .get_inner();
-        let free_tier_enabled_binding = args
-            .free_tier_enabled
-            .get_output(context)
-            .get_inner();
-        let geo_locations_binding = args.geo_locations.get_output(context).get_inner();
-        let identity_binding = args.identity.get_output(context).get_inner();
-        let ip_range_filters_binding = args
-            .ip_range_filters
-            .get_output(context)
-            .get_inner();
-        let is_virtual_network_filter_enabled_binding = args
+            .get_output(context);
+        let default_identity_type_binding = default_identity_type_binding_1.get_inner();
+        let free_tier_enabled_binding_1 = args.free_tier_enabled.get_output(context);
+        let free_tier_enabled_binding = free_tier_enabled_binding_1.get_inner();
+        let geo_locations_binding_1 = args.geo_locations.get_output(context);
+        let geo_locations_binding = geo_locations_binding_1.get_inner();
+        let identity_binding_1 = args.identity.get_output(context);
+        let identity_binding = identity_binding_1.get_inner();
+        let ip_range_filters_binding_1 = args.ip_range_filters.get_output(context);
+        let ip_range_filters_binding = ip_range_filters_binding_1.get_inner();
+        let is_virtual_network_filter_enabled_binding_1 = args
             .is_virtual_network_filter_enabled
-            .get_output(context)
+            .get_output(context);
+        let is_virtual_network_filter_enabled_binding = is_virtual_network_filter_enabled_binding_1
             .get_inner();
-        let key_vault_key_id_binding = args
-            .key_vault_key_id
-            .get_output(context)
-            .get_inner();
-        let kind_binding = args.kind.get_output(context).get_inner();
-        let local_authentication_disabled_binding = args
+        let key_vault_key_id_binding_1 = args.key_vault_key_id.get_output(context);
+        let key_vault_key_id_binding = key_vault_key_id_binding_1.get_inner();
+        let kind_binding_1 = args.kind.get_output(context);
+        let kind_binding = kind_binding_1.get_inner();
+        let local_authentication_disabled_binding_1 = args
             .local_authentication_disabled
-            .get_output(context)
+            .get_output(context);
+        let local_authentication_disabled_binding = local_authentication_disabled_binding_1
             .get_inner();
-        let location_binding = args.location.get_output(context).get_inner();
-        let managed_hsm_key_id_binding = args
-            .managed_hsm_key_id
-            .get_output(context)
-            .get_inner();
-        let minimal_tls_version_binding = args
-            .minimal_tls_version
-            .get_output(context)
-            .get_inner();
-        let mongo_server_version_binding = args
+        let location_binding_1 = args.location.get_output(context);
+        let location_binding = location_binding_1.get_inner();
+        let managed_hsm_key_id_binding_1 = args.managed_hsm_key_id.get_output(context);
+        let managed_hsm_key_id_binding = managed_hsm_key_id_binding_1.get_inner();
+        let minimal_tls_version_binding_1 = args.minimal_tls_version.get_output(context);
+        let minimal_tls_version_binding = minimal_tls_version_binding_1.get_inner();
+        let mongo_server_version_binding_1 = args
             .mongo_server_version
-            .get_output(context)
-            .get_inner();
-        let multiple_write_locations_enabled_binding = args
+            .get_output(context);
+        let mongo_server_version_binding = mongo_server_version_binding_1.get_inner();
+        let multiple_write_locations_enabled_binding_1 = args
             .multiple_write_locations_enabled
-            .get_output(context)
+            .get_output(context);
+        let multiple_write_locations_enabled_binding = multiple_write_locations_enabled_binding_1
             .get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let network_acl_bypass_for_azure_services_binding = args
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let network_acl_bypass_for_azure_services_binding_1 = args
             .network_acl_bypass_for_azure_services
-            .get_output(context)
+            .get_output(context);
+        let network_acl_bypass_for_azure_services_binding = network_acl_bypass_for_azure_services_binding_1
             .get_inner();
-        let network_acl_bypass_ids_binding = args
+        let network_acl_bypass_ids_binding_1 = args
             .network_acl_bypass_ids
-            .get_output(context)
+            .get_output(context);
+        let network_acl_bypass_ids_binding = network_acl_bypass_ids_binding_1
             .get_inner();
-        let offer_type_binding = args.offer_type.get_output(context).get_inner();
-        let partition_merge_enabled_binding = args
+        let offer_type_binding_1 = args.offer_type.get_output(context);
+        let offer_type_binding = offer_type_binding_1.get_inner();
+        let partition_merge_enabled_binding_1 = args
             .partition_merge_enabled
-            .get_output(context)
+            .get_output(context);
+        let partition_merge_enabled_binding = partition_merge_enabled_binding_1
             .get_inner();
-        let public_network_access_enabled_binding = args
+        let public_network_access_enabled_binding_1 = args
             .public_network_access_enabled
-            .get_output(context)
+            .get_output(context);
+        let public_network_access_enabled_binding = public_network_access_enabled_binding_1
             .get_inner();
-        let resource_group_name_binding = args
-            .resource_group_name
-            .get_output(context)
-            .get_inner();
-        let restore_binding = args.restore.get_output(context).get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
-        let virtual_network_rules_binding = args
+        let resource_group_name_binding_1 = args.resource_group_name.get_output(context);
+        let resource_group_name_binding = resource_group_name_binding_1.get_inner();
+        let restore_binding_1 = args.restore.get_output(context);
+        let restore_binding = restore_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
+        let virtual_network_rules_binding_1 = args
             .virtual_network_rules
-            .get_output(context)
-            .get_inner();
+            .get_output(context);
+        let virtual_network_rules_binding = virtual_network_rules_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:cosmosdb/account:Account".into(),
             name: name.to_string(),

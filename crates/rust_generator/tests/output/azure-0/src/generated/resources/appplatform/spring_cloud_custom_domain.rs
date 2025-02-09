@@ -105,16 +105,14 @@ pub mod spring_cloud_custom_domain {
     ) -> SpringCloudCustomDomainResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let certificate_name_binding = args
-            .certificate_name
-            .get_output(context)
-            .get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let spring_cloud_app_id_binding = args
-            .spring_cloud_app_id
-            .get_output(context)
-            .get_inner();
-        let thumbprint_binding = args.thumbprint.get_output(context).get_inner();
+        let certificate_name_binding_1 = args.certificate_name.get_output(context);
+        let certificate_name_binding = certificate_name_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let spring_cloud_app_id_binding_1 = args.spring_cloud_app_id.get_output(context);
+        let spring_cloud_app_id_binding = spring_cloud_app_id_binding_1.get_inner();
+        let thumbprint_binding_1 = args.thumbprint.get_output(context);
+        let thumbprint_binding = thumbprint_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:appplatform/springCloudCustomDomain:SpringCloudCustomDomain"
                 .into(),

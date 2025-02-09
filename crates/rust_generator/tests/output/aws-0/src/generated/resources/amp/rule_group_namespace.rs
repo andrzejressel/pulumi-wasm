@@ -64,9 +64,12 @@ pub mod rule_group_namespace {
     ) -> RuleGroupNamespaceResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let data_binding = args.data.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let workspace_id_binding = args.workspace_id.get_output(context).get_inner();
+        let data_binding_1 = args.data.get_output(context);
+        let data_binding = data_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let workspace_id_binding_1 = args.workspace_id.get_output(context);
+        let workspace_id_binding = workspace_id_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:amp/ruleGroupNamespace:RuleGroupNamespace".into(),
             name: name.to_string(),

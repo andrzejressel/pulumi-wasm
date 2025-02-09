@@ -107,18 +107,21 @@ pub mod document_ai_warehouse_location {
     ) -> DocumentAiWarehouseLocationResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let access_control_mode_binding = args
-            .access_control_mode
-            .get_output(context)
-            .get_inner();
-        let database_type_binding = args.database_type.get_output(context).get_inner();
-        let document_creator_default_role_binding = args
+        let access_control_mode_binding_1 = args.access_control_mode.get_output(context);
+        let access_control_mode_binding = access_control_mode_binding_1.get_inner();
+        let database_type_binding_1 = args.database_type.get_output(context);
+        let database_type_binding = database_type_binding_1.get_inner();
+        let document_creator_default_role_binding_1 = args
             .document_creator_default_role
-            .get_output(context)
+            .get_output(context);
+        let document_creator_default_role_binding = document_creator_default_role_binding_1
             .get_inner();
-        let kms_key_binding = args.kms_key.get_output(context).get_inner();
-        let location_binding = args.location.get_output(context).get_inner();
-        let project_number_binding = args.project_number.get_output(context).get_inner();
+        let kms_key_binding_1 = args.kms_key.get_output(context);
+        let kms_key_binding = kms_key_binding_1.get_inner();
+        let location_binding_1 = args.location.get_output(context);
+        let location_binding = location_binding_1.get_inner();
+        let project_number_binding_1 = args.project_number.get_output(context);
+        let project_number_binding = project_number_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:essentialcontacts/documentAiWarehouseLocation:DocumentAiWarehouseLocation"
                 .into(),

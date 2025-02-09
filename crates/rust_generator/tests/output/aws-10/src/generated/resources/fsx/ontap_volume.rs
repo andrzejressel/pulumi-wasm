@@ -214,58 +214,61 @@ pub mod ontap_volume {
     ) -> OntapVolumeResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let aggregate_configuration_binding = args
+        let aggregate_configuration_binding_1 = args
             .aggregate_configuration
-            .get_output(context)
+            .get_output(context);
+        let aggregate_configuration_binding = aggregate_configuration_binding_1
             .get_inner();
-        let bypass_snaplock_enterprise_retention_binding = args
+        let bypass_snaplock_enterprise_retention_binding_1 = args
             .bypass_snaplock_enterprise_retention
-            .get_output(context)
+            .get_output(context);
+        let bypass_snaplock_enterprise_retention_binding = bypass_snaplock_enterprise_retention_binding_1
             .get_inner();
-        let copy_tags_to_backups_binding = args
+        let copy_tags_to_backups_binding_1 = args
             .copy_tags_to_backups
-            .get_output(context)
-            .get_inner();
-        let final_backup_tags_binding = args
-            .final_backup_tags
-            .get_output(context)
-            .get_inner();
-        let junction_path_binding = args.junction_path.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let ontap_volume_type_binding = args
-            .ontap_volume_type
-            .get_output(context)
-            .get_inner();
-        let security_style_binding = args.security_style.get_output(context).get_inner();
-        let size_in_bytes_binding = args.size_in_bytes.get_output(context).get_inner();
-        let size_in_megabytes_binding = args
-            .size_in_megabytes
-            .get_output(context)
-            .get_inner();
-        let skip_final_backup_binding = args
-            .skip_final_backup
-            .get_output(context)
-            .get_inner();
-        let snaplock_configuration_binding = args
+            .get_output(context);
+        let copy_tags_to_backups_binding = copy_tags_to_backups_binding_1.get_inner();
+        let final_backup_tags_binding_1 = args.final_backup_tags.get_output(context);
+        let final_backup_tags_binding = final_backup_tags_binding_1.get_inner();
+        let junction_path_binding_1 = args.junction_path.get_output(context);
+        let junction_path_binding = junction_path_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let ontap_volume_type_binding_1 = args.ontap_volume_type.get_output(context);
+        let ontap_volume_type_binding = ontap_volume_type_binding_1.get_inner();
+        let security_style_binding_1 = args.security_style.get_output(context);
+        let security_style_binding = security_style_binding_1.get_inner();
+        let size_in_bytes_binding_1 = args.size_in_bytes.get_output(context);
+        let size_in_bytes_binding = size_in_bytes_binding_1.get_inner();
+        let size_in_megabytes_binding_1 = args.size_in_megabytes.get_output(context);
+        let size_in_megabytes_binding = size_in_megabytes_binding_1.get_inner();
+        let skip_final_backup_binding_1 = args.skip_final_backup.get_output(context);
+        let skip_final_backup_binding = skip_final_backup_binding_1.get_inner();
+        let snaplock_configuration_binding_1 = args
             .snaplock_configuration
-            .get_output(context)
+            .get_output(context);
+        let snaplock_configuration_binding = snaplock_configuration_binding_1
             .get_inner();
-        let snapshot_policy_binding = args
-            .snapshot_policy
-            .get_output(context)
-            .get_inner();
-        let storage_efficiency_enabled_binding = args
+        let snapshot_policy_binding_1 = args.snapshot_policy.get_output(context);
+        let snapshot_policy_binding = snapshot_policy_binding_1.get_inner();
+        let storage_efficiency_enabled_binding_1 = args
             .storage_efficiency_enabled
-            .get_output(context)
+            .get_output(context);
+        let storage_efficiency_enabled_binding = storage_efficiency_enabled_binding_1
             .get_inner();
-        let storage_virtual_machine_id_binding = args
+        let storage_virtual_machine_id_binding_1 = args
             .storage_virtual_machine_id
-            .get_output(context)
+            .get_output(context);
+        let storage_virtual_machine_id_binding = storage_virtual_machine_id_binding_1
             .get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
-        let tiering_policy_binding = args.tiering_policy.get_output(context).get_inner();
-        let volume_style_binding = args.volume_style.get_output(context).get_inner();
-        let volume_type_binding = args.volume_type.get_output(context).get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
+        let tiering_policy_binding_1 = args.tiering_policy.get_output(context);
+        let tiering_policy_binding = tiering_policy_binding_1.get_inner();
+        let volume_style_binding_1 = args.volume_style.get_output(context);
+        let volume_style_binding = volume_style_binding_1.get_inner();
+        let volume_type_binding_1 = args.volume_type.get_output(context);
+        let volume_type_binding = volume_type_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:fsx/ontapVolume:OntapVolume".into(),
             name: name.to_string(),

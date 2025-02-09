@@ -54,14 +54,16 @@ pub mod zero_trust_tunnel_route {
     ) -> ZeroTrustTunnelRouteResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let account_id_binding = args.account_id.get_output(context).get_inner();
-        let comment_binding = args.comment.get_output(context).get_inner();
-        let network_binding = args.network.get_output(context).get_inner();
-        let tunnel_id_binding = args.tunnel_id.get_output(context).get_inner();
-        let virtual_network_id_binding = args
-            .virtual_network_id
-            .get_output(context)
-            .get_inner();
+        let account_id_binding_1 = args.account_id.get_output(context);
+        let account_id_binding = account_id_binding_1.get_inner();
+        let comment_binding_1 = args.comment.get_output(context);
+        let comment_binding = comment_binding_1.get_inner();
+        let network_binding_1 = args.network.get_output(context);
+        let network_binding = network_binding_1.get_inner();
+        let tunnel_id_binding_1 = args.tunnel_id.get_output(context);
+        let tunnel_id_binding = tunnel_id_binding_1.get_inner();
+        let virtual_network_id_binding_1 = args.virtual_network_id.get_output(context);
+        let virtual_network_id_binding = virtual_network_id_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "cloudflare:index/zeroTrustTunnelRoute:ZeroTrustTunnelRoute".into(),
             name: name.to_string(),

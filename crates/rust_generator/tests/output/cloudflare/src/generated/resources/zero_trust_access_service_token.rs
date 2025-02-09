@@ -65,14 +65,18 @@ pub mod zero_trust_access_service_token {
     ) -> ZeroTrustAccessServiceTokenResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let account_id_binding = args.account_id.get_output(context).get_inner();
-        let duration_binding = args.duration.get_output(context).get_inner();
-        let min_days_for_renewal_binding = args
+        let account_id_binding_1 = args.account_id.get_output(context);
+        let account_id_binding = account_id_binding_1.get_inner();
+        let duration_binding_1 = args.duration.get_output(context);
+        let duration_binding = duration_binding_1.get_inner();
+        let min_days_for_renewal_binding_1 = args
             .min_days_for_renewal
-            .get_output(context)
-            .get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let zone_id_binding = args.zone_id.get_output(context).get_inner();
+            .get_output(context);
+        let min_days_for_renewal_binding = min_days_for_renewal_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let zone_id_binding_1 = args.zone_id.get_output(context);
+        let zone_id_binding = zone_id_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "cloudflare:index/zeroTrustAccessServiceToken:ZeroTrustAccessServiceToken"
                 .into(),

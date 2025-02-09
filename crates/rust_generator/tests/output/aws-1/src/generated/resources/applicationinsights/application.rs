@@ -106,29 +106,25 @@ pub mod application {
     ) -> ApplicationResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let auto_config_enabled_binding = args
-            .auto_config_enabled
-            .get_output(context)
-            .get_inner();
-        let auto_create_binding = args.auto_create.get_output(context).get_inner();
-        let cwe_monitor_enabled_binding = args
-            .cwe_monitor_enabled
-            .get_output(context)
-            .get_inner();
-        let grouping_type_binding = args.grouping_type.get_output(context).get_inner();
-        let ops_center_enabled_binding = args
-            .ops_center_enabled
-            .get_output(context)
-            .get_inner();
-        let ops_item_sns_topic_arn_binding = args
+        let auto_config_enabled_binding_1 = args.auto_config_enabled.get_output(context);
+        let auto_config_enabled_binding = auto_config_enabled_binding_1.get_inner();
+        let auto_create_binding_1 = args.auto_create.get_output(context);
+        let auto_create_binding = auto_create_binding_1.get_inner();
+        let cwe_monitor_enabled_binding_1 = args.cwe_monitor_enabled.get_output(context);
+        let cwe_monitor_enabled_binding = cwe_monitor_enabled_binding_1.get_inner();
+        let grouping_type_binding_1 = args.grouping_type.get_output(context);
+        let grouping_type_binding = grouping_type_binding_1.get_inner();
+        let ops_center_enabled_binding_1 = args.ops_center_enabled.get_output(context);
+        let ops_center_enabled_binding = ops_center_enabled_binding_1.get_inner();
+        let ops_item_sns_topic_arn_binding_1 = args
             .ops_item_sns_topic_arn
-            .get_output(context)
+            .get_output(context);
+        let ops_item_sns_topic_arn_binding = ops_item_sns_topic_arn_binding_1
             .get_inner();
-        let resource_group_name_binding = args
-            .resource_group_name
-            .get_output(context)
-            .get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
+        let resource_group_name_binding_1 = args.resource_group_name.get_output(context);
+        let resource_group_name_binding = resource_group_name_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:applicationinsights/application:Application".into(),
             name: name.to_string(),

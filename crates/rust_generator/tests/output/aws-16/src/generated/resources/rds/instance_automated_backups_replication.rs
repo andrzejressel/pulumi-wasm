@@ -127,15 +127,16 @@ pub mod instance_automated_backups_replication {
     ) -> InstanceAutomatedBackupsReplicationResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let kms_key_id_binding = args.kms_key_id.get_output(context).get_inner();
-        let pre_signed_url_binding = args.pre_signed_url.get_output(context).get_inner();
-        let retention_period_binding = args
-            .retention_period
-            .get_output(context)
-            .get_inner();
-        let source_db_instance_arn_binding = args
+        let kms_key_id_binding_1 = args.kms_key_id.get_output(context);
+        let kms_key_id_binding = kms_key_id_binding_1.get_inner();
+        let pre_signed_url_binding_1 = args.pre_signed_url.get_output(context);
+        let pre_signed_url_binding = pre_signed_url_binding_1.get_inner();
+        let retention_period_binding_1 = args.retention_period.get_output(context);
+        let retention_period_binding = retention_period_binding_1.get_inner();
+        let source_db_instance_arn_binding_1 = args
             .source_db_instance_arn
-            .get_output(context)
+            .get_output(context);
+        let source_db_instance_arn_binding = source_db_instance_arn_binding_1
             .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:rds/instanceAutomatedBackupsReplication:InstanceAutomatedBackupsReplication"

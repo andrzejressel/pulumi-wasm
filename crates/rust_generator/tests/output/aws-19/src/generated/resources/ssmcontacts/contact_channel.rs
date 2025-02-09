@@ -110,13 +110,14 @@ pub mod contact_channel {
     ) -> ContactChannelResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let contact_id_binding = args.contact_id.get_output(context).get_inner();
-        let delivery_address_binding = args
-            .delivery_address
-            .get_output(context)
-            .get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let type__binding = args.type_.get_output(context).get_inner();
+        let contact_id_binding_1 = args.contact_id.get_output(context);
+        let contact_id_binding = contact_id_binding_1.get_inner();
+        let delivery_address_binding_1 = args.delivery_address.get_output(context);
+        let delivery_address_binding = delivery_address_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let type__binding_1 = args.type_.get_output(context);
+        let type__binding = type__binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:ssmcontacts/contactChannel:ContactChannel".into(),
             name: name.to_string(),

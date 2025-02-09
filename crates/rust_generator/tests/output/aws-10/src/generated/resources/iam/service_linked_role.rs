@@ -82,13 +82,14 @@ pub mod service_linked_role {
     ) -> ServiceLinkedRoleResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let aws_service_name_binding = args
-            .aws_service_name
-            .get_output(context)
-            .get_inner();
-        let custom_suffix_binding = args.custom_suffix.get_output(context).get_inner();
-        let description_binding = args.description.get_output(context).get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
+        let aws_service_name_binding_1 = args.aws_service_name.get_output(context);
+        let aws_service_name_binding = aws_service_name_binding_1.get_inner();
+        let custom_suffix_binding_1 = args.custom_suffix.get_output(context);
+        let custom_suffix_binding = custom_suffix_binding_1.get_inner();
+        let description_binding_1 = args.description.get_output(context);
+        let description_binding = description_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:iam/serviceLinkedRole:ServiceLinkedRole".into(),
             name: name.to_string(),

@@ -98,16 +98,14 @@ pub mod runtime_management_config {
     ) -> RuntimeManagementConfigResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let function_name_binding = args.function_name.get_output(context).get_inner();
-        let qualifier_binding = args.qualifier.get_output(context).get_inner();
-        let runtime_version_arn_binding = args
-            .runtime_version_arn
-            .get_output(context)
-            .get_inner();
-        let update_runtime_on_binding = args
-            .update_runtime_on
-            .get_output(context)
-            .get_inner();
+        let function_name_binding_1 = args.function_name.get_output(context);
+        let function_name_binding = function_name_binding_1.get_inner();
+        let qualifier_binding_1 = args.qualifier.get_output(context);
+        let qualifier_binding = qualifier_binding_1.get_inner();
+        let runtime_version_arn_binding_1 = args.runtime_version_arn.get_output(context);
+        let runtime_version_arn_binding = runtime_version_arn_binding_1.get_inner();
+        let update_runtime_on_binding_1 = args.update_runtime_on.get_output(context);
+        let update_runtime_on_binding = update_runtime_on_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:lambda/runtimeManagementConfig:RuntimeManagementConfig".into(),
             name: name.to_string(),

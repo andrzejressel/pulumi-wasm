@@ -85,18 +85,21 @@ pub mod event_api_destination {
     ) -> EventApiDestinationResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let connection_arn_binding = args.connection_arn.get_output(context).get_inner();
-        let description_binding = args.description.get_output(context).get_inner();
-        let http_method_binding = args.http_method.get_output(context).get_inner();
-        let invocation_endpoint_binding = args
-            .invocation_endpoint
-            .get_output(context)
-            .get_inner();
-        let invocation_rate_limit_per_second_binding = args
+        let connection_arn_binding_1 = args.connection_arn.get_output(context);
+        let connection_arn_binding = connection_arn_binding_1.get_inner();
+        let description_binding_1 = args.description.get_output(context);
+        let description_binding = description_binding_1.get_inner();
+        let http_method_binding_1 = args.http_method.get_output(context);
+        let http_method_binding = http_method_binding_1.get_inner();
+        let invocation_endpoint_binding_1 = args.invocation_endpoint.get_output(context);
+        let invocation_endpoint_binding = invocation_endpoint_binding_1.get_inner();
+        let invocation_rate_limit_per_second_binding_1 = args
             .invocation_rate_limit_per_second
-            .get_output(context)
+            .get_output(context);
+        let invocation_rate_limit_per_second_binding = invocation_rate_limit_per_second_binding_1
             .get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:cloudwatch/eventApiDestination:EventApiDestination".into(),
             name: name.to_string(),

@@ -57,12 +57,18 @@ pub mod get_instance_guest_attributes {
     ) -> GetInstanceGuestAttributesResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let name_binding = args.name.get_output(context).get_inner();
-        let project_binding = args.project.get_output(context).get_inner();
-        let query_path_binding = args.query_path.get_output(context).get_inner();
-        let region_binding = args.region.get_output(context).get_inner();
-        let variable_key_binding = args.variable_key.get_output(context).get_inner();
-        let zone_binding = args.zone.get_output(context).get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let project_binding_1 = args.project.get_output(context);
+        let project_binding = project_binding_1.get_inner();
+        let query_path_binding_1 = args.query_path.get_output(context);
+        let query_path_binding = query_path_binding_1.get_inner();
+        let region_binding_1 = args.region.get_output(context);
+        let region_binding = region_binding_1.get_inner();
+        let variable_key_binding_1 = args.variable_key.get_output(context);
+        let variable_key_binding = variable_key_binding_1.get_inner();
+        let zone_binding_1 = args.zone.get_output(context);
+        let zone_binding = zone_binding_1.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "gcp:compute/getInstanceGuestAttributes:getInstanceGuestAttributes"
                 .into(),

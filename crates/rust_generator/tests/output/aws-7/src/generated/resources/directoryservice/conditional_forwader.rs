@@ -61,12 +61,12 @@ pub mod conditional_forwader {
     ) -> ConditionalForwaderResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let directory_id_binding = args.directory_id.get_output(context).get_inner();
-        let dns_ips_binding = args.dns_ips.get_output(context).get_inner();
-        let remote_domain_name_binding = args
-            .remote_domain_name
-            .get_output(context)
-            .get_inner();
+        let directory_id_binding_1 = args.directory_id.get_output(context);
+        let directory_id_binding = directory_id_binding_1.get_inner();
+        let dns_ips_binding_1 = args.dns_ips.get_output(context);
+        let dns_ips_binding = dns_ips_binding_1.get_inner();
+        let remote_domain_name_binding_1 = args.remote_domain_name.get_output(context);
+        let remote_domain_name_binding = remote_domain_name_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:directoryservice/conditionalForwader:ConditionalForwader".into(),
             name: name.to_string(),

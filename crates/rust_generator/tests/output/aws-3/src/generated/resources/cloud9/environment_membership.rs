@@ -74,9 +74,12 @@ pub mod environment_membership {
     ) -> EnvironmentMembershipResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let environment_id_binding = args.environment_id.get_output(context).get_inner();
-        let permissions_binding = args.permissions.get_output(context).get_inner();
-        let user_arn_binding = args.user_arn.get_output(context).get_inner();
+        let environment_id_binding_1 = args.environment_id.get_output(context);
+        let environment_id_binding = environment_id_binding_1.get_inner();
+        let permissions_binding_1 = args.permissions.get_output(context);
+        let permissions_binding = permissions_binding_1.get_inner();
+        let user_arn_binding_1 = args.user_arn.get_output(context);
+        let user_arn_binding = user_arn_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:cloud9/environmentMembership:EnvironmentMembership".into(),
             name: name.to_string(),

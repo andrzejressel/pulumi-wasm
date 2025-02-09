@@ -97,11 +97,10 @@ pub mod project_info {
     ) -> ProjectInfoResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let billing_account_binding = args
-            .billing_account
-            .get_output(context)
-            .get_inner();
-        let project_binding = args.project.get_output(context).get_inner();
+        let billing_account_binding_1 = args.billing_account.get_output(context);
+        let billing_account_binding = billing_account_binding_1.get_inner();
+        let project_binding_1 = args.project.get_output(context);
+        let project_binding = project_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:billing/projectInfo:ProjectInfo".into(),
             name: name.to_string(),

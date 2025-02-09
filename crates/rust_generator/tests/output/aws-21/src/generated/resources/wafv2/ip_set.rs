@@ -88,15 +88,18 @@ pub mod ip_set {
     ) -> IpSetResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let addresses_binding = args.addresses.get_output(context).get_inner();
-        let description_binding = args.description.get_output(context).get_inner();
-        let ip_address_version_binding = args
-            .ip_address_version
-            .get_output(context)
-            .get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let scope_binding = args.scope.get_output(context).get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
+        let addresses_binding_1 = args.addresses.get_output(context);
+        let addresses_binding = addresses_binding_1.get_inner();
+        let description_binding_1 = args.description.get_output(context);
+        let description_binding = description_binding_1.get_inner();
+        let ip_address_version_binding_1 = args.ip_address_version.get_output(context);
+        let ip_address_version_binding = ip_address_version_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let scope_binding_1 = args.scope.get_output(context);
+        let scope_binding = scope_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:wafv2/ipSet:IpSet".into(),
             name: name.to_string(),

@@ -168,36 +168,38 @@ pub mod route {
     ) -> RouteResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let api_id_binding = args.api_id.get_output(context).get_inner();
-        let api_key_required_binding = args
-            .api_key_required
-            .get_output(context)
-            .get_inner();
-        let authorization_scopes_binding = args
+        let api_id_binding_1 = args.api_id.get_output(context);
+        let api_id_binding = api_id_binding_1.get_inner();
+        let api_key_required_binding_1 = args.api_key_required.get_output(context);
+        let api_key_required_binding = api_key_required_binding_1.get_inner();
+        let authorization_scopes_binding_1 = args
             .authorization_scopes
-            .get_output(context)
-            .get_inner();
-        let authorization_type_binding = args
-            .authorization_type
-            .get_output(context)
-            .get_inner();
-        let authorizer_id_binding = args.authorizer_id.get_output(context).get_inner();
-        let model_selection_expression_binding = args
+            .get_output(context);
+        let authorization_scopes_binding = authorization_scopes_binding_1.get_inner();
+        let authorization_type_binding_1 = args.authorization_type.get_output(context);
+        let authorization_type_binding = authorization_type_binding_1.get_inner();
+        let authorizer_id_binding_1 = args.authorizer_id.get_output(context);
+        let authorizer_id_binding = authorizer_id_binding_1.get_inner();
+        let model_selection_expression_binding_1 = args
             .model_selection_expression
-            .get_output(context)
+            .get_output(context);
+        let model_selection_expression_binding = model_selection_expression_binding_1
             .get_inner();
-        let operation_name_binding = args.operation_name.get_output(context).get_inner();
-        let request_models_binding = args.request_models.get_output(context).get_inner();
-        let request_parameters_binding = args
-            .request_parameters
-            .get_output(context)
-            .get_inner();
-        let route_key_binding = args.route_key.get_output(context).get_inner();
-        let route_response_selection_expression_binding = args
+        let operation_name_binding_1 = args.operation_name.get_output(context);
+        let operation_name_binding = operation_name_binding_1.get_inner();
+        let request_models_binding_1 = args.request_models.get_output(context);
+        let request_models_binding = request_models_binding_1.get_inner();
+        let request_parameters_binding_1 = args.request_parameters.get_output(context);
+        let request_parameters_binding = request_parameters_binding_1.get_inner();
+        let route_key_binding_1 = args.route_key.get_output(context);
+        let route_key_binding = route_key_binding_1.get_inner();
+        let route_response_selection_expression_binding_1 = args
             .route_response_selection_expression
-            .get_output(context)
+            .get_output(context);
+        let route_response_selection_expression_binding = route_response_selection_expression_binding_1
             .get_inner();
-        let target_binding = args.target.get_output(context).get_inner();
+        let target_binding_1 = args.target.get_output(context);
+        let target_binding = target_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:apigatewayv2/route:Route".into(),
             name: name.to_string(),

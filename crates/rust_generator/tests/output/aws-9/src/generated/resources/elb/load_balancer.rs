@@ -217,44 +217,51 @@ pub mod load_balancer {
     ) -> LoadBalancerResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let access_logs_binding = args.access_logs.get_output(context).get_inner();
-        let availability_zones_binding = args
-            .availability_zones
-            .get_output(context)
-            .get_inner();
-        let connection_draining_binding = args
-            .connection_draining
-            .get_output(context)
-            .get_inner();
-        let connection_draining_timeout_binding = args
+        let access_logs_binding_1 = args.access_logs.get_output(context);
+        let access_logs_binding = access_logs_binding_1.get_inner();
+        let availability_zones_binding_1 = args.availability_zones.get_output(context);
+        let availability_zones_binding = availability_zones_binding_1.get_inner();
+        let connection_draining_binding_1 = args.connection_draining.get_output(context);
+        let connection_draining_binding = connection_draining_binding_1.get_inner();
+        let connection_draining_timeout_binding_1 = args
             .connection_draining_timeout
-            .get_output(context)
+            .get_output(context);
+        let connection_draining_timeout_binding = connection_draining_timeout_binding_1
             .get_inner();
-        let cross_zone_load_balancing_binding = args
+        let cross_zone_load_balancing_binding_1 = args
             .cross_zone_load_balancing
-            .get_output(context)
+            .get_output(context);
+        let cross_zone_load_balancing_binding = cross_zone_load_balancing_binding_1
             .get_inner();
-        let desync_mitigation_mode_binding = args
+        let desync_mitigation_mode_binding_1 = args
             .desync_mitigation_mode
-            .get_output(context)
+            .get_output(context);
+        let desync_mitigation_mode_binding = desync_mitigation_mode_binding_1
             .get_inner();
-        let health_check_binding = args.health_check.get_output(context).get_inner();
-        let idle_timeout_binding = args.idle_timeout.get_output(context).get_inner();
-        let instances_binding = args.instances.get_output(context).get_inner();
-        let internal_binding = args.internal.get_output(context).get_inner();
-        let listeners_binding = args.listeners.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let name_prefix_binding = args.name_prefix.get_output(context).get_inner();
-        let security_groups_binding = args
-            .security_groups
-            .get_output(context)
-            .get_inner();
-        let source_security_group_binding = args
+        let health_check_binding_1 = args.health_check.get_output(context);
+        let health_check_binding = health_check_binding_1.get_inner();
+        let idle_timeout_binding_1 = args.idle_timeout.get_output(context);
+        let idle_timeout_binding = idle_timeout_binding_1.get_inner();
+        let instances_binding_1 = args.instances.get_output(context);
+        let instances_binding = instances_binding_1.get_inner();
+        let internal_binding_1 = args.internal.get_output(context);
+        let internal_binding = internal_binding_1.get_inner();
+        let listeners_binding_1 = args.listeners.get_output(context);
+        let listeners_binding = listeners_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let name_prefix_binding_1 = args.name_prefix.get_output(context);
+        let name_prefix_binding = name_prefix_binding_1.get_inner();
+        let security_groups_binding_1 = args.security_groups.get_output(context);
+        let security_groups_binding = security_groups_binding_1.get_inner();
+        let source_security_group_binding_1 = args
             .source_security_group
-            .get_output(context)
-            .get_inner();
-        let subnets_binding = args.subnets.get_output(context).get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
+            .get_output(context);
+        let source_security_group_binding = source_security_group_binding_1.get_inner();
+        let subnets_binding_1 = args.subnets.get_output(context);
+        let subnets_binding = subnets_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:elb/loadBalancer:LoadBalancer".into(),
             name: name.to_string(),

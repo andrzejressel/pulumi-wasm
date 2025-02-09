@@ -20,8 +20,10 @@ pub mod module_test {
     ) {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let mod1_binding = args.mod1.get_output(context).get_inner();
-        let val_binding = args.val.get_output(context).get_inner();
+        let mod1_binding_1 = args.mod1.get_output(context);
+        let mod1_binding = mod1_binding_1.get_inner();
+        let val_binding_1 = args.val.get_output(context);
+        let val_binding = val_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "example:index:moduleTest".into(),
             name: name.to_string(),

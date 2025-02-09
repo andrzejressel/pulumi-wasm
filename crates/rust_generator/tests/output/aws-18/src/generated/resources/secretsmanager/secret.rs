@@ -105,21 +105,30 @@ pub mod secret {
     ) -> SecretResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let description_binding = args.description.get_output(context).get_inner();
-        let force_overwrite_replica_secret_binding = args
+        let description_binding_1 = args.description.get_output(context);
+        let description_binding = description_binding_1.get_inner();
+        let force_overwrite_replica_secret_binding_1 = args
             .force_overwrite_replica_secret
-            .get_output(context)
+            .get_output(context);
+        let force_overwrite_replica_secret_binding = force_overwrite_replica_secret_binding_1
             .get_inner();
-        let kms_key_id_binding = args.kms_key_id.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let name_prefix_binding = args.name_prefix.get_output(context).get_inner();
-        let policy_binding = args.policy.get_output(context).get_inner();
-        let recovery_window_in_days_binding = args
+        let kms_key_id_binding_1 = args.kms_key_id.get_output(context);
+        let kms_key_id_binding = kms_key_id_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let name_prefix_binding_1 = args.name_prefix.get_output(context);
+        let name_prefix_binding = name_prefix_binding_1.get_inner();
+        let policy_binding_1 = args.policy.get_output(context);
+        let policy_binding = policy_binding_1.get_inner();
+        let recovery_window_in_days_binding_1 = args
             .recovery_window_in_days
-            .get_output(context)
+            .get_output(context);
+        let recovery_window_in_days_binding = recovery_window_in_days_binding_1
             .get_inner();
-        let replicas_binding = args.replicas.get_output(context).get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
+        let replicas_binding_1 = args.replicas.get_output(context);
+        let replicas_binding = replicas_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:secretsmanager/secret:Secret".into(),
             name: name.to_string(),

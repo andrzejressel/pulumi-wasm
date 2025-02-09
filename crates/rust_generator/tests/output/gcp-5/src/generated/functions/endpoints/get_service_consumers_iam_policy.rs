@@ -31,11 +31,10 @@ pub mod get_service_consumers_iam_policy {
     ) -> GetServiceConsumersIamPolicyResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let consumer_project_binding = args
-            .consumer_project
-            .get_output(context)
-            .get_inner();
-        let service_name_binding = args.service_name.get_output(context).get_inner();
+        let consumer_project_binding_1 = args.consumer_project.get_output(context);
+        let consumer_project_binding = consumer_project_binding_1.get_inner();
+        let service_name_binding_1 = args.service_name.get_output(context);
+        let service_name_binding = service_name_binding_1.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "gcp:endpoints/getServiceConsumersIamPolicy:getServiceConsumersIamPolicy"
                 .into(),

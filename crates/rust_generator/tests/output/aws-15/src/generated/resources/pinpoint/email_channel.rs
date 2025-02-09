@@ -113,15 +113,18 @@ pub mod email_channel {
     ) -> EmailChannelResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let application_id_binding = args.application_id.get_output(context).get_inner();
-        let configuration_set_binding = args
-            .configuration_set
-            .get_output(context)
-            .get_inner();
-        let enabled_binding = args.enabled.get_output(context).get_inner();
-        let from_address_binding = args.from_address.get_output(context).get_inner();
-        let identity_binding = args.identity.get_output(context).get_inner();
-        let role_arn_binding = args.role_arn.get_output(context).get_inner();
+        let application_id_binding_1 = args.application_id.get_output(context);
+        let application_id_binding = application_id_binding_1.get_inner();
+        let configuration_set_binding_1 = args.configuration_set.get_output(context);
+        let configuration_set_binding = configuration_set_binding_1.get_inner();
+        let enabled_binding_1 = args.enabled.get_output(context);
+        let enabled_binding = enabled_binding_1.get_inner();
+        let from_address_binding_1 = args.from_address.get_output(context);
+        let from_address_binding = from_address_binding_1.get_inner();
+        let identity_binding_1 = args.identity.get_output(context);
+        let identity_binding = identity_binding_1.get_inner();
+        let role_arn_binding_1 = args.role_arn.get_output(context);
+        let role_arn_binding = role_arn_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:pinpoint/emailChannel:EmailChannel".into(),
             name: name.to_string(),

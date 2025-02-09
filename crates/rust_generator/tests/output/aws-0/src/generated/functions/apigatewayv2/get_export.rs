@@ -46,15 +46,18 @@ pub mod get_export {
     ) -> GetExportResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let api_id_binding = args.api_id.get_output(context).get_inner();
-        let export_version_binding = args.export_version.get_output(context).get_inner();
-        let include_extensions_binding = args
-            .include_extensions
-            .get_output(context)
-            .get_inner();
-        let output_type_binding = args.output_type.get_output(context).get_inner();
-        let specification_binding = args.specification.get_output(context).get_inner();
-        let stage_name_binding = args.stage_name.get_output(context).get_inner();
+        let api_id_binding_1 = args.api_id.get_output(context);
+        let api_id_binding = api_id_binding_1.get_inner();
+        let export_version_binding_1 = args.export_version.get_output(context);
+        let export_version_binding = export_version_binding_1.get_inner();
+        let include_extensions_binding_1 = args.include_extensions.get_output(context);
+        let include_extensions_binding = include_extensions_binding_1.get_inner();
+        let output_type_binding_1 = args.output_type.get_output(context);
+        let output_type_binding = output_type_binding_1.get_inner();
+        let specification_binding_1 = args.specification.get_output(context);
+        let specification_binding = specification_binding_1.get_inner();
+        let stage_name_binding_1 = args.stage_name.get_output(context);
+        let stage_name_binding = stage_name_binding_1.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:apigatewayv2/getExport:getExport".into(),
             version: super::super::super::get_version(),

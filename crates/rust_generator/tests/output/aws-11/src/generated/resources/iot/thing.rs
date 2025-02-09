@@ -65,12 +65,12 @@ pub mod thing {
     ) -> ThingResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let attributes_binding = args.attributes.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let thing_type_name_binding = args
-            .thing_type_name
-            .get_output(context)
-            .get_inner();
+        let attributes_binding_1 = args.attributes.get_output(context);
+        let attributes_binding = attributes_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let thing_type_name_binding_1 = args.thing_type_name.get_output(context);
+        let thing_type_name_binding = thing_type_name_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:iot/thing:Thing".into(),
             name: name.to_string(),

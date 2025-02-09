@@ -87,9 +87,12 @@ pub mod service_perimeter_dry_run_egress_policy {
     ) -> ServicePerimeterDryRunEgressPolicyResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let egress_from_binding = args.egress_from.get_output(context).get_inner();
-        let egress_to_binding = args.egress_to.get_output(context).get_inner();
-        let perimeter_binding = args.perimeter.get_output(context).get_inner();
+        let egress_from_binding_1 = args.egress_from.get_output(context);
+        let egress_from_binding = egress_from_binding_1.get_inner();
+        let egress_to_binding_1 = args.egress_to.get_output(context);
+        let egress_to_binding = egress_to_binding_1.get_inner();
+        let perimeter_binding_1 = args.perimeter.get_output(context);
+        let perimeter_binding = perimeter_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:accesscontextmanager/servicePerimeterDryRunEgressPolicy:ServicePerimeterDryRunEgressPolicy"
                 .into(),

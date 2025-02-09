@@ -150,20 +150,25 @@ pub mod inventory {
     ) -> InventoryResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let bucket_binding = args.bucket.get_output(context).get_inner();
-        let destination_binding = args.destination.get_output(context).get_inner();
-        let enabled_binding = args.enabled.get_output(context).get_inner();
-        let filter_binding = args.filter.get_output(context).get_inner();
-        let included_object_versions_binding = args
+        let bucket_binding_1 = args.bucket.get_output(context);
+        let bucket_binding = bucket_binding_1.get_inner();
+        let destination_binding_1 = args.destination.get_output(context);
+        let destination_binding = destination_binding_1.get_inner();
+        let enabled_binding_1 = args.enabled.get_output(context);
+        let enabled_binding = enabled_binding_1.get_inner();
+        let filter_binding_1 = args.filter.get_output(context);
+        let filter_binding = filter_binding_1.get_inner();
+        let included_object_versions_binding_1 = args
             .included_object_versions
-            .get_output(context)
+            .get_output(context);
+        let included_object_versions_binding = included_object_versions_binding_1
             .get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let optional_fields_binding = args
-            .optional_fields
-            .get_output(context)
-            .get_inner();
-        let schedule_binding = args.schedule.get_output(context).get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let optional_fields_binding_1 = args.optional_fields.get_output(context);
+        let optional_fields_binding = optional_fields_binding_1.get_inner();
+        let schedule_binding_1 = args.schedule.get_output(context);
+        let schedule_binding = schedule_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:s3/inventory:Inventory".into(),
             name: name.to_string(),

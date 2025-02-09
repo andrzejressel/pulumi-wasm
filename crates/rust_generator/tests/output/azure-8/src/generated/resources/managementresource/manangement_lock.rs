@@ -120,10 +120,14 @@ pub mod manangement_lock {
     ) -> ManangementLockResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let lock_level_binding = args.lock_level.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let notes_binding = args.notes.get_output(context).get_inner();
-        let scope_binding = args.scope.get_output(context).get_inner();
+        let lock_level_binding_1 = args.lock_level.get_output(context);
+        let lock_level_binding = lock_level_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let notes_binding_1 = args.notes.get_output(context);
+        let notes_binding = notes_binding_1.get_inner();
+        let scope_binding_1 = args.scope.get_output(context);
+        let scope_binding = scope_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:managementresource/manangementLock:ManangementLock".into(),
             name: name.to_string(),

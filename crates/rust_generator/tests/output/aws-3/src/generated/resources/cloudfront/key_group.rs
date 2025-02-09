@@ -70,9 +70,12 @@ pub mod key_group {
     ) -> KeyGroupResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let comment_binding = args.comment.get_output(context).get_inner();
-        let items_binding = args.items.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
+        let comment_binding_1 = args.comment.get_output(context);
+        let comment_binding = comment_binding_1.get_inner();
+        let items_binding_1 = args.items.get_output(context);
+        let items_binding = items_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:cloudfront/keyGroup:KeyGroup".into(),
             name: name.to_string(),

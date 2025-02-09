@@ -166,44 +166,42 @@ pub mod sql_container {
     ) -> SqlContainerResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let account_name_binding = args.account_name.get_output(context).get_inner();
-        let analytical_storage_ttl_binding = args
+        let account_name_binding_1 = args.account_name.get_output(context);
+        let account_name_binding = account_name_binding_1.get_inner();
+        let analytical_storage_ttl_binding_1 = args
             .analytical_storage_ttl
-            .get_output(context)
+            .get_output(context);
+        let analytical_storage_ttl_binding = analytical_storage_ttl_binding_1
             .get_inner();
-        let autoscale_settings_binding = args
-            .autoscale_settings
-            .get_output(context)
-            .get_inner();
-        let conflict_resolution_policy_binding = args
+        let autoscale_settings_binding_1 = args.autoscale_settings.get_output(context);
+        let autoscale_settings_binding = autoscale_settings_binding_1.get_inner();
+        let conflict_resolution_policy_binding_1 = args
             .conflict_resolution_policy
-            .get_output(context)
+            .get_output(context);
+        let conflict_resolution_policy_binding = conflict_resolution_policy_binding_1
             .get_inner();
-        let database_name_binding = args.database_name.get_output(context).get_inner();
-        let default_ttl_binding = args.default_ttl.get_output(context).get_inner();
-        let indexing_policy_binding = args
-            .indexing_policy
-            .get_output(context)
-            .get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let partition_key_kind_binding = args
-            .partition_key_kind
-            .get_output(context)
-            .get_inner();
-        let partition_key_paths_binding = args
-            .partition_key_paths
-            .get_output(context)
-            .get_inner();
-        let partition_key_version_binding = args
+        let database_name_binding_1 = args.database_name.get_output(context);
+        let database_name_binding = database_name_binding_1.get_inner();
+        let default_ttl_binding_1 = args.default_ttl.get_output(context);
+        let default_ttl_binding = default_ttl_binding_1.get_inner();
+        let indexing_policy_binding_1 = args.indexing_policy.get_output(context);
+        let indexing_policy_binding = indexing_policy_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let partition_key_kind_binding_1 = args.partition_key_kind.get_output(context);
+        let partition_key_kind_binding = partition_key_kind_binding_1.get_inner();
+        let partition_key_paths_binding_1 = args.partition_key_paths.get_output(context);
+        let partition_key_paths_binding = partition_key_paths_binding_1.get_inner();
+        let partition_key_version_binding_1 = args
             .partition_key_version
-            .get_output(context)
-            .get_inner();
-        let resource_group_name_binding = args
-            .resource_group_name
-            .get_output(context)
-            .get_inner();
-        let throughput_binding = args.throughput.get_output(context).get_inner();
-        let unique_keys_binding = args.unique_keys.get_output(context).get_inner();
+            .get_output(context);
+        let partition_key_version_binding = partition_key_version_binding_1.get_inner();
+        let resource_group_name_binding_1 = args.resource_group_name.get_output(context);
+        let resource_group_name_binding = resource_group_name_binding_1.get_inner();
+        let throughput_binding_1 = args.throughput.get_output(context);
+        let throughput_binding = throughput_binding_1.get_inner();
+        let unique_keys_binding_1 = args.unique_keys.get_output(context);
+        let unique_keys_binding = unique_keys_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:cosmosdb/sqlContainer:SqlContainer".into(),
             name: name.to_string(),

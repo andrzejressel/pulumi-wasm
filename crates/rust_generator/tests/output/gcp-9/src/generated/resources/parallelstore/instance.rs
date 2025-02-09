@@ -278,25 +278,29 @@ pub mod instance {
     ) -> InstanceResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let capacity_gib_binding = args.capacity_gib.get_output(context).get_inner();
-        let description_binding = args.description.get_output(context).get_inner();
-        let directory_stripe_level_binding = args
+        let capacity_gib_binding_1 = args.capacity_gib.get_output(context);
+        let capacity_gib_binding = capacity_gib_binding_1.get_inner();
+        let description_binding_1 = args.description.get_output(context);
+        let description_binding = description_binding_1.get_inner();
+        let directory_stripe_level_binding_1 = args
             .directory_stripe_level
-            .get_output(context)
+            .get_output(context);
+        let directory_stripe_level_binding = directory_stripe_level_binding_1
             .get_inner();
-        let file_stripe_level_binding = args
-            .file_stripe_level
-            .get_output(context)
-            .get_inner();
-        let instance_id_binding = args.instance_id.get_output(context).get_inner();
-        let labels_binding = args.labels.get_output(context).get_inner();
-        let location_binding = args.location.get_output(context).get_inner();
-        let network_binding = args.network.get_output(context).get_inner();
-        let project_binding = args.project.get_output(context).get_inner();
-        let reserved_ip_range_binding = args
-            .reserved_ip_range
-            .get_output(context)
-            .get_inner();
+        let file_stripe_level_binding_1 = args.file_stripe_level.get_output(context);
+        let file_stripe_level_binding = file_stripe_level_binding_1.get_inner();
+        let instance_id_binding_1 = args.instance_id.get_output(context);
+        let instance_id_binding = instance_id_binding_1.get_inner();
+        let labels_binding_1 = args.labels.get_output(context);
+        let labels_binding = labels_binding_1.get_inner();
+        let location_binding_1 = args.location.get_output(context);
+        let location_binding = location_binding_1.get_inner();
+        let network_binding_1 = args.network.get_output(context);
+        let network_binding = network_binding_1.get_inner();
+        let project_binding_1 = args.project.get_output(context);
+        let project_binding = project_binding_1.get_inner();
+        let reserved_ip_range_binding_1 = args.reserved_ip_range.get_output(context);
+        let reserved_ip_range_binding = reserved_ip_range_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:parallelstore/instance:Instance".into(),
             name: name.to_string(),

@@ -341,35 +341,39 @@ pub mod edge_cache_origin {
     ) -> EdgeCacheOriginResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let aws_v4_authentication_binding = args
+        let aws_v4_authentication_binding_1 = args
             .aws_v4_authentication
-            .get_output(context)
-            .get_inner();
-        let description_binding = args.description.get_output(context).get_inner();
-        let failover_origin_binding = args
-            .failover_origin
-            .get_output(context)
-            .get_inner();
-        let labels_binding = args.labels.get_output(context).get_inner();
-        let max_attempts_binding = args.max_attempts.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let origin_address_binding = args.origin_address.get_output(context).get_inner();
-        let origin_override_action_binding = args
+            .get_output(context);
+        let aws_v4_authentication_binding = aws_v4_authentication_binding_1.get_inner();
+        let description_binding_1 = args.description.get_output(context);
+        let description_binding = description_binding_1.get_inner();
+        let failover_origin_binding_1 = args.failover_origin.get_output(context);
+        let failover_origin_binding = failover_origin_binding_1.get_inner();
+        let labels_binding_1 = args.labels.get_output(context);
+        let labels_binding = labels_binding_1.get_inner();
+        let max_attempts_binding_1 = args.max_attempts.get_output(context);
+        let max_attempts_binding = max_attempts_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let origin_address_binding_1 = args.origin_address.get_output(context);
+        let origin_address_binding = origin_address_binding_1.get_inner();
+        let origin_override_action_binding_1 = args
             .origin_override_action
-            .get_output(context)
+            .get_output(context);
+        let origin_override_action_binding = origin_override_action_binding_1
             .get_inner();
-        let origin_redirect_binding = args
-            .origin_redirect
-            .get_output(context)
-            .get_inner();
-        let port_binding = args.port.get_output(context).get_inner();
-        let project_binding = args.project.get_output(context).get_inner();
-        let protocol_binding = args.protocol.get_output(context).get_inner();
-        let retry_conditions_binding = args
-            .retry_conditions
-            .get_output(context)
-            .get_inner();
-        let timeout_binding = args.timeout.get_output(context).get_inner();
+        let origin_redirect_binding_1 = args.origin_redirect.get_output(context);
+        let origin_redirect_binding = origin_redirect_binding_1.get_inner();
+        let port_binding_1 = args.port.get_output(context);
+        let port_binding = port_binding_1.get_inner();
+        let project_binding_1 = args.project.get_output(context);
+        let project_binding = project_binding_1.get_inner();
+        let protocol_binding_1 = args.protocol.get_output(context);
+        let protocol_binding = protocol_binding_1.get_inner();
+        let retry_conditions_binding_1 = args.retry_conditions.get_output(context);
+        let retry_conditions_binding = retry_conditions_binding_1.get_inner();
+        let timeout_binding_1 = args.timeout.get_output(context);
+        let timeout_binding = timeout_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:networkservices/edgeCacheOrigin:EdgeCacheOrigin".into(),
             name: name.to_string(),

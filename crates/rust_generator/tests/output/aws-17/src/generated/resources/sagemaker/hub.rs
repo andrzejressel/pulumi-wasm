@@ -88,24 +88,18 @@ pub mod hub {
     ) -> HubResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let hub_description_binding = args
-            .hub_description
-            .get_output(context)
-            .get_inner();
-        let hub_display_name_binding = args
-            .hub_display_name
-            .get_output(context)
-            .get_inner();
-        let hub_name_binding = args.hub_name.get_output(context).get_inner();
-        let hub_search_keywords_binding = args
-            .hub_search_keywords
-            .get_output(context)
-            .get_inner();
-        let s3_storage_config_binding = args
-            .s3_storage_config
-            .get_output(context)
-            .get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
+        let hub_description_binding_1 = args.hub_description.get_output(context);
+        let hub_description_binding = hub_description_binding_1.get_inner();
+        let hub_display_name_binding_1 = args.hub_display_name.get_output(context);
+        let hub_display_name_binding = hub_display_name_binding_1.get_inner();
+        let hub_name_binding_1 = args.hub_name.get_output(context);
+        let hub_name_binding = hub_name_binding_1.get_inner();
+        let hub_search_keywords_binding_1 = args.hub_search_keywords.get_output(context);
+        let hub_search_keywords_binding = hub_search_keywords_binding_1.get_inner();
+        let s3_storage_config_binding_1 = args.s3_storage_config.get_output(context);
+        let s3_storage_config_binding = s3_storage_config_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:sagemaker/hub:Hub".into(),
             name: name.to_string(),

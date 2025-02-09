@@ -147,28 +147,32 @@ pub mod stack {
     ) -> StackResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let capabilities_binding = args.capabilities.get_output(context).get_inner();
-        let disable_rollback_binding = args
-            .disable_rollback
-            .get_output(context)
-            .get_inner();
-        let iam_role_arn_binding = args.iam_role_arn.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let notification_arns_binding = args
-            .notification_arns
-            .get_output(context)
-            .get_inner();
-        let on_failure_binding = args.on_failure.get_output(context).get_inner();
-        let parameters_binding = args.parameters.get_output(context).get_inner();
-        let policy_body_binding = args.policy_body.get_output(context).get_inner();
-        let policy_url_binding = args.policy_url.get_output(context).get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
-        let template_body_binding = args.template_body.get_output(context).get_inner();
-        let template_url_binding = args.template_url.get_output(context).get_inner();
-        let timeout_in_minutes_binding = args
-            .timeout_in_minutes
-            .get_output(context)
-            .get_inner();
+        let capabilities_binding_1 = args.capabilities.get_output(context);
+        let capabilities_binding = capabilities_binding_1.get_inner();
+        let disable_rollback_binding_1 = args.disable_rollback.get_output(context);
+        let disable_rollback_binding = disable_rollback_binding_1.get_inner();
+        let iam_role_arn_binding_1 = args.iam_role_arn.get_output(context);
+        let iam_role_arn_binding = iam_role_arn_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let notification_arns_binding_1 = args.notification_arns.get_output(context);
+        let notification_arns_binding = notification_arns_binding_1.get_inner();
+        let on_failure_binding_1 = args.on_failure.get_output(context);
+        let on_failure_binding = on_failure_binding_1.get_inner();
+        let parameters_binding_1 = args.parameters.get_output(context);
+        let parameters_binding = parameters_binding_1.get_inner();
+        let policy_body_binding_1 = args.policy_body.get_output(context);
+        let policy_body_binding = policy_body_binding_1.get_inner();
+        let policy_url_binding_1 = args.policy_url.get_output(context);
+        let policy_url_binding = policy_url_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
+        let template_body_binding_1 = args.template_body.get_output(context);
+        let template_body_binding = template_body_binding_1.get_inner();
+        let template_url_binding_1 = args.template_url.get_output(context);
+        let template_url_binding = template_url_binding_1.get_inner();
+        let timeout_in_minutes_binding_1 = args.timeout_in_minutes.get_output(context);
+        let timeout_in_minutes_binding = timeout_in_minutes_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:cloudformation/stack:Stack".into(),
             name: name.to_string(),

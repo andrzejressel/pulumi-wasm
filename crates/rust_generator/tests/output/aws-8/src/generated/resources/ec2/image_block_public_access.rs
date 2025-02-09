@@ -47,7 +47,8 @@ pub mod image_block_public_access {
     ) -> ImageBlockPublicAccessResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let state_binding = args.state.get_output(context).get_inner();
+        let state_binding_1 = args.state.get_output(context);
+        let state_binding = state_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:ec2/imageBlockPublicAccess:ImageBlockPublicAccess".into(),
             name: name.to_string(),

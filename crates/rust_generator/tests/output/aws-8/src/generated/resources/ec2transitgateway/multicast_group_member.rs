@@ -58,17 +58,16 @@ pub mod multicast_group_member {
     ) -> MulticastGroupMemberResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let group_ip_address_binding = args
-            .group_ip_address
-            .get_output(context)
-            .get_inner();
-        let network_interface_id_binding = args
+        let group_ip_address_binding_1 = args.group_ip_address.get_output(context);
+        let group_ip_address_binding = group_ip_address_binding_1.get_inner();
+        let network_interface_id_binding_1 = args
             .network_interface_id
-            .get_output(context)
-            .get_inner();
-        let transit_gateway_multicast_domain_id_binding = args
+            .get_output(context);
+        let network_interface_id_binding = network_interface_id_binding_1.get_inner();
+        let transit_gateway_multicast_domain_id_binding_1 = args
             .transit_gateway_multicast_domain_id
-            .get_output(context)
+            .get_output(context);
+        let transit_gateway_multicast_domain_id_binding = transit_gateway_multicast_domain_id_binding_1
             .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:ec2transitgateway/multicastGroupMember:MulticastGroupMember"

@@ -80,24 +80,26 @@ pub mod custom_location {
     ) -> CustomLocationResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let authentication_binding = args.authentication.get_output(context).get_inner();
-        let cluster_extension_ids_binding = args
+        let authentication_binding_1 = args.authentication.get_output(context);
+        let authentication_binding = authentication_binding_1.get_inner();
+        let cluster_extension_ids_binding_1 = args
             .cluster_extension_ids
-            .get_output(context)
-            .get_inner();
-        let display_name_binding = args.display_name.get_output(context).get_inner();
-        let host_resource_id_binding = args
-            .host_resource_id
-            .get_output(context)
-            .get_inner();
-        let host_type_binding = args.host_type.get_output(context).get_inner();
-        let location_binding = args.location.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let namespace_binding = args.namespace.get_output(context).get_inner();
-        let resource_group_name_binding = args
-            .resource_group_name
-            .get_output(context)
-            .get_inner();
+            .get_output(context);
+        let cluster_extension_ids_binding = cluster_extension_ids_binding_1.get_inner();
+        let display_name_binding_1 = args.display_name.get_output(context);
+        let display_name_binding = display_name_binding_1.get_inner();
+        let host_resource_id_binding_1 = args.host_resource_id.get_output(context);
+        let host_resource_id_binding = host_resource_id_binding_1.get_inner();
+        let host_type_binding_1 = args.host_type.get_output(context);
+        let host_type_binding = host_type_binding_1.get_inner();
+        let location_binding_1 = args.location.get_output(context);
+        let location_binding = location_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let namespace_binding_1 = args.namespace.get_output(context);
+        let namespace_binding = namespace_binding_1.get_inner();
+        let resource_group_name_binding_1 = args.resource_group_name.get_output(context);
+        let resource_group_name_binding = resource_group_name_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:extendedlocation/customLocation:CustomLocation".into(),
             name: name.to_string(),

@@ -86,12 +86,12 @@ pub mod consumers_iam_policy {
     ) -> ConsumersIamPolicyResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let consumer_project_binding = args
-            .consumer_project
-            .get_output(context)
-            .get_inner();
-        let policy_data_binding = args.policy_data.get_output(context).get_inner();
-        let service_name_binding = args.service_name.get_output(context).get_inner();
+        let consumer_project_binding_1 = args.consumer_project.get_output(context);
+        let consumer_project_binding = consumer_project_binding_1.get_inner();
+        let policy_data_binding_1 = args.policy_data.get_output(context);
+        let policy_data_binding = policy_data_binding_1.get_inner();
+        let service_name_binding_1 = args.service_name.get_output(context);
+        let service_name_binding = service_name_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:endpoints/consumersIamPolicy:ConsumersIamPolicy".into(),
             name: name.to_string(),

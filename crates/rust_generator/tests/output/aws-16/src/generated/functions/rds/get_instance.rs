@@ -112,11 +112,13 @@ pub mod get_instance {
     ) -> GetInstanceResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let db_instance_identifier_binding = args
+        let db_instance_identifier_binding_1 = args
             .db_instance_identifier
-            .get_output(context)
+            .get_output(context);
+        let db_instance_identifier_binding = db_instance_identifier_binding_1
             .get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:rds/getInstance:getInstance".into(),
             version: super::super::super::get_version(),

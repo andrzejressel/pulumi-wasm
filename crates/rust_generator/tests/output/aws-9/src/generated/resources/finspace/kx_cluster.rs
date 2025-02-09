@@ -248,56 +248,71 @@ pub mod kx_cluster {
     ) -> KxClusterResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let auto_scaling_configuration_binding = args
+        let auto_scaling_configuration_binding_1 = args
             .auto_scaling_configuration
-            .get_output(context)
+            .get_output(context);
+        let auto_scaling_configuration_binding = auto_scaling_configuration_binding_1
             .get_inner();
-        let availability_zone_id_binding = args
+        let availability_zone_id_binding_1 = args
             .availability_zone_id
-            .get_output(context)
-            .get_inner();
-        let az_mode_binding = args.az_mode.get_output(context).get_inner();
-        let cache_storage_configurations_binding = args
+            .get_output(context);
+        let availability_zone_id_binding = availability_zone_id_binding_1.get_inner();
+        let az_mode_binding_1 = args.az_mode.get_output(context);
+        let az_mode_binding = az_mode_binding_1.get_inner();
+        let cache_storage_configurations_binding_1 = args
             .cache_storage_configurations
-            .get_output(context)
+            .get_output(context);
+        let cache_storage_configurations_binding = cache_storage_configurations_binding_1
             .get_inner();
-        let capacity_configuration_binding = args
+        let capacity_configuration_binding_1 = args
             .capacity_configuration
-            .get_output(context)
+            .get_output(context);
+        let capacity_configuration_binding = capacity_configuration_binding_1
             .get_inner();
-        let code_binding = args.code.get_output(context).get_inner();
-        let command_line_arguments_binding = args
+        let code_binding_1 = args.code.get_output(context);
+        let code_binding = code_binding_1.get_inner();
+        let command_line_arguments_binding_1 = args
             .command_line_arguments
-            .get_output(context)
+            .get_output(context);
+        let command_line_arguments_binding = command_line_arguments_binding_1
             .get_inner();
-        let databases_binding = args.databases.get_output(context).get_inner();
-        let description_binding = args.description.get_output(context).get_inner();
-        let environment_id_binding = args.environment_id.get_output(context).get_inner();
-        let execution_role_binding = args.execution_role.get_output(context).get_inner();
-        let initialization_script_binding = args
+        let databases_binding_1 = args.databases.get_output(context);
+        let databases_binding = databases_binding_1.get_inner();
+        let description_binding_1 = args.description.get_output(context);
+        let description_binding = description_binding_1.get_inner();
+        let environment_id_binding_1 = args.environment_id.get_output(context);
+        let environment_id_binding = environment_id_binding_1.get_inner();
+        let execution_role_binding_1 = args.execution_role.get_output(context);
+        let execution_role_binding = execution_role_binding_1.get_inner();
+        let initialization_script_binding_1 = args
             .initialization_script
-            .get_output(context)
-            .get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let release_label_binding = args.release_label.get_output(context).get_inner();
-        let savedown_storage_configuration_binding = args
+            .get_output(context);
+        let initialization_script_binding = initialization_script_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let release_label_binding_1 = args.release_label.get_output(context);
+        let release_label_binding = release_label_binding_1.get_inner();
+        let savedown_storage_configuration_binding_1 = args
             .savedown_storage_configuration
-            .get_output(context)
+            .get_output(context);
+        let savedown_storage_configuration_binding = savedown_storage_configuration_binding_1
             .get_inner();
-        let scaling_group_configuration_binding = args
+        let scaling_group_configuration_binding_1 = args
             .scaling_group_configuration
-            .get_output(context)
+            .get_output(context);
+        let scaling_group_configuration_binding = scaling_group_configuration_binding_1
             .get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
-        let tickerplant_log_configurations_binding = args
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
+        let tickerplant_log_configurations_binding_1 = args
             .tickerplant_log_configurations
-            .get_output(context)
+            .get_output(context);
+        let tickerplant_log_configurations_binding = tickerplant_log_configurations_binding_1
             .get_inner();
-        let type__binding = args.type_.get_output(context).get_inner();
-        let vpc_configuration_binding = args
-            .vpc_configuration
-            .get_output(context)
-            .get_inner();
+        let type__binding_1 = args.type_.get_output(context);
+        let type__binding = type__binding_1.get_inner();
+        let vpc_configuration_binding_1 = args.vpc_configuration.get_output(context);
+        let vpc_configuration_binding = vpc_configuration_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:finspace/kxCluster:KxCluster".into(),
             name: name.to_string(),

@@ -408,12 +408,12 @@ pub mod iam_audit_config {
     ) -> IAMAuditConfigResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let audit_log_configs_binding = args
-            .audit_log_configs
-            .get_output(context)
-            .get_inner();
-        let project_binding = args.project.get_output(context).get_inner();
-        let service_binding = args.service.get_output(context).get_inner();
+        let audit_log_configs_binding_1 = args.audit_log_configs.get_output(context);
+        let audit_log_configs_binding = audit_log_configs_binding_1.get_inner();
+        let project_binding_1 = args.project.get_output(context);
+        let project_binding = project_binding_1.get_inner();
+        let service_binding_1 = args.service.get_output(context);
+        let service_binding = service_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:projects/iAMAuditConfig:IAMAuditConfig".into(),
             name: name.to_string(),

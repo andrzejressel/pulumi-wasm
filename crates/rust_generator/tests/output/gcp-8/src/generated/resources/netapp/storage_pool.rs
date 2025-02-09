@@ -216,26 +216,34 @@ pub mod storage_pool {
     ) -> StoragePoolResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let active_directory_binding = args
-            .active_directory
-            .get_output(context)
-            .get_inner();
-        let allow_auto_tiering_binding = args
-            .allow_auto_tiering
-            .get_output(context)
-            .get_inner();
-        let capacity_gib_binding = args.capacity_gib.get_output(context).get_inner();
-        let description_binding = args.description.get_output(context).get_inner();
-        let kms_config_binding = args.kms_config.get_output(context).get_inner();
-        let labels_binding = args.labels.get_output(context).get_inner();
-        let ldap_enabled_binding = args.ldap_enabled.get_output(context).get_inner();
-        let location_binding = args.location.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let network_binding = args.network.get_output(context).get_inner();
-        let project_binding = args.project.get_output(context).get_inner();
-        let replica_zone_binding = args.replica_zone.get_output(context).get_inner();
-        let service_level_binding = args.service_level.get_output(context).get_inner();
-        let zone_binding = args.zone.get_output(context).get_inner();
+        let active_directory_binding_1 = args.active_directory.get_output(context);
+        let active_directory_binding = active_directory_binding_1.get_inner();
+        let allow_auto_tiering_binding_1 = args.allow_auto_tiering.get_output(context);
+        let allow_auto_tiering_binding = allow_auto_tiering_binding_1.get_inner();
+        let capacity_gib_binding_1 = args.capacity_gib.get_output(context);
+        let capacity_gib_binding = capacity_gib_binding_1.get_inner();
+        let description_binding_1 = args.description.get_output(context);
+        let description_binding = description_binding_1.get_inner();
+        let kms_config_binding_1 = args.kms_config.get_output(context);
+        let kms_config_binding = kms_config_binding_1.get_inner();
+        let labels_binding_1 = args.labels.get_output(context);
+        let labels_binding = labels_binding_1.get_inner();
+        let ldap_enabled_binding_1 = args.ldap_enabled.get_output(context);
+        let ldap_enabled_binding = ldap_enabled_binding_1.get_inner();
+        let location_binding_1 = args.location.get_output(context);
+        let location_binding = location_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let network_binding_1 = args.network.get_output(context);
+        let network_binding = network_binding_1.get_inner();
+        let project_binding_1 = args.project.get_output(context);
+        let project_binding = project_binding_1.get_inner();
+        let replica_zone_binding_1 = args.replica_zone.get_output(context);
+        let replica_zone_binding = replica_zone_binding_1.get_inner();
+        let service_level_binding_1 = args.service_level.get_output(context);
+        let service_level_binding = service_level_binding_1.get_inner();
+        let zone_binding_1 = args.zone.get_output(context);
+        let zone_binding = zone_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:netapp/storagePool:StoragePool".into(),
             name: name.to_string(),

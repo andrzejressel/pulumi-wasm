@@ -165,24 +165,18 @@ pub mod key {
     ) -> KeyResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let keepers_binding = args.keepers.get_output(context).get_inner();
-        let key_algorithm_binding = args.key_algorithm.get_output(context).get_inner();
-        let private_key_type_binding = args
-            .private_key_type
-            .get_output(context)
-            .get_inner();
-        let public_key_data_binding = args
-            .public_key_data
-            .get_output(context)
-            .get_inner();
-        let public_key_type_binding = args
-            .public_key_type
-            .get_output(context)
-            .get_inner();
-        let service_account_id_binding = args
-            .service_account_id
-            .get_output(context)
-            .get_inner();
+        let keepers_binding_1 = args.keepers.get_output(context);
+        let keepers_binding = keepers_binding_1.get_inner();
+        let key_algorithm_binding_1 = args.key_algorithm.get_output(context);
+        let key_algorithm_binding = key_algorithm_binding_1.get_inner();
+        let private_key_type_binding_1 = args.private_key_type.get_output(context);
+        let private_key_type_binding = private_key_type_binding_1.get_inner();
+        let public_key_data_binding_1 = args.public_key_data.get_output(context);
+        let public_key_data_binding = public_key_data_binding_1.get_inner();
+        let public_key_type_binding_1 = args.public_key_type.get_output(context);
+        let public_key_type_binding = public_key_type_binding_1.get_inner();
+        let service_account_id_binding_1 = args.service_account_id.get_output(context);
+        let service_account_id_binding = service_account_id_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:serviceaccount/key:Key".into(),
             name: name.to_string(),

@@ -308,35 +308,40 @@ pub mod app_profile {
     ) -> AppProfileResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let app_profile_id_binding = args.app_profile_id.get_output(context).get_inner();
-        let data_boost_isolation_read_only_binding = args
+        let app_profile_id_binding_1 = args.app_profile_id.get_output(context);
+        let app_profile_id_binding = app_profile_id_binding_1.get_inner();
+        let data_boost_isolation_read_only_binding_1 = args
             .data_boost_isolation_read_only
-            .get_output(context)
+            .get_output(context);
+        let data_boost_isolation_read_only_binding = data_boost_isolation_read_only_binding_1
             .get_inner();
-        let description_binding = args.description.get_output(context).get_inner();
-        let ignore_warnings_binding = args
-            .ignore_warnings
-            .get_output(context)
-            .get_inner();
-        let instance_binding = args.instance.get_output(context).get_inner();
-        let multi_cluster_routing_cluster_ids_binding = args
+        let description_binding_1 = args.description.get_output(context);
+        let description_binding = description_binding_1.get_inner();
+        let ignore_warnings_binding_1 = args.ignore_warnings.get_output(context);
+        let ignore_warnings_binding = ignore_warnings_binding_1.get_inner();
+        let instance_binding_1 = args.instance.get_output(context);
+        let instance_binding = instance_binding_1.get_inner();
+        let multi_cluster_routing_cluster_ids_binding_1 = args
             .multi_cluster_routing_cluster_ids
-            .get_output(context)
+            .get_output(context);
+        let multi_cluster_routing_cluster_ids_binding = multi_cluster_routing_cluster_ids_binding_1
             .get_inner();
-        let multi_cluster_routing_use_any_binding = args
+        let multi_cluster_routing_use_any_binding_1 = args
             .multi_cluster_routing_use_any
-            .get_output(context)
+            .get_output(context);
+        let multi_cluster_routing_use_any_binding = multi_cluster_routing_use_any_binding_1
             .get_inner();
-        let project_binding = args.project.get_output(context).get_inner();
-        let row_affinity_binding = args.row_affinity.get_output(context).get_inner();
-        let single_cluster_routing_binding = args
+        let project_binding_1 = args.project.get_output(context);
+        let project_binding = project_binding_1.get_inner();
+        let row_affinity_binding_1 = args.row_affinity.get_output(context);
+        let row_affinity_binding = row_affinity_binding_1.get_inner();
+        let single_cluster_routing_binding_1 = args
             .single_cluster_routing
-            .get_output(context)
+            .get_output(context);
+        let single_cluster_routing_binding = single_cluster_routing_binding_1
             .get_inner();
-        let standard_isolation_binding = args
-            .standard_isolation
-            .get_output(context)
-            .get_inner();
+        let standard_isolation_binding_1 = args.standard_isolation.get_output(context);
+        let standard_isolation_binding = standard_isolation_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:bigquery/appProfile:AppProfile".into(),
             name: name.to_string(),

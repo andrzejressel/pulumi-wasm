@@ -375,65 +375,67 @@ pub mod bucket_objectv_2 {
     ) -> BucketObjectv2Result {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let acl_binding = args.acl.get_output(context).get_inner();
-        let bucket_binding = args.bucket.get_output(context).get_inner();
-        let bucket_key_enabled_binding = args
-            .bucket_key_enabled
-            .get_output(context)
-            .get_inner();
-        let cache_control_binding = args.cache_control.get_output(context).get_inner();
-        let checksum_algorithm_binding = args
-            .checksum_algorithm
-            .get_output(context)
-            .get_inner();
-        let content_binding = args.content.get_output(context).get_inner();
-        let content_base64_binding = args.content_base64.get_output(context).get_inner();
-        let content_disposition_binding = args
-            .content_disposition
-            .get_output(context)
-            .get_inner();
-        let content_encoding_binding = args
-            .content_encoding
-            .get_output(context)
-            .get_inner();
-        let content_language_binding = args
-            .content_language
-            .get_output(context)
-            .get_inner();
-        let content_type_binding = args.content_type.get_output(context).get_inner();
-        let etag_binding = args.etag.get_output(context).get_inner();
-        let force_destroy_binding = args.force_destroy.get_output(context).get_inner();
-        let key_binding = args.key.get_output(context).get_inner();
-        let kms_key_id_binding = args.kms_key_id.get_output(context).get_inner();
-        let metadata_binding = args.metadata.get_output(context).get_inner();
-        let object_lock_legal_hold_status_binding = args
+        let acl_binding_1 = args.acl.get_output(context);
+        let acl_binding = acl_binding_1.get_inner();
+        let bucket_binding_1 = args.bucket.get_output(context);
+        let bucket_binding = bucket_binding_1.get_inner();
+        let bucket_key_enabled_binding_1 = args.bucket_key_enabled.get_output(context);
+        let bucket_key_enabled_binding = bucket_key_enabled_binding_1.get_inner();
+        let cache_control_binding_1 = args.cache_control.get_output(context);
+        let cache_control_binding = cache_control_binding_1.get_inner();
+        let checksum_algorithm_binding_1 = args.checksum_algorithm.get_output(context);
+        let checksum_algorithm_binding = checksum_algorithm_binding_1.get_inner();
+        let content_binding_1 = args.content.get_output(context);
+        let content_binding = content_binding_1.get_inner();
+        let content_base64_binding_1 = args.content_base64.get_output(context);
+        let content_base64_binding = content_base64_binding_1.get_inner();
+        let content_disposition_binding_1 = args.content_disposition.get_output(context);
+        let content_disposition_binding = content_disposition_binding_1.get_inner();
+        let content_encoding_binding_1 = args.content_encoding.get_output(context);
+        let content_encoding_binding = content_encoding_binding_1.get_inner();
+        let content_language_binding_1 = args.content_language.get_output(context);
+        let content_language_binding = content_language_binding_1.get_inner();
+        let content_type_binding_1 = args.content_type.get_output(context);
+        let content_type_binding = content_type_binding_1.get_inner();
+        let etag_binding_1 = args.etag.get_output(context);
+        let etag_binding = etag_binding_1.get_inner();
+        let force_destroy_binding_1 = args.force_destroy.get_output(context);
+        let force_destroy_binding = force_destroy_binding_1.get_inner();
+        let key_binding_1 = args.key.get_output(context);
+        let key_binding = key_binding_1.get_inner();
+        let kms_key_id_binding_1 = args.kms_key_id.get_output(context);
+        let kms_key_id_binding = kms_key_id_binding_1.get_inner();
+        let metadata_binding_1 = args.metadata.get_output(context);
+        let metadata_binding = metadata_binding_1.get_inner();
+        let object_lock_legal_hold_status_binding_1 = args
             .object_lock_legal_hold_status
-            .get_output(context)
+            .get_output(context);
+        let object_lock_legal_hold_status_binding = object_lock_legal_hold_status_binding_1
             .get_inner();
-        let object_lock_mode_binding = args
-            .object_lock_mode
-            .get_output(context)
-            .get_inner();
-        let object_lock_retain_until_date_binding = args
+        let object_lock_mode_binding_1 = args.object_lock_mode.get_output(context);
+        let object_lock_mode_binding = object_lock_mode_binding_1.get_inner();
+        let object_lock_retain_until_date_binding_1 = args
             .object_lock_retain_until_date
-            .get_output(context)
+            .get_output(context);
+        let object_lock_retain_until_date_binding = object_lock_retain_until_date_binding_1
             .get_inner();
-        let override_provider_binding = args
-            .override_provider
-            .get_output(context)
-            .get_inner();
-        let server_side_encryption_binding = args
+        let override_provider_binding_1 = args.override_provider.get_output(context);
+        let override_provider_binding = override_provider_binding_1.get_inner();
+        let server_side_encryption_binding_1 = args
             .server_side_encryption
-            .get_output(context)
+            .get_output(context);
+        let server_side_encryption_binding = server_side_encryption_binding_1
             .get_inner();
-        let source_binding = args.source.get_output(context).get_inner();
-        let source_hash_binding = args.source_hash.get_output(context).get_inner();
-        let storage_class_binding = args.storage_class.get_output(context).get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
-        let website_redirect_binding = args
-            .website_redirect
-            .get_output(context)
-            .get_inner();
+        let source_binding_1 = args.source.get_output(context);
+        let source_binding = source_binding_1.get_inner();
+        let source_hash_binding_1 = args.source_hash.get_output(context);
+        let source_hash_binding = source_hash_binding_1.get_inner();
+        let storage_class_binding_1 = args.storage_class.get_output(context);
+        let storage_class_binding = storage_class_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
+        let website_redirect_binding_1 = args.website_redirect.get_output(context);
+        let website_redirect_binding = website_redirect_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:s3/bucketObjectv2:BucketObjectv2".into(),
             name: name.to_string(),

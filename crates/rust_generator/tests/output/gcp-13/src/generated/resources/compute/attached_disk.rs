@@ -187,13 +187,20 @@ pub mod attached_disk {
     ) -> AttachedDiskResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let device_name_binding = args.device_name.get_output(context).get_inner();
-        let disk_binding = args.disk.get_output(context).get_inner();
-        let instance_binding = args.instance.get_output(context).get_inner();
-        let interface_binding = args.interface.get_output(context).get_inner();
-        let mode_binding = args.mode.get_output(context).get_inner();
-        let project_binding = args.project.get_output(context).get_inner();
-        let zone_binding = args.zone.get_output(context).get_inner();
+        let device_name_binding_1 = args.device_name.get_output(context);
+        let device_name_binding = device_name_binding_1.get_inner();
+        let disk_binding_1 = args.disk.get_output(context);
+        let disk_binding = disk_binding_1.get_inner();
+        let instance_binding_1 = args.instance.get_output(context);
+        let instance_binding = instance_binding_1.get_inner();
+        let interface_binding_1 = args.interface.get_output(context);
+        let interface_binding = interface_binding_1.get_inner();
+        let mode_binding_1 = args.mode.get_output(context);
+        let mode_binding = mode_binding_1.get_inner();
+        let project_binding_1 = args.project.get_output(context);
+        let project_binding = project_binding_1.get_inner();
+        let zone_binding_1 = args.zone.get_output(context);
+        let zone_binding = zone_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:compute/attachedDisk:AttachedDisk".into(),
             name: name.to_string(),

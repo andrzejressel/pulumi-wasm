@@ -162,38 +162,43 @@ pub mod vault {
     ) -> VaultResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let classic_vmware_replication_enabled_binding = args
+        let classic_vmware_replication_enabled_binding_1 = args
             .classic_vmware_replication_enabled
-            .get_output(context)
+            .get_output(context);
+        let classic_vmware_replication_enabled_binding = classic_vmware_replication_enabled_binding_1
             .get_inner();
-        let cross_region_restore_enabled_binding = args
+        let cross_region_restore_enabled_binding_1 = args
             .cross_region_restore_enabled
-            .get_output(context)
+            .get_output(context);
+        let cross_region_restore_enabled_binding = cross_region_restore_enabled_binding_1
             .get_inner();
-        let encryption_binding = args.encryption.get_output(context).get_inner();
-        let identity_binding = args.identity.get_output(context).get_inner();
-        let immutability_binding = args.immutability.get_output(context).get_inner();
-        let location_binding = args.location.get_output(context).get_inner();
-        let monitoring_binding = args.monitoring.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let public_network_access_enabled_binding = args
+        let encryption_binding_1 = args.encryption.get_output(context);
+        let encryption_binding = encryption_binding_1.get_inner();
+        let identity_binding_1 = args.identity.get_output(context);
+        let identity_binding = identity_binding_1.get_inner();
+        let immutability_binding_1 = args.immutability.get_output(context);
+        let immutability_binding = immutability_binding_1.get_inner();
+        let location_binding_1 = args.location.get_output(context);
+        let location_binding = location_binding_1.get_inner();
+        let monitoring_binding_1 = args.monitoring.get_output(context);
+        let monitoring_binding = monitoring_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let public_network_access_enabled_binding_1 = args
             .public_network_access_enabled
-            .get_output(context)
+            .get_output(context);
+        let public_network_access_enabled_binding = public_network_access_enabled_binding_1
             .get_inner();
-        let resource_group_name_binding = args
-            .resource_group_name
-            .get_output(context)
-            .get_inner();
-        let sku_binding = args.sku.get_output(context).get_inner();
-        let soft_delete_enabled_binding = args
-            .soft_delete_enabled
-            .get_output(context)
-            .get_inner();
-        let storage_mode_type_binding = args
-            .storage_mode_type
-            .get_output(context)
-            .get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
+        let resource_group_name_binding_1 = args.resource_group_name.get_output(context);
+        let resource_group_name_binding = resource_group_name_binding_1.get_inner();
+        let sku_binding_1 = args.sku.get_output(context);
+        let sku_binding = sku_binding_1.get_inner();
+        let soft_delete_enabled_binding_1 = args.soft_delete_enabled.get_output(context);
+        let soft_delete_enabled_binding = soft_delete_enabled_binding_1.get_inner();
+        let storage_mode_type_binding_1 = args.storage_mode_type.get_output(context);
+        let storage_mode_type_binding = storage_mode_type_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:recoveryservices/vault:Vault".into(),
             name: name.to_string(),

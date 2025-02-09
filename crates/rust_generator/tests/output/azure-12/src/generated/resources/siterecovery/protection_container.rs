@@ -86,19 +86,16 @@ pub mod protection_container {
     ) -> ProtectionContainerResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let name_binding = args.name.get_output(context).get_inner();
-        let recovery_fabric_name_binding = args
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let recovery_fabric_name_binding_1 = args
             .recovery_fabric_name
-            .get_output(context)
-            .get_inner();
-        let recovery_vault_name_binding = args
-            .recovery_vault_name
-            .get_output(context)
-            .get_inner();
-        let resource_group_name_binding = args
-            .resource_group_name
-            .get_output(context)
-            .get_inner();
+            .get_output(context);
+        let recovery_fabric_name_binding = recovery_fabric_name_binding_1.get_inner();
+        let recovery_vault_name_binding_1 = args.recovery_vault_name.get_output(context);
+        let recovery_vault_name_binding = recovery_vault_name_binding_1.get_inner();
+        let resource_group_name_binding_1 = args.resource_group_name.get_output(context);
+        let resource_group_name_binding = resource_group_name_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:siterecovery/protectionContainer:ProtectionContainer".into(),
             name: name.to_string(),

@@ -138,14 +138,17 @@ pub mod object_replication {
     ) -> ObjectReplicationResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let destination_storage_account_id_binding = args
+        let destination_storage_account_id_binding_1 = args
             .destination_storage_account_id
-            .get_output(context)
+            .get_output(context);
+        let destination_storage_account_id_binding = destination_storage_account_id_binding_1
             .get_inner();
-        let rules_binding = args.rules.get_output(context).get_inner();
-        let source_storage_account_id_binding = args
+        let rules_binding_1 = args.rules.get_output(context);
+        let rules_binding = rules_binding_1.get_inner();
+        let source_storage_account_id_binding_1 = args
             .source_storage_account_id
-            .get_output(context)
+            .get_output(context);
+        let source_storage_account_id_binding = source_storage_account_id_binding_1
             .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:storage/objectReplication:ObjectReplication".into(),

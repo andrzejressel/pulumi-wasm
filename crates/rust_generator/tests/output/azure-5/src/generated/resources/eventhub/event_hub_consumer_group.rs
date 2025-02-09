@@ -94,14 +94,16 @@ pub mod event_hub_consumer_group {
     ) -> EventHubConsumerGroupResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let eventhub_name_binding = args.eventhub_name.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let namespace_name_binding = args.namespace_name.get_output(context).get_inner();
-        let resource_group_name_binding = args
-            .resource_group_name
-            .get_output(context)
-            .get_inner();
-        let user_metadata_binding = args.user_metadata.get_output(context).get_inner();
+        let eventhub_name_binding_1 = args.eventhub_name.get_output(context);
+        let eventhub_name_binding = eventhub_name_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let namespace_name_binding_1 = args.namespace_name.get_output(context);
+        let namespace_name_binding = namespace_name_binding_1.get_inner();
+        let resource_group_name_binding_1 = args.resource_group_name.get_output(context);
+        let resource_group_name_binding = resource_group_name_binding_1.get_inner();
+        let user_metadata_binding_1 = args.user_metadata.get_output(context);
+        let user_metadata_binding = user_metadata_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:eventhub/eventHubConsumerGroup:EventHubConsumerGroup".into(),
             name: name.to_string(),

@@ -191,36 +191,39 @@ pub mod catalog_table {
     ) -> CatalogTableResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let catalog_id_binding = args.catalog_id.get_output(context).get_inner();
-        let database_name_binding = args.database_name.get_output(context).get_inner();
-        let description_binding = args.description.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let open_table_format_input_binding = args
+        let catalog_id_binding_1 = args.catalog_id.get_output(context);
+        let catalog_id_binding = catalog_id_binding_1.get_inner();
+        let database_name_binding_1 = args.database_name.get_output(context);
+        let database_name_binding = database_name_binding_1.get_inner();
+        let description_binding_1 = args.description.get_output(context);
+        let description_binding = description_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let open_table_format_input_binding_1 = args
             .open_table_format_input
-            .get_output(context)
+            .get_output(context);
+        let open_table_format_input_binding = open_table_format_input_binding_1
             .get_inner();
-        let owner_binding = args.owner.get_output(context).get_inner();
-        let parameters_binding = args.parameters.get_output(context).get_inner();
-        let partition_indices_binding = args
-            .partition_indices
-            .get_output(context)
-            .get_inner();
-        let partition_keys_binding = args.partition_keys.get_output(context).get_inner();
-        let retention_binding = args.retention.get_output(context).get_inner();
-        let storage_descriptor_binding = args
-            .storage_descriptor
-            .get_output(context)
-            .get_inner();
-        let table_type_binding = args.table_type.get_output(context).get_inner();
-        let target_table_binding = args.target_table.get_output(context).get_inner();
-        let view_expanded_text_binding = args
-            .view_expanded_text
-            .get_output(context)
-            .get_inner();
-        let view_original_text_binding = args
-            .view_original_text
-            .get_output(context)
-            .get_inner();
+        let owner_binding_1 = args.owner.get_output(context);
+        let owner_binding = owner_binding_1.get_inner();
+        let parameters_binding_1 = args.parameters.get_output(context);
+        let parameters_binding = parameters_binding_1.get_inner();
+        let partition_indices_binding_1 = args.partition_indices.get_output(context);
+        let partition_indices_binding = partition_indices_binding_1.get_inner();
+        let partition_keys_binding_1 = args.partition_keys.get_output(context);
+        let partition_keys_binding = partition_keys_binding_1.get_inner();
+        let retention_binding_1 = args.retention.get_output(context);
+        let retention_binding = retention_binding_1.get_inner();
+        let storage_descriptor_binding_1 = args.storage_descriptor.get_output(context);
+        let storage_descriptor_binding = storage_descriptor_binding_1.get_inner();
+        let table_type_binding_1 = args.table_type.get_output(context);
+        let table_type_binding = table_type_binding_1.get_inner();
+        let target_table_binding_1 = args.target_table.get_output(context);
+        let target_table_binding = target_table_binding_1.get_inner();
+        let view_expanded_text_binding_1 = args.view_expanded_text.get_output(context);
+        let view_expanded_text_binding = view_expanded_text_binding_1.get_inner();
+        let view_original_text_binding_1 = args.view_original_text.get_output(context);
+        let view_original_text_binding = view_original_text_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:glue/catalogTable:CatalogTable".into(),
             name: name.to_string(),

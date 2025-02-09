@@ -119,19 +119,18 @@ pub mod group {
     ) -> GroupResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let description_binding = args.description.get_output(context).get_inner();
-        let policy_document_binding = args
-            .policy_document
-            .get_output(context)
-            .get_inner();
-        let sse_configuration_binding = args
-            .sse_configuration
-            .get_output(context)
-            .get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
-        let verifiedaccess_instance_id_binding = args
+        let description_binding_1 = args.description.get_output(context);
+        let description_binding = description_binding_1.get_inner();
+        let policy_document_binding_1 = args.policy_document.get_output(context);
+        let policy_document_binding = policy_document_binding_1.get_inner();
+        let sse_configuration_binding_1 = args.sse_configuration.get_output(context);
+        let sse_configuration_binding = sse_configuration_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
+        let verifiedaccess_instance_id_binding_1 = args
             .verifiedaccess_instance_id
-            .get_output(context)
+            .get_output(context);
+        let verifiedaccess_instance_id_binding = verifiedaccess_instance_id_binding_1
             .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:verifiedaccess/group:Group".into(),

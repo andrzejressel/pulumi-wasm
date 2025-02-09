@@ -186,37 +186,48 @@ pub mod connector {
     ) -> ConnectorResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let capacity_binding = args.capacity.get_output(context).get_inner();
-        let connector_configuration_binding = args
+        let capacity_binding_1 = args.capacity.get_output(context);
+        let capacity_binding = capacity_binding_1.get_inner();
+        let connector_configuration_binding_1 = args
             .connector_configuration
-            .get_output(context)
+            .get_output(context);
+        let connector_configuration_binding = connector_configuration_binding_1
             .get_inner();
-        let description_binding = args.description.get_output(context).get_inner();
-        let kafka_cluster_binding = args.kafka_cluster.get_output(context).get_inner();
-        let kafka_cluster_client_authentication_binding = args
+        let description_binding_1 = args.description.get_output(context);
+        let description_binding = description_binding_1.get_inner();
+        let kafka_cluster_binding_1 = args.kafka_cluster.get_output(context);
+        let kafka_cluster_binding = kafka_cluster_binding_1.get_inner();
+        let kafka_cluster_client_authentication_binding_1 = args
             .kafka_cluster_client_authentication
-            .get_output(context)
+            .get_output(context);
+        let kafka_cluster_client_authentication_binding = kafka_cluster_client_authentication_binding_1
             .get_inner();
-        let kafka_cluster_encryption_in_transit_binding = args
+        let kafka_cluster_encryption_in_transit_binding_1 = args
             .kafka_cluster_encryption_in_transit
-            .get_output(context)
+            .get_output(context);
+        let kafka_cluster_encryption_in_transit_binding = kafka_cluster_encryption_in_transit_binding_1
             .get_inner();
-        let kafkaconnect_version_binding = args
+        let kafkaconnect_version_binding_1 = args
             .kafkaconnect_version
-            .get_output(context)
-            .get_inner();
-        let log_delivery_binding = args.log_delivery.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let plugins_binding = args.plugins.get_output(context).get_inner();
-        let service_execution_role_arn_binding = args
+            .get_output(context);
+        let kafkaconnect_version_binding = kafkaconnect_version_binding_1.get_inner();
+        let log_delivery_binding_1 = args.log_delivery.get_output(context);
+        let log_delivery_binding = log_delivery_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let plugins_binding_1 = args.plugins.get_output(context);
+        let plugins_binding = plugins_binding_1.get_inner();
+        let service_execution_role_arn_binding_1 = args
             .service_execution_role_arn
-            .get_output(context)
+            .get_output(context);
+        let service_execution_role_arn_binding = service_execution_role_arn_binding_1
             .get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
-        let worker_configuration_binding = args
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
+        let worker_configuration_binding_1 = args
             .worker_configuration
-            .get_output(context)
-            .get_inner();
+            .get_output(context);
+        let worker_configuration_binding = worker_configuration_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:mskconnect/connector:Connector".into(),
             name: name.to_string(),

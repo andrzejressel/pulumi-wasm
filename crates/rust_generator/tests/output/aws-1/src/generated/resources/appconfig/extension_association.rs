@@ -105,9 +105,12 @@ pub mod extension_association {
     ) -> ExtensionAssociationResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let extension_arn_binding = args.extension_arn.get_output(context).get_inner();
-        let parameters_binding = args.parameters.get_output(context).get_inner();
-        let resource_arn_binding = args.resource_arn.get_output(context).get_inner();
+        let extension_arn_binding_1 = args.extension_arn.get_output(context);
+        let extension_arn_binding = extension_arn_binding_1.get_inner();
+        let parameters_binding_1 = args.parameters.get_output(context);
+        let parameters_binding = parameters_binding_1.get_inner();
+        let resource_arn_binding_1 = args.resource_arn.get_output(context);
+        let resource_arn_binding = resource_arn_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:appconfig/extensionAssociation:ExtensionAssociation".into(),
             name: name.to_string(),

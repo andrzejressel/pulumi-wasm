@@ -110,16 +110,21 @@ pub mod spring_cloud_configuration_service {
     ) -> SpringCloudConfigurationServiceResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let generation_binding = args.generation.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let refresh_interval_in_seconds_binding = args
+        let generation_binding_1 = args.generation.get_output(context);
+        let generation_binding = generation_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let refresh_interval_in_seconds_binding_1 = args
             .refresh_interval_in_seconds
-            .get_output(context)
+            .get_output(context);
+        let refresh_interval_in_seconds_binding = refresh_interval_in_seconds_binding_1
             .get_inner();
-        let repositories_binding = args.repositories.get_output(context).get_inner();
-        let spring_cloud_service_id_binding = args
+        let repositories_binding_1 = args.repositories.get_output(context);
+        let repositories_binding = repositories_binding_1.get_inner();
+        let spring_cloud_service_id_binding_1 = args
             .spring_cloud_service_id
-            .get_output(context)
+            .get_output(context);
+        let spring_cloud_service_id_binding = spring_cloud_service_id_binding_1
             .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:appplatform/springCloudConfigurationService:SpringCloudConfigurationService"

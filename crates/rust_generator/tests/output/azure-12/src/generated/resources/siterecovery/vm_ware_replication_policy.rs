@@ -87,19 +87,20 @@ pub mod vm_ware_replication_policy {
     ) -> VMWareReplicationPolicyResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let application_consistent_snapshot_frequency_in_minutes_binding = args
+        let application_consistent_snapshot_frequency_in_minutes_binding_1 = args
             .application_consistent_snapshot_frequency_in_minutes
-            .get_output(context)
+            .get_output(context);
+        let application_consistent_snapshot_frequency_in_minutes_binding = application_consistent_snapshot_frequency_in_minutes_binding_1
             .get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let recovery_point_retention_in_minutes_binding = args
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let recovery_point_retention_in_minutes_binding_1 = args
             .recovery_point_retention_in_minutes
-            .get_output(context)
+            .get_output(context);
+        let recovery_point_retention_in_minutes_binding = recovery_point_retention_in_minutes_binding_1
             .get_inner();
-        let recovery_vault_id_binding = args
-            .recovery_vault_id
-            .get_output(context)
-            .get_inner();
+        let recovery_vault_id_binding_1 = args.recovery_vault_id.get_output(context);
+        let recovery_vault_id_binding = recovery_vault_id_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:siterecovery/vMWareReplicationPolicy:VMWareReplicationPolicy"
                 .into(),

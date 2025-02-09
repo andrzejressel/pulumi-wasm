@@ -161,14 +161,22 @@ pub mod scheduled_action {
     ) -> ScheduledActionResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let description_binding = args.description.get_output(context).get_inner();
-        let enable_binding = args.enable.get_output(context).get_inner();
-        let end_time_binding = args.end_time.get_output(context).get_inner();
-        let iam_role_binding = args.iam_role.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let schedule_binding = args.schedule.get_output(context).get_inner();
-        let start_time_binding = args.start_time.get_output(context).get_inner();
-        let target_action_binding = args.target_action.get_output(context).get_inner();
+        let description_binding_1 = args.description.get_output(context);
+        let description_binding = description_binding_1.get_inner();
+        let enable_binding_1 = args.enable.get_output(context);
+        let enable_binding = enable_binding_1.get_inner();
+        let end_time_binding_1 = args.end_time.get_output(context);
+        let end_time_binding = end_time_binding_1.get_inner();
+        let iam_role_binding_1 = args.iam_role.get_output(context);
+        let iam_role_binding = iam_role_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let schedule_binding_1 = args.schedule.get_output(context);
+        let schedule_binding = schedule_binding_1.get_inner();
+        let start_time_binding_1 = args.start_time.get_output(context);
+        let start_time_binding = start_time_binding_1.get_inner();
+        let target_action_binding_1 = args.target_action.get_output(context);
+        let target_action_binding = target_action_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:redshift/scheduledAction:ScheduledAction".into(),
             name: name.to_string(),

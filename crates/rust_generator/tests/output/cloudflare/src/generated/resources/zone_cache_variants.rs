@@ -107,18 +107,30 @@ pub mod zone_cache_variants {
     ) -> ZoneCacheVariantsResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let avifs_binding = args.avifs.get_output(context).get_inner();
-        let bmps_binding = args.bmps.get_output(context).get_inner();
-        let gifs_binding = args.gifs.get_output(context).get_inner();
-        let jp2s_binding = args.jp2s.get_output(context).get_inner();
-        let jpegs_binding = args.jpegs.get_output(context).get_inner();
-        let jpg2s_binding = args.jpg2s.get_output(context).get_inner();
-        let jpgs_binding = args.jpgs.get_output(context).get_inner();
-        let pngs_binding = args.pngs.get_output(context).get_inner();
-        let tiffs_binding = args.tiffs.get_output(context).get_inner();
-        let tifs_binding = args.tifs.get_output(context).get_inner();
-        let webps_binding = args.webps.get_output(context).get_inner();
-        let zone_id_binding = args.zone_id.get_output(context).get_inner();
+        let avifs_binding_1 = args.avifs.get_output(context);
+        let avifs_binding = avifs_binding_1.get_inner();
+        let bmps_binding_1 = args.bmps.get_output(context);
+        let bmps_binding = bmps_binding_1.get_inner();
+        let gifs_binding_1 = args.gifs.get_output(context);
+        let gifs_binding = gifs_binding_1.get_inner();
+        let jp2s_binding_1 = args.jp2s.get_output(context);
+        let jp2s_binding = jp2s_binding_1.get_inner();
+        let jpegs_binding_1 = args.jpegs.get_output(context);
+        let jpegs_binding = jpegs_binding_1.get_inner();
+        let jpg2s_binding_1 = args.jpg2s.get_output(context);
+        let jpg2s_binding = jpg2s_binding_1.get_inner();
+        let jpgs_binding_1 = args.jpgs.get_output(context);
+        let jpgs_binding = jpgs_binding_1.get_inner();
+        let pngs_binding_1 = args.pngs.get_output(context);
+        let pngs_binding = pngs_binding_1.get_inner();
+        let tiffs_binding_1 = args.tiffs.get_output(context);
+        let tiffs_binding = tiffs_binding_1.get_inner();
+        let tifs_binding_1 = args.tifs.get_output(context);
+        let tifs_binding = tifs_binding_1.get_inner();
+        let webps_binding_1 = args.webps.get_output(context);
+        let webps_binding = webps_binding_1.get_inner();
+        let zone_id_binding_1 = args.zone_id.get_output(context);
+        let zone_id_binding = zone_id_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "cloudflare:index/zoneCacheVariants:ZoneCacheVariants".into(),
             name: name.to_string(),

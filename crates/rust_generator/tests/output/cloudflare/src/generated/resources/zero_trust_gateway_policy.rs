@@ -115,17 +115,28 @@ pub mod zero_trust_gateway_policy {
     ) -> ZeroTrustGatewayPolicyResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let account_id_binding = args.account_id.get_output(context).get_inner();
-        let action_binding = args.action.get_output(context).get_inner();
-        let description_binding = args.description.get_output(context).get_inner();
-        let device_posture_binding = args.device_posture.get_output(context).get_inner();
-        let enabled_binding = args.enabled.get_output(context).get_inner();
-        let filters_binding = args.filters.get_output(context).get_inner();
-        let identity_binding = args.identity.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let precedence_binding = args.precedence.get_output(context).get_inner();
-        let rule_settings_binding = args.rule_settings.get_output(context).get_inner();
-        let traffic_binding = args.traffic.get_output(context).get_inner();
+        let account_id_binding_1 = args.account_id.get_output(context);
+        let account_id_binding = account_id_binding_1.get_inner();
+        let action_binding_1 = args.action.get_output(context);
+        let action_binding = action_binding_1.get_inner();
+        let description_binding_1 = args.description.get_output(context);
+        let description_binding = description_binding_1.get_inner();
+        let device_posture_binding_1 = args.device_posture.get_output(context);
+        let device_posture_binding = device_posture_binding_1.get_inner();
+        let enabled_binding_1 = args.enabled.get_output(context);
+        let enabled_binding = enabled_binding_1.get_inner();
+        let filters_binding_1 = args.filters.get_output(context);
+        let filters_binding = filters_binding_1.get_inner();
+        let identity_binding_1 = args.identity.get_output(context);
+        let identity_binding = identity_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let precedence_binding_1 = args.precedence.get_output(context);
+        let precedence_binding = precedence_binding_1.get_inner();
+        let rule_settings_binding_1 = args.rule_settings.get_output(context);
+        let rule_settings_binding = rule_settings_binding_1.get_inner();
+        let traffic_binding_1 = args.traffic.get_output(context);
+        let traffic_binding = traffic_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "cloudflare:index/zeroTrustGatewayPolicy:ZeroTrustGatewayPolicy"
                 .into(),

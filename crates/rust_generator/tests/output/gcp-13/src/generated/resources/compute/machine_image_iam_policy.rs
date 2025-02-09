@@ -379,9 +379,12 @@ pub mod machine_image_iam_policy {
     ) -> MachineImageIamPolicyResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let machine_image_binding = args.machine_image.get_output(context).get_inner();
-        let policy_data_binding = args.policy_data.get_output(context).get_inner();
-        let project_binding = args.project.get_output(context).get_inner();
+        let machine_image_binding_1 = args.machine_image.get_output(context);
+        let machine_image_binding = machine_image_binding_1.get_inner();
+        let policy_data_binding_1 = args.policy_data.get_output(context);
+        let policy_data_binding = policy_data_binding_1.get_inner();
+        let project_binding_1 = args.project.get_output(context);
+        let project_binding = project_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:compute/machineImageIamPolicy:MachineImageIamPolicy".into(),
             name: name.to_string(),

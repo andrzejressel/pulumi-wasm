@@ -128,14 +128,10 @@ pub mod automanage_configuration_assignment {
     ) -> AutomanageConfigurationAssignmentResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let configuration_id_binding = args
-            .configuration_id
-            .get_output(context)
-            .get_inner();
-        let virtual_machine_id_binding = args
-            .virtual_machine_id
-            .get_output(context)
-            .get_inner();
+        let configuration_id_binding_1 = args.configuration_id.get_output(context);
+        let configuration_id_binding = configuration_id_binding_1.get_inner();
+        let virtual_machine_id_binding_1 = args.virtual_machine_id.get_output(context);
+        let virtual_machine_id_binding = virtual_machine_id_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:compute/automanageConfigurationAssignment:AutomanageConfigurationAssignment"
                 .into(),

@@ -155,22 +155,23 @@ pub mod access_point {
     ) -> AccessPointResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let account_id_binding = args.account_id.get_output(context).get_inner();
-        let bucket_binding = args.bucket.get_output(context).get_inner();
-        let bucket_account_id_binding = args
-            .bucket_account_id
-            .get_output(context)
-            .get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let policy_binding = args.policy.get_output(context).get_inner();
-        let public_access_block_configuration_binding = args
+        let account_id_binding_1 = args.account_id.get_output(context);
+        let account_id_binding = account_id_binding_1.get_inner();
+        let bucket_binding_1 = args.bucket.get_output(context);
+        let bucket_binding = bucket_binding_1.get_inner();
+        let bucket_account_id_binding_1 = args.bucket_account_id.get_output(context);
+        let bucket_account_id_binding = bucket_account_id_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let policy_binding_1 = args.policy.get_output(context);
+        let policy_binding = policy_binding_1.get_inner();
+        let public_access_block_configuration_binding_1 = args
             .public_access_block_configuration
-            .get_output(context)
+            .get_output(context);
+        let public_access_block_configuration_binding = public_access_block_configuration_binding_1
             .get_inner();
-        let vpc_configuration_binding = args
-            .vpc_configuration
-            .get_output(context)
-            .get_inner();
+        let vpc_configuration_binding_1 = args.vpc_configuration.get_output(context);
+        let vpc_configuration_binding = vpc_configuration_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:s3/accessPoint:AccessPoint".into(),
             name: name.to_string(),

@@ -100,19 +100,24 @@ pub mod smart_detection_rule {
     ) -> SmartDetectionRuleResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let additional_email_recipients_binding = args
+        let additional_email_recipients_binding_1 = args
             .additional_email_recipients
-            .get_output(context)
+            .get_output(context);
+        let additional_email_recipients_binding = additional_email_recipients_binding_1
             .get_inner();
-        let application_insights_id_binding = args
+        let application_insights_id_binding_1 = args
             .application_insights_id
-            .get_output(context)
+            .get_output(context);
+        let application_insights_id_binding = application_insights_id_binding_1
             .get_inner();
-        let enabled_binding = args.enabled.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let send_emails_to_subscription_owners_binding = args
+        let enabled_binding_1 = args.enabled.get_output(context);
+        let enabled_binding = enabled_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let send_emails_to_subscription_owners_binding_1 = args
             .send_emails_to_subscription_owners
-            .get_output(context)
+            .get_output(context);
+        let send_emails_to_subscription_owners_binding = send_emails_to_subscription_owners_binding_1
             .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:appinsights/smartDetectionRule:SmartDetectionRule".into(),

@@ -330,39 +330,38 @@ pub mod cluster {
     ) -> ClusterResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let broker_node_group_info_binding = args
+        let broker_node_group_info_binding_1 = args
             .broker_node_group_info
-            .get_output(context)
+            .get_output(context);
+        let broker_node_group_info_binding = broker_node_group_info_binding_1
             .get_inner();
-        let client_authentication_binding = args
+        let client_authentication_binding_1 = args
             .client_authentication
-            .get_output(context)
-            .get_inner();
-        let cluster_name_binding = args.cluster_name.get_output(context).get_inner();
-        let configuration_info_binding = args
-            .configuration_info
-            .get_output(context)
-            .get_inner();
-        let encryption_info_binding = args
-            .encryption_info
-            .get_output(context)
-            .get_inner();
-        let enhanced_monitoring_binding = args
-            .enhanced_monitoring
-            .get_output(context)
-            .get_inner();
-        let kafka_version_binding = args.kafka_version.get_output(context).get_inner();
-        let logging_info_binding = args.logging_info.get_output(context).get_inner();
-        let number_of_broker_nodes_binding = args
+            .get_output(context);
+        let client_authentication_binding = client_authentication_binding_1.get_inner();
+        let cluster_name_binding_1 = args.cluster_name.get_output(context);
+        let cluster_name_binding = cluster_name_binding_1.get_inner();
+        let configuration_info_binding_1 = args.configuration_info.get_output(context);
+        let configuration_info_binding = configuration_info_binding_1.get_inner();
+        let encryption_info_binding_1 = args.encryption_info.get_output(context);
+        let encryption_info_binding = encryption_info_binding_1.get_inner();
+        let enhanced_monitoring_binding_1 = args.enhanced_monitoring.get_output(context);
+        let enhanced_monitoring_binding = enhanced_monitoring_binding_1.get_inner();
+        let kafka_version_binding_1 = args.kafka_version.get_output(context);
+        let kafka_version_binding = kafka_version_binding_1.get_inner();
+        let logging_info_binding_1 = args.logging_info.get_output(context);
+        let logging_info_binding = logging_info_binding_1.get_inner();
+        let number_of_broker_nodes_binding_1 = args
             .number_of_broker_nodes
-            .get_output(context)
+            .get_output(context);
+        let number_of_broker_nodes_binding = number_of_broker_nodes_binding_1
             .get_inner();
-        let open_monitoring_binding = args
-            .open_monitoring
-            .get_output(context)
-            .get_inner();
-        let storage_mode_binding = args.storage_mode.get_output(context).get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
+        let open_monitoring_binding_1 = args.open_monitoring.get_output(context);
+        let open_monitoring_binding = open_monitoring_binding_1.get_inner();
+        let storage_mode_binding_1 = args.storage_mode.get_output(context);
+        let storage_mode_binding = storage_mode_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:msk/cluster:Cluster".into(),
             name: name.to_string(),

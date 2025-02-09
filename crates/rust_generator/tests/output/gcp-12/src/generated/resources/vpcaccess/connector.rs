@@ -197,17 +197,28 @@ pub mod connector {
     ) -> ConnectorResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let ip_cidr_range_binding = args.ip_cidr_range.get_output(context).get_inner();
-        let machine_type_binding = args.machine_type.get_output(context).get_inner();
-        let max_instances_binding = args.max_instances.get_output(context).get_inner();
-        let max_throughput_binding = args.max_throughput.get_output(context).get_inner();
-        let min_instances_binding = args.min_instances.get_output(context).get_inner();
-        let min_throughput_binding = args.min_throughput.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let network_binding = args.network.get_output(context).get_inner();
-        let project_binding = args.project.get_output(context).get_inner();
-        let region_binding = args.region.get_output(context).get_inner();
-        let subnet_binding = args.subnet.get_output(context).get_inner();
+        let ip_cidr_range_binding_1 = args.ip_cidr_range.get_output(context);
+        let ip_cidr_range_binding = ip_cidr_range_binding_1.get_inner();
+        let machine_type_binding_1 = args.machine_type.get_output(context);
+        let machine_type_binding = machine_type_binding_1.get_inner();
+        let max_instances_binding_1 = args.max_instances.get_output(context);
+        let max_instances_binding = max_instances_binding_1.get_inner();
+        let max_throughput_binding_1 = args.max_throughput.get_output(context);
+        let max_throughput_binding = max_throughput_binding_1.get_inner();
+        let min_instances_binding_1 = args.min_instances.get_output(context);
+        let min_instances_binding = min_instances_binding_1.get_inner();
+        let min_throughput_binding_1 = args.min_throughput.get_output(context);
+        let min_throughput_binding = min_throughput_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let network_binding_1 = args.network.get_output(context);
+        let network_binding = network_binding_1.get_inner();
+        let project_binding_1 = args.project.get_output(context);
+        let project_binding = project_binding_1.get_inner();
+        let region_binding_1 = args.region.get_output(context);
+        let region_binding = region_binding_1.get_inner();
+        let subnet_binding_1 = args.subnet.get_output(context);
+        let subnet_binding = subnet_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:vpcaccess/connector:Connector".into(),
             name: name.to_string(),

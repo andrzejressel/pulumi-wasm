@@ -81,9 +81,12 @@ pub mod service_quota {
     ) -> ServiceQuotaResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let quota_code_binding = args.quota_code.get_output(context).get_inner();
-        let service_code_binding = args.service_code.get_output(context).get_inner();
-        let value_binding = args.value.get_output(context).get_inner();
+        let quota_code_binding_1 = args.quota_code.get_output(context);
+        let quota_code_binding = quota_code_binding_1.get_inner();
+        let service_code_binding_1 = args.service_code.get_output(context);
+        let service_code_binding = service_code_binding_1.get_inner();
+        let value_binding_1 = args.value.get_output(context);
+        let value_binding = value_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:servicequotas/serviceQuota:ServiceQuota".into(),
             name: name.to_string(),

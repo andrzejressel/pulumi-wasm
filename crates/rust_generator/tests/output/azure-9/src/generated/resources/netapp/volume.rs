@@ -222,89 +222,99 @@ pub mod volume {
     ) -> VolumeResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let account_name_binding = args.account_name.get_output(context).get_inner();
-        let azure_vmware_data_store_enabled_binding = args
+        let account_name_binding_1 = args.account_name.get_output(context);
+        let account_name_binding = account_name_binding_1.get_inner();
+        let azure_vmware_data_store_enabled_binding_1 = args
             .azure_vmware_data_store_enabled
-            .get_output(context)
+            .get_output(context);
+        let azure_vmware_data_store_enabled_binding = azure_vmware_data_store_enabled_binding_1
             .get_inner();
-        let create_from_snapshot_resource_id_binding = args
+        let create_from_snapshot_resource_id_binding_1 = args
             .create_from_snapshot_resource_id
-            .get_output(context)
+            .get_output(context);
+        let create_from_snapshot_resource_id_binding = create_from_snapshot_resource_id_binding_1
             .get_inner();
-        let data_protection_backup_policy_binding = args
+        let data_protection_backup_policy_binding_1 = args
             .data_protection_backup_policy
-            .get_output(context)
+            .get_output(context);
+        let data_protection_backup_policy_binding = data_protection_backup_policy_binding_1
             .get_inner();
-        let data_protection_replication_binding = args
+        let data_protection_replication_binding_1 = args
             .data_protection_replication
-            .get_output(context)
+            .get_output(context);
+        let data_protection_replication_binding = data_protection_replication_binding_1
             .get_inner();
-        let data_protection_snapshot_policy_binding = args
+        let data_protection_snapshot_policy_binding_1 = args
             .data_protection_snapshot_policy
-            .get_output(context)
+            .get_output(context);
+        let data_protection_snapshot_policy_binding = data_protection_snapshot_policy_binding_1
             .get_inner();
-        let encryption_key_source_binding = args
+        let encryption_key_source_binding_1 = args
             .encryption_key_source
-            .get_output(context)
-            .get_inner();
-        let export_policy_rules_binding = args
-            .export_policy_rules
-            .get_output(context)
-            .get_inner();
-        let kerberos_enabled_binding = args
-            .kerberos_enabled
-            .get_output(context)
-            .get_inner();
-        let key_vault_private_endpoint_id_binding = args
+            .get_output(context);
+        let encryption_key_source_binding = encryption_key_source_binding_1.get_inner();
+        let export_policy_rules_binding_1 = args.export_policy_rules.get_output(context);
+        let export_policy_rules_binding = export_policy_rules_binding_1.get_inner();
+        let kerberos_enabled_binding_1 = args.kerberos_enabled.get_output(context);
+        let kerberos_enabled_binding = kerberos_enabled_binding_1.get_inner();
+        let key_vault_private_endpoint_id_binding_1 = args
             .key_vault_private_endpoint_id
-            .get_output(context)
+            .get_output(context);
+        let key_vault_private_endpoint_id_binding = key_vault_private_endpoint_id_binding_1
             .get_inner();
-        let location_binding = args.location.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let network_features_binding = args
-            .network_features
-            .get_output(context)
-            .get_inner();
-        let pool_name_binding = args.pool_name.get_output(context).get_inner();
-        let protocols_binding = args.protocols.get_output(context).get_inner();
-        let resource_group_name_binding = args
-            .resource_group_name
-            .get_output(context)
-            .get_inner();
-        let security_style_binding = args.security_style.get_output(context).get_inner();
-        let service_level_binding = args.service_level.get_output(context).get_inner();
-        let smb3_protocol_encryption_enabled_binding = args
+        let location_binding_1 = args.location.get_output(context);
+        let location_binding = location_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let network_features_binding_1 = args.network_features.get_output(context);
+        let network_features_binding = network_features_binding_1.get_inner();
+        let pool_name_binding_1 = args.pool_name.get_output(context);
+        let pool_name_binding = pool_name_binding_1.get_inner();
+        let protocols_binding_1 = args.protocols.get_output(context);
+        let protocols_binding = protocols_binding_1.get_inner();
+        let resource_group_name_binding_1 = args.resource_group_name.get_output(context);
+        let resource_group_name_binding = resource_group_name_binding_1.get_inner();
+        let security_style_binding_1 = args.security_style.get_output(context);
+        let security_style_binding = security_style_binding_1.get_inner();
+        let service_level_binding_1 = args.service_level.get_output(context);
+        let service_level_binding = service_level_binding_1.get_inner();
+        let smb3_protocol_encryption_enabled_binding_1 = args
             .smb3_protocol_encryption_enabled
-            .get_output(context)
+            .get_output(context);
+        let smb3_protocol_encryption_enabled_binding = smb3_protocol_encryption_enabled_binding_1
             .get_inner();
-        let smb_access_based_enumeration_enabled_binding = args
+        let smb_access_based_enumeration_enabled_binding_1 = args
             .smb_access_based_enumeration_enabled
-            .get_output(context)
+            .get_output(context);
+        let smb_access_based_enumeration_enabled_binding = smb_access_based_enumeration_enabled_binding_1
             .get_inner();
-        let smb_continuous_availability_enabled_binding = args
+        let smb_continuous_availability_enabled_binding_1 = args
             .smb_continuous_availability_enabled
-            .get_output(context)
+            .get_output(context);
+        let smb_continuous_availability_enabled_binding = smb_continuous_availability_enabled_binding_1
             .get_inner();
-        let smb_non_browsable_enabled_binding = args
+        let smb_non_browsable_enabled_binding_1 = args
             .smb_non_browsable_enabled
-            .get_output(context)
+            .get_output(context);
+        let smb_non_browsable_enabled_binding = smb_non_browsable_enabled_binding_1
             .get_inner();
-        let snapshot_directory_visible_binding = args
+        let snapshot_directory_visible_binding_1 = args
             .snapshot_directory_visible
-            .get_output(context)
+            .get_output(context);
+        let snapshot_directory_visible_binding = snapshot_directory_visible_binding_1
             .get_inner();
-        let storage_quota_in_gb_binding = args
-            .storage_quota_in_gb
-            .get_output(context)
-            .get_inner();
-        let subnet_id_binding = args.subnet_id.get_output(context).get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
-        let throughput_in_mibps_binding = args
-            .throughput_in_mibps
-            .get_output(context)
-            .get_inner();
-        let volume_path_binding = args.volume_path.get_output(context).get_inner();
-        let zone_binding = args.zone.get_output(context).get_inner();
+        let storage_quota_in_gb_binding_1 = args.storage_quota_in_gb.get_output(context);
+        let storage_quota_in_gb_binding = storage_quota_in_gb_binding_1.get_inner();
+        let subnet_id_binding_1 = args.subnet_id.get_output(context);
+        let subnet_id_binding = subnet_id_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
+        let throughput_in_mibps_binding_1 = args.throughput_in_mibps.get_output(context);
+        let throughput_in_mibps_binding = throughput_in_mibps_binding_1.get_inner();
+        let volume_path_binding_1 = args.volume_path.get_output(context);
+        let volume_path_binding = volume_path_binding_1.get_inner();
+        let zone_binding_1 = args.zone.get_output(context);
+        let zone_binding = zone_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:netapp/volume:Volume".into(),
             name: name.to_string(),

@@ -146,18 +146,24 @@ pub mod workbook_template {
     ) -> WorkbookTemplateResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let author_binding = args.author.get_output(context).get_inner();
-        let galleries_binding = args.galleries.get_output(context).get_inner();
-        let localized_binding = args.localized.get_output(context).get_inner();
-        let location_binding = args.location.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let priority_binding = args.priority.get_output(context).get_inner();
-        let resource_group_name_binding = args
-            .resource_group_name
-            .get_output(context)
-            .get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
-        let template_data_binding = args.template_data.get_output(context).get_inner();
+        let author_binding_1 = args.author.get_output(context);
+        let author_binding = author_binding_1.get_inner();
+        let galleries_binding_1 = args.galleries.get_output(context);
+        let galleries_binding = galleries_binding_1.get_inner();
+        let localized_binding_1 = args.localized.get_output(context);
+        let localized_binding = localized_binding_1.get_inner();
+        let location_binding_1 = args.location.get_output(context);
+        let location_binding = location_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let priority_binding_1 = args.priority.get_output(context);
+        let priority_binding = priority_binding_1.get_inner();
+        let resource_group_name_binding_1 = args.resource_group_name.get_output(context);
+        let resource_group_name_binding = resource_group_name_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
+        let template_data_binding_1 = args.template_data.get_output(context);
+        let template_data_binding = template_data_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:appinsights/workbookTemplate:WorkbookTemplate".into(),
             name: name.to_string(),

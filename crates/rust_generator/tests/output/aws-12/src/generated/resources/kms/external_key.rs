@@ -111,24 +111,30 @@ pub mod external_key {
     ) -> ExternalKeyResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let bypass_policy_lockout_safety_check_binding = args
+        let bypass_policy_lockout_safety_check_binding_1 = args
             .bypass_policy_lockout_safety_check
-            .get_output(context)
+            .get_output(context);
+        let bypass_policy_lockout_safety_check_binding = bypass_policy_lockout_safety_check_binding_1
             .get_inner();
-        let deletion_window_in_days_binding = args
+        let deletion_window_in_days_binding_1 = args
             .deletion_window_in_days
-            .get_output(context)
+            .get_output(context);
+        let deletion_window_in_days_binding = deletion_window_in_days_binding_1
             .get_inner();
-        let description_binding = args.description.get_output(context).get_inner();
-        let enabled_binding = args.enabled.get_output(context).get_inner();
-        let key_material_base64_binding = args
-            .key_material_base64
-            .get_output(context)
-            .get_inner();
-        let multi_region_binding = args.multi_region.get_output(context).get_inner();
-        let policy_binding = args.policy.get_output(context).get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
-        let valid_to_binding = args.valid_to.get_output(context).get_inner();
+        let description_binding_1 = args.description.get_output(context);
+        let description_binding = description_binding_1.get_inner();
+        let enabled_binding_1 = args.enabled.get_output(context);
+        let enabled_binding = enabled_binding_1.get_inner();
+        let key_material_base64_binding_1 = args.key_material_base64.get_output(context);
+        let key_material_base64_binding = key_material_base64_binding_1.get_inner();
+        let multi_region_binding_1 = args.multi_region.get_output(context);
+        let multi_region_binding = multi_region_binding_1.get_inner();
+        let policy_binding_1 = args.policy.get_output(context);
+        let policy_binding = policy_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
+        let valid_to_binding_1 = args.valid_to.get_output(context);
+        let valid_to_binding = valid_to_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:kms/externalKey:ExternalKey".into(),
             name: name.to_string(),

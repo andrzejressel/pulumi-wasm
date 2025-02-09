@@ -145,43 +145,46 @@ pub mod factory {
     ) -> FactoryResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let customer_managed_key_id_binding = args
+        let customer_managed_key_id_binding_1 = args
             .customer_managed_key_id
-            .get_output(context)
+            .get_output(context);
+        let customer_managed_key_id_binding = customer_managed_key_id_binding_1
             .get_inner();
-        let customer_managed_key_identity_id_binding = args
+        let customer_managed_key_identity_id_binding_1 = args
             .customer_managed_key_identity_id
-            .get_output(context)
+            .get_output(context);
+        let customer_managed_key_identity_id_binding = customer_managed_key_identity_id_binding_1
             .get_inner();
-        let github_configuration_binding = args
+        let github_configuration_binding_1 = args
             .github_configuration
-            .get_output(context)
-            .get_inner();
-        let global_parameters_binding = args
-            .global_parameters
-            .get_output(context)
-            .get_inner();
-        let identity_binding = args.identity.get_output(context).get_inner();
-        let location_binding = args.location.get_output(context).get_inner();
-        let managed_virtual_network_enabled_binding = args
+            .get_output(context);
+        let github_configuration_binding = github_configuration_binding_1.get_inner();
+        let global_parameters_binding_1 = args.global_parameters.get_output(context);
+        let global_parameters_binding = global_parameters_binding_1.get_inner();
+        let identity_binding_1 = args.identity.get_output(context);
+        let identity_binding = identity_binding_1.get_inner();
+        let location_binding_1 = args.location.get_output(context);
+        let location_binding = location_binding_1.get_inner();
+        let managed_virtual_network_enabled_binding_1 = args
             .managed_virtual_network_enabled
-            .get_output(context)
+            .get_output(context);
+        let managed_virtual_network_enabled_binding = managed_virtual_network_enabled_binding_1
             .get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let public_network_enabled_binding = args
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let public_network_enabled_binding_1 = args
             .public_network_enabled
-            .get_output(context)
+            .get_output(context);
+        let public_network_enabled_binding = public_network_enabled_binding_1
             .get_inner();
-        let purview_id_binding = args.purview_id.get_output(context).get_inner();
-        let resource_group_name_binding = args
-            .resource_group_name
-            .get_output(context)
-            .get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
-        let vsts_configuration_binding = args
-            .vsts_configuration
-            .get_output(context)
-            .get_inner();
+        let purview_id_binding_1 = args.purview_id.get_output(context);
+        let purview_id_binding = purview_id_binding_1.get_inner();
+        let resource_group_name_binding_1 = args.resource_group_name.get_output(context);
+        let resource_group_name_binding = resource_group_name_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
+        let vsts_configuration_binding_1 = args.vsts_configuration.get_output(context);
+        let vsts_configuration_binding = vsts_configuration_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:datafactory/factory:Factory".into(),
             name: name.to_string(),

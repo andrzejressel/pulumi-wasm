@@ -124,13 +124,14 @@ pub mod domain_mapping {
     ) -> DomainMappingResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let domain_name_binding = args.domain_name.get_output(context).get_inner();
-        let override_strategy_binding = args
-            .override_strategy
-            .get_output(context)
-            .get_inner();
-        let project_binding = args.project.get_output(context).get_inner();
-        let ssl_settings_binding = args.ssl_settings.get_output(context).get_inner();
+        let domain_name_binding_1 = args.domain_name.get_output(context);
+        let domain_name_binding = domain_name_binding_1.get_inner();
+        let override_strategy_binding_1 = args.override_strategy.get_output(context);
+        let override_strategy_binding = override_strategy_binding_1.get_inner();
+        let project_binding_1 = args.project.get_output(context);
+        let project_binding = project_binding_1.get_inner();
+        let ssl_settings_binding_1 = args.ssl_settings.get_output(context);
+        let ssl_settings_binding = ssl_settings_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:appengine/domainMapping:DomainMapping".into(),
             name: name.to_string(),

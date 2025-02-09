@@ -200,14 +200,22 @@ pub mod target_server {
     ) -> TargetServerResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let description_binding = args.description.get_output(context).get_inner();
-        let env_id_binding = args.env_id.get_output(context).get_inner();
-        let host_binding = args.host.get_output(context).get_inner();
-        let is_enabled_binding = args.is_enabled.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let port_binding = args.port.get_output(context).get_inner();
-        let protocol_binding = args.protocol.get_output(context).get_inner();
-        let s_sl_info_binding = args.s_sl_info.get_output(context).get_inner();
+        let description_binding_1 = args.description.get_output(context);
+        let description_binding = description_binding_1.get_inner();
+        let env_id_binding_1 = args.env_id.get_output(context);
+        let env_id_binding = env_id_binding_1.get_inner();
+        let host_binding_1 = args.host.get_output(context);
+        let host_binding = host_binding_1.get_inner();
+        let is_enabled_binding_1 = args.is_enabled.get_output(context);
+        let is_enabled_binding = is_enabled_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let port_binding_1 = args.port.get_output(context);
+        let port_binding = port_binding_1.get_inner();
+        let protocol_binding_1 = args.protocol.get_output(context);
+        let protocol_binding = protocol_binding_1.get_inner();
+        let s_sl_info_binding_1 = args.s_sl_info.get_output(context);
+        let s_sl_info_binding = s_sl_info_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:apigee/targetServer:TargetServer".into(),
             name: name.to_string(),

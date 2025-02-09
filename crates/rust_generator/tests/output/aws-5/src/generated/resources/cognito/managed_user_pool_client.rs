@@ -249,79 +249,81 @@ pub mod managed_user_pool_client {
     ) -> ManagedUserPoolClientResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let access_token_validity_binding = args
+        let access_token_validity_binding_1 = args
             .access_token_validity
-            .get_output(context)
-            .get_inner();
-        let allowed_oauth_flows_binding = args
-            .allowed_oauth_flows
-            .get_output(context)
-            .get_inner();
-        let allowed_oauth_flows_user_pool_client_binding = args
+            .get_output(context);
+        let access_token_validity_binding = access_token_validity_binding_1.get_inner();
+        let allowed_oauth_flows_binding_1 = args.allowed_oauth_flows.get_output(context);
+        let allowed_oauth_flows_binding = allowed_oauth_flows_binding_1.get_inner();
+        let allowed_oauth_flows_user_pool_client_binding_1 = args
             .allowed_oauth_flows_user_pool_client
-            .get_output(context)
+            .get_output(context);
+        let allowed_oauth_flows_user_pool_client_binding = allowed_oauth_flows_user_pool_client_binding_1
             .get_inner();
-        let allowed_oauth_scopes_binding = args
+        let allowed_oauth_scopes_binding_1 = args
             .allowed_oauth_scopes
-            .get_output(context)
-            .get_inner();
-        let analytics_configuration_binding = args
+            .get_output(context);
+        let allowed_oauth_scopes_binding = allowed_oauth_scopes_binding_1.get_inner();
+        let analytics_configuration_binding_1 = args
             .analytics_configuration
-            .get_output(context)
+            .get_output(context);
+        let analytics_configuration_binding = analytics_configuration_binding_1
             .get_inner();
-        let auth_session_validity_binding = args
+        let auth_session_validity_binding_1 = args
             .auth_session_validity
-            .get_output(context)
-            .get_inner();
-        let callback_urls_binding = args.callback_urls.get_output(context).get_inner();
-        let default_redirect_uri_binding = args
+            .get_output(context);
+        let auth_session_validity_binding = auth_session_validity_binding_1.get_inner();
+        let callback_urls_binding_1 = args.callback_urls.get_output(context);
+        let callback_urls_binding = callback_urls_binding_1.get_inner();
+        let default_redirect_uri_binding_1 = args
             .default_redirect_uri
-            .get_output(context)
-            .get_inner();
-        let enable_propagate_additional_user_context_data_binding = args
+            .get_output(context);
+        let default_redirect_uri_binding = default_redirect_uri_binding_1.get_inner();
+        let enable_propagate_additional_user_context_data_binding_1 = args
             .enable_propagate_additional_user_context_data
-            .get_output(context)
+            .get_output(context);
+        let enable_propagate_additional_user_context_data_binding = enable_propagate_additional_user_context_data_binding_1
             .get_inner();
-        let enable_token_revocation_binding = args
+        let enable_token_revocation_binding_1 = args
             .enable_token_revocation
-            .get_output(context)
+            .get_output(context);
+        let enable_token_revocation_binding = enable_token_revocation_binding_1
             .get_inner();
-        let explicit_auth_flows_binding = args
-            .explicit_auth_flows
-            .get_output(context)
-            .get_inner();
-        let id_token_validity_binding = args
-            .id_token_validity
-            .get_output(context)
-            .get_inner();
-        let logout_urls_binding = args.logout_urls.get_output(context).get_inner();
-        let name_pattern_binding = args.name_pattern.get_output(context).get_inner();
-        let name_prefix_binding = args.name_prefix.get_output(context).get_inner();
-        let prevent_user_existence_errors_binding = args
+        let explicit_auth_flows_binding_1 = args.explicit_auth_flows.get_output(context);
+        let explicit_auth_flows_binding = explicit_auth_flows_binding_1.get_inner();
+        let id_token_validity_binding_1 = args.id_token_validity.get_output(context);
+        let id_token_validity_binding = id_token_validity_binding_1.get_inner();
+        let logout_urls_binding_1 = args.logout_urls.get_output(context);
+        let logout_urls_binding = logout_urls_binding_1.get_inner();
+        let name_pattern_binding_1 = args.name_pattern.get_output(context);
+        let name_pattern_binding = name_pattern_binding_1.get_inner();
+        let name_prefix_binding_1 = args.name_prefix.get_output(context);
+        let name_prefix_binding = name_prefix_binding_1.get_inner();
+        let prevent_user_existence_errors_binding_1 = args
             .prevent_user_existence_errors
-            .get_output(context)
+            .get_output(context);
+        let prevent_user_existence_errors_binding = prevent_user_existence_errors_binding_1
             .get_inner();
-        let read_attributes_binding = args
-            .read_attributes
-            .get_output(context)
-            .get_inner();
-        let refresh_token_validity_binding = args
+        let read_attributes_binding_1 = args.read_attributes.get_output(context);
+        let read_attributes_binding = read_attributes_binding_1.get_inner();
+        let refresh_token_validity_binding_1 = args
             .refresh_token_validity
-            .get_output(context)
+            .get_output(context);
+        let refresh_token_validity_binding = refresh_token_validity_binding_1
             .get_inner();
-        let supported_identity_providers_binding = args
+        let supported_identity_providers_binding_1 = args
             .supported_identity_providers
-            .get_output(context)
+            .get_output(context);
+        let supported_identity_providers_binding = supported_identity_providers_binding_1
             .get_inner();
-        let token_validity_units_binding = args
+        let token_validity_units_binding_1 = args
             .token_validity_units
-            .get_output(context)
-            .get_inner();
-        let user_pool_id_binding = args.user_pool_id.get_output(context).get_inner();
-        let write_attributes_binding = args
-            .write_attributes
-            .get_output(context)
-            .get_inner();
+            .get_output(context);
+        let token_validity_units_binding = token_validity_units_binding_1.get_inner();
+        let user_pool_id_binding_1 = args.user_pool_id.get_output(context);
+        let user_pool_id_binding = user_pool_id_binding_1.get_inner();
+        let write_attributes_binding_1 = args.write_attributes.get_output(context);
+        let write_attributes_binding = write_attributes_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:cognito/managedUserPoolClient:ManagedUserPoolClient".into(),
             name: name.to_string(),

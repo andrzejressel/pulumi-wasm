@@ -57,11 +57,10 @@ pub mod resource_association {
     ) -> ResourceAssociationResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let resource_arn_binding = args.resource_arn.get_output(context).get_inner();
-        let resource_share_arn_binding = args
-            .resource_share_arn
-            .get_output(context)
-            .get_inner();
+        let resource_arn_binding_1 = args.resource_arn.get_output(context);
+        let resource_arn_binding = resource_arn_binding_1.get_inner();
+        let resource_share_arn_binding_1 = args.resource_share_arn.get_output(context);
+        let resource_share_arn_binding = resource_share_arn_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:ram/resourceAssociation:ResourceAssociation".into(),
             name: name.to_string(),

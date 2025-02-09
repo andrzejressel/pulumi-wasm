@@ -69,11 +69,10 @@ pub mod virtual_network_dns_servers {
     ) -> VirtualNetworkDnsServersResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let dns_servers_binding = args.dns_servers.get_output(context).get_inner();
-        let virtual_network_id_binding = args
-            .virtual_network_id
-            .get_output(context)
-            .get_inner();
+        let dns_servers_binding_1 = args.dns_servers.get_output(context);
+        let dns_servers_binding = dns_servers_binding_1.get_inner();
+        let virtual_network_id_binding_1 = args.virtual_network_id.get_output(context);
+        let virtual_network_id_binding = virtual_network_id_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:network/virtualNetworkDnsServers:VirtualNetworkDnsServers"
                 .into(),

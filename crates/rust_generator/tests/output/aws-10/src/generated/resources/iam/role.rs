@@ -290,35 +290,34 @@ pub mod role {
     ) -> RoleResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let assume_role_policy_binding = args
-            .assume_role_policy
-            .get_output(context)
-            .get_inner();
-        let description_binding = args.description.get_output(context).get_inner();
-        let force_detach_policies_binding = args
+        let assume_role_policy_binding_1 = args.assume_role_policy.get_output(context);
+        let assume_role_policy_binding = assume_role_policy_binding_1.get_inner();
+        let description_binding_1 = args.description.get_output(context);
+        let description_binding = description_binding_1.get_inner();
+        let force_detach_policies_binding_1 = args
             .force_detach_policies
-            .get_output(context)
-            .get_inner();
-        let inline_policies_binding = args
-            .inline_policies
-            .get_output(context)
-            .get_inner();
-        let managed_policy_arns_binding = args
-            .managed_policy_arns
-            .get_output(context)
-            .get_inner();
-        let max_session_duration_binding = args
+            .get_output(context);
+        let force_detach_policies_binding = force_detach_policies_binding_1.get_inner();
+        let inline_policies_binding_1 = args.inline_policies.get_output(context);
+        let inline_policies_binding = inline_policies_binding_1.get_inner();
+        let managed_policy_arns_binding_1 = args.managed_policy_arns.get_output(context);
+        let managed_policy_arns_binding = managed_policy_arns_binding_1.get_inner();
+        let max_session_duration_binding_1 = args
             .max_session_duration
-            .get_output(context)
-            .get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let name_prefix_binding = args.name_prefix.get_output(context).get_inner();
-        let path_binding = args.path.get_output(context).get_inner();
-        let permissions_boundary_binding = args
+            .get_output(context);
+        let max_session_duration_binding = max_session_duration_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let name_prefix_binding_1 = args.name_prefix.get_output(context);
+        let name_prefix_binding = name_prefix_binding_1.get_inner();
+        let path_binding_1 = args.path.get_output(context);
+        let path_binding = path_binding_1.get_inner();
+        let permissions_boundary_binding_1 = args
             .permissions_boundary
-            .get_output(context)
-            .get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
+            .get_output(context);
+        let permissions_boundary_binding = permissions_boundary_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:iam/role:Role".into(),
             name: name.to_string(),

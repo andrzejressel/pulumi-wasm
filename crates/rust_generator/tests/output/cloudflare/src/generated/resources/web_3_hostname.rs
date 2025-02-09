@@ -51,11 +51,16 @@ pub mod web_3_hostname {
     ) -> Web3HostnameResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let description_binding = args.description.get_output(context).get_inner();
-        let dnslink_binding = args.dnslink.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let target_binding = args.target.get_output(context).get_inner();
-        let zone_id_binding = args.zone_id.get_output(context).get_inner();
+        let description_binding_1 = args.description.get_output(context);
+        let description_binding = description_binding_1.get_inner();
+        let dnslink_binding_1 = args.dnslink.get_output(context);
+        let dnslink_binding = dnslink_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let target_binding_1 = args.target.get_output(context);
+        let target_binding = target_binding_1.get_inner();
+        let zone_id_binding_1 = args.zone_id.get_output(context);
+        let zone_id_binding = zone_id_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "cloudflare:index/web3Hostname:Web3Hostname".into(),
             name: name.to_string(),

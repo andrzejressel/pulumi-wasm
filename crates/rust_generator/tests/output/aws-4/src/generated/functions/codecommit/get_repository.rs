@@ -34,10 +34,8 @@ pub mod get_repository {
     ) -> GetRepositoryResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let repository_name_binding = args
-            .repository_name
-            .get_output(context)
-            .get_inner();
+        let repository_name_binding_1 = args.repository_name.get_output(context);
+        let repository_name_binding = repository_name_binding_1.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:codecommit/getRepository:getRepository".into(),
             version: super::super::super::get_version(),

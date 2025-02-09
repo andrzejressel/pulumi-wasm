@@ -134,15 +134,19 @@ pub mod restore_point {
     ) -> RestorePointResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let crash_consistency_mode_enabled_binding = args
+        let crash_consistency_mode_enabled_binding_1 = args
             .crash_consistency_mode_enabled
-            .get_output(context)
+            .get_output(context);
+        let crash_consistency_mode_enabled_binding = crash_consistency_mode_enabled_binding_1
             .get_inner();
-        let excluded_disks_binding = args.excluded_disks.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let virtual_machine_restore_point_collection_id_binding = args
+        let excluded_disks_binding_1 = args.excluded_disks.get_output(context);
+        let excluded_disks_binding = excluded_disks_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let virtual_machine_restore_point_collection_id_binding_1 = args
             .virtual_machine_restore_point_collection_id
-            .get_output(context)
+            .get_output(context);
+        let virtual_machine_restore_point_collection_id_binding = virtual_machine_restore_point_collection_id_binding_1
             .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:compute/restorePoint:RestorePoint".into(),

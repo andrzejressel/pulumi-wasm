@@ -127,31 +127,35 @@ pub mod web_acl {
     ) -> WebAclResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let association_config_binding = args
-            .association_config
-            .get_output(context)
-            .get_inner();
-        let captcha_config_binding = args.captcha_config.get_output(context).get_inner();
-        let challenge_config_binding = args
-            .challenge_config
-            .get_output(context)
-            .get_inner();
-        let custom_response_bodies_binding = args
+        let association_config_binding_1 = args.association_config.get_output(context);
+        let association_config_binding = association_config_binding_1.get_inner();
+        let captcha_config_binding_1 = args.captcha_config.get_output(context);
+        let captcha_config_binding = captcha_config_binding_1.get_inner();
+        let challenge_config_binding_1 = args.challenge_config.get_output(context);
+        let challenge_config_binding = challenge_config_binding_1.get_inner();
+        let custom_response_bodies_binding_1 = args
             .custom_response_bodies
-            .get_output(context)
+            .get_output(context);
+        let custom_response_bodies_binding = custom_response_bodies_binding_1
             .get_inner();
-        let default_action_binding = args.default_action.get_output(context).get_inner();
-        let description_binding = args.description.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let rule_json_binding = args.rule_json.get_output(context).get_inner();
-        let rules_binding = args.rules.get_output(context).get_inner();
-        let scope_binding = args.scope.get_output(context).get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
-        let token_domains_binding = args.token_domains.get_output(context).get_inner();
-        let visibility_config_binding = args
-            .visibility_config
-            .get_output(context)
-            .get_inner();
+        let default_action_binding_1 = args.default_action.get_output(context);
+        let default_action_binding = default_action_binding_1.get_inner();
+        let description_binding_1 = args.description.get_output(context);
+        let description_binding = description_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let rule_json_binding_1 = args.rule_json.get_output(context);
+        let rule_json_binding = rule_json_binding_1.get_inner();
+        let rules_binding_1 = args.rules.get_output(context);
+        let rules_binding = rules_binding_1.get_inner();
+        let scope_binding_1 = args.scope.get_output(context);
+        let scope_binding = scope_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
+        let token_domains_binding_1 = args.token_domains.get_output(context);
+        let token_domains_binding = token_domains_binding_1.get_inner();
+        let visibility_config_binding_1 = args.visibility_config.get_output(context);
+        let visibility_config_binding = visibility_config_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:wafv2/webAcl:WebAcl".into(),
             name: name.to_string(),

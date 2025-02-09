@@ -367,61 +367,64 @@ pub mod table {
     ) -> TableResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let biglake_configuration_binding = args
+        let biglake_configuration_binding_1 = args
             .biglake_configuration
-            .get_output(context)
-            .get_inner();
-        let clusterings_binding = args.clusterings.get_output(context).get_inner();
-        let dataset_id_binding = args.dataset_id.get_output(context).get_inner();
-        let deletion_protection_binding = args
-            .deletion_protection
-            .get_output(context)
-            .get_inner();
-        let description_binding = args.description.get_output(context).get_inner();
-        let encryption_configuration_binding = args
+            .get_output(context);
+        let biglake_configuration_binding = biglake_configuration_binding_1.get_inner();
+        let clusterings_binding_1 = args.clusterings.get_output(context);
+        let clusterings_binding = clusterings_binding_1.get_inner();
+        let dataset_id_binding_1 = args.dataset_id.get_output(context);
+        let dataset_id_binding = dataset_id_binding_1.get_inner();
+        let deletion_protection_binding_1 = args.deletion_protection.get_output(context);
+        let deletion_protection_binding = deletion_protection_binding_1.get_inner();
+        let description_binding_1 = args.description.get_output(context);
+        let description_binding = description_binding_1.get_inner();
+        let encryption_configuration_binding_1 = args
             .encryption_configuration
-            .get_output(context)
+            .get_output(context);
+        let encryption_configuration_binding = encryption_configuration_binding_1
             .get_inner();
-        let expiration_time_binding = args
-            .expiration_time
-            .get_output(context)
-            .get_inner();
-        let external_data_configuration_binding = args
+        let expiration_time_binding_1 = args.expiration_time.get_output(context);
+        let expiration_time_binding = expiration_time_binding_1.get_inner();
+        let external_data_configuration_binding_1 = args
             .external_data_configuration
-            .get_output(context)
+            .get_output(context);
+        let external_data_configuration_binding = external_data_configuration_binding_1
             .get_inner();
-        let friendly_name_binding = args.friendly_name.get_output(context).get_inner();
-        let labels_binding = args.labels.get_output(context).get_inner();
-        let materialized_view_binding = args
-            .materialized_view
-            .get_output(context)
-            .get_inner();
-        let max_staleness_binding = args.max_staleness.get_output(context).get_inner();
-        let project_binding = args.project.get_output(context).get_inner();
-        let range_partitioning_binding = args
-            .range_partitioning
-            .get_output(context)
-            .get_inner();
-        let require_partition_filter_binding = args
+        let friendly_name_binding_1 = args.friendly_name.get_output(context);
+        let friendly_name_binding = friendly_name_binding_1.get_inner();
+        let labels_binding_1 = args.labels.get_output(context);
+        let labels_binding = labels_binding_1.get_inner();
+        let materialized_view_binding_1 = args.materialized_view.get_output(context);
+        let materialized_view_binding = materialized_view_binding_1.get_inner();
+        let max_staleness_binding_1 = args.max_staleness.get_output(context);
+        let max_staleness_binding = max_staleness_binding_1.get_inner();
+        let project_binding_1 = args.project.get_output(context);
+        let project_binding = project_binding_1.get_inner();
+        let range_partitioning_binding_1 = args.range_partitioning.get_output(context);
+        let range_partitioning_binding = range_partitioning_binding_1.get_inner();
+        let require_partition_filter_binding_1 = args
             .require_partition_filter
-            .get_output(context)
+            .get_output(context);
+        let require_partition_filter_binding = require_partition_filter_binding_1
             .get_inner();
-        let resource_tags_binding = args.resource_tags.get_output(context).get_inner();
-        let schema_binding = args.schema.get_output(context).get_inner();
-        let table_constraints_binding = args
-            .table_constraints
-            .get_output(context)
-            .get_inner();
-        let table_id_binding = args.table_id.get_output(context).get_inner();
-        let table_replication_info_binding = args
+        let resource_tags_binding_1 = args.resource_tags.get_output(context);
+        let resource_tags_binding = resource_tags_binding_1.get_inner();
+        let schema_binding_1 = args.schema.get_output(context);
+        let schema_binding = schema_binding_1.get_inner();
+        let table_constraints_binding_1 = args.table_constraints.get_output(context);
+        let table_constraints_binding = table_constraints_binding_1.get_inner();
+        let table_id_binding_1 = args.table_id.get_output(context);
+        let table_id_binding = table_id_binding_1.get_inner();
+        let table_replication_info_binding_1 = args
             .table_replication_info
-            .get_output(context)
+            .get_output(context);
+        let table_replication_info_binding = table_replication_info_binding_1
             .get_inner();
-        let time_partitioning_binding = args
-            .time_partitioning
-            .get_output(context)
-            .get_inner();
-        let view_binding = args.view.get_output(context).get_inner();
+        let time_partitioning_binding_1 = args.time_partitioning.get_output(context);
+        let time_partitioning_binding = time_partitioning_binding_1.get_inner();
+        let view_binding_1 = args.view.get_output(context);
+        let view_binding = view_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:bigquery/table:Table".into(),
             name: name.to_string(),

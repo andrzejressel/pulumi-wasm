@@ -29,7 +29,8 @@ pub mod get_lifecycle_policy_document {
     ) -> GetLifecyclePolicyDocumentResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let rules_binding = args.rules.get_output(context).get_inner();
+        let rules_binding_1 = args.rules.get_output(context);
+        let rules_binding = rules_binding_1.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:ecr/getLifecyclePolicyDocument:getLifecyclePolicyDocument"
                 .into(),

@@ -563,110 +563,120 @@ pub mod account {
     ) -> AccountResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let access_tier_binding = args.access_tier.get_output(context).get_inner();
-        let account_kind_binding = args.account_kind.get_output(context).get_inner();
-        let account_replication_type_binding = args
+        let access_tier_binding_1 = args.access_tier.get_output(context);
+        let access_tier_binding = access_tier_binding_1.get_inner();
+        let account_kind_binding_1 = args.account_kind.get_output(context);
+        let account_kind_binding = account_kind_binding_1.get_inner();
+        let account_replication_type_binding_1 = args
             .account_replication_type
-            .get_output(context)
+            .get_output(context);
+        let account_replication_type_binding = account_replication_type_binding_1
             .get_inner();
-        let account_tier_binding = args.account_tier.get_output(context).get_inner();
-        let allow_nested_items_to_be_public_binding = args
+        let account_tier_binding_1 = args.account_tier.get_output(context);
+        let account_tier_binding = account_tier_binding_1.get_inner();
+        let allow_nested_items_to_be_public_binding_1 = args
             .allow_nested_items_to_be_public
-            .get_output(context)
+            .get_output(context);
+        let allow_nested_items_to_be_public_binding = allow_nested_items_to_be_public_binding_1
             .get_inner();
-        let allowed_copy_scope_binding = args
-            .allowed_copy_scope
-            .get_output(context)
-            .get_inner();
-        let azure_files_authentication_binding = args
+        let allowed_copy_scope_binding_1 = args.allowed_copy_scope.get_output(context);
+        let allowed_copy_scope_binding = allowed_copy_scope_binding_1.get_inner();
+        let azure_files_authentication_binding_1 = args
             .azure_files_authentication
-            .get_output(context)
+            .get_output(context);
+        let azure_files_authentication_binding = azure_files_authentication_binding_1
             .get_inner();
-        let blob_properties_binding = args
-            .blob_properties
-            .get_output(context)
-            .get_inner();
-        let cross_tenant_replication_enabled_binding = args
+        let blob_properties_binding_1 = args.blob_properties.get_output(context);
+        let blob_properties_binding = blob_properties_binding_1.get_inner();
+        let cross_tenant_replication_enabled_binding_1 = args
             .cross_tenant_replication_enabled
-            .get_output(context)
+            .get_output(context);
+        let cross_tenant_replication_enabled_binding = cross_tenant_replication_enabled_binding_1
             .get_inner();
-        let custom_domain_binding = args.custom_domain.get_output(context).get_inner();
-        let customer_managed_key_binding = args
+        let custom_domain_binding_1 = args.custom_domain.get_output(context);
+        let custom_domain_binding = custom_domain_binding_1.get_inner();
+        let customer_managed_key_binding_1 = args
             .customer_managed_key
-            .get_output(context)
-            .get_inner();
-        let default_to_oauth_authentication_binding = args
+            .get_output(context);
+        let customer_managed_key_binding = customer_managed_key_binding_1.get_inner();
+        let default_to_oauth_authentication_binding_1 = args
             .default_to_oauth_authentication
-            .get_output(context)
+            .get_output(context);
+        let default_to_oauth_authentication_binding = default_to_oauth_authentication_binding_1
             .get_inner();
-        let dns_endpoint_type_binding = args
-            .dns_endpoint_type
-            .get_output(context)
-            .get_inner();
-        let edge_zone_binding = args.edge_zone.get_output(context).get_inner();
-        let https_traffic_only_enabled_binding = args
+        let dns_endpoint_type_binding_1 = args.dns_endpoint_type.get_output(context);
+        let dns_endpoint_type_binding = dns_endpoint_type_binding_1.get_inner();
+        let edge_zone_binding_1 = args.edge_zone.get_output(context);
+        let edge_zone_binding = edge_zone_binding_1.get_inner();
+        let https_traffic_only_enabled_binding_1 = args
             .https_traffic_only_enabled
-            .get_output(context)
+            .get_output(context);
+        let https_traffic_only_enabled_binding = https_traffic_only_enabled_binding_1
             .get_inner();
-        let identity_binding = args.identity.get_output(context).get_inner();
-        let immutability_policy_binding = args
-            .immutability_policy
-            .get_output(context)
-            .get_inner();
-        let infrastructure_encryption_enabled_binding = args
+        let identity_binding_1 = args.identity.get_output(context);
+        let identity_binding = identity_binding_1.get_inner();
+        let immutability_policy_binding_1 = args.immutability_policy.get_output(context);
+        let immutability_policy_binding = immutability_policy_binding_1.get_inner();
+        let infrastructure_encryption_enabled_binding_1 = args
             .infrastructure_encryption_enabled
-            .get_output(context)
+            .get_output(context);
+        let infrastructure_encryption_enabled_binding = infrastructure_encryption_enabled_binding_1
             .get_inner();
-        let is_hns_enabled_binding = args.is_hns_enabled.get_output(context).get_inner();
-        let large_file_share_enabled_binding = args
+        let is_hns_enabled_binding_1 = args.is_hns_enabled.get_output(context);
+        let is_hns_enabled_binding = is_hns_enabled_binding_1.get_inner();
+        let large_file_share_enabled_binding_1 = args
             .large_file_share_enabled
-            .get_output(context)
+            .get_output(context);
+        let large_file_share_enabled_binding = large_file_share_enabled_binding_1
             .get_inner();
-        let local_user_enabled_binding = args
-            .local_user_enabled
-            .get_output(context)
-            .get_inner();
-        let location_binding = args.location.get_output(context).get_inner();
-        let min_tls_version_binding = args
-            .min_tls_version
-            .get_output(context)
-            .get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let network_rules_binding = args.network_rules.get_output(context).get_inner();
-        let nfsv3_enabled_binding = args.nfsv3_enabled.get_output(context).get_inner();
-        let public_network_access_enabled_binding = args
+        let local_user_enabled_binding_1 = args.local_user_enabled.get_output(context);
+        let local_user_enabled_binding = local_user_enabled_binding_1.get_inner();
+        let location_binding_1 = args.location.get_output(context);
+        let location_binding = location_binding_1.get_inner();
+        let min_tls_version_binding_1 = args.min_tls_version.get_output(context);
+        let min_tls_version_binding = min_tls_version_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let network_rules_binding_1 = args.network_rules.get_output(context);
+        let network_rules_binding = network_rules_binding_1.get_inner();
+        let nfsv3_enabled_binding_1 = args.nfsv3_enabled.get_output(context);
+        let nfsv3_enabled_binding = nfsv3_enabled_binding_1.get_inner();
+        let public_network_access_enabled_binding_1 = args
             .public_network_access_enabled
-            .get_output(context)
+            .get_output(context);
+        let public_network_access_enabled_binding = public_network_access_enabled_binding_1
             .get_inner();
-        let queue_encryption_key_type_binding = args
+        let queue_encryption_key_type_binding_1 = args
             .queue_encryption_key_type
-            .get_output(context)
+            .get_output(context);
+        let queue_encryption_key_type_binding = queue_encryption_key_type_binding_1
             .get_inner();
-        let queue_properties_binding = args
-            .queue_properties
-            .get_output(context)
-            .get_inner();
-        let resource_group_name_binding = args
-            .resource_group_name
-            .get_output(context)
-            .get_inner();
-        let routing_binding = args.routing.get_output(context).get_inner();
-        let sas_policy_binding = args.sas_policy.get_output(context).get_inner();
-        let sftp_enabled_binding = args.sftp_enabled.get_output(context).get_inner();
-        let share_properties_binding = args
-            .share_properties
-            .get_output(context)
-            .get_inner();
-        let shared_access_key_enabled_binding = args
+        let queue_properties_binding_1 = args.queue_properties.get_output(context);
+        let queue_properties_binding = queue_properties_binding_1.get_inner();
+        let resource_group_name_binding_1 = args.resource_group_name.get_output(context);
+        let resource_group_name_binding = resource_group_name_binding_1.get_inner();
+        let routing_binding_1 = args.routing.get_output(context);
+        let routing_binding = routing_binding_1.get_inner();
+        let sas_policy_binding_1 = args.sas_policy.get_output(context);
+        let sas_policy_binding = sas_policy_binding_1.get_inner();
+        let sftp_enabled_binding_1 = args.sftp_enabled.get_output(context);
+        let sftp_enabled_binding = sftp_enabled_binding_1.get_inner();
+        let share_properties_binding_1 = args.share_properties.get_output(context);
+        let share_properties_binding = share_properties_binding_1.get_inner();
+        let shared_access_key_enabled_binding_1 = args
             .shared_access_key_enabled
-            .get_output(context)
+            .get_output(context);
+        let shared_access_key_enabled_binding = shared_access_key_enabled_binding_1
             .get_inner();
-        let static_website_binding = args.static_website.get_output(context).get_inner();
-        let table_encryption_key_type_binding = args
+        let static_website_binding_1 = args.static_website.get_output(context);
+        let static_website_binding = static_website_binding_1.get_inner();
+        let table_encryption_key_type_binding_1 = args
             .table_encryption_key_type
-            .get_output(context)
+            .get_output(context);
+        let table_encryption_key_type_binding = table_encryption_key_type_binding_1
             .get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:storage/account:Account".into(),
             name: name.to_string(),

@@ -241,46 +241,53 @@ pub mod teams_account {
     ) -> TeamsAccountResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let account_id_binding = args.account_id.get_output(context).get_inner();
-        let activity_log_enabled_binding = args
+        let account_id_binding_1 = args.account_id.get_output(context);
+        let account_id_binding = account_id_binding_1.get_inner();
+        let activity_log_enabled_binding_1 = args
             .activity_log_enabled
-            .get_output(context)
-            .get_inner();
-        let antivirus_binding = args.antivirus.get_output(context).get_inner();
-        let block_page_binding = args.block_page.get_output(context).get_inner();
-        let body_scanning_binding = args.body_scanning.get_output(context).get_inner();
-        let certificate_binding = args.certificate.get_output(context).get_inner();
-        let custom_certificate_binding = args
-            .custom_certificate
-            .get_output(context)
-            .get_inner();
-        let extended_email_matching_binding = args
+            .get_output(context);
+        let activity_log_enabled_binding = activity_log_enabled_binding_1.get_inner();
+        let antivirus_binding_1 = args.antivirus.get_output(context);
+        let antivirus_binding = antivirus_binding_1.get_inner();
+        let block_page_binding_1 = args.block_page.get_output(context);
+        let block_page_binding = block_page_binding_1.get_inner();
+        let body_scanning_binding_1 = args.body_scanning.get_output(context);
+        let body_scanning_binding = body_scanning_binding_1.get_inner();
+        let certificate_binding_1 = args.certificate.get_output(context);
+        let certificate_binding = certificate_binding_1.get_inner();
+        let custom_certificate_binding_1 = args.custom_certificate.get_output(context);
+        let custom_certificate_binding = custom_certificate_binding_1.get_inner();
+        let extended_email_matching_binding_1 = args
             .extended_email_matching
-            .get_output(context)
+            .get_output(context);
+        let extended_email_matching_binding = extended_email_matching_binding_1
             .get_inner();
-        let fips_binding = args.fips.get_output(context).get_inner();
-        let logging_binding = args.logging.get_output(context).get_inner();
-        let non_identity_browser_isolation_enabled_binding = args
+        let fips_binding_1 = args.fips.get_output(context);
+        let fips_binding = fips_binding_1.get_inner();
+        let logging_binding_1 = args.logging.get_output(context);
+        let logging_binding = logging_binding_1.get_inner();
+        let non_identity_browser_isolation_enabled_binding_1 = args
             .non_identity_browser_isolation_enabled
-            .get_output(context)
+            .get_output(context);
+        let non_identity_browser_isolation_enabled_binding = non_identity_browser_isolation_enabled_binding_1
             .get_inner();
-        let payload_log_binding = args.payload_log.get_output(context).get_inner();
-        let protocol_detection_enabled_binding = args
+        let payload_log_binding_1 = args.payload_log.get_output(context);
+        let payload_log_binding = payload_log_binding_1.get_inner();
+        let protocol_detection_enabled_binding_1 = args
             .protocol_detection_enabled
-            .get_output(context)
+            .get_output(context);
+        let protocol_detection_enabled_binding = protocol_detection_enabled_binding_1
             .get_inner();
-        let proxy_binding = args.proxy.get_output(context).get_inner();
-        let ssh_session_log_binding = args
-            .ssh_session_log
-            .get_output(context)
-            .get_inner();
-        let tls_decrypt_enabled_binding = args
-            .tls_decrypt_enabled
-            .get_output(context)
-            .get_inner();
-        let url_browser_isolation_enabled_binding = args
+        let proxy_binding_1 = args.proxy.get_output(context);
+        let proxy_binding = proxy_binding_1.get_inner();
+        let ssh_session_log_binding_1 = args.ssh_session_log.get_output(context);
+        let ssh_session_log_binding = ssh_session_log_binding_1.get_inner();
+        let tls_decrypt_enabled_binding_1 = args.tls_decrypt_enabled.get_output(context);
+        let tls_decrypt_enabled_binding = tls_decrypt_enabled_binding_1.get_inner();
+        let url_browser_isolation_enabled_binding_1 = args
             .url_browser_isolation_enabled
-            .get_output(context)
+            .get_output(context);
+        let url_browser_isolation_enabled_binding = url_browser_isolation_enabled_binding_1
             .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "cloudflare:index/teamsAccount:TeamsAccount".into(),

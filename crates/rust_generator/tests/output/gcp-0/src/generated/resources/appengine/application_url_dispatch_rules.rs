@@ -99,8 +99,10 @@ pub mod application_url_dispatch_rules {
     ) -> ApplicationUrlDispatchRulesResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let dispatch_rules_binding = args.dispatch_rules.get_output(context).get_inner();
-        let project_binding = args.project.get_output(context).get_inner();
+        let dispatch_rules_binding_1 = args.dispatch_rules.get_output(context);
+        let dispatch_rules_binding = dispatch_rules_binding_1.get_inner();
+        let project_binding_1 = args.project.get_output(context);
+        let project_binding = project_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:appengine/applicationUrlDispatchRules:ApplicationUrlDispatchRules"
                 .into(),

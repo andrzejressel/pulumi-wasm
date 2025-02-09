@@ -95,14 +95,20 @@ pub mod services_communications_gateway_test_line {
     ) -> ServicesCommunicationsGatewayTestLineResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let location_binding = args.location.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let phone_number_binding = args.phone_number.get_output(context).get_inner();
-        let purpose_binding = args.purpose.get_output(context).get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
-        let voice_services_communications_gateway_id_binding = args
+        let location_binding_1 = args.location.get_output(context);
+        let location_binding = location_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let phone_number_binding_1 = args.phone_number.get_output(context);
+        let phone_number_binding = phone_number_binding_1.get_inner();
+        let purpose_binding_1 = args.purpose.get_output(context);
+        let purpose_binding = purpose_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
+        let voice_services_communications_gateway_id_binding_1 = args
             .voice_services_communications_gateway_id
-            .get_output(context)
+            .get_output(context);
+        let voice_services_communications_gateway_id_binding = voice_services_communications_gateway_id_binding_1
             .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:voice/servicesCommunicationsGatewayTestLine:ServicesCommunicationsGatewayTestLine"

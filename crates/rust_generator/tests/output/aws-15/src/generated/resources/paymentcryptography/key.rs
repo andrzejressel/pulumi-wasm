@@ -110,19 +110,26 @@ pub mod key {
     ) -> KeyResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let deletion_window_in_days_binding = args
+        let deletion_window_in_days_binding_1 = args
             .deletion_window_in_days
-            .get_output(context)
+            .get_output(context);
+        let deletion_window_in_days_binding = deletion_window_in_days_binding_1
             .get_inner();
-        let enabled_binding = args.enabled.get_output(context).get_inner();
-        let exportable_binding = args.exportable.get_output(context).get_inner();
-        let key_attributes_binding = args.key_attributes.get_output(context).get_inner();
-        let key_check_value_algorithm_binding = args
+        let enabled_binding_1 = args.enabled.get_output(context);
+        let enabled_binding = enabled_binding_1.get_inner();
+        let exportable_binding_1 = args.exportable.get_output(context);
+        let exportable_binding = exportable_binding_1.get_inner();
+        let key_attributes_binding_1 = args.key_attributes.get_output(context);
+        let key_attributes_binding = key_attributes_binding_1.get_inner();
+        let key_check_value_algorithm_binding_1 = args
             .key_check_value_algorithm
-            .get_output(context)
+            .get_output(context);
+        let key_check_value_algorithm_binding = key_check_value_algorithm_binding_1
             .get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
-        let timeouts_binding = args.timeouts.get_output(context).get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
+        let timeouts_binding_1 = args.timeouts.get_output(context);
+        let timeouts_binding = timeouts_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:paymentcryptography/key:Key".into(),
             name: name.to_string(),

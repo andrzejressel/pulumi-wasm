@@ -120,25 +120,29 @@ pub mod configuration {
     ) -> ConfigurationResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let in_guest_user_patch_mode_binding = args
+        let in_guest_user_patch_mode_binding_1 = args
             .in_guest_user_patch_mode
-            .get_output(context)
+            .get_output(context);
+        let in_guest_user_patch_mode_binding = in_guest_user_patch_mode_binding_1
             .get_inner();
-        let install_patches_binding = args
-            .install_patches
-            .get_output(context)
-            .get_inner();
-        let location_binding = args.location.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let properties_binding = args.properties.get_output(context).get_inner();
-        let resource_group_name_binding = args
-            .resource_group_name
-            .get_output(context)
-            .get_inner();
-        let scope_binding = args.scope.get_output(context).get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
-        let visibility_binding = args.visibility.get_output(context).get_inner();
-        let window_binding = args.window.get_output(context).get_inner();
+        let install_patches_binding_1 = args.install_patches.get_output(context);
+        let install_patches_binding = install_patches_binding_1.get_inner();
+        let location_binding_1 = args.location.get_output(context);
+        let location_binding = location_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let properties_binding_1 = args.properties.get_output(context);
+        let properties_binding = properties_binding_1.get_inner();
+        let resource_group_name_binding_1 = args.resource_group_name.get_output(context);
+        let resource_group_name_binding = resource_group_name_binding_1.get_inner();
+        let scope_binding_1 = args.scope.get_output(context);
+        let scope_binding = scope_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
+        let visibility_binding_1 = args.visibility.get_output(context);
+        let visibility_binding = visibility_binding_1.get_inner();
+        let window_binding_1 = args.window.get_output(context);
+        let window_binding = window_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:maintenance/configuration:Configuration".into(),
             name: name.to_string(),

@@ -80,15 +80,18 @@ pub mod deployment {
     ) -> DeploymentResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let application_id_binding = args.application_id.get_output(context).get_inner();
-        let application_version_binding = args
-            .application_version
-            .get_output(context)
-            .get_inner();
-        let environment_id_binding = args.environment_id.get_output(context).get_inner();
-        let force_stop_binding = args.force_stop.get_output(context).get_inner();
-        let start_binding = args.start.get_output(context).get_inner();
-        let timeouts_binding = args.timeouts.get_output(context).get_inner();
+        let application_id_binding_1 = args.application_id.get_output(context);
+        let application_id_binding = application_id_binding_1.get_inner();
+        let application_version_binding_1 = args.application_version.get_output(context);
+        let application_version_binding = application_version_binding_1.get_inner();
+        let environment_id_binding_1 = args.environment_id.get_output(context);
+        let environment_id_binding = environment_id_binding_1.get_inner();
+        let force_stop_binding_1 = args.force_stop.get_output(context);
+        let force_stop_binding = force_stop_binding_1.get_inner();
+        let start_binding_1 = args.start.get_output(context);
+        let start_binding = start_binding_1.get_inner();
+        let timeouts_binding_1 = args.timeouts.get_output(context);
+        let timeouts_binding = timeouts_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:m2/deployment:Deployment".into(),
             name: name.to_string(),

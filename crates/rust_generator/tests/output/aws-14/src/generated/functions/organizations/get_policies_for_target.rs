@@ -30,8 +30,10 @@ pub mod get_policies_for_target {
     ) -> GetPoliciesForTargetResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let filter_binding = args.filter.get_output(context).get_inner();
-        let target_id_binding = args.target_id.get_output(context).get_inner();
+        let filter_binding_1 = args.filter.get_output(context);
+        let filter_binding = filter_binding_1.get_inner();
+        let target_id_binding_1 = args.target_id.get_output(context);
+        let target_id_binding = target_id_binding_1.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:organizations/getPoliciesForTarget:getPoliciesForTarget".into(),
             version: super::super::super::get_version(),

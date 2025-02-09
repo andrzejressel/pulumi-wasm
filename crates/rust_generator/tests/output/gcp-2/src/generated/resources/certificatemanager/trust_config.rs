@@ -205,16 +205,23 @@ pub mod trust_config {
     ) -> TrustConfigResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let allowlisted_certificates_binding = args
+        let allowlisted_certificates_binding_1 = args
             .allowlisted_certificates
-            .get_output(context)
+            .get_output(context);
+        let allowlisted_certificates_binding = allowlisted_certificates_binding_1
             .get_inner();
-        let description_binding = args.description.get_output(context).get_inner();
-        let labels_binding = args.labels.get_output(context).get_inner();
-        let location_binding = args.location.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let project_binding = args.project.get_output(context).get_inner();
-        let trust_stores_binding = args.trust_stores.get_output(context).get_inner();
+        let description_binding_1 = args.description.get_output(context);
+        let description_binding = description_binding_1.get_inner();
+        let labels_binding_1 = args.labels.get_output(context);
+        let labels_binding = labels_binding_1.get_inner();
+        let location_binding_1 = args.location.get_output(context);
+        let location_binding = location_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let project_binding_1 = args.project.get_output(context);
+        let project_binding = project_binding_1.get_inner();
+        let trust_stores_binding_1 = args.trust_stores.get_output(context);
+        let trust_stores_binding = trust_stores_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:certificatemanager/trustConfig:TrustConfig".into(),
             name: name.to_string(),

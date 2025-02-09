@@ -47,14 +47,16 @@ pub mod zero_trust_risk_score_integration {
     ) -> ZeroTrustRiskScoreIntegrationResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let account_id_binding = args.account_id.get_output(context).get_inner();
-        let active_binding = args.active.get_output(context).get_inner();
-        let integration_type_binding = args
-            .integration_type
-            .get_output(context)
-            .get_inner();
-        let reference_id_binding = args.reference_id.get_output(context).get_inner();
-        let tenant_url_binding = args.tenant_url.get_output(context).get_inner();
+        let account_id_binding_1 = args.account_id.get_output(context);
+        let account_id_binding = account_id_binding_1.get_inner();
+        let active_binding_1 = args.active.get_output(context);
+        let active_binding = active_binding_1.get_inner();
+        let integration_type_binding_1 = args.integration_type.get_output(context);
+        let integration_type_binding = integration_type_binding_1.get_inner();
+        let reference_id_binding_1 = args.reference_id.get_output(context);
+        let reference_id_binding = reference_id_binding_1.get_inner();
+        let tenant_url_binding_1 = args.tenant_url.get_output(context);
+        let tenant_url_binding = tenant_url_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "cloudflare:index/zeroTrustRiskScoreIntegration:ZeroTrustRiskScoreIntegration"
                 .into(),

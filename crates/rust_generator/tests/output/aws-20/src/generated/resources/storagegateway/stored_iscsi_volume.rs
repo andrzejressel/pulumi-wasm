@@ -146,21 +146,29 @@ pub mod stored_iscsi_volume {
     ) -> StoredIscsiVolumeResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let disk_id_binding = args.disk_id.get_output(context).get_inner();
-        let gateway_arn_binding = args.gateway_arn.get_output(context).get_inner();
-        let kms_encrypted_binding = args.kms_encrypted.get_output(context).get_inner();
-        let kms_key_binding = args.kms_key.get_output(context).get_inner();
-        let network_interface_id_binding = args
+        let disk_id_binding_1 = args.disk_id.get_output(context);
+        let disk_id_binding = disk_id_binding_1.get_inner();
+        let gateway_arn_binding_1 = args.gateway_arn.get_output(context);
+        let gateway_arn_binding = gateway_arn_binding_1.get_inner();
+        let kms_encrypted_binding_1 = args.kms_encrypted.get_output(context);
+        let kms_encrypted_binding = kms_encrypted_binding_1.get_inner();
+        let kms_key_binding_1 = args.kms_key.get_output(context);
+        let kms_key_binding = kms_key_binding_1.get_inner();
+        let network_interface_id_binding_1 = args
             .network_interface_id
-            .get_output(context)
-            .get_inner();
-        let preserve_existing_data_binding = args
+            .get_output(context);
+        let network_interface_id_binding = network_interface_id_binding_1.get_inner();
+        let preserve_existing_data_binding_1 = args
             .preserve_existing_data
-            .get_output(context)
+            .get_output(context);
+        let preserve_existing_data_binding = preserve_existing_data_binding_1
             .get_inner();
-        let snapshot_id_binding = args.snapshot_id.get_output(context).get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
-        let target_name_binding = args.target_name.get_output(context).get_inner();
+        let snapshot_id_binding_1 = args.snapshot_id.get_output(context);
+        let snapshot_id_binding = snapshot_id_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
+        let target_name_binding_1 = args.target_name.get_output(context);
+        let target_name_binding = target_name_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:storagegateway/storedIscsiVolume:StoredIscsiVolume".into(),
             name: name.to_string(),

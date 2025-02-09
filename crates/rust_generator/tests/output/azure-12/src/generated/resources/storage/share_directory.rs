@@ -88,12 +88,12 @@ pub mod share_directory {
     ) -> ShareDirectoryResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let metadata_binding = args.metadata.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let storage_share_id_binding = args
-            .storage_share_id
-            .get_output(context)
-            .get_inner();
+        let metadata_binding_1 = args.metadata.get_output(context);
+        let metadata_binding = metadata_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let storage_share_id_binding_1 = args.storage_share_id.get_output(context);
+        let storage_share_id_binding = storage_share_id_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:storage/shareDirectory:ShareDirectory".into(),
             name: name.to_string(),

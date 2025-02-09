@@ -286,26 +286,37 @@ pub mod azure_cluster {
     ) -> AzureClusterResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let annotations_binding = args.annotations.get_output(context).get_inner();
-        let authorization_binding = args.authorization.get_output(context).get_inner();
-        let azure_region_binding = args.azure_region.get_output(context).get_inner();
-        let azure_services_authentication_binding = args
+        let annotations_binding_1 = args.annotations.get_output(context);
+        let annotations_binding = annotations_binding_1.get_inner();
+        let authorization_binding_1 = args.authorization.get_output(context);
+        let authorization_binding = authorization_binding_1.get_inner();
+        let azure_region_binding_1 = args.azure_region.get_output(context);
+        let azure_region_binding = azure_region_binding_1.get_inner();
+        let azure_services_authentication_binding_1 = args
             .azure_services_authentication
-            .get_output(context)
+            .get_output(context);
+        let azure_services_authentication_binding = azure_services_authentication_binding_1
             .get_inner();
-        let client_binding = args.client.get_output(context).get_inner();
-        let control_plane_binding = args.control_plane.get_output(context).get_inner();
-        let description_binding = args.description.get_output(context).get_inner();
-        let fleet_binding = args.fleet.get_output(context).get_inner();
-        let location_binding = args.location.get_output(context).get_inner();
-        let logging_config_binding = args.logging_config.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let networking_binding = args.networking.get_output(context).get_inner();
-        let project_binding = args.project.get_output(context).get_inner();
-        let resource_group_id_binding = args
-            .resource_group_id
-            .get_output(context)
-            .get_inner();
+        let client_binding_1 = args.client.get_output(context);
+        let client_binding = client_binding_1.get_inner();
+        let control_plane_binding_1 = args.control_plane.get_output(context);
+        let control_plane_binding = control_plane_binding_1.get_inner();
+        let description_binding_1 = args.description.get_output(context);
+        let description_binding = description_binding_1.get_inner();
+        let fleet_binding_1 = args.fleet.get_output(context);
+        let fleet_binding = fleet_binding_1.get_inner();
+        let location_binding_1 = args.location.get_output(context);
+        let location_binding = location_binding_1.get_inner();
+        let logging_config_binding_1 = args.logging_config.get_output(context);
+        let logging_config_binding = logging_config_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let networking_binding_1 = args.networking.get_output(context);
+        let networking_binding = networking_binding_1.get_inner();
+        let project_binding_1 = args.project.get_output(context);
+        let project_binding = project_binding_1.get_inner();
+        let resource_group_id_binding_1 = args.resource_group_id.get_output(context);
+        let resource_group_id_binding = resource_group_id_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:container/azureCluster:AzureCluster".into(),
             name: name.to_string(),

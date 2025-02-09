@@ -148,25 +148,29 @@ pub mod pipeline {
     ) -> PipelineResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let activities_json_binding = args
-            .activities_json
-            .get_output(context)
-            .get_inner();
-        let annotations_binding = args.annotations.get_output(context).get_inner();
-        let concurrency_binding = args.concurrency.get_output(context).get_inner();
-        let data_factory_id_binding = args
-            .data_factory_id
-            .get_output(context)
-            .get_inner();
-        let description_binding = args.description.get_output(context).get_inner();
-        let folder_binding = args.folder.get_output(context).get_inner();
-        let moniter_metrics_after_duration_binding = args
+        let activities_json_binding_1 = args.activities_json.get_output(context);
+        let activities_json_binding = activities_json_binding_1.get_inner();
+        let annotations_binding_1 = args.annotations.get_output(context);
+        let annotations_binding = annotations_binding_1.get_inner();
+        let concurrency_binding_1 = args.concurrency.get_output(context);
+        let concurrency_binding = concurrency_binding_1.get_inner();
+        let data_factory_id_binding_1 = args.data_factory_id.get_output(context);
+        let data_factory_id_binding = data_factory_id_binding_1.get_inner();
+        let description_binding_1 = args.description.get_output(context);
+        let description_binding = description_binding_1.get_inner();
+        let folder_binding_1 = args.folder.get_output(context);
+        let folder_binding = folder_binding_1.get_inner();
+        let moniter_metrics_after_duration_binding_1 = args
             .moniter_metrics_after_duration
-            .get_output(context)
+            .get_output(context);
+        let moniter_metrics_after_duration_binding = moniter_metrics_after_duration_binding_1
             .get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let parameters_binding = args.parameters.get_output(context).get_inner();
-        let variables_binding = args.variables.get_output(context).get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let parameters_binding_1 = args.parameters.get_output(context);
+        let parameters_binding = parameters_binding_1.get_inner();
+        let variables_binding_1 = args.variables.get_output(context);
+        let variables_binding = variables_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:datafactory/pipeline:Pipeline".into(),
             name: name.to_string(),

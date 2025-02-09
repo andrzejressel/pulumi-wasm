@@ -334,56 +334,70 @@ pub mod bucket {
     ) -> BucketResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let autoclass_binding = args.autoclass.get_output(context).get_inner();
-        let cors_binding = args.cors.get_output(context).get_inner();
-        let custom_placement_config_binding = args
+        let autoclass_binding_1 = args.autoclass.get_output(context);
+        let autoclass_binding = autoclass_binding_1.get_inner();
+        let cors_binding_1 = args.cors.get_output(context);
+        let cors_binding = cors_binding_1.get_inner();
+        let custom_placement_config_binding_1 = args
             .custom_placement_config
-            .get_output(context)
+            .get_output(context);
+        let custom_placement_config_binding = custom_placement_config_binding_1
             .get_inner();
-        let default_event_based_hold_binding = args
+        let default_event_based_hold_binding_1 = args
             .default_event_based_hold
-            .get_output(context)
+            .get_output(context);
+        let default_event_based_hold_binding = default_event_based_hold_binding_1
             .get_inner();
-        let enable_object_retention_binding = args
+        let enable_object_retention_binding_1 = args
             .enable_object_retention
-            .get_output(context)
+            .get_output(context);
+        let enable_object_retention_binding = enable_object_retention_binding_1
             .get_inner();
-        let encryption_binding = args.encryption.get_output(context).get_inner();
-        let force_destroy_binding = args.force_destroy.get_output(context).get_inner();
-        let hierarchical_namespace_binding = args
+        let encryption_binding_1 = args.encryption.get_output(context);
+        let encryption_binding = encryption_binding_1.get_inner();
+        let force_destroy_binding_1 = args.force_destroy.get_output(context);
+        let force_destroy_binding = force_destroy_binding_1.get_inner();
+        let hierarchical_namespace_binding_1 = args
             .hierarchical_namespace
-            .get_output(context)
+            .get_output(context);
+        let hierarchical_namespace_binding = hierarchical_namespace_binding_1
             .get_inner();
-        let labels_binding = args.labels.get_output(context).get_inner();
-        let lifecycle_rules_binding = args
-            .lifecycle_rules
-            .get_output(context)
-            .get_inner();
-        let location_binding = args.location.get_output(context).get_inner();
-        let logging_binding = args.logging.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let project_binding = args.project.get_output(context).get_inner();
-        let public_access_prevention_binding = args
+        let labels_binding_1 = args.labels.get_output(context);
+        let labels_binding = labels_binding_1.get_inner();
+        let lifecycle_rules_binding_1 = args.lifecycle_rules.get_output(context);
+        let lifecycle_rules_binding = lifecycle_rules_binding_1.get_inner();
+        let location_binding_1 = args.location.get_output(context);
+        let location_binding = location_binding_1.get_inner();
+        let logging_binding_1 = args.logging.get_output(context);
+        let logging_binding = logging_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let project_binding_1 = args.project.get_output(context);
+        let project_binding = project_binding_1.get_inner();
+        let public_access_prevention_binding_1 = args
             .public_access_prevention
-            .get_output(context)
+            .get_output(context);
+        let public_access_prevention_binding = public_access_prevention_binding_1
             .get_inner();
-        let requester_pays_binding = args.requester_pays.get_output(context).get_inner();
-        let retention_policy_binding = args
-            .retention_policy
-            .get_output(context)
-            .get_inner();
-        let rpo_binding = args.rpo.get_output(context).get_inner();
-        let soft_delete_policy_binding = args
-            .soft_delete_policy
-            .get_output(context)
-            .get_inner();
-        let storage_class_binding = args.storage_class.get_output(context).get_inner();
-        let uniform_bucket_level_access_binding = args
+        let requester_pays_binding_1 = args.requester_pays.get_output(context);
+        let requester_pays_binding = requester_pays_binding_1.get_inner();
+        let retention_policy_binding_1 = args.retention_policy.get_output(context);
+        let retention_policy_binding = retention_policy_binding_1.get_inner();
+        let rpo_binding_1 = args.rpo.get_output(context);
+        let rpo_binding = rpo_binding_1.get_inner();
+        let soft_delete_policy_binding_1 = args.soft_delete_policy.get_output(context);
+        let soft_delete_policy_binding = soft_delete_policy_binding_1.get_inner();
+        let storage_class_binding_1 = args.storage_class.get_output(context);
+        let storage_class_binding = storage_class_binding_1.get_inner();
+        let uniform_bucket_level_access_binding_1 = args
             .uniform_bucket_level_access
-            .get_output(context)
+            .get_output(context);
+        let uniform_bucket_level_access_binding = uniform_bucket_level_access_binding_1
             .get_inner();
-        let versioning_binding = args.versioning.get_output(context).get_inner();
-        let website_binding = args.website.get_output(context).get_inner();
+        let versioning_binding_1 = args.versioning.get_output(context);
+        let versioning_binding = versioning_binding_1.get_inner();
+        let website_binding_1 = args.website.get_output(context);
+        let website_binding = website_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:storage/bucket:Bucket".into(),
             name: name.to_string(),

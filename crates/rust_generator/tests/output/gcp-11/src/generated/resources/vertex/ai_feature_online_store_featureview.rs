@@ -587,27 +587,31 @@ pub mod ai_feature_online_store_featureview {
     ) -> AiFeatureOnlineStoreFeatureviewResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let big_query_source_binding = args
-            .big_query_source
-            .get_output(context)
-            .get_inner();
-        let feature_online_store_binding = args
+        let big_query_source_binding_1 = args.big_query_source.get_output(context);
+        let big_query_source_binding = big_query_source_binding_1.get_inner();
+        let feature_online_store_binding_1 = args
             .feature_online_store
-            .get_output(context)
-            .get_inner();
-        let feature_registry_source_binding = args
+            .get_output(context);
+        let feature_online_store_binding = feature_online_store_binding_1.get_inner();
+        let feature_registry_source_binding_1 = args
             .feature_registry_source
-            .get_output(context)
+            .get_output(context);
+        let feature_registry_source_binding = feature_registry_source_binding_1
             .get_inner();
-        let labels_binding = args.labels.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let project_binding = args.project.get_output(context).get_inner();
-        let region_binding = args.region.get_output(context).get_inner();
-        let sync_config_binding = args.sync_config.get_output(context).get_inner();
-        let vector_search_config_binding = args
+        let labels_binding_1 = args.labels.get_output(context);
+        let labels_binding = labels_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let project_binding_1 = args.project.get_output(context);
+        let project_binding = project_binding_1.get_inner();
+        let region_binding_1 = args.region.get_output(context);
+        let region_binding = region_binding_1.get_inner();
+        let sync_config_binding_1 = args.sync_config.get_output(context);
+        let sync_config_binding = sync_config_binding_1.get_inner();
+        let vector_search_config_binding_1 = args
             .vector_search_config
-            .get_output(context)
-            .get_inner();
+            .get_output(context);
+        let vector_search_config_binding = vector_search_config_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:vertex/aiFeatureOnlineStoreFeatureview:AiFeatureOnlineStoreFeatureview"
                 .into(),

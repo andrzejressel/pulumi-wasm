@@ -28,7 +28,8 @@ pub mod get_user_groups {
     ) -> GetUserGroupsResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let user_pool_id_binding = args.user_pool_id.get_output(context).get_inner();
+        let user_pool_id_binding_1 = args.user_pool_id.get_output(context);
+        let user_pool_id_binding = user_pool_id_binding_1.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:cognito/getUserGroups:getUserGroups".into(),
             version: super::super::super::get_version(),

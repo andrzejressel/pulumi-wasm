@@ -182,41 +182,43 @@ pub mod ami {
     ) -> AmiResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let architecture_binding = args.architecture.get_output(context).get_inner();
-        let boot_mode_binding = args.boot_mode.get_output(context).get_inner();
-        let deprecation_time_binding = args
-            .deprecation_time
-            .get_output(context)
-            .get_inner();
-        let description_binding = args.description.get_output(context).get_inner();
-        let ebs_block_devices_binding = args
-            .ebs_block_devices
-            .get_output(context)
-            .get_inner();
-        let ena_support_binding = args.ena_support.get_output(context).get_inner();
-        let ephemeral_block_devices_binding = args
+        let architecture_binding_1 = args.architecture.get_output(context);
+        let architecture_binding = architecture_binding_1.get_inner();
+        let boot_mode_binding_1 = args.boot_mode.get_output(context);
+        let boot_mode_binding = boot_mode_binding_1.get_inner();
+        let deprecation_time_binding_1 = args.deprecation_time.get_output(context);
+        let deprecation_time_binding = deprecation_time_binding_1.get_inner();
+        let description_binding_1 = args.description.get_output(context);
+        let description_binding = description_binding_1.get_inner();
+        let ebs_block_devices_binding_1 = args.ebs_block_devices.get_output(context);
+        let ebs_block_devices_binding = ebs_block_devices_binding_1.get_inner();
+        let ena_support_binding_1 = args.ena_support.get_output(context);
+        let ena_support_binding = ena_support_binding_1.get_inner();
+        let ephemeral_block_devices_binding_1 = args
             .ephemeral_block_devices
-            .get_output(context)
+            .get_output(context);
+        let ephemeral_block_devices_binding = ephemeral_block_devices_binding_1
             .get_inner();
-        let image_location_binding = args.image_location.get_output(context).get_inner();
-        let imds_support_binding = args.imds_support.get_output(context).get_inner();
-        let kernel_id_binding = args.kernel_id.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let ramdisk_id_binding = args.ramdisk_id.get_output(context).get_inner();
-        let root_device_name_binding = args
-            .root_device_name
-            .get_output(context)
-            .get_inner();
-        let sriov_net_support_binding = args
-            .sriov_net_support
-            .get_output(context)
-            .get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
-        let tpm_support_binding = args.tpm_support.get_output(context).get_inner();
-        let virtualization_type_binding = args
-            .virtualization_type
-            .get_output(context)
-            .get_inner();
+        let image_location_binding_1 = args.image_location.get_output(context);
+        let image_location_binding = image_location_binding_1.get_inner();
+        let imds_support_binding_1 = args.imds_support.get_output(context);
+        let imds_support_binding = imds_support_binding_1.get_inner();
+        let kernel_id_binding_1 = args.kernel_id.get_output(context);
+        let kernel_id_binding = kernel_id_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let ramdisk_id_binding_1 = args.ramdisk_id.get_output(context);
+        let ramdisk_id_binding = ramdisk_id_binding_1.get_inner();
+        let root_device_name_binding_1 = args.root_device_name.get_output(context);
+        let root_device_name_binding = root_device_name_binding_1.get_inner();
+        let sriov_net_support_binding_1 = args.sriov_net_support.get_output(context);
+        let sriov_net_support_binding = sriov_net_support_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
+        let tpm_support_binding_1 = args.tpm_support.get_output(context);
+        let tpm_support_binding = tpm_support_binding_1.get_inner();
+        let virtualization_type_binding_1 = args.virtualization_type.get_output(context);
+        let virtualization_type_binding = virtualization_type_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:ec2/ami:Ami".into(),
             name: name.to_string(),

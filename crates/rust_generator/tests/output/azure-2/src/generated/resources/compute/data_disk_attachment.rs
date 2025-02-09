@@ -151,20 +151,20 @@ pub mod data_disk_attachment {
     ) -> DataDiskAttachmentResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let caching_binding = args.caching.get_output(context).get_inner();
-        let create_option_binding = args.create_option.get_output(context).get_inner();
-        let lun_binding = args.lun.get_output(context).get_inner();
-        let managed_disk_id_binding = args
-            .managed_disk_id
-            .get_output(context)
-            .get_inner();
-        let virtual_machine_id_binding = args
-            .virtual_machine_id
-            .get_output(context)
-            .get_inner();
-        let write_accelerator_enabled_binding = args
+        let caching_binding_1 = args.caching.get_output(context);
+        let caching_binding = caching_binding_1.get_inner();
+        let create_option_binding_1 = args.create_option.get_output(context);
+        let create_option_binding = create_option_binding_1.get_inner();
+        let lun_binding_1 = args.lun.get_output(context);
+        let lun_binding = lun_binding_1.get_inner();
+        let managed_disk_id_binding_1 = args.managed_disk_id.get_output(context);
+        let managed_disk_id_binding = managed_disk_id_binding_1.get_inner();
+        let virtual_machine_id_binding_1 = args.virtual_machine_id.get_output(context);
+        let virtual_machine_id_binding = virtual_machine_id_binding_1.get_inner();
+        let write_accelerator_enabled_binding_1 = args
             .write_accelerator_enabled
-            .get_output(context)
+            .get_output(context);
+        let write_accelerator_enabled_binding = write_accelerator_enabled_binding_1
             .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:compute/dataDiskAttachment:DataDiskAttachment".into(),

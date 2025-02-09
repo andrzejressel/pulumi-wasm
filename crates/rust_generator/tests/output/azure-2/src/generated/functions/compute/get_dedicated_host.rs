@@ -36,15 +36,15 @@ pub mod get_dedicated_host {
     ) -> GetDedicatedHostResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let dedicated_host_group_name_binding = args
+        let dedicated_host_group_name_binding_1 = args
             .dedicated_host_group_name
-            .get_output(context)
+            .get_output(context);
+        let dedicated_host_group_name_binding = dedicated_host_group_name_binding_1
             .get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let resource_group_name_binding = args
-            .resource_group_name
-            .get_output(context)
-            .get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let resource_group_name_binding_1 = args.resource_group_name.get_output(context);
+        let resource_group_name_binding = resource_group_name_binding_1.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "azure:compute/getDedicatedHost:getDedicatedHost".into(),
             version: super::super::super::get_version(),

@@ -99,12 +99,18 @@ pub mod get_object {
     ) -> GetObjectResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let bucket_binding = args.bucket.get_output(context).get_inner();
-        let checksum_mode_binding = args.checksum_mode.get_output(context).get_inner();
-        let key_binding = args.key.get_output(context).get_inner();
-        let range_binding = args.range.get_output(context).get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
-        let version_id_binding = args.version_id.get_output(context).get_inner();
+        let bucket_binding_1 = args.bucket.get_output(context);
+        let bucket_binding = bucket_binding_1.get_inner();
+        let checksum_mode_binding_1 = args.checksum_mode.get_output(context);
+        let checksum_mode_binding = checksum_mode_binding_1.get_inner();
+        let key_binding_1 = args.key.get_output(context);
+        let key_binding = key_binding_1.get_inner();
+        let range_binding_1 = args.range.get_output(context);
+        let range_binding = range_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
+        let version_id_binding_1 = args.version_id.get_output(context);
+        let version_id_binding = version_id_binding_1.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:s3/getObject:getObject".into(),
             version: super::super::super::get_version(),

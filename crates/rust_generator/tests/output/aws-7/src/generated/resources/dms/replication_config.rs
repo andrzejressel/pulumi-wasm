@@ -123,41 +123,35 @@ pub mod replication_config {
     ) -> ReplicationConfigResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let compute_config_binding = args.compute_config.get_output(context).get_inner();
-        let replication_config_identifier_binding = args
+        let compute_config_binding_1 = args.compute_config.get_output(context);
+        let compute_config_binding = compute_config_binding_1.get_inner();
+        let replication_config_identifier_binding_1 = args
             .replication_config_identifier
-            .get_output(context)
+            .get_output(context);
+        let replication_config_identifier_binding = replication_config_identifier_binding_1
             .get_inner();
-        let replication_settings_binding = args
+        let replication_settings_binding_1 = args
             .replication_settings
-            .get_output(context)
-            .get_inner();
-        let replication_type_binding = args
-            .replication_type
-            .get_output(context)
-            .get_inner();
-        let resource_identifier_binding = args
-            .resource_identifier
-            .get_output(context)
-            .get_inner();
-        let source_endpoint_arn_binding = args
-            .source_endpoint_arn
-            .get_output(context)
-            .get_inner();
-        let start_replication_binding = args
-            .start_replication
-            .get_output(context)
-            .get_inner();
-        let supplemental_settings_binding = args
+            .get_output(context);
+        let replication_settings_binding = replication_settings_binding_1.get_inner();
+        let replication_type_binding_1 = args.replication_type.get_output(context);
+        let replication_type_binding = replication_type_binding_1.get_inner();
+        let resource_identifier_binding_1 = args.resource_identifier.get_output(context);
+        let resource_identifier_binding = resource_identifier_binding_1.get_inner();
+        let source_endpoint_arn_binding_1 = args.source_endpoint_arn.get_output(context);
+        let source_endpoint_arn_binding = source_endpoint_arn_binding_1.get_inner();
+        let start_replication_binding_1 = args.start_replication.get_output(context);
+        let start_replication_binding = start_replication_binding_1.get_inner();
+        let supplemental_settings_binding_1 = args
             .supplemental_settings
-            .get_output(context)
-            .get_inner();
-        let table_mappings_binding = args.table_mappings.get_output(context).get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
-        let target_endpoint_arn_binding = args
-            .target_endpoint_arn
-            .get_output(context)
-            .get_inner();
+            .get_output(context);
+        let supplemental_settings_binding = supplemental_settings_binding_1.get_inner();
+        let table_mappings_binding_1 = args.table_mappings.get_output(context);
+        let table_mappings_binding = table_mappings_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
+        let target_endpoint_arn_binding_1 = args.target_endpoint_arn.get_output(context);
+        let target_endpoint_arn_binding = target_endpoint_arn_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:dms/replicationConfig:ReplicationConfig".into(),
             name: name.to_string(),

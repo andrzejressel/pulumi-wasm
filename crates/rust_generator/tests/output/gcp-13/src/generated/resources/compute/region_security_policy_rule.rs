@@ -442,26 +442,31 @@ pub mod region_security_policy_rule {
     ) -> RegionSecurityPolicyRuleResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let action_binding = args.action.get_output(context).get_inner();
-        let description_binding = args.description.get_output(context).get_inner();
-        let match__binding = args.match_.get_output(context).get_inner();
-        let network_match_binding = args.network_match.get_output(context).get_inner();
-        let preconfigured_waf_config_binding = args
+        let action_binding_1 = args.action.get_output(context);
+        let action_binding = action_binding_1.get_inner();
+        let description_binding_1 = args.description.get_output(context);
+        let description_binding = description_binding_1.get_inner();
+        let match__binding_1 = args.match_.get_output(context);
+        let match__binding = match__binding_1.get_inner();
+        let network_match_binding_1 = args.network_match.get_output(context);
+        let network_match_binding = network_match_binding_1.get_inner();
+        let preconfigured_waf_config_binding_1 = args
             .preconfigured_waf_config
-            .get_output(context)
+            .get_output(context);
+        let preconfigured_waf_config_binding = preconfigured_waf_config_binding_1
             .get_inner();
-        let preview_binding = args.preview.get_output(context).get_inner();
-        let priority_binding = args.priority.get_output(context).get_inner();
-        let project_binding = args.project.get_output(context).get_inner();
-        let rate_limit_options_binding = args
-            .rate_limit_options
-            .get_output(context)
-            .get_inner();
-        let region_binding = args.region.get_output(context).get_inner();
-        let security_policy_binding = args
-            .security_policy
-            .get_output(context)
-            .get_inner();
+        let preview_binding_1 = args.preview.get_output(context);
+        let preview_binding = preview_binding_1.get_inner();
+        let priority_binding_1 = args.priority.get_output(context);
+        let priority_binding = priority_binding_1.get_inner();
+        let project_binding_1 = args.project.get_output(context);
+        let project_binding = project_binding_1.get_inner();
+        let rate_limit_options_binding_1 = args.rate_limit_options.get_output(context);
+        let rate_limit_options_binding = rate_limit_options_binding_1.get_inner();
+        let region_binding_1 = args.region.get_output(context);
+        let region_binding = region_binding_1.get_inner();
+        let security_policy_binding_1 = args.security_policy.get_output(context);
+        let security_policy_binding = security_policy_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:compute/regionSecurityPolicyRule:RegionSecurityPolicyRule"
                 .into(),

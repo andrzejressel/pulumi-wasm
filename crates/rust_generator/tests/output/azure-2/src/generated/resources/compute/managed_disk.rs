@@ -358,107 +358,108 @@ pub mod managed_disk {
     ) -> ManagedDiskResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let create_option_binding = args.create_option.get_output(context).get_inner();
-        let disk_access_id_binding = args.disk_access_id.get_output(context).get_inner();
-        let disk_encryption_set_id_binding = args
+        let create_option_binding_1 = args.create_option.get_output(context);
+        let create_option_binding = create_option_binding_1.get_inner();
+        let disk_access_id_binding_1 = args.disk_access_id.get_output(context);
+        let disk_access_id_binding = disk_access_id_binding_1.get_inner();
+        let disk_encryption_set_id_binding_1 = args
             .disk_encryption_set_id
-            .get_output(context)
+            .get_output(context);
+        let disk_encryption_set_id_binding = disk_encryption_set_id_binding_1
             .get_inner();
-        let disk_iops_read_only_binding = args
-            .disk_iops_read_only
-            .get_output(context)
-            .get_inner();
-        let disk_iops_read_write_binding = args
+        let disk_iops_read_only_binding_1 = args.disk_iops_read_only.get_output(context);
+        let disk_iops_read_only_binding = disk_iops_read_only_binding_1.get_inner();
+        let disk_iops_read_write_binding_1 = args
             .disk_iops_read_write
-            .get_output(context)
-            .get_inner();
-        let disk_mbps_read_only_binding = args
-            .disk_mbps_read_only
-            .get_output(context)
-            .get_inner();
-        let disk_mbps_read_write_binding = args
+            .get_output(context);
+        let disk_iops_read_write_binding = disk_iops_read_write_binding_1.get_inner();
+        let disk_mbps_read_only_binding_1 = args.disk_mbps_read_only.get_output(context);
+        let disk_mbps_read_only_binding = disk_mbps_read_only_binding_1.get_inner();
+        let disk_mbps_read_write_binding_1 = args
             .disk_mbps_read_write
-            .get_output(context)
-            .get_inner();
-        let disk_size_gb_binding = args.disk_size_gb.get_output(context).get_inner();
-        let edge_zone_binding = args.edge_zone.get_output(context).get_inner();
-        let encryption_settings_binding = args
-            .encryption_settings
-            .get_output(context)
-            .get_inner();
-        let gallery_image_reference_id_binding = args
+            .get_output(context);
+        let disk_mbps_read_write_binding = disk_mbps_read_write_binding_1.get_inner();
+        let disk_size_gb_binding_1 = args.disk_size_gb.get_output(context);
+        let disk_size_gb_binding = disk_size_gb_binding_1.get_inner();
+        let edge_zone_binding_1 = args.edge_zone.get_output(context);
+        let edge_zone_binding = edge_zone_binding_1.get_inner();
+        let encryption_settings_binding_1 = args.encryption_settings.get_output(context);
+        let encryption_settings_binding = encryption_settings_binding_1.get_inner();
+        let gallery_image_reference_id_binding_1 = args
             .gallery_image_reference_id
-            .get_output(context)
+            .get_output(context);
+        let gallery_image_reference_id_binding = gallery_image_reference_id_binding_1
             .get_inner();
-        let hyper_v_generation_binding = args
-            .hyper_v_generation
-            .get_output(context)
-            .get_inner();
-        let image_reference_id_binding = args
-            .image_reference_id
-            .get_output(context)
-            .get_inner();
-        let location_binding = args.location.get_output(context).get_inner();
-        let logical_sector_size_binding = args
-            .logical_sector_size
-            .get_output(context)
-            .get_inner();
-        let max_shares_binding = args.max_shares.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let network_access_policy_binding = args
+        let hyper_v_generation_binding_1 = args.hyper_v_generation.get_output(context);
+        let hyper_v_generation_binding = hyper_v_generation_binding_1.get_inner();
+        let image_reference_id_binding_1 = args.image_reference_id.get_output(context);
+        let image_reference_id_binding = image_reference_id_binding_1.get_inner();
+        let location_binding_1 = args.location.get_output(context);
+        let location_binding = location_binding_1.get_inner();
+        let logical_sector_size_binding_1 = args.logical_sector_size.get_output(context);
+        let logical_sector_size_binding = logical_sector_size_binding_1.get_inner();
+        let max_shares_binding_1 = args.max_shares.get_output(context);
+        let max_shares_binding = max_shares_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let network_access_policy_binding_1 = args
             .network_access_policy
-            .get_output(context)
-            .get_inner();
-        let on_demand_bursting_enabled_binding = args
+            .get_output(context);
+        let network_access_policy_binding = network_access_policy_binding_1.get_inner();
+        let on_demand_bursting_enabled_binding_1 = args
             .on_demand_bursting_enabled
-            .get_output(context)
+            .get_output(context);
+        let on_demand_bursting_enabled_binding = on_demand_bursting_enabled_binding_1
             .get_inner();
-        let optimized_frequent_attach_enabled_binding = args
+        let optimized_frequent_attach_enabled_binding_1 = args
             .optimized_frequent_attach_enabled
-            .get_output(context)
+            .get_output(context);
+        let optimized_frequent_attach_enabled_binding = optimized_frequent_attach_enabled_binding_1
             .get_inner();
-        let os_type_binding = args.os_type.get_output(context).get_inner();
-        let performance_plus_enabled_binding = args
+        let os_type_binding_1 = args.os_type.get_output(context);
+        let os_type_binding = os_type_binding_1.get_inner();
+        let performance_plus_enabled_binding_1 = args
             .performance_plus_enabled
-            .get_output(context)
+            .get_output(context);
+        let performance_plus_enabled_binding = performance_plus_enabled_binding_1
             .get_inner();
-        let public_network_access_enabled_binding = args
+        let public_network_access_enabled_binding_1 = args
             .public_network_access_enabled
-            .get_output(context)
+            .get_output(context);
+        let public_network_access_enabled_binding = public_network_access_enabled_binding_1
             .get_inner();
-        let resource_group_name_binding = args
-            .resource_group_name
-            .get_output(context)
-            .get_inner();
-        let secure_vm_disk_encryption_set_id_binding = args
+        let resource_group_name_binding_1 = args.resource_group_name.get_output(context);
+        let resource_group_name_binding = resource_group_name_binding_1.get_inner();
+        let secure_vm_disk_encryption_set_id_binding_1 = args
             .secure_vm_disk_encryption_set_id
-            .get_output(context)
+            .get_output(context);
+        let secure_vm_disk_encryption_set_id_binding = secure_vm_disk_encryption_set_id_binding_1
             .get_inner();
-        let security_type_binding = args.security_type.get_output(context).get_inner();
-        let source_resource_id_binding = args
-            .source_resource_id
-            .get_output(context)
-            .get_inner();
-        let source_uri_binding = args.source_uri.get_output(context).get_inner();
-        let storage_account_id_binding = args
-            .storage_account_id
-            .get_output(context)
-            .get_inner();
-        let storage_account_type_binding = args
+        let security_type_binding_1 = args.security_type.get_output(context);
+        let security_type_binding = security_type_binding_1.get_inner();
+        let source_resource_id_binding_1 = args.source_resource_id.get_output(context);
+        let source_resource_id_binding = source_resource_id_binding_1.get_inner();
+        let source_uri_binding_1 = args.source_uri.get_output(context);
+        let source_uri_binding = source_uri_binding_1.get_inner();
+        let storage_account_id_binding_1 = args.storage_account_id.get_output(context);
+        let storage_account_id_binding = storage_account_id_binding_1.get_inner();
+        let storage_account_type_binding_1 = args
             .storage_account_type
-            .get_output(context)
-            .get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
-        let tier_binding = args.tier.get_output(context).get_inner();
-        let trusted_launch_enabled_binding = args
+            .get_output(context);
+        let storage_account_type_binding = storage_account_type_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
+        let tier_binding_1 = args.tier.get_output(context);
+        let tier_binding = tier_binding_1.get_inner();
+        let trusted_launch_enabled_binding_1 = args
             .trusted_launch_enabled
-            .get_output(context)
+            .get_output(context);
+        let trusted_launch_enabled_binding = trusted_launch_enabled_binding_1
             .get_inner();
-        let upload_size_bytes_binding = args
-            .upload_size_bytes
-            .get_output(context)
-            .get_inner();
-        let zone_binding = args.zone.get_output(context).get_inner();
+        let upload_size_bytes_binding_1 = args.upload_size_bytes.get_output(context);
+        let upload_size_bytes_binding = upload_size_bytes_binding_1.get_inner();
+        let zone_binding_1 = args.zone.get_output(context);
+        let zone_binding = zone_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:compute/managedDisk:ManagedDisk".into(),
             name: name.to_string(),

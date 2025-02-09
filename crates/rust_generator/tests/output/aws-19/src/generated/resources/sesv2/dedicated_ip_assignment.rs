@@ -59,11 +59,12 @@ pub mod dedicated_ip_assignment {
     ) -> DedicatedIpAssignmentResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let destination_pool_name_binding = args
+        let destination_pool_name_binding_1 = args
             .destination_pool_name
-            .get_output(context)
-            .get_inner();
-        let ip_binding = args.ip.get_output(context).get_inner();
+            .get_output(context);
+        let destination_pool_name_binding = destination_pool_name_binding_1.get_inner();
+        let ip_binding_1 = args.ip.get_output(context);
+        let ip_binding = ip_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:sesv2/dedicatedIpAssignment:DedicatedIpAssignment".into(),
             name: name.to_string(),

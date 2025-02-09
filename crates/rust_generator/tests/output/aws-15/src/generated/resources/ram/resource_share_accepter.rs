@@ -81,7 +81,8 @@ pub mod resource_share_accepter {
     ) -> ResourceShareAccepterResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let share_arn_binding = args.share_arn.get_output(context).get_inner();
+        let share_arn_binding_1 = args.share_arn.get_output(context);
+        let share_arn_binding = share_arn_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:ram/resourceShareAccepter:ResourceShareAccepter".into(),
             name: name.to_string(),

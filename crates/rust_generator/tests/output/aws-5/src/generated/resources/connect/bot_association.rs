@@ -116,8 +116,10 @@ pub mod bot_association {
     ) -> BotAssociationResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let instance_id_binding = args.instance_id.get_output(context).get_inner();
-        let lex_bot_binding = args.lex_bot.get_output(context).get_inner();
+        let instance_id_binding_1 = args.instance_id.get_output(context);
+        let instance_id_binding = instance_id_binding_1.get_inner();
+        let lex_bot_binding_1 = args.lex_bot.get_output(context);
+        let lex_bot_binding = lex_bot_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:connect/botAssociation:BotAssociation".into(),
             name: name.to_string(),

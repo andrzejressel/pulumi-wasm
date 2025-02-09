@@ -121,11 +121,16 @@ pub mod report_group {
     ) -> ReportGroupResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let delete_reports_binding = args.delete_reports.get_output(context).get_inner();
-        let export_config_binding = args.export_config.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
-        let type__binding = args.type_.get_output(context).get_inner();
+        let delete_reports_binding_1 = args.delete_reports.get_output(context);
+        let delete_reports_binding = delete_reports_binding_1.get_inner();
+        let export_config_binding_1 = args.export_config.get_output(context);
+        let export_config_binding = export_config_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
+        let type__binding_1 = args.type_.get_output(context);
+        let type__binding = type__binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:codebuild/reportGroup:ReportGroup".into(),
             name: name.to_string(),

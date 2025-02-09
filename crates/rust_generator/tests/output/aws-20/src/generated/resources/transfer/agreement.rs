@@ -98,19 +98,20 @@ pub mod agreement {
     ) -> AgreementResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let access_role_binding = args.access_role.get_output(context).get_inner();
-        let base_directory_binding = args.base_directory.get_output(context).get_inner();
-        let description_binding = args.description.get_output(context).get_inner();
-        let local_profile_id_binding = args
-            .local_profile_id
-            .get_output(context)
-            .get_inner();
-        let partner_profile_id_binding = args
-            .partner_profile_id
-            .get_output(context)
-            .get_inner();
-        let server_id_binding = args.server_id.get_output(context).get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
+        let access_role_binding_1 = args.access_role.get_output(context);
+        let access_role_binding = access_role_binding_1.get_inner();
+        let base_directory_binding_1 = args.base_directory.get_output(context);
+        let base_directory_binding = base_directory_binding_1.get_inner();
+        let description_binding_1 = args.description.get_output(context);
+        let description_binding = description_binding_1.get_inner();
+        let local_profile_id_binding_1 = args.local_profile_id.get_output(context);
+        let local_profile_id_binding = local_profile_id_binding_1.get_inner();
+        let partner_profile_id_binding_1 = args.partner_profile_id.get_output(context);
+        let partner_profile_id_binding = partner_profile_id_binding_1.get_inner();
+        let server_id_binding_1 = args.server_id.get_output(context);
+        let server_id_binding = server_id_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:transfer/agreement:Agreement".into(),
             name: name.to_string(),

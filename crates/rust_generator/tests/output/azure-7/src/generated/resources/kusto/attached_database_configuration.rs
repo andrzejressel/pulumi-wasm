@@ -163,23 +163,25 @@ pub mod attached_database_configuration {
     ) -> AttachedDatabaseConfigurationResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let cluster_name_binding = args.cluster_name.get_output(context).get_inner();
-        let cluster_resource_id_binding = args
-            .cluster_resource_id
-            .get_output(context)
-            .get_inner();
-        let database_name_binding = args.database_name.get_output(context).get_inner();
-        let default_principal_modification_kind_binding = args
+        let cluster_name_binding_1 = args.cluster_name.get_output(context);
+        let cluster_name_binding = cluster_name_binding_1.get_inner();
+        let cluster_resource_id_binding_1 = args.cluster_resource_id.get_output(context);
+        let cluster_resource_id_binding = cluster_resource_id_binding_1.get_inner();
+        let database_name_binding_1 = args.database_name.get_output(context);
+        let database_name_binding = database_name_binding_1.get_inner();
+        let default_principal_modification_kind_binding_1 = args
             .default_principal_modification_kind
-            .get_output(context)
+            .get_output(context);
+        let default_principal_modification_kind_binding = default_principal_modification_kind_binding_1
             .get_inner();
-        let location_binding = args.location.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let resource_group_name_binding = args
-            .resource_group_name
-            .get_output(context)
-            .get_inner();
-        let sharing_binding = args.sharing.get_output(context).get_inner();
+        let location_binding_1 = args.location.get_output(context);
+        let location_binding = location_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let resource_group_name_binding_1 = args.resource_group_name.get_output(context);
+        let resource_group_name_binding = resource_group_name_binding_1.get_inner();
+        let sharing_binding_1 = args.sharing.get_output(context);
+        let sharing_binding = sharing_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:kusto/attachedDatabaseConfiguration:AttachedDatabaseConfiguration"
                 .into(),

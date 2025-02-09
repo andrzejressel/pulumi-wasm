@@ -213,13 +213,20 @@ pub mod consumer_quota_override {
     ) -> ConsumerQuotaOverrideResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let dimensions_binding = args.dimensions.get_output(context).get_inner();
-        let force_binding = args.force.get_output(context).get_inner();
-        let limit_binding = args.limit.get_output(context).get_inner();
-        let metric_binding = args.metric.get_output(context).get_inner();
-        let override_value_binding = args.override_value.get_output(context).get_inner();
-        let project_binding = args.project.get_output(context).get_inner();
-        let service_binding = args.service.get_output(context).get_inner();
+        let dimensions_binding_1 = args.dimensions.get_output(context);
+        let dimensions_binding = dimensions_binding_1.get_inner();
+        let force_binding_1 = args.force.get_output(context);
+        let force_binding = force_binding_1.get_inner();
+        let limit_binding_1 = args.limit.get_output(context);
+        let limit_binding = limit_binding_1.get_inner();
+        let metric_binding_1 = args.metric.get_output(context);
+        let metric_binding = metric_binding_1.get_inner();
+        let override_value_binding_1 = args.override_value.get_output(context);
+        let override_value_binding = override_value_binding_1.get_inner();
+        let project_binding_1 = args.project.get_output(context);
+        let project_binding = project_binding_1.get_inner();
+        let service_binding_1 = args.service.get_output(context);
+        let service_binding = service_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:serviceusage/consumerQuotaOverride:ConsumerQuotaOverride".into(),
             name: name.to_string(),

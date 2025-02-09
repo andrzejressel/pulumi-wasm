@@ -440,73 +440,85 @@ pub mod region_instance_group_manager {
     ) -> RegionInstanceGroupManagerResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let all_instances_config_binding = args
+        let all_instances_config_binding_1 = args
             .all_instances_config
-            .get_output(context)
-            .get_inner();
-        let auto_healing_policies_binding = args
+            .get_output(context);
+        let all_instances_config_binding = all_instances_config_binding_1.get_inner();
+        let auto_healing_policies_binding_1 = args
             .auto_healing_policies
-            .get_output(context)
-            .get_inner();
-        let base_instance_name_binding = args
-            .base_instance_name
-            .get_output(context)
-            .get_inner();
-        let description_binding = args.description.get_output(context).get_inner();
-        let distribution_policy_target_shape_binding = args
+            .get_output(context);
+        let auto_healing_policies_binding = auto_healing_policies_binding_1.get_inner();
+        let base_instance_name_binding_1 = args.base_instance_name.get_output(context);
+        let base_instance_name_binding = base_instance_name_binding_1.get_inner();
+        let description_binding_1 = args.description.get_output(context);
+        let description_binding = description_binding_1.get_inner();
+        let distribution_policy_target_shape_binding_1 = args
             .distribution_policy_target_shape
-            .get_output(context)
+            .get_output(context);
+        let distribution_policy_target_shape_binding = distribution_policy_target_shape_binding_1
             .get_inner();
-        let distribution_policy_zones_binding = args
+        let distribution_policy_zones_binding_1 = args
             .distribution_policy_zones
-            .get_output(context)
+            .get_output(context);
+        let distribution_policy_zones_binding = distribution_policy_zones_binding_1
             .get_inner();
-        let instance_flexibility_policy_binding = args
+        let instance_flexibility_policy_binding_1 = args
             .instance_flexibility_policy
-            .get_output(context)
+            .get_output(context);
+        let instance_flexibility_policy_binding = instance_flexibility_policy_binding_1
             .get_inner();
-        let instance_lifecycle_policy_binding = args
+        let instance_lifecycle_policy_binding_1 = args
             .instance_lifecycle_policy
-            .get_output(context)
+            .get_output(context);
+        let instance_lifecycle_policy_binding = instance_lifecycle_policy_binding_1
             .get_inner();
-        let list_managed_instances_results_binding = args
+        let list_managed_instances_results_binding_1 = args
             .list_managed_instances_results
-            .get_output(context)
+            .get_output(context);
+        let list_managed_instances_results_binding = list_managed_instances_results_binding_1
             .get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let named_ports_binding = args.named_ports.get_output(context).get_inner();
-        let params_binding = args.params.get_output(context).get_inner();
-        let project_binding = args.project.get_output(context).get_inner();
-        let region_binding = args.region.get_output(context).get_inner();
-        let standby_policy_binding = args.standby_policy.get_output(context).get_inner();
-        let stateful_disks_binding = args.stateful_disks.get_output(context).get_inner();
-        let stateful_external_ips_binding = args
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let named_ports_binding_1 = args.named_ports.get_output(context);
+        let named_ports_binding = named_ports_binding_1.get_inner();
+        let params_binding_1 = args.params.get_output(context);
+        let params_binding = params_binding_1.get_inner();
+        let project_binding_1 = args.project.get_output(context);
+        let project_binding = project_binding_1.get_inner();
+        let region_binding_1 = args.region.get_output(context);
+        let region_binding = region_binding_1.get_inner();
+        let standby_policy_binding_1 = args.standby_policy.get_output(context);
+        let standby_policy_binding = standby_policy_binding_1.get_inner();
+        let stateful_disks_binding_1 = args.stateful_disks.get_output(context);
+        let stateful_disks_binding = stateful_disks_binding_1.get_inner();
+        let stateful_external_ips_binding_1 = args
             .stateful_external_ips
-            .get_output(context)
-            .get_inner();
-        let stateful_internal_ips_binding = args
+            .get_output(context);
+        let stateful_external_ips_binding = stateful_external_ips_binding_1.get_inner();
+        let stateful_internal_ips_binding_1 = args
             .stateful_internal_ips
-            .get_output(context)
-            .get_inner();
-        let target_pools_binding = args.target_pools.get_output(context).get_inner();
-        let target_size_binding = args.target_size.get_output(context).get_inner();
-        let target_stopped_size_binding = args
-            .target_stopped_size
-            .get_output(context)
-            .get_inner();
-        let target_suspended_size_binding = args
+            .get_output(context);
+        let stateful_internal_ips_binding = stateful_internal_ips_binding_1.get_inner();
+        let target_pools_binding_1 = args.target_pools.get_output(context);
+        let target_pools_binding = target_pools_binding_1.get_inner();
+        let target_size_binding_1 = args.target_size.get_output(context);
+        let target_size_binding = target_size_binding_1.get_inner();
+        let target_stopped_size_binding_1 = args.target_stopped_size.get_output(context);
+        let target_stopped_size_binding = target_stopped_size_binding_1.get_inner();
+        let target_suspended_size_binding_1 = args
             .target_suspended_size
-            .get_output(context)
-            .get_inner();
-        let update_policy_binding = args.update_policy.get_output(context).get_inner();
-        let versions_binding = args.versions.get_output(context).get_inner();
-        let wait_for_instances_binding = args
-            .wait_for_instances
-            .get_output(context)
-            .get_inner();
-        let wait_for_instances_status_binding = args
+            .get_output(context);
+        let target_suspended_size_binding = target_suspended_size_binding_1.get_inner();
+        let update_policy_binding_1 = args.update_policy.get_output(context);
+        let update_policy_binding = update_policy_binding_1.get_inner();
+        let versions_binding_1 = args.versions.get_output(context);
+        let versions_binding = versions_binding_1.get_inner();
+        let wait_for_instances_binding_1 = args.wait_for_instances.get_output(context);
+        let wait_for_instances_binding = wait_for_instances_binding_1.get_inner();
+        let wait_for_instances_status_binding_1 = args
             .wait_for_instances_status
-            .get_output(context)
+            .get_output(context);
+        let wait_for_instances_status_binding = wait_for_instances_status_binding_1
             .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:compute/regionInstanceGroupManager:RegionInstanceGroupManager"

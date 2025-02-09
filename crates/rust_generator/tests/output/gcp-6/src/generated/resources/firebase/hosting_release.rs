@@ -224,11 +224,16 @@ pub mod hosting_release {
     ) -> HostingReleaseResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let channel_id_binding = args.channel_id.get_output(context).get_inner();
-        let message_binding = args.message.get_output(context).get_inner();
-        let site_id_binding = args.site_id.get_output(context).get_inner();
-        let type__binding = args.type_.get_output(context).get_inner();
-        let version_name_binding = args.version_name.get_output(context).get_inner();
+        let channel_id_binding_1 = args.channel_id.get_output(context);
+        let channel_id_binding = channel_id_binding_1.get_inner();
+        let message_binding_1 = args.message.get_output(context);
+        let message_binding = message_binding_1.get_inner();
+        let site_id_binding_1 = args.site_id.get_output(context);
+        let site_id_binding = site_id_binding_1.get_inner();
+        let type__binding_1 = args.type_.get_output(context);
+        let type__binding = type__binding_1.get_inner();
+        let version_name_binding_1 = args.version_name.get_output(context);
+        let version_name_binding = version_name_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:firebase/hostingRelease:HostingRelease".into(),
             name: name.to_string(),

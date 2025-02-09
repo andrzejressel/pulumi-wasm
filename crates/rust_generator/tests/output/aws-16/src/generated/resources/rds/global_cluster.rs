@@ -301,31 +301,35 @@ pub mod global_cluster {
     ) -> GlobalClusterResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let database_name_binding = args.database_name.get_output(context).get_inner();
-        let deletion_protection_binding = args
-            .deletion_protection
-            .get_output(context)
-            .get_inner();
-        let engine_binding = args.engine.get_output(context).get_inner();
-        let engine_lifecycle_support_binding = args
+        let database_name_binding_1 = args.database_name.get_output(context);
+        let database_name_binding = database_name_binding_1.get_inner();
+        let deletion_protection_binding_1 = args.deletion_protection.get_output(context);
+        let deletion_protection_binding = deletion_protection_binding_1.get_inner();
+        let engine_binding_1 = args.engine.get_output(context);
+        let engine_binding = engine_binding_1.get_inner();
+        let engine_lifecycle_support_binding_1 = args
             .engine_lifecycle_support
-            .get_output(context)
+            .get_output(context);
+        let engine_lifecycle_support_binding = engine_lifecycle_support_binding_1
             .get_inner();
-        let engine_version_binding = args.engine_version.get_output(context).get_inner();
-        let force_destroy_binding = args.force_destroy.get_output(context).get_inner();
-        let global_cluster_identifier_binding = args
+        let engine_version_binding_1 = args.engine_version.get_output(context);
+        let engine_version_binding = engine_version_binding_1.get_inner();
+        let force_destroy_binding_1 = args.force_destroy.get_output(context);
+        let force_destroy_binding = force_destroy_binding_1.get_inner();
+        let global_cluster_identifier_binding_1 = args
             .global_cluster_identifier
-            .get_output(context)
+            .get_output(context);
+        let global_cluster_identifier_binding = global_cluster_identifier_binding_1
             .get_inner();
-        let source_db_cluster_identifier_binding = args
+        let source_db_cluster_identifier_binding_1 = args
             .source_db_cluster_identifier
-            .get_output(context)
+            .get_output(context);
+        let source_db_cluster_identifier_binding = source_db_cluster_identifier_binding_1
             .get_inner();
-        let storage_encrypted_binding = args
-            .storage_encrypted
-            .get_output(context)
-            .get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
+        let storage_encrypted_binding_1 = args.storage_encrypted.get_output(context);
+        let storage_encrypted_binding = storage_encrypted_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:rds/globalCluster:GlobalCluster".into(),
             name: name.to_string(),

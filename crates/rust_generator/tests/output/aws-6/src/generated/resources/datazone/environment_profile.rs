@@ -184,29 +184,25 @@ pub mod environment_profile {
     ) -> EnvironmentProfileResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let aws_account_id_binding = args.aws_account_id.get_output(context).get_inner();
-        let aws_account_region_binding = args
-            .aws_account_region
-            .get_output(context)
-            .get_inner();
-        let description_binding = args.description.get_output(context).get_inner();
-        let domain_identifier_binding = args
-            .domain_identifier
-            .get_output(context)
-            .get_inner();
-        let environment_blueprint_identifier_binding = args
+        let aws_account_id_binding_1 = args.aws_account_id.get_output(context);
+        let aws_account_id_binding = aws_account_id_binding_1.get_inner();
+        let aws_account_region_binding_1 = args.aws_account_region.get_output(context);
+        let aws_account_region_binding = aws_account_region_binding_1.get_inner();
+        let description_binding_1 = args.description.get_output(context);
+        let description_binding = description_binding_1.get_inner();
+        let domain_identifier_binding_1 = args.domain_identifier.get_output(context);
+        let domain_identifier_binding = domain_identifier_binding_1.get_inner();
+        let environment_blueprint_identifier_binding_1 = args
             .environment_blueprint_identifier
-            .get_output(context)
+            .get_output(context);
+        let environment_blueprint_identifier_binding = environment_blueprint_identifier_binding_1
             .get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let project_identifier_binding = args
-            .project_identifier
-            .get_output(context)
-            .get_inner();
-        let user_parameters_binding = args
-            .user_parameters
-            .get_output(context)
-            .get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let project_identifier_binding_1 = args.project_identifier.get_output(context);
+        let project_identifier_binding = project_identifier_binding_1.get_inner();
+        let user_parameters_binding_1 = args.user_parameters.get_output(context);
+        let user_parameters_binding = user_parameters_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:datazone/environmentProfile:EnvironmentProfile".into(),
             name: name.to_string(),

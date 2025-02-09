@@ -781,25 +781,30 @@ pub mod region_url_map {
     ) -> RegionUrlMapResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let default_route_action_binding = args
+        let default_route_action_binding_1 = args
             .default_route_action
-            .get_output(context)
-            .get_inner();
-        let default_service_binding = args
-            .default_service
-            .get_output(context)
-            .get_inner();
-        let default_url_redirect_binding = args
+            .get_output(context);
+        let default_route_action_binding = default_route_action_binding_1.get_inner();
+        let default_service_binding_1 = args.default_service.get_output(context);
+        let default_service_binding = default_service_binding_1.get_inner();
+        let default_url_redirect_binding_1 = args
             .default_url_redirect
-            .get_output(context)
-            .get_inner();
-        let description_binding = args.description.get_output(context).get_inner();
-        let host_rules_binding = args.host_rules.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let path_matchers_binding = args.path_matchers.get_output(context).get_inner();
-        let project_binding = args.project.get_output(context).get_inner();
-        let region_binding = args.region.get_output(context).get_inner();
-        let tests_binding = args.tests.get_output(context).get_inner();
+            .get_output(context);
+        let default_url_redirect_binding = default_url_redirect_binding_1.get_inner();
+        let description_binding_1 = args.description.get_output(context);
+        let description_binding = description_binding_1.get_inner();
+        let host_rules_binding_1 = args.host_rules.get_output(context);
+        let host_rules_binding = host_rules_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let path_matchers_binding_1 = args.path_matchers.get_output(context);
+        let path_matchers_binding = path_matchers_binding_1.get_inner();
+        let project_binding_1 = args.project.get_output(context);
+        let project_binding = project_binding_1.get_inner();
+        let region_binding_1 = args.region.get_output(context);
+        let region_binding = region_binding_1.get_inner();
+        let tests_binding_1 = args.tests.get_output(context);
+        let tests_binding = tests_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:compute/regionUrlMap:RegionUrlMap".into(),
             name: name.to_string(),

@@ -210,39 +210,43 @@ pub mod branch_rule {
     ) -> BranchRuleResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let allow_stale_reviews_binding = args
-            .allow_stale_reviews
-            .get_output(context)
-            .get_inner();
-        let branch_rule_id_binding = args.branch_rule_id.get_output(context).get_inner();
-        let disabled_binding = args.disabled.get_output(context).get_inner();
-        let include_pattern_binding = args
-            .include_pattern
-            .get_output(context)
-            .get_inner();
-        let location_binding = args.location.get_output(context).get_inner();
-        let minimum_approvals_count_binding = args
+        let allow_stale_reviews_binding_1 = args.allow_stale_reviews.get_output(context);
+        let allow_stale_reviews_binding = allow_stale_reviews_binding_1.get_inner();
+        let branch_rule_id_binding_1 = args.branch_rule_id.get_output(context);
+        let branch_rule_id_binding = branch_rule_id_binding_1.get_inner();
+        let disabled_binding_1 = args.disabled.get_output(context);
+        let disabled_binding = disabled_binding_1.get_inner();
+        let include_pattern_binding_1 = args.include_pattern.get_output(context);
+        let include_pattern_binding = include_pattern_binding_1.get_inner();
+        let location_binding_1 = args.location.get_output(context);
+        let location_binding = location_binding_1.get_inner();
+        let minimum_approvals_count_binding_1 = args
             .minimum_approvals_count
-            .get_output(context)
+            .get_output(context);
+        let minimum_approvals_count_binding = minimum_approvals_count_binding_1
             .get_inner();
-        let minimum_reviews_count_binding = args
+        let minimum_reviews_count_binding_1 = args
             .minimum_reviews_count
-            .get_output(context)
-            .get_inner();
-        let project_binding = args.project.get_output(context).get_inner();
-        let repository_id_binding = args.repository_id.get_output(context).get_inner();
-        let require_comments_resolved_binding = args
+            .get_output(context);
+        let minimum_reviews_count_binding = minimum_reviews_count_binding_1.get_inner();
+        let project_binding_1 = args.project.get_output(context);
+        let project_binding = project_binding_1.get_inner();
+        let repository_id_binding_1 = args.repository_id.get_output(context);
+        let repository_id_binding = repository_id_binding_1.get_inner();
+        let require_comments_resolved_binding_1 = args
             .require_comments_resolved
-            .get_output(context)
+            .get_output(context);
+        let require_comments_resolved_binding = require_comments_resolved_binding_1
             .get_inner();
-        let require_linear_history_binding = args
+        let require_linear_history_binding_1 = args
             .require_linear_history
-            .get_output(context)
+            .get_output(context);
+        let require_linear_history_binding = require_linear_history_binding_1
             .get_inner();
-        let require_pull_request_binding = args
+        let require_pull_request_binding_1 = args
             .require_pull_request
-            .get_output(context)
-            .get_inner();
+            .get_output(context);
+        let require_pull_request_binding = require_pull_request_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:securesourcemanager/branchRule:BranchRule".into(),
             name: name.to_string(),

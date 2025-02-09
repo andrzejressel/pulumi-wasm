@@ -211,94 +211,107 @@ pub mod rails_app_layer {
     ) -> RailsAppLayerResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let app_server_binding = args.app_server.get_output(context).get_inner();
-        let auto_assign_elastic_ips_binding = args
+        let app_server_binding_1 = args.app_server.get_output(context);
+        let app_server_binding = app_server_binding_1.get_inner();
+        let auto_assign_elastic_ips_binding_1 = args
             .auto_assign_elastic_ips
-            .get_output(context)
+            .get_output(context);
+        let auto_assign_elastic_ips_binding = auto_assign_elastic_ips_binding_1
             .get_inner();
-        let auto_assign_public_ips_binding = args
+        let auto_assign_public_ips_binding_1 = args
             .auto_assign_public_ips
-            .get_output(context)
+            .get_output(context);
+        let auto_assign_public_ips_binding = auto_assign_public_ips_binding_1
             .get_inner();
-        let auto_healing_binding = args.auto_healing.get_output(context).get_inner();
-        let bundler_version_binding = args
-            .bundler_version
-            .get_output(context)
-            .get_inner();
-        let cloudwatch_configuration_binding = args
+        let auto_healing_binding_1 = args.auto_healing.get_output(context);
+        let auto_healing_binding = auto_healing_binding_1.get_inner();
+        let bundler_version_binding_1 = args.bundler_version.get_output(context);
+        let bundler_version_binding = bundler_version_binding_1.get_inner();
+        let cloudwatch_configuration_binding_1 = args
             .cloudwatch_configuration
-            .get_output(context)
+            .get_output(context);
+        let cloudwatch_configuration_binding = cloudwatch_configuration_binding_1
             .get_inner();
-        let custom_configure_recipes_binding = args
+        let custom_configure_recipes_binding_1 = args
             .custom_configure_recipes
-            .get_output(context)
+            .get_output(context);
+        let custom_configure_recipes_binding = custom_configure_recipes_binding_1
             .get_inner();
-        let custom_deploy_recipes_binding = args
+        let custom_deploy_recipes_binding_1 = args
             .custom_deploy_recipes
-            .get_output(context)
-            .get_inner();
-        let custom_instance_profile_arn_binding = args
+            .get_output(context);
+        let custom_deploy_recipes_binding = custom_deploy_recipes_binding_1.get_inner();
+        let custom_instance_profile_arn_binding_1 = args
             .custom_instance_profile_arn
-            .get_output(context)
+            .get_output(context);
+        let custom_instance_profile_arn_binding = custom_instance_profile_arn_binding_1
             .get_inner();
-        let custom_json_binding = args.custom_json.get_output(context).get_inner();
-        let custom_security_group_ids_binding = args
+        let custom_json_binding_1 = args.custom_json.get_output(context);
+        let custom_json_binding = custom_json_binding_1.get_inner();
+        let custom_security_group_ids_binding_1 = args
             .custom_security_group_ids
-            .get_output(context)
+            .get_output(context);
+        let custom_security_group_ids_binding = custom_security_group_ids_binding_1
             .get_inner();
-        let custom_setup_recipes_binding = args
+        let custom_setup_recipes_binding_1 = args
             .custom_setup_recipes
-            .get_output(context)
-            .get_inner();
-        let custom_shutdown_recipes_binding = args
+            .get_output(context);
+        let custom_setup_recipes_binding = custom_setup_recipes_binding_1.get_inner();
+        let custom_shutdown_recipes_binding_1 = args
             .custom_shutdown_recipes
-            .get_output(context)
+            .get_output(context);
+        let custom_shutdown_recipes_binding = custom_shutdown_recipes_binding_1
             .get_inner();
-        let custom_undeploy_recipes_binding = args
+        let custom_undeploy_recipes_binding_1 = args
             .custom_undeploy_recipes
-            .get_output(context)
+            .get_output(context);
+        let custom_undeploy_recipes_binding = custom_undeploy_recipes_binding_1
             .get_inner();
-        let drain_elb_on_shutdown_binding = args
+        let drain_elb_on_shutdown_binding_1 = args
             .drain_elb_on_shutdown
-            .get_output(context)
-            .get_inner();
-        let ebs_volumes_binding = args.ebs_volumes.get_output(context).get_inner();
-        let elastic_load_balancer_binding = args
+            .get_output(context);
+        let drain_elb_on_shutdown_binding = drain_elb_on_shutdown_binding_1.get_inner();
+        let ebs_volumes_binding_1 = args.ebs_volumes.get_output(context);
+        let ebs_volumes_binding = ebs_volumes_binding_1.get_inner();
+        let elastic_load_balancer_binding_1 = args
             .elastic_load_balancer
-            .get_output(context)
-            .get_inner();
-        let install_updates_on_boot_binding = args
+            .get_output(context);
+        let elastic_load_balancer_binding = elastic_load_balancer_binding_1.get_inner();
+        let install_updates_on_boot_binding_1 = args
             .install_updates_on_boot
-            .get_output(context)
+            .get_output(context);
+        let install_updates_on_boot_binding = install_updates_on_boot_binding_1
             .get_inner();
-        let instance_shutdown_timeout_binding = args
+        let instance_shutdown_timeout_binding_1 = args
             .instance_shutdown_timeout
-            .get_output(context)
+            .get_output(context);
+        let instance_shutdown_timeout_binding = instance_shutdown_timeout_binding_1
             .get_inner();
-        let load_based_auto_scaling_binding = args
+        let load_based_auto_scaling_binding_1 = args
             .load_based_auto_scaling
-            .get_output(context)
+            .get_output(context);
+        let load_based_auto_scaling_binding = load_based_auto_scaling_binding_1
             .get_inner();
-        let manage_bundler_binding = args.manage_bundler.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let passenger_version_binding = args
-            .passenger_version
-            .get_output(context)
-            .get_inner();
-        let ruby_version_binding = args.ruby_version.get_output(context).get_inner();
-        let rubygems_version_binding = args
-            .rubygems_version
-            .get_output(context)
-            .get_inner();
-        let stack_id_binding = args.stack_id.get_output(context).get_inner();
-        let system_packages_binding = args
-            .system_packages
-            .get_output(context)
-            .get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
-        let use_ebs_optimized_instances_binding = args
+        let manage_bundler_binding_1 = args.manage_bundler.get_output(context);
+        let manage_bundler_binding = manage_bundler_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let passenger_version_binding_1 = args.passenger_version.get_output(context);
+        let passenger_version_binding = passenger_version_binding_1.get_inner();
+        let ruby_version_binding_1 = args.ruby_version.get_output(context);
+        let ruby_version_binding = ruby_version_binding_1.get_inner();
+        let rubygems_version_binding_1 = args.rubygems_version.get_output(context);
+        let rubygems_version_binding = rubygems_version_binding_1.get_inner();
+        let stack_id_binding_1 = args.stack_id.get_output(context);
+        let stack_id_binding = stack_id_binding_1.get_inner();
+        let system_packages_binding_1 = args.system_packages.get_output(context);
+        let system_packages_binding = system_packages_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
+        let use_ebs_optimized_instances_binding_1 = args
             .use_ebs_optimized_instances
-            .get_output(context)
+            .get_output(context);
+        let use_ebs_optimized_instances_binding = use_ebs_optimized_instances_binding_1
             .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:opsworks/railsAppLayer:RailsAppLayer".into(),

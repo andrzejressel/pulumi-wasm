@@ -56,9 +56,10 @@ pub mod vpc_ipam_organization_admin_account {
     ) -> VpcIpamOrganizationAdminAccountResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let delegated_admin_account_id_binding = args
+        let delegated_admin_account_id_binding_1 = args
             .delegated_admin_account_id
-            .get_output(context)
+            .get_output(context);
+        let delegated_admin_account_id_binding = delegated_admin_account_id_binding_1
             .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:ec2/vpcIpamOrganizationAdminAccount:VpcIpamOrganizationAdminAccount"

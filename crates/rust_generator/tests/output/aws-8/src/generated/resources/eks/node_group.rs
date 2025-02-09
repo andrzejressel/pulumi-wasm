@@ -227,40 +227,49 @@ pub mod node_group {
     ) -> NodeGroupResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let ami_type_binding = args.ami_type.get_output(context).get_inner();
-        let capacity_type_binding = args.capacity_type.get_output(context).get_inner();
-        let cluster_name_binding = args.cluster_name.get_output(context).get_inner();
-        let disk_size_binding = args.disk_size.get_output(context).get_inner();
-        let force_update_version_binding = args
+        let ami_type_binding_1 = args.ami_type.get_output(context);
+        let ami_type_binding = ami_type_binding_1.get_inner();
+        let capacity_type_binding_1 = args.capacity_type.get_output(context);
+        let capacity_type_binding = capacity_type_binding_1.get_inner();
+        let cluster_name_binding_1 = args.cluster_name.get_output(context);
+        let cluster_name_binding = cluster_name_binding_1.get_inner();
+        let disk_size_binding_1 = args.disk_size.get_output(context);
+        let disk_size_binding = disk_size_binding_1.get_inner();
+        let force_update_version_binding_1 = args
             .force_update_version
-            .get_output(context)
-            .get_inner();
-        let instance_types_binding = args.instance_types.get_output(context).get_inner();
-        let labels_binding = args.labels.get_output(context).get_inner();
-        let launch_template_binding = args
-            .launch_template
-            .get_output(context)
-            .get_inner();
-        let node_group_name_binding = args
-            .node_group_name
-            .get_output(context)
-            .get_inner();
-        let node_group_name_prefix_binding = args
+            .get_output(context);
+        let force_update_version_binding = force_update_version_binding_1.get_inner();
+        let instance_types_binding_1 = args.instance_types.get_output(context);
+        let instance_types_binding = instance_types_binding_1.get_inner();
+        let labels_binding_1 = args.labels.get_output(context);
+        let labels_binding = labels_binding_1.get_inner();
+        let launch_template_binding_1 = args.launch_template.get_output(context);
+        let launch_template_binding = launch_template_binding_1.get_inner();
+        let node_group_name_binding_1 = args.node_group_name.get_output(context);
+        let node_group_name_binding = node_group_name_binding_1.get_inner();
+        let node_group_name_prefix_binding_1 = args
             .node_group_name_prefix
-            .get_output(context)
+            .get_output(context);
+        let node_group_name_prefix_binding = node_group_name_prefix_binding_1
             .get_inner();
-        let node_role_arn_binding = args.node_role_arn.get_output(context).get_inner();
-        let release_version_binding = args
-            .release_version
-            .get_output(context)
-            .get_inner();
-        let remote_access_binding = args.remote_access.get_output(context).get_inner();
-        let scaling_config_binding = args.scaling_config.get_output(context).get_inner();
-        let subnet_ids_binding = args.subnet_ids.get_output(context).get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
-        let taints_binding = args.taints.get_output(context).get_inner();
-        let update_config_binding = args.update_config.get_output(context).get_inner();
-        let version_binding = args.version.get_output(context).get_inner();
+        let node_role_arn_binding_1 = args.node_role_arn.get_output(context);
+        let node_role_arn_binding = node_role_arn_binding_1.get_inner();
+        let release_version_binding_1 = args.release_version.get_output(context);
+        let release_version_binding = release_version_binding_1.get_inner();
+        let remote_access_binding_1 = args.remote_access.get_output(context);
+        let remote_access_binding = remote_access_binding_1.get_inner();
+        let scaling_config_binding_1 = args.scaling_config.get_output(context);
+        let scaling_config_binding = scaling_config_binding_1.get_inner();
+        let subnet_ids_binding_1 = args.subnet_ids.get_output(context);
+        let subnet_ids_binding = subnet_ids_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
+        let taints_binding_1 = args.taints.get_output(context);
+        let taints_binding = taints_binding_1.get_inner();
+        let update_config_binding_1 = args.update_config.get_output(context);
+        let update_config_binding = update_config_binding_1.get_inner();
+        let version_binding_1 = args.version.get_output(context);
+        let version_binding = version_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:eks/nodeGroup:NodeGroup".into(),
             name: name.to_string(),

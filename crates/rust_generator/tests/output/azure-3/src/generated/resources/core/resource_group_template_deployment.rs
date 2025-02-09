@@ -85,28 +85,24 @@ pub mod resource_group_template_deployment {
     ) -> ResourceGroupTemplateDeploymentResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let debug_level_binding = args.debug_level.get_output(context).get_inner();
-        let deployment_mode_binding = args
-            .deployment_mode
-            .get_output(context)
-            .get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let parameters_content_binding = args
-            .parameters_content
-            .get_output(context)
-            .get_inner();
-        let resource_group_name_binding = args
-            .resource_group_name
-            .get_output(context)
-            .get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
-        let template_content_binding = args
-            .template_content
-            .get_output(context)
-            .get_inner();
-        let template_spec_version_id_binding = args
+        let debug_level_binding_1 = args.debug_level.get_output(context);
+        let debug_level_binding = debug_level_binding_1.get_inner();
+        let deployment_mode_binding_1 = args.deployment_mode.get_output(context);
+        let deployment_mode_binding = deployment_mode_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let parameters_content_binding_1 = args.parameters_content.get_output(context);
+        let parameters_content_binding = parameters_content_binding_1.get_inner();
+        let resource_group_name_binding_1 = args.resource_group_name.get_output(context);
+        let resource_group_name_binding = resource_group_name_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
+        let template_content_binding_1 = args.template_content.get_output(context);
+        let template_content_binding = template_content_binding_1.get_inner();
+        let template_spec_version_id_binding_1 = args
             .template_spec_version_id
-            .get_output(context)
+            .get_output(context);
+        let template_spec_version_id_binding = template_spec_version_id_binding_1
             .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:core/resourceGroupTemplateDeployment:ResourceGroupTemplateDeployment"

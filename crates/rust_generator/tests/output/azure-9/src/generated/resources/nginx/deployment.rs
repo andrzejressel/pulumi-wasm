@@ -206,49 +206,50 @@ pub mod deployment {
     ) -> DeploymentResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let auto_scale_profiles_binding = args
-            .auto_scale_profiles
-            .get_output(context)
-            .get_inner();
-        let automatic_upgrade_channel_binding = args
+        let auto_scale_profiles_binding_1 = args.auto_scale_profiles.get_output(context);
+        let auto_scale_profiles_binding = auto_scale_profiles_binding_1.get_inner();
+        let automatic_upgrade_channel_binding_1 = args
             .automatic_upgrade_channel
-            .get_output(context)
+            .get_output(context);
+        let automatic_upgrade_channel_binding = automatic_upgrade_channel_binding_1
             .get_inner();
-        let capacity_binding = args.capacity.get_output(context).get_inner();
-        let diagnose_support_enabled_binding = args
+        let capacity_binding_1 = args.capacity.get_output(context);
+        let capacity_binding = capacity_binding_1.get_inner();
+        let diagnose_support_enabled_binding_1 = args
             .diagnose_support_enabled
-            .get_output(context)
+            .get_output(context);
+        let diagnose_support_enabled_binding = diagnose_support_enabled_binding_1
             .get_inner();
-        let email_binding = args.email.get_output(context).get_inner();
-        let frontend_privates_binding = args
-            .frontend_privates
-            .get_output(context)
-            .get_inner();
-        let frontend_public_binding = args
-            .frontend_public
-            .get_output(context)
-            .get_inner();
-        let identity_binding = args.identity.get_output(context).get_inner();
-        let location_binding = args.location.get_output(context).get_inner();
-        let logging_storage_accounts_binding = args
+        let email_binding_1 = args.email.get_output(context);
+        let email_binding = email_binding_1.get_inner();
+        let frontend_privates_binding_1 = args.frontend_privates.get_output(context);
+        let frontend_privates_binding = frontend_privates_binding_1.get_inner();
+        let frontend_public_binding_1 = args.frontend_public.get_output(context);
+        let frontend_public_binding = frontend_public_binding_1.get_inner();
+        let identity_binding_1 = args.identity.get_output(context);
+        let identity_binding = identity_binding_1.get_inner();
+        let location_binding_1 = args.location.get_output(context);
+        let location_binding = location_binding_1.get_inner();
+        let logging_storage_accounts_binding_1 = args
             .logging_storage_accounts
-            .get_output(context)
+            .get_output(context);
+        let logging_storage_accounts_binding = logging_storage_accounts_binding_1
             .get_inner();
-        let managed_resource_group_binding = args
+        let managed_resource_group_binding_1 = args
             .managed_resource_group
-            .get_output(context)
+            .get_output(context);
+        let managed_resource_group_binding = managed_resource_group_binding_1
             .get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let network_interfaces_binding = args
-            .network_interfaces
-            .get_output(context)
-            .get_inner();
-        let resource_group_name_binding = args
-            .resource_group_name
-            .get_output(context)
-            .get_inner();
-        let sku_binding = args.sku.get_output(context).get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let network_interfaces_binding_1 = args.network_interfaces.get_output(context);
+        let network_interfaces_binding = network_interfaces_binding_1.get_inner();
+        let resource_group_name_binding_1 = args.resource_group_name.get_output(context);
+        let resource_group_name_binding = resource_group_name_binding_1.get_inner();
+        let sku_binding_1 = args.sku.get_output(context);
+        let sku_binding = sku_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:nginx/deployment:Deployment".into(),
             name: name.to_string(),

@@ -175,28 +175,37 @@ pub mod elastic_pool {
     ) -> ElasticPoolResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let enclave_type_binding = args.enclave_type.get_output(context).get_inner();
-        let license_type_binding = args.license_type.get_output(context).get_inner();
-        let location_binding = args.location.get_output(context).get_inner();
-        let maintenance_configuration_name_binding = args
+        let enclave_type_binding_1 = args.enclave_type.get_output(context);
+        let enclave_type_binding = enclave_type_binding_1.get_inner();
+        let license_type_binding_1 = args.license_type.get_output(context);
+        let license_type_binding = license_type_binding_1.get_inner();
+        let location_binding_1 = args.location.get_output(context);
+        let location_binding = location_binding_1.get_inner();
+        let maintenance_configuration_name_binding_1 = args
             .maintenance_configuration_name
-            .get_output(context)
+            .get_output(context);
+        let maintenance_configuration_name_binding = maintenance_configuration_name_binding_1
             .get_inner();
-        let max_size_bytes_binding = args.max_size_bytes.get_output(context).get_inner();
-        let max_size_gb_binding = args.max_size_gb.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let per_database_settings_binding = args
+        let max_size_bytes_binding_1 = args.max_size_bytes.get_output(context);
+        let max_size_bytes_binding = max_size_bytes_binding_1.get_inner();
+        let max_size_gb_binding_1 = args.max_size_gb.get_output(context);
+        let max_size_gb_binding = max_size_gb_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let per_database_settings_binding_1 = args
             .per_database_settings
-            .get_output(context)
-            .get_inner();
-        let resource_group_name_binding = args
-            .resource_group_name
-            .get_output(context)
-            .get_inner();
-        let server_name_binding = args.server_name.get_output(context).get_inner();
-        let sku_binding = args.sku.get_output(context).get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
-        let zone_redundant_binding = args.zone_redundant.get_output(context).get_inner();
+            .get_output(context);
+        let per_database_settings_binding = per_database_settings_binding_1.get_inner();
+        let resource_group_name_binding_1 = args.resource_group_name.get_output(context);
+        let resource_group_name_binding = resource_group_name_binding_1.get_inner();
+        let server_name_binding_1 = args.server_name.get_output(context);
+        let server_name_binding = server_name_binding_1.get_inner();
+        let sku_binding_1 = args.sku.get_output(context);
+        let sku_binding = sku_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
+        let zone_redundant_binding_1 = args.zone_redundant.get_output(context);
+        let zone_redundant_binding = zone_redundant_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:mssql/elasticPool:ElasticPool".into(),
             name: name.to_string(),

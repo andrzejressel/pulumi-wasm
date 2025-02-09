@@ -58,14 +58,16 @@ pub mod managed_hardware_security_module_role_assignment {
     ) -> ManagedHardwareSecurityModuleRoleAssignmentResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let managed_hsm_id_binding = args.managed_hsm_id.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let principal_id_binding = args.principal_id.get_output(context).get_inner();
-        let role_definition_id_binding = args
-            .role_definition_id
-            .get_output(context)
-            .get_inner();
-        let scope_binding = args.scope.get_output(context).get_inner();
+        let managed_hsm_id_binding_1 = args.managed_hsm_id.get_output(context);
+        let managed_hsm_id_binding = managed_hsm_id_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let principal_id_binding_1 = args.principal_id.get_output(context);
+        let principal_id_binding = principal_id_binding_1.get_inner();
+        let role_definition_id_binding_1 = args.role_definition_id.get_output(context);
+        let role_definition_id_binding = role_definition_id_binding_1.get_inner();
+        let scope_binding_1 = args.scope.get_output(context);
+        let scope_binding = scope_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:keyvault/managedHardwareSecurityModuleRoleAssignment:ManagedHardwareSecurityModuleRoleAssignment"
                 .into(),

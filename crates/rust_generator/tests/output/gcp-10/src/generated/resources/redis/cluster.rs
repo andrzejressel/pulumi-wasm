@@ -575,41 +575,47 @@ pub mod cluster {
     ) -> ClusterResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let authorization_mode_binding = args
-            .authorization_mode
-            .get_output(context)
-            .get_inner();
-        let cross_cluster_replication_config_binding = args
+        let authorization_mode_binding_1 = args.authorization_mode.get_output(context);
+        let authorization_mode_binding = authorization_mode_binding_1.get_inner();
+        let cross_cluster_replication_config_binding_1 = args
             .cross_cluster_replication_config
-            .get_output(context)
+            .get_output(context);
+        let cross_cluster_replication_config_binding = cross_cluster_replication_config_binding_1
             .get_inner();
-        let deletion_protection_enabled_binding = args
+        let deletion_protection_enabled_binding_1 = args
             .deletion_protection_enabled
-            .get_output(context)
+            .get_output(context);
+        let deletion_protection_enabled_binding = deletion_protection_enabled_binding_1
             .get_inner();
-        let maintenance_policy_binding = args
-            .maintenance_policy
-            .get_output(context)
-            .get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let node_type_binding = args.node_type.get_output(context).get_inner();
-        let persistence_config_binding = args
-            .persistence_config
-            .get_output(context)
-            .get_inner();
-        let project_binding = args.project.get_output(context).get_inner();
-        let psc_configs_binding = args.psc_configs.get_output(context).get_inner();
-        let redis_configs_binding = args.redis_configs.get_output(context).get_inner();
-        let region_binding = args.region.get_output(context).get_inner();
-        let replica_count_binding = args.replica_count.get_output(context).get_inner();
-        let shard_count_binding = args.shard_count.get_output(context).get_inner();
-        let transit_encryption_mode_binding = args
+        let maintenance_policy_binding_1 = args.maintenance_policy.get_output(context);
+        let maintenance_policy_binding = maintenance_policy_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let node_type_binding_1 = args.node_type.get_output(context);
+        let node_type_binding = node_type_binding_1.get_inner();
+        let persistence_config_binding_1 = args.persistence_config.get_output(context);
+        let persistence_config_binding = persistence_config_binding_1.get_inner();
+        let project_binding_1 = args.project.get_output(context);
+        let project_binding = project_binding_1.get_inner();
+        let psc_configs_binding_1 = args.psc_configs.get_output(context);
+        let psc_configs_binding = psc_configs_binding_1.get_inner();
+        let redis_configs_binding_1 = args.redis_configs.get_output(context);
+        let redis_configs_binding = redis_configs_binding_1.get_inner();
+        let region_binding_1 = args.region.get_output(context);
+        let region_binding = region_binding_1.get_inner();
+        let replica_count_binding_1 = args.replica_count.get_output(context);
+        let replica_count_binding = replica_count_binding_1.get_inner();
+        let shard_count_binding_1 = args.shard_count.get_output(context);
+        let shard_count_binding = shard_count_binding_1.get_inner();
+        let transit_encryption_mode_binding_1 = args
             .transit_encryption_mode
-            .get_output(context)
+            .get_output(context);
+        let transit_encryption_mode_binding = transit_encryption_mode_binding_1
             .get_inner();
-        let zone_distribution_config_binding = args
+        let zone_distribution_config_binding_1 = args
             .zone_distribution_config
-            .get_output(context)
+            .get_output(context);
+        let zone_distribution_config_binding = zone_distribution_config_binding_1
             .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:redis/cluster:Cluster".into(),

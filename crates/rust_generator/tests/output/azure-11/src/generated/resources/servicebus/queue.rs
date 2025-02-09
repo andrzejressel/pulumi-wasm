@@ -173,63 +173,64 @@ pub mod queue {
     ) -> QueueResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let auto_delete_on_idle_binding = args
-            .auto_delete_on_idle
-            .get_output(context)
-            .get_inner();
-        let batched_operations_enabled_binding = args
+        let auto_delete_on_idle_binding_1 = args.auto_delete_on_idle.get_output(context);
+        let auto_delete_on_idle_binding = auto_delete_on_idle_binding_1.get_inner();
+        let batched_operations_enabled_binding_1 = args
             .batched_operations_enabled
-            .get_output(context)
+            .get_output(context);
+        let batched_operations_enabled_binding = batched_operations_enabled_binding_1
             .get_inner();
-        let dead_lettering_on_message_expiration_binding = args
+        let dead_lettering_on_message_expiration_binding_1 = args
             .dead_lettering_on_message_expiration
-            .get_output(context)
+            .get_output(context);
+        let dead_lettering_on_message_expiration_binding = dead_lettering_on_message_expiration_binding_1
             .get_inner();
-        let default_message_ttl_binding = args
-            .default_message_ttl
-            .get_output(context)
-            .get_inner();
-        let duplicate_detection_history_time_window_binding = args
+        let default_message_ttl_binding_1 = args.default_message_ttl.get_output(context);
+        let default_message_ttl_binding = default_message_ttl_binding_1.get_inner();
+        let duplicate_detection_history_time_window_binding_1 = args
             .duplicate_detection_history_time_window
-            .get_output(context)
+            .get_output(context);
+        let duplicate_detection_history_time_window_binding = duplicate_detection_history_time_window_binding_1
             .get_inner();
-        let express_enabled_binding = args
-            .express_enabled
-            .get_output(context)
-            .get_inner();
-        let forward_dead_lettered_messages_to_binding = args
+        let express_enabled_binding_1 = args.express_enabled.get_output(context);
+        let express_enabled_binding = express_enabled_binding_1.get_inner();
+        let forward_dead_lettered_messages_to_binding_1 = args
             .forward_dead_lettered_messages_to
-            .get_output(context)
+            .get_output(context);
+        let forward_dead_lettered_messages_to_binding = forward_dead_lettered_messages_to_binding_1
             .get_inner();
-        let forward_to_binding = args.forward_to.get_output(context).get_inner();
-        let lock_duration_binding = args.lock_duration.get_output(context).get_inner();
-        let max_delivery_count_binding = args
-            .max_delivery_count
-            .get_output(context)
-            .get_inner();
-        let max_message_size_in_kilobytes_binding = args
+        let forward_to_binding_1 = args.forward_to.get_output(context);
+        let forward_to_binding = forward_to_binding_1.get_inner();
+        let lock_duration_binding_1 = args.lock_duration.get_output(context);
+        let lock_duration_binding = lock_duration_binding_1.get_inner();
+        let max_delivery_count_binding_1 = args.max_delivery_count.get_output(context);
+        let max_delivery_count_binding = max_delivery_count_binding_1.get_inner();
+        let max_message_size_in_kilobytes_binding_1 = args
             .max_message_size_in_kilobytes
-            .get_output(context)
+            .get_output(context);
+        let max_message_size_in_kilobytes_binding = max_message_size_in_kilobytes_binding_1
             .get_inner();
-        let max_size_in_megabytes_binding = args
+        let max_size_in_megabytes_binding_1 = args
             .max_size_in_megabytes
-            .get_output(context)
-            .get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let namespace_id_binding = args.namespace_id.get_output(context).get_inner();
-        let partitioning_enabled_binding = args
+            .get_output(context);
+        let max_size_in_megabytes_binding = max_size_in_megabytes_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let namespace_id_binding_1 = args.namespace_id.get_output(context);
+        let namespace_id_binding = namespace_id_binding_1.get_inner();
+        let partitioning_enabled_binding_1 = args
             .partitioning_enabled
-            .get_output(context)
-            .get_inner();
-        let requires_duplicate_detection_binding = args
+            .get_output(context);
+        let partitioning_enabled_binding = partitioning_enabled_binding_1.get_inner();
+        let requires_duplicate_detection_binding_1 = args
             .requires_duplicate_detection
-            .get_output(context)
+            .get_output(context);
+        let requires_duplicate_detection_binding = requires_duplicate_detection_binding_1
             .get_inner();
-        let requires_session_binding = args
-            .requires_session
-            .get_output(context)
-            .get_inner();
-        let status_binding = args.status.get_output(context).get_inner();
+        let requires_session_binding_1 = args.requires_session.get_output(context);
+        let requires_session_binding = requires_session_binding_1.get_inner();
+        let status_binding_1 = args.status.get_output(context);
+        let status_binding = status_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:servicebus/queue:Queue".into(),
             name: name.to_string(),

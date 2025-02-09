@@ -107,32 +107,29 @@ pub mod group_policy_remediation {
     ) -> GroupPolicyRemediationResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let failure_percentage_binding = args
-            .failure_percentage
-            .get_output(context)
-            .get_inner();
-        let location_filters_binding = args
-            .location_filters
-            .get_output(context)
-            .get_inner();
-        let management_group_id_binding = args
-            .management_group_id
-            .get_output(context)
-            .get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let parallel_deployments_binding = args
+        let failure_percentage_binding_1 = args.failure_percentage.get_output(context);
+        let failure_percentage_binding = failure_percentage_binding_1.get_inner();
+        let location_filters_binding_1 = args.location_filters.get_output(context);
+        let location_filters_binding = location_filters_binding_1.get_inner();
+        let management_group_id_binding_1 = args.management_group_id.get_output(context);
+        let management_group_id_binding = management_group_id_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let parallel_deployments_binding_1 = args
             .parallel_deployments
-            .get_output(context)
-            .get_inner();
-        let policy_assignment_id_binding = args
+            .get_output(context);
+        let parallel_deployments_binding = parallel_deployments_binding_1.get_inner();
+        let policy_assignment_id_binding_1 = args
             .policy_assignment_id
-            .get_output(context)
-            .get_inner();
-        let policy_definition_reference_id_binding = args
+            .get_output(context);
+        let policy_assignment_id_binding = policy_assignment_id_binding_1.get_inner();
+        let policy_definition_reference_id_binding_1 = args
             .policy_definition_reference_id
-            .get_output(context)
+            .get_output(context);
+        let policy_definition_reference_id_binding = policy_definition_reference_id_binding_1
             .get_inner();
-        let resource_count_binding = args.resource_count.get_output(context).get_inner();
+        let resource_count_binding_1 = args.resource_count.get_output(context);
+        let resource_count_binding = resource_count_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:management/groupPolicyRemediation:GroupPolicyRemediation"
                 .into(),

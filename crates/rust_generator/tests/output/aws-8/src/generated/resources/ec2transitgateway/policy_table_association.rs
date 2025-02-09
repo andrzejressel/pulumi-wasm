@@ -63,13 +63,15 @@ pub mod policy_table_association {
     ) -> PolicyTableAssociationResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let transit_gateway_attachment_id_binding = args
+        let transit_gateway_attachment_id_binding_1 = args
             .transit_gateway_attachment_id
-            .get_output(context)
+            .get_output(context);
+        let transit_gateway_attachment_id_binding = transit_gateway_attachment_id_binding_1
             .get_inner();
-        let transit_gateway_policy_table_id_binding = args
+        let transit_gateway_policy_table_id_binding_1 = args
             .transit_gateway_policy_table_id
-            .get_output(context)
+            .get_output(context);
+        let transit_gateway_policy_table_id_binding = transit_gateway_policy_table_id_binding_1
             .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:ec2transitgateway/policyTableAssociation:PolicyTableAssociation"

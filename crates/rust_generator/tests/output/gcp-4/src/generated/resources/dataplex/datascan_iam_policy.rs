@@ -249,10 +249,14 @@ pub mod datascan_iam_policy {
     ) -> DatascanIamPolicyResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let data_scan_id_binding = args.data_scan_id.get_output(context).get_inner();
-        let location_binding = args.location.get_output(context).get_inner();
-        let policy_data_binding = args.policy_data.get_output(context).get_inner();
-        let project_binding = args.project.get_output(context).get_inner();
+        let data_scan_id_binding_1 = args.data_scan_id.get_output(context);
+        let data_scan_id_binding = data_scan_id_binding_1.get_inner();
+        let location_binding_1 = args.location.get_output(context);
+        let location_binding = location_binding_1.get_inner();
+        let policy_data_binding_1 = args.policy_data.get_output(context);
+        let policy_data_binding = policy_data_binding_1.get_inner();
+        let project_binding_1 = args.project.get_output(context);
+        let project_binding = project_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:dataplex/datascanIamPolicy:DatascanIamPolicy".into(),
             name: name.to_string(),

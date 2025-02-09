@@ -171,52 +171,55 @@ pub mod endpoint {
     ) -> EndpointResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let authentication_options_binding = args
+        let authentication_options_binding_1 = args
             .authentication_options
-            .get_output(context)
+            .get_output(context);
+        let authentication_options_binding = authentication_options_binding_1
             .get_inner();
-        let client_cidr_block_binding = args
-            .client_cidr_block
-            .get_output(context)
-            .get_inner();
-        let client_connect_options_binding = args
+        let client_cidr_block_binding_1 = args.client_cidr_block.get_output(context);
+        let client_cidr_block_binding = client_cidr_block_binding_1.get_inner();
+        let client_connect_options_binding_1 = args
             .client_connect_options
-            .get_output(context)
+            .get_output(context);
+        let client_connect_options_binding = client_connect_options_binding_1
             .get_inner();
-        let client_login_banner_options_binding = args
+        let client_login_banner_options_binding_1 = args
             .client_login_banner_options
-            .get_output(context)
+            .get_output(context);
+        let client_login_banner_options_binding = client_login_banner_options_binding_1
             .get_inner();
-        let connection_log_options_binding = args
+        let connection_log_options_binding_1 = args
             .connection_log_options
-            .get_output(context)
+            .get_output(context);
+        let connection_log_options_binding = connection_log_options_binding_1
             .get_inner();
-        let description_binding = args.description.get_output(context).get_inner();
-        let dns_servers_binding = args.dns_servers.get_output(context).get_inner();
-        let security_group_ids_binding = args
-            .security_group_ids
-            .get_output(context)
-            .get_inner();
-        let self_service_portal_binding = args
-            .self_service_portal
-            .get_output(context)
-            .get_inner();
-        let server_certificate_arn_binding = args
+        let description_binding_1 = args.description.get_output(context);
+        let description_binding = description_binding_1.get_inner();
+        let dns_servers_binding_1 = args.dns_servers.get_output(context);
+        let dns_servers_binding = dns_servers_binding_1.get_inner();
+        let security_group_ids_binding_1 = args.security_group_ids.get_output(context);
+        let security_group_ids_binding = security_group_ids_binding_1.get_inner();
+        let self_service_portal_binding_1 = args.self_service_portal.get_output(context);
+        let self_service_portal_binding = self_service_portal_binding_1.get_inner();
+        let server_certificate_arn_binding_1 = args
             .server_certificate_arn
-            .get_output(context)
+            .get_output(context);
+        let server_certificate_arn_binding = server_certificate_arn_binding_1
             .get_inner();
-        let session_timeout_hours_binding = args
+        let session_timeout_hours_binding_1 = args
             .session_timeout_hours
-            .get_output(context)
-            .get_inner();
-        let split_tunnel_binding = args.split_tunnel.get_output(context).get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
-        let transport_protocol_binding = args
-            .transport_protocol
-            .get_output(context)
-            .get_inner();
-        let vpc_id_binding = args.vpc_id.get_output(context).get_inner();
-        let vpn_port_binding = args.vpn_port.get_output(context).get_inner();
+            .get_output(context);
+        let session_timeout_hours_binding = session_timeout_hours_binding_1.get_inner();
+        let split_tunnel_binding_1 = args.split_tunnel.get_output(context);
+        let split_tunnel_binding = split_tunnel_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
+        let transport_protocol_binding_1 = args.transport_protocol.get_output(context);
+        let transport_protocol_binding = transport_protocol_binding_1.get_inner();
+        let vpc_id_binding_1 = args.vpc_id.get_output(context);
+        let vpc_id_binding = vpc_id_binding_1.get_inner();
+        let vpn_port_binding_1 = args.vpn_port.get_output(context);
+        let vpn_port_binding = vpn_port_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:ec2clientvpn/endpoint:Endpoint".into(),
             name: name.to_string(),

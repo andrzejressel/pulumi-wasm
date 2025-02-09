@@ -103,10 +103,14 @@ pub mod secret_version {
     ) -> SecretVersionResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let secret_binary_binding = args.secret_binary.get_output(context).get_inner();
-        let secret_id_binding = args.secret_id.get_output(context).get_inner();
-        let secret_string_binding = args.secret_string.get_output(context).get_inner();
-        let version_stages_binding = args.version_stages.get_output(context).get_inner();
+        let secret_binary_binding_1 = args.secret_binary.get_output(context);
+        let secret_binary_binding = secret_binary_binding_1.get_inner();
+        let secret_id_binding_1 = args.secret_id.get_output(context);
+        let secret_id_binding = secret_id_binding_1.get_inner();
+        let secret_string_binding_1 = args.secret_string.get_output(context);
+        let secret_string_binding = secret_string_binding_1.get_inner();
+        let version_stages_binding_1 = args.version_stages.get_output(context);
+        let version_stages_binding = version_stages_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:secretsmanager/secretVersion:SecretVersion".into(),
             name: name.to_string(),

@@ -283,33 +283,38 @@ pub mod configuration_store {
     ) -> ConfigurationStoreResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let encryption_binding = args.encryption.get_output(context).get_inner();
-        let identity_binding = args.identity.get_output(context).get_inner();
-        let local_auth_enabled_binding = args
-            .local_auth_enabled
-            .get_output(context)
-            .get_inner();
-        let location_binding = args.location.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let public_network_access_binding = args
+        let encryption_binding_1 = args.encryption.get_output(context);
+        let encryption_binding = encryption_binding_1.get_inner();
+        let identity_binding_1 = args.identity.get_output(context);
+        let identity_binding = identity_binding_1.get_inner();
+        let local_auth_enabled_binding_1 = args.local_auth_enabled.get_output(context);
+        let local_auth_enabled_binding = local_auth_enabled_binding_1.get_inner();
+        let location_binding_1 = args.location.get_output(context);
+        let location_binding = location_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let public_network_access_binding_1 = args
             .public_network_access
-            .get_output(context)
-            .get_inner();
-        let purge_protection_enabled_binding = args
+            .get_output(context);
+        let public_network_access_binding = public_network_access_binding_1.get_inner();
+        let purge_protection_enabled_binding_1 = args
             .purge_protection_enabled
-            .get_output(context)
+            .get_output(context);
+        let purge_protection_enabled_binding = purge_protection_enabled_binding_1
             .get_inner();
-        let replicas_binding = args.replicas.get_output(context).get_inner();
-        let resource_group_name_binding = args
-            .resource_group_name
-            .get_output(context)
-            .get_inner();
-        let sku_binding = args.sku.get_output(context).get_inner();
-        let soft_delete_retention_days_binding = args
+        let replicas_binding_1 = args.replicas.get_output(context);
+        let replicas_binding = replicas_binding_1.get_inner();
+        let resource_group_name_binding_1 = args.resource_group_name.get_output(context);
+        let resource_group_name_binding = resource_group_name_binding_1.get_inner();
+        let sku_binding_1 = args.sku.get_output(context);
+        let sku_binding = sku_binding_1.get_inner();
+        let soft_delete_retention_days_binding_1 = args
             .soft_delete_retention_days
-            .get_output(context)
+            .get_output(context);
+        let soft_delete_retention_days_binding = soft_delete_retention_days_binding_1
             .get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:appconfiguration/configurationStore:ConfigurationStore".into(),
             name: name.to_string(),

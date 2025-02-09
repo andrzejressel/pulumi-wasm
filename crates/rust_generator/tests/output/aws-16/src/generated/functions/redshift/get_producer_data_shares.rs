@@ -44,9 +44,12 @@ pub mod get_producer_data_shares {
     ) -> GetProducerDataSharesResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let data_shares_binding = args.data_shares.get_output(context).get_inner();
-        let producer_arn_binding = args.producer_arn.get_output(context).get_inner();
-        let status_binding = args.status.get_output(context).get_inner();
+        let data_shares_binding_1 = args.data_shares.get_output(context);
+        let data_shares_binding = data_shares_binding_1.get_inner();
+        let producer_arn_binding_1 = args.producer_arn.get_output(context);
+        let producer_arn_binding = producer_arn_binding_1.get_inner();
+        let status_binding_1 = args.status.get_output(context);
+        let status_binding = status_binding_1.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:redshift/getProducerDataShares:getProducerDataShares".into(),
             version: super::super::super::get_version(),

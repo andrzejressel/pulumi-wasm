@@ -55,8 +55,10 @@ pub mod thing_principal_attachment {
     ) -> ThingPrincipalAttachmentResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let principal_binding = args.principal.get_output(context).get_inner();
-        let thing_binding = args.thing.get_output(context).get_inner();
+        let principal_binding_1 = args.principal.get_output(context);
+        let principal_binding = principal_binding_1.get_inner();
+        let thing_binding_1 = args.thing.get_output(context);
+        let thing_binding = thing_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:iot/thingPrincipalAttachment:ThingPrincipalAttachment".into(),
             name: name.to_string(),

@@ -320,53 +320,52 @@ pub mod volume {
     ) -> VolumeResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let backup_config_binding = args.backup_config.get_output(context).get_inner();
-        let capacity_gib_binding = args.capacity_gib.get_output(context).get_inner();
-        let deletion_policy_binding = args
-            .deletion_policy
-            .get_output(context)
-            .get_inner();
-        let description_binding = args.description.get_output(context).get_inner();
-        let export_policy_binding = args.export_policy.get_output(context).get_inner();
-        let kerberos_enabled_binding = args
-            .kerberos_enabled
-            .get_output(context)
-            .get_inner();
-        let labels_binding = args.labels.get_output(context).get_inner();
-        let large_capacity_binding = args.large_capacity.get_output(context).get_inner();
-        let location_binding = args.location.get_output(context).get_inner();
-        let multiple_endpoints_binding = args
-            .multiple_endpoints
-            .get_output(context)
-            .get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let project_binding = args.project.get_output(context).get_inner();
-        let protocols_binding = args.protocols.get_output(context).get_inner();
-        let restore_parameters_binding = args
-            .restore_parameters
-            .get_output(context)
-            .get_inner();
-        let restricted_actions_binding = args
-            .restricted_actions
-            .get_output(context)
-            .get_inner();
-        let security_style_binding = args.security_style.get_output(context).get_inner();
-        let share_name_binding = args.share_name.get_output(context).get_inner();
-        let smb_settings_binding = args.smb_settings.get_output(context).get_inner();
-        let snapshot_directory_binding = args
-            .snapshot_directory
-            .get_output(context)
-            .get_inner();
-        let snapshot_policy_binding = args
-            .snapshot_policy
-            .get_output(context)
-            .get_inner();
-        let storage_pool_binding = args.storage_pool.get_output(context).get_inner();
-        let tiering_policy_binding = args.tiering_policy.get_output(context).get_inner();
-        let unix_permissions_binding = args
-            .unix_permissions
-            .get_output(context)
-            .get_inner();
+        let backup_config_binding_1 = args.backup_config.get_output(context);
+        let backup_config_binding = backup_config_binding_1.get_inner();
+        let capacity_gib_binding_1 = args.capacity_gib.get_output(context);
+        let capacity_gib_binding = capacity_gib_binding_1.get_inner();
+        let deletion_policy_binding_1 = args.deletion_policy.get_output(context);
+        let deletion_policy_binding = deletion_policy_binding_1.get_inner();
+        let description_binding_1 = args.description.get_output(context);
+        let description_binding = description_binding_1.get_inner();
+        let export_policy_binding_1 = args.export_policy.get_output(context);
+        let export_policy_binding = export_policy_binding_1.get_inner();
+        let kerberos_enabled_binding_1 = args.kerberos_enabled.get_output(context);
+        let kerberos_enabled_binding = kerberos_enabled_binding_1.get_inner();
+        let labels_binding_1 = args.labels.get_output(context);
+        let labels_binding = labels_binding_1.get_inner();
+        let large_capacity_binding_1 = args.large_capacity.get_output(context);
+        let large_capacity_binding = large_capacity_binding_1.get_inner();
+        let location_binding_1 = args.location.get_output(context);
+        let location_binding = location_binding_1.get_inner();
+        let multiple_endpoints_binding_1 = args.multiple_endpoints.get_output(context);
+        let multiple_endpoints_binding = multiple_endpoints_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let project_binding_1 = args.project.get_output(context);
+        let project_binding = project_binding_1.get_inner();
+        let protocols_binding_1 = args.protocols.get_output(context);
+        let protocols_binding = protocols_binding_1.get_inner();
+        let restore_parameters_binding_1 = args.restore_parameters.get_output(context);
+        let restore_parameters_binding = restore_parameters_binding_1.get_inner();
+        let restricted_actions_binding_1 = args.restricted_actions.get_output(context);
+        let restricted_actions_binding = restricted_actions_binding_1.get_inner();
+        let security_style_binding_1 = args.security_style.get_output(context);
+        let security_style_binding = security_style_binding_1.get_inner();
+        let share_name_binding_1 = args.share_name.get_output(context);
+        let share_name_binding = share_name_binding_1.get_inner();
+        let smb_settings_binding_1 = args.smb_settings.get_output(context);
+        let smb_settings_binding = smb_settings_binding_1.get_inner();
+        let snapshot_directory_binding_1 = args.snapshot_directory.get_output(context);
+        let snapshot_directory_binding = snapshot_directory_binding_1.get_inner();
+        let snapshot_policy_binding_1 = args.snapshot_policy.get_output(context);
+        let snapshot_policy_binding = snapshot_policy_binding_1.get_inner();
+        let storage_pool_binding_1 = args.storage_pool.get_output(context);
+        let storage_pool_binding = storage_pool_binding_1.get_inner();
+        let tiering_policy_binding_1 = args.tiering_policy.get_output(context);
+        let tiering_policy_binding = tiering_policy_binding_1.get_inner();
+        let unix_permissions_binding_1 = args.unix_permissions.get_output(context);
+        let unix_permissions_binding = unix_permissions_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:netapp/volume:Volume".into(),
             name: name.to_string(),

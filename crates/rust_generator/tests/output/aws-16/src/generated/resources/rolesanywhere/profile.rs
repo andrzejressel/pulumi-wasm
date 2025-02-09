@@ -110,23 +110,25 @@ pub mod profile {
     ) -> ProfileResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let duration_seconds_binding = args
-            .duration_seconds
-            .get_output(context)
-            .get_inner();
-        let enabled_binding = args.enabled.get_output(context).get_inner();
-        let managed_policy_arns_binding = args
-            .managed_policy_arns
-            .get_output(context)
-            .get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let require_instance_properties_binding = args
+        let duration_seconds_binding_1 = args.duration_seconds.get_output(context);
+        let duration_seconds_binding = duration_seconds_binding_1.get_inner();
+        let enabled_binding_1 = args.enabled.get_output(context);
+        let enabled_binding = enabled_binding_1.get_inner();
+        let managed_policy_arns_binding_1 = args.managed_policy_arns.get_output(context);
+        let managed_policy_arns_binding = managed_policy_arns_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let require_instance_properties_binding_1 = args
             .require_instance_properties
-            .get_output(context)
+            .get_output(context);
+        let require_instance_properties_binding = require_instance_properties_binding_1
             .get_inner();
-        let role_arns_binding = args.role_arns.get_output(context).get_inner();
-        let session_policy_binding = args.session_policy.get_output(context).get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
+        let role_arns_binding_1 = args.role_arns.get_output(context);
+        let role_arns_binding = role_arns_binding_1.get_inner();
+        let session_policy_binding_1 = args.session_policy.get_output(context);
+        let session_policy_binding = session_policy_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:rolesanywhere/profile:Profile".into(),
             name: name.to_string(),

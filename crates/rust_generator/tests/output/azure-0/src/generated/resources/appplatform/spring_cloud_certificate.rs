@@ -157,24 +157,21 @@ pub mod spring_cloud_certificate {
     ) -> SpringCloudCertificateResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let certificate_content_binding = args
-            .certificate_content
-            .get_output(context)
-            .get_inner();
-        let exclude_private_key_binding = args
-            .exclude_private_key
-            .get_output(context)
-            .get_inner();
-        let key_vault_certificate_id_binding = args
+        let certificate_content_binding_1 = args.certificate_content.get_output(context);
+        let certificate_content_binding = certificate_content_binding_1.get_inner();
+        let exclude_private_key_binding_1 = args.exclude_private_key.get_output(context);
+        let exclude_private_key_binding = exclude_private_key_binding_1.get_inner();
+        let key_vault_certificate_id_binding_1 = args
             .key_vault_certificate_id
-            .get_output(context)
+            .get_output(context);
+        let key_vault_certificate_id_binding = key_vault_certificate_id_binding_1
             .get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let resource_group_name_binding = args
-            .resource_group_name
-            .get_output(context)
-            .get_inner();
-        let service_name_binding = args.service_name.get_output(context).get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let resource_group_name_binding_1 = args.resource_group_name.get_output(context);
+        let resource_group_name_binding = resource_group_name_binding_1.get_inner();
+        let service_name_binding_1 = args.service_name.get_output(context);
+        let service_name_binding = service_name_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:appplatform/springCloudCertificate:SpringCloudCertificate"
                 .into(),

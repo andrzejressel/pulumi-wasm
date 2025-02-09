@@ -103,22 +103,27 @@ pub mod container_immutability_policy {
     ) -> ContainerImmutabilityPolicyResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let immutability_period_in_days_binding = args
+        let immutability_period_in_days_binding_1 = args
             .immutability_period_in_days
-            .get_output(context)
+            .get_output(context);
+        let immutability_period_in_days_binding = immutability_period_in_days_binding_1
             .get_inner();
-        let locked_binding = args.locked.get_output(context).get_inner();
-        let protected_append_writes_all_enabled_binding = args
+        let locked_binding_1 = args.locked.get_output(context);
+        let locked_binding = locked_binding_1.get_inner();
+        let protected_append_writes_all_enabled_binding_1 = args
             .protected_append_writes_all_enabled
-            .get_output(context)
+            .get_output(context);
+        let protected_append_writes_all_enabled_binding = protected_append_writes_all_enabled_binding_1
             .get_inner();
-        let protected_append_writes_enabled_binding = args
+        let protected_append_writes_enabled_binding_1 = args
             .protected_append_writes_enabled
-            .get_output(context)
+            .get_output(context);
+        let protected_append_writes_enabled_binding = protected_append_writes_enabled_binding_1
             .get_inner();
-        let storage_container_resource_manager_id_binding = args
+        let storage_container_resource_manager_id_binding_1 = args
             .storage_container_resource_manager_id
-            .get_output(context)
+            .get_output(context);
+        let storage_container_resource_manager_id_binding = storage_container_resource_manager_id_binding_1
             .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:storage/containerImmutabilityPolicy:ContainerImmutabilityPolicy"

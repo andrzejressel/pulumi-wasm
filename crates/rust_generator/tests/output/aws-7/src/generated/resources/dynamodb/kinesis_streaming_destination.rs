@@ -79,12 +79,15 @@ pub mod kinesis_streaming_destination {
     ) -> KinesisStreamingDestinationResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let approximate_creation_date_time_precision_binding = args
+        let approximate_creation_date_time_precision_binding_1 = args
             .approximate_creation_date_time_precision
-            .get_output(context)
+            .get_output(context);
+        let approximate_creation_date_time_precision_binding = approximate_creation_date_time_precision_binding_1
             .get_inner();
-        let stream_arn_binding = args.stream_arn.get_output(context).get_inner();
-        let table_name_binding = args.table_name.get_output(context).get_inner();
+        let stream_arn_binding_1 = args.stream_arn.get_output(context);
+        let stream_arn_binding = stream_arn_binding_1.get_inner();
+        let table_name_binding_1 = args.table_name.get_output(context);
+        let table_name_binding = table_name_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:dynamodb/kinesisStreamingDestination:KinesisStreamingDestination"
                 .into(),

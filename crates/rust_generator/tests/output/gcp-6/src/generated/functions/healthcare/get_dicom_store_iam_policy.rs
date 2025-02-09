@@ -31,7 +31,8 @@ pub mod get_dicom_store_iam_policy {
     ) -> GetDicomStoreIamPolicyResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let dicom_store_id_binding = args.dicom_store_id.get_output(context).get_inner();
+        let dicom_store_id_binding_1 = args.dicom_store_id.get_output(context);
+        let dicom_store_id_binding = dicom_store_id_binding_1.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "gcp:healthcare/getDicomStoreIamPolicy:getDicomStoreIamPolicy".into(),
             version: super::super::super::get_version(),

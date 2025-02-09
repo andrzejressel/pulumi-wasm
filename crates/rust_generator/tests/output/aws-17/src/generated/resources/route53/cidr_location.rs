@@ -65,12 +65,12 @@ pub mod cidr_location {
     ) -> CidrLocationResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let cidr_blocks_binding = args.cidr_blocks.get_output(context).get_inner();
-        let cidr_collection_id_binding = args
-            .cidr_collection_id
-            .get_output(context)
-            .get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
+        let cidr_blocks_binding_1 = args.cidr_blocks.get_output(context);
+        let cidr_blocks_binding = cidr_blocks_binding_1.get_inner();
+        let cidr_collection_id_binding_1 = args.cidr_collection_id.get_output(context);
+        let cidr_collection_id_binding = cidr_collection_id_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:route53/cidrLocation:CidrLocation".into(),
             name: name.to_string(),

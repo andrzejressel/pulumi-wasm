@@ -283,33 +283,36 @@ pub mod target {
     ) -> TargetResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let annotations_binding = args.annotations.get_output(context).get_inner();
-        let anthos_cluster_binding = args.anthos_cluster.get_output(context).get_inner();
-        let associated_entities_binding = args
-            .associated_entities
-            .get_output(context)
-            .get_inner();
-        let custom_target_binding = args.custom_target.get_output(context).get_inner();
-        let deploy_parameters_binding = args
-            .deploy_parameters
-            .get_output(context)
-            .get_inner();
-        let description_binding = args.description.get_output(context).get_inner();
-        let execution_configs_binding = args
-            .execution_configs
-            .get_output(context)
-            .get_inner();
-        let gke_binding = args.gke.get_output(context).get_inner();
-        let labels_binding = args.labels.get_output(context).get_inner();
-        let location_binding = args.location.get_output(context).get_inner();
-        let multi_target_binding = args.multi_target.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let project_binding = args.project.get_output(context).get_inner();
-        let require_approval_binding = args
-            .require_approval
-            .get_output(context)
-            .get_inner();
-        let run_binding = args.run.get_output(context).get_inner();
+        let annotations_binding_1 = args.annotations.get_output(context);
+        let annotations_binding = annotations_binding_1.get_inner();
+        let anthos_cluster_binding_1 = args.anthos_cluster.get_output(context);
+        let anthos_cluster_binding = anthos_cluster_binding_1.get_inner();
+        let associated_entities_binding_1 = args.associated_entities.get_output(context);
+        let associated_entities_binding = associated_entities_binding_1.get_inner();
+        let custom_target_binding_1 = args.custom_target.get_output(context);
+        let custom_target_binding = custom_target_binding_1.get_inner();
+        let deploy_parameters_binding_1 = args.deploy_parameters.get_output(context);
+        let deploy_parameters_binding = deploy_parameters_binding_1.get_inner();
+        let description_binding_1 = args.description.get_output(context);
+        let description_binding = description_binding_1.get_inner();
+        let execution_configs_binding_1 = args.execution_configs.get_output(context);
+        let execution_configs_binding = execution_configs_binding_1.get_inner();
+        let gke_binding_1 = args.gke.get_output(context);
+        let gke_binding = gke_binding_1.get_inner();
+        let labels_binding_1 = args.labels.get_output(context);
+        let labels_binding = labels_binding_1.get_inner();
+        let location_binding_1 = args.location.get_output(context);
+        let location_binding = location_binding_1.get_inner();
+        let multi_target_binding_1 = args.multi_target.get_output(context);
+        let multi_target_binding = multi_target_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let project_binding_1 = args.project.get_output(context);
+        let project_binding = project_binding_1.get_inner();
+        let require_approval_binding_1 = args.require_approval.get_output(context);
+        let require_approval_binding = require_approval_binding_1.get_inner();
+        let run_binding_1 = args.run.get_output(context);
+        let run_binding = run_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:clouddeploy/target:Target".into(),
             name: name.to_string(),

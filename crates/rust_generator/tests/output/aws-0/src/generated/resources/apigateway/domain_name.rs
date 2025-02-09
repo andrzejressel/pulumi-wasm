@@ -245,53 +245,52 @@ pub mod domain_name {
     ) -> DomainNameResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let certificate_arn_binding = args
-            .certificate_arn
-            .get_output(context)
-            .get_inner();
-        let certificate_body_binding = args
-            .certificate_body
-            .get_output(context)
-            .get_inner();
-        let certificate_chain_binding = args
-            .certificate_chain
-            .get_output(context)
-            .get_inner();
-        let certificate_name_binding = args
-            .certificate_name
-            .get_output(context)
-            .get_inner();
-        let certificate_private_key_binding = args
+        let certificate_arn_binding_1 = args.certificate_arn.get_output(context);
+        let certificate_arn_binding = certificate_arn_binding_1.get_inner();
+        let certificate_body_binding_1 = args.certificate_body.get_output(context);
+        let certificate_body_binding = certificate_body_binding_1.get_inner();
+        let certificate_chain_binding_1 = args.certificate_chain.get_output(context);
+        let certificate_chain_binding = certificate_chain_binding_1.get_inner();
+        let certificate_name_binding_1 = args.certificate_name.get_output(context);
+        let certificate_name_binding = certificate_name_binding_1.get_inner();
+        let certificate_private_key_binding_1 = args
             .certificate_private_key
-            .get_output(context)
+            .get_output(context);
+        let certificate_private_key_binding = certificate_private_key_binding_1
             .get_inner();
-        let domain_name_binding = args.domain_name.get_output(context).get_inner();
-        let endpoint_configuration_binding = args
+        let domain_name_binding_1 = args.domain_name.get_output(context);
+        let domain_name_binding = domain_name_binding_1.get_inner();
+        let endpoint_configuration_binding_1 = args
             .endpoint_configuration
-            .get_output(context)
+            .get_output(context);
+        let endpoint_configuration_binding = endpoint_configuration_binding_1
             .get_inner();
-        let mutual_tls_authentication_binding = args
+        let mutual_tls_authentication_binding_1 = args
             .mutual_tls_authentication
-            .get_output(context)
+            .get_output(context);
+        let mutual_tls_authentication_binding = mutual_tls_authentication_binding_1
             .get_inner();
-        let ownership_verification_certificate_arn_binding = args
+        let ownership_verification_certificate_arn_binding_1 = args
             .ownership_verification_certificate_arn
-            .get_output(context)
+            .get_output(context);
+        let ownership_verification_certificate_arn_binding = ownership_verification_certificate_arn_binding_1
             .get_inner();
-        let policy_binding = args.policy.get_output(context).get_inner();
-        let regional_certificate_arn_binding = args
+        let policy_binding_1 = args.policy.get_output(context);
+        let policy_binding = policy_binding_1.get_inner();
+        let regional_certificate_arn_binding_1 = args
             .regional_certificate_arn
-            .get_output(context)
+            .get_output(context);
+        let regional_certificate_arn_binding = regional_certificate_arn_binding_1
             .get_inner();
-        let regional_certificate_name_binding = args
+        let regional_certificate_name_binding_1 = args
             .regional_certificate_name
-            .get_output(context)
+            .get_output(context);
+        let regional_certificate_name_binding = regional_certificate_name_binding_1
             .get_inner();
-        let security_policy_binding = args
-            .security_policy
-            .get_output(context)
-            .get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
+        let security_policy_binding_1 = args.security_policy.get_output(context);
+        let security_policy_binding = security_policy_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:apigateway/domainName:DomainName".into(),
             name: name.to_string(),

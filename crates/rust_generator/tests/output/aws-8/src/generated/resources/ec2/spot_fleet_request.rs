@@ -405,82 +405,96 @@ pub mod spot_fleet_request {
     ) -> SpotFleetRequestResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let allocation_strategy_binding = args
-            .allocation_strategy
-            .get_output(context)
-            .get_inner();
-        let context_binding = args.context.get_output(context).get_inner();
-        let excess_capacity_termination_policy_binding = args
+        let allocation_strategy_binding_1 = args.allocation_strategy.get_output(context);
+        let allocation_strategy_binding = allocation_strategy_binding_1.get_inner();
+        let context_binding_1 = args.context.get_output(context);
+        let context_binding = context_binding_1.get_inner();
+        let excess_capacity_termination_policy_binding_1 = args
             .excess_capacity_termination_policy
-            .get_output(context)
+            .get_output(context);
+        let excess_capacity_termination_policy_binding = excess_capacity_termination_policy_binding_1
             .get_inner();
-        let fleet_type_binding = args.fleet_type.get_output(context).get_inner();
-        let iam_fleet_role_binding = args.iam_fleet_role.get_output(context).get_inner();
-        let instance_interruption_behaviour_binding = args
+        let fleet_type_binding_1 = args.fleet_type.get_output(context);
+        let fleet_type_binding = fleet_type_binding_1.get_inner();
+        let iam_fleet_role_binding_1 = args.iam_fleet_role.get_output(context);
+        let iam_fleet_role_binding = iam_fleet_role_binding_1.get_inner();
+        let instance_interruption_behaviour_binding_1 = args
             .instance_interruption_behaviour
-            .get_output(context)
+            .get_output(context);
+        let instance_interruption_behaviour_binding = instance_interruption_behaviour_binding_1
             .get_inner();
-        let instance_pools_to_use_count_binding = args
+        let instance_pools_to_use_count_binding_1 = args
             .instance_pools_to_use_count
-            .get_output(context)
+            .get_output(context);
+        let instance_pools_to_use_count_binding = instance_pools_to_use_count_binding_1
             .get_inner();
-        let launch_specifications_binding = args
+        let launch_specifications_binding_1 = args
             .launch_specifications
-            .get_output(context)
-            .get_inner();
-        let launch_template_configs_binding = args
+            .get_output(context);
+        let launch_specifications_binding = launch_specifications_binding_1.get_inner();
+        let launch_template_configs_binding_1 = args
             .launch_template_configs
-            .get_output(context)
+            .get_output(context);
+        let launch_template_configs_binding = launch_template_configs_binding_1
             .get_inner();
-        let load_balancers_binding = args.load_balancers.get_output(context).get_inner();
-        let on_demand_allocation_strategy_binding = args
+        let load_balancers_binding_1 = args.load_balancers.get_output(context);
+        let load_balancers_binding = load_balancers_binding_1.get_inner();
+        let on_demand_allocation_strategy_binding_1 = args
             .on_demand_allocation_strategy
-            .get_output(context)
+            .get_output(context);
+        let on_demand_allocation_strategy_binding = on_demand_allocation_strategy_binding_1
             .get_inner();
-        let on_demand_max_total_price_binding = args
+        let on_demand_max_total_price_binding_1 = args
             .on_demand_max_total_price
-            .get_output(context)
+            .get_output(context);
+        let on_demand_max_total_price_binding = on_demand_max_total_price_binding_1
             .get_inner();
-        let on_demand_target_capacity_binding = args
+        let on_demand_target_capacity_binding_1 = args
             .on_demand_target_capacity
-            .get_output(context)
+            .get_output(context);
+        let on_demand_target_capacity_binding = on_demand_target_capacity_binding_1
             .get_inner();
-        let replace_unhealthy_instances_binding = args
+        let replace_unhealthy_instances_binding_1 = args
             .replace_unhealthy_instances
-            .get_output(context)
+            .get_output(context);
+        let replace_unhealthy_instances_binding = replace_unhealthy_instances_binding_1
             .get_inner();
-        let spot_maintenance_strategies_binding = args
+        let spot_maintenance_strategies_binding_1 = args
             .spot_maintenance_strategies
-            .get_output(context)
+            .get_output(context);
+        let spot_maintenance_strategies_binding = spot_maintenance_strategies_binding_1
             .get_inner();
-        let spot_price_binding = args.spot_price.get_output(context).get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
-        let target_capacity_binding = args
-            .target_capacity
-            .get_output(context)
-            .get_inner();
-        let target_capacity_unit_type_binding = args
+        let spot_price_binding_1 = args.spot_price.get_output(context);
+        let spot_price_binding = spot_price_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
+        let target_capacity_binding_1 = args.target_capacity.get_output(context);
+        let target_capacity_binding = target_capacity_binding_1.get_inner();
+        let target_capacity_unit_type_binding_1 = args
             .target_capacity_unit_type
-            .get_output(context)
+            .get_output(context);
+        let target_capacity_unit_type_binding = target_capacity_unit_type_binding_1
             .get_inner();
-        let target_group_arns_binding = args
-            .target_group_arns
-            .get_output(context)
-            .get_inner();
-        let terminate_instances_on_delete_binding = args
+        let target_group_arns_binding_1 = args.target_group_arns.get_output(context);
+        let target_group_arns_binding = target_group_arns_binding_1.get_inner();
+        let terminate_instances_on_delete_binding_1 = args
             .terminate_instances_on_delete
-            .get_output(context)
+            .get_output(context);
+        let terminate_instances_on_delete_binding = terminate_instances_on_delete_binding_1
             .get_inner();
-        let terminate_instances_with_expiration_binding = args
+        let terminate_instances_with_expiration_binding_1 = args
             .terminate_instances_with_expiration
-            .get_output(context)
+            .get_output(context);
+        let terminate_instances_with_expiration_binding = terminate_instances_with_expiration_binding_1
             .get_inner();
-        let valid_from_binding = args.valid_from.get_output(context).get_inner();
-        let valid_until_binding = args.valid_until.get_output(context).get_inner();
-        let wait_for_fulfillment_binding = args
+        let valid_from_binding_1 = args.valid_from.get_output(context);
+        let valid_from_binding = valid_from_binding_1.get_inner();
+        let valid_until_binding_1 = args.valid_until.get_output(context);
+        let valid_until_binding = valid_until_binding_1.get_inner();
+        let wait_for_fulfillment_binding_1 = args
             .wait_for_fulfillment
-            .get_output(context)
-            .get_inner();
+            .get_output(context);
+        let wait_for_fulfillment_binding = wait_for_fulfillment_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:ec2/spotFleetRequest:SpotFleetRequest".into(),
             name: name.to_string(),

@@ -154,16 +154,23 @@ pub mod scope_rbac_role_binding {
     ) -> ScopeRbacRoleBindingResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let group_binding = args.group.get_output(context).get_inner();
-        let labels_binding = args.labels.get_output(context).get_inner();
-        let project_binding = args.project.get_output(context).get_inner();
-        let role_binding = args.role.get_output(context).get_inner();
-        let scope_id_binding = args.scope_id.get_output(context).get_inner();
-        let scope_rbac_role_binding_id_binding = args
+        let group_binding_1 = args.group.get_output(context);
+        let group_binding = group_binding_1.get_inner();
+        let labels_binding_1 = args.labels.get_output(context);
+        let labels_binding = labels_binding_1.get_inner();
+        let project_binding_1 = args.project.get_output(context);
+        let project_binding = project_binding_1.get_inner();
+        let role_binding_1 = args.role.get_output(context);
+        let role_binding = role_binding_1.get_inner();
+        let scope_id_binding_1 = args.scope_id.get_output(context);
+        let scope_id_binding = scope_id_binding_1.get_inner();
+        let scope_rbac_role_binding_id_binding_1 = args
             .scope_rbac_role_binding_id
-            .get_output(context)
+            .get_output(context);
+        let scope_rbac_role_binding_id_binding = scope_rbac_role_binding_id_binding_1
             .get_inner();
-        let user_binding = args.user.get_output(context).get_inner();
+        let user_binding_1 = args.user.get_output(context);
+        let user_binding = user_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:gkehub/scopeRbacRoleBinding:ScopeRbacRoleBinding".into(),
             name: name.to_string(),

@@ -210,66 +210,76 @@ pub mod server {
     ) -> ServerResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let administrator_login_binding = args
-            .administrator_login
-            .get_output(context)
-            .get_inner();
-        let administrator_login_password_binding = args
+        let administrator_login_binding_1 = args.administrator_login.get_output(context);
+        let administrator_login_binding = administrator_login_binding_1.get_inner();
+        let administrator_login_password_binding_1 = args
             .administrator_login_password
-            .get_output(context)
+            .get_output(context);
+        let administrator_login_password_binding = administrator_login_password_binding_1
             .get_inner();
-        let auto_grow_enabled_binding = args
-            .auto_grow_enabled
-            .get_output(context)
-            .get_inner();
-        let backup_retention_days_binding = args
+        let auto_grow_enabled_binding_1 = args.auto_grow_enabled.get_output(context);
+        let auto_grow_enabled_binding = auto_grow_enabled_binding_1.get_inner();
+        let backup_retention_days_binding_1 = args
             .backup_retention_days
-            .get_output(context)
-            .get_inner();
-        let create_mode_binding = args.create_mode.get_output(context).get_inner();
-        let creation_source_server_id_binding = args
+            .get_output(context);
+        let backup_retention_days_binding = backup_retention_days_binding_1.get_inner();
+        let create_mode_binding_1 = args.create_mode.get_output(context);
+        let create_mode_binding = create_mode_binding_1.get_inner();
+        let creation_source_server_id_binding_1 = args
             .creation_source_server_id
-            .get_output(context)
+            .get_output(context);
+        let creation_source_server_id_binding = creation_source_server_id_binding_1
             .get_inner();
-        let geo_redundant_backup_enabled_binding = args
+        let geo_redundant_backup_enabled_binding_1 = args
             .geo_redundant_backup_enabled
-            .get_output(context)
+            .get_output(context);
+        let geo_redundant_backup_enabled_binding = geo_redundant_backup_enabled_binding_1
             .get_inner();
-        let identity_binding = args.identity.get_output(context).get_inner();
-        let infrastructure_encryption_enabled_binding = args
+        let identity_binding_1 = args.identity.get_output(context);
+        let identity_binding = identity_binding_1.get_inner();
+        let infrastructure_encryption_enabled_binding_1 = args
             .infrastructure_encryption_enabled
-            .get_output(context)
+            .get_output(context);
+        let infrastructure_encryption_enabled_binding = infrastructure_encryption_enabled_binding_1
             .get_inner();
-        let location_binding = args.location.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let public_network_access_enabled_binding = args
+        let location_binding_1 = args.location.get_output(context);
+        let location_binding = location_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let public_network_access_enabled_binding_1 = args
             .public_network_access_enabled
-            .get_output(context)
+            .get_output(context);
+        let public_network_access_enabled_binding = public_network_access_enabled_binding_1
             .get_inner();
-        let resource_group_name_binding = args
-            .resource_group_name
-            .get_output(context)
-            .get_inner();
-        let restore_point_in_time_binding = args
+        let resource_group_name_binding_1 = args.resource_group_name.get_output(context);
+        let resource_group_name_binding = resource_group_name_binding_1.get_inner();
+        let restore_point_in_time_binding_1 = args
             .restore_point_in_time
-            .get_output(context)
-            .get_inner();
-        let sku_name_binding = args.sku_name.get_output(context).get_inner();
-        let ssl_enforcement_enabled_binding = args
+            .get_output(context);
+        let restore_point_in_time_binding = restore_point_in_time_binding_1.get_inner();
+        let sku_name_binding_1 = args.sku_name.get_output(context);
+        let sku_name_binding = sku_name_binding_1.get_inner();
+        let ssl_enforcement_enabled_binding_1 = args
             .ssl_enforcement_enabled
-            .get_output(context)
+            .get_output(context);
+        let ssl_enforcement_enabled_binding = ssl_enforcement_enabled_binding_1
             .get_inner();
-        let ssl_minimal_tls_version_enforced_binding = args
+        let ssl_minimal_tls_version_enforced_binding_1 = args
             .ssl_minimal_tls_version_enforced
-            .get_output(context)
+            .get_output(context);
+        let ssl_minimal_tls_version_enforced_binding = ssl_minimal_tls_version_enforced_binding_1
             .get_inner();
-        let storage_mb_binding = args.storage_mb.get_output(context).get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
-        let threat_detection_policy_binding = args
+        let storage_mb_binding_1 = args.storage_mb.get_output(context);
+        let storage_mb_binding = storage_mb_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
+        let threat_detection_policy_binding_1 = args
             .threat_detection_policy
-            .get_output(context)
+            .get_output(context);
+        let threat_detection_policy_binding = threat_detection_policy_binding_1
             .get_inner();
-        let version_binding = args.version.get_output(context).get_inner();
+        let version_binding_1 = args.version.get_output(context);
+        let version_binding = version_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:postgresql/server:Server".into(),
             name: name.to_string(),

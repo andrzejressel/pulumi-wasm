@@ -71,12 +71,12 @@ pub mod get_backup_vault {
     ) -> GetBackupVaultResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let backup_vault_id_binding = args
-            .backup_vault_id
-            .get_output(context)
-            .get_inner();
-        let location_binding = args.location.get_output(context).get_inner();
-        let project_binding = args.project.get_output(context).get_inner();
+        let backup_vault_id_binding_1 = args.backup_vault_id.get_output(context);
+        let backup_vault_id_binding = backup_vault_id_binding_1.get_inner();
+        let location_binding_1 = args.location.get_output(context);
+        let location_binding = location_binding_1.get_inner();
+        let project_binding_1 = args.project.get_output(context);
+        let project_binding = project_binding_1.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "gcp:backupdisasterrecovery/getBackupVault:getBackupVault".into(),
             version: super::super::super::get_version(),

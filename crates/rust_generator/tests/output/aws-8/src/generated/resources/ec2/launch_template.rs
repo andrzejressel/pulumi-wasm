@@ -331,111 +331,119 @@ pub mod launch_template {
     ) -> LaunchTemplateResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let block_device_mappings_binding = args
+        let block_device_mappings_binding_1 = args
             .block_device_mappings
-            .get_output(context)
-            .get_inner();
-        let capacity_reservation_specification_binding = args
+            .get_output(context);
+        let block_device_mappings_binding = block_device_mappings_binding_1.get_inner();
+        let capacity_reservation_specification_binding_1 = args
             .capacity_reservation_specification
-            .get_output(context)
+            .get_output(context);
+        let capacity_reservation_specification_binding = capacity_reservation_specification_binding_1
             .get_inner();
-        let cpu_options_binding = args.cpu_options.get_output(context).get_inner();
-        let credit_specification_binding = args
+        let cpu_options_binding_1 = args.cpu_options.get_output(context);
+        let cpu_options_binding = cpu_options_binding_1.get_inner();
+        let credit_specification_binding_1 = args
             .credit_specification
-            .get_output(context)
-            .get_inner();
-        let default_version_binding = args
-            .default_version
-            .get_output(context)
-            .get_inner();
-        let description_binding = args.description.get_output(context).get_inner();
-        let disable_api_stop_binding = args
-            .disable_api_stop
-            .get_output(context)
-            .get_inner();
-        let disable_api_termination_binding = args
+            .get_output(context);
+        let credit_specification_binding = credit_specification_binding_1.get_inner();
+        let default_version_binding_1 = args.default_version.get_output(context);
+        let default_version_binding = default_version_binding_1.get_inner();
+        let description_binding_1 = args.description.get_output(context);
+        let description_binding = description_binding_1.get_inner();
+        let disable_api_stop_binding_1 = args.disable_api_stop.get_output(context);
+        let disable_api_stop_binding = disable_api_stop_binding_1.get_inner();
+        let disable_api_termination_binding_1 = args
             .disable_api_termination
-            .get_output(context)
+            .get_output(context);
+        let disable_api_termination_binding = disable_api_termination_binding_1
             .get_inner();
-        let ebs_optimized_binding = args.ebs_optimized.get_output(context).get_inner();
-        let elastic_gpu_specifications_binding = args
+        let ebs_optimized_binding_1 = args.ebs_optimized.get_output(context);
+        let ebs_optimized_binding = ebs_optimized_binding_1.get_inner();
+        let elastic_gpu_specifications_binding_1 = args
             .elastic_gpu_specifications
-            .get_output(context)
+            .get_output(context);
+        let elastic_gpu_specifications_binding = elastic_gpu_specifications_binding_1
             .get_inner();
-        let elastic_inference_accelerator_binding = args
+        let elastic_inference_accelerator_binding_1 = args
             .elastic_inference_accelerator
-            .get_output(context)
+            .get_output(context);
+        let elastic_inference_accelerator_binding = elastic_inference_accelerator_binding_1
             .get_inner();
-        let enclave_options_binding = args
-            .enclave_options
-            .get_output(context)
-            .get_inner();
-        let hibernation_options_binding = args
-            .hibernation_options
-            .get_output(context)
-            .get_inner();
-        let iam_instance_profile_binding = args
+        let enclave_options_binding_1 = args.enclave_options.get_output(context);
+        let enclave_options_binding = enclave_options_binding_1.get_inner();
+        let hibernation_options_binding_1 = args.hibernation_options.get_output(context);
+        let hibernation_options_binding = hibernation_options_binding_1.get_inner();
+        let iam_instance_profile_binding_1 = args
             .iam_instance_profile
-            .get_output(context)
-            .get_inner();
-        let image_id_binding = args.image_id.get_output(context).get_inner();
-        let instance_initiated_shutdown_behavior_binding = args
+            .get_output(context);
+        let iam_instance_profile_binding = iam_instance_profile_binding_1.get_inner();
+        let image_id_binding_1 = args.image_id.get_output(context);
+        let image_id_binding = image_id_binding_1.get_inner();
+        let instance_initiated_shutdown_behavior_binding_1 = args
             .instance_initiated_shutdown_behavior
-            .get_output(context)
+            .get_output(context);
+        let instance_initiated_shutdown_behavior_binding = instance_initiated_shutdown_behavior_binding_1
             .get_inner();
-        let instance_market_options_binding = args
+        let instance_market_options_binding_1 = args
             .instance_market_options
-            .get_output(context)
+            .get_output(context);
+        let instance_market_options_binding = instance_market_options_binding_1
             .get_inner();
-        let instance_requirements_binding = args
+        let instance_requirements_binding_1 = args
             .instance_requirements
-            .get_output(context)
-            .get_inner();
-        let instance_type_binding = args.instance_type.get_output(context).get_inner();
-        let kernel_id_binding = args.kernel_id.get_output(context).get_inner();
-        let key_name_binding = args.key_name.get_output(context).get_inner();
-        let license_specifications_binding = args
+            .get_output(context);
+        let instance_requirements_binding = instance_requirements_binding_1.get_inner();
+        let instance_type_binding_1 = args.instance_type.get_output(context);
+        let instance_type_binding = instance_type_binding_1.get_inner();
+        let kernel_id_binding_1 = args.kernel_id.get_output(context);
+        let kernel_id_binding = kernel_id_binding_1.get_inner();
+        let key_name_binding_1 = args.key_name.get_output(context);
+        let key_name_binding = key_name_binding_1.get_inner();
+        let license_specifications_binding_1 = args
             .license_specifications
-            .get_output(context)
+            .get_output(context);
+        let license_specifications_binding = license_specifications_binding_1
             .get_inner();
-        let maintenance_options_binding = args
-            .maintenance_options
-            .get_output(context)
-            .get_inner();
-        let metadata_options_binding = args
-            .metadata_options
-            .get_output(context)
-            .get_inner();
-        let monitoring_binding = args.monitoring.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let name_prefix_binding = args.name_prefix.get_output(context).get_inner();
-        let network_interfaces_binding = args
-            .network_interfaces
-            .get_output(context)
-            .get_inner();
-        let placement_binding = args.placement.get_output(context).get_inner();
-        let private_dns_name_options_binding = args
+        let maintenance_options_binding_1 = args.maintenance_options.get_output(context);
+        let maintenance_options_binding = maintenance_options_binding_1.get_inner();
+        let metadata_options_binding_1 = args.metadata_options.get_output(context);
+        let metadata_options_binding = metadata_options_binding_1.get_inner();
+        let monitoring_binding_1 = args.monitoring.get_output(context);
+        let monitoring_binding = monitoring_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let name_prefix_binding_1 = args.name_prefix.get_output(context);
+        let name_prefix_binding = name_prefix_binding_1.get_inner();
+        let network_interfaces_binding_1 = args.network_interfaces.get_output(context);
+        let network_interfaces_binding = network_interfaces_binding_1.get_inner();
+        let placement_binding_1 = args.placement.get_output(context);
+        let placement_binding = placement_binding_1.get_inner();
+        let private_dns_name_options_binding_1 = args
             .private_dns_name_options
-            .get_output(context)
+            .get_output(context);
+        let private_dns_name_options_binding = private_dns_name_options_binding_1
             .get_inner();
-        let ram_disk_id_binding = args.ram_disk_id.get_output(context).get_inner();
-        let security_group_names_binding = args
+        let ram_disk_id_binding_1 = args.ram_disk_id.get_output(context);
+        let ram_disk_id_binding = ram_disk_id_binding_1.get_inner();
+        let security_group_names_binding_1 = args
             .security_group_names
-            .get_output(context)
-            .get_inner();
-        let tag_specifications_binding = args
-            .tag_specifications
-            .get_output(context)
-            .get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
-        let update_default_version_binding = args
+            .get_output(context);
+        let security_group_names_binding = security_group_names_binding_1.get_inner();
+        let tag_specifications_binding_1 = args.tag_specifications.get_output(context);
+        let tag_specifications_binding = tag_specifications_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
+        let update_default_version_binding_1 = args
             .update_default_version
-            .get_output(context)
+            .get_output(context);
+        let update_default_version_binding = update_default_version_binding_1
             .get_inner();
-        let user_data_binding = args.user_data.get_output(context).get_inner();
-        let vpc_security_group_ids_binding = args
+        let user_data_binding_1 = args.user_data.get_output(context);
+        let user_data_binding = user_data_binding_1.get_inner();
+        let vpc_security_group_ids_binding_1 = args
             .vpc_security_group_ids
-            .get_output(context)
+            .get_output(context);
+        let vpc_security_group_ids_binding = vpc_security_group_ids_binding_1
             .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:ec2/launchTemplate:LaunchTemplate".into(),

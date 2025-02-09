@@ -560,6 +560,7 @@ interface output-interface {
     resource output {
         constructor(engine: borrow<engine>, value: string, secret: bool);
         map: func(function-name: string) -> output;
+        clone: func() -> output;
     }
     combine: func(outputs: list<borrow<output>>) -> output;
 

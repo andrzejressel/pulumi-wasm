@@ -73,16 +73,14 @@ pub mod standards_control_association {
     ) -> StandardsControlAssociationResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let association_status_binding = args
-            .association_status
-            .get_output(context)
-            .get_inner();
-        let security_control_id_binding = args
-            .security_control_id
-            .get_output(context)
-            .get_inner();
-        let standards_arn_binding = args.standards_arn.get_output(context).get_inner();
-        let updated_reason_binding = args.updated_reason.get_output(context).get_inner();
+        let association_status_binding_1 = args.association_status.get_output(context);
+        let association_status_binding = association_status_binding_1.get_inner();
+        let security_control_id_binding_1 = args.security_control_id.get_output(context);
+        let security_control_id_binding = security_control_id_binding_1.get_inner();
+        let standards_arn_binding_1 = args.standards_arn.get_output(context);
+        let standards_arn_binding = standards_arn_binding_1.get_inner();
+        let updated_reason_binding_1 = args.updated_reason.get_output(context);
+        let updated_reason_binding = updated_reason_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:securityhub/standardsControlAssociation:StandardsControlAssociation"
                 .into(),

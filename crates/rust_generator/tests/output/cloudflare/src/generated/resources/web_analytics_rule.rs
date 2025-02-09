@@ -86,12 +86,18 @@ pub mod web_analytics_rule {
     ) -> WebAnalyticsRuleResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let account_id_binding = args.account_id.get_output(context).get_inner();
-        let host_binding = args.host.get_output(context).get_inner();
-        let inclusive_binding = args.inclusive.get_output(context).get_inner();
-        let is_paused_binding = args.is_paused.get_output(context).get_inner();
-        let paths_binding = args.paths.get_output(context).get_inner();
-        let ruleset_id_binding = args.ruleset_id.get_output(context).get_inner();
+        let account_id_binding_1 = args.account_id.get_output(context);
+        let account_id_binding = account_id_binding_1.get_inner();
+        let host_binding_1 = args.host.get_output(context);
+        let host_binding = host_binding_1.get_inner();
+        let inclusive_binding_1 = args.inclusive.get_output(context);
+        let inclusive_binding = inclusive_binding_1.get_inner();
+        let is_paused_binding_1 = args.is_paused.get_output(context);
+        let is_paused_binding = is_paused_binding_1.get_inner();
+        let paths_binding_1 = args.paths.get_output(context);
+        let paths_binding = paths_binding_1.get_inner();
+        let ruleset_id_binding_1 = args.ruleset_id.get_output(context);
+        let ruleset_id_binding = ruleset_id_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "cloudflare:index/webAnalyticsRule:WebAnalyticsRule".into(),
             name: name.to_string(),

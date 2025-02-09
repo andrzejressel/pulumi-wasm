@@ -32,8 +32,10 @@ pub mod get_users {
     ) -> GetUsersResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let name_regex_binding = args.name_regex.get_output(context).get_inner();
-        let path_prefix_binding = args.path_prefix.get_output(context).get_inner();
+        let name_regex_binding_1 = args.name_regex.get_output(context);
+        let name_regex_binding = name_regex_binding_1.get_inner();
+        let path_prefix_binding_1 = args.path_prefix.get_output(context);
+        let path_prefix_binding = path_prefix_binding_1.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:iam/getUsers:getUsers".into(),
             version: super::super::super::get_version(),

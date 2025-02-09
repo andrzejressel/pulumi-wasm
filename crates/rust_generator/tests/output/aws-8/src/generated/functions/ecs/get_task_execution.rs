@@ -136,48 +136,57 @@ pub mod get_task_execution {
     ) -> GetTaskExecutionResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let capacity_provider_strategies_binding = args
+        let capacity_provider_strategies_binding_1 = args
             .capacity_provider_strategies
-            .get_output(context)
+            .get_output(context);
+        let capacity_provider_strategies_binding = capacity_provider_strategies_binding_1
             .get_inner();
-        let client_token_binding = args.client_token.get_output(context).get_inner();
-        let cluster_binding = args.cluster.get_output(context).get_inner();
-        let desired_count_binding = args.desired_count.get_output(context).get_inner();
-        let enable_ecs_managed_tags_binding = args
+        let client_token_binding_1 = args.client_token.get_output(context);
+        let client_token_binding = client_token_binding_1.get_inner();
+        let cluster_binding_1 = args.cluster.get_output(context);
+        let cluster_binding = cluster_binding_1.get_inner();
+        let desired_count_binding_1 = args.desired_count.get_output(context);
+        let desired_count_binding = desired_count_binding_1.get_inner();
+        let enable_ecs_managed_tags_binding_1 = args
             .enable_ecs_managed_tags
-            .get_output(context)
+            .get_output(context);
+        let enable_ecs_managed_tags_binding = enable_ecs_managed_tags_binding_1
             .get_inner();
-        let enable_execute_command_binding = args
+        let enable_execute_command_binding_1 = args
             .enable_execute_command
-            .get_output(context)
+            .get_output(context);
+        let enable_execute_command_binding = enable_execute_command_binding_1
             .get_inner();
-        let group_binding = args.group.get_output(context).get_inner();
-        let launch_type_binding = args.launch_type.get_output(context).get_inner();
-        let network_configuration_binding = args
+        let group_binding_1 = args.group.get_output(context);
+        let group_binding = group_binding_1.get_inner();
+        let launch_type_binding_1 = args.launch_type.get_output(context);
+        let launch_type_binding = launch_type_binding_1.get_inner();
+        let network_configuration_binding_1 = args
             .network_configuration
-            .get_output(context)
-            .get_inner();
-        let overrides_binding = args.overrides.get_output(context).get_inner();
-        let placement_constraints_binding = args
+            .get_output(context);
+        let network_configuration_binding = network_configuration_binding_1.get_inner();
+        let overrides_binding_1 = args.overrides.get_output(context);
+        let overrides_binding = overrides_binding_1.get_inner();
+        let placement_constraints_binding_1 = args
             .placement_constraints
-            .get_output(context)
-            .get_inner();
-        let placement_strategies_binding = args
+            .get_output(context);
+        let placement_constraints_binding = placement_constraints_binding_1.get_inner();
+        let placement_strategies_binding_1 = args
             .placement_strategies
-            .get_output(context)
-            .get_inner();
-        let platform_version_binding = args
-            .platform_version
-            .get_output(context)
-            .get_inner();
-        let propagate_tags_binding = args.propagate_tags.get_output(context).get_inner();
-        let reference_id_binding = args.reference_id.get_output(context).get_inner();
-        let started_by_binding = args.started_by.get_output(context).get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
-        let task_definition_binding = args
-            .task_definition
-            .get_output(context)
-            .get_inner();
+            .get_output(context);
+        let placement_strategies_binding = placement_strategies_binding_1.get_inner();
+        let platform_version_binding_1 = args.platform_version.get_output(context);
+        let platform_version_binding = platform_version_binding_1.get_inner();
+        let propagate_tags_binding_1 = args.propagate_tags.get_output(context);
+        let propagate_tags_binding = propagate_tags_binding_1.get_inner();
+        let reference_id_binding_1 = args.reference_id.get_output(context);
+        let reference_id_binding = reference_id_binding_1.get_inner();
+        let started_by_binding_1 = args.started_by.get_output(context);
+        let started_by_binding = started_by_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
+        let task_definition_binding_1 = args.task_definition.get_output(context);
+        let task_definition_binding = task_definition_binding_1.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:ecs/getTaskExecution:getTaskExecution".into(),
             version: super::super::super::get_version(),

@@ -283,12 +283,18 @@ pub mod data_policy_iam_member {
     ) -> DataPolicyIamMemberResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let condition_binding = args.condition.get_output(context).get_inner();
-        let data_policy_id_binding = args.data_policy_id.get_output(context).get_inner();
-        let location_binding = args.location.get_output(context).get_inner();
-        let member_binding = args.member.get_output(context).get_inner();
-        let project_binding = args.project.get_output(context).get_inner();
-        let role_binding = args.role.get_output(context).get_inner();
+        let condition_binding_1 = args.condition.get_output(context);
+        let condition_binding = condition_binding_1.get_inner();
+        let data_policy_id_binding_1 = args.data_policy_id.get_output(context);
+        let data_policy_id_binding = data_policy_id_binding_1.get_inner();
+        let location_binding_1 = args.location.get_output(context);
+        let location_binding = location_binding_1.get_inner();
+        let member_binding_1 = args.member.get_output(context);
+        let member_binding = member_binding_1.get_inner();
+        let project_binding_1 = args.project.get_output(context);
+        let project_binding = project_binding_1.get_inner();
+        let role_binding_1 = args.role.get_output(context);
+        let role_binding = role_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:bigquerydatapolicy/dataPolicyIamMember:DataPolicyIamMember"
                 .into(),

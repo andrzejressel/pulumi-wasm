@@ -47,13 +47,14 @@ pub mod get_listener {
     ) -> GetListenerResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let arn_binding = args.arn.get_output(context).get_inner();
-        let load_balancer_arn_binding = args
-            .load_balancer_arn
-            .get_output(context)
-            .get_inner();
-        let port_binding = args.port.get_output(context).get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
+        let arn_binding_1 = args.arn.get_output(context);
+        let arn_binding = arn_binding_1.get_inner();
+        let load_balancer_arn_binding_1 = args.load_balancer_arn.get_output(context);
+        let load_balancer_arn_binding = load_balancer_arn_binding_1.get_inner();
+        let port_binding_1 = args.port.get_output(context);
+        let port_binding = port_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:alb/getListener:getListener".into(),
             version: super::super::super::get_version(),

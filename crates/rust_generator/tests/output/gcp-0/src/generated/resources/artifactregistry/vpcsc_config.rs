@@ -79,9 +79,12 @@ pub mod vpcsc_config {
     ) -> VpcscConfigResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let location_binding = args.location.get_output(context).get_inner();
-        let project_binding = args.project.get_output(context).get_inner();
-        let vpcsc_policy_binding = args.vpcsc_policy.get_output(context).get_inner();
+        let location_binding_1 = args.location.get_output(context);
+        let location_binding = location_binding_1.get_inner();
+        let project_binding_1 = args.project.get_output(context);
+        let project_binding = project_binding_1.get_inner();
+        let vpcsc_policy_binding_1 = args.vpcsc_policy.get_output(context);
+        let vpcsc_policy_binding = vpcsc_policy_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:artifactregistry/vpcscConfig:VpcscConfig".into(),
             name: name.to_string(),

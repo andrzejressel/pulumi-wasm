@@ -62,9 +62,10 @@ pub mod invitation_accepter {
     ) -> InvitationAccepterResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let administrator_account_id_binding = args
+        let administrator_account_id_binding_1 = args
             .administrator_account_id
-            .get_output(context)
+            .get_output(context);
+        let administrator_account_id_binding = administrator_account_id_binding_1
             .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:macie2/invitationAccepter:InvitationAccepter".into(),

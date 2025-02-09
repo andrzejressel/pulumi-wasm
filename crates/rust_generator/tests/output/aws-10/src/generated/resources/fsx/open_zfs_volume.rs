@@ -138,47 +138,49 @@ pub mod open_zfs_volume {
     ) -> OpenZfsVolumeResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let copy_tags_to_snapshots_binding = args
+        let copy_tags_to_snapshots_binding_1 = args
             .copy_tags_to_snapshots
-            .get_output(context)
+            .get_output(context);
+        let copy_tags_to_snapshots_binding = copy_tags_to_snapshots_binding_1
             .get_inner();
-        let data_compression_type_binding = args
+        let data_compression_type_binding_1 = args
             .data_compression_type
-            .get_output(context)
-            .get_inner();
-        let delete_volume_options_binding = args
+            .get_output(context);
+        let data_compression_type_binding = data_compression_type_binding_1.get_inner();
+        let delete_volume_options_binding_1 = args
             .delete_volume_options
-            .get_output(context)
-            .get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let nfs_exports_binding = args.nfs_exports.get_output(context).get_inner();
-        let origin_snapshot_binding = args
-            .origin_snapshot
-            .get_output(context)
-            .get_inner();
-        let parent_volume_id_binding = args
-            .parent_volume_id
-            .get_output(context)
-            .get_inner();
-        let read_only_binding = args.read_only.get_output(context).get_inner();
-        let record_size_kib_binding = args
-            .record_size_kib
-            .get_output(context)
-            .get_inner();
-        let storage_capacity_quota_gib_binding = args
+            .get_output(context);
+        let delete_volume_options_binding = delete_volume_options_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let nfs_exports_binding_1 = args.nfs_exports.get_output(context);
+        let nfs_exports_binding = nfs_exports_binding_1.get_inner();
+        let origin_snapshot_binding_1 = args.origin_snapshot.get_output(context);
+        let origin_snapshot_binding = origin_snapshot_binding_1.get_inner();
+        let parent_volume_id_binding_1 = args.parent_volume_id.get_output(context);
+        let parent_volume_id_binding = parent_volume_id_binding_1.get_inner();
+        let read_only_binding_1 = args.read_only.get_output(context);
+        let read_only_binding = read_only_binding_1.get_inner();
+        let record_size_kib_binding_1 = args.record_size_kib.get_output(context);
+        let record_size_kib_binding = record_size_kib_binding_1.get_inner();
+        let storage_capacity_quota_gib_binding_1 = args
             .storage_capacity_quota_gib
-            .get_output(context)
+            .get_output(context);
+        let storage_capacity_quota_gib_binding = storage_capacity_quota_gib_binding_1
             .get_inner();
-        let storage_capacity_reservation_gib_binding = args
+        let storage_capacity_reservation_gib_binding_1 = args
             .storage_capacity_reservation_gib
-            .get_output(context)
+            .get_output(context);
+        let storage_capacity_reservation_gib_binding = storage_capacity_reservation_gib_binding_1
             .get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
-        let user_and_group_quotas_binding = args
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
+        let user_and_group_quotas_binding_1 = args
             .user_and_group_quotas
-            .get_output(context)
-            .get_inner();
-        let volume_type_binding = args.volume_type.get_output(context).get_inner();
+            .get_output(context);
+        let user_and_group_quotas_binding = user_and_group_quotas_binding_1.get_inner();
+        let volume_type_binding_1 = args.volume_type.get_output(context);
+        let volume_type_binding = volume_type_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:fsx/openZfsVolume:OpenZfsVolume".into(),
             name: name.to_string(),

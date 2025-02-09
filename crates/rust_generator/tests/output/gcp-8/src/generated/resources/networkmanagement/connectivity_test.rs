@@ -285,17 +285,22 @@ pub mod connectivity_test {
     ) -> ConnectivityTestResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let description_binding = args.description.get_output(context).get_inner();
-        let destination_binding = args.destination.get_output(context).get_inner();
-        let labels_binding = args.labels.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let project_binding = args.project.get_output(context).get_inner();
-        let protocol_binding = args.protocol.get_output(context).get_inner();
-        let related_projects_binding = args
-            .related_projects
-            .get_output(context)
-            .get_inner();
-        let source_binding = args.source.get_output(context).get_inner();
+        let description_binding_1 = args.description.get_output(context);
+        let description_binding = description_binding_1.get_inner();
+        let destination_binding_1 = args.destination.get_output(context);
+        let destination_binding = destination_binding_1.get_inner();
+        let labels_binding_1 = args.labels.get_output(context);
+        let labels_binding = labels_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let project_binding_1 = args.project.get_output(context);
+        let project_binding = project_binding_1.get_inner();
+        let protocol_binding_1 = args.protocol.get_output(context);
+        let protocol_binding = protocol_binding_1.get_inner();
+        let related_projects_binding_1 = args.related_projects.get_output(context);
+        let related_projects_binding = related_projects_binding_1.get_inner();
+        let source_binding_1 = args.source.get_output(context);
+        let source_binding = source_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:networkmanagement/connectivityTest:ConnectivityTest".into(),
             name: name.to_string(),

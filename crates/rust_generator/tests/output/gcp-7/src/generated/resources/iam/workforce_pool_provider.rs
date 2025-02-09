@@ -446,29 +446,31 @@ pub mod workforce_pool_provider {
     ) -> WorkforcePoolProviderResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let attribute_condition_binding = args
-            .attribute_condition
-            .get_output(context)
-            .get_inner();
-        let attribute_mapping_binding = args
-            .attribute_mapping
-            .get_output(context)
-            .get_inner();
-        let description_binding = args.description.get_output(context).get_inner();
-        let disabled_binding = args.disabled.get_output(context).get_inner();
-        let display_name_binding = args.display_name.get_output(context).get_inner();
-        let extra_attributes_oauth2_client_binding = args
+        let attribute_condition_binding_1 = args.attribute_condition.get_output(context);
+        let attribute_condition_binding = attribute_condition_binding_1.get_inner();
+        let attribute_mapping_binding_1 = args.attribute_mapping.get_output(context);
+        let attribute_mapping_binding = attribute_mapping_binding_1.get_inner();
+        let description_binding_1 = args.description.get_output(context);
+        let description_binding = description_binding_1.get_inner();
+        let disabled_binding_1 = args.disabled.get_output(context);
+        let disabled_binding = disabled_binding_1.get_inner();
+        let display_name_binding_1 = args.display_name.get_output(context);
+        let display_name_binding = display_name_binding_1.get_inner();
+        let extra_attributes_oauth2_client_binding_1 = args
             .extra_attributes_oauth2_client
-            .get_output(context)
+            .get_output(context);
+        let extra_attributes_oauth2_client_binding = extra_attributes_oauth2_client_binding_1
             .get_inner();
-        let location_binding = args.location.get_output(context).get_inner();
-        let oidc_binding = args.oidc.get_output(context).get_inner();
-        let provider_id_binding = args.provider_id.get_output(context).get_inner();
-        let saml_binding = args.saml.get_output(context).get_inner();
-        let workforce_pool_id_binding = args
-            .workforce_pool_id
-            .get_output(context)
-            .get_inner();
+        let location_binding_1 = args.location.get_output(context);
+        let location_binding = location_binding_1.get_inner();
+        let oidc_binding_1 = args.oidc.get_output(context);
+        let oidc_binding = oidc_binding_1.get_inner();
+        let provider_id_binding_1 = args.provider_id.get_output(context);
+        let provider_id_binding = provider_id_binding_1.get_inner();
+        let saml_binding_1 = args.saml.get_output(context);
+        let saml_binding = saml_binding_1.get_inner();
+        let workforce_pool_id_binding_1 = args.workforce_pool_id.get_output(context);
+        let workforce_pool_id_binding = workforce_pool_id_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:iam/workforcePoolProvider:WorkforcePoolProvider".into(),
             name: name.to_string(),

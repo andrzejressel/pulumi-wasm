@@ -654,192 +654,209 @@ pub mod cluster {
     ) -> ClusterResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let allocated_storage_binding = args
-            .allocated_storage
-            .get_output(context)
-            .get_inner();
-        let allow_major_version_upgrade_binding = args
+        let allocated_storage_binding_1 = args.allocated_storage.get_output(context);
+        let allocated_storage_binding = allocated_storage_binding_1.get_inner();
+        let allow_major_version_upgrade_binding_1 = args
             .allow_major_version_upgrade
-            .get_output(context)
+            .get_output(context);
+        let allow_major_version_upgrade_binding = allow_major_version_upgrade_binding_1
             .get_inner();
-        let apply_immediately_binding = args
-            .apply_immediately
-            .get_output(context)
-            .get_inner();
-        let availability_zones_binding = args
-            .availability_zones
-            .get_output(context)
-            .get_inner();
-        let backtrack_window_binding = args
-            .backtrack_window
-            .get_output(context)
-            .get_inner();
-        let backup_retention_period_binding = args
+        let apply_immediately_binding_1 = args.apply_immediately.get_output(context);
+        let apply_immediately_binding = apply_immediately_binding_1.get_inner();
+        let availability_zones_binding_1 = args.availability_zones.get_output(context);
+        let availability_zones_binding = availability_zones_binding_1.get_inner();
+        let backtrack_window_binding_1 = args.backtrack_window.get_output(context);
+        let backtrack_window_binding = backtrack_window_binding_1.get_inner();
+        let backup_retention_period_binding_1 = args
             .backup_retention_period
-            .get_output(context)
+            .get_output(context);
+        let backup_retention_period_binding = backup_retention_period_binding_1
             .get_inner();
-        let ca_certificate_identifier_binding = args
+        let ca_certificate_identifier_binding_1 = args
             .ca_certificate_identifier
-            .get_output(context)
+            .get_output(context);
+        let ca_certificate_identifier_binding = ca_certificate_identifier_binding_1
             .get_inner();
-        let cluster_identifier_binding = args
-            .cluster_identifier
-            .get_output(context)
-            .get_inner();
-        let cluster_identifier_prefix_binding = args
+        let cluster_identifier_binding_1 = args.cluster_identifier.get_output(context);
+        let cluster_identifier_binding = cluster_identifier_binding_1.get_inner();
+        let cluster_identifier_prefix_binding_1 = args
             .cluster_identifier_prefix
-            .get_output(context)
+            .get_output(context);
+        let cluster_identifier_prefix_binding = cluster_identifier_prefix_binding_1
             .get_inner();
-        let cluster_members_binding = args
-            .cluster_members
-            .get_output(context)
-            .get_inner();
-        let copy_tags_to_snapshot_binding = args
+        let cluster_members_binding_1 = args.cluster_members.get_output(context);
+        let cluster_members_binding = cluster_members_binding_1.get_inner();
+        let copy_tags_to_snapshot_binding_1 = args
             .copy_tags_to_snapshot
-            .get_output(context)
-            .get_inner();
-        let database_name_binding = args.database_name.get_output(context).get_inner();
-        let db_cluster_instance_class_binding = args
+            .get_output(context);
+        let copy_tags_to_snapshot_binding = copy_tags_to_snapshot_binding_1.get_inner();
+        let database_name_binding_1 = args.database_name.get_output(context);
+        let database_name_binding = database_name_binding_1.get_inner();
+        let db_cluster_instance_class_binding_1 = args
             .db_cluster_instance_class
-            .get_output(context)
+            .get_output(context);
+        let db_cluster_instance_class_binding = db_cluster_instance_class_binding_1
             .get_inner();
-        let db_cluster_parameter_group_name_binding = args
+        let db_cluster_parameter_group_name_binding_1 = args
             .db_cluster_parameter_group_name
-            .get_output(context)
+            .get_output(context);
+        let db_cluster_parameter_group_name_binding = db_cluster_parameter_group_name_binding_1
             .get_inner();
-        let db_instance_parameter_group_name_binding = args
+        let db_instance_parameter_group_name_binding_1 = args
             .db_instance_parameter_group_name
-            .get_output(context)
+            .get_output(context);
+        let db_instance_parameter_group_name_binding = db_instance_parameter_group_name_binding_1
             .get_inner();
-        let db_subnet_group_name_binding = args
+        let db_subnet_group_name_binding_1 = args
             .db_subnet_group_name
-            .get_output(context)
-            .get_inner();
-        let db_system_id_binding = args.db_system_id.get_output(context).get_inner();
-        let delete_automated_backups_binding = args
+            .get_output(context);
+        let db_subnet_group_name_binding = db_subnet_group_name_binding_1.get_inner();
+        let db_system_id_binding_1 = args.db_system_id.get_output(context);
+        let db_system_id_binding = db_system_id_binding_1.get_inner();
+        let delete_automated_backups_binding_1 = args
             .delete_automated_backups
-            .get_output(context)
+            .get_output(context);
+        let delete_automated_backups_binding = delete_automated_backups_binding_1
             .get_inner();
-        let deletion_protection_binding = args
-            .deletion_protection
-            .get_output(context)
-            .get_inner();
-        let domain_binding = args.domain.get_output(context).get_inner();
-        let domain_iam_role_name_binding = args
+        let deletion_protection_binding_1 = args.deletion_protection.get_output(context);
+        let deletion_protection_binding = deletion_protection_binding_1.get_inner();
+        let domain_binding_1 = args.domain.get_output(context);
+        let domain_binding = domain_binding_1.get_inner();
+        let domain_iam_role_name_binding_1 = args
             .domain_iam_role_name
-            .get_output(context)
-            .get_inner();
-        let enable_global_write_forwarding_binding = args
+            .get_output(context);
+        let domain_iam_role_name_binding = domain_iam_role_name_binding_1.get_inner();
+        let enable_global_write_forwarding_binding_1 = args
             .enable_global_write_forwarding
-            .get_output(context)
+            .get_output(context);
+        let enable_global_write_forwarding_binding = enable_global_write_forwarding_binding_1
             .get_inner();
-        let enable_http_endpoint_binding = args
+        let enable_http_endpoint_binding_1 = args
             .enable_http_endpoint
-            .get_output(context)
-            .get_inner();
-        let enable_local_write_forwarding_binding = args
+            .get_output(context);
+        let enable_http_endpoint_binding = enable_http_endpoint_binding_1.get_inner();
+        let enable_local_write_forwarding_binding_1 = args
             .enable_local_write_forwarding
-            .get_output(context)
+            .get_output(context);
+        let enable_local_write_forwarding_binding = enable_local_write_forwarding_binding_1
             .get_inner();
-        let enabled_cloudwatch_logs_exports_binding = args
+        let enabled_cloudwatch_logs_exports_binding_1 = args
             .enabled_cloudwatch_logs_exports
-            .get_output(context)
+            .get_output(context);
+        let enabled_cloudwatch_logs_exports_binding = enabled_cloudwatch_logs_exports_binding_1
             .get_inner();
-        let engine_binding = args.engine.get_output(context).get_inner();
-        let engine_lifecycle_support_binding = args
+        let engine_binding_1 = args.engine.get_output(context);
+        let engine_binding = engine_binding_1.get_inner();
+        let engine_lifecycle_support_binding_1 = args
             .engine_lifecycle_support
-            .get_output(context)
+            .get_output(context);
+        let engine_lifecycle_support_binding = engine_lifecycle_support_binding_1
             .get_inner();
-        let engine_mode_binding = args.engine_mode.get_output(context).get_inner();
-        let engine_version_binding = args.engine_version.get_output(context).get_inner();
-        let final_snapshot_identifier_binding = args
+        let engine_mode_binding_1 = args.engine_mode.get_output(context);
+        let engine_mode_binding = engine_mode_binding_1.get_inner();
+        let engine_version_binding_1 = args.engine_version.get_output(context);
+        let engine_version_binding = engine_version_binding_1.get_inner();
+        let final_snapshot_identifier_binding_1 = args
             .final_snapshot_identifier
-            .get_output(context)
+            .get_output(context);
+        let final_snapshot_identifier_binding = final_snapshot_identifier_binding_1
             .get_inner();
-        let global_cluster_identifier_binding = args
+        let global_cluster_identifier_binding_1 = args
             .global_cluster_identifier
-            .get_output(context)
+            .get_output(context);
+        let global_cluster_identifier_binding = global_cluster_identifier_binding_1
             .get_inner();
-        let iam_database_authentication_enabled_binding = args
+        let iam_database_authentication_enabled_binding_1 = args
             .iam_database_authentication_enabled
-            .get_output(context)
+            .get_output(context);
+        let iam_database_authentication_enabled_binding = iam_database_authentication_enabled_binding_1
             .get_inner();
-        let iam_roles_binding = args.iam_roles.get_output(context).get_inner();
-        let iops_binding = args.iops.get_output(context).get_inner();
-        let kms_key_id_binding = args.kms_key_id.get_output(context).get_inner();
-        let manage_master_user_password_binding = args
+        let iam_roles_binding_1 = args.iam_roles.get_output(context);
+        let iam_roles_binding = iam_roles_binding_1.get_inner();
+        let iops_binding_1 = args.iops.get_output(context);
+        let iops_binding = iops_binding_1.get_inner();
+        let kms_key_id_binding_1 = args.kms_key_id.get_output(context);
+        let kms_key_id_binding = kms_key_id_binding_1.get_inner();
+        let manage_master_user_password_binding_1 = args
             .manage_master_user_password
-            .get_output(context)
+            .get_output(context);
+        let manage_master_user_password_binding = manage_master_user_password_binding_1
             .get_inner();
-        let master_password_binding = args
-            .master_password
-            .get_output(context)
-            .get_inner();
-        let master_user_secret_kms_key_id_binding = args
+        let master_password_binding_1 = args.master_password.get_output(context);
+        let master_password_binding = master_password_binding_1.get_inner();
+        let master_user_secret_kms_key_id_binding_1 = args
             .master_user_secret_kms_key_id
-            .get_output(context)
+            .get_output(context);
+        let master_user_secret_kms_key_id_binding = master_user_secret_kms_key_id_binding_1
             .get_inner();
-        let master_username_binding = args
-            .master_username
-            .get_output(context)
-            .get_inner();
-        let network_type_binding = args.network_type.get_output(context).get_inner();
-        let performance_insights_enabled_binding = args
+        let master_username_binding_1 = args.master_username.get_output(context);
+        let master_username_binding = master_username_binding_1.get_inner();
+        let network_type_binding_1 = args.network_type.get_output(context);
+        let network_type_binding = network_type_binding_1.get_inner();
+        let performance_insights_enabled_binding_1 = args
             .performance_insights_enabled
-            .get_output(context)
+            .get_output(context);
+        let performance_insights_enabled_binding = performance_insights_enabled_binding_1
             .get_inner();
-        let performance_insights_kms_key_id_binding = args
+        let performance_insights_kms_key_id_binding_1 = args
             .performance_insights_kms_key_id
-            .get_output(context)
+            .get_output(context);
+        let performance_insights_kms_key_id_binding = performance_insights_kms_key_id_binding_1
             .get_inner();
-        let performance_insights_retention_period_binding = args
+        let performance_insights_retention_period_binding_1 = args
             .performance_insights_retention_period
-            .get_output(context)
+            .get_output(context);
+        let performance_insights_retention_period_binding = performance_insights_retention_period_binding_1
             .get_inner();
-        let port_binding = args.port.get_output(context).get_inner();
-        let preferred_backup_window_binding = args
+        let port_binding_1 = args.port.get_output(context);
+        let port_binding = port_binding_1.get_inner();
+        let preferred_backup_window_binding_1 = args
             .preferred_backup_window
-            .get_output(context)
+            .get_output(context);
+        let preferred_backup_window_binding = preferred_backup_window_binding_1
             .get_inner();
-        let preferred_maintenance_window_binding = args
+        let preferred_maintenance_window_binding_1 = args
             .preferred_maintenance_window
-            .get_output(context)
+            .get_output(context);
+        let preferred_maintenance_window_binding = preferred_maintenance_window_binding_1
             .get_inner();
-        let replication_source_identifier_binding = args
+        let replication_source_identifier_binding_1 = args
             .replication_source_identifier
-            .get_output(context)
+            .get_output(context);
+        let replication_source_identifier_binding = replication_source_identifier_binding_1
             .get_inner();
-        let restore_to_point_in_time_binding = args
+        let restore_to_point_in_time_binding_1 = args
             .restore_to_point_in_time
-            .get_output(context)
+            .get_output(context);
+        let restore_to_point_in_time_binding = restore_to_point_in_time_binding_1
             .get_inner();
-        let s3_import_binding = args.s3_import.get_output(context).get_inner();
-        let scaling_configuration_binding = args
+        let s3_import_binding_1 = args.s3_import.get_output(context);
+        let s3_import_binding = s3_import_binding_1.get_inner();
+        let scaling_configuration_binding_1 = args
             .scaling_configuration
-            .get_output(context)
-            .get_inner();
-        let serverlessv2_scaling_configuration_binding = args
+            .get_output(context);
+        let scaling_configuration_binding = scaling_configuration_binding_1.get_inner();
+        let serverlessv2_scaling_configuration_binding_1 = args
             .serverlessv2_scaling_configuration
-            .get_output(context)
+            .get_output(context);
+        let serverlessv2_scaling_configuration_binding = serverlessv2_scaling_configuration_binding_1
             .get_inner();
-        let skip_final_snapshot_binding = args
-            .skip_final_snapshot
-            .get_output(context)
-            .get_inner();
-        let snapshot_identifier_binding = args
-            .snapshot_identifier
-            .get_output(context)
-            .get_inner();
-        let source_region_binding = args.source_region.get_output(context).get_inner();
-        let storage_encrypted_binding = args
-            .storage_encrypted
-            .get_output(context)
-            .get_inner();
-        let storage_type_binding = args.storage_type.get_output(context).get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
-        let vpc_security_group_ids_binding = args
+        let skip_final_snapshot_binding_1 = args.skip_final_snapshot.get_output(context);
+        let skip_final_snapshot_binding = skip_final_snapshot_binding_1.get_inner();
+        let snapshot_identifier_binding_1 = args.snapshot_identifier.get_output(context);
+        let snapshot_identifier_binding = snapshot_identifier_binding_1.get_inner();
+        let source_region_binding_1 = args.source_region.get_output(context);
+        let source_region_binding = source_region_binding_1.get_inner();
+        let storage_encrypted_binding_1 = args.storage_encrypted.get_output(context);
+        let storage_encrypted_binding = storage_encrypted_binding_1.get_inner();
+        let storage_type_binding_1 = args.storage_type.get_output(context);
+        let storage_type_binding = storage_type_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
+        let vpc_security_group_ids_binding_1 = args
             .vpc_security_group_ids
-            .get_output(context)
+            .get_output(context);
+        let vpc_security_group_ids_binding = vpc_security_group_ids_binding_1
             .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:rds/cluster:Cluster".into(),

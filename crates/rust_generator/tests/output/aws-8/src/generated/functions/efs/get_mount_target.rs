@@ -52,15 +52,12 @@ pub mod get_mount_target {
     ) -> GetMountTargetResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let access_point_id_binding = args
-            .access_point_id
-            .get_output(context)
-            .get_inner();
-        let file_system_id_binding = args.file_system_id.get_output(context).get_inner();
-        let mount_target_id_binding = args
-            .mount_target_id
-            .get_output(context)
-            .get_inner();
+        let access_point_id_binding_1 = args.access_point_id.get_output(context);
+        let access_point_id_binding = access_point_id_binding_1.get_inner();
+        let file_system_id_binding_1 = args.file_system_id.get_output(context);
+        let file_system_id_binding = file_system_id_binding_1.get_inner();
+        let mount_target_id_binding_1 = args.mount_target_id.get_output(context);
+        let mount_target_id_binding = mount_target_id_binding_1.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:efs/getMountTarget:getMountTarget".into(),
             version: super::super::super::get_version(),

@@ -118,17 +118,16 @@ pub mod log_account_policy {
     ) -> LogAccountPolicyResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let policy_document_binding = args
-            .policy_document
-            .get_output(context)
-            .get_inner();
-        let policy_name_binding = args.policy_name.get_output(context).get_inner();
-        let policy_type_binding = args.policy_type.get_output(context).get_inner();
-        let scope_binding = args.scope.get_output(context).get_inner();
-        let selection_criteria_binding = args
-            .selection_criteria
-            .get_output(context)
-            .get_inner();
+        let policy_document_binding_1 = args.policy_document.get_output(context);
+        let policy_document_binding = policy_document_binding_1.get_inner();
+        let policy_name_binding_1 = args.policy_name.get_output(context);
+        let policy_name_binding = policy_name_binding_1.get_inner();
+        let policy_type_binding_1 = args.policy_type.get_output(context);
+        let policy_type_binding = policy_type_binding_1.get_inner();
+        let scope_binding_1 = args.scope.get_output(context);
+        let scope_binding = scope_binding_1.get_inner();
+        let selection_criteria_binding_1 = args.selection_criteria.get_output(context);
+        let selection_criteria_binding = selection_criteria_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:cloudwatch/logAccountPolicy:LogAccountPolicy".into(),
             name: name.to_string(),

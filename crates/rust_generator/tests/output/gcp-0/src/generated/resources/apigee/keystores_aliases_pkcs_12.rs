@@ -91,13 +91,20 @@ pub mod keystores_aliases_pkcs_12 {
     ) -> KeystoresAliasesPkcs12Result {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let alias_binding = args.alias.get_output(context).get_inner();
-        let environment_binding = args.environment.get_output(context).get_inner();
-        let file_binding = args.file.get_output(context).get_inner();
-        let filehash_binding = args.filehash.get_output(context).get_inner();
-        let keystore_binding = args.keystore.get_output(context).get_inner();
-        let org_id_binding = args.org_id.get_output(context).get_inner();
-        let password_binding = args.password.get_output(context).get_inner();
+        let alias_binding_1 = args.alias.get_output(context);
+        let alias_binding = alias_binding_1.get_inner();
+        let environment_binding_1 = args.environment.get_output(context);
+        let environment_binding = environment_binding_1.get_inner();
+        let file_binding_1 = args.file.get_output(context);
+        let file_binding = file_binding_1.get_inner();
+        let filehash_binding_1 = args.filehash.get_output(context);
+        let filehash_binding = filehash_binding_1.get_inner();
+        let keystore_binding_1 = args.keystore.get_output(context);
+        let keystore_binding = keystore_binding_1.get_inner();
+        let org_id_binding_1 = args.org_id.get_output(context);
+        let org_id_binding = org_id_binding_1.get_inner();
+        let password_binding_1 = args.password.get_output(context);
+        let password_binding = password_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:apigee/keystoresAliasesPkcs12:KeystoresAliasesPkcs12".into(),
             name: name.to_string(),

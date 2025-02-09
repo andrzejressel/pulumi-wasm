@@ -73,9 +73,12 @@ pub mod service_network {
     ) -> ServiceNetworkResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let auth_type_binding = args.auth_type.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
+        let auth_type_binding_1 = args.auth_type.get_output(context);
+        let auth_type_binding = auth_type_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:vpclattice/serviceNetwork:ServiceNetwork".into(),
             name: name.to_string(),

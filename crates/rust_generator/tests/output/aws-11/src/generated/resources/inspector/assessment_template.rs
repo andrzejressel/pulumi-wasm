@@ -109,18 +109,18 @@ pub mod assessment_template {
     ) -> AssessmentTemplateResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let duration_binding = args.duration.get_output(context).get_inner();
-        let event_subscriptions_binding = args
-            .event_subscriptions
-            .get_output(context)
-            .get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let rules_package_arns_binding = args
-            .rules_package_arns
-            .get_output(context)
-            .get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
-        let target_arn_binding = args.target_arn.get_output(context).get_inner();
+        let duration_binding_1 = args.duration.get_output(context);
+        let duration_binding = duration_binding_1.get_inner();
+        let event_subscriptions_binding_1 = args.event_subscriptions.get_output(context);
+        let event_subscriptions_binding = event_subscriptions_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let rules_package_arns_binding_1 = args.rules_package_arns.get_output(context);
+        let rules_package_arns_binding = rules_package_arns_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
+        let target_arn_binding_1 = args.target_arn.get_output(context);
+        let target_arn_binding = target_arn_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:inspector/assessmentTemplate:AssessmentTemplate".into(),
             name: name.to_string(),

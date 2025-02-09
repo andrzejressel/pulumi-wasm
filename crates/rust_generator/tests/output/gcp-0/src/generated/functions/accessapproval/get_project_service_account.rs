@@ -29,7 +29,8 @@ pub mod get_project_service_account {
     ) -> GetProjectServiceAccountResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let project_id_binding = args.project_id.get_output(context).get_inner();
+        let project_id_binding_1 = args.project_id.get_output(context);
+        let project_id_binding = project_id_binding_1.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "gcp:accessapproval/getProjectServiceAccount:getProjectServiceAccount"
                 .into(),

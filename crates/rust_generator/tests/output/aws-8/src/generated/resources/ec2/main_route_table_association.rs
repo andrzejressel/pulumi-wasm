@@ -63,8 +63,10 @@ pub mod main_route_table_association {
     ) -> MainRouteTableAssociationResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let route_table_id_binding = args.route_table_id.get_output(context).get_inner();
-        let vpc_id_binding = args.vpc_id.get_output(context).get_inner();
+        let route_table_id_binding_1 = args.route_table_id.get_output(context);
+        let route_table_id_binding = route_table_id_binding_1.get_inner();
+        let vpc_id_binding_1 = args.vpc_id.get_output(context);
+        let vpc_id_binding = vpc_id_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:ec2/mainRouteTableAssociation:MainRouteTableAssociation".into(),
             name: name.to_string(),

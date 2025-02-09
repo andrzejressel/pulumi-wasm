@@ -113,19 +113,23 @@ pub mod hybrid_connection_authorization_rule {
     ) -> HybridConnectionAuthorizationRuleResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let hybrid_connection_name_binding = args
+        let hybrid_connection_name_binding_1 = args
             .hybrid_connection_name
-            .get_output(context)
+            .get_output(context);
+        let hybrid_connection_name_binding = hybrid_connection_name_binding_1
             .get_inner();
-        let listen_binding = args.listen.get_output(context).get_inner();
-        let manage_binding = args.manage.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let namespace_name_binding = args.namespace_name.get_output(context).get_inner();
-        let resource_group_name_binding = args
-            .resource_group_name
-            .get_output(context)
-            .get_inner();
-        let send_binding = args.send.get_output(context).get_inner();
+        let listen_binding_1 = args.listen.get_output(context);
+        let listen_binding = listen_binding_1.get_inner();
+        let manage_binding_1 = args.manage.get_output(context);
+        let manage_binding = manage_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let namespace_name_binding_1 = args.namespace_name.get_output(context);
+        let namespace_name_binding = namespace_name_binding_1.get_inner();
+        let resource_group_name_binding_1 = args.resource_group_name.get_output(context);
+        let resource_group_name_binding = resource_group_name_binding_1.get_inner();
+        let send_binding_1 = args.send.get_output(context);
+        let send_binding = send_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:relay/hybridConnectionAuthorizationRule:HybridConnectionAuthorizationRule"
                 .into(),

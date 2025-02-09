@@ -151,19 +151,20 @@ pub mod c_name_record {
     ) -> CNameRecordResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let name_binding = args.name.get_output(context).get_inner();
-        let record_binding = args.record.get_output(context).get_inner();
-        let resource_group_name_binding = args
-            .resource_group_name
-            .get_output(context)
-            .get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
-        let target_resource_id_binding = args
-            .target_resource_id
-            .get_output(context)
-            .get_inner();
-        let ttl_binding = args.ttl.get_output(context).get_inner();
-        let zone_name_binding = args.zone_name.get_output(context).get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let record_binding_1 = args.record.get_output(context);
+        let record_binding = record_binding_1.get_inner();
+        let resource_group_name_binding_1 = args.resource_group_name.get_output(context);
+        let resource_group_name_binding = resource_group_name_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
+        let target_resource_id_binding_1 = args.target_resource_id.get_output(context);
+        let target_resource_id_binding = target_resource_id_binding_1.get_inner();
+        let ttl_binding_1 = args.ttl.get_output(context);
+        let ttl_binding = ttl_binding_1.get_inner();
+        let zone_name_binding_1 = args.zone_name.get_output(context);
+        let zone_name_binding = zone_name_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:dns/cNameRecord:CNameRecord".into(),
             name: name.to_string(),

@@ -95,17 +95,19 @@ pub mod workspace_table {
     ) -> WorkspaceTableResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let name_binding = args.name.get_output(context).get_inner();
-        let plan_binding = args.plan.get_output(context).get_inner();
-        let retention_in_days_binding = args
-            .retention_in_days
-            .get_output(context)
-            .get_inner();
-        let total_retention_in_days_binding = args
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let plan_binding_1 = args.plan.get_output(context);
+        let plan_binding = plan_binding_1.get_inner();
+        let retention_in_days_binding_1 = args.retention_in_days.get_output(context);
+        let retention_in_days_binding = retention_in_days_binding_1.get_inner();
+        let total_retention_in_days_binding_1 = args
             .total_retention_in_days
-            .get_output(context)
+            .get_output(context);
+        let total_retention_in_days_binding = total_retention_in_days_binding_1
             .get_inner();
-        let workspace_id_binding = args.workspace_id.get_output(context).get_inner();
+        let workspace_id_binding_1 = args.workspace_id.get_output(context);
+        let workspace_id_binding = workspace_id_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:loganalytics/workspaceTable:WorkspaceTable".into(),
             name: name.to_string(),

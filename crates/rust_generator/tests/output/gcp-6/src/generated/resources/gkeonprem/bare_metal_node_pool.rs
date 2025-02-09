@@ -276,19 +276,20 @@ pub mod bare_metal_node_pool {
     ) -> BareMetalNodePoolResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let annotations_binding = args.annotations.get_output(context).get_inner();
-        let bare_metal_cluster_binding = args
-            .bare_metal_cluster
-            .get_output(context)
-            .get_inner();
-        let display_name_binding = args.display_name.get_output(context).get_inner();
-        let location_binding = args.location.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let node_pool_config_binding = args
-            .node_pool_config
-            .get_output(context)
-            .get_inner();
-        let project_binding = args.project.get_output(context).get_inner();
+        let annotations_binding_1 = args.annotations.get_output(context);
+        let annotations_binding = annotations_binding_1.get_inner();
+        let bare_metal_cluster_binding_1 = args.bare_metal_cluster.get_output(context);
+        let bare_metal_cluster_binding = bare_metal_cluster_binding_1.get_inner();
+        let display_name_binding_1 = args.display_name.get_output(context);
+        let display_name_binding = display_name_binding_1.get_inner();
+        let location_binding_1 = args.location.get_output(context);
+        let location_binding = location_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let node_pool_config_binding_1 = args.node_pool_config.get_output(context);
+        let node_pool_config_binding = node_pool_config_binding_1.get_inner();
+        let project_binding_1 = args.project.get_output(context);
+        let project_binding = project_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:gkeonprem/bareMetalNodePool:BareMetalNodePool".into(),
             name: name.to_string(),

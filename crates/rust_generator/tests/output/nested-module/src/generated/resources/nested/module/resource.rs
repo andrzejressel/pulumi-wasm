@@ -22,7 +22,8 @@ pub mod resource {
     ) -> ResourceResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let bar_binding = args.bar.get_output(context).get_inner();
+        let bar_binding_1 = args.bar.get_output(context);
+        let bar_binding = bar_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "foo:nested/module:Resource".into(),
             name: name.to_string(),

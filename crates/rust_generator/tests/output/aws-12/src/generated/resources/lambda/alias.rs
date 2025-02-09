@@ -81,14 +81,16 @@ pub mod alias {
     ) -> AliasResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let description_binding = args.description.get_output(context).get_inner();
-        let function_name_binding = args.function_name.get_output(context).get_inner();
-        let function_version_binding = args
-            .function_version
-            .get_output(context)
-            .get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let routing_config_binding = args.routing_config.get_output(context).get_inner();
+        let description_binding_1 = args.description.get_output(context);
+        let description_binding = description_binding_1.get_inner();
+        let function_name_binding_1 = args.function_name.get_output(context);
+        let function_name_binding = function_name_binding_1.get_inner();
+        let function_version_binding_1 = args.function_version.get_output(context);
+        let function_version_binding = function_version_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let routing_config_binding_1 = args.routing_config.get_output(context);
+        let routing_config_binding = routing_config_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:lambda/alias:Alias".into(),
             name: name.to_string(),

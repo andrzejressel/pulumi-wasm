@@ -117,26 +117,31 @@ pub mod backup_policy {
     ) -> BackupPolicyResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let account_name_binding = args.account_name.get_output(context).get_inner();
-        let daily_backups_to_keep_binding = args
+        let account_name_binding_1 = args.account_name.get_output(context);
+        let account_name_binding = account_name_binding_1.get_inner();
+        let daily_backups_to_keep_binding_1 = args
             .daily_backups_to_keep
-            .get_output(context)
-            .get_inner();
-        let enabled_binding = args.enabled.get_output(context).get_inner();
-        let location_binding = args.location.get_output(context).get_inner();
-        let monthly_backups_to_keep_binding = args
+            .get_output(context);
+        let daily_backups_to_keep_binding = daily_backups_to_keep_binding_1.get_inner();
+        let enabled_binding_1 = args.enabled.get_output(context);
+        let enabled_binding = enabled_binding_1.get_inner();
+        let location_binding_1 = args.location.get_output(context);
+        let location_binding = location_binding_1.get_inner();
+        let monthly_backups_to_keep_binding_1 = args
             .monthly_backups_to_keep
-            .get_output(context)
+            .get_output(context);
+        let monthly_backups_to_keep_binding = monthly_backups_to_keep_binding_1
             .get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let resource_group_name_binding = args
-            .resource_group_name
-            .get_output(context)
-            .get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
-        let weekly_backups_to_keep_binding = args
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let resource_group_name_binding_1 = args.resource_group_name.get_output(context);
+        let resource_group_name_binding = resource_group_name_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
+        let weekly_backups_to_keep_binding_1 = args
             .weekly_backups_to_keep
-            .get_output(context)
+            .get_output(context);
+        let weekly_backups_to_keep_binding = weekly_backups_to_keep_binding_1
             .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:netapp/backupPolicy:BackupPolicy".into(),

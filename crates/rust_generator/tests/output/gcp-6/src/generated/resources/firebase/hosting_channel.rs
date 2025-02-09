@@ -150,15 +150,21 @@ pub mod hosting_channel {
     ) -> HostingChannelResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let channel_id_binding = args.channel_id.get_output(context).get_inner();
-        let expire_time_binding = args.expire_time.get_output(context).get_inner();
-        let labels_binding = args.labels.get_output(context).get_inner();
-        let retained_release_count_binding = args
+        let channel_id_binding_1 = args.channel_id.get_output(context);
+        let channel_id_binding = channel_id_binding_1.get_inner();
+        let expire_time_binding_1 = args.expire_time.get_output(context);
+        let expire_time_binding = expire_time_binding_1.get_inner();
+        let labels_binding_1 = args.labels.get_output(context);
+        let labels_binding = labels_binding_1.get_inner();
+        let retained_release_count_binding_1 = args
             .retained_release_count
-            .get_output(context)
+            .get_output(context);
+        let retained_release_count_binding = retained_release_count_binding_1
             .get_inner();
-        let site_id_binding = args.site_id.get_output(context).get_inner();
-        let ttl_binding = args.ttl.get_output(context).get_inner();
+        let site_id_binding_1 = args.site_id.get_output(context);
+        let site_id_binding = site_id_binding_1.get_inner();
+        let ttl_binding_1 = args.ttl.get_output(context);
+        let ttl_binding = ttl_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:firebase/hostingChannel:HostingChannel".into(),
             name: name.to_string(),

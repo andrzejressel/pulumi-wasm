@@ -76,15 +76,21 @@ pub mod get_orderable_db_instance {
     ) -> GetOrderableDbInstanceResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let engine_binding = args.engine.get_output(context).get_inner();
-        let engine_version_binding = args.engine_version.get_output(context).get_inner();
-        let instance_class_binding = args.instance_class.get_output(context).get_inner();
-        let license_model_binding = args.license_model.get_output(context).get_inner();
-        let preferred_instance_classes_binding = args
+        let engine_binding_1 = args.engine.get_output(context);
+        let engine_binding = engine_binding_1.get_inner();
+        let engine_version_binding_1 = args.engine_version.get_output(context);
+        let engine_version_binding = engine_version_binding_1.get_inner();
+        let instance_class_binding_1 = args.instance_class.get_output(context);
+        let instance_class_binding = instance_class_binding_1.get_inner();
+        let license_model_binding_1 = args.license_model.get_output(context);
+        let license_model_binding = license_model_binding_1.get_inner();
+        let preferred_instance_classes_binding_1 = args
             .preferred_instance_classes
-            .get_output(context)
+            .get_output(context);
+        let preferred_instance_classes_binding = preferred_instance_classes_binding_1
             .get_inner();
-        let vpc_binding = args.vpc.get_output(context).get_inner();
+        let vpc_binding_1 = args.vpc.get_output(context);
+        let vpc_binding = vpc_binding_1.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:neptune/getOrderableDbInstance:getOrderableDbInstance".into(),
             version: super::super::super::get_version(),

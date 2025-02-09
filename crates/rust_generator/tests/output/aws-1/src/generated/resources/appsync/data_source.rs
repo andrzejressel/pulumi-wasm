@@ -187,36 +187,38 @@ pub mod data_source {
     ) -> DataSourceResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let api_id_binding = args.api_id.get_output(context).get_inner();
-        let description_binding = args.description.get_output(context).get_inner();
-        let dynamodb_config_binding = args
-            .dynamodb_config
-            .get_output(context)
-            .get_inner();
-        let elasticsearch_config_binding = args
+        let api_id_binding_1 = args.api_id.get_output(context);
+        let api_id_binding = api_id_binding_1.get_inner();
+        let description_binding_1 = args.description.get_output(context);
+        let description_binding = description_binding_1.get_inner();
+        let dynamodb_config_binding_1 = args.dynamodb_config.get_output(context);
+        let dynamodb_config_binding = dynamodb_config_binding_1.get_inner();
+        let elasticsearch_config_binding_1 = args
             .elasticsearch_config
-            .get_output(context)
-            .get_inner();
-        let event_bridge_config_binding = args
-            .event_bridge_config
-            .get_output(context)
-            .get_inner();
-        let http_config_binding = args.http_config.get_output(context).get_inner();
-        let lambda_config_binding = args.lambda_config.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let opensearchservice_config_binding = args
+            .get_output(context);
+        let elasticsearch_config_binding = elasticsearch_config_binding_1.get_inner();
+        let event_bridge_config_binding_1 = args.event_bridge_config.get_output(context);
+        let event_bridge_config_binding = event_bridge_config_binding_1.get_inner();
+        let http_config_binding_1 = args.http_config.get_output(context);
+        let http_config_binding = http_config_binding_1.get_inner();
+        let lambda_config_binding_1 = args.lambda_config.get_output(context);
+        let lambda_config_binding = lambda_config_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let opensearchservice_config_binding_1 = args
             .opensearchservice_config
-            .get_output(context)
+            .get_output(context);
+        let opensearchservice_config_binding = opensearchservice_config_binding_1
             .get_inner();
-        let relational_database_config_binding = args
+        let relational_database_config_binding_1 = args
             .relational_database_config
-            .get_output(context)
+            .get_output(context);
+        let relational_database_config_binding = relational_database_config_binding_1
             .get_inner();
-        let service_role_arn_binding = args
-            .service_role_arn
-            .get_output(context)
-            .get_inner();
-        let type__binding = args.type_.get_output(context).get_inner();
+        let service_role_arn_binding_1 = args.service_role_arn.get_output(context);
+        let service_role_arn_binding = service_role_arn_binding_1.get_inner();
+        let type__binding_1 = args.type_.get_output(context);
+        let type__binding = type__binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:appsync/dataSource:DataSource".into(),
             name: name.to_string(),

@@ -154,15 +154,18 @@ pub mod invocation {
     ) -> InvocationResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let function_name_binding = args.function_name.get_output(context).get_inner();
-        let input_binding = args.input.get_output(context).get_inner();
-        let lifecycle_scope_binding = args
-            .lifecycle_scope
-            .get_output(context)
-            .get_inner();
-        let qualifier_binding = args.qualifier.get_output(context).get_inner();
-        let terraform_key_binding = args.terraform_key.get_output(context).get_inner();
-        let triggers_binding = args.triggers.get_output(context).get_inner();
+        let function_name_binding_1 = args.function_name.get_output(context);
+        let function_name_binding = function_name_binding_1.get_inner();
+        let input_binding_1 = args.input.get_output(context);
+        let input_binding = input_binding_1.get_inner();
+        let lifecycle_scope_binding_1 = args.lifecycle_scope.get_output(context);
+        let lifecycle_scope_binding = lifecycle_scope_binding_1.get_inner();
+        let qualifier_binding_1 = args.qualifier.get_output(context);
+        let qualifier_binding = qualifier_binding_1.get_inner();
+        let terraform_key_binding_1 = args.terraform_key.get_output(context);
+        let terraform_key_binding = terraform_key_binding_1.get_inner();
+        let triggers_binding_1 = args.triggers.get_output(context);
+        let triggers_binding = triggers_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:lambda/invocation:Invocation".into(),
             name: name.to_string(),

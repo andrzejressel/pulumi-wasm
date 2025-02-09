@@ -291,19 +291,20 @@ pub mod runtime {
     ) -> RuntimeResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let access_config_binding = args.access_config.get_output(context).get_inner();
-        let labels_binding = args.labels.get_output(context).get_inner();
-        let location_binding = args.location.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let project_binding = args.project.get_output(context).get_inner();
-        let software_config_binding = args
-            .software_config
-            .get_output(context)
-            .get_inner();
-        let virtual_machine_binding = args
-            .virtual_machine
-            .get_output(context)
-            .get_inner();
+        let access_config_binding_1 = args.access_config.get_output(context);
+        let access_config_binding = access_config_binding_1.get_inner();
+        let labels_binding_1 = args.labels.get_output(context);
+        let labels_binding = labels_binding_1.get_inner();
+        let location_binding_1 = args.location.get_output(context);
+        let location_binding = location_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let project_binding_1 = args.project.get_output(context);
+        let project_binding = project_binding_1.get_inner();
+        let software_config_binding_1 = args.software_config.get_output(context);
+        let software_config_binding = software_config_binding_1.get_inner();
+        let virtual_machine_binding_1 = args.virtual_machine.get_output(context);
+        let virtual_machine_binding = virtual_machine_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:notebooks/runtime:Runtime".into(),
             name: name.to_string(),

@@ -223,22 +223,26 @@ pub mod gc_policy {
     ) -> GCPolicyResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let column_family_binding = args.column_family.get_output(context).get_inner();
-        let deletion_policy_binding = args
-            .deletion_policy
-            .get_output(context)
-            .get_inner();
-        let gc_rules_binding = args.gc_rules.get_output(context).get_inner();
-        let ignore_warnings_binding = args
-            .ignore_warnings
-            .get_output(context)
-            .get_inner();
-        let instance_name_binding = args.instance_name.get_output(context).get_inner();
-        let max_age_binding = args.max_age.get_output(context).get_inner();
-        let max_versions_binding = args.max_versions.get_output(context).get_inner();
-        let mode_binding = args.mode.get_output(context).get_inner();
-        let project_binding = args.project.get_output(context).get_inner();
-        let table_binding = args.table.get_output(context).get_inner();
+        let column_family_binding_1 = args.column_family.get_output(context);
+        let column_family_binding = column_family_binding_1.get_inner();
+        let deletion_policy_binding_1 = args.deletion_policy.get_output(context);
+        let deletion_policy_binding = deletion_policy_binding_1.get_inner();
+        let gc_rules_binding_1 = args.gc_rules.get_output(context);
+        let gc_rules_binding = gc_rules_binding_1.get_inner();
+        let ignore_warnings_binding_1 = args.ignore_warnings.get_output(context);
+        let ignore_warnings_binding = ignore_warnings_binding_1.get_inner();
+        let instance_name_binding_1 = args.instance_name.get_output(context);
+        let instance_name_binding = instance_name_binding_1.get_inner();
+        let max_age_binding_1 = args.max_age.get_output(context);
+        let max_age_binding = max_age_binding_1.get_inner();
+        let max_versions_binding_1 = args.max_versions.get_output(context);
+        let max_versions_binding = max_versions_binding_1.get_inner();
+        let mode_binding_1 = args.mode.get_output(context);
+        let mode_binding = mode_binding_1.get_inner();
+        let project_binding_1 = args.project.get_output(context);
+        let project_binding = project_binding_1.get_inner();
+        let table_binding_1 = args.table.get_output(context);
+        let table_binding = table_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:bigtable/gCPolicy:GCPolicy".into(),
             name: name.to_string(),

@@ -368,24 +368,29 @@ pub mod instance {
     ) -> InstanceResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let consumer_accept_lists_binding = args
+        let consumer_accept_lists_binding_1 = args
             .consumer_accept_lists
-            .get_output(context)
-            .get_inner();
-        let description_binding = args.description.get_output(context).get_inner();
-        let disk_encryption_key_name_binding = args
+            .get_output(context);
+        let consumer_accept_lists_binding = consumer_accept_lists_binding_1.get_inner();
+        let description_binding_1 = args.description.get_output(context);
+        let description_binding = description_binding_1.get_inner();
+        let disk_encryption_key_name_binding_1 = args
             .disk_encryption_key_name
-            .get_output(context)
+            .get_output(context);
+        let disk_encryption_key_name_binding = disk_encryption_key_name_binding_1
             .get_inner();
-        let display_name_binding = args.display_name.get_output(context).get_inner();
-        let ip_range_binding = args.ip_range.get_output(context).get_inner();
-        let location_binding = args.location.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let org_id_binding = args.org_id.get_output(context).get_inner();
-        let peering_cidr_range_binding = args
-            .peering_cidr_range
-            .get_output(context)
-            .get_inner();
+        let display_name_binding_1 = args.display_name.get_output(context);
+        let display_name_binding = display_name_binding_1.get_inner();
+        let ip_range_binding_1 = args.ip_range.get_output(context);
+        let ip_range_binding = ip_range_binding_1.get_inner();
+        let location_binding_1 = args.location.get_output(context);
+        let location_binding = location_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let org_id_binding_1 = args.org_id.get_output(context);
+        let org_id_binding = org_id_binding_1.get_inner();
+        let peering_cidr_range_binding_1 = args.peering_cidr_range.get_output(context);
+        let peering_cidr_range_binding = peering_cidr_range_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:apigee/instance:Instance".into(),
             name: name.to_string(),

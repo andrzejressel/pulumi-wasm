@@ -123,22 +123,26 @@ pub mod user {
     ) -> UserResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let api_management_name_binding = args
-            .api_management_name
-            .get_output(context)
-            .get_inner();
-        let confirmation_binding = args.confirmation.get_output(context).get_inner();
-        let email_binding = args.email.get_output(context).get_inner();
-        let first_name_binding = args.first_name.get_output(context).get_inner();
-        let last_name_binding = args.last_name.get_output(context).get_inner();
-        let note_binding = args.note.get_output(context).get_inner();
-        let password_binding = args.password.get_output(context).get_inner();
-        let resource_group_name_binding = args
-            .resource_group_name
-            .get_output(context)
-            .get_inner();
-        let state_binding = args.state.get_output(context).get_inner();
-        let user_id_binding = args.user_id.get_output(context).get_inner();
+        let api_management_name_binding_1 = args.api_management_name.get_output(context);
+        let api_management_name_binding = api_management_name_binding_1.get_inner();
+        let confirmation_binding_1 = args.confirmation.get_output(context);
+        let confirmation_binding = confirmation_binding_1.get_inner();
+        let email_binding_1 = args.email.get_output(context);
+        let email_binding = email_binding_1.get_inner();
+        let first_name_binding_1 = args.first_name.get_output(context);
+        let first_name_binding = first_name_binding_1.get_inner();
+        let last_name_binding_1 = args.last_name.get_output(context);
+        let last_name_binding = last_name_binding_1.get_inner();
+        let note_binding_1 = args.note.get_output(context);
+        let note_binding = note_binding_1.get_inner();
+        let password_binding_1 = args.password.get_output(context);
+        let password_binding = password_binding_1.get_inner();
+        let resource_group_name_binding_1 = args.resource_group_name.get_output(context);
+        let resource_group_name_binding = resource_group_name_binding_1.get_inner();
+        let state_binding_1 = args.state.get_output(context);
+        let state_binding = state_binding_1.get_inner();
+        let user_id_binding_1 = args.user_id.get_output(context);
+        let user_id_binding = user_id_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:apimanagement/user:User".into(),
             name: name.to_string(),

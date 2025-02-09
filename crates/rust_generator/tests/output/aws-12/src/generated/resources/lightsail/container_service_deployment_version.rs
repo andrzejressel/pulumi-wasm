@@ -99,12 +99,12 @@ pub mod container_service_deployment_version {
     ) -> ContainerServiceDeploymentVersionResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let containers_binding = args.containers.get_output(context).get_inner();
-        let public_endpoint_binding = args
-            .public_endpoint
-            .get_output(context)
-            .get_inner();
-        let service_name_binding = args.service_name.get_output(context).get_inner();
+        let containers_binding_1 = args.containers.get_output(context);
+        let containers_binding = containers_binding_1.get_inner();
+        let public_endpoint_binding_1 = args.public_endpoint.get_output(context);
+        let public_endpoint_binding = public_endpoint_binding_1.get_inner();
+        let service_name_binding_1 = args.service_name.get_output(context);
+        let service_name_binding = service_name_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:lightsail/containerServiceDeploymentVersion:ContainerServiceDeploymentVersion"
                 .into(),

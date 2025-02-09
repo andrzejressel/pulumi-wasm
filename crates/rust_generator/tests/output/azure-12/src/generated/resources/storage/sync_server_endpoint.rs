@@ -154,38 +154,38 @@ pub mod sync_server_endpoint {
     ) -> SyncServerEndpointResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let cloud_tiering_enabled_binding = args
+        let cloud_tiering_enabled_binding_1 = args
             .cloud_tiering_enabled
-            .get_output(context)
-            .get_inner();
-        let initial_download_policy_binding = args
+            .get_output(context);
+        let cloud_tiering_enabled_binding = cloud_tiering_enabled_binding_1.get_inner();
+        let initial_download_policy_binding_1 = args
             .initial_download_policy
-            .get_output(context)
+            .get_output(context);
+        let initial_download_policy_binding = initial_download_policy_binding_1
             .get_inner();
-        let local_cache_mode_binding = args
-            .local_cache_mode
-            .get_output(context)
-            .get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let registered_server_id_binding = args
+        let local_cache_mode_binding_1 = args.local_cache_mode.get_output(context);
+        let local_cache_mode_binding = local_cache_mode_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let registered_server_id_binding_1 = args
             .registered_server_id
-            .get_output(context)
-            .get_inner();
-        let server_local_path_binding = args
-            .server_local_path
-            .get_output(context)
-            .get_inner();
-        let storage_sync_group_id_binding = args
+            .get_output(context);
+        let registered_server_id_binding = registered_server_id_binding_1.get_inner();
+        let server_local_path_binding_1 = args.server_local_path.get_output(context);
+        let server_local_path_binding = server_local_path_binding_1.get_inner();
+        let storage_sync_group_id_binding_1 = args
             .storage_sync_group_id
-            .get_output(context)
-            .get_inner();
-        let tier_files_older_than_days_binding = args
+            .get_output(context);
+        let storage_sync_group_id_binding = storage_sync_group_id_binding_1.get_inner();
+        let tier_files_older_than_days_binding_1 = args
             .tier_files_older_than_days
-            .get_output(context)
+            .get_output(context);
+        let tier_files_older_than_days_binding = tier_files_older_than_days_binding_1
             .get_inner();
-        let volume_free_space_percent_binding = args
+        let volume_free_space_percent_binding_1 = args
             .volume_free_space_percent
-            .get_output(context)
+            .get_output(context);
+        let volume_free_space_percent_binding = volume_free_space_percent_binding_1
             .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:storage/syncServerEndpoint:SyncServerEndpoint".into(),

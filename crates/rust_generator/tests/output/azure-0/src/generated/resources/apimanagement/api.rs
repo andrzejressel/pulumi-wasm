@@ -228,56 +228,65 @@ pub mod api {
     ) -> ApiResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let api_management_name_binding = args
-            .api_management_name
-            .get_output(context)
-            .get_inner();
-        let api_type_binding = args.api_type.get_output(context).get_inner();
-        let contact_binding = args.contact.get_output(context).get_inner();
-        let description_binding = args.description.get_output(context).get_inner();
-        let display_name_binding = args.display_name.get_output(context).get_inner();
-        let import_binding = args.import.get_output(context).get_inner();
-        let license_binding = args.license.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let oauth2_authorization_binding = args
+        let api_management_name_binding_1 = args.api_management_name.get_output(context);
+        let api_management_name_binding = api_management_name_binding_1.get_inner();
+        let api_type_binding_1 = args.api_type.get_output(context);
+        let api_type_binding = api_type_binding_1.get_inner();
+        let contact_binding_1 = args.contact.get_output(context);
+        let contact_binding = contact_binding_1.get_inner();
+        let description_binding_1 = args.description.get_output(context);
+        let description_binding = description_binding_1.get_inner();
+        let display_name_binding_1 = args.display_name.get_output(context);
+        let display_name_binding = display_name_binding_1.get_inner();
+        let import_binding_1 = args.import.get_output(context);
+        let import_binding = import_binding_1.get_inner();
+        let license_binding_1 = args.license.get_output(context);
+        let license_binding = license_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let oauth2_authorization_binding_1 = args
             .oauth2_authorization
-            .get_output(context)
-            .get_inner();
-        let openid_authentication_binding = args
+            .get_output(context);
+        let oauth2_authorization_binding = oauth2_authorization_binding_1.get_inner();
+        let openid_authentication_binding_1 = args
             .openid_authentication
-            .get_output(context)
-            .get_inner();
-        let path_binding = args.path.get_output(context).get_inner();
-        let protocols_binding = args.protocols.get_output(context).get_inner();
-        let resource_group_name_binding = args
-            .resource_group_name
-            .get_output(context)
-            .get_inner();
-        let revision_binding = args.revision.get_output(context).get_inner();
-        let revision_description_binding = args
+            .get_output(context);
+        let openid_authentication_binding = openid_authentication_binding_1.get_inner();
+        let path_binding_1 = args.path.get_output(context);
+        let path_binding = path_binding_1.get_inner();
+        let protocols_binding_1 = args.protocols.get_output(context);
+        let protocols_binding = protocols_binding_1.get_inner();
+        let resource_group_name_binding_1 = args.resource_group_name.get_output(context);
+        let resource_group_name_binding = resource_group_name_binding_1.get_inner();
+        let revision_binding_1 = args.revision.get_output(context);
+        let revision_binding = revision_binding_1.get_inner();
+        let revision_description_binding_1 = args
             .revision_description
-            .get_output(context)
-            .get_inner();
-        let service_url_binding = args.service_url.get_output(context).get_inner();
-        let source_api_id_binding = args.source_api_id.get_output(context).get_inner();
-        let subscription_key_parameter_names_binding = args
+            .get_output(context);
+        let revision_description_binding = revision_description_binding_1.get_inner();
+        let service_url_binding_1 = args.service_url.get_output(context);
+        let service_url_binding = service_url_binding_1.get_inner();
+        let source_api_id_binding_1 = args.source_api_id.get_output(context);
+        let source_api_id_binding = source_api_id_binding_1.get_inner();
+        let subscription_key_parameter_names_binding_1 = args
             .subscription_key_parameter_names
-            .get_output(context)
+            .get_output(context);
+        let subscription_key_parameter_names_binding = subscription_key_parameter_names_binding_1
             .get_inner();
-        let subscription_required_binding = args
+        let subscription_required_binding_1 = args
             .subscription_required
-            .get_output(context)
-            .get_inner();
-        let terms_of_service_url_binding = args
+            .get_output(context);
+        let subscription_required_binding = subscription_required_binding_1.get_inner();
+        let terms_of_service_url_binding_1 = args
             .terms_of_service_url
-            .get_output(context)
-            .get_inner();
-        let version_binding = args.version.get_output(context).get_inner();
-        let version_description_binding = args
-            .version_description
-            .get_output(context)
-            .get_inner();
-        let version_set_id_binding = args.version_set_id.get_output(context).get_inner();
+            .get_output(context);
+        let terms_of_service_url_binding = terms_of_service_url_binding_1.get_inner();
+        let version_binding_1 = args.version.get_output(context);
+        let version_binding = version_binding_1.get_inner();
+        let version_description_binding_1 = args.version_description.get_output(context);
+        let version_description_binding = version_description_binding_1.get_inner();
+        let version_set_id_binding_1 = args.version_set_id.get_output(context);
+        let version_set_id_binding = version_set_id_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:apimanagement/api:Api".into(),
             name: name.to_string(),

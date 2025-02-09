@@ -212,28 +212,32 @@ pub mod resolver {
     ) -> ResolverResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let api_id_binding = args.api_id.get_output(context).get_inner();
-        let caching_config_binding = args.caching_config.get_output(context).get_inner();
-        let code_binding = args.code.get_output(context).get_inner();
-        let data_source_binding = args.data_source.get_output(context).get_inner();
-        let field_binding = args.field.get_output(context).get_inner();
-        let kind_binding = args.kind.get_output(context).get_inner();
-        let max_batch_size_binding = args.max_batch_size.get_output(context).get_inner();
-        let pipeline_config_binding = args
-            .pipeline_config
-            .get_output(context)
-            .get_inner();
-        let request_template_binding = args
-            .request_template
-            .get_output(context)
-            .get_inner();
-        let response_template_binding = args
-            .response_template
-            .get_output(context)
-            .get_inner();
-        let runtime_binding = args.runtime.get_output(context).get_inner();
-        let sync_config_binding = args.sync_config.get_output(context).get_inner();
-        let type__binding = args.type_.get_output(context).get_inner();
+        let api_id_binding_1 = args.api_id.get_output(context);
+        let api_id_binding = api_id_binding_1.get_inner();
+        let caching_config_binding_1 = args.caching_config.get_output(context);
+        let caching_config_binding = caching_config_binding_1.get_inner();
+        let code_binding_1 = args.code.get_output(context);
+        let code_binding = code_binding_1.get_inner();
+        let data_source_binding_1 = args.data_source.get_output(context);
+        let data_source_binding = data_source_binding_1.get_inner();
+        let field_binding_1 = args.field.get_output(context);
+        let field_binding = field_binding_1.get_inner();
+        let kind_binding_1 = args.kind.get_output(context);
+        let kind_binding = kind_binding_1.get_inner();
+        let max_batch_size_binding_1 = args.max_batch_size.get_output(context);
+        let max_batch_size_binding = max_batch_size_binding_1.get_inner();
+        let pipeline_config_binding_1 = args.pipeline_config.get_output(context);
+        let pipeline_config_binding = pipeline_config_binding_1.get_inner();
+        let request_template_binding_1 = args.request_template.get_output(context);
+        let request_template_binding = request_template_binding_1.get_inner();
+        let response_template_binding_1 = args.response_template.get_output(context);
+        let response_template_binding = response_template_binding_1.get_inner();
+        let runtime_binding_1 = args.runtime.get_output(context);
+        let runtime_binding = runtime_binding_1.get_inner();
+        let sync_config_binding_1 = args.sync_config.get_output(context);
+        let sync_config_binding = sync_config_binding_1.get_inner();
+        let type__binding_1 = args.type_.get_output(context);
+        let type__binding = type__binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:appsync/resolver:Resolver".into(),
             name: name.to_string(),

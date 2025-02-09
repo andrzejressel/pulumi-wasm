@@ -26,10 +26,8 @@ pub mod get_queues {
     ) -> GetQueuesResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let queue_name_prefix_binding = args
-            .queue_name_prefix
-            .get_output(context)
-            .get_inner();
+        let queue_name_prefix_binding_1 = args.queue_name_prefix.get_output(context);
+        let queue_name_prefix_binding = queue_name_prefix_binding_1.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:sqs/getQueues:getQueues".into(),
             version: super::super::super::get_version(),

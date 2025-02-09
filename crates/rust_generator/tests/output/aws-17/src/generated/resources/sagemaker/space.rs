@@ -105,22 +105,23 @@ pub mod space {
     ) -> SpaceResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let domain_id_binding = args.domain_id.get_output(context).get_inner();
-        let ownership_settings_binding = args
-            .ownership_settings
-            .get_output(context)
-            .get_inner();
-        let space_display_name_binding = args
-            .space_display_name
-            .get_output(context)
-            .get_inner();
-        let space_name_binding = args.space_name.get_output(context).get_inner();
-        let space_settings_binding = args.space_settings.get_output(context).get_inner();
-        let space_sharing_settings_binding = args
+        let domain_id_binding_1 = args.domain_id.get_output(context);
+        let domain_id_binding = domain_id_binding_1.get_inner();
+        let ownership_settings_binding_1 = args.ownership_settings.get_output(context);
+        let ownership_settings_binding = ownership_settings_binding_1.get_inner();
+        let space_display_name_binding_1 = args.space_display_name.get_output(context);
+        let space_display_name_binding = space_display_name_binding_1.get_inner();
+        let space_name_binding_1 = args.space_name.get_output(context);
+        let space_name_binding = space_name_binding_1.get_inner();
+        let space_settings_binding_1 = args.space_settings.get_output(context);
+        let space_settings_binding = space_settings_binding_1.get_inner();
+        let space_sharing_settings_binding_1 = args
             .space_sharing_settings
-            .get_output(context)
+            .get_output(context);
+        let space_sharing_settings_binding = space_sharing_settings_binding_1
             .get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:sagemaker/space:Space".into(),
             name: name.to_string(),

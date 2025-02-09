@@ -77,14 +77,16 @@ pub mod get_catalog_table {
     ) -> GetCatalogTableResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let catalog_id_binding = args.catalog_id.get_output(context).get_inner();
-        let database_name_binding = args.database_name.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let query_as_of_time_binding = args
-            .query_as_of_time
-            .get_output(context)
-            .get_inner();
-        let transaction_id_binding = args.transaction_id.get_output(context).get_inner();
+        let catalog_id_binding_1 = args.catalog_id.get_output(context);
+        let catalog_id_binding = catalog_id_binding_1.get_inner();
+        let database_name_binding_1 = args.database_name.get_output(context);
+        let database_name_binding = database_name_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let query_as_of_time_binding_1 = args.query_as_of_time.get_output(context);
+        let query_as_of_time_binding = query_as_of_time_binding_1.get_inner();
+        let transaction_id_binding_1 = args.transaction_id.get_output(context);
+        let transaction_id_binding = transaction_id_binding_1.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:glue/getCatalogTable:getCatalogTable".into(),
             version: super::super::super::get_version(),

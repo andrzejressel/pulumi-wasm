@@ -132,22 +132,26 @@ pub mod failover_group {
     ) -> FailoverGroupResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let databases_binding = args.databases.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let partner_servers_binding = args
-            .partner_servers
-            .get_output(context)
-            .get_inner();
-        let read_write_endpoint_failover_policy_binding = args
+        let databases_binding_1 = args.databases.get_output(context);
+        let databases_binding = databases_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let partner_servers_binding_1 = args.partner_servers.get_output(context);
+        let partner_servers_binding = partner_servers_binding_1.get_inner();
+        let read_write_endpoint_failover_policy_binding_1 = args
             .read_write_endpoint_failover_policy
-            .get_output(context)
+            .get_output(context);
+        let read_write_endpoint_failover_policy_binding = read_write_endpoint_failover_policy_binding_1
             .get_inner();
-        let readonly_endpoint_failover_policy_enabled_binding = args
+        let readonly_endpoint_failover_policy_enabled_binding_1 = args
             .readonly_endpoint_failover_policy_enabled
-            .get_output(context)
+            .get_output(context);
+        let readonly_endpoint_failover_policy_enabled_binding = readonly_endpoint_failover_policy_enabled_binding_1
             .get_inner();
-        let server_id_binding = args.server_id.get_output(context).get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
+        let server_id_binding_1 = args.server_id.get_output(context);
+        let server_id_binding = server_id_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:mssql/failoverGroup:FailoverGroup".into(),
             name: name.to_string(),

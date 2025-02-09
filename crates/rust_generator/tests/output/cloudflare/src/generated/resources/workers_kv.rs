@@ -73,10 +73,14 @@ pub mod workers_kv {
     ) -> WorkersKvResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let account_id_binding = args.account_id.get_output(context).get_inner();
-        let key_binding = args.key.get_output(context).get_inner();
-        let namespace_id_binding = args.namespace_id.get_output(context).get_inner();
-        let value_binding = args.value.get_output(context).get_inner();
+        let account_id_binding_1 = args.account_id.get_output(context);
+        let account_id_binding = account_id_binding_1.get_inner();
+        let key_binding_1 = args.key.get_output(context);
+        let key_binding = key_binding_1.get_inner();
+        let namespace_id_binding_1 = args.namespace_id.get_output(context);
+        let namespace_id_binding = namespace_id_binding_1.get_inner();
+        let value_binding_1 = args.value.get_output(context);
+        let value_binding = value_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "cloudflare:index/workersKv:WorkersKv".into(),
             name: name.to_string(),

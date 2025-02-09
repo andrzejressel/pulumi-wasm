@@ -150,19 +150,20 @@ pub mod app_connection {
     ) -> AppConnectionResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let authentication_binding = args.authentication.get_output(context).get_inner();
-        let client_type_binding = args.client_type.get_output(context).get_inner();
-        let function_app_id_binding = args
-            .function_app_id
-            .get_output(context)
-            .get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let secret_store_binding = args.secret_store.get_output(context).get_inner();
-        let target_resource_id_binding = args
-            .target_resource_id
-            .get_output(context)
-            .get_inner();
-        let vnet_solution_binding = args.vnet_solution.get_output(context).get_inner();
+        let authentication_binding_1 = args.authentication.get_output(context);
+        let authentication_binding = authentication_binding_1.get_inner();
+        let client_type_binding_1 = args.client_type.get_output(context);
+        let client_type_binding = client_type_binding_1.get_inner();
+        let function_app_id_binding_1 = args.function_app_id.get_output(context);
+        let function_app_id_binding = function_app_id_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let secret_store_binding_1 = args.secret_store.get_output(context);
+        let secret_store_binding = secret_store_binding_1.get_inner();
+        let target_resource_id_binding_1 = args.target_resource_id.get_output(context);
+        let target_resource_id_binding = target_resource_id_binding_1.get_inner();
+        let vnet_solution_binding_1 = args.vnet_solution.get_output(context);
+        let vnet_solution_binding = vnet_solution_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:appservice/appConnection:AppConnection".into(),
             name: name.to_string(),

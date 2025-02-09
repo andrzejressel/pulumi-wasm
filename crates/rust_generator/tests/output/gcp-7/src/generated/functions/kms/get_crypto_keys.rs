@@ -39,8 +39,10 @@ pub mod get_crypto_keys {
     ) -> GetCryptoKeysResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let filter_binding = args.filter.get_output(context).get_inner();
-        let key_ring_binding = args.key_ring.get_output(context).get_inner();
+        let filter_binding_1 = args.filter.get_output(context);
+        let filter_binding = filter_binding_1.get_inner();
+        let key_ring_binding_1 = args.key_ring.get_output(context);
+        let key_ring_binding = key_ring_binding_1.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "gcp:kms/getCryptoKeys:getCryptoKeys".into(),
             version: super::super::super::get_version(),

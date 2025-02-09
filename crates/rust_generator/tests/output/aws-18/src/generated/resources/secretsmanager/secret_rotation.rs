@@ -86,16 +86,14 @@ pub mod secret_rotation {
     ) -> SecretRotationResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let rotate_immediately_binding = args
-            .rotate_immediately
-            .get_output(context)
-            .get_inner();
-        let rotation_lambda_arn_binding = args
-            .rotation_lambda_arn
-            .get_output(context)
-            .get_inner();
-        let rotation_rules_binding = args.rotation_rules.get_output(context).get_inner();
-        let secret_id_binding = args.secret_id.get_output(context).get_inner();
+        let rotate_immediately_binding_1 = args.rotate_immediately.get_output(context);
+        let rotate_immediately_binding = rotate_immediately_binding_1.get_inner();
+        let rotation_lambda_arn_binding_1 = args.rotation_lambda_arn.get_output(context);
+        let rotation_lambda_arn_binding = rotation_lambda_arn_binding_1.get_inner();
+        let rotation_rules_binding_1 = args.rotation_rules.get_output(context);
+        let rotation_rules_binding = rotation_rules_binding_1.get_inner();
+        let secret_id_binding_1 = args.secret_id.get_output(context);
+        let secret_id_binding = secret_id_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:secretsmanager/secretRotation:SecretRotation".into(),
             name: name.to_string(),

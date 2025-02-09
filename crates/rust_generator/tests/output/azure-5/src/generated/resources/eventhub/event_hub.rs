@@ -113,26 +113,22 @@ pub mod event_hub {
     ) -> EventHubResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let capture_description_binding = args
-            .capture_description
-            .get_output(context)
-            .get_inner();
-        let message_retention_binding = args
-            .message_retention
-            .get_output(context)
-            .get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let namespace_id_binding = args.namespace_id.get_output(context).get_inner();
-        let namespace_name_binding = args.namespace_name.get_output(context).get_inner();
-        let partition_count_binding = args
-            .partition_count
-            .get_output(context)
-            .get_inner();
-        let resource_group_name_binding = args
-            .resource_group_name
-            .get_output(context)
-            .get_inner();
-        let status_binding = args.status.get_output(context).get_inner();
+        let capture_description_binding_1 = args.capture_description.get_output(context);
+        let capture_description_binding = capture_description_binding_1.get_inner();
+        let message_retention_binding_1 = args.message_retention.get_output(context);
+        let message_retention_binding = message_retention_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let namespace_id_binding_1 = args.namespace_id.get_output(context);
+        let namespace_id_binding = namespace_id_binding_1.get_inner();
+        let namespace_name_binding_1 = args.namespace_name.get_output(context);
+        let namespace_name_binding = namespace_name_binding_1.get_inner();
+        let partition_count_binding_1 = args.partition_count.get_output(context);
+        let partition_count_binding = partition_count_binding_1.get_inner();
+        let resource_group_name_binding_1 = args.resource_group_name.get_output(context);
+        let resource_group_name_binding = resource_group_name_binding_1.get_inner();
+        let status_binding_1 = args.status.get_output(context);
+        let status_binding = status_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:eventhub/eventHub:EventHub".into(),
             name: name.to_string(),

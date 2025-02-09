@@ -112,29 +112,37 @@ pub mod v_2_models_slot {
     ) -> V2modelsSlotResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let bot_id_binding = args.bot_id.get_output(context).get_inner();
-        let bot_version_binding = args.bot_version.get_output(context).get_inner();
-        let description_binding = args.description.get_output(context).get_inner();
-        let intent_id_binding = args.intent_id.get_output(context).get_inner();
-        let locale_id_binding = args.locale_id.get_output(context).get_inner();
-        let multiple_values_settings_binding = args
+        let bot_id_binding_1 = args.bot_id.get_output(context);
+        let bot_id_binding = bot_id_binding_1.get_inner();
+        let bot_version_binding_1 = args.bot_version.get_output(context);
+        let bot_version_binding = bot_version_binding_1.get_inner();
+        let description_binding_1 = args.description.get_output(context);
+        let description_binding = description_binding_1.get_inner();
+        let intent_id_binding_1 = args.intent_id.get_output(context);
+        let intent_id_binding = intent_id_binding_1.get_inner();
+        let locale_id_binding_1 = args.locale_id.get_output(context);
+        let locale_id_binding = locale_id_binding_1.get_inner();
+        let multiple_values_settings_binding_1 = args
             .multiple_values_settings
-            .get_output(context)
+            .get_output(context);
+        let multiple_values_settings_binding = multiple_values_settings_binding_1
             .get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let obfuscation_settings_binding = args
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let obfuscation_settings_binding_1 = args
             .obfuscation_settings
-            .get_output(context)
-            .get_inner();
-        let slot_type_id_binding = args.slot_type_id.get_output(context).get_inner();
-        let sub_slot_settings_binding = args
-            .sub_slot_settings
-            .get_output(context)
-            .get_inner();
-        let timeouts_binding = args.timeouts.get_output(context).get_inner();
-        let value_elicitation_setting_binding = args
+            .get_output(context);
+        let obfuscation_settings_binding = obfuscation_settings_binding_1.get_inner();
+        let slot_type_id_binding_1 = args.slot_type_id.get_output(context);
+        let slot_type_id_binding = slot_type_id_binding_1.get_inner();
+        let sub_slot_settings_binding_1 = args.sub_slot_settings.get_output(context);
+        let sub_slot_settings_binding = sub_slot_settings_binding_1.get_inner();
+        let timeouts_binding_1 = args.timeouts.get_output(context);
+        let timeouts_binding = timeouts_binding_1.get_inner();
+        let value_elicitation_setting_binding_1 = args
             .value_elicitation_setting
-            .get_output(context)
+            .get_output(context);
+        let value_elicitation_setting_binding = value_elicitation_setting_binding_1
             .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:lex/v2modelsSlot:V2modelsSlot".into(),

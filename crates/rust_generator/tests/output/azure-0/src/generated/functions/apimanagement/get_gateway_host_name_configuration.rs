@@ -45,12 +45,12 @@ pub mod get_gateway_host_name_configuration {
     ) -> GetGatewayHostNameConfigurationResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let api_management_id_binding = args
-            .api_management_id
-            .get_output(context)
-            .get_inner();
-        let gateway_name_binding = args.gateway_name.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
+        let api_management_id_binding_1 = args.api_management_id.get_output(context);
+        let api_management_id_binding = api_management_id_binding_1.get_inner();
+        let gateway_name_binding_1 = args.gateway_name.get_output(context);
+        let gateway_name_binding = gateway_name_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "azure:apimanagement/getGatewayHostNameConfiguration:getGatewayHostNameConfiguration"
                 .into(),

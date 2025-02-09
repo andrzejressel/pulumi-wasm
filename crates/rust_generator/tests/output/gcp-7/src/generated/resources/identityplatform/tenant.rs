@@ -113,17 +113,21 @@ pub mod tenant {
     ) -> TenantResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let allow_password_signup_binding = args
+        let allow_password_signup_binding_1 = args
             .allow_password_signup
-            .get_output(context)
-            .get_inner();
-        let disable_auth_binding = args.disable_auth.get_output(context).get_inner();
-        let display_name_binding = args.display_name.get_output(context).get_inner();
-        let enable_email_link_signin_binding = args
+            .get_output(context);
+        let allow_password_signup_binding = allow_password_signup_binding_1.get_inner();
+        let disable_auth_binding_1 = args.disable_auth.get_output(context);
+        let disable_auth_binding = disable_auth_binding_1.get_inner();
+        let display_name_binding_1 = args.display_name.get_output(context);
+        let display_name_binding = display_name_binding_1.get_inner();
+        let enable_email_link_signin_binding_1 = args
             .enable_email_link_signin
-            .get_output(context)
+            .get_output(context);
+        let enable_email_link_signin_binding = enable_email_link_signin_binding_1
             .get_inner();
-        let project_binding = args.project.get_output(context).get_inner();
+        let project_binding_1 = args.project.get_output(context);
+        let project_binding = project_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:identityplatform/tenant:Tenant".into(),
             name: name.to_string(),

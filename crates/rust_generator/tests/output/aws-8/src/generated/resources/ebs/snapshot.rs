@@ -105,19 +105,23 @@ pub mod snapshot {
     ) -> SnapshotResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let description_binding = args.description.get_output(context).get_inner();
-        let outpost_arn_binding = args.outpost_arn.get_output(context).get_inner();
-        let permanent_restore_binding = args
-            .permanent_restore
-            .get_output(context)
-            .get_inner();
-        let storage_tier_binding = args.storage_tier.get_output(context).get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
-        let temporary_restore_days_binding = args
+        let description_binding_1 = args.description.get_output(context);
+        let description_binding = description_binding_1.get_inner();
+        let outpost_arn_binding_1 = args.outpost_arn.get_output(context);
+        let outpost_arn_binding = outpost_arn_binding_1.get_inner();
+        let permanent_restore_binding_1 = args.permanent_restore.get_output(context);
+        let permanent_restore_binding = permanent_restore_binding_1.get_inner();
+        let storage_tier_binding_1 = args.storage_tier.get_output(context);
+        let storage_tier_binding = storage_tier_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
+        let temporary_restore_days_binding_1 = args
             .temporary_restore_days
-            .get_output(context)
+            .get_output(context);
+        let temporary_restore_days_binding = temporary_restore_days_binding_1
             .get_inner();
-        let volume_id_binding = args.volume_id.get_output(context).get_inner();
+        let volume_id_binding_1 = args.volume_id.get_output(context);
+        let volume_id_binding = volume_id_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:ebs/snapshot:Snapshot".into(),
             name: name.to_string(),

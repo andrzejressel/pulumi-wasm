@@ -33,8 +33,10 @@ pub mod get_templates {
     ) -> GetTemplatesResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let region_binding = args.region.get_output(context).get_inner();
-        let templates_binding = args.templates.get_output(context).get_inner();
+        let region_binding_1 = args.region.get_output(context);
+        let region_binding = region_binding_1.get_inner();
+        let templates_binding_1 = args.templates.get_output(context);
+        let templates_binding = templates_binding_1.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:servicequotas/getTemplates:getTemplates".into(),
             version: super::super::super::get_version(),

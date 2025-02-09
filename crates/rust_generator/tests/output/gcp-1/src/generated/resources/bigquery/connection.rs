@@ -473,18 +473,30 @@ pub mod connection {
     ) -> ConnectionResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let aws_binding = args.aws.get_output(context).get_inner();
-        let azure_binding = args.azure.get_output(context).get_inner();
-        let cloud_resource_binding = args.cloud_resource.get_output(context).get_inner();
-        let cloud_spanner_binding = args.cloud_spanner.get_output(context).get_inner();
-        let cloud_sql_binding = args.cloud_sql.get_output(context).get_inner();
-        let connection_id_binding = args.connection_id.get_output(context).get_inner();
-        let description_binding = args.description.get_output(context).get_inner();
-        let friendly_name_binding = args.friendly_name.get_output(context).get_inner();
-        let kms_key_name_binding = args.kms_key_name.get_output(context).get_inner();
-        let location_binding = args.location.get_output(context).get_inner();
-        let project_binding = args.project.get_output(context).get_inner();
-        let spark_binding = args.spark.get_output(context).get_inner();
+        let aws_binding_1 = args.aws.get_output(context);
+        let aws_binding = aws_binding_1.get_inner();
+        let azure_binding_1 = args.azure.get_output(context);
+        let azure_binding = azure_binding_1.get_inner();
+        let cloud_resource_binding_1 = args.cloud_resource.get_output(context);
+        let cloud_resource_binding = cloud_resource_binding_1.get_inner();
+        let cloud_spanner_binding_1 = args.cloud_spanner.get_output(context);
+        let cloud_spanner_binding = cloud_spanner_binding_1.get_inner();
+        let cloud_sql_binding_1 = args.cloud_sql.get_output(context);
+        let cloud_sql_binding = cloud_sql_binding_1.get_inner();
+        let connection_id_binding_1 = args.connection_id.get_output(context);
+        let connection_id_binding = connection_id_binding_1.get_inner();
+        let description_binding_1 = args.description.get_output(context);
+        let description_binding = description_binding_1.get_inner();
+        let friendly_name_binding_1 = args.friendly_name.get_output(context);
+        let friendly_name_binding = friendly_name_binding_1.get_inner();
+        let kms_key_name_binding_1 = args.kms_key_name.get_output(context);
+        let kms_key_name_binding = kms_key_name_binding_1.get_inner();
+        let location_binding_1 = args.location.get_output(context);
+        let location_binding = location_binding_1.get_inner();
+        let project_binding_1 = args.project.get_output(context);
+        let project_binding = project_binding_1.get_inner();
+        let spark_binding_1 = args.spark.get_output(context);
+        let spark_binding = spark_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:bigquery/connection:Connection".into(),
             name: name.to_string(),

@@ -107,9 +107,12 @@ pub mod cache_access_policy {
     ) -> CacheAccessPolicyResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let access_rules_binding = args.access_rules.get_output(context).get_inner();
-        let hpc_cache_id_binding = args.hpc_cache_id.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
+        let access_rules_binding_1 = args.access_rules.get_output(context);
+        let access_rules_binding = access_rules_binding_1.get_inner();
+        let hpc_cache_id_binding_1 = args.hpc_cache_id.get_output(context);
+        let hpc_cache_id_binding = hpc_cache_id_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:hpc/cacheAccessPolicy:CacheAccessPolicy".into(),
             name: name.to_string(),

@@ -84,13 +84,14 @@ pub mod disk {
     ) -> DiskResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let availability_zone_binding = args
-            .availability_zone
-            .get_output(context)
-            .get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let size_in_gb_binding = args.size_in_gb.get_output(context).get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
+        let availability_zone_binding_1 = args.availability_zone.get_output(context);
+        let availability_zone_binding = availability_zone_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let size_in_gb_binding_1 = args.size_in_gb.get_output(context);
+        let size_in_gb_binding = size_in_gb_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:lightsail/disk:Disk".into(),
             name: name.to_string(),

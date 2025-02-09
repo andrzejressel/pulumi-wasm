@@ -96,18 +96,21 @@ pub mod integration_account_map {
     ) -> IntegrationAccountMapResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let content_binding = args.content.get_output(context).get_inner();
-        let integration_account_name_binding = args
+        let content_binding_1 = args.content.get_output(context);
+        let content_binding = content_binding_1.get_inner();
+        let integration_account_name_binding_1 = args
             .integration_account_name
-            .get_output(context)
+            .get_output(context);
+        let integration_account_name_binding = integration_account_name_binding_1
             .get_inner();
-        let map_type_binding = args.map_type.get_output(context).get_inner();
-        let metadata_binding = args.metadata.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let resource_group_name_binding = args
-            .resource_group_name
-            .get_output(context)
-            .get_inner();
+        let map_type_binding_1 = args.map_type.get_output(context);
+        let map_type_binding = map_type_binding_1.get_inner();
+        let metadata_binding_1 = args.metadata.get_output(context);
+        let metadata_binding = metadata_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let resource_group_name_binding_1 = args.resource_group_name.get_output(context);
+        let resource_group_name_binding = resource_group_name_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:logicapps/integrationAccountMap:IntegrationAccountMap".into(),
             name: name.to_string(),

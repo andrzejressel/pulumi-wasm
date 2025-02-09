@@ -183,23 +183,22 @@ pub mod feature {
     ) -> FeatureResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let default_variation_binding = args
-            .default_variation
-            .get_output(context)
-            .get_inner();
-        let description_binding = args.description.get_output(context).get_inner();
-        let entity_overrides_binding = args
-            .entity_overrides
-            .get_output(context)
-            .get_inner();
-        let evaluation_strategy_binding = args
-            .evaluation_strategy
-            .get_output(context)
-            .get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let project_binding = args.project.get_output(context).get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
-        let variations_binding = args.variations.get_output(context).get_inner();
+        let default_variation_binding_1 = args.default_variation.get_output(context);
+        let default_variation_binding = default_variation_binding_1.get_inner();
+        let description_binding_1 = args.description.get_output(context);
+        let description_binding = description_binding_1.get_inner();
+        let entity_overrides_binding_1 = args.entity_overrides.get_output(context);
+        let entity_overrides_binding = entity_overrides_binding_1.get_inner();
+        let evaluation_strategy_binding_1 = args.evaluation_strategy.get_output(context);
+        let evaluation_strategy_binding = evaluation_strategy_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let project_binding_1 = args.project.get_output(context);
+        let project_binding = project_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
+        let variations_binding_1 = args.variations.get_output(context);
+        let variations_binding = variations_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:evidently/feature:Feature".into(),
             name: name.to_string(),

@@ -154,26 +154,28 @@ pub mod table {
     ) -> TableResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let automated_backup_policy_binding = args
+        let automated_backup_policy_binding_1 = args
             .automated_backup_policy
-            .get_output(context)
+            .get_output(context);
+        let automated_backup_policy_binding = automated_backup_policy_binding_1
             .get_inner();
-        let change_stream_retention_binding = args
+        let change_stream_retention_binding_1 = args
             .change_stream_retention
-            .get_output(context)
+            .get_output(context);
+        let change_stream_retention_binding = change_stream_retention_binding_1
             .get_inner();
-        let column_families_binding = args
-            .column_families
-            .get_output(context)
-            .get_inner();
-        let deletion_protection_binding = args
-            .deletion_protection
-            .get_output(context)
-            .get_inner();
-        let instance_name_binding = args.instance_name.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let project_binding = args.project.get_output(context).get_inner();
-        let split_keys_binding = args.split_keys.get_output(context).get_inner();
+        let column_families_binding_1 = args.column_families.get_output(context);
+        let column_families_binding = column_families_binding_1.get_inner();
+        let deletion_protection_binding_1 = args.deletion_protection.get_output(context);
+        let deletion_protection_binding = deletion_protection_binding_1.get_inner();
+        let instance_name_binding_1 = args.instance_name.get_output(context);
+        let instance_name_binding = instance_name_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let project_binding_1 = args.project.get_output(context);
+        let project_binding = project_binding_1.get_inner();
+        let split_keys_binding_1 = args.split_keys.get_output(context);
+        let split_keys_binding = split_keys_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:bigtable/table:Table".into(),
             name: name.to_string(),

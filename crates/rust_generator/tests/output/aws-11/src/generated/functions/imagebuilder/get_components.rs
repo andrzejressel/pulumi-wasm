@@ -36,8 +36,10 @@ pub mod get_components {
     ) -> GetComponentsResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let filters_binding = args.filters.get_output(context).get_inner();
-        let owner_binding = args.owner.get_output(context).get_inner();
+        let filters_binding_1 = args.filters.get_output(context);
+        let filters_binding = filters_binding_1.get_inner();
+        let owner_binding_1 = args.owner.get_output(context);
+        let owner_binding = owner_binding_1.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:imagebuilder/getComponents:getComponents".into(),
             version: super::super::super::get_version(),

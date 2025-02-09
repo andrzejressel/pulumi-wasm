@@ -181,18 +181,27 @@ pub mod analysis {
     ) -> AnalysisResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let analysis_id_binding = args.analysis_id.get_output(context).get_inner();
-        let aws_account_id_binding = args.aws_account_id.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let parameters_binding = args.parameters.get_output(context).get_inner();
-        let permissions_binding = args.permissions.get_output(context).get_inner();
-        let recovery_window_in_days_binding = args
+        let analysis_id_binding_1 = args.analysis_id.get_output(context);
+        let analysis_id_binding = analysis_id_binding_1.get_inner();
+        let aws_account_id_binding_1 = args.aws_account_id.get_output(context);
+        let aws_account_id_binding = aws_account_id_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let parameters_binding_1 = args.parameters.get_output(context);
+        let parameters_binding = parameters_binding_1.get_inner();
+        let permissions_binding_1 = args.permissions.get_output(context);
+        let permissions_binding = permissions_binding_1.get_inner();
+        let recovery_window_in_days_binding_1 = args
             .recovery_window_in_days
-            .get_output(context)
+            .get_output(context);
+        let recovery_window_in_days_binding = recovery_window_in_days_binding_1
             .get_inner();
-        let source_entity_binding = args.source_entity.get_output(context).get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
-        let theme_arn_binding = args.theme_arn.get_output(context).get_inner();
+        let source_entity_binding_1 = args.source_entity.get_output(context);
+        let source_entity_binding = source_entity_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
+        let theme_arn_binding_1 = args.theme_arn.get_output(context);
+        let theme_arn_binding = theme_arn_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:quicksight/analysis:Analysis".into(),
             name: name.to_string(),

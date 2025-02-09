@@ -57,12 +57,18 @@ pub mod get_certificate {
     ) -> GetCertificateResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let domain_binding = args.domain.get_output(context).get_inner();
-        let key_types_binding = args.key_types.get_output(context).get_inner();
-        let most_recent_binding = args.most_recent.get_output(context).get_inner();
-        let statuses_binding = args.statuses.get_output(context).get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
-        let types_binding = args.types.get_output(context).get_inner();
+        let domain_binding_1 = args.domain.get_output(context);
+        let domain_binding = domain_binding_1.get_inner();
+        let key_types_binding_1 = args.key_types.get_output(context);
+        let key_types_binding = key_types_binding_1.get_inner();
+        let most_recent_binding_1 = args.most_recent.get_output(context);
+        let most_recent_binding = most_recent_binding_1.get_inner();
+        let statuses_binding_1 = args.statuses.get_output(context);
+        let statuses_binding = statuses_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
+        let types_binding_1 = args.types.get_output(context);
+        let types_binding = types_binding_1.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:acm/getCertificate:getCertificate".into(),
             version: super::super::super::get_version(),

@@ -181,29 +181,29 @@ pub mod database {
     ) -> DatabaseResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let database_dialect_binding = args
-            .database_dialect
-            .get_output(context)
-            .get_inner();
-        let ddls_binding = args.ddls.get_output(context).get_inner();
-        let deletion_protection_binding = args
-            .deletion_protection
-            .get_output(context)
-            .get_inner();
-        let enable_drop_protection_binding = args
+        let database_dialect_binding_1 = args.database_dialect.get_output(context);
+        let database_dialect_binding = database_dialect_binding_1.get_inner();
+        let ddls_binding_1 = args.ddls.get_output(context);
+        let ddls_binding = ddls_binding_1.get_inner();
+        let deletion_protection_binding_1 = args.deletion_protection.get_output(context);
+        let deletion_protection_binding = deletion_protection_binding_1.get_inner();
+        let enable_drop_protection_binding_1 = args
             .enable_drop_protection
-            .get_output(context)
+            .get_output(context);
+        let enable_drop_protection_binding = enable_drop_protection_binding_1
             .get_inner();
-        let encryption_config_binding = args
-            .encryption_config
-            .get_output(context)
-            .get_inner();
-        let instance_binding = args.instance.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let project_binding = args.project.get_output(context).get_inner();
-        let version_retention_period_binding = args
+        let encryption_config_binding_1 = args.encryption_config.get_output(context);
+        let encryption_config_binding = encryption_config_binding_1.get_inner();
+        let instance_binding_1 = args.instance.get_output(context);
+        let instance_binding = instance_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let project_binding_1 = args.project.get_output(context);
+        let project_binding = project_binding_1.get_inner();
+        let version_retention_period_binding_1 = args
             .version_retention_period
-            .get_output(context)
+            .get_output(context);
+        let version_retention_period_binding = version_retention_period_binding_1
             .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:spanner/database:Database".into(),

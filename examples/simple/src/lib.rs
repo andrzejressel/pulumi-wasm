@@ -29,7 +29,7 @@ fn pulumi_main(context: &PulumiContext) -> Result<()> {
     let val2 = Output::new(context, &"abc".to_string());
 
     // Outputs can be reused
-    let combined = pulumi_combine!(val1, val2);
+    let combined = pulumi_combine!(val1.clone(), val2.clone());
     let combined_2 = pulumi_combine!(val1, val2);
 
     let combined_string = pulumi_format!(&context, "Values: {:?}", combined);

@@ -36,11 +36,14 @@ pub mod get_outpost_instance_type {
     ) -> GetOutpostInstanceTypeResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let arn_binding = args.arn.get_output(context).get_inner();
-        let instance_type_binding = args.instance_type.get_output(context).get_inner();
-        let preferred_instance_types_binding = args
+        let arn_binding_1 = args.arn.get_output(context);
+        let arn_binding = arn_binding_1.get_inner();
+        let instance_type_binding_1 = args.instance_type.get_output(context);
+        let instance_type_binding = instance_type_binding_1.get_inner();
+        let preferred_instance_types_binding_1 = args
             .preferred_instance_types
-            .get_output(context)
+            .get_output(context);
+        let preferred_instance_types_binding = preferred_instance_types_binding_1
             .get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:outposts/getOutpostInstanceType:getOutpostInstanceType".into(),

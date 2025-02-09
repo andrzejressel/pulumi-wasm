@@ -193,14 +193,16 @@ pub mod image {
     ) -> ImageResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let build_binding = args.build.get_output(context).get_inner();
-        let build_on_preview_binding = args
-            .build_on_preview
-            .get_output(context)
-            .get_inner();
-        let image_name_binding = args.image_name.get_output(context).get_inner();
-        let registry_binding = args.registry.get_output(context).get_inner();
-        let skip_push_binding = args.skip_push.get_output(context).get_inner();
+        let build_binding_1 = args.build.get_output(context);
+        let build_binding = build_binding_1.get_inner();
+        let build_on_preview_binding_1 = args.build_on_preview.get_output(context);
+        let build_on_preview_binding = build_on_preview_binding_1.get_inner();
+        let image_name_binding_1 = args.image_name.get_output(context);
+        let image_name_binding = image_name_binding_1.get_inner();
+        let registry_binding_1 = args.registry.get_output(context);
+        let registry_binding = registry_binding_1.get_inner();
+        let skip_push_binding_1 = args.skip_push.get_output(context);
+        let skip_push_binding = skip_push_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "docker:index/image:Image".into(),
             name: name.to_string(),

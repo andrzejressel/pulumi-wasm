@@ -64,11 +64,10 @@ pub mod trigger {
     ) -> TriggerResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let repository_name_binding = args
-            .repository_name
-            .get_output(context)
-            .get_inner();
-        let triggers_binding = args.triggers.get_output(context).get_inner();
+        let repository_name_binding_1 = args.repository_name.get_output(context);
+        let repository_name_binding = repository_name_binding_1.get_inner();
+        let triggers_binding_1 = args.triggers.get_output(context);
+        let triggers_binding = triggers_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:codecommit/trigger:Trigger".into(),
             name: name.to_string(),

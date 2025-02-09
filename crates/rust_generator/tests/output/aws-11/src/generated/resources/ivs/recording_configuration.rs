@@ -104,19 +104,24 @@ pub mod recording_configuration {
     ) -> RecordingConfigurationResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let destination_configuration_binding = args
+        let destination_configuration_binding_1 = args
             .destination_configuration
-            .get_output(context)
+            .get_output(context);
+        let destination_configuration_binding = destination_configuration_binding_1
             .get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let recording_reconnect_window_seconds_binding = args
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let recording_reconnect_window_seconds_binding_1 = args
             .recording_reconnect_window_seconds
-            .get_output(context)
+            .get_output(context);
+        let recording_reconnect_window_seconds_binding = recording_reconnect_window_seconds_binding_1
             .get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
-        let thumbnail_configuration_binding = args
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
+        let thumbnail_configuration_binding_1 = args
             .thumbnail_configuration
-            .get_output(context)
+            .get_output(context);
+        let thumbnail_configuration_binding = thumbnail_configuration_binding_1
             .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:ivs/recordingConfiguration:RecordingConfiguration".into(),

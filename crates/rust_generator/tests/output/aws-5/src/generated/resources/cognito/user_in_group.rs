@@ -82,9 +82,12 @@ pub mod user_in_group {
     ) -> UserInGroupResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let group_name_binding = args.group_name.get_output(context).get_inner();
-        let user_pool_id_binding = args.user_pool_id.get_output(context).get_inner();
-        let username_binding = args.username.get_output(context).get_inner();
+        let group_name_binding_1 = args.group_name.get_output(context);
+        let group_name_binding = group_name_binding_1.get_inner();
+        let user_pool_id_binding_1 = args.user_pool_id.get_output(context);
+        let user_pool_id_binding = user_pool_id_binding_1.get_inner();
+        let username_binding_1 = args.username.get_output(context);
+        let username_binding = username_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:cognito/userInGroup:UserInGroup".into(),
             name: name.to_string(),

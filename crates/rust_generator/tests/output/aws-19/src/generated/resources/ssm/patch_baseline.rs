@@ -257,36 +257,39 @@ pub mod patch_baseline {
     ) -> PatchBaselineResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let approval_rules_binding = args.approval_rules.get_output(context).get_inner();
-        let approved_patches_binding = args
-            .approved_patches
-            .get_output(context)
-            .get_inner();
-        let approved_patches_compliance_level_binding = args
+        let approval_rules_binding_1 = args.approval_rules.get_output(context);
+        let approval_rules_binding = approval_rules_binding_1.get_inner();
+        let approved_patches_binding_1 = args.approved_patches.get_output(context);
+        let approved_patches_binding = approved_patches_binding_1.get_inner();
+        let approved_patches_compliance_level_binding_1 = args
             .approved_patches_compliance_level
-            .get_output(context)
+            .get_output(context);
+        let approved_patches_compliance_level_binding = approved_patches_compliance_level_binding_1
             .get_inner();
-        let approved_patches_enable_non_security_binding = args
+        let approved_patches_enable_non_security_binding_1 = args
             .approved_patches_enable_non_security
-            .get_output(context)
+            .get_output(context);
+        let approved_patches_enable_non_security_binding = approved_patches_enable_non_security_binding_1
             .get_inner();
-        let description_binding = args.description.get_output(context).get_inner();
-        let global_filters_binding = args.global_filters.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let operating_system_binding = args
-            .operating_system
-            .get_output(context)
-            .get_inner();
-        let rejected_patches_binding = args
-            .rejected_patches
-            .get_output(context)
-            .get_inner();
-        let rejected_patches_action_binding = args
+        let description_binding_1 = args.description.get_output(context);
+        let description_binding = description_binding_1.get_inner();
+        let global_filters_binding_1 = args.global_filters.get_output(context);
+        let global_filters_binding = global_filters_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let operating_system_binding_1 = args.operating_system.get_output(context);
+        let operating_system_binding = operating_system_binding_1.get_inner();
+        let rejected_patches_binding_1 = args.rejected_patches.get_output(context);
+        let rejected_patches_binding = rejected_patches_binding_1.get_inner();
+        let rejected_patches_action_binding_1 = args
             .rejected_patches_action
-            .get_output(context)
+            .get_output(context);
+        let rejected_patches_action_binding = rejected_patches_action_binding_1
             .get_inner();
-        let sources_binding = args.sources.get_output(context).get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
+        let sources_binding_1 = args.sources.get_output(context);
+        let sources_binding = sources_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:ssm/patchBaseline:PatchBaseline".into(),
             name: name.to_string(),

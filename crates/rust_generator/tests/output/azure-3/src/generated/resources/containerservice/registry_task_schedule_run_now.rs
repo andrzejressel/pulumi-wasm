@@ -75,9 +75,10 @@ pub mod registry_task_schedule_run_now {
     ) -> RegistryTaskScheduleRunNowResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let container_registry_task_id_binding = args
+        let container_registry_task_id_binding_1 = args
             .container_registry_task_id
-            .get_output(context)
+            .get_output(context);
+        let container_registry_task_id_binding = container_registry_task_id_binding_1
             .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:containerservice/registryTaskScheduleRunNow:RegistryTaskScheduleRunNow"

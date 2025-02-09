@@ -324,8 +324,10 @@ pub mod hosting_version {
     ) -> HostingVersionResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let config_binding = args.config.get_output(context).get_inner();
-        let site_id_binding = args.site_id.get_output(context).get_inner();
+        let config_binding_1 = args.config.get_output(context);
+        let config_binding = config_binding_1.get_inner();
+        let site_id_binding_1 = args.site_id.get_output(context);
+        let site_id_binding = site_id_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:firebase/hostingVersion:HostingVersion".into(),
             name: name.to_string(),

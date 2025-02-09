@@ -92,14 +92,22 @@ pub mod static_route {
     ) -> StaticRouteResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let account_id_binding = args.account_id.get_output(context).get_inner();
-        let colo_names_binding = args.colo_names.get_output(context).get_inner();
-        let colo_regions_binding = args.colo_regions.get_output(context).get_inner();
-        let description_binding = args.description.get_output(context).get_inner();
-        let nexthop_binding = args.nexthop.get_output(context).get_inner();
-        let prefix_binding = args.prefix.get_output(context).get_inner();
-        let priority_binding = args.priority.get_output(context).get_inner();
-        let weight_binding = args.weight.get_output(context).get_inner();
+        let account_id_binding_1 = args.account_id.get_output(context);
+        let account_id_binding = account_id_binding_1.get_inner();
+        let colo_names_binding_1 = args.colo_names.get_output(context);
+        let colo_names_binding = colo_names_binding_1.get_inner();
+        let colo_regions_binding_1 = args.colo_regions.get_output(context);
+        let colo_regions_binding = colo_regions_binding_1.get_inner();
+        let description_binding_1 = args.description.get_output(context);
+        let description_binding = description_binding_1.get_inner();
+        let nexthop_binding_1 = args.nexthop.get_output(context);
+        let nexthop_binding = nexthop_binding_1.get_inner();
+        let prefix_binding_1 = args.prefix.get_output(context);
+        let prefix_binding = prefix_binding_1.get_inner();
+        let priority_binding_1 = args.priority.get_output(context);
+        let priority_binding = priority_binding_1.get_inner();
+        let weight_binding_1 = args.weight.get_output(context);
+        let weight_binding = weight_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "cloudflare:index/staticRoute:StaticRoute".into(),
             name: name.to_string(),

@@ -59,9 +59,12 @@ pub mod pages_domain {
     ) -> PagesDomainResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let account_id_binding = args.account_id.get_output(context).get_inner();
-        let domain_binding = args.domain.get_output(context).get_inner();
-        let project_name_binding = args.project_name.get_output(context).get_inner();
+        let account_id_binding_1 = args.account_id.get_output(context);
+        let account_id_binding = account_id_binding_1.get_inner();
+        let domain_binding_1 = args.domain.get_output(context);
+        let domain_binding = domain_binding_1.get_inner();
+        let project_name_binding_1 = args.project_name.get_output(context);
+        let project_name_binding = project_name_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "cloudflare:index/pagesDomain:PagesDomain".into(),
             name: name.to_string(),

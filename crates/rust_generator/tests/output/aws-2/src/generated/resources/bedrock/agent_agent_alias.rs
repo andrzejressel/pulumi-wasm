@@ -158,18 +158,21 @@ pub mod agent_agent_alias {
     ) -> AgentAgentAliasResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let agent_alias_name_binding = args
-            .agent_alias_name
-            .get_output(context)
-            .get_inner();
-        let agent_id_binding = args.agent_id.get_output(context).get_inner();
-        let description_binding = args.description.get_output(context).get_inner();
-        let routing_configurations_binding = args
+        let agent_alias_name_binding_1 = args.agent_alias_name.get_output(context);
+        let agent_alias_name_binding = agent_alias_name_binding_1.get_inner();
+        let agent_id_binding_1 = args.agent_id.get_output(context);
+        let agent_id_binding = agent_id_binding_1.get_inner();
+        let description_binding_1 = args.description.get_output(context);
+        let description_binding = description_binding_1.get_inner();
+        let routing_configurations_binding_1 = args
             .routing_configurations
-            .get_output(context)
+            .get_output(context);
+        let routing_configurations_binding = routing_configurations_binding_1
             .get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
-        let timeouts_binding = args.timeouts.get_output(context).get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
+        let timeouts_binding_1 = args.timeouts.get_output(context);
+        let timeouts_binding = timeouts_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:bedrock/agentAgentAlias:AgentAgentAlias".into(),
             name: name.to_string(),

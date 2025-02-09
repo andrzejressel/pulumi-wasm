@@ -118,31 +118,20 @@ pub mod protected_vm {
     ) -> ProtectedVMResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let backup_policy_id_binding = args
-            .backup_policy_id
-            .get_output(context)
-            .get_inner();
-        let exclude_disk_luns_binding = args
-            .exclude_disk_luns
-            .get_output(context)
-            .get_inner();
-        let include_disk_luns_binding = args
-            .include_disk_luns
-            .get_output(context)
-            .get_inner();
-        let protection_state_binding = args
-            .protection_state
-            .get_output(context)
-            .get_inner();
-        let recovery_vault_name_binding = args
-            .recovery_vault_name
-            .get_output(context)
-            .get_inner();
-        let resource_group_name_binding = args
-            .resource_group_name
-            .get_output(context)
-            .get_inner();
-        let source_vm_id_binding = args.source_vm_id.get_output(context).get_inner();
+        let backup_policy_id_binding_1 = args.backup_policy_id.get_output(context);
+        let backup_policy_id_binding = backup_policy_id_binding_1.get_inner();
+        let exclude_disk_luns_binding_1 = args.exclude_disk_luns.get_output(context);
+        let exclude_disk_luns_binding = exclude_disk_luns_binding_1.get_inner();
+        let include_disk_luns_binding_1 = args.include_disk_luns.get_output(context);
+        let include_disk_luns_binding = include_disk_luns_binding_1.get_inner();
+        let protection_state_binding_1 = args.protection_state.get_output(context);
+        let protection_state_binding = protection_state_binding_1.get_inner();
+        let recovery_vault_name_binding_1 = args.recovery_vault_name.get_output(context);
+        let recovery_vault_name_binding = recovery_vault_name_binding_1.get_inner();
+        let resource_group_name_binding_1 = args.resource_group_name.get_output(context);
+        let resource_group_name_binding = resource_group_name_binding_1.get_inner();
+        let source_vm_id_binding_1 = args.source_vm_id.get_output(context);
+        let source_vm_id_binding = source_vm_id_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:backup/protectedVM:ProtectedVM".into(),
             name: name.to_string(),

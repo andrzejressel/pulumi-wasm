@@ -115,32 +115,36 @@ mod tests {
 
         let _ = TypesystemServerArgs::builder().required_string_input("&str");
         let _ = TypesystemServerArgs::builder().required_string_input("String".to_string());
-        let _ = TypesystemServerArgs::builder().required_string_input(output);
+        let _ = TypesystemServerArgs::builder().required_string_input(output.clone());
 
         let _ = TypesystemServerArgs::builder().optional_string_input("&str");
         let _ = TypesystemServerArgs::builder().optional_string_input("String".to_string());
-        let _ = TypesystemServerArgs::builder().optional_string_input(output);
+        let _ = TypesystemServerArgs::builder().optional_string_input(output.clone());
 
         // Vec<String>
         let _ = TypesystemServerArgs::builder().required_string_array(vec!["&str"]);
         let _ = TypesystemServerArgs::builder().required_string_array(vec!["String".to_string()]);
-        let _ = TypesystemServerArgs::builder().required_string_array(output.map(|s| vec![s]));
+        let _ =
+            TypesystemServerArgs::builder().required_string_array(output.clone().map(|s| vec![s]));
         // let _ = TypesystemServerArgs::builder().required_string_array(vec![string_output]);
 
         let _ = TypesystemServerArgs::builder().optional_string_array(vec!["&str"]);
         let _ = TypesystemServerArgs::builder().optional_string_array(vec!["String".to_string()]);
-        let _ = TypesystemServerArgs::builder().optional_string_array(output.map(|s| vec![s]));
+        let _ =
+            TypesystemServerArgs::builder().optional_string_array(output.clone().map(|s| vec![s]));
         // let _ = TypesystemServerArgs::builder().optional_string_array(vec![string_output]);
 
         // Vec<String> with array
         let _ = TypesystemServerArgs::builder().required_string_array(["&str"]);
         let _ = TypesystemServerArgs::builder().required_string_array(["String".to_string()]);
-        let _ = TypesystemServerArgs::builder().required_string_array(output.map(|s| vec![s]));
+        let _ =
+            TypesystemServerArgs::builder().required_string_array(output.clone().map(|s| vec![s]));
         // let _ = TypesystemServerArgs::builder().required_string_array([string_output]);
 
         let _ = TypesystemServerArgs::builder().optional_string_array(["&str"]);
         let _ = TypesystemServerArgs::builder().optional_string_array(["String".to_string()]);
-        let _ = TypesystemServerArgs::builder().optional_string_array(output.map(|s| vec![s]));
+        let _ =
+            TypesystemServerArgs::builder().optional_string_array(output.clone().map(|s| vec![s]));
         // let _ = TypesystemServerArgs::builder().optional_string_array([string_output]);
 
         // Union

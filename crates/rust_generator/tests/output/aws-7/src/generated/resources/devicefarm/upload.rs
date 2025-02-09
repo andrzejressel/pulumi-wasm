@@ -80,10 +80,14 @@ pub mod upload {
     ) -> UploadResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let content_type_binding = args.content_type.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let project_arn_binding = args.project_arn.get_output(context).get_inner();
-        let type__binding = args.type_.get_output(context).get_inner();
+        let content_type_binding_1 = args.content_type.get_output(context);
+        let content_type_binding = content_type_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let project_arn_binding_1 = args.project_arn.get_output(context);
+        let project_arn_binding = project_arn_binding_1.get_inner();
+        let type__binding_1 = args.type_.get_output(context);
+        let type__binding = type__binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:devicefarm/upload:Upload".into(),
             name: name.to_string(),

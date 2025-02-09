@@ -269,27 +269,30 @@ pub mod compute_environment {
     ) -> ComputeEnvironmentResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let compute_environment_name_binding = args
+        let compute_environment_name_binding_1 = args
             .compute_environment_name
-            .get_output(context)
+            .get_output(context);
+        let compute_environment_name_binding = compute_environment_name_binding_1
             .get_inner();
-        let compute_environment_name_prefix_binding = args
+        let compute_environment_name_prefix_binding_1 = args
             .compute_environment_name_prefix
-            .get_output(context)
+            .get_output(context);
+        let compute_environment_name_prefix_binding = compute_environment_name_prefix_binding_1
             .get_inner();
-        let compute_resources_binding = args
-            .compute_resources
-            .get_output(context)
-            .get_inner();
-        let eks_configuration_binding = args
-            .eks_configuration
-            .get_output(context)
-            .get_inner();
-        let service_role_binding = args.service_role.get_output(context).get_inner();
-        let state_binding = args.state.get_output(context).get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
-        let type__binding = args.type_.get_output(context).get_inner();
-        let update_policy_binding = args.update_policy.get_output(context).get_inner();
+        let compute_resources_binding_1 = args.compute_resources.get_output(context);
+        let compute_resources_binding = compute_resources_binding_1.get_inner();
+        let eks_configuration_binding_1 = args.eks_configuration.get_output(context);
+        let eks_configuration_binding = eks_configuration_binding_1.get_inner();
+        let service_role_binding_1 = args.service_role.get_output(context);
+        let service_role_binding = service_role_binding_1.get_inner();
+        let state_binding_1 = args.state.get_output(context);
+        let state_binding = state_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
+        let type__binding_1 = args.type_.get_output(context);
+        let type__binding = type__binding_1.get_inner();
+        let update_policy_binding_1 = args.update_policy.get_output(context);
+        let update_policy_binding = update_policy_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:batch/computeEnvironment:ComputeEnvironment".into(),
             name: name.to_string(),

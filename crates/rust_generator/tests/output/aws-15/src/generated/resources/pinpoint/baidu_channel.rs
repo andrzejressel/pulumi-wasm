@@ -68,10 +68,14 @@ pub mod baidu_channel {
     ) -> BaiduChannelResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let api_key_binding = args.api_key.get_output(context).get_inner();
-        let application_id_binding = args.application_id.get_output(context).get_inner();
-        let enabled_binding = args.enabled.get_output(context).get_inner();
-        let secret_key_binding = args.secret_key.get_output(context).get_inner();
+        let api_key_binding_1 = args.api_key.get_output(context);
+        let api_key_binding = api_key_binding_1.get_inner();
+        let application_id_binding_1 = args.application_id.get_output(context);
+        let application_id_binding = application_id_binding_1.get_inner();
+        let enabled_binding_1 = args.enabled.get_output(context);
+        let enabled_binding = enabled_binding_1.get_inner();
+        let secret_key_binding_1 = args.secret_key.get_output(context);
+        let secret_key_binding = secret_key_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:pinpoint/baiduChannel:BaiduChannel".into(),
             name: name.to_string(),

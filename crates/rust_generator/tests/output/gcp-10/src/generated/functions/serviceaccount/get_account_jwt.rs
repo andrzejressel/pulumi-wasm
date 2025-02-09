@@ -38,12 +38,16 @@ pub mod get_account_jwt {
     ) -> GetAccountJwtResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let delegates_binding = args.delegates.get_output(context).get_inner();
-        let expires_in_binding = args.expires_in.get_output(context).get_inner();
-        let payload_binding = args.payload.get_output(context).get_inner();
-        let target_service_account_binding = args
+        let delegates_binding_1 = args.delegates.get_output(context);
+        let delegates_binding = delegates_binding_1.get_inner();
+        let expires_in_binding_1 = args.expires_in.get_output(context);
+        let expires_in_binding = expires_in_binding_1.get_inner();
+        let payload_binding_1 = args.payload.get_output(context);
+        let payload_binding = payload_binding_1.get_inner();
+        let target_service_account_binding_1 = args
             .target_service_account
-            .get_output(context)
+            .get_output(context);
+        let target_service_account_binding = target_service_account_binding_1
             .get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "gcp:serviceaccount/getAccountJwt:getAccountJwt".into(),

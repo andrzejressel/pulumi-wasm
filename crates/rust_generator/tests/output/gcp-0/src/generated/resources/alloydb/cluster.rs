@@ -527,57 +527,62 @@ pub mod cluster {
     ) -> ClusterResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let annotations_binding = args.annotations.get_output(context).get_inner();
-        let automated_backup_policy_binding = args
+        let annotations_binding_1 = args.annotations.get_output(context);
+        let annotations_binding = annotations_binding_1.get_inner();
+        let automated_backup_policy_binding_1 = args
             .automated_backup_policy
-            .get_output(context)
+            .get_output(context);
+        let automated_backup_policy_binding = automated_backup_policy_binding_1
             .get_inner();
-        let cluster_id_binding = args.cluster_id.get_output(context).get_inner();
-        let cluster_type_binding = args.cluster_type.get_output(context).get_inner();
-        let continuous_backup_config_binding = args
+        let cluster_id_binding_1 = args.cluster_id.get_output(context);
+        let cluster_id_binding = cluster_id_binding_1.get_inner();
+        let cluster_type_binding_1 = args.cluster_type.get_output(context);
+        let cluster_type_binding = cluster_type_binding_1.get_inner();
+        let continuous_backup_config_binding_1 = args
             .continuous_backup_config
-            .get_output(context)
+            .get_output(context);
+        let continuous_backup_config_binding = continuous_backup_config_binding_1
             .get_inner();
-        let database_version_binding = args
-            .database_version
-            .get_output(context)
-            .get_inner();
-        let deletion_policy_binding = args
-            .deletion_policy
-            .get_output(context)
-            .get_inner();
-        let display_name_binding = args.display_name.get_output(context).get_inner();
-        let encryption_config_binding = args
-            .encryption_config
-            .get_output(context)
-            .get_inner();
-        let etag_binding = args.etag.get_output(context).get_inner();
-        let initial_user_binding = args.initial_user.get_output(context).get_inner();
-        let labels_binding = args.labels.get_output(context).get_inner();
-        let location_binding = args.location.get_output(context).get_inner();
-        let maintenance_update_policy_binding = args
+        let database_version_binding_1 = args.database_version.get_output(context);
+        let database_version_binding = database_version_binding_1.get_inner();
+        let deletion_policy_binding_1 = args.deletion_policy.get_output(context);
+        let deletion_policy_binding = deletion_policy_binding_1.get_inner();
+        let display_name_binding_1 = args.display_name.get_output(context);
+        let display_name_binding = display_name_binding_1.get_inner();
+        let encryption_config_binding_1 = args.encryption_config.get_output(context);
+        let encryption_config_binding = encryption_config_binding_1.get_inner();
+        let etag_binding_1 = args.etag.get_output(context);
+        let etag_binding = etag_binding_1.get_inner();
+        let initial_user_binding_1 = args.initial_user.get_output(context);
+        let initial_user_binding = initial_user_binding_1.get_inner();
+        let labels_binding_1 = args.labels.get_output(context);
+        let labels_binding = labels_binding_1.get_inner();
+        let location_binding_1 = args.location.get_output(context);
+        let location_binding = location_binding_1.get_inner();
+        let maintenance_update_policy_binding_1 = args
             .maintenance_update_policy
-            .get_output(context)
+            .get_output(context);
+        let maintenance_update_policy_binding = maintenance_update_policy_binding_1
             .get_inner();
-        let network_config_binding = args.network_config.get_output(context).get_inner();
-        let project_binding = args.project.get_output(context).get_inner();
-        let psc_config_binding = args.psc_config.get_output(context).get_inner();
-        let restore_backup_source_binding = args
+        let network_config_binding_1 = args.network_config.get_output(context);
+        let network_config_binding = network_config_binding_1.get_inner();
+        let project_binding_1 = args.project.get_output(context);
+        let project_binding = project_binding_1.get_inner();
+        let psc_config_binding_1 = args.psc_config.get_output(context);
+        let psc_config_binding = psc_config_binding_1.get_inner();
+        let restore_backup_source_binding_1 = args
             .restore_backup_source
-            .get_output(context)
-            .get_inner();
-        let restore_continuous_backup_source_binding = args
+            .get_output(context);
+        let restore_backup_source_binding = restore_backup_source_binding_1.get_inner();
+        let restore_continuous_backup_source_binding_1 = args
             .restore_continuous_backup_source
-            .get_output(context)
+            .get_output(context);
+        let restore_continuous_backup_source_binding = restore_continuous_backup_source_binding_1
             .get_inner();
-        let secondary_config_binding = args
-            .secondary_config
-            .get_output(context)
-            .get_inner();
-        let subscription_type_binding = args
-            .subscription_type
-            .get_output(context)
-            .get_inner();
+        let secondary_config_binding_1 = args.secondary_config.get_output(context);
+        let secondary_config_binding = secondary_config_binding_1.get_inner();
+        let subscription_type_binding_1 = args.subscription_type.get_output(context);
+        let subscription_type_binding = subscription_type_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:alloydb/cluster:Cluster".into(),
             name: name.to_string(),

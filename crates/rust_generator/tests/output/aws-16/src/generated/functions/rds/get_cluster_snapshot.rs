@@ -85,19 +85,25 @@ pub mod get_cluster_snapshot {
     ) -> GetClusterSnapshotResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let db_cluster_identifier_binding = args
+        let db_cluster_identifier_binding_1 = args
             .db_cluster_identifier
-            .get_output(context)
-            .get_inner();
-        let db_cluster_snapshot_identifier_binding = args
+            .get_output(context);
+        let db_cluster_identifier_binding = db_cluster_identifier_binding_1.get_inner();
+        let db_cluster_snapshot_identifier_binding_1 = args
             .db_cluster_snapshot_identifier
-            .get_output(context)
+            .get_output(context);
+        let db_cluster_snapshot_identifier_binding = db_cluster_snapshot_identifier_binding_1
             .get_inner();
-        let include_public_binding = args.include_public.get_output(context).get_inner();
-        let include_shared_binding = args.include_shared.get_output(context).get_inner();
-        let most_recent_binding = args.most_recent.get_output(context).get_inner();
-        let snapshot_type_binding = args.snapshot_type.get_output(context).get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
+        let include_public_binding_1 = args.include_public.get_output(context);
+        let include_public_binding = include_public_binding_1.get_inner();
+        let include_shared_binding_1 = args.include_shared.get_output(context);
+        let include_shared_binding = include_shared_binding_1.get_inner();
+        let most_recent_binding_1 = args.most_recent.get_output(context);
+        let most_recent_binding = most_recent_binding_1.get_inner();
+        let snapshot_type_binding_1 = args.snapshot_type.get_output(context);
+        let snapshot_type_binding = snapshot_type_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:rds/getClusterSnapshot:getClusterSnapshot".into(),
             version: super::super::super::get_version(),

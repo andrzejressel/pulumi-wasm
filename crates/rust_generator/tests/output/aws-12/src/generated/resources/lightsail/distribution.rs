@@ -290,31 +290,32 @@ pub mod distribution {
     ) -> DistributionResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let bundle_id_binding = args.bundle_id.get_output(context).get_inner();
-        let cache_behavior_settings_binding = args
+        let bundle_id_binding_1 = args.bundle_id.get_output(context);
+        let bundle_id_binding = bundle_id_binding_1.get_inner();
+        let cache_behavior_settings_binding_1 = args
             .cache_behavior_settings
-            .get_output(context)
+            .get_output(context);
+        let cache_behavior_settings_binding = cache_behavior_settings_binding_1
             .get_inner();
-        let cache_behaviors_binding = args
-            .cache_behaviors
-            .get_output(context)
-            .get_inner();
-        let certificate_name_binding = args
-            .certificate_name
-            .get_output(context)
-            .get_inner();
-        let default_cache_behavior_binding = args
+        let cache_behaviors_binding_1 = args.cache_behaviors.get_output(context);
+        let cache_behaviors_binding = cache_behaviors_binding_1.get_inner();
+        let certificate_name_binding_1 = args.certificate_name.get_output(context);
+        let certificate_name_binding = certificate_name_binding_1.get_inner();
+        let default_cache_behavior_binding_1 = args
             .default_cache_behavior
-            .get_output(context)
+            .get_output(context);
+        let default_cache_behavior_binding = default_cache_behavior_binding_1
             .get_inner();
-        let ip_address_type_binding = args
-            .ip_address_type
-            .get_output(context)
-            .get_inner();
-        let is_enabled_binding = args.is_enabled.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let origin_binding = args.origin.get_output(context).get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
+        let ip_address_type_binding_1 = args.ip_address_type.get_output(context);
+        let ip_address_type_binding = ip_address_type_binding_1.get_inner();
+        let is_enabled_binding_1 = args.is_enabled.get_output(context);
+        let is_enabled_binding = is_enabled_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let origin_binding_1 = args.origin.get_output(context);
+        let origin_binding = origin_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:lightsail/distribution:Distribution".into(),
             name: name.to_string(),

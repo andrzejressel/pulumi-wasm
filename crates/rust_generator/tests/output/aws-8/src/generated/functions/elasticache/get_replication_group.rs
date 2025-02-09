@@ -64,10 +64,10 @@ pub mod get_replication_group {
     ) -> GetReplicationGroupResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let replication_group_id_binding = args
+        let replication_group_id_binding_1 = args
             .replication_group_id
-            .get_output(context)
-            .get_inner();
+            .get_output(context);
+        let replication_group_id_binding = replication_group_id_binding_1.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:elasticache/getReplicationGroup:getReplicationGroup".into(),
             version: super::super::super::get_version(),

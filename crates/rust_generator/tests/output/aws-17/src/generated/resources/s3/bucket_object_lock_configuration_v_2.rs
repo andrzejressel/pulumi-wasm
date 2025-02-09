@@ -113,17 +113,18 @@ pub mod bucket_object_lock_configuration_v_2 {
     ) -> BucketObjectLockConfigurationV2Result {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let bucket_binding = args.bucket.get_output(context).get_inner();
-        let expected_bucket_owner_binding = args
+        let bucket_binding_1 = args.bucket.get_output(context);
+        let bucket_binding = bucket_binding_1.get_inner();
+        let expected_bucket_owner_binding_1 = args
             .expected_bucket_owner
-            .get_output(context)
-            .get_inner();
-        let object_lock_enabled_binding = args
-            .object_lock_enabled
-            .get_output(context)
-            .get_inner();
-        let rule_binding = args.rule.get_output(context).get_inner();
-        let token_binding = args.token.get_output(context).get_inner();
+            .get_output(context);
+        let expected_bucket_owner_binding = expected_bucket_owner_binding_1.get_inner();
+        let object_lock_enabled_binding_1 = args.object_lock_enabled.get_output(context);
+        let object_lock_enabled_binding = object_lock_enabled_binding_1.get_inner();
+        let rule_binding_1 = args.rule.get_output(context);
+        let rule_binding = rule_binding_1.get_inner();
+        let token_binding_1 = args.token.get_output(context);
+        let token_binding = token_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:s3/bucketObjectLockConfigurationV2:BucketObjectLockConfigurationV2"
                 .into(),

@@ -99,23 +99,18 @@ pub mod public_certificate {
     ) -> PublicCertificateResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let app_service_name_binding = args
-            .app_service_name
-            .get_output(context)
-            .get_inner();
-        let blob_binding = args.blob.get_output(context).get_inner();
-        let certificate_location_binding = args
+        let app_service_name_binding_1 = args.app_service_name.get_output(context);
+        let app_service_name_binding = app_service_name_binding_1.get_inner();
+        let blob_binding_1 = args.blob.get_output(context);
+        let blob_binding = blob_binding_1.get_inner();
+        let certificate_location_binding_1 = args
             .certificate_location
-            .get_output(context)
-            .get_inner();
-        let certificate_name_binding = args
-            .certificate_name
-            .get_output(context)
-            .get_inner();
-        let resource_group_name_binding = args
-            .resource_group_name
-            .get_output(context)
-            .get_inner();
+            .get_output(context);
+        let certificate_location_binding = certificate_location_binding_1.get_inner();
+        let certificate_name_binding_1 = args.certificate_name.get_output(context);
+        let certificate_name_binding = certificate_name_binding_1.get_inner();
+        let resource_group_name_binding_1 = args.resource_group_name.get_output(context);
+        let resource_group_name_binding = resource_group_name_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:appservice/publicCertificate:PublicCertificate".into(),
             name: name.to_string(),

@@ -165,21 +165,24 @@ pub mod document {
     ) -> DocumentResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let attachments_sources_binding = args
-            .attachments_sources
-            .get_output(context)
-            .get_inner();
-        let content_binding = args.content.get_output(context).get_inner();
-        let document_format_binding = args
-            .document_format
-            .get_output(context)
-            .get_inner();
-        let document_type_binding = args.document_type.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let permissions_binding = args.permissions.get_output(context).get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
-        let target_type_binding = args.target_type.get_output(context).get_inner();
-        let version_name_binding = args.version_name.get_output(context).get_inner();
+        let attachments_sources_binding_1 = args.attachments_sources.get_output(context);
+        let attachments_sources_binding = attachments_sources_binding_1.get_inner();
+        let content_binding_1 = args.content.get_output(context);
+        let content_binding = content_binding_1.get_inner();
+        let document_format_binding_1 = args.document_format.get_output(context);
+        let document_format_binding = document_format_binding_1.get_inner();
+        let document_type_binding_1 = args.document_type.get_output(context);
+        let document_type_binding = document_type_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let permissions_binding_1 = args.permissions.get_output(context);
+        let permissions_binding = permissions_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
+        let target_type_binding_1 = args.target_type.get_output(context);
+        let target_type_binding = target_type_binding_1.get_inner();
+        let version_name_binding_1 = args.version_name.get_output(context);
+        let version_name_binding = version_name_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:ssm/document:Document".into(),
             name: name.to_string(),

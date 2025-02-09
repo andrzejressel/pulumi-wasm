@@ -72,8 +72,10 @@ pub mod resource {
     ) -> ResourceResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let group_arn_binding = args.group_arn.get_output(context).get_inner();
-        let resource_arn_binding = args.resource_arn.get_output(context).get_inner();
+        let group_arn_binding_1 = args.group_arn.get_output(context);
+        let group_arn_binding = group_arn_binding_1.get_inner();
+        let resource_arn_binding_1 = args.resource_arn.get_output(context);
+        let resource_arn_binding = resource_arn_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:resourcegroups/resource:Resource".into(),
             name: name.to_string(),

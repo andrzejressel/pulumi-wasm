@@ -116,31 +116,38 @@ pub mod vpc_attachment {
     ) -> VpcAttachmentResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let appliance_mode_support_binding = args
+        let appliance_mode_support_binding_1 = args
             .appliance_mode_support
-            .get_output(context)
+            .get_output(context);
+        let appliance_mode_support_binding = appliance_mode_support_binding_1
             .get_inner();
-        let dns_support_binding = args.dns_support.get_output(context).get_inner();
-        let ipv6_support_binding = args.ipv6_support.get_output(context).get_inner();
-        let security_group_referencing_support_binding = args
+        let dns_support_binding_1 = args.dns_support.get_output(context);
+        let dns_support_binding = dns_support_binding_1.get_inner();
+        let ipv6_support_binding_1 = args.ipv6_support.get_output(context);
+        let ipv6_support_binding = ipv6_support_binding_1.get_inner();
+        let security_group_referencing_support_binding_1 = args
             .security_group_referencing_support
-            .get_output(context)
+            .get_output(context);
+        let security_group_referencing_support_binding = security_group_referencing_support_binding_1
             .get_inner();
-        let subnet_ids_binding = args.subnet_ids.get_output(context).get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
-        let transit_gateway_default_route_table_association_binding = args
+        let subnet_ids_binding_1 = args.subnet_ids.get_output(context);
+        let subnet_ids_binding = subnet_ids_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
+        let transit_gateway_default_route_table_association_binding_1 = args
             .transit_gateway_default_route_table_association
-            .get_output(context)
+            .get_output(context);
+        let transit_gateway_default_route_table_association_binding = transit_gateway_default_route_table_association_binding_1
             .get_inner();
-        let transit_gateway_default_route_table_propagation_binding = args
+        let transit_gateway_default_route_table_propagation_binding_1 = args
             .transit_gateway_default_route_table_propagation
-            .get_output(context)
+            .get_output(context);
+        let transit_gateway_default_route_table_propagation_binding = transit_gateway_default_route_table_propagation_binding_1
             .get_inner();
-        let transit_gateway_id_binding = args
-            .transit_gateway_id
-            .get_output(context)
-            .get_inner();
-        let vpc_id_binding = args.vpc_id.get_output(context).get_inner();
+        let transit_gateway_id_binding_1 = args.transit_gateway_id.get_output(context);
+        let transit_gateway_id_binding = transit_gateway_id_binding_1.get_inner();
+        let vpc_id_binding_1 = args.vpc_id.get_output(context);
+        let vpc_id_binding = vpc_id_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:ec2transitgateway/vpcAttachment:VpcAttachment".into(),
             name: name.to_string(),

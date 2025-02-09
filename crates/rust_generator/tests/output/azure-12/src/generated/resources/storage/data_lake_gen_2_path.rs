@@ -106,19 +106,20 @@ pub mod data_lake_gen_2_path {
     ) -> DataLakeGen2PathResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let aces_binding = args.aces.get_output(context).get_inner();
-        let filesystem_name_binding = args
-            .filesystem_name
-            .get_output(context)
-            .get_inner();
-        let group_binding = args.group.get_output(context).get_inner();
-        let owner_binding = args.owner.get_output(context).get_inner();
-        let path_binding = args.path.get_output(context).get_inner();
-        let resource_binding = args.resource.get_output(context).get_inner();
-        let storage_account_id_binding = args
-            .storage_account_id
-            .get_output(context)
-            .get_inner();
+        let aces_binding_1 = args.aces.get_output(context);
+        let aces_binding = aces_binding_1.get_inner();
+        let filesystem_name_binding_1 = args.filesystem_name.get_output(context);
+        let filesystem_name_binding = filesystem_name_binding_1.get_inner();
+        let group_binding_1 = args.group.get_output(context);
+        let group_binding = group_binding_1.get_inner();
+        let owner_binding_1 = args.owner.get_output(context);
+        let owner_binding = owner_binding_1.get_inner();
+        let path_binding_1 = args.path.get_output(context);
+        let path_binding = path_binding_1.get_inner();
+        let resource_binding_1 = args.resource.get_output(context);
+        let resource_binding = resource_binding_1.get_inner();
+        let storage_account_id_binding_1 = args.storage_account_id.get_output(context);
+        let storage_account_id_binding = storage_account_id_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:storage/dataLakeGen2Path:DataLakeGen2Path".into(),
             name: name.to_string(),

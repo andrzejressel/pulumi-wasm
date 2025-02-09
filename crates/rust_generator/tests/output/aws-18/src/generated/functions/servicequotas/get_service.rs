@@ -26,7 +26,8 @@ pub mod get_service {
     ) -> GetServiceResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let service_name_binding = args.service_name.get_output(context).get_inner();
+        let service_name_binding_1 = args.service_name.get_output(context);
+        let service_name_binding = service_name_binding_1.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:servicequotas/getService:getService".into(),
             version: super::super::super::get_version(),

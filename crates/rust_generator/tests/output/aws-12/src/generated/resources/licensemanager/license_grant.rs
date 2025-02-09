@@ -77,13 +77,14 @@ pub mod license_grant {
     ) -> LicenseGrantResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let allowed_operations_binding = args
-            .allowed_operations
-            .get_output(context)
-            .get_inner();
-        let license_arn_binding = args.license_arn.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let principal_binding = args.principal.get_output(context).get_inner();
+        let allowed_operations_binding_1 = args.allowed_operations.get_output(context);
+        let allowed_operations_binding = allowed_operations_binding_1.get_inner();
+        let license_arn_binding_1 = args.license_arn.get_output(context);
+        let license_arn_binding = license_arn_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let principal_binding_1 = args.principal.get_output(context);
+        let principal_binding = principal_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:licensemanager/licenseGrant:LicenseGrant".into(),
             name: name.to_string(),

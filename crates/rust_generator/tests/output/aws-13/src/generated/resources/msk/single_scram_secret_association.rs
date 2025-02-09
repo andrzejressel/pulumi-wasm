@@ -55,8 +55,10 @@ pub mod single_scram_secret_association {
     ) -> SingleScramSecretAssociationResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let cluster_arn_binding = args.cluster_arn.get_output(context).get_inner();
-        let secret_arn_binding = args.secret_arn.get_output(context).get_inner();
+        let cluster_arn_binding_1 = args.cluster_arn.get_output(context);
+        let cluster_arn_binding = cluster_arn_binding_1.get_inner();
+        let secret_arn_binding_1 = args.secret_arn.get_output(context);
+        let secret_arn_binding = secret_arn_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:msk/singleScramSecretAssociation:SingleScramSecretAssociation"
                 .into(),

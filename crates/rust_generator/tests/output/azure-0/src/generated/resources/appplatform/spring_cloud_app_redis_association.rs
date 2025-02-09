@@ -99,17 +99,16 @@ pub mod spring_cloud_app_redis_association {
     ) -> SpringCloudAppRedisAssociationResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let name_binding = args.name.get_output(context).get_inner();
-        let redis_access_key_binding = args
-            .redis_access_key
-            .get_output(context)
-            .get_inner();
-        let redis_cache_id_binding = args.redis_cache_id.get_output(context).get_inner();
-        let spring_cloud_app_id_binding = args
-            .spring_cloud_app_id
-            .get_output(context)
-            .get_inner();
-        let ssl_enabled_binding = args.ssl_enabled.get_output(context).get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let redis_access_key_binding_1 = args.redis_access_key.get_output(context);
+        let redis_access_key_binding = redis_access_key_binding_1.get_inner();
+        let redis_cache_id_binding_1 = args.redis_cache_id.get_output(context);
+        let redis_cache_id_binding = redis_cache_id_binding_1.get_inner();
+        let spring_cloud_app_id_binding_1 = args.spring_cloud_app_id.get_output(context);
+        let spring_cloud_app_id_binding = spring_cloud_app_id_binding_1.get_inner();
+        let ssl_enabled_binding_1 = args.ssl_enabled.get_output(context);
+        let ssl_enabled_binding = ssl_enabled_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:appplatform/springCloudAppRedisAssociation:SpringCloudAppRedisAssociation"
                 .into(),

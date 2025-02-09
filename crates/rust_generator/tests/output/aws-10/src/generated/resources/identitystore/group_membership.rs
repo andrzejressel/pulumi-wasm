@@ -80,12 +80,12 @@ pub mod group_membership {
     ) -> GroupMembershipResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let group_id_binding = args.group_id.get_output(context).get_inner();
-        let identity_store_id_binding = args
-            .identity_store_id
-            .get_output(context)
-            .get_inner();
-        let member_id_binding = args.member_id.get_output(context).get_inner();
+        let group_id_binding_1 = args.group_id.get_output(context);
+        let group_id_binding = group_id_binding_1.get_inner();
+        let identity_store_id_binding_1 = args.identity_store_id.get_output(context);
+        let identity_store_id_binding = identity_store_id_binding_1.get_inner();
+        let member_id_binding_1 = args.member_id.get_output(context);
+        let member_id_binding = member_id_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:identitystore/groupMembership:GroupMembership".into(),
             name: name.to_string(),

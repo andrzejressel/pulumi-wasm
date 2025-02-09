@@ -123,24 +123,27 @@ pub mod webhook {
     ) -> WebhookResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let automation_account_name_binding = args
+        let automation_account_name_binding_1 = args
             .automation_account_name
-            .get_output(context)
+            .get_output(context);
+        let automation_account_name_binding = automation_account_name_binding_1
             .get_inner();
-        let enabled_binding = args.enabled.get_output(context).get_inner();
-        let expiry_time_binding = args.expiry_time.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let parameters_binding = args.parameters.get_output(context).get_inner();
-        let resource_group_name_binding = args
-            .resource_group_name
-            .get_output(context)
-            .get_inner();
-        let run_on_worker_group_binding = args
-            .run_on_worker_group
-            .get_output(context)
-            .get_inner();
-        let runbook_name_binding = args.runbook_name.get_output(context).get_inner();
-        let uri_binding = args.uri.get_output(context).get_inner();
+        let enabled_binding_1 = args.enabled.get_output(context);
+        let enabled_binding = enabled_binding_1.get_inner();
+        let expiry_time_binding_1 = args.expiry_time.get_output(context);
+        let expiry_time_binding = expiry_time_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let parameters_binding_1 = args.parameters.get_output(context);
+        let parameters_binding = parameters_binding_1.get_inner();
+        let resource_group_name_binding_1 = args.resource_group_name.get_output(context);
+        let resource_group_name_binding = resource_group_name_binding_1.get_inner();
+        let run_on_worker_group_binding_1 = args.run_on_worker_group.get_output(context);
+        let run_on_worker_group_binding = run_on_worker_group_binding_1.get_inner();
+        let runbook_name_binding_1 = args.runbook_name.get_output(context);
+        let runbook_name_binding = runbook_name_binding_1.get_inner();
+        let uri_binding_1 = args.uri.get_output(context);
+        let uri_binding = uri_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:automation/webhook:Webhook".into(),
             name: name.to_string(),

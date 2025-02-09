@@ -184,76 +184,88 @@ pub mod cloud_vm_cluster {
     ) -> CloudVmClusterResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let backup_subnet_cidr_binding = args
-            .backup_subnet_cidr
-            .get_output(context)
-            .get_inner();
-        let cloud_exadata_infrastructure_id_binding = args
+        let backup_subnet_cidr_binding_1 = args.backup_subnet_cidr.get_output(context);
+        let backup_subnet_cidr_binding = backup_subnet_cidr_binding_1.get_inner();
+        let cloud_exadata_infrastructure_id_binding_1 = args
             .cloud_exadata_infrastructure_id
-            .get_output(context)
+            .get_output(context);
+        let cloud_exadata_infrastructure_id_binding = cloud_exadata_infrastructure_id_binding_1
             .get_inner();
-        let cluster_name_binding = args.cluster_name.get_output(context).get_inner();
-        let cpu_core_count_binding = args.cpu_core_count.get_output(context).get_inner();
-        let data_collection_options_binding = args
+        let cluster_name_binding_1 = args.cluster_name.get_output(context);
+        let cluster_name_binding = cluster_name_binding_1.get_inner();
+        let cpu_core_count_binding_1 = args.cpu_core_count.get_output(context);
+        let cpu_core_count_binding = cpu_core_count_binding_1.get_inner();
+        let data_collection_options_binding_1 = args
             .data_collection_options
-            .get_output(context)
+            .get_output(context);
+        let data_collection_options_binding = data_collection_options_binding_1
             .get_inner();
-        let data_storage_percentage_binding = args
+        let data_storage_percentage_binding_1 = args
             .data_storage_percentage
-            .get_output(context)
+            .get_output(context);
+        let data_storage_percentage_binding = data_storage_percentage_binding_1
             .get_inner();
-        let data_storage_size_in_tbs_binding = args
+        let data_storage_size_in_tbs_binding_1 = args
             .data_storage_size_in_tbs
-            .get_output(context)
+            .get_output(context);
+        let data_storage_size_in_tbs_binding = data_storage_size_in_tbs_binding_1
             .get_inner();
-        let db_node_storage_size_in_gbs_binding = args
+        let db_node_storage_size_in_gbs_binding_1 = args
             .db_node_storage_size_in_gbs
-            .get_output(context)
+            .get_output(context);
+        let db_node_storage_size_in_gbs_binding = db_node_storage_size_in_gbs_binding_1
             .get_inner();
-        let db_servers_binding = args.db_servers.get_output(context).get_inner();
-        let display_name_binding = args.display_name.get_output(context).get_inner();
-        let domain_binding = args.domain.get_output(context).get_inner();
-        let gi_version_binding = args.gi_version.get_output(context).get_inner();
-        let hostname_binding = args.hostname.get_output(context).get_inner();
-        let license_model_binding = args.license_model.get_output(context).get_inner();
-        let local_backup_enabled_binding = args
+        let db_servers_binding_1 = args.db_servers.get_output(context);
+        let db_servers_binding = db_servers_binding_1.get_inner();
+        let display_name_binding_1 = args.display_name.get_output(context);
+        let display_name_binding = display_name_binding_1.get_inner();
+        let domain_binding_1 = args.domain.get_output(context);
+        let domain_binding = domain_binding_1.get_inner();
+        let gi_version_binding_1 = args.gi_version.get_output(context);
+        let gi_version_binding = gi_version_binding_1.get_inner();
+        let hostname_binding_1 = args.hostname.get_output(context);
+        let hostname_binding = hostname_binding_1.get_inner();
+        let license_model_binding_1 = args.license_model.get_output(context);
+        let license_model_binding = license_model_binding_1.get_inner();
+        let local_backup_enabled_binding_1 = args
             .local_backup_enabled
-            .get_output(context)
-            .get_inner();
-        let location_binding = args.location.get_output(context).get_inner();
-        let memory_size_in_gbs_binding = args
-            .memory_size_in_gbs
-            .get_output(context)
-            .get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let resource_group_name_binding = args
-            .resource_group_name
-            .get_output(context)
-            .get_inner();
-        let scan_listener_port_tcp_binding = args
+            .get_output(context);
+        let local_backup_enabled_binding = local_backup_enabled_binding_1.get_inner();
+        let location_binding_1 = args.location.get_output(context);
+        let location_binding = location_binding_1.get_inner();
+        let memory_size_in_gbs_binding_1 = args.memory_size_in_gbs.get_output(context);
+        let memory_size_in_gbs_binding = memory_size_in_gbs_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let resource_group_name_binding_1 = args.resource_group_name.get_output(context);
+        let resource_group_name_binding = resource_group_name_binding_1.get_inner();
+        let scan_listener_port_tcp_binding_1 = args
             .scan_listener_port_tcp
-            .get_output(context)
+            .get_output(context);
+        let scan_listener_port_tcp_binding = scan_listener_port_tcp_binding_1
             .get_inner();
-        let scan_listener_port_tcp_ssl_binding = args
+        let scan_listener_port_tcp_ssl_binding_1 = args
             .scan_listener_port_tcp_ssl
-            .get_output(context)
+            .get_output(context);
+        let scan_listener_port_tcp_ssl_binding = scan_listener_port_tcp_ssl_binding_1
             .get_inner();
-        let sparse_diskgroup_enabled_binding = args
+        let sparse_diskgroup_enabled_binding_1 = args
             .sparse_diskgroup_enabled
-            .get_output(context)
+            .get_output(context);
+        let sparse_diskgroup_enabled_binding = sparse_diskgroup_enabled_binding_1
             .get_inner();
-        let ssh_public_keys_binding = args
-            .ssh_public_keys
-            .get_output(context)
-            .get_inner();
-        let subnet_id_binding = args.subnet_id.get_output(context).get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
-        let time_zone_binding = args.time_zone.get_output(context).get_inner();
-        let virtual_network_id_binding = args
-            .virtual_network_id
-            .get_output(context)
-            .get_inner();
-        let zone_id_binding = args.zone_id.get_output(context).get_inner();
+        let ssh_public_keys_binding_1 = args.ssh_public_keys.get_output(context);
+        let ssh_public_keys_binding = ssh_public_keys_binding_1.get_inner();
+        let subnet_id_binding_1 = args.subnet_id.get_output(context);
+        let subnet_id_binding = subnet_id_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
+        let time_zone_binding_1 = args.time_zone.get_output(context);
+        let time_zone_binding = time_zone_binding_1.get_inner();
+        let virtual_network_id_binding_1 = args.virtual_network_id.get_output(context);
+        let virtual_network_id_binding = virtual_network_id_binding_1.get_inner();
+        let zone_id_binding_1 = args.zone_id.get_output(context);
+        let zone_id_binding = zone_id_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:oracle/cloudVmCluster:CloudVmCluster".into(),
             name: name.to_string(),

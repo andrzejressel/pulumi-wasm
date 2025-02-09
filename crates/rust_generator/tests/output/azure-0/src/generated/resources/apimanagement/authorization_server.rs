@@ -184,55 +184,66 @@ pub mod authorization_server {
     ) -> AuthorizationServerResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let api_management_name_binding = args
-            .api_management_name
-            .get_output(context)
-            .get_inner();
-        let authorization_endpoint_binding = args
+        let api_management_name_binding_1 = args.api_management_name.get_output(context);
+        let api_management_name_binding = api_management_name_binding_1.get_inner();
+        let authorization_endpoint_binding_1 = args
             .authorization_endpoint
-            .get_output(context)
+            .get_output(context);
+        let authorization_endpoint_binding = authorization_endpoint_binding_1
             .get_inner();
-        let authorization_methods_binding = args
+        let authorization_methods_binding_1 = args
             .authorization_methods
-            .get_output(context)
-            .get_inner();
-        let bearer_token_sending_methods_binding = args
+            .get_output(context);
+        let authorization_methods_binding = authorization_methods_binding_1.get_inner();
+        let bearer_token_sending_methods_binding_1 = args
             .bearer_token_sending_methods
-            .get_output(context)
+            .get_output(context);
+        let bearer_token_sending_methods_binding = bearer_token_sending_methods_binding_1
             .get_inner();
-        let client_authentication_methods_binding = args
+        let client_authentication_methods_binding_1 = args
             .client_authentication_methods
-            .get_output(context)
+            .get_output(context);
+        let client_authentication_methods_binding = client_authentication_methods_binding_1
             .get_inner();
-        let client_id_binding = args.client_id.get_output(context).get_inner();
-        let client_registration_endpoint_binding = args
+        let client_id_binding_1 = args.client_id.get_output(context);
+        let client_id_binding = client_id_binding_1.get_inner();
+        let client_registration_endpoint_binding_1 = args
             .client_registration_endpoint
-            .get_output(context)
+            .get_output(context);
+        let client_registration_endpoint_binding = client_registration_endpoint_binding_1
             .get_inner();
-        let client_secret_binding = args.client_secret.get_output(context).get_inner();
-        let default_scope_binding = args.default_scope.get_output(context).get_inner();
-        let description_binding = args.description.get_output(context).get_inner();
-        let display_name_binding = args.display_name.get_output(context).get_inner();
-        let grant_types_binding = args.grant_types.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let resource_group_name_binding = args
-            .resource_group_name
-            .get_output(context)
-            .get_inner();
-        let resource_owner_password_binding = args
+        let client_secret_binding_1 = args.client_secret.get_output(context);
+        let client_secret_binding = client_secret_binding_1.get_inner();
+        let default_scope_binding_1 = args.default_scope.get_output(context);
+        let default_scope_binding = default_scope_binding_1.get_inner();
+        let description_binding_1 = args.description.get_output(context);
+        let description_binding = description_binding_1.get_inner();
+        let display_name_binding_1 = args.display_name.get_output(context);
+        let display_name_binding = display_name_binding_1.get_inner();
+        let grant_types_binding_1 = args.grant_types.get_output(context);
+        let grant_types_binding = grant_types_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let resource_group_name_binding_1 = args.resource_group_name.get_output(context);
+        let resource_group_name_binding = resource_group_name_binding_1.get_inner();
+        let resource_owner_password_binding_1 = args
             .resource_owner_password
-            .get_output(context)
+            .get_output(context);
+        let resource_owner_password_binding = resource_owner_password_binding_1
             .get_inner();
-        let resource_owner_username_binding = args
+        let resource_owner_username_binding_1 = args
             .resource_owner_username
-            .get_output(context)
+            .get_output(context);
+        let resource_owner_username_binding = resource_owner_username_binding_1
             .get_inner();
-        let support_state_binding = args.support_state.get_output(context).get_inner();
-        let token_body_parameters_binding = args
+        let support_state_binding_1 = args.support_state.get_output(context);
+        let support_state_binding = support_state_binding_1.get_inner();
+        let token_body_parameters_binding_1 = args
             .token_body_parameters
-            .get_output(context)
-            .get_inner();
-        let token_endpoint_binding = args.token_endpoint.get_output(context).get_inner();
+            .get_output(context);
+        let token_body_parameters_binding = token_body_parameters_binding_1.get_inner();
+        let token_endpoint_binding_1 = args.token_endpoint.get_output(context);
+        let token_endpoint_binding = token_endpoint_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:apimanagement/authorizationServer:AuthorizationServer".into(),
             name: name.to_string(),

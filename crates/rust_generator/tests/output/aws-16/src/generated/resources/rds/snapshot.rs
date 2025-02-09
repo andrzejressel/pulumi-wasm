@@ -120,19 +120,20 @@ pub mod snapshot {
     ) -> SnapshotResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let db_instance_identifier_binding = args
+        let db_instance_identifier_binding_1 = args
             .db_instance_identifier
-            .get_output(context)
+            .get_output(context);
+        let db_instance_identifier_binding = db_instance_identifier_binding_1
             .get_inner();
-        let db_snapshot_identifier_binding = args
+        let db_snapshot_identifier_binding_1 = args
             .db_snapshot_identifier
-            .get_output(context)
+            .get_output(context);
+        let db_snapshot_identifier_binding = db_snapshot_identifier_binding_1
             .get_inner();
-        let shared_accounts_binding = args
-            .shared_accounts
-            .get_output(context)
-            .get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
+        let shared_accounts_binding_1 = args.shared_accounts.get_output(context);
+        let shared_accounts_binding = shared_accounts_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:rds/snapshot:Snapshot".into(),
             name: name.to_string(),

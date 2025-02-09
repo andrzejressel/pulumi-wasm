@@ -221,20 +221,25 @@ pub mod access_level_condition {
     ) -> AccessLevelConditionResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let access_level_binding = args.access_level.get_output(context).get_inner();
-        let device_policy_binding = args.device_policy.get_output(context).get_inner();
-        let ip_subnetworks_binding = args.ip_subnetworks.get_output(context).get_inner();
-        let members_binding = args.members.get_output(context).get_inner();
-        let negate_binding = args.negate.get_output(context).get_inner();
-        let regions_binding = args.regions.get_output(context).get_inner();
-        let required_access_levels_binding = args
+        let access_level_binding_1 = args.access_level.get_output(context);
+        let access_level_binding = access_level_binding_1.get_inner();
+        let device_policy_binding_1 = args.device_policy.get_output(context);
+        let device_policy_binding = device_policy_binding_1.get_inner();
+        let ip_subnetworks_binding_1 = args.ip_subnetworks.get_output(context);
+        let ip_subnetworks_binding = ip_subnetworks_binding_1.get_inner();
+        let members_binding_1 = args.members.get_output(context);
+        let members_binding = members_binding_1.get_inner();
+        let negate_binding_1 = args.negate.get_output(context);
+        let negate_binding = negate_binding_1.get_inner();
+        let regions_binding_1 = args.regions.get_output(context);
+        let regions_binding = regions_binding_1.get_inner();
+        let required_access_levels_binding_1 = args
             .required_access_levels
-            .get_output(context)
+            .get_output(context);
+        let required_access_levels_binding = required_access_levels_binding_1
             .get_inner();
-        let vpc_network_sources_binding = args
-            .vpc_network_sources
-            .get_output(context)
-            .get_inner();
+        let vpc_network_sources_binding_1 = args.vpc_network_sources.get_output(context);
+        let vpc_network_sources_binding = vpc_network_sources_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:accesscontextmanager/accessLevelCondition:AccessLevelCondition"
                 .into(),

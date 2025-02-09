@@ -147,16 +147,20 @@ pub mod email_identity {
     ) -> EmailIdentityResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let configuration_set_name_binding = args
+        let configuration_set_name_binding_1 = args
             .configuration_set_name
-            .get_output(context)
+            .get_output(context);
+        let configuration_set_name_binding = configuration_set_name_binding_1
             .get_inner();
-        let dkim_signing_attributes_binding = args
+        let dkim_signing_attributes_binding_1 = args
             .dkim_signing_attributes
-            .get_output(context)
+            .get_output(context);
+        let dkim_signing_attributes_binding = dkim_signing_attributes_binding_1
             .get_inner();
-        let email_identity_binding = args.email_identity.get_output(context).get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
+        let email_identity_binding_1 = args.email_identity.get_output(context);
+        let email_identity_binding = email_identity_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:sesv2/emailIdentity:EmailIdentity".into(),
             name: name.to_string(),

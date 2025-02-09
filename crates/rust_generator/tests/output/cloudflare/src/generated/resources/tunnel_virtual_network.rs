@@ -68,13 +68,14 @@ pub mod tunnel_virtual_network {
     ) -> TunnelVirtualNetworkResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let account_id_binding = args.account_id.get_output(context).get_inner();
-        let comment_binding = args.comment.get_output(context).get_inner();
-        let is_default_network_binding = args
-            .is_default_network
-            .get_output(context)
-            .get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
+        let account_id_binding_1 = args.account_id.get_output(context);
+        let account_id_binding = account_id_binding_1.get_inner();
+        let comment_binding_1 = args.comment.get_output(context);
+        let comment_binding = comment_binding_1.get_inner();
+        let is_default_network_binding_1 = args.is_default_network.get_output(context);
+        let is_default_network_binding = is_default_network_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "cloudflare:index/tunnelVirtualNetwork:TunnelVirtualNetwork".into(),
             name: name.to_string(),

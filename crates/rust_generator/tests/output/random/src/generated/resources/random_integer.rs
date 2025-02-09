@@ -81,10 +81,14 @@ pub mod random_integer {
     ) -> RandomIntegerResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let keepers_binding = args.keepers.get_output(context).get_inner();
-        let max_binding = args.max.get_output(context).get_inner();
-        let min_binding = args.min.get_output(context).get_inner();
-        let seed_binding = args.seed.get_output(context).get_inner();
+        let keepers_binding_1 = args.keepers.get_output(context);
+        let keepers_binding = keepers_binding_1.get_inner();
+        let max_binding_1 = args.max.get_output(context);
+        let max_binding = max_binding_1.get_inner();
+        let min_binding_1 = args.min.get_output(context);
+        let min_binding = min_binding_1.get_inner();
+        let seed_binding_1 = args.seed.get_output(context);
+        let seed_binding = seed_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "random:index/randomInteger:RandomInteger".into(),
             name: name.to_string(),

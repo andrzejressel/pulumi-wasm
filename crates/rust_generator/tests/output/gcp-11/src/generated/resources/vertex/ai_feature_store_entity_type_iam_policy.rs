@@ -74,9 +74,12 @@ pub mod ai_feature_store_entity_type_iam_policy {
     ) -> AiFeatureStoreEntityTypeIamPolicyResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let entitytype_binding = args.entitytype.get_output(context).get_inner();
-        let featurestore_binding = args.featurestore.get_output(context).get_inner();
-        let policy_data_binding = args.policy_data.get_output(context).get_inner();
+        let entitytype_binding_1 = args.entitytype.get_output(context);
+        let entitytype_binding = entitytype_binding_1.get_inner();
+        let featurestore_binding_1 = args.featurestore.get_output(context);
+        let featurestore_binding = featurestore_binding_1.get_inner();
+        let policy_data_binding_1 = args.policy_data.get_output(context);
+        let policy_data_binding = policy_data_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:vertex/aiFeatureStoreEntityTypeIamPolicy:AiFeatureStoreEntityTypeIamPolicy"
                 .into(),

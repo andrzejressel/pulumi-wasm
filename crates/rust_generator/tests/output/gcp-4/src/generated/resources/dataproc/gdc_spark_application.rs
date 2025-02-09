@@ -396,46 +396,55 @@ pub mod gdc_spark_application {
     ) -> GdcSparkApplicationResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let annotations_binding = args.annotations.get_output(context).get_inner();
-        let application_environment_binding = args
+        let annotations_binding_1 = args.annotations.get_output(context);
+        let annotations_binding = annotations_binding_1.get_inner();
+        let application_environment_binding_1 = args
             .application_environment
-            .get_output(context)
+            .get_output(context);
+        let application_environment_binding = application_environment_binding_1
             .get_inner();
-        let dependency_images_binding = args
-            .dependency_images
-            .get_output(context)
-            .get_inner();
-        let display_name_binding = args.display_name.get_output(context).get_inner();
-        let labels_binding = args.labels.get_output(context).get_inner();
-        let location_binding = args.location.get_output(context).get_inner();
-        let namespace_binding = args.namespace.get_output(context).get_inner();
-        let project_binding = args.project.get_output(context).get_inner();
-        let properties_binding = args.properties.get_output(context).get_inner();
-        let pyspark_application_config_binding = args
+        let dependency_images_binding_1 = args.dependency_images.get_output(context);
+        let dependency_images_binding = dependency_images_binding_1.get_inner();
+        let display_name_binding_1 = args.display_name.get_output(context);
+        let display_name_binding = display_name_binding_1.get_inner();
+        let labels_binding_1 = args.labels.get_output(context);
+        let labels_binding = labels_binding_1.get_inner();
+        let location_binding_1 = args.location.get_output(context);
+        let location_binding = location_binding_1.get_inner();
+        let namespace_binding_1 = args.namespace.get_output(context);
+        let namespace_binding = namespace_binding_1.get_inner();
+        let project_binding_1 = args.project.get_output(context);
+        let project_binding = project_binding_1.get_inner();
+        let properties_binding_1 = args.properties.get_output(context);
+        let properties_binding = properties_binding_1.get_inner();
+        let pyspark_application_config_binding_1 = args
             .pyspark_application_config
-            .get_output(context)
+            .get_output(context);
+        let pyspark_application_config_binding = pyspark_application_config_binding_1
             .get_inner();
-        let serviceinstance_binding = args
-            .serviceinstance
-            .get_output(context)
-            .get_inner();
-        let spark_application_config_binding = args
+        let serviceinstance_binding_1 = args.serviceinstance.get_output(context);
+        let serviceinstance_binding = serviceinstance_binding_1.get_inner();
+        let spark_application_config_binding_1 = args
             .spark_application_config
-            .get_output(context)
+            .get_output(context);
+        let spark_application_config_binding = spark_application_config_binding_1
             .get_inner();
-        let spark_application_id_binding = args
+        let spark_application_id_binding_1 = args
             .spark_application_id
-            .get_output(context)
-            .get_inner();
-        let spark_r_application_config_binding = args
+            .get_output(context);
+        let spark_application_id_binding = spark_application_id_binding_1.get_inner();
+        let spark_r_application_config_binding_1 = args
             .spark_r_application_config
-            .get_output(context)
+            .get_output(context);
+        let spark_r_application_config_binding = spark_r_application_config_binding_1
             .get_inner();
-        let spark_sql_application_config_binding = args
+        let spark_sql_application_config_binding_1 = args
             .spark_sql_application_config
-            .get_output(context)
+            .get_output(context);
+        let spark_sql_application_config_binding = spark_sql_application_config_binding_1
             .get_inner();
-        let version_binding = args.version.get_output(context).get_inner();
+        let version_binding_1 = args.version.get_output(context);
+        let version_binding = version_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:dataproc/gdcSparkApplication:GdcSparkApplication".into(),
             name: name.to_string(),

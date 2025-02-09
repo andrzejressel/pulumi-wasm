@@ -71,14 +71,19 @@ pub mod service_region {
     ) -> ServiceRegionResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let desired_number_of_domain_controllers_binding = args
+        let desired_number_of_domain_controllers_binding_1 = args
             .desired_number_of_domain_controllers
-            .get_output(context)
+            .get_output(context);
+        let desired_number_of_domain_controllers_binding = desired_number_of_domain_controllers_binding_1
             .get_inner();
-        let directory_id_binding = args.directory_id.get_output(context).get_inner();
-        let region_name_binding = args.region_name.get_output(context).get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
-        let vpc_settings_binding = args.vpc_settings.get_output(context).get_inner();
+        let directory_id_binding_1 = args.directory_id.get_output(context);
+        let directory_id_binding = directory_id_binding_1.get_inner();
+        let region_name_binding_1 = args.region_name.get_output(context);
+        let region_name_binding = region_name_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
+        let vpc_settings_binding_1 = args.vpc_settings.get_output(context);
+        let vpc_settings_binding = vpc_settings_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:directoryservice/serviceRegion:ServiceRegion".into(),
             name: name.to_string(),

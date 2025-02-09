@@ -55,12 +55,12 @@ pub mod identity_pool_role_attachment {
     ) -> IdentityPoolRoleAttachmentResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let identity_pool_id_binding = args
-            .identity_pool_id
-            .get_output(context)
-            .get_inner();
-        let role_mappings_binding = args.role_mappings.get_output(context).get_inner();
-        let roles_binding = args.roles.get_output(context).get_inner();
+        let identity_pool_id_binding_1 = args.identity_pool_id.get_output(context);
+        let identity_pool_id_binding = identity_pool_id_binding_1.get_inner();
+        let role_mappings_binding_1 = args.role_mappings.get_output(context);
+        let role_mappings_binding = role_mappings_binding_1.get_inner();
+        let roles_binding_1 = args.roles.get_output(context);
+        let roles_binding = roles_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:cognito/identityPoolRoleAttachment:IdentityPoolRoleAttachment"
                 .into(),

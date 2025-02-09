@@ -143,18 +143,19 @@ pub mod account_encryption {
     ) -> AccountEncryptionResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let encryption_key_binding = args.encryption_key.get_output(context).get_inner();
-        let netapp_account_id_binding = args
-            .netapp_account_id
-            .get_output(context)
-            .get_inner();
-        let system_assigned_identity_principal_id_binding = args
+        let encryption_key_binding_1 = args.encryption_key.get_output(context);
+        let encryption_key_binding = encryption_key_binding_1.get_inner();
+        let netapp_account_id_binding_1 = args.netapp_account_id.get_output(context);
+        let netapp_account_id_binding = netapp_account_id_binding_1.get_inner();
+        let system_assigned_identity_principal_id_binding_1 = args
             .system_assigned_identity_principal_id
-            .get_output(context)
+            .get_output(context);
+        let system_assigned_identity_principal_id_binding = system_assigned_identity_principal_id_binding_1
             .get_inner();
-        let user_assigned_identity_id_binding = args
+        let user_assigned_identity_id_binding_1 = args
             .user_assigned_identity_id
-            .get_output(context)
+            .get_output(context);
+        let user_assigned_identity_id_binding = user_assigned_identity_id_binding_1
             .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:netapp/accountEncryption:AccountEncryption".into(),

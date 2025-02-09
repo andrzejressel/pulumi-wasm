@@ -32,8 +32,10 @@ pub mod get_environment_iam_policy {
     ) -> GetEnvironmentIamPolicyResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let env_id_binding = args.env_id.get_output(context).get_inner();
-        let org_id_binding = args.org_id.get_output(context).get_inner();
+        let env_id_binding_1 = args.env_id.get_output(context);
+        let env_id_binding = env_id_binding_1.get_inner();
+        let org_id_binding_1 = args.org_id.get_output(context);
+        let org_id_binding = org_id_binding_1.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "gcp:apigee/getEnvironmentIamPolicy:getEnvironmentIamPolicy".into(),
             version: super::super::super::get_version(),

@@ -110,16 +110,20 @@ pub mod probe {
     ) -> ProbeResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let destination_binding = args.destination.get_output(context).get_inner();
-        let destination_port_binding = args
-            .destination_port
-            .get_output(context)
-            .get_inner();
-        let monitor_name_binding = args.monitor_name.get_output(context).get_inner();
-        let packet_size_binding = args.packet_size.get_output(context).get_inner();
-        let protocol_binding = args.protocol.get_output(context).get_inner();
-        let source_arn_binding = args.source_arn.get_output(context).get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
+        let destination_binding_1 = args.destination.get_output(context);
+        let destination_binding = destination_binding_1.get_inner();
+        let destination_port_binding_1 = args.destination_port.get_output(context);
+        let destination_port_binding = destination_port_binding_1.get_inner();
+        let monitor_name_binding_1 = args.monitor_name.get_output(context);
+        let monitor_name_binding = monitor_name_binding_1.get_inner();
+        let packet_size_binding_1 = args.packet_size.get_output(context);
+        let packet_size_binding = packet_size_binding_1.get_inner();
+        let protocol_binding_1 = args.protocol.get_output(context);
+        let protocol_binding = protocol_binding_1.get_inner();
+        let source_arn_binding_1 = args.source_arn.get_output(context);
+        let source_arn_binding = source_arn_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:networkmonitor/probe:Probe".into(),
             name: name.to_string(),

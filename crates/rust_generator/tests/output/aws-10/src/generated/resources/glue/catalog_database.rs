@@ -142,24 +142,27 @@ pub mod catalog_database {
     ) -> CatalogDatabaseResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let catalog_id_binding = args.catalog_id.get_output(context).get_inner();
-        let create_table_default_permissions_binding = args
+        let catalog_id_binding_1 = args.catalog_id.get_output(context);
+        let catalog_id_binding = catalog_id_binding_1.get_inner();
+        let create_table_default_permissions_binding_1 = args
             .create_table_default_permissions
-            .get_output(context)
+            .get_output(context);
+        let create_table_default_permissions_binding = create_table_default_permissions_binding_1
             .get_inner();
-        let description_binding = args.description.get_output(context).get_inner();
-        let federated_database_binding = args
-            .federated_database
-            .get_output(context)
-            .get_inner();
-        let location_uri_binding = args.location_uri.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let parameters_binding = args.parameters.get_output(context).get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
-        let target_database_binding = args
-            .target_database
-            .get_output(context)
-            .get_inner();
+        let description_binding_1 = args.description.get_output(context);
+        let description_binding = description_binding_1.get_inner();
+        let federated_database_binding_1 = args.federated_database.get_output(context);
+        let federated_database_binding = federated_database_binding_1.get_inner();
+        let location_uri_binding_1 = args.location_uri.get_output(context);
+        let location_uri_binding = location_uri_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let parameters_binding_1 = args.parameters.get_output(context);
+        let parameters_binding = parameters_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
+        let target_database_binding_1 = args.target_database.get_output(context);
+        let target_database_binding = target_database_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:glue/catalogDatabase:CatalogDatabase".into(),
             name: name.to_string(),

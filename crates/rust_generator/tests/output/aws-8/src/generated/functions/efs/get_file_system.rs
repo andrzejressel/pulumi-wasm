@@ -67,9 +67,12 @@ pub mod get_file_system {
     ) -> GetFileSystemResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let creation_token_binding = args.creation_token.get_output(context).get_inner();
-        let file_system_id_binding = args.file_system_id.get_output(context).get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
+        let creation_token_binding_1 = args.creation_token.get_output(context);
+        let creation_token_binding = creation_token_binding_1.get_inner();
+        let file_system_id_binding_1 = args.file_system_id.get_output(context);
+        let file_system_id_binding = file_system_id_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:efs/getFileSystem:getFileSystem".into(),
             version: super::super::super::get_version(),

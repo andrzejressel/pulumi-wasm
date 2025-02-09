@@ -93,16 +93,20 @@ pub mod event_subscription {
     ) -> EventSubscriptionResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let enabled_binding = args.enabled.get_output(context).get_inner();
-        let event_categories_binding = args
-            .event_categories
-            .get_output(context)
-            .get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let sns_topic_arn_binding = args.sns_topic_arn.get_output(context).get_inner();
-        let source_ids_binding = args.source_ids.get_output(context).get_inner();
-        let source_type_binding = args.source_type.get_output(context).get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
+        let enabled_binding_1 = args.enabled.get_output(context);
+        let enabled_binding = enabled_binding_1.get_inner();
+        let event_categories_binding_1 = args.event_categories.get_output(context);
+        let event_categories_binding = event_categories_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let sns_topic_arn_binding_1 = args.sns_topic_arn.get_output(context);
+        let sns_topic_arn_binding = sns_topic_arn_binding_1.get_inner();
+        let source_ids_binding_1 = args.source_ids.get_output(context);
+        let source_ids_binding = source_ids_binding_1.get_inner();
+        let source_type_binding_1 = args.source_type.get_output(context);
+        let source_type_binding = source_type_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:dms/eventSubscription:EventSubscription".into(),
             name: name.to_string(),

@@ -68,10 +68,14 @@ pub mod hostname_tls_setting {
     ) -> HostnameTlsSettingResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let hostname_binding = args.hostname.get_output(context).get_inner();
-        let setting_binding = args.setting.get_output(context).get_inner();
-        let value_binding = args.value.get_output(context).get_inner();
-        let zone_id_binding = args.zone_id.get_output(context).get_inner();
+        let hostname_binding_1 = args.hostname.get_output(context);
+        let hostname_binding = hostname_binding_1.get_inner();
+        let setting_binding_1 = args.setting.get_output(context);
+        let setting_binding = setting_binding_1.get_inner();
+        let value_binding_1 = args.value.get_output(context);
+        let value_binding = value_binding_1.get_inner();
+        let zone_id_binding_1 = args.zone_id.get_output(context);
+        let zone_id_binding = zone_id_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "cloudflare:index/hostnameTlsSetting:HostnameTlsSetting".into(),
             name: name.to_string(),

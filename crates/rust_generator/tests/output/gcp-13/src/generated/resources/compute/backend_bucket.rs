@@ -261,24 +261,29 @@ pub mod backend_bucket {
     ) -> BackendBucketResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let bucket_name_binding = args.bucket_name.get_output(context).get_inner();
-        let cdn_policy_binding = args.cdn_policy.get_output(context).get_inner();
-        let compression_mode_binding = args
-            .compression_mode
-            .get_output(context)
-            .get_inner();
-        let custom_response_headers_binding = args
+        let bucket_name_binding_1 = args.bucket_name.get_output(context);
+        let bucket_name_binding = bucket_name_binding_1.get_inner();
+        let cdn_policy_binding_1 = args.cdn_policy.get_output(context);
+        let cdn_policy_binding = cdn_policy_binding_1.get_inner();
+        let compression_mode_binding_1 = args.compression_mode.get_output(context);
+        let compression_mode_binding = compression_mode_binding_1.get_inner();
+        let custom_response_headers_binding_1 = args
             .custom_response_headers
-            .get_output(context)
+            .get_output(context);
+        let custom_response_headers_binding = custom_response_headers_binding_1
             .get_inner();
-        let description_binding = args.description.get_output(context).get_inner();
-        let edge_security_policy_binding = args
+        let description_binding_1 = args.description.get_output(context);
+        let description_binding = description_binding_1.get_inner();
+        let edge_security_policy_binding_1 = args
             .edge_security_policy
-            .get_output(context)
-            .get_inner();
-        let enable_cdn_binding = args.enable_cdn.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let project_binding = args.project.get_output(context).get_inner();
+            .get_output(context);
+        let edge_security_policy_binding = edge_security_policy_binding_1.get_inner();
+        let enable_cdn_binding_1 = args.enable_cdn.get_output(context);
+        let enable_cdn_binding = enable_cdn_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let project_binding_1 = args.project.get_output(context);
+        let project_binding = project_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:compute/backendBucket:BackendBucket".into(),
             name: name.to_string(),

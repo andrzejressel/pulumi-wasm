@@ -107,15 +107,21 @@ pub mod volume_attachment {
     ) -> VolumeAttachmentResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let device_name_binding = args.device_name.get_output(context).get_inner();
-        let force_detach_binding = args.force_detach.get_output(context).get_inner();
-        let instance_id_binding = args.instance_id.get_output(context).get_inner();
-        let skip_destroy_binding = args.skip_destroy.get_output(context).get_inner();
-        let stop_instance_before_detaching_binding = args
+        let device_name_binding_1 = args.device_name.get_output(context);
+        let device_name_binding = device_name_binding_1.get_inner();
+        let force_detach_binding_1 = args.force_detach.get_output(context);
+        let force_detach_binding = force_detach_binding_1.get_inner();
+        let instance_id_binding_1 = args.instance_id.get_output(context);
+        let instance_id_binding = instance_id_binding_1.get_inner();
+        let skip_destroy_binding_1 = args.skip_destroy.get_output(context);
+        let skip_destroy_binding = skip_destroy_binding_1.get_inner();
+        let stop_instance_before_detaching_binding_1 = args
             .stop_instance_before_detaching
-            .get_output(context)
+            .get_output(context);
+        let stop_instance_before_detaching_binding = stop_instance_before_detaching_binding_1
             .get_inner();
-        let volume_id_binding = args.volume_id.get_output(context).get_inner();
+        let volume_id_binding_1 = args.volume_id.get_output(context);
+        let volume_id_binding = volume_id_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:ec2/volumeAttachment:VolumeAttachment".into(),
             name: name.to_string(),

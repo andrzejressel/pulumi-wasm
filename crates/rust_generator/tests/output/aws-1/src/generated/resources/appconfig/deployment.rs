@@ -102,26 +102,30 @@ pub mod deployment {
     ) -> DeploymentResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let application_id_binding = args.application_id.get_output(context).get_inner();
-        let configuration_profile_id_binding = args
+        let application_id_binding_1 = args.application_id.get_output(context);
+        let application_id_binding = application_id_binding_1.get_inner();
+        let configuration_profile_id_binding_1 = args
             .configuration_profile_id
-            .get_output(context)
+            .get_output(context);
+        let configuration_profile_id_binding = configuration_profile_id_binding_1
             .get_inner();
-        let configuration_version_binding = args
+        let configuration_version_binding_1 = args
             .configuration_version
-            .get_output(context)
-            .get_inner();
-        let deployment_strategy_id_binding = args
+            .get_output(context);
+        let configuration_version_binding = configuration_version_binding_1.get_inner();
+        let deployment_strategy_id_binding_1 = args
             .deployment_strategy_id
-            .get_output(context)
+            .get_output(context);
+        let deployment_strategy_id_binding = deployment_strategy_id_binding_1
             .get_inner();
-        let description_binding = args.description.get_output(context).get_inner();
-        let environment_id_binding = args.environment_id.get_output(context).get_inner();
-        let kms_key_identifier_binding = args
-            .kms_key_identifier
-            .get_output(context)
-            .get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
+        let description_binding_1 = args.description.get_output(context);
+        let description_binding = description_binding_1.get_inner();
+        let environment_id_binding_1 = args.environment_id.get_output(context);
+        let environment_id_binding = environment_id_binding_1.get_inner();
+        let kms_key_identifier_binding_1 = args.kms_key_identifier.get_output(context);
+        let kms_key_identifier_binding = kms_key_identifier_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:appconfig/deployment:Deployment".into(),
             name: name.to_string(),

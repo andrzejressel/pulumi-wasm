@@ -305,75 +305,80 @@ pub mod virtual_machine {
     ) -> VirtualMachineResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let additional_capabilities_binding = args
+        let additional_capabilities_binding_1 = args
             .additional_capabilities
-            .get_output(context)
+            .get_output(context);
+        let additional_capabilities_binding = additional_capabilities_binding_1
             .get_inner();
-        let availability_set_id_binding = args
-            .availability_set_id
-            .get_output(context)
-            .get_inner();
-        let boot_diagnostics_binding = args
-            .boot_diagnostics
-            .get_output(context)
-            .get_inner();
-        let delete_data_disks_on_termination_binding = args
+        let availability_set_id_binding_1 = args.availability_set_id.get_output(context);
+        let availability_set_id_binding = availability_set_id_binding_1.get_inner();
+        let boot_diagnostics_binding_1 = args.boot_diagnostics.get_output(context);
+        let boot_diagnostics_binding = boot_diagnostics_binding_1.get_inner();
+        let delete_data_disks_on_termination_binding_1 = args
             .delete_data_disks_on_termination
-            .get_output(context)
+            .get_output(context);
+        let delete_data_disks_on_termination_binding = delete_data_disks_on_termination_binding_1
             .get_inner();
-        let delete_os_disk_on_termination_binding = args
+        let delete_os_disk_on_termination_binding_1 = args
             .delete_os_disk_on_termination
-            .get_output(context)
+            .get_output(context);
+        let delete_os_disk_on_termination_binding = delete_os_disk_on_termination_binding_1
             .get_inner();
-        let identity_binding = args.identity.get_output(context).get_inner();
-        let license_type_binding = args.license_type.get_output(context).get_inner();
-        let location_binding = args.location.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let network_interface_ids_binding = args
+        let identity_binding_1 = args.identity.get_output(context);
+        let identity_binding = identity_binding_1.get_inner();
+        let license_type_binding_1 = args.license_type.get_output(context);
+        let license_type_binding = license_type_binding_1.get_inner();
+        let location_binding_1 = args.location.get_output(context);
+        let location_binding = location_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let network_interface_ids_binding_1 = args
             .network_interface_ids
-            .get_output(context)
-            .get_inner();
-        let os_profile_binding = args.os_profile.get_output(context).get_inner();
-        let os_profile_linux_config_binding = args
+            .get_output(context);
+        let network_interface_ids_binding = network_interface_ids_binding_1.get_inner();
+        let os_profile_binding_1 = args.os_profile.get_output(context);
+        let os_profile_binding = os_profile_binding_1.get_inner();
+        let os_profile_linux_config_binding_1 = args
             .os_profile_linux_config
-            .get_output(context)
+            .get_output(context);
+        let os_profile_linux_config_binding = os_profile_linux_config_binding_1
             .get_inner();
-        let os_profile_secrets_binding = args
-            .os_profile_secrets
-            .get_output(context)
-            .get_inner();
-        let os_profile_windows_config_binding = args
+        let os_profile_secrets_binding_1 = args.os_profile_secrets.get_output(context);
+        let os_profile_secrets_binding = os_profile_secrets_binding_1.get_inner();
+        let os_profile_windows_config_binding_1 = args
             .os_profile_windows_config
-            .get_output(context)
+            .get_output(context);
+        let os_profile_windows_config_binding = os_profile_windows_config_binding_1
             .get_inner();
-        let plan_binding = args.plan.get_output(context).get_inner();
-        let primary_network_interface_id_binding = args
+        let plan_binding_1 = args.plan.get_output(context);
+        let plan_binding = plan_binding_1.get_inner();
+        let primary_network_interface_id_binding_1 = args
             .primary_network_interface_id
-            .get_output(context)
+            .get_output(context);
+        let primary_network_interface_id_binding = primary_network_interface_id_binding_1
             .get_inner();
-        let proximity_placement_group_id_binding = args
+        let proximity_placement_group_id_binding_1 = args
             .proximity_placement_group_id
-            .get_output(context)
+            .get_output(context);
+        let proximity_placement_group_id_binding = proximity_placement_group_id_binding_1
             .get_inner();
-        let resource_group_name_binding = args
-            .resource_group_name
-            .get_output(context)
-            .get_inner();
-        let storage_data_disks_binding = args
-            .storage_data_disks
-            .get_output(context)
-            .get_inner();
-        let storage_image_reference_binding = args
+        let resource_group_name_binding_1 = args.resource_group_name.get_output(context);
+        let resource_group_name_binding = resource_group_name_binding_1.get_inner();
+        let storage_data_disks_binding_1 = args.storage_data_disks.get_output(context);
+        let storage_data_disks_binding = storage_data_disks_binding_1.get_inner();
+        let storage_image_reference_binding_1 = args
             .storage_image_reference
-            .get_output(context)
+            .get_output(context);
+        let storage_image_reference_binding = storage_image_reference_binding_1
             .get_inner();
-        let storage_os_disk_binding = args
-            .storage_os_disk
-            .get_output(context)
-            .get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
-        let vm_size_binding = args.vm_size.get_output(context).get_inner();
-        let zones_binding = args.zones.get_output(context).get_inner();
+        let storage_os_disk_binding_1 = args.storage_os_disk.get_output(context);
+        let storage_os_disk_binding = storage_os_disk_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
+        let vm_size_binding_1 = args.vm_size.get_output(context);
+        let vm_size_binding = vm_size_binding_1.get_inner();
+        let zones_binding_1 = args.zones.get_output(context);
+        let zones_binding = zones_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:compute/virtualMachine:VirtualMachine".into(),
             name: name.to_string(),

@@ -60,9 +60,12 @@ pub mod lf_tag {
     ) -> LfTagResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let catalog_id_binding = args.catalog_id.get_output(context).get_inner();
-        let key_binding = args.key.get_output(context).get_inner();
-        let values_binding = args.values.get_output(context).get_inner();
+        let catalog_id_binding_1 = args.catalog_id.get_output(context);
+        let catalog_id_binding = catalog_id_binding_1.get_inner();
+        let key_binding_1 = args.key.get_output(context);
+        let key_binding = key_binding_1.get_inner();
+        let values_binding_1 = args.values.get_output(context);
+        let values_binding = values_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:lakeformation/lfTag:LfTag".into(),
             name: name.to_string(),

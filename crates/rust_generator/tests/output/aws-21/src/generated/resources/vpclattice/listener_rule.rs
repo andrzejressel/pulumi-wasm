@@ -140,19 +140,20 @@ pub mod listener_rule {
     ) -> ListenerRuleResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let action_binding = args.action.get_output(context).get_inner();
-        let listener_identifier_binding = args
-            .listener_identifier
-            .get_output(context)
-            .get_inner();
-        let match__binding = args.match_.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let priority_binding = args.priority.get_output(context).get_inner();
-        let service_identifier_binding = args
-            .service_identifier
-            .get_output(context)
-            .get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
+        let action_binding_1 = args.action.get_output(context);
+        let action_binding = action_binding_1.get_inner();
+        let listener_identifier_binding_1 = args.listener_identifier.get_output(context);
+        let listener_identifier_binding = listener_identifier_binding_1.get_inner();
+        let match__binding_1 = args.match_.get_output(context);
+        let match__binding = match__binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let priority_binding_1 = args.priority.get_output(context);
+        let priority_binding = priority_binding_1.get_inner();
+        let service_identifier_binding_1 = args.service_identifier.get_output(context);
+        let service_identifier_binding = service_identifier_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:vpclattice/listenerRule:ListenerRule".into(),
             name: name.to_string(),

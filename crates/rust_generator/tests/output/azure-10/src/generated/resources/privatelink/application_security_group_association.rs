@@ -144,14 +144,13 @@ pub mod application_security_group_association {
     ) -> ApplicationSecurityGroupAssociationResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let application_security_group_id_binding = args
+        let application_security_group_id_binding_1 = args
             .application_security_group_id
-            .get_output(context)
+            .get_output(context);
+        let application_security_group_id_binding = application_security_group_id_binding_1
             .get_inner();
-        let private_endpoint_id_binding = args
-            .private_endpoint_id
-            .get_output(context)
-            .get_inner();
+        let private_endpoint_id_binding_1 = args.private_endpoint_id.get_output(context);
+        let private_endpoint_id_binding = private_endpoint_id_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:privatelink/applicationSecurityGroupAssociation:ApplicationSecurityGroupAssociation"
                 .into(),

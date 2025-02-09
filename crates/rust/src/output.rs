@@ -7,13 +7,14 @@ use serde::de::DeserializeOwned;
 use serde::Serialize;
 use std::collections::HashMap;
 use std::marker::PhantomData;
+use std::rc::Rc;
 use std::sync::Mutex;
 use uuid::Uuid;
 
 /// Not yet known value
 pub struct Output<T> {
     phantom: PhantomData<T>,
-    underlying_id: output_interface::Output,
+    underlying_id: Rc<output_interface::Output>,
 }
 
 impl<T> Clone for Output<T> {
@@ -60,7 +61,7 @@ impl<T> Output<T> {
 
         Output {
             phantom: PhantomData,
-            underlying_id: new_output,
+            underlying_id: Rc::new(new_output),
         }
     }
 
@@ -75,10 +76,10 @@ impl<T> Output<T> {
     /// # Safety
     ///
     /// Underlying output must be of type `F`.
-    pub unsafe fn transmute<F: Serialize>(self) -> Output<F> {
+    pub unsafe fn transmute<F: Serialize>(&self) -> Output<F> {
         Output {
             phantom: PhantomData::<F>,
-            underlying_id: self.underlying_id,
+            underlying_id: self.underlying_id.clone(),
         }
     }
 
@@ -90,7 +91,7 @@ impl<T> Output<T> {
     pub unsafe fn new_from_handle<F: Serialize>(handle: output_interface::Output) -> Output<F> {
         Output {
             phantom: PhantomData::<F>,
-            underlying_id: handle,
+            underlying_id: Rc::new(handle),
         }
     }
 
@@ -106,7 +107,7 @@ impl<T: Serialize> Output<T> {
         let resource = output_interface::Output::new(&engine.wit_engine, binding.as_str(), false);
         Output {
             phantom: PhantomData,
-            underlying_id: resource,
+            underlying_id: Rc::new(resource),
         }
     }
 
@@ -115,7 +116,7 @@ impl<T: Serialize> Output<T> {
         let resource = output_interface::Output::new(&engine.wit_engine, binding.as_str(), true);
         Output {
             phantom: PhantomData,
-            underlying_id: resource,
+            underlying_id: Rc::new(resource),
         }
     }
 

@@ -121,8 +121,10 @@ pub mod client {
     ) -> ClientResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let brand_binding = args.brand.get_output(context).get_inner();
-        let display_name_binding = args.display_name.get_output(context).get_inner();
+        let brand_binding_1 = args.brand.get_output(context);
+        let brand_binding = brand_binding_1.get_inner();
+        let display_name_binding_1 = args.display_name.get_output(context);
+        let display_name_binding = display_name_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:iap/client:Client".into(),
             name: name.to_string(),

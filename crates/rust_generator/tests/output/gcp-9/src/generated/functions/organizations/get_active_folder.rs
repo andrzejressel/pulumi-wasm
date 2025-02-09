@@ -34,9 +34,12 @@ pub mod get_active_folder {
     ) -> GetActiveFolderResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let api_method_binding = args.api_method.get_output(context).get_inner();
-        let display_name_binding = args.display_name.get_output(context).get_inner();
-        let parent_binding = args.parent.get_output(context).get_inner();
+        let api_method_binding_1 = args.api_method.get_output(context);
+        let api_method_binding = api_method_binding_1.get_inner();
+        let display_name_binding_1 = args.display_name.get_output(context);
+        let display_name_binding = display_name_binding_1.get_inner();
+        let parent_binding_1 = args.parent.get_output(context);
+        let parent_binding = parent_binding_1.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "gcp:organizations/getActiveFolder:getActiveFolder".into(),
             version: super::super::super::get_version(),

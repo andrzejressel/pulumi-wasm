@@ -183,34 +183,41 @@ pub mod traffic_manager_nested_endpoint {
     ) -> TrafficManagerNestedEndpointResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let custom_headers_binding = args.custom_headers.get_output(context).get_inner();
-        let enabled_binding = args.enabled.get_output(context).get_inner();
-        let endpoint_location_binding = args
-            .endpoint_location
-            .get_output(context)
-            .get_inner();
-        let geo_mappings_binding = args.geo_mappings.get_output(context).get_inner();
-        let minimum_child_endpoints_binding = args
+        let custom_headers_binding_1 = args.custom_headers.get_output(context);
+        let custom_headers_binding = custom_headers_binding_1.get_inner();
+        let enabled_binding_1 = args.enabled.get_output(context);
+        let enabled_binding = enabled_binding_1.get_inner();
+        let endpoint_location_binding_1 = args.endpoint_location.get_output(context);
+        let endpoint_location_binding = endpoint_location_binding_1.get_inner();
+        let geo_mappings_binding_1 = args.geo_mappings.get_output(context);
+        let geo_mappings_binding = geo_mappings_binding_1.get_inner();
+        let minimum_child_endpoints_binding_1 = args
             .minimum_child_endpoints
-            .get_output(context)
+            .get_output(context);
+        let minimum_child_endpoints_binding = minimum_child_endpoints_binding_1
             .get_inner();
-        let minimum_required_child_endpoints_ipv4_binding = args
+        let minimum_required_child_endpoints_ipv4_binding_1 = args
             .minimum_required_child_endpoints_ipv4
-            .get_output(context)
+            .get_output(context);
+        let minimum_required_child_endpoints_ipv4_binding = minimum_required_child_endpoints_ipv4_binding_1
             .get_inner();
-        let minimum_required_child_endpoints_ipv6_binding = args
+        let minimum_required_child_endpoints_ipv6_binding_1 = args
             .minimum_required_child_endpoints_ipv6
-            .get_output(context)
+            .get_output(context);
+        let minimum_required_child_endpoints_ipv6_binding = minimum_required_child_endpoints_ipv6_binding_1
             .get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let priority_binding = args.priority.get_output(context).get_inner();
-        let profile_id_binding = args.profile_id.get_output(context).get_inner();
-        let subnets_binding = args.subnets.get_output(context).get_inner();
-        let target_resource_id_binding = args
-            .target_resource_id
-            .get_output(context)
-            .get_inner();
-        let weight_binding = args.weight.get_output(context).get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let priority_binding_1 = args.priority.get_output(context);
+        let priority_binding = priority_binding_1.get_inner();
+        let profile_id_binding_1 = args.profile_id.get_output(context);
+        let profile_id_binding = profile_id_binding_1.get_inner();
+        let subnets_binding_1 = args.subnets.get_output(context);
+        let subnets_binding = subnets_binding_1.get_inner();
+        let target_resource_id_binding_1 = args.target_resource_id.get_output(context);
+        let target_resource_id_binding = target_resource_id_binding_1.get_inner();
+        let weight_binding_1 = args.weight.get_output(context);
+        let weight_binding = weight_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:network/trafficManagerNestedEndpoint:TrafficManagerNestedEndpoint"
                 .into(),

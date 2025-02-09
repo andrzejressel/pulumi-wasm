@@ -71,14 +71,17 @@ pub mod multicast_domain_association {
     ) -> MulticastDomainAssociationResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let subnet_id_binding = args.subnet_id.get_output(context).get_inner();
-        let transit_gateway_attachment_id_binding = args
+        let subnet_id_binding_1 = args.subnet_id.get_output(context);
+        let subnet_id_binding = subnet_id_binding_1.get_inner();
+        let transit_gateway_attachment_id_binding_1 = args
             .transit_gateway_attachment_id
-            .get_output(context)
+            .get_output(context);
+        let transit_gateway_attachment_id_binding = transit_gateway_attachment_id_binding_1
             .get_inner();
-        let transit_gateway_multicast_domain_id_binding = args
+        let transit_gateway_multicast_domain_id_binding_1 = args
             .transit_gateway_multicast_domain_id
-            .get_output(context)
+            .get_output(context);
+        let transit_gateway_multicast_domain_id_binding = transit_gateway_multicast_domain_id_binding_1
             .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:ec2transitgateway/multicastDomainAssociation:MulticastDomainAssociation"

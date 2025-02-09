@@ -80,8 +80,10 @@ pub mod user_group_membership {
     ) -> UserGroupMembershipResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let groups_binding = args.groups.get_output(context).get_inner();
-        let user_binding = args.user.get_output(context).get_inner();
+        let groups_binding_1 = args.groups.get_output(context);
+        let groups_binding = groups_binding_1.get_inner();
+        let user_binding_1 = args.user.get_output(context);
+        let user_binding = user_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:iam/userGroupMembership:UserGroupMembership".into(),
             name: name.to_string(),

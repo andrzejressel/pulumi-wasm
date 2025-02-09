@@ -60,17 +60,19 @@ pub mod account {
     ) -> AccountResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let auto_enable_controls_binding = args
+        let auto_enable_controls_binding_1 = args
             .auto_enable_controls
-            .get_output(context)
-            .get_inner();
-        let control_finding_generator_binding = args
+            .get_output(context);
+        let auto_enable_controls_binding = auto_enable_controls_binding_1.get_inner();
+        let control_finding_generator_binding_1 = args
             .control_finding_generator
-            .get_output(context)
+            .get_output(context);
+        let control_finding_generator_binding = control_finding_generator_binding_1
             .get_inner();
-        let enable_default_standards_binding = args
+        let enable_default_standards_binding_1 = args
             .enable_default_standards
-            .get_output(context)
+            .get_output(context);
+        let enable_default_standards_binding = enable_default_standards_binding_1
             .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:securityhub/account:Account".into(),

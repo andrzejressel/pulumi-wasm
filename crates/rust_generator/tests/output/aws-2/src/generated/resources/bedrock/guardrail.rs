@@ -217,39 +217,44 @@ pub mod guardrail {
     ) -> GuardrailResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let blocked_input_messaging_binding = args
+        let blocked_input_messaging_binding_1 = args
             .blocked_input_messaging
-            .get_output(context)
+            .get_output(context);
+        let blocked_input_messaging_binding = blocked_input_messaging_binding_1
             .get_inner();
-        let blocked_outputs_messaging_binding = args
+        let blocked_outputs_messaging_binding_1 = args
             .blocked_outputs_messaging
-            .get_output(context)
+            .get_output(context);
+        let blocked_outputs_messaging_binding = blocked_outputs_messaging_binding_1
             .get_inner();
-        let content_policy_config_binding = args
+        let content_policy_config_binding_1 = args
             .content_policy_config
-            .get_output(context)
-            .get_inner();
-        let contextual_grounding_policy_config_binding = args
+            .get_output(context);
+        let content_policy_config_binding = content_policy_config_binding_1.get_inner();
+        let contextual_grounding_policy_config_binding_1 = args
             .contextual_grounding_policy_config
-            .get_output(context)
+            .get_output(context);
+        let contextual_grounding_policy_config_binding = contextual_grounding_policy_config_binding_1
             .get_inner();
-        let description_binding = args.description.get_output(context).get_inner();
-        let kms_key_arn_binding = args.kms_key_arn.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let sensitive_information_policy_config_binding = args
+        let description_binding_1 = args.description.get_output(context);
+        let description_binding = description_binding_1.get_inner();
+        let kms_key_arn_binding_1 = args.kms_key_arn.get_output(context);
+        let kms_key_arn_binding = kms_key_arn_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let sensitive_information_policy_config_binding_1 = args
             .sensitive_information_policy_config
-            .get_output(context)
+            .get_output(context);
+        let sensitive_information_policy_config_binding = sensitive_information_policy_config_binding_1
             .get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
-        let timeouts_binding = args.timeouts.get_output(context).get_inner();
-        let topic_policy_config_binding = args
-            .topic_policy_config
-            .get_output(context)
-            .get_inner();
-        let word_policy_config_binding = args
-            .word_policy_config
-            .get_output(context)
-            .get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
+        let timeouts_binding_1 = args.timeouts.get_output(context);
+        let timeouts_binding = timeouts_binding_1.get_inner();
+        let topic_policy_config_binding_1 = args.topic_policy_config.get_output(context);
+        let topic_policy_config_binding = topic_policy_config_binding_1.get_inner();
+        let word_policy_config_binding_1 = args.word_policy_config.get_output(context);
+        let word_policy_config_binding = word_policy_config_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:bedrock/guardrail:Guardrail".into(),
             name: name.to_string(),

@@ -233,29 +233,31 @@ pub mod security_group_rule {
     ) -> SecurityGroupRuleResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let cidr_blocks_binding = args.cidr_blocks.get_output(context).get_inner();
-        let description_binding = args.description.get_output(context).get_inner();
-        let from_port_binding = args.from_port.get_output(context).get_inner();
-        let ipv6_cidr_blocks_binding = args
-            .ipv6_cidr_blocks
-            .get_output(context)
-            .get_inner();
-        let prefix_list_ids_binding = args
-            .prefix_list_ids
-            .get_output(context)
-            .get_inner();
-        let protocol_binding = args.protocol.get_output(context).get_inner();
-        let security_group_id_binding = args
-            .security_group_id
-            .get_output(context)
-            .get_inner();
-        let self__binding = args.self_.get_output(context).get_inner();
-        let source_security_group_id_binding = args
+        let cidr_blocks_binding_1 = args.cidr_blocks.get_output(context);
+        let cidr_blocks_binding = cidr_blocks_binding_1.get_inner();
+        let description_binding_1 = args.description.get_output(context);
+        let description_binding = description_binding_1.get_inner();
+        let from_port_binding_1 = args.from_port.get_output(context);
+        let from_port_binding = from_port_binding_1.get_inner();
+        let ipv6_cidr_blocks_binding_1 = args.ipv6_cidr_blocks.get_output(context);
+        let ipv6_cidr_blocks_binding = ipv6_cidr_blocks_binding_1.get_inner();
+        let prefix_list_ids_binding_1 = args.prefix_list_ids.get_output(context);
+        let prefix_list_ids_binding = prefix_list_ids_binding_1.get_inner();
+        let protocol_binding_1 = args.protocol.get_output(context);
+        let protocol_binding = protocol_binding_1.get_inner();
+        let security_group_id_binding_1 = args.security_group_id.get_output(context);
+        let security_group_id_binding = security_group_id_binding_1.get_inner();
+        let self__binding_1 = args.self_.get_output(context);
+        let self__binding = self__binding_1.get_inner();
+        let source_security_group_id_binding_1 = args
             .source_security_group_id
-            .get_output(context)
+            .get_output(context);
+        let source_security_group_id_binding = source_security_group_id_binding_1
             .get_inner();
-        let to_port_binding = args.to_port.get_output(context).get_inner();
-        let type__binding = args.type_.get_output(context).get_inner();
+        let to_port_binding_1 = args.to_port.get_output(context);
+        let to_port_binding = to_port_binding_1.get_inner();
+        let type__binding_1 = args.type_.get_output(context);
+        let type__binding = type__binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:ec2/securityGroupRule:SecurityGroupRule".into(),
             name: name.to_string(),

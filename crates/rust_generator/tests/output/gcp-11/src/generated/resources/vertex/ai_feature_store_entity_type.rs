@@ -184,17 +184,20 @@ pub mod ai_feature_store_entity_type {
     ) -> AiFeatureStoreEntityTypeResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let description_binding = args.description.get_output(context).get_inner();
-        let featurestore_binding = args.featurestore.get_output(context).get_inner();
-        let labels_binding = args.labels.get_output(context).get_inner();
-        let monitoring_config_binding = args
-            .monitoring_config
-            .get_output(context)
-            .get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let offline_storage_ttl_days_binding = args
+        let description_binding_1 = args.description.get_output(context);
+        let description_binding = description_binding_1.get_inner();
+        let featurestore_binding_1 = args.featurestore.get_output(context);
+        let featurestore_binding = featurestore_binding_1.get_inner();
+        let labels_binding_1 = args.labels.get_output(context);
+        let labels_binding = labels_binding_1.get_inner();
+        let monitoring_config_binding_1 = args.monitoring_config.get_output(context);
+        let monitoring_config_binding = monitoring_config_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let offline_storage_ttl_days_binding_1 = args
             .offline_storage_ttl_days
-            .get_output(context)
+            .get_output(context);
+        let offline_storage_ttl_days_binding = offline_storage_ttl_days_binding_1
             .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:vertex/aiFeatureStoreEntityType:AiFeatureStoreEntityType".into(),

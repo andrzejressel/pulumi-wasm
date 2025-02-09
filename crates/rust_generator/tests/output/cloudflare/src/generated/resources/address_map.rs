@@ -102,12 +102,18 @@ pub mod address_map {
     ) -> AddressMapResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let account_id_binding = args.account_id.get_output(context).get_inner();
-        let default_sni_binding = args.default_sni.get_output(context).get_inner();
-        let description_binding = args.description.get_output(context).get_inner();
-        let enabled_binding = args.enabled.get_output(context).get_inner();
-        let ips_binding = args.ips.get_output(context).get_inner();
-        let memberships_binding = args.memberships.get_output(context).get_inner();
+        let account_id_binding_1 = args.account_id.get_output(context);
+        let account_id_binding = account_id_binding_1.get_inner();
+        let default_sni_binding_1 = args.default_sni.get_output(context);
+        let default_sni_binding = default_sni_binding_1.get_inner();
+        let description_binding_1 = args.description.get_output(context);
+        let description_binding = description_binding_1.get_inner();
+        let enabled_binding_1 = args.enabled.get_output(context);
+        let enabled_binding = enabled_binding_1.get_inner();
+        let ips_binding_1 = args.ips.get_output(context);
+        let ips_binding = ips_binding_1.get_inner();
+        let memberships_binding_1 = args.memberships.get_output(context);
+        let memberships_binding = memberships_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "cloudflare:index/addressMap:AddressMap".into(),
             name: name.to_string(),

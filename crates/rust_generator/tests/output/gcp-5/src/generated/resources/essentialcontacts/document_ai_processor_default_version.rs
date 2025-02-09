@@ -81,8 +81,10 @@ pub mod document_ai_processor_default_version {
     ) -> DocumentAiProcessorDefaultVersionResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let processor_binding = args.processor.get_output(context).get_inner();
-        let version_binding = args.version.get_output(context).get_inner();
+        let processor_binding_1 = args.processor.get_output(context);
+        let processor_binding = processor_binding_1.get_inner();
+        let version_binding_1 = args.version.get_output(context);
+        let version_binding = version_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:essentialcontacts/documentAiProcessorDefaultVersion:DocumentAiProcessorDefaultVersion"
                 .into(),

@@ -76,30 +76,30 @@ pub mod get_account_blob_container_sas {
     ) -> GetAccountBlobContainerSasResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let cache_control_binding = args.cache_control.get_output(context).get_inner();
-        let connection_string_binding = args
-            .connection_string
-            .get_output(context)
-            .get_inner();
-        let container_name_binding = args.container_name.get_output(context).get_inner();
-        let content_disposition_binding = args
-            .content_disposition
-            .get_output(context)
-            .get_inner();
-        let content_encoding_binding = args
-            .content_encoding
-            .get_output(context)
-            .get_inner();
-        let content_language_binding = args
-            .content_language
-            .get_output(context)
-            .get_inner();
-        let content_type_binding = args.content_type.get_output(context).get_inner();
-        let expiry_binding = args.expiry.get_output(context).get_inner();
-        let https_only_binding = args.https_only.get_output(context).get_inner();
-        let ip_address_binding = args.ip_address.get_output(context).get_inner();
-        let permissions_binding = args.permissions.get_output(context).get_inner();
-        let start_binding = args.start.get_output(context).get_inner();
+        let cache_control_binding_1 = args.cache_control.get_output(context);
+        let cache_control_binding = cache_control_binding_1.get_inner();
+        let connection_string_binding_1 = args.connection_string.get_output(context);
+        let connection_string_binding = connection_string_binding_1.get_inner();
+        let container_name_binding_1 = args.container_name.get_output(context);
+        let container_name_binding = container_name_binding_1.get_inner();
+        let content_disposition_binding_1 = args.content_disposition.get_output(context);
+        let content_disposition_binding = content_disposition_binding_1.get_inner();
+        let content_encoding_binding_1 = args.content_encoding.get_output(context);
+        let content_encoding_binding = content_encoding_binding_1.get_inner();
+        let content_language_binding_1 = args.content_language.get_output(context);
+        let content_language_binding = content_language_binding_1.get_inner();
+        let content_type_binding_1 = args.content_type.get_output(context);
+        let content_type_binding = content_type_binding_1.get_inner();
+        let expiry_binding_1 = args.expiry.get_output(context);
+        let expiry_binding = expiry_binding_1.get_inner();
+        let https_only_binding_1 = args.https_only.get_output(context);
+        let https_only_binding = https_only_binding_1.get_inner();
+        let ip_address_binding_1 = args.ip_address.get_output(context);
+        let ip_address_binding = ip_address_binding_1.get_inner();
+        let permissions_binding_1 = args.permissions.get_output(context);
+        let permissions_binding = permissions_binding_1.get_inner();
+        let start_binding_1 = args.start.get_output(context);
+        let start_binding = start_binding_1.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "azure:storage/getAccountBlobContainerSAS:getAccountBlobContainerSAS"
                 .into(),

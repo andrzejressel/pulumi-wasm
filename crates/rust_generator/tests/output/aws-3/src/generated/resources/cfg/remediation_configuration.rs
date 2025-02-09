@@ -152,28 +152,31 @@ pub mod remediation_configuration {
     ) -> RemediationConfigurationResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let automatic_binding = args.automatic.get_output(context).get_inner();
-        let config_rule_name_binding = args
-            .config_rule_name
-            .get_output(context)
-            .get_inner();
-        let execution_controls_binding = args
-            .execution_controls
-            .get_output(context)
-            .get_inner();
-        let maximum_automatic_attempts_binding = args
+        let automatic_binding_1 = args.automatic.get_output(context);
+        let automatic_binding = automatic_binding_1.get_inner();
+        let config_rule_name_binding_1 = args.config_rule_name.get_output(context);
+        let config_rule_name_binding = config_rule_name_binding_1.get_inner();
+        let execution_controls_binding_1 = args.execution_controls.get_output(context);
+        let execution_controls_binding = execution_controls_binding_1.get_inner();
+        let maximum_automatic_attempts_binding_1 = args
             .maximum_automatic_attempts
-            .get_output(context)
+            .get_output(context);
+        let maximum_automatic_attempts_binding = maximum_automatic_attempts_binding_1
             .get_inner();
-        let parameters_binding = args.parameters.get_output(context).get_inner();
-        let resource_type_binding = args.resource_type.get_output(context).get_inner();
-        let retry_attempt_seconds_binding = args
+        let parameters_binding_1 = args.parameters.get_output(context);
+        let parameters_binding = parameters_binding_1.get_inner();
+        let resource_type_binding_1 = args.resource_type.get_output(context);
+        let resource_type_binding = resource_type_binding_1.get_inner();
+        let retry_attempt_seconds_binding_1 = args
             .retry_attempt_seconds
-            .get_output(context)
-            .get_inner();
-        let target_id_binding = args.target_id.get_output(context).get_inner();
-        let target_type_binding = args.target_type.get_output(context).get_inner();
-        let target_version_binding = args.target_version.get_output(context).get_inner();
+            .get_output(context);
+        let retry_attempt_seconds_binding = retry_attempt_seconds_binding_1.get_inner();
+        let target_id_binding_1 = args.target_id.get_output(context);
+        let target_id_binding = target_id_binding_1.get_inner();
+        let target_type_binding_1 = args.target_type.get_output(context);
+        let target_type_binding = target_type_binding_1.get_inner();
+        let target_version_binding_1 = args.target_version.get_output(context);
+        let target_version_binding = target_version_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:cfg/remediationConfiguration:RemediationConfiguration".into(),
             name: name.to_string(),

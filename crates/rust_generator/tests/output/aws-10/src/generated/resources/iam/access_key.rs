@@ -110,9 +110,12 @@ pub mod access_key {
     ) -> AccessKeyResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let pgp_key_binding = args.pgp_key.get_output(context).get_inner();
-        let status_binding = args.status.get_output(context).get_inner();
-        let user_binding = args.user.get_output(context).get_inner();
+        let pgp_key_binding_1 = args.pgp_key.get_output(context);
+        let pgp_key_binding = pgp_key_binding_1.get_inner();
+        let status_binding_1 = args.status.get_output(context);
+        let status_binding = status_binding_1.get_inner();
+        let user_binding_1 = args.user.get_output(context);
+        let user_binding = user_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:iam/accessKey:AccessKey".into(),
             name: name.to_string(),

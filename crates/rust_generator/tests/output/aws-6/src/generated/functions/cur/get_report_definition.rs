@@ -51,8 +51,10 @@ pub mod get_report_definition {
     ) -> GetReportDefinitionResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let report_name_binding = args.report_name.get_output(context).get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
+        let report_name_binding_1 = args.report_name.get_output(context);
+        let report_name_binding = report_name_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:cur/getReportDefinition:getReportDefinition".into(),
             version: super::super::super::get_version(),

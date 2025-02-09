@@ -145,36 +145,36 @@ pub mod endpoint_storage_container {
     ) -> EndpointStorageContainerResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let authentication_type_binding = args
-            .authentication_type
-            .get_output(context)
-            .get_inner();
-        let batch_frequency_in_seconds_binding = args
+        let authentication_type_binding_1 = args.authentication_type.get_output(context);
+        let authentication_type_binding = authentication_type_binding_1.get_inner();
+        let batch_frequency_in_seconds_binding_1 = args
             .batch_frequency_in_seconds
-            .get_output(context)
+            .get_output(context);
+        let batch_frequency_in_seconds_binding = batch_frequency_in_seconds_binding_1
             .get_inner();
-        let connection_string_binding = args
-            .connection_string
-            .get_output(context)
-            .get_inner();
-        let container_name_binding = args.container_name.get_output(context).get_inner();
-        let encoding_binding = args.encoding.get_output(context).get_inner();
-        let endpoint_uri_binding = args.endpoint_uri.get_output(context).get_inner();
-        let file_name_format_binding = args
-            .file_name_format
-            .get_output(context)
-            .get_inner();
-        let identity_id_binding = args.identity_id.get_output(context).get_inner();
-        let iothub_id_binding = args.iothub_id.get_output(context).get_inner();
-        let max_chunk_size_in_bytes_binding = args
+        let connection_string_binding_1 = args.connection_string.get_output(context);
+        let connection_string_binding = connection_string_binding_1.get_inner();
+        let container_name_binding_1 = args.container_name.get_output(context);
+        let container_name_binding = container_name_binding_1.get_inner();
+        let encoding_binding_1 = args.encoding.get_output(context);
+        let encoding_binding = encoding_binding_1.get_inner();
+        let endpoint_uri_binding_1 = args.endpoint_uri.get_output(context);
+        let endpoint_uri_binding = endpoint_uri_binding_1.get_inner();
+        let file_name_format_binding_1 = args.file_name_format.get_output(context);
+        let file_name_format_binding = file_name_format_binding_1.get_inner();
+        let identity_id_binding_1 = args.identity_id.get_output(context);
+        let identity_id_binding = identity_id_binding_1.get_inner();
+        let iothub_id_binding_1 = args.iothub_id.get_output(context);
+        let iothub_id_binding = iothub_id_binding_1.get_inner();
+        let max_chunk_size_in_bytes_binding_1 = args
             .max_chunk_size_in_bytes
-            .get_output(context)
+            .get_output(context);
+        let max_chunk_size_in_bytes_binding = max_chunk_size_in_bytes_binding_1
             .get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let resource_group_name_binding = args
-            .resource_group_name
-            .get_output(context)
-            .get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let resource_group_name_binding_1 = args.resource_group_name.get_output(context);
+        let resource_group_name_binding = resource_group_name_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:iot/endpointStorageContainer:EndpointStorageContainer".into(),
             name: name.to_string(),

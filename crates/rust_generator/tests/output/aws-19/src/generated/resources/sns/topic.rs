@@ -299,90 +299,108 @@ pub mod topic {
     ) -> TopicResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let application_failure_feedback_role_arn_binding = args
+        let application_failure_feedback_role_arn_binding_1 = args
             .application_failure_feedback_role_arn
-            .get_output(context)
+            .get_output(context);
+        let application_failure_feedback_role_arn_binding = application_failure_feedback_role_arn_binding_1
             .get_inner();
-        let application_success_feedback_role_arn_binding = args
+        let application_success_feedback_role_arn_binding_1 = args
             .application_success_feedback_role_arn
-            .get_output(context)
+            .get_output(context);
+        let application_success_feedback_role_arn_binding = application_success_feedback_role_arn_binding_1
             .get_inner();
-        let application_success_feedback_sample_rate_binding = args
+        let application_success_feedback_sample_rate_binding_1 = args
             .application_success_feedback_sample_rate
-            .get_output(context)
+            .get_output(context);
+        let application_success_feedback_sample_rate_binding = application_success_feedback_sample_rate_binding_1
             .get_inner();
-        let archive_policy_binding = args.archive_policy.get_output(context).get_inner();
-        let content_based_deduplication_binding = args
+        let archive_policy_binding_1 = args.archive_policy.get_output(context);
+        let archive_policy_binding = archive_policy_binding_1.get_inner();
+        let content_based_deduplication_binding_1 = args
             .content_based_deduplication
-            .get_output(context)
+            .get_output(context);
+        let content_based_deduplication_binding = content_based_deduplication_binding_1
             .get_inner();
-        let delivery_policy_binding = args
-            .delivery_policy
-            .get_output(context)
-            .get_inner();
-        let display_name_binding = args.display_name.get_output(context).get_inner();
-        let fifo_topic_binding = args.fifo_topic.get_output(context).get_inner();
-        let firehose_failure_feedback_role_arn_binding = args
+        let delivery_policy_binding_1 = args.delivery_policy.get_output(context);
+        let delivery_policy_binding = delivery_policy_binding_1.get_inner();
+        let display_name_binding_1 = args.display_name.get_output(context);
+        let display_name_binding = display_name_binding_1.get_inner();
+        let fifo_topic_binding_1 = args.fifo_topic.get_output(context);
+        let fifo_topic_binding = fifo_topic_binding_1.get_inner();
+        let firehose_failure_feedback_role_arn_binding_1 = args
             .firehose_failure_feedback_role_arn
-            .get_output(context)
+            .get_output(context);
+        let firehose_failure_feedback_role_arn_binding = firehose_failure_feedback_role_arn_binding_1
             .get_inner();
-        let firehose_success_feedback_role_arn_binding = args
+        let firehose_success_feedback_role_arn_binding_1 = args
             .firehose_success_feedback_role_arn
-            .get_output(context)
+            .get_output(context);
+        let firehose_success_feedback_role_arn_binding = firehose_success_feedback_role_arn_binding_1
             .get_inner();
-        let firehose_success_feedback_sample_rate_binding = args
+        let firehose_success_feedback_sample_rate_binding_1 = args
             .firehose_success_feedback_sample_rate
-            .get_output(context)
+            .get_output(context);
+        let firehose_success_feedback_sample_rate_binding = firehose_success_feedback_sample_rate_binding_1
             .get_inner();
-        let http_failure_feedback_role_arn_binding = args
+        let http_failure_feedback_role_arn_binding_1 = args
             .http_failure_feedback_role_arn
-            .get_output(context)
+            .get_output(context);
+        let http_failure_feedback_role_arn_binding = http_failure_feedback_role_arn_binding_1
             .get_inner();
-        let http_success_feedback_role_arn_binding = args
+        let http_success_feedback_role_arn_binding_1 = args
             .http_success_feedback_role_arn
-            .get_output(context)
+            .get_output(context);
+        let http_success_feedback_role_arn_binding = http_success_feedback_role_arn_binding_1
             .get_inner();
-        let http_success_feedback_sample_rate_binding = args
+        let http_success_feedback_sample_rate_binding_1 = args
             .http_success_feedback_sample_rate
-            .get_output(context)
+            .get_output(context);
+        let http_success_feedback_sample_rate_binding = http_success_feedback_sample_rate_binding_1
             .get_inner();
-        let kms_master_key_id_binding = args
-            .kms_master_key_id
-            .get_output(context)
-            .get_inner();
-        let lambda_failure_feedback_role_arn_binding = args
+        let kms_master_key_id_binding_1 = args.kms_master_key_id.get_output(context);
+        let kms_master_key_id_binding = kms_master_key_id_binding_1.get_inner();
+        let lambda_failure_feedback_role_arn_binding_1 = args
             .lambda_failure_feedback_role_arn
-            .get_output(context)
+            .get_output(context);
+        let lambda_failure_feedback_role_arn_binding = lambda_failure_feedback_role_arn_binding_1
             .get_inner();
-        let lambda_success_feedback_role_arn_binding = args
+        let lambda_success_feedback_role_arn_binding_1 = args
             .lambda_success_feedback_role_arn
-            .get_output(context)
+            .get_output(context);
+        let lambda_success_feedback_role_arn_binding = lambda_success_feedback_role_arn_binding_1
             .get_inner();
-        let lambda_success_feedback_sample_rate_binding = args
+        let lambda_success_feedback_sample_rate_binding_1 = args
             .lambda_success_feedback_sample_rate
-            .get_output(context)
+            .get_output(context);
+        let lambda_success_feedback_sample_rate_binding = lambda_success_feedback_sample_rate_binding_1
             .get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let name_prefix_binding = args.name_prefix.get_output(context).get_inner();
-        let policy_binding = args.policy.get_output(context).get_inner();
-        let signature_version_binding = args
-            .signature_version
-            .get_output(context)
-            .get_inner();
-        let sqs_failure_feedback_role_arn_binding = args
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let name_prefix_binding_1 = args.name_prefix.get_output(context);
+        let name_prefix_binding = name_prefix_binding_1.get_inner();
+        let policy_binding_1 = args.policy.get_output(context);
+        let policy_binding = policy_binding_1.get_inner();
+        let signature_version_binding_1 = args.signature_version.get_output(context);
+        let signature_version_binding = signature_version_binding_1.get_inner();
+        let sqs_failure_feedback_role_arn_binding_1 = args
             .sqs_failure_feedback_role_arn
-            .get_output(context)
+            .get_output(context);
+        let sqs_failure_feedback_role_arn_binding = sqs_failure_feedback_role_arn_binding_1
             .get_inner();
-        let sqs_success_feedback_role_arn_binding = args
+        let sqs_success_feedback_role_arn_binding_1 = args
             .sqs_success_feedback_role_arn
-            .get_output(context)
+            .get_output(context);
+        let sqs_success_feedback_role_arn_binding = sqs_success_feedback_role_arn_binding_1
             .get_inner();
-        let sqs_success_feedback_sample_rate_binding = args
+        let sqs_success_feedback_sample_rate_binding_1 = args
             .sqs_success_feedback_sample_rate
-            .get_output(context)
+            .get_output(context);
+        let sqs_success_feedback_sample_rate_binding = sqs_success_feedback_sample_rate_binding_1
             .get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
-        let tracing_config_binding = args.tracing_config.get_output(context).get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
+        let tracing_config_binding_1 = args.tracing_config.get_output(context);
+        let tracing_config_binding = tracing_config_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:sns/topic:Topic".into(),
             name: name.to_string(),

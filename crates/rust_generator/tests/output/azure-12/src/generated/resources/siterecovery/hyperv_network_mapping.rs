@@ -93,23 +93,19 @@ pub mod hyperv_network_mapping {
     ) -> HypervNetworkMappingResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let name_binding = args.name.get_output(context).get_inner();
-        let recovery_vault_id_binding = args
-            .recovery_vault_id
-            .get_output(context)
-            .get_inner();
-        let source_network_name_binding = args
-            .source_network_name
-            .get_output(context)
-            .get_inner();
-        let source_system_center_virtual_machine_manager_name_binding = args
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let recovery_vault_id_binding_1 = args.recovery_vault_id.get_output(context);
+        let recovery_vault_id_binding = recovery_vault_id_binding_1.get_inner();
+        let source_network_name_binding_1 = args.source_network_name.get_output(context);
+        let source_network_name_binding = source_network_name_binding_1.get_inner();
+        let source_system_center_virtual_machine_manager_name_binding_1 = args
             .source_system_center_virtual_machine_manager_name
-            .get_output(context)
+            .get_output(context);
+        let source_system_center_virtual_machine_manager_name_binding = source_system_center_virtual_machine_manager_name_binding_1
             .get_inner();
-        let target_network_id_binding = args
-            .target_network_id
-            .get_output(context)
-            .get_inner();
+        let target_network_id_binding_1 = args.target_network_id.get_output(context);
+        let target_network_id_binding = target_network_id_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:siterecovery/hypervNetworkMapping:HypervNetworkMapping".into(),
             name: name.to_string(),

@@ -217,29 +217,31 @@ pub mod entitlement {
     ) -> entitlementResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let additional_notification_targets_binding = args
+        let additional_notification_targets_binding_1 = args
             .additional_notification_targets
-            .get_output(context)
+            .get_output(context);
+        let additional_notification_targets_binding = additional_notification_targets_binding_1
             .get_inner();
-        let approval_workflow_binding = args
-            .approval_workflow
-            .get_output(context)
-            .get_inner();
-        let eligible_users_binding = args.eligible_users.get_output(context).get_inner();
-        let entitlement_id_binding = args.entitlement_id.get_output(context).get_inner();
-        let location_binding = args.location.get_output(context).get_inner();
-        let max_request_duration_binding = args
+        let approval_workflow_binding_1 = args.approval_workflow.get_output(context);
+        let approval_workflow_binding = approval_workflow_binding_1.get_inner();
+        let eligible_users_binding_1 = args.eligible_users.get_output(context);
+        let eligible_users_binding = eligible_users_binding_1.get_inner();
+        let entitlement_id_binding_1 = args.entitlement_id.get_output(context);
+        let entitlement_id_binding = entitlement_id_binding_1.get_inner();
+        let location_binding_1 = args.location.get_output(context);
+        let location_binding = location_binding_1.get_inner();
+        let max_request_duration_binding_1 = args
             .max_request_duration
-            .get_output(context)
-            .get_inner();
-        let parent_binding = args.parent.get_output(context).get_inner();
-        let privileged_access_binding = args
-            .privileged_access
-            .get_output(context)
-            .get_inner();
-        let requester_justification_config_binding = args
+            .get_output(context);
+        let max_request_duration_binding = max_request_duration_binding_1.get_inner();
+        let parent_binding_1 = args.parent.get_output(context);
+        let parent_binding = parent_binding_1.get_inner();
+        let privileged_access_binding_1 = args.privileged_access.get_output(context);
+        let privileged_access_binding = privileged_access_binding_1.get_inner();
+        let requester_justification_config_binding_1 = args
             .requester_justification_config
-            .get_output(context)
+            .get_output(context);
+        let requester_justification_config_binding = requester_justification_config_binding_1
             .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:privilegedaccessmanager/entitlement:entitlement".into(),

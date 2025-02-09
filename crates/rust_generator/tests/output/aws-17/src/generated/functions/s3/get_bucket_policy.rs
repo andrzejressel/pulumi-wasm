@@ -26,7 +26,8 @@ pub mod get_bucket_policy {
     ) -> GetBucketPolicyResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let bucket_binding = args.bucket.get_output(context).get_inner();
+        let bucket_binding_1 = args.bucket.get_output(context);
+        let bucket_binding = bucket_binding_1.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:s3/getBucketPolicy:getBucketPolicy".into(),
             version: super::super::super::get_version(),

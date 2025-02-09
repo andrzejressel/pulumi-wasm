@@ -110,30 +110,33 @@ pub mod storage_defender {
     ) -> StorageDefenderResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let malware_scanning_on_upload_cap_gb_per_month_binding = args
+        let malware_scanning_on_upload_cap_gb_per_month_binding_1 = args
             .malware_scanning_on_upload_cap_gb_per_month
-            .get_output(context)
+            .get_output(context);
+        let malware_scanning_on_upload_cap_gb_per_month_binding = malware_scanning_on_upload_cap_gb_per_month_binding_1
             .get_inner();
-        let malware_scanning_on_upload_enabled_binding = args
+        let malware_scanning_on_upload_enabled_binding_1 = args
             .malware_scanning_on_upload_enabled
-            .get_output(context)
+            .get_output(context);
+        let malware_scanning_on_upload_enabled_binding = malware_scanning_on_upload_enabled_binding_1
             .get_inner();
-        let override_subscription_settings_enabled_binding = args
+        let override_subscription_settings_enabled_binding_1 = args
             .override_subscription_settings_enabled
-            .get_output(context)
+            .get_output(context);
+        let override_subscription_settings_enabled_binding = override_subscription_settings_enabled_binding_1
             .get_inner();
-        let scan_results_event_grid_topic_id_binding = args
+        let scan_results_event_grid_topic_id_binding_1 = args
             .scan_results_event_grid_topic_id
-            .get_output(context)
+            .get_output(context);
+        let scan_results_event_grid_topic_id_binding = scan_results_event_grid_topic_id_binding_1
             .get_inner();
-        let sensitive_data_discovery_enabled_binding = args
+        let sensitive_data_discovery_enabled_binding_1 = args
             .sensitive_data_discovery_enabled
-            .get_output(context)
+            .get_output(context);
+        let sensitive_data_discovery_enabled_binding = sensitive_data_discovery_enabled_binding_1
             .get_inner();
-        let storage_account_id_binding = args
-            .storage_account_id
-            .get_output(context)
-            .get_inner();
+        let storage_account_id_binding_1 = args.storage_account_id.get_output(context);
+        let storage_account_id_binding = storage_account_id_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:securitycenter/storageDefender:StorageDefender".into(),
             name: name.to_string(),

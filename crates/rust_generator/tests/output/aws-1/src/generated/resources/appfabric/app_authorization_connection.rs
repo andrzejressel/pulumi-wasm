@@ -71,13 +71,16 @@ pub mod app_authorization_connection {
     ) -> AppAuthorizationConnectionResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let app_authorization_arn_binding = args
+        let app_authorization_arn_binding_1 = args
             .app_authorization_arn
-            .get_output(context)
-            .get_inner();
-        let app_bundle_arn_binding = args.app_bundle_arn.get_output(context).get_inner();
-        let auth_request_binding = args.auth_request.get_output(context).get_inner();
-        let timeouts_binding = args.timeouts.get_output(context).get_inner();
+            .get_output(context);
+        let app_authorization_arn_binding = app_authorization_arn_binding_1.get_inner();
+        let app_bundle_arn_binding_1 = args.app_bundle_arn.get_output(context);
+        let app_bundle_arn_binding = app_bundle_arn_binding_1.get_inner();
+        let auth_request_binding_1 = args.auth_request.get_output(context);
+        let auth_request_binding = auth_request_binding_1.get_inner();
+        let timeouts_binding_1 = args.timeouts.get_output(context);
+        let timeouts_binding = timeouts_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:appfabric/appAuthorizationConnection:AppAuthorizationConnection"
                 .into(),

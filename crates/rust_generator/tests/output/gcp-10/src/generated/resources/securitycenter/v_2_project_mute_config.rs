@@ -141,12 +141,18 @@ pub mod v_2_project_mute_config {
     ) -> V2ProjectMuteConfigResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let description_binding = args.description.get_output(context).get_inner();
-        let filter_binding = args.filter.get_output(context).get_inner();
-        let location_binding = args.location.get_output(context).get_inner();
-        let mute_config_id_binding = args.mute_config_id.get_output(context).get_inner();
-        let project_binding = args.project.get_output(context).get_inner();
-        let type__binding = args.type_.get_output(context).get_inner();
+        let description_binding_1 = args.description.get_output(context);
+        let description_binding = description_binding_1.get_inner();
+        let filter_binding_1 = args.filter.get_output(context);
+        let filter_binding = filter_binding_1.get_inner();
+        let location_binding_1 = args.location.get_output(context);
+        let location_binding = location_binding_1.get_inner();
+        let mute_config_id_binding_1 = args.mute_config_id.get_output(context);
+        let mute_config_id_binding = mute_config_id_binding_1.get_inner();
+        let project_binding_1 = args.project.get_output(context);
+        let project_binding = project_binding_1.get_inner();
+        let type__binding_1 = args.type_.get_output(context);
+        let type__binding = type__binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:securitycenter/v2ProjectMuteConfig:V2ProjectMuteConfig".into(),
             name: name.to_string(),

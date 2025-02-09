@@ -786,31 +786,42 @@ pub mod repository {
     ) -> RepositoryResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let cleanup_policies_binding = args
-            .cleanup_policies
-            .get_output(context)
-            .get_inner();
-        let cleanup_policy_dry_run_binding = args
+        let cleanup_policies_binding_1 = args.cleanup_policies.get_output(context);
+        let cleanup_policies_binding = cleanup_policies_binding_1.get_inner();
+        let cleanup_policy_dry_run_binding_1 = args
             .cleanup_policy_dry_run
-            .get_output(context)
+            .get_output(context);
+        let cleanup_policy_dry_run_binding = cleanup_policy_dry_run_binding_1
             .get_inner();
-        let description_binding = args.description.get_output(context).get_inner();
-        let docker_config_binding = args.docker_config.get_output(context).get_inner();
-        let format_binding = args.format.get_output(context).get_inner();
-        let kms_key_name_binding = args.kms_key_name.get_output(context).get_inner();
-        let labels_binding = args.labels.get_output(context).get_inner();
-        let location_binding = args.location.get_output(context).get_inner();
-        let maven_config_binding = args.maven_config.get_output(context).get_inner();
-        let mode_binding = args.mode.get_output(context).get_inner();
-        let project_binding = args.project.get_output(context).get_inner();
-        let remote_repository_config_binding = args
+        let description_binding_1 = args.description.get_output(context);
+        let description_binding = description_binding_1.get_inner();
+        let docker_config_binding_1 = args.docker_config.get_output(context);
+        let docker_config_binding = docker_config_binding_1.get_inner();
+        let format_binding_1 = args.format.get_output(context);
+        let format_binding = format_binding_1.get_inner();
+        let kms_key_name_binding_1 = args.kms_key_name.get_output(context);
+        let kms_key_name_binding = kms_key_name_binding_1.get_inner();
+        let labels_binding_1 = args.labels.get_output(context);
+        let labels_binding = labels_binding_1.get_inner();
+        let location_binding_1 = args.location.get_output(context);
+        let location_binding = location_binding_1.get_inner();
+        let maven_config_binding_1 = args.maven_config.get_output(context);
+        let maven_config_binding = maven_config_binding_1.get_inner();
+        let mode_binding_1 = args.mode.get_output(context);
+        let mode_binding = mode_binding_1.get_inner();
+        let project_binding_1 = args.project.get_output(context);
+        let project_binding = project_binding_1.get_inner();
+        let remote_repository_config_binding_1 = args
             .remote_repository_config
-            .get_output(context)
+            .get_output(context);
+        let remote_repository_config_binding = remote_repository_config_binding_1
             .get_inner();
-        let repository_id_binding = args.repository_id.get_output(context).get_inner();
-        let virtual_repository_config_binding = args
+        let repository_id_binding_1 = args.repository_id.get_output(context);
+        let repository_id_binding = repository_id_binding_1.get_inner();
+        let virtual_repository_config_binding_1 = args
             .virtual_repository_config
-            .get_output(context)
+            .get_output(context);
+        let virtual_repository_config_binding = virtual_repository_config_binding_1
             .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:artifactregistry/repository:Repository".into(),

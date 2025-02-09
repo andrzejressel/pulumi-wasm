@@ -123,21 +123,24 @@ pub mod aad_diagnostic_setting {
     ) -> AadDiagnosticSettingResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let enabled_logs_binding = args.enabled_logs.get_output(context).get_inner();
-        let eventhub_authorization_rule_id_binding = args
+        let enabled_logs_binding_1 = args.enabled_logs.get_output(context);
+        let enabled_logs_binding = enabled_logs_binding_1.get_inner();
+        let eventhub_authorization_rule_id_binding_1 = args
             .eventhub_authorization_rule_id
-            .get_output(context)
+            .get_output(context);
+        let eventhub_authorization_rule_id_binding = eventhub_authorization_rule_id_binding_1
             .get_inner();
-        let eventhub_name_binding = args.eventhub_name.get_output(context).get_inner();
-        let log_analytics_workspace_id_binding = args
+        let eventhub_name_binding_1 = args.eventhub_name.get_output(context);
+        let eventhub_name_binding = eventhub_name_binding_1.get_inner();
+        let log_analytics_workspace_id_binding_1 = args
             .log_analytics_workspace_id
-            .get_output(context)
+            .get_output(context);
+        let log_analytics_workspace_id_binding = log_analytics_workspace_id_binding_1
             .get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let storage_account_id_binding = args
-            .storage_account_id
-            .get_output(context)
-            .get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let storage_account_id_binding_1 = args.storage_account_id.get_output(context);
+        let storage_account_id_binding = storage_account_id_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:monitoring/aadDiagnosticSetting:AadDiagnosticSetting".into(),
             name: name.to_string(),

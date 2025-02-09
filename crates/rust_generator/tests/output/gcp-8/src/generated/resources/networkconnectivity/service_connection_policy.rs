@@ -181,14 +181,22 @@ pub mod service_connection_policy {
     ) -> ServiceConnectionPolicyResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let description_binding = args.description.get_output(context).get_inner();
-        let labels_binding = args.labels.get_output(context).get_inner();
-        let location_binding = args.location.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let network_binding = args.network.get_output(context).get_inner();
-        let project_binding = args.project.get_output(context).get_inner();
-        let psc_config_binding = args.psc_config.get_output(context).get_inner();
-        let service_class_binding = args.service_class.get_output(context).get_inner();
+        let description_binding_1 = args.description.get_output(context);
+        let description_binding = description_binding_1.get_inner();
+        let labels_binding_1 = args.labels.get_output(context);
+        let labels_binding = labels_binding_1.get_inner();
+        let location_binding_1 = args.location.get_output(context);
+        let location_binding = location_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let network_binding_1 = args.network.get_output(context);
+        let network_binding = network_binding_1.get_inner();
+        let project_binding_1 = args.project.get_output(context);
+        let project_binding = project_binding_1.get_inner();
+        let psc_config_binding_1 = args.psc_config.get_output(context);
+        let psc_config_binding = psc_config_binding_1.get_inner();
+        let service_class_binding_1 = args.service_class.get_output(context);
+        let service_class_binding = service_class_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:networkconnectivity/serviceConnectionPolicy:ServiceConnectionPolicy"
                 .into(),

@@ -228,55 +228,55 @@ pub mod integration_runtime_ssis {
     ) -> IntegrationRuntimeSsisResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let catalog_info_binding = args.catalog_info.get_output(context).get_inner();
-        let copy_compute_scale_binding = args
-            .copy_compute_scale
-            .get_output(context)
-            .get_inner();
-        let credential_name_binding = args
-            .credential_name
-            .get_output(context)
-            .get_inner();
-        let custom_setup_script_binding = args
-            .custom_setup_script
-            .get_output(context)
-            .get_inner();
-        let data_factory_id_binding = args
-            .data_factory_id
-            .get_output(context)
-            .get_inner();
-        let description_binding = args.description.get_output(context).get_inner();
-        let edition_binding = args.edition.get_output(context).get_inner();
-        let express_custom_setup_binding = args
+        let catalog_info_binding_1 = args.catalog_info.get_output(context);
+        let catalog_info_binding = catalog_info_binding_1.get_inner();
+        let copy_compute_scale_binding_1 = args.copy_compute_scale.get_output(context);
+        let copy_compute_scale_binding = copy_compute_scale_binding_1.get_inner();
+        let credential_name_binding_1 = args.credential_name.get_output(context);
+        let credential_name_binding = credential_name_binding_1.get_inner();
+        let custom_setup_script_binding_1 = args.custom_setup_script.get_output(context);
+        let custom_setup_script_binding = custom_setup_script_binding_1.get_inner();
+        let data_factory_id_binding_1 = args.data_factory_id.get_output(context);
+        let data_factory_id_binding = data_factory_id_binding_1.get_inner();
+        let description_binding_1 = args.description.get_output(context);
+        let description_binding = description_binding_1.get_inner();
+        let edition_binding_1 = args.edition.get_output(context);
+        let edition_binding = edition_binding_1.get_inner();
+        let express_custom_setup_binding_1 = args
             .express_custom_setup
-            .get_output(context)
-            .get_inner();
-        let express_vnet_integration_binding = args
+            .get_output(context);
+        let express_custom_setup_binding = express_custom_setup_binding_1.get_inner();
+        let express_vnet_integration_binding_1 = args
             .express_vnet_integration
-            .get_output(context)
+            .get_output(context);
+        let express_vnet_integration_binding = express_vnet_integration_binding_1
             .get_inner();
-        let license_type_binding = args.license_type.get_output(context).get_inner();
-        let location_binding = args.location.get_output(context).get_inner();
-        let max_parallel_executions_per_node_binding = args
+        let license_type_binding_1 = args.license_type.get_output(context);
+        let license_type_binding = license_type_binding_1.get_inner();
+        let location_binding_1 = args.location.get_output(context);
+        let location_binding = location_binding_1.get_inner();
+        let max_parallel_executions_per_node_binding_1 = args
             .max_parallel_executions_per_node
-            .get_output(context)
+            .get_output(context);
+        let max_parallel_executions_per_node_binding = max_parallel_executions_per_node_binding_1
             .get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let node_size_binding = args.node_size.get_output(context).get_inner();
-        let number_of_nodes_binding = args
-            .number_of_nodes
-            .get_output(context)
-            .get_inner();
-        let package_stores_binding = args.package_stores.get_output(context).get_inner();
-        let pipeline_external_compute_scale_binding = args
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let node_size_binding_1 = args.node_size.get_output(context);
+        let node_size_binding = node_size_binding_1.get_inner();
+        let number_of_nodes_binding_1 = args.number_of_nodes.get_output(context);
+        let number_of_nodes_binding = number_of_nodes_binding_1.get_inner();
+        let package_stores_binding_1 = args.package_stores.get_output(context);
+        let package_stores_binding = package_stores_binding_1.get_inner();
+        let pipeline_external_compute_scale_binding_1 = args
             .pipeline_external_compute_scale
-            .get_output(context)
+            .get_output(context);
+        let pipeline_external_compute_scale_binding = pipeline_external_compute_scale_binding_1
             .get_inner();
-        let proxy_binding = args.proxy.get_output(context).get_inner();
-        let vnet_integration_binding = args
-            .vnet_integration
-            .get_output(context)
-            .get_inner();
+        let proxy_binding_1 = args.proxy.get_output(context);
+        let proxy_binding = proxy_binding_1.get_inner();
+        let vnet_integration_binding_1 = args.vnet_integration.get_output(context);
+        let vnet_integration_binding = vnet_integration_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:datafactory/integrationRuntimeSsis:IntegrationRuntimeSsis"
                 .into(),

@@ -48,10 +48,14 @@ pub mod get_server_certificate {
     ) -> GetServerCertificateResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let latest_binding = args.latest.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let name_prefix_binding = args.name_prefix.get_output(context).get_inner();
-        let path_prefix_binding = args.path_prefix.get_output(context).get_inner();
+        let latest_binding_1 = args.latest.get_output(context);
+        let latest_binding = latest_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let name_prefix_binding_1 = args.name_prefix.get_output(context);
+        let name_prefix_binding = name_prefix_binding_1.get_inner();
+        let path_prefix_binding_1 = args.path_prefix.get_output(context);
+        let path_prefix_binding = path_prefix_binding_1.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:iam/getServerCertificate:getServerCertificate".into(),
             version: super::super::super::get_version(),

@@ -89,18 +89,21 @@ pub mod provisioned_model_throughput {
     ) -> ProvisionedModelThroughputResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let commitment_duration_binding = args
-            .commitment_duration
-            .get_output(context)
-            .get_inner();
-        let model_arn_binding = args.model_arn.get_output(context).get_inner();
-        let model_units_binding = args.model_units.get_output(context).get_inner();
-        let provisioned_model_name_binding = args
+        let commitment_duration_binding_1 = args.commitment_duration.get_output(context);
+        let commitment_duration_binding = commitment_duration_binding_1.get_inner();
+        let model_arn_binding_1 = args.model_arn.get_output(context);
+        let model_arn_binding = model_arn_binding_1.get_inner();
+        let model_units_binding_1 = args.model_units.get_output(context);
+        let model_units_binding = model_units_binding_1.get_inner();
+        let provisioned_model_name_binding_1 = args
             .provisioned_model_name
-            .get_output(context)
+            .get_output(context);
+        let provisioned_model_name_binding = provisioned_model_name_binding_1
             .get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
-        let timeouts_binding = args.timeouts.get_output(context).get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
+        let timeouts_binding_1 = args.timeouts.get_output(context);
+        let timeouts_binding = timeouts_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:bedrock/provisionedModelThroughput:ProvisionedModelThroughput"
                 .into(),

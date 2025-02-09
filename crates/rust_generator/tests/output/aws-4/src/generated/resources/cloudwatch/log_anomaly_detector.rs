@@ -100,23 +100,27 @@ pub mod log_anomaly_detector {
     ) -> LogAnomalyDetectorResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let anomaly_visibility_time_binding = args
+        let anomaly_visibility_time_binding_1 = args
             .anomaly_visibility_time
-            .get_output(context)
+            .get_output(context);
+        let anomaly_visibility_time_binding = anomaly_visibility_time_binding_1
             .get_inner();
-        let detector_name_binding = args.detector_name.get_output(context).get_inner();
-        let enabled_binding = args.enabled.get_output(context).get_inner();
-        let evaluation_frequency_binding = args
+        let detector_name_binding_1 = args.detector_name.get_output(context);
+        let detector_name_binding = detector_name_binding_1.get_inner();
+        let enabled_binding_1 = args.enabled.get_output(context);
+        let enabled_binding = enabled_binding_1.get_inner();
+        let evaluation_frequency_binding_1 = args
             .evaluation_frequency
-            .get_output(context)
-            .get_inner();
-        let filter_pattern_binding = args.filter_pattern.get_output(context).get_inner();
-        let kms_key_id_binding = args.kms_key_id.get_output(context).get_inner();
-        let log_group_arn_lists_binding = args
-            .log_group_arn_lists
-            .get_output(context)
-            .get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
+            .get_output(context);
+        let evaluation_frequency_binding = evaluation_frequency_binding_1.get_inner();
+        let filter_pattern_binding_1 = args.filter_pattern.get_output(context);
+        let filter_pattern_binding = filter_pattern_binding_1.get_inner();
+        let kms_key_id_binding_1 = args.kms_key_id.get_output(context);
+        let kms_key_id_binding = kms_key_id_binding_1.get_inner();
+        let log_group_arn_lists_binding_1 = args.log_group_arn_lists.get_output(context);
+        let log_group_arn_lists_binding = log_group_arn_lists_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:cloudwatch/logAnomalyDetector:LogAnomalyDetector".into(),
             name: name.to_string(),

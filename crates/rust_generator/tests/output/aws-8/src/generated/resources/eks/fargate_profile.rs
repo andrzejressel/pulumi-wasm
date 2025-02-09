@@ -104,18 +104,23 @@ pub mod fargate_profile {
     ) -> FargateProfileResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let cluster_name_binding = args.cluster_name.get_output(context).get_inner();
-        let fargate_profile_name_binding = args
+        let cluster_name_binding_1 = args.cluster_name.get_output(context);
+        let cluster_name_binding = cluster_name_binding_1.get_inner();
+        let fargate_profile_name_binding_1 = args
             .fargate_profile_name
-            .get_output(context)
-            .get_inner();
-        let pod_execution_role_arn_binding = args
+            .get_output(context);
+        let fargate_profile_name_binding = fargate_profile_name_binding_1.get_inner();
+        let pod_execution_role_arn_binding_1 = args
             .pod_execution_role_arn
-            .get_output(context)
+            .get_output(context);
+        let pod_execution_role_arn_binding = pod_execution_role_arn_binding_1
             .get_inner();
-        let selectors_binding = args.selectors.get_output(context).get_inner();
-        let subnet_ids_binding = args.subnet_ids.get_output(context).get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
+        let selectors_binding_1 = args.selectors.get_output(context);
+        let selectors_binding = selectors_binding_1.get_inner();
+        let subnet_ids_binding_1 = args.subnet_ids.get_output(context);
+        let subnet_ids_binding = subnet_ids_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:eks/fargateProfile:FargateProfile".into(),
             name: name.to_string(),

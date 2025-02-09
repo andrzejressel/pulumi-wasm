@@ -260,17 +260,22 @@ pub mod ha_vpn_gateway {
     ) -> HaVpnGatewayResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let description_binding = args.description.get_output(context).get_inner();
-        let gateway_ip_version_binding = args
-            .gateway_ip_version
-            .get_output(context)
-            .get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let network_binding = args.network.get_output(context).get_inner();
-        let project_binding = args.project.get_output(context).get_inner();
-        let region_binding = args.region.get_output(context).get_inner();
-        let stack_type_binding = args.stack_type.get_output(context).get_inner();
-        let vpn_interfaces_binding = args.vpn_interfaces.get_output(context).get_inner();
+        let description_binding_1 = args.description.get_output(context);
+        let description_binding = description_binding_1.get_inner();
+        let gateway_ip_version_binding_1 = args.gateway_ip_version.get_output(context);
+        let gateway_ip_version_binding = gateway_ip_version_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let network_binding_1 = args.network.get_output(context);
+        let network_binding = network_binding_1.get_inner();
+        let project_binding_1 = args.project.get_output(context);
+        let project_binding = project_binding_1.get_inner();
+        let region_binding_1 = args.region.get_output(context);
+        let region_binding = region_binding_1.get_inner();
+        let stack_type_binding_1 = args.stack_type.get_output(context);
+        let stack_type_binding = stack_type_binding_1.get_inner();
+        let vpn_interfaces_binding_1 = args.vpn_interfaces.get_output(context);
+        let vpn_interfaces_binding = vpn_interfaces_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:compute/haVpnGateway:HaVpnGateway".into(),
             name: name.to_string(),

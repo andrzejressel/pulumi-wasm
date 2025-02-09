@@ -192,31 +192,40 @@ pub mod app {
     ) -> AppResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let container_app_environment_id_binding = args
+        let container_app_environment_id_binding_1 = args
             .container_app_environment_id
-            .get_output(context)
+            .get_output(context);
+        let container_app_environment_id_binding = container_app_environment_id_binding_1
             .get_inner();
-        let dapr_binding = args.dapr.get_output(context).get_inner();
-        let identity_binding = args.identity.get_output(context).get_inner();
-        let ingress_binding = args.ingress.get_output(context).get_inner();
-        let max_inactive_revisions_binding = args
+        let dapr_binding_1 = args.dapr.get_output(context);
+        let dapr_binding = dapr_binding_1.get_inner();
+        let identity_binding_1 = args.identity.get_output(context);
+        let identity_binding = identity_binding_1.get_inner();
+        let ingress_binding_1 = args.ingress.get_output(context);
+        let ingress_binding = ingress_binding_1.get_inner();
+        let max_inactive_revisions_binding_1 = args
             .max_inactive_revisions
-            .get_output(context)
+            .get_output(context);
+        let max_inactive_revisions_binding = max_inactive_revisions_binding_1
             .get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let registries_binding = args.registries.get_output(context).get_inner();
-        let resource_group_name_binding = args
-            .resource_group_name
-            .get_output(context)
-            .get_inner();
-        let revision_mode_binding = args.revision_mode.get_output(context).get_inner();
-        let secrets_binding = args.secrets.get_output(context).get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
-        let template_binding = args.template.get_output(context).get_inner();
-        let workload_profile_name_binding = args
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let registries_binding_1 = args.registries.get_output(context);
+        let registries_binding = registries_binding_1.get_inner();
+        let resource_group_name_binding_1 = args.resource_group_name.get_output(context);
+        let resource_group_name_binding = resource_group_name_binding_1.get_inner();
+        let revision_mode_binding_1 = args.revision_mode.get_output(context);
+        let revision_mode_binding = revision_mode_binding_1.get_inner();
+        let secrets_binding_1 = args.secrets.get_output(context);
+        let secrets_binding = secrets_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
+        let template_binding_1 = args.template.get_output(context);
+        let template_binding = template_binding_1.get_inner();
+        let workload_profile_name_binding_1 = args
             .workload_profile_name
-            .get_output(context)
-            .get_inner();
+            .get_output(context);
+        let workload_profile_name_binding = workload_profile_name_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:containerapp/app:App".into(),
             name: name.to_string(),

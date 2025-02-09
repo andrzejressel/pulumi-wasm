@@ -171,33 +171,35 @@ pub mod stack {
     ) -> StackResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let access_endpoints_binding = args
-            .access_endpoints
-            .get_output(context)
-            .get_inner();
-        let application_settings_binding = args
+        let access_endpoints_binding_1 = args.access_endpoints.get_output(context);
+        let access_endpoints_binding = access_endpoints_binding_1.get_inner();
+        let application_settings_binding_1 = args
             .application_settings
-            .get_output(context)
-            .get_inner();
-        let description_binding = args.description.get_output(context).get_inner();
-        let display_name_binding = args.display_name.get_output(context).get_inner();
-        let embed_host_domains_binding = args
-            .embed_host_domains
-            .get_output(context)
-            .get_inner();
-        let feedback_url_binding = args.feedback_url.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let redirect_url_binding = args.redirect_url.get_output(context).get_inner();
-        let storage_connectors_binding = args
-            .storage_connectors
-            .get_output(context)
-            .get_inner();
-        let streaming_experience_settings_binding = args
+            .get_output(context);
+        let application_settings_binding = application_settings_binding_1.get_inner();
+        let description_binding_1 = args.description.get_output(context);
+        let description_binding = description_binding_1.get_inner();
+        let display_name_binding_1 = args.display_name.get_output(context);
+        let display_name_binding = display_name_binding_1.get_inner();
+        let embed_host_domains_binding_1 = args.embed_host_domains.get_output(context);
+        let embed_host_domains_binding = embed_host_domains_binding_1.get_inner();
+        let feedback_url_binding_1 = args.feedback_url.get_output(context);
+        let feedback_url_binding = feedback_url_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let redirect_url_binding_1 = args.redirect_url.get_output(context);
+        let redirect_url_binding = redirect_url_binding_1.get_inner();
+        let storage_connectors_binding_1 = args.storage_connectors.get_output(context);
+        let storage_connectors_binding = storage_connectors_binding_1.get_inner();
+        let streaming_experience_settings_binding_1 = args
             .streaming_experience_settings
-            .get_output(context)
+            .get_output(context);
+        let streaming_experience_settings_binding = streaming_experience_settings_binding_1
             .get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
-        let user_settings_binding = args.user_settings.get_output(context).get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
+        let user_settings_binding_1 = args.user_settings.get_output(context);
+        let user_settings_binding = user_settings_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:appstream/stack:Stack".into(),
             name: name.to_string(),

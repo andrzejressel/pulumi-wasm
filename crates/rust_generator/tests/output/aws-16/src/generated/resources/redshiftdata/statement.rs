@@ -118,18 +118,24 @@ pub mod statement {
     ) -> StatementResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let cluster_identifier_binding = args
-            .cluster_identifier
-            .get_output(context)
-            .get_inner();
-        let database_binding = args.database.get_output(context).get_inner();
-        let db_user_binding = args.db_user.get_output(context).get_inner();
-        let parameters_binding = args.parameters.get_output(context).get_inner();
-        let secret_arn_binding = args.secret_arn.get_output(context).get_inner();
-        let sql_binding = args.sql.get_output(context).get_inner();
-        let statement_name_binding = args.statement_name.get_output(context).get_inner();
-        let with_event_binding = args.with_event.get_output(context).get_inner();
-        let workgroup_name_binding = args.workgroup_name.get_output(context).get_inner();
+        let cluster_identifier_binding_1 = args.cluster_identifier.get_output(context);
+        let cluster_identifier_binding = cluster_identifier_binding_1.get_inner();
+        let database_binding_1 = args.database.get_output(context);
+        let database_binding = database_binding_1.get_inner();
+        let db_user_binding_1 = args.db_user.get_output(context);
+        let db_user_binding = db_user_binding_1.get_inner();
+        let parameters_binding_1 = args.parameters.get_output(context);
+        let parameters_binding = parameters_binding_1.get_inner();
+        let secret_arn_binding_1 = args.secret_arn.get_output(context);
+        let secret_arn_binding = secret_arn_binding_1.get_inner();
+        let sql_binding_1 = args.sql.get_output(context);
+        let sql_binding = sql_binding_1.get_inner();
+        let statement_name_binding_1 = args.statement_name.get_output(context);
+        let statement_name_binding = statement_name_binding_1.get_inner();
+        let with_event_binding_1 = args.with_event.get_output(context);
+        let with_event_binding = with_event_binding_1.get_inner();
+        let workgroup_name_binding_1 = args.workgroup_name.get_output(context);
+        let workgroup_name_binding = workgroup_name_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:redshiftdata/statement:Statement".into(),
             name: name.to_string(),

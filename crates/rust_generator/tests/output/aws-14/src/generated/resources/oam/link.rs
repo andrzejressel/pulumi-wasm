@@ -149,17 +149,16 @@ pub mod link {
     ) -> LinkResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let label_template_binding = args.label_template.get_output(context).get_inner();
-        let link_configuration_binding = args
-            .link_configuration
-            .get_output(context)
-            .get_inner();
-        let resource_types_binding = args.resource_types.get_output(context).get_inner();
-        let sink_identifier_binding = args
-            .sink_identifier
-            .get_output(context)
-            .get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
+        let label_template_binding_1 = args.label_template.get_output(context);
+        let label_template_binding = label_template_binding_1.get_inner();
+        let link_configuration_binding_1 = args.link_configuration.get_output(context);
+        let link_configuration_binding = link_configuration_binding_1.get_inner();
+        let resource_types_binding_1 = args.resource_types.get_output(context);
+        let resource_types_binding = resource_types_binding_1.get_inner();
+        let sink_identifier_binding_1 = args.sink_identifier.get_output(context);
+        let sink_identifier_binding = sink_identifier_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:oam/link:Link".into(),
             name: name.to_string(),

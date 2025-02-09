@@ -26,7 +26,8 @@ pub mod get_tracker_associations {
     ) -> GetTrackerAssociationsResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let tracker_name_binding = args.tracker_name.get_output(context).get_inner();
+        let tracker_name_binding_1 = args.tracker_name.get_output(context);
+        let tracker_name_binding = tracker_name_binding_1.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:location/getTrackerAssociations:getTrackerAssociations".into(),
             version: super::super::super::get_version(),

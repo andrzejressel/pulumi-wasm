@@ -82,13 +82,16 @@ pub mod namespace_schema_group {
     ) -> NamespaceSchemaGroupResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let name_binding = args.name.get_output(context).get_inner();
-        let namespace_id_binding = args.namespace_id.get_output(context).get_inner();
-        let schema_compatibility_binding = args
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let namespace_id_binding_1 = args.namespace_id.get_output(context);
+        let namespace_id_binding = namespace_id_binding_1.get_inner();
+        let schema_compatibility_binding_1 = args
             .schema_compatibility
-            .get_output(context)
-            .get_inner();
-        let schema_type_binding = args.schema_type.get_output(context).get_inner();
+            .get_output(context);
+        let schema_compatibility_binding = schema_compatibility_binding_1.get_inner();
+        let schema_type_binding_1 = args.schema_type.get_output(context);
+        let schema_type_binding = schema_type_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:eventhub/namespaceSchemaGroup:NamespaceSchemaGroup".into(),
             name: name.to_string(),

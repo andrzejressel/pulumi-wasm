@@ -195,17 +195,22 @@ pub mod transfer_job {
     ) -> TransferJobResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let description_binding = args.description.get_output(context).get_inner();
-        let event_stream_binding = args.event_stream.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let notification_config_binding = args
-            .notification_config
-            .get_output(context)
-            .get_inner();
-        let project_binding = args.project.get_output(context).get_inner();
-        let schedule_binding = args.schedule.get_output(context).get_inner();
-        let status_binding = args.status.get_output(context).get_inner();
-        let transfer_spec_binding = args.transfer_spec.get_output(context).get_inner();
+        let description_binding_1 = args.description.get_output(context);
+        let description_binding = description_binding_1.get_inner();
+        let event_stream_binding_1 = args.event_stream.get_output(context);
+        let event_stream_binding = event_stream_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let notification_config_binding_1 = args.notification_config.get_output(context);
+        let notification_config_binding = notification_config_binding_1.get_inner();
+        let project_binding_1 = args.project.get_output(context);
+        let project_binding = project_binding_1.get_inner();
+        let schedule_binding_1 = args.schedule.get_output(context);
+        let schedule_binding = schedule_binding_1.get_inner();
+        let status_binding_1 = args.status.get_output(context);
+        let status_binding = status_binding_1.get_inner();
+        let transfer_spec_binding_1 = args.transfer_spec.get_output(context);
+        let transfer_spec_binding = transfer_spec_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:storage/transferJob:TransferJob".into(),
             name: name.to_string(),

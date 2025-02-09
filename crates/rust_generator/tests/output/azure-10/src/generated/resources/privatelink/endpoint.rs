@@ -321,30 +321,33 @@ pub mod endpoint {
     ) -> EndpointResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let custom_network_interface_name_binding = args
+        let custom_network_interface_name_binding_1 = args
             .custom_network_interface_name
-            .get_output(context)
+            .get_output(context);
+        let custom_network_interface_name_binding = custom_network_interface_name_binding_1
             .get_inner();
-        let ip_configurations_binding = args
-            .ip_configurations
-            .get_output(context)
-            .get_inner();
-        let location_binding = args.location.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let private_dns_zone_group_binding = args
+        let ip_configurations_binding_1 = args.ip_configurations.get_output(context);
+        let ip_configurations_binding = ip_configurations_binding_1.get_inner();
+        let location_binding_1 = args.location.get_output(context);
+        let location_binding = location_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let private_dns_zone_group_binding_1 = args
             .private_dns_zone_group
-            .get_output(context)
+            .get_output(context);
+        let private_dns_zone_group_binding = private_dns_zone_group_binding_1
             .get_inner();
-        let private_service_connection_binding = args
+        let private_service_connection_binding_1 = args
             .private_service_connection
-            .get_output(context)
+            .get_output(context);
+        let private_service_connection_binding = private_service_connection_binding_1
             .get_inner();
-        let resource_group_name_binding = args
-            .resource_group_name
-            .get_output(context)
-            .get_inner();
-        let subnet_id_binding = args.subnet_id.get_output(context).get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
+        let resource_group_name_binding_1 = args.resource_group_name.get_output(context);
+        let resource_group_name_binding = resource_group_name_binding_1.get_inner();
+        let subnet_id_binding_1 = args.subnet_id.get_output(context);
+        let subnet_id_binding = subnet_id_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:privatelink/endpoint:Endpoint".into(),
             name: name.to_string(),

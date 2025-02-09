@@ -196,37 +196,49 @@ pub mod local_rulestack_rule {
     ) -> LocalRulestackRuleResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let action_binding = args.action.get_output(context).get_inner();
-        let applications_binding = args.applications.get_output(context).get_inner();
-        let audit_comment_binding = args.audit_comment.get_output(context).get_inner();
-        let category_binding = args.category.get_output(context).get_inner();
-        let decryption_rule_type_binding = args
+        let action_binding_1 = args.action.get_output(context);
+        let action_binding = action_binding_1.get_inner();
+        let applications_binding_1 = args.applications.get_output(context);
+        let applications_binding = applications_binding_1.get_inner();
+        let audit_comment_binding_1 = args.audit_comment.get_output(context);
+        let audit_comment_binding = audit_comment_binding_1.get_inner();
+        let category_binding_1 = args.category.get_output(context);
+        let category_binding = category_binding_1.get_inner();
+        let decryption_rule_type_binding_1 = args
             .decryption_rule_type
-            .get_output(context)
-            .get_inner();
-        let description_binding = args.description.get_output(context).get_inner();
-        let destination_binding = args.destination.get_output(context).get_inner();
-        let enabled_binding = args.enabled.get_output(context).get_inner();
-        let inspection_certificate_id_binding = args
+            .get_output(context);
+        let decryption_rule_type_binding = decryption_rule_type_binding_1.get_inner();
+        let description_binding_1 = args.description.get_output(context);
+        let description_binding = description_binding_1.get_inner();
+        let destination_binding_1 = args.destination.get_output(context);
+        let destination_binding = destination_binding_1.get_inner();
+        let enabled_binding_1 = args.enabled.get_output(context);
+        let enabled_binding = enabled_binding_1.get_inner();
+        let inspection_certificate_id_binding_1 = args
             .inspection_certificate_id
-            .get_output(context)
+            .get_output(context);
+        let inspection_certificate_id_binding = inspection_certificate_id_binding_1
             .get_inner();
-        let logging_enabled_binding = args
-            .logging_enabled
-            .get_output(context)
-            .get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let negate_destination_binding = args
-            .negate_destination
-            .get_output(context)
-            .get_inner();
-        let negate_source_binding = args.negate_source.get_output(context).get_inner();
-        let priority_binding = args.priority.get_output(context).get_inner();
-        let protocol_binding = args.protocol.get_output(context).get_inner();
-        let protocol_ports_binding = args.protocol_ports.get_output(context).get_inner();
-        let rulestack_id_binding = args.rulestack_id.get_output(context).get_inner();
-        let source_binding = args.source.get_output(context).get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
+        let logging_enabled_binding_1 = args.logging_enabled.get_output(context);
+        let logging_enabled_binding = logging_enabled_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let negate_destination_binding_1 = args.negate_destination.get_output(context);
+        let negate_destination_binding = negate_destination_binding_1.get_inner();
+        let negate_source_binding_1 = args.negate_source.get_output(context);
+        let negate_source_binding = negate_source_binding_1.get_inner();
+        let priority_binding_1 = args.priority.get_output(context);
+        let priority_binding = priority_binding_1.get_inner();
+        let protocol_binding_1 = args.protocol.get_output(context);
+        let protocol_binding = protocol_binding_1.get_inner();
+        let protocol_ports_binding_1 = args.protocol_ports.get_output(context);
+        let protocol_ports_binding = protocol_ports_binding_1.get_inner();
+        let rulestack_id_binding_1 = args.rulestack_id.get_output(context);
+        let rulestack_id_binding = rulestack_id_binding_1.get_inner();
+        let source_binding_1 = args.source.get_output(context);
+        let source_binding = source_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:paloalto/localRulestackRule:LocalRulestackRule".into(),
             name: name.to_string(),

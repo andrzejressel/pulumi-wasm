@@ -110,20 +110,22 @@ pub mod location_azure_blob {
     ) -> LocationAzureBlobResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let access_tier_binding = args.access_tier.get_output(context).get_inner();
-        let agent_arns_binding = args.agent_arns.get_output(context).get_inner();
-        let authentication_type_binding = args
-            .authentication_type
-            .get_output(context)
-            .get_inner();
-        let blob_type_binding = args.blob_type.get_output(context).get_inner();
-        let container_url_binding = args.container_url.get_output(context).get_inner();
-        let sas_configuration_binding = args
-            .sas_configuration
-            .get_output(context)
-            .get_inner();
-        let subdirectory_binding = args.subdirectory.get_output(context).get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
+        let access_tier_binding_1 = args.access_tier.get_output(context);
+        let access_tier_binding = access_tier_binding_1.get_inner();
+        let agent_arns_binding_1 = args.agent_arns.get_output(context);
+        let agent_arns_binding = agent_arns_binding_1.get_inner();
+        let authentication_type_binding_1 = args.authentication_type.get_output(context);
+        let authentication_type_binding = authentication_type_binding_1.get_inner();
+        let blob_type_binding_1 = args.blob_type.get_output(context);
+        let blob_type_binding = blob_type_binding_1.get_inner();
+        let container_url_binding_1 = args.container_url.get_output(context);
+        let container_url_binding = container_url_binding_1.get_inner();
+        let sas_configuration_binding_1 = args.sas_configuration.get_output(context);
+        let sas_configuration_binding = sas_configuration_binding_1.get_inner();
+        let subdirectory_binding_1 = args.subdirectory.get_output(context);
+        let subdirectory_binding = subdirectory_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:datasync/locationAzureBlob:LocationAzureBlob".into(),
             name: name.to_string(),

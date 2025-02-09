@@ -383,61 +383,67 @@ pub mod server {
     ) -> ServerResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let certificate_binding = args.certificate.get_output(context).get_inner();
-        let directory_id_binding = args.directory_id.get_output(context).get_inner();
-        let domain_binding = args.domain.get_output(context).get_inner();
-        let endpoint_details_binding = args
-            .endpoint_details
-            .get_output(context)
-            .get_inner();
-        let endpoint_type_binding = args.endpoint_type.get_output(context).get_inner();
-        let force_destroy_binding = args.force_destroy.get_output(context).get_inner();
-        let function_binding = args.function.get_output(context).get_inner();
-        let host_key_binding = args.host_key.get_output(context).get_inner();
-        let identity_provider_type_binding = args
+        let certificate_binding_1 = args.certificate.get_output(context);
+        let certificate_binding = certificate_binding_1.get_inner();
+        let directory_id_binding_1 = args.directory_id.get_output(context);
+        let directory_id_binding = directory_id_binding_1.get_inner();
+        let domain_binding_1 = args.domain.get_output(context);
+        let domain_binding = domain_binding_1.get_inner();
+        let endpoint_details_binding_1 = args.endpoint_details.get_output(context);
+        let endpoint_details_binding = endpoint_details_binding_1.get_inner();
+        let endpoint_type_binding_1 = args.endpoint_type.get_output(context);
+        let endpoint_type_binding = endpoint_type_binding_1.get_inner();
+        let force_destroy_binding_1 = args.force_destroy.get_output(context);
+        let force_destroy_binding = force_destroy_binding_1.get_inner();
+        let function_binding_1 = args.function.get_output(context);
+        let function_binding = function_binding_1.get_inner();
+        let host_key_binding_1 = args.host_key.get_output(context);
+        let host_key_binding = host_key_binding_1.get_inner();
+        let identity_provider_type_binding_1 = args
             .identity_provider_type
-            .get_output(context)
+            .get_output(context);
+        let identity_provider_type_binding = identity_provider_type_binding_1
             .get_inner();
-        let invocation_role_binding = args
-            .invocation_role
-            .get_output(context)
-            .get_inner();
-        let logging_role_binding = args.logging_role.get_output(context).get_inner();
-        let post_authentication_login_banner_binding = args
+        let invocation_role_binding_1 = args.invocation_role.get_output(context);
+        let invocation_role_binding = invocation_role_binding_1.get_inner();
+        let logging_role_binding_1 = args.logging_role.get_output(context);
+        let logging_role_binding = logging_role_binding_1.get_inner();
+        let post_authentication_login_banner_binding_1 = args
             .post_authentication_login_banner
-            .get_output(context)
+            .get_output(context);
+        let post_authentication_login_banner_binding = post_authentication_login_banner_binding_1
             .get_inner();
-        let pre_authentication_login_banner_binding = args
+        let pre_authentication_login_banner_binding_1 = args
             .pre_authentication_login_banner
-            .get_output(context)
+            .get_output(context);
+        let pre_authentication_login_banner_binding = pre_authentication_login_banner_binding_1
             .get_inner();
-        let protocol_details_binding = args
-            .protocol_details
-            .get_output(context)
-            .get_inner();
-        let protocols_binding = args.protocols.get_output(context).get_inner();
-        let s3_storage_options_binding = args
-            .s3_storage_options
-            .get_output(context)
-            .get_inner();
-        let security_policy_name_binding = args
+        let protocol_details_binding_1 = args.protocol_details.get_output(context);
+        let protocol_details_binding = protocol_details_binding_1.get_inner();
+        let protocols_binding_1 = args.protocols.get_output(context);
+        let protocols_binding = protocols_binding_1.get_inner();
+        let s3_storage_options_binding_1 = args.s3_storage_options.get_output(context);
+        let s3_storage_options_binding = s3_storage_options_binding_1.get_inner();
+        let security_policy_name_binding_1 = args
             .security_policy_name
-            .get_output(context)
-            .get_inner();
-        let sftp_authentication_methods_binding = args
+            .get_output(context);
+        let security_policy_name_binding = security_policy_name_binding_1.get_inner();
+        let sftp_authentication_methods_binding_1 = args
             .sftp_authentication_methods
-            .get_output(context)
+            .get_output(context);
+        let sftp_authentication_methods_binding = sftp_authentication_methods_binding_1
             .get_inner();
-        let structured_log_destinations_binding = args
+        let structured_log_destinations_binding_1 = args
             .structured_log_destinations
-            .get_output(context)
+            .get_output(context);
+        let structured_log_destinations_binding = structured_log_destinations_binding_1
             .get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
-        let url_binding = args.url.get_output(context).get_inner();
-        let workflow_details_binding = args
-            .workflow_details
-            .get_output(context)
-            .get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
+        let url_binding_1 = args.url.get_output(context);
+        let url_binding = url_binding_1.get_inner();
+        let workflow_details_binding_1 = args.workflow_details.get_output(context);
+        let workflow_details_binding = workflow_details_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:transfer/server:Server".into(),
             name: name.to_string(),

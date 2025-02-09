@@ -182,48 +182,53 @@ pub mod public_ip {
     ) -> PublicIpResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let allocation_method_binding = args
-            .allocation_method
-            .get_output(context)
-            .get_inner();
-        let ddos_protection_mode_binding = args
+        let allocation_method_binding_1 = args.allocation_method.get_output(context);
+        let allocation_method_binding = allocation_method_binding_1.get_inner();
+        let ddos_protection_mode_binding_1 = args
             .ddos_protection_mode
-            .get_output(context)
-            .get_inner();
-        let ddos_protection_plan_id_binding = args
+            .get_output(context);
+        let ddos_protection_mode_binding = ddos_protection_mode_binding_1.get_inner();
+        let ddos_protection_plan_id_binding_1 = args
             .ddos_protection_plan_id
-            .get_output(context)
+            .get_output(context);
+        let ddos_protection_plan_id_binding = ddos_protection_plan_id_binding_1
             .get_inner();
-        let domain_name_label_binding = args
-            .domain_name_label
-            .get_output(context)
-            .get_inner();
-        let domain_name_label_scope_binding = args
+        let domain_name_label_binding_1 = args.domain_name_label.get_output(context);
+        let domain_name_label_binding = domain_name_label_binding_1.get_inner();
+        let domain_name_label_scope_binding_1 = args
             .domain_name_label_scope
-            .get_output(context)
+            .get_output(context);
+        let domain_name_label_scope_binding = domain_name_label_scope_binding_1
             .get_inner();
-        let edge_zone_binding = args.edge_zone.get_output(context).get_inner();
-        let idle_timeout_in_minutes_binding = args
+        let edge_zone_binding_1 = args.edge_zone.get_output(context);
+        let edge_zone_binding = edge_zone_binding_1.get_inner();
+        let idle_timeout_in_minutes_binding_1 = args
             .idle_timeout_in_minutes
-            .get_output(context)
+            .get_output(context);
+        let idle_timeout_in_minutes_binding = idle_timeout_in_minutes_binding_1
             .get_inner();
-        let ip_tags_binding = args.ip_tags.get_output(context).get_inner();
-        let ip_version_binding = args.ip_version.get_output(context).get_inner();
-        let location_binding = args.location.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let public_ip_prefix_id_binding = args
-            .public_ip_prefix_id
-            .get_output(context)
-            .get_inner();
-        let resource_group_name_binding = args
-            .resource_group_name
-            .get_output(context)
-            .get_inner();
-        let reverse_fqdn_binding = args.reverse_fqdn.get_output(context).get_inner();
-        let sku_binding = args.sku.get_output(context).get_inner();
-        let sku_tier_binding = args.sku_tier.get_output(context).get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
-        let zones_binding = args.zones.get_output(context).get_inner();
+        let ip_tags_binding_1 = args.ip_tags.get_output(context);
+        let ip_tags_binding = ip_tags_binding_1.get_inner();
+        let ip_version_binding_1 = args.ip_version.get_output(context);
+        let ip_version_binding = ip_version_binding_1.get_inner();
+        let location_binding_1 = args.location.get_output(context);
+        let location_binding = location_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let public_ip_prefix_id_binding_1 = args.public_ip_prefix_id.get_output(context);
+        let public_ip_prefix_id_binding = public_ip_prefix_id_binding_1.get_inner();
+        let resource_group_name_binding_1 = args.resource_group_name.get_output(context);
+        let resource_group_name_binding = resource_group_name_binding_1.get_inner();
+        let reverse_fqdn_binding_1 = args.reverse_fqdn.get_output(context);
+        let reverse_fqdn_binding = reverse_fqdn_binding_1.get_inner();
+        let sku_binding_1 = args.sku.get_output(context);
+        let sku_binding = sku_binding_1.get_inner();
+        let sku_tier_binding_1 = args.sku_tier.get_output(context);
+        let sku_tier_binding = sku_tier_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
+        let zones_binding_1 = args.zones.get_output(context);
+        let zones_binding = zones_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:network/publicIp:PublicIp".into(),
             name: name.to_string(),

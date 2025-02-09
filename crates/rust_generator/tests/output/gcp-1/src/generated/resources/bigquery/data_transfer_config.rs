@@ -365,45 +365,50 @@ pub mod data_transfer_config {
     ) -> DataTransferConfigResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let data_refresh_window_days_binding = args
+        let data_refresh_window_days_binding_1 = args
             .data_refresh_window_days
-            .get_output(context)
+            .get_output(context);
+        let data_refresh_window_days_binding = data_refresh_window_days_binding_1
             .get_inner();
-        let data_source_id_binding = args.data_source_id.get_output(context).get_inner();
-        let destination_dataset_id_binding = args
+        let data_source_id_binding_1 = args.data_source_id.get_output(context);
+        let data_source_id_binding = data_source_id_binding_1.get_inner();
+        let destination_dataset_id_binding_1 = args
             .destination_dataset_id
-            .get_output(context)
+            .get_output(context);
+        let destination_dataset_id_binding = destination_dataset_id_binding_1
             .get_inner();
-        let disabled_binding = args.disabled.get_output(context).get_inner();
-        let display_name_binding = args.display_name.get_output(context).get_inner();
-        let email_preferences_binding = args
-            .email_preferences
-            .get_output(context)
-            .get_inner();
-        let encryption_configuration_binding = args
+        let disabled_binding_1 = args.disabled.get_output(context);
+        let disabled_binding = disabled_binding_1.get_inner();
+        let display_name_binding_1 = args.display_name.get_output(context);
+        let display_name_binding = display_name_binding_1.get_inner();
+        let email_preferences_binding_1 = args.email_preferences.get_output(context);
+        let email_preferences_binding = email_preferences_binding_1.get_inner();
+        let encryption_configuration_binding_1 = args
             .encryption_configuration
-            .get_output(context)
+            .get_output(context);
+        let encryption_configuration_binding = encryption_configuration_binding_1
             .get_inner();
-        let location_binding = args.location.get_output(context).get_inner();
-        let notification_pubsub_topic_binding = args
+        let location_binding_1 = args.location.get_output(context);
+        let location_binding = location_binding_1.get_inner();
+        let notification_pubsub_topic_binding_1 = args
             .notification_pubsub_topic
-            .get_output(context)
+            .get_output(context);
+        let notification_pubsub_topic_binding = notification_pubsub_topic_binding_1
             .get_inner();
-        let params_binding = args.params.get_output(context).get_inner();
-        let project_binding = args.project.get_output(context).get_inner();
-        let schedule_binding = args.schedule.get_output(context).get_inner();
-        let schedule_options_binding = args
-            .schedule_options
-            .get_output(context)
-            .get_inner();
-        let sensitive_params_binding = args
-            .sensitive_params
-            .get_output(context)
-            .get_inner();
-        let service_account_name_binding = args
+        let params_binding_1 = args.params.get_output(context);
+        let params_binding = params_binding_1.get_inner();
+        let project_binding_1 = args.project.get_output(context);
+        let project_binding = project_binding_1.get_inner();
+        let schedule_binding_1 = args.schedule.get_output(context);
+        let schedule_binding = schedule_binding_1.get_inner();
+        let schedule_options_binding_1 = args.schedule_options.get_output(context);
+        let schedule_options_binding = schedule_options_binding_1.get_inner();
+        let sensitive_params_binding_1 = args.sensitive_params.get_output(context);
+        let sensitive_params_binding = sensitive_params_binding_1.get_inner();
+        let service_account_name_binding_1 = args
             .service_account_name
-            .get_output(context)
-            .get_inner();
+            .get_output(context);
+        let service_account_name_binding = service_account_name_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:bigquery/dataTransferConfig:DataTransferConfig".into(),
             name: name.to_string(),

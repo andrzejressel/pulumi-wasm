@@ -42,10 +42,10 @@ pub mod get_inference_profile {
     ) -> GetInferenceProfileResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let inference_profile_id_binding = args
+        let inference_profile_id_binding_1 = args
             .inference_profile_id
-            .get_output(context)
-            .get_inner();
+            .get_output(context);
+        let inference_profile_id_binding = inference_profile_id_binding_1.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:bedrock/getInferenceProfile:getInferenceProfile".into(),
             version: super::super::super::get_version(),

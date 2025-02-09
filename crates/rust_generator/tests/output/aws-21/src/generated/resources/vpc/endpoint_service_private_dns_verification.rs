@@ -74,12 +74,14 @@ pub mod endpoint_service_private_dns_verification {
     ) -> EndpointServicePrivateDnsVerificationResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let service_id_binding = args.service_id.get_output(context).get_inner();
-        let timeouts_binding = args.timeouts.get_output(context).get_inner();
-        let wait_for_verification_binding = args
+        let service_id_binding_1 = args.service_id.get_output(context);
+        let service_id_binding = service_id_binding_1.get_inner();
+        let timeouts_binding_1 = args.timeouts.get_output(context);
+        let timeouts_binding = timeouts_binding_1.get_inner();
+        let wait_for_verification_binding_1 = args
             .wait_for_verification
-            .get_output(context)
-            .get_inner();
+            .get_output(context);
+        let wait_for_verification_binding = wait_for_verification_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:vpc/endpointServicePrivateDnsVerification:EndpointServicePrivateDnsVerification"
                 .into(),

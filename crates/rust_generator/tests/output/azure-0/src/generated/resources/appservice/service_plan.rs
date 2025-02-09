@@ -139,31 +139,39 @@ pub mod service_plan {
     ) -> ServicePlanResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let app_service_environment_id_binding = args
+        let app_service_environment_id_binding_1 = args
             .app_service_environment_id
-            .get_output(context)
+            .get_output(context);
+        let app_service_environment_id_binding = app_service_environment_id_binding_1
             .get_inner();
-        let location_binding = args.location.get_output(context).get_inner();
-        let maximum_elastic_worker_count_binding = args
+        let location_binding_1 = args.location.get_output(context);
+        let location_binding = location_binding_1.get_inner();
+        let maximum_elastic_worker_count_binding_1 = args
             .maximum_elastic_worker_count
-            .get_output(context)
+            .get_output(context);
+        let maximum_elastic_worker_count_binding = maximum_elastic_worker_count_binding_1
             .get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let os_type_binding = args.os_type.get_output(context).get_inner();
-        let per_site_scaling_enabled_binding = args
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let os_type_binding_1 = args.os_type.get_output(context);
+        let os_type_binding = os_type_binding_1.get_inner();
+        let per_site_scaling_enabled_binding_1 = args
             .per_site_scaling_enabled
-            .get_output(context)
+            .get_output(context);
+        let per_site_scaling_enabled_binding = per_site_scaling_enabled_binding_1
             .get_inner();
-        let resource_group_name_binding = args
-            .resource_group_name
-            .get_output(context)
-            .get_inner();
-        let sku_name_binding = args.sku_name.get_output(context).get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
-        let worker_count_binding = args.worker_count.get_output(context).get_inner();
-        let zone_balancing_enabled_binding = args
+        let resource_group_name_binding_1 = args.resource_group_name.get_output(context);
+        let resource_group_name_binding = resource_group_name_binding_1.get_inner();
+        let sku_name_binding_1 = args.sku_name.get_output(context);
+        let sku_name_binding = sku_name_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
+        let worker_count_binding_1 = args.worker_count.get_output(context);
+        let worker_count_binding = worker_count_binding_1.get_inner();
+        let zone_balancing_enabled_binding_1 = args
             .zone_balancing_enabled
-            .get_output(context)
+            .get_output(context);
+        let zone_balancing_enabled_binding = zone_balancing_enabled_binding_1
             .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:appservice/servicePlan:ServicePlan".into(),

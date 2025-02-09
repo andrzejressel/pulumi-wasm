@@ -26,7 +26,8 @@ pub mod get_credentials {
     ) -> GetCredentialsResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let registry_id_binding = args.registry_id.get_output(context).get_inner();
+        let registry_id_binding_1 = args.registry_id.get_output(context);
+        let registry_id_binding = registry_id_binding_1.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:ecr/getCredentials:getCredentials".into(),
             version: super::super::super::get_version(),

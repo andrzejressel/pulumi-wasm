@@ -38,15 +38,16 @@ pub mod get_account_id_token {
     ) -> GetAccountIdTokenResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let delegates_binding = args.delegates.get_output(context).get_inner();
-        let include_email_binding = args.include_email.get_output(context).get_inner();
-        let target_audience_binding = args
-            .target_audience
-            .get_output(context)
-            .get_inner();
-        let target_service_account_binding = args
+        let delegates_binding_1 = args.delegates.get_output(context);
+        let delegates_binding = delegates_binding_1.get_inner();
+        let include_email_binding_1 = args.include_email.get_output(context);
+        let include_email_binding = include_email_binding_1.get_inner();
+        let target_audience_binding_1 = args.target_audience.get_output(context);
+        let target_audience_binding = target_audience_binding_1.get_inner();
+        let target_service_account_binding_1 = args
             .target_service_account
-            .get_output(context)
+            .get_output(context);
+        let target_service_account_binding = target_service_account_binding_1
             .get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "gcp:serviceaccount/getAccountIdToken:getAccountIdToken".into(),

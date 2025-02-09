@@ -95,19 +95,23 @@ pub mod directory {
     ) -> DirectoryResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let country_code_binding = args.country_code.get_output(context).get_inner();
-        let data_residency_location_binding = args
+        let country_code_binding_1 = args.country_code.get_output(context);
+        let country_code_binding = country_code_binding_1.get_inner();
+        let data_residency_location_binding_1 = args
             .data_residency_location
-            .get_output(context)
+            .get_output(context);
+        let data_residency_location_binding = data_residency_location_binding_1
             .get_inner();
-        let display_name_binding = args.display_name.get_output(context).get_inner();
-        let domain_name_binding = args.domain_name.get_output(context).get_inner();
-        let resource_group_name_binding = args
-            .resource_group_name
-            .get_output(context)
-            .get_inner();
-        let sku_name_binding = args.sku_name.get_output(context).get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
+        let display_name_binding_1 = args.display_name.get_output(context);
+        let display_name_binding = display_name_binding_1.get_inner();
+        let domain_name_binding_1 = args.domain_name.get_output(context);
+        let domain_name_binding = domain_name_binding_1.get_inner();
+        let resource_group_name_binding_1 = args.resource_group_name.get_output(context);
+        let resource_group_name_binding = resource_group_name_binding_1.get_inner();
+        let sku_name_binding_1 = args.sku_name.get_output(context);
+        let sku_name_binding = sku_name_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:aadb2c/directory:Directory".into(),
             name: name.to_string(),

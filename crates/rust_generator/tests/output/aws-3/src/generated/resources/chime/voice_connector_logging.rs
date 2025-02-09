@@ -68,18 +68,15 @@ pub mod voice_connector_logging {
     ) -> VoiceConnectorLoggingResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let enable_media_metric_logs_binding = args
+        let enable_media_metric_logs_binding_1 = args
             .enable_media_metric_logs
-            .get_output(context)
+            .get_output(context);
+        let enable_media_metric_logs_binding = enable_media_metric_logs_binding_1
             .get_inner();
-        let enable_sip_logs_binding = args
-            .enable_sip_logs
-            .get_output(context)
-            .get_inner();
-        let voice_connector_id_binding = args
-            .voice_connector_id
-            .get_output(context)
-            .get_inner();
+        let enable_sip_logs_binding_1 = args.enable_sip_logs.get_output(context);
+        let enable_sip_logs_binding = enable_sip_logs_binding_1.get_inner();
+        let voice_connector_id_binding_1 = args.voice_connector_id.get_output(context);
+        let voice_connector_id_binding = voice_connector_id_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:chime/voiceConnectorLogging:VoiceConnectorLogging".into(),
             name: name.to_string(),

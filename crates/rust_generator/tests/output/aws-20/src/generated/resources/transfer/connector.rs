@@ -136,16 +136,22 @@ pub mod connector {
     ) -> ConnectorResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let access_role_binding = args.access_role.get_output(context).get_inner();
-        let as2_config_binding = args.as2_config.get_output(context).get_inner();
-        let logging_role_binding = args.logging_role.get_output(context).get_inner();
-        let security_policy_name_binding = args
+        let access_role_binding_1 = args.access_role.get_output(context);
+        let access_role_binding = access_role_binding_1.get_inner();
+        let as2_config_binding_1 = args.as2_config.get_output(context);
+        let as2_config_binding = as2_config_binding_1.get_inner();
+        let logging_role_binding_1 = args.logging_role.get_output(context);
+        let logging_role_binding = logging_role_binding_1.get_inner();
+        let security_policy_name_binding_1 = args
             .security_policy_name
-            .get_output(context)
-            .get_inner();
-        let sftp_config_binding = args.sftp_config.get_output(context).get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
-        let url_binding = args.url.get_output(context).get_inner();
+            .get_output(context);
+        let security_policy_name_binding = security_policy_name_binding_1.get_inner();
+        let sftp_config_binding_1 = args.sftp_config.get_output(context);
+        let sftp_config_binding = sftp_config_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
+        let url_binding_1 = args.url.get_output(context);
+        let url_binding = url_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:transfer/connector:Connector".into(),
             name: name.to_string(),

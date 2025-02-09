@@ -167,24 +167,27 @@ pub mod mover_job_definition {
     ) -> MoverJobDefinitionResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let agent_name_binding = args.agent_name.get_output(context).get_inner();
-        let copy_mode_binding = args.copy_mode.get_output(context).get_inner();
-        let description_binding = args.description.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let source_name_binding = args.source_name.get_output(context).get_inner();
-        let source_sub_path_binding = args
-            .source_sub_path
-            .get_output(context)
-            .get_inner();
-        let storage_mover_project_id_binding = args
+        let agent_name_binding_1 = args.agent_name.get_output(context);
+        let agent_name_binding = agent_name_binding_1.get_inner();
+        let copy_mode_binding_1 = args.copy_mode.get_output(context);
+        let copy_mode_binding = copy_mode_binding_1.get_inner();
+        let description_binding_1 = args.description.get_output(context);
+        let description_binding = description_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let source_name_binding_1 = args.source_name.get_output(context);
+        let source_name_binding = source_name_binding_1.get_inner();
+        let source_sub_path_binding_1 = args.source_sub_path.get_output(context);
+        let source_sub_path_binding = source_sub_path_binding_1.get_inner();
+        let storage_mover_project_id_binding_1 = args
             .storage_mover_project_id
-            .get_output(context)
+            .get_output(context);
+        let storage_mover_project_id_binding = storage_mover_project_id_binding_1
             .get_inner();
-        let target_name_binding = args.target_name.get_output(context).get_inner();
-        let target_sub_path_binding = args
-            .target_sub_path
-            .get_output(context)
-            .get_inner();
+        let target_name_binding_1 = args.target_name.get_output(context);
+        let target_name_binding = target_name_binding_1.get_inner();
+        let target_sub_path_binding_1 = args.target_sub_path.get_output(context);
+        let target_sub_path_binding = target_sub_path_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:storage/moverJobDefinition:MoverJobDefinition".into(),
             name: name.to_string(),

@@ -27,10 +27,8 @@ pub mod get_account_encryption {
     ) -> GetAccountEncryptionResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let netapp_account_id_binding = args
-            .netapp_account_id
-            .get_output(context)
-            .get_inner();
+        let netapp_account_id_binding_1 = args.netapp_account_id.get_output(context);
+        let netapp_account_id_binding = netapp_account_id_binding_1.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "azure:netapp/getAccountEncryption:getAccountEncryption".into(),
             version: super::super::super::get_version(),

@@ -87,15 +87,21 @@ pub mod alternative_contact {
     ) -> AlternativeContactResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let account_id_binding = args.account_id.get_output(context).get_inner();
-        let alternate_contact_type_binding = args
+        let account_id_binding_1 = args.account_id.get_output(context);
+        let account_id_binding = account_id_binding_1.get_inner();
+        let alternate_contact_type_binding_1 = args
             .alternate_contact_type
-            .get_output(context)
+            .get_output(context);
+        let alternate_contact_type_binding = alternate_contact_type_binding_1
             .get_inner();
-        let email_address_binding = args.email_address.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let phone_number_binding = args.phone_number.get_output(context).get_inner();
-        let title_binding = args.title.get_output(context).get_inner();
+        let email_address_binding_1 = args.email_address.get_output(context);
+        let email_address_binding = email_address_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let phone_number_binding_1 = args.phone_number.get_output(context);
+        let phone_number_binding = phone_number_binding_1.get_inner();
+        let title_binding_1 = args.title.get_output(context);
+        let title_binding = title_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:account/alternativeContact:AlternativeContact".into(),
             name: name.to_string(),

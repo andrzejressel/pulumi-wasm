@@ -164,51 +164,50 @@ pub mod linked_service_azure_sql_database {
     ) -> LinkedServiceAzureSqlDatabaseResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let additional_properties_binding = args
+        let additional_properties_binding_1 = args
             .additional_properties
-            .get_output(context)
-            .get_inner();
-        let annotations_binding = args.annotations.get_output(context).get_inner();
-        let connection_string_binding = args
-            .connection_string
-            .get_output(context)
-            .get_inner();
-        let credential_name_binding = args
-            .credential_name
-            .get_output(context)
-            .get_inner();
-        let data_factory_id_binding = args
-            .data_factory_id
-            .get_output(context)
-            .get_inner();
-        let description_binding = args.description.get_output(context).get_inner();
-        let integration_runtime_name_binding = args
+            .get_output(context);
+        let additional_properties_binding = additional_properties_binding_1.get_inner();
+        let annotations_binding_1 = args.annotations.get_output(context);
+        let annotations_binding = annotations_binding_1.get_inner();
+        let connection_string_binding_1 = args.connection_string.get_output(context);
+        let connection_string_binding = connection_string_binding_1.get_inner();
+        let credential_name_binding_1 = args.credential_name.get_output(context);
+        let credential_name_binding = credential_name_binding_1.get_inner();
+        let data_factory_id_binding_1 = args.data_factory_id.get_output(context);
+        let data_factory_id_binding = data_factory_id_binding_1.get_inner();
+        let description_binding_1 = args.description.get_output(context);
+        let description_binding = description_binding_1.get_inner();
+        let integration_runtime_name_binding_1 = args
             .integration_runtime_name
-            .get_output(context)
+            .get_output(context);
+        let integration_runtime_name_binding = integration_runtime_name_binding_1
             .get_inner();
-        let key_vault_connection_string_binding = args
+        let key_vault_connection_string_binding_1 = args
             .key_vault_connection_string
-            .get_output(context)
+            .get_output(context);
+        let key_vault_connection_string_binding = key_vault_connection_string_binding_1
             .get_inner();
-        let key_vault_password_binding = args
-            .key_vault_password
-            .get_output(context)
-            .get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let parameters_binding = args.parameters.get_output(context).get_inner();
-        let service_principal_id_binding = args
+        let key_vault_password_binding_1 = args.key_vault_password.get_output(context);
+        let key_vault_password_binding = key_vault_password_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let parameters_binding_1 = args.parameters.get_output(context);
+        let parameters_binding = parameters_binding_1.get_inner();
+        let service_principal_id_binding_1 = args
             .service_principal_id
-            .get_output(context)
-            .get_inner();
-        let service_principal_key_binding = args
+            .get_output(context);
+        let service_principal_id_binding = service_principal_id_binding_1.get_inner();
+        let service_principal_key_binding_1 = args
             .service_principal_key
-            .get_output(context)
-            .get_inner();
-        let tenant_id_binding = args.tenant_id.get_output(context).get_inner();
-        let use_managed_identity_binding = args
+            .get_output(context);
+        let service_principal_key_binding = service_principal_key_binding_1.get_inner();
+        let tenant_id_binding_1 = args.tenant_id.get_output(context);
+        let tenant_id_binding = tenant_id_binding_1.get_inner();
+        let use_managed_identity_binding_1 = args
             .use_managed_identity
-            .get_output(context)
-            .get_inner();
+            .get_output(context);
+        let use_managed_identity_binding = use_managed_identity_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:datafactory/linkedServiceAzureSqlDatabase:LinkedServiceAzureSqlDatabase"
                 .into(),

@@ -41,7 +41,8 @@ pub mod get_workgroup {
     ) -> GetWorkgroupResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let workgroup_name_binding = args.workgroup_name.get_output(context).get_inner();
+        let workgroup_name_binding_1 = args.workgroup_name.get_output(context);
+        let workgroup_name_binding = workgroup_name_binding_1.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:redshiftserverless/getWorkgroup:getWorkgroup".into(),
             version: super::super::super::get_version(),

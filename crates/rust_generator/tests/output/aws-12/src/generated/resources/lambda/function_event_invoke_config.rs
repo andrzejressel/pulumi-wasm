@@ -193,20 +193,22 @@ pub mod function_event_invoke_config {
     ) -> FunctionEventInvokeConfigResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let destination_config_binding = args
-            .destination_config
-            .get_output(context)
-            .get_inner();
-        let function_name_binding = args.function_name.get_output(context).get_inner();
-        let maximum_event_age_in_seconds_binding = args
+        let destination_config_binding_1 = args.destination_config.get_output(context);
+        let destination_config_binding = destination_config_binding_1.get_inner();
+        let function_name_binding_1 = args.function_name.get_output(context);
+        let function_name_binding = function_name_binding_1.get_inner();
+        let maximum_event_age_in_seconds_binding_1 = args
             .maximum_event_age_in_seconds
-            .get_output(context)
+            .get_output(context);
+        let maximum_event_age_in_seconds_binding = maximum_event_age_in_seconds_binding_1
             .get_inner();
-        let maximum_retry_attempts_binding = args
+        let maximum_retry_attempts_binding_1 = args
             .maximum_retry_attempts
-            .get_output(context)
+            .get_output(context);
+        let maximum_retry_attempts_binding = maximum_retry_attempts_binding_1
             .get_inner();
-        let qualifier_binding = args.qualifier.get_output(context).get_inner();
+        let qualifier_binding_1 = args.qualifier.get_output(context);
+        let qualifier_binding = qualifier_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:lambda/functionEventInvokeConfig:FunctionEventInvokeConfig"
                 .into(),

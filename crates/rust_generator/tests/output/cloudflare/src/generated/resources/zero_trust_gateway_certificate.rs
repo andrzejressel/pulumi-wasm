@@ -54,17 +54,18 @@ pub mod zero_trust_gateway_certificate {
     ) -> ZeroTrustGatewayCertificateResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let account_id_binding = args.account_id.get_output(context).get_inner();
-        let activate_binding = args.activate.get_output(context).get_inner();
-        let custom_binding = args.custom.get_output(context).get_inner();
-        let gateway_managed_binding = args
-            .gateway_managed
-            .get_output(context)
-            .get_inner();
-        let validity_period_days_binding = args
+        let account_id_binding_1 = args.account_id.get_output(context);
+        let account_id_binding = account_id_binding_1.get_inner();
+        let activate_binding_1 = args.activate.get_output(context);
+        let activate_binding = activate_binding_1.get_inner();
+        let custom_binding_1 = args.custom.get_output(context);
+        let custom_binding = custom_binding_1.get_inner();
+        let gateway_managed_binding_1 = args.gateway_managed.get_output(context);
+        let gateway_managed_binding = gateway_managed_binding_1.get_inner();
+        let validity_period_days_binding_1 = args
             .validity_period_days
-            .get_output(context)
-            .get_inner();
+            .get_output(context);
+        let validity_period_days_binding = validity_period_days_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "cloudflare:index/zeroTrustGatewayCertificate:ZeroTrustGatewayCertificate"
                 .into(),

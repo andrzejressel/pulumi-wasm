@@ -249,25 +249,30 @@ pub mod directory {
     ) -> DirectoryResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let directory_id_binding = args.directory_id.get_output(context).get_inner();
-        let ip_group_ids_binding = args.ip_group_ids.get_output(context).get_inner();
-        let saml_properties_binding = args
-            .saml_properties
-            .get_output(context)
-            .get_inner();
-        let self_service_permissions_binding = args
+        let directory_id_binding_1 = args.directory_id.get_output(context);
+        let directory_id_binding = directory_id_binding_1.get_inner();
+        let ip_group_ids_binding_1 = args.ip_group_ids.get_output(context);
+        let ip_group_ids_binding = ip_group_ids_binding_1.get_inner();
+        let saml_properties_binding_1 = args.saml_properties.get_output(context);
+        let saml_properties_binding = saml_properties_binding_1.get_inner();
+        let self_service_permissions_binding_1 = args
             .self_service_permissions
-            .get_output(context)
+            .get_output(context);
+        let self_service_permissions_binding = self_service_permissions_binding_1
             .get_inner();
-        let subnet_ids_binding = args.subnet_ids.get_output(context).get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
-        let workspace_access_properties_binding = args
+        let subnet_ids_binding_1 = args.subnet_ids.get_output(context);
+        let subnet_ids_binding = subnet_ids_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
+        let workspace_access_properties_binding_1 = args
             .workspace_access_properties
-            .get_output(context)
+            .get_output(context);
+        let workspace_access_properties_binding = workspace_access_properties_binding_1
             .get_inner();
-        let workspace_creation_properties_binding = args
+        let workspace_creation_properties_binding_1 = args
             .workspace_creation_properties
-            .get_output(context)
+            .get_output(context);
+        let workspace_creation_properties_binding = workspace_creation_properties_binding_1
             .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:workspaces/directory:Directory".into(),

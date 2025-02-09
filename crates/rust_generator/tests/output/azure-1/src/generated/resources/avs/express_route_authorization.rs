@@ -83,11 +83,10 @@ pub mod express_route_authorization {
     ) -> ExpressRouteAuthorizationResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let name_binding = args.name.get_output(context).get_inner();
-        let private_cloud_id_binding = args
-            .private_cloud_id
-            .get_output(context)
-            .get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let private_cloud_id_binding_1 = args.private_cloud_id.get_output(context);
+        let private_cloud_id_binding = private_cloud_id_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:avs/expressRouteAuthorization:ExpressRouteAuthorization"
                 .into(),

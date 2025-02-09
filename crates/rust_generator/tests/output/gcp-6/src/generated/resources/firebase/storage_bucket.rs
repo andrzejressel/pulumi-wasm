@@ -85,8 +85,10 @@ pub mod storage_bucket {
     ) -> StorageBucketResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let bucket_id_binding = args.bucket_id.get_output(context).get_inner();
-        let project_binding = args.project.get_output(context).get_inner();
+        let bucket_id_binding_1 = args.bucket_id.get_output(context);
+        let bucket_id_binding = bucket_id_binding_1.get_inner();
+        let project_binding_1 = args.project.get_output(context);
+        let project_binding = project_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:firebase/storageBucket:StorageBucket".into(),
             name: name.to_string(),

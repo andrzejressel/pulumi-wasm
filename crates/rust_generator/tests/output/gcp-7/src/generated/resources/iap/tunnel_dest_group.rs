@@ -126,11 +126,16 @@ pub mod tunnel_dest_group {
     ) -> TunnelDestGroupResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let cidrs_binding = args.cidrs.get_output(context).get_inner();
-        let fqdns_binding = args.fqdns.get_output(context).get_inner();
-        let group_name_binding = args.group_name.get_output(context).get_inner();
-        let project_binding = args.project.get_output(context).get_inner();
-        let region_binding = args.region.get_output(context).get_inner();
+        let cidrs_binding_1 = args.cidrs.get_output(context);
+        let cidrs_binding = cidrs_binding_1.get_inner();
+        let fqdns_binding_1 = args.fqdns.get_output(context);
+        let fqdns_binding = fqdns_binding_1.get_inner();
+        let group_name_binding_1 = args.group_name.get_output(context);
+        let group_name_binding = group_name_binding_1.get_inner();
+        let project_binding_1 = args.project.get_output(context);
+        let project_binding = project_binding_1.get_inner();
+        let region_binding_1 = args.region.get_output(context);
+        let region_binding = region_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:iap/tunnelDestGroup:TunnelDestGroup".into(),
             name: name.to_string(),

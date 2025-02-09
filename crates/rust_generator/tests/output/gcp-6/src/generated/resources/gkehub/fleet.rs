@@ -115,12 +115,15 @@ pub mod fleet {
     ) -> FleetResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let default_cluster_config_binding = args
+        let default_cluster_config_binding_1 = args
             .default_cluster_config
-            .get_output(context)
+            .get_output(context);
+        let default_cluster_config_binding = default_cluster_config_binding_1
             .get_inner();
-        let display_name_binding = args.display_name.get_output(context).get_inner();
-        let project_binding = args.project.get_output(context).get_inner();
+        let display_name_binding_1 = args.display_name.get_output(context);
+        let display_name_binding = display_name_binding_1.get_inner();
+        let project_binding_1 = args.project.get_output(context);
+        let project_binding = project_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:gkehub/fleet:Fleet".into(),
             name: name.to_string(),

@@ -144,15 +144,18 @@ pub mod zone {
     ) -> ZoneResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let comment_binding = args.comment.get_output(context).get_inner();
-        let delegation_set_id_binding = args
-            .delegation_set_id
-            .get_output(context)
-            .get_inner();
-        let force_destroy_binding = args.force_destroy.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
-        let vpcs_binding = args.vpcs.get_output(context).get_inner();
+        let comment_binding_1 = args.comment.get_output(context);
+        let comment_binding = comment_binding_1.get_inner();
+        let delegation_set_id_binding_1 = args.delegation_set_id.get_output(context);
+        let delegation_set_id_binding = delegation_set_id_binding_1.get_inner();
+        let force_destroy_binding_1 = args.force_destroy.get_output(context);
+        let force_destroy_binding = force_destroy_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
+        let vpcs_binding_1 = args.vpcs.get_output(context);
+        let vpcs_binding = vpcs_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:route53/zone:Zone".into(),
             name: name.to_string(),

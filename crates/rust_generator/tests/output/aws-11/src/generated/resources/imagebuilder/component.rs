@@ -134,23 +134,30 @@ pub mod component {
     ) -> ComponentResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let change_description_binding = args
-            .change_description
-            .get_output(context)
-            .get_inner();
-        let data_binding = args.data.get_output(context).get_inner();
-        let description_binding = args.description.get_output(context).get_inner();
-        let kms_key_id_binding = args.kms_key_id.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let platform_binding = args.platform.get_output(context).get_inner();
-        let skip_destroy_binding = args.skip_destroy.get_output(context).get_inner();
-        let supported_os_versions_binding = args
+        let change_description_binding_1 = args.change_description.get_output(context);
+        let change_description_binding = change_description_binding_1.get_inner();
+        let data_binding_1 = args.data.get_output(context);
+        let data_binding = data_binding_1.get_inner();
+        let description_binding_1 = args.description.get_output(context);
+        let description_binding = description_binding_1.get_inner();
+        let kms_key_id_binding_1 = args.kms_key_id.get_output(context);
+        let kms_key_id_binding = kms_key_id_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let platform_binding_1 = args.platform.get_output(context);
+        let platform_binding = platform_binding_1.get_inner();
+        let skip_destroy_binding_1 = args.skip_destroy.get_output(context);
+        let skip_destroy_binding = skip_destroy_binding_1.get_inner();
+        let supported_os_versions_binding_1 = args
             .supported_os_versions
-            .get_output(context)
-            .get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
-        let uri_binding = args.uri.get_output(context).get_inner();
-        let version_binding = args.version.get_output(context).get_inner();
+            .get_output(context);
+        let supported_os_versions_binding = supported_os_versions_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
+        let uri_binding_1 = args.uri.get_output(context);
+        let uri_binding = uri_binding_1.get_inner();
+        let version_binding_1 = args.version.get_output(context);
+        let version_binding = version_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:imagebuilder/component:Component".into(),
             name: name.to_string(),

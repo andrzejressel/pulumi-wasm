@@ -100,16 +100,16 @@ pub mod fleet_member {
     ) -> FleetMemberResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let group_binding = args.group.get_output(context).get_inner();
-        let kubernetes_cluster_id_binding = args
+        let group_binding_1 = args.group.get_output(context);
+        let group_binding = group_binding_1.get_inner();
+        let kubernetes_cluster_id_binding_1 = args
             .kubernetes_cluster_id
-            .get_output(context)
-            .get_inner();
-        let kubernetes_fleet_id_binding = args
-            .kubernetes_fleet_id
-            .get_output(context)
-            .get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
+            .get_output(context);
+        let kubernetes_cluster_id_binding = kubernetes_cluster_id_binding_1.get_inner();
+        let kubernetes_fleet_id_binding_1 = args.kubernetes_fleet_id.get_output(context);
+        let kubernetes_fleet_id_binding = kubernetes_fleet_id_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:containerservice/fleetMember:FleetMember".into(),
             name: name.to_string(),

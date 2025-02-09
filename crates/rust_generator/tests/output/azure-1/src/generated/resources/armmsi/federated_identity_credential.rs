@@ -95,15 +95,18 @@ pub mod federated_identity_credential {
     ) -> FederatedIdentityCredentialResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let audience_binding = args.audience.get_output(context).get_inner();
-        let issuer_binding = args.issuer.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let parent_id_binding = args.parent_id.get_output(context).get_inner();
-        let resource_group_name_binding = args
-            .resource_group_name
-            .get_output(context)
-            .get_inner();
-        let subject_binding = args.subject.get_output(context).get_inner();
+        let audience_binding_1 = args.audience.get_output(context);
+        let audience_binding = audience_binding_1.get_inner();
+        let issuer_binding_1 = args.issuer.get_output(context);
+        let issuer_binding = issuer_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let parent_id_binding_1 = args.parent_id.get_output(context);
+        let parent_id_binding = parent_id_binding_1.get_inner();
+        let resource_group_name_binding_1 = args.resource_group_name.get_output(context);
+        let resource_group_name_binding = resource_group_name_binding_1.get_inner();
+        let subject_binding_1 = args.subject.get_output(context);
+        let subject_binding = subject_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:armmsi/federatedIdentityCredential:FederatedIdentityCredential"
                 .into(),

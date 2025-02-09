@@ -160,28 +160,24 @@ pub mod virtual_network_gateway_nat_rule {
     ) -> VirtualNetworkGatewayNatRuleResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let external_mappings_binding = args
-            .external_mappings
-            .get_output(context)
-            .get_inner();
-        let internal_mappings_binding = args
-            .internal_mappings
-            .get_output(context)
-            .get_inner();
-        let ip_configuration_id_binding = args
-            .ip_configuration_id
-            .get_output(context)
-            .get_inner();
-        let mode_binding = args.mode.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let resource_group_name_binding = args
-            .resource_group_name
-            .get_output(context)
-            .get_inner();
-        let type__binding = args.type_.get_output(context).get_inner();
-        let virtual_network_gateway_id_binding = args
+        let external_mappings_binding_1 = args.external_mappings.get_output(context);
+        let external_mappings_binding = external_mappings_binding_1.get_inner();
+        let internal_mappings_binding_1 = args.internal_mappings.get_output(context);
+        let internal_mappings_binding = internal_mappings_binding_1.get_inner();
+        let ip_configuration_id_binding_1 = args.ip_configuration_id.get_output(context);
+        let ip_configuration_id_binding = ip_configuration_id_binding_1.get_inner();
+        let mode_binding_1 = args.mode.get_output(context);
+        let mode_binding = mode_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let resource_group_name_binding_1 = args.resource_group_name.get_output(context);
+        let resource_group_name_binding = resource_group_name_binding_1.get_inner();
+        let type__binding_1 = args.type_.get_output(context);
+        let type__binding = type__binding_1.get_inner();
+        let virtual_network_gateway_id_binding_1 = args
             .virtual_network_gateway_id
-            .get_output(context)
+            .get_output(context);
+        let virtual_network_gateway_id_binding = virtual_network_gateway_id_binding_1
             .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:network/virtualNetworkGatewayNatRule:VirtualNetworkGatewayNatRule"

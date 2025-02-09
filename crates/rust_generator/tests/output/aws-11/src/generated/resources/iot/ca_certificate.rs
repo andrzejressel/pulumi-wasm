@@ -141,27 +141,25 @@ pub mod ca_certificate {
     ) -> CaCertificateResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let active_binding = args.active.get_output(context).get_inner();
-        let allow_auto_registration_binding = args
+        let active_binding_1 = args.active.get_output(context);
+        let active_binding = active_binding_1.get_inner();
+        let allow_auto_registration_binding_1 = args
             .allow_auto_registration
-            .get_output(context)
+            .get_output(context);
+        let allow_auto_registration_binding = allow_auto_registration_binding_1
             .get_inner();
-        let ca_certificate_pem_binding = args
-            .ca_certificate_pem
-            .get_output(context)
-            .get_inner();
-        let certificate_mode_binding = args
-            .certificate_mode
-            .get_output(context)
-            .get_inner();
-        let registration_config_binding = args
-            .registration_config
-            .get_output(context)
-            .get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
-        let verification_certificate_pem_binding = args
+        let ca_certificate_pem_binding_1 = args.ca_certificate_pem.get_output(context);
+        let ca_certificate_pem_binding = ca_certificate_pem_binding_1.get_inner();
+        let certificate_mode_binding_1 = args.certificate_mode.get_output(context);
+        let certificate_mode_binding = certificate_mode_binding_1.get_inner();
+        let registration_config_binding_1 = args.registration_config.get_output(context);
+        let registration_config_binding = registration_config_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
+        let verification_certificate_pem_binding_1 = args
             .verification_certificate_pem
-            .get_output(context)
+            .get_output(context);
+        let verification_certificate_pem_binding = verification_certificate_pem_binding_1
             .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:iot/caCertificate:CaCertificate".into(),

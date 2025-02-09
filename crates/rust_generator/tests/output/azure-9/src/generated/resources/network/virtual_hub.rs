@@ -132,25 +132,32 @@ pub mod virtual_hub {
     ) -> VirtualHubResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let address_prefix_binding = args.address_prefix.get_output(context).get_inner();
-        let hub_routing_preference_binding = args
+        let address_prefix_binding_1 = args.address_prefix.get_output(context);
+        let address_prefix_binding = address_prefix_binding_1.get_inner();
+        let hub_routing_preference_binding_1 = args
             .hub_routing_preference
-            .get_output(context)
+            .get_output(context);
+        let hub_routing_preference_binding = hub_routing_preference_binding_1
             .get_inner();
-        let location_binding = args.location.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let resource_group_name_binding = args
-            .resource_group_name
-            .get_output(context)
-            .get_inner();
-        let routes_binding = args.routes.get_output(context).get_inner();
-        let sku_binding = args.sku.get_output(context).get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
-        let virtual_router_auto_scale_min_capacity_binding = args
+        let location_binding_1 = args.location.get_output(context);
+        let location_binding = location_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let resource_group_name_binding_1 = args.resource_group_name.get_output(context);
+        let resource_group_name_binding = resource_group_name_binding_1.get_inner();
+        let routes_binding_1 = args.routes.get_output(context);
+        let routes_binding = routes_binding_1.get_inner();
+        let sku_binding_1 = args.sku.get_output(context);
+        let sku_binding = sku_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
+        let virtual_router_auto_scale_min_capacity_binding_1 = args
             .virtual_router_auto_scale_min_capacity
-            .get_output(context)
+            .get_output(context);
+        let virtual_router_auto_scale_min_capacity_binding = virtual_router_auto_scale_min_capacity_binding_1
             .get_inner();
-        let virtual_wan_id_binding = args.virtual_wan_id.get_output(context).get_inner();
+        let virtual_wan_id_binding_1 = args.virtual_wan_id.get_output(context);
+        let virtual_wan_id_binding = virtual_wan_id_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:network/virtualHub:VirtualHub".into(),
             name: name.to_string(),

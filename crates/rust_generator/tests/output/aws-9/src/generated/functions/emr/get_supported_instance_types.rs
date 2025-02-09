@@ -40,10 +40,12 @@ pub mod get_supported_instance_types {
     ) -> GetSupportedInstanceTypesResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let release_label_binding = args.release_label.get_output(context).get_inner();
-        let supported_instance_types_binding = args
+        let release_label_binding_1 = args.release_label.get_output(context);
+        let release_label_binding = release_label_binding_1.get_inner();
+        let supported_instance_types_binding_1 = args
             .supported_instance_types
-            .get_output(context)
+            .get_output(context);
+        let supported_instance_types_binding = supported_instance_types_binding_1
             .get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:emr/getSupportedInstanceTypes:getSupportedInstanceTypes".into(),

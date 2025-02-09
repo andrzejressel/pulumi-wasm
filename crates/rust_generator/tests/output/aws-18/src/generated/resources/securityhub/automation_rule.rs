@@ -114,14 +114,22 @@ pub mod automation_rule {
     ) -> AutomationRuleResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let actions_binding = args.actions.get_output(context).get_inner();
-        let criteria_binding = args.criteria.get_output(context).get_inner();
-        let description_binding = args.description.get_output(context).get_inner();
-        let is_terminal_binding = args.is_terminal.get_output(context).get_inner();
-        let rule_name_binding = args.rule_name.get_output(context).get_inner();
-        let rule_order_binding = args.rule_order.get_output(context).get_inner();
-        let rule_status_binding = args.rule_status.get_output(context).get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
+        let actions_binding_1 = args.actions.get_output(context);
+        let actions_binding = actions_binding_1.get_inner();
+        let criteria_binding_1 = args.criteria.get_output(context);
+        let criteria_binding = criteria_binding_1.get_inner();
+        let description_binding_1 = args.description.get_output(context);
+        let description_binding = description_binding_1.get_inner();
+        let is_terminal_binding_1 = args.is_terminal.get_output(context);
+        let is_terminal_binding = is_terminal_binding_1.get_inner();
+        let rule_name_binding_1 = args.rule_name.get_output(context);
+        let rule_name_binding = rule_name_binding_1.get_inner();
+        let rule_order_binding_1 = args.rule_order.get_output(context);
+        let rule_order_binding = rule_order_binding_1.get_inner();
+        let rule_status_binding_1 = args.rule_status.get_output(context);
+        let rule_status_binding = rule_status_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:securityhub/automationRule:AutomationRule".into(),
             name: name.to_string(),

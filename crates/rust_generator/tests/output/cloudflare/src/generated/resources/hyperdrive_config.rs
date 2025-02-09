@@ -83,11 +83,16 @@ pub mod hyperdrive_config {
     ) -> HyperdriveConfigResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let account_id_binding = args.account_id.get_output(context).get_inner();
-        let caching_binding = args.caching.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let origin_binding = args.origin.get_output(context).get_inner();
-        let resource_id_binding = args.resource_id.get_output(context).get_inner();
+        let account_id_binding_1 = args.account_id.get_output(context);
+        let account_id_binding = account_id_binding_1.get_inner();
+        let caching_binding_1 = args.caching.get_output(context);
+        let caching_binding = caching_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let origin_binding_1 = args.origin.get_output(context);
+        let origin_binding = origin_binding_1.get_inner();
+        let resource_id_binding_1 = args.resource_id.get_output(context);
+        let resource_id_binding = resource_id_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "cloudflare:index/hyperdriveConfig:HyperdriveConfig".into(),
             name: name.to_string(),

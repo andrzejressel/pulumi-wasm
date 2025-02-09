@@ -307,20 +307,28 @@ pub mod dataset_access {
     ) -> DatasetAccessResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let authorized_dataset_binding = args
-            .authorized_dataset
-            .get_output(context)
-            .get_inner();
-        let dataset_id_binding = args.dataset_id.get_output(context).get_inner();
-        let domain_binding = args.domain.get_output(context).get_inner();
-        let group_by_email_binding = args.group_by_email.get_output(context).get_inner();
-        let iam_member_binding = args.iam_member.get_output(context).get_inner();
-        let project_binding = args.project.get_output(context).get_inner();
-        let role_binding = args.role.get_output(context).get_inner();
-        let routine_binding = args.routine.get_output(context).get_inner();
-        let special_group_binding = args.special_group.get_output(context).get_inner();
-        let user_by_email_binding = args.user_by_email.get_output(context).get_inner();
-        let view_binding = args.view.get_output(context).get_inner();
+        let authorized_dataset_binding_1 = args.authorized_dataset.get_output(context);
+        let authorized_dataset_binding = authorized_dataset_binding_1.get_inner();
+        let dataset_id_binding_1 = args.dataset_id.get_output(context);
+        let dataset_id_binding = dataset_id_binding_1.get_inner();
+        let domain_binding_1 = args.domain.get_output(context);
+        let domain_binding = domain_binding_1.get_inner();
+        let group_by_email_binding_1 = args.group_by_email.get_output(context);
+        let group_by_email_binding = group_by_email_binding_1.get_inner();
+        let iam_member_binding_1 = args.iam_member.get_output(context);
+        let iam_member_binding = iam_member_binding_1.get_inner();
+        let project_binding_1 = args.project.get_output(context);
+        let project_binding = project_binding_1.get_inner();
+        let role_binding_1 = args.role.get_output(context);
+        let role_binding = role_binding_1.get_inner();
+        let routine_binding_1 = args.routine.get_output(context);
+        let routine_binding = routine_binding_1.get_inner();
+        let special_group_binding_1 = args.special_group.get_output(context);
+        let special_group_binding = special_group_binding_1.get_inner();
+        let user_by_email_binding_1 = args.user_by_email.get_output(context);
+        let user_by_email_binding = user_by_email_binding_1.get_inner();
+        let view_binding_1 = args.view.get_output(context);
+        let view_binding = view_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:bigquery/datasetAccess:DatasetAccess".into(),
             name: name.to_string(),

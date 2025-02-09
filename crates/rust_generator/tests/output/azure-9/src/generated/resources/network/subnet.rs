@@ -170,40 +170,40 @@ pub mod subnet {
     ) -> SubnetResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let address_prefixes_binding = args
-            .address_prefixes
-            .get_output(context)
-            .get_inner();
-        let default_outbound_access_enabled_binding = args
+        let address_prefixes_binding_1 = args.address_prefixes.get_output(context);
+        let address_prefixes_binding = address_prefixes_binding_1.get_inner();
+        let default_outbound_access_enabled_binding_1 = args
             .default_outbound_access_enabled
-            .get_output(context)
+            .get_output(context);
+        let default_outbound_access_enabled_binding = default_outbound_access_enabled_binding_1
             .get_inner();
-        let delegations_binding = args.delegations.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let private_endpoint_network_policies_binding = args
+        let delegations_binding_1 = args.delegations.get_output(context);
+        let delegations_binding = delegations_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let private_endpoint_network_policies_binding_1 = args
             .private_endpoint_network_policies
-            .get_output(context)
+            .get_output(context);
+        let private_endpoint_network_policies_binding = private_endpoint_network_policies_binding_1
             .get_inner();
-        let private_link_service_network_policies_enabled_binding = args
+        let private_link_service_network_policies_enabled_binding_1 = args
             .private_link_service_network_policies_enabled
-            .get_output(context)
+            .get_output(context);
+        let private_link_service_network_policies_enabled_binding = private_link_service_network_policies_enabled_binding_1
             .get_inner();
-        let resource_group_name_binding = args
-            .resource_group_name
-            .get_output(context)
-            .get_inner();
-        let service_endpoint_policy_ids_binding = args
+        let resource_group_name_binding_1 = args.resource_group_name.get_output(context);
+        let resource_group_name_binding = resource_group_name_binding_1.get_inner();
+        let service_endpoint_policy_ids_binding_1 = args
             .service_endpoint_policy_ids
-            .get_output(context)
+            .get_output(context);
+        let service_endpoint_policy_ids_binding = service_endpoint_policy_ids_binding_1
             .get_inner();
-        let service_endpoints_binding = args
-            .service_endpoints
-            .get_output(context)
-            .get_inner();
-        let virtual_network_name_binding = args
+        let service_endpoints_binding_1 = args.service_endpoints.get_output(context);
+        let service_endpoints_binding = service_endpoints_binding_1.get_inner();
+        let virtual_network_name_binding_1 = args
             .virtual_network_name
-            .get_output(context)
-            .get_inner();
+            .get_output(context);
+        let virtual_network_name_binding = virtual_network_name_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:network/subnet:Subnet".into(),
             name: name.to_string(),

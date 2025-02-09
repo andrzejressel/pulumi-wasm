@@ -143,23 +143,30 @@ pub mod traffic_manager_external_endpoint {
     ) -> TrafficManagerExternalEndpointResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let always_serve_enabled_binding = args
+        let always_serve_enabled_binding_1 = args
             .always_serve_enabled
-            .get_output(context)
-            .get_inner();
-        let custom_headers_binding = args.custom_headers.get_output(context).get_inner();
-        let enabled_binding = args.enabled.get_output(context).get_inner();
-        let endpoint_location_binding = args
-            .endpoint_location
-            .get_output(context)
-            .get_inner();
-        let geo_mappings_binding = args.geo_mappings.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let priority_binding = args.priority.get_output(context).get_inner();
-        let profile_id_binding = args.profile_id.get_output(context).get_inner();
-        let subnets_binding = args.subnets.get_output(context).get_inner();
-        let target_binding = args.target.get_output(context).get_inner();
-        let weight_binding = args.weight.get_output(context).get_inner();
+            .get_output(context);
+        let always_serve_enabled_binding = always_serve_enabled_binding_1.get_inner();
+        let custom_headers_binding_1 = args.custom_headers.get_output(context);
+        let custom_headers_binding = custom_headers_binding_1.get_inner();
+        let enabled_binding_1 = args.enabled.get_output(context);
+        let enabled_binding = enabled_binding_1.get_inner();
+        let endpoint_location_binding_1 = args.endpoint_location.get_output(context);
+        let endpoint_location_binding = endpoint_location_binding_1.get_inner();
+        let geo_mappings_binding_1 = args.geo_mappings.get_output(context);
+        let geo_mappings_binding = geo_mappings_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let priority_binding_1 = args.priority.get_output(context);
+        let priority_binding = priority_binding_1.get_inner();
+        let profile_id_binding_1 = args.profile_id.get_output(context);
+        let profile_id_binding = profile_id_binding_1.get_inner();
+        let subnets_binding_1 = args.subnets.get_output(context);
+        let subnets_binding = subnets_binding_1.get_inner();
+        let target_binding_1 = args.target.get_output(context);
+        let target_binding = target_binding_1.get_inner();
+        let weight_binding_1 = args.weight.get_output(context);
+        let weight_binding = weight_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:network/trafficManagerExternalEndpoint:TrafficManagerExternalEndpoint"
                 .into(),

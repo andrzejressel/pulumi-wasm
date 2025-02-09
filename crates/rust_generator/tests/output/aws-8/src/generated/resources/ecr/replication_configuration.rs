@@ -120,9 +120,10 @@ pub mod replication_configuration {
     ) -> ReplicationConfigurationResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let replication_configuration_binding = args
+        let replication_configuration_binding_1 = args
             .replication_configuration
-            .get_output(context)
+            .get_output(context);
+        let replication_configuration_binding = replication_configuration_binding_1
             .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:ecr/replicationConfiguration:ReplicationConfiguration".into(),

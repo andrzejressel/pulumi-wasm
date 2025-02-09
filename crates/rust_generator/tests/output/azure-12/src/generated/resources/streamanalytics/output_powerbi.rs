@@ -99,22 +99,30 @@ pub mod output_powerbi {
     ) -> OutputPowerbiResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let dataset_binding = args.dataset.get_output(context).get_inner();
-        let group_id_binding = args.group_id.get_output(context).get_inner();
-        let group_name_binding = args.group_name.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let stream_analytics_job_id_binding = args
+        let dataset_binding_1 = args.dataset.get_output(context);
+        let dataset_binding = dataset_binding_1.get_inner();
+        let group_id_binding_1 = args.group_id.get_output(context);
+        let group_id_binding = group_id_binding_1.get_inner();
+        let group_name_binding_1 = args.group_name.get_output(context);
+        let group_name_binding = group_name_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let stream_analytics_job_id_binding_1 = args
             .stream_analytics_job_id
-            .get_output(context)
+            .get_output(context);
+        let stream_analytics_job_id_binding = stream_analytics_job_id_binding_1
             .get_inner();
-        let table_binding = args.table.get_output(context).get_inner();
-        let token_user_display_name_binding = args
+        let table_binding_1 = args.table.get_output(context);
+        let table_binding = table_binding_1.get_inner();
+        let token_user_display_name_binding_1 = args
             .token_user_display_name
-            .get_output(context)
+            .get_output(context);
+        let token_user_display_name_binding = token_user_display_name_binding_1
             .get_inner();
-        let token_user_principal_name_binding = args
+        let token_user_principal_name_binding_1 = args
             .token_user_principal_name
-            .get_output(context)
+            .get_output(context);
+        let token_user_principal_name_binding = token_user_principal_name_binding_1
             .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:streamanalytics/outputPowerbi:OutputPowerbi".into(),

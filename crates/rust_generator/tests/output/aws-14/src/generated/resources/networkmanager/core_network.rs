@@ -210,28 +210,22 @@ pub mod core_network {
     ) -> CoreNetworkResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let base_policy_document_binding = args
+        let base_policy_document_binding_1 = args
             .base_policy_document
-            .get_output(context)
-            .get_inner();
-        let base_policy_region_binding = args
-            .base_policy_region
-            .get_output(context)
-            .get_inner();
-        let base_policy_regions_binding = args
-            .base_policy_regions
-            .get_output(context)
-            .get_inner();
-        let create_base_policy_binding = args
-            .create_base_policy
-            .get_output(context)
-            .get_inner();
-        let description_binding = args.description.get_output(context).get_inner();
-        let global_network_id_binding = args
-            .global_network_id
-            .get_output(context)
-            .get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
+            .get_output(context);
+        let base_policy_document_binding = base_policy_document_binding_1.get_inner();
+        let base_policy_region_binding_1 = args.base_policy_region.get_output(context);
+        let base_policy_region_binding = base_policy_region_binding_1.get_inner();
+        let base_policy_regions_binding_1 = args.base_policy_regions.get_output(context);
+        let base_policy_regions_binding = base_policy_regions_binding_1.get_inner();
+        let create_base_policy_binding_1 = args.create_base_policy.get_output(context);
+        let create_base_policy_binding = create_base_policy_binding_1.get_inner();
+        let description_binding_1 = args.description.get_output(context);
+        let description_binding = description_binding_1.get_inner();
+        let global_network_id_binding_1 = args.global_network_id.get_output(context);
+        let global_network_id_binding = global_network_id_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:networkmanager/coreNetwork:CoreNetwork".into(),
             name: name.to_string(),

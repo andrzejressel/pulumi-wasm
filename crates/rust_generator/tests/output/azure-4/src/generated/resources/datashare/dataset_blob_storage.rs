@@ -137,15 +137,18 @@ pub mod dataset_blob_storage {
     ) -> DatasetBlobStorageResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let container_name_binding = args.container_name.get_output(context).get_inner();
-        let data_share_id_binding = args.data_share_id.get_output(context).get_inner();
-        let file_path_binding = args.file_path.get_output(context).get_inner();
-        let folder_path_binding = args.folder_path.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let storage_account_binding = args
-            .storage_account
-            .get_output(context)
-            .get_inner();
+        let container_name_binding_1 = args.container_name.get_output(context);
+        let container_name_binding = container_name_binding_1.get_inner();
+        let data_share_id_binding_1 = args.data_share_id.get_output(context);
+        let data_share_id_binding = data_share_id_binding_1.get_inner();
+        let file_path_binding_1 = args.file_path.get_output(context);
+        let file_path_binding = file_path_binding_1.get_inner();
+        let folder_path_binding_1 = args.folder_path.get_output(context);
+        let folder_path_binding = folder_path_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let storage_account_binding_1 = args.storage_account.get_output(context);
+        let storage_account_binding = storage_account_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:datashare/datasetBlobStorage:DatasetBlobStorage".into(),
             name: name.to_string(),

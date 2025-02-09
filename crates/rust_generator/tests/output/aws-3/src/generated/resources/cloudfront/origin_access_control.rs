@@ -81,20 +81,19 @@ pub mod origin_access_control {
     ) -> OriginAccessControlResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let description_binding = args.description.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let origin_access_control_origin_type_binding = args
+        let description_binding_1 = args.description.get_output(context);
+        let description_binding = description_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let origin_access_control_origin_type_binding_1 = args
             .origin_access_control_origin_type
-            .get_output(context)
+            .get_output(context);
+        let origin_access_control_origin_type_binding = origin_access_control_origin_type_binding_1
             .get_inner();
-        let signing_behavior_binding = args
-            .signing_behavior
-            .get_output(context)
-            .get_inner();
-        let signing_protocol_binding = args
-            .signing_protocol
-            .get_output(context)
-            .get_inner();
+        let signing_behavior_binding_1 = args.signing_behavior.get_output(context);
+        let signing_behavior_binding = signing_behavior_binding_1.get_inner();
+        let signing_protocol_binding_1 = args.signing_protocol.get_output(context);
+        let signing_protocol_binding = signing_protocol_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:cloudfront/originAccessControl:OriginAccessControl".into(),
             name: name.to_string(),

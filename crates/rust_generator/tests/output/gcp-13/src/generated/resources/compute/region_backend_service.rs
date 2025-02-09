@@ -912,73 +912,79 @@ pub mod region_backend_service {
     ) -> RegionBackendServiceResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let affinity_cookie_ttl_sec_binding = args
+        let affinity_cookie_ttl_sec_binding_1 = args
             .affinity_cookie_ttl_sec
-            .get_output(context)
+            .get_output(context);
+        let affinity_cookie_ttl_sec_binding = affinity_cookie_ttl_sec_binding_1
             .get_inner();
-        let backends_binding = args.backends.get_output(context).get_inner();
-        let cdn_policy_binding = args.cdn_policy.get_output(context).get_inner();
-        let circuit_breakers_binding = args
-            .circuit_breakers
-            .get_output(context)
-            .get_inner();
-        let connection_draining_timeout_sec_binding = args
+        let backends_binding_1 = args.backends.get_output(context);
+        let backends_binding = backends_binding_1.get_inner();
+        let cdn_policy_binding_1 = args.cdn_policy.get_output(context);
+        let cdn_policy_binding = cdn_policy_binding_1.get_inner();
+        let circuit_breakers_binding_1 = args.circuit_breakers.get_output(context);
+        let circuit_breakers_binding = circuit_breakers_binding_1.get_inner();
+        let connection_draining_timeout_sec_binding_1 = args
             .connection_draining_timeout_sec
-            .get_output(context)
+            .get_output(context);
+        let connection_draining_timeout_sec_binding = connection_draining_timeout_sec_binding_1
             .get_inner();
-        let connection_tracking_policy_binding = args
+        let connection_tracking_policy_binding_1 = args
             .connection_tracking_policy
-            .get_output(context)
+            .get_output(context);
+        let connection_tracking_policy_binding = connection_tracking_policy_binding_1
             .get_inner();
-        let consistent_hash_binding = args
-            .consistent_hash
-            .get_output(context)
-            .get_inner();
-        let description_binding = args.description.get_output(context).get_inner();
-        let enable_cdn_binding = args.enable_cdn.get_output(context).get_inner();
-        let failover_policy_binding = args
-            .failover_policy
-            .get_output(context)
-            .get_inner();
-        let health_checks_binding = args.health_checks.get_output(context).get_inner();
-        let iap_binding = args.iap.get_output(context).get_inner();
-        let ip_address_selection_policy_binding = args
+        let consistent_hash_binding_1 = args.consistent_hash.get_output(context);
+        let consistent_hash_binding = consistent_hash_binding_1.get_inner();
+        let description_binding_1 = args.description.get_output(context);
+        let description_binding = description_binding_1.get_inner();
+        let enable_cdn_binding_1 = args.enable_cdn.get_output(context);
+        let enable_cdn_binding = enable_cdn_binding_1.get_inner();
+        let failover_policy_binding_1 = args.failover_policy.get_output(context);
+        let failover_policy_binding = failover_policy_binding_1.get_inner();
+        let health_checks_binding_1 = args.health_checks.get_output(context);
+        let health_checks_binding = health_checks_binding_1.get_inner();
+        let iap_binding_1 = args.iap.get_output(context);
+        let iap_binding = iap_binding_1.get_inner();
+        let ip_address_selection_policy_binding_1 = args
             .ip_address_selection_policy
-            .get_output(context)
+            .get_output(context);
+        let ip_address_selection_policy_binding = ip_address_selection_policy_binding_1
             .get_inner();
-        let load_balancing_scheme_binding = args
+        let load_balancing_scheme_binding_1 = args
             .load_balancing_scheme
-            .get_output(context)
-            .get_inner();
-        let locality_lb_policy_binding = args
-            .locality_lb_policy
-            .get_output(context)
-            .get_inner();
-        let log_config_binding = args.log_config.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let network_binding = args.network.get_output(context).get_inner();
-        let outlier_detection_binding = args
-            .outlier_detection
-            .get_output(context)
-            .get_inner();
-        let port_name_binding = args.port_name.get_output(context).get_inner();
-        let project_binding = args.project.get_output(context).get_inner();
-        let protocol_binding = args.protocol.get_output(context).get_inner();
-        let region_binding = args.region.get_output(context).get_inner();
-        let security_policy_binding = args
-            .security_policy
-            .get_output(context)
-            .get_inner();
-        let session_affinity_binding = args
-            .session_affinity
-            .get_output(context)
-            .get_inner();
-        let strong_session_affinity_cookie_binding = args
+            .get_output(context);
+        let load_balancing_scheme_binding = load_balancing_scheme_binding_1.get_inner();
+        let locality_lb_policy_binding_1 = args.locality_lb_policy.get_output(context);
+        let locality_lb_policy_binding = locality_lb_policy_binding_1.get_inner();
+        let log_config_binding_1 = args.log_config.get_output(context);
+        let log_config_binding = log_config_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let network_binding_1 = args.network.get_output(context);
+        let network_binding = network_binding_1.get_inner();
+        let outlier_detection_binding_1 = args.outlier_detection.get_output(context);
+        let outlier_detection_binding = outlier_detection_binding_1.get_inner();
+        let port_name_binding_1 = args.port_name.get_output(context);
+        let port_name_binding = port_name_binding_1.get_inner();
+        let project_binding_1 = args.project.get_output(context);
+        let project_binding = project_binding_1.get_inner();
+        let protocol_binding_1 = args.protocol.get_output(context);
+        let protocol_binding = protocol_binding_1.get_inner();
+        let region_binding_1 = args.region.get_output(context);
+        let region_binding = region_binding_1.get_inner();
+        let security_policy_binding_1 = args.security_policy.get_output(context);
+        let security_policy_binding = security_policy_binding_1.get_inner();
+        let session_affinity_binding_1 = args.session_affinity.get_output(context);
+        let session_affinity_binding = session_affinity_binding_1.get_inner();
+        let strong_session_affinity_cookie_binding_1 = args
             .strong_session_affinity_cookie
-            .get_output(context)
+            .get_output(context);
+        let strong_session_affinity_cookie_binding = strong_session_affinity_cookie_binding_1
             .get_inner();
-        let subsetting_binding = args.subsetting.get_output(context).get_inner();
-        let timeout_sec_binding = args.timeout_sec.get_output(context).get_inner();
+        let subsetting_binding_1 = args.subsetting.get_output(context);
+        let subsetting_binding = subsetting_binding_1.get_inner();
+        let timeout_sec_binding_1 = args.timeout_sec.get_output(context);
+        let timeout_sec_binding = timeout_sec_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:compute/regionBackendService:RegionBackendService".into(),
             name: name.to_string(),

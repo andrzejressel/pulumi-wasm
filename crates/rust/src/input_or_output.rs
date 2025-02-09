@@ -3,14 +3,14 @@ use serde::de::DeserializeOwned;
 use serde::Serialize;
 
 /// Wrapper for either static value or [Output]
-pub enum InputOrOutput<'a, T> {
+pub enum InputOrOutput<T> {
     StaticValue(T),
-    Output(&'a Output<T>),
+    Output(Output<T>),
 }
 
 impl<T: Serialize> InputOrOutput<T> {
     #[doc(hidden)]
-    pub fn get_output(&self, engine: &PulumiContext) -> Output<T> {
+    pub fn get_output(self, engine: &PulumiContext) -> Output<T> {
         match self {
             InputOrOutput::StaticValue(value) => Output::new(engine, &value),
             InputOrOutput::Output(output) => output.clone(),

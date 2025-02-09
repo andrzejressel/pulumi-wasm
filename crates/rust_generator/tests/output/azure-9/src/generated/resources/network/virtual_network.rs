@@ -166,27 +166,35 @@ pub mod virtual_network {
     ) -> VirtualNetworkResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let address_spaces_binding = args.address_spaces.get_output(context).get_inner();
-        let bgp_community_binding = args.bgp_community.get_output(context).get_inner();
-        let ddos_protection_plan_binding = args
+        let address_spaces_binding_1 = args.address_spaces.get_output(context);
+        let address_spaces_binding = address_spaces_binding_1.get_inner();
+        let bgp_community_binding_1 = args.bgp_community.get_output(context);
+        let bgp_community_binding = bgp_community_binding_1.get_inner();
+        let ddos_protection_plan_binding_1 = args
             .ddos_protection_plan
-            .get_output(context)
-            .get_inner();
-        let dns_servers_binding = args.dns_servers.get_output(context).get_inner();
-        let edge_zone_binding = args.edge_zone.get_output(context).get_inner();
-        let encryption_binding = args.encryption.get_output(context).get_inner();
-        let flow_timeout_in_minutes_binding = args
+            .get_output(context);
+        let ddos_protection_plan_binding = ddos_protection_plan_binding_1.get_inner();
+        let dns_servers_binding_1 = args.dns_servers.get_output(context);
+        let dns_servers_binding = dns_servers_binding_1.get_inner();
+        let edge_zone_binding_1 = args.edge_zone.get_output(context);
+        let edge_zone_binding = edge_zone_binding_1.get_inner();
+        let encryption_binding_1 = args.encryption.get_output(context);
+        let encryption_binding = encryption_binding_1.get_inner();
+        let flow_timeout_in_minutes_binding_1 = args
             .flow_timeout_in_minutes
-            .get_output(context)
+            .get_output(context);
+        let flow_timeout_in_minutes_binding = flow_timeout_in_minutes_binding_1
             .get_inner();
-        let location_binding = args.location.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let resource_group_name_binding = args
-            .resource_group_name
-            .get_output(context)
-            .get_inner();
-        let subnets_binding = args.subnets.get_output(context).get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
+        let location_binding_1 = args.location.get_output(context);
+        let location_binding = location_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let resource_group_name_binding_1 = args.resource_group_name.get_output(context);
+        let resource_group_name_binding = resource_group_name_binding_1.get_inner();
+        let subnets_binding_1 = args.subnets.get_output(context);
+        let subnets_binding = subnets_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:network/virtualNetwork:VirtualNetwork".into(),
             name: name.to_string(),

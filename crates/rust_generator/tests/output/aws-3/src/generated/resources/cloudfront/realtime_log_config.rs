@@ -116,10 +116,14 @@ pub mod realtime_log_config {
     ) -> RealtimeLogConfigResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let endpoint_binding = args.endpoint.get_output(context).get_inner();
-        let fields_binding = args.fields.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let sampling_rate_binding = args.sampling_rate.get_output(context).get_inner();
+        let endpoint_binding_1 = args.endpoint.get_output(context);
+        let endpoint_binding = endpoint_binding_1.get_inner();
+        let fields_binding_1 = args.fields.get_output(context);
+        let fields_binding = fields_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let sampling_rate_binding_1 = args.sampling_rate.get_output(context);
+        let sampling_rate_binding = sampling_rate_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:cloudfront/realtimeLogConfig:RealtimeLogConfig".into(),
             name: name.to_string(),

@@ -112,13 +112,17 @@ pub mod virtual_network_rule {
     ) -> VirtualNetworkRuleResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let ignore_missing_vnet_service_endpoint_binding = args
+        let ignore_missing_vnet_service_endpoint_binding_1 = args
             .ignore_missing_vnet_service_endpoint
-            .get_output(context)
+            .get_output(context);
+        let ignore_missing_vnet_service_endpoint_binding = ignore_missing_vnet_service_endpoint_binding_1
             .get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let server_id_binding = args.server_id.get_output(context).get_inner();
-        let subnet_id_binding = args.subnet_id.get_output(context).get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let server_id_binding_1 = args.server_id.get_output(context);
+        let server_id_binding = server_id_binding_1.get_inner();
+        let subnet_id_binding_1 = args.subnet_id.get_output(context);
+        let subnet_id_binding = subnet_id_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:mssql/virtualNetworkRule:VirtualNetworkRule".into(),
             name: name.to_string(),

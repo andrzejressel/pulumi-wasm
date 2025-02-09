@@ -168,16 +168,20 @@ pub mod template {
     ) -> TemplateResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let aws_account_id_binding = args.aws_account_id.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let permissions_binding = args.permissions.get_output(context).get_inner();
-        let source_entity_binding = args.source_entity.get_output(context).get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
-        let template_id_binding = args.template_id.get_output(context).get_inner();
-        let version_description_binding = args
-            .version_description
-            .get_output(context)
-            .get_inner();
+        let aws_account_id_binding_1 = args.aws_account_id.get_output(context);
+        let aws_account_id_binding = aws_account_id_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let permissions_binding_1 = args.permissions.get_output(context);
+        let permissions_binding = permissions_binding_1.get_inner();
+        let source_entity_binding_1 = args.source_entity.get_output(context);
+        let source_entity_binding = source_entity_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
+        let template_id_binding_1 = args.template_id.get_output(context);
+        let template_id_binding = template_id_binding_1.get_inner();
+        let version_description_binding_1 = args.version_description.get_output(context);
+        let version_description_binding = version_description_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:quicksight/template:Template".into(),
             name: name.to_string(),

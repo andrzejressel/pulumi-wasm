@@ -88,21 +88,21 @@ pub mod instance_profile {
     ) -> InstanceProfileResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let description_binding = args.description.get_output(context).get_inner();
-        let exclude_app_packages_from_cleanups_binding = args
+        let description_binding_1 = args.description.get_output(context);
+        let description_binding = description_binding_1.get_inner();
+        let exclude_app_packages_from_cleanups_binding_1 = args
             .exclude_app_packages_from_cleanups
-            .get_output(context)
+            .get_output(context);
+        let exclude_app_packages_from_cleanups_binding = exclude_app_packages_from_cleanups_binding_1
             .get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let package_cleanup_binding = args
-            .package_cleanup
-            .get_output(context)
-            .get_inner();
-        let reboot_after_use_binding = args
-            .reboot_after_use
-            .get_output(context)
-            .get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let package_cleanup_binding_1 = args.package_cleanup.get_output(context);
+        let package_cleanup_binding = package_cleanup_binding_1.get_inner();
+        let reboot_after_use_binding_1 = args.reboot_after_use.get_output(context);
+        let reboot_after_use_binding = reboot_after_use_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:devicefarm/instanceProfile:InstanceProfile".into(),
             name: name.to_string(),

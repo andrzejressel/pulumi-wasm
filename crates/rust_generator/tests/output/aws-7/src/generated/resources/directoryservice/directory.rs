@@ -239,25 +239,35 @@ pub mod directory {
     ) -> DirectoryResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let alias_binding = args.alias.get_output(context).get_inner();
-        let connect_settings_binding = args
-            .connect_settings
-            .get_output(context)
-            .get_inner();
-        let description_binding = args.description.get_output(context).get_inner();
-        let desired_number_of_domain_controllers_binding = args
+        let alias_binding_1 = args.alias.get_output(context);
+        let alias_binding = alias_binding_1.get_inner();
+        let connect_settings_binding_1 = args.connect_settings.get_output(context);
+        let connect_settings_binding = connect_settings_binding_1.get_inner();
+        let description_binding_1 = args.description.get_output(context);
+        let description_binding = description_binding_1.get_inner();
+        let desired_number_of_domain_controllers_binding_1 = args
             .desired_number_of_domain_controllers
-            .get_output(context)
+            .get_output(context);
+        let desired_number_of_domain_controllers_binding = desired_number_of_domain_controllers_binding_1
             .get_inner();
-        let edition_binding = args.edition.get_output(context).get_inner();
-        let enable_sso_binding = args.enable_sso.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let password_binding = args.password.get_output(context).get_inner();
-        let short_name_binding = args.short_name.get_output(context).get_inner();
-        let size_binding = args.size.get_output(context).get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
-        let type__binding = args.type_.get_output(context).get_inner();
-        let vpc_settings_binding = args.vpc_settings.get_output(context).get_inner();
+        let edition_binding_1 = args.edition.get_output(context);
+        let edition_binding = edition_binding_1.get_inner();
+        let enable_sso_binding_1 = args.enable_sso.get_output(context);
+        let enable_sso_binding = enable_sso_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let password_binding_1 = args.password.get_output(context);
+        let password_binding = password_binding_1.get_inner();
+        let short_name_binding_1 = args.short_name.get_output(context);
+        let short_name_binding = short_name_binding_1.get_inner();
+        let size_binding_1 = args.size.get_output(context);
+        let size_binding = size_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
+        let type__binding_1 = args.type_.get_output(context);
+        let type__binding = type__binding_1.get_inner();
+        let vpc_settings_binding_1 = args.vpc_settings.get_output(context);
+        let vpc_settings_binding = vpc_settings_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:directoryservice/directory:Directory".into(),
             name: name.to_string(),

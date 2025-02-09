@@ -131,30 +131,32 @@ pub mod definition {
     ) -> DefinitionResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let authorizations_binding = args.authorizations.get_output(context).get_inner();
-        let create_ui_definition_binding = args
+        let authorizations_binding_1 = args.authorizations.get_output(context);
+        let authorizations_binding = authorizations_binding_1.get_inner();
+        let create_ui_definition_binding_1 = args
             .create_ui_definition
-            .get_output(context)
-            .get_inner();
-        let description_binding = args.description.get_output(context).get_inner();
-        let display_name_binding = args.display_name.get_output(context).get_inner();
-        let location_binding = args.location.get_output(context).get_inner();
-        let lock_level_binding = args.lock_level.get_output(context).get_inner();
-        let main_template_binding = args.main_template.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let package_enabled_binding = args
-            .package_enabled
-            .get_output(context)
-            .get_inner();
-        let package_file_uri_binding = args
-            .package_file_uri
-            .get_output(context)
-            .get_inner();
-        let resource_group_name_binding = args
-            .resource_group_name
-            .get_output(context)
-            .get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
+            .get_output(context);
+        let create_ui_definition_binding = create_ui_definition_binding_1.get_inner();
+        let description_binding_1 = args.description.get_output(context);
+        let description_binding = description_binding_1.get_inner();
+        let display_name_binding_1 = args.display_name.get_output(context);
+        let display_name_binding = display_name_binding_1.get_inner();
+        let location_binding_1 = args.location.get_output(context);
+        let location_binding = location_binding_1.get_inner();
+        let lock_level_binding_1 = args.lock_level.get_output(context);
+        let lock_level_binding = lock_level_binding_1.get_inner();
+        let main_template_binding_1 = args.main_template.get_output(context);
+        let main_template_binding = main_template_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let package_enabled_binding_1 = args.package_enabled.get_output(context);
+        let package_enabled_binding = package_enabled_binding_1.get_inner();
+        let package_file_uri_binding_1 = args.package_file_uri.get_output(context);
+        let package_file_uri_binding = package_file_uri_binding_1.get_inner();
+        let resource_group_name_binding_1 = args.resource_group_name.get_output(context);
+        let resource_group_name_binding = resource_group_name_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:managedapplication/definition:Definition".into(),
             name: name.to_string(),

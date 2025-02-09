@@ -135,26 +135,28 @@ pub mod model {
     ) -> ModelResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let containers_binding = args.containers.get_output(context).get_inner();
-        let enable_network_isolation_binding = args
+        let containers_binding_1 = args.containers.get_output(context);
+        let containers_binding = containers_binding_1.get_inner();
+        let enable_network_isolation_binding_1 = args
             .enable_network_isolation
-            .get_output(context)
+            .get_output(context);
+        let enable_network_isolation_binding = enable_network_isolation_binding_1
             .get_inner();
-        let execution_role_arn_binding = args
-            .execution_role_arn
-            .get_output(context)
-            .get_inner();
-        let inference_execution_config_binding = args
+        let execution_role_arn_binding_1 = args.execution_role_arn.get_output(context);
+        let execution_role_arn_binding = execution_role_arn_binding_1.get_inner();
+        let inference_execution_config_binding_1 = args
             .inference_execution_config
-            .get_output(context)
+            .get_output(context);
+        let inference_execution_config_binding = inference_execution_config_binding_1
             .get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let primary_container_binding = args
-            .primary_container
-            .get_output(context)
-            .get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
-        let vpc_config_binding = args.vpc_config.get_output(context).get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let primary_container_binding_1 = args.primary_container.get_output(context);
+        let primary_container_binding = primary_container_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
+        let vpc_config_binding_1 = args.vpc_config.get_output(context);
+        let vpc_config_binding = vpc_config_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:sagemaker/model:Model".into(),
             name: name.to_string(),

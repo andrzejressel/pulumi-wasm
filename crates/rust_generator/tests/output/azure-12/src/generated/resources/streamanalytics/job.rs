@@ -185,57 +185,61 @@ pub mod job {
     ) -> JobResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let compatibility_level_binding = args
-            .compatibility_level
-            .get_output(context)
-            .get_inner();
-        let content_storage_policy_binding = args
+        let compatibility_level_binding_1 = args.compatibility_level.get_output(context);
+        let compatibility_level_binding = compatibility_level_binding_1.get_inner();
+        let content_storage_policy_binding_1 = args
             .content_storage_policy
-            .get_output(context)
+            .get_output(context);
+        let content_storage_policy_binding = content_storage_policy_binding_1
             .get_inner();
-        let data_locale_binding = args.data_locale.get_output(context).get_inner();
-        let events_late_arrival_max_delay_in_seconds_binding = args
+        let data_locale_binding_1 = args.data_locale.get_output(context);
+        let data_locale_binding = data_locale_binding_1.get_inner();
+        let events_late_arrival_max_delay_in_seconds_binding_1 = args
             .events_late_arrival_max_delay_in_seconds
-            .get_output(context)
+            .get_output(context);
+        let events_late_arrival_max_delay_in_seconds_binding = events_late_arrival_max_delay_in_seconds_binding_1
             .get_inner();
-        let events_out_of_order_max_delay_in_seconds_binding = args
+        let events_out_of_order_max_delay_in_seconds_binding_1 = args
             .events_out_of_order_max_delay_in_seconds
-            .get_output(context)
+            .get_output(context);
+        let events_out_of_order_max_delay_in_seconds_binding = events_out_of_order_max_delay_in_seconds_binding_1
             .get_inner();
-        let events_out_of_order_policy_binding = args
+        let events_out_of_order_policy_binding_1 = args
             .events_out_of_order_policy
-            .get_output(context)
+            .get_output(context);
+        let events_out_of_order_policy_binding = events_out_of_order_policy_binding_1
             .get_inner();
-        let identity_binding = args.identity.get_output(context).get_inner();
-        let job_storage_accounts_binding = args
+        let identity_binding_1 = args.identity.get_output(context);
+        let identity_binding = identity_binding_1.get_inner();
+        let job_storage_accounts_binding_1 = args
             .job_storage_accounts
-            .get_output(context)
-            .get_inner();
-        let location_binding = args.location.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let output_error_policy_binding = args
-            .output_error_policy
-            .get_output(context)
-            .get_inner();
-        let resource_group_name_binding = args
-            .resource_group_name
-            .get_output(context)
-            .get_inner();
-        let sku_name_binding = args.sku_name.get_output(context).get_inner();
-        let stream_analytics_cluster_id_binding = args
+            .get_output(context);
+        let job_storage_accounts_binding = job_storage_accounts_binding_1.get_inner();
+        let location_binding_1 = args.location.get_output(context);
+        let location_binding = location_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let output_error_policy_binding_1 = args.output_error_policy.get_output(context);
+        let output_error_policy_binding = output_error_policy_binding_1.get_inner();
+        let resource_group_name_binding_1 = args.resource_group_name.get_output(context);
+        let resource_group_name_binding = resource_group_name_binding_1.get_inner();
+        let sku_name_binding_1 = args.sku_name.get_output(context);
+        let sku_name_binding = sku_name_binding_1.get_inner();
+        let stream_analytics_cluster_id_binding_1 = args
             .stream_analytics_cluster_id
-            .get_output(context)
+            .get_output(context);
+        let stream_analytics_cluster_id_binding = stream_analytics_cluster_id_binding_1
             .get_inner();
-        let streaming_units_binding = args
-            .streaming_units
-            .get_output(context)
-            .get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
-        let transformation_query_binding = args
+        let streaming_units_binding_1 = args.streaming_units.get_output(context);
+        let streaming_units_binding = streaming_units_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
+        let transformation_query_binding_1 = args
             .transformation_query
-            .get_output(context)
-            .get_inner();
-        let type__binding = args.type_.get_output(context).get_inner();
+            .get_output(context);
+        let transformation_query_binding = transformation_query_binding_1.get_inner();
+        let type__binding_1 = args.type_.get_output(context);
+        let type__binding = type__binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:streamanalytics/job:Job".into(),
             name: name.to_string(),

@@ -68,18 +68,21 @@ pub mod get_shared_image_version {
     ) -> GetSharedImageVersionResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let gallery_name_binding = args.gallery_name.get_output(context).get_inner();
-        let image_name_binding = args.image_name.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let resource_group_name_binding = args
-            .resource_group_name
-            .get_output(context)
-            .get_inner();
-        let sort_versions_by_semver_binding = args
+        let gallery_name_binding_1 = args.gallery_name.get_output(context);
+        let gallery_name_binding = gallery_name_binding_1.get_inner();
+        let image_name_binding_1 = args.image_name.get_output(context);
+        let image_name_binding = image_name_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let resource_group_name_binding_1 = args.resource_group_name.get_output(context);
+        let resource_group_name_binding = resource_group_name_binding_1.get_inner();
+        let sort_versions_by_semver_binding_1 = args
             .sort_versions_by_semver
-            .get_output(context)
+            .get_output(context);
+        let sort_versions_by_semver_binding = sort_versions_by_semver_binding_1
             .get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "azure:compute/getSharedImageVersion:getSharedImageVersion".into(),
             version: super::super::super::get_version(),

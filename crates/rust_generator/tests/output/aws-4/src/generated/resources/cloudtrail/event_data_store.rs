@@ -149,29 +149,33 @@ pub mod event_data_store {
     ) -> EventDataStoreResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let advanced_event_selectors_binding = args
+        let advanced_event_selectors_binding_1 = args
             .advanced_event_selectors
-            .get_output(context)
+            .get_output(context);
+        let advanced_event_selectors_binding = advanced_event_selectors_binding_1
             .get_inner();
-        let billing_mode_binding = args.billing_mode.get_output(context).get_inner();
-        let kms_key_id_binding = args.kms_key_id.get_output(context).get_inner();
-        let multi_region_enabled_binding = args
+        let billing_mode_binding_1 = args.billing_mode.get_output(context);
+        let billing_mode_binding = billing_mode_binding_1.get_inner();
+        let kms_key_id_binding_1 = args.kms_key_id.get_output(context);
+        let kms_key_id_binding = kms_key_id_binding_1.get_inner();
+        let multi_region_enabled_binding_1 = args
             .multi_region_enabled
-            .get_output(context)
-            .get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let organization_enabled_binding = args
+            .get_output(context);
+        let multi_region_enabled_binding = multi_region_enabled_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let organization_enabled_binding_1 = args
             .organization_enabled
-            .get_output(context)
-            .get_inner();
-        let retention_period_binding = args
-            .retention_period
-            .get_output(context)
-            .get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
-        let termination_protection_enabled_binding = args
+            .get_output(context);
+        let organization_enabled_binding = organization_enabled_binding_1.get_inner();
+        let retention_period_binding_1 = args.retention_period.get_output(context);
+        let retention_period_binding = retention_period_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
+        let termination_protection_enabled_binding_1 = args
             .termination_protection_enabled
-            .get_output(context)
+            .get_output(context);
+        let termination_protection_enabled_binding = termination_protection_enabled_binding_1
             .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:cloudtrail/eventDataStore:EventDataStore".into(),

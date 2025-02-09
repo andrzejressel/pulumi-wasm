@@ -106,17 +106,16 @@ pub mod domain {
     ) -> DomainResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let endpoint_options_binding = args
-            .endpoint_options
-            .get_output(context)
-            .get_inner();
-        let index_fields_binding = args.index_fields.get_output(context).get_inner();
-        let multi_az_binding = args.multi_az.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let scaling_parameters_binding = args
-            .scaling_parameters
-            .get_output(context)
-            .get_inner();
+        let endpoint_options_binding_1 = args.endpoint_options.get_output(context);
+        let endpoint_options_binding = endpoint_options_binding_1.get_inner();
+        let index_fields_binding_1 = args.index_fields.get_output(context);
+        let index_fields_binding = index_fields_binding_1.get_inner();
+        let multi_az_binding_1 = args.multi_az.get_output(context);
+        let multi_az_binding = multi_az_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let scaling_parameters_binding_1 = args.scaling_parameters.get_output(context);
+        let scaling_parameters_binding = scaling_parameters_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:cloudsearch/domain:Domain".into(),
             name: name.to_string(),

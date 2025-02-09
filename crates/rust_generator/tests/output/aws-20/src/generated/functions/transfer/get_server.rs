@@ -55,8 +55,10 @@ pub mod get_server {
     ) -> GetServerResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let server_id_binding = args.server_id.get_output(context).get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
+        let server_id_binding_1 = args.server_id.get_output(context);
+        let server_id_binding = server_id_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:transfer/getServer:getServer".into(),
             version: super::super::super::get_version(),

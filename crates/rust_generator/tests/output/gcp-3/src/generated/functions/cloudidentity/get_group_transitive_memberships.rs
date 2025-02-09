@@ -28,7 +28,8 @@ pub mod get_group_transitive_memberships {
     ) -> GetGroupTransitiveMembershipsResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let group_binding = args.group.get_output(context).get_inner();
+        let group_binding_1 = args.group.get_output(context);
+        let group_binding = group_binding_1.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "gcp:cloudidentity/getGroupTransitiveMemberships:getGroupTransitiveMemberships"
                 .into(),

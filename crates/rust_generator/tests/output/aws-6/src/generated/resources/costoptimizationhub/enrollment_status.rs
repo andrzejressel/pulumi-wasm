@@ -66,9 +66,10 @@ pub mod enrollment_status {
     ) -> EnrollmentStatusResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let include_member_accounts_binding = args
+        let include_member_accounts_binding_1 = args
             .include_member_accounts
-            .get_output(context)
+            .get_output(context);
+        let include_member_accounts_binding = include_member_accounts_binding_1
             .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:costoptimizationhub/enrollmentStatus:EnrollmentStatus".into(),

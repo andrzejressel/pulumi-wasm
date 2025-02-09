@@ -111,25 +111,20 @@ pub mod safety_rule {
     ) -> SafetyRuleResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let asserted_controls_binding = args
-            .asserted_controls
-            .get_output(context)
-            .get_inner();
-        let control_panel_arn_binding = args
-            .control_panel_arn
-            .get_output(context)
-            .get_inner();
-        let gating_controls_binding = args
-            .gating_controls
-            .get_output(context)
-            .get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let rule_config_binding = args.rule_config.get_output(context).get_inner();
-        let target_controls_binding = args
-            .target_controls
-            .get_output(context)
-            .get_inner();
-        let wait_period_ms_binding = args.wait_period_ms.get_output(context).get_inner();
+        let asserted_controls_binding_1 = args.asserted_controls.get_output(context);
+        let asserted_controls_binding = asserted_controls_binding_1.get_inner();
+        let control_panel_arn_binding_1 = args.control_panel_arn.get_output(context);
+        let control_panel_arn_binding = control_panel_arn_binding_1.get_inner();
+        let gating_controls_binding_1 = args.gating_controls.get_output(context);
+        let gating_controls_binding = gating_controls_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let rule_config_binding_1 = args.rule_config.get_output(context);
+        let rule_config_binding = rule_config_binding_1.get_inner();
+        let target_controls_binding_1 = args.target_controls.get_output(context);
+        let target_controls_binding = target_controls_binding_1.get_inner();
+        let wait_period_ms_binding_1 = args.wait_period_ms.get_output(context);
+        let wait_period_ms_binding = wait_period_ms_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:route53recoverycontrol/safetyRule:SafetyRule".into(),
             name: name.to_string(),

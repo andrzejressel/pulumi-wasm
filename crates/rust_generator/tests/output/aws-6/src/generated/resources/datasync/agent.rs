@@ -134,23 +134,24 @@ pub mod agent {
     ) -> AgentResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let activation_key_binding = args.activation_key.get_output(context).get_inner();
-        let ip_address_binding = args.ip_address.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let private_link_endpoint_binding = args
+        let activation_key_binding_1 = args.activation_key.get_output(context);
+        let activation_key_binding = activation_key_binding_1.get_inner();
+        let ip_address_binding_1 = args.ip_address.get_output(context);
+        let ip_address_binding = ip_address_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let private_link_endpoint_binding_1 = args
             .private_link_endpoint
-            .get_output(context)
-            .get_inner();
-        let security_group_arns_binding = args
-            .security_group_arns
-            .get_output(context)
-            .get_inner();
-        let subnet_arns_binding = args.subnet_arns.get_output(context).get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
-        let vpc_endpoint_id_binding = args
-            .vpc_endpoint_id
-            .get_output(context)
-            .get_inner();
+            .get_output(context);
+        let private_link_endpoint_binding = private_link_endpoint_binding_1.get_inner();
+        let security_group_arns_binding_1 = args.security_group_arns.get_output(context);
+        let security_group_arns_binding = security_group_arns_binding_1.get_inner();
+        let subnet_arns_binding_1 = args.subnet_arns.get_output(context);
+        let subnet_arns_binding = subnet_arns_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
+        let vpc_endpoint_id_binding_1 = args.vpc_endpoint_id.get_output(context);
+        let vpc_endpoint_id_binding = vpc_endpoint_id_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:datasync/agent:Agent".into(),
             name: name.to_string(),

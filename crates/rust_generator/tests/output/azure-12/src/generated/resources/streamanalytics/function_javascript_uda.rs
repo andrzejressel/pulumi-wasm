@@ -104,13 +104,18 @@ pub mod function_javascript_uda {
     ) -> FunctionJavascriptUdaResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let inputs_binding = args.inputs.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let output_binding = args.output.get_output(context).get_inner();
-        let script_binding = args.script.get_output(context).get_inner();
-        let stream_analytics_job_id_binding = args
+        let inputs_binding_1 = args.inputs.get_output(context);
+        let inputs_binding = inputs_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let output_binding_1 = args.output.get_output(context);
+        let output_binding = output_binding_1.get_inner();
+        let script_binding_1 = args.script.get_output(context);
+        let script_binding = script_binding_1.get_inner();
+        let stream_analytics_job_id_binding_1 = args
             .stream_analytics_job_id
-            .get_output(context)
+            .get_output(context);
+        let stream_analytics_job_id_binding = stream_analytics_job_id_binding_1
             .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:streamanalytics/functionJavascriptUda:FunctionJavascriptUda"

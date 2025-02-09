@@ -54,7 +54,8 @@ pub mod default_kms_key {
     ) -> DefaultKmsKeyResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let key_arn_binding = args.key_arn.get_output(context).get_inner();
+        let key_arn_binding_1 = args.key_arn.get_output(context);
+        let key_arn_binding = key_arn_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:ebs/defaultKmsKey:DefaultKmsKey".into(),
             name: name.to_string(),

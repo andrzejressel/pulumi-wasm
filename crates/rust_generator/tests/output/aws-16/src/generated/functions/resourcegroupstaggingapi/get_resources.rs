@@ -62,23 +62,24 @@ pub mod get_resources {
     ) -> GetResourcesResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let exclude_compliant_resources_binding = args
+        let exclude_compliant_resources_binding_1 = args
             .exclude_compliant_resources
-            .get_output(context)
+            .get_output(context);
+        let exclude_compliant_resources_binding = exclude_compliant_resources_binding_1
             .get_inner();
-        let include_compliance_details_binding = args
+        let include_compliance_details_binding_1 = args
             .include_compliance_details
-            .get_output(context)
+            .get_output(context);
+        let include_compliance_details_binding = include_compliance_details_binding_1
             .get_inner();
-        let resource_arn_lists_binding = args
-            .resource_arn_lists
-            .get_output(context)
-            .get_inner();
-        let resource_type_filters_binding = args
+        let resource_arn_lists_binding_1 = args.resource_arn_lists.get_output(context);
+        let resource_arn_lists_binding = resource_arn_lists_binding_1.get_inner();
+        let resource_type_filters_binding_1 = args
             .resource_type_filters
-            .get_output(context)
-            .get_inner();
-        let tag_filters_binding = args.tag_filters.get_output(context).get_inner();
+            .get_output(context);
+        let resource_type_filters_binding = resource_type_filters_binding_1.get_inner();
+        let tag_filters_binding_1 = args.tag_filters.get_output(context);
+        let tag_filters_binding = tag_filters_binding_1.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:resourcegroupstaggingapi/getResources:getResources".into(),
             version: super::super::super::get_version(),

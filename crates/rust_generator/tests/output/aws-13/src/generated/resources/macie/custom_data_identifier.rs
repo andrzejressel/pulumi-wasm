@@ -101,17 +101,25 @@ pub mod custom_data_identifier {
     ) -> CustomDataIdentifierResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let description_binding = args.description.get_output(context).get_inner();
-        let ignore_words_binding = args.ignore_words.get_output(context).get_inner();
-        let keywords_binding = args.keywords.get_output(context).get_inner();
-        let maximum_match_distance_binding = args
+        let description_binding_1 = args.description.get_output(context);
+        let description_binding = description_binding_1.get_inner();
+        let ignore_words_binding_1 = args.ignore_words.get_output(context);
+        let ignore_words_binding = ignore_words_binding_1.get_inner();
+        let keywords_binding_1 = args.keywords.get_output(context);
+        let keywords_binding = keywords_binding_1.get_inner();
+        let maximum_match_distance_binding_1 = args
             .maximum_match_distance
-            .get_output(context)
+            .get_output(context);
+        let maximum_match_distance_binding = maximum_match_distance_binding_1
             .get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let name_prefix_binding = args.name_prefix.get_output(context).get_inner();
-        let regex_binding = args.regex.get_output(context).get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let name_prefix_binding_1 = args.name_prefix.get_output(context);
+        let name_prefix_binding = name_prefix_binding_1.get_inner();
+        let regex_binding_1 = args.regex.get_output(context);
+        let regex_binding = regex_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:macie/customDataIdentifier:CustomDataIdentifier".into(),
             name: name.to_string(),

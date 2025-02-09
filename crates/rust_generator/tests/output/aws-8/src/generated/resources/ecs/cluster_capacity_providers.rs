@@ -84,14 +84,14 @@ pub mod cluster_capacity_providers {
     ) -> ClusterCapacityProvidersResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let capacity_providers_binding = args
-            .capacity_providers
-            .get_output(context)
-            .get_inner();
-        let cluster_name_binding = args.cluster_name.get_output(context).get_inner();
-        let default_capacity_provider_strategies_binding = args
+        let capacity_providers_binding_1 = args.capacity_providers.get_output(context);
+        let capacity_providers_binding = capacity_providers_binding_1.get_inner();
+        let cluster_name_binding_1 = args.cluster_name.get_output(context);
+        let cluster_name_binding = cluster_name_binding_1.get_inner();
+        let default_capacity_provider_strategies_binding_1 = args
             .default_capacity_provider_strategies
-            .get_output(context)
+            .get_output(context);
+        let default_capacity_provider_strategies_binding = default_capacity_provider_strategies_binding_1
             .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:ecs/clusterCapacityProviders:ClusterCapacityProviders".into(),

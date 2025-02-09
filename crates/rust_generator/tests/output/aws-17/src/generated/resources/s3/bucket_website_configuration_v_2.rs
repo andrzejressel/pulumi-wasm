@@ -166,22 +166,27 @@ pub mod bucket_website_configuration_v_2 {
     ) -> BucketWebsiteConfigurationV2Result {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let bucket_binding = args.bucket.get_output(context).get_inner();
-        let error_document_binding = args.error_document.get_output(context).get_inner();
-        let expected_bucket_owner_binding = args
+        let bucket_binding_1 = args.bucket.get_output(context);
+        let bucket_binding = bucket_binding_1.get_inner();
+        let error_document_binding_1 = args.error_document.get_output(context);
+        let error_document_binding = error_document_binding_1.get_inner();
+        let expected_bucket_owner_binding_1 = args
             .expected_bucket_owner
-            .get_output(context)
-            .get_inner();
-        let index_document_binding = args.index_document.get_output(context).get_inner();
-        let redirect_all_requests_to_binding = args
+            .get_output(context);
+        let expected_bucket_owner_binding = expected_bucket_owner_binding_1.get_inner();
+        let index_document_binding_1 = args.index_document.get_output(context);
+        let index_document_binding = index_document_binding_1.get_inner();
+        let redirect_all_requests_to_binding_1 = args
             .redirect_all_requests_to
-            .get_output(context)
+            .get_output(context);
+        let redirect_all_requests_to_binding = redirect_all_requests_to_binding_1
             .get_inner();
-        let routing_rule_details_binding = args
+        let routing_rule_details_binding_1 = args
             .routing_rule_details
-            .get_output(context)
-            .get_inner();
-        let routing_rules_binding = args.routing_rules.get_output(context).get_inner();
+            .get_output(context);
+        let routing_rule_details_binding = routing_rule_details_binding_1.get_inner();
+        let routing_rules_binding_1 = args.routing_rules.get_output(context);
+        let routing_rules_binding = routing_rules_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:s3/bucketWebsiteConfigurationV2:BucketWebsiteConfigurationV2"
                 .into(),

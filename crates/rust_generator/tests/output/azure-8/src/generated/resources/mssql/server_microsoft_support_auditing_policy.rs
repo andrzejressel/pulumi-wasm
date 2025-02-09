@@ -226,23 +226,28 @@ pub mod server_microsoft_support_auditing_policy {
     ) -> ServerMicrosoftSupportAuditingPolicyResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let blob_storage_endpoint_binding = args
+        let blob_storage_endpoint_binding_1 = args
             .blob_storage_endpoint
-            .get_output(context)
-            .get_inner();
-        let enabled_binding = args.enabled.get_output(context).get_inner();
-        let log_monitoring_enabled_binding = args
+            .get_output(context);
+        let blob_storage_endpoint_binding = blob_storage_endpoint_binding_1.get_inner();
+        let enabled_binding_1 = args.enabled.get_output(context);
+        let enabled_binding = enabled_binding_1.get_inner();
+        let log_monitoring_enabled_binding_1 = args
             .log_monitoring_enabled
-            .get_output(context)
+            .get_output(context);
+        let log_monitoring_enabled_binding = log_monitoring_enabled_binding_1
             .get_inner();
-        let server_id_binding = args.server_id.get_output(context).get_inner();
-        let storage_account_access_key_binding = args
+        let server_id_binding_1 = args.server_id.get_output(context);
+        let server_id_binding = server_id_binding_1.get_inner();
+        let storage_account_access_key_binding_1 = args
             .storage_account_access_key
-            .get_output(context)
+            .get_output(context);
+        let storage_account_access_key_binding = storage_account_access_key_binding_1
             .get_inner();
-        let storage_account_subscription_id_binding = args
+        let storage_account_subscription_id_binding_1 = args
             .storage_account_subscription_id
-            .get_output(context)
+            .get_output(context);
+        let storage_account_subscription_id_binding = storage_account_subscription_id_binding_1
             .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:mssql/serverMicrosoftSupportAuditingPolicy:ServerMicrosoftSupportAuditingPolicy"

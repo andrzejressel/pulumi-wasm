@@ -123,24 +123,24 @@ pub mod share_file {
     ) -> ShareFileResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let content_disposition_binding = args
-            .content_disposition
-            .get_output(context)
-            .get_inner();
-        let content_encoding_binding = args
-            .content_encoding
-            .get_output(context)
-            .get_inner();
-        let content_md5_binding = args.content_md5.get_output(context).get_inner();
-        let content_type_binding = args.content_type.get_output(context).get_inner();
-        let metadata_binding = args.metadata.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let path_binding = args.path.get_output(context).get_inner();
-        let source_binding = args.source.get_output(context).get_inner();
-        let storage_share_id_binding = args
-            .storage_share_id
-            .get_output(context)
-            .get_inner();
+        let content_disposition_binding_1 = args.content_disposition.get_output(context);
+        let content_disposition_binding = content_disposition_binding_1.get_inner();
+        let content_encoding_binding_1 = args.content_encoding.get_output(context);
+        let content_encoding_binding = content_encoding_binding_1.get_inner();
+        let content_md5_binding_1 = args.content_md5.get_output(context);
+        let content_md5_binding = content_md5_binding_1.get_inner();
+        let content_type_binding_1 = args.content_type.get_output(context);
+        let content_type_binding = content_type_binding_1.get_inner();
+        let metadata_binding_1 = args.metadata.get_output(context);
+        let metadata_binding = metadata_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let path_binding_1 = args.path.get_output(context);
+        let path_binding = path_binding_1.get_inner();
+        let source_binding_1 = args.source.get_output(context);
+        let source_binding = source_binding_1.get_inner();
+        let storage_share_id_binding_1 = args.storage_share_id.get_output(context);
+        let storage_share_id_binding = storage_share_id_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:storage/shareFile:ShareFile".into(),
             name: name.to_string(),

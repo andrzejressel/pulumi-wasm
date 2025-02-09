@@ -155,29 +155,27 @@ pub mod network_manager_connectivity_configuration {
     ) -> NetworkManagerConnectivityConfigurationResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let applies_to_groups_binding = args
-            .applies_to_groups
-            .get_output(context)
-            .get_inner();
-        let connectivity_topology_binding = args
+        let applies_to_groups_binding_1 = args.applies_to_groups.get_output(context);
+        let applies_to_groups_binding = applies_to_groups_binding_1.get_inner();
+        let connectivity_topology_binding_1 = args
             .connectivity_topology
-            .get_output(context)
-            .get_inner();
-        let delete_existing_peering_enabled_binding = args
+            .get_output(context);
+        let connectivity_topology_binding = connectivity_topology_binding_1.get_inner();
+        let delete_existing_peering_enabled_binding_1 = args
             .delete_existing_peering_enabled
-            .get_output(context)
+            .get_output(context);
+        let delete_existing_peering_enabled_binding = delete_existing_peering_enabled_binding_1
             .get_inner();
-        let description_binding = args.description.get_output(context).get_inner();
-        let global_mesh_enabled_binding = args
-            .global_mesh_enabled
-            .get_output(context)
-            .get_inner();
-        let hub_binding = args.hub.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let network_manager_id_binding = args
-            .network_manager_id
-            .get_output(context)
-            .get_inner();
+        let description_binding_1 = args.description.get_output(context);
+        let description_binding = description_binding_1.get_inner();
+        let global_mesh_enabled_binding_1 = args.global_mesh_enabled.get_output(context);
+        let global_mesh_enabled_binding = global_mesh_enabled_binding_1.get_inner();
+        let hub_binding_1 = args.hub.get_output(context);
+        let hub_binding = hub_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let network_manager_id_binding_1 = args.network_manager_id.get_output(context);
+        let network_manager_id_binding = network_manager_id_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:network/networkManagerConnectivityConfiguration:NetworkManagerConnectivityConfiguration"
                 .into(),

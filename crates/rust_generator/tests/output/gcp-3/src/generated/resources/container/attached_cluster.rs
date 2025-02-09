@@ -355,36 +355,42 @@ pub mod attached_cluster {
     ) -> AttachedClusterResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let annotations_binding = args.annotations.get_output(context).get_inner();
-        let authorization_binding = args.authorization.get_output(context).get_inner();
-        let binary_authorization_binding = args
+        let annotations_binding_1 = args.annotations.get_output(context);
+        let annotations_binding = annotations_binding_1.get_inner();
+        let authorization_binding_1 = args.authorization.get_output(context);
+        let authorization_binding = authorization_binding_1.get_inner();
+        let binary_authorization_binding_1 = args
             .binary_authorization
-            .get_output(context)
-            .get_inner();
-        let deletion_policy_binding = args
-            .deletion_policy
-            .get_output(context)
-            .get_inner();
-        let description_binding = args.description.get_output(context).get_inner();
-        let distribution_binding = args.distribution.get_output(context).get_inner();
-        let fleet_binding = args.fleet.get_output(context).get_inner();
-        let location_binding = args.location.get_output(context).get_inner();
-        let logging_config_binding = args.logging_config.get_output(context).get_inner();
-        let monitoring_config_binding = args
-            .monitoring_config
-            .get_output(context)
-            .get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let oidc_config_binding = args.oidc_config.get_output(context).get_inner();
-        let platform_version_binding = args
-            .platform_version
-            .get_output(context)
-            .get_inner();
-        let project_binding = args.project.get_output(context).get_inner();
-        let proxy_config_binding = args.proxy_config.get_output(context).get_inner();
-        let security_posture_config_binding = args
+            .get_output(context);
+        let binary_authorization_binding = binary_authorization_binding_1.get_inner();
+        let deletion_policy_binding_1 = args.deletion_policy.get_output(context);
+        let deletion_policy_binding = deletion_policy_binding_1.get_inner();
+        let description_binding_1 = args.description.get_output(context);
+        let description_binding = description_binding_1.get_inner();
+        let distribution_binding_1 = args.distribution.get_output(context);
+        let distribution_binding = distribution_binding_1.get_inner();
+        let fleet_binding_1 = args.fleet.get_output(context);
+        let fleet_binding = fleet_binding_1.get_inner();
+        let location_binding_1 = args.location.get_output(context);
+        let location_binding = location_binding_1.get_inner();
+        let logging_config_binding_1 = args.logging_config.get_output(context);
+        let logging_config_binding = logging_config_binding_1.get_inner();
+        let monitoring_config_binding_1 = args.monitoring_config.get_output(context);
+        let monitoring_config_binding = monitoring_config_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let oidc_config_binding_1 = args.oidc_config.get_output(context);
+        let oidc_config_binding = oidc_config_binding_1.get_inner();
+        let platform_version_binding_1 = args.platform_version.get_output(context);
+        let platform_version_binding = platform_version_binding_1.get_inner();
+        let project_binding_1 = args.project.get_output(context);
+        let project_binding = project_binding_1.get_inner();
+        let proxy_config_binding_1 = args.proxy_config.get_output(context);
+        let proxy_config_binding = proxy_config_binding_1.get_inner();
+        let security_posture_config_binding_1 = args
             .security_posture_config
-            .get_output(context)
+            .get_output(context);
+        let security_posture_config_binding = security_posture_config_binding_1
             .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:container/attachedCluster:AttachedCluster".into(),
